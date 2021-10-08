@@ -1,2 +1,1 @@
-
-export type SampleType = 'hello' | 'world';
+export type SampleType = "hello" | "world";

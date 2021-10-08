@@ -1,6 +1,5 @@
+import { SampleType } from "./modules/sample";
 
-import { SampleType } from './modules/sample';
-
-const str: SampleType = 'hello';
+const str: SampleType = "hello";
 
 console.log(str);

@@ -28,14 +28,15 @@ h1 {
   font-size: 64px;
   font-weight: 300;
   letter-spacing: -2px;
-  margin: .3em 0 .1em 0;
+  margin: 0.3em 0 0.1em 0;
 }
 
 h2 {
   margin-top: 2em;
 }
 
-h1, h2 {
+h1,
+h2 {
   text-rendering: optimizeLegibility;
 }
 
@@ -73,7 +74,8 @@ aside {
   margin-bottom: 2em;
 }
 
-body > p, li > p {
+body > p,
+li > p {
   line-height: 1.5em;
 }
 
@@ -102,7 +104,9 @@ a:not(:hover) {
   text-decoration: none;
 }
 
-pre, code, textarea {
+pre,
+code,
+textarea {
   font-family: "Menlo", monospace;
 }
 
@@ -152,13 +156,15 @@ svg {
   font: 10px sans-serif;
 }
 
-.axis path, .axis line {
+.axis path,
+.axis line {
   fill: none;
   stroke: #000;
   shape-rendering: crispEdges;
 }
 
-sup, sub {
+sup,
+sub {
   line-height: 0;
 }
 
