@@ -24,50 +24,77 @@ export class Test {
     mock({
       "bar.block.css": ":scope { color: red; }",
     });
-    return parse(`import bar from 'bar.block.css';`).then((analysis: Analyzer) => {
-      assert.equal(analysis.blockDependencies().size, 1);
-      assert.equal(analysis.getAnalysis(0).getBlock("bar")!.constructor, Block);
-    });
+    return parse(`import bar from 'bar.block.css';`).then(
+      (analysis: Analyzer) => {
+        assert.equal(analysis.blockDependencies().size, 1);
+        assert.equal(
+          analysis.getAnalysis(0).getBlock("bar")!.constructor,
+          Block
+        );
+      }
+    );
   }
 
-  @test "imports for css-block files are registered using explicit default import"() {
+  @test
+  "imports for css-block files are registered using explicit default import"() {
     mock({
       "bar.block.css": ":scope { color: red; }",
     });
-    return parse(`import { default as bar } from 'bar.block.css';`).then((analysis: Analyzer) => {
-      assert.equal(analysis.blockDependencies().size, 1);
-      assert.equal(analysis.getAnalysis(0).getBlock("bar")!.constructor, Block);
-    });
+    return parse(`import { default as bar } from 'bar.block.css';`).then(
+      (analysis: Analyzer) => {
+        assert.equal(analysis.blockDependencies().size, 1);
+        assert.equal(
+          analysis.getAnalysis(0).getBlock("bar")!.constructor,
+          Block
+        );
+      }
+    );
   }
 
   @test "imports for css-block files register explicit state object import"() {
     mock({
       "bar.block.css": ":scope { color: red; }",
     });
-    return parse(`import bar from 'bar.block.css';`).then((analysis: Analyzer) => {
-      assert.equal(analysis.blockDependencies().size, 1);
-      assert.equal(analysis.getAnalysis(0).getBlock("bar")!.constructor, Block);
-    });
+    return parse(`import bar from 'bar.block.css';`).then(
+      (analysis: Analyzer) => {
+        assert.equal(analysis.blockDependencies().size, 1);
+        assert.equal(
+          analysis.getAnalysis(0).getBlock("bar")!.constructor,
+          Block
+        );
+      }
+    );
   }
 
-  @test "imports for css-block files register explicit state object import with explicit default import"() {
+  @test
+  "imports for css-block files register explicit state object import with explicit default import"() {
     mock({
       "bar.block.css": ":scope { color: red; }",
     });
-    return parse(`import { default as bar } from 'bar.block.css';`).then((analysis: Analyzer) => {
-      assert.equal(analysis.blockDependencies().size, 1);
-      assert.equal(analysis.getAnalysis(0).getBlock("bar")!.constructor, Block);
-    });
+    return parse(`import { default as bar } from 'bar.block.css';`).then(
+      (analysis: Analyzer) => {
+        assert.equal(analysis.blockDependencies().size, 1);
+        assert.equal(
+          analysis.getAnalysis(0).getBlock("bar")!.constructor,
+          Block
+        );
+      }
+    );
   }
 
   @test 'imports for css-block files are registered using "as" syntax'() {
     mock({
       "bar.block.css": ":scope { color: red; }",
     });
-    return parse(`import * as bar from 'bar.block.css';`).then((analysis: Analyzer) => {
-      assert.equal(analysis.blockDependencies().size, 1);
-      assert.equal(analysis.getAnalysis(0).getBlock("bar")!.constructor, Block);
-    });
+    return parse(`import * as bar from 'bar.block.css';`).then(
+      (analysis: Analyzer) => {
+        assert.equal(analysis.blockDependencies().size, 1);
+        assert.equal(
+          analysis.getAnalysis(0).getBlock("bar")!.constructor,
+          Block
+        );
+      }
+    );
   }
 
   @test "imports for multiple css-block files are registered"() {
@@ -100,7 +127,8 @@ export class Test {
     });
   }
 
-  @test "block identifiers may not be re-declaired elsewhere in the file – Function Declaration"() {
+  @test
+  "block identifiers may not be re-declaired elsewhere in the file – Function Declaration"() {
     mock({
       "baz.block.css": ":scope { color: blue; }",
     });
@@ -109,14 +137,20 @@ export class Test {
       () => {
         function biz(){};
       }
-    `).then(() => {
-      assert.equal("Should never get here", "");
-    }).catch((err: Error) => {
-      assert.equal(err.message, `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`);
-    });
+    `)
+      .then(() => {
+        assert.equal("Should never get here", "");
+      })
+      .catch((err: Error) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`
+        );
+      });
   }
 
-  @test "block identifiers may not be re-declaired elsewhere in the file – Variable Declaration"() {
+  @test
+  "block identifiers may not be re-declaired elsewhere in the file – Variable Declaration"() {
     mock({
       "baz.block.css": ":scope { color: blue; }",
     });
@@ -125,14 +159,20 @@ export class Test {
       () => {
         let biz = 'test';
       }
-    `).then(() => {
-      assert.equal("Should never get here", "");
-    }).catch((err: Error) => {
-      assert.equal(err.message, `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`);
-    });
+    `)
+      .then(() => {
+        assert.equal("Should never get here", "");
+      })
+      .catch((err: Error) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`
+        );
+      });
   }
 
-  @test "block identifiers may not be re-declaired elsewhere in the file – Class Name"() {
+  @test
+  "block identifiers may not be re-declaired elsewhere in the file – Class Name"() {
     mock({
       "baz.block.css": ":scope { color: blue; }",
     });
@@ -141,14 +181,20 @@ export class Test {
       () => {
         class biz {};
       }
-    `).then(() => {
-      assert.equal("Should never get here", "");
-    }).catch((err: Error) => {
-      assert.equal(err.message, `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`);
-    });
+    `)
+      .then(() => {
+        assert.equal("Should never get here", "");
+      })
+      .catch((err: Error) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`
+        );
+      });
   }
 
-  @test "block identifiers may not be re-declaired elsewhere in the file – Function Param"() {
+  @test
+  "block identifiers may not be re-declaired elsewhere in the file – Function Param"() {
     mock({
       "baz.block.css": ":scope { color: blue; }",
     });
@@ -157,14 +203,20 @@ export class Test {
       (biz) => {
 
       }
-    `).then(() => {
-      assert.equal("Should never get here", "");
-    }).catch((err: Error) => {
-      assert.equal(err.message, `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (3:6)`);
-    });
+    `)
+      .then(() => {
+        assert.equal("Should never get here", "");
+      })
+      .catch((err: Error) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (3:6)`
+        );
+      });
   }
 
-  @test "block identifiers may not be re-declaired elsewhere in the file – Class Method Param"() {
+  @test
+  "block identifiers may not be re-declaired elsewhere in the file – Class Method Param"() {
     mock({
       "baz.block.css": ":scope { color: blue; }",
     });
@@ -173,14 +225,20 @@ export class Test {
       class Test {
         method(biz){}
       }
-    `).then(() => {
-      assert.equal("Should never get here", "");
-    }).catch((err: Error) => {
-      assert.equal(err.message, `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`);
-    });
+    `)
+      .then(() => {
+        assert.equal("Should never get here", "");
+      })
+      .catch((err: Error) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`
+        );
+      });
   }
 
-  @test "block identifiers may not be re-declaired elsewhere in the file – Object Method Param"() {
+  @test
+  "block identifiers may not be re-declaired elsewhere in the file – Object Method Param"() {
     mock({
       "baz.block.css": ":scope { color: blue; }",
     });
@@ -189,10 +247,15 @@ export class Test {
       let obj = {
         method(biz){}
       };
-    `).then(() => {
-      assert.equal("Should never get here", "");
-    }).catch((err: Error) => {
-      assert.equal(err.message, `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`);
-    });
+    `)
+      .then(() => {
+        assert.equal("Should never get here", "");
+      })
+      .catch((err: Error) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] ImportError: Block identifier "biz" cannot be re-defined in any scope once imported. (4:8)`
+        );
+      });
   }
 }

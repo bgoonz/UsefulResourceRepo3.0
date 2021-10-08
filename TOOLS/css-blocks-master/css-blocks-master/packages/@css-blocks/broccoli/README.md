@@ -1,10 +1,8 @@
-Broccoli Plugin for CSS Blocks
-=============================
+# Broccoli Plugin for CSS Blocks
 
 TBD
 
-Getting Started
----------------
+## Getting Started
 
 ```
 $ npm install --save-dev @css-blocks/broccoli

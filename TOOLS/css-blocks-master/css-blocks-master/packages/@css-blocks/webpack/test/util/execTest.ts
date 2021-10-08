@@ -13,34 +13,42 @@ const CR = /\r/g;
 // This test harness was adapted from the sass-loader test suite.
 
 export function execTest(testId: string, options?: LoaderOptions) {
-    const entryPath = path.join(BLOCK_FIXTURES_DIRECTORY, testId + ".block.css");
-    return runWebpackAsPromise(basicConfig(entryPath, options))
-        .then(() => {
-            const actualCss = readBundle("bundle.block.css.js");
-            const expectedCss = readCss(testId);
+  const entryPath = path.join(BLOCK_FIXTURES_DIRECTORY, testId + ".block.css");
+  return runWebpackAsPromise(basicConfig(entryPath, options)).then(() => {
+    const actualCss = readBundle("bundle.block.css.js");
+    const expectedCss = readCss(testId);
 
-            // writing the actual css to output-dir for better debugging
-            // fs.writeFileSync(path.join(__dirname, "output", `${ testId }.${ ext }.css`), actualCss, "utf8");
-            assert.deepEqual(actualCss, expectedCss);
-        });
+    // writing the actual css to output-dir for better debugging
+    // fs.writeFileSync(path.join(__dirname, "output", `${ testId }.${ ext }.css`), actualCss, "utf8");
+    assert.deepEqual(actualCss, expectedCss);
+  });
 }
 
 export function readCss(id: string): string {
-  let css = fs.readFileSync(path.join(BLOCK_FIXTURES_DIRECTORY, id + ".css"), "utf8");
+  let css = fs.readFileSync(
+    path.join(BLOCK_FIXTURES_DIRECTORY, id + ".css"),
+    "utf8"
+  );
   css = css.replace(CR, "");
   css = css.replace("FIXTURES_DIRECTORY", BLOCK_FIXTURES_DIRECTORY);
   return css;
 }
 
 export function readCssSourceMap(id: string): string {
-  let json = fs.readFileSync(path.join(BLOCK_FIXTURES_DIRECTORY, id + ".css.map"), "utf8");
+  let json = fs.readFileSync(
+    path.join(BLOCK_FIXTURES_DIRECTORY, id + ".css.map"),
+    "utf8"
+  );
   json = json.replace(CR, "");
   json = json.replace("FIXTURES_DIRECTORY", BLOCK_FIXTURES_DIRECTORY);
   return JSON.parse(json);
 }
 
 export function readAsset(filename: string): string {
-  const outputLocation = path.resolve(DIST_DIRECTORY, `./test_output/${ filename }`);
+  const outputLocation = path.resolve(
+    DIST_DIRECTORY,
+    `./test_output/${filename}`
+  );
   let content = fs.readFileSync(outputLocation, "utf8");
   content = content.replace(CR, "");
   return content;
@@ -48,23 +56,30 @@ export function readAsset(filename: string): string {
 
 export function runWebpackAsPromise(webpackConfig: webpack.Configuration) {
   return new Promise((resolve, reject) => {
-      runWebpack(webpackConfig, (err: Error) => err ? reject(err) : resolve());
+    runWebpack(webpackConfig, (err: Error) => (err ? reject(err) : resolve()));
   });
 }
 
-function runWebpack(webpackConfig: webpack.Configuration, done: (err: Error) => void) {
-    webpack(webpackConfig, (webpackErr, stats) => {
-        const err = webpackErr ||
-            (stats.hasErrors() && (<WebpackAny>stats).compilation.errors[0]) ||
-            (stats.hasWarnings() && (<WebpackAny>stats).compilation.warnings[0]);
+function runWebpack(
+  webpackConfig: webpack.Configuration,
+  done: (err: Error) => void
+) {
+  webpack(webpackConfig, (webpackErr, stats) => {
+    const err =
+      webpackErr ||
+      (stats.hasErrors() && (<WebpackAny>stats).compilation.errors[0]) ||
+      (stats.hasWarnings() && (<WebpackAny>stats).compilation.warnings[0]);
 
-        done(err || null);
-    });
+    done(err || null);
+  });
 }
 
 export function readBundle(filename: string) {
-    const outputLocation = path.resolve(DIST_DIRECTORY, `./test_output/${ filename }`);
-    delete require.cache[outputLocation];
+  const outputLocation = path.resolve(
+    DIST_DIRECTORY,
+    `./test_output/${filename}`
+  );
+  delete require.cache[outputLocation];
 
-    return require(outputLocation);
+  return require(outputLocation);
 }

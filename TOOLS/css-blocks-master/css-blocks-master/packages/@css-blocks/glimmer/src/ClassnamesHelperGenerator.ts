@@ -18,20 +18,13 @@ import {
   isSwitch,
   isTrueCondition,
 } from "@css-blocks/core";
-import {
-  AST,
-  builders,
-} from "@glimmer/syntax";
+import { AST, builders } from "@glimmer/syntax";
 import {
   isAndExpression,
   isNotExpression,
   isOrExpression,
 } from "@opticss/template-api";
-import {
-  assertNever,
-  isSome,
-  unwrap,
-} from "@opticss/util";
+import { assertNever, isSome, unwrap } from "@opticss/util";
 import * as debugGenerator from "debug";
 
 import {
@@ -66,17 +59,27 @@ export type Builders = typeof builders;
 
 const debug = debugGenerator("css-blocks:glimmer");
 
-export function classnamesHelper(rewrite: IndexedClassRewrite<Style>, element: TemplateElement): AST.MustacheStatement {
+export function classnamesHelper(
+  rewrite: IndexedClassRewrite<Style>,
+  element: TemplateElement
+): AST.MustacheStatement {
   return builders.mustache(
     builders.path("/css-blocks/components/classnames"),
-    constructArgs(rewrite, element),
+    constructArgs(rewrite, element)
   );
 }
 
 // tslint:disable-next-line:prefer-whatever-to-any
-function constructArgs(rewrite: IndexedClassRewrite<any>, element: TemplateElement): AST.Expression[] {
+function constructArgs(
+  rewrite: IndexedClassRewrite<any>,
+  element: TemplateElement
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
-  expr.push(builders.number(element.dynamicClasses.length + element.dynamicAttributes.length));
+  expr.push(
+    builders.number(
+      element.dynamicClasses.length + element.dynamicAttributes.length
+    )
+  );
   expr.push(builders.number(rewrite.dynamicClasses.length));
   expr.push(...constructSourceArgs(rewrite, element));
   expr.push(...constructOutputArgs(rewrite));
@@ -84,7 +87,10 @@ function constructArgs(rewrite: IndexedClassRewrite<any>, element: TemplateEleme
 }
 
 // tslint:disable-next-line:prefer-whatever-to-any
-function constructSourceArgs(rewrite: IndexedClassRewrite<any>, element: TemplateElement): AST.Expression[] {
+function constructSourceArgs(
+  rewrite: IndexedClassRewrite<any>,
+  element: TemplateElement
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   for (let classes of element.dynamicClasses) {
     // type of expression
@@ -129,7 +135,10 @@ function constructSourceArgs(rewrite: IndexedClassRewrite<any>, element: Templat
  * (3+t): number (f) of source styles set if false
  * (4+t)..(4+t+f-1): indexes of source styles set if false
  */
-function constructTernary(classes: DynamicClasses<TernaryAST>, rewrite: IndexedClassRewrite<Style>): AST.Expression[] {
+function constructTernary(
+  classes: DynamicClasses<TernaryAST>,
+  rewrite: IndexedClassRewrite<Style>
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   // The boolean expression
   expr.push(classes.condition);
@@ -137,10 +146,12 @@ function constructTernary(classes: DynamicClasses<TernaryAST>, rewrite: IndexedC
   if (isTrueCondition(classes)) {
     let trueClasses = resolveInheritance(classes.whenTrue, rewrite);
     expr.push(builders.number(trueClasses.length));
-    expr.push(...trueClasses.map(style => {
-      let n: number = unwrap(rewrite.indexOf(style));
-      return builders.number(n);
-    }));
+    expr.push(
+      ...trueClasses.map((style) => {
+        let n: number = unwrap(rewrite.indexOf(style));
+        return builders.number(n);
+      })
+    );
   } else {
     expr.push(builders.number(0));
   }
@@ -148,19 +159,26 @@ function constructTernary(classes: DynamicClasses<TernaryAST>, rewrite: IndexedC
   if (isFalseCondition(classes)) {
     let falseClasses = resolveInheritance(classes.whenFalse, rewrite);
     expr.push(builders.number(falseClasses.length));
-    expr.push(...falseClasses.map(style => builders.number(unwrap(rewrite.indexOf(style)))));
+    expr.push(
+      ...falseClasses.map((style) =>
+        builders.number(unwrap(rewrite.indexOf(style)))
+      )
+    );
   } else {
     expr.push(builders.number(0));
   }
   return expr;
 }
 
-function resolveInheritance(classes: Array<BlockClass>, rewrite: IndexedClassRewrite<Style>) {
+function resolveInheritance(
+  classes: Array<BlockClass>,
+  rewrite: IndexedClassRewrite<Style>
+) {
   let allClasses = [...classes];
   for (let c of classes) {
     allClasses.push(...c.resolveInheritance());
   }
-  return allClasses.filter(c => isSome(rewrite.indexOf(c)));
+  return allClasses.filter((c) => isSome(rewrite.indexOf(c)));
 }
 
 /*
@@ -168,20 +186,29 @@ function resolveInheritance(classes: Array<BlockClass>, rewrite: IndexedClassRew
  *   3/4: number (d) of style indexes this is dependent on.
  *   4/5..((4/5)+d-1): style indexes that must be set for this to be true
  */
-function constructDependency(stateExpr: Dependency, rewrite: IndexedClassRewrite<Style>): AST.Expression[] {
+function constructDependency(
+  stateExpr: Dependency,
+  rewrite: IndexedClassRewrite<Style>
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   expr.push(builders.number(1));
   expr.push(builders.number(unwrap(rewrite.indexOf(stateExpr.container))));
   return expr;
 }
 
-function constructConditional(stateExpr: Conditional<BooleanAST> & HasAttrValue, _rewrite: IndexedClassRewrite<Style>): AST.Expression[] {
+function constructConditional(
+  stateExpr: Conditional<BooleanAST> & HasAttrValue,
+  _rewrite: IndexedClassRewrite<Style>
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   expr.push(moustacheToBooleanExpression(stateExpr.condition));
   return expr;
 }
 
-function constructStateReferences(stateExpr: HasAttrValue, rewrite: IndexedClassRewrite<Style>): AST.Expression[] {
+function constructStateReferences(
+  stateExpr: HasAttrValue,
+  rewrite: IndexedClassRewrite<Style>
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   // TODO: inheritance
   expr.push(builders.number(1));
@@ -204,7 +231,10 @@ function constructStateReferences(stateExpr: HasAttrValue, rewrite: IndexedClass
  *   2: number (s) of source styles set. s >= 1
  *   3..3+s-1: indexes of source styles set
  */
-function constructSwitch(stateExpr: Switch<StringAST> & HasGroup, rewrite: IndexedClassRewrite<Style>): AST.Expression[] {
+function constructSwitch(
+  stateExpr: Switch<StringAST> & HasGroup,
+  rewrite: IndexedClassRewrite<Style>
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   let values = Object.keys(stateExpr.group);
   expr.push(builders.number(values.length));
@@ -223,7 +253,9 @@ function constructSwitch(stateExpr: Switch<StringAST> & HasGroup, rewrite: Index
   return expr;
 }
 
-function moustacheToBooleanExpression(booleanExpression: BooleanAST): AST.Expression {
+function moustacheToBooleanExpression(
+  booleanExpression: BooleanAST
+): AST.Expression {
   if (booleanExpression.type === "MustacheStatement") {
     return moustacheToExpression(booleanExpression);
   } else {
@@ -246,27 +278,30 @@ function moustacheToExpression(expr: AST.MustacheStatement): AST.Expression {
   }
 }
 
-function moustacheToStringExpression(stringExpression: StringAST): AST.Expression {
+function moustacheToStringExpression(
+  stringExpression: StringAST
+): AST.Expression {
   if (stringExpression.type === "ConcatStatement") {
     return builders.sexpr(
       builders.path("/css-blocks/components/concat"),
-      stringExpression.parts.reduce(
-        (arr, val) => {
-          if (val.type === "TextNode") {
-            arr.push(builders.string(val.chars));
-          } else {
-            arr.push(val.path);
-          }
-          return arr;
-        },
-        new Array<AST.Expression>()));
+      stringExpression.parts.reduce((arr, val) => {
+        if (val.type === "TextNode") {
+          arr.push(builders.string(val.chars));
+        } else {
+          arr.push(val.path);
+        }
+        return arr;
+      }, new Array<AST.Expression>())
+    );
   } else {
     return moustacheToExpression(stringExpression);
   }
 }
 
 // tslint:disable-next-line:prefer-whatever-to-any
-function constructOutputArgs(rewrite: IndexedClassRewrite<any>): AST.Expression[] {
+function constructOutputArgs(
+  rewrite: IndexedClassRewrite<any>
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   for (let out of rewrite.dynamicClasses) {
     expr.push(builders.string(out));
@@ -302,7 +337,10 @@ function constructOrExpression(bool: OrExpression<number>): AST.Expression[] {
 function constructNotExpression(bool: NotExpression<number>): AST.Expression[] {
   return [builders.number(BooleanExpr.not), ...constructBoolean(bool.not)];
 }
-function constructConditionalExpression(type: BooleanExpr, args: Array<ConditionalArg>): AST.Expression[] {
+function constructConditionalExpression(
+  type: BooleanExpr,
+  args: Array<ConditionalArg>
+): AST.Expression[] {
   let expr = new Array<AST.Expression>();
   if (args.length === 1) {
     let n = args[0];

@@ -19,9 +19,9 @@ export abstract class Style<
   Root extends Inheritable<any, Root, never, AnyNode, any> | Self,
   Parent extends Inheritable<any, Root, AnyNode | null, Self, any> | null,
   Child extends Inheritable<any, Root, Self, AnyNode | never, any> | never,
-  Token extends any = string,
+  Token extends any = string
 > extends Inheritable<Self, Root, Parent, Child> {
-/* tslint:enable:prefer-whatever-to-any */
+  /* tslint:enable:prefer-whatever-to-any */
 
   /** cache of resolveStyles() */
   private _resolvedStyles: Set<Self> | undefined;
@@ -112,12 +112,14 @@ export abstract class Style<
    * @returns A debug string.
    */
   asDebug(config: ResolvedConfiguration) {
-    return `${this.asSource()} => ${this.cssClasses(config).map(n => `.${n}`).join(" ")}`;
+    return `${this.asSource()} => ${this.cssClasses(config)
+      .map((n) => `.${n}`)
+      .join(" ")}`;
   }
 
   // TypeScript can't figure out that `this` is the `StyleType` so this private
   // method casts it in a few places where it's needed.
   private asStyle(): Self {
-    return <Self><object>this;
+    return <Self>(<object>this);
   }
 }

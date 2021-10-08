@@ -3,8 +3,8 @@ import Analyzer from "glimmer-analyzer";
 
 import { fixture } from "./fixtures";
 
-describe("Template dependency analysis", function() {
-  it("discovers angle bracket components", function() {
+describe("Template dependency analysis", function () {
+  it("discovers angle bracket components", function () {
     let analyzer = new Analyzer(fixture("basic-app"));
     let analysis = analyzer.dependenciesForTemplate("my-app");
 
@@ -19,7 +19,7 @@ describe("Template dependency analysis", function() {
     });
   });
 
-  it("discovers use of the {{component}} helper", function() {
+  it("discovers use of the {{component}} helper", function () {
     let analyzer = new Analyzer(fixture("basic-app"));
     let analysis = analyzer.dependenciesForTemplate("with-component-helper");
 
@@ -27,9 +27,7 @@ describe("Template dependency analysis", function() {
       path: "/basic-app/components/with-component-helper",
       helpers: [],
       hasComponentHelper: true,
-      components: [
-        "/basic-app/components/my-app",
-      ],
+      components: ["/basic-app/components/my-app"],
     });
   });
 });

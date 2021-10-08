@@ -44,7 +44,7 @@ export class Test {
         }
       }`,
     });
-    return parseFile("bar.js", { baseDir: "/foo/baz"}).then((analysis) => {
+    return parseFile("bar.js", { baseDir: "/foo/baz" }).then((analysis) => {
       assert.ok(analysis);
     });
   }

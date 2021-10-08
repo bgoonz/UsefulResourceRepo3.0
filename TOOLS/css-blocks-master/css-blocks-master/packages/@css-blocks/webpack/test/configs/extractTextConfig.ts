@@ -9,9 +9,12 @@ import { config as defaultOutputConfig } from "./defaultOutputConfig";
 
 // const path = require("path");
 
-export function config(entry: string, options?: LoaderOptions): WebpackConfiguration {
+export function config(
+  entry: string,
+  options?: LoaderOptions
+): WebpackConfiguration {
   const extractText = new ExtractTextPlugin({
-      filename: "[name].[contenthash].css",
+    filename: "[name].[contenthash].css",
   });
 
   return merge(defaultOutputConfig(), {
@@ -33,8 +36,6 @@ export function config(entry: string, options?: LoaderOptions): WebpackConfigura
         },
       ],
     },
-    plugins: [
-      extractText,
-    ],
+    plugins: [extractText],
   });
 }

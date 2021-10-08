@@ -24,17 +24,24 @@ export class Conflicts<T> {
  * @param props2  Style two.
  * @returns A Set that contains the full set of property conflicts.
  */
-function detectPropertyConflicts(props1: Set<string>, props2: Set<string>): Set<Conflict> {
+function detectPropertyConflicts(
+  props1: Set<string>,
+  props2: Set<string>
+): Set<Conflict> {
   let conflicts = new Set<[string, string]>();
   for (let prop of props1) {
     let shortHands = cssPropertyParser.getShorthandsForProperty(prop);
-    for (let shortHand of shortHands) { // this always includes, at least, the property itself.
+    for (let shortHand of shortHands) {
+      // this always includes, at least, the property itself.
       if (props2.has(prop)) {
         conflicts.add([prop, shortHand]);
       }
     }
     if (cssPropertyParser.isShorthandProperty(prop)) {
-      let longHands = cssPropertyParser.getShorthandComputedProperties(prop, true);
+      let longHands = cssPropertyParser.getShorthandComputedProperties(
+        prop,
+        true
+      );
       for (let longHand of longHands) {
         if (longHand === prop) continue; // the prop was already checked in the first loop.
         if (props2.has(longHand)) {
@@ -57,13 +64,15 @@ export function detectConflicts(obj1: Style, obj2: Style): Conflicts<Conflict> {
   let conflicts = new Conflicts<Conflict>();
   let otherPseudos = obj2.rulesets.getPseudos();
   for (let pseudo of obj1.rulesets.getPseudos()) {
-    if (!otherPseudos.has(pseudo)) { continue; }
+    if (!otherPseudos.has(pseudo)) {
+      continue;
+    }
     conflicts.conflicts.set(
       pseudo,
       ...detectPropertyConflicts(
         obj1.rulesets.getProperties(pseudo),
-        obj2.rulesets.getProperties(pseudo),
-      ),
+        obj2.rulesets.getProperties(pseudo)
+      )
     );
   }
   return conflicts;

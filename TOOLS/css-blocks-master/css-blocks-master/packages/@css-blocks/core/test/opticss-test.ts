@@ -1,14 +1,6 @@
-import {
-  POSITION_UNKNOWN,
-} from "@opticss/element-analysis";
-import {
-  Template,
-  isAndExpression,
-} from "@opticss/template-api";
-import {
-  clean,
-  whatever,
-} from "@opticss/util";
+import { POSITION_UNKNOWN } from "@opticss/element-analysis";
+import { Template, isAndExpression } from "@opticss/template-api";
+import { clean, whatever } from "@opticss/util";
 import { assert } from "chai";
 import { suite, test } from "mocha-typescript";
 import { Optimizer } from "opticss";
@@ -23,8 +15,10 @@ import { StyleMapping } from "../src/TemplateRewriter/StyleMapping";
 
 @suite("Optimization")
 export class TemplateAnalysisTests {
-
-  private useAttrs(element: ElementAnalysis<whatever, whatever, whatever>, klass: BlockClass) {
+  private useAttrs(
+    element: ElementAnalysis<whatever, whatever, whatever>,
+    klass: BlockClass
+  ) {
     for (let attribute of klass.getAttributes()) {
       if (attribute.hasResolvedValues()) {
         element.addDynamicGroup(klass, attribute, null);
@@ -35,8 +29,13 @@ export class TemplateAnalysisTests {
     }
   }
   private useBlockStyles(
-    analysis: Analysis<"Opticss.Template">, block: Block, blockName: string,
-    useAttrsCallback?: (container: BlockClass, element: ElementAnalysis<whatever, whatever, whatever>) => void,
+    analysis: Analysis<"Opticss.Template">,
+    block: Block,
+    blockName: string,
+    useAttrsCallback?: (
+      container: BlockClass,
+      element: ElementAnalysis<whatever, whatever, whatever>
+    ) => void
   ) {
     analysis.addBlock(blockName, block);
 
@@ -67,17 +66,24 @@ export class TemplateAnalysisTests {
         let analysis = this.newAnalysis(info);
         let root = postcss.parse(css, { from: filename });
 
-        return this.blockFactory.parse(root, filename, "optimized").then((block: Block) => {
-          self.useBlockStyles(analysis, block, "", (container, el) => {
-            if (container.asSource() === ".asdf") {
-              el.addDynamicAttr(container, block.find(".asdf[state|larger]") as AttrValue, true);
-            } else {
-              self.useAttrs(el, container);
-            }
+        return this.blockFactory
+          .parse(root, filename, "optimized")
+          .then((block: Block) => {
+            self.useBlockStyles(analysis, block, "", (container, el) => {
+              if (container.asSource() === ".asdf") {
+                el.addDynamicAttr(
+                  container,
+                  block.find(".asdf[state|larger]") as AttrValue,
+                  true
+                );
+              } else {
+                self.useAttrs(el, container);
+              }
+            });
+          })
+          .then(() => {
+            return this;
           });
-        }).then(() => {
-          return this;
-        });
       }
       get optimizationOptions() {
         return {
@@ -97,25 +103,36 @@ export class TemplateAnalysisTests {
     let analyzer = new TestAnalyzer();
     return analyzer.analyze().then(async (analyzer: TestAnalyzer) => {
       let compiler = new BlockCompiler(postcss, config);
-      let optimizer = new Optimizer({}, { rewriteIdents: { id: false, class: true} });
+      let optimizer = new Optimizer(
+        {},
+        { rewriteIdents: { id: false, class: true } }
+      );
       let block = await analyzer.blockFactory.getBlock(filename);
       let compiled = compiler.compile(block, block.stylesheet!, analyzer);
       for (let analysis of analyzer.analyses()) {
         let optimizerAnalysis = analysis.forOptimizer(config);
         optimizer.addSource({
-          content: compiled.toResult({to: "blocks/foo.block.css"}),
+          content: compiled.toResult({ to: "blocks/foo.block.css" }),
         });
         optimizer.addAnalysis(optimizerAnalysis);
       }
       return optimizer.optimize("result.css").then(async (optimized) => {
-        assert.deepEqual(optimized.output.content.toString().trim(), clean`
+        assert.deepEqual(
+          optimized.output.content.toString().trim(),
+          clean`
           .c { font-size: 20px; }
           .d { color: blue; }
           .e { color: red; }
           .f { font-size: 26px; }
-        `);
+        `
+        );
         let analyses = analyzer.analyses();
-        let blockMapping = new StyleMapping<"Opticss.Template">(optimized.styleMapping, [block], config, analyses);
+        let blockMapping = new StyleMapping<"Opticss.Template">(
+          optimized.styleMapping,
+          [block],
+          config,
+          analyses
+        );
         let it = analyses[0].elements.values();
         let element1 = it.next().value;
         let rewrite1 = blockMapping.rewriteMapping(element1);

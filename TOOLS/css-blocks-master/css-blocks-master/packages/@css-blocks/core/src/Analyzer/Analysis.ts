@@ -44,7 +44,6 @@ export interface SerializedAnalysis<K extends keyof TemplateTypes> {
  * 3. Call [[endElement endElement()]] when done adding styles for the current element.
  */
 export class Analysis<K extends keyof TemplateTypes> {
-
   idGenerator: IdentGenerator;
   parent?: Analyzer<K>;
   template: TemplateTypes[K];
@@ -78,7 +77,11 @@ export class Analysis<K extends keyof TemplateTypes> {
   /**
    * @param template The template being analyzed.
    */
-  constructor(parent: Analyzer<K>, template: TemplateTypes[K], options?: TemplateValidatorOptions) {
+  constructor(
+    parent: Analyzer<K>,
+    template: TemplateTypes[K],
+    options?: TemplateValidatorOptions
+  ) {
     this.idGenerator = new IdentGenerator();
     this.parent = parent;
     this.template = template;
@@ -89,28 +92,38 @@ export class Analysis<K extends keyof TemplateTypes> {
 
   /**
    * Return the number of blocks discovered in this Template.
-  */
-  blockCount(): number { return Object.keys(this.blocks).length; }
+   */
+  blockCount(): number {
+    return Object.keys(this.blocks).length;
+  }
 
   /**
    * Convenience setter for adding a block to the template scope.
    */
-  addBlock(name: string, block: Block): Block { return this.blocks[name] = block; }
+  addBlock(name: string, block: Block): Block {
+    return (this.blocks[name] = block);
+  }
 
   /**
    * Convenience getter for fetching a block from the template scope.
    */
-  getBlock(name: string): Block | undefined { return this.blocks[name]; }
+  getBlock(name: string): Block | undefined {
+    return this.blocks[name];
+  }
 
   /**
    * Return the number of elements discovered in this Analysis.
    */
-  elementCount(): number { return this.elements.size; }
+  elementCount(): number {
+    return this.elements.size;
+  }
 
   /**
    * Get the nth element discovered in this Analysis.
    */
-  getElement<BooleanExpression, StringExpression, TernaryExpression>(idx: number): ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression> {
+  getElement<BooleanExpression, StringExpression, TernaryExpression>(
+    idx: number
+  ): ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression> {
     let mapIter = this.elements.entries();
     let el = mapIter.next().value;
     for (let i = 0; i < idx; i++) {
@@ -139,7 +152,11 @@ export class Analysis<K extends keyof TemplateTypes> {
   /**
    * Get an Element by ID.
    */
-  getElementById<BooleanExpression, StringExpression, TernaryExpression>(id: string): ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression> | undefined {
+  getElementById<BooleanExpression, StringExpression, TernaryExpression>(
+    id: string
+  ):
+    | ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression>
+    | undefined {
     return this.elements.get(id);
   }
 
@@ -174,12 +191,23 @@ export class Analysis<K extends keyof TemplateTypes> {
    * @param tagName  Optional. The tag name of the element being represented by this {ElementAnalysis}.
    * @returns A new {ElementAnalysis}.
    */
-  startElement<BooleanExpression, StringExpression, TernaryExpression>(location: SourceLocation | SourcePosition, tagName?: string): ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression> {
-    if (isSourcePosition(location)) { location = {start: location}; }
-    if (this.currentElement) {
-      throw new Error("Internal Error: failure to call endElement before previous call to startElement.");
+  startElement<BooleanExpression, StringExpression, TernaryExpression>(
+    location: SourceLocation | SourcePosition,
+    tagName?: string
+  ): ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression> {
+    if (isSourcePosition(location)) {
+      location = { start: location };
     }
-    this.currentElement = new ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression>(location, tagName, this.idGenerator.nextIdent());
+    if (this.currentElement) {
+      throw new Error(
+        "Internal Error: failure to call endElement before previous call to startElement."
+      );
+    }
+    this.currentElement = new ElementAnalysis<
+      BooleanExpression,
+      StringExpression,
+      TernaryExpression
+    >(location, tagName, this.idGenerator.nextIdent());
     return this.currentElement;
   }
 
@@ -189,25 +217,46 @@ export class Analysis<K extends keyof TemplateTypes> {
    * @param element  The {ElementAnalysis} we are finishing.
    * @param endPosition  Optional. The location in code where this element tag is closed..
    */
-  endElement<BooleanExpression, StringExpression, TernaryExpression>(element: ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression>, endPosition?: SourcePosition): void {
+  endElement<BooleanExpression, StringExpression, TernaryExpression>(
+    element: ElementAnalysis<
+      BooleanExpression,
+      StringExpression,
+      TernaryExpression
+    >,
+    endPosition?: SourcePosition
+  ): void {
     if (this.currentElement !== element) {
       throw new Error("Element is not the current element.");
     }
-    if (endPosition) { element.sourceLocation.end = endPosition; }
-    if (!element.id) { element.id = this.idGenerator.nextIdent(); }
+    if (endPosition) {
+      element.sourceLocation.end = endPosition;
+    }
+    if (!element.id) {
+      element.id = this.idGenerator.nextIdent();
+    }
     if (this.elements.get(element.id)) {
-      throw new Error(`Internal Error: an element with id = ${element.id} already exists in this analysis`);
+      throw new Error(
+        `Internal Error: an element with id = ${element.id} already exists in this analysis`
+      );
     }
     this.ensureFilename(element.sourceLocation.start);
     this.ensureFilename(element.sourceLocation.end);
-    if (!element.sealed) { element.seal(); }
+    if (!element.sealed) {
+      element.seal();
+    }
     this.validator.validate(this, element);
     this.elements.set(element.id, element);
     if (this.parent) {
-      for (let s of [...element.classesFound(false), ...element.attributesFound(false)]) {
+      for (let s of [
+        ...element.classesFound(false),
+        ...element.attributesFound(false),
+      ]) {
         this.parent.saveStaticStyle(s, this);
       }
-      for (let s of [...element.classesFound(true), ...element.attributesFound(true)]) {
+      for (let s of [
+        ...element.classesFound(true),
+        ...element.attributesFound(true),
+      ]) {
         this.parent.saveDynamicStyle(s, this);
       }
     }
@@ -324,19 +373,21 @@ export class Analysis<K extends keyof TemplateTypes> {
    * @param options The plugin options that are used to parse the blocks.
    * @param postcssImpl The instance of postcss that should be used to parse the block's css.
    */
-  static async deserialize (
+  static async deserialize(
     serializedAnalysis: SerializedAnalysis<keyof TemplateTypes>,
     blockFactory: BlockFactory,
-    parent: Analyzer<keyof TemplateTypes>,
+    parent: Analyzer<keyof TemplateTypes>
   ): Promise<Analysis<keyof TemplateTypes>> {
     let blockNames = Object.keys(serializedAnalysis.blocks);
-    let info = TemplateInfoFactory.deserialize<keyof TemplateTypes>(serializedAnalysis.template);
+    let info = TemplateInfoFactory.deserialize<keyof TemplateTypes>(
+      serializedAnalysis.template
+    );
     let analysis = parent.newAnalysis(info);
-    let blockPromises = new Array<Promise<{name: string; block: Block}>>();
-    blockNames.forEach(n => {
+    let blockPromises = new Array<Promise<{ name: string; block: Block }>>();
+    blockNames.forEach((n) => {
       let blockIdentifier = serializedAnalysis.blocks[n];
-      let promise = blockFactory.getBlock(blockIdentifier).then(block => {
-        return {name: n, block: block};
+      let promise = blockFactory.getBlock(blockIdentifier).then((block) => {
+        return { name: n, block: block };
       });
       blockPromises.push(promise);
     });
@@ -346,12 +397,12 @@ export class Analysis<K extends keyof TemplateTypes> {
     // to easily resolve all BlockPaths referenced in the serialized analysis.
     // TODO: We may want to abstract this so we're not making a temporary block.
     let localScope = new Block("analysis-block", "tmp");
-    values.forEach(o => {
+    values.forEach((o) => {
       analysis.blocks[o.name] = o.block;
       localScope.addBlockReference(o.name, o.block);
     });
     let objects = new Array<Style>();
-    serializedAnalysis.stylesFound.forEach(s => {
+    serializedAnalysis.stylesFound.forEach((s) => {
       let style = localScope.lookup(s);
       if (style) {
         objects.push(style);
@@ -363,7 +414,11 @@ export class Analysis<K extends keyof TemplateTypes> {
     let elementNames = Object.keys(serializedAnalysis.elements);
     elementNames.forEach((elID) => {
       let data = serializedAnalysis.elements[elID];
-      let element = new ElementAnalysis<null, null, null>(data.sourceLocation || {start: POSITION_UNKNOWN}, undefined, elID);
+      let element = new ElementAnalysis<null, null, null>(
+        data.sourceLocation || { start: POSITION_UNKNOWN },
+        undefined,
+        elID
+      );
       analysis.elements.set(elID, element);
     });
 

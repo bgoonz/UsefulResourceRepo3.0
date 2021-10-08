@@ -22,14 +22,15 @@ export interface RewriterOptions {
 //       it in a comment sourcemaps style to the file, and hydrating/removing it
 //       in the transformer. Remove this when that is added.
 export class CSSBlocksJSXTransformer {
-
   styleMapping: StyleMapping<TEMPLATE_TYPE> | null;
   cssBlockOptions: ResolvedConfiguration;
   blocks: ObjectDictionary<StyleMapping<TEMPLATE_TYPE>> = {};
 
   constructor(opts?: RewriterOptions) {
-    this.cssBlockOptions = resolveConfiguration(opts && opts.cssBlocks && opts.cssBlocks.compilationOptions);
-    this.styleMapping = opts && opts.cssBlocks && opts.cssBlocks.styleMapping || null;
+    this.cssBlockOptions = resolveConfiguration(
+      opts && opts.cssBlocks && opts.cssBlocks.compilationOptions
+    );
+    this.styleMapping =
+      (opts && opts.cssBlocks && opts.cssBlocks.styleMapping) || null;
   }
-
 }

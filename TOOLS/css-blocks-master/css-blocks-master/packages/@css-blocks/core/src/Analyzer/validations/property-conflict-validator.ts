@@ -41,7 +41,6 @@ function add(propToBlocks: PropMap, obj: Style) {
  * @param  conflicts  Where we store conflicting Style data.
  */
 function evaluate(obj: Style, propToRules: PropMap, conflicts: ConflictMap) {
-
   // Ew! Quadruple for loops! Can we come up with a better way to do this!?
   //  - For each pseudo this Style may effect
   //  - For each property concern of this Style
@@ -51,28 +50,39 @@ function evaluate(obj: Style, propToRules: PropMap, conflicts: ConflictMap) {
     for (let prop of obj.rulesets.getProperties(pseudo)) {
       for (let other of propToRules.get(pseudo, prop)) {
         for (let self of obj.rulesets.getRulesets(prop, pseudo)) {
-
           // If these styles are from the same block, abort!
-          if (other.style.block === self.style.block) { continue; }
+          if (other.style.block === self.style.block) {
+            continue;
+          }
 
           // Get the declarations for this specific property.
           let selfDecl = self.declarations.get(prop);
           let otherDecl = other.declarations.get(prop);
-          if (!selfDecl || !otherDecl) { continue; }
+          if (!selfDecl || !otherDecl) {
+            continue;
+          }
 
           // If these declarations have the exact same number of declarations,
           // in the exact same order, or if there is an explicit resolution,
           // ignore it and move on.
           let valuesEqual = selfDecl.length === otherDecl.length;
           if (valuesEqual) {
-            for (let i = 0; i < Math.min(selfDecl.length, otherDecl.length); i++) {
-              valuesEqual = valuesEqual && selfDecl[i].value === otherDecl[i].value;
+            for (
+              let i = 0;
+              i < Math.min(selfDecl.length, otherDecl.length);
+              i++
+            ) {
+              valuesEqual =
+                valuesEqual && selfDecl[i].value === otherDecl[i].value;
             }
           }
-          if (valuesEqual ||
-              other.hasResolutionFor(prop, self.style) ||
-              self.hasResolutionFor(prop, other.style)
-              ) { continue; }
+          if (
+            valuesEqual ||
+            other.hasResolutionFor(prop, self.style) ||
+            self.hasResolutionFor(prop, other.style)
+          ) {
+            continue;
+          }
 
           // Otherwise, we found an unresolved conflict!
           conflicts.set(prop, other);
@@ -90,9 +100,17 @@ function evaluate(obj: Style, propToRules: PropMap, conflicts: ConflictMap) {
  * @param  prop  The property we're pruning.
  * @param  conflicts  The ConflictMap we're modifying.
  */
-function recursivelyPruneConflicts(prop: string, conflicts: ConflictMap): Ruleset[] {
+function recursivelyPruneConflicts(
+  prop: string,
+  conflicts: ConflictMap
+): Ruleset[] {
   if (propParser.isShorthandProperty(prop)) {
-    let longhands = propParser.expandShorthandProperty(prop, "inherit", false, true);
+    let longhands = propParser.expandShorthandProperty(
+      prop,
+      "inherit",
+      false,
+      true
+    );
     for (let longProp of Object.keys(longhands)) {
       let rules = recursivelyPruneConflicts(longProp, conflicts);
       for (let rule of rules) {
@@ -112,7 +130,9 @@ function recursivelyPruneConflicts(prop: string, conflicts: ConflictMap): Rulese
  */
 function printRulesetConflict(prop: string, rule: Ruleset) {
   let decl = rule.declarations.get(prop);
-  let nodes: postcss.Rule[] | postcss.Declaration[] =  decl ? decl.map((d) => d.node) : [rule.node];
+  let nodes: postcss.Rule[] | postcss.Declaration[] = decl
+    ? decl.map((d) => d.node)
+    : [rule.node];
   let out = [];
   for (let node of nodes) {
     let line = node.source.start && `:${node.source.start.line}`;
@@ -127,8 +147,11 @@ function printRulesetConflict(prop: string, rule: Ruleset) {
  * @param correlations The correlations object for a given element.
  * @param err Error callback.
  */
-export const propertyConflictValidator: Validator = (elAnalysis, _templateAnalysis, err) => {
-
+export const propertyConflictValidator: Validator = (
+  elAnalysis,
+  _templateAnalysis,
+  err
+) => {
   // Conflicting RuseSets stored here.
   let conflicts: ConflictMap = new MultiMap(false);
 
@@ -166,7 +189,6 @@ export const propertyConflictValidator: Validator = (elAnalysis, _templateAnalys
 
     allConditions.setAll(truthyConditions);
     allConditions.setAll(falsyConditions);
-
   });
 
   // For each dynamic AttrValue, process those in their Attributes independently,
@@ -179,9 +201,7 @@ export const propertyConflictValidator: Validator = (elAnalysis, _templateAnalys
         add(attrConditions, attr);
       }
       allConditions.setAll(attrConditions);
-    }
-
-    else if (isBooleanAttr(condition)) {
+    } else if (isBooleanAttr(condition)) {
       evaluate(condition.value, allConditions, conflicts);
       add(allConditions, condition.value);
     }
@@ -189,18 +209,24 @@ export const propertyConflictValidator: Validator = (elAnalysis, _templateAnalys
 
   // Prune longhand conflicts that are properly covered by shorthand conflict reports.
   for (let prop of conflicts.keys()) {
-    if (propParser.isShorthandProperty(prop)) { recursivelyPruneConflicts(prop, conflicts); }
+    if (propParser.isShorthandProperty(prop)) {
+      recursivelyPruneConflicts(prop, conflicts);
+    }
   }
 
   // For every set of conflicting properties, throw the error.
   if (conflicts.size) {
-    let msg = "The following property conflicts must be resolved for these co-located Styles:";
+    let msg =
+      "The following property conflicts must be resolved for these co-located Styles:";
     let details = "\n";
     for (let [prop, matches] of conflicts.entries()) {
-      if (!prop || !matches.length) { return; }
-      details += `  ${prop}:\n${matches.map((m) => printRulesetConflict(prop, m)).join("\n")}\n\n`;
+      if (!prop || !matches.length) {
+        return;
+      }
+      details += `  ${prop}:\n${matches
+        .map((m) => printRulesetConflict(prop, m))
+        .join("\n")}\n\n`;
     }
     err(msg, null, details);
   }
-
 };

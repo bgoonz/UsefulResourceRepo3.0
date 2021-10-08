@@ -13,10 +13,7 @@ export class BEMOutputMode extends BEMProcessor {
     let filename = "foo/bar/test-block.css";
     let inputCSS = `:scope {color: red;}`;
     return this.process(filename, inputCSS).then((result) => {
-      assert.deepEqual(
-        result.css.toString(),
-        ".test-block { color: red; }\n",
-      );
+      assert.deepEqual(result.css.toString(), ".test-block { color: red; }\n");
     });
   }
 
@@ -28,7 +25,7 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".test-block-pseudos { color: #111; }\n" +
-        ".test-block-pseudos:hover { font-weight: bold; }\n",
+          ".test-block-pseudos:hover { font-weight: bold; }\n"
       );
     });
   }
@@ -41,7 +38,7 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".test-state { color: #111; }\n" +
-        ".test-state--big { transform: scale( 2 ); }\n",
+          ".test-state--big { transform: scale( 2 ); }\n"
       );
     });
   }
@@ -55,8 +52,8 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".test-state { color: #111; }\n" +
-        ".test-state--big .test-state__thing { transform: scale( 2 ); }\n" +
-        ".test-state--big .test-state__thing--medium { transform: scale( 1.8 ); }\n",
+          ".test-state--big .test-state__thing { transform: scale( 2 ); }\n" +
+          ".test-state--big .test-state__thing--medium { transform: scale( 1.8 ); }\n"
       );
     });
   }
@@ -67,20 +64,21 @@ export class BEMOutputMode extends BEMProcessor {
     return this.process(filename, inputCSS).then((result) => {
       assert.deepEqual(
         result.css.toString(),
-        ".test-state--big, .test-state--really-big { transform: scale( 2 ); }\n",
+        ".test-state--big, .test-state--really-big { transform: scale( 2 ); }\n"
       );
     });
   }
 
   @skip
-  @test "supports arbitrary whitespace in combinators"() {
+  @test
+  "supports arbitrary whitespace in combinators"() {
     let filename = "foo/bar/self-combinator.css";
     let inputCSS = `:scope[state|big]
      :scope[state|big]::after { content: "" }`;
     return this.process(filename, inputCSS).then((result) => {
       assert.deepEqual(
         result.css.toString(),
-        ".self-combinator--big .self-combinator--big::after { content: \"\"; }\n",
+        '.self-combinator--big .self-combinator--big::after { content: ""; }\n'
       );
     });
   }
@@ -91,7 +89,7 @@ export class BEMOutputMode extends BEMProcessor {
     return this.process(filename, inputCSS).then((result) => {
       assert.deepEqual(
         result.css.toString(),
-        ".self-combinator--big + .self-combinator--big::after { content: \"\"; }\n",
+        '.self-combinator--big + .self-combinator--big::after { content: ""; }\n'
       );
     });
   }
@@ -106,7 +104,7 @@ export class BEMOutputMode extends BEMProcessor {
     return this.process(filename, inputCSS).then((result) => {
       assert.deepEqual(
         result.css.toString(),
-        ".checkbox:checked + .checkbox--when-checked { color: green; }\n",
+        ".checkbox:checked + .checkbox--when-checked { color: green; }\n"
       );
     });
   }
@@ -119,7 +117,7 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".test-state { color: #111; }\n" +
-        ".test-state--font-big { transform: scale( 2 ); }\n",
+          ".test-state--font-big { transform: scale( 2 ); }\n"
       );
     });
   }
@@ -132,7 +130,7 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".test-state { color: #111; }\n" +
-        ".test-state--size-1dp { transform: scale( 2 ); }\n",
+          ".test-state--size-1dp { transform: scale( 2 ); }\n"
       );
     });
   }
@@ -145,7 +143,7 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".test-state { color: #111; }\n" +
-        ".test-state--size-1dp { transform: scale( 2 ); }\n",
+          ".test-state--size-1dp { transform: scale( 2 ); }\n"
       );
     });
   }
@@ -156,7 +154,7 @@ export class BEMOutputMode extends BEMProcessor {
     return this.process(filename, inputCSS).then((result) => {
       assert.deepEqual(
         result.css.toString(),
-        ".test-state--font-big, .test-state--font-really-big { transform: scale( 2 ); }\n",
+        ".test-state--font-big, .test-state--font-really-big { transform: scale( 2 ); }\n"
       );
     });
   }
@@ -167,7 +165,7 @@ export class BEMOutputMode extends BEMProcessor {
     return this.process(filename, inputCSS).then((result) => {
       assert.deepEqual(
         result.css.toString(),
-        ".self-combinator--font-big + .self-combinator--font-big::after { content: \"\"; }\n",
+        '.self-combinator--font-big + .self-combinator--font-big::after { content: ""; }\n'
       );
     });
   }
@@ -180,7 +178,7 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".test-class { color: #111; }\n" +
-        ".test-class__my-class { display: block; }\n",
+          ".test-class__my-class { display: block; }\n"
       );
     });
   }
@@ -194,8 +192,8 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".stateful-class { color: #111; }\n" +
-        ".stateful-class__my-class { display: none; }\n" +
-        ".stateful-class--visible .stateful-class__my-class { display: block; }\n",
+          ".stateful-class__my-class { display: none; }\n" +
+          ".stateful-class--visible .stateful-class__my-class { display: block; }\n"
       );
     });
   }
@@ -209,8 +207,8 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".stateful-class { color: #111; }\n" +
-        ".stateful-class__my-class { display: none; }\n" +
-        ".stateful-class__my-class--visible { display: block; }\n",
+          ".stateful-class__my-class { display: none; }\n" +
+          ".stateful-class__my-class--visible { display: block; }\n"
       );
     });
   }
@@ -224,8 +222,8 @@ export class BEMOutputMode extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".stateful { color: #111; }\n" +
-        ".stateful__my-class { display: none; }\n" +
-        ".stateful--translucent .stateful__my-class--visible { display: block; opacity: .75; }\n",
+          ".stateful__my-class { display: none; }\n" +
+          ".stateful--translucent .stateful__my-class--visible { display: block; opacity: .75; }\n"
       );
     });
   }
@@ -240,7 +238,8 @@ export class StraightJacket extends BEMProcessor {
     return assertError(
       cssBlocks.InvalidBlockSyntax,
       "A state with a value must use the = operator (found ^= instead). (foo/bar/test-state.css:2:27)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "catches states with colon instead of bar"() {
@@ -250,7 +249,8 @@ export class StraightJacket extends BEMProcessor {
     return assertError(
       cssBlocks.InvalidBlockSyntax,
       'Unexpected ":" found. (foo/bar/test-state.css:2:21)',
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "cannot combine two different states"() {
@@ -260,7 +260,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Illegal scoping of a root-level state: :scope[state|a] :scope[state|b]" +
         " (foo/bar/illegal-state-combinator.css:1:16)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "cannot combine two different exclusive states"() {
@@ -270,7 +271,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Illegal scoping of a root-level state: :scope[state|a] :scope[state|exclusive=b]" +
         " (foo/bar/illegal-state-combinator.css:1:16)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows combining classes"() {
@@ -281,7 +283,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Distinct classes cannot be combined: .my-class .another-class" +
         " (foo/bar/illegal-class-combinator.css:2:31)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows sibling combinators with root states"() {
@@ -292,7 +295,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "A class cannot be a sibling with a root-level state: :scope[state|foo] ~ .another-class" +
         " (foo/bar/illegal-class-combinator.css:2:39)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows sibling combinators with root states after adjacent root"() {
@@ -303,7 +307,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "A class cannot be a sibling with a root-level state: :scope[state|foo] + :scope[state|foo] ~ .another-class" +
         " (foo/bar/illegal-class-combinator.css:2:59)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows adjacent sibling combinators with root states"() {
@@ -314,7 +319,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "A class cannot be a sibling with a root-level state: :scope[state|foo] + .another-class" +
         " (foo/bar/illegal-class-combinator.css:2:39)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows combining classes without a combinator"() {
@@ -325,7 +331,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Two distinct classes cannot be selected on the same element: .my-class.another-class" +
         " (foo/bar/illegal-class-combinator.css:2:30)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "allows combining states without a combinator"() {
@@ -336,13 +343,14 @@ export class StraightJacket extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".multi-state { color: #111; }\n" +
-        ".multi-state--first.multi-state--second { display: block; }\n",
+          ".multi-state--first.multi-state--second { display: block; }\n"
       );
     });
   }
 
   @skip // this is harder than it looks
-  @test "allows combining class states without a combinator"() {
+  @test
+  "allows combining class states without a combinator"() {
     let filename = "foo/bar/multi-class-state.css";
     let inputCSS = `.foo {color: #111;}
                     .foo[state|first][state|second] { display: block; }`;
@@ -350,7 +358,7 @@ export class StraightJacket extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".multi-class-state__foo { color: #111; }\n" +
-        ".multi-class-state__foo--first.multi-class-state__foo--second { display: block; }\n",
+          ".multi-class-state__foo--first.multi-class-state__foo--second { display: block; }\n"
       );
     });
   }
@@ -362,7 +370,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Missing block object in selector component ':hover': :scope :hover" +
         " (foo/bar/illegal-class-combinator.css:1:8)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows element names attached to states."() {
@@ -372,7 +381,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Tag name selectors are not allowed: div[state|foo]" +
         " (foo/bar/illegal.css:1:1)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows stand-alone attribute selectors except for states."() {
@@ -382,7 +392,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Cannot select attributes other than states: :scope [href]" +
         " (foo/bar/illegal-class-combinator.css:1:8)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   // It's possible we can relax this constraint, but I want to see
@@ -395,7 +406,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Cannot select attributes other than states: :scope[href]" +
         " (foo/bar/illegal-class-combinator.css:1:7)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows a state before a class for the same element."() {
@@ -406,7 +418,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "The class must precede the state: :scope[state|foo].another-class" +
         " (foo/bar/illegal-class-combinator.css:2:21)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
   @test "disallows combining blocks and classes without a combinator"() {
     let filename = "foo/bar/illegal-class-combinator.css";
@@ -416,7 +429,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       ".another-class cannot be on the same element as :scope: :scope.another-class" +
         " (foo/bar/illegal-class-combinator.css:2:21)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
   @test "disallows bare state selectors (for now!)"() {
     let filename = "foo/bar/illegal-class-combinator.css";
@@ -426,7 +440,8 @@ export class StraightJacket extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "States without an explicit :scope or class selector are not supported: [state|foo]" +
         " (foo/bar/illegal-class-combinator.css:2:21)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
   @test "disallows !important"() {
     let filename = "foo/bar/no-important.css";
@@ -434,7 +449,8 @@ export class StraightJacket extends BEMProcessor {
     return assertError(
       cssBlocks.InvalidBlockSyntax,
       "!important is not allowed for `color` in `:scope` (foo/bar/no-important.css:1:9)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 }
 
@@ -449,7 +465,7 @@ export class BlockReferences extends BEMProcessor {
        :scope[state|theme=red] { color: red; }
        .foo   { float: left;   }
        .foo[state|small] { font-size: 5px; }
-       .foo[state|font=fancy] { font-family: fancy; }`,
+       .foo[state|font=fancy] { font-family: fancy; }`
     );
 
     let filename = "foo/bar/test-block.css";
@@ -458,40 +474,44 @@ export class BlockReferences extends BEMProcessor {
                     :scope { color: red; }
                     .b[state|big] {color: blue;}`;
 
-    return this.process(filename, inputCSS, {importer: imports.importer()}).then((result) => {
+    return this.process(filename, inputCSS, {
+      importer: imports.importer(),
+    }).then((result) => {
       imports.assertImported("foo/bar/imported.css");
       assert.deepEqual(
         result.css.toString(),
         `/* Source: foo/bar/imported.css\n` +
-        "   :scope => .imported\n" +
-        "   .foo => .imported__foo\n" +
-        "   .foo[state|font=fancy] => .imported__foo--font-fancy\n" +
-        "   .foo[state|small] => .imported__foo--small\n" +
-        "   :scope[state|large] => .imported--large\n" +
-        "   :scope[state|theme=red] => .imported--theme-red */\n" +
-        ".test-block { color: red; }\n" +
-        ".test-block__b--big { color: blue; }\n",
+          "   :scope => .imported\n" +
+          "   .foo => .imported__foo\n" +
+          "   .foo[state|font=fancy] => .imported__foo--font-fancy\n" +
+          "   .foo[state|small] => .imported__foo--small\n" +
+          "   :scope[state|large] => .imported--large\n" +
+          "   :scope[state|theme=red] => .imported--theme-red */\n" +
+          ".test-block { color: red; }\n" +
+          ".test-block__b--big { color: blue; }\n"
       );
     });
   }
 
-  @test "if blocks specify name independently of filename, imported name is still used"() {
+  @test
+  "if blocks specify name independently of filename, imported name is still used"() {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: snow-flake; }`,
+      `:scope { block-name: snow-flake; }`
     );
 
     let filename = "foo/bar/test-block.css";
     let inputCSS = `@block-reference foobar from "./imported.css";
                     @block-debug foobar to comment;`;
 
-    return this.process(filename, inputCSS, {importer: imports.importer()}).then((result) => {
+    return this.process(filename, inputCSS, {
+      importer: imports.importer(),
+    }).then((result) => {
       imports.assertImported("foo/bar/imported.css");
       assert.deepEqual(
         result.css.toString(),
-        `/* Source: foo/bar/imported.css\n` +
-        "   :scope => .snow-flake */\n",
+        `/* Source: foo/bar/imported.css\n` + "   :scope => .snow-flake */\n"
       );
     });
   }
@@ -500,15 +520,20 @@ export class BlockReferences extends BEMProcessor {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: "snow-flake"; }`,
+      `:scope { block-name: "snow-flake"; }`
     );
 
     let filename = "foo/bar/test-block.css";
     let inputCSS = `@block-reference block from "./imported.css";
                     @block-debug block to comment;`;
 
-    return this.process(filename, inputCSS, {importer: imports.importer()}).catch((err) => {
-      assert.equal(err.message, "[css-blocks] BlockSyntaxError: Illegal block name. '\"snow-flake\"' is not a legal CSS identifier. (foo/bar/imported.css:1:10)");
+    return this.process(filename, inputCSS, {
+      importer: imports.importer(),
+    }).catch((err) => {
+      assert.equal(
+        err.message,
+        "[css-blocks] BlockSyntaxError: Illegal block name. '\"snow-flake\"' is not a legal CSS identifier. (foo/bar/imported.css:1:10)"
+      );
     });
   }
 
@@ -516,23 +541,29 @@ export class BlockReferences extends BEMProcessor {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: 'snow-flake'; }`,
+      `:scope { block-name: 'snow-flake'; }`
     );
 
     let filename = "foo/bar/test-block.css";
     let inputCSS = `@block-reference imported from "./imported.css";
                     @block-debug snow-flake to comment;`;
 
-    return this.process(filename, inputCSS, {importer: imports.importer()}).catch((err) => {
-      assert.equal(err.message, "[css-blocks] BlockSyntaxError: Illegal block name. ''snow-flake'' is not a legal CSS identifier. (foo/bar/imported.css:1:10)");
+    return this.process(filename, inputCSS, {
+      importer: imports.importer(),
+    }).catch((err) => {
+      assert.equal(
+        err.message,
+        "[css-blocks] BlockSyntaxError: Illegal block name. ''snow-flake'' is not a legal CSS identifier. (foo/bar/imported.css:1:10)"
+      );
     });
   }
 
-  @test "block names in double quotes in @block-reference fail parse with helpful error"() {
+  @test
+  "block names in double quotes in @block-reference fail parse with helpful error"() {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: block; }`,
+      `:scope { block-name: block; }`
     );
 
     let filename = "foo/bar/test-block.css";
@@ -541,16 +572,17 @@ export class BlockReferences extends BEMProcessor {
 
     return assertError(
       cssBlocks.InvalidBlockSyntax,
-      "Illegal block name in import. \"snow-flake\" is not a legal CSS identifier. (foo/bar/test-block.css:1:1)",
-      this.process(filename, inputCSS, {importer: imports.importer()}),
+      'Illegal block name in import. "snow-flake" is not a legal CSS identifier. (foo/bar/test-block.css:1:1)',
+      this.process(filename, inputCSS, { importer: imports.importer() })
     );
   }
 
-  @test "block names in single quotes in @block-reference fail parse with helpful error"() {
+  @test
+  "block names in single quotes in @block-reference fail parse with helpful error"() {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: block; }`,
+      `:scope { block-name: block; }`
     );
 
     let filename = "foo/bar/test-block.css";
@@ -560,46 +592,47 @@ export class BlockReferences extends BEMProcessor {
     return assertError(
       cssBlocks.InvalidBlockSyntax,
       "Illegal block name in import. 'snow-flake' is not a legal CSS identifier. (foo/bar/test-block.css:1:1)",
-      this.process(filename, inputCSS, {importer: imports.importer()}),
+      this.process(filename, inputCSS, { importer: imports.importer() })
     );
-
   }
 
   @test "block-name property only works in the root ruleset"() {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `.not-root { block-name: snow-flake; }`,
+      `.not-root { block-name: snow-flake; }`
     );
 
     let filename = "foo/bar/test-block.css";
     let inputCSS = `@block-reference imported from "./imported.css";
                     @block-debug imported to comment;`;
 
-    return this.process(filename, inputCSS, {importer: imports.importer()}).then((result) => {
+    return this.process(filename, inputCSS, {
+      importer: imports.importer(),
+    }).then((result) => {
       imports.assertImported("foo/bar/imported.css");
       assert.deepEqual(
         result.css.toString(),
         `/* Source: foo/bar/imported.css\n` +
-        "   :scope => .imported\n" +
-        "   .not-root => .imported__not-root */\n",
+          "   :scope => .imported\n" +
+          "   .not-root => .imported__not-root */\n"
       );
     });
   }
 
   @skip
-  @test "doesn't allow a block ref name to collide with a class name"() {
-  }
+  @test
+  "doesn't allow a block ref name to collide with a class name"() {}
 
   @skip
-  @test "cannot combine :scope with a class as a descendant"() {
-  }
+  @test
+  "cannot combine :scope with a class as a descendant"() {}
 
   @test "doesn't allow poorly formed names in block-name property"() {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: 123; }`,
+      `:scope { block-name: 123; }`
     );
 
     let filename = "foo/bar/test-block.css";
@@ -608,14 +641,15 @@ export class BlockReferences extends BEMProcessor {
     return assertError(
       cssBlocks.InvalidBlockSyntax,
       "Illegal block name. '123' is not a legal CSS identifier. (foo/bar/imported.css:1:10)",
-      this.process(filename, inputCSS, {importer: imports.importer()}));
+      this.process(filename, inputCSS, { importer: imports.importer() })
+    );
   }
 
   @test "doesn't allow poorly formed names in import"() {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: block; }`,
+      `:scope { block-name: block; }`
     );
 
     let filename = "foo/bar/test-block.css";
@@ -624,14 +658,15 @@ export class BlockReferences extends BEMProcessor {
     return assertError(
       cssBlocks.InvalidBlockSyntax,
       "Illegal block name in import. 123 is not a legal CSS identifier. (foo/bar/test-block.css:1:1)",
-      this.process(filename, inputCSS, {importer: imports.importer()}));
+      this.process(filename, inputCSS, { importer: imports.importer() })
+    );
   }
 
   @test "requires from statement in @block-reference"() {
     let imports = new MockImportRegistry();
     imports.registerSource(
       "foo/bar/imported.css",
-      `:scope { block-name: block; }`,
+      `:scope { block-name: block; }`
     );
 
     let filename = "foo/bar/test-block.css";
@@ -640,7 +675,8 @@ export class BlockReferences extends BEMProcessor {
     return assertError(
       cssBlocks.InvalidBlockSyntax,
       'Malformed block reference: `@block-reference "./imported.css"` (foo/bar/test-block.css:1:1)',
-      this.process(filename, inputCSS, {importer: imports.importer()}));
+      this.process(filename, inputCSS, { importer: imports.importer() })
+    );
   }
 
   @test "block-name is removed from output"() {
@@ -648,10 +684,7 @@ export class BlockReferences extends BEMProcessor {
     let inputCSS = `:scope { block-name: foo; } .asdf { color: blue; }`;
 
     return this.process(filename, inputCSS).then((result) => {
-      assert.deepEqual(
-        result.css.toString(),
-        `.foo__asdf { color: blue; }\n`,
-      );
+      assert.deepEqual(result.css.toString(), `.foo__asdf { color: blue; }\n`);
     });
   }
 
@@ -663,7 +696,8 @@ export class BlockReferences extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "The :not() pseudoclass cannot be used: .another-class:not([state|foo])" +
         " (foo/bar/illegal-not-pseudoclass.css:2:35)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "disallows the :matches() pseudoclass."() {
@@ -674,7 +708,8 @@ export class BlockReferences extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "The :matches() pseudoclass cannot be used: .another-class:matches([state|foo])" +
         " (foo/bar/illegal-not-pseudoclass.css:2:35)",
-      this.process(filename, inputCSS));
+      this.process(filename, inputCSS)
+    );
   }
 
   @test "@keyframes is left alone"() {
@@ -688,9 +723,9 @@ export class BlockReferences extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         "@keyframes foo {\n" +
-        " 0% { top: 0; }\n" +
-        " 100% { top: 100px; }\n" +
-        "}\n",
+          " 0% { top: 0; }\n" +
+          " 100% { top: 100px; }\n" +
+          "}\n"
       );
     });
   }
@@ -711,7 +746,7 @@ export class BlockReferences extends BEMProcessor {
           "@media all and (max-width: 400px) {\n" +
           " .test-media--responsive { color: blue; }\n" +
           " .test-media__a-class { width: 100%; }\n" +
-          "}\n",
+          "}\n"
       );
     });
   }

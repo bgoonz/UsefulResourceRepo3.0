@@ -31,10 +31,7 @@ const getPkg = async (filePath) => {
 const getFileInfo = async ({ path, algorithm }) => {
   const [content, pkg] = await Promise.all([readFile(path, 'utf8'), getPkg(path)])
 
-  const hash = crypto
-    .createHash(algorithm)
-    .update(content)
-    .digest('hex')
+  const hash = crypto.createHash(algorithm).update(content).digest('hex')
 
   return {
     path,

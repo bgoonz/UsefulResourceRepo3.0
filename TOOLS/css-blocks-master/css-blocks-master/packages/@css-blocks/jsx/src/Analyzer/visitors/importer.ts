@@ -27,7 +27,8 @@ const debug = debugGenerator("css-blocks:jsx");
 
 const DEFAULT_IDENTIFIER = "default";
 const VALID_FILE_EXTENSIONS = {
-  ".jsx": 1, ".tsx": 1,
+  ".jsx": 1,
+  ".tsx": 1,
 };
 
 /**
@@ -35,10 +36,17 @@ const VALID_FILE_EXTENSIONS = {
  * @param name The Block name in question.
  * @param registry The registry to check.
  */
-function throwIfRegistered(name: string, blockRegistry: ObjectDictionary<number>, loc: ErrorLocation) {
+function throwIfRegistered(
+  name: string,
+  blockRegistry: ObjectDictionary<number>,
+  loc: ErrorLocation
+) {
   // TODO: Location reporting in errors.
   if (blockRegistry[name]) {
-    throw new TemplateImportError(`Block identifier "${name}" cannot be re-defined in any scope once imported.`, loc);
+    throw new TemplateImportError(
+      `Block identifier "${name}" cannot be re-defined in any scope once imported.`,
+      loc
+    );
   }
 }
 
@@ -58,9 +66,8 @@ export function importVisitor(
   analysis: Analysis<TEMPLATE_TYPE>,
   blockPromises: Promise<Block>[],
   childTemplatePromises: Promise<Analysis<TEMPLATE_TYPE>>[],
-  options: CssBlocksJSXOptions,
+  options: CssBlocksJSXOptions
 ) {
-
   // Keep a running record of local block names while traversing so we can check
   // for name conflicts elsewhere in the file.
   let _localBlocks: ObjectDictionary<number> = {};
@@ -68,7 +75,6 @@ export function importVisitor(
   let aliases = options.aliases || {};
 
   return {
-
     // For each Block import declaration, try to read the block file from disk,
     // compile its contents, and save the Block promises in the passed Blocks array.
     ImportDeclaration(nodePath: NodePath<ImportDeclaration>) {
@@ -81,7 +87,9 @@ export function importVisitor(
           break;
         }
       }
-      let absoluteFilePath = path.isAbsolute(filePath) ? filePath : path.resolve(dirname, filePath);
+      let absoluteFilePath = path.isAbsolute(filePath)
+        ? filePath
+        : path.resolve(dirname, filePath);
 
       // TODO: Handle blocks / components delivered through node_modules
 
@@ -102,57 +110,66 @@ export function importVisitor(
       absoluteFilePath = path.format(parsedPath);
 
       // If this is a jsx or tsx file, parse it with the same analysis object.
-      if (fs.existsSync(absoluteFilePath) && VALID_FILE_EXTENSIONS[parsedPath.ext]) {
+      if (
+        fs.existsSync(absoluteFilePath) &&
+        VALID_FILE_EXTENSIONS[parsedPath.ext]
+      ) {
         debug(`Analyzing discovered dependency: ${absoluteFilePath}`);
         childTemplatePromises.push(analyzer.parseFile(absoluteFilePath));
         return;
       }
 
       // If this is not a CSS Blocks file, return.
-      if (!isBlockFilename(filePath)) { return; }
+      if (!isBlockFilename(filePath)) {
+        return;
+      }
 
       // For each specifier in this block import statement:
       let localName = "";
       let blockPath = path.resolve(dirname, filePath);
 
       specifiers.forEach((specifier) => {
-
         let isNamespace = isImportNamespaceSpecifier(specifier);
 
         // If is default import specifier, then fetch local name for block.
-        if (isImportDefaultSpecifier(specifier) || isNamespace ||
-             (isImportSpecifier(specifier) && specifier.imported.name === DEFAULT_IDENTIFIER)) {
-
+        if (
+          isImportDefaultSpecifier(specifier) ||
+          isNamespace ||
+          (isImportSpecifier(specifier) &&
+            specifier.imported.name === DEFAULT_IDENTIFIER)
+        ) {
           localName = specifier.local.name;
           _localBlocks[localName] = 1;
         }
-
       });
 
       // Try to fetch an existing Block Promise. If it does not exist, parse CSS Block.
       let res: Promise<Block> = analyzer.blockPromises[blockPath];
       if (!res) {
         res = analyzer.blockFactory.getBlockFromPath(blockPath).catch((err) => {
-          throw new TemplateImportError(`Error parsing block import "${filePath}". Failed with:\n\n"${err.message}"\n\n`, {
-            filename: file.identifier,
-            line: nodePath.node.loc.start.line,
-            column: nodePath.node.loc.start.column,
-          });
+          throw new TemplateImportError(
+            `Error parsing block import "${filePath}". Failed with:\n\n"${err.message}"\n\n`,
+            {
+              filename: file.identifier,
+              line: nodePath.node.loc.start.line,
+              column: nodePath.node.loc.start.column,
+            }
+          );
         });
         analyzer.blockPromises.set(blockPath, res);
       }
 
       // When block parsing is done, add to analysis object.
-      res.then((block): Block => {
-        analysis.addBlock(localName, block);
-        return block;
-      })
+      res
+        .then((block): Block => {
+          analysis.addBlock(localName, block);
+          return block;
+        })
 
-      // Failures handled upstream by Promise.all() in `parseWith` method. Swallow error.
-      .catch(() => {});
+        // Failures handled upstream by Promise.all() in `parseWith` method. Swallow error.
+        .catch(() => {});
 
       blockPromises.push(res);
-
     },
 
     // Ensure no Variable Declarations in this file override an imported Block name.

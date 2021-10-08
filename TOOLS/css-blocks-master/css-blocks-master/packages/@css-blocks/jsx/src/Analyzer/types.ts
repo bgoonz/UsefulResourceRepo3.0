@@ -6,5 +6,9 @@ export type BooleanExpression = Expression;
 export type StringExpression = Expression;
 export type TernaryExpression = Expression;
 
-export type JSXElementAnalysis = ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression>;
+export type JSXElementAnalysis = ElementAnalysis<
+  BooleanExpression,
+  StringExpression,
+  TernaryExpression
+>;
 export type Flags = ObjectDictionary<boolean>;

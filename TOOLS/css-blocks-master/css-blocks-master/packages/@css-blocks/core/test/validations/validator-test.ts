@@ -15,7 +15,12 @@ type BlockAndRoot = [Block, postcss.Container];
 
 @suite("Validators")
 export class TemplateAnalysisTests {
-  private parseBlock(css: string, filename: string, opts?: Options, blockName = "analysis"): Promise<BlockAndRoot> {
+  private parseBlock(
+    css: string,
+    filename: string,
+    opts?: Options,
+    blockName = "analysis"
+  ): Promise<BlockAndRoot> {
     let config = resolveConfiguration(opts);
     let factory = new BlockFactory(config, postcss);
     let root = postcss.parse(css, { from: filename });
@@ -26,7 +31,10 @@ export class TemplateAnalysisTests {
 
   @test "built-in template validators may be configured with boolean values"() {
     let info = new Template("templates/my-template.hbs");
-    let analyzer = new TestAnalyzer({}, { validations: { "no-class-pairs": false }});
+    let analyzer = new TestAnalyzer(
+      {},
+      { validations: { "no-class-pairs": false } }
+    );
     let analysis = analyzer.newAnalysis(info);
     let config = resolveConfiguration({});
 
@@ -38,18 +46,29 @@ export class TemplateAnalysisTests {
       .fdsa { font-size: 20px; }
       .fdsa[state|larger] { font-size: 26px; }
     `;
-    return this.parseBlock(css, "blocks/foo.block.css", config).then(([block, _]) => {
-      analysis.addBlock("", block);
-      let element = analysis.startElement(POSITION_UNKNOWN);
-      element.addStaticClass(block.getClass("asdf")!);
-      element.addStaticClass(block.getClass("fdsa")!);
-      analysis.endElement(element);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", config).then(
+      ([block, _]) => {
+        analysis.addBlock("", block);
+        let element = analysis.startElement(POSITION_UNKNOWN);
+        element.addStaticClass(block.getClass("asdf")!);
+        element.addStaticClass(block.getClass("fdsa")!);
+        analysis.endElement(element);
+      }
+    );
   }
 
   @test "custom template validators may be passed to analysis"() {
     let info = new Template("templates/my-template.hbs");
-    let analyzer = new TestAnalyzer({}, { validations: { customValidator(data, _a, err) { if (data) err("CUSTOM ERROR"); } } });
+    let analyzer = new TestAnalyzer(
+      {},
+      {
+        validations: {
+          customValidator(data, _a, err) {
+            if (data) err("CUSTOM ERROR");
+          },
+        },
+      }
+    );
     let analysis = analyzer.newAnalysis(info);
     let config = resolveConfiguration({});
 
@@ -59,12 +78,13 @@ export class TemplateAnalysisTests {
     return assertParseError(
       TemplateAnalysisError,
       "CUSTOM ERROR (templates/my-template.hbs:1:2)",
-      this.parseBlock(css, "blocks/foo.block.css", config).then(([block, _]) => {
-        analysis.addBlock("", block);
-        let element = analysis.startElement({ line: 1, column: 2 });
-        analysis.endElement(element);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", config).then(
+        ([block, _]) => {
+          analysis.addBlock("", block);
+          let element = analysis.startElement({ line: 1, column: 2 });
+          analysis.endElement(element);
+        }
+      )
     );
   }
-
 }

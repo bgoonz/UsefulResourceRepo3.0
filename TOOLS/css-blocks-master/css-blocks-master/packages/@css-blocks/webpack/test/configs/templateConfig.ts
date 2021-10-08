@@ -1,7 +1,5 @@
 import { BlockFactory, resolveConfiguration } from "@css-blocks/core";
-import {
-  POSITION_UNKNOWN,
-} from "@opticss/element-analysis";
+import { POSITION_UNKNOWN } from "@opticss/element-analysis";
 import {
   SerializedTemplateInfo,
   TemplateInfo,
@@ -25,7 +23,9 @@ declare module "@opticss/template-api" {
   }
 }
 
-export class TestTemplateInfo implements TemplateInfo<"WebpackPlugin.TestTemplate"> {
+export class TestTemplateInfo
+  implements TemplateInfo<"WebpackPlugin.TestTemplate">
+{
   type: "WebpackPlugin.TestTemplate";
   identifier: string;
   index: number;
@@ -38,7 +38,7 @@ export class TestTemplateInfo implements TemplateInfo<"WebpackPlugin.TestTemplat
     return {
       type: this.type,
       identifier: this.identifier,
-      data: [ this.index ],
+      data: [this.index],
     };
   }
   static deserialize(identifier: string, index: whatever): TestTemplateInfo {
@@ -46,7 +46,8 @@ export class TestTemplateInfo implements TemplateInfo<"WebpackPlugin.TestTemplat
   }
 }
 
-TemplateInfoFactory.constructors["WebpackPlugin.TestTemplate"] = TestTemplateInfo.deserialize;
+TemplateInfoFactory.constructors["WebpackPlugin.TestTemplate"] =
+  TestTemplateInfo.deserialize;
 
 function fixture(name: string) {
   return path.resolve(BLOCK_FIXTURES_DIRECTORY, name + ".block.css");
@@ -57,11 +58,11 @@ export function config(): Promise<WebpackConfiguration> {
   let factory = new BlockFactory(blockOpts, postcss);
   let block1 = factory.getBlock(fixture("concat-1"));
   let block2 = factory.getBlock(fixture("concat-2"));
-  return Promise.all([block1, block2]).then(blocks => {
+  return Promise.all([block1, block2]).then((blocks) => {
     let analyzer = new TestAnalyzer();
     analyzer.newAnalysis(new TestTemplateInfo("test.html", 1));
     blocks.forEach((b, i) => {
-      analyzer.eachAnalysis(a => {
+      analyzer.eachAnalysis((a) => {
         a.addBlock(`concat-${i}`, b);
         let el = a.startElement(POSITION_UNKNOWN);
         el.addStaticClass(b.rootClass);

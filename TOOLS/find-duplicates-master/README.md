@@ -1,4 +1,3 @@
-
 find duplicate files in your filesystem
 
 # Install

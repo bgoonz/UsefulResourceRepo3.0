@@ -64,25 +64,27 @@ const DEFAULT_VALIDATORS: TemplateValidatorOptions = {
  * @param options A hash of tslint-style template validator options.
  */
 export class TemplateValidator {
-
   private validators: Validator[] = [];
   private opts: TemplateValidatorOptions;
 
   constructor(options?: Partial<TemplateValidatorOptions>) {
-
     // Merge our default settings with user provided options.
-    let opts = this.opts = Object.assign({}, DEFAULT_VALIDATORS, options || {});
+    let opts = (this.opts = Object.assign(
+      {},
+      DEFAULT_VALIDATORS,
+      options || {}
+    ));
 
     // For each item in options, push all built-in and user-provided validators
     // to our validators list to await template processing.
     for (let key in opts) {
       if (opts[key] instanceof Function) {
         this.validators.push(opts[key] as Validator);
-      }
-      else if (!VALIDATORS[key]) {
-        throw new errors.CssBlockError(`Can not find template validator "${key}".`);
-      }
-      else if (opts[key] && VALIDATORS[key]) {
+      } else if (!VALIDATORS[key]) {
+        throw new errors.CssBlockError(
+          `Can not find template validator "${key}".`
+        );
+      } else if (opts[key] && VALIDATORS[key]) {
         this.validators.push(VALIDATORS[key]);
       }
     }
@@ -95,16 +97,24 @@ export class TemplateValidator {
    * @param locInfo Location info for the elements being validated.
    */
   // tslint:disable-next-line:prefer-whatever-to-any
-  validate(templateAnalysis: Analysis<keyof TemplateTypes>, element: ElementAnalysis<any, any, any>) {
-
-    function err (message: string, locInfo?: errors.ErrorLocation | undefined | null, details?: string) {
+  validate(
+    templateAnalysis: Analysis<keyof TemplateTypes>,
+    element: ElementAnalysis<any, any, any>
+  ) {
+    function err(
+      message: string,
+      locInfo?: errors.ErrorLocation | undefined | null,
+      details?: string
+    ) {
       throw new errors.TemplateAnalysisError(
-        message, locInfo || element.sourceLocation.start, details);
+        message,
+        locInfo || element.sourceLocation.start,
+        details
+      );
     }
 
     this.validators.forEach((func) => {
       func(element, templateAnalysis, err);
     });
-
   }
 }

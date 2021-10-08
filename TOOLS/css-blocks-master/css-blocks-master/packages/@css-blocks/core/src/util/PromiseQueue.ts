@@ -22,14 +22,23 @@ export class PromiseQueue<WorkItem, Result> {
   private jobId: number;
   private draining: Promise<void> | undefined;
   private promiseProcessor: (item: WorkItem) => Promise<Result>;
-  constructor(concurrency: number, processor: (item: WorkItem) => Promise<Result>) {
+  constructor(
+    concurrency: number,
+    processor: (item: WorkItem) => Promise<Result>
+  ) {
     this.promiseProcessor = processor;
-    this.queue = async.queue<PendingWork<WorkItem, Result>, Error>(this.processWork.bind(this), concurrency);
+    this.queue = async.queue<PendingWork<WorkItem, Result>, Error>(
+      this.processWork.bind(this),
+      concurrency
+    );
     this.queueId = queueInstanceId++;
     this.jobId = 0;
   }
 
-  private processWork(work: PendingWork<WorkItem, Result>, callback: (err?: whatever) => void) {
+  private processWork(
+    work: PendingWork<WorkItem, Result>,
+    callback: (err?: whatever) => void
+  ) {
     this.debug(`[Job:${work.id}] Starting job.`);
     this.promiseProcessor(work.item).then(
       (result: Result) => {
@@ -40,7 +49,8 @@ export class PromiseQueue<WorkItem, Result> {
       (error: whatever) => {
         this.debug(`[Job:${work.id}] Errored.`);
         callback(error);
-      });
+      }
+    );
   }
 
   get activeJobCount() {
@@ -81,7 +91,7 @@ export class PromiseQueue<WorkItem, Result> {
         return reject(new Error(message));
       }
       this.debug(`[Job:${id}] Added to queue.`);
-      let work: PendingWork<WorkItem, Result> = {id, item};
+      let work: PendingWork<WorkItem, Result> = { id, item };
       this.queue.push(work, (err) => {
         if (err) {
           this.debug(`[Job:${id}] Failed.`);
@@ -95,7 +105,9 @@ export class PromiseQueue<WorkItem, Result> {
             resolve(work.result);
           } else {
             this.debug(`[Job:${id}] WTF! Result missing.`);
-            let error = new Error("there's no result to return. this is an internal error.");
+            let error = new Error(
+              "there's no result to return. this is an internal error."
+            );
             reject(error);
           }
         }

@@ -11,10 +11,7 @@
         "kind": "build",
         "isDefault": true
       },
-      "problemMatcher": [
-        "$tsc",
-        "$tslint5"
-      ]
+      "problemMatcher": ["$tsc", "$tslint5"]
     },
     {
       "type": "npm",

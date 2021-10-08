@@ -1,4 +1,7 @@
-import { StyleMapping as OptimizedMapping, TemplateTypes } from "@opticss/template-api";
+import {
+  StyleMapping as OptimizedMapping,
+  TemplateTypes,
+} from "@opticss/template-api";
 
 import { Analysis } from "../Analyzer";
 import { ElementAnalysis } from "../Analyzer";
@@ -19,7 +22,7 @@ export class StyleMapping<T extends keyof TemplateTypes> {
     optimizedMap: OptimizedMapping,
     blocks: Iterable<Block>,
     configuration: ResolvedConfiguration,
-    analyses?: Array<Analysis<T>>,
+    analyses?: Array<Analysis<T>>
   ) {
     this.configuration = configuration;
     this.optimizedMap = optimizedMap;
@@ -27,14 +30,20 @@ export class StyleMapping<T extends keyof TemplateTypes> {
     this.analyses = analyses;
   }
 
-  simpleRewriteMapping<B, S, T>(element: ElementAnalysis<B, S, T>): IndexedClassRewrite<Style> {
-    let [optimizedElementInfo, classMap] = element.forOptimizer(this.configuration);
+  simpleRewriteMapping<B, S, T>(
+    element: ElementAnalysis<B, S, T>
+  ): IndexedClassRewrite<Style> {
+    let [optimizedElementInfo, classMap] = element.forOptimizer(
+      this.configuration
+    );
     let classRewrite = this.optimizedMap.rewriteMapping(optimizedElementInfo);
     return IndexedClassMapping.fromOptimizer(classRewrite, classMap);
   }
 
   rewriteMapping<B, S, T>(element: ElementAnalysis<B, S, T>): RewriteMapping {
-    let [optimizedElementInfo, classMap] = element.forOptimizer(this.configuration);
+    let [optimizedElementInfo, classMap] = element.forOptimizer(
+      this.configuration
+    );
     let classRewrite = this.optimizedMap.rewriteMapping(optimizedElementInfo);
     return RewriteMapping.fromOptimizer(classRewrite, classMap);
   }

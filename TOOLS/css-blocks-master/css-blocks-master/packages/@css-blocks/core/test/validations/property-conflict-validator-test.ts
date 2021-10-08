@@ -4,7 +4,13 @@ import { skip, suite, test } from "mocha-typescript";
 import { postcss } from "opticss";
 
 import { BlockFactory } from "../../src/BlockParser";
-import { AttrValue, Block, BlockClass, isAttrValue, isBlockClass } from "../../src/BlockTree";
+import {
+  AttrValue,
+  Block,
+  BlockClass,
+  isAttrValue,
+  isBlockClass,
+} from "../../src/BlockTree";
 import { Options, resolveConfiguration } from "../../src/configuration";
 import { CssBlockError, TemplateAnalysisError } from "../../src/errors";
 
@@ -17,7 +23,12 @@ type BlockAndRoot = [Block, postcss.Container];
 
 @suite("Property Conflict Validator")
 export class TemplateAnalysisTests {
-  private parseBlock(css: string, filename: string, opts?: Options, blockName = "analysis"): Promise<BlockAndRoot> {
+  private parseBlock(
+    css: string,
+    filename: string,
+    opts?: Options,
+    blockName = "analysis"
+  ): Promise<BlockAndRoot> {
     let config = resolveConfiguration(opts);
     let factory = new BlockFactory(config, postcss);
     let root = postcss.parse(css, { from: filename });
@@ -26,13 +37,14 @@ export class TemplateAnalysisTests {
     });
   }
 
-  @test "properties of the same value, defined in the same order, do not throw an error"() {
+  @test
+  "properties of the same value, defined in the same order, do not throw an error"() {
     let imports = new MockImportRegistry();
     let options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background: yellow; }`
     );
 
     let css = `
@@ -40,10 +52,12 @@ export class TemplateAnalysisTests {
       :scope { block-name: block-a; color: blue; background-color: yellow; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ":scope", "b").end();
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block, ":scope", "b").end();
+        assert.deepEqual(1, 1);
+      }
+    );
   }
 
   @test "properties with mismatched count of defs throw an error"() {
@@ -52,7 +66,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: red; color: blue; background: yellow; }`,
+      `:scope { block-name: block-b; color: red; color: blue; background: yellow; }`
     );
 
     let css = `
@@ -70,20 +84,23 @@ export class TemplateAnalysisTests {
             block-b (blocks/b.block.css:1:31)
             block-b (blocks/b.block.css:1:43)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").end();
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block, ":scope", "b").end();
+          assert.deepEqual(1, 1);
+        }
+      )
     );
   }
 
-  @test "all properties of the same type must match, in order, for a conflict to not be thrown"() {
+  @test
+  "all properties of the same type must match, in order, for a conflict to not be thrown"() {
     let imports = new MockImportRegistry();
     let options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; color: yellow; }`
     );
 
     let css = `
@@ -91,19 +108,22 @@ export class TemplateAnalysisTests {
       :scope { block-name: block-a; color: blue; color: yellow; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ":scope", "b").end();
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block, ":scope", "b").end();
+        assert.deepEqual(1, 1);
+      }
+    );
   }
 
-  @test "if properties of the same type do not match, in order, a conflict is thrown"() {
+  @test
+  "if properties of the same type do not match, in order, a conflict is thrown"() {
     let imports = new MockImportRegistry();
     let options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: red; color: yellow; }`,
+      `:scope { block-name: block-b; color: red; color: yellow; }`
     );
 
     let css = `
@@ -122,22 +142,28 @@ export class TemplateAnalysisTests {
             block-b (blocks/b.block.css:1:31)
             block-b (blocks/b.block.css:1:43)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").end();
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block, ":scope", "b").end();
+          assert.deepEqual(1, 1);
+        }
+      )
     );
   }
 
-  @test "properties that have potential conflicts in alternate rulesets throw an error"() {
+  @test
+  "properties that have potential conflicts in alternate rulesets throw an error"() {
     let imports = new MockImportRegistry();
     let options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; }
       .klass { color: blue; background: yellow; }
       :scope[state|colorful] .klass { color: red; }
-    `);
+    `
+    );
 
     let css = `
     @block-reference b from "./b.block.css";
@@ -154,21 +180,27 @@ export class TemplateAnalysisTests {
             block-a.klass (blocks/foo.block.css:4:16)
             block-b.klass (blocks/b.block.css:4:39)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ".klass", "b.klass").end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block, ".klass", "b.klass").end();
+        }
+      )
     );
   }
 
-  @test "properties that have potential conflicts in alternate rulesets pass when resolved"() {
+  @test
+  "properties that have potential conflicts in alternate rulesets pass when resolved"() {
     let imports = new MockImportRegistry();
     let options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; }
       .klass { color: blue; background: yellow; }
       :scope[state|colorful] .klass { color: red; }
-    `);
+    `
+    );
 
     let css = `
     @block-reference b from "./b.block.css";
@@ -176,10 +208,12 @@ export class TemplateAnalysisTests {
       .klass { color: resolve('b.klass'); color: blue; background-color: yellow; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ".klass", "b.klass").end();
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block, ".klass", "b.klass").end();
+        assert.deepEqual(1, 1);
+      }
+    );
   }
 
   @test "static roots throw error when a property is unresolved"() {
@@ -188,7 +222,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -209,9 +243,11 @@ export class TemplateAnalysisTests {
     block-a (blocks/foo.block.css:3:49)
     block-b (blocks/b.block.css:1:44)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block, ":scope", "b").end();
+        }
+      )
     );
   }
 
@@ -221,7 +257,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -235,10 +271,12 @@ export class TemplateAnalysisTests {
       }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
         constructElement(block, ":scope", "b").end();
         assert.equal(1, 1);
-      });
+      }
+    );
   }
 
   @test "static classes throw error when a property is unresolved"() {
@@ -249,7 +287,7 @@ export class TemplateAnalysisTests {
       "blocks/b.block.css",
       `:scope { block-name: block-b; }
        .foo  { color: blue; background-color: yellow; }
-      `,
+      `
     );
 
     let css = `
@@ -271,9 +309,11 @@ export class TemplateAnalysisTests {
             block-a.bar (blocks/foo.block.css:4:27)
             block-b.foo (blocks/b.block.css:2:29)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ".bar", "b.foo").end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block, ".bar", "b.foo").end();
+        }
+      )
     );
   }
 
@@ -285,7 +325,7 @@ export class TemplateAnalysisTests {
       "blocks/b.block.css",
       `:scope { block-name: block-b; }
        .foo  { color: blue; background-color: yellow; }
-      `,
+      `
     );
 
     let css = `
@@ -299,10 +339,12 @@ export class TemplateAnalysisTests {
       }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ".bar", "b.foo").end();
-      assert.equal(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block, ".bar", "b.foo").end();
+        assert.equal(1, 1);
+      }
+    );
   }
 
   @test "static root and class throw error when a property is unresolved"() {
@@ -311,7 +353,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -333,19 +375,22 @@ export class TemplateAnalysisTests {
             block-a.foo (blocks/foo.block.css:4:27)
             block-b (blocks/b.block.css:1:44)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ".foo", "b").end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block, ".foo", "b").end();
+        }
+      )
     );
   }
 
-  @test "static root and class pass when properties are explicitly unresolved"() {
+  @test
+  "static root and class pass when properties are explicitly unresolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -359,13 +404,16 @@ export class TemplateAnalysisTests {
       }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ".foo", "b").end();
-      assert.equal(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block, ".foo", "b").end();
+        assert.equal(1, 1);
+      }
+    );
   }
 
-  @test "mixed static classes and states do not throw when on the same block"() {
+  @test
+  "mixed static classes and states do not throw when on the same block"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
@@ -374,12 +422,14 @@ export class TemplateAnalysisTests {
       .foo[state|bar]  { color: blue;}
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ".foo", ".foo[state|bar]").end();
-      assert.deepEqual(1, 1);
-    }).then(() => {
-      assert.ok(1, "no error thrown");
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        constructElement(block, ".foo", ".foo[state|bar]").end();
+        assert.deepEqual(1, 1);
+      })
+      .then(() => {
+        assert.ok(1, "no error thrown");
+      });
   }
 
   @test "dynamic classes do not throw when on the same block"() {
@@ -391,11 +441,16 @@ export class TemplateAnalysisTests {
       .foo[state|bar]  { color: blue;}
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block).addDynamic([".foo"]).addDynamic(".foo[state|bar]").end();
-    }).then(() => {
-      assert.ok(1, "no error thrown");
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        constructElement(block)
+          .addDynamic([".foo"])
+          .addDynamic(".foo[state|bar]")
+          .end();
+      })
+      .then(() => {
+        assert.ok(1, "no error thrown");
+      });
   }
 
   @test "dynamic root and class throw error when a property is unresolved"() {
@@ -404,7 +459,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -426,19 +481,22 @@ export class TemplateAnalysisTests {
             block-a.foo (blocks/foo.block.css:4:27)
             block-b (blocks/b.block.css:1:44)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block).addDynamic([".foo"]).addDynamic(["b"]).end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block).addDynamic([".foo"]).addDynamic(["b"]).end();
+        }
+      )
     );
   }
 
-  @test "dynamic root and class do not throw error when properties are resolved"() {
+  @test
+  "dynamic root and class do not throw error when properties are resolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -452,10 +510,12 @@ export class TemplateAnalysisTests {
       }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
         constructElement(block).addDynamic([".foo"]).addDynamic(["b"]).end();
         assert.equal(1, 1);
-      });
+      }
+    );
   }
 
   @test "dynamic root and class throw error when a on same side of ternary"() {
@@ -464,7 +524,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -486,19 +546,22 @@ export class TemplateAnalysisTests {
             block-a.foo (blocks/foo.block.css:4:27)
             block-b (blocks/b.block.css:1:44)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block).addDynamic([".foo", "b"]).end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block).addDynamic([".foo", "b"]).end();
+        }
+      )
     );
   }
 
-  @test "dynamic root and class do not throw error when a on same side of ternary and explicitly resolved"() {
+  @test
+  "dynamic root and class do not throw error when a on same side of ternary and explicitly resolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -512,10 +575,12 @@ export class TemplateAnalysisTests {
       }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block).addDynamic([".foo", "b"]).end();
-      assert.equal(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block).addDynamic([".foo", "b"]).end();
+        assert.equal(1, 1);
+      }
+    );
   }
 
   @test "dynamic root and class pass when on opposite sides of ternary"() {
@@ -524,7 +589,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background: yellow; }`
     );
 
     let css = `
@@ -533,9 +598,11 @@ export class TemplateAnalysisTests {
       .foo  { color: red; background: red; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block).addDynamic([".foo"], ["b"]).end();
-      }).then(() => {
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        constructElement(block).addDynamic([".foo"], ["b"]).end();
+      })
+      .then(() => {
         assert.ok(1, "does not throw");
       });
   }
@@ -546,7 +613,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -568,20 +635,26 @@ export class TemplateAnalysisTests {
             block-b (blocks/b.block.css:1:44)
             block-a[state|foo] (blocks/foo.block.css:4:39)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").addDynamic("[state|foo]").end();
-      }).then(() => {
-        assert.ok(1, "does not throw");
-      }));
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          constructElement(block, ":scope", "b")
+            .addDynamic("[state|foo]")
+            .end();
+        })
+        .then(() => {
+          assert.ok(1, "does not throw");
+        })
+    );
   }
 
-  @test "conflicting classes and dynamic states do not throw when all properties are resolved"() {
+  @test
+  "conflicting classes and dynamic states do not throw when all properties are resolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
     let css = `
@@ -595,21 +668,26 @@ export class TemplateAnalysisTests {
       }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ":scope", "b").addDynamic("[state|foo]").end();
-      assert.equal(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block, ":scope", "b").addDynamic("[state|foo]").end();
+        assert.equal(1, 1);
+      }
+    );
   }
 
   @test "conflicting static states throw when a property is unresolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; }
       .klass {}
       .klass[state|foo] { color: blue; }
-    `);
+    `
+    );
 
     let css = `
       @block-reference b from "./b.block.css";
@@ -628,20 +706,32 @@ export class TemplateAnalysisTests {
             block-a.klass[state|foo] (blocks/foo.block.css:5:27)
             block-b.klass[state|foo] (blocks/b.block.css:4:27)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass", ".klass[state|foo]", "b.klass[state|foo]").end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          return constructElement(
+            block,
+            ".klass",
+            "b.klass",
+            ".klass[state|foo]",
+            "b.klass[state|foo]"
+          ).end();
+        }
+      )
     );
   }
 
-  @test "conflicting static states pass when a property is explicitly resolved"() {
+  @test
+  "conflicting static states pass when a property is explicitly resolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       .klass {}
       .klass[state|foo] { color: blue; }
-    `);
+    `
+    );
 
     let css = `
       @block-reference b from "./b.block.css";
@@ -649,21 +739,31 @@ export class TemplateAnalysisTests {
       .klass[state|foo] { color: resolve('b.klass[state|foo]'); color: red; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      return constructElement(block, ".klass", "b.klass", ".klass[state|foo]", "b.klass[state|foo]").end();
-    }).then(() => {
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        return constructElement(
+          block,
+          ".klass",
+          "b.klass",
+          ".klass[state|foo]",
+          "b.klass[state|foo]"
+        ).end();
+      })
+      .then(() => {
+        assert.deepEqual(1, 1);
+      });
   }
 
   @test "conflicting dynamic states throw"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; }
       :scope[state|bar] { color: blue; background-color: yellow; }
-    `,
+    `
     );
 
     let css = `
@@ -685,21 +785,30 @@ export class TemplateAnalysisTests {
             block-a[state|foo] (blocks/foo.block.css:4:39)
             block-b[state|bar] (blocks/b.block.css:3:40)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").addDynamic("[state|foo]").addDynamic("b:scope[state|bar]").end();
-      }).then(() => {
-        assert.ok(1, "does not throw");
-      }));
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          constructElement(block, ":scope", "b")
+            .addDynamic("[state|foo]")
+            .addDynamic("b:scope[state|bar]")
+            .end();
+        })
+        .then(() => {
+          assert.ok(1, "does not throw");
+        })
+    );
   }
 
-  @test "conflicting dynamic states do not throw when all properties are resolved"() {
+  @test
+  "conflicting dynamic states do not throw when all properties are resolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; }
       :scope[state|bar] { color: blue; background-color: yellow; }
-    `,
+    `
     );
 
     let css = `
@@ -712,9 +821,14 @@ export class TemplateAnalysisTests {
         background-color: resolve('b:scope[state|bar]'); }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b:scope").addDynamic(":scope[state|foo]").addDynamic("b:scope[state|bar]").end();
-      }).then(() => {
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        constructElement(block, ":scope", "b:scope")
+          .addDynamic(":scope[state|foo]")
+          .addDynamic("b:scope[state|bar]")
+          .end();
+      })
+      .then(() => {
         assert.equal(1, 1);
       });
   }
@@ -723,9 +837,11 @@ export class TemplateAnalysisTests {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; color: blue; background-color: yellow; }
-    `,
+    `
     );
 
     let css = `
@@ -748,20 +864,28 @@ export class TemplateAnalysisTests {
             block-b (blocks/b.block.css:2:50)
             block-a[state|foo=one] (blocks/foo.block.css:4:43)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").addStateGroup(":scope", "[state|foo]").end();
-      }).then(() => {
-        assert.ok(1, "does not throw");
-      }));
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          constructElement(block, ":scope", "b")
+            .addStateGroup(":scope", "[state|foo]")
+            .end();
+        })
+        .then(() => {
+          assert.ok(1, "does not throw");
+        })
+    );
   }
 
-  @test "conflicting classes and dynamic state groups do not throw when all properties are resolved"() {
+  @test
+  "conflicting classes and dynamic state groups do not throw when all properties are resolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; color: blue; background-color: yellow; }
-    `,
+    `
     );
 
     let css = `
@@ -771,9 +895,13 @@ export class TemplateAnalysisTests {
       :scope[state|foo=two] { text-decoration: underline; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").addStateGroup(":scope", "[state|foo]").end();
-      }).then(() => {
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        constructElement(block, ":scope", "b")
+          .addStateGroup(":scope", "[state|foo]")
+          .end();
+      })
+      .then(() => {
         assert.equal(1, 1);
       });
   }
@@ -782,11 +910,13 @@ export class TemplateAnalysisTests {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; color: blue; background-color: yellow; }
       :scope[state|bar=one] { color: red; background-color: red; }
       :scope[state|bar=two] { color: yellow; background-color: purple; }
-    `,
+    `
     );
 
     let css = `
@@ -813,11 +943,17 @@ export class TemplateAnalysisTests {
             block-b[state|bar=one] (blocks/b.block.css:3:43)
             block-b[state|bar=two] (blocks/b.block.css:4:46)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, ":scope", "b").addStateGroup(":scope", "[state|foo]").addStateGroup("b", "[state|bar]").end();
-      }).then(() => {
-        assert.ok(1, "does not throw");
-      }));
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          constructElement(block, ":scope", "b")
+            .addStateGroup(":scope", "[state|foo]")
+            .addStateGroup("b", "[state|bar]")
+            .end();
+        })
+        .then(() => {
+          assert.ok(1, "does not throw");
+        })
+    );
   }
 
   @test "multiple conflicts on same property display correct error"() {
@@ -826,13 +962,16 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; background-color: yellow; }`,
+      `:scope { block-name: block-b; color: blue; background-color: yellow; }`
     );
 
-    imports.registerSource("blocks/c.block.css", `
+    imports.registerSource(
+      "blocks/c.block.css",
+      `
       :scope { block-name: block-c; }
       .bar { color: green; }
-    `);
+    `
+    );
 
     let css = `
       @block-reference b from "./b.block.css";
@@ -855,9 +994,11 @@ export class TemplateAnalysisTests {
             block-b (blocks/b.block.css:1:44)
             block-a.foo (blocks/foo.block.css:5:27)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        constructElement(block, "b", "c.bar").addDynamic([".foo"]).end();
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options).then(
+        ([block, _]) => {
+          constructElement(block, "b", "c.bar").addDynamic([".foo"]).end();
+        }
+      )
     );
   }
 
@@ -867,7 +1008,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; color: blue; }`,
+      `:scope { block-name: block-b; color: blue; }`
     );
 
     let css = `
@@ -875,14 +1016,18 @@ export class TemplateAnalysisTests {
       :scope { block-name: block-a; color: resolve('b'); color: red; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ":scope", "b").end();
-    }).then(() => {
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        constructElement(block, ":scope", "b").end();
+      })
+      .then(() => {
+        assert.deepEqual(1, 1);
+      });
   }
 
-  @test @skip "multiple states on a compound selector do not throw if only one state is used"() {
+  @test
+  @skip
+  "multiple states on a compound selector do not throw if only one state is used"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
@@ -891,7 +1036,7 @@ export class TemplateAnalysisTests {
       `
         :scope { block-name: block-a; }
         .klass-1 { color: blue; }
-      `,
+      `
     );
 
     let css = `
@@ -900,33 +1045,37 @@ export class TemplateAnalysisTests {
       .klass-2[state|one][state|two] { color: red; color: }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      constructElement(block, ".klass-2", "b.klass-1").addStateGroup(".klass-2", "[state|one]").end();
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options).then(
+      ([block, _]) => {
+        constructElement(block, ".klass-2", "b.klass-1")
+          .addStateGroup(".klass-2", "[state|one]")
+          .end();
+      }
+    );
   }
 
   @test "conflicting classes pass when a property is explicitly resolved"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource(
-      "blocks/b.block.css",
-      `.klass { color: blue; }`,
-    );
+    imports.registerSource("blocks/b.block.css", `.klass { color: blue; }`);
 
     let css = `
       @block-reference b from "./b.block.css";
       .klass { color: resolve('b.klass'); color: red; }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      return constructElement(block, ".klass", "b.klass").end();
-    }).then(() => {
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        return constructElement(block, ".klass", "b.klass").end();
+      })
+      .then(() => {
+        assert.deepEqual(1, 1);
+      });
   }
 
-  @test "Block references in resolve statements that can't be resolved throw helpful error"() {
+  @test
+  "Block references in resolve statements that can't be resolved throw helpful error"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
@@ -941,17 +1090,18 @@ export class TemplateAnalysisTests {
       `No Block named "b" found in scope. (blocks/foo.block.css:3:23)`,
       this.parseBlock(css, "blocks/foo.block.css", options).then(() => {
         assert.deepEqual(1, 1);
-      }),
+      })
     );
   }
 
-  @test "Style paths in resolve statements that can't be resolved throw helpful error"() {
+  @test
+  "Style paths in resolve statements that can't be resolved throw helpful error"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `:scope { block-name: block-b; }`,
+      `:scope { block-name: block-b; }`
     );
 
     let css = `
@@ -966,7 +1116,7 @@ export class TemplateAnalysisTests {
       `No Style ".klass" found on Block "block-b". (blocks/foo.block.css:4:23)`,
       this.parseBlock(css, "blocks/foo.block.css", options).then(() => {
         assert.deepEqual(1, 1);
-      }),
+      })
     );
   }
 
@@ -978,7 +1128,7 @@ export class TemplateAnalysisTests {
       "blocks/b.block.css",
       `:scope { block-name: block-b; }
        .klass:before { color: yellow; }
-       .klass { color: blue; }`,
+       .klass { color: blue; }`
     );
 
     let css = `
@@ -997,11 +1147,13 @@ export class TemplateAnalysisTests {
             block-a.klass (blocks/foo.block.css:5:16)
             block-b.klass (blocks/b.block.css:3:17)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          return constructElement(block, ".klass", "b.klass").end();
+        })
+        .then(() => {
+          assert.deepEqual(1, 1);
+        })
     );
   }
 
@@ -1011,7 +1163,7 @@ export class TemplateAnalysisTests {
 
     imports.registerSource(
       "blocks/b.block.css",
-      `.klass { background-color: blue; border: 1px solid red; }`,
+      `.klass { background-color: blue; border: 1px solid red; }`
     );
 
     let css = `
@@ -1032,21 +1184,24 @@ export class TemplateAnalysisTests {
             analysis.klass (blocks/foo.block.css:3:33)
             b.klass (blocks/b.block.css:1:34)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          return constructElement(block, ".klass", "b.klass").end();
+        })
+        .then(() => {
+          assert.deepEqual(1, 1);
+        })
     );
   }
 
-  @test "conflict validator expands shorthands and manages longhand re-declarations"() {
+  @test
+  "conflict validator expands shorthands and manages longhand re-declarations"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `.klass { border: 1px solid red; }`,
+      `.klass { border: 1px solid red; }`
     );
 
     let css = `
@@ -1063,21 +1218,24 @@ export class TemplateAnalysisTests {
     analysis.klass (blocks/foo.block.css:3:16)
     b.klass (blocks/b.block.css:1:10)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          return constructElement(block, ".klass", "b.klass").end();
+        })
+        .then(() => {
+          assert.deepEqual(1, 1);
+        })
     );
   }
 
-  @test "conflict validator expands shorthands and uses lowest common property"() {
+  @test
+  "conflict validator expands shorthands and uses lowest common property"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `.klass { background-color: blue; border: 1px solid red; }`,
+      `.klass { background-color: blue; border: 1px solid red; }`
     );
 
     let css = `
@@ -1098,21 +1256,24 @@ export class TemplateAnalysisTests {
             analysis.klass (blocks/foo.block.css:3:33)
             b.klass (blocks/b.block.css:1:34)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          return constructElement(block, ".klass", "b.klass").end();
+        })
+        .then(() => {
+          assert.deepEqual(1, 1);
+        })
     );
   }
 
-  @test "conflict validator expands shorthands and manages multiple longhand conflicts"() {
+  @test
+  "conflict validator expands shorthands and manages multiple longhand conflicts"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
     imports.registerSource(
       "blocks/b.block.css",
-      `.klass { border: 1px solid red; }`,
+      `.klass { border: 1px solid red; }`
     );
 
     let css = `
@@ -1133,11 +1294,13 @@ export class TemplateAnalysisTests {
             analysis.klass (blocks/foo.block.css:3:16)
             b.klass (blocks/b.block.css:1:10)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          return constructElement(block, ".klass", "b.klass").end();
+        })
+        .then(() => {
+          assert.deepEqual(1, 1);
+        })
     );
   }
 
@@ -1145,10 +1308,13 @@ export class TemplateAnalysisTests {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: b; }
       .klass { background-color: blue; }
-    `);
+    `
+    );
 
     let css = `
       @block-reference b from "./b.block.css";
@@ -1156,21 +1322,26 @@ export class TemplateAnalysisTests {
       .klass { background-color: red; background: resolve('b.klass'); }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-      return constructElement(block, ".klass", "b.klass").end();
-    }).then(() => {
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
+        return constructElement(block, ".klass", "b.klass").end();
+      })
+      .then(() => {
+        assert.deepEqual(1, 1);
+      });
   }
 
   @test "shorthand conflicts cannot be resolved by a longhand"() {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: b-block; }
       .klass { border-color: blue; }
-    `);
+    `
+    );
 
     let css = `
       @block-reference b from "./b.block.css";
@@ -1187,11 +1358,13 @@ export class TemplateAnalysisTests {
             a-block.klass (blocks/foo.block.css:4:16)
             b-block.klass (blocks/b.block.css:3:16)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          return constructElement(block, ".klass", "b.klass").end();
+        })
+        .then(() => {
+          assert.deepEqual(1, 1);
+        })
     );
   }
 
@@ -1199,10 +1372,13 @@ export class TemplateAnalysisTests {
     let imports = new MockImportRegistry();
     let options: Options = { importer: imports.importer() };
 
-    imports.registerSource("blocks/b.block.css", `
+    imports.registerSource(
+      "blocks/b.block.css",
+      `
       :scope { block-name: block-b; }
       .klass { custom-prop: blue; }
-    `);
+    `
+    );
 
     let css = `
       @block-reference b from "./b.block.css";
@@ -1219,11 +1395,13 @@ export class TemplateAnalysisTests {
             block-a.klass (blocks/foo.block.css:4:16)
             block-b.klass (blocks/b.block.css:3:16)`,
 
-      this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
-        return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
-        assert.deepEqual(1, 1);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", options)
+        .then(([block, _]) => {
+          return constructElement(block, ".klass", "b.klass").end();
+        })
+        .then(() => {
+          assert.deepEqual(1, 1);
+        })
     );
   }
 
@@ -1234,7 +1412,7 @@ export class TemplateAnalysisTests {
     imports.registerSource(
       "blocks/b.block.css",
       `:scope { block-name: block-b; }
-       .klass { custom-prop: blue; }`,
+       .klass { custom-prop: blue; }`
     );
 
     let css = `
@@ -1243,13 +1421,14 @@ export class TemplateAnalysisTests {
       .klass { custom-prop: red; custom-prop: resolve('b.klass'); }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", options).then(([block, _]) => {
+    return this.parseBlock(css, "blocks/foo.block.css", options)
+      .then(([block, _]) => {
         return constructElement(block, ".klass", "b.klass").end();
-      }).then(() => {
+      })
+      .then(() => {
         assert.deepEqual(1, 1);
       });
   }
-
 }
 
 function constructElement(block: Block, ...styles: string[]) {
@@ -1266,11 +1445,12 @@ function constructElement(block: Block, ...styles: string[]) {
 
   for (let path of styles) {
     let style = block.lookup(path);
-    if (!style) { throw Error(`Error looking up Style ${path} for test.`); }
+    if (!style) {
+      throw Error(`Error looking up Style ${path} for test.`);
+    }
     if (isBlockClass(style)) {
       element.addStaticClass(style);
-    }
-    else if (isAttrValue(style)) {
+    } else if (isAttrValue(style)) {
       element.addStaticAttr(style.blockClass, style);
     }
   }

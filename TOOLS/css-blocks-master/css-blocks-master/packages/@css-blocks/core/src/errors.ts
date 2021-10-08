@@ -29,13 +29,14 @@ export class CssBlockError extends Error {
     let column = loc.column ? `:${loc.column}` : "";
     let locMessage = ` (${filename}${line}${column})`;
     // tslint:disable-next-line:prefer-whatever-to-any
-    return `[css-blocks] ${(this.constructor as any).prefix}: ${this.origMessage}${locMessage}`;
+    return `[css-blocks] ${(this.constructor as any).prefix}: ${
+      this.origMessage
+    }${locMessage}`;
   }
 
   get location(): ErrorLocation | void {
     return this._location;
   }
-
 }
 
 /**
@@ -45,7 +46,9 @@ export class TemplateAnalysisError extends CssBlockError {
   static prefix = "TemplateError";
   constructor(message: string, location?: ErrorLocation, details?: string) {
     super(message, location);
-    if (details) { this.message += `\n${details}`; }
+    if (details) {
+      this.message += `\n${details}`;
+    }
   }
 }
 
@@ -55,7 +58,9 @@ export class TemplateAnalysisError extends CssBlockError {
 export class MissingSourcePath extends CssBlockError {
   static prefix = "SourcePathError";
   constructor() {
-    super("PostCSS `from` option is missing. The source filename is required for CSS Blocks to work correctly.");
+    super(
+      "PostCSS `from` option is missing. The source filename is required for CSS Blocks to work correctly."
+    );
   }
 }
 
@@ -76,6 +81,8 @@ export class BlockPathError extends CssBlockError {
   static prefix = "MalformedBlockPath";
   constructor(message: string, location?: ErrorLocation, details?: string) {
     super(message, location);
-    if (details) { this.message += `\n${details}`; }
+    if (details) {
+      this.message += `\n${details}`;
+    }
   }
 }

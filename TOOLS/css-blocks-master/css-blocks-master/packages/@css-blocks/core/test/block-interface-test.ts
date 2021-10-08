@@ -9,7 +9,11 @@ import { setupImporting } from "./util/setupImporting";
 
 @suite("Block Interfaces")
 export class BlockInterfaceTests extends BEMProcessor {
-  assertError(errorType: typeof cssBlocks.CssBlockError, message: string, promise: postcss.LazyResult) {
+  assertError(
+    errorType: typeof cssBlocks.CssBlockError,
+    message: string,
+    promise: postcss.LazyResult
+  ) {
     return promise.then(
       () => {
         assert(false, `Error ${errorType.name} was not raised.`);
@@ -17,7 +21,8 @@ export class BlockInterfaceTests extends BEMProcessor {
       (reason) => {
         assert(reason instanceof errorType, reason.toString());
         assert.deepEqual(reason.message, message);
-      });
+      }
+    );
   }
 
   @test "can detect missing surface area"() {
@@ -27,7 +32,7 @@ export class BlockInterfaceTests extends BEMProcessor {
       `:scope { color: purple; }
        :scope[state|large] { font-size: 20px; }
        .foo   { float: left;   }
-       .foo[state|small] { font-size: 5px; }`,
+       .foo[state|small] { font-size: 5px; }`
     );
 
     let filename = "foo/bar/implements.css";
@@ -42,7 +47,8 @@ export class BlockInterfaceTests extends BEMProcessor {
         `from foo/bar/base.css`,
       this.process(filename, inputCSS, config).then(() => {
         imports.assertImported("foo/bar/base.css");
-      }));
+      })
+    );
   }
 
   @test "can import another block"() {
@@ -52,14 +58,14 @@ export class BlockInterfaceTests extends BEMProcessor {
       `:scope { color: purple; }
        :scope[state|large] { font-size: 20px; }
        .foo   { float: left;   }
-       .foo[state|small] { font-size: 5px; }`,
+       .foo[state|small] { font-size: 5px; }`
     );
     imports.registerSource(
       "foo/bar/other.css",
       `:scope { color: purple; }
       :scope[state|medium] { font-size: 20px; }
       .foo   { float: left;   }
-      .foo[state|medium] { font-size: 5px; }`,
+      .foo[state|medium] { font-size: 5px; }`
     );
 
     let filename = "foo/bar/implements.css";
@@ -78,6 +84,7 @@ export class BlockInterfaceTests extends BEMProcessor {
       this.process(filename, inputCSS, config).then(() => {
         imports.assertImported("foo/bar/base.css");
         imports.assertImported("foo/bar/other.css");
-      }));
+      })
+    );
   }
 }

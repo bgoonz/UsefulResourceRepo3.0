@@ -12,9 +12,9 @@ After another case of the need of making changes in Bash script and battling wit
 
 _All the code below will work mostly only in Unix-like OSes as MacOS and Linux._
 
-*   lightweight, no deps or minimum
-*   easy to write
-*   same console output as if using Bash
+- lightweight, no deps or minimum
+- easy to write
+- same console output as if using Bash
 
 I started from searching inside Node.js API. `exec` appeared to be not so good choice for several reasons, but `[**spawn**](https://nodejs.org/api/child_process.html#child_process_child_process_spawn_command_args_options)` seemed promising because of one important feature: ability to inherit stdio and immediately echo all the command output right to the console during command execution when using `{stdio: 'inherit'}` in options.
 
@@ -57,6 +57,5 @@ npm run deploy -- integration --skip-build
 npm run deploy -- --help
 
 As you see, passing of additional params is more intuitive when using Yarn. I hope that helped and will speedup your development. Thanks :)
-
 
 [Source](https://blog.cloudboost.io/node-js-writing-shell-scripts-using-modern-javascript-instead-of-bash-774e0859f965)

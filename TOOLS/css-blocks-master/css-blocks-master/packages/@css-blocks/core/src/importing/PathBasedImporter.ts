@@ -6,7 +6,11 @@ import { ResolvedConfiguration } from "../configuration";
 import { FileIdentifier, ImportedFile, Importer } from "./types";
 
 export abstract class PathBasedImporter implements Importer {
-  identifier(fromFile: string | null, importPath: string, configuration: ResolvedConfiguration): string {
+  identifier(
+    fromFile: string | null,
+    importPath: string,
+    configuration: ResolvedConfiguration
+  ): string {
     let fromDir = fromFile ? path.dirname(fromFile) : configuration.rootDir;
     return path.resolve(fromDir, importPath);
   }
@@ -17,10 +21,16 @@ export abstract class PathBasedImporter implements Importer {
     }
     return name;
   }
-  filesystemPath(identifier: FileIdentifier, _options: ResolvedConfiguration): string | null {
+  filesystemPath(
+    identifier: FileIdentifier,
+    _options: ResolvedConfiguration
+  ): string | null {
     return identifier;
   }
-  syntax(identifier: FileIdentifier, configuration: ResolvedConfiguration): Syntax {
+  syntax(
+    identifier: FileIdentifier,
+    configuration: ResolvedConfiguration
+  ): Syntax {
     let filename = this.filesystemPath(identifier, configuration);
     if (filename) {
       let ext = path.extname(filename).substring(1);
@@ -42,8 +52,14 @@ export abstract class PathBasedImporter implements Importer {
       return Syntax.other;
     }
   }
-  debugIdentifier(identifier: FileIdentifier, configuration: ResolvedConfiguration): string {
+  debugIdentifier(
+    identifier: FileIdentifier,
+    configuration: ResolvedConfiguration
+  ): string {
     return path.relative(configuration.rootDir, identifier);
   }
-  abstract import(identifier: FileIdentifier, configuration: ResolvedConfiguration): Promise<ImportedFile>;
+  abstract import(
+    identifier: FileIdentifier,
+    configuration: ResolvedConfiguration
+  ): Promise<ImportedFile>;
 }

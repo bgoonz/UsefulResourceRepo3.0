@@ -2,13 +2,13 @@
 @block-reference t from "./typography.css";
 
 :scope {
-    color: red;
+  color: red;
 }
 
 .world {
-    border: 1px solid black;
+  border: 1px solid black;
 }
 
 .world[state|thick] {
-    border-width: 3px;
+  border-width: 3px;
 }

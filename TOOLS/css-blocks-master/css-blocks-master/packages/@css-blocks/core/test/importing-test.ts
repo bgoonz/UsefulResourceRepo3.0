@@ -20,7 +20,7 @@ const FSI_FIXTURES = path.resolve(FIXTURES, "filesystemImporter");
 const ALIAS_FIXTURES = path.resolve(FIXTURES, "pathAliasImporter");
 
 function getConfiguration(options?: Options): ResolvedConfiguration {
-  return resolveConfiguration(options, {rootDir: path.join(FSI_FIXTURES)});
+  return resolveConfiguration(options, { rootDir: path.join(FSI_FIXTURES) });
 }
 
 function testFSImporter(name: string, importer: Importer) {
@@ -82,7 +82,10 @@ function testFSImporter(name: string, importer: Importer) {
       let options = getConfiguration();
       let ident = importer.identifier(null, "a.block.css", options);
       let importedFile = await importer.import(ident, options);
-      assert.deepEqual(importedFile.contents, fs.readFileSync(path.join(FSI_FIXTURES, "a.block.css"), "utf-8"));
+      assert.deepEqual(
+        importedFile.contents,
+        fs.readFileSync(path.join(FSI_FIXTURES, "a.block.css"), "utf-8")
+      );
       assert.equal(importedFile.defaultName, "a");
       assert.equal(importedFile.identifier, ident);
       assert.equal(importedFile.syntax, Syntax.css);
@@ -92,48 +95,62 @@ function testFSImporter(name: string, importer: Importer) {
 
 testFSImporter("FilesystemImporter", filesystemImporter);
 testFSImporter("Default PathAliasImporter", new PathAliasImporter({}));
-testFSImporter("Configured PathAliasImporter", new PathAliasImporter({alias: ALIAS_FIXTURES}));
+testFSImporter(
+  "Configured PathAliasImporter",
+  new PathAliasImporter({ alias: ALIAS_FIXTURES })
+);
 
 describe("PathAliasImporter", () => {
-  before(function(this: IHookCallbackContext) {
+  before(function (this: IHookCallbackContext) {
     let aliases = {
-      "pai": ALIAS_FIXTURES,
-      "sub": path.resolve(ALIAS_FIXTURES, "alias_subdirectory"),
+      pai: ALIAS_FIXTURES,
+      sub: path.resolve(ALIAS_FIXTURES, "alias_subdirectory"),
     };
     this.importer = new PathAliasImporter(aliases);
   });
-  it("identifies relative to an alias", function() {
-      let options = getConfiguration();
-      let importer: Importer = this.importer;
-      let ident = importer.identifier(null, "pai/alias1.block.css", options);
-      let actualFilename = importer.filesystemPath(ident, options);
-      let expectedFilename = path.resolve(ALIAS_FIXTURES, "alias1.block.css");
-      assert.equal(expectedFilename, actualFilename);
-      let inspected = importer.debugIdentifier(ident, options);
-      assert.equal("pai/alias1.block.css", inspected);
+  it("identifies relative to an alias", function () {
+    let options = getConfiguration();
+    let importer: Importer = this.importer;
+    let ident = importer.identifier(null, "pai/alias1.block.css", options);
+    let actualFilename = importer.filesystemPath(ident, options);
+    let expectedFilename = path.resolve(ALIAS_FIXTURES, "alias1.block.css");
+    assert.equal(expectedFilename, actualFilename);
+    let inspected = importer.debugIdentifier(ident, options);
+    assert.equal("pai/alias1.block.css", inspected);
   });
-  it("produces the same identifier via different aliases", function() {
-      let options = getConfiguration();
-      let importer: Importer = this.importer;
-      let actualFilename = path.resolve(ALIAS_FIXTURES, "alias_subdirectory", "sub.block.css");
-      let ident1 = importer.identifier(null, "pai/alias_subdirectory/sub.block.css", options);
-      let ident2 = importer.identifier(null, "sub/sub.block.css", options);
-      assert.deepEqual(ident1, ident2);
-      let filename1 = importer.filesystemPath(ident1, options);
-      assert.equal(actualFilename, filename1);
-      let filename2 = importer.filesystemPath(ident2, options);
-      assert.equal(actualFilename, filename2);
-      let inspected1 = importer.debugIdentifier(ident1, options);
-      assert.equal(inspected1, "sub/sub.block.css");
-      let inspected2 = importer.debugIdentifier(ident2, options);
-      assert.equal(inspected2, "sub/sub.block.css");
+  it("produces the same identifier via different aliases", function () {
+    let options = getConfiguration();
+    let importer: Importer = this.importer;
+    let actualFilename = path.resolve(
+      ALIAS_FIXTURES,
+      "alias_subdirectory",
+      "sub.block.css"
+    );
+    let ident1 = importer.identifier(
+      null,
+      "pai/alias_subdirectory/sub.block.css",
+      options
+    );
+    let ident2 = importer.identifier(null, "sub/sub.block.css", options);
+    assert.deepEqual(ident1, ident2);
+    let filename1 = importer.filesystemPath(ident1, options);
+    assert.equal(actualFilename, filename1);
+    let filename2 = importer.filesystemPath(ident2, options);
+    assert.equal(actualFilename, filename2);
+    let inspected1 = importer.debugIdentifier(ident1, options);
+    assert.equal(inspected1, "sub/sub.block.css");
+    let inspected2 = importer.debugIdentifier(ident2, options);
+    assert.equal(inspected2, "sub/sub.block.css");
   });
-  it("imports an aliased file", async function() {
+  it("imports an aliased file", async function () {
     let options = getConfiguration();
     let importer: Importer = this.importer;
     let ident = importer.identifier(null, "sub/sub.block.css", options);
     let importedFile = await importer.import(ident, options);
-    let expectedContents = fs.readFileSync(path.join(ALIAS_FIXTURES, "alias_subdirectory", "sub.block.css"), "utf-8");
+    let expectedContents = fs.readFileSync(
+      path.join(ALIAS_FIXTURES, "alias_subdirectory", "sub.block.css"),
+      "utf-8"
+    );
     assert.deepEqual(importedFile.contents, expectedContents);
     assert.equal(importedFile.defaultName, "sub");
     assert.equal(importedFile.identifier, ident);

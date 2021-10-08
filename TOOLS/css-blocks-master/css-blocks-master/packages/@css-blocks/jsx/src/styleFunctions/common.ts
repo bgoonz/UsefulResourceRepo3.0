@@ -8,5 +8,5 @@ export type StyleFunctionAnalyzer<StyleFunctionType> = (
   element: JSXElementAnalysis,
   filename: string,
   styleFn: StyleFunctionType,
-  func: CallExpression,
+  func: CallExpression
 ) => void;

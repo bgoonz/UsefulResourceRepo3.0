@@ -21,8 +21,7 @@ export class Test {
       import bar from 'bar.block.css'
       function render(){
         return ( <div class={bar}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -42,8 +41,7 @@ export class Test {
       import bar from 'bar.block.css'
       function render(){
         return ( <div className={bar}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -54,7 +52,8 @@ export class Test {
     });
   }
 
-  @test "Root block styles are deduped if applied to multiple valid properties"() {
+  @test
+  "Root block styles are deduped if applied to multiple valid properties"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
     });
@@ -63,8 +62,7 @@ export class Test {
       import bar from 'bar.block.css'
       function render(){
         return ( <div class={bar} className={bar}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -74,5 +72,4 @@ export class Test {
       assert.deepEqual(elementAnalysis.staticStyles, [0]);
     });
   }
-
 }

@@ -1,13 +1,16 @@
-import hbs from '@glimmer/inline-precompile';
-import { setupRenderingTest } from '@glimmer/test-helpers';
+import hbs from "@glimmer/inline-precompile";
+import { setupRenderingTest } from "@glimmer/test-helpers";
 
 const { module, test } = QUnit;
 
-module('Component: GlimmerTest', function(hooks) {
+module("Component: GlimmerTest", function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders', async function(assert) {
+  test("it renders", async function (assert) {
     await this.render(hbs`<GlimmerTest />`);
-    assert.equal(this.containerElement.textContent, 'Future Site of the CSS Blocks Playground\n');
+    assert.equal(
+      this.containerElement.textContent,
+      "Future Site of the CSS Blocks Playground\n"
+    );
   });
 });

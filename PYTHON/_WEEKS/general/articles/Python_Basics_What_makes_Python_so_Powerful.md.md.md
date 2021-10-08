@@ -1,5 +1,3 @@
-
-
 - What is Python?
 - Features of Python
 - Jumping to the Python Basics

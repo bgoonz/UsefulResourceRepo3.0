@@ -12,14 +12,24 @@ import { sourceLocation } from "../../SourceLocation";
  * @param sourceFile  Source file name, used for error output.
  * @param rule Ruleset to crawl.
  */
-export async function extendBlock(rule: postcss.Root, block: Block, sourceFile: string) {
+export async function extendBlock(
+  rule: postcss.Root,
+  block: Block,
+  sourceFile: string
+) {
   rule.walkDecls(EXTENDS, (decl) => {
     if (block.base) {
-      throw new errors.InvalidBlockSyntax(`A block can only be extended once.`, sourceLocation(sourceFile, decl));
+      throw new errors.InvalidBlockSyntax(
+        `A block can only be extended once.`,
+        sourceLocation(sourceFile, decl)
+      );
     }
     let baseBlock = block.getReferencedBlock(decl.value);
     if (!baseBlock) {
-      throw new errors.InvalidBlockSyntax(`No block named ${decl.value} found`, sourceLocation(sourceFile, decl));
+      throw new errors.InvalidBlockSyntax(
+        `No block named ${decl.value} found`,
+        sourceLocation(sourceFile, decl)
+      );
     }
     block.setBase(baseBlock);
   });

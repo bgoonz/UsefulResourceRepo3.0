@@ -5,7 +5,11 @@ import { Validator } from "./Validator";
  * @param correlations The correlations object for a given element.
  * @param err Error callback.
  */
-export const rootClassValidator: Validator = (analysis, templateAnalysis, err) => {
+export const rootClassValidator: Validator = (
+  analysis,
+  templateAnalysis,
+  err
+) => {
   for (let block of templateAnalysis.blockDependencies()) {
     let foundRoot = false;
     let foundClass = false;

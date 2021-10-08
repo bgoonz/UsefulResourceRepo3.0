@@ -1,7 +1,3 @@
-export {
-  Configuration,
-  Options,
-  ResolvedConfiguration,
-} from "./types";
+export { Configuration, Options, ResolvedConfiguration } from "./types";
 export { OutputMode } from "./OutputMode";
-export { resolveConfiguration }from "./resolver";
+export { resolveConfiguration } from "./resolver";

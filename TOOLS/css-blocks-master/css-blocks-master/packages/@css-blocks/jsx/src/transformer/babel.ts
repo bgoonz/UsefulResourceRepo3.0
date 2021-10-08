@@ -32,7 +32,10 @@ import { JSXElementAnalyzer } from "../Analyzer/visitors/element";
 import { isBlockFilename } from "../utils/isBlockFilename";
 import { isConsoleLogStatement } from "../utils/isConsoleLogStatement";
 
-import { HELPER_FN_NAME, classnamesHelper as generateClassName } from "./classNameGenerator";
+import {
+  HELPER_FN_NAME,
+  classnamesHelper as generateClassName,
+} from "./classNameGenerator";
 import { CSSBlocksJSXTransformer as Rewriter } from "./index";
 
 const debug = debugGenerator("css-blocks:jsx:rewriter");
@@ -62,12 +65,13 @@ interface BabelFile {
   };
 }
 
-export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginObj<CssBlocksVisitor> {
+export function makePlugin(transformOpts: {
+  rewriter: Rewriter;
+}): () => PluginObj<CssBlocksVisitor> {
   const rewriter = transformOpts.rewriter;
   debug(`Made Rewriter`);
 
   return function transform(): PluginObj<CssBlocksVisitor> {
-
     return {
       pre(file: BabelFile) {
         debug(`Encountered file for rewrite: ${file}`);
@@ -78,12 +82,18 @@ export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginO
 
         this.mapping = rewriter.blocks[this.filename];
         if (this.mapping && this.mapping.analyses) {
-          this.analysis = this.mapping.analyses.find(a => a.template.identifier === this.filename);
+          this.analysis = this.mapping.analyses.find(
+            (a) => a.template.identifier === this.filename
+          );
         } else {
           this.shouldProcess = false;
         }
         let ext = parse(this.filename).ext;
-        this.shouldProcess = CAN_PARSE_EXTENSIONS[ext] && this.analysis && this.analysis.blockCount() > 0 || false;
+        this.shouldProcess =
+          (CAN_PARSE_EXTENSIONS[ext] &&
+            this.analysis &&
+            this.analysis.blockCount() > 0) ||
+          false;
 
         if (this.analysis && this.shouldProcess) {
           debug(`Rewriting discovered dependency ${this.filename}`);
@@ -96,7 +106,9 @@ export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginO
       },
       post() {
         for (let nodePath of this.statementsToRemove) {
-          if (nodePath.removed) { continue; }
+          if (nodePath.removed) {
+            continue;
+          }
           nodePath.remove();
         }
         if (this.dynamicStylesFound) {
@@ -104,17 +116,19 @@ export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginO
           detectStrayReferenceToImport(firstImport, this.filename);
           let importDecl = importDeclaration(
             [importDefaultSpecifier(identifier(HELPER_FN_NAME))],
-            stringLiteral("@css-blocks/runtime"));
+            stringLiteral("@css-blocks/runtime")
+          );
           firstImport.replaceWith(importDecl);
         }
         for (let nodePath of this.importsToRemove) {
-          if (nodePath.removed) { continue; }
+          if (nodePath.removed) {
+            continue;
+          }
           detectStrayReferenceToImport(nodePath, this.filename);
           nodePath.remove();
         }
       },
       visitor: {
-
         // If this is a CSS Blocks import, always remove it.
         ImportDeclaration(nodePath: NodePath<ImportDeclaration>) {
           // We always remove block imports even if we're aborting the processing -- they can only cause problems.
@@ -130,10 +144,16 @@ export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginO
           let elementAnalysis = this.elementAnalyzer.analyzeAssignment(path);
           if (elementAnalysis) {
             elementAnalysis.seal();
-            let classMapping = this.mapping.simpleRewriteMapping(elementAnalysis);
+            let classMapping =
+              this.mapping.simpleRewriteMapping(elementAnalysis);
             let className: Expression | undefined = undefined;
             if (classMapping.dynamicClasses.length > 0) {
-              className = generateClassName(classMapping, elementAnalysis, HELPER_FN_NAME, true);
+              className = generateClassName(
+                classMapping,
+                elementAnalysis,
+                HELPER_FN_NAME,
+                true
+              );
             } else {
               className = stringLiteral(classMapping.staticClasses.join(" "));
             }
@@ -151,32 +171,53 @@ export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginO
         },
 
         JSXOpeningElement(path: NodePath<JSXOpeningElement>): void {
-          if (!this.shouldProcess) { return; }
+          if (!this.shouldProcess) {
+            return;
+          }
           let elementAnalysis = this.elementAnalyzer.analyzeJSXElement(path);
           if (elementAnalysis) {
             elementAnalysis.seal();
-            let classMapping = this.mapping.simpleRewriteMapping(elementAnalysis);
+            let classMapping =
+              this.mapping.simpleRewriteMapping(elementAnalysis);
             let attributeValue: JSXAttribute["value"] | undefined = undefined;
             let newClassAttr: JSXAttribute | undefined = undefined;
             if (classMapping.dynamicClasses.length > 0) {
               this.dynamicStylesFound = true;
               attributeValue = jSXExpressionContainer(
-                generateClassName(classMapping, elementAnalysis, HELPER_FN_NAME, true));
+                generateClassName(
+                  classMapping,
+                  elementAnalysis,
+                  HELPER_FN_NAME,
+                  true
+                )
+              );
             } else if (classMapping.staticClasses.length > 0) {
-              attributeValue = stringLiteral(classMapping.staticClasses.join(" "));
+              attributeValue = stringLiteral(
+                classMapping.staticClasses.join(" ")
+              );
             }
             if (attributeValue) {
-              newClassAttr = jSXAttribute(jSXIdentifier("class"), attributeValue);
+              newClassAttr = jSXAttribute(
+                jSXIdentifier("class"),
+                attributeValue
+              );
             }
 
             let classAttrs = this.elementAnalyzer.classAttributePaths(path);
             for (let attrPath of classAttrs) {
               let binding = this.elementAnalyzer.styleVariableBinding(attrPath);
               if (binding) {
-                this.statementsToRemove.push(binding.path as NodePath<Statement>);
+                this.statementsToRemove.push(
+                  binding.path as NodePath<Statement>
+                );
                 for (let ref of binding.referencePaths) {
-                  if (!isJSXExpressionContainer(ref.parentPath.node) && !isConsoleLogStatement(ref.node)) {
-                    this.statementsToRemove.push(ref.getStatementParent() as NodePath<Statement>);
+                  if (
+                    !isJSXExpressionContainer(ref.parentPath.node) &&
+                    !isConsoleLogStatement(ref.node)
+                  ) {
+                    this.statementsToRemove.push(
+                      ref.getStatementParent() as NodePath<Statement>
+                    );
                   }
                 }
               }
@@ -189,7 +230,7 @@ export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginO
               firstClass.remove();
             }
             for (let attrPath of classAttrs) {
-                attrPath.remove();
+              attrPath.remove();
             }
           }
         },
@@ -200,17 +241,23 @@ export function makePlugin(transformOpts: { rewriter: Rewriter }): () => PluginO
 
 function detectStrayReferenceToImport(
   importDeclPath: NodePath<ImportDeclaration>,
-  filename: string,
+  filename: string
 ): void {
-  if (!importDeclPath || !importDeclPath.node) { return; }
+  if (!importDeclPath || !importDeclPath.node) {
+    return;
+  }
   for (let specifier of importDeclPath.node.specifiers) {
     let binding = importDeclPath.scope.getBinding(specifier.local.name);
     if (binding) {
       for (let ref of binding.referencePaths) {
-        if (ref.type === "Identifier"
-            && (<Identifier>ref.node).name === specifier.local.name
-            && !isRemoved(ref)) {
-          console.warn(`WARNING: Stray reference to block import (${specifier.local.name}). Imports are removed during rewrite so this will probably be a runtime error. (${filename}:${ref.node.loc.start.line}:${ref.node.loc.start.column})`);
+        if (
+          ref.type === "Identifier" &&
+          (<Identifier>ref.node).name === specifier.local.name &&
+          !isRemoved(ref)
+        ) {
+          console.warn(
+            `WARNING: Stray reference to block import (${specifier.local.name}). Imports are removed during rewrite so this will probably be a runtime error. (${filename}:${ref.node.loc.start.line}:${ref.node.loc.start.column})`
+          );
           // throw new TemplateAnalysisError(`Stray reference to block import (${specifier.local.name}). Imports are removed during rewrite.`, {filename, ...ref.node.loc.start});
         }
       }

@@ -35,7 +35,10 @@ export function addSourceLocations(...locations: SourceLocation[]) {
  * @param node  The PostCSS Node object in question.
  * @returns An object representing the filename, line number and column number.
  */
-export function sourceLocation(sourceFile: string, node: postcss.Node): SourceLocation | undefined {
+export function sourceLocation(
+  sourceFile: string,
+  node: postcss.Node
+): SourceLocation | undefined {
   if (node.source && node.source.start) {
     let loc = node.source.start;
     return {
@@ -55,8 +58,17 @@ export function sourceLocation(sourceFile: string, node: postcss.Node): SourceLo
  * @param selector  The PostCSS selector node in question.
  * @returns An object representing the filename, line number and column number.
  */
-export function selectorSourceLocation(sourceFile: string, rule: postcss.Rule, selector: selectorParser.Node): SourceLocation | undefined {
-  if (rule.source && rule.source.start && selector.source && selector.source.start) {
+export function selectorSourceLocation(
+  sourceFile: string,
+  rule: postcss.Rule,
+  selector: selectorParser.Node
+): SourceLocation | undefined {
+  if (
+    rule.source &&
+    rule.source.start &&
+    selector.source &&
+    selector.source.start
+  ) {
     let loc = addSourceLocations(rule.source.start, selector.source.start);
     return {
       filename: sourceFile,

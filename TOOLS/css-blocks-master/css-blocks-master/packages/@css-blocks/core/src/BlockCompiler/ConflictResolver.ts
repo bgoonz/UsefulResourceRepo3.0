@@ -1,7 +1,18 @@
 import { assertNever } from "@opticss/util";
-import { CompoundSelector, ParsedSelector, parseSelector, postcss, postcssSelectorParser as selectorParser } from "opticss";
+import {
+  CompoundSelector,
+  ParsedSelector,
+  parseSelector,
+  postcss,
+  postcssSelectorParser as selectorParser,
+} from "opticss";
 
-import { isAttributeNode, isClassNode, isRootNode, toAttrToken } from "../BlockParser";
+import {
+  isAttributeNode,
+  isClassNode,
+  isRootNode,
+  toAttrToken,
+} from "../BlockParser";
 import { RESOLVE_RE } from "../BlockSyntax";
 import { Block, BlockClass, Style } from "../BlockTree";
 import { ResolvedConfiguration } from "../configuration";
@@ -26,7 +37,11 @@ const NONCONTIGUOUS_COMBINATORS = new Set(["~", " "]);
  * Assert that `obj` is of type `Style`. Throw if not.
  * @param obj Style to test.
  */
-function assertStyle(obj: Style | undefined, key: string, source: SourceLocation | undefined): Style {
+function assertStyle(
+  obj: Style | undefined,
+  key: string,
+  source: SourceLocation | undefined
+): Style {
   if (obj === undefined) {
     // TODO: Better value source location for the bad block object reference.
     throw new errors.InvalidBlockSyntax(`Cannot find ${key}`, source);
@@ -78,7 +93,6 @@ export class ConflictResolver {
     // If this block inherits from another block, walk every ruleset.
     if (blockBase && blockBaseName) {
       root.walkRules((rule) => {
-
         // These two conflicts caches persist between comma separated selectors
         // so we don't resolve the same Properties or Style twice in a single pass.
         let handledConflicts = new Conflicts<string>();
@@ -98,33 +112,46 @@ export class ConflictResolver {
             }
             if (isClassNode(node)) {
               container = obj = block.getClass(node.value);
-            }
-            else if (isAttributeNode(node)) {
+            } else if (isAttributeNode(node)) {
               obj = container!.getAttributeValue(toAttrToken(node));
             }
           }
 
-          if (!obj) { return; }
+          if (!obj) {
+            return;
+          }
 
           // Fetch the set of Style conflicts. If the Style has already
           // been handled, skip.
-          let objectConflicts = handledObjects.getConflictSet(key.pseudoelement && key.pseudoelement.value);
-          if (objectConflicts.has(obj)) { return; }
+          let objectConflicts = handledObjects.getConflictSet(
+            key.pseudoelement && key.pseudoelement.value
+          );
+          if (objectConflicts.has(obj)) {
+            return;
+          }
           objectConflicts.add(obj);
 
           // Fetch the parent Style this Style inherits from. If none, skip.
           let base = obj.base;
-          if (!base) { return; }
+          if (!base) {
+            return;
+          }
 
           // Handle the inheritance conflicts
           let baseSource = base.asSource();
           let conflicts = detectConflicts(obj, base);
-          let handledConflictSet = handledConflicts.getConflictSet(key.pseudoelement && key.pseudoelement.value);
-          let conflictingProps = conflicts.getConflictSet(key.pseudoelement && key.pseudoelement.value);
+          let handledConflictSet = handledConflicts.getConflictSet(
+            key.pseudoelement && key.pseudoelement.value
+          );
+          let conflictingProps = conflicts.getConflictSet(
+            key.pseudoelement && key.pseudoelement.value
+          );
 
           // Given a ruleset and Set of conflicting properties, inject `resolve-inherited`
           // calls for the conflicts for `resolve()` to use later.
-          if (!conflictingProps || conflictingProps.size === 0) { return; }
+          if (!conflictingProps || conflictingProps.size === 0) {
+            return;
+          }
           let ruleProps = new Set<string>();
           rule.walkDecls((decl) => {
             ruleProps.add(decl.prop);
@@ -132,7 +159,12 @@ export class ConflictResolver {
           conflictingProps.forEach(([thisProp, _]) => {
             if (ruleProps.has(thisProp) && !handledConflictSet.has(thisProp)) {
               handledConflictSet.add(thisProp);
-              rule.prepend(postcss.decl({prop: thisProp, value: `resolve-inherited("${blockBaseName}${baseSource}")`}));
+              rule.prepend(
+                postcss.decl({
+                  prop: thisProp,
+                  value: `resolve-inherited("${blockBaseName}${baseSource}")`,
+                })
+              );
             }
           });
         });
@@ -148,10 +180,11 @@ export class ConflictResolver {
    */
   resolve(root: postcss.Root, block: Block) {
     root.walkDecls((decl) => {
-
       // If value is not `resolve()` or `resolve-inherited()` call, continue.
       let resolveDeclarationMatch = decl.value.match(RESOLVE_RE);
-      if (resolveDeclarationMatch === null) { return; }
+      if (resolveDeclarationMatch === null) {
+        return;
+      }
 
       let resolveInherited = !!resolveDeclarationMatch[1];
       let referenceStr = resolveDeclarationMatch[3];
@@ -162,19 +195,27 @@ export class ConflictResolver {
 
       // Find other resolutions or values for the same property in this block.
       decl.parent.walkDecls(decl.prop, (otherDecl, idx) => {
-
         // If you encounter the resolve, capture the index and determine if it is a value override.
         if (otherDecl.value.match(RESOLVE_RE)) {
-          if (otherDecl.value !== decl.value) { return; }
+          if (otherDecl.value !== decl.value) {
+            return;
+          }
           foundResolve = idx;
-          isOverride = (foundOtherValue !== null);
+          isOverride = foundOtherValue !== null;
         }
 
         // Else, if is a value for this property, capture other decl.
         else {
           // Throw if resolutions are not all before or after values for the same property.
-          if (foundOtherValue !== null && foundResolve !== null && foundOtherValue < foundResolve) {
-            throw new errors.InvalidBlockSyntax(`Resolving ${decl.prop} must happen either before or after all other values for ${decl.prop}.`, this.sourceLocation(block, decl));
+          if (
+            foundOtherValue !== null &&
+            foundResolve !== null &&
+            foundOtherValue < foundResolve
+          ) {
+            throw new errors.InvalidBlockSyntax(
+              `Resolving ${decl.prop} must happen either before or after all other values for ${decl.prop}.`,
+              this.sourceLocation(block, decl)
+            );
           }
           foundOtherValue = idx;
           otherDecls.push(otherDecl);
@@ -183,7 +224,10 @@ export class ConflictResolver {
 
       // If no local value found, throw.
       if (foundOtherValue === null) {
-        throw new errors.InvalidBlockSyntax(`Cannot resolve ${decl.prop} without a concrete value.`, this.sourceLocation(block, decl));
+        throw new errors.InvalidBlockSyntax(
+          `Cannot resolve ${decl.prop} without a concrete value.`,
+          this.sourceLocation(block, decl)
+        );
       }
 
       // Look up the block that contains the asked resolution.
@@ -192,20 +236,32 @@ export class ConflictResolver {
 
       // If trying to resolve rule from the same block, throw.
       if (block.equal(other && other.block)) {
-        throw new errors.InvalidBlockSyntax(`Cannot resolve conflicts with your own block.`, this.sourceLocation(block, decl));
+        throw new errors.InvalidBlockSyntax(
+          `Cannot resolve conflicts with your own block.`,
+          this.sourceLocation(block, decl)
+        );
       }
 
       // If trying to explicitly resolve (aka: not injected inheritance) from an
       // ancestor block, throw.
       else if (!resolveInherited && other && other.block.isAncestorOf(block)) {
-        throw new errors.InvalidBlockSyntax(`Cannot resolve conflicts with ancestors of your own block.`, this.sourceLocation(block, decl));
+        throw new errors.InvalidBlockSyntax(
+          `Cannot resolve conflicts with ancestors of your own block.`,
+          this.sourceLocation(block, decl)
+        );
       }
 
       // Crawl up inheritance tree of the other block and attempt to resolve the
       // conflict at each level.
       let foundConflict = ConflictType.noConflict;
       while (other && foundConflict === ConflictType.noConflict) {
-        foundConflict = this.resolveConflictWith(referenceStr, other, decl, otherDecls, isOverride);
+        foundConflict = this.resolveConflictWith(
+          referenceStr,
+          other,
+          decl,
+          otherDecls,
+          isOverride
+        );
         if (foundConflict === ConflictType.noConflict) {
           other = other.base;
         }
@@ -214,7 +270,10 @@ export class ConflictResolver {
       // If no conflicting Declarations were found (aka: calling for a resolution
       // with nothing to resolve), throw error.
       if (!resolveInherited && foundConflict === ConflictType.noConflict) {
-        throw new errors.InvalidBlockSyntax(`There are no conflicting values for ${decl.prop} found in any selectors targeting ${referenceStr}.`, this.sourceLocation(block, decl));
+        throw new errors.InvalidBlockSyntax(
+          `There are no conflicting values for ${decl.prop} found in any selectors targeting ${referenceStr}.`,
+          this.sourceLocation(block, decl)
+        );
       }
 
       // Remove resolution Declaration
@@ -227,15 +286,17 @@ export class ConflictResolver {
     other: Style,
     decl: postcss.Declaration,
     otherDecls: postcss.Declaration[],
-    isOverride: boolean,
+    isOverride: boolean
   ): ConflictType {
-    let curSel = parseSelector((<postcss.Rule>decl.parent)); // can't use the cache, it's already been rewritten.
+    let curSel = parseSelector(<postcss.Rule>decl.parent); // can't use the cache, it's already been rewritten.
     let prop = decl.prop;
     let root = other.block.stylesheet;
 
     // This should never happen, but it satisfies the compiler.
     if (root === undefined) {
-      throw new TypeError(`Cannot resolve. The block for ${referenceStr} is missing a stylesheet root`);
+      throw new TypeError(
+        `Cannot resolve. The block for ${referenceStr} is missing a stylesheet root`
+      );
     }
 
     // Something to consider: when resolving against a sub-block that has overridden a property, do we need
@@ -245,13 +306,18 @@ export class ConflictResolver {
     let foundConflict: ConflictType = ConflictType.noConflict;
     let resolvedSelectors = new Set<string>();
     curSel.forEach((cs) => {
-      let resultSelectors = cs.key.pseudoelement ? result.other[cs.key.pseudoelement.value] : result.main;
+      let resultSelectors = cs.key.pseudoelement
+        ? result.other[cs.key.pseudoelement.value]
+        : result.main;
       if (!resultSelectors || resultSelectors.length === 0) return;
 
       // we reverse the selectors because otherwise the insertion order causes them to be backwards from the
       // source order of the target selector
       resultSelectors.reverse().forEach((s) => {
-        let newSelectors = this.mergeKeySelectors(other.block.rewriteSelector(s.parsedSelector, this.config), cs);
+        let newSelectors = this.mergeKeySelectors(
+          other.block.rewriteSelector(s.parsedSelector, this.config),
+          cs
+        );
         if (newSelectors === null) return;
         let newSelStr = newSelectors.join(",\n");
         // avoid duplicate selector via permutation
@@ -263,23 +329,35 @@ export class ConflictResolver {
         let sameValues = true;
         s.rule.walkDecls(decl.prop, (overrideDecl) => {
           if (!overrideDecl.value.match(RESOLVE_RE)) {
-            if (otherDecls.length === d || overrideDecl.value !== otherDecls[d++].value) {
+            if (
+              otherDecls.length === d ||
+              overrideDecl.value !== otherDecls[d++].value
+            ) {
               sameValues = false;
               return false;
             }
           }
           return true;
         });
-        if (sameValues && otherDecls.length === d) { // check length in case there was an extra otherDecl
-          foundConflict = updateConflict(foundConflict, ConflictType.sameValues);
+        if (sameValues && otherDecls.length === d) {
+          // check length in case there was an extra otherDecl
+          foundConflict = updateConflict(
+            foundConflict,
+            ConflictType.sameValues
+          );
           return;
         }
         // If it's an override we copy the declaration values from the target into the selector
         if (isOverride) {
           s.rule.walkDecls(decl.prop, (overrideDecl) => {
             if (!overrideDecl.value.match(RESOLVE_RE)) {
-              foundConflict = updateConflict(foundConflict, ConflictType.conflict);
-              newRule.append(postcss.decl({ prop: prop, value: overrideDecl.value }));
+              foundConflict = updateConflict(
+                foundConflict,
+                ConflictType.conflict
+              );
+              newRule.append(
+                postcss.decl({ prop: prop, value: overrideDecl.value })
+              );
             }
           });
         } else {
@@ -288,14 +366,19 @@ export class ConflictResolver {
           let foundSelConflict = false;
           s.rule.walkDecls(decl.prop, (overrideDecl) => {
             if (!overrideDecl.value.match(RESOLVE_RE)) {
-              foundConflict = updateConflict(foundConflict, ConflictType.conflict);
+              foundConflict = updateConflict(
+                foundConflict,
+                ConflictType.conflict
+              );
               foundSelConflict = true;
             }
           });
           // if the conflicting properties are set copy
           if (foundSelConflict) {
             otherDecls.forEach((otherDecl) => {
-              newRule.append(postcss.decl({ prop: prop, value: otherDecl.value }));
+              newRule.append(
+                postcss.decl({ prop: prop, value: otherDecl.value })
+              );
             });
           }
         }
@@ -318,7 +401,11 @@ export class ConflictResolver {
    * @param s The compound selector to split.
    * @returns [ CompoundSelector, Combinator, CompoundSelector ]
    */
-  private splitSelector(s: CompoundSelector): [CompoundSelector, selectorParser.Combinator, CompoundSelector] | [undefined, undefined, CompoundSelector] {
+  private splitSelector(
+    s: CompoundSelector
+  ):
+    | [CompoundSelector, selectorParser.Combinator, CompoundSelector]
+    | [undefined, undefined, CompoundSelector] {
     s = s.clone();
     let last = s.removeLast();
     if (last) {
@@ -335,11 +422,15 @@ export class ConflictResolver {
    * @param s2 Conflicting ParsedSelector 1.
    * @returns A list of ParsedSelector rules that select all possible elements that can have both styles applied.
    */
-  private mergeKeySelectors(s1: ParsedSelector, s2: ParsedSelector): ParsedSelector[] {
-
+  private mergeKeySelectors(
+    s1: ParsedSelector,
+    s2: ParsedSelector
+  ): ParsedSelector[] {
     // We can not currently handle selectors with more than one combinator.
     if (s1.length > 2 && s2.length > 2) {
-      throw new errors.InvalidBlockSyntax(`Cannot resolve selectors with more than 1 combinator at this time [FIXME].`);
+      throw new errors.InvalidBlockSyntax(
+        `Cannot resolve selectors with more than 1 combinator at this time [FIXME].`
+      );
     }
 
     // Split the two combinators into constituent parts.
@@ -354,52 +445,109 @@ export class ConflictResolver {
 
     // If both selectors have contexts, we need to do some CSS magic.
     if (context1 && context2 && combinator1 && combinator2) {
-
       // >, >; +, +
-      if (CONTIGUOUS_COMBINATORS.has(combinator1.value) && combinator1.value === combinator2.value) {
-        mergedSelectors.push(context1.clone().mergeNodes(context2).append(combinator1, mergedKey));
+      if (
+        CONTIGUOUS_COMBINATORS.has(combinator1.value) &&
+        combinator1.value === combinator2.value
+      ) {
+        mergedSelectors.push(
+          context1.clone().mergeNodes(context2).append(combinator1, mergedKey)
+        );
       }
 
       // +,>; ~,>; +," "; ~," "
-      else if (SIBLING_COMBINATORS.has(combinator1.value) && HIERARCHICAL_COMBINATORS.has(combinator2.value)) {
-        mergedSelectors.push(context2.clone().append(combinator2, context1).append(combinator1, mergedKey));
+      else if (
+        SIBLING_COMBINATORS.has(combinator1.value) &&
+        HIERARCHICAL_COMBINATORS.has(combinator2.value)
+      ) {
+        mergedSelectors.push(
+          context2
+            .clone()
+            .append(combinator2, context1)
+            .append(combinator1, mergedKey)
+        );
       }
 
       // >,+; " ",+; >,~; " ",~
-      else if (HIERARCHICAL_COMBINATORS.has(combinator1.value) && SIBLING_COMBINATORS.has(combinator2.value)) {
-        mergedSelectors.push(context1.clone().append(combinator1, context2).append(combinator2, mergedKey));
+      else if (
+        HIERARCHICAL_COMBINATORS.has(combinator1.value) &&
+        SIBLING_COMBINATORS.has(combinator2.value)
+      ) {
+        mergedSelectors.push(
+          context1
+            .clone()
+            .append(combinator1, context2)
+            .append(combinator2, mergedKey)
+        );
       }
 
       // " "," "; ~,~
-      else if (NONCONTIGUOUS_COMBINATORS.has(combinator1.value) && NONCONTIGUOUS_COMBINATORS.has(combinator2.value)) {
-        mergedSelectors.push(context1.clone().mergeNodes(context2).append(combinator2, mergedKey));
-        mergedSelectors.push(context1.clone().append(combinator1, context2.clone()).append(combinator2, mergedKey.clone()));
-        mergedSelectors.push(context2.clone().append(combinator1, context1.clone()).append(combinator2, mergedKey.clone()));
+      else if (
+        NONCONTIGUOUS_COMBINATORS.has(combinator1.value) &&
+        NONCONTIGUOUS_COMBINATORS.has(combinator2.value)
+      ) {
+        mergedSelectors.push(
+          context1.clone().mergeNodes(context2).append(combinator2, mergedKey)
+        );
+        mergedSelectors.push(
+          context1
+            .clone()
+            .append(combinator1, context2.clone())
+            .append(combinator2, mergedKey.clone())
+        );
+        mergedSelectors.push(
+          context2
+            .clone()
+            .append(combinator1, context1.clone())
+            .append(combinator2, mergedKey.clone())
+        );
       }
 
       // " ", >; ~,+
       else if (
-           NONCONTIGUOUS_COMBINATORS.has(combinator1.value) && CONTIGUOUS_COMBINATORS.has(combinator2.value)    &&
-        ((HIERARCHICAL_COMBINATORS.has(combinator1.value) && HIERARCHICAL_COMBINATORS.has(combinator2.value)) ||
-         (SIBLING_COMBINATORS.has(combinator1.value) && SIBLING_COMBINATORS.has(combinator2.value)))
+        NONCONTIGUOUS_COMBINATORS.has(combinator1.value) &&
+        CONTIGUOUS_COMBINATORS.has(combinator2.value) &&
+        ((HIERARCHICAL_COMBINATORS.has(combinator1.value) &&
+          HIERARCHICAL_COMBINATORS.has(combinator2.value)) ||
+          (SIBLING_COMBINATORS.has(combinator1.value) &&
+            SIBLING_COMBINATORS.has(combinator2.value)))
       ) {
-        mergedSelectors.push(context1.clone().mergeNodes(context2).append(combinator2, mergedKey));
-        mergedSelectors.push(context1.clone().append(combinator1, context2.clone()).append(combinator2, mergedKey.clone()));
+        mergedSelectors.push(
+          context1.clone().mergeNodes(context2).append(combinator2, mergedKey)
+        );
+        mergedSelectors.push(
+          context1
+            .clone()
+            .append(combinator1, context2.clone())
+            .append(combinator2, mergedKey.clone())
+        );
       }
 
       // >, " "; +,~
       else if (
-           NONCONTIGUOUS_COMBINATORS.has(combinator2.value) && CONTIGUOUS_COMBINATORS.has(combinator1.value)    &&
-        ((HIERARCHICAL_COMBINATORS.has(combinator2.value) && HIERARCHICAL_COMBINATORS.has(combinator1.value)) ||
-         (SIBLING_COMBINATORS.has(combinator2.value) && SIBLING_COMBINATORS.has(combinator1.value)))
+        NONCONTIGUOUS_COMBINATORS.has(combinator2.value) &&
+        CONTIGUOUS_COMBINATORS.has(combinator1.value) &&
+        ((HIERARCHICAL_COMBINATORS.has(combinator2.value) &&
+          HIERARCHICAL_COMBINATORS.has(combinator1.value)) ||
+          (SIBLING_COMBINATORS.has(combinator2.value) &&
+            SIBLING_COMBINATORS.has(combinator1.value)))
       ) {
-        mergedSelectors.push(context1.clone().mergeNodes(context2).append(combinator1, mergedKey));
-        mergedSelectors.push(context2.clone().append(combinator2, context1.clone()).append(combinator1, mergedKey.clone()));
+        mergedSelectors.push(
+          context1.clone().mergeNodes(context2).append(combinator1, mergedKey)
+        );
+        mergedSelectors.push(
+          context2
+            .clone()
+            .append(combinator2, context1.clone())
+            .append(combinator1, mergedKey.clone())
+        );
       }
 
       // We've encountered a use case we don't recognize...
       else {
-        throw new errors.InvalidBlockSyntax(`Cannot merge selectors with combinators: '${combinator1.value}' and '${combinator2.value}' [FIXME?].`);
+        throw new errors.InvalidBlockSyntax(
+          `Cannot merge selectors with combinators: '${combinator1.value}' and '${combinator2.value}' [FIXME?].`
+        );
       }
     }
 
@@ -422,10 +570,13 @@ export class ConflictResolver {
     }
 
     // Wrap our list of CompoundSelectors in ParsedSelector containers and return.
-    return mergedSelectors.map(sel => new ParsedSelector(sel));
+    return mergedSelectors.map((sel) => new ParsedSelector(sel));
   }
   sourceLocation(block: Block, node: postcss.Node): SourceLocation | undefined {
-    let blockPath = this.config.importer.debugIdentifier(block.identifier, this.config);
+    let blockPath = this.config.importer.debugIdentifier(
+      block.identifier,
+      this.config
+    );
     return sourceLocation(blockPath, node);
   }
 }

@@ -17,12 +17,12 @@
   position: relative;
   z-index: 1;
   color: white;
-  padding-top: 18px
+  padding-top: 18px;
 }
 
 .main::before {
   position: absolute;
-  content: '';
+  content: "";
   pointer-events: none;
   height: 50%;
   background: var(--purple);
@@ -38,7 +38,7 @@
 
 .main::after {
   position: absolute;
-  content: '';
+  content: "";
   pointer-events: none;
   top: 0;
   left: -25%;
@@ -109,7 +109,7 @@
   border-radius: 8px;
   line-height: 32px;
   background: white;
-  border: 1px solid var( --purple);
+  border: 1px solid var(--purple);
 }
 
 .codeDemo {

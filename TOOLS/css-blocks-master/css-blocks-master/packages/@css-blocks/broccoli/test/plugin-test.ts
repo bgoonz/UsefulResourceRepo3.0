@@ -59,10 +59,22 @@ describe("Broccoli Plugin Test", function () {
       let files = output.read();
 
       assert.ok(Object.keys(transport).length, "Transport Object populated");
-      assert.ok(transport["mapping"], "Mapping property is populated in Transport Object");
-      assert.ok(transport["blocks"], "Blocks property is populated in Transport Object");
-      assert.ok(transport["analyzer"], "Analyzer property is populated in Transport Object");
-      assert.ok(transport["css"], "CSS property is populated in Transport Object");
+      assert.ok(
+        transport["mapping"],
+        "Mapping property is populated in Transport Object"
+      );
+      assert.ok(
+        transport["blocks"],
+        "Blocks property is populated in Transport Object"
+      );
+      assert.ok(
+        transport["analyzer"],
+        "Analyzer property is populated in Transport Object"
+      );
+      assert.ok(
+        transport["css"],
+        "CSS property is populated in Transport Object"
+      );
       assert.ok(files["css-blocks.css"], "CSS File generated");
     });
   });

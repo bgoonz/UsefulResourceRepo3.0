@@ -8,7 +8,11 @@ import {
 
 import { ErrorLocation } from "../utils/Errors";
 
-import { COMMON_NAMES as COMMON_OBJSTR_NAMES, ObjStrStyleFunction, objstrFn } from "./objstrFunction";
+import {
+  COMMON_NAMES as COMMON_OBJSTR_NAMES,
+  ObjStrStyleFunction,
+  objstrFn,
+} from "./objstrFunction";
 
 export type StyleFunction = ObjStrStyleFunction;
 
@@ -19,7 +23,7 @@ export interface StyleFunctionError {
   location: ErrorLocation;
 }
 
-const COMMON_NAMES = {...COMMON_OBJSTR_NAMES};
+const COMMON_NAMES = { ...COMMON_OBJSTR_NAMES };
 
 export function isCommonNameForStyling(name: string): boolean {
   return COMMON_NAMES[name] || false;
@@ -31,7 +35,10 @@ export function isCommonNameForStyling(name: string): boolean {
 // The function called must be bound to a known style helper module.
 // The name of the helper module is returned as well as that local alias of that module.
 // If it's not a style function, a object with error information is returned.
-export function isStyleFunction(path: NodePath<Node>, expression: CallExpression): StyleFunction | StyleFunctionError {
+export function isStyleFunction(
+  path: NodePath<Node>,
+  expression: CallExpression
+): StyleFunction | StyleFunctionError {
   let binding: Binding | undefined = undefined;
   if (isIdentifier(expression.callee)) {
     binding = path.scope.getBinding(expression.callee.name);

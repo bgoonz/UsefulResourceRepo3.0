@@ -9,27 +9,32 @@ import { BLOCK_LOADER_PATH } from "../util/testPaths";
 
 import { config as defaultOutputConfig } from "./defaultOutputConfig";
 
-export function config(entry: string, options?: LoaderOptions): WebpackConfiguration {
+export function config(
+  entry: string,
+  options?: LoaderOptions
+): WebpackConfiguration {
   const baseConfig: WebpackConfiguration = {
     entry: entry,
     output: {
-        filename: "bundle.block.css.js",
+      filename: "bundle.block.css.js",
     },
     module: {
-        rules: [{
-            test: /\.block\.css$/,
-            use: [
-                { loader: "raw-loader" },
-                { loader: BLOCK_LOADER_PATH, options },
-            ],
-        }],
+      rules: [
+        {
+          test: /\.block\.css$/,
+          use: [
+            { loader: "raw-loader" },
+            { loader: BLOCK_LOADER_PATH, options },
+          ],
+        },
+      ],
     },
     plugins: [
-        new CssBlocksPlugin({
-            name: "preact",
-            outputCssFile: "css-blocks.css",
-            analyzer: new TestAnalyzer(),
-        }),
+      new CssBlocksPlugin({
+        name: "preact",
+        outputCssFile: "css-blocks.css",
+        analyzer: new TestAnalyzer(),
+      }),
     ],
   };
   return merge(defaultOutputConfig(), baseConfig);

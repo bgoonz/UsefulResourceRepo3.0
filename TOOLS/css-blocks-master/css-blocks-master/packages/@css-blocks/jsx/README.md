@@ -11,6 +11,7 @@ import styles from "my-block.css";
 ```
 
 ### Scopes, Classes, and States
+
 Block files have a single default export that is the Block itself. Classes are exposed as properties on this object, and states are exposed as methods. The default import itself represents the `:scope` selector and may be applied like any other class.
 
 ```jsx
@@ -27,12 +28,11 @@ import styles from "my-block.css";
 
 // References the state `.myClass[state|classState]` from the imported block.
 <div className={styles.myClass.classState()} />;
-
 ```
 
 ### Sub-States
-To reference sub-states on a state, pass the sub-state value as the first (and only) argument. If a variable is seen to be passed to a state, the rewriter will add an import for the CSS Blocks runtime and be sure to preserve all possible runtime behaviors.
 
+To reference sub-states on a state, pass the sub-state value as the first (and only) argument. If a variable is seen to be passed to a state, the rewriter will add an import for the CSS Blocks runtime and be sure to preserve all possible runtime behaviors.
 
 ```jsx
 import styles from "my-block.css";
@@ -58,23 +58,22 @@ import typography from "typography.css";
 // Apply `my-block:scope` and `typography.small`
 let styleOne = objstr({
   [styles]: true,
-  [typography.small]: true
+  [typography.small]: true,
 });
 <div className={styleOne} />;
 
 // Apply `my-block:scope` and `my-blocks[state|enabled]`
 let styleOne = objstr({
   [styles]: true,
-  [styles.enabled()]: isEnabled
+  [styles.enabled()]: isEnabled,
 });
 <div className={styleOne} />;
-
 ```
 
 ### Restrictions
 
-  1. Block references may not be used outside of the `className` property (or `class` for Preact), or an `obj-str` call.
-  2. If a dynamic value is passed to a state "method", then we can not determine through static analysis which sub-states are used by the program, so all possible sub-states will be included in the final CSS output. When possible, pass state "methods" a string literal.
+1. Block references may not be used outside of the `className` property (or `class` for Preact), or an `obj-str` call.
+2. If a dynamic value is passed to a state "method", then we can not determine through static analysis which sub-states are used by the program, so all possible sub-states will be included in the final CSS output. When possible, pass state "methods" a string literal.
 
 ## Integration
 
@@ -89,12 +88,12 @@ let analyzer = new Analyzer("unique-name", options);
 
 Possible options are:
 
-| Option | Default | Description |
-|:--|:--|:--|
-| **baseDir** | `process.cwd()` | The root directory from which all sources are relative. |
-| **parserOptions** | [Defaults](https://github.com/linkedin/css-blocks/blob/b5ad979/packages/@css-blocks/jsx/src/options.ts#L7) | Options for the Babel parser used to generate the JSX AST. |
-| **aliases** | `{}` | Resolution aliases used for Block files. If no file is found at the exact path specified, the Block importer will attempt to resolve using these path aliases. |
-| **compilationOptions** | {} | Provide custom compilation options to [@css-blocks/core](../core#options). |
+| Option                 | Default                                                                                                    | Description                                                                                                                                                    |
+| :--------------------- | :--------------------------------------------------------------------------------------------------------- | :------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **baseDir**            | `process.cwd()`                                                                                            | The root directory from which all sources are relative.                                                                                                        |
+| **parserOptions**      | [Defaults](https://github.com/linkedin/css-blocks/blob/b5ad979/packages/@css-blocks/jsx/src/options.ts#L7) | Options for the Babel parser used to generate the JSX AST.                                                                                                     |
+| **aliases**            | `{}`                                                                                                       | Resolution aliases used for Block files. If no file is found at the exact path specified, the Block importer will attempt to resolve using these path aliases. |
+| **compilationOptions** | {}                                                                                                         | Provide custom compilation options to [@css-blocks/core](../core#options).                                                                                     |
 
 The Analyzer may be passed to a build integration. For JSX, this will typically be [Webpack](../webpack);
 

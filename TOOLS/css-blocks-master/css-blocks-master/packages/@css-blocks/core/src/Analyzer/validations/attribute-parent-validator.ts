@@ -6,11 +6,19 @@ import { Validator } from "./Validator";
  * @param err Error callback.
  */
 
-export const attributeParentValidator: Validator = (analysis, _templateAnalysis, err) => {
+export const attributeParentValidator: Validator = (
+  analysis,
+  _templateAnalysis,
+  err
+) => {
   for (let attr of analysis.attributesFound()) {
     if (!analysis.hasClass(attr.blockClass)) {
-      err(`Cannot use state "${attr.asSource()}" without parent ` +
-          `${ attr.blockClass.isRoot ? "block" : "class" } also applied or implied by another style.`);
+      err(
+        `Cannot use state "${attr.asSource()}" without parent ` +
+          `${
+            attr.blockClass.isRoot ? "block" : "class"
+          } also applied or implied by another style.`
+      );
     }
   }
 };

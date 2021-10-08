@@ -1,4 +1,10 @@
-import { AttrValue, Attribute, Block, BlockClass, isBlockClass } from "@css-blocks/core";
+import {
+  AttrValue,
+  Attribute,
+  Block,
+  BlockClass,
+  isBlockClass,
+} from "@css-blocks/core";
 import { Node } from "babel-traverse";
 import {
   BooleanLiteral,
@@ -23,21 +29,25 @@ const debug = debugGenerator("css-blocks:jsx");
 
 const isValidSegment = /^[a-z|A-Z|_|$][a-z|A-Z|_|$|1-9]*$/;
 
-const PATH_START    = Symbol("path-start");
-const PATH_END      = Symbol("path-end");
-const CALL_START    = Symbol("call-start");
-const CALL_END      = Symbol("call-end");
+const PATH_START = Symbol("path-start");
+const PATH_END = Symbol("path-end");
+const CALL_START = Symbol("call-start");
+const CALL_END = Symbol("call-end");
 
 export const DYNAMIC_STATE_ID = "*";
 
 export type PathExpression = (string | symbol)[];
 
-function isLiteral(node: Node): node is StringLiteral | NumericLiteral | BooleanLiteral  {
-  return isStringLiteral(node) || isNumericLiteral(node) || isBooleanLiteral(node);
+function isLiteral(
+  node: Node
+): node is StringLiteral | NumericLiteral | BooleanLiteral {
+  return (
+    isStringLiteral(node) || isNumericLiteral(node) || isBooleanLiteral(node)
+  );
 }
 
 function hasLiteralArguments(args: Array<Node>, length: number): boolean {
-  return args.length === length && args.every(a => isLiteral(a));
+  return args.length === length && args.every((a) => isLiteral(a));
 }
 
 export type BlockClassResult = {
@@ -51,15 +61,20 @@ export type BlockStateGroupResult = BlockClassResult & {
   stateGroup: Attribute;
   dynamicStateExpression: Expression;
 };
-export type BlockExpressionResult = BlockClassResult
-                                  | BlockStateResult
-                                  | BlockStateGroupResult;
+export type BlockExpressionResult =
+  | BlockClassResult
+  | BlockStateResult
+  | BlockStateGroupResult;
 
-export function isBlockStateResult(result: BlockExpressionResult): result is BlockStateResult {
-  return !!((<BlockStateResult>result).state);
+export function isBlockStateResult(
+  result: BlockExpressionResult
+): result is BlockStateResult {
+  return !!(<BlockStateResult>result).state;
 }
-export function isBlockStateGroupResult(result: BlockExpressionResult): result is BlockStateGroupResult {
-  return !!((<BlockStateGroupResult>result).stateGroup);
+export function isBlockStateGroupResult(
+  result: BlockExpressionResult
+): result is BlockStateGroupResult {
+  return !!(<BlockStateGroupResult>result).stateGroup;
 }
 
 /**
@@ -81,7 +96,6 @@ export class ExpressionReader {
   loc: ErrorLocation;
 
   constructor(expression: Node, filename: string) {
-
     // Expression location info object for error reporting.
     this.loc = {
       filename,
@@ -112,7 +126,6 @@ export class ExpressionReader {
 
     // Discover block expression identifiers of the form `block[.class][.state([subState])]`
     for (let i = 0; i < this.pathExpression.length; i++) {
-
       if (this.err) {
         this.block = this.class = this.stateName = this.stateValue = undefined;
         break;
@@ -123,20 +136,28 @@ export class ExpressionReader {
 
       if (token === PATH_START && this.block) {
         // XXX This err appears to be completely swallowed?
-        debug(`Discovered invalid block expression ${this.toString()} in objstr`);
+        debug(
+          `Discovered invalid block expression ${this.toString()} in objstr`
+        );
         this.err = "Nested expressions are not allowed in block expressions.";
-      }
-      else if (token === CALL_START && !this.stateName) {
+      } else if (token === CALL_START && !this.stateName) {
         // XXX This err appears to be completely swallowed?
-        debug(`Discovered invalid block expression ${this.toString()} in objstr`);
+        debug(
+          `Discovered invalid block expression ${this.toString()} in objstr`
+        );
         this.err = "Can not select state without a block or class.";
-      }
-      else if (typeof token === "string") {
-        if (this.stateName) { this.stateValue = token; }
-        else if (this.class) { this.stateName = token; }
-        else if (this.block && next === CALL_START) { this.stateName = token; }
-        else if (this.block) { this.class = token; }
-        else { this.block = token; }
+      } else if (typeof token === "string") {
+        if (this.stateName) {
+          this.stateValue = token;
+        } else if (this.class) {
+          this.stateName = token;
+        } else if (this.block && next === CALL_START) {
+          this.stateName = token;
+        } else if (this.block) {
+          this.class = token;
+        } else {
+          this.block = token;
+        }
       }
     }
 
@@ -156,26 +177,33 @@ export class ExpressionReader {
 
     if (!this.isBlockExpression) {
       if (this.err) {
-          throw new MalformedBlockPath(this.err, this.loc);
+        throw new MalformedBlockPath(this.err, this.loc);
       } else {
-          throw new MalformedBlockPath("No block name specified.", this.loc);
+        throw new MalformedBlockPath("No block name specified.", this.loc);
       }
     }
     let block = analyzer.getBlock(this.block!);
     let blockClass: BlockClass | undefined;
     if (!block) {
-      throw new MalformedBlockPath(`No block named ${this.block} exists in this scope.`, this.loc);
+      throw new MalformedBlockPath(
+        `No block named ${this.block} exists in this scope.`,
+        this.loc
+      );
     }
 
     // Fetch the class referenced in this selector, if it exists.
     if (this.class) {
       let found = block.lookup(`.${this.class}`) as BlockClass | undefined;
       if (!found) {
-        let knownClasses = block.all(false).filter(s => isBlockClass(s)).map(c => c.asSource());
+        let knownClasses = block
+          .all(false)
+          .filter((s) => isBlockClass(s))
+          .map((c) => c.asSource());
         throw new MalformedBlockPath(
           `No class named "${this.class}" found on block "${this.block}". ` +
             `Did you mean one of: ${knownClasses.join(", ")}`,
-          this.loc);
+          this.loc
+        );
       } else {
         blockClass = found;
       }
@@ -184,7 +212,9 @@ export class ExpressionReader {
 
     // If no state, we're done!
     if (!this.stateName) {
-      debug(`Discovered BlockClass ${this.class} from expression ${this.toString()}`);
+      debug(
+        `Discovered BlockClass ${this.class} from expression ${this.toString()}`
+      );
       return { block, blockClass };
     }
 
@@ -194,7 +224,9 @@ export class ExpressionReader {
     });
 
     if (!stateGroup) {
-      let message = `No state named ${this.stateName} found on class "${this.block}${blockClass.asSource()}".`;
+      let message = `No state named ${this.stateName} found on class "${
+        this.block
+      }${blockClass.asSource()}".`;
       let groupNames = [...blockClass.getGroupsNames()];
       if (groupNames.length === 1) {
         message += `\n  Did you mean: ${groupNames[0]}?`;
@@ -205,17 +237,25 @@ export class ExpressionReader {
     }
 
     if (this.stateValue === DYNAMIC_STATE_ID) {
-      let dynamicStateExpression: Expression = <Expression>this.callExpression!.arguments[0];
+      let dynamicStateExpression: Expression = <Expression>(
+        this.callExpression!.arguments[0]
+      );
       return { block, blockClass, stateGroup, dynamicStateExpression };
     } else if (this.stateValue) {
       let state = stateGroup.resolveValue(this.stateValue);
       if (!state) {
-        let message = `State "${stateGroup.asSource()}" has no value "${this.stateValue}" on Block "${this.block}".`;
-        let valueNames = [...stateGroup.valuesMap().values()].map(s => s.asSource());
+        let message = `State "${stateGroup.asSource()}" has no value "${
+          this.stateValue
+        }" on Block "${this.block}".`;
+        let valueNames = [...stateGroup.valuesMap().values()].map((s) =>
+          s.asSource()
+        );
         if (valueNames.length === 1) {
           message += `\n  Did you mean: ${valueNames[0]}?`;
         } else {
-          message += `\n  Did you mean one of: ${valueNames.sort().join(", ")}?`;
+          message += `\n  Did you mean one of: ${valueNames
+            .sort()
+            .join(", ")}?`;
         }
         throw new MalformedBlockPath(message, this.loc);
       }
@@ -225,10 +265,14 @@ export class ExpressionReader {
 
       if (!state) {
         if (stateGroup.hasResolvedValues) {
-          let message = `State "${this.block}${blockClass.asSource()}[state|${this.stateName}]" expects a value.`;
+          let message = `State "${this.block}${blockClass.asSource()}[state|${
+            this.stateName
+          }]" expects a value.`;
           throw new MalformedBlockPath(message, this.loc);
         } else {
-          let message = `State "${this.block}${blockClass.asSource()}[state|${this.stateName}]" not found.`;
+          let message = `State "${this.block}${blockClass.asSource()}[state|${
+            this.stateName
+          }]" not found.`;
           throw new MalformedBlockPath(message, this.loc);
         }
       }
@@ -240,20 +284,30 @@ export class ExpressionReader {
     let out = "";
     let len = this.pathExpression.length;
     this.pathExpression.forEach((part, idx) => {
-
       // If the first or last character, skip. These will always be path start/end symbols.
-      if (idx === 0 || idx === len - 1) { return; }
+      if (idx === 0 || idx === len - 1) {
+        return;
+      }
 
       // Print special characters
-      if      (part === PATH_START)    { out += "["; }
-      else if (part === PATH_END)      { out += "]"; }
-      else if (part === CALL_START)    { out += "("; }
-      else if (part === CALL_END)      { out += ")"; }
-      else if (part === DYNAMIC_STATE_ID) { out += "*"; }
+      if (part === PATH_START) {
+        out += "[";
+      } else if (part === PATH_END) {
+        out += "]";
+      } else if (part === CALL_START) {
+        out += "(";
+      } else if (part === CALL_END) {
+        out += ")";
+      } else if (part === DYNAMIC_STATE_ID) {
+        out += "*";
+      }
 
       // Else, if a segment that doesn't require bracket syntax, print with proper leading `.`
       else if (isValidSegment.test(<string>part)) {
-        out += (!out || out[out.length - 1] === "[" || out[out.length - 1] === "(") ? <string>part : "." + <string>part;
+        out +=
+          !out || out[out.length - 1] === "[" || out[out.length - 1] === "("
+            ? <string>part
+            : "." + <string>part;
       }
 
       // Else print with bracket syntax
@@ -279,8 +333,10 @@ interface HasComputed {
  * @param expression The expression node to be parsed
  * @returns An array of strings representing the expression parts.
  */
-function parsePathExpression(expression: Node, loc: ErrorLocation): PathExpression {
-
+function parsePathExpression(
+  expression: Node,
+  loc: ErrorLocation
+): PathExpression {
   let parts: PathExpression = [];
   let args: Node[] | undefined;
 
@@ -293,10 +349,11 @@ function parsePathExpression(expression: Node, loc: ErrorLocation): PathExpressi
   }
 
   // Validate we have an expression or identifier we can work with.
-  if (!isMemberExpression(expression)    &&
-       !isIdentifier(expression)          &&
-       !isJSXMemberExpression(expression) &&
-       !isJSXIdentifier(expression)
+  if (
+    !isMemberExpression(expression) &&
+    !isIdentifier(expression) &&
+    !isJSXMemberExpression(expression) &&
+    !isJSXIdentifier(expression)
   ) {
     return parts;
   }
@@ -304,28 +361,28 @@ function parsePathExpression(expression: Node, loc: ErrorLocation): PathExpressi
   function addPart(expression: object, prop: Node, loc: ErrorLocation) {
     if (isIdentifier(prop) || isJSXIdentifier(prop)) {
       parts.unshift(prop.name);
-    }
-
-    else if (isStringLiteral(prop)) {
+    } else if (isStringLiteral(prop)) {
       parts.unshift(prop.value);
     }
 
     // If we encounter another member expression (Ex: foo[bar.baz])
     // Because Typescript has issues with recursively nested types, we use symbols
     // to denote the boundaries between nested expressions.
-    else if ((<HasComputed>expression).computed && (
-              isCallExpression(prop)      ||
-              isMemberExpression(prop)    ||
-              isJSXMemberExpression(prop) ||
-              isJSXIdentifier(prop)       ||
-              isIdentifier(prop)
-            )) {
+    else if (
+      (<HasComputed>expression).computed &&
+      (isCallExpression(prop) ||
+        isMemberExpression(prop) ||
+        isJSXMemberExpression(prop) ||
+        isJSXIdentifier(prop) ||
+        isIdentifier(prop))
+    ) {
       parts.unshift(...parsePathExpression(prop, loc));
-    }
-
-    else {
+    } else {
       // TODO: Add location data in error message.
-      throw new MalformedBlockPath("Cannot parse overly complex expression to reference a CSS Block.", loc);
+      throw new MalformedBlockPath(
+        "Cannot parse overly complex expression to reference a CSS Block.",
+        loc
+      );
     }
   }
 
@@ -343,8 +400,7 @@ function parsePathExpression(expression: Node, loc: ErrorLocation): PathExpressi
     args.forEach((part) => {
       if (isLiteral(part)) {
         parts.push(String((part as StringLiteral).value));
-      }
-      else {
+      } else {
         parts.push(DYNAMIC_STATE_ID);
       }
     });

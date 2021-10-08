@@ -25,8 +25,7 @@ export class LookupTests {
   }
   @test "invalid namespaces throw"() {
     let block = new Block("test", "test.block.css");
-    assert.throws(
-       () => {
+    assert.throws(() => {
       block.lookup("[namespace|foo=bar]");
     }, ERRORS.namespace);
   }

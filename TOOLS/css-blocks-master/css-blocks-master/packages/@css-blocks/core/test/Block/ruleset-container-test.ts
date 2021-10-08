@@ -10,7 +10,9 @@ export class RulesetContainerTests {
     let b = new Block("name", "filepath");
     let c = b.ensureClass("test");
     let rulesets = c.rulesets;
-    postcss.parse(`
+    postcss
+      .parse(
+        `
       .foo {
         display: inline;
         float: left;
@@ -23,13 +25,20 @@ export class RulesetContainerTests {
       .baz::after {
         background: blue;
       }
-    `).walkRules(rulesets.addRuleset.bind(rulesets, "file.css"));
+    `
+      )
+      .walkRules(rulesets.addRuleset.bind(rulesets, "file.css"));
 
-    assert.deepEqual([...rulesets.getProperties()], ["display", "float", "color"]);
-    assert.deepEqual([...rulesets.getProperties("::after")], ["background-color", "background"]);
+    assert.deepEqual(
+      [...rulesets.getProperties()],
+      ["display", "float", "color"]
+    );
+    assert.deepEqual(
+      [...rulesets.getProperties("::after")],
+      ["background-color", "background"]
+    );
     assert.deepEqual([...rulesets.getPseudos()], ["::self", "::after"]);
     assert.deepEqual(rulesets.getRulesets("display").size, 2);
     assert.deepEqual(rulesets.getRulesets("background-color").size, 1);
   }
-
 }

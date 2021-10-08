@@ -1,6 +1,6 @@
 {
-  "include": [ "packages/**/*" ],
-  "exclude": [ "node_modules" ],
+  "include": ["packages/**/*"],
+  "exclude": ["node_modules"],
   "compilerOptions": {
     // Compilation Configuration
     "target": "es2015",
@@ -37,18 +37,10 @@
 
     "baseUrl": ".",
     "paths": {
-      "perfectionist": [
-        "types-local/perfectionist"
-      ],
-      "regexpu-core": [
-        "types-local/regexpu-core"
-      ],
-      "inline-source-map-comment": [
-        "types-local/inline-source-map-comment"
-      ],
-      "loader-utils": [
-        "types-local/loader-utils"
-      ]
+      "perfectionist": ["types-local/perfectionist"],
+      "regexpu-core": ["types-local/regexpu-core"],
+      "inline-source-map-comment": ["types-local/inline-source-map-comment"],
+      "loader-utils": ["types-local/loader-utils"]
     }
   }
 }

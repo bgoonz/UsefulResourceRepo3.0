@@ -4,7 +4,12 @@ import regexpu = require("regexpu-core");
  * CSS <ident-token> RegExp.
  * Defined: https://www.w3.org/TR/css-syntax-3/#typedef-ident-token
  */
-export const CLASS_NAME_IDENT = new RegExp(regexpu("^(-?(?:\\\\.|[A-Za-z_\\u{0080}-\\u{10ffff}])(?:\\\\.|[A-Za-z0-9_\\-\\u{0080}-\\u{10ffff}])*)$", "u"));
+export const CLASS_NAME_IDENT = new RegExp(
+  regexpu(
+    "^(-?(?:\\\\.|[A-Za-z_\\u{0080}-\\u{10ffff}])(?:\\\\.|[A-Za-z0-9_\\-\\u{0080}-\\u{10ffff}])*)$",
+    "u"
+  )
+);
 
 // State Attribute Namespace
 export const STATE_NAMESPACE = "state";
@@ -20,7 +25,11 @@ export const BLOCK_PROP_NAMES_RE = /^(extends|implements|block-name)$/;
 export const BLOCK_DEBUG = "block-debug";
 export const BLOCK_GLOBAL = "block-global";
 export const BLOCK_REFERENCE = "block-reference";
-export const BLOCK_AT_RULES = new Set([BLOCK_DEBUG, BLOCK_GLOBAL, BLOCK_REFERENCE]);
+export const BLOCK_AT_RULES = new Set([
+  BLOCK_DEBUG,
+  BLOCK_GLOBAL,
+  BLOCK_REFERENCE,
+]);
 
 // Prop Values
 // TODO: Make regexps private and consume below APIs instead.

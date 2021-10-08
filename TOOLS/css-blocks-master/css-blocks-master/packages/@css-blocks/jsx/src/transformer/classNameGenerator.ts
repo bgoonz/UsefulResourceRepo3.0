@@ -23,11 +23,7 @@ import {
   isNotExpression,
   isOrExpression,
 } from "@opticss/template-api";
-import {
-  assertNever,
-  isSome,
-  unwrap,
-} from "@opticss/util";
+import { assertNever, isSome, unwrap } from "@opticss/util";
 import {
   CallExpression,
   Expression,
@@ -76,8 +72,13 @@ const enum BooleanExpr {
   and = -3,
 }
 
-export function classnamesHelper(rewrite: IndexedClassRewrite<Style>, element: JSXElementAnalysis, helpFnName = HELPER_FN_NAME, includeStaticClasses = false): CallExpression {
-  let args: Expression[] = [ arrayExpression(constructArgs(rewrite, element)) ];
+export function classnamesHelper(
+  rewrite: IndexedClassRewrite<Style>,
+  element: JSXElementAnalysis,
+  helpFnName = HELPER_FN_NAME,
+  includeStaticClasses = false
+): CallExpression {
+  let args: Expression[] = [arrayExpression(constructArgs(rewrite, element))];
   let staticClassnames = rewrite.staticClasses;
   if (includeStaticClasses && staticClassnames.length > 0) {
     args.unshift(stringLiteral(staticClassnames.join(" ")));
@@ -85,16 +86,26 @@ export function classnamesHelper(rewrite: IndexedClassRewrite<Style>, element: J
   return callExpression(identifier(helpFnName), args);
 }
 
-function constructArgs(rewrite: IndexedClassRewrite<Style>, element: JSXElementAnalysis): Array<Expression> {
+function constructArgs(
+  rewrite: IndexedClassRewrite<Style>,
+  element: JSXElementAnalysis
+): Array<Expression> {
   let expr = new Array<Expression>();
-  expr.push(builders.number(element.dynamicClasses.length + element.dynamicAttributes.length));
+  expr.push(
+    builders.number(
+      element.dynamicClasses.length + element.dynamicAttributes.length
+    )
+  );
   expr.push(builders.number(rewrite.dynamicClasses.length));
   expr.push(...constructSourceArgs(rewrite, element));
   expr.push(...constructOutputArgs(rewrite));
   return expr;
 }
 
-function constructSourceArgs(rewrite: IndexedClassRewrite<Style>, element: JSXElementAnalysis): Array<Expression> {
+function constructSourceArgs(
+  rewrite: IndexedClassRewrite<Style>,
+  element: JSXElementAnalysis
+): Array<Expression> {
   let expr = new Array<Expression>();
   for (let classes of element.dynamicClasses) {
     // type of expression
@@ -139,7 +150,10 @@ function constructSourceArgs(rewrite: IndexedClassRewrite<Style>, element: JSXEl
  * (3+t): number (f) of source styles set if false
  * (4+t)..(4+t+f-1): indexes of source styles set if false
  */
-function constructTernary(classes: DynamicClasses<TernaryAST>, rewrite: IndexedClassRewrite<Style>): Array<Expression> {
+function constructTernary(
+  classes: DynamicClasses<TernaryAST>,
+  rewrite: IndexedClassRewrite<Style>
+): Array<Expression> {
   let expr = new Array<Expression>();
   // The boolean expression
   expr.push(classes.condition);
@@ -147,7 +161,11 @@ function constructTernary(classes: DynamicClasses<TernaryAST>, rewrite: IndexedC
   if (isTrueCondition(classes)) {
     let trueClasses = resolveInheritance(classes.whenTrue, rewrite);
     expr.push(builders.number(trueClasses.length));
-    expr.push(...trueClasses.map(style => builders.number(unwrap(rewrite.indexOf(style)))));
+    expr.push(
+      ...trueClasses.map((style) =>
+        builders.number(unwrap(rewrite.indexOf(style)))
+      )
+    );
   } else {
     expr.push(builders.number(0));
   }
@@ -155,19 +173,26 @@ function constructTernary(classes: DynamicClasses<TernaryAST>, rewrite: IndexedC
   if (isFalseCondition(classes)) {
     let falseClasses = resolveInheritance(classes.whenFalse, rewrite);
     expr.push(builders.number(falseClasses.length));
-    expr.push(...falseClasses.map(style => builders.number(unwrap(rewrite.indexOf(style)))));
+    expr.push(
+      ...falseClasses.map((style) =>
+        builders.number(unwrap(rewrite.indexOf(style)))
+      )
+    );
   } else {
     expr.push(builders.number(0));
   }
   return expr;
 }
 
-function resolveInheritance(classes: Array<BlockClass>, rewrite: IndexedClassRewrite<Style>) {
+function resolveInheritance(
+  classes: Array<BlockClass>,
+  rewrite: IndexedClassRewrite<Style>
+) {
   let allClasses = [...classes];
   for (let c of classes) {
     allClasses.push(...c.resolveInheritance());
   }
-  return allClasses.filter(c => isSome(rewrite.indexOf(c)));
+  return allClasses.filter((c) => isSome(rewrite.indexOf(c)));
 }
 
 /*
@@ -175,20 +200,29 @@ function resolveInheritance(classes: Array<BlockClass>, rewrite: IndexedClassRew
  *   3/4: number (d) of style indexes this is dependent on.
  *   4/5..((4/5)+d-1): style indexes that must be set for this to be true
  */
-function constructDependency(attr: Dependency, rewrite: IndexedClassRewrite<Style>): Array<Expression> {
+function constructDependency(
+  attr: Dependency,
+  rewrite: IndexedClassRewrite<Style>
+): Array<Expression> {
   let expr = new Array<Expression>();
   expr.push(builders.number(1));
   expr.push(builders.number(unwrap(rewrite.indexOf(attr.container))));
   return expr;
 }
 
-function constructConditional(attr: Conditional<BooleanAST> & HasAttrValue, _rewrite: IndexedClassRewrite<Style>): Array<Expression> {
+function constructConditional(
+  attr: Conditional<BooleanAST> & HasAttrValue,
+  _rewrite: IndexedClassRewrite<Style>
+): Array<Expression> {
   let expr = new Array<Expression>();
   expr.push(attr.condition);
   return expr;
 }
 
-function constructAttrReferences(attr: HasAttrValue, rewrite: IndexedClassRewrite<Style>): Array<Expression> {
+function constructAttrReferences(
+  attr: HasAttrValue,
+  rewrite: IndexedClassRewrite<Style>
+): Array<Expression> {
   let expr = new Array<Expression>();
   // TODO: inheritance
   expr.push(builders.number(1));
@@ -211,7 +245,10 @@ function constructAttrReferences(attr: HasAttrValue, rewrite: IndexedClassRewrit
  *   2: number (s) of source styles set. s >= 1
  *   3..3+s-1: indexes of source styles set
  */
-function constructSwitch(attr: Switch<StringAST> & HasGroup, rewrite: IndexedClassRewrite<Style>): Array<Expression> {
+function constructSwitch(
+  attr: Switch<StringAST> & HasGroup,
+  rewrite: IndexedClassRewrite<Style>
+): Array<Expression> {
   let expr = new Array<Expression>();
   let values = Object.keys(attr.group);
   expr.push(builders.number(values.length));
@@ -231,7 +268,9 @@ function constructSwitch(attr: Switch<StringAST> & HasGroup, rewrite: IndexedCla
 }
 
 // tslint:disable-next-line:prefer-whatever-to-any
-function constructOutputArgs(rewrite: IndexedClassRewrite<any>): Array<Expression> {
+function constructOutputArgs(
+  rewrite: IndexedClassRewrite<any>
+): Array<Expression> {
   let expr = new Array<Expression>();
   for (let out of rewrite.dynamicClasses) {
     expr.push(builders.string(out));
@@ -257,17 +296,24 @@ function constructBoolean(bool: ConditionalArg): Array<Expression> {
   }
 }
 
-function constructAndExpression(bool: AndExpression<number>): Array<Expression> {
+function constructAndExpression(
+  bool: AndExpression<number>
+): Array<Expression> {
   return constructConditionalExpression(BooleanExpr.and, bool.and);
 }
 function constructOrExpression(bool: OrExpression<number>): Array<Expression> {
   return constructConditionalExpression(BooleanExpr.or, bool.or);
 }
 
-function constructNotExpression(bool: NotExpression<number>): Array<Expression> {
+function constructNotExpression(
+  bool: NotExpression<number>
+): Array<Expression> {
   return [builders.number(BooleanExpr.not), ...constructBoolean(bool.not)];
 }
-function constructConditionalExpression(type: BooleanExpr, args: Array<ConditionalArg>): Array<Expression> {
+function constructConditionalExpression(
+  type: BooleanExpr,
+  args: Array<ConditionalArg>
+): Array<Expression> {
   let expr = new Array<Expression>();
   if (args.length === 1) {
     let n = args[0];

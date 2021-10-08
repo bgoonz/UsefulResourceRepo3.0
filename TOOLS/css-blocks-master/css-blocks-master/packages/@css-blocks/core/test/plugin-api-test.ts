@@ -21,14 +21,18 @@ export class SetupTests {
     let cssBlocksPlugin = cssBlocks(postcss);
     let processor = cssBlocksPlugin();
     let inputCSS = `:scope {color: red;}`;
-    return postcss([
-      processor,
-    ]).process(inputCSS, {}).then(() => {
-      assert(false, "Error was not raised.");
-    }).catch((reason: Error) => {
-      assert(reason instanceof cssBlocks.CssBlockError);
-      assert(reason instanceof cssBlocks.MissingSourcePath);
-      assert.equal(reason.message, "PostCSS `from` option is missing. The source filename is required for CSS Blocks to work correctly.");
-    });
+    return postcss([processor])
+      .process(inputCSS, {})
+      .then(() => {
+        assert(false, "Error was not raised.");
+      })
+      .catch((reason: Error) => {
+        assert(reason instanceof cssBlocks.CssBlockError);
+        assert(reason instanceof cssBlocks.MissingSourcePath);
+        assert.equal(
+          reason.message,
+          "PostCSS `from` option is missing. The source filename is required for CSS Blocks to work correctly."
+        );
+      });
   }
 }

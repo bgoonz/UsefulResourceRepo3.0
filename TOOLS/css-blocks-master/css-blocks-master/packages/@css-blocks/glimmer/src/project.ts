@@ -27,11 +27,18 @@ export class Project implements GlimmerProject {
   blockFactory: BlockFactory;
   cssBlocksOpts: ResolvedConfiguration;
 
-  constructor(projectDir: string, moduleConfig?: ModuleConfig, blockOpts?: CSSBlocksOptions) {
+  constructor(
+    projectDir: string,
+    moduleConfig?: ModuleConfig,
+    blockOpts?: CSSBlocksOptions
+  ) {
     this.projectDir = projectDir;
     let fallbackImporter = resolveConfiguration(blockOpts || {}).importer;
     this.blockImporter = new GlimmerImporter(this, fallbackImporter);
-    this.cssBlocksOpts = resolveConfiguration({ importer: this.blockImporter }, blockOpts || {});
+    this.cssBlocksOpts = resolveConfiguration(
+      { importer: this.blockImporter },
+      blockOpts || {}
+    );
     this.blockFactory = new BlockFactory(this.cssBlocksOpts, postcss);
     let pkg = this.loadPackageJSON(projectDir);
     let { name } = pkg;
@@ -44,16 +51,19 @@ export class Project implements GlimmerProject {
       },
     };
 
-    let map = this.map = buildResolutionMap({
+    let map = (this.map = buildResolutionMap({
       projectDir,
       moduleConfig: config,
       modulePrefix: name,
-    });
+    }));
 
     this.registry = new BasicModuleRegistry(map);
     this.resolver = new Resolver(config, this.registry);
   }
-  resolveStylesheet(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedPath | null {
+  resolveStylesheet(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedPath | null {
     let specifier = parseSpecifier(glimmerIdentifier);
     if (specifier) {
       glimmerIdentifier = "stylesheet:" + specifier.componentName;
@@ -62,7 +72,10 @@ export class Project implements GlimmerProject {
     }
     return this.resolve(glimmerIdentifier, fromGlimmerIdentifier);
   }
-  resolveTemplate(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedPath | null {
+  resolveTemplate(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedPath | null {
     let specifier = parseSpecifier(glimmerIdentifier);
     if (specifier) {
       glimmerIdentifier = "template:" + specifier.componentName;
@@ -71,12 +84,22 @@ export class Project implements GlimmerProject {
     }
     return this.resolve(glimmerIdentifier, fromGlimmerIdentifier);
   }
-  resolve(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedPath | null {
-    let specifier = this.resolver.identify(glimmerIdentifier, fromGlimmerIdentifier);
-    if (!specifier) { return null; }
+  resolve(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedPath | null {
+    let specifier = this.resolver.identify(
+      glimmerIdentifier,
+      fromGlimmerIdentifier
+    );
+    if (!specifier) {
+      return null;
+    }
 
     let relativePath = this.resolver.resolve(specifier);
-    if (!relativePath) { return null; }
+    if (!relativePath) {
+      return null;
+    }
 
     // XXX: Is this `src` folder standard or is it based on some glimmer config?
     let globPattern = path.join(this.projectDir, "src", `${relativePath}.*`);
@@ -91,7 +114,10 @@ export class Project implements GlimmerProject {
     }
   }
 
-  resolveFile(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedFile | null {
+  resolveFile(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedFile | null {
     let resolution = this.resolve(glimmerIdentifier, fromGlimmerIdentifier);
     if (!resolution) {
       return null;
@@ -105,14 +131,27 @@ export class Project implements GlimmerProject {
     return path.relative(path.join(this.projectDir, "src"), fullPath);
   }
 
-  stylesheetFor(stylesheetName: string, fromGlimmerIdentifier?: string): ResolvedFile | undefined {
-    return this.resolveFile(`stylesheet:${stylesheetName}`, fromGlimmerIdentifier) || undefined;
+  stylesheetFor(
+    stylesheetName: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedFile | undefined {
+    return (
+      this.resolveFile(`stylesheet:${stylesheetName}`, fromGlimmerIdentifier) ||
+      undefined
+    );
   }
 
-  templateFor(templateName: string, fromGlimmerIdentifier?: string): ResolvedFile {
-    let resolvedFile = this.resolveFile(`template:${templateName}`, fromGlimmerIdentifier) || undefined;
+  templateFor(
+    templateName: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedFile {
+    let resolvedFile =
+      this.resolveFile(`template:${templateName}`, fromGlimmerIdentifier) ||
+      undefined;
     if (!resolvedFile) {
-      throw new Error(`Couldn't find template for component ${templateName} in Glimmer app ${this.projectDir}.`);
+      throw new Error(
+        `Couldn't find template for component ${templateName} in Glimmer app ${this.projectDir}.`
+      );
     }
     return resolvedFile;
   }
@@ -126,7 +165,9 @@ export class Project implements GlimmerProject {
     try {
       return JSON.parse(fs.readFileSync(pkgPath).toString());
     } catch (e) {
-      let err = Error(`Couldn't load package.json file at ${pkgPath}: ${e.message}`);
+      let err = Error(
+        `Couldn't load package.json file at ${pkgPath}: ${e.message}`
+      );
       err.stack = e.stack;
       throw err;
     }

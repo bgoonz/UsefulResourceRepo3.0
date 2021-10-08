@@ -6,7 +6,13 @@ import * as path from "path";
 
 import { config as extractTextConfig } from "./configs/extractTextConfig";
 import { config as templateConfig } from "./configs/templateConfig";
-import { execTest, readAsset, readCss, readCssSourceMap, runWebpackAsPromise } from "./util/execTest";
+import {
+  execTest,
+  readAsset,
+  readCss,
+  readCssSourceMap,
+  runWebpackAsPromise,
+} from "./util/execTest";
 import { BLOCK_FIXTURES_DIRECTORY, DIST_DIRECTORY } from "./util/testPaths";
 
 // The loader no longer works standalone like this. We need a better way to
@@ -37,13 +43,17 @@ export class PluginTest {
   @skip @test "works with ExtractTextPlugin"() {
     let entry = path.join(BLOCK_FIXTURES_DIRECTORY, "hello.block.css");
     return runWebpackAsPromise(extractTextConfig(entry)).then(() => {
-      const cssFile = path.resolve(DIST_DIRECTORY, "test_output", "main.b815aed0afb162dc9e5f905d0aa9de7e.css");
+      const cssFile = path.resolve(
+        DIST_DIRECTORY,
+        "test_output",
+        "main.b815aed0afb162dc9e5f905d0aa9de7e.css"
+      );
       assert.deepEqual(readCss("hello"), fs.readFileSync(cssFile).toString());
     });
   }
 
   @skip @test "integrates with templates"() {
-    return templateConfig().then(config => {
+    return templateConfig().then((config) => {
       return runWebpackAsPromise(config).then(() => {
         const actualCss = readAsset("css-blocks.css");
         const expectedCss = readCss("concat.template");
@@ -54,7 +64,9 @@ export class PluginTest {
       });
     });
   }
-  @skip @test "figure out why the paths in sourcemap sources are wrong in prev test."() {
+  @skip
+  @test
+  "figure out why the paths in sourcemap sources are wrong in prev test."() {
     // there's an extra directory 'test/' in the paths.
   }
 }

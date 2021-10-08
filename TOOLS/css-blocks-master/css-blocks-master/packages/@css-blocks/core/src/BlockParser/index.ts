@@ -9,8 +9,4 @@ export {
 
 export { BlockFactory } from "./BlockFactory";
 
-export {
-  Syntax,
-  Preprocessors,
-  ProcessedFile,
-} from "./preprocessing";
+export { Syntax, Preprocessors, ProcessedFile } from "./preprocessing";

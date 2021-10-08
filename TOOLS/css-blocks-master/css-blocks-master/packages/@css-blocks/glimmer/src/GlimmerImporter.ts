@@ -43,7 +43,11 @@ export class GlimmerImporter extends PathBasedImporter {
       return this.otherImporter.defaultName(identifier, options);
     }
   }
-  identifier(fromFile: FileIdentifier | null, importPath: string, options: CSSBlocksConfiguration): FileIdentifier {
+  identifier(
+    fromFile: FileIdentifier | null,
+    importPath: string,
+    options: CSSBlocksConfiguration
+  ): FileIdentifier {
     let referrer = this.demangle(fromFile) || undefined;
     let resolution: ResolvedPath | null;
     try {
@@ -64,7 +68,9 @@ export class GlimmerImporter extends PathBasedImporter {
         if (specifier.componentName && specifier.componentType) {
           return `glimmer:${specifier.componentType}:${specifier.componentName}`;
         }
-        throw new Error(`Could not resolve Glimmer specifier '${referrer}' to a file.`);
+        throw new Error(
+          `Could not resolve Glimmer specifier '${referrer}' to a file.`
+        );
       }
     }
     if (resolution) {
@@ -74,21 +80,30 @@ export class GlimmerImporter extends PathBasedImporter {
         let refResolution = this.project.resolve(referrer);
         if (refResolution) {
           try {
-            fromFile = this.otherImporter.identifier(null, refResolution.fullPath, options);
+            fromFile = this.otherImporter.identifier(
+              null,
+              refResolution.fullPath,
+              options
+            );
           } catch (e) {
             // >_< The other importer doesn't understand file paths, we'll try it without.
             fromFile = null;
           }
           return this.otherImporter.identifier(fromFile, importPath, options);
         } else {
-          throw new Error(`Could not resolve Glimmer specifier '${referrer}' to a file.`);
+          throw new Error(
+            `Could not resolve Glimmer specifier '${referrer}' to a file.`
+          );
         }
       } else {
         return this.otherImporter.identifier(fromFile, importPath, options);
       }
     }
   }
-  filesystemPath(identifier: string, options: CSSBlocksConfiguration): string | null {
+  filesystemPath(
+    identifier: string,
+    options: CSSBlocksConfiguration
+  ): string | null {
     let specifier = this.demangle(identifier);
     if (specifier) {
       let resolution = this.project.resolve(specifier);
@@ -114,7 +129,10 @@ export class GlimmerImporter extends PathBasedImporter {
       return this.otherImporter.debugIdentifier(identifier, options);
     }
   }
-  import(identifier: FileIdentifier, options: CSSBlocksConfiguration): Promise<ImportedFile> {
+  import(
+    identifier: FileIdentifier,
+    options: CSSBlocksConfiguration
+  ): Promise<ImportedFile> {
     let specifier = this.demangle(identifier);
     if (specifier) {
       let resolution = this.project.resolveFile(specifier);

@@ -36,11 +36,14 @@ export class Test {
         element.className = bar;
         element.className = style;
       }
-    `,
-    ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
-      assert.deepEqual(analysis.stylesFound, ["bar.foo", "bar.foo[state|happy]", "bar:scope"]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.foo",
+        "bar.foo[state|happy]",
+        "bar:scope",
+      ]);
 
       let aAnalysis = analysis.elements.a;
       assert.deepEqual(aAnalysis.dynamicClasses, []);
@@ -73,8 +76,7 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -97,9 +99,11 @@ export class Test {
       let style = objstr();
 
       <div class={style}></div>;
-    `,
-    ).catch((err: Error) => {
-      assert.equal(err.message, '[css-blocks] AnalysisError: First argument passed to "objstr" call must be an object literal. (5:18)');
+    `).catch((err: Error) => {
+      assert.equal(
+        err.message,
+        '[css-blocks] AnalysisError: First argument passed to "objstr" call must be an object literal. (5:18)'
+      );
     });
   }
 
@@ -115,19 +119,23 @@ export class Test {
       let style = objstr(foobar);
 
       <div class={style}></div>;
-    `,
-    ).then(
+    `).then(
       (_analysis: Analyzer) => {
         assert.ok(false, "should not have succeeded.");
       },
       (err) => {
-        assert.equal(err.message, '[css-blocks] AnalysisError: First argument passed to "objstr" call must be an object literal. (5:18)');
-      });
+        assert.equal(
+          err.message,
+          '[css-blocks] AnalysisError: First argument passed to "objstr" call must be an object literal. (5:18)'
+        );
+      }
+    );
   }
 
   @test "Multiple classes from the same block on objstr calls are an error."() {
     mock({
-      "bar.block.css": ":scope { color: red; } .foo { color: blue; } .baz { color: red; }",
+      "bar.block.css":
+        ":scope { color: red; } .foo { color: blue; } .baz { color: red; }",
     });
 
     return parse(`
@@ -140,20 +148,26 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then(
+    `).then(
       (_analysis: Analyzer) => {
         assert.ok(false, "should not have succeeded.");
       },
       (err) => {
-        assert.equal(err.message, '[css-blocks] TemplateError: Classes "baz" and "foo" from the same block are not allowed on the same element at the same time. (:10:6)');
-      });
+        assert.equal(
+          err.message,
+          '[css-blocks] TemplateError: Classes "baz" and "foo" from the same block are not allowed on the same element at the same time. (:10:6)'
+        );
+      }
+    );
   }
 
-  @test "Multiple classes from different blocks on objstr calls are tracked when applied"() {
+  @test
+  "Multiple classes from different blocks on objstr calls are tracked when applied"() {
     mock({
-      "foo.block.css": ":scope { color: red; } .biz { color: blue; } .baz { color: red; }",
-      "bar.block.css": ":scope { color: red; } .biz { color: blue; } .baz { color: red; }",
+      "foo.block.css":
+        ":scope { color: red; } .biz { color: blue; } .baz { color: red; }",
+      "bar.block.css":
+        ":scope { color: red; } .biz { color: blue; } .baz { color: red; }",
     });
 
     return parse(`
@@ -167,8 +181,7 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -181,7 +194,8 @@ export class Test {
 
   @test "An objstr call with no css-block styles are allowed"() {
     mock({
-      "foo.block.css": ":scope { color: red; } .biz { color: blue; } .baz { color: red; }",
+      "foo.block.css":
+        ":scope { color: red; } .biz { color: blue; } .baz { color: red; }",
     });
 
     return parse(`
@@ -194,8 +208,7 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -220,8 +233,7 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-  ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       assert.equal(analyzer.blockDependencies().size, 1);
       assert.equal(analyzer.getAnalysis(0).styleCount(), 1);
     });
@@ -240,14 +252,17 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then(
+    `).then(
       (_analysis: Analyzer) => {
         assert.ok(false, "should not have succeeded.");
       },
       (err) => {
-        assert.equal(err.message, `[css-blocks] AnalysisError: Undefined function for styling: objstr (4:18)`);
-      });
+        assert.equal(
+          err.message,
+          `[css-blocks] AnalysisError: Undefined function for styling: objstr (4:18)`
+        );
+      }
+    );
   }
 
   @test "cannot set objstr to a new function"() {
@@ -266,14 +281,17 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then(
+    `).then(
       (_analysis: Analyzer) => {
         assert.ok(false, "should not have succeeded.");
       },
       (err) => {
-        assert.equal(err.message, `[css-blocks] AnalysisError: Cannot override the objstr import of 'obj-str' (5:6)`);
-      });
+        assert.equal(
+          err.message,
+          `[css-blocks] AnalysisError: Cannot override the objstr import of 'obj-str' (5:6)`
+        );
+      }
+    );
   }
 
   @test "Overly complex expressions to reference a CSS Block throw"() {
@@ -293,12 +311,17 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then((_analysis: Analyzer) => {
-      assert.ok(false, "should not have succeeded.");
-    },     (err) => {
-      assert.equal(err.message, `[css-blocks] MalformedBlockPath: Nested expressions are not allowed in block expressions. (8:9)`);
-    });
+    `).then(
+      (_analysis: Analyzer) => {
+        assert.ok(false, "should not have succeeded.");
+      },
+      (err) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] MalformedBlockPath: Nested expressions are not allowed in block expressions. (8:9)`
+        );
+      }
+    );
   }
 
   @test "Objstr lookup understands scope"() {
@@ -318,8 +341,7 @@ export class Test {
         let style = 'foo';
         <div class={style}></div>;
       }
-    `,
-    ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;

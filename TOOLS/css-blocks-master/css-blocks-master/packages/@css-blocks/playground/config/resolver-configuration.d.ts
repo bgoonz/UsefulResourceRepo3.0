@@ -4,6 +4,6 @@
  * `config/environment.js` (and supplemented with default settings as possible).
  */
 
-import { ResolverConfiguration } from '@glimmer/resolver';
+import { ResolverConfiguration } from "@glimmer/resolver";
 declare var _default: ResolverConfiguration;
 export default _default;

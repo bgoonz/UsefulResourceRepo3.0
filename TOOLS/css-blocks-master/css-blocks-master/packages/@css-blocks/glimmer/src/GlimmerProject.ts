@@ -3,12 +3,8 @@ import {
   Importer,
   Options as CSSBlocksOptions,
 } from "@css-blocks/core";
-import {
-  ResolutionMap,
-} from "@glimmer/resolution-map-builder";
-import Resolver, {
-  BasicModuleRegistry,
-} from "@glimmer/resolver";
+import { ResolutionMap } from "@glimmer/resolution-map-builder";
+import Resolver, { BasicModuleRegistry } from "@glimmer/resolver";
 import {
   SerializedTemplateInfo,
   TemplateInfo,
@@ -27,7 +23,9 @@ export interface ResolvedPath {
   fullPath: string;
 }
 
-export class ResolvedFile implements TemplateInfo<"GlimmerTemplates.ResolvedFile"> {
+export class ResolvedFile
+  implements TemplateInfo<"GlimmerTemplates.ResolvedFile">
+{
   identifier: string;
   string: string;
   fullPath: string;
@@ -42,18 +40,20 @@ export class ResolvedFile implements TemplateInfo<"GlimmerTemplates.ResolvedFile
     return {
       type: this.type,
       identifier: this.identifier,
-      data: [
-        this.string,
-        this.fullPath,
-      ],
+      data: [this.string, this.fullPath],
     };
   }
-  static deserialize(identifier: string, str: whatever, fullPath: whatever): ResolvedFile {
+  static deserialize(
+    identifier: string,
+    str: whatever,
+    fullPath: whatever
+  ): ResolvedFile {
     return new ResolvedFile(<string>str, identifier, <string>fullPath);
   }
 }
 
-TemplateInfoFactory.constructors["GlimmerTemplates.ResolvedFile"] = ResolvedFile.deserialize;
+TemplateInfoFactory.constructors["GlimmerTemplates.ResolvedFile"] =
+  ResolvedFile.deserialize;
 
 export interface GlimmerProject {
   projectDir: string;
@@ -64,12 +64,30 @@ export interface GlimmerProject {
   blockFactory: BlockFactory;
   cssBlocksOpts: CSSBlocksOptions;
 
-  resolveStylesheet(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedPath | null;
-  resolveTemplate(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedPath | null;
-  resolve(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedPath | null;
-  resolveFile(glimmerIdentifier: string, fromGlimmerIdentifier?: string): ResolvedFile | null;
+  resolveStylesheet(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedPath | null;
+  resolveTemplate(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedPath | null;
+  resolve(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedPath | null;
+  resolveFile(
+    glimmerIdentifier: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedFile | null;
   relativize(fullPath: string): string;
-  stylesheetFor(stylesheetName: string, fromGlimmerIdentifier?: string): ResolvedFile | undefined;
-  templateFor(templateName: string, fromGlimmerIdentifier?: string): ResolvedFile;
+  stylesheetFor(
+    stylesheetName: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedFile | undefined;
+  templateFor(
+    templateName: string,
+    fromGlimmerIdentifier?: string
+  ): ResolvedFile;
   reset(): void;
 }

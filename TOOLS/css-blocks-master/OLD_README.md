@@ -1,12 +1,12 @@
-CSS Blocks
-==========
+# CSS Blocks
 
 **ATTENTION:** This is the original README that Chris wrote for for this project.
 Much of it was written before the features it talks about even existed. Some of those
 features still do not exist, and of those, some may never exist. We're in the process
 of removing this file, you probably want to be reading the [README](./README.md) instead.
 
--------
+---
+
 CSS Blocks are a way of writing highly decoupled and isolated styles that can be statically analyzed and optimized for delivery and runtime performance.
 
 In a component-oriented web application there's one pillar of web technology that doesn't quite seem to fit: Cascading Style Sheets. The goals of components are to create strong boundaries and isolated behaviors that can be composed without tight coupling. CSS is global and the desire to create visual consistency across an application seems at odds with the goal of isolation. What's more, techniques that produce styles that are kept in isolation have been at odds with browser performance: highly specific and scoped selectors have performance issues, class name mangling is bad for gzip compression, inline styles are slow, and mixins, while useful for sharing styles consistently into components, produce bloated output.
@@ -25,8 +25,7 @@ All of these tools exist to make the CSS optimizer as powerful as possible and t
 
 When it all comes together, the bloat and performance issues that are inherent to isolation are optimized away. You can write `width: 100%` hundreds of times but the optimized CSS will only have a few such declarations where they are absolutely needed.
 
-Inspired by CSS Modules, BEM and Atomic CSS
--------------------------------------------
+## Inspired by CSS Modules, BEM and Atomic CSS
 
 This approach to styling is an evolution of many existing best practices. It aims to provide the isolation and component-oriented approach possible with
 CSS Modules and BEM with less repetition required by authors and being more
@@ -34,8 +33,7 @@ compression friendly while providing tooling to aggressively optimize those
 styles by sharing declarations as one might with Atomic CSS and similar
 declaration-oriented styling solutions.
 
-Ergonomic Performance
----------------------
+## Ergonomic Performance
 
 Although there are constraints on the types of selectors you can write with CSS blocks,
 adopting CSS blocks is unlikely to feel like a major departure from your current
@@ -44,8 +42,7 @@ coupled. It's possible to reduce your CSS size by up to 80% (about 65% after gzi
 If you have a route-based bundling system, it is possible to build CSS bundles that
 are optimized for that most important first page view.
 
-Use with your favorite tools
-----------------------------
+## Use with your favorite tools
 
 CSS Blocks is built on standard CSS syntax so it can be used in conjunction
 with CSS best-in-class processing tools like Sass, PostCSS, CSS Nano,
@@ -62,8 +59,7 @@ optimizer. If any tools change the selectors that have been output from the
 compressor, you are likely to encounter problems especially with dynamic
 interactions.
 
-What's a Block?
----------------
+## What's a Block?
 
 The "block" in CSS Blocks is a unit of styling that is kept isolated
 from all other blocks. The styles in one block are related to each other
@@ -85,7 +81,7 @@ How a CSS block becomes available to markup in a template is specific to the
 individual template syntax and framework conventions. See Template
 Integrations below for more details on specifically supported frameworks.
 
-For our first example we will wave our hands and say that *somehow* these
+For our first example we will wave our hands and say that _somehow_ these
 plain HTML markup examples are specific to the corresponding block files.
 
 ### An example of a simple form
@@ -111,21 +107,47 @@ in the `state` namespace:
 
 ```css
 /* my-form.block.css */
-.root                   { block-name: my-form; margin: 2em 0; padding: 1em 0.5em; }
-[state|theme=light]     { color: #333; }
-[state|theme=dark]      { color: #ccc; }
-[state|compact]         { margin: 0.5em 0; padding: 0.5em; }
-.input-area             { display: flex; margin: 1em 0; font-size: 1.5rem; }
-[state|compact]
-  .input-area           { margin: 0.25em 0; }
-.label                  { flex-basis: 1; }
-.input                  { flex-basis: 3; }
-[state|theme=light]
-  .input                { border-color: #333; }
-[state|theme=dark]
-  .input                { border-color: #ccc; }
-.submit                 { width: 200px; }
-.submit[state|disabled] { color: gray; }
+.root {
+  block-name: my-form;
+  margin: 2em 0;
+  padding: 1em 0.5em;
+}
+[state|theme="light"] {
+  color: #333;
+}
+[state|theme="dark"] {
+  color: #ccc;
+}
+[state|compact] {
+  margin: 0.5em 0;
+  padding: 0.5em;
+}
+.input-area {
+  display: flex;
+  margin: 1em 0;
+  font-size: 1.5rem;
+}
+[state|compact] .input-area {
+  margin: 0.25em 0;
+}
+.label {
+  flex-basis: 1;
+}
+.input {
+  flex-basis: 3;
+}
+[state|theme="light"] .input {
+  border-color: #333;
+}
+[state|theme="dark"] .input {
+  border-color: #ccc;
+}
+.submit {
+  width: 200px;
+}
+.submit[state|disabled] {
+  color: gray;
+}
 ```
 
 In BEM compatibility mode these would compile to:
@@ -147,39 +169,99 @@ In BEM compatibility mode these would compile to:
 and
 
 ```css
-.my-form { margin: 2em 0; padding: 1em 0.5em; }
-.my-form--theme-light { color: #333; }
-.my-form--theme-dark { color: #ccc; }
-.my-form--compact { margin: 0.5em 0; padding: 0.5em; }
-.my-form__input-area { display: flex; margin: 1em 0; font-size: 1.5rem; }
-.my-form--compact .my-form__input-area { margin: 0.25em 0; }
-.my-form__label { flex-basis: 1; }
-.my-form__input { flex-basis: 3; }
-.my-form--theme-light .my-form__input { border-color: #333; }
-.my-form--theme-dark .my-form__input { border-color: #ccc; }
-.my-form__submit { width: 200px; }
-.my-form__submit--disabled { color: gray; }
+.my-form {
+  margin: 2em 0;
+  padding: 1em 0.5em;
+}
+.my-form--theme-light {
+  color: #333;
+}
+.my-form--theme-dark {
+  color: #ccc;
+}
+.my-form--compact {
+  margin: 0.5em 0;
+  padding: 0.5em;
+}
+.my-form__input-area {
+  display: flex;
+  margin: 1em 0;
+  font-size: 1.5rem;
+}
+.my-form--compact .my-form__input-area {
+  margin: 0.25em 0;
+}
+.my-form__label {
+  flex-basis: 1;
+}
+.my-form__input {
+  flex-basis: 3;
+}
+.my-form--theme-light .my-form__input {
+  border-color: #333;
+}
+.my-form--theme-dark .my-form__input {
+  border-color: #ccc;
+}
+.my-form__submit {
+  width: 200px;
+}
+.my-form__submit--disabled {
+  color: gray;
+}
 ```
 
 After optimization it may look more like:
 
 ```css
-.c4 { margin: 2em 0 }
-.c5 { margin: 0.5em 0 }
-.c6 { margin: 1em 0 }
-.c7 { padding: 1em 0.5em }
-.c8 { padding: 0.5em }
-.c9 { color: #333 }
-.ca { color: #ccc }
-.cb { color: gray }
-.cc { display: flex }
-.cd { font-size: 1.5rem }
-.ce { flex-basis: 1 }
-.cf { flex-basis: 3 }
-.cg { width: 200px }
-.c3 .ch { margin: 0.25em 0 }
-.c1 .ci { border-color: #333 }
-.c2 .cj { border-color: #ccc }
+.c4 {
+  margin: 2em 0;
+}
+.c5 {
+  margin: 0.5em 0;
+}
+.c6 {
+  margin: 1em 0;
+}
+.c7 {
+  padding: 1em 0.5em;
+}
+.c8 {
+  padding: 0.5em;
+}
+.c9 {
+  color: #333;
+}
+.ca {
+  color: #ccc;
+}
+.cb {
+  color: gray;
+}
+.cc {
+  display: flex;
+}
+.cd {
+  font-size: 1.5rem;
+}
+.ce {
+  flex-basis: 1;
+}
+.cf {
+  flex-basis: 3;
+}
+.cg {
+  width: 200px;
+}
+.c3 .ch {
+  margin: 0.25em 0;
+}
+.c1 .ci {
+  border-color: #333;
+}
+.c2 .cj {
+  border-color: #ccc;
+}
 ```
 
 and the template would become:
@@ -203,8 +285,7 @@ is to remove duplication across components. At scale, CSS Blocks works wonders.
 
 Now that we've seen what it looks like, let's dig in.
 
-What's a State?
----------------
+## What's a State?
 
 You probably noticed the attributes prefixed with `state:` in the example
 above. States are a core concept in CSS Blocks and form the basis for
@@ -240,7 +321,7 @@ primary exceptions to this is that root states can be used in selectors as a
 scope for classes and other states within the block. So when you find
 yourself thinking that you absolutely need to use a descendant or child
 combinator then you should imagine that use case as a state for a block's
- `:scope` class.
+`:scope` class.
 
 It is important to think of States as part of the public API that describe
 how a block and the classes within it can vary. By keeping all the
@@ -250,7 +331,7 @@ outside context from selectors it becomes possible to re-use those styles
 safely. It also forces developers to think of naming their design
 differences explicitly which has long term benefits for maintaining the
 styles -- you can certainly create a state `state:in-sidebar` for a block,
-but it's much better to imagine *why* the sidebar is different and to name
+but it's much better to imagine _why_ the sidebar is different and to name
 it accordingly. In this way, other developers will understand the intent
 better.
 
@@ -276,8 +357,7 @@ an existing block. Inheritance is another way that a block can present
 different styling options. For more information, see "Block Inheritance"
 below.
 
-Terminology
------------
+## Terminology
 
 ### CSS Terminology
 
@@ -292,16 +372,17 @@ hard to describe clearly without these terms.
 1. `selector` - A general term for an expression that selects elements from an HTML document.
    There are several subtypes:
 
-    1. `simple selector` - selects one aspect of an html element. E.g. element name,
-       class, attribute, identifier, `*`, pseudo-class, pseudo-element,
-    2. `compound selector` - a sequence of `simple selectors` applied to the same element.
-    3. `combinator` - a symbol that describes the document relationship
-       between two selectors. The most common `combinator` is the space which
-       implies a descendant relationship.
-    4. `key selector` - The `simple` or `compound` selector that applies to
-       the element that receives the `declarations` in the `ruleset`.
-    5. `context selector` - Describes the other elements on the page that must be present
-       in order for the `key selector` to match.
+   1. `simple selector` - selects one aspect of an html element. E.g. element name,
+      class, attribute, identifier, `*`, pseudo-class, pseudo-element,
+   2. `compound selector` - a sequence of `simple selectors` applied to the same element.
+   3. `combinator` - a symbol that describes the document relationship
+      between two selectors. The most common `combinator` is the space which
+      implies a descendant relationship.
+   4. `key selector` - The `simple` or `compound` selector that applies to
+      the element that receives the `declarations` in the `ruleset`.
+   5. `context selector` - Describes the other elements on the page that must be present
+      in order for the `key selector` to match.
+
 2. `ruleset` - A selector and a set of styles applied to the elements selected.
 3. `property` - A style attribute.
 4. `value` - What a `property` is set to.
@@ -320,18 +401,17 @@ hard to describe clearly without these terms.
    block's root class have special privileges.
 5. Substate - A state can have substates and can only be in one such substate
    at any given time.
-8. Block Inheritance - A block can inherit styles from another block. This
+6. Block Inheritance - A block can inherit styles from another block. This
    creates an equivalence between the roots and all the names for the two
    block's states and classes. For more on inheritance see the Block
    Inheritance section below.
-9. Block Interface - A block's public interface is defined by the states and
+7. Block Interface - A block's public interface is defined by the states and
    classes it styles. A block can declare that it implements one or more
    other block's interfaces and the compiler will ensure that all of those
    states and classes are styled locally. In this way, it is safe to use
    different blocks to style the same markup component.
 
-Rules & Constraints
--------------------
+## Rules & Constraints
 
 1. Each selector's key selector must target a single block object (the
    block root, a block class, or a state).
@@ -353,8 +433,7 @@ Rules & Constraints
 11. All classes are local by default. See "External Selectors" below.
 12. Two classes from the same block may not be applied to the same HTML element.
 
-Syntax
-------
+## Syntax
 
 ### The root element
 
@@ -367,14 +446,14 @@ file.
 
 Root specific declarations:
 
-* `block-name`: Optional. This is the preferred name of the block. The value
+- `block-name`: Optional. This is the preferred name of the block. The value
   must be a legal css identifier. When omitted, the path of the file is used
   to derive a name. This property is required when the natural name based on
   the file's path is not a legal CSS identifier. Note: the way a path becomes
   a name is configurable on a per-application or framework integration basis.
-* `implements`: a space separated list of block names that have already been
+- `implements`: a space separated list of block names that have already been
   declared with `@block-reference` (See below).
-* `extends`: the value is name of a single block from which to inherit the
+- `extends`: the value is name of a single block from which to inherit the
   styles and public interface. Note that this does not change the output of
   the block but instead it affects the classes that are used in the templates
   after rewriting.
@@ -394,7 +473,7 @@ properly rewritten to standard CSS classes.
 Examples of specifying states in html:
 
 ```html
-<div class="button" state:visible state:theme="bright">
+<div class="button" state:visible state:theme="bright"></div>
 ```
 
 Then those states can be style in a block with corresponding attribute selectors:
@@ -469,6 +548,7 @@ automatically generate a unique name for BEM output mode.
 ```
 
 `my-component/template.hbs`
+
 ```hbs
 <div class="shared">
   <div class="item">Styles Item</div>
@@ -485,8 +565,7 @@ In BEM output mode this would compile to:
 </div>
 ```
 
-Global (application) States
----------------------------
+## Global (application) States
 
 A block can declare that a state is global. These states are special
 in that they can be used in combinators in other blocks like any state
@@ -509,6 +588,7 @@ elements.
 ```
 
 `navigation.block.css`
+
 ```css
 @block-reference app from "application.block.css";
 
@@ -528,31 +608,31 @@ with a specific selector in the block. In fact, it is an abstraction that can ca
 the CSS blocks compiler to consider many selectors in a block that involve the specific
 block object.
 
-  - `:scope` represents the block root for the current block.
-  - `a-block-reference.root` represents the block root for the
-    block that has a `@block-reference` as `a-block-reference` from the current
-    block. In many cases, the `:scope` can be safely omitted.
-  - `[state|foo]` or `[state|foo=bar]` represent the
-    root state named `foo` or the state named `foo` with the substate of `bar`.
-  - `a-block-reference[state|foo]` or `a-block-reference[state|foo=bar]`
-    represent the state named `foo` or the state named `foo`
-    with the value of `bar` from the block that is referenced from the current
-    block as `a-block-reference`. In templates, where a block object
-    expression is given in the context of a state attribute, this simplifies
-    to `<div state:a-block-reference.foo>` or `<div state:a-block-reference.foo=bar>`.
-  - `.foo` represents the class named `foo`;
-  - `a-block-reference.foo` represents the class named `foo`
-    from the block that is referenced from the current block as
-    `a-block-reference`.
-  - `.my-class[state|foo]` or `.my-class[state|foo=bar]` represents the
-    state named `foo` attached to the class `.my-class`.
-  - `a-block-reference.my-class[state|foo]` or
-    `a-block-reference.my-class[state|foo=bar]` represents the
-    state named `foo` attached to the class `.my-class` from the block
-    that is referenced from the current block as `a-block-reference`.
-    In templates, where a block object expression is given in the context of
-    `class` and `state` attributes, this simplifies to
-    `<div class="a-block-reference.my-class" state:a-block-reference.foo>`.
+- `:scope` represents the block root for the current block.
+- `a-block-reference.root` represents the block root for the
+  block that has a `@block-reference` as `a-block-reference` from the current
+  block. In many cases, the `:scope` can be safely omitted.
+- `[state|foo]` or `[state|foo=bar]` represent the
+  root state named `foo` or the state named `foo` with the substate of `bar`.
+- `a-block-reference[state|foo]` or `a-block-reference[state|foo=bar]`
+  represent the state named `foo` or the state named `foo`
+  with the value of `bar` from the block that is referenced from the current
+  block as `a-block-reference`. In templates, where a block object
+  expression is given in the context of a state attribute, this simplifies
+  to `<div state:a-block-reference.foo>` or `<div state:a-block-reference.foo=bar>`.
+- `.foo` represents the class named `foo`;
+- `a-block-reference.foo` represents the class named `foo`
+  from the block that is referenced from the current block as
+  `a-block-reference`.
+- `.my-class[state|foo]` or `.my-class[state|foo=bar]` represents the
+  state named `foo` attached to the class `.my-class`.
+- `a-block-reference.my-class[state|foo]` or
+  `a-block-reference.my-class[state|foo=bar]` represents the
+  state named `foo` attached to the class `.my-class` from the block
+  that is referenced from the current block as `a-block-reference`.
+  In templates, where a block object expression is given in the context of
+  `class` and `state` attributes, this simplifies to
+  `<div class="a-block-reference.my-class" state:a-block-reference.foo>`.
 
 ### External Selectors
 
@@ -666,8 +746,6 @@ All the same output classes are implied in both of these cases for the resulting
 Because the `main-tab` class implies the `tab` root class, it is now
 also legal to apply the `state:tab.selected` state to that element.
 
-
-
 ### Block Inheritance
 
 To inherit from another block you must first define a reference to the
@@ -714,7 +792,10 @@ a block `implements` one or more blocks.
 ```css
 @block-reference base from "./base.block.css";
 @block-reference other from "./other.block.css";
-:scope { implements: base, other; color: red; }
+:scope {
+  implements: base, other;
+  color: red;
+}
 ```
 
 Now if there are any states, classes or substates in those other blocks
@@ -726,7 +807,7 @@ Missing implementations for: [state|large], .foo[state|small] from
 ```
 
 Note that this doesn't require a selector-level correspondence, merely
-that the different types of states and classes have *some* styling.
+that the different types of states and classes have _some_ styling.
 
 ### Resolving Style Conflicts
 
@@ -735,7 +816,7 @@ together with knowledge of what classes are used together on the same
 elements in all templates using CSS blocks provides hints to the optimizer
 so that it can provable rewrite declarations across what would normally be
 unsafe to do with a normal cascade aware optimizer which must assume that
-key selectors *may* target the same html element.
+key selectors _may_ target the same html element.
 
 Style conflicts are handled on a per-property basis and allow for a high
 granularity of control over how collisions are resolved.
@@ -763,7 +844,9 @@ that conflict in another block object's selectors.
 
 ```css
 /* nav.block.css */
-.nav { border: 1px solid black; }
+.nav {
+  border: 1px solid black;
+}
 ```
 
 ```css
@@ -781,12 +864,16 @@ like a value that only gets set and matters only when it matches an element
 where `other.nav` is the key selector in the cascade.
 
 To accomplish this, we compile the selector to something a browser will
- actually understand and respect:
+actually understand and respect:
 
 ```css
 /* header.resolve-output.css */
-.conflicts__header { border: none; }
-.other__nav.conflicts__header { border: 1px solid black; }
+.conflicts__header {
+  border: none;
+}
+.other__nav.conflicts__header {
+  border: 1px solid black;
+}
 ```
 
 As you can see, without optimization this produces selectors that use specificity
@@ -814,7 +901,9 @@ Given our same example from before:
 
 ```css
 /* nav.block.css */
-.nav { border: 1px solid black; }
+.nav {
+  border: 1px solid black;
+}
 ```
 
 We now resolve the target block object before our local values, causing our
@@ -834,8 +923,12 @@ resolved selector has the value from the local selector.
 
 ```css
 /* header.resolve-output.css */
-.conflicts__header { border: none; }
-.other__nav.conflicts__header { border: none; }
+.conflicts__header {
+  border: none;
+}
+.other__nav.conflicts__header {
+  border: none;
+}
 ```
 
 Let's consider some more complex cases and see how the resolver handles those.
@@ -847,9 +940,17 @@ selectors of that same pseudo-element are resolved.
 
 ```css
 /* links.block.css */
-.external { font-style: normal; }
-.external::before { content: "["; font-style: normal; }
-.external::after { content: "]"; font-style: normal; }
+.external {
+  font-style: normal;
+}
+.external::before {
+  content: "[";
+  font-style: normal;
+}
+.external::after {
+  content: "]";
+  font-style: normal;
+}
 ```
 
 ```css
@@ -886,9 +987,15 @@ Example:
 
 ```css
 /* links.block.css */
-.external { color: blue; }
-.external:nth-child(2n + 1) { color: yellow; }
-.external:hover { color: green; }
+.external {
+  color: blue;
+}
+.external:nth-child(2n + 1) {
+  color: yellow;
+}
+.external:hover {
+  color: green;
+}
 ```
 
 ```css
@@ -935,11 +1042,21 @@ it's own concern and must be resolved in the case of a conflict.
 
 ```css
 /* article.block.css */
-.link { color: lightblue; }
-.link[state|destination=on-page] { color: blue; }
-.link[state|destination=external] { color: red; }
-.link[state|disabled] { color: gray; }
-[state|is-loading] > .link { color: darkgray; }
+.link {
+  color: lightblue;
+}
+.link[state|destination="on-page"] {
+  color: blue;
+}
+.link[state|destination="external"] {
+  color: red;
+}
+.link[state|disabled] {
+  color: gray;
+}
+[state|is-loading] > .link {
+  color: darkgray;
+}
 ```
 
 ```css
@@ -1000,22 +1117,22 @@ In the following example we achieve the same resolution as above:
 
 Wildcard syntax:
 
-* `.*` - any class.
-* `[state|*]` - any state.
-* `[state|foo=*]` - any substate of state `foo`.
-* `[state?|*]` - any state or no state at all.
-* `[state?|foo=*]` - any substate of the state `foo` or no substate at all.
+- `.*` - any class.
+- `[state|*]` - any state.
+- `[state|foo=*]` - any substate of state `foo`.
+- `[state?|*]` - any state or no state at all.
+- `[state?|foo=*]` - any substate of the state `foo` or no substate at all.
 
 Wildcard examples:
 
-* `block.*` - All classes in the block `block`.
-* `block.class[state|*]` - All states for the class `class` (but not the class itself).
-* `block.class[state|foo=*]` - All substates for the specific state `foo`.
-* `block.class[state?|foo]` - The class as well the state `foo` if it exists.
-* `block.class[state?|*]` - The class as well as all states of the class.
-* `block[state|*] block.class` - The class but only when modified by any root-level state with any legal combinator(s).
-* `block[state?|*] block.class` - The class as well as when it is modified by any root-level state with any legal combinator(s).
-* `block[state?|*] block.class` - The class as well as when it is modified by any root-level state with any legal combinator(s).
+- `block.*` - All classes in the block `block`.
+- `block.class[state|*]` - All states for the class `class` (but not the class itself).
+- `block.class[state|foo=*]` - All substates for the specific state `foo`.
+- `block.class[state?|foo]` - The class as well the state `foo` if it exists.
+- `block.class[state?|*]` - The class as well as all states of the class.
+- `block[state|*] block.class` - The class but only when modified by any root-level state with any legal combinator(s).
+- `block[state?|*] block.class` - The class as well as when it is modified by any root-level state with any legal combinator(s).
+- `block[state?|*] block.class` - The class as well as when it is modified by any root-level state with any legal combinator(s).
 
 In addition to wildcards, the `resolve-all()` function will resolve all
 states relating to a block object as well as the object itself. If given a
@@ -1036,12 +1153,12 @@ Example:
 You can think of resolve all as being a simpler way of writing
 complex state queries:
 
-`resolve-all()` | `resolve()` Equivalent
-----------------|-----------------------
-`resolve-all("block.class")` | `resolve("[state?|*] block.class[state?|*]")`
-`resolve-all("block.class[state|foo]")` | `resolve("[state?|*] block.class[state|foo]")`
-`resolve-all("block.*[state|foo]")` | `resolve("block[state?|*] .*[state|foo]")`
-`resolve-all("block.*")` | `resolve("block[state?|*] block.*[state?|*]")`
+| `resolve-all()`                 | `resolve()` Equivalent |
+| ------------------------------- | ---------------------- | ---------------------- | --------------------- | ------- |
+| `resolve-all("block.class")`    | `resolve("[state?      | \*] block.class[state? | \*]")`                |
+| `resolve-all("block.class[state | foo]")`                | `resolve("[state?      | \*] block.class[state | foo]")` |
+| `resolve-all("block.\*[state    | foo]")`                | `resolve("block[state? | _] ._[state           | foo]")` |
+| `resolve-all("block.*")`        | `resolve("block[state? | _] block._[state?      | \*]")`                |
 
 Note that `resolve-all("block.*")` essentially resolves all conflicts
 for that property against every selector in the other block that might conflict.
@@ -1066,45 +1183,44 @@ value. Or perhaps there's a minimum width below which the design breaks.
 In these situations, a block's selectors can provide constraints for a
 property that limit the legal overrides to ensure compatibility.
 
- ```css
- .icons {
-   display: grid;
-   display: constrain(--self);
- }
- ```
+```css
+.icons {
+  display: grid;
+  display: constrain(--self);
+}
+```
 
 The `--self` identifier says that the property may only be resolved with one
 or more values that are set locally for that same property.
 
 You can also list legal values that it can be resolved to, separated by a comma.
 
- ```css
- .icons {
-   border: 1px solid black;
-   border-style: constrain(--self, dashed, dotted);
- }
- ```
+```css
+.icons {
+  border: 1px solid black;
+  border-style: constrain(--self, dashed, dotted);
+}
+```
 
- As you can see from above, you can provide constraints on a long hand
- property to set a constraint on just one of the values in a short hand
- property that is specified. This would allow the border to be resolved
- arbitrarily for the `border-width` and `border-color` as long as the
- `border-style` is matches the constraint.
+As you can see from above, you can provide constraints on a long hand
+property to set a constraint on just one of the values in a short hand
+property that is specified. This would allow the border to be resolved
+arbitrarily for the `border-width` and `border-color` as long as the
+`border-style` is matches the constraint.
 
- ```css
-
+```css
 .column {
-   width: 300px;
-   width: constrain(range(200px, 400px));
- }
- ```
+  width: 300px;
+  width: constrain(range(200px, 400px));
+}
+```
 
- TBD: syntax for range constraints and other possible constraint types.
+TBD: syntax for range constraints and other possible constraint types.
 
 #### Progressive Enhancement
 
 When we use progressive enhancement we set the conflicting properties
- several times and let the browser pick up the one it understands.
+several times and let the browser pick up the one it understands.
 
 ```css
 /* nav.block.css */
@@ -1128,12 +1244,18 @@ local values to take precedence.
 ```
 
 In this case, the compiler copies all the values for the conflicting
- property into the resolution selector:
+property into the resolution selector:
 
 ```css
 /* header.resolve-output.css */
-.conflicts__header { font-size: 16px; font-size: 1rem; }
-.other__nav.conflicts__header { font-size: 18px; font-size: 1.2rem; }
+.conflicts__header {
+  font-size: 16px;
+  font-size: 1rem;
+}
+.other__nav.conflicts__header {
+  font-size: 18px;
+  font-size: 1.2rem;
+}
 ```
 
 #### Overriding Wildcard Resolutions
@@ -1167,8 +1289,12 @@ Consider the following conflicts when `target.main` and `conflicts.article` are 
 
 ```css
 /* target.block.css */
-.main    { color: blue; }
-[state|hidden] .main { color: transparent; }
+.main {
+  color: blue;
+}
+[state|hidden] .main {
+  color: transparent;
+}
 ```
 
 ```css
@@ -1183,11 +1309,21 @@ Consider the following conflicts when `target.main` and `conflicts.article` are 
 We now produce the following output:
 
 ```css
-.conflicts--happy .conflicts__article { color: green; }
-.conflicts--happy .target__main.conflicts__article { color: blue; }
-.conflicts--happy.target--hidden .target__main.conflicts__article { color: transparent; }
-.target--hidden .conflicts--happy .target__main.conflicts__article { color: transparent; }
-.conflicts--happy .target--hidden .target__main.conflicts__article { color: transparent; }
+.conflicts--happy .conflicts__article {
+  color: green;
+}
+.conflicts--happy .target__main.conflicts__article {
+  color: blue;
+}
+.conflicts--happy.target--hidden .target__main.conflicts__article {
+  color: transparent;
+}
+.target--hidden .conflicts--happy .target__main.conflicts__article {
+  color: transparent;
+}
+.conflicts--happy .target--hidden .target__main.conflicts__article {
+  color: transparent;
+}
 ```
 
 Resolving is relatively straight forward as long as only one selector has a
@@ -1218,7 +1354,9 @@ of the same value in the key selector the following resolution is created:
 
 ```css
 @block-reference base from "./base.block.css";
-:scope { extends: base; }
+:scope {
+  extends: base;
+}
 .foo {
   color: resolve("base.foo");
   color: blue; // conflicts with color value(s) in a selector targeting base.foo
@@ -1301,8 +1439,7 @@ It is also convention to use legal CSS identifiers for all aspects of the
 file path that may be part of the natural name of the block in your specific
 application or framework.
 
-Writing Optimizer-friendly CSS
-------------------------------
+## Writing Optimizer-friendly CSS
 
 1. CSS constructs that reduce the optimizer's effectiveness. Optimization
    occurs within an optimization context based on a selector's @-rules, context selector,
@@ -1319,8 +1456,7 @@ Writing Optimizer-friendly CSS
 4. It's better to inherit a block to introduce a new static interface option for a
    a block than it is to add a state to it. States are best for runtime behaviors.
 
-Using With Preprocessors
-------------------------
+## Using With Preprocessors
 
 Note that people who prefer to use Sass can utilize it's features (or that of other CSS processors) to
 change the source authoring. Here's our form example from above written with Sass:
@@ -1333,11 +1469,11 @@ $base-size: 1em;
   padding: $base-size $base-size / 2;
 }
 
-[state|theme=light] {
+[state|theme="light"] {
   color: #333;
 }
 
-[state|theme=dark] {
+[state|theme="dark"] {
   color: #ccc;
 }
 
@@ -1345,7 +1481,6 @@ $base-size: 1em;
   margin: $base-size / 2 0;
   padding: $base-size / 2;
 }
-
 
 .input-area {
   display: flex;
@@ -1362,10 +1497,10 @@ $base-size: 1em;
 
 .input {
   flex-basis: 3;
-  [state|theme=light] & {
+  [state|theme="light"] & {
     border-color: #333;
   }
-  [state|theme=dark] & {
+  [state|theme="dark"] & {
     border-color: #ccc;
   }
 }
@@ -1378,8 +1513,7 @@ $base-size: 1em;
 }
 ```
 
-Template Integrations
----------------------
+## Template Integrations
 
 ### JSX
 
@@ -1452,7 +1586,7 @@ In BEM output mode this would compile to:
 
 ```hbs
 <div class="my-component icons icons--hoverable">
-  <div class="my-component__icon icons__new" >New File</div>
+  <div class="my-component__icon icons__new">New File</div>
   <div class="my-component__icon icons__save">Save File</div>
   <div class="my-component__icon icons__undo">Undo</div>
   <div class="my-component__icon icons__print">Print</div>
@@ -1471,7 +1605,7 @@ of CSS blocks in templates, this helper is a little cumbersome to use.
 It takes a helper expression and a list of block object expressions that might be returned
 from the helper. The helper should pass calls through one of the following methods:
 
-* `styles.classes(expression: string): Style[]` - Depending on the expression,
+- `styles.classes(expression: string): Style[]` - Depending on the expression,
   returns the CSS classes for a given state, class, or block. The
   expression takes the form of a block object expression as defined in
   the Syntax section above.
@@ -1480,7 +1614,6 @@ To return the styles of several elements together use the
 `cssBlocks.union(...expressions: (string | Style)[]): Style[]` method. This ensures that the
 classes returned are correct, de-duplicated, resolved and legal to be used
 together, and can still provide hints correctly to the CSS optimizer.
-
 
 ```ts
 import Component from "@glimmer/component";
@@ -1539,64 +1672,56 @@ private helpers similar to the block select helper. As noted in the section
 template and not considered part of the current block, must be declared
 `@external`.
 
-
-
-Media Queries
--------------
+## Media Queries
 
 TBD how media queries are handled.
 
-Multi-Stage Processing
-----------------------
+## Multi-Stage Processing
 
 The highly optimized output of CSS Blocks is only possible
 because it does its work in three stages:
 
 **Stage 1: Block Compilation.** Each block is compiled down to
- component-oriented CSS classes. Each component's styles are kept in their
- own CSS file.
+component-oriented CSS classes. Each component's styles are kept in their
+own CSS file.
 
 **Stage 2: Template analysis and rewriting.** Block specific markup is
- rewritten within the templates so that the CSS classes from stage 1 are used
- instead. Analysis is done to understand what CSS classes are used and what
- CSS classes happen to be applied to the same elements. Because there is no
- total ordering of the component CSS files, Errors are generated for style
- conflicts across different block files and must be resolved explicitly.
+rewritten within the templates so that the CSS classes from stage 1 are used
+instead. Analysis is done to understand what CSS classes are used and what
+CSS classes happen to be applied to the same elements. Because there is no
+total ordering of the component CSS files, Errors are generated for style
+conflicts across different block files and must be resolved explicitly.
 
 **Stage 3: Optimization.** The constraints on the authoring of blocks, together with
- the template analysis and explicit resolution scheme, provides a highly
- optimizable framework for combining declarations safely. Unused classes are
- optimized out. A single class from a stylesheet may end up represented by
- as many classes as there are declarations in a ruleset.
+the template analysis and explicit resolution scheme, provides a highly
+optimizable framework for combining declarations safely. Unused classes are
+optimized out. A single class from a stylesheet may end up represented by
+as many classes as there are declarations in a ruleset.
 
 **Stage 4: Template Optimization.**
- These final class mappings are then rewritten back into the templates one last time.
+These final class mappings are then rewritten back into the templates one last time.
 
- TODO: How to wire each stage into a build system.
+TODO: How to wire each stage into a build system.
 
+## Options
 
-Options
--------
-
-* `outputMode`: type `cssBlocks.OutputMode`. Currently defaults to and
+- `outputMode`: type `cssBlocks.OutputMode`. Currently defaults to and
   must be `cssBlocks.OutputMode.BEM`. Other output modes will be
   defined soon.
 
-WIP: Detecting Unused Styles
-----------------------------
+## WIP: Detecting Unused Styles
 
 TBD: It should be possible to detect unused styles and prune
 from the final build.
 
-WIP: Classname generation schemes
----------------------------------
+## WIP: Classname generation schemes
 
 There are few techniques being considered to compress classes:
 
-0. *No compression*. Outputs standard BEM classes. This is good for when
+0. _No compression_. Outputs standard BEM classes. This is good for when
    porting an existing code base from BEM to CSS Blocks until all
    templates can be updated.
-1. *Truncated hashing* (with hash collision detection) - Hashing the BEM
+1. _Truncated hashing_ (with hash collision detection) - Hashing the BEM
    name is predictable and stable over time. The algorithm used above
    is a base64 encoding with `+` and `/` removed, then selecting 10
    bytes staring with the first non-numeric character. We then need
@@ -1605,7 +1730,7 @@ There are few techniques being considered to compress classes:
    used to resolve any any hash collisions we encounter. The collision
    resolution must be stable across builds that do not introduce new
    collisions.
-2. *Counter hashing*. Every time we need a new identifier we increment a
+2. _Counter hashing_. Every time we need a new identifier we increment a
    counter. This strategy works fine for within a single block. We don't
    need to ensure cache consistency once a block changes. But we
    must ensure uniqueness across all blocks. To this end, we would need to
@@ -1618,12 +1743,12 @@ There are few techniques being considered to compress classes:
    detects added or removed block files and updates the counters file
    accordingly. In theory, this technique generates smaller output but
    for additional developer complexity.
-3. *Localized*. This strategy would keep the local names for a block but
+3. _Localized_. This strategy would keep the local names for a block but
    scope them with a unique identifier to avoid users being able to
    predict the classnames while still preserving some developer
    familiarity when reading the output. This might be best for
    development mode.
-4. *Content hashing*. This strategy produces predictable classnames which
+4. _Content hashing_. This strategy produces predictable classnames which
    means that developers **could** abuse them if they wanted to.
    However, this approach also means that class names can be de-duplicated
    across files built separately in downstream processing and extracted to

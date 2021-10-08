@@ -29,18 +29,16 @@ import {
   isAttrValue,
   isBlockClass,
 } from "../BlockTree";
-import {
-  ResolvedConfiguration,
-} from "../configuration";
-import {
-  unionInto,
-} from "../util/unionInto";
+import { ResolvedConfiguration } from "../configuration";
+import { unionInto } from "../util/unionInto";
 
 export interface HasAttrValue<AttrType extends AttrValue | number = AttrValue> {
   value: AttrType;
 }
 
-export function isBooleanAttr(o: object): o is HasAttrValue<AttrValue | number> {
+export function isBooleanAttr(
+  o: object
+): o is HasAttrValue<AttrValue | number> {
   return !!(<HasAttrValue>o).value;
 }
 
@@ -80,7 +78,9 @@ export function isSwitch(o: object): o is Switch<whatever> {
 /**
  * When the style container is dynamic but the style itself is not.
  */
-export interface Dependency<Container extends BlockClass | number = BlockClass> {
+export interface Dependency<
+  Container extends BlockClass | number = BlockClass
+> {
   container: Container;
 }
 
@@ -93,11 +93,15 @@ export function hasDependency(o: object): o is Dependency<BlockClass | number> {
  * the main branch of the style-if helper and the else branch of the
  * style-unless helper
  */
-export interface TrueCondition<Container extends BlockClass | number = BlockClass> {
+export interface TrueCondition<
+  Container extends BlockClass | number = BlockClass
+> {
   whenTrue: Array<Container>; // TODO: someday we can support more complex expressions here.
 }
 
-export function isTrueCondition(o: object): o is TrueCondition<BlockClass | number> {
+export function isTrueCondition(
+  o: object
+): o is TrueCondition<BlockClass | number> {
   let trueCondition = (<TrueCondition<BlockClass | number>>o).whenTrue;
   return trueCondition !== undefined;
 }
@@ -106,11 +110,15 @@ export function isTrueCondition(o: object): o is TrueCondition<BlockClass | numb
  * the else branch of the style-if helper and the main branch of the
  * style-unless helper
  */
-export interface FalseCondition<Container extends BlockClass | number = BlockClass> {
+export interface FalseCondition<
+  Container extends BlockClass | number = BlockClass
+> {
   whenFalse: Array<Container>; // TODO: someday we can support more complex expressions here.
 }
 
-export function isFalseCondition(o: object): o is FalseCondition<BlockClass | number> {
+export function isFalseCondition(
+  o: object
+): o is FalseCondition<BlockClass | number> {
   let falseCondition = (<FalseCondition<BlockClass | number>>o).whenFalse;
   return falseCondition !== undefined;
 }
@@ -119,43 +127,74 @@ interface StaticClass {
   klass: BlockClass;
 }
 function isStaticClass(o: object): o is StaticClass {
-  return !!((<StaticClass>o).klass);
+  return !!(<StaticClass>o).klass;
 }
 
 /** An attribute value that is conditionally set */
-export type ConditionalAttr<BooleanExpression> = Conditional<BooleanExpression> & HasAttrValue;
+export type ConditionalAttr<BooleanExpression> =
+  Conditional<BooleanExpression> & HasAttrValue;
 /** An attribute value that is only set when its dynamic class is set */
 export type DependentAttr = Dependency & HasAttrValue;
 /** An attribute value that is only set when its condition is true and its dynamic class is set */
-export type ConditionalDependentAttr<BooleanExpression> = Conditional<BooleanExpression> & Dependency & HasAttrValue;
+export type ConditionalDependentAttr<BooleanExpression> =
+  Conditional<BooleanExpression> & Dependency & HasAttrValue;
 /** An attribute value that is dynamic for any reason */
-export type DynamicAttr<BooleanExpression> = ConditionalAttr<BooleanExpression> | DependentAttr | ConditionalDependentAttr<BooleanExpression>;
+export type DynamicAttr<BooleanExpression> =
+  | ConditionalAttr<BooleanExpression>
+  | DependentAttr
+  | ConditionalDependentAttr<BooleanExpression>;
 
 /** An attribute group where one is set conditionally */
-export type ConditionalAttrGroup<StringExpression> = Switch<StringExpression> & HasGroup;
+export type ConditionalAttrGroup<StringExpression> = Switch<StringExpression> &
+  HasGroup;
 /** An attribute group that are only set when its dynamic class is set and where one (or none) is selected at runtime. */
-export type ConditionalDependentAttrGroup<StringExpression> = Switch<StringExpression> & Dependency & HasGroup;
+export type ConditionalDependentAttrGroup<StringExpression> =
+  Switch<StringExpression> & Dependency & HasGroup;
 /** An attribute group that are dynamic for any reason */
-export type DynamicAttrGroup<StringExpression> = ConditionalAttrGroup<StringExpression> | ConditionalDependentAttrGroup<StringExpression>;
+export type DynamicAttrGroup<StringExpression> =
+  | ConditionalAttrGroup<StringExpression>
+  | ConditionalDependentAttrGroup<StringExpression>;
 
 /** Any type of dynamic attribute or group of attributes. */
-export type DynamicAttrs<BooleanExpression, StringExpression> = DynamicAttr<BooleanExpression> | DynamicAttrGroup<StringExpression>;
+export type DynamicAttrs<BooleanExpression, StringExpression> =
+  | DynamicAttr<BooleanExpression>
+  | DynamicAttrGroup<StringExpression>;
 
 /** a ternary expression where different classes can be set when true or false */
-export type DynamicClasses<TernaryExpression> = (Conditional<TernaryExpression> & TrueCondition) |
-                                                (Conditional<TernaryExpression> & FalseCondition) |
-                                                (Conditional<TernaryExpression> & TrueCondition & FalseCondition);
+export type DynamicClasses<TernaryExpression> =
+  | (Conditional<TernaryExpression> & TrueCondition)
+  | (Conditional<TernaryExpression> & FalseCondition)
+  | (Conditional<TernaryExpression> & TrueCondition & FalseCondition);
 
-export type SerializedConditionalAttr = Conditional<true> & HasAttrValue<number>;
+export type SerializedConditionalAttr = Conditional<true> &
+  HasAttrValue<number>;
 export type SerializedDependentAttr = Dependency<number> & HasAttrValue<number>;
-export type SerializedConditionalDependentAttr = Conditional<true> & Dependency<number> & HasAttrValue<number>;
-export type SerializedDynamicAttr = SerializedConditionalAttr | SerializedDependentAttr | SerializedConditionalDependentAttr;
+export type SerializedConditionalDependentAttr = Conditional<true> &
+  Dependency<number> &
+  HasAttrValue<number>;
+export type SerializedDynamicAttr =
+  | SerializedConditionalAttr
+  | SerializedDependentAttr
+  | SerializedConditionalDependentAttr;
 export type SerializedConditionalAttrGroup = Switch<true> & HasGroup<number>;
-export type SerializedDependentAttrGroup = Dependency<number> & HasGroup<number>;
-export type SerializedConditionalDependentAttrGroup = Switch<true> & Dependency<number> & HasGroup<number>;
-export type SerializedDynamicAttrGroup = SerializedConditionalAttrGroup | SerializedDependentAttrGroup | SerializedConditionalDependentAttrGroup;
-export type SerializedDynamicContainer = Conditional<true> & (TrueCondition<number> | FalseCondition<number> | (TrueCondition<number> & FalseCondition<number>));
-export type SerializedDynamicAttrs = SerializedDynamicAttr | SerializedDynamicAttrGroup;
+export type SerializedDependentAttrGroup = Dependency<number> &
+  HasGroup<number>;
+export type SerializedConditionalDependentAttrGroup = Switch<true> &
+  Dependency<number> &
+  HasGroup<number>;
+export type SerializedDynamicAttrGroup =
+  | SerializedConditionalAttrGroup
+  | SerializedDependentAttrGroup
+  | SerializedConditionalDependentAttrGroup;
+export type SerializedDynamicContainer = Conditional<true> &
+  (
+    | TrueCondition<number>
+    | FalseCondition<number>
+    | (TrueCondition<number> & FalseCondition<number>)
+  );
+export type SerializedDynamicAttrs =
+  | SerializedDynamicAttr
+  | SerializedDynamicAttrGroup;
 
 export interface SerializedElementAnalysis {
   id?: string | undefined;
@@ -184,7 +223,11 @@ export interface SerializedElementAnalysis {
  * invocations unless multiple classes from the same block are applied at the
  * same time -- which would be illegal.
  */
-export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpression> {
+export class ElementAnalysis<
+  BooleanExpression,
+  StringExpression,
+  TernaryExpression
+> {
   static autoGenerateId = Symbol("AutoGenerateID");
 
   /** an opaque id assigned from the analyzer for later retrieval */
@@ -205,14 +248,19 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
   /** attributes set dynamically or depending on a dynamic class */
   dynamicAttributes: Array<DynamicAttrs<BooleanExpression, StringExpression>>;
 
-  private addedStyles: Array<DependentAttr
-                             | ConditionalDependentAttr<BooleanExpression>
-                             | ConditionalDependentAttrGroup<StringExpression>
-                             | StaticClass
-                             | DynamicClasses<TernaryExpression>>;
+  private addedStyles: Array<
+    | DependentAttr
+    | ConditionalDependentAttr<BooleanExpression>
+    | ConditionalDependentAttrGroup<StringExpression>
+    | StaticClass
+    | DynamicClasses<TernaryExpression>
+  >;
 
   /** classes declared explicitly and found in at least one dynamic class expression. */
-  private dynamicClassExpressions: Map<BlockClass, DynamicClasses<TernaryExpression>>;
+  private dynamicClassExpressions: Map<
+    BlockClass,
+    DynamicClasses<TernaryExpression>
+  >;
 
   /** All the classes on this element, by block. */
   private allClasses: MultiMap<Block, BlockClass>;
@@ -351,18 +399,24 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
     this.assertSealed(false);
     let styles: [
       Array<StaticClass | DynamicClasses<TernaryExpression>>,
-      Array<DependentAttr | ConditionalDependentAttr<BooleanExpression> | ConditionalDependentAttrGroup<StringExpression>>
+      Array<
+        | DependentAttr
+        | ConditionalDependentAttr<BooleanExpression>
+        | ConditionalDependentAttrGroup<StringExpression>
+      >
     ] = [[], []];
-    let [classStyles, attrStyles] = this.addedStyles.reduce(
-      (res, style) => {
-        if (isStaticClass(style) || isTrueCondition(style) || isFalseCondition(style)) {
-          res[0].push(style);
-        } else {
-          res[1].push(style);
-        }
-        return res;
-      },
-      styles);
+    let [classStyles, attrStyles] = this.addedStyles.reduce((res, style) => {
+      if (
+        isStaticClass(style) ||
+        isTrueCondition(style) ||
+        isFalseCondition(style)
+      ) {
+        res[0].push(style);
+      } else {
+        res[1].push(style);
+      }
+      return res;
+    }, styles);
 
     for (let classStyle of classStyles) {
       if (isStaticClass(classStyle)) {
@@ -392,23 +446,28 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
    */
   addStaticAttr(container: BlockClass, value: AttrValue) {
     this.assertSealed(false);
-    this.addedStyles.push({container, value});
+    this.addedStyles.push({ container, value });
   }
   private _addStaticAttr(style: DependentAttr) {
-    let {container, value} = style;
+    let { container, value } = style;
     this.assertValidContainer(container, value);
     if (this.dynamicClassExpressions.has(container)) {
-      this.dynamicAttributes.push({value, container});
+      this.dynamicAttributes.push({ value, container });
     } else {
       this.static.add(value);
       unionInto(this.allStaticStyles, value.resolveStyles());
     }
   }
 
-  private assertValidContainer(container: BlockClass, value: AttrValue | Attribute) {
+  private assertValidContainer(
+    container: BlockClass,
+    value: AttrValue | Attribute
+  ) {
     if (container !== value.blockClass) {
       if (!container.resolveStyles().has(value.blockClass)) {
-        throw new Error("container is not a valid container for the given state");
+        throw new Error(
+          "container is not a valid container for the given state"
+        );
       }
     }
   }
@@ -419,12 +478,16 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
    * @param value the AttrValue that is dynamic.
    * @param condition The AST node(s) representing this boolean expression.
    */
-  addDynamicAttr(container: BlockClass, value: AttrValue, condition: BooleanExpression) {
+  addDynamicAttr(
+    container: BlockClass,
+    value: AttrValue,
+    condition: BooleanExpression
+  ) {
     this.assertSealed(false);
-    this.addedStyles.push({value, container, condition});
+    this.addedStyles.push({ value, container, condition });
   }
   private _addDynamicAttr(style: ConditionalDependentAttr<BooleanExpression>) {
-    let {container, value, condition} = style;
+    let { container, value, condition } = style;
     this.assertValidContainer(container, value);
     if (this.dynamicClassExpressions.has(container)) {
       this.dynamicAttributes.push({ value, container, condition });
@@ -444,7 +507,12 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
    * @param disallowFalsy Whether a missing value is expected or should be
    *   a runtime error.
    */
-  addDynamicGroup(container: BlockClass, group: Attribute, stringExpression: StringExpression, disallowFalsy = false) {
+  addDynamicGroup(
+    container: BlockClass,
+    group: Attribute,
+    stringExpression: StringExpression,
+    disallowFalsy = false
+  ) {
     this.assertSealed(false);
     this.addedStyles.push({
       container,
@@ -453,10 +521,17 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
       disallowFalsy,
     });
   }
-  private _addDynamicGroup(style: ConditionalDependentAttrGroup<StringExpression>) {
+  private _addDynamicGroup(
+    style: ConditionalDependentAttrGroup<StringExpression>
+  ) {
     let { container, group, stringExpression, disallowFalsy } = style;
     if (this.dynamicClassExpressions.has(container)) {
-      this.dynamicAttributes.push({ group, container, stringExpression, disallowFalsy });
+      this.dynamicAttributes.push({
+        group,
+        container,
+        stringExpression,
+        disallowFalsy,
+      });
     } else {
       this.dynamicAttributes.push({ group, stringExpression, disallowFalsy });
     }
@@ -467,13 +542,13 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
    */
   addStaticClass(klass: BlockClass) {
     this.assertSealed(false);
-    this.addedStyles.push({klass});
+    this.addedStyles.push({ klass });
     // We have to record this information as we add classes so that the caller
     // can use it to find classes for AttrValues that it encounters.
     this.mapBlocksForClass(klass);
   }
   private _addStaticClass(style: StaticClass) {
-    let {klass} = style;
+    let { klass } = style;
     this.static.add(klass);
   }
 
@@ -533,7 +608,9 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
 
   assertSealed(isSealed = true) {
     if (this._sealed === isSealed) return;
-    throw new Error(`Internal Error: The analysis is ${ this._sealed ? "" : "not yet "}sealed.`);
+    throw new Error(
+      `Internal Error: The analysis is ${this._sealed ? "" : "not yet "}sealed.`
+    );
   }
 
   countAllStaticStyles(): number {
@@ -563,8 +640,12 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
       staticStyles.push(styleIndexes.get(style)!);
     }
     staticStyles.sort();
-    let dynamicClasses = this.dynamicClasses.map(c => serializeDynamicContainer(c, styleIndexes));
-    let dynamicAttributes = this.dynamicAttributes.map(s => serializeDynamicAttrs(s, styleIndexes));
+    let dynamicClasses = this.dynamicClasses.map((c) =>
+      serializeDynamicContainer(c, styleIndexes)
+    );
+    let dynamicAttributes = this.dynamicAttributes.map((s) =>
+      serializeDynamicAttrs(s, styleIndexes)
+    );
     let serialization: SerializedElementAnalysis = {
       staticStyles,
       dynamicClasses,
@@ -578,20 +659,24 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
         start: { line: this.sourceLocation.start.line },
       };
       if (this.sourceLocation.start.column) {
-        serialization.sourceLocation.start.column = this.sourceLocation.start.column;
+        serialization.sourceLocation.start.column =
+          this.sourceLocation.start.column;
       }
       if (this.sourceLocation.start.filename) {
-        serialization.sourceLocation.start.filename = this.sourceLocation.start.filename;
+        serialization.sourceLocation.start.filename =
+          this.sourceLocation.start.filename;
       }
       if (this.sourceLocation.end) {
         serialization.sourceLocation.end = {
           line: this.sourceLocation.end.line,
         };
         if (this.sourceLocation.end.column) {
-          serialization.sourceLocation.end.column = this.sourceLocation.end.column;
+          serialization.sourceLocation.end.column =
+            this.sourceLocation.end.column;
         }
         if (this.sourceLocation.end.filename) {
-          serialization.sourceLocation.end.filename = this.sourceLocation.end.filename;
+          serialization.sourceLocation.end.filename =
+            this.sourceLocation.end.filename;
         }
       }
     }
@@ -606,9 +691,13 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
    * assumed to be unique per Style across all blocks -- so these
    * maps can be merged safely.
    */
-  forOptimizer(configuration: ResolvedConfiguration): [Element, Map<string, Style>] {
+  forOptimizer(
+    configuration: ResolvedConfiguration
+  ): [Element, Map<string, Style>] {
     this.assertSealed();
-    let tagValue = this.tagName ? attrValues.constant(this.tagName) : attrValues.unknown();
+    let tagValue = this.tagName
+      ? attrValues.constant(this.tagName)
+      : attrValues.unknown();
     let tagName = new Tagname(tagValue);
     let classes = new Array<AttributeValueSetItem>();
     let classMap = new Map<string, Style>();
@@ -619,27 +708,48 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
     }
 
     let mapper: ClassMapper = mapClasses.bind(null, configuration, classMap);
-    let choices: ChoiceMapper = mapChoiceClasses.bind(null, configuration, classMap);
+    let choices: ChoiceMapper = mapChoiceClasses.bind(
+      null,
+      configuration,
+      classMap
+    );
 
-    let depAttrsMap = new MultiMap<BlockClass, DynamicAttrs<BooleanExpression, StringExpression>>();
+    let depAttrsMap = new MultiMap<
+      BlockClass,
+      DynamicAttrs<BooleanExpression, StringExpression>
+    >();
     for (let dynAttr of this.dynamicAttributes) {
       if (hasDependency(dynAttr)) {
         depAttrsMap.set(dynAttr.container, dynAttr);
       }
     }
 
-    let dynAttrsHandled = new Set<DynamicAttrs<BooleanExpression, StringExpression>>();
+    let dynAttrsHandled = new Set<
+      DynamicAttrs<BooleanExpression, StringExpression>
+    >();
 
     for (let dynContainer of this.dynamicClasses) {
-      let trueClasses: AttributeValueSet | ValueConstant | ValueAbsent = attrValues.absent();
-      let falseClasses: AttributeValueSet | ValueConstant | ValueAbsent = attrValues.absent();
+      let trueClasses: AttributeValueSet | ValueConstant | ValueAbsent =
+        attrValues.absent();
+      let falseClasses: AttributeValueSet | ValueConstant | ValueAbsent =
+        attrValues.absent();
       if (isTrueCondition(dynContainer)) {
         trueClasses = dynamicClassAndDependentAttrs(
-          dynContainer.whenTrue, depAttrsMap, dynAttrsHandled, mapper, choices);
+          dynContainer.whenTrue,
+          depAttrsMap,
+          dynAttrsHandled,
+          mapper,
+          choices
+        );
       }
       if (isFalseCondition(dynContainer)) {
         falseClasses = dynamicClassAndDependentAttrs(
-          dynContainer.whenFalse, depAttrsMap, dynAttrsHandled, mapper, choices);
+          dynContainer.whenFalse,
+          depAttrsMap,
+          dynAttrsHandled,
+          mapper,
+          choices
+        );
       }
       classes.push(attrValues.oneOf([trueClasses, falseClasses]));
     }
@@ -661,7 +771,7 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
       tagName,
       [new Attr("class", classValue)],
       this.sourceLocation,
-      this.id,
+      this.id
     );
     return [element, classMap];
   }
@@ -691,15 +801,17 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
         classesToKeep.add(klass);
       }
     }
-    this.dynamicClasses = this.dynamicClasses.filter(c => classesToKeep.has(c));
+    this.dynamicClasses = this.dynamicClasses.filter((c) =>
+      classesToKeep.has(c)
+    );
   }
 
   private prepareCondition(
     classes: DynamicClasses<TernaryExpression>,
-    condition: "whenTrue" | "whenFalse",
+    condition: "whenTrue" | "whenFalse"
   ) {
     let parents: Array<BlockClass> = classes[condition];
-    let dynamicParents = parents.filter(c => {
+    let dynamicParents = parents.filter((c) => {
       if (this.allStaticStyles.has(c)) {
         this.static.add(c);
         return false;
@@ -721,7 +833,6 @@ export class ElementAnalysis<BooleanExpression, StringExpression, TernaryExpress
       delete classes[condition];
     }
   }
-
 }
 
 function dynamicClassAndDependentAttrs(
@@ -729,7 +840,7 @@ function dynamicClassAndDependentAttrs(
   depAttrsMap: MultiMap<BlockClass, DynamicAttrs<whatever, whatever>>,
   dynAttrsHandled: Set<DynamicAttrs<whatever, whatever>>,
   mapper: ClassMapper,
-  choices: ChoiceMapper,
+  choices: ChoiceMapper
 ): AttributeValueSet | ValueConstant {
   let classValues = new Array<AttributeValueSetItem>();
   for (let klass of classes) {
@@ -738,8 +849,9 @@ function dynamicClassAndDependentAttrs(
     addToSet(classValues, mapper(klass));
     for (let dynAttr of dynAttrs) {
       if (isAttrGroup(dynAttr)) {
-        classValues.push(choices(isSwitch(dynAttr),
-                                 ...objectValues(dynAttr.group)));
+        classValues.push(
+          choices(isSwitch(dynAttr), ...objectValues(dynAttr.group))
+        );
       } else {
         if (isConditional(dynAttr)) {
           classValues.push(choices(true, dynAttr.value));
@@ -758,7 +870,7 @@ function dynamicClassAndDependentAttrs(
 
 function addToSet(
   setItems: Array<AttributeValueSetItem>,
-  value: ValueConstant | AttributeValueSet,
+  value: ValueConstant | AttributeValueSet
 ): Array<AttributeValueSetItem> {
   if (isConstant(value)) {
     setItems.push(value);
@@ -772,7 +884,7 @@ type ClassMapper = (style: Style) => ValueConstant | AttributeValueSet;
 function mapClasses(
   configuration: ResolvedConfiguration,
   map: Map<string, Style>,
-  style: Style,
+  style: Style
 ): ValueConstant | AttributeValueSet {
   let classes = new Array<string>();
   let resolvedStyles = style.resolveStyles();
@@ -784,16 +896,19 @@ function mapClasses(
   if (classes.length === 1) {
     return attrValues.constant(classes[0]);
   } else {
-    return attrValues.allOf(classes.map(c => attrValues.constant(c)));
+    return attrValues.allOf(classes.map((c) => attrValues.constant(c)));
   }
 }
 
-type ChoiceMapper = (includeAbsent: boolean, ...styles: Style[]) => AttributeValueChoice;
+type ChoiceMapper = (
+  includeAbsent: boolean,
+  ...styles: Style[]
+) => AttributeValueChoice;
 function mapChoiceClasses(
   configuration: ResolvedConfiguration,
   map: Map<string, Style>,
   includeAbsent: boolean,
-  ...styles: Style[],
+  ...styles: Style[]
 ): AttributeValueChoice {
   let choices = new Array<AttributeValueChoiceOption>();
   if (includeAbsent) {
@@ -805,26 +920,32 @@ function mapChoiceClasses(
   return attrValues.oneOf(choices);
 }
 
-function serializeDynamicContainer(c: DynamicClasses<whatever>, styleIndexes: Map<Style, number>): SerializedDynamicContainer {
+function serializeDynamicContainer(
+  c: DynamicClasses<whatever>,
+  styleIndexes: Map<Style, number>
+): SerializedDynamicContainer {
   let classes: SerializedDynamicContainer = {
     condition: true,
     whenFalse: [],
     whenTrue: [],
   };
   if (isTrueCondition(c)) {
-    classes.whenTrue = c.whenTrue.map(s => styleIndexes.get(s)!).sort();
+    classes.whenTrue = c.whenTrue.map((s) => styleIndexes.get(s)!).sort();
   } else {
     delete classes.whenTrue;
   }
   if (isFalseCondition(c)) {
-    classes.whenFalse = c.whenFalse.map(s => styleIndexes.get(s)!).sort();
+    classes.whenFalse = c.whenFalse.map((s) => styleIndexes.get(s)!).sort();
   } else {
     delete classes.whenFalse;
   }
   return classes;
 }
 
-function serializeDynamicAttrs(c: DynamicAttrs<whatever, whatever>, styleIndexes: Map<Style, number>): SerializedDynamicAttrs {
+function serializeDynamicAttrs(
+  c: DynamicAttrs<whatever, whatever>,
+  styleIndexes: Map<Style, number>
+): SerializedDynamicAttrs {
   let dynAttr = {
     stringExpression: true,
     condition: true,

@@ -1,7 +1,9 @@
 import { Analyzer } from "../../src/Analyzer";
 
 export class TestAnalyzer extends Analyzer<"Opticss.Template"> {
-  analyze() { return Promise.resolve(this); }
+  analyze() {
+    return Promise.resolve(this);
+  }
   get optimizationOptions() {
     return {
       rewriteIdents: {

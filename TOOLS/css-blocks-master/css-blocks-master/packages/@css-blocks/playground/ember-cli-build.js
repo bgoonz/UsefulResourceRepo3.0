@@ -1,10 +1,10 @@
-'use strict';
+"use strict";
 
-const GlimmerApp = require('@glimmer/application-pipeline').GlimmerApp;
+const GlimmerApp = require("@glimmer/application-pipeline").GlimmerApp;
 
-module.exports = function(defaults) {
+module.exports = function (defaults) {
   let app = new GlimmerApp(defaults, {
-    'css-blocks': {
+    "css-blocks": {
       entry: "GlimmerTest",
       output: "src/ui/styles/css-blocks.css",
       parserOpts: {},
@@ -14,9 +14,9 @@ module.exports = function(defaults) {
         mergeDeclarations: true,
         removeUnusedStyles: true,
         conflictResolution: true,
-        enabled: process.env.EMBER_ENV !== 'development',
+        enabled: process.env.EMBER_ENV !== "development",
       },
-    }
+    },
   });
   return app.toTree();
 };

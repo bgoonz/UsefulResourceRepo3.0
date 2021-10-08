@@ -91,9 +91,15 @@ const enum BooleanExpr {
   or = -2,
   and = -3,
 }
-const e = (m: string): never => { throw new Error(m); };
-const toStr = (s: whatever): string => typeof s === "symbol" ? s.toString() : "" + s;
-const num = (v: whatever[]): number => typeof v[0] === "number" ? <number>v.shift() : e("not a number: " + toStr(v[0]));
+const e = (m: string): never => {
+  throw new Error(m);
+};
+const toStr = (s: whatever): string =>
+  typeof s === "symbol" ? s.toString() : "" + s;
+const num = (v: whatever[]): number =>
+  typeof v[0] === "number"
+    ? <number>v.shift()
+    : e("not a number: " + toStr(v[0]));
 const str = (s: whatever[]): string => toStr(s.shift());
 const truthyString = (v: whatever[]): string | undefined => {
   let s = v.shift();
@@ -112,9 +118,11 @@ export function classnames(stack: whatever[]): string {
   let nSources = num(stack);
   let nOutputs = num(stack);
   let canSetSource = true;
-  let abort: Abort = () => canSetSource = false;
+  let abort: Abort = () => (canSetSource = false);
   let isSourceSet: IsSourceSet = (n) => sources[n];
-  let setSource: SetSource = (n) => { if (canSetSource) sources[n] = true; };
+  let setSource: SetSource = (n) => {
+    if (canSetSource) sources[n] = true;
+  };
   while (nSources-- > 0) {
     sourceExpr(stack, isSourceSet, setSource, abort);
     canSetSource = true;
@@ -124,12 +132,13 @@ export function classnames(stack: whatever[]): string {
     if (boolExpr(stack, isSourceSet)) classes.push(c);
   }
   return classes.join(" ");
-  }
+}
 
 function sourceExpr(
   stack: whatever[],
-  isSourceSet: IsSourceSet, setSource: SetSource,
-  abort: Abort,
+  isSourceSet: IsSourceSet,
+  setSource: SetSource,
+  abort: Abort
 ): void {
   let enforceSwitch = true;
   let type = num(stack);

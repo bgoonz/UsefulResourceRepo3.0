@@ -7,9 +7,9 @@ export function config(outputPath?: string): WebpackConfiguration {
   outputPath = outputPath || path.join(DIST_DIRECTORY, "test_output");
   return {
     output: {
-            path: outputPath,
-            filename: "bundle.js",
-            libraryTarget: "commonjs2",
-        },
+      path: outputPath,
+      filename: "bundle.js",
+      libraryTarget: "commonjs2",
+    },
   };
 }

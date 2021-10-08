@@ -1,4 +1,3 @@
-
 export interface ErrorLocation {
   filename?: string;
   line?: number;
@@ -33,13 +32,14 @@ export class CssBlockError extends Error {
     let column = loc.column ? `:${loc.column}` : "";
     let locMessage = ` (${filename}${line}${column})`;
     let c = <HasPrefix>this.constructor;
-    return `[css-blocks] ${c.prefix || CssBlockError.prefix}: ${this.origMessage}${locMessage}`;
+    return `[css-blocks] ${c.prefix || CssBlockError.prefix}: ${
+      this.origMessage
+    }${locMessage}`;
   }
 
   get location(): ErrorLocation | void {
     return this._location;
   }
-
 }
 
 /**

@@ -13,12 +13,11 @@ export interface BroccoliOptions {
   entry: string[];
   output: string;
   analyzer: Analyzer<keyof TemplateTypes>;
-  transport: {[key: string]: object};
+  transport: { [key: string]: object };
   optimization?: Partial<OptiCSSOptions>;
 }
 
 class BroccoliCSSBlocks extends BroccoliPlugin {
-
   private analyzer: Analyzer<keyof TemplateTypes>;
   private entry: string[];
   private output: string;
@@ -36,14 +35,19 @@ class BroccoliCSSBlocks extends BroccoliPlugin {
     this.optimizationOptions = options.optimization || {};
 
     if (!this.output) {
-      throw new Error("CSS Blocks Broccoli Plugin requires an output file name.");
+      throw new Error(
+        "CSS Blocks Broccoli Plugin requires an output file name."
+      );
     }
   }
 
   async build() {
     let options = this.analyzer.cssBlocksOptions;
     let blockCompiler = new BlockCompiler(postcss, options);
-    let optimizer = new Optimizer(this.optimizationOptions, this.analyzer.optimizationOptions);
+    let optimizer = new Optimizer(
+      this.optimizationOptions,
+      this.analyzer.optimizationOptions
+    );
 
     // This build step is *mostly* just a pass-through of all files!
     // QUESTION: Tom, is there a better way to do this in Broccoli?
@@ -54,11 +58,15 @@ class BroccoliCSSBlocks extends BroccoliPlugin {
       try {
         await fs.symlink(
           path.join(this.inputPaths[0], file),
-          path.join(this.outputPath, file),
+          path.join(this.outputPath, file)
         );
       } catch (e) {
         // tslint:disable-next-line:no-console
-        console.log("Error linking", path.join(this.inputPaths[0], file), "to output directory.");
+        console.log(
+          "Error linking",
+          path.join(this.inputPaths[0], file),
+          "to output directory."
+        );
       }
     }
 
@@ -70,15 +78,32 @@ class BroccoliCSSBlocks extends BroccoliPlugin {
     let blocks = this.analyzer.transitiveBlockDependencies();
     for (let block of blocks) {
       if (block.stylesheet) {
-        let root = blockCompiler.compile(block, block.stylesheet, this.analyzer);
-        let result = root.toResult({ to: this.output, map: { inline: false, annotation: false } });
-        let filesystemPath = options.importer.filesystemPath(block.identifier, options);
-        let filename = filesystemPath || options.importer.debugIdentifier(block.identifier, options);
+        let root = blockCompiler.compile(
+          block,
+          block.stylesheet,
+          this.analyzer
+        );
+        let result = root.toResult({
+          to: this.output,
+          map: { inline: false, annotation: false },
+        });
+        let filesystemPath = options.importer.filesystemPath(
+          block.identifier,
+          options
+        );
+        let filename =
+          filesystemPath ||
+          options.importer.debugIdentifier(block.identifier, options);
 
         // If this Block has a representation on disk, remove it from our output tree.
         // TODO: This isn't working right now because `importer.filesystemPath` doesn't return the expected path...
         if (filesystemPath) {
-          await fs.remove(path.join(this.outputPath, path.relative(options.rootDir, filesystemPath)));
+          await fs.remove(
+            path.join(
+              this.outputPath,
+              path.relative(options.rootDir, filesystemPath)
+            )
+          );
         }
 
         // Add the compiled Block file to the optimizer.
@@ -91,11 +116,18 @@ class BroccoliCSSBlocks extends BroccoliPlugin {
     }
 
     // Add each Analysis to the Optimizer.
-    this.analyzer.eachAnalysis((a) => optimizer.addAnalysis(a.forOptimizer(options)));
+    this.analyzer.eachAnalysis((a) =>
+      optimizer.addAnalysis(a.forOptimizer(options))
+    );
 
     // Run optimization and compute StyleMapping.
     let optimized = await optimizer.optimize(this.output);
-    let styleMapping = new StyleMapping<keyof TemplateTypes>(optimized.styleMapping, blocks, options, this.analyzer.analyses());
+    let styleMapping = new StyleMapping<keyof TemplateTypes>(
+      optimized.styleMapping,
+      blocks,
+      options,
+      this.analyzer.analyses()
+    );
 
     // Attach all computed data to our magic shared memory transport object...
     this.transport.mapping = styleMapping;
@@ -106,11 +138,9 @@ class BroccoliCSSBlocks extends BroccoliPlugin {
     // Write our compiled CSS to the output tree.
     await fs.writeFile(
       path.join(this.outputPath, this.output),
-      optimized.output.content.toString(),
+      optimized.output.content.toString()
     );
-
   }
-
 }
 
 export { BroccoliCSSBlocks };

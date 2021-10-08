@@ -1,21 +1,23 @@
 # Graphs
 
-*Day 1*
+_Day 1_
 
 ## 1. What is a graph and how is it represented?
 
 - What is a Graph?
 
 - Terminology
-    - Directed Vs Undirected
-        - Directed (Twitter follow) : Undirected (bi-directional) (Facebook)
-        - Undirected Edge is the same as a bi directional edge 
-    
-    - Cyclic Vs Acyclic
-        - cyclic follows a cycle within a graph
-        - acyclic does not follow a cycle (to the origin point)
-    - Dense Vs Sparse
-    - Weighted Vs Unweighted
+
+  - Directed Vs Undirected
+
+    - Directed (Twitter follow) : Undirected (bi-directional) (Facebook)
+    - Undirected Edge is the same as a bi directional edge
+
+  - Cyclic Vs Acyclic
+    - cyclic follows a cycle within a graph
+    - acyclic does not follow a cycle (to the origin point)
+  - Dense Vs Sparse
+  - Weighted Vs Unweighted
 
 - Adjacency Lists & Adjacency Matrices
 
@@ -37,17 +39,15 @@ class Graph:
         pass
 ```
 
-
-
-
 ## 2. Breadth First & Depth first Traversal
+
 These traversals use the BFS and DFS algorithm respectively
 
-- *BFT* Looks at nodes `1` away then nodes `2` away then nodes `n` away such that `n` is the next level of children, grand-children etc
-- *DFT* looks at a `neighbor`, then the `neighbor's neighbor`, then the `neighbor's neighbor's neighbor` etc
-
+- _BFT_ Looks at nodes `1` away then nodes `2` away then nodes `n` away such that `n` is the next level of children, grand-children etc
+- _DFT_ looks at a `neighbor`, then the `neighbor's neighbor`, then the `neighbor's neighbor's neighbor` etc
 
 ## Lets take a quick break
+
 After the break we can look at the concept of this traversal and run through the traversing process
 
 ### 3. Partial Traversal example
@@ -117,7 +117,9 @@ def bft(self, starting_vertex_id):
 def bft(self, starting_vertex_id):
     pass
 ```
+
 ## Lets take a small break
+
 After this break we will look at how we can convert the bft to dft and talk about the difference between bft and bfs
 
 ## 4. What can we do with this to make a dft (Think about the Data Structure used)?
@@ -126,7 +128,6 @@ After this break we will look at how we can convert the bft to dft and talk abou
 def dft(self, starting_vertex_id):
     pass
 ```
-
 
 ```
 s = []
@@ -203,7 +204,6 @@ def bfs(self, starting_vertex_id, target_vertex_id):
 
 ## bfs partial search
 
-
 ```
 q = []
 visited = {}
@@ -259,15 +259,17 @@ q = []
 visited = {1, 2, 3, 4, 5, 6, 7}
 
 ```
-## Today's Project
-let's take a look at the project repo!
 
+## Today's Project
+
+let's take a look at the project repo!
 
 # Day 2: Breaking Down Graph Problems
 
-Today we'll start working on strategies for solving problems with graphs.  
+Today we'll start working on strategies for solving problems with graphs.
 
 ## BFS / DFS
+
 Remember this from yesterday...
 
 ```python
@@ -304,29 +306,28 @@ def dfs(self, starting_vertex_id, target_vertex_id):
     pass
 ```
 
-We will be turning this in to code then refactoring it to be a `dfs` *just by changing the data structure we use to store the paths*
-
+We will be turning this in to code then refactoring it to be a `dfs` _just by changing the data structure we use to store the paths_
 
 ## How to solve (almost) any graph problem
 
 1. Translate the problem in to graph terminology
-    - Find what parts of the problem can be modeled as nodes / vertices
-    - Find the part of the problem that can be modeled as Edges or Connections
+   - Find what parts of the problem can be modeled as nodes / vertices
+   - Find the part of the problem that can be modeled as Edges or Connections
 2. Build Your Graph
-    - use data from the problem to create a graph based on the way you have chosen to model it's component parts
+   - use data from the problem to create a graph based on the way you have chosen to model it's component parts
 3. Traverse your Graph
-    - think about how you have decided to model your problems solution. look for key words or ideas that could point you toward a specific traversal algorithm. 
-    - look for keywords such as `shortest`, `fastest` or anything that could give you a clue as to what might be a good fit for the problem at hand
-
+   - think about how you have decided to model your problems solution. look for key words or ideas that could point you toward a specific traversal algorithm.
+   - look for keywords such as `shortest`, `fastest` or anything that could give you a clue as to what might be a good fit for the problem at hand
 
 ## Challenge: Word Ladders Problem
 
-Given two words (begin_word and end_word), and a dictionary's word list, return the *`shortest`* *`transformation sequence`* from begin_word to end_word, such that:
+Given two words (begin_word and end_word), and a dictionary's word list, return the _`shortest`_ _`transformation sequence`_ from begin_word to end_word, such that:
 
-- *Only `one letter can be changed` at a time.*
-- Each transformed `word` *must* exist in the `word list`. 
+- _Only `one letter can be changed` at a time._
+- Each transformed `word` _must_ exist in the `word list`.
 
-*Note that `begin_word` is not a `transformed word`.*
+_Note that `begin_word` is not a `transformed word`._
+
 - Return `None` if there is no such transformation sequence.
 
 - All words contain only `lowercase` alphabetic characters.
@@ -350,10 +351,10 @@ None
 ```
 
 Remember to do what you can to first understand the problem:
+
 - what parts of the problem description could be thought of as a node / vertex?
 - what parts could be an edge?
 - does this lend itself toward using a path?
-
 
 ### Example run of get neighbors
 

@@ -23,35 +23,42 @@ export interface ModuleConfig {
   collections: ObjectDictionary<ModuleCollection | UnresolvableCollection>;
 }
 export const MODULE_CONFIG: ModuleConfig = {
-  "app": {
-    "name": "glimmer-test",
-    "rootName": "glimmer-test",
+  app: {
+    name: "glimmer-test",
+    rootName: "glimmer-test",
   },
 
-  "types": {
-    "application": { "definitiveCollection": "main" },
-    "component": { "definitiveCollection": "components" },
-    "component-test": { "unresolvable": true },
-    "helper": { "definitiveCollection": "components" },
-    "helper-test": { "unresolvable": true },
-    "renderer": { "definitiveCollection": "main" },
-    "template": { "definitiveCollection": "components" },
-    "stylesheet": { "definitiveCollection": "components" },
+  types: {
+    application: { definitiveCollection: "main" },
+    component: { definitiveCollection: "components" },
+    "component-test": { unresolvable: true },
+    helper: { definitiveCollection: "components" },
+    "helper-test": { unresolvable: true },
+    renderer: { definitiveCollection: "main" },
+    template: { definitiveCollection: "components" },
+    stylesheet: { definitiveCollection: "components" },
   },
 
-  "collections": {
-    "main": { "types": ["application", "renderer"] },
-    "components": {
-      "group": "ui",
-      "types": ["component", "component-test", "template", "helper", "helper-test", "stylesheet"],
-      "defaultType": "component",
-      "privateCollections": ["utils"],
+  collections: {
+    main: { types: ["application", "renderer"] },
+    components: {
+      group: "ui",
+      types: [
+        "component",
+        "component-test",
+        "template",
+        "helper",
+        "helper-test",
+        "stylesheet",
+      ],
+      defaultType: "component",
+      privateCollections: ["utils"],
     },
-    "styles": {
-      "group": "ui",
-      "unresolvable": true,
+    styles: {
+      group: "ui",
+      unresolvable: true,
     },
-    "utils": { "unresolvable": true },
+    utils: { unresolvable: true },
   },
 };
 

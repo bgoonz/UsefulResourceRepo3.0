@@ -30,12 +30,20 @@ export class BlockCompiler {
     this.postcss = postcssImpl;
   }
 
-  compile(block: Block, root: postcss.Root, analyzer?: Analyzer<keyof TemplateTypes>): postcss.Root {
-
+  compile(
+    block: Block,
+    root: postcss.Root,
+    analyzer?: Analyzer<keyof TemplateTypes>
+  ): postcss.Root {
     let resolver = new ConflictResolver(this.config);
-    let filename = this.config.importer.debugIdentifier(block.identifier, this.config);
+    let filename = this.config.importer.debugIdentifier(
+      block.identifier,
+      this.config
+    );
 
-    if (analyzer) { /* Do something smart with the Analyzer here */ }
+    if (analyzer) {
+      /* Do something smart with the Analyzer here */
+    }
 
     // Process all debug statements for this block.
     this.processDebugStatements(filename, root, block);
@@ -57,7 +65,9 @@ export class BlockCompiler {
     resolver.resolveInheritance(root, block);
     root.walkRules((rule) => {
       let parsedSelectors = block.getParsedSelectors(rule);
-      rule.selector = parsedSelectors.map(s => block.rewriteSelectorToString(s, this.config)).join(",\n");
+      rule.selector = parsedSelectors
+        .map((s) => block.rewriteSelectorToString(s, this.config))
+        .join(",\n");
     });
 
     resolver.resolve(root, block);
@@ -71,12 +81,18 @@ export class BlockCompiler {
    * @param root PostCSS Root for block.
    * @param block Block to resolve references for
    */
-  public processDebugStatements(sourceFile: string, root: postcss.Root, block: Block) {
+  public processDebugStatements(
+    sourceFile: string,
+    root: postcss.Root,
+    block: Block
+  ) {
     root.walkAtRules(BLOCK_DEBUG, (atRule) => {
-      let {block: ref, channel} = parseBlockDebug(atRule, sourceFile, block);
+      let { block: ref, channel } = parseBlockDebug(atRule, sourceFile, block);
       if (channel === "comment") {
         let debugStr = ref.debug(this.config);
-        atRule.replaceWith(this.postcss.comment({text: debugStr.join("\n   ")}));
+        atRule.replaceWith(
+          this.postcss.comment({ text: debugStr.join("\n   ") })
+        );
       } else {
         // stderr/stdout are emitted during parse.
         atRule.remove();

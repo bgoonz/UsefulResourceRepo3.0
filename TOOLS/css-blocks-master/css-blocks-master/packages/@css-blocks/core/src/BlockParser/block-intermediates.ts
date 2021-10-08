@@ -1,7 +1,12 @@
 import { assertNever, whatever } from "@opticss/util";
 import { postcssSelectorParser as selectorParser } from "opticss";
 
-import { ATTR_PRESENT, AttrToken, ROOT_CLASS, STATE_NAMESPACE } from "../BlockSyntax";
+import {
+  ATTR_PRESENT,
+  AttrToken,
+  ROOT_CLASS,
+  STATE_NAMESPACE,
+} from "../BlockSyntax";
 
 export enum BlockType {
   block = 1,
@@ -72,15 +77,24 @@ export function toAttrToken(attr: selectorParser.Attribute): AttrToken {
  * @param options Options for output, currently just to specify plurality.
  * @return A human readable descriptor for the given `BlockType`.
  */
-export function blockTypeName(t: BlockType, options?: { plural: boolean }): string {
+export function blockTypeName(
+  t: BlockType,
+  options?: { plural: boolean }
+): string {
   let isPlural = options && options.plural;
   switch (t) {
-    case BlockType.block: return isPlural ? "external blocks" : "external block";
-    case BlockType.root: return isPlural ? "block roots" : "block root";
-    case BlockType.attribute: return isPlural ? "root-level states" : "root-level state";
-    case BlockType.class: return isPlural ? "classes" : "class";
-    case BlockType.classAttribute: return isPlural ? "class states" : "class state";
-    default: return assertNever(t);
+    case BlockType.block:
+      return isPlural ? "external blocks" : "external block";
+    case BlockType.root:
+      return isPlural ? "block roots" : "block root";
+    case BlockType.attribute:
+      return isPlural ? "root-level states" : "root-level state";
+    case BlockType.class:
+      return isPlural ? "classes" : "class";
+    case BlockType.classAttribute:
+      return isPlural ? "class states" : "class state";
+    default:
+      return assertNever(t);
   }
 }
 
@@ -97,8 +111,13 @@ export function isExternalBlock(object: NodeAndType): boolean {
  * on the root element.
  * @param object The NodeAndType's descriptor object.
  */
-export function isRootLevelObject(object: NodeAndType): object is RootAttributeNode | RootClassNode {
-  return object.blockType === BlockType.root || object.blockType === BlockType.attribute;
+export function isRootLevelObject(
+  object: NodeAndType
+): object is RootAttributeNode | RootClassNode {
+  return (
+    object.blockType === BlockType.root ||
+    object.blockType === BlockType.attribute
+  );
 }
 
 /**
@@ -106,8 +125,13 @@ export function isRootLevelObject(object: NodeAndType): object is RootAttributeN
  * on an element contained by the root, not the root itself.
  * @param object The CompoundSelector's descriptor object.
  */
-export function isClassLevelObject(object: NodeAndType): object is ClassAttributeNode | BlockClassNode {
-  return object.blockType === BlockType.class || object.blockType === BlockType.classAttribute;
+export function isClassLevelObject(
+  object: NodeAndType
+): object is ClassAttributeNode | BlockClassNode {
+  return (
+    object.blockType === BlockType.class ||
+    object.blockType === BlockType.classAttribute
+  );
 }
 
 /**
@@ -124,6 +148,8 @@ export const isClassNode = selectorParser.isClassName;
  * @param  node The selector to test.
  * @return True if attribute selector, false if not.
  */
-export function isAttributeNode(node: selectorParser.Node): node is selectorParser.Attribute {
+export function isAttributeNode(
+  node: selectorParser.Node
+): node is selectorParser.Attribute {
   return selectorParser.isAttribute(node) && node.namespace === STATE_NAMESPACE;
 }

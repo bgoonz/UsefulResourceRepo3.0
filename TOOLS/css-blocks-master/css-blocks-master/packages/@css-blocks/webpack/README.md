@@ -19,7 +19,7 @@ The CSS Blocks Webpack Plugin handles analysis of all JSX files and Block file c
 Add it to your plugins list like so:
 
 ```js
-module.exports =  {
+module.exports = {
   plugins: [
     /* ... */
     new CssBlocksPlugin({
@@ -27,7 +27,7 @@ module.exports =  {
       outputCssFile: "my-output-file.css",
       analyzer: analyzerInstance,
       compilationOptions: cssBlocksCompilationOptions,
-      optimization: opticssOptimizationOptions
+      optimization: opticssOptimizationOptions,
     }),
     /* ... */
   ],
@@ -41,12 +41,12 @@ The CSS Blocks Webpack Loader halts project compilation until after the Webpack 
 
 The Loader is passed the chosen template integration's `Analyzer` instance, and a shared data object of the name of `rewriter`. Once Block compilation is finished, the `rewriter` object passed to this loader will be populated with this build's Analysis and StyleMapping data.
 
-This loader must apply to all `jsx` or `tsx` files for the project. Remember, Loaders are executed in *reverse* order, so make sure the CSS Blocks loader appears last in the "rules" list.
+This loader must apply to all `jsx` or `tsx` files for the project. Remember, Loaders are executed in _reverse_ order, so make sure the CSS Blocks loader appears last in the "rules" list.
 
 Integrate the loader like so:
 
 ```js
-module.exports =  {
+module.exports = {
   /* ... */
   module: {
     /* ... */
@@ -63,15 +63,15 @@ module.exports =  {
             loader: require.resolve("@css-blocks/webpack/dist/src/loader"),
             options: {
               analyzer: analyzerInstance,
-              rewriter: sharedDataObject
-            }
+              rewriter: sharedDataObject,
+            },
           },
-        ]
-      }
-    ]
-  }
+        ],
+      },
+    ],
+  },
   /* ... */
-}
+};
 ```
 
 ### Rewriter Integration
@@ -144,3 +144,4 @@ module.exports =  {
   ]
   /* ... */
 }
+```

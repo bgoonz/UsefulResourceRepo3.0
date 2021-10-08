@@ -39,16 +39,31 @@ export class Test {
                  <div class={boolStyle}></div>
                  <div class={newStyle}></div></div>
                );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
-      assert.deepEqual(analysis.stylesFound, ["bar.bool", "bar.equality", "bar.expr", "bar.func", "bar.new"]);
-      assert.deepEqual(analysis.elements.a.dynamicClasses, [{condition: true, whenTrue: [3]}]);
-      assert.deepEqual(analysis.elements.b.dynamicClasses, [{condition: true, whenTrue: [2]}]);
-      assert.deepEqual(analysis.elements.c.dynamicClasses, [{condition: true, whenTrue: [1]}]);
-      assert.deepEqual(analysis.elements.d.dynamicClasses, [{condition: true, whenTrue: [0]}]);
-      assert.deepEqual(analysis.elements.e.dynamicClasses, [{condition: true, whenTrue: [4]}]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.bool",
+        "bar.equality",
+        "bar.expr",
+        "bar.func",
+        "bar.new",
+      ]);
+      assert.deepEqual(analysis.elements.a.dynamicClasses, [
+        { condition: true, whenTrue: [3] },
+      ]);
+      assert.deepEqual(analysis.elements.b.dynamicClasses, [
+        { condition: true, whenTrue: [2] },
+      ]);
+      assert.deepEqual(analysis.elements.c.dynamicClasses, [
+        { condition: true, whenTrue: [1] },
+      ]);
+      assert.deepEqual(analysis.elements.d.dynamicClasses, [
+        { condition: true, whenTrue: [0] },
+      ]);
+      assert.deepEqual(analysis.elements.e.dynamicClasses, [
+        { condition: true, whenTrue: [4] },
+      ]);
     });
   }
 
@@ -74,16 +89,31 @@ export class Test {
                  <div class={objstr({ [bar.bool]: val && val })}></div>
                  <div class={objstr({ [bar.new]: new Object() })}></div></div>
                );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
-      assert.deepEqual(analysis.stylesFound, ["bar.bool", "bar.equality", "bar.expr", "bar.func", "bar.new"]);
-      assert.deepEqual(analysis.elements.a.dynamicClasses, [{condition: true, whenTrue: [3]}]);
-      assert.deepEqual(analysis.elements.b.dynamicClasses, [{condition: true, whenTrue: [2]}]);
-      assert.deepEqual(analysis.elements.c.dynamicClasses, [{condition: true, whenTrue: [1]}]);
-      assert.deepEqual(analysis.elements.d.dynamicClasses, [{condition: true, whenTrue: [0]}]);
-      assert.deepEqual(analysis.elements.e.dynamicClasses, [{condition: true, whenTrue: [4]}]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.bool",
+        "bar.equality",
+        "bar.expr",
+        "bar.func",
+        "bar.new",
+      ]);
+      assert.deepEqual(analysis.elements.a.dynamicClasses, [
+        { condition: true, whenTrue: [3] },
+      ]);
+      assert.deepEqual(analysis.elements.b.dynamicClasses, [
+        { condition: true, whenTrue: [2] },
+      ]);
+      assert.deepEqual(analysis.elements.c.dynamicClasses, [
+        { condition: true, whenTrue: [1] },
+      ]);
+      assert.deepEqual(analysis.elements.d.dynamicClasses, [
+        { condition: true, whenTrue: [0] },
+      ]);
+      assert.deepEqual(analysis.elements.e.dynamicClasses, [
+        { condition: true, whenTrue: [4] },
+      ]);
     });
   }
 
@@ -113,7 +143,11 @@ export class Test {
         assert.ok(false, "should not get here.");
       },
       (e) => {
-        assert.equal(e.message, "[css-blocks] AnalysisError: The spread operator is not allowed in CSS Block states. (9:18)");
-      });
+        assert.equal(
+          e.message,
+          "[css-blocks] AnalysisError: The spread operator is not allowed in CSS Block states. (9:18)"
+        );
+      }
+    );
   }
 }

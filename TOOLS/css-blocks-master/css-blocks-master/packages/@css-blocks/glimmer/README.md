@@ -31,17 +31,33 @@ Given the following CSS Block definition:
   block-name: my-component;
   /* ... */
 }
-[state|loading] { /* ... */ }
-.sidebar { /* ... */ }
-.sidebar[state|collapsed] { /* ... */ }
-.main { /* ... */ }
-.recommended { /* ... */ }
+[state|loading] {
+  /* ... */
+}
+.sidebar {
+  /* ... */
+}
+.sidebar[state|collapsed] {
+  /* ... */
+}
+.main {
+  /* ... */
+}
+.recommended {
+  /* ... */
+}
 ```
 
 ```css
-.one-fifth { /* ... */ }
-.one-fifth[state|gutter-right] { /* ... */ }
-.four-fifths { /* ... */ }
+.one-fifth {
+  /* ... */
+}
+.one-fifth[state|gutter-right] {
+  /* ... */
+}
+.four-fifths {
+  /* ... */
+}
 ```
 
 We can style a glimmer template like so:
@@ -50,17 +66,19 @@ We can style a glimmer template like so:
 <div state:loading={{isLoading}}>
   <aside class="sidebar grid.one-fifth" state:collapsed state:grid.gutter-right>
   </aside>
-  <article class="{{style-if isRecommended 'recommended' 'main'}} grid.four-fifths">
+  <article
+    class="{{style-if isRecommended "recommended" "main"}} grid.four-fifths"
+  >
   </article>
 </div>
 ```
 
 Of note here:
- - Templates with a corresponding Block file **must** have a root single DOM node as the base of its template.
- - The styles for the `:scope` class are automatically applied to the root element of the component (in this case: `div`).
- - Classes and states from referenced blocks are prefixed with the name of the block (in this case: `grid`)
- - The only expressions allowed in `class` attributes are the CSS Blocks specific `{{style-if}}` and `{{style-unless}}` helpers. Otherwise, a build time error is thrown.
 
+- Templates with a corresponding Block file **must** have a root single DOM node as the base of its template.
+- The styles for the `:scope` class are automatically applied to the root element of the component (in this case: `div`).
+- Classes and states from referenced blocks are prefixed with the name of the block (in this case: `grid`)
+- The only expressions allowed in `class` attributes are the CSS Blocks specific `{{style-if}}` and `{{style-unless}}` helpers. Otherwise, a build time error is thrown.
 
 ## Creating an Analyzer
 
@@ -74,7 +92,7 @@ import * as path from "path";
 import {
   Project,
   Rewriter,
-  HandlebarsTransitiveStyleAnalyzer as Analyzer
+  HandlebarsTransitiveStyleAnalyzer as Analyzer,
 } from "@css-blocks/glimmer";
 import projectConfig from "./projectConfig";
 let projectDir = path.resolve(__dirname, "..");
@@ -96,25 +114,25 @@ has an associated CSS block. This means you must declare a new type in the
 ```js
 const glimmerProjectConfiguration = {
   types: {
-    application: { definitiveCollection: 'main' },
-    component: { definitiveCollection: 'components' },
-    helper: { definitiveCollection: 'components' },
-    renderer: { definitiveCollection: 'main' },
-    template: { definitiveCollection: 'components' },
-    stylesheet: { definitiveCollection: 'components' }
+    application: { definitiveCollection: "main" },
+    component: { definitiveCollection: "components" },
+    helper: { definitiveCollection: "components" },
+    renderer: { definitiveCollection: "main" },
+    template: { definitiveCollection: "components" },
+    stylesheet: { definitiveCollection: "components" },
   },
   collections: {
     main: {
-      types: ['application', 'renderer']
+      types: ["application", "renderer"],
     },
     components: {
-      group: 'ui',
-      types: ['component', 'template', 'helper', 'stylesheet'],
-      defaultType: 'component',
-      privateCollections: ['utils']
-    }
-  }
-}
+      group: "ui",
+      types: ["component", "template", "helper", "stylesheet"],
+      defaultType: "component",
+      privateCollections: ["utils"],
+    },
+  },
+};
 ```
 
 Note: at this time the default block file for a component must be named `stylesheet.css` -- the standard naming convention of `*.block.css` does not work.
@@ -130,18 +148,14 @@ with your specific build system will be required.
 
 ```ts
 import * as path from "path";
-import {
-  StyleMapping
-} from "@css-blocks/core";
+import { StyleMapping } from "@css-blocks/core";
 import {
   Project,
   Rewriter,
   RewriterOptions,
   HandlebarsStyleAnalyzer as Analyzer,
 } from "@css-blocks/glimmer";
-import {
-  precompile
-} from "@glimmer/compiler";
+import { precompile } from "@glimmer/compiler";
 import projectConfig from "./projectConfig";
 let projectDir = path.resolve(__dirname, "..");
 let project = new Project(projectDir, projectConfig);
@@ -151,11 +165,11 @@ analyzer.analyze().then((analysis) => {
   let options = {
     meta: {},
     plugins: {
-      ast: [Rewriter]
+      ast: [Rewriter],
     },
     cssBlocks: {
-      styleMapping: StyleMapping.fromAnalysis(analysis)
-    }
+      styleMapping: StyleMapping.fromAnalysis(analysis),
+    },
   };
   let compiledFile = precompile(template.string, options);
 });
@@ -163,5 +177,5 @@ analyzer.analyze().then((analysis) => {
 
 ## To Do
 
-* Default the name for a component's main block stylesheet to the name of the component so that
+- Default the name for a component's main block stylesheet to the name of the component so that
   `:scope { block-name: name-of-component; }` is not required.

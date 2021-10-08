@@ -1,7 +1,13 @@
 import { assert } from "chai";
 import * as path from "path";
 
-import { ImportedFile, Importer, PathBasedImporter, ResolvedConfiguration as CSSBlocksConfiguration, Syntax } from "@css-blocks/core";
+import {
+  ImportedFile,
+  Importer,
+  PathBasedImporter,
+  ResolvedConfiguration as CSSBlocksConfiguration,
+  Syntax,
+} from "@css-blocks/core";
 import { ObjectDictionary } from "@opticss/util";
 
 const PROJECT_DIR = path.resolve(__dirname, "../../..");
@@ -15,7 +21,11 @@ export class MockImporter extends PathBasedImporter {
     super();
     this.registry = registry;
   }
-  identifier(fromFile: string | null, importPath: string, _options: CSSBlocksConfiguration) {
+  identifier(
+    fromFile: string | null,
+    importPath: string,
+    _options: CSSBlocksConfiguration
+  ) {
     if (fromFile) {
       let sourceDir: string = path.dirname(fromFile);
       return this.registry.relativize(path.resolve(sourceDir, importPath));
@@ -23,7 +33,10 @@ export class MockImporter extends PathBasedImporter {
       return importPath;
     }
   }
-  import(resolvedPath: string, options: CSSBlocksConfiguration): Promise<ImportedFile> {
+  import(
+    resolvedPath: string,
+    options: CSSBlocksConfiguration
+  ): Promise<ImportedFile> {
     return new Promise<ImportedFile>((resolve, reject) => {
       let contents = this.registry.sources[resolvedPath];
       if (contents) {
@@ -36,7 +49,11 @@ export class MockImporter extends PathBasedImporter {
         });
       } else {
         let importedFiles = Object.keys(this.registry.sources).join(", ");
-        reject(new Error(`Mock file ${resolvedPath} not found. Available: ${importedFiles}`));
+        reject(
+          new Error(
+            `Mock file ${resolvedPath} not found. Available: ${importedFiles}`
+          )
+        );
       }
     });
   }
@@ -62,7 +79,8 @@ export class MockImportRegistry {
       let importedFiles = Object.keys(this.imported).join(", ");
       assert(
         false,
-        `${sourcePath} was not imported as expected. These were imported: ${importedFiles}`);
+        `${sourcePath} was not imported as expected. These were imported: ${importedFiles}`
+      );
     }
   }
 

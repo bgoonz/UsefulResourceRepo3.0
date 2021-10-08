@@ -8,12 +8,21 @@ import { ErrorCallback, Validator } from "./Validator";
  * @param err Error callback.
  */
 
-export const classPairsValidator: Validator = (analysis, _templateAnalysis, err) => {
+export const classPairsValidator: Validator = (
+  analysis,
+  _templateAnalysis,
+  err
+) => {
   // TODO: this doesn't work for dynamic classes
   let classPerBlock: Map<Block, BlockClass> = new Map();
   for (let container of analysis.classesFound(false)) {
     if (isBlockClass(container)) {
-      for (let block of checkExisting(classPerBlock, classPerBlock, container, err)) {
+      for (let block of checkExisting(
+        classPerBlock,
+        classPerBlock,
+        container,
+        err
+      )) {
         classPerBlock.set(block, container);
       }
     }
@@ -24,7 +33,9 @@ export const classPairsValidator: Validator = (analysis, _templateAnalysis, err)
       for (let container of dyn.whenTrue) {
         if (isBlockClass(container)) {
           let blocks = checkExisting(classPerBlock, trueBlocks, container, err);
-          for (let block of blocks) { trueBlocks.set(block, container); }
+          for (let block of blocks) {
+            trueBlocks.set(block, container);
+          }
         }
       }
     }
@@ -32,8 +43,15 @@ export const classPairsValidator: Validator = (analysis, _templateAnalysis, err)
     if (isFalseCondition(dyn)) {
       for (let container of dyn.whenFalse) {
         if (isBlockClass(container)) {
-          let blocks = checkExisting(classPerBlock, falseBlocks, container, err);
-          for (let block of blocks) { trueBlocks.set(block, container); }
+          let blocks = checkExisting(
+            classPerBlock,
+            falseBlocks,
+            container,
+            err
+          );
+          for (let block of blocks) {
+            trueBlocks.set(block, container);
+          }
         }
       }
     }
@@ -46,7 +64,12 @@ export const classPairsValidator: Validator = (analysis, _templateAnalysis, err)
   }
 };
 
-function checkExisting(classPerBlock: Map<Block, BlockClass>, tmpClassPerBlock: Map<Block, BlockClass>, container: BlockClass, err: ErrorCallback): Array<Block> {
+function checkExisting(
+  classPerBlock: Map<Block, BlockClass>,
+  tmpClassPerBlock: Map<Block, BlockClass>,
+  container: BlockClass,
+  err: ErrorCallback
+): Array<Block> {
   let blocks = new Array<Block>();
   let mainBlock = container.block;
   let blockHierarchy = mainBlock.getAncestors();
@@ -54,7 +77,13 @@ function checkExisting(classPerBlock: Map<Block, BlockClass>, tmpClassPerBlock: 
   for (let block of blockHierarchy) {
     let otherClass = classPerBlock.get(block) || tmpClassPerBlock.get(block);
     if (otherClass) {
-      err(`Classes "${container.name}" and "${otherClass.name}" from the same block${block !== mainBlock ? " hierarchy" : ""} are not allowed on the same element at the same time.`);
+      err(
+        `Classes "${container.name}" and "${
+          otherClass.name
+        }" from the same block${
+          block !== mainBlock ? " hierarchy" : ""
+        } are not allowed on the same element at the same time.`
+      );
     } else {
       blocks.push(block);
     }

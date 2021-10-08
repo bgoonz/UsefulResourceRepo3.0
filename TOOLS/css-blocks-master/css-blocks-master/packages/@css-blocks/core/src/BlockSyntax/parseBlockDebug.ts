@@ -6,14 +6,18 @@ import { sourceLocation } from "../SourceLocation";
 
 export type DebugChannel = "comment" | "stderr" | "stdout";
 
-export function parseBlockDebug(atRule: postcss.AtRule, sourceFile: string, scope: Block): { block: Block; channel: DebugChannel } {
-
+export function parseBlockDebug(
+  atRule: postcss.AtRule,
+  sourceFile: string,
+  scope: Block
+): { block: Block; channel: DebugChannel } {
   let md = atRule.params.match(/([^\s]+) to (comment|stderr|stdout)/);
 
   if (!md) {
     throw new errors.InvalidBlockSyntax(
       `Malformed block debug: \`@block-debug ${atRule.params}\``,
-      sourceLocation(sourceFile, atRule));
+      sourceLocation(sourceFile, atRule)
+    );
   }
 
   let localName = md[1];
@@ -27,7 +31,8 @@ export function parseBlockDebug(atRule: postcss.AtRule, sourceFile: string, scop
   if (!block) {
     throw new errors.InvalidBlockSyntax(
       `No block named ${localName} exists in this context.`,
-      sourceLocation(sourceFile, atRule));
+      sourceLocation(sourceFile, atRule)
+    );
   }
 
   return { block, channel };

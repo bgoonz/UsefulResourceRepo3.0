@@ -23,7 +23,7 @@ export namespace BroccoliPlugin {
   }
 
   export interface Static {
-    new(inputNodes: any[], options?: any): Plugin;
+    new (inputNodes: any[], options?: any): Plugin;
   }
 }
 

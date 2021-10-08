@@ -1,7 +1,11 @@
 import { postcss } from "opticss";
 
 import { Block } from "../BlockTree";
-import { Options, ResolvedConfiguration, resolveConfiguration } from "../configuration";
+import {
+  Options,
+  ResolvedConfiguration,
+  resolveConfiguration,
+} from "../configuration";
 import * as errors from "../errors";
 import { FileIdentifier } from "../importing";
 
@@ -43,12 +47,16 @@ export class BlockParser {
     let root = source.parseResult.root;
 
     // This should never happen but it makes the typechecker happy.
-    if (!root) { throw new errors.CssBlockError("No postcss root found."); }
+    if (!root) {
+      throw new errors.CssBlockError("No postcss root found.");
+    }
 
-    return this.parse(root, source.identifier, source.defaultName).then(block => {
-      source.dependencies.forEach(block.addDependency);
-      return block;
-    });
+    return this.parse(root, source.identifier, source.defaultName).then(
+      (block) => {
+        source.dependencies.forEach(block.addDependency);
+        return block;
+      }
+    );
   }
 
   /**
@@ -58,10 +66,15 @@ export class BlockParser {
    * @param sourceFile  Source file name
    * @param defaultName Name of block
    */
-  public async parse(root: postcss.Root, identifier: string, name: string): Promise<Block> {
+  public async parse(
+    root: postcss.Root,
+    identifier: string,
+    name: string
+  ): Promise<Block> {
     let importer = this.config.importer;
     let debugIdent = importer.debugIdentifier(identifier, this.config);
-    let sourceFile = importer.filesystemPath(identifier, this.config) || debugIdent;
+    let sourceFile =
+      importer.filesystemPath(identifier, this.config) || debugIdent;
 
     // Discover the block's preferred name.
     name = await discoverName(root, name, sourceFile);
@@ -89,5 +102,4 @@ export class BlockParser {
     // Return our fully constructed block.
     return block;
   }
-
 }

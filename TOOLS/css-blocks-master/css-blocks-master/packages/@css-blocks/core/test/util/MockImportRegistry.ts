@@ -24,7 +24,11 @@ export class MockImporter extends PathBasedImporter {
     super();
     this.registry = registry;
   }
-  identifier(fromFile: string | null, importPath: string, _options: ResolvedConfiguration) {
+  identifier(
+    fromFile: string | null,
+    importPath: string,
+    _options: ResolvedConfiguration
+  ) {
     if (fromFile) {
       let sourceDir: string = path.dirname(fromFile);
       return this.registry.relativize(path.resolve(sourceDir, importPath));
@@ -32,7 +36,10 @@ export class MockImporter extends PathBasedImporter {
       return importPath;
     }
   }
-  import(resolvedPath: string, configuration: ResolvedConfiguration): Promise<ImportedFile> {
+  import(
+    resolvedPath: string,
+    configuration: ResolvedConfiguration
+  ): Promise<ImportedFile> {
     return new Promise<ImportedFile>((resolve, reject) => {
       let source = this.registry.sources[resolvedPath];
       if (source) {
@@ -45,7 +52,11 @@ export class MockImporter extends PathBasedImporter {
         });
       } else {
         let importedFiles = Object.keys(this.registry.sources).join(", ");
-        reject(new Error(`Mock file ${resolvedPath} not found. Available: ${importedFiles}`));
+        reject(
+          new Error(
+            `Mock file ${resolvedPath} not found. Available: ${importedFiles}`
+          )
+        );
       }
     });
   }
@@ -73,8 +84,9 @@ export class MockImportRegistry {
     if (!this.imported[sourcePath]) {
       let importedFiles = Object.keys(this.imported).join(", ");
       assert(
-             false,
-             `${sourcePath} was not imported as expected. These were imported: ${importedFiles}`);
+        false,
+        `${sourcePath} was not imported as expected. These were imported: ${importedFiles}`
+      );
     }
   }
 

@@ -29,7 +29,5 @@
     "traceResolution": false,
     "baseUrl": "."
   },
-  "include": [
-    "runtime/*.ts"
-  ]
+  "include": ["runtime/*.ts"]
 }

@@ -1,18 +1,12 @@
 import {
-  Block, ElementAnalysis, IndexedClassMapping, Style,
+  Block,
+  ElementAnalysis,
+  IndexedClassMapping,
+  Style,
 } from "@css-blocks/core";
-import {
-  AST,
-  builders,
-  print,
-} from "@glimmer/syntax";
-import {
-  POSITION_UNKNOWN,
-} from "@opticss/element-analysis";
-import {
-  assertNever,
-  whatever,
-} from "@opticss/util";
+import { AST, builders, print } from "@glimmer/syntax";
+import { POSITION_UNKNOWN } from "@opticss/element-analysis";
+import { assertNever, whatever } from "@opticss/util";
 import { expect } from "chai";
 import { inspect } from "util";
 
@@ -24,15 +18,25 @@ import {
 } from "../src/ElementAnalyzer";
 import { classnames } from "../src/helpers/classnames";
 
-function run(ast: AST.MustacheStatement, helper?: (name: string, params: whatever[]) => whatever) {
-  let args = ast.params.map(p => astToLiterals(p, helper));
+function run(
+  ast: AST.MustacheStatement,
+  helper?: (name: string, params: whatever[]) => whatever
+) {
+  let args = ast.params.map((p) => astToLiterals(p, helper));
   return classnames(args);
 }
 
-function astToLiterals(node: AST.Expression, helper?: (name: string, params: whatever[]) => whatever): whatever {
+function astToLiterals(
+  node: AST.Expression,
+  helper?: (name: string, params: whatever[]) => whatever
+): whatever {
   switch (node.type) {
     case "SubExpression":
-      if (helper) return helper(node.path.original, node.params.map(p => astToLiterals(p, helper)));
+      if (helper)
+        return helper(
+          node.path.original,
+          node.params.map((p) => astToLiterals(p, helper))
+        );
       throw new Error(`not handled ${inspect(node)}`);
     case "StringLiteral":
       return node.value;
@@ -60,8 +64,10 @@ describe("Classnames Helper", () => {
     let s1 = b.rootClass.ensureAttributeValue("[state|enabled]");
 
     let inputs: Style[] = [b.rootClass, c1, c2, s1];
-    let rewrite = new IndexedClassMapping(inputs, [], { });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let rewrite = new IndexedClassMapping(inputs, [], {});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r, c2],
@@ -70,7 +76,7 @@ describe("Classnames Helper", () => {
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      "{{/css-blocks/components/classnames 1 0 0 true 2 0 2 1 1}}",
+      "{{/css-blocks/components/classnames 1 0 0 true 2 0 2 1 1}}"
     );
   });
   it("generates an ast fragment for a dependent style expression", () => {
@@ -81,8 +87,10 @@ describe("Classnames Helper", () => {
     let s1 = b.rootClass.ensureAttributeValue("[state|enabled]");
 
     let inputs = [r, c1, c2, s1];
-    let rewrite = new IndexedClassMapping(inputs, [], { });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let rewrite = new IndexedClassMapping(inputs, [], {});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r],
@@ -91,7 +99,7 @@ describe("Classnames Helper", () => {
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      "{{/css-blocks/components/classnames 2 0 0 true 1 0 0 1 1 0 1 3}}",
+      "{{/css-blocks/components/classnames 2 0 0 true 1 0 0 1 1 0 1 3}}"
     );
   });
   it("generates an ast fragment for a dependent style expression", () => {
@@ -102,8 +110,10 @@ describe("Classnames Helper", () => {
     let s1 = r.ensureAttributeValue("[state|enabled]");
 
     let inputs = [r, c1, c2, s1];
-    let rewrite = new IndexedClassMapping(inputs, [], { });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let rewrite = new IndexedClassMapping(inputs, [], {});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r],
@@ -112,7 +122,7 @@ describe("Classnames Helper", () => {
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      "{{/css-blocks/components/classnames 2 0 0 true 1 0 0 3 1 0 false 1 3}}",
+      "{{/css-blocks/components/classnames 2 0 0 true 1 0 0 3 1 0 false 1 3}}"
     );
   });
 
@@ -124,13 +134,19 @@ describe("Classnames Helper", () => {
     let blue = r.ensureAttributeValue("[state|theme=blue]");
 
     let inputs = [r, red, orange, blue];
-    let rewrite = new IndexedClassMapping(inputs, [], { });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
-    element.addDynamicGroup(r, red.attribute, builders.mustache(builders.string("blue")));
+    let rewrite = new IndexedClassMapping(inputs, [], {});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
+    element.addDynamicGroup(
+      r,
+      red.attribute,
+      builders.mustache(builders.string("blue"))
+    );
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      '{{/css-blocks/components/classnames 1 0 4 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3}}',
+      '{{/css-blocks/components/classnames 1 0 4 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3}}'
     );
   });
 
@@ -142,17 +158,25 @@ describe("Classnames Helper", () => {
     let blue = r.ensureAttributeValue("[state|theme=blue]");
 
     let inputs = [r, red, orange, blue];
-    let rewrite = new IndexedClassMapping(inputs, [], { });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let rewrite = new IndexedClassMapping(inputs, [], {});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
-      whenTrue: [ r ],
+      whenTrue: [r],
     });
-    element.addDynamicGroup(r, red.attribute, builders.mustache(builders.path("/app/foo/helperz"), [builders.string("blue")]));
+    element.addDynamicGroup(
+      r,
+      red.attribute,
+      builders.mustache(builders.path("/app/foo/helperz"), [
+        builders.string("blue"),
+      ])
+    );
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      '{{/css-blocks/components/classnames 2 0 0 true 1 0 0 5 1 0 3 1 (/app/foo/helperz "blue") "red" 1 1 "orange" 1 2 "blue" 1 3}}',
+      '{{/css-blocks/components/classnames 2 0 0 true 1 0 0 5 1 0 3 1 (/app/foo/helperz "blue") "red" 1 1 "orange" 1 2 "blue" 1 3}}'
     );
   });
   it("generates an ast fragment for optimized classes", () => {
@@ -164,9 +188,11 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, c1, c2, s1];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0, 2 ]},
+      a: { and: [0, 2] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r, c2],
@@ -175,7 +201,7 @@ describe("Classnames Helper", () => {
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -3 2 0 2}}',
+      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -3 2 0 2}}'
     );
   });
   it('omits the boolean expression for single "and" and "or" values', () => {
@@ -187,9 +213,11 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, c1, c2, s1];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ {or: [0]}, {and: [2]} ]},
+      a: { and: [{ or: [0] }, { and: [2] }] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r, c2],
@@ -198,7 +226,7 @@ describe("Classnames Helper", () => {
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -3 2 0 2}}',
+      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -3 2 0 2}}'
     );
   });
   it("can negate boolean expressions", () => {
@@ -210,9 +238,11 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, c1, c2, s1];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [0, {not: 2}]},
+      a: { and: [0, { not: 2 }] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r, c2],
@@ -221,7 +251,7 @@ describe("Classnames Helper", () => {
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -3 2 0 -1 2}}',
+      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -3 2 0 -1 2}}'
     );
   });
   it('can "or" boolean expressions', () => {
@@ -233,9 +263,11 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, c1, c2, s1];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {or: [0, {not: 2}]},
+      a: { or: [0, { not: 2 }] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r, c2],
@@ -244,7 +276,7 @@ describe("Classnames Helper", () => {
     element.seal();
     let result = print(helperGenerator(rewrite, element));
     expect(result).deep.equals(
-      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -2 2 0 -1 2}}',
+      '{{/css-blocks/components/classnames 1 1 0 true 2 0 2 1 1 "a" -2 2 0 -1 2}}'
     );
   });
   it("can run the generated helper expression", () => {
@@ -256,12 +288,14 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, c1, c2, s1];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0 ]},
-      b: {and: [ 1 ]},
-      c: {and: [ 2 ]},
-      d: {and: [ 3 ]},
+      a: { and: [0] },
+      b: { and: [1] },
+      c: { and: [2] },
+      d: { and: [3] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
       whenTrue: [r, c2],
@@ -270,7 +304,8 @@ describe("Classnames Helper", () => {
     element.seal();
     let ast = helperGenerator(rewrite, element);
     expect(print(ast)).deep.equals(
-      '{{/css-blocks/components/classnames 1 4 0 true 2 0 2 1 1 "a" 0 "b" 1 "c" 2 "d" 3}}');
+      '{{/css-blocks/components/classnames 1 4 0 true 2 0 2 1 1 "a" 0 "b" 1 "c" 2 "d" 3}}'
+    );
     expect(run(ast)).deep.equals("a c");
   });
   it("false ternary picks the other branch", () => {
@@ -282,12 +317,14 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, c1, c2, s1];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0 ]},
-      b: {and: [ 1 ]},
-      c: {and: [ 2 ]},
-      d: {and: [ 3 ]},
+      a: { and: [0] },
+      b: { and: [1] },
+      c: { and: [2] },
+      d: { and: [3] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(false),
       whenTrue: [r, c2],
@@ -296,7 +333,8 @@ describe("Classnames Helper", () => {
     element.seal();
     let ast = helperGenerator(rewrite, element);
     expect(print(ast)).deep.equals(
-      '{{/css-blocks/components/classnames 1 4 0 false 2 0 2 1 1 "a" 0 "b" 1 "c" 2 "d" 3}}');
+      '{{/css-blocks/components/classnames 1 4 0 false 2 0 2 1 1 "a" 0 "b" 1 "c" 2 "d" 3}}'
+    );
     expect(run(ast)).deep.equals("b");
   });
   it("dependent state group is allowed when class is set", () => {
@@ -308,21 +346,27 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, red, orange, blue];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0 ]},
-      b: {and: [ 1 ]},
-      c: {and: [ 2 ]},
-      d: {and: [ 3 ]},
+      a: { and: [0] },
+      b: { and: [1] },
+      c: { and: [2] },
+      d: { and: [3] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
-      whenTrue: [ r ],
+      whenTrue: [r],
     });
-    element.addDynamicGroup(r, red.attribute, builders.mustache(builders.string("blue")));
+    element.addDynamicGroup(
+      r,
+      red.attribute,
+      builders.mustache(builders.string("blue"))
+    );
     element.seal();
     let ast = helperGenerator(rewrite, element);
     expect(print(ast)).deep.equals(
-      '{{/css-blocks/components/classnames 2 4 0 true 1 0 0 5 1 0 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3}}',
+      '{{/css-blocks/components/classnames 2 4 0 true 1 0 0 5 1 0 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3}}'
     );
     expect(run(ast)).deep.equals("a d");
   });
@@ -335,21 +379,27 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, red, orange, blue];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0 ]},
-      b: {and: [ 1 ]},
-      c: {and: [ 2 ]},
-      d: {and: [ 3 ]},
+      a: { and: [0] },
+      b: { and: [1] },
+      c: { and: [2] },
+      d: { and: [3] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(false),
-      whenTrue: [ r ],
+      whenTrue: [r],
     });
-    element.addDynamicGroup(r, red.attribute, builders.mustache(builders.string("blue")));
+    element.addDynamicGroup(
+      r,
+      red.attribute,
+      builders.mustache(builders.string("blue"))
+    );
     element.seal();
     let ast = helperGenerator(rewrite, element);
     expect(print(ast)).deep.equals(
-      '{{/css-blocks/components/classnames 2 4 0 false 1 0 0 5 1 0 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3}}',
+      '{{/css-blocks/components/classnames 2 4 0 false 1 0 0 5 1 0 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3}}'
     );
     expect(run(ast)).deep.equals("");
   });
@@ -362,21 +412,27 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, red, orange, blue];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0 ]},
-      b: {and: [ 1 ]},
-      c: {and: [ 2 ]},
-      d: {and: [ 3 ]},
+      a: { and: [0] },
+      b: { and: [1] },
+      c: { and: [2] },
+      d: { and: [3] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
-      whenTrue: [ r ],
+      whenTrue: [r],
     });
-    element.addDynamicGroup(r, red.attribute, builders.mustache(builders.undefined()));
+    element.addDynamicGroup(
+      r,
+      red.attribute,
+      builders.mustache(builders.undefined())
+    );
     element.seal();
     let ast = helperGenerator(rewrite, element);
     expect(print(ast)).deep.equals(
-      '{{/css-blocks/components/classnames 2 4 0 true 1 0 0 5 1 0 3 1 undefined "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3}}',
+      '{{/css-blocks/components/classnames 2 4 0 true 1 0 0 5 1 0 3 1 undefined "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3}}'
     );
     expect(run(ast)).deep.equals("a");
   });
@@ -389,17 +445,24 @@ describe("Classnames Helper", () => {
 
     let inputs = [r, red, orange, blue];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0 ]},
-      b: {and: [ 1 ]},
-      c: {and: [ 2 ]},
-      d: {and: [ 3 ]},
+      a: { and: [0] },
+      b: { and: [1] },
+      c: { and: [2] },
+      d: { and: [3] },
     });
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
+    });
     element.addDynamicClasses({
       condition: builders.boolean(true),
-      whenTrue: [ r ],
+      whenTrue: [r],
     });
-    element.addDynamicGroup(r, red.attribute, builders.mustache(builders.undefined()), true);
+    element.addDynamicGroup(
+      r,
+      red.attribute,
+      builders.mustache(builders.undefined()),
+      true
+    );
     element.seal();
     expect(() => {
       run(helperGenerator(rewrite, element));
@@ -416,37 +479,43 @@ describe("Classnames Helper", () => {
     let orange = r.ensureAttributeValue("[state|theme=orange]");
     let blue = r.ensureAttributeValue("[state|theme=blue]");
 
-    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({start: POSITION_UNKNOWN});
-    element.addDynamicClasses({
-      condition: builders.boolean(true),
-      whenTrue: [ r ],
-    });
-    element.addDynamicClasses({
-      condition: builders.boolean(false),
-      whenTrue: [ c1 ],
+    let element = new ElementAnalysis<BooleanAST, StringAST, TernaryAST>({
+      start: POSITION_UNKNOWN,
     });
     element.addDynamicClasses({
       condition: builders.boolean(true),
-      whenTrue: [ c2 ],
+      whenTrue: [r],
     });
     element.addDynamicClasses({
       condition: builders.boolean(false),
-      whenTrue: [ c3 ],
+      whenTrue: [c1],
     });
-    element.addDynamicGroup(r, red.attribute, builders.mustache(builders.string("blue")));
+    element.addDynamicClasses({
+      condition: builders.boolean(true),
+      whenTrue: [c2],
+    });
+    element.addDynamicClasses({
+      condition: builders.boolean(false),
+      whenTrue: [c3],
+    });
+    element.addDynamicGroup(
+      r,
+      red.attribute,
+      builders.mustache(builders.string("blue"))
+    );
     element.seal();
     let inputs = [r, red, orange, blue, c1, c2, c3];
     let rewrite = new IndexedClassMapping(inputs, [], {
-      a: {and: [ 0 ]},
-      b: {and: [ 1 ]},
-      c: {and: [ 2 ]},
-      d: {and: [ 3 ]},
-      e: {or: [ 2, 5 ]},
-      f: {or: [ 2, {not: {not: {and: [0, 5] } } } ] },
+      a: { and: [0] },
+      b: { and: [1] },
+      c: { and: [2] },
+      d: { and: [3] },
+      e: { or: [2, 5] },
+      f: { or: [2, { not: { not: { and: [0, 5] } } }] },
     });
     let ast = helperGenerator(rewrite, element);
     expect(print(ast)).deep.equals(
-      '{{/css-blocks/components/classnames 5 6 0 true 1 0 0 0 false 1 4 0 0 true 1 5 0 0 false 1 6 0 5 1 0 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3 "e" -2 2 2 5 "f" -2 2 2 -1 -1 -3 2 0 5}}',
+      '{{/css-blocks/components/classnames 5 6 0 true 1 0 0 0 false 1 4 0 0 true 1 5 0 0 false 1 6 0 5 1 0 3 1 "blue" "red" 1 1 "orange" 1 2 "blue" 1 3 "a" 0 "b" 1 "c" 2 "d" 3 "e" -2 2 2 5 "f" -2 2 2 -1 -1 -3 2 0 5}}'
     );
     expect(run(ast)).deep.equals("a d e f");
   });

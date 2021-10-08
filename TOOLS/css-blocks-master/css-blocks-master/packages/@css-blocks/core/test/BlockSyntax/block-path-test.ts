@@ -142,159 +142,110 @@ export class BlockPathTests {
   }
 
   @test "mismatched namespace value quotes throw"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`.class[state|name="value']`);
-      },
-      ERRORS.mismatchedQuote);
+    assert.throws(() => {
+      parseBlockPath(`.class[state|name="value']`);
+    }, ERRORS.mismatchedQuote);
 
-    assert.throws(
-      () => {
-        parseBlockPath(`.class[state|name='value"]`);
-      },
-      ERRORS.mismatchedQuote);
+    assert.throws(() => {
+      parseBlockPath(`.class[state|name='value"]`);
+    }, ERRORS.mismatchedQuote);
   }
 
   @test "duplicate selector types in the same path throw"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`block.class.class`);
-      },
-      ERRORS.multipleOfType("class"));
+    assert.throws(() => {
+      parseBlockPath(`block.class.class`);
+    }, ERRORS.multipleOfType("class"));
 
-    assert.throws(
-      () => {
-        parseBlockPath(`block[state|foo][state|bar]`);
-      },
-      ERRORS.multipleOfType("attribute"));
+    assert.throws(() => {
+      parseBlockPath(`block[state|foo][state|bar]`);
+    }, ERRORS.multipleOfType("attribute"));
   }
 
   @test "whitespace outside of quoted namespace values throws"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`block. class`);
-      },
-      ERRORS.whitespace);
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|my namespace]`);
-      },
-      ERRORS.whitespace);
-    assert.throws(
-      () => {
-        parseBlockPath(`[my state|my-attr]`);
-      },
-      ERRORS.whitespace);
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|my-attr=my value]`);
-      },
-      ERRORS.whitespace);
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|my-attr=my\nvalue]`);
-      },
-      ERRORS.whitespace);
+    assert.throws(() => {
+      parseBlockPath(`block. class`);
+    }, ERRORS.whitespace);
+    assert.throws(() => {
+      parseBlockPath(`[state|my namespace]`);
+    }, ERRORS.whitespace);
+    assert.throws(() => {
+      parseBlockPath(`[my state|my-attr]`);
+    }, ERRORS.whitespace);
+    assert.throws(() => {
+      parseBlockPath(`[state|my-attr=my value]`);
+    }, ERRORS.whitespace);
+    assert.throws(() => {
+      parseBlockPath(`[state|my-attr=my\nvalue]`);
+    }, ERRORS.whitespace);
   }
 
-  @test "namespaces are required to be valid strings (currently only `state`)"() {
+  @test
+  "namespaces are required to be valid strings (currently only `state`)"() {
     parseBlockPath(`[state|name=value]`);
 
-    assert.throws(
-      () => {
-        parseBlockPath(`[|name=value]`);
-      },
-      ERRORS.namespace);
-    assert.throws(
-      () => {
-        parseBlockPath(`[namespace|name=value]`);
-      },
-      ERRORS.namespace);
+    assert.throws(() => {
+      parseBlockPath(`[|name=value]`);
+    }, ERRORS.namespace);
+    assert.throws(() => {
+      parseBlockPath(`[namespace|name=value]`);
+    }, ERRORS.namespace);
   }
 
   @test "separator token required after path termination"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|name=value]class`);
-      },
-      ERRORS.expectsSepInsteadRec("c"));
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|name=value]]`);
-      },
-      ERRORS.expectsSepInsteadRec("]"));
+    assert.throws(() => {
+      parseBlockPath(`[state|name=value]class`);
+    }, ERRORS.expectsSepInsteadRec("c"));
+    assert.throws(() => {
+      parseBlockPath(`[state|name=value]]`);
+    }, ERRORS.expectsSepInsteadRec("]"));
   }
 
   @test "Style path segments require names"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`block.[state|name=value]`);
-      },
-      ERRORS.noname);
-    assert.throws(
-      () => {
-        parseBlockPath(`block.class[state|]`);
-      },
-      ERRORS.noname);
-    assert.throws(
-      () => {
-        parseBlockPath(`block.class[state|=value]`);
-      },
-      ERRORS.noname);
+    assert.throws(() => {
+      parseBlockPath(`block.[state|name=value]`);
+    }, ERRORS.noname);
+    assert.throws(() => {
+      parseBlockPath(`block.class[state|]`);
+    }, ERRORS.noname);
+    assert.throws(() => {
+      parseBlockPath(`block.class[state|=value]`);
+    }, ERRORS.noname);
   }
 
   @test "Illegal characters outside of namespace segments throw"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`block.cla|ss`);
-      },
-      ERRORS.illegalCharNotInAttribute(`|`));
-    assert.throws(
-      () => {
-        parseBlockPath(`block.cla=ss`);
-      },
-      ERRORS.illegalCharNotInAttribute(`=`));
-    assert.throws(
-      () => {
-        parseBlockPath(`block.cla"ss`);
-      },
-      ERRORS.illegalCharNotInAttribute(`"`));
-    assert.throws(
-      () => {
-        parseBlockPath(`block.cla` + `'ss`);
-      },
-      ERRORS.illegalCharNotInAttribute(`'`));
-    assert.throws(
-      () => {
-        parseBlockPath(`block.cla]ss`);
-      },
-      ERRORS.illegalCharNotInAttribute(`]`));
+    assert.throws(() => {
+      parseBlockPath(`block.cla|ss`);
+    }, ERRORS.illegalCharNotInAttribute(`|`));
+    assert.throws(() => {
+      parseBlockPath(`block.cla=ss`);
+    }, ERRORS.illegalCharNotInAttribute(`=`));
+    assert.throws(() => {
+      parseBlockPath(`block.cla"ss`);
+    }, ERRORS.illegalCharNotInAttribute(`"`));
+    assert.throws(() => {
+      parseBlockPath(`block.cla` + `'ss`);
+    }, ERRORS.illegalCharNotInAttribute(`'`));
+    assert.throws(() => {
+      parseBlockPath(`block.cla]ss`);
+    }, ERRORS.illegalCharNotInAttribute(`]`));
   }
 
   @test "Illegal characters inside of namespaced attribute segments throw"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|val.ue]`);
-      },
-      ERRORS.illegalCharInAttribute(`.`));
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|val[ue]`);
-      },
-      ERRORS.illegalCharInAttribute(`[`));
+    assert.throws(() => {
+      parseBlockPath(`[state|val.ue]`);
+    }, ERRORS.illegalCharInAttribute(`.`));
+    assert.throws(() => {
+      parseBlockPath(`[state|val[ue]`);
+    }, ERRORS.illegalCharInAttribute(`[`));
   }
 
   @test "Unterminated namespace attribute selectors throw"() {
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|name`);
-      },
-      ERRORS.unclosedAttribute);
-    assert.throws(
-      () => {
-        parseBlockPath(`[state|name=value`);
-      },
-      ERRORS.unclosedAttribute);
+    assert.throws(() => {
+      parseBlockPath(`[state|name`);
+    }, ERRORS.unclosedAttribute);
+    assert.throws(() => {
+      parseBlockPath(`[state|name=value`);
+    }, ERRORS.unclosedAttribute);
   }
 
   @test "unescaped illegal characters in identifiers throw."() {
@@ -303,26 +254,18 @@ export class BlockPathTests {
       line: 10,
       column: 20,
     };
-    assert.throws(
-      () => {
-        parseBlockPath(`block+name`, loc);
-      },
-      `${ERRORS.invalidIdent("block+name")} (foo.scss:10:21)`);
-    assert.throws(
-      () => {
-        parseBlockPath(`block[#name|foo=bar]`, loc);
-      },
-      `${ERRORS.invalidIdent("#name")} (foo.scss:10:27)`);
-    assert.throws(
-      () => {
-        parseBlockPath(`block[name|fo&o=bar]`, loc);
-      },
-      `${ERRORS.invalidIdent("fo&o")} (foo.scss:10:32)`);
-    assert.throws(
-      () => {
-        parseBlockPath(`block[name|foo=1bar]`, loc);
-      },
-      `${ERRORS.invalidIdent("1bar")} (foo.scss:10:36)`);
+    assert.throws(() => {
+      parseBlockPath(`block+name`, loc);
+    }, `${ERRORS.invalidIdent("block+name")} (foo.scss:10:21)`);
+    assert.throws(() => {
+      parseBlockPath(`block[#name|foo=bar]`, loc);
+    }, `${ERRORS.invalidIdent("#name")} (foo.scss:10:27)`);
+    assert.throws(() => {
+      parseBlockPath(`block[name|fo&o=bar]`, loc);
+    }, `${ERRORS.invalidIdent("fo&o")} (foo.scss:10:32)`);
+    assert.throws(() => {
+      parseBlockPath(`block[name|foo=1bar]`, loc);
+    }, `${ERRORS.invalidIdent("1bar")} (foo.scss:10:36)`);
 
     // Quoted values may have illegal strings
     let path = new BlockPath(`block[state|foo="1bar"]`);
@@ -336,5 +279,4 @@ export class BlockPathTests {
     parseBlockPath(`block[\#name|foo=bar]`);
     parseBlockPath(`block[name|fo\&o=bar]`);
   }
-
 }

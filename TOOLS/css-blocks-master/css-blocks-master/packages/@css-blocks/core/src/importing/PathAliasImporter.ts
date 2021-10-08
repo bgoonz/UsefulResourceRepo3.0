@@ -40,20 +40,26 @@ export class PathAliasImporter extends FilesystemImporter {
       this.aliases = aliases;
     } else {
       this.aliases = [];
-      Object.keys(aliases).forEach(alias => {
+      Object.keys(aliases).forEach((alias) => {
         this.aliases.push({ alias: alias, path: aliases[alias] });
       });
     }
-    this.aliases.forEach(alias => {
+    this.aliases.forEach((alias) => {
       if (!path.isAbsolute(alias.path)) {
-        throw new Error(`Alias paths must be absolute. Got ${alias.alias} => ${alias.path}`);
+        throw new Error(
+          `Alias paths must be absolute. Got ${alias.alias} => ${alias.path}`
+        );
       }
     });
     this.aliases.sort((a, b) => {
       return b.path.length - a.path.length;
     });
   }
-  identifier(from: FileIdentifier | null, importPath: string, configuration: ResolvedConfiguration) {
+  identifier(
+    from: FileIdentifier | null,
+    importPath: string,
+    configuration: ResolvedConfiguration
+  ) {
     if (path.isAbsolute(importPath)) {
       return importPath;
     }
@@ -66,15 +72,23 @@ export class PathAliasImporter extends FilesystemImporter {
         }
       }
     }
-    let alias = this.aliases.find(a => importPath.startsWith(a.alias + path.sep));
+    let alias = this.aliases.find((a) =>
+      importPath.startsWith(a.alias + path.sep)
+    );
     if (alias) {
-      return path.resolve(alias.path, importPath.substring(alias.alias.length + 1));
+      return path.resolve(
+        alias.path,
+        importPath.substring(alias.alias.length + 1)
+      );
     } else {
       return path.resolve(configuration.rootDir, importPath);
     }
   }
-  debugIdentifier(identifier: FileIdentifier, configuration: ResolvedConfiguration): string {
-    let alias = this.aliases.find(a => identifier.startsWith(a.path));
+  debugIdentifier(
+    identifier: FileIdentifier,
+    configuration: ResolvedConfiguration
+  ): string {
+    let alias = this.aliases.find((a) => identifier.startsWith(a.path));
     if (alias) {
       return path.join(alias.alias, path.relative(alias.path, identifier));
     }

@@ -27,14 +27,17 @@ export class Test {
           foo: 'bar'
         });
         return ( <div class={style}></div> );
-      }`,
-    ).then(
+      }`).then(
       (_analysis: Analyzer) => {
         assert.ok(false, "should not have succeeded.");
       },
-      e => {
-        assert.equal(e.message, "[css-blocks] AnalysisError: Cannot mix class names with block styles. (8:10)");
-      });
+      (e) => {
+        assert.equal(
+          e.message,
+          "[css-blocks] AnalysisError: Cannot mix class names with block styles. (8:10)"
+        );
+      }
+    );
   }
 
   @test "Elements with root applied are tracked on attribute `class`"() {
@@ -51,8 +54,7 @@ export class Test {
           [bar]: true,
         });
         return ( <div class={style}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -63,7 +65,8 @@ export class Test {
     });
   }
 
-  @test "Root block styles may be applied with `:scope` on attribute `class`"() {
+  @test
+  "Root block styles may be applied with `:scope` on attribute `class`"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
     });
@@ -77,8 +80,7 @@ export class Test {
           [bar]: true,
         });
         return ( <div class={style}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -103,8 +105,7 @@ export class Test {
           [bar]: true,
         });
         return ( <div className={style}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -115,7 +116,8 @@ export class Test {
     });
   }
 
-  @test "Root block styles may be applied with `:scope` on attribute `className`"() {
+  @test
+  "Root block styles may be applied with `:scope` on attribute `className`"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
     });
@@ -129,8 +131,7 @@ export class Test {
           [bar]: true,
         });
         return ( <div className={style}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -141,7 +142,8 @@ export class Test {
     });
   }
 
-  @test "Root block styles are deduped if applied to multiple valid properties"() {
+  @test
+  "Root block styles are deduped if applied to multiple valid properties"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
     });
@@ -155,8 +157,7 @@ export class Test {
           [bar]: true,
         });
         return ( <div class={style} className={style}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -167,10 +168,12 @@ export class Test {
     });
   }
 
-  @test "Root block styles are combined if applied to multiple valid properties"() {
+  @test
+  "Root block styles are combined if applied to multiple valid properties"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
-      "foo.block.css": ":scope { font-family: sans-serif; } .big { font-size: 28px; }",
+      "foo.block.css":
+        ":scope { font-family: sans-serif; } .big { font-size: 28px; }",
     });
 
     return parse(`
@@ -186,8 +189,7 @@ export class Test {
           [foo]: true,
         });
         return ( <div class={style} className={otherStyle}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
@@ -214,17 +216,21 @@ export class Test {
         });
         youShallNotPass(style);
         return ( <div class={style}></div> );
-      }`,
-    ).then(
+      }`).then(
       (_analysis: Analyzer) => {
         assert.ok(false, "should not have succeeded.");
       },
-      e => {
-        assert.equal(e.message, "[css-blocks] AnalysisError: illegal use of a style variable. (9:8)");
-      });
+      (e) => {
+        assert.equal(
+          e.message,
+          "[css-blocks] AnalysisError: illegal use of a style variable. (9:8)"
+        );
+      }
+    );
   }
 
-  @test "Cannot change the value of a variable used for styles to a new value"() {
+  @test
+  "Cannot change the value of a variable used for styles to a new value"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
     });
@@ -239,14 +245,17 @@ export class Test {
         });
         style = "foo";
         return ( <div class={style}></div> );
-      }`,
-    ).then(
+      }`).then(
       (_analysis: Analyzer) => {
         assert.ok(false, "should not have succeeded.");
       },
-      e => {
-        assert.equal(e.message, "[css-blocks] AnalysisError: illegal assignment to a style variable. (9:8)");
-      });
+      (e) => {
+        assert.equal(
+          e.message,
+          "[css-blocks] AnalysisError: illegal assignment to a style variable. (9:8)"
+        );
+      }
+    );
   }
 
   @test "Can console.log a style variable"() {
@@ -264,15 +273,14 @@ export class Test {
         });
         console.log(style);
         return ( <div class={style}></div> );
-      }`,
-    ).then((_analysis: Analyzer) => {
-    });
+      }`).then((_analysis: Analyzer) => {});
   }
 
   @test "Unused objstr calls are not analyzed"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
-      "foo.block.css": ":scope { font-family: sans-serif; } .big { font-size: 28px; }",
+      "foo.block.css":
+        ":scope { font-family: sans-serif; } .big { font-size: 28px; }",
     });
 
     return parse(`
@@ -291,8 +299,7 @@ export class Test {
           [foo.big]: true,
         });
         return ( <div class={style} className={otherStyle}></div> );
-      }`,
-    ).then((analyzer: Analyzer) => {
+      }`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;

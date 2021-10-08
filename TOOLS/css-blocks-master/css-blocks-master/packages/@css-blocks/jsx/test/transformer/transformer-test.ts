@@ -2,12 +2,17 @@ import c$$ from "@css-blocks/runtime";
 import { TemplateIntegrationOptions } from "@opticss/template-api";
 
 import { Analysis } from "@css-blocks/core";
-import { BlockCompiler, Options as CSSBlocksOptions, StyleMapping, resolveConfiguration as resolveBlocksConfiguration } from "@css-blocks/core";
+import {
+  BlockCompiler,
+  Options as CSSBlocksOptions,
+  StyleMapping,
+  resolveConfiguration as resolveBlocksConfiguration,
+} from "@css-blocks/core";
 
 import * as babel from "babel-core";
 import { assert } from "chai";
 import { skip, suite, test } from "mocha-typescript";
-import { OptiCSSOptions, OptimizationResult, Optimizer  } from "opticss";
+import { OptiCSSOptions, OptimizationResult, Optimizer } from "opticss";
 import { postcss } from "opticss";
 import * as prettier from "prettier";
 import * as testConsole from "test-console";
@@ -22,10 +27,16 @@ const mock = require("mock-fs");
 // Reduce whitespace.
 function minify(s: string) {
   mock.restore();
-  return prettier.format(s).replace(/\n\n/mg, "\n");
+  return prettier.format(s).replace(/\n\n/gm, "\n");
 }
 
-function transform(code: string, analysis: Analysis<"Opticss.JSXTemplate">, cssBlocksOptions: CSSBlocksOptions = {}, optimizationOpts: Partial<OptiCSSOptions> = {}, templateOpts: Partial<TemplateIntegrationOptions> = {}): Promise<{jsx: babel.BabelFileResult; css: OptimizationResult}> {
+function transform(
+  code: string,
+  analysis: Analysis<"Opticss.JSXTemplate">,
+  cssBlocksOptions: CSSBlocksOptions = {},
+  optimizationOpts: Partial<OptiCSSOptions> = {},
+  templateOpts: Partial<TemplateIntegrationOptions> = {}
+): Promise<{ jsx: babel.BabelFileResult; css: OptimizationResult }> {
   let filename = analysis.template.identifier;
   let optimizer = new Optimizer(optimizationOpts, templateOpts);
   let blockOpts = resolveBlocksConfiguration(cssBlocksOptions);
@@ -34,25 +45,33 @@ function transform(code: string, analysis: Analysis<"Opticss.JSXTemplate">, cssB
   let compiler = new BlockCompiler(postcss, blockOpts);
   for (let block of blocks) {
     optimizer.addSource({
-      content: compiler.compile(block, block.stylesheet!).toResult({to: blockOpts.importer.filesystemPath(block.identifier, blockOpts) || undefined}),
+      content: compiler
+        .compile(block, block.stylesheet!)
+        .toResult({
+          to:
+            blockOpts.importer.filesystemPath(block.identifier, blockOpts) ||
+            undefined,
+        }),
     });
   }
-  return optimizer.optimize("optimized.css").then(result => {
+  return optimizer.optimize("optimized.css").then((result) => {
     let rewriter = new Rewriter();
-    rewriter.blocks[filename] = new StyleMapping(result.styleMapping, blocks, blockOpts, [analysis]);
+    rewriter.blocks[filename] = new StyleMapping(
+      result.styleMapping,
+      blocks,
+      blockOpts,
+      [analysis]
+    );
     let babelResult = babel.transform(code, {
       filename: filename,
-      plugins: [
-        makePlugin({rewriter}),
-      ],
-      parserOpts: { plugins: [ "jsx" ] },
+      plugins: [makePlugin({ rewriter })],
+      parserOpts: { plugins: ["jsx"] },
     });
     return {
       jsx: babelResult,
       css: result,
     };
   });
-
 }
 
 @suite("Transformer | External Objstr Class States")
@@ -76,11 +95,14 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((meta: Analyzer) => {
-      return transform(code, meta.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, meta.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
           import objstr from 'obj-str';
           <div class="a"></div>;
-          `));
+          `)
+        );
       });
     });
   }
@@ -111,14 +133,15 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
-
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
           import c$$ from '@css-blocks/runtime';
           import objstr from 'obj-str';
           let isDynamic = true;
-          <div class={c$$("a", [1, 1, 2, isDynamic, 1, 0, 'b', 0])}></div>;`,
-        ));
+          <div class={c$$("a", [1, 1, 2, isDynamic, 1, 0, 'b', 0])}></div>;`)
+        );
         assert.deepEqual(c$$("a", [1, 1, 2, true, 1, 0, "b", 0]), "a b");
       });
     });
@@ -148,12 +171,13 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
-
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
           import objstr from 'obj-str';
 
-          <div class="a b"></div>;`),
+          <div class="a b"></div>;`)
         );
       });
     });
@@ -183,14 +207,15 @@ export class Test {
     `;
 
     return parse(code, "test.jsx").then((analysis: Analyzer) => {
-
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
           import objstr from 'obj-str';
 
-          <div class="a b"></div>;`));
+          <div class="a b"></div>;`)
+        );
       });
-
     });
   }
 
@@ -225,9 +250,10 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
-
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
           import c$$ from "@css-blocks/runtime";
           import objstr from 'obj-str';
 
@@ -235,16 +261,37 @@ export class Test {
           let leSigh = true;
 
           <div class="a">
-          <div class={c$$("b",[1,2,4,2,1,leSigh&&dynamic,"yellow",1,1,"green",1,0,"d",0,"c",1])}></div></div>;`),
+          <div class={c$$("b",[1,2,4,2,1,leSigh&&dynamic,"yellow",1,1,"green",1,0,"d",0,"c",1])}></div></div>;`)
         );
         let leSigh = true;
         let dynamic = "green";
-        assert.deepEqual(c$$("b", [1, 2, 4, 2, 1, leSigh && dynamic, "yellow", 1, 1, "green", 1, 0, "d", 0, "c", 1]), "b d");
+        assert.deepEqual(
+          c$$("b", [
+            1,
+            2,
+            4,
+            2,
+            1,
+            leSigh && dynamic,
+            "yellow",
+            1,
+            1,
+            "green",
+            1,
+            0,
+            "d",
+            0,
+            "c",
+            1,
+          ]),
+          "b d"
+        );
       });
     });
   }
 
-  @test "States with dynamic sub-states are transformed when only a single sub-state exists"() {
+  @test
+  "States with dynamic sub-states are transformed when only a single sub-state exists"() {
     mock({
       "bar.block.css": `
         :scope { color: blue; }
@@ -273,8 +320,10 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
         import c$$ from "@css-blocks/runtime";
         import objstr from "obj-str";
         let dynamic = "yellow";
@@ -286,18 +335,49 @@ export class Test {
             ])}
           />
         </div>;
-          `),
+          `)
         );
         let leSigh = true;
         let dynamic = "yellow";
-        assert.deepEqual(c$$([ 3, 2, 0, leSigh, 1, 0, 0, 1, 1, 0, 1, 1, 5, 1, 0, 1,
-                               0, dynamic, "yellow", 1, 2, "c", -2, 2, 0, 1, "d", 2]),
-                         "c d");
+        assert.deepEqual(
+          c$$([
+            3,
+            2,
+            0,
+            leSigh,
+            1,
+            0,
+            0,
+            1,
+            1,
+            0,
+            1,
+            1,
+            5,
+            1,
+            0,
+            1,
+            0,
+            dynamic,
+            "yellow",
+            1,
+            2,
+            "c",
+            -2,
+            2,
+            0,
+            1,
+            "d",
+            2,
+          ]),
+          "c d"
+        );
       });
     });
   }
 
-  @test "States with dynamic sub-states containing complex expression are transformed to the simplest possible output"() {
+  @test
+  "States with dynamic sub-states containing complex expression are transformed to the simplest possible output"() {
     mock({
       "bar.block.css": `
         :scope { color: blue; }
@@ -329,9 +409,10 @@ export class Test {
     `;
 
     return parse(code, "test.jsx").then((analysis: Analyzer) => {
-
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.equal(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.equal(
+          minify(res.jsx.code!),
+          minify(`
         import c$$ from "@css-blocks/runtime";
         import objstr from "obj-str";
         let dynamic = "yellow";
@@ -341,13 +422,33 @@ export class Test {
         <div class="a">
           <div class={c$$("b", [1,2,4,2,1,conditional() && \`\${dynamic}Color\`,
                                 "yellowColor",1,1,"greenColor",1,0,"d",0,"c",1])} />
-        </div>;`),
+        </div>;`)
         );
-        function conditional() { return true; }
+        function conditional() {
+          return true;
+        }
         let dynamic = "yellow";
-        assert.deepEqual(c$$("b", [1, 2, 4, 2, 1, conditional() && `${dynamic}Color`,
-                                   "yellowColor", 1, 1, "greenColor", 1, 0, "d", 0, "c", 1]),
-                         "b c");
+        assert.deepEqual(
+          c$$("b", [
+            1,
+            2,
+            4,
+            2,
+            1,
+            conditional() && `${dynamic}Color`,
+            "yellowColor",
+            1,
+            1,
+            "greenColor",
+            1,
+            0,
+            "d",
+            0,
+            "c",
+            1,
+          ]),
+          "b c"
+        );
       });
     });
   }
@@ -373,12 +474,14 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
-
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.equal(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.equal(
+          minify(res.jsx.code!),
+          minify(`
           <div class="a"></div>;
           <div class="b"></div>;
-        `));
+        `)
+        );
       });
     });
   }
@@ -411,8 +514,10 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
           import objstr from 'obj-str';
 
           let style = 'b';
@@ -422,7 +527,8 @@ export class Test {
             element.className = 'a';
             element.className = style;
           }
-        `));
+        `)
+        );
       });
     });
   }
@@ -446,13 +552,15 @@ export class Test {
     `;
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
-
-      return transform(code, analysis.getAnalysis(0)).then(res => {
-        assert.deepEqual(minify(res.jsx.code!), minify(`
+      return transform(code, analysis.getAnalysis(0)).then((res) => {
+        assert.deepEqual(
+          minify(res.jsx.code!),
+          minify(`
           import objstr from 'obj-str';
 
           <div class="foo a"></div>;
-        `));
+        `)
+        );
       });
     });
   }
@@ -460,7 +568,8 @@ export class Test {
   @test "Left over references to the block are an error"() {
     mock({
       "bar.block.css": ":scope { color: red; } .foo { color: blue; }",
-      "foo.block.css": ":scope { font-family: sans-serif; } .big { font-size: 28px; }",
+      "foo.block.css":
+        ":scope { font-family: sans-serif; } .big { font-size: 28px; }",
     });
 
     let code = `
@@ -479,18 +588,27 @@ export class Test {
 
     return parse(code, "test.tsx").then((analysis: Analyzer) => {
       let stderr = testConsole.stderr.inspect();
-      return transform(code, analysis.getAnalysis(0)).then(_res => {
+      return transform(code, analysis.getAnalysis(0)).then((_res) => {
         let result = stderr.output;
         stderr.restore();
         assert.deepEqual(result.length, 1);
-        assert.deepEqual(result[0].trim(), "WARNING: Stray reference to block import (foo). Imports are removed during rewrite so this will probably be a runtime error. (test.tsx:10:11)");
+        assert.deepEqual(
+          result[0].trim(),
+          "WARNING: Stray reference to block import (foo). Imports are removed during rewrite so this will probably be a runtime error. (test.tsx:10:11)"
+        );
       });
     });
   }
   @skip
-  @test "invalid runtime expression"() {
-    let args = JSON.parse('[13,21,0,false,1,0,0,0,false,1,13,0,0,true,1,17,0,3,1,0,false,1,1,5,1,0,4,0,null,"small",1,12,"medium",1,11,"large",1,10,"extraLarge",1,9,3,1,0,true,1,5,5,1,0,2,1,null,"square",1,8,"round",1,7,5,1,0,3,1,false,"inverse",1,3,"muted",1,4,"active",1,2,3,1,0,false,1,6,5,1,13,3,1,false,"inverse",1,14,"muted",1,15,"active",1,2,3,1,13,false,1,16,5,1,17,3,1,"muted","inverse",1,18,"muted",1,19,"active",1,2,3,1,17,true,1,20,"primary-button",0,"primary-button--animating",1,"primary-button--color-active",2,"primary-button--color-inverse",3,"primary-button--color-muted",4,"primary-button--fullWidth",5,"primary-button--hoverable",6,"primary-button--shape-round",7,"primary-button--shape-square",8,"primary-button--size-extraLarge",9,"primary-button--size-large",10,"primary-button--size-medium",11,"primary-button--size-small",12,"secondary-button",13,"secondary-button--color-inverse",14,"secondary-button--color-muted",15,"secondary-button--hoverable",16,"tertiary-button",17,"tertiary-button--color-inverse",18,"tertiary-button--color-muted",19,"tertiary-button--hoverable",20]');
+  @test
+  "invalid runtime expression"() {
+    let args = JSON.parse(
+      '[13,21,0,false,1,0,0,0,false,1,13,0,0,true,1,17,0,3,1,0,false,1,1,5,1,0,4,0,null,"small",1,12,"medium",1,11,"large",1,10,"extraLarge",1,9,3,1,0,true,1,5,5,1,0,2,1,null,"square",1,8,"round",1,7,5,1,0,3,1,false,"inverse",1,3,"muted",1,4,"active",1,2,3,1,0,false,1,6,5,1,13,3,1,false,"inverse",1,14,"muted",1,15,"active",1,2,3,1,13,false,1,16,5,1,17,3,1,"muted","inverse",1,18,"muted",1,19,"active",1,2,3,1,17,true,1,20,"primary-button",0,"primary-button--animating",1,"primary-button--color-active",2,"primary-button--color-inverse",3,"primary-button--color-muted",4,"primary-button--fullWidth",5,"primary-button--hoverable",6,"primary-button--shape-round",7,"primary-button--shape-square",8,"primary-button--size-extraLarge",9,"primary-button--size-large",10,"primary-button--size-medium",11,"primary-button--size-small",12,"secondary-button",13,"secondary-button--color-inverse",14,"secondary-button--color-muted",15,"secondary-button--hoverable",16,"tertiary-button",17,"tertiary-button--color-inverse",18,"tertiary-button--color-muted",19,"tertiary-button--hoverable",20]'
+    );
     let result = c$$(args);
-    assert.deepEqual(result, "tertiary-button tertiary-button--color-muted tertiary-button--hoverable");
+    assert.deepEqual(
+      result,
+      "tertiary-button tertiary-button--color-muted tertiary-button--hoverable"
+    );
   }
 }

@@ -34,9 +34,10 @@ export class JSXTemplate implements TemplateInfo<TEMPLATE_TYPE> {
     return {
       type: this.type,
       identifier: this.identifier,
-      data: [ this.data ],
+      data: [this.data],
     };
   }
 }
 
-TemplateInfoFactory.constructors["Opticss.JSXTemplate"] = JSXTemplate.deserialize;
+TemplateInfoFactory.constructors["Opticss.JSXTemplate"] =
+  JSXTemplate.deserialize;

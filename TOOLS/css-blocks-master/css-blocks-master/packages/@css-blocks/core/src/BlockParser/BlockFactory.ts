@@ -5,12 +5,23 @@ import * as path from "path";
 import { RawSourceMap } from "source-map";
 
 import { Block } from "../BlockTree";
-import { Options, ResolvedConfiguration, resolveConfiguration } from "../configuration";
+import {
+  Options,
+  ResolvedConfiguration,
+  resolveConfiguration,
+} from "../configuration";
 import { FileIdentifier, ImportedFile, Importer } from "../importing";
 import { PromiseQueue } from "../util/PromiseQueue";
 
 import { BlockParser, ParsedSource } from "./BlockParser";
-import { Preprocessor, Preprocessors, ProcessedFile, Syntax, annotateCssContentWithSourceMap, syntaxName } from "./preprocessing";
+import {
+  Preprocessor,
+  Preprocessors,
+  ProcessedFile,
+  Syntax,
+  annotateCssContentWithSourceMap,
+  syntaxName,
+} from "./preprocessing";
 
 const debug = debugGenerator("css-blocks:BlockFactory");
 
@@ -55,9 +66,16 @@ export class BlockFactory {
     this.blockNames = {};
     this.promises = {};
     this.paths = {};
-    this.preprocessQueue = new PromiseQueue(this.configuration.maxConcurrentCompiles, (item: PreprocessJob) => {
-      return item.preprocessor(item.filename, item.contents, this.configuration);
-    });
+    this.preprocessQueue = new PromiseQueue(
+      this.configuration.maxConcurrentCompiles,
+      (item: PreprocessJob) => {
+        return item.preprocessor(
+          item.filename,
+          item.contents,
+          this.configuration
+        );
+      }
+    );
   }
 
   reset() {
@@ -75,7 +93,11 @@ export class BlockFactory {
    * @returns The Block object promise.
    */
   parse(root: postcss.Root, identifier: string, name: string): Promise<Block> {
-    return this.promises[identifier] = this.parser.parse(root, identifier, name);
+    return (this.promises[identifier] = this.parser.parse(
+      root,
+      identifier,
+      name
+    ));
   }
 
   /**
@@ -99,86 +121,116 @@ export class BlockFactory {
     filePath = path.resolve(filePath);
 
     let identifier: FileIdentifier | undefined = this.paths[filePath];
-    if (identifier && this.promises[identifier]) { return this.promises[identifier]; }
+    if (identifier && this.promises[identifier]) {
+      return this.promises[identifier];
+    }
 
-    identifier = identifier || this.importer.identifier(null, filePath, this.configuration);
+    identifier =
+      identifier ||
+      this.importer.identifier(null, filePath, this.configuration);
     return this._getBlockPromise(identifier);
   }
 
   getBlock(identifier: FileIdentifier): Promise<Block> {
-    if (this.promises[identifier]) { return this.promises[identifier]; }
+    if (this.promises[identifier]) {
+      return this.promises[identifier];
+    }
     return this._getBlockPromise(identifier);
   }
 
   _getBlockPromise(identifier: FileIdentifier): Promise<Block> {
-
-    return this.promises[identifier] = this.importer.import(identifier, this.configuration)
+    return (this.promises[identifier] = this.importer
+      .import(identifier, this.configuration)
 
       // Parse the file into a `Block`.
-      .then(file => {
-
+      .then((file) => {
         // If the file identifier maps back to a real filename, ensure it is actually unique.
-        let realFilename = this.importer.filesystemPath(file.identifier, this.configuration);
+        let realFilename = this.importer.filesystemPath(
+          file.identifier,
+          this.configuration
+        );
         if (realFilename) {
-          if (this.paths[realFilename] && this.paths[realFilename] !== file.identifier) {
-            throw new Error(`The same block file was returned with different identifiers: ${this.paths[realFilename]} and ${file.identifier}`);
+          if (
+            this.paths[realFilename] &&
+            this.paths[realFilename] !== file.identifier
+          ) {
+            throw new Error(
+              `The same block file was returned with different identifiers: ${this.paths[realFilename]} and ${file.identifier}`
+            );
           } else {
             this.paths[realFilename] = file.identifier;
           }
         }
 
         // Skip preprocessing if we can.
-        if (this.blocks[file.identifier]) { return this.blocks[file.identifier]; }
+        if (this.blocks[file.identifier]) {
+          return this.blocks[file.identifier];
+        }
 
         // Preprocess the file.
-        let filename: string = realFilename || this.importer.debugIdentifier(file.identifier, this.configuration);
+        let filename: string =
+          realFilename ||
+          this.importer.debugIdentifier(file.identifier, this.configuration);
         let preprocessor = this.preprocessor(file);
-        return this.preprocessQueue.enqueue({
-          preprocessor,
-          filename,
-          contents: file.contents,
-        })
+        return (
+          this.preprocessQueue
+            .enqueue({
+              preprocessor,
+              filename,
+              contents: file.contents,
+            })
 
-          // Run through PostCSS.
-          .then(async (preprocessResult): Promise<[ProcessedFile, postcss.Result]> => {
-            let sourceMap = sourceMapFromProcessedFile(preprocessResult);
-            let content = preprocessResult.content;
-            if (sourceMap) {
-              content = annotateCssContentWithSourceMap(content, sourceMap);
-            }
-            let result = await this.postcssImpl().process(content, { from: filename });
-            return [preprocessResult, result];
-          })
+            // Run through PostCSS.
+            .then(
+              async (
+                preprocessResult
+              ): Promise<[ProcessedFile, postcss.Result]> => {
+                let sourceMap = sourceMapFromProcessedFile(preprocessResult);
+                let content = preprocessResult.content;
+                if (sourceMap) {
+                  content = annotateCssContentWithSourceMap(content, sourceMap);
+                }
+                let result = await this.postcssImpl().process(content, {
+                  from: filename,
+                });
+                return [preprocessResult, result];
+              }
+            )
 
-          .then(([preprocessedResult, result]) => {
-            // skip parsing if we can.
-            if (this.blocks[file.identifier]) { return this.blocks[file.identifier]; }
-            let source: ParsedSource = {
-              identifier: file.identifier,
-              defaultName: file.defaultName,
-              parseResult: result,
-              originalSource: file.contents,
-              originalSyntax: file.syntax,
-              dependencies: preprocessedResult.dependencies || [],
-            };
-            return this.parser.parseSource(source);
-          });
+            .then(([preprocessedResult, result]) => {
+              // skip parsing if we can.
+              if (this.blocks[file.identifier]) {
+                return this.blocks[file.identifier];
+              }
+              let source: ParsedSource = {
+                identifier: file.identifier,
+                defaultName: file.defaultName,
+                parseResult: result,
+                originalSource: file.contents,
+                originalSyntax: file.syntax,
+                dependencies: preprocessedResult.dependencies || [],
+              };
+              return this.parser.parseSource(source);
+            })
+        );
       })
 
-      .then(block => {
-
+      .then((block) => {
         // last check  to make sure we don't return a new instance
-        if (this.blocks[block.identifier]) { return this.blocks[block.identifier]; }
+        if (this.blocks[block.identifier]) {
+          return this.blocks[block.identifier];
+        }
 
         // Ensure this block name is unique.
         block.setName(this.getUniqueBlockName(block.name));
-        return this.blocks[block.identifier] = block;
-
+        return (this.blocks[block.identifier] = block);
       })
 
       .catch((error) => {
         if (this.preprocessQueue.activeJobCount > 0) {
-          debug(`Block error. Currently there are ${this.preprocessQueue.activeJobCount} preprocessing jobs. waiting.`);
+          debug(
+            `Block error. Currently there are ${this.preprocessQueue.activeJobCount} preprocessing jobs. waiting.`
+          );
           return this.preprocessQueue.drain().then(() => {
             debug(`Drain complete. Raising error.`);
             throw error;
@@ -187,14 +239,20 @@ export class BlockFactory {
           debug(`Block error. There are no preprocessing jobs. raising.`);
           throw error;
         }
-      });
-
+      }));
   }
 
-  getBlockRelative(fromIdentifier: FileIdentifier, importPath: string): Promise<Block> {
+  getBlockRelative(
+    fromIdentifier: FileIdentifier,
+    importPath: string
+  ): Promise<Block> {
     let importer = this.importer;
     let fromPath = importer.debugIdentifier(fromIdentifier, this.configuration);
-    let identifier = importer.identifier(fromIdentifier, importPath, this.configuration);
+    let identifier = importer.identifier(
+      fromIdentifier,
+      importPath,
+      this.configuration
+    );
     return this.getBlock(identifier).catch((err: ErrorWithErrNum) => {
       if (err.code === "ENOENT") {
         err.message = `From ${fromPath}: ${err.message}`;
@@ -218,22 +276,40 @@ export class BlockFactory {
 
   preprocessor(file: ImportedFile): Preprocessor {
     let syntax = file.syntax;
-    let firstPreprocessor: Preprocessor | undefined = this.preprocessors[syntax];
+    let firstPreprocessor: Preprocessor | undefined =
+      this.preprocessors[syntax];
     let preprocessor: Preprocessor | null = null;
     if (firstPreprocessor) {
-      if (syntax !== Syntax.css && this.preprocessors.css && !this.configuration.disablePreprocessChaining) {
+      if (
+        syntax !== Syntax.css &&
+        this.preprocessors.css &&
+        !this.configuration.disablePreprocessChaining
+      ) {
         let cssProcessor = this.preprocessors.css;
-        preprocessor = (fullPath: string, content: string, configuration: ResolvedConfiguration): Promise<ProcessedFile> => {
-          return firstPreprocessor!(fullPath, content, configuration).then(result => {
-            let content = result.content.toString();
-            return cssProcessor(fullPath, content, configuration, sourceMapFromProcessedFile(result)).then(result2 => {
-              return {
-                content: result2.content,
-                sourceMap: sourceMapFromProcessedFile(result2),
-                dependencies: (result.dependencies || []).concat(result2.dependencies || []),
-              };
-            });
-          });
+        preprocessor = (
+          fullPath: string,
+          content: string,
+          configuration: ResolvedConfiguration
+        ): Promise<ProcessedFile> => {
+          return firstPreprocessor!(fullPath, content, configuration).then(
+            (result) => {
+              let content = result.content.toString();
+              return cssProcessor(
+                fullPath,
+                content,
+                configuration,
+                sourceMapFromProcessedFile(result)
+              ).then((result2) => {
+                return {
+                  content: result2.content,
+                  sourceMap: sourceMapFromProcessedFile(result2),
+                  dependencies: (result.dependencies || []).concat(
+                    result2.dependencies || []
+                  ),
+                };
+              });
+            }
+          );
         };
       } else {
         preprocessor = firstPreprocessor;
@@ -241,18 +317,23 @@ export class BlockFactory {
     } else if (syntax !== Syntax.css) {
       throw new Error(`No preprocessor provided for ${syntaxName(syntax)}.`);
     } else {
-      preprocessor = (_fullPath: string, content: string, _options: ResolvedConfiguration): Promise<ProcessedFile> => {
+      preprocessor = (
+        _fullPath: string,
+        content: string,
+        _options: ResolvedConfiguration
+      ): Promise<ProcessedFile> => {
         return Promise.resolve({
           content: content,
         });
       };
-
     }
     return preprocessor;
   }
 }
 
-function sourceMapFromProcessedFile(result: ProcessedFile): RawSourceMap | string | undefined {
+function sourceMapFromProcessedFile(
+  result: ProcessedFile
+): RawSourceMap | string | undefined {
   let sourceMap: RawSourceMap | string | undefined = result.sourceMap;
   if (!sourceMap && (<postcss.Result>result.content).map) {
     sourceMap = (<postcss.Result>result.content).map.toJSON();

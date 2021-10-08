@@ -5,12 +5,7 @@ import {
   StyleMapping,
   resolveConfiguration,
 } from "@css-blocks/core";
-import {
-  AST,
-  ASTPlugin,
-  NodeVisitor,
-  Syntax,
-} from "@glimmer/syntax";
+import { AST, ASTPlugin, NodeVisitor, Syntax } from "@glimmer/syntax";
 import { whatever } from "@opticss/util";
 import * as debugGenerator from "debug";
 
@@ -39,23 +34,28 @@ export class GlimmerRewriter implements ASTPlugin {
     syntax: Syntax,
     styleMapping: GlimmerStyleMapping,
     analysis: GlimmerAnalysis,
-    cssBlocksOpts: CSSBlocksOptions,
+    cssBlocksOpts: CSSBlocksOptions
   ) {
-    this.syntax        = syntax;
-    this.analysis      = analysis;
-    this.template      = analysis.template;
-    this.block         = analysis.getBlock("")!; // Local block check done elsewhere
-    this.styleMapping  = styleMapping;
+    this.syntax = syntax;
+    this.analysis = analysis;
+    this.template = analysis.template;
+    this.block = analysis.getBlock("")!; // Local block check done elsewhere
+    this.styleMapping = styleMapping;
     this.cssBlocksOpts = resolveConfiguration(cssBlocksOpts);
-    this.elementCount  = 0;
-    this.elementAnalyzer = new ElementAnalyzer(this.analysis, this.cssBlocksOpts);
+    this.elementCount = 0;
+    this.elementAnalyzer = new ElementAnalyzer(
+      this.analysis,
+      this.cssBlocksOpts
+    );
   }
 
   debug(message: string, ...args: whatever[]): void {
     DEBUG(`${this.template.fullPath}: ${message}`, ...args);
   }
 
-  get name(): string { return "CSSBlocksGlimmerRewriter"; }
+  get name(): string {
+    return "CSSBlocksGlimmerRewriter";
+  }
   get visitor(): NodeVisitor {
     return {
       ElementNode: this.ElementNode.bind(this),
@@ -64,7 +64,7 @@ export class GlimmerRewriter implements ASTPlugin {
 
   ElementNode(node: AST.ElementNode) {
     this.elementCount++;
-    let atRootElement = (this.elementCount === 1);
+    let atRootElement = this.elementCount === 1;
     // TODO: We use this to re-analyze elements in the rewriter.
     //       We've already done this work and should be able to
     //       re-use the data! Unfortunately, there are problems...
@@ -74,7 +74,7 @@ export class GlimmerRewriter implements ASTPlugin {
     let rewrite = this.styleMapping.simpleRewriteMapping(element);
 
     // Remove all the source attributes for styles.
-    node.attributes = node.attributes.filter(a => !STYLE_ATTR.test(a.name));
+    node.attributes = node.attributes.filter((a) => !STYLE_ATTR.test(a.name));
 
     if (rewrite.dynamicClasses.length === 0) {
       if (rewrite.staticClasses.length === 0) {
@@ -93,7 +93,9 @@ export class GlimmerRewriter implements ASTPlugin {
     let classValue: AST.MustacheStatement | AST.ConcatStatement;
     let staticNode: AST.TextNode | undefined = undefined;
     if (rewrite.staticClasses.length > 0) {
-      staticNode = this.syntax.builders.text(rewrite.staticClasses.join(" ") + " ");
+      staticNode = this.syntax.builders.text(
+        rewrite.staticClasses.join(" ") + " "
+      );
       classValue = this.syntax.builders.concat([staticNode, dynamicNode]);
     } else {
       classValue = dynamicNode;

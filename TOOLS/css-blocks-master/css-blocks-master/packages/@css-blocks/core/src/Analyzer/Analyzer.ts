@@ -2,7 +2,7 @@ import {
   TemplateAnalysis as OptimizationAnalysis,
   TemplateIntegrationOptions,
   TemplateTypes,
- } from "@opticss/template-api";
+} from "@opticss/template-api";
 import { MultiMap, whatever } from "@opticss/util";
 import * as debugGenerator from "debug";
 
@@ -38,12 +38,9 @@ export abstract class Analyzer<K extends keyof TemplateTypes> {
   protected staticStyles: MultiMap<Style, Analysis<K>>;
   protected dynamicStyles: MultiMap<Style, Analysis<K>>;
 
-  constructor (
-    options?: Options,
-    analysisOpts?: AnalysisOptions,
-  ) {
+  constructor(options?: Options, analysisOpts?: AnalysisOptions) {
     this.cssBlocksOptions = resolveConfiguration(options);
-    this.validatorOptions = analysisOpts && analysisOpts.validations || {};
+    this.validatorOptions = (analysisOpts && analysisOpts.validations) || {};
     this.blockFactory = new BlockFactory(this.cssBlocksOptions);
     this.analysisMap = new Map();
     this.staticStyles = new MultiMap();
@@ -77,27 +74,39 @@ export abstract class Analyzer<K extends keyof TemplateTypes> {
     this.dynamicStyles.set(style, analysis);
   }
 
-  getAnalysis(idx: number): Analysis<K> { return this.analyses()[idx]; }
+  getAnalysis(idx: number): Analysis<K> {
+    return this.analyses()[idx];
+  }
 
-  analysisCount(): number { return this.analysisMap.size; }
+  analysisCount(): number {
+    return this.analysisMap.size;
+  }
 
-  eachAnalysis(cb: (v: Analysis<K>) => whatever) { this.analysisMap.forEach(cb); }
+  eachAnalysis(cb: (v: Analysis<K>) => whatever) {
+    this.analysisMap.forEach(cb);
+  }
 
   analyses(): Analysis<K>[] {
     let analyses: Analysis<K>[] = [];
-    this.eachAnalysis(a => analyses.push(a));
+    this.eachAnalysis((a) => analyses.push(a));
     return analyses;
   }
 
-  styleCount(): number { return this.staticStyles.size; }
+  styleCount(): number {
+    return this.staticStyles.size;
+  }
 
-  dynamicCount(): number { return this.dynamicStyles.size; }
+  dynamicCount(): number {
+    return this.dynamicStyles.size;
+  }
 
-  isDynamic(style: Style): boolean { return this.dynamicStyles.has(style); }
+  isDynamic(style: Style): boolean {
+    return this.dynamicStyles.has(style);
+  }
 
   blockDependencies(): Set<Block> {
     let allBlocks = new Set<Block>();
-    this.analysisMap.forEach(analysis => {
+    this.analysisMap.forEach((analysis) => {
       allBlocks = new Set([...allBlocks, ...analysis.referencedBlocks()]);
     });
     return allBlocks;
@@ -105,15 +114,18 @@ export abstract class Analyzer<K extends keyof TemplateTypes> {
 
   transitiveBlockDependencies(): Set<Block> {
     let allBlocks = new Set<Block>();
-    this.analysisMap.forEach(analysis => {
-      allBlocks = new Set<Block>([...allBlocks, ...analysis.transitiveBlockDependencies()]);
+    this.analysisMap.forEach((analysis) => {
+      allBlocks = new Set<Block>([
+        ...allBlocks,
+        ...analysis.transitiveBlockDependencies(),
+      ]);
     });
     return allBlocks;
   }
 
   serialize(): SerializedAnalyzer<K> {
     let analyses: SerializedAnalysis<K>[] = [];
-    this.eachAnalysis(a => {
+    this.eachAnalysis((a) => {
       analyses.push(a.serialize());
     });
     return { analyses };
@@ -121,10 +133,9 @@ export abstract class Analyzer<K extends keyof TemplateTypes> {
 
   forOptimizer(config: ResolvedConfiguration): OptimizationAnalysis<K>[] {
     let analyses = new Array<OptimizationAnalysis<K>>();
-    this.eachAnalysis(a => {
+    this.eachAnalysis((a) => {
       analyses.push(a.forOptimizer(config));
     });
     return analyses;
   }
-
 }

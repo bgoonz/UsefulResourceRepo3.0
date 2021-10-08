@@ -1,6 +1,7 @@
 # Hash Tables Agenda
 
 ## Day 1 Agenda
+
 - Talk about Pointers and memory to frame Arrays [I DO]
 - Talk about Raw Arrays and contrast to Python Lists (DynamicArray) [I DO]
 - 5 min break
@@ -13,6 +14,7 @@
 - Wrap up [I DO]
 
 ## Day 2 Agenda
+
 - Talk about hash table collisions [I DO]
 - demo with some test code [WE DO]
 - 5 min break

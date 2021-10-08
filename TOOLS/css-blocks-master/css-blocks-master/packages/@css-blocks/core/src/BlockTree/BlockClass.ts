@@ -1,4 +1,8 @@
-import { Attribute as Attr, AttributeValue, attrValues } from "@opticss/element-analysis";
+import {
+  Attribute as Attr,
+  AttributeValue,
+  attrValues,
+} from "@opticss/element-analysis";
 import { assertNever } from "@opticss/util";
 import { isString } from "util";
 
@@ -15,7 +19,9 @@ import { Styles } from "./Styles";
 
 function ensureToken(input: AttrToken | string): AttrToken {
   let token: AttrToken | string | undefined = input;
-  if (isString(token)) { token = new BlockPath(token).attribute; }
+  if (isString(token)) {
+    token = new BlockPath(token).attribute;
+  }
   if (!token) {
     throw new Error("Block path is not a valid attribute selector.");
   }
@@ -34,15 +40,25 @@ export class BlockClass extends Style<BlockClass, Block, Block, Attribute> {
     this.rulesets = new RulesetContainer(this);
   }
 
-  protected get ChildConstructor(): typeof Attribute { return Attribute; }
+  protected get ChildConstructor(): typeof Attribute {
+    return Attribute;
+  }
 
   /** @returns This BlockClass' class name. */
-  public get name(): string { return this.uid; }
+  public get name(): string {
+    return this.uid;
+  }
 
-  get isRoot(): boolean { return this.name === ROOT_CLASS; }
+  get isRoot(): boolean {
+    return this.name === ROOT_CLASS;
+  }
 
-  public attributes(): Attribute[] { return this.children(); }
-  public getAttributes(): Attribute[] { return this.children(); }
+  public attributes(): Attribute[] {
+    return this.children();
+  }
+  public getAttributes(): Attribute[] {
+    return this.children();
+  }
   public getAttribute(token: AttrToken | string): Attribute | null {
     return this.getChild(ensureToken(token));
   }
@@ -73,12 +89,17 @@ export class BlockClass extends Style<BlockClass, Block, Block, Attribute> {
     return result;
   }
 
-  public getAttributeValues(token: AttrToken | string, filter?: string): AttrValue[] {
+  public getAttributeValues(
+    token: AttrToken | string,
+    filter?: string
+  ): AttrValue[] {
     token = ensureToken(token);
     let attr = this.getAttribute(token);
-    if (!attr) { return []; }
+    if (!attr) {
+      return [];
+    }
     let values = attr.values();
-    return filter ? values.filter(s => s.value === filter) : values;
+    return filter ? values.filter((s) => s.value === filter) : values;
   }
 
   /**
@@ -86,13 +107,17 @@ export class BlockClass extends Style<BlockClass, Block, Block, Attribute> {
    * chain. Returns an empty object if no
    * @param token The AttrToken or attribute BlockPath of the Attribute to resolve.
    */
-  public resolveAttributeValues(token?: AttrToken | string): Map<string, AttrValue> {
+  public resolveAttributeValues(
+    token?: AttrToken | string
+  ): Map<string, AttrValue> {
     token = token ? ensureToken(token) : undefined;
     let resolved: Map<string, AttrValue> = new Map();
     let chain = this.resolveInheritance();
     chain.push(this);
     for (let base of chain) {
-      let attributes = !token ? base.getAttributes() : [base.getAttribute(token)];
+      let attributes = !token
+        ? base.getAttributes()
+        : [base.getAttribute(token)];
       for (let attr of attributes) {
         if (attr && attr.values()) {
           resolved = new Map([...resolved, ...attr.valuesMap()]);
@@ -122,7 +147,9 @@ export class BlockClass extends Style<BlockClass, Block, Block, Attribute> {
     token = ensureToken(token);
     let value = token.value || ATTR_PRESENT;
     let parent = this.resolveAttribute(token);
-    if (parent) { return parent.resolveValue(value); }
+    if (parent) {
+      return parent.resolveValue(value);
+    }
     return null;
   }
 
@@ -237,7 +264,6 @@ export class BlockClass extends Style<BlockClass, Block, Block, Attribute> {
     }
     return result;
   }
-
 }
 
 export function isBlockClass(o: object): o is BlockClass {

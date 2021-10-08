@@ -32,19 +32,22 @@ export class Test {
         [bar.pretty.color('yellow')]: true
       });
 
-      <div class={style}></div>;`,
-    ).then((analyzer: Analyzer) => {
+      <div class={style}></div>;`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
       assert.deepEqual(elementAnalysis.dynamicClasses, []);
       assert.deepEqual(elementAnalysis.dynamicAttributes, []);
       assert.deepEqual(elementAnalysis.staticStyles, [0, 1]);
-      assert.deepEqual(analysis.stylesFound, ["bar.pretty", "bar.pretty[state|color=yellow]"]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.pretty",
+        "bar.pretty[state|color=yellow]",
+      ]);
     });
   }
 
-  @test "When provided state value is dynamic, state object is registered as dynamic"() {
+  @test
+  "When provided state value is dynamic, state object is registered as dynamic"() {
     mock({
       "bar.block.css": `
         :scope { color: blue; }
@@ -67,15 +70,19 @@ export class Test {
         [bar.pretty.color("yellow")]: leSigh
       });
 
-      <div class={style}></div>;`,
-    ).then((analyzer: Analyzer) => {
+      <div class={style}></div>;`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
       assert.deepEqual(elementAnalysis.dynamicClasses, []);
-      assert.deepEqual(elementAnalysis.dynamicAttributes, [{condition: true, value: 1}]);
+      assert.deepEqual(elementAnalysis.dynamicAttributes, [
+        { condition: true, value: 1 },
+      ]);
       assert.deepEqual(elementAnalysis.staticStyles, [0]);
-      assert.deepEqual(analysis.stylesFound, ["bar.pretty", "bar.pretty[state|color=yellow]"]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.pretty",
+        "bar.pretty[state|color=yellow]",
+      ]);
     });
   }
 
@@ -106,12 +113,14 @@ export class Test {
         [bar.pretty.color("green")]: true
       });
 
-      <div class={style}></div>;`,
-    ).then((analyzer: Analyzer) => {
+      <div class={style}></div>;`).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
-      assert.deepEqual(analysis.stylesFound, ["bar.pretty", "bar.pretty[state|color=green]"]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.pretty",
+        "bar.pretty[state|color=green]",
+      ]);
       assert.deepEqual(elementAnalysis.dynamicClasses, []);
       assert.deepEqual(elementAnalysis.dynamicAttributes, []);
       assert.deepEqual(elementAnalysis.staticStyles, [0, 1]);
@@ -146,12 +155,16 @@ export class Test {
         [bar.pretty.color("black")]: true
       });
 
-      <div class={style}></div>;`,
-    ).then((_analysis: Analyzer) => {
-      assert.ok(false, "Should never get here");
-    }).catch((err) => {
-      assert.equal(err.message, `[css-blocks] TemplateError: Can not apply multiple states at the same time from the exclusive state group ".pretty[state|color]". (:11:6)`);
-    });
+      <div class={style}></div>;`)
+      .then((_analysis: Analyzer) => {
+        assert.ok(false, "Should never get here");
+      })
+      .catch((err) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] TemplateError: Can not apply multiple states at the same time from the exclusive state group ".pretty[state|color]". (:11:6)`
+        );
+      });
   }
 
   @test "Handles dynamic states"() {
@@ -188,14 +201,20 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `,
-    ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
-      assert.deepEqual(analysis.stylesFound, ["bar.pretty", "bar.pretty[state|color=black]", "bar.pretty[state|color=green]", "bar.pretty[state|color=yellow]"]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.pretty",
+        "bar.pretty[state|color=black]",
+        "bar.pretty[state|color=green]",
+        "bar.pretty[state|color=yellow]",
+      ]);
       assert.deepEqual(elementAnalysis.dynamicClasses, []);
-      assert.deepEqual(elementAnalysis.dynamicAttributes, [{stringExpression: true, group: {black: 1, green: 2, yellow: 3}}]);
+      assert.deepEqual(elementAnalysis.dynamicAttributes, [
+        { stringExpression: true, group: { black: 1, green: 2, yellow: 3 } },
+      ]);
       assert.deepEqual(elementAnalysis.staticStyles, [0]);
     });
   }
@@ -233,11 +252,16 @@ export class Test {
       });
 
       <div class={style}></div>;
-    `).then((_analysis: Analyzer) => {
-      assert.ok(false, "Should never get here");
-    }).catch((err) => {
-      assert.equal(err.message, `[css-blocks] MalformedBlockPath: State "bar.pretty[state|color]" expects a value. (9:9)`);
-    });
+    `)
+      .then((_analysis: Analyzer) => {
+        assert.ok(false, "Should never get here");
+      })
+      .catch((err) => {
+        assert.equal(
+          err.message,
+          `[css-blocks] MalformedBlockPath: State "bar.pretty[state|color]" expects a value. (9:9)`
+        );
+      });
   }
 
   @test "Boolean states register"() {
@@ -260,14 +284,18 @@ export class Test {
         [bar.pretty.awesome()]: leSigh
       });
       <div class={style}></div>;
-    `,
-    ).then((analyzer: Analyzer) => {
+    `).then((analyzer: Analyzer) => {
       let result = analyzer.serialize();
       let analysis = result.analyses[0];
       let elementAnalysis = analysis.elements.a;
-      assert.deepEqual(analysis.stylesFound, ["bar.pretty", "bar.pretty[state|awesome]"]);
+      assert.deepEqual(analysis.stylesFound, [
+        "bar.pretty",
+        "bar.pretty[state|awesome]",
+      ]);
       assert.deepEqual(elementAnalysis.dynamicClasses, []);
-      assert.deepEqual(elementAnalysis.dynamicAttributes, [{condition: true, value: 1}]);
+      assert.deepEqual(elementAnalysis.dynamicAttributes, [
+        { condition: true, value: 1 },
+      ]);
       assert.deepEqual(elementAnalysis.staticStyles, [0]);
     });
   }
@@ -292,11 +320,15 @@ export class Test {
         [bar.pretty.awesome('wat')]: leSigh
       });
       <div class={style}></div>;
-    `).then((_analysis: Analyzer) => {
-      assert.ok(false, "Should never get here");
-    }).catch((err) => {
-      assert.equal(err.message, '[css-blocks] MalformedBlockPath: State ".pretty[state|awesome]" has no value "wat" on Block "bar".\n  Did you mean: .pretty[state|awesome]? (7:9)');
-    });
+    `)
+      .then((_analysis: Analyzer) => {
+        assert.ok(false, "Should never get here");
+      })
+      .catch((err) => {
+        assert.equal(
+          err.message,
+          '[css-blocks] MalformedBlockPath: State ".pretty[state|awesome]" has no value "wat" on Block "bar".\n  Did you mean: .pretty[state|awesome]? (7:9)'
+        );
+      });
   }
-
 }

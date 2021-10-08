@@ -8,7 +8,7 @@ q = []
 visited = {}
 ```
 
--  enqueue the first path
+- enqueue the first path
 
 ```
 q = [[1]]
@@ -17,7 +17,7 @@ visited = {}
 
 ### in a while loop iteration 1
 
--  dequeue the path
+- dequeue the path
 
 ```
 q = [[1]]
@@ -27,7 +27,7 @@ visited = {}
 [1]
 ```
 
--  get the last vertex / node from the path
+- get the last vertex / node from the path
 
 ```
 q = []
@@ -51,6 +51,7 @@ visited = { 1: [1] }
 
 - for each of the neighbors
 - copy the path as new_path
+
 ```
 q = []
 
@@ -68,6 +69,7 @@ visited = { 1: [1] }
 
 new_path = [1, 2]
 ```
+
 - enqueue the new path.
 
 ```
@@ -77,8 +79,10 @@ visited = { 1: [1] }
 
 new_path = [1, 2]
 ```
+
 ### while in loop iteration 2
--  dequeue the path
+
+- dequeue the path
 
 ```
 q = [[1, 2]]
@@ -88,7 +92,7 @@ visited = {}
 [1, 2]
 ```
 
--  get the last vertex / node from the path
+- get the last vertex / node from the path
 
 ```
 q = []
@@ -113,6 +117,7 @@ path [1, 2]
 
 - for each of the neighbors
 - copy the path as new_path
+
 ```
 q = []
 
@@ -130,6 +135,7 @@ visited = { 1: [1], 2: [1, 2]}
 
 new_path = [1, 2, 3]
 ```
+
 - enqueue the new path.
 
 ```
@@ -139,7 +145,9 @@ visited = { 1: [1], 2: [1, 2]}
 
 new_path = [1, 2]
 ```
+
 - copy the path as new_path
+
 ```
 q = [[1, 2, 3]]
 
@@ -157,6 +165,7 @@ visited = { 1: [1], 2: [1, 2]}
 
 new_path = [1, 2, 4]
 ```
+
 - enqueue the new path.
 
 ```

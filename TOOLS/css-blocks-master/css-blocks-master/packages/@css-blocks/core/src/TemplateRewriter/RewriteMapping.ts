@@ -9,20 +9,32 @@ import {
   isOrExpression,
   isSimpleTagname,
 } from "@opticss/template-api";
-import { Maybe, ObjectDictionary, assertNever, maybe, objectValues } from "@opticss/util";
+import {
+  Maybe,
+  ObjectDictionary,
+  assertNever,
+  maybe,
+  objectValues,
+} from "@opticss/util";
 import { inspect } from "util";
 
 import { Style } from "../BlockTree";
 
 import { ClassRewrite, IndexedClassRewrite } from "./ClassRewrite";
 
-export type ClassExpressionMap = ObjectDictionary<BooleanExpression<number> | undefined>;
+export type ClassExpressionMap = ObjectDictionary<
+  BooleanExpression<number> | undefined
+>;
 export class IndexedClassMapping implements IndexedClassRewrite<Style> {
   inputs: Style[];
   staticClasses: string[];
   private map: ClassExpressionMap;
   private _inputMap: Map<Style, number>;
-  constructor(inputs: Style[], staticClasses: string[], map: ClassExpressionMap) {
+  constructor(
+    inputs: Style[],
+    staticClasses: string[],
+    map: ClassExpressionMap
+  ) {
     this.inputs = inputs;
     this.staticClasses = staticClasses;
     this._inputMap = new Map<Style, number>();
@@ -43,13 +55,13 @@ export class IndexedClassMapping implements IndexedClassRewrite<Style> {
 
   static fromOptimizer(
     classRewrite: OptimizedMapping,
-    classMap: Map<string, Style>,
+    classMap: Map<string, Style>
   ): IndexedClassMapping {
     // TODO: move this renumbering to opticss?
     let indexSet = new Set<number>();
     let dynClasses = classRewrite.dynamicAttributes.class;
-    objectValues(dynClasses).forEach(expr => indexesUsed(indexSet, expr!));
-    let usedIndexes = [...indexSet].sort((a, b) => a < b ? -1 : 1);
+    objectValues(dynClasses).forEach((expr) => indexesUsed(indexSet, expr!));
+    let usedIndexes = [...indexSet].sort((a, b) => (a < b ? -1 : 1));
     let adjustments = new Array<number>();
     usedIndexes.reduce(
       ([missing, last], n) => {
@@ -57,7 +69,8 @@ export class IndexedClassMapping implements IndexedClassRewrite<Style> {
         adjustments[n] = missing;
         return [missing, n];
       },
-      [0, -1]);
+      [0, -1]
+    );
 
     function renumberer(i: ExprItem, n: number, arr: ExprItem[]) {
       if (typeof i === "number") {
@@ -67,15 +80,18 @@ export class IndexedClassMapping implements IndexedClassRewrite<Style> {
       }
     }
 
-    let inputs = classRewrite.inputs.filter((_, n) => indexSet.has(n)).map((_, n, inputs) => processExpressionLiteral(n, inputs, classMap));
-    objectValues(classRewrite.dynamicAttributes.class).forEach(expr => renumber(renumberer, expr!));
+    let inputs = classRewrite.inputs
+      .filter((_, n) => indexSet.has(n))
+      .map((_, n, inputs) => processExpressionLiteral(n, inputs, classMap));
+    objectValues(classRewrite.dynamicAttributes.class).forEach((expr) =>
+      renumber(renumberer, expr!)
+    );
     return new IndexedClassMapping(
       inputs,
       classRewrite.staticAttributes.class,
-      classRewrite.dynamicAttributes.class,
+      classRewrite.dynamicAttributes.class
     );
   }
-
 }
 
 export class RewriteMapping implements ClassRewrite<Style> {
@@ -89,9 +105,13 @@ export class RewriteMapping implements ClassRewrite<Style> {
    */
   private _dynamicClasses: Map<string, BooleanExpression<Style>>;
 
-  constructor(staticClasses?: string[], dynamicClasses?: Map<string, BooleanExpression<Style>>) {
+  constructor(
+    staticClasses?: string[],
+    dynamicClasses?: Map<string, BooleanExpression<Style>>
+  ) {
     this.staticClasses = staticClasses || [];
-    this._dynamicClasses = dynamicClasses || new Map<string, BooleanExpression<Style>>();
+    this._dynamicClasses =
+      dynamicClasses || new Map<string, BooleanExpression<Style>>();
   }
 
   get dynamicClasses(): Array<string> {
@@ -104,7 +124,7 @@ export class RewriteMapping implements ClassRewrite<Style> {
 
   static fromOptimizer(
     classRewrite: OptimizedMapping,
-    classMap: Map<string, Style>,
+    classMap: Map<string, Style>
   ): RewriteMapping {
     let staticClasses = classRewrite.staticAttributes.class;
     let dynamicClasses = classRewrite.dynamicAttributes.class;
@@ -115,7 +135,8 @@ export class RewriteMapping implements ClassRewrite<Style> {
         if (expression) {
           dynMap.set(
             className,
-            processExpression(expression, classRewrite.inputs, classMap));
+            processExpression(expression, classRewrite.inputs, classMap)
+          );
         }
       }
     }
@@ -124,13 +145,16 @@ export class RewriteMapping implements ClassRewrite<Style> {
   }
 }
 
-function indexesUsed(indexes: Set<number>, expression: BooleanExpression<number> | number) {
+function indexesUsed(
+  indexes: Set<number>,
+  expression: BooleanExpression<number> | number
+) {
   if (typeof expression === "number") {
     indexes.add(expression);
   } else if (isAndExpression(expression)) {
-    expression.and.forEach(e =>  indexesUsed(indexes, e));
+    expression.and.forEach((e) => indexesUsed(indexes, e));
   } else if (isOrExpression(expression)) {
-    expression.or.forEach(e =>  indexesUsed(indexes, e));
+    expression.or.forEach((e) => indexesUsed(indexes, e));
   } else if (isNotExpression(expression)) {
     indexesUsed(indexes, expression.not);
   } else {
@@ -141,7 +165,10 @@ function indexesUsed(indexes: Set<number>, expression: BooleanExpression<number>
 type ExprItem = number | BooleanExpression<number>;
 type Renumberer = (i: ExprItem, n: number, arr: ExprItem[]) => void;
 
-function renumber(renumberer: Renumberer, expression: BooleanExpression<number>) {
+function renumber(
+  renumberer: Renumberer,
+  expression: BooleanExpression<number>
+) {
   if (isAndExpression(expression)) {
     expression.and.forEach(renumberer);
   } else if (isOrExpression(expression)) {
@@ -158,14 +185,30 @@ function renumber(renumberer: Renumberer, expression: BooleanExpression<number>)
 function processExpression(
   expression: BooleanExpression<number>,
   inputs: Array<SimpleTagname | SimpleAttribute>,
-  classMap: Map<string, Style>,
+  classMap: Map<string, Style>
 ): BooleanExpression<Style> {
   if (isAndExpression(expression)) {
-    return {and: expression.and.map(e =>  isBooleanExpression(e) ? processExpression(e, inputs, classMap) : processExpressionLiteral(e, inputs, classMap))};
+    return {
+      and: expression.and.map((e) =>
+        isBooleanExpression(e)
+          ? processExpression(e, inputs, classMap)
+          : processExpressionLiteral(e, inputs, classMap)
+      ),
+    };
   } else if (isOrExpression(expression)) {
-    return {or: expression.or.map(e =>  isBooleanExpression(e) ? processExpression(e, inputs, classMap) : processExpressionLiteral(e, inputs, classMap))};
+    return {
+      or: expression.or.map((e) =>
+        isBooleanExpression(e)
+          ? processExpression(e, inputs, classMap)
+          : processExpressionLiteral(e, inputs, classMap)
+      ),
+    };
   } else if (isNotExpression(expression)) {
-    return {not: isBooleanExpression(expression.not) ? processExpression(expression.not, inputs, classMap) : processExpressionLiteral(expression.not, inputs, classMap)};
+    return {
+      not: isBooleanExpression(expression.not)
+        ? processExpression(expression.not, inputs, classMap)
+        : processExpressionLiteral(expression.not, inputs, classMap),
+    };
   } else {
     return assertNever(expression);
   }
@@ -174,14 +217,18 @@ function processExpression(
 function processExpressionLiteral(
   expression: number,
   inputs: Array<SimpleTagname | SimpleAttribute>,
-  classMap: Map<string, Style>,
+  classMap: Map<string, Style>
 ): Style {
   let input = inputs[expression];
   if (isSimpleTagname(input)) {
     throw new Error("i really just can't handle tag names rn thx");
   } else {
     if (input.name !== "class") {
-      throw new Error(`expected a class but got ${inspect(input)}, you should have known better.`);
+      throw new Error(
+        `expected a class but got ${inspect(
+          input
+        )}, you should have known better.`
+      );
     }
     if (!classMap.has(input.value)) {
       throw new Error(`wth. no class ${input.value} exists on this element.`);

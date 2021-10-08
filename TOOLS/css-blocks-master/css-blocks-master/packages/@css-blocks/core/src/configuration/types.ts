@@ -44,10 +44,10 @@ export type Options = Partial<Readonly<Configuration>>;
  */
 export type ResolvedConfiguration = Readonly<Configuration>;
 
-export type ConfigurationObjectKeys = "importerData"
-                                    | "preprocessors";
-export type ConfigurationSimpleKeys = "outputMode"
-                                    | "importer"
-                                    | "rootDir"
-                                    | "disablePreprocessChaining"
-                                    | "maxConcurrentCompiles";
+export type ConfigurationObjectKeys = "importerData" | "preprocessors";
+export type ConfigurationSimpleKeys =
+  | "outputMode"
+  | "importer"
+  | "rootDir"
+  | "disablePreprocessChaining"
+  | "maxConcurrentCompiles";

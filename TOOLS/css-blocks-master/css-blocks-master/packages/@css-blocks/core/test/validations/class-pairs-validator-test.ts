@@ -14,7 +14,12 @@ type BlockAndRoot = [Block, postcss.Container];
 
 @suite("Class Pairs Validator")
 export class TemplateAnalysisTests {
-  private parseBlock(css: string, filename: string, opts?: Options, blockName = "analysis"): Promise<BlockAndRoot> {
+  private parseBlock(
+    css: string,
+    filename: string,
+    opts?: Options,
+    blockName = "analysis"
+  ): Promise<BlockAndRoot> {
     let config = resolveConfiguration(opts);
     let factory = new BlockFactory(config, postcss);
     let root = postcss.parse(css, { from: filename });
@@ -23,7 +28,8 @@ export class TemplateAnalysisTests {
     });
   }
 
-  @test "correlating two classes from the same block on the same element throws an error"() {
+  @test
+  "correlating two classes from the same block on the same element throws an error"() {
     let info = new Template("templates/my-template.hbs");
     let analyzer = new TestAnalyzer();
     let analysis = analyzer.newAnalysis(info);
@@ -41,13 +47,15 @@ export class TemplateAnalysisTests {
     return assertParseError(
       cssBlocks.TemplateAnalysisError,
       `Classes "fdsa" and "asdf" from the same block are not allowed on the same element at the same time. (templates/my-template.hbs:10:11)`,
-      this.parseBlock(css, "blocks/foo.block.css", config).then(([block, _]) => {
-        analysis.addBlock("", block);
-        let element = analysis.startElement({ line: 10, column: 11 });
-        element.addStaticClass(block.getClass("asdf")!);
-        element.addStaticClass(block.getClass("fdsa")!);
-        analysis.endElement(element);
-      }),
+      this.parseBlock(css, "blocks/foo.block.css", config).then(
+        ([block, _]) => {
+          analysis.addBlock("", block);
+          let element = analysis.startElement({ line: 10, column: 11 });
+          element.addStaticClass(block.getClass("asdf")!);
+          element.addStaticClass(block.getClass("fdsa")!);
+          analysis.endElement(element);
+        }
+      )
     );
   }
 }

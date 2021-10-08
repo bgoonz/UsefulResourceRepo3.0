@@ -1,8 +1,4 @@
-import {
-  Analysis,
-  Analyzer,
-  Block,
-} from "@css-blocks/core";
+import { Analysis, Analyzer, Block } from "@css-blocks/core";
 import { TemplateIntegrationOptions } from "@opticss/template-api";
 import { some, unwrap } from "@opticss/util";
 import traverse from "babel-traverse";
@@ -61,7 +57,9 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
 
   async analyze(...entryPoints: string[]): Promise<CSSBlocksJSXAnalyzer> {
     if (!entryPoints.length) {
-      throw new JSXParseError("CSS Blocks JSX Analyzer must be passed at least one entry point.");
+      throw new JSXParseError(
+        "CSS Blocks JSX Analyzer must be passed at least one entry point."
+      );
     }
     let promises: Promise<JSXAnalysis>[] = [];
     for (let entryPoint of entryPoints) {
@@ -72,7 +70,6 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
   }
 
   private async crawl(template: JSXTemplate): Promise<JSXAnalysis> {
-
     // If we're already analyzing this template, return the existing analysis promise.
     if (this.analysisPromises.has(template.identifier)) {
       return this.analysisPromises.get(template.identifier)!;
@@ -86,7 +83,6 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
 
     // Parse the file into an AST.
     try {
-
       // Babylon currently has...abysmal support for typescript. We need to transpile
       // it with the standard typescript library first.
       // TODO: When Typescript support lands in Babylon, remove this: https://github.com/babel/babylon/issues/320
@@ -101,10 +97,15 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
         template.data = wat.outputText;
       }
 
-      analysis.template.ast = some(babylon.parse(template.data, this.options.parserOptions));
+      analysis.template.ast = some(
+        babylon.parse(template.data, this.options.parserOptions)
+      );
     } catch (e) {
       process.chdir(oldDir);
-      throw new JSXParseError(`Error parsing '${template.identifier}'\n${e.message}\n\n${template.data}: ${e.message}`, { filename: template.identifier });
+      throw new JSXParseError(
+        `Error parsing '${template.identifier}'\n${e.message}\n\n${template.data}: ${e.message}`,
+        { filename: template.identifier }
+      );
     }
 
     // The blocks importer will insert a promise that resolves to a `ResolvedBlock`
@@ -112,7 +113,17 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
     // will kick of another `Analyzer.parse()` for that file.
     let blockPromises: Promise<Block>[] = [];
     let childTemplatePromises: Promise<JSXAnalysis>[] = [];
-    traverse(unwrap(analysis.template.ast), importVisitor(template, this, analysis, blockPromises, childTemplatePromises, this.options));
+    traverse(
+      unwrap(analysis.template.ast),
+      importVisitor(
+        template,
+        this,
+        analysis,
+        blockPromises,
+        childTemplatePromises,
+        this.options
+      )
+    );
 
     // Once all blocks this file is waiting for resolve, resolve with the File object.
 
@@ -120,13 +131,16 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
     process.chdir(oldDir);
 
     // Wait for all block promises to resolve then resolve with the finished analysis.
-    debug(`Waiting for ${blockPromises.length} Block imported by "${template.identifier}" to finish compilation.`);
+    debug(
+      `Waiting for ${blockPromises.length} Block imported by "${template.identifier}" to finish compilation.`
+    );
     await Promise.all(blockPromises);
-    debug(`Waiting for ${childTemplatePromises.length} child templates to finish analysis before analysis of ${template.identifier}.`);
+    debug(
+      `Waiting for ${childTemplatePromises.length} child templates to finish analysis before analysis of ${template.identifier}.`
+    );
     await Promise.all(childTemplatePromises);
     debug(`All child compilations finished for "${template.identifier}".`);
     return analysis;
-
   }
 
   /**
@@ -135,7 +149,6 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
    * @param opts Optional analytics parser options.
    */
   public async parse(filename: string, data: string): Promise<JSXAnalysis> {
-
     let template: JSXTemplate = new JSXTemplate(filename, data);
 
     debug(`Beginning imports crawl of ${filename}.`);
@@ -145,7 +158,7 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
     debug(`Finished imports crawl of ${filename}.`);
 
     traverse(unwrap(analysis.template.ast), elementVisitor(analysis));
-      // No need to keep detailed template data anymore!
+    // No need to keep detailed template data anymore!
     delete analysis.template.ast;
     delete analysis.template.data;
 
@@ -163,7 +176,12 @@ export class CSSBlocksJSXAnalyzer extends Analyzer<TEMPLATE_TYPE> {
     return new Promise((resolve, reject) => {
       fs.readFile(file, "utf8", (err, data) => {
         if (err) {
-          reject(new JSXParseError(`Cannot read JSX entry point file ${file}: ${err.message}`, { filename: file }));
+          reject(
+            new JSXParseError(
+              `Cannot read JSX entry point file ${file}: ${err.message}`,
+              { filename: file }
+            )
+          );
         }
         resolve(this.parse(file, data));
       });

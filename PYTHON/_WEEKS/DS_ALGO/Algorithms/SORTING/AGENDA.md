@@ -1,6 +1,7 @@
 # Agenda
 
 ## Iterative Sorting
+
 - Talk about Time Complexity
 - 5 min break
 - linear search
@@ -12,6 +13,7 @@
 - Wrap up
 
 ## Recursive Sorting
+
 - Talk about recursion
 - Countdown Debugging
 - 5 min break

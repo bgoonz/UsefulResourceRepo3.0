@@ -16,7 +16,12 @@ type BlockAndRoot = [Block, postcss.Container];
 
 @suite("State Parent Validator")
 export class TemplateAnalysisTests {
-  private parseBlock(css: string, filename: string, opts?: Options, blockName = "analysis"): Promise<BlockAndRoot> {
+  private parseBlock(
+    css: string,
+    filename: string,
+    opts?: Options,
+    blockName = "analysis"
+  ): Promise<BlockAndRoot> {
     let config = resolveConfiguration(opts);
     let factory = new BlockFactory(config, postcss);
     let root = postcss.parse(css, { from: filename });
@@ -38,13 +43,19 @@ export class TemplateAnalysisTests {
     return assertParseError(
       cssBlocks.TemplateAnalysisError,
       'Cannot use state ":scope[state|test]" without parent block also applied or implied by another style. (templates/my-template.hbs:10:32)',
-      this.parseBlock(css, "blocks/foo.block.css", config).then(([block, _]) => {
-        analysis.addBlock("", block);
-        let element = analysis.startElement({ line: 10, column: 32 });
-        element.addStaticAttr(block.rootClass, block.rootClass.getAttributeValue("[state|test]")!);
-        analysis.endElement(element);
-        assert.deepEqual(1, 1);
-      }));
+      this.parseBlock(css, "blocks/foo.block.css", config).then(
+        ([block, _]) => {
+          analysis.addBlock("", block);
+          let element = analysis.startElement({ line: 10, column: 32 });
+          element.addStaticAttr(
+            block.rootClass,
+            block.rootClass.getAttributeValue("[state|test]")!
+          );
+          analysis.endElement(element);
+          assert.deepEqual(1, 1);
+        }
+      )
+    );
   }
 
   @test "throws when states are applied without their parent BlockClass"() {
@@ -61,15 +72,20 @@ export class TemplateAnalysisTests {
     return assertParseError(
       cssBlocks.TemplateAnalysisError,
       'Cannot use state ".foo[state|test]" without parent class also applied or implied by another style. (templates/my-template.hbs:10:32)',
-      this.parseBlock(css, "blocks/foo.block.css", config).then(([block, _]) => {
-        analysis.addBlock("", block);
-        let element = analysis.startElement({ line: 10, column: 32 });
-        let klass = block.getClass("foo") as BlockClass;
-        element.addStaticAttr(klass, klass.getAttributeValue("[state|test]")!);
-        analysis.endElement(element);
-        assert.deepEqual(1, 1);
-      }));
-
+      this.parseBlock(css, "blocks/foo.block.css", config).then(
+        ([block, _]) => {
+          analysis.addBlock("", block);
+          let element = analysis.startElement({ line: 10, column: 32 });
+          let klass = block.getClass("foo") as BlockClass;
+          element.addStaticAttr(
+            klass,
+            klass.getAttributeValue("[state|test]")!
+          );
+          analysis.endElement(element);
+          assert.deepEqual(1, 1);
+        }
+      )
+    );
   }
 
   @test "Throws when inherited states are applied without their root"() {
@@ -87,7 +103,7 @@ export class TemplateAnalysisTests {
       }
       .pretty[state|color=green] {
         color: green;
-      }`,
+      }`
     );
 
     let css = `
@@ -101,18 +117,26 @@ export class TemplateAnalysisTests {
     return assertParseError(
       cssBlocks.TemplateAnalysisError,
       'Cannot use state ".pretty[state|color=yellow]" without parent class also applied or implied by another style. (templates/my-template.hbs:10:32)',
-      this.parseBlock(css, "blocks/foo.block.css", config).then(([block, _]) => {
-        let aBlock = analysis.addBlock("a", block.getReferencedBlock("a") as Block);
-        analysis.addBlock("", block);
-        analysis.addBlock("a", aBlock);
-        let element = analysis.startElement({ line: 10, column: 32 });
-        let klass = block.getClass("pretty") as BlockClass;
-        let state = klass.resolveAttributeValue("[state|color=yellow]")!;
-        if (!state) { throw new Error("No state group `color` resolved"); }
-        element.addStaticAttr(klass, state);
-        analysis.endElement(element);
-        assert.deepEqual(1, 1);
-      }));
+      this.parseBlock(css, "blocks/foo.block.css", config).then(
+        ([block, _]) => {
+          let aBlock = analysis.addBlock(
+            "a",
+            block.getReferencedBlock("a") as Block
+          );
+          analysis.addBlock("", block);
+          analysis.addBlock("a", aBlock);
+          let element = analysis.startElement({ line: 10, column: 32 });
+          let klass = block.getClass("pretty") as BlockClass;
+          let state = klass.resolveAttributeValue("[state|color=yellow]")!;
+          if (!state) {
+            throw new Error("No state group `color` resolved");
+          }
+          element.addStaticAttr(klass, state);
+          analysis.endElement(element);
+          assert.deepEqual(1, 1);
+        }
+      )
+    );
   }
 
   @test "Inherited states pass validation when applied with their root"() {
@@ -130,7 +154,7 @@ export class TemplateAnalysisTests {
       }
       .pretty[state|color=green] {
         color: green;
-      }`,
+      }`
     );
 
     let css = `
@@ -141,18 +165,25 @@ export class TemplateAnalysisTests {
       }
     `;
 
-    return this.parseBlock(css, "blocks/foo.block.css", config).then(([block, _]) => {
-      let aBlock = analysis.addBlock("a", block.getReferencedBlock("a") as Block);
-      analysis.addBlock("", block);
-      analysis.addBlock("a", aBlock);
-      let element = analysis.startElement({ line: 10, column: 32 });
-      let klass = block.getClass("pretty") as BlockClass;
-      let state = klass.resolveAttributeValue("[state|color=yellow]");
-      if (!state) { throw new Error("No state group `color` resolved"); }
-      element.addStaticClass(klass);
-      element.addStaticAttr(klass, state);
-      analysis.endElement(element);
-      assert.deepEqual(1, 1);
-    });
+    return this.parseBlock(css, "blocks/foo.block.css", config).then(
+      ([block, _]) => {
+        let aBlock = analysis.addBlock(
+          "a",
+          block.getReferencedBlock("a") as Block
+        );
+        analysis.addBlock("", block);
+        analysis.addBlock("a", aBlock);
+        let element = analysis.startElement({ line: 10, column: 32 });
+        let klass = block.getClass("pretty") as BlockClass;
+        let state = klass.resolveAttributeValue("[state|color=yellow]");
+        if (!state) {
+          throw new Error("No state group `color` resolved");
+        }
+        element.addStaticClass(klass);
+        element.addStaticAttr(klass, state);
+        analysis.endElement(element);
+        assert.deepEqual(1, 1);
+      }
+    );
   }
 }

@@ -15,7 +15,9 @@ export function selectorCount(result: ClassifiedParsedSelectors) {
   return count;
 }
 
-export function parseSpecifier(specifier: string): { componentType: string; componentName: string } | null {
+export function parseSpecifier(
+  specifier: string
+): { componentType: string; componentName: string } | null {
   if (/^(component|template|stylesheet):(.*)$/.test(specifier)) {
     return {
       componentType: RegExp.$1,
@@ -26,7 +28,11 @@ export function parseSpecifier(specifier: string): { componentType: string; comp
   }
 }
 
-export function cssBlockError(message: string, node: AST.Node, template: TemplateInfo<"GlimmerTemplates.ResolvedFile">) {
+export function cssBlockError(
+  message: string,
+  node: AST.Node,
+  template: TemplateInfo<"GlimmerTemplates.ResolvedFile">
+) {
   return new CssBlockError(message, {
     filename: node.loc.source || template.identifier,
     line: node.loc.start.line,

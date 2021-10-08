@@ -20,9 +20,7 @@ import { BlockClass } from "./BlockClass";
 import { Inheritable } from "./Inheritable";
 import { Styles } from "./Styles";
 
-export class Block
-  extends Inheritable<Block, Block, never, BlockClass> {
-
+export class Block extends Inheritable<Block, Block, never, BlockClass> {
   private _blockReferences: ObjectDictionary<Block> = {};
   private _blockReferencesReverseLookup: Map<Block, string> = new Map();
   private _identifier: FileIdentifier;
@@ -39,7 +37,11 @@ export class Block
   public readonly rootClass: BlockClass;
   public stylesheet: postcss.Root | undefined;
 
-  constructor(name: string, identifier: FileIdentifier, stylesheet?: postcss.Root) {
+  constructor(
+    name: string,
+    identifier: FileIdentifier,
+    stylesheet?: postcss.Root
+  ) {
     super(name);
     this._identifier = identifier;
     this._dependencies = new Set<string>();
@@ -48,10 +50,14 @@ export class Block
     this.addClass(this.rootClass);
   }
 
-  protected get ChildConstructor(): typeof BlockClass { return BlockClass; }
+  protected get ChildConstructor(): typeof BlockClass {
+    return BlockClass;
+  }
 
   /** @returns This Block's self-proclaimed name. */
-  public get name(): string { return this.uid; }
+  public get name(): string {
+    return this.uid;
+  }
 
   /**
    * Sets `name` value of this `Block`. Block names may change depending on the
@@ -59,7 +65,9 @@ export class Block
    * @prop  name  string  The new uid for this `Block`.
    */
   public setName(name: string): void {
-    if (this.hasHadNameReset) { throw new CssBlockError("Can not set block name more than once."); }
+    if (this.hasHadNameReset) {
+      throw new CssBlockError("Can not set block name more than once.");
+    }
     this._token = name;
     this.hasHadNameReset = true;
   }
@@ -93,11 +101,19 @@ export class Block
    *   A single dot by itself returns the current block.
    * @returns The Style referenced at the supplied path.
    */
-  public lookup(path: string | BlockPath, errLoc?: SourceLocation): Styles | undefined {
+  public lookup(
+    path: string | BlockPath,
+    errLoc?: SourceLocation
+  ): Styles | undefined {
     path = new BlockPath(path);
     let block = this.getReferencedBlock(path.block);
     if (!block) {
-      if (errLoc) { throw new InvalidBlockSyntax(`No Block named "${path.block}" found in scope.`, errLoc); }
+      if (errLoc) {
+        throw new InvalidBlockSyntax(
+          `No Block named "${path.block}" found in scope.`,
+          errLoc
+        );
+      }
       return undefined;
     }
     let klass = block.resolveClass(path.class);
@@ -109,7 +125,10 @@ export class Block
     }
 
     if (!attr && !klass && errLoc) {
-      throw new InvalidBlockSyntax(`No Style "${path.path}" found on Block "${block.name}".`, errLoc);
+      throw new InvalidBlockSyntax(
+        `No Style "${path.path}" found on Block "${block.name}".`,
+        errLoc
+      );
     }
 
     return attr || klass || undefined;
@@ -133,13 +152,23 @@ export class Block
     return this._identifier;
   }
 
-  getClass(name: string): BlockClass | null { return name ? this.getChild(name) : this.getChild(ROOT_CLASS); }
-  resolveClass(name: string): BlockClass | null { return name ? this.resolveChild(name) : this.resolveChild(ROOT_CLASS); }
+  getClass(name: string): BlockClass | null {
+    return name ? this.getChild(name) : this.getChild(ROOT_CLASS);
+  }
+  resolveClass(name: string): BlockClass | null {
+    return name ? this.resolveChild(name) : this.resolveChild(ROOT_CLASS);
+  }
 
   // Alias protected methods from `Inheritable` to Block-specific names, and expose them as a public API.
-  get classes(): BlockClass[] { return this.children(); }
-  addClass(blockClass: BlockClass) { this.setChild(blockClass.name, blockClass); }
-  ensureClass(name: string): BlockClass { return this.ensureChild(name); }
+  get classes(): BlockClass[] {
+    return this.children();
+  }
+  addClass(blockClass: BlockClass) {
+    this.setChild(blockClass.name, blockClass);
+  }
+  ensureClass(name: string): BlockClass {
+    return this.ensureChild(name);
+  }
 
   getImplementedBlocks(): Block[] {
     return this._implements.slice();
@@ -170,10 +199,12 @@ export class Block
   checkImplementations(): void {
     for (let b of this.getImplementedBlocks()) {
       let missing: Styles[] = this.checkImplementation(b);
-      let paths = missing.map(o => o.asSource()).join(", ");
+      let paths = missing.map((o) => o.asSource()).join(", ");
       if (missing.length > 0) {
         let s = missing.length > 1 ? "s" : "";
-        throw new CssBlockError(`Missing implementation${s} for: ${paths} from ${b.identifier}`);
+        throw new CssBlockError(
+          `Missing implementation${s} for: ${paths} from ${b.identifier}`
+        );
       }
     }
   }
@@ -199,7 +230,7 @@ export class Block
         return undefined;
       }
     }
-    return this.all().find(e => e.asSource() === sourceName);
+    return this.all().find((e) => e.asSource() === sourceName);
   }
 
   eachBlockReference(callback: (name: string, block: Block) => whatever) {
@@ -214,12 +245,14 @@ export class Block
   }
 
   getReferencedBlock(localName: string): Block | null {
-    if (localName === "") { return this; }
+    if (localName === "") {
+      return this;
+    }
     return this._blockReferences[localName] || null;
   }
 
   getReferencedBlockLocalName(block: Block | undefined): string | null {
-    return block && this._blockReferencesReverseLookup.get(block) || null;
+    return (block && this._blockReferencesReverseLookup.get(block)) || null;
   }
 
   transitiveBlockDependencies(): Set<Block> {
@@ -312,7 +345,9 @@ export class Block
       }
     } else if (selectorParser.isClassName(node) || isRootNode(node)) {
       let klass = this.getClass(node.value);
-      if (klass === null) { return null; }
+      if (klass === null) {
+        return null;
+      }
       let next = node.next();
       if (next && isAttributeNode(next)) {
         let attr = klass.getAttributeValue(toAttrToken(next));
@@ -335,7 +370,10 @@ export class Block
     return null;
   }
 
-  rewriteSelectorNodes(nodes: selectorParser.Node[], config: ResolvedConfiguration): selectorParser.Node[] {
+  rewriteSelectorNodes(
+    nodes: selectorParser.Node[],
+    config: ResolvedConfiguration
+  ): selectorParser.Node[] {
     let newNodes: selectorParser.Node[] = [];
     for (let i = 0; i < nodes.length; i++) {
       let node = nodes[i];
@@ -343,20 +381,28 @@ export class Block
       if (result === null) {
         newNodes.push(node);
       } else {
-        newNodes.push(selectorParser.className({ value: result[0].cssClass(config) }));
+        newNodes.push(
+          selectorParser.className({ value: result[0].cssClass(config) })
+        );
         i += result[1];
       }
     }
     return newNodes;
   }
 
-  rewriteSelectorToString(selector: ParsedSelector, config: ResolvedConfiguration): string {
+  rewriteSelectorToString(
+    selector: ParsedSelector,
+    config: ResolvedConfiguration
+  ): string {
     let firstNewSelector = new CompoundSelector();
     let newSelector = firstNewSelector;
     let newCurrentSelector = newSelector;
     let currentSelector: CompoundSelector | undefined = selector.selector;
     do {
-      newCurrentSelector.nodes = this.rewriteSelectorNodes(currentSelector.nodes, config);
+      newCurrentSelector.nodes = this.rewriteSelectorNodes(
+        currentSelector.nodes,
+        config
+      );
       newCurrentSelector.pseudoelement = currentSelector.pseudoelement;
       if (currentSelector.next !== undefined) {
         let tempSel = newCurrentSelector;
@@ -370,7 +416,10 @@ export class Block
     return firstNewSelector.toString();
   }
 
-  rewriteSelector(selector: ParsedSelector, config: ResolvedConfiguration): ParsedSelector {
+  rewriteSelector(
+    selector: ParsedSelector,
+    config: ResolvedConfiguration
+  ): ParsedSelector {
     // generating a string and re-parsing ensures the internal structure is consistent
     // otherwise the parent/next/prev relationships will be wonky with the new nodes.
     let s = this.rewriteSelectorToString(selector, config);
@@ -378,8 +427,11 @@ export class Block
   }
 
   debug(config: ResolvedConfiguration): string[] {
-    let result: string[] = [`Source: ${this.identifier}`, this.rootClass.asDebug(config)];
-    let sourceNames = new Set<string>(this.all().map(s => s.asSource()));
+    let result: string[] = [
+      `Source: ${this.identifier}`,
+      this.rootClass.asDebug(config),
+    ];
+    let sourceNames = new Set<string>(this.all().map((s) => s.asSource()));
     let sortedNames = [...sourceNames].sort();
     for (let n of sortedNames) {
       if (n !== ROOT_CLASS) {

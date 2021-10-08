@@ -10,7 +10,12 @@
  * with a fully typed tree structure.
  */
 import { ObjectDictionary } from "@opticss/util";
-import { ParsedSelector, SelectorFactory, parseSelector, postcss } from "opticss";
+import {
+  ParsedSelector,
+  SelectorFactory,
+  parseSelector,
+  postcss,
+} from "opticss";
 
 /* tslint:disable:prefer-whatever-to-any */
 export type AnyNode = Inheritable<any, any, any, any, any>;
@@ -20,14 +25,19 @@ export abstract class Inheritable<
   Root extends Inheritable<any, Root, never, AnyNode, any> | Self,
   Parent extends Inheritable<any, Root, AnyNode | null, Self, any> | null,
   Child extends Inheritable<any, Root, Self, AnyNode | never, any> | never,
-  Token extends any = string,
-> implements SelectorFactory {
+  Token extends any = string
+> implements SelectorFactory
+{
+  protected abstract get ChildConstructor():
+    | { new (token: any, parent: Self): Child }
+    | never;
 
-  protected abstract get ChildConstructor(): { new(token: any, parent: Self): Child } | never;
+  /* tslint:enable:prefer-whatever-to-any */
 
-/* tslint:enable:prefer-whatever-to-any */
-
-  private readonly parsedRuleSelectors: WeakMap<postcss.Rule, ParsedSelector[]> | null;
+  private readonly parsedRuleSelectors: WeakMap<
+    postcss.Rule,
+    ParsedSelector[]
+  > | null;
 
   protected _token: Token;
   protected _base: Self | undefined;
@@ -60,7 +70,9 @@ export abstract class Inheritable<
    * @returns A unique string that represents this token.
    */
 
-  protected tokenToUid(token: Token): string { return String(token); }
+  protected tokenToUid(token: Token): string {
+    return String(token);
+  }
 
   /**
    * @param token The new child object's `Token` identifier.
@@ -79,19 +91,29 @@ export abstract class Inheritable<
   }
 
   /** @returns The token object used to create this node. */
-  public get token(): Token { return this._token; }
+  public get token(): Token {
+    return this._token;
+  }
 
   /** @returns The unique name of this node. */
-  protected get uid(): string { return this.tokenToUid(this._token); }
+  protected get uid(): string {
+    return this.tokenToUid(this._token);
+  }
 
   /** @returns The parent node in this tree. */
-  protected get parent(): Parent { return this._parent as Parent; }
+  protected get parent(): Parent {
+    return this._parent as Parent;
+  }
 
   /** @returns The root node in this tree. */
-  protected get root(): Root { return this._root as Root; }
+  protected get root(): Root {
+    return this._root as Root;
+  }
 
   /** @returns A boolean indicating if this is the root node in the Inheritable tree or not. */
-  private get isRootNode(): boolean { return this._root === this.asSelf(); }
+  private get isRootNode(): boolean {
+    return this._root === this.asSelf();
+  }
 
   /**
    * Get the style that this style inherits from, if any.
@@ -115,7 +137,7 @@ export abstract class Inheritable<
       }
       baseParent = baseParent.base;
     }
-    return this._base = undefined;
+    return (this._base = undefined);
   }
 
   /**
@@ -124,7 +146,9 @@ export abstract class Inheritable<
    * in one place.
    * @returns The base node in this tree.
    */
-  public get block(): Root { return this.root; }
+  public get block(): Root {
+    return this.root;
+  }
 
   /**
    * Compute all block objects that are implied by this block object through
@@ -289,7 +313,6 @@ export abstract class Inheritable<
    * method casts it in a few places where it's needed.
    */
   private asSelf(): Self {
-    return <Self><object>this;
+    return <Self>(<object>this);
   }
-
 }

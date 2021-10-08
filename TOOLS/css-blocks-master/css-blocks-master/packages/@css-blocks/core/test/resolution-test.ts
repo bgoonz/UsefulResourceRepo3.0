@@ -11,10 +11,7 @@ import { setupImporting } from "./util/setupImporting";
 export class BlockInheritance extends BEMProcessor {
   @test "results in an error betwixt properties"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "a.css",
-      `.foo { border: 3px; }`,
-    );
+    imports.registerSource("a.css", `.foo { border: 3px; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference a from "./a.css";
@@ -28,16 +25,13 @@ export class BlockInheritance extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Resolving border must happen either before or after all other values for border." +
         " (conflicts.css:4:23)",
-      this.process(filename, inputCSS, config),
+      this.process(filename, inputCSS, config)
     );
   }
 
   @test "results in an error without concrete value"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "a.css",
-      `.foo { border: 3px; }`,
-    );
+    imports.registerSource("a.css", `.foo { border: 3px; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference a from "./a.css";
@@ -49,16 +43,13 @@ export class BlockInheritance extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Cannot resolve border without a concrete value." +
         " (conflicts.css:3:23)",
-      this.process(filename, inputCSS, config),
+      this.process(filename, inputCSS, config)
     );
   }
 
   @test "with a yield"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "other.css",
-      `.nav { border: 1px solid black; }`,
-    );
+    imports.registerSource("other.css", `.nav { border: 1px solid black; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference other from "./other.css";
@@ -72,7 +63,7 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header { border: none; }\n" +
-        ".other__nav.conflicts__header { border: 1px solid black; }\n",
+          ".other__nav.conflicts__header { border: 1px solid black; }\n"
       );
     });
   }
@@ -81,7 +72,7 @@ export class BlockInheritance extends BEMProcessor {
     let { imports, config } = setupImporting();
     imports.registerSource(
       "other.css",
-      `.nav { border: 1px solid black; color: red; }`,
+      `.nav { border: 1px solid black; color: red; }`
     );
 
     let filename = "conflicts.css";
@@ -97,7 +88,7 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header { width: 100%; border: none; }\n" +
-        ".other__nav.conflicts__header { border: none; }\n",
+          ".other__nav.conflicts__header { border: none; }\n"
       );
     });
   }
@@ -115,7 +106,7 @@ export class BlockInheritance extends BEMProcessor {
        .sidebar { grid-area: sidebar; background-color: #ccc;  }
        :scope[state|big] .main { font-size: 30px; }
        :scope[state|big] > .main { font-size: 40px; }
-       :scope[state|big] > .main + .main { font-size: 20px; }`,
+       :scope[state|big] > .main + .main { font-size: 20px; }`
     );
 
     let filename = "conflicts.css";
@@ -130,10 +121,10 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__article { font-size: 18px; }\n" +
-        ".grid__main.conflicts__article { font-size: 16px; }\n" +
-        ".grid--big .grid__main.conflicts__article { font-size: 30px; }\n" +
-        ".grid--big > .grid__main.conflicts__article { font-size: 40px; }\n" +
-        ".grid--big > .grid__main + .grid__main.conflicts__article { font-size: 20px; }\n",
+          ".grid__main.conflicts__article { font-size: 16px; }\n" +
+          ".grid--big .grid__main.conflicts__article { font-size: 30px; }\n" +
+          ".grid--big > .grid__main.conflicts__article { font-size: 40px; }\n" +
+          ".grid--big > .grid__main + .grid__main.conflicts__article { font-size: 20px; }\n"
       );
     });
   }
@@ -143,7 +134,7 @@ export class BlockInheritance extends BEMProcessor {
     imports.registerSource(
       "target.css",
       `.main    { color: blue; }
-       :scope[state|hidden] .main { color: transparent; }`,
+       :scope[state|hidden] .main { color: transparent; }`
     );
 
     let filename = "conflicts.css";
@@ -158,20 +149,21 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts--happy .conflicts__article { color: green; }\n" +
-        ".conflicts--happy .target__main.conflicts__article { color: blue; }\n" +
-        ".target--hidden.conflicts--happy .target__main.conflicts__article,\n" +
-        ".target--hidden .conflicts--happy .target__main.conflicts__article,\n" +
-        ".conflicts--happy .target--hidden .target__main.conflicts__article { color: transparent; }\n",
+          ".conflicts--happy .target__main.conflicts__article { color: blue; }\n" +
+          ".target--hidden.conflicts--happy .target__main.conflicts__article,\n" +
+          ".target--hidden .conflicts--happy .target__main.conflicts__article,\n" +
+          ".conflicts--happy .target--hidden .target__main.conflicts__article { color: transparent; }\n"
       );
     });
   }
 
-  @test "for states combined with the resolution source involving child combinators"() {
+  @test
+  "for states combined with the resolution source involving child combinators"() {
     let { imports, config } = setupImporting();
     imports.registerSource(
       "target.css",
       `.main    { color: blue; }
-       :scope[state|hidden] > .main { color: transparent; }`,
+       :scope[state|hidden] > .main { color: transparent; }`
     );
 
     let filename = "conflicts.css";
@@ -186,19 +178,20 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts--happy .conflicts__article { color: green; }\n" +
-        ".conflicts--happy .target__main.conflicts__article { color: blue; }\n" +
-        ".target--hidden.conflicts--happy > .target__main.conflicts__article,\n" +
-        ".conflicts--happy .target--hidden > .target__main.conflicts__article { color: transparent; }\n",
+          ".conflicts--happy .target__main.conflicts__article { color: blue; }\n" +
+          ".target--hidden.conflicts--happy > .target__main.conflicts__article,\n" +
+          ".conflicts--happy .target--hidden > .target__main.conflicts__article { color: transparent; }\n"
       );
     });
   }
 
-  @test "for states combined with the resolution source both involving child combinators"() {
+  @test
+  "for states combined with the resolution source both involving child combinators"() {
     let { imports, config } = setupImporting();
     imports.registerSource(
       "target.css",
       `.main    { color: blue; }
-       :scope[state|hidden] > .main { color: transparent; }`,
+       :scope[state|hidden] > .main { color: transparent; }`
     );
 
     let filename = "conflicts.css";
@@ -213,14 +206,15 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts--happy > .conflicts__article { color: green; }\n" +
-        ".conflicts--happy > .target__main.conflicts__article { color: blue; }\n" +
-        ".target--hidden.conflicts--happy > .target__main.conflicts__article { color: transparent; }\n",
+          ".conflicts--happy > .target__main.conflicts__article { color: blue; }\n" +
+          ".target--hidden.conflicts--happy > .target__main.conflicts__article { color: transparent; }\n"
       );
     });
   }
 
   @skip
-  @test "of short-hand properties conflicting with long-hand properties"() {
+  @test
+  "of short-hand properties conflicting with long-hand properties"() {
     let { imports, config } = setupImporting();
     imports.registerSource(
       "grid.css",
@@ -233,7 +227,7 @@ export class BlockInheritance extends BEMProcessor {
        .sidebar { grid-area: sidebar; background-color: #ccc;  }
        :scope[state|big] .main { font-size: 30px; }
        :scope[state|big] > .main { font-size: 40px; }
-       :scope[state|big] > .main + .main { font-size: 20px; }`,
+       :scope[state|big] > .main + .main { font-size: 20px; }`
     );
 
     let filename = "conflicts.css";
@@ -256,11 +250,11 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header { border-bottom: 2px; }\n" +
-        ".conflicts__header.grid__nav { border-bottom: 1px solid black }\n" +
-        ".conflicts__another-header { border-width: 3px; }\n" +
-        ".conflicts__another-header.grid__nav { border-width: 1px; }\n" +
-        ".conflicts__third-header { border-bottom-width: 3px; }\n" +
-        ".conflicts__third-header.grid__nav { border-bottom-width: 1px; }\n",
+          ".conflicts__header.grid__nav { border-bottom: 1px solid black }\n" +
+          ".conflicts__another-header { border-width: 3px; }\n" +
+          ".conflicts__another-header.grid__nav { border-width: 1px; }\n" +
+          ".conflicts__third-header { border-bottom-width: 3px; }\n" +
+          ".conflicts__third-header.grid__nav { border-bottom-width: 1px; }\n"
       );
     });
   }
@@ -270,7 +264,7 @@ export class BlockInheritance extends BEMProcessor {
     imports.registerSource(
       "other.css",
       `.foo { font-size: 10px; font-size: 0.5rem; }
-       .bar { font-size: 99px; font-size: 10rem; }`,
+       .bar { font-size: 99px; font-size: 10rem; }`
     );
 
     let filename = "conflicts.css";
@@ -287,8 +281,8 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__article { font-size: 18px; font-size: 2rem; }\n" +
-        ".other__bar.conflicts__article { font-size: 99px; font-size: 10rem; }\n" +
-        ".other__foo.conflicts__article { font-size: 18px; font-size: 2rem; }\n",
+          ".other__bar.conflicts__article { font-size: 99px; font-size: 10rem; }\n" +
+          ".other__foo.conflicts__article { font-size: 18px; font-size: 2rem; }\n"
       );
     });
   }
@@ -300,7 +294,7 @@ export class BlockInheritance extends BEMProcessor {
       `.foo { font-size: 10px; }
        :scope[state|dark] .foo { color: black; }
        .bar { font-size: 99px; }
-       :scope[state|dark] .bar { color: dark-gray; }`,
+       :scope[state|dark] .bar { color: dark-gray; }`
     );
 
     let filename = "conflicts.css";
@@ -316,18 +310,15 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__article { font-size: 18px; }\n" +
-        ".other__bar.conflicts__article { font-size: 99px; }\n" +
-        ".other__foo.conflicts__article { font-size: 18px; }\n",
+          ".other__bar.conflicts__article { font-size: 99px; }\n" +
+          ".other__foo.conflicts__article { font-size: 18px; }\n"
       );
     });
   }
 
   @test "errors when no selectors conflict."() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "other.css",
-      `.foo { font-size: 10px; }`,
-    );
+    imports.registerSource("other.css", `.foo { font-size: 10px; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference other from "./other.css";
@@ -340,16 +331,14 @@ export class BlockInheritance extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "There are no conflicting values for border found in any selectors targeting other.foo." +
         " (conflicts.css:3:23)",
-      this.process(filename, inputCSS, config),
+      this.process(filename, inputCSS, config)
     );
   }
 
-  @test "doesn't create a resolution if the values are the same but it also doesn't error."() {
+  @test
+  "doesn't create a resolution if the values are the same but it also doesn't error."() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "other.css",
-      `.nav { border: 1px solid black; }`,
-    );
+    imports.registerSource("other.css", `.nav { border: 1px solid black; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference other from "./other.css";
@@ -362,7 +351,7 @@ export class BlockInheritance extends BEMProcessor {
       imports.assertImported("other.css");
       assert.deepEqual(
         result.css.toString(),
-        ".conflicts__header { border: 1px solid black; }\n",
+        ".conflicts__header { border: 1px solid black; }\n"
       );
     });
   }
@@ -372,13 +361,13 @@ export class BlockInheritance extends BEMProcessor {
     imports.registerSource(
       "base.css",
       `.nav { border: 1px solid black; width: 100%; }
-       .sidebar { color: blue; }`,
+       .sidebar { color: blue; }`
     );
     imports.registerSource(
       "other.css",
       `@block-reference base from "base.css";
        :scope { extends: base; }
-       .nav { border: 1px solid black; color: red; }`,
+       .nav { border: 1px solid black; color: red; }`
     );
 
     let filename = "conflicts.css";
@@ -398,9 +387,9 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header { width: 80%; border: none; color: green; }\n" +
-        ".base__sidebar.conflicts__header { color: blue; }\n" +
-        ".other__nav.conflicts__header { border: 1px solid black; }\n" +
-        ".base__nav.conflicts__header { width: 100%; }\n",
+          ".base__sidebar.conflicts__header { color: blue; }\n" +
+          ".other__nav.conflicts__header { border: 1px solid black; }\n" +
+          ".base__nav.conflicts__header { width: 100%; }\n"
       );
     });
   }
@@ -409,7 +398,7 @@ export class BlockInheritance extends BEMProcessor {
     let { imports, config } = setupImporting();
     imports.registerSource(
       "other.css",
-      `:scope { border: 1px solid black; width: 100%; }`,
+      `:scope { border: 1px solid black; width: 100%; }`
     );
 
     let filename = "conflicts.css";
@@ -426,18 +415,15 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header { border: none; width: 100px; }\n" +
-        ".other.conflicts__header { width: 100%; }\n" +
-        ".other.conflicts__header { border: 1px solid black; }\n",
+          ".other.conflicts__header { width: 100%; }\n" +
+          ".other.conflicts__header { border: 1px solid black; }\n"
       );
     });
   }
 
   @test "resolves root states"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "other.css",
-      `:scope[state|foo] { width: 100%; }`,
-    );
+    imports.registerSource("other.css", `:scope[state|foo] { width: 100%; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference other from "./other.css";
@@ -451,17 +437,14 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header { width: 100px; }\n" +
-        ".other--foo.conflicts__header { width: 100%; }\n",
+          ".other--foo.conflicts__header { width: 100%; }\n"
       );
     });
   }
 
   @test "resolves class states"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "other.css",
-      `.asdf[state|foo] { width: 100%; }`,
-    );
+    imports.registerSource("other.css", `.asdf[state|foo] { width: 100%; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference other from "./other.css";
@@ -475,17 +458,14 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header { width: 100px; }\n" +
-        ".other__asdf--foo.conflicts__header { width: 100%; }\n",
+          ".other__asdf--foo.conflicts__header { width: 100%; }\n"
       );
     });
   }
 
   @test "resolves pseduoelement override"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "other.css",
-      `.asdf::before { width: 100%; }`,
-    );
+    imports.registerSource("other.css", `.asdf::before { width: 100%; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference other from "./other.css";
@@ -499,16 +479,13 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header::before { width: 100px; }\n" +
-        ".other__asdf.conflicts__header::before { width: 100%; }\n",
+          ".other__asdf.conflicts__header::before { width: 100%; }\n"
       );
     });
   }
   @test "resolves pseduoelement yield"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "other.css",
-      `.asdf::before { width: 100%; }`,
-    );
+    imports.registerSource("other.css", `.asdf::before { width: 100%; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference other from "./other.css";
@@ -522,7 +499,7 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__header::before { width: 100px; }\n" +
-        ".other__asdf.conflicts__header::before { width: 100px; }\n",
+          ".other__asdf.conflicts__header::before { width: 100px; }\n"
       );
     });
   }
@@ -534,7 +511,7 @@ export class BlockInheritance extends BEMProcessor {
       `.adjacent + .adjacent { border: 1px; }
        .sibling ~ .sibling   { color: blue; }
        :scope[state|ancestor] .descendant { float: left; }
-       :scope[state|parent] > .child { position: relative; }`,
+       :scope[state|parent] > .child { position: relative; }`
     );
 
     let filename = "conflicts.css";
@@ -549,34 +526,32 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts__adjacent + .conflicts__adjacent { color: green; }\n" +
-        ".target__sibling.conflicts__adjacent + .target__sibling.conflicts__adjacent,\n" +
-        ".target__sibling ~ .conflicts__adjacent + .target__sibling.conflicts__adjacent { color: blue; }\n" +
-
-        ".conflicts__sibling ~ .conflicts__sibling { border: 2px; }\n" +
-        ".target__adjacent.conflicts__sibling + .target__adjacent.conflicts__sibling,\n" +
-        ".conflicts__sibling ~ .target__adjacent + .target__adjacent.conflicts__sibling { border: 1px; }\n" +
-
-        ".conflicts--ancestor .conflicts__descendant { position: absolute; }\n" +
-        ".target--parent.conflicts--ancestor > .target__child.conflicts__descendant,\n" +
-        ".conflicts--ancestor .target--parent > .target__child.conflicts__descendant { position: relative; }\n" +
-
-        ".conflicts--parent > .conflicts__child { float: right; }\n" +
-        ".target--ancestor.conflicts--parent > .target__descendant.conflicts__child,\n" +
-        ".target--ancestor .conflicts--parent > .target__descendant.conflicts__child { float: left; }\n",
+          ".target__sibling.conflicts__adjacent + .target__sibling.conflicts__adjacent,\n" +
+          ".target__sibling ~ .conflicts__adjacent + .target__sibling.conflicts__adjacent { color: blue; }\n" +
+          ".conflicts__sibling ~ .conflicts__sibling { border: 2px; }\n" +
+          ".target__adjacent.conflicts__sibling + .target__adjacent.conflicts__sibling,\n" +
+          ".conflicts__sibling ~ .target__adjacent + .target__adjacent.conflicts__sibling { border: 1px; }\n" +
+          ".conflicts--ancestor .conflicts__descendant { position: absolute; }\n" +
+          ".target--parent.conflicts--ancestor > .target__child.conflicts__descendant,\n" +
+          ".conflicts--ancestor .target--parent > .target__child.conflicts__descendant { position: relative; }\n" +
+          ".conflicts--parent > .conflicts__child { float: right; }\n" +
+          ".target--ancestor.conflicts--parent > .target__descendant.conflicts__child,\n" +
+          ".target--ancestor .conflicts--parent > .target__descendant.conflicts__child { float: left; }\n"
       );
     });
   }
 
   @skip
-  @test "handles custom properties and shorthand/longhand conflict resolution somehow"() {
-  }
+  @test
+  "handles custom properties and shorthand/longhand conflict resolution somehow"() {}
 
-  @test "for states combined with the resolution source has adjacent selectors"() {
+  @test
+  "for states combined with the resolution source has adjacent selectors"() {
     let { imports, config } = setupImporting();
     imports.registerSource(
       "target.css",
       `.main    { color: blue; }
-       .main + .main { color: transparent; }`,
+       .main + .main { color: transparent; }`
     );
 
     let filename = "conflicts.css";
@@ -591,8 +566,8 @@ export class BlockInheritance extends BEMProcessor {
       assert.deepEqual(
         result.css.toString(),
         ".conflicts--happy > .conflicts__article { color: green; }\n" +
-        ".conflicts--happy > .target__main.conflicts__article { color: blue; }\n" +
-        ".conflicts--happy > .target__main + .target__main.conflicts__article { color: transparent; }\n",
+          ".conflicts--happy > .target__main.conflicts__article { color: blue; }\n" +
+          ".conflicts--happy > .target__main + .target__main.conflicts__article { color: transparent; }\n"
       );
     });
   }
@@ -609,17 +584,13 @@ export class BlockInheritance extends BEMProcessor {
 
     return assertError(
       cssBlocks.InvalidBlockSyntax,
-      "Cannot resolve conflicts with your own block." +
-        " (conflicts.css:3:23)",
-      this.process(filename, inputCSS),
+      "Cannot resolve conflicts with your own block." + " (conflicts.css:3:23)",
+      this.process(filename, inputCSS)
     );
   }
   @test "resolving to your super block is illegal"() {
     let { imports, config } = setupImporting();
-    imports.registerSource(
-      "super.css",
-      `.main    { color: blue; }`,
-    );
+    imports.registerSource("super.css", `.main    { color: blue; }`);
 
     let filename = "conflicts.css";
     let inputCSS = `@block-reference super from "super.css";
@@ -633,7 +604,7 @@ export class BlockInheritance extends BEMProcessor {
       cssBlocks.InvalidBlockSyntax,
       "Cannot resolve conflicts with ancestors of your own block." +
         " (conflicts.css:5:23)",
-      this.process(filename, inputCSS, config),
+      this.process(filename, inputCSS, config)
     );
   }
 }

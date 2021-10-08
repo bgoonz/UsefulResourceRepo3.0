@@ -8,13 +8,22 @@ import { ErrorCallback, Validator } from "./Validator";
 /**
  * Verify that we are not applying multiple attribute values from a single attribute group in the same `objstr` call.
  */
-function ensureUniqueAttributeGroup(discovered: Set<Attribute>, group: Attribute, err: ErrorCallback, track: boolean): Attribute[] {
+function ensureUniqueAttributeGroup(
+  discovered: Set<Attribute>,
+  group: Attribute,
+  err: ErrorCallback,
+  track: boolean
+): Attribute[] {
   let groups = [...group.resolveInheritance(), group];
   for (let g of groups) {
     if (discovered.has(g)) {
-      err(`Can not apply multiple states at the same time from the exclusive state group "${g.asSource()}".`);
+      err(
+        `Can not apply multiple states at the same time from the exclusive state group "${g.asSource()}".`
+      );
     }
-    if (track) { discovered.add(g); }
+    if (track) {
+      discovered.add(g);
+    }
   }
   return groups;
 }
@@ -25,7 +34,11 @@ function ensureUniqueAttributeGroup(discovered: Set<Attribute>, group: Attribute
  * @param err Error callback.
  */
 
-export const attributeGroupValidator: Validator = (analysis, _templateAnalysis, err) => {
+export const attributeGroupValidator: Validator = (
+  analysis,
+  _templateAnalysis,
+  err
+) => {
   let discovered: Set<Attribute> = new Set();
   for (let o of analysis.static) {
     if (isAttrValue(o)) {
@@ -40,7 +53,12 @@ export const attributeGroupValidator: Validator = (analysis, _templateAnalysis, 
       let tmp: Set<Attribute> = new Set();
       for (let key of Object.keys(stat.group)) {
         let attr = stat.group[key];
-        let values = ensureUniqueAttributeGroup(discovered, attr.attribute, err, false);
+        let values = ensureUniqueAttributeGroup(
+          discovered,
+          attr.attribute,
+          err,
+          false
+        );
         values.forEach((o) => tmp.add(o));
       }
       unionInto(discovered, tmp);

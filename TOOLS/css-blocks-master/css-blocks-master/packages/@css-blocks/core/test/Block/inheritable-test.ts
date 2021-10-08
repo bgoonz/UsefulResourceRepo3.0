@@ -2,81 +2,94 @@ import { assertNeverCalled } from "@opticss/util";
 import { assert } from "chai";
 import { suite, test } from "mocha-typescript";
 
-import { Block, BlockClass, ResolvedConfiguration, RulesetContainer, SourceLocation } from "../../src";
+import {
+  Block,
+  BlockClass,
+  ResolvedConfiguration,
+  RulesetContainer,
+  SourceLocation,
+} from "../../src";
 import { Inheritable } from "../../src/BlockTree/Inheritable";
 
 type RootNode = Inheritable<
   TestSource, // Self
   TestSource, // Root
-  never,      // Parent
-  TestNode    // Children
+  never, // Parent
+  TestNode // Children
 >;
 
 class TestSource extends Inheritable<
   TestSource, // Self
   TestSource, // Root
-  never,      // Parent
-  TestNode    // Children
+  never, // Parent
+  TestNode // Children
 > {
-  protected get ChildConstructor(): typeof TestNode { return TestNode; }
-  lookup(): undefined { return undefined; }
+  protected get ChildConstructor(): typeof TestNode {
+    return TestNode;
+  }
+  lookup(): undefined {
+    return undefined;
+  }
   setBase(base: TestSource) {
     this._base = base;
   }
-  get root(): RootNode["root"] { return this._root; }
-  newChildNode: RootNode["newChild"] =
-    (name: string) => this.newChild(name)
+  get root(): RootNode["root"] {
+    return this._root;
+  }
+  newChildNode: RootNode["newChild"] = (name: string) => this.newChild(name);
 
-  getChildNode: RootNode["getChild"] =
-    (key: string) => this.getChild(key)
+  getChildNode: RootNode["getChild"] = (key: string) => this.getChild(key);
 
-  resolveChildNode: RootNode["resolveChild"] =
-    (key: string) => this.resolveChild(key)
+  resolveChildNode: RootNode["resolveChild"] = (key: string) =>
+    this.resolveChild(key);
 
-  setChildNode: RootNode["setChild"] =
-    (key: string, value: TestNode) => this.setChild(key, value)
+  setChildNode: RootNode["setChild"] = (key: string, value: TestNode) =>
+    this.setChild(key, value);
 
-  ensureChildNode: RootNode["ensureChild"] =
-    (name: string, key?: string) => this.ensureChild(name, key)
+  ensureChildNode: RootNode["ensureChild"] = (name: string, key?: string) =>
+    this.ensureChild(name, key);
 
-  childNodes: RootNode["children"] =
-    () => this.children()
+  childNodes: RootNode["children"] = () => this.children();
 
-  childNodeHash: RootNode["childrenHash"] =
-    () => this.childrenHash()
+  childNodeHash: RootNode["childrenHash"] = () => this.childrenHash();
 
-  childNodeMap: RootNode["childrenMap"] =
-    () => this.childrenMap()
+  childNodeMap: RootNode["childrenMap"] = () => this.childrenMap();
 
-  resolveChildNodes: RootNode["children"] =
-    () => this.resolveChildren()
+  resolveChildNodes: RootNode["children"] = () => this.resolveChildren();
 
-  resolveChildNodeHash: RootNode["childrenHash"] =
-    () => this.resolveChildrenHash()
+  resolveChildNodeHash: RootNode["childrenHash"] = () =>
+    this.resolveChildrenHash();
 
-  resolveChildNodeMap: RootNode["childrenMap"] =
-    () => this.resolveChildrenMap()
+  resolveChildNodeMap: RootNode["childrenMap"] = () =>
+    this.resolveChildrenMap();
 }
 
 type ContainerNode = Inheritable<TestNode, TestSource, TestSource, TestSink>;
 
 const TEST_BLOCK = new Block("test", "tree");
 class TestNode extends Inheritable<
-  TestNode,   // Self
+  TestNode, // Self
   TestSource, // Root
   TestSource, // Parent
-  TestSink    // Children
+  TestSink // Children
 > {
-  get ChildConstructor(): typeof TestSink { return TestSink; }
-  lookup(): undefined { return undefined; }
-  get parent(): ContainerNode["parent"] { return this._parent!; }
-  get root(): ContainerNode["root"] { return this.parent.root; }
-  ensureSink: ContainerNode["ensureChild"] =
-    (name: string, key?: string) => this.ensureChild(name, key)
-  getSink: ContainerNode["getChild"] =
-    (name: string) => this.getChild(name)
-  resolveSink: ContainerNode["resolveChild"] =
-    (name: string) => this.resolveChild(name)
+  get ChildConstructor(): typeof TestSink {
+    return TestSink;
+  }
+  lookup(): undefined {
+    return undefined;
+  }
+  get parent(): ContainerNode["parent"] {
+    return this._parent!;
+  }
+  get root(): ContainerNode["root"] {
+    return this.parent.root;
+  }
+  ensureSink: ContainerNode["ensureChild"] = (name: string, key?: string) =>
+    this.ensureChild(name, key);
+  getSink: ContainerNode["getChild"] = (name: string) => this.getChild(name);
+  resolveSink: ContainerNode["resolveChild"] = (name: string) =>
+    this.resolveChild(name);
 }
 
 type SinkNode = Inheritable<TestSink, TestSource, TestNode, never>;
@@ -86,12 +99,21 @@ class TestSink extends Inheritable<
   TestSource, // Root
   TestNode, // Parent
   never
-  > {
-  get ChildConstructor(): never { return assertNeverCalled(); }
-  get parent(): SinkNode["parent"] { return this._parent!; }
-  get root(): SinkNode["root"] { return this.parent.root; }
+> {
+  get ChildConstructor(): never {
+    return assertNeverCalled();
+  }
+  get parent(): SinkNode["parent"] {
+    return this._parent!;
+  }
+  get root(): SinkNode["root"] {
+    return this.parent.root;
+  }
   // tslint:disable-next-line:prefer-whatever-to-any
-  public lookup(_path: string, _errLoc?: SourceLocation | undefined): Inheritable<any, any, any, any> | undefined {
+  public lookup(
+    _path: string,
+    _errLoc?: SourceLocation | undefined
+  ): Inheritable<any, any, any, any> | undefined {
     throw new Error("Method not implemented.");
   }
   public rulesets: RulesetContainer<BlockClass>;
@@ -113,7 +135,6 @@ class TestSink extends Inheritable<
 
 @suite("Inheritable")
 export class InheritableTests {
-
   @test "initial source node tree properties are as expected"() {
     let source = new TestSource("my-source");
     assert.equal(source.base, undefined);
@@ -121,7 +142,8 @@ export class InheritableTests {
     assert.deepEqual(source.resolveInheritance(), []);
   }
 
-  @test "newChild creates new child, does not set it"() { // Note: this is why `newChild` is protected in Blocks
+  @test "newChild creates new child, does not set it"() {
+    // Note: this is why `newChild` is protected in Blocks
     let source = new TestSource("my-source");
     let child = source.newChildNode("child-node");
     assert.equal(source.getChildNode("child-node"), null);
@@ -167,8 +189,19 @@ export class InheritableTests {
     let child3 = source.ensureChildNode("child3", "custom-key");
 
     assert.deepEqual(source.childNodes(), [child1, child2, child3]);
-    assert.deepEqual(source.childNodeHash(), {child1, child2, "custom-key": child3});
-    assert.deepEqual([...source.childNodeMap().entries()], [["child1", child1], ["child2", child2], ["custom-key", child3]]);
+    assert.deepEqual(source.childNodeHash(), {
+      child1,
+      child2,
+      "custom-key": child3,
+    });
+    assert.deepEqual(
+      [...source.childNodeMap().entries()],
+      [
+        ["child1", child1],
+        ["child2", child2],
+        ["custom-key", child3],
+      ]
+    );
   }
 
   @test "grandchildren have tree properties set as expected"() {
@@ -203,11 +236,17 @@ export class InheritableTests {
     assert.deepEqual(child.resolveInheritance(), [baseChild]);
 
     assert.deepEqual(source.childNodes(), [child]);
-    assert.deepEqual(source.childNodeHash(), {"child": child});
+    assert.deepEqual(source.childNodeHash(), { child: child });
     assert.deepEqual([...source.childNodeMap().values()], [child]);
     assert.deepEqual(source.resolveChildNodes(), [child, baseUnique]);
-    assert.deepEqual(source.resolveChildNodeHash(), { child, "base-only": baseUnique });
-    assert.deepEqual([...source.resolveChildNodeMap().values()], [child, baseUnique]);
+    assert.deepEqual(source.resolveChildNodeHash(), {
+      child,
+      "base-only": baseUnique,
+    });
+    assert.deepEqual(
+      [...source.resolveChildNodeMap().values()],
+      [child, baseUnique]
+    );
   }
 
   @test "setBase creates inheritance tree for grandchildren"() {
@@ -222,7 +261,10 @@ export class InheritableTests {
 
     assert.equal(grandchild.base, baseGrandchild);
     assert.equal(source.getChildNode("child")!.getSink("base-only"), null);
-    assert.equal(source.getChildNode("child")!.resolveSink("base-only"), baseChildUnique);
+    assert.equal(
+      source.getChildNode("child")!.resolveSink("base-only"),
+      baseChildUnique
+    );
     assert.deepEqual(grandchild.resolveInheritance(), [baseGrandchild]);
   }
 }

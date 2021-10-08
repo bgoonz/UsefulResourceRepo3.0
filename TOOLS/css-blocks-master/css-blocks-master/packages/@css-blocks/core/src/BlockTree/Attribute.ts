@@ -16,56 +16,88 @@ import { Block } from "./Block";
 import { BlockClass } from "./BlockClass";
 import { Inheritable } from "./Inheritable";
 
-export class Attribute extends Inheritable<Attribute, Block, BlockClass, AttrValue, AttrToken>
-{
-
+export class Attribute extends Inheritable<
+  Attribute,
+  Block,
+  BlockClass,
+  AttrValue,
+  AttrToken
+> {
   private _hasValues = false;
   private _presenceRule: AttrValue | undefined;
   private _sourceAttributes: Attr[] | undefined;
 
-  protected get ChildConstructor(): typeof AttrValue { return AttrValue; }
-  protected tokenToUid(token: AttrToken): string { return `${token.namespace}|${token.name}`; }
+  protected get ChildConstructor(): typeof AttrValue {
+    return AttrValue;
+  }
+  protected tokenToUid(token: AttrToken): string {
+    return `${token.namespace}|${token.name}`;
+  }
 
-  public get name(): string { return this.token.name; }
-  public get namespace(): string | null { return this.token.namespace || null; }
+  public get name(): string {
+    return this.token.name;
+  }
+  public get namespace(): string | null {
+    return this.token.namespace || null;
+  }
 
   /**
    * @returns If this Attribute contains anything but the "presence" AttrValue.
    **/
-  get hasValues(): boolean { return this._hasValues; }
+  get hasValues(): boolean {
+    return this._hasValues;
+  }
 
   /**
    * @returns If this Attribute only contains the "presence" AttrValue.
    **/
-  get isBooleanAttribute(): boolean { return !this._hasValues; }
+  get isBooleanAttribute(): boolean {
+    return !this._hasValues;
+  }
 
   /**
    * @returns The "presence" Value, or `undefined`.
    **/
-  get presenceRule(): AttrValue | undefined { return this._presenceRule; }
+  get presenceRule(): AttrValue | undefined {
+    return this._presenceRule;
+  }
 
   /**
    * @returns This Attribute's parent `BlockClass`
    **/
-  get blockClass(): BlockClass { return this.parent; }
+  get blockClass(): BlockClass {
+    return this.parent;
+  }
 
   /**
    * @returns An array of all `AttrValue`s contained in this `Attribute`.
    **/
-  values(): AttrValue[] { return this.children(); }
-  resolvedValues(): AttrValue[] { return this.resolveChildren(); }
+  values(): AttrValue[] {
+    return this.children();
+  }
+  resolvedValues(): AttrValue[] {
+    return this.resolveChildren();
+  }
 
   /**
    * @returns A hash of all `Value`s contained in this `Attribute`.
    **/
-  valuesHash(): ObjectDictionary<AttrValue> { return this.childrenHash(); }
-  resolveValuesHash(): ObjectDictionary<AttrValue> { return this.resolveChildrenHash(); }
+  valuesHash(): ObjectDictionary<AttrValue> {
+    return this.childrenHash();
+  }
+  resolveValuesHash(): ObjectDictionary<AttrValue> {
+    return this.resolveChildrenHash();
+  }
 
   /**
    * @returns An Map of all `Value`s contained in this `Attribute`.
    **/
-  valuesMap(): Map<string, AttrValue> { return this.childrenMap(); }
-  resolveValuesMap(): Map<string, AttrValue> { return this.resolveChildrenMap(); }
+  valuesMap(): Map<string, AttrValue> {
+    return this.childrenMap();
+  }
+  resolveValuesMap(): Map<string, AttrValue> {
+    return this.resolveChildrenMap();
+  }
 
   /**
    * Ensures that a AttrValue of name `name` exists in this Attribute. If no
@@ -76,8 +108,11 @@ export class Attribute extends Inheritable<Attribute, Block, BlockClass, AttrVal
    **/
   ensureValue(name: string = ATTR_PRESENT) {
     let value = this.ensureChild(name);
-    if (name !== ATTR_PRESENT) { this._hasValues = true; }
-    else { this._presenceRule = value; }
+    if (name !== ATTR_PRESENT) {
+      this._hasValues = true;
+    } else {
+      this._presenceRule = value;
+    }
     return value;
   }
 
@@ -88,7 +123,9 @@ export class Attribute extends Inheritable<Attribute, Block, BlockClass, AttrVal
    * @param name  string  The name of the `AttrValue` to retrieve.
    * @returns The `AttrValue` or `undefined`.
    **/
-  getValue(name: string = ATTR_PRESENT): AttrValue | null { return this.getChild(name); }
+  getValue(name: string = ATTR_PRESENT): AttrValue | null {
+    return this.getChild(name);
+  }
 
   /**
    * Get am Attribute's own or inherited `AttrValue` of name `name` from this
@@ -97,13 +134,15 @@ export class Attribute extends Inheritable<Attribute, Block, BlockClass, AttrVal
    * @param name  string  The name of the `AttrValue` to retrieve.
    * @returns The `AttrValue` or `undefined`.
    **/
-  resolveValue(name: string = ATTR_PRESENT): AttrValue | null { return this.resolveChild(name); }
+  resolveValue(name: string = ATTR_PRESENT): AttrValue | null {
+    return this.resolveChild(name);
+  }
 
   /**
    * @returns whether this Attribute has any Values defined, directly or inherited.
    */
   hasResolvedValues(): boolean {
-    return !!(this.hasValues || this.base && this.base.hasResolvedValues());
+    return !!(this.hasValues || (this.base && this.base.hasResolvedValues()));
   }
 
   /**
@@ -152,9 +191,10 @@ export class Attribute extends Inheritable<Attribute, Block, BlockClass, AttrVal
       }
 
       if (this.namespace) {
-        this._sourceAttributes.push(new AttributeNS(this.namespace, this.name, value));
-      }
-      else {
+        this._sourceAttributes.push(
+          new AttributeNS(this.namespace, this.name, value)
+        );
+      } else {
         this._sourceAttributes.push(new AttributeUNS(this.name, value));
       }
     }

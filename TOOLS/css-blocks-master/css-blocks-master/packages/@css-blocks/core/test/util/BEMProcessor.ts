@@ -10,7 +10,7 @@ export class BEMProcessor {
     let cssBlocksProcessor = cssBlocks(postcss);
     return postcss([
       cssBlocksProcessor(cssBlocksOpts),
-      perfectionist({format: "compact", indentSize: 2}),
+      perfectionist({ format: "compact", indentSize: 2 }),
     ]).process(contents, processOpts);
   }
 }

@@ -12,23 +12,32 @@ import { BlockFactory } from "../index";
  * @param block Block to resolve references for
  * @return Promise that resolves when all references have been loaded.
  */
-export async function resolveReferences(block: Block, factory: BlockFactory, file: string): Promise<Block> {
-
+export async function resolveReferences(
+  block: Block,
+  factory: BlockFactory,
+  file: string
+): Promise<Block> {
   let root: postcss.Root | undefined = block.stylesheet;
-  let namedBlockReferences: Promise<[string, string, postcss.AtRule, Block]>[] = [];
+  let namedBlockReferences: Promise<[string, string, postcss.AtRule, Block]>[] =
+    [];
 
   if (!root) {
-    throw new errors.InvalidBlockSyntax(`Error finding PostCSS root for block ${block.name}`);
+    throw new errors.InvalidBlockSyntax(
+      `Error finding PostCSS root for block ${block.name}`
+    );
   }
 
   // For each `@block-reference` expression, read in the block file, parse and
   // push to block references Promise array.
   root.walkAtRules(BLOCK_REFERENCE, (atRule: postcss.AtRule) => {
-    let md = atRule.params.match(/^\s*((("|')?[-\w]+\3?)\s+from\s+)\s*("|')([^\4]+)\4\s*$/);
+    let md = atRule.params.match(
+      /^\s*((("|')?[-\w]+\3?)\s+from\s+)\s*("|')([^\4]+)\4\s*$/
+    );
     if (!md) {
       throw new errors.InvalidBlockSyntax(
         `Malformed block reference: \`@block-reference ${atRule.params}\``,
-        sourceLocation(file, atRule));
+        sourceLocation(file, atRule)
+      );
     }
     let importPath = md[5];
     let localName = md[2];
@@ -37,34 +46,42 @@ export async function resolveReferences(block: Block, factory: BlockFactory, fil
     if (!CLASS_NAME_IDENT.test(localName)) {
       throw new errors.InvalidBlockSyntax(
         `Illegal block name in import. ${localName} is not a legal CSS identifier.`,
-        sourceLocation(file, atRule),
+        sourceLocation(file, atRule)
       );
     }
 
     // Import file, then parse file, then save block reference.
 
-    let blockPromise: Promise<Block> = factory.getBlockRelative(block.identifier, importPath);
-    let namedResult: Promise<[string, string, postcss.AtRule, Block]> = blockPromise.then((referencedBlock: Block): [string, string, postcss.AtRule, Block] => {
-      return [localName, importPath, atRule, referencedBlock];
-    });
+    let blockPromise: Promise<Block> = factory.getBlockRelative(
+      block.identifier,
+      importPath
+    );
+    let namedResult: Promise<[string, string, postcss.AtRule, Block]> =
+      blockPromise.then(
+        (referencedBlock: Block): [string, string, postcss.AtRule, Block] => {
+          return [localName, importPath, atRule, referencedBlock];
+        }
+      );
     namedBlockReferences.push(namedResult);
   });
 
   // When all import promises have resolved, save the block references and resolve.
-  return Promise.all(namedBlockReferences).then((results) => {
-    let localNames: ObjectDictionary<string> = {};
-    results.forEach(([localName, importPath, atRule, otherBlock]) => {
-      if (localNames[localName]) {
-        throw new errors.InvalidBlockSyntax(
-          `Blocks ${localNames[localName]} and ${importPath} cannot both have the name ${localName} in this scope.`,
-          sourceLocation(file, atRule),
-        );
-      } else {
-        block.addBlockReference(localName, otherBlock);
-        localNames[localName] = importPath;
-      }
+  return Promise.all(namedBlockReferences)
+    .then((results) => {
+      let localNames: ObjectDictionary<string> = {};
+      results.forEach(([localName, importPath, atRule, otherBlock]) => {
+        if (localNames[localName]) {
+          throw new errors.InvalidBlockSyntax(
+            `Blocks ${localNames[localName]} and ${importPath} cannot both have the name ${localName} in this scope.`,
+            sourceLocation(file, atRule)
+          );
+        } else {
+          block.addBlockReference(localName, otherBlock);
+          localNames[localName] = importPath;
+        }
+      });
+    })
+    .then(() => {
+      return block;
     });
-  }).then(() => {
-    return block;
-  });
 }

@@ -1,7 +1,9 @@
 import { Analyzer } from "@css-blocks/core";
 
 export class TestAnalyzer extends Analyzer<"WebpackPlugin.TestTemplate"> {
-  analyze() { return Promise.resolve(this); }
+  analyze() {
+    return Promise.resolve(this);
+  }
   get optimizationOptions() {
     return {
       rewriteIdents: {

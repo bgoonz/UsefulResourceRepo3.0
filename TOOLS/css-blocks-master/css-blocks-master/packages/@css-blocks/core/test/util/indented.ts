@@ -24,7 +24,10 @@ import { outdent } from "outdent";
 export interface HasToString {
   toString(): string;
 }
-export function indented(strings: TemplateStringsArray, ...values: HasToString[]): string {
+export function indented(
+  strings: TemplateStringsArray,
+  ...values: HasToString[]
+): string {
   // let splitStrings = strings.map(s => s.split(/\r\n|\n/));
   // let firstIndented = getFirstIndentedString(splitStrings);
   // let indentIndex = getIndentLength(firstIndented);

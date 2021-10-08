@@ -88,14 +88,12 @@ export class Ruleset<Style extends Styles = Styles> {
   hasResolutionFor(property: Property, other: Styles): boolean {
     return this.resolutions.hasValue(property, other);
   }
-
 }
 
 /**
  * Cache and interface methods for all rulesets that may apply to a Style.
  */
 export class RulesetContainer<S extends Styles> {
-
   // The owner `Style` of this `RulesetContainer`
   private parent: S;
 
@@ -103,7 +101,8 @@ export class RulesetContainer<S extends Styles> {
   private rules: MultiMap<Pseudo, Ruleset<S>> = new MultiMap(false);
 
   // Contains all rulesets, accessible by property concern, that apply to each possible element/pseudo-element target.
-  private concerns: TwoKeyMultiMap<Pseudo, Property, Ruleset<S>> = new TwoKeyMultiMap(false);
+  private concerns: TwoKeyMultiMap<Pseudo, Property, Ruleset<S>> =
+    new TwoKeyMultiMap(false);
 
   constructor(parent: S) {
     this.parent = parent;
@@ -121,12 +120,15 @@ export class RulesetContainer<S extends Styles> {
     selectors.forEach((selector) => {
       let ruleSet = new Ruleset(file, rule, style);
       let key = selector.key;
-      let pseudo: string = key.pseudoelement ? key.pseudoelement.toString() : SELF_SELECTOR;
+      let pseudo: string = key.pseudoelement
+        ? key.pseudoelement.toString()
+        : SELF_SELECTOR;
 
       rule.walkDecls((decl) => {
-
         // Ignore css-blocks specific properties.
-        if (BLOCK_PROP_NAMES.has(decl.prop)) { return; }
+        if (BLOCK_PROP_NAMES.has(decl.prop)) {
+          return;
+        }
 
         // Check if this is a resolve statement.
         let referenceStr = (decl.value.match(RESOLVE_RE) || [])[3];
@@ -138,14 +140,22 @@ export class RulesetContainer<S extends Styles> {
           let other = style.block.lookup(referenceStr, errLoc);
 
           if (other && other.block === style.block) {
-            throw new InvalidBlockSyntax(`Cannot resolve conflicts with your own block.`, errLoc);
+            throw new InvalidBlockSyntax(
+              `Cannot resolve conflicts with your own block.`,
+              errLoc
+            );
           }
 
           if (other && other.block.isAncestorOf(style.block)) {
-            throw new InvalidBlockSyntax(`Cannot resolve conflicts with ancestors of your own block.`, errLoc);
+            throw new InvalidBlockSyntax(
+              `Cannot resolve conflicts with ancestors of your own block.`,
+              errLoc
+            );
           }
 
-          if (isStyle(other)) { ruleSet.addResolution(decl.prop, other); }
+          if (isStyle(other)) {
+            ruleSet.addResolution(decl.prop, other);
+          }
         }
 
         // If not a resolution, add this as a tracked property on our Ruleset.
@@ -158,7 +168,6 @@ export class RulesetContainer<S extends Styles> {
           }
         }
       });
-
     });
   }
 
@@ -225,5 +234,4 @@ export class RulesetContainer<S extends Styles> {
       }
     }
   }
-
 }

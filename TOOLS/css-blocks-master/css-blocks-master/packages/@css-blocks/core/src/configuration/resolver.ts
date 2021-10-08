@@ -1,9 +1,5 @@
 import { Preprocessors } from "../BlockParser";
-import {
-  Importer,
-  ImporterData,
-  filesystemImporter,
-} from "../importing";
+import { Importer, ImporterData, filesystemImporter } from "../importing";
 
 import { OutputMode } from "./OutputMode";
 import {
@@ -86,8 +82,7 @@ class Resolver implements ResolvedConfiguration {
 
 export function resolveConfiguration(
   options: Options | undefined,
-  defaults?: Options,
-
+  defaults?: Options
 ): ResolvedConfiguration {
   if (options instanceof Resolver) {
     return options;
