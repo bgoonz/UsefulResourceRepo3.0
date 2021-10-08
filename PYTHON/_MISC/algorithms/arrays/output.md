@@ -1,24 +1,6 @@
-from .delete_nth import _
-from .flatten import _
-from .garage import _
-from .josephus import _
-from .longest_non_repeat import _
-from .max_ones_index import _
-from .merge_intervals import _
-from .missing_ranges import _
-from .move_zeros import _
-from .plus_one import _
-from .rotate import _
-from .summarize_ranges import _
-from .three_sum import _
-from .trimmean import _
-from .top_1 import _
-from .two_sum import _
-from .limit import _
-from .n_sum import _
+from .delete*nth import * from .flatten import _ from .garage import _ from .josephus import _ from .longest_non_repeat import _ from .max*ones_index import * from .merge*intervals import * from .missing*ranges import * from .move*zeros import * from .plus*one import * from .rotate import _ from .summarize_ranges import _ from .three*sum import * from .trimmean import _ from .top_1 import _ from .two*sum import * from .limit import _ from .n_sum import _
 
 """
-
 
 ```
 ## Given a list lst and a number N, create a new list
@@ -31,16 +13,14 @@ which leads to [1,2,3,1,2,3]
 
 
 ```
+
 ## import collections
 
 # Time complexity O(n^2)
 
-
-
 ---
 
-
-```py
+````py
 
 def delete_nth_naive(array, n):
 ans = []
@@ -73,19 +53,15 @@ counts = collections.defaultdict(int) # keep track of occurrences
 """
 
 
-```
+````
+
 ## Implement Flatten Arrays.
-Given an array that may contain nested arrays,
-produce a single resultant array.
-"""
 
-
-
+Given an array that may contain nested arrays, produce a single resultant array. """
 
 ---
 
-
-```py
+````py
 from collections.abc import Iterable
 
 # return list
@@ -121,17 +97,16 @@ def flatten_iter(iterable):
 Takes as input multi dimensional iterable and
 returns generator which produces one dimensional output.
 """
-```
-## 
+````
 
+##
 
 ---
-
 
 ```py
 for element in iterable:
 if not isinstance(element, str) and isinstance(element, Iterable):
-yield from flatten_iter(element)  
+yield from flatten_iter(element)
  else:
 yield element
 
@@ -139,45 +114,24 @@ yield element
 
 
 ```
+
 ## There is a parking lot with only one empty spot. Given the initial state
-of the parking lot and the final state. Each step we are only allowed to
-move a car
-out of its place and move it into the empty spot.
-The goal is to find out the least movement needed to rearrange
-the parking lot from the initial state to the final state.
+
+of the parking lot and the final state. Each step we are only allowed to move a car out of its place and move it into the empty spot. The goal is to find out the least movement needed to rearrange the parking lot from the initial state to the final state.
 
 Say the initial state is an array:
 
-[1, 2, 3, 0, 4],
-where 1, 2, 3, 4 are different cars, and 0 is the empty spot.
+[1, 2, 3, 0, 4], where 1, 2, 3, 4 are different cars, and 0 is the empty spot.
 
 And the final state is
 
-[0, 3, 2, 1, 4].
-We can swap 1 with 0 in the initial array to get [0, 2, 3, 1, 4] and so on.
-Each step swap with 0 only.
+[0, 3, 2, 1, 4]. We can swap 1 with 0 in the initial array to get [0, 2, 3, 1, 4] and so on. Each step swap with 0 only.
 
-Edit:
-Now also prints the sequence of changes in states.
-Output of this example :-
+Edit: Now also prints the sequence of changes in states. Output of this example :-
 
-initial: [1, 2, 3, 0, 4]
-final: [0, 3, 2, 1, 4]
-Steps = 4
-Sequence :
-0 2 3 1 4
-2 0 3 1 4
-2 3 0 1 4
-0 3 2 1 4
-"""
-
-
-
-
-
+initial: [1, 2, 3, 0, 4] final: [0, 3, 2, 1, 4] Steps = 4 Sequence : 0 2 3 1 4 2 0 3 1 4 2 3 0 1 4 0 3 2 1 4 """
 
 ---
-
 
 ```py
 
@@ -208,37 +162,22 @@ def garage(initial, final):
 
 
 ```
-## thus:
-1 2 3 0 4 -- zero = 3, true, car_to_move = final[3] = 1,
-pos = initial.index(1) = 0, switched [0], [3]
-0 2 3 1 4 -- zero = 0, f, initial[1] != final[1], switched 0,1
-2 0 3 1 4 -- zero = 1, t, car_to_move = final[1] = 3,
-pos = initial.index(3) = 2, switched [1], [2]
-2 3 0 1 4 -- zero = 2, t, car_to_move = final[2] = 2,
-pos = initial.index(2) = 0, switched [0], [2]
-0 3 2 1 4 -- initial == final
-"""
 
+## thus:
+
+1 2 3 0 4 -- zero = 3, true, car_to_move = final[3] = 1, pos = initial.index(1) = 0, switched [0], [3] 0 2 3 1 4 -- zero = 0, f, initial[1] != final[1], switched 0,1 2 0 3 1 4 -- zero = 1, t, car_to_move = final[1] = 3, pos = initial.index(3) = 2, switched [1], [2] 2 3 0 1 4 -- zero = 2, t, car_to_move = final[2] = 2, pos = initial.index(2) = 0, switched [0], [2] 0 3 2 1 4 -- initial == final """
 
 ```
 ## """
 
 
 ```
+
 ## There are people sitting in a circular fashion, print every third member while removing them, the next counter starts immediately after the member is removed. Print till all the members are exhausted.
 
-For example:
-Input: consider 123456789 members sitting in a circular fashion,
-Output: 369485271
-"""
-
-
-
-
-
+For example: Input: consider 123456789 members sitting in a circular fashion, Output: 369485271 """
 
 ---
-
 
 ```py
 
@@ -255,22 +194,19 @@ len_list -= 1
 
 
 ```
-## Sometimes you need to limit array result to use. Such as you only need the
-value over 10 or, you need value under than 100. By use this algorithms, you
-can limit your array to specific value
 
-If array, Min, Max value was given, it returns array that contains values of
-given array which was larger than Min, and lower than Max. You need to give
-'unlimit' to use only Min or Max.
+## Sometimes you need to limit array result to use. Such as you only need the
+
+value over 10 or, you need value under than 100. By use this algorithms, you can limit your array to specific value
+
+If array, Min, Max value was given, it returns array that contains values of given array which was larger than Min, and lower than Max. You need to give 'unlimit' to use only Min or Max.
 
 ex) limit([1,2,3,4,5], None, 3) = [1,2,3]
 
-Complexity = O(n)
-"""
+Complexity = O(n) """
 
-
-```
-## 
+````
+##
 # tl:dr -- array slicing by value
 
 
@@ -289,28 +225,17 @@ max_check = lambda val: True if max_lim is None else (val <= max_lim)
 """
 
 
-```
+````
+
 ## Given a string, find the length of the longest substring
+
 without repeating characters.
 
-Examples:
-Given "abcabcbb", the answer is "abc", which the length is 3.
-Given "bbbbb", the answer is "b", with the length of 1.
-Given "pwwkew", the answer is "wke", with the length of 3.
-Note that the answer must be a substring,
-"pwke" is a subsequence and not a substring.
-"""
+Examples: Given "abcabcbb", the answer is "abc", which the length is 3. Given "bbbbb", the answer is "b", with the length of 1. Given "pwwkew", the answer is "wke", with the length of 3. Note that the answer must be a substring, "pwke" is a subsequence and not a substring. """
 
+def longest_non_repeat_v1(string): """
 
-
-
-
-
-def longest_non_repeat_v1(string):
-"""
-
-
-```
+````
 ## Find the length of the longest substring
 without repeating characters.
 """
@@ -344,12 +269,11 @@ def longest_non_repeat_v2(string):
 """
 
 
-```
-## Find the length of the longest substring
-without repeating characters.
-Uses alternative algorithm.
-"""
+````
 
+## Find the length of the longest substring
+
+without repeating characters. Uses alternative algorithm. """
 
 ```text
 ## if string is None:
@@ -370,7 +294,6 @@ return max_len
 
 ---
 
-
 ```py
 
 def get_longest_non_repeat_v1(string):
@@ -378,13 +301,12 @@ def get_longest_non_repeat_v1(string):
 
 
 ```
+
 ## Find the length of the longest substring
-without repeating characters.
-Return max_len and the substring as a tuple
-"""
 
+without repeating characters. Return max_len and the substring as a tuple """
 
-```py
+````py
 ## if string is None:
 return 0, ''
 sub_string = ''
@@ -411,13 +333,11 @@ def get_longest_non_repeat_v2(string):
 """
 
 
-```
-## Find the length of the longest substring
-without repeating characters.
-Uses alternative algorithm.
-Return max_len and the substring as a tuple
-"""
+````
 
+## Find the length of the longest substring
+
+without repeating characters. Uses alternative algorithm. Return max_len and the substring as a tuple """
 
 ```
 ## if string is None:
@@ -438,29 +358,14 @@ return max_len, sub_string
 
 
 ```
+
 ## Find the index of 0 to be replaced with 1 to get
-longest continuous sequence
-of 1s in a binary array.
-Returns index of 0 to be
-replaced with 1 to get longest
-continuous sequence of 1s.
-If there is no 0 in array, then
-it returns -1.
 
-e.g.
-let input array = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1]
-If we replace 0 at index 3 with 1, we get the longest continuous
-sequence of 1s in the array.
-So the function return => 3
-"""
+longest continuous sequence of 1s in a binary array. Returns index of 0 to be replaced with 1 to get longest continuous sequence of 1s. If there is no 0 in array, then it returns -1.
 
-
-
-
-
+e.g. let input array = [1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 1, 1] If we replace 0 at index 3 with 1, we get the longest continuous sequence of 1s in the array. So the function return => 3 """
 
 ---
-
 
 ```py
 
@@ -494,27 +399,25 @@ def max_ones_index(arr):
 
 
 ```
-## In mathematics, a (real) interval is a set of real
-numbers with the property that any number that lies
-between two numbers in the set is also included in the set.
-"""
 
+## In mathematics, a (real) interval is a set of real
+
+numbers with the property that any number that lies between two numbers in the set is also included in the set. """
 
 ```
-## 
+##
 class Interval:
 """
 
 
 ```
+
 ## A set of real numbers with methods to determine if other
-numbers are included in the set.
-Includes related methods to merge and print interval sets.
-"""
 
+numbers are included in the set. Includes related methods to merge and print interval sets. """
 
-```
-## 
+````
+##
 
 ---
 
@@ -598,18 +501,13 @@ return out
 """
 
 
-```
+````
+
 ## Find missing ranges between low and high in the given array.
-Ex) [3, 5] lo=1 hi=10 => answer: [(1, 2), (4, 4), (6, 10)]
-"""
 
-
-
-
-
+Ex) [3, 5] lo=1 hi=10 => answer: [(1, 2), (4, 4), (6, 10)] """
 
 ---
-
 
 ```py
 
@@ -635,17 +533,15 @@ def missing_ranges(arr, lo, hi):
 
 
 ```
+
 ## Write an algorithm that takes an array and moves all of the zeros to the end,
-preserving the order of the other elements.
-move_zeros([false, 1, 0, 1, 2, 0, 1, 3, "a"])
-returns => [false, 1, 1, 2, 1, 3, "a", 0, 0]
 
-The time complexity of the below algorithm is O(n).
-"""
+preserving the order of the other elements. move_zeros([false, 1, 0, 1, 2, 0, 1, 3, "a"]) returns => [false, 1, 1, 2, 1, 3, "a", 0, 0]
 
+The time complexity of the below algorithm is O(n). """
 
-```
-## 
+````
+##
 # False == 0 is True
 
 
@@ -672,19 +568,15 @@ print(move_zeros([False, 1, 0, 1, 2, 0, 1, 3, "a"]))
 """
 
 
-```
+````
+
 ## Given an array of n integers, are there elements a, b, .. , n in nums
+
 such that a + b + .. + n = target?
 
 Find all unique n-tuplets in the array which gives the sum of target.
 
-Example:
-basic:
-Given:
-n = 4
-nums = [1, 0, -1, 0, -2, 2]
-target = 0,
-return [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
+Example: basic: Given: n = 4 nums = [1, 0, -1, 0, -2, 2] target = 0, return [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
 
     advanced:
         Given:
@@ -702,16 +594,9 @@ return [[-2, -1, 1, 2], [-2, 0, 0, 2], [-1, 0, 0, 1]]
                     return 0
         return [[-9, 5], [8, 4]]
 
-(TL:DR) because -9 + 4 = -5
-"""
-
-
-
-
-
+(TL:DR) because -9 + 4 = -5 """
 
 ---
-
 
 ```py
 
@@ -720,16 +605,10 @@ def n_sum(n, nums, target, \*\*kv):
 
 
 ```
+
 ## n: int
-nums: list[object]
-target: object
-sum_closure: function, optional
-Given two elements of nums, return sum of both.
-compare_closure: function, optional
-Given one object of nums and target, return -1, 1, or 0.
-same_closure: function, optional
-Given two object of nums, return bool.
-return: list[list[object]]
+
+nums: list[object] target: object sum_closure: function, optional Given two elements of nums, return sum of both. compare_closure: function, optional Given one object of nums and target, return -1, 1, or 0. same_closure: function, optional Given two object of nums, return bool. return: list[list[object]]
 
     Note:
     1. type of sum_closure's return should be same
@@ -828,8 +707,7 @@ return: list[list[object]]
 
 """
 
-
-```
+````
 ## Given a non-negative number represented as an array of digits,
 adding one to each numeral.
 
@@ -851,13 +729,13 @@ def plus_one_v1(digits):
 """
 
 
-```
+````
+
 ## :type digits: List[int]
-:rtype: List[int]
-"""
 
+:rtype: List[int] """
 
-```
+````
 ## digits[-1] = digits[-1] + 1
 res = []
 ten = 0
@@ -908,24 +786,15 @@ def plus_one_v3(num_arr):
 """
 
 
-```
+````
+
 ## Rotate an array of n elements to the right by k steps.
 
-For example, with n = 7 and k = 3,
-the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].
+For example, with n = 7 and k = 3, the array [1,2,3,4,5,6,7] is rotated to [5,6,7,1,2,3,4].
 
-Note:
-Try to come up as many solutions as you can,
-there are at least 3 different ways to solve this problem.
-"""
-
-
-
-
-
+Note: Try to come up as many solutions as you can, there are at least 3 different ways to solve this problem. """
 
 ---
-
 
 ```py
 
@@ -934,7 +803,9 @@ def rotate_v1(array, k):
 
 
 ```
+
 ## Rotate the entire array 'k' times
+
 T(n)- O(nk)
 
     :type array: List[int]
@@ -950,10 +821,7 @@ T(n)- O(nk)
         array[0] = temp
     return array
 
-
-
 ---
-
 
 ```py
 
@@ -962,15 +830,12 @@ def rotate_v2(array, k):
 
 
 ```
+
 ## Reverse segments of the array, followed by the entire array
-T(n)- O(n)
-:type array: List[int]
-:type k: int
-:rtype: void Do not return anything, modify nums in-place instead.
-"""
 
+T(n)- O(n) :type array: List[int] :type k: int :rtype: void Do not return anything, modify nums in-place instead. """
 
-```
+````
 ## array = array[:]
 
     def reverse(arr, a, b):
@@ -1003,20 +868,15 @@ return array[length - k:] + array[:length - k]
 """
 
 
-```
+````
+
 ## Given a sorted integer array without duplicates,
+
 return the summary of its ranges.
 
-For example, given [0, 1, 2, 4, 5, 7], return [(0, 2), (4, 5), (7, 7)].
-"""
-
-
-
-
-
+For example, given [0, 1, 2, 4, 5, 7], return [(0, 2), (4, 5), (7, 7)]. """
 
 ---
-
 
 ```py
 
@@ -1025,10 +885,10 @@ def summarize_ranges(array):
 
 
 ```
-## :type array: List[int]
-:rtype: List[]
-"""
 
+## :type array: List[int]
+
+:rtype: List[] """
 
 ```
 ## res = []
@@ -1050,28 +910,18 @@ return res
 
 
 ```
+
 ## Given an array S of n integers, are there three distinct elements
-a, b, c in S such that a + b + c = 0?
-Find all unique triplets in the array which gives the sum of zero.
+
+a, b, c in S such that a + b + c = 0? Find all unique triplets in the array which gives the sum of zero.
 
 Note: The solution set must not contain duplicate triplets.
 
 For example, given array S = [-1, 0, 1, 2, -1, -4],
 
-A solution set is:
-{
-(-1, 0, 1),
-(-1, -1, 2)
-}
-"""
-
-
-
-
-
+A solution set is: { (-1, 0, 1), (-1, -1, 2) } """
 
 ---
-
 
 ```py
 
@@ -1080,10 +930,10 @@ def three_sum(array):
 
 
 ```
-## :param array: List[int]
-:return: Set[ Tuple[int, int, int] ]
-"""
 
+## :param array: List[int]
+
+:return: Set[ Tuple[int, int, int] ] """
 
 ```
 ## res = set()
@@ -1116,23 +966,19 @@ res.add((array[i], array[l], array[r]))
 
 
 ```
-## This algorithm receives an array and returns most_frequent_value
-Also, sometimes it is possible to have multiple 'most_frequent_value's,
-so this function returns a list. This result can be used to find a
-representative value in an array.
 
-This algorithm gets an array, makes a dictionary of it,
-finds the most frequent count, and makes the result list.
+## This algorithm receives an array and returns most_frequent_value
+
+Also, sometimes it is possible to have multiple 'most_frequent_value's, so this function returns a list. This result can be used to find a representative value in an array.
+
+This algorithm gets an array, makes a dictionary of it, finds the most frequent count, and makes the result list.
 
 For example: top_1([1, 1, 2, 2, 3, 4]) will return [1, 2]
 
-(TL:DR) Get mathematical Mode
-Complexity: O(n)
-"""
+(TL:DR) Get mathematical Mode Complexity: O(n) """
 
-
-```
-## 
+````
+##
 
 ---
 
@@ -1165,23 +1011,18 @@ f_val = 0
 """
 
 
-```
+````
+
 ## When make reliable means, we need to neglect best and worst values.
-For example, when making average score on athletes we need this option.
-So, this algorithm affixes some percentage to neglect when making mean.
-For example, if you suggest 20%, it will neglect the best 10% of values
-and the worst 10% of values.
 
-This algorithm takes an array and percentage to neglect. After sorted,
-if index of array is larger or smaller than desired ratio, we don't
-compute it.
+For example, when making average score on athletes we need this option. So, this algorithm affixes some percentage to neglect when making mean. For example, if you suggest 20%, it will neglect the best 10% of values and the worst 10% of values.
 
-Compleity: O(n)
-"""
+This algorithm takes an array and percentage to neglect. After sorted, if index of array is larger or smaller than desired ratio, we don't compute it.
 
+Compleity: O(n) """
 
-```
-## 
+````
+##
 
 ---
 
@@ -1201,28 +1042,22 @@ return cal_sum/len(arr)
 """
 
 
-```
+````
+
 ## Given an array of integers, return indices of the two numbers
+
 such that they add up to a specific target.
 
-You may assume that each input would have exactly one solution,
-and you may not use the same element twice.
+You may assume that each input would have exactly one solution, and you may not use the same element twice.
 
-Example:
-Given nums = [2, 7, 11, 15], target = 9,
+Example: Given nums = [2, 7, 11, 15], target = 9,
 
     Because nums[0] + nums[1] = 2 + 7 = 9,
     return (0, 1)
 
 """
 
-
-
-
-
-
 ---
-
 
 ```py
 
@@ -1234,3 +1069,4 @@ return dic[num], i
 else:
 dic[target - num] = i
 return None
+```
