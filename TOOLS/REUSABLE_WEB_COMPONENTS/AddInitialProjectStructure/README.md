@@ -12,6 +12,7 @@ To run the project:
 2. Start development app using `Start App` task.
 
 ## File Structure
+
 ```
 .
 ├── .vscode/ - Visual Studio Code configuration files
@@ -21,12 +22,15 @@ To run the project:
 ```
 
 ### Frontend
+
 To start the frontend application manually:
-  1. Open a terminal and navigate to the `frontend` folder path.
-  2. Use `yarn install` or `npm install` to install frontend dependencies.
-  3. Use `yarn start` or `npm start` to start frontend app in development.
+
+1. Open a terminal and navigate to the `frontend` folder path.
+2. Use `yarn install` or `npm install` to install frontend dependencies.
+3. Use `yarn start` or `npm start` to start frontend app in development.
 
 ### Backend
+
 ## Deployment
 
 To deploy the application in an Azure App Service follow the deployment instructions:
@@ -36,4 +40,5 @@ To deploy the application in an Azure App Service follow the deployment instruct
 Consider adding authentication and securing backend API's by following [Azure App Service Security](https://docs.microsoft.com/en-us/azure/app-service/overview-security).
 
 ## Additional Documentation
+
 - Bootstrap CSS - https://getbootstrap.com/

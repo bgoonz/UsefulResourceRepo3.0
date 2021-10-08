@@ -6,14 +6,13 @@ import Footer from "./components/Footer/Footer";
 
 //TODO Web Template Studio: Add routes for your new pages here.
 const App = () => {
-    return (
-      <React.Fragment>
-        <NavBar />
-        <Switch>
-        </Switch>
-        <Footer />
-      </React.Fragment>
-    );
-}
+  return (
+    <React.Fragment>
+      <NavBar />
+      <Switch></Switch>
+      <Footer />
+    </React.Fragment>
+  );
+};
 
 export default App;

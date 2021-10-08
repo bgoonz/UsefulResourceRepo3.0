@@ -1,4 +1,4 @@
-var phantom = require('phantom');
+var phantom = require("phantom");
 
 /**
  * This maintains only one PhantomJS instance. It works like a proxy
@@ -8,7 +8,7 @@ var phantom = require('phantom');
  *
  * @constructor
  */
-var PhantomPoll = function() {
+var PhantomPoll = function () {
 	/**
 	 * The real PhantomJS instance.
 	 *
@@ -29,7 +29,7 @@ var PhantomPoll = function() {
 	 * @type {!string}
 	 * @private
 	 */
-	this.flags = '';
+	this.flags = "";
 	/**
 	 * PhantomJS options.
 	 *
@@ -37,8 +37,8 @@ var PhantomPoll = function() {
 	 * @private
 	 */
 	this.options = {
-		onStdout: function() {},
-		onStderr: function() {}
+		onStdout: function () {},
+		onStderr: function () {},
 	};
 	/**
 	 * List of functions waiting to be called after the PhantomJS
@@ -60,14 +60,14 @@ PhantomPoll.prototype = {
 	 *   page is created, it receives the page object.
 	 * @public
 	 */
-	createPage: function(callback) {
+	createPage: function (callback) {
 		if (this.instance) {
-			this.instance.createPage(function(page) {
+			this.instance.createPage(function (page) {
 				callback(page);
 			});
 		} else {
 			var that = this;
-			this._createInstance(function() {
+			this._createInstance(function () {
 				that.createPage(callback);
 			});
 		}
@@ -82,7 +82,7 @@ PhantomPoll.prototype = {
 	 *
 	 * @public
 	 */
-	create: function(flags, options, callback) {
+	create: function (flags, options, callback) {
 		this.flags = flags;
 		this.options = options;
 		callback(this);
@@ -96,16 +96,16 @@ PhantomPoll.prototype = {
 	 *   created the callback will be added to a waiting list.
 	 * @private
 	 */
-	_createInstance: function(callback) {
+	_createInstance: function (callback) {
 		if (this.creating && callback) {
 			this.waiting.push(callback);
 		} else {
 			var that = this;
 			this.creating = true;
-			phantom.create(this.flags, this.options, function(ph) {
+			phantom.create(this.flags, this.options, function (ph) {
 				that.instance = ph;
 				that.creating = false;
-				that.waiting.forEach(function(callback) {
+				that.waiting.forEach(function (callback) {
 					callback(ph);
 				});
 				that.waiting = [];
@@ -119,17 +119,17 @@ PhantomPoll.prototype = {
 	 *
 	 * @public
 	 */
-	exit: function() {},
+	exit: function () {},
 	/**
 	 * Exits the phantom instance.
 	 *
 	 * @public
 	 */
-	close: function() {
+	close: function () {
 		if (this.instance) {
 			this.instance.exit();
 		}
-	}
+	},
 };
 
 module.exports = PhantomPoll;

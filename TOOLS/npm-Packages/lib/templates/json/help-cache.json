@@ -1,11 +1,9 @@
 {
-    "command": "cache",
-    "usage": [
-        "cache <command> [<args>] [<options>]"
-    ],
-    "commands": {
-        "clean":           "Clean cached packages",
-        "list":            "List cached packages"
-    },
-    "options": []
+  "command": "cache",
+  "usage": ["cache <command> [<args>] [<options>]"],
+  "commands": {
+    "clean": "Clean cached packages",
+    "list": "List cached packages"
+  },
+  "options": []
 }

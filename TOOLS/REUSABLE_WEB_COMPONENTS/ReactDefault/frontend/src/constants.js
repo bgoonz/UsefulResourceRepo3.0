@@ -1,7 +1,5 @@
-﻿const ENDPOINT = {
-};
+﻿const ENDPOINT = {};
 
-const ERROR_MESSAGE = {
-};
+const ERROR_MESSAGE = {};
 
-export {ENDPOINT, ERROR_MESSAGE};
+export { ENDPOINT, ERROR_MESSAGE };

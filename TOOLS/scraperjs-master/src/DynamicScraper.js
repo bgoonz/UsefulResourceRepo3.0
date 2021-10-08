@@ -1,9 +1,9 @@
-var phantomOrig = require('phantom'),
-	PhantomPoll = require('./PhantomPoll.js'),
+var phantomOrig = require("phantom"),
+	PhantomPoll = require("./PhantomPoll.js"),
 	phantom = phantomOrig,
-	AbstractScraper = require('./AbstractScraper'),
-	ScraperError = require('./ScraperError'),
-	PhantomWrapper = require('./PhantomWrapper');
+	AbstractScraper = require("./AbstractScraper"),
+	ScraperError = require("./ScraperError"),
+	PhantomWrapper = require("./PhantomWrapper");
 
 /**
  * A dynamic scraper. This is a very versatile and powerful. This
@@ -12,7 +12,7 @@ var phantomOrig = require('phantom'),
  *
  * @extends {AbstractScraper}
  */
-var DynamicScraper = function(options) {
+var DynamicScraper = function (options) {
 	AbstractScraper.call(this);
 	/**
 	 * Phantom instance.
@@ -35,25 +35,31 @@ var DynamicScraper = function(options) {
 	 * @private
 	 */
 	this.options = {
-		onStdout: function() {},
-		onStderr: function() {}
+		onStdout: function () {},
+		onStderr: function () {},
 	};
-	for (var key in options) { this.options[key] = options[key]; }
+	for (var key in options) {
+		this.options[key] = options[key];
+	}
 };
 DynamicScraper.prototype = Object.create(AbstractScraper.prototype);
 /**
  * @override
  * @inheritDoc
  */
-DynamicScraper.prototype.loadBody = function(done) {
+DynamicScraper.prototype.loadBody = function (done) {
 	var that = this;
-	phantom.create('--load-images=no', that.options, function(ph) {
+	phantom.create("--load-images=no", that.options, function (ph) {
 		that.ph = ph;
-		ph.createPage(function(page) {
+		ph.createPage(function (page) {
 			that.page = page;
-			page.setContent(that.body, that.url, function() {
-				that.inject(DynamicScraper.JQUERY_FILE, function(err) {
-					done(err ? new ScraperError('Couldn\'t inject jQuery into the page.') : undefined);
+			page.setContent(that.body, that.url, function () {
+				that.inject(DynamicScraper.JQUERY_FILE, function (err) {
+					done(
+						err
+							? new ScraperError("Couldn't inject jQuery into the page.")
+							: undefined
+					);
 				});
 			});
 		});
@@ -77,13 +83,21 @@ DynamicScraper.prototype.loadBody = function(done) {
  * @override
  * @public
  */
-DynamicScraper.prototype.scrape = function(scraperFn, callbackFn, args, stackTrace) {
+DynamicScraper.prototype.scrape = function (
+	scraperFn,
+	callbackFn,
+	args,
+	stackTrace
+) {
 	args = args || [];
 
 	args.unshift(scraperFn.toString());
-	args.unshift(function(result) {
-		if(result.error) {
-			callbackFn(DynamicScraper.generateMockErrorMessage(result.error, stackTrace), null);
+	args.unshift(function (result) {
+		if (result.error) {
+			callbackFn(
+				DynamicScraper.generateMockErrorMessage(result.error, stackTrace),
+				null
+			);
 		} else {
 			callbackFn(null, result.result);
 		}
@@ -102,24 +116,28 @@ DynamicScraper.prototype.scrape = function(scraperFn, callbackFn, args, stackTra
  *   first argument is not is a {@see ScraperError}.
  * @public
  */
-DynamicScraper.prototype.inject = function(file, callback) {
+DynamicScraper.prototype.inject = function (file, callback) {
 	if (this.page) {
-		this.page.injectJs(file, function(success) {
+		this.page.injectJs(file, function (success) {
 			if (success) {
 				callback();
 			} else {
-				callback(new ScraperError('Couldn\'t inject code, at "' + file + '".'));
+				callback(new ScraperError("Couldn't inject code, at \"" + file + '".'));
 			}
 		});
 	} else {
-		throw new ScraperError('Couldn\'t inject code, at "' + file + '". The page has not been initialized yet.');
+		throw new ScraperError(
+			"Couldn't inject code, at \"" +
+				file +
+				'". The page has not been initialized yet.'
+		);
 	}
 };
 /**
  * @override
  * @inheritDoc
  */
-DynamicScraper.prototype.close = function() {
+DynamicScraper.prototype.close = function () {
 	if (this.page) {
 		this.page.close();
 	}
@@ -132,7 +150,7 @@ DynamicScraper.prototype.close = function() {
  * @override
  * @inheritDoc
  */
-DynamicScraper.prototype.clone = function() {
+DynamicScraper.prototype.clone = function () {
 	return new DynamicScraper();
 };
 /**
@@ -144,7 +162,7 @@ DynamicScraper.prototype.clone = function() {
  * @public
  * @static
  */
-DynamicScraper.create = function(url, options) {
+DynamicScraper.create = function (url, options) {
 	return AbstractScraper.create(DynamicScraper, url, options);
 };
 /**
@@ -158,7 +176,7 @@ DynamicScraper.create = function(url, options) {
  * @public
  * @static
  */
-DynamicScraper.startFactory = function() {
+DynamicScraper.startFactory = function () {
 	phantom = new PhantomPoll();
 	return DynamicScraper;
 };
@@ -169,7 +187,7 @@ DynamicScraper.startFactory = function() {
  * @public
  * @static
  */
-DynamicScraper.closeFactory = function() {
+DynamicScraper.closeFactory = function () {
 	if (phantom instanceof PhantomPoll) {
 		phantom.close();
 	}
@@ -185,8 +203,8 @@ DynamicScraper.closeFactory = function() {
  * @private
  * @static
  */
-DynamicScraper.generateMockErrorMessage = function(err, stackTrace) {
-	var rg = /^\s{4}at ([^\s]+) \(([^\s]*)\:(\d+):(\d+)\)$/mg;
+DynamicScraper.generateMockErrorMessage = function (err, stackTrace) {
+	var rg = /^\s{4}at ([^\s]+) \(([^\s]*)\:(\d+):(\d+)\)$/gm;
 	rg.exec(stackTrace);
 	var emsg = rg.exec(stackTrace);
 	var sob = emsg[1];
@@ -194,20 +212,20 @@ DynamicScraper.generateMockErrorMessage = function(err, stackTrace) {
 	var sline = emsg[3];
 	var sc = emsg[4];
 
-	var line = Number(sline) + Math.max(err.line-1, 0);
+	var line = Number(sline) + Math.max(err.line - 1, 0);
 
 	var mock = new Error(err.message);
 	// Prevents the use of a property named 'line'!
 	delete err.line;
-	for(var x in err) {
+	for (var x in err) {
 		mock[x] = err[x];
 	}
-	mock.stack = mock.stack.replace(/\t/g, '    ');
+	mock.stack = mock.stack.replace(/\t/g, "    ");
 
-	var ats = mock.stack.split('\n');
-	ats.unshift('    at ' + sob + ' (' + sfile + ':' + line + ':' + sc + ')');
-	ats.unshift('Error' + (err.message?': '+err.message:''));
-	mock.stack = ats.join('\n');
+	var ats = mock.stack.split("\n");
+	ats.unshift("    at " + sob + " (" + sfile + ":" + line + ":" + sc + ")");
+	ats.unshift("Error" + (err.message ? ": " + err.message : ""));
+	mock.stack = ats.join("\n");
 
 	return mock;
 };
@@ -218,6 +236,6 @@ DynamicScraper.generateMockErrorMessage = function(err, stackTrace) {
  * @private
  * @static
  */
-DynamicScraper.JQUERY_FILE = require.resolve('jquery');
+DynamicScraper.JQUERY_FILE = require.resolve("jquery");
 
 module.exports = DynamicScraper;

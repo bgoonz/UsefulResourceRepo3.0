@@ -4,7 +4,9 @@
       <div class="row justify-content-around">
         <div class="col-8 col-md-5">
           <h5 class="title">wts.VueDefault</h5>
-          <p class="description">This is placeholder text. Your web app description goes here.</p>
+          <p class="description">
+            This is placeholder text. Your web app description goes here.
+          </p>
         </div>
         <div class="col-2">
           <ul class="list-unstyled">
@@ -26,10 +28,9 @@
 
 <script>
 export default {
-  name: "Footer"
+  name: "Footer",
 };
 </script>
-
 
 <style scoped>
 .footer {

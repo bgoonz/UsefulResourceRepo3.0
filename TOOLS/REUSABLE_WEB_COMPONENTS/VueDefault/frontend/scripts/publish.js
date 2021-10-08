@@ -6,10 +6,10 @@ let buildFolder = "./build";
 
 //delete folders build & publish/build
 if (fs.existsSync(buildFolder)) {
-    fse.removeSync(buildFolder);
+  fse.removeSync(buildFolder);
 }
 if (fs.existsSync(publishBuildFolder)) {
-    fse.removeSync(publishBuildFolder);
+  fse.removeSync(publishBuildFolder);
 }
 
 //Create frontend build and move to publish

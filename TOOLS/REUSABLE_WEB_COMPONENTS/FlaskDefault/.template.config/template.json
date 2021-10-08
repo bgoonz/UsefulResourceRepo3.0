@@ -22,7 +22,6 @@
   "sourceName": "wts.FlaskDefault",
   "preferNameDirectory": true,
   "PrimaryOutputs": [],
-  "symbols": {
-  },
+  "symbols": {},
   "postActions": []
 }

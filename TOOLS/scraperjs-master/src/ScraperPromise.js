@@ -1,9 +1,9 @@
-var async = require('async');
+var async = require("async");
 
 /**
  * @constructor
  */
-var ScraperPromise = function(scraper) {
+var ScraperPromise = function (scraper) {
 	/**
 	 * Scraper to use..
 	 *
@@ -24,7 +24,7 @@ var ScraperPromise = function(scraper) {
 	 * @type {!function(?, ?)}
 	 * @private
 	 */
-	this.doneCallback = function(last, utils) {
+	this.doneCallback = function (last, utils) {
 		return last;
 	};
 	/**
@@ -33,7 +33,7 @@ var ScraperPromise = function(scraper) {
 	 * @type {!function(?)}
 	 * @private
 	 */
-	this.errorCallback = function(err) {
+	this.errorCallback = function (err) {
 		throw err;
 	};
 	/**
@@ -62,8 +62,8 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	onStatusCode: function(code, callback) {
-		if (typeof code == 'function') {
+	onStatusCode: function (code, callback) {
+		if (typeof code == "function") {
 			callback = code;
 			this.promises.push(function onGenericStatusCode(done, utils) {
 				done(null, callback(this.scraper.getStatusCode(), utils));
@@ -75,7 +75,6 @@ ScraperPromise.prototype = {
 				} else {
 					done(null, utils.lastReturn);
 				}
-
 			});
 		}
 		return this;
@@ -95,21 +94,28 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	scrape: function(scrapeFn, callback) {
+	scrape: function (scrapeFn, callback) {
 		var stackTrace = new Error().stack;
 
 		var extraArguments = Array.prototype.slice.call(arguments, 2);
-		callback = callback || function(result) {
-			return result;
-		};
+		callback =
+			callback ||
+			function (result) {
+				return result;
+			};
 		this.promises.push(function scrape(done, utils) {
-			this.scraper.scrape(scrapeFn, function(err, result) {
-				if (err) {
-					done(err, undefined);
-				} else {
-					done(null, callback(result, utils));
-				}
-			}, extraArguments, stackTrace);
+			this.scraper.scrape(
+				scrapeFn,
+				function (err, result) {
+					if (err) {
+						done(err, undefined);
+					} else {
+						done(null, callback(result, utils));
+					}
+				},
+				extraArguments,
+				stackTrace
+			);
 		});
 		return this;
 	},
@@ -124,10 +130,10 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	delay: function(time, callback) {
-		callback = callback || function() {};
+	delay: function (time, callback) {
+		callback = callback || function () {};
 		this.promises.push(function delay(done, utils) {
-			setTimeout(function() {
+			setTimeout(function () {
 				done(null, callback(utils));
 			}, time);
 		});
@@ -145,9 +151,9 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	timeout: function(time, callback) {
+	timeout: function (time, callback) {
 		this.promises.push(function timeout(done, utils) {
-			setTimeout(function() {
+			setTimeout(function () {
 				callback(utils);
 			}, time);
 			done(null, null);
@@ -163,7 +169,7 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	done: function(doneFn) {
+	done: function (doneFn) {
 		this.doneCallback = doneFn;
 		return this;
 	},
@@ -175,7 +181,7 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	then: function(callback) {
+	then: function (callback) {
 		this.promises.push(function then(done, utils) {
 			done(null, callback(utils.lastReturn, utils));
 		});
@@ -190,7 +196,7 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	async: function(callback) {
+	async: function (callback) {
 		this.promises.push(function async(done, utils) {
 			callback(utils.lastReturn, done, utils);
 		});
@@ -199,7 +205,7 @@ ScraperPromise.prototype = {
 	/**
 	 * @deprecated
 	 */
-	onError: function(callback) {
+	onError: function (callback) {
 		console.warn("The 'onError' is being DEPRECATED in favor of 'catch'");
 		return this.catch(callback);
 	},
@@ -215,7 +221,7 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	"catch": function(callback) {
+	catch: function (callback) {
 		this.errorCallback = callback;
 		return this;
 	},
@@ -227,9 +233,9 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	get: function(url) {
+	get: function (url) {
 		var that = this;
-		this.scraper.get(url, function(err) {
+		this.scraper.get(url, function (err) {
 			that._fire(err);
 		});
 		return this;
@@ -243,9 +249,9 @@ ScraperPromise.prototype = {
 	 *   be made.
 	 * @public
 	 */
-	request: function(options) {
+	request: function (options) {
 		var that = this;
-		this.scraper.request(options, function(err) {
+		this.scraper.request(options, function (err) {
 			that._fire(err);
 		});
 		return this;
@@ -256,7 +262,7 @@ ScraperPromise.prototype = {
 	 * @param {?Object} param Parameter.
 	 * @public
 	 */
-	_setChainParameter: function(param) {
+	_setChainParameter: function (param) {
 		this.chainParameter = param;
 	},
 	/**
@@ -267,7 +273,7 @@ ScraperPromise.prototype = {
 	 * @param  {!Scraper} scraper Scraper to use in the promise chain.
 	 * @protected
 	 */
-	_fire: function(error) {
+	_fire: function (error) {
 		var that = this,
 			param = this.chainParameter,
 			stopPointer = {},
@@ -276,7 +282,7 @@ ScraperPromise.prototype = {
 				url: this.scraper.url,
 				scraper: this,
 				params: param,
-				lastReturn: undefined
+				lastReturn: undefined,
 			},
 			keep = true;
 		this.chainParameter = null;
@@ -287,35 +293,39 @@ ScraperPromise.prototype = {
 			return;
 		}
 
-		async.eachSeries(this.promises, function dispatcher(fn, callback) {
-			var done = function(err, lastReturn) {
-				utils.lastReturn = lastReturn;
-				if (err === stopPointer) {
-					keep = false;
-					callback(err);
-				} else if (err) {
-					callback(err);
-				} else if (keep) {
-					callback();
-				}
-			};
-			utils.stop = function() {
-				done(stopPointer, null);
-			};
+		async.eachSeries(
+			this.promises,
+			function dispatcher(fn, callback) {
+				var done = function (err, lastReturn) {
+					utils.lastReturn = lastReturn;
+					if (err === stopPointer) {
+						keep = false;
+						callback(err);
+					} else if (err) {
+						callback(err);
+					} else if (keep) {
+						callback();
+					}
+				};
+				utils.stop = function () {
+					done(stopPointer, null);
+				};
 
-			try {
-				fn.call(that, done, utils);
-			} catch (err) {
-				done(err, null);
+				try {
+					fn.call(that, done, utils);
+				} catch (err) {
+					done(err, null);
+				}
+			},
+			function (err) {
+				utils.stop = null;
+				if (err && err !== stopPointer) {
+					that.errorCallback(err, utils);
+				}
+				that.doneCallback(utils.lastReturn, utils);
+				that.scraper.close();
 			}
-		}, function(err) {
-			utils.stop = null;
-			if (err && err !== stopPointer) {
-				that.errorCallback(err, utils);
-			}
-			that.doneCallback(utils.lastReturn, utils);
-			that.scraper.close();
-		});
+		);
 	},
 	/**
 	 * Sets the promises.
@@ -323,7 +333,7 @@ ScraperPromise.prototype = {
 	 * @param {!Array.<function(function(?))>} promises Promises array.
 	 * @public
 	 */
-	_setPromises: function(promises) {
+	_setPromises: function (promises) {
 		this.promises = promises;
 	},
 	/**
@@ -333,14 +343,14 @@ ScraperPromise.prototype = {
 	 *   clone.
 	 * @public
 	 */
-	clone: function() {
+	clone: function () {
 		var instance = this.scraper.clone(),
 			promise = new ScraperPromise(instance);
 		promise._setPromises(this.promises);
 		promise.done(this.doneCallback);
 		promise.catch(this.errorCallback);
 		return promise;
-	}
+	},
 };
 
 module.exports = ScraperPromise;

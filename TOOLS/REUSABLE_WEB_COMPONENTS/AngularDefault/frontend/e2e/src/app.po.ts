@@ -1,4 +1,4 @@
-﻿import { browser, by, element } from 'protractor';
+﻿import { browser, by, element } from "protractor";
 
 export class AppPage {
   navigateTo(): Promise<any> {
@@ -6,10 +6,10 @@ export class AppPage {
   }
 
   getTitleText(): Promise<string> {
-    return element(by.css('.navbar-brand')).getText() as Promise<string>;
+    return element(by.css(".navbar-brand")).getText() as Promise<string>;
   }
 
   getNavigationElements(): Promise<number> {
-   return element.all(by.css('.nav-link')).count() as Promise<number>;
+    return element.all(by.css(".nav-link")).count() as Promise<number>;
   }
 }

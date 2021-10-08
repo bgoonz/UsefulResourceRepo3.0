@@ -4,8 +4,6 @@
   "repo": "array-parallel",
   "version": "0.1.2",
   "main": "index.js",
-  "scripts": [
-    "index.js"
-  ],
+  "scripts": ["index.js"],
   "license": "MIT"
 }

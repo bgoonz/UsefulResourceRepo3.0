@@ -14,8 +14,8 @@ export default {
   name: "app",
   components: {
     NavBar,
-    Footer
-  }
+    Footer,
+  },
 };
 </script>
 
@@ -42,5 +42,4 @@ footer {
 .btn-primary {
   background-color: #025fce !important;
 }
-
 </style>

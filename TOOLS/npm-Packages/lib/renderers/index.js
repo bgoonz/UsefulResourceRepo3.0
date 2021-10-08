@@ -1,4 +1,4 @@
 module.exports = {
-    Json: require('./JsonRenderer'),
-    Standard: require('./StandardRenderer')
+  Json: require("./JsonRenderer"),
+  Standard: require("./StandardRenderer"),
 };

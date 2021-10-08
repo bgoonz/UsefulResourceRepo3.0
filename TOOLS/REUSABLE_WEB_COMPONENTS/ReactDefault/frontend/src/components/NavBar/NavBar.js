@@ -14,10 +14,9 @@ const NavBar = () => {
         <Link className="navbar-brand" to="/" role="heading" aria-level="1">
           wts.ReactDefault
         </Link>
-        <div className="navbar-nav">
-        </div>
+        <div className="navbar-nav"></div>
       </nav>
     </React.Fragment>
   );
-}
+};
 export default NavBar;

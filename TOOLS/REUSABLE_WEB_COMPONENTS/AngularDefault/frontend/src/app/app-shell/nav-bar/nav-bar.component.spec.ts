@@ -1,10 +1,10 @@
-﻿import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Location } from '@angular/common';
-import { RouterTestingModule } from '@angular/router/testing';
+﻿import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { Location } from "@angular/common";
+import { RouterTestingModule } from "@angular/router/testing";
 
-import { NavBarComponent } from './nav-bar.component';
+import { NavBarComponent } from "./nav-bar.component";
 
-describe('NavBarComponent', () => {
+describe("NavBarComponent", () => {
   let component: NavBarComponent;
   let fixture: ComponentFixture<NavBarComponent>;
 
@@ -12,7 +12,7 @@ describe('NavBarComponent', () => {
     TestBed.configureTestingModule({
       declarations: [NavBarComponent],
       imports: [RouterTestingModule],
-      providers: [Location]
+      providers: [Location],
     }).compileComponents();
   }));
 
@@ -22,7 +22,7 @@ describe('NavBarComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

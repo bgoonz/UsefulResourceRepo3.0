@@ -1,5 +1,5 @@
-var request = require('request'),
-	ScraperPromise = require('./ScraperPromise');
+var request = require("request"),
+	ScraperPromise = require("./ScraperPromise");
 
 /**
  * An abstract scraper, this class should not be used directly as a
@@ -8,7 +8,7 @@ var request = require('request'),
  *
  * @constructor
  */
-var AbstractScraper = function() {
+var AbstractScraper = function () {
 	/**
 	 * Status code of the last requested page.
 	 *
@@ -36,7 +36,7 @@ var AbstractScraper = function() {
 	 * @type {!string}
 	 * @protected
 	 */
-	this.url = '';
+	this.url = "";
 };
 AbstractScraper.prototype = {
 	constructor: AbstractScraper,
@@ -52,7 +52,7 @@ AbstractScraper.prototype = {
 	 * @return {!AbstractScraper} This scraper.
 	 * @public
 	 */
-	get: function(url, callback) {
+	get: function (url, callback) {
 		var that = this;
 		request.get(url, function processGet(error, response, body) {
 			if (error) {
@@ -62,7 +62,7 @@ AbstractScraper.prototype = {
 				that.statusCode = response.statusCode;
 				that.body = body;
 				that.url = response.request.href;
-				that.loadBody(function(err) {
+				that.loadBody(function (err) {
 					callback(err);
 				});
 			}
@@ -84,7 +84,7 @@ AbstractScraper.prototype = {
 	 * @return {!AbstractScraper} This scraper.
 	 * @public
 	 */
-	request: function(options, callback) {
+	request: function (options, callback) {
 		var that = this;
 		request(options, function processRequest(error, response, body) {
 			if (error) {
@@ -94,7 +94,7 @@ AbstractScraper.prototype = {
 				that.statusCode = response.statusCode;
 				that.body = body;
 				that.url = response.request.href;
-				that.loadBody(function(err) {
+				that.loadBody(function (err) {
 					callback(err);
 				});
 			}
@@ -108,7 +108,7 @@ AbstractScraper.prototype = {
 	 *   request, null otherwise.
 	 * @public
 	 */
-	getStatusCode: function() {
+	getStatusCode: function () {
 		return this.statusCode;
 	},
 	/**
@@ -118,7 +118,7 @@ AbstractScraper.prototype = {
 	 *   request, null otherwise.
 	 * @public
 	 */
-	getResponse: function() {
+	getResponse: function () {
 		return this.response;
 	},
 	/**
@@ -128,7 +128,7 @@ AbstractScraper.prototype = {
 	 *   request, null otherwise.
 	 * @public
 	 */
-	getBody: function() {
+	getBody: function () {
 		return this.body;
 	},
 	/* jshint unused:false */
@@ -141,7 +141,7 @@ AbstractScraper.prototype = {
 	 * @return {!AbstractScraper} This scraper.
 	 * @protected
 	 */
-	loadBody: function(done) {
+	loadBody: function (done) {
 		done();
 		return this;
 	},
@@ -157,21 +157,21 @@ AbstractScraper.prototype = {
 	 * @return {!AbstractScraper} This scraper.
 	 * @public
 	 */
-	scrape: function(scraperFn, callbackFn, args) {},
+	scrape: function (scraperFn, callbackFn, args) {},
 	/**
 	 * Closes the scraper.
 	 *
 	 * @return {!AbstractScraper} This scraper.
 	 * @public
 	 */
-	close: function() {},
+	close: function () {},
 	/**
 	 * Clones the scraper.
 	 *
 	 * @return {!AbstractScraper} Empty clone.
 	 * @public
 	 */
-	clone: function() {}
+	clone: function () {},
 };
 /* jshint unused:true */
 
@@ -186,7 +186,7 @@ AbstractScraper.prototype = {
  * @public
  * @static
  */
-AbstractScraper.create = function(ScraperType, url, options) {
+AbstractScraper.create = function (ScraperType, url, options) {
 	var promise = new ScraperPromise(new ScraperType(options));
 	if (url) {
 		promise.get(url);

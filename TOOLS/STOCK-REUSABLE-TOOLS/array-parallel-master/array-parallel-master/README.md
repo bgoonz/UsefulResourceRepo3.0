@@ -7,15 +7,17 @@ Call an array of asynchronous functions in parallel
 #### parallel(fns[, context[, callback]])
 
 ```js
-var parallel = require('array-parallel')
+var parallel = require("array-parallel");
 
-parallel([
-  function (done) {
-    done()
-  }
-], this, function (err) {
-
-})
+parallel(
+  [
+    function (done) {
+      done();
+    },
+  ],
+  this,
+  function (err) {}
+);
 ```
 
 #### fns

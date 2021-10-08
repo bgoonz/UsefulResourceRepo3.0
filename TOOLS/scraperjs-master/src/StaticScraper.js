@@ -1,5 +1,5 @@
-var cheerio = require('cheerio'),
-	AbstractScraper = require('./AbstractScraper');
+var cheerio = require("cheerio"),
+	AbstractScraper = require("./AbstractScraper");
 
 /**
  * A static scraper. This can only scrape static content, with the
@@ -8,7 +8,7 @@ var cheerio = require('cheerio'),
  *
  * @extends {AbstractScraper}
  */
-var StaticScraper = function() {
+var StaticScraper = function () {
 	AbstractScraper.call(this);
 	/**
 	 * jQuery.
@@ -23,7 +23,7 @@ StaticScraper.prototype = Object.create(AbstractScraper.prototype);
  * @override
  * @inheritDoc
  */
-StaticScraper.prototype.loadBody = function(done) {
+StaticScraper.prototype.loadBody = function (done) {
 	this.$ = cheerio.load(this.body);
 	done();
 	return this;
@@ -42,8 +42,9 @@ StaticScraper.prototype.loadBody = function(done) {
  * @override
  * @public
  */
-StaticScraper.prototype.scrape = function(scraperFn, callbackFn, args) {
-	var result = null, err = null;
+StaticScraper.prototype.scrape = function (scraperFn, callbackFn, args) {
+	var result = null,
+		err = null;
 	args = args || [];
 	args.unshift(this.$);
 	try {
@@ -58,14 +59,14 @@ StaticScraper.prototype.scrape = function(scraperFn, callbackFn, args) {
  * @override
  * @inheritDoc
  */
-StaticScraper.prototype.close = function() {
+StaticScraper.prototype.close = function () {
 	return this;
 };
 /**
  * @override
  * @inheritDoc
  */
-StaticScraper.prototype.clone = function() {
+StaticScraper.prototype.clone = function () {
 	return new StaticScraper();
 };
 /**
@@ -77,7 +78,7 @@ StaticScraper.prototype.clone = function() {
  * @public
  * @static
  */
-StaticScraper.create = function(url) {
+StaticScraper.create = function (url) {
 	return AbstractScraper.create(StaticScraper, url);
 };
 

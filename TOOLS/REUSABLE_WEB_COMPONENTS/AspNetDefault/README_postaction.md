@@ -20,15 +20,18 @@
 The backend is based on [ASP.NET Web API](https://dotnet.microsoft.com/apps/aspnet/apis).
 
 To start the backend application manually:
-  1. Open a terminal and navigate to the `backend` folder path.
-  2. Use `dotnet restore` to restore backend packages.
-  3. Use `dotnet run` to start backend app in development. It is served on https://localhost:5001/
-//}]}
+
+1. Open a terminal and navigate to the `backend` folder path.
+2. Use `dotnet restore` to restore backend packages.
+3. Use `dotnet run` to start backend app in development. It is served on https://localhost:5001/
+   //}]}
 
 ## Additional Documentation
+
 //^^
 //{[{
+
 - .NET - https://dotnet.microsoft.com/
 - ASP.NET - https://dotnet.microsoft.com/apps/aspnet
-//}]}
+  //}]}
 - Bootstrap CSS - https://getbootstrap.com/

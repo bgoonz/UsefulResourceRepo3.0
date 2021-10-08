@@ -1,14 +1,14 @@
-var mout = require('mout');
+var mout = require("mout");
 
 function createError(msg, code, props) {
-    var err = new Error(msg);
-    err.code = code;
+  var err = new Error(msg);
+  err.code = code;
 
-    if (props) {
-        mout.object.mixIn(err, props);
-    }
+  if (props) {
+    mout.object.mixIn(err, props);
+  }
 
-    return err;
+  return err;
 }
 
 module.exports = createError;

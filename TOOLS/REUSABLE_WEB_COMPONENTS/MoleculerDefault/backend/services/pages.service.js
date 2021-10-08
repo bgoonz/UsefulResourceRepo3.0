@@ -8,7 +8,7 @@ module.exports = {
    * More info: https://moleculer.services/docs/0.14/services.html#Settings
    */
   settings: {
-    rest: "/"
+    rest: "/",
   },
   /**
    * Service Mixin
@@ -57,5 +57,5 @@ module.exports = {
    * Service stopped lifecycle event handler
    * More info: https://moleculer.services/docs/0.14/lifecycle.html#stopped-event-handler
    */
-  async stopped() {}
+  async stopped() {},
 };

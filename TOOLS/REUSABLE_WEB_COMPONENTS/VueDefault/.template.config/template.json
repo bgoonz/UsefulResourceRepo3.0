@@ -36,12 +36,11 @@
         "format": "yyyy"
       }
     },
-    "wts.ProjectNameToLower":
-    {
+    "wts.ProjectNameToLower": {
       "type": "generated",
       "generator": "casing",
       "parameters": {
-        "source":"wts.projectName",
+        "source": "wts.projectName",
         "toLower": true
       },
       "replaces": "Param_ProjectNameToLower"

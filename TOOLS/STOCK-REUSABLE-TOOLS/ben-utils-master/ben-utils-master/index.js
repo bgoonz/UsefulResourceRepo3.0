@@ -1,8 +1,8 @@
 module.exports = {
   filter: require("./lib/filter.js"),
   map: require("./lib/map.js"),
-  countIf: require("./lib/countIf.js")
-}
+  countIf: require("./lib/countIf.js"),
+};
 
 /******************************
  VERSION ONE
@@ -30,7 +30,6 @@ module.exports = {
 //   var result = arr.filter(testFunc)
 //   return result.length
 // }
-
 
 /******************************
  VERSION TWO

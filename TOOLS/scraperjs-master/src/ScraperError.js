@@ -6,7 +6,7 @@
  * @param   {!string} message Error message.
  * @extends {Error}
  */
-var ScraperError = function(message) {
+var ScraperError = function (message) {
 	/**
 	 * Error message.
 	 *
@@ -20,14 +20,14 @@ var ScraperError = function(message) {
 	 * @type {!string}
 	 * @public
 	 */
-	this.name = 'ScraperError';
+	this.name = "ScraperError";
 	/**
 	 * Stack message.
 	 *
 	 * @type {!string}
 	 * @public
 	 */
-	this.stack = (new Error()).stack;
+	this.stack = new Error().stack;
 };
 ScraperError.prototype = new Error();
 ScraperError.prototype.constructor = ScraperError;

@@ -1,7 +1,7 @@
-var async = require('async'),
-	StaticScraper = require('./StaticScraper'),
-	DynamicScraper = require('./DynamicScraper'),
-	ScraperError = require('./ScraperError');
+var async = require("async"),
+	StaticScraper = require("./StaticScraper"),
+	DynamicScraper = require("./DynamicScraper"),
+	ScraperError = require("./ScraperError");
 
 /**
  * Transforms a string into a regular expression.
@@ -16,20 +16,32 @@ var async = require('async'),
  */
 function pathToRegExp(path, keys) {
 	path = path
-		.concat('/?')
-		.replace(/\/\(/g, '(?:/')
-		.replace(/(\/)?(\.)?:(\w+)(?:(\(.*?\)))?(\?)?|\*/g, function(_, slash, format, key, capture, optional) {
-			if (_ === '*') {
-				return _;
-			}
+		.concat("/?")
+		.replace(/\/\(/g, "(?:/")
+		.replace(
+			/(\/)?(\.)?:(\w+)(?:(\(.*?\)))?(\?)?|\*/g,
+			function (_, slash, format, key, capture, optional) {
+				if (_ === "*") {
+					return _;
+				}
 
-			keys.push(key);
-			slash = slash || '';
-			return '' + (optional ? '' : slash) + '(?:' + (optional ? slash : '') + (format || '') + (capture || '([^/]+?)') + ')' + (optional || '');
-		})
-		.replace(/([\/.])/g, '\\$1')
-		.replace(/\*/g, '(.*)');
-	return new RegExp('^' + path + '$', 'i');
+				keys.push(key);
+				slash = slash || "";
+				return (
+					"" +
+					(optional ? "" : slash) +
+					"(?:" +
+					(optional ? slash : "") +
+					(format || "") +
+					(capture || "([^/]+?)") +
+					")" +
+					(optional || "")
+				);
+			}
+		)
+		.replace(/([\/.])/g, "\\$1")
+		.replace(/\*/g, "(.*)");
+	return new RegExp("^" + path + "$", "i");
 }
 
 /**
@@ -41,7 +53,7 @@ function pathToRegExp(path, keys) {
  *   match every path.
  * @constructor
  */
-var Router = function(options) {
+var Router = function (options) {
 	options = options || {};
 	/**
 	 * Stops routing at first successful match.
@@ -63,7 +75,7 @@ var Router = function(options) {
 	 * @type {!function(!string=)}
 	 * @private
 	 */
-	this.otherwiseFn = function() {};
+	this.otherwiseFn = function () {};
 };
 Router.prototype = {
 	constructor: Router,
@@ -82,18 +94,20 @@ Router.prototype = {
 	 * @return {!Router} This router.
 	 * @public
 	 */
-	on: function(path) {
+	on: function (path) {
 		var callback;
-		if (typeof path === 'function') {
+		if (typeof path === "function") {
 			callback = path;
 		}
 
 		this.promises.push({
-			callback: callback ? function(url) {
-				return callback(url);
-			} : Router.pathMatcher(path),
+			callback: callback
+				? function (url) {
+						return callback(url);
+				  }
+				: Router.pathMatcher(path),
 			scraper: null,
-			rqMethod: null
+			rqMethod: null,
 		});
 		return this.get();
 	},
@@ -104,16 +118,16 @@ Router.prototype = {
 	 * @return {!Router} This router.
 	 * @public
 	 */
-	get: function() {
+	get: function () {
 		var length = this.promises.length,
 			last = this.promises[length - 1];
 		if (length && last) {
-			last.rqMethod = function(scraper, url) {
+			last.rqMethod = function (scraper, url) {
 				scraper.get(url);
 			};
 			return this;
 		} else {
-			throw new ScraperError('');
+			throw new ScraperError("");
 		}
 	},
 	/**
@@ -124,17 +138,17 @@ Router.prototype = {
 	 * @return {!Router} This router.
 	 * @public
 	 */
-	request: function(options) {
+	request: function (options) {
 		var length = this.promises.length,
 			last = this.promises[length - 1];
 		if (length && last) {
-			last.rqMethod = function(scraper, url) {
+			last.rqMethod = function (scraper, url) {
 				options.uri = url;
 				scraper.request(options);
 			};
 			return this;
 		} else {
-			throw new ScraperError('');
+			throw new ScraperError("");
 		}
 	},
 	/**
@@ -147,7 +161,7 @@ Router.prototype = {
 	 * @return {!Router} This router.
 	 * @public
 	 */
-	otherwise: function(callback) {
+	otherwise: function (callback) {
 		this.otherwiseFn = callback;
 		return this;
 	},
@@ -159,7 +173,7 @@ Router.prototype = {
 	 * @return {!ScraperPromise} A promise for the scraper.
 	 * @public
 	 */
-	createStatic: function() {
+	createStatic: function () {
 		var length = this.promises.length,
 			last = this.promises[length - 1];
 		if (length && last && !last.scraper) {
@@ -167,7 +181,7 @@ Router.prototype = {
 			last.scraper = ss;
 			return ss;
 		} else {
-			throw new ScraperError('');
+			throw new ScraperError("");
 		}
 	},
 	/**
@@ -179,14 +193,14 @@ Router.prototype = {
 	 * @return {!Router} This router.
 	 * @public
 	 */
-	use: function(scraper) {
+	use: function (scraper) {
 		var length = this.promises.length,
 			last = this.promises[length - 1];
 		if (length && last && !last.scraper) {
 			last.scraper = scraper;
 			return this;
 		} else {
-			throw new ScraperError('');
+			throw new ScraperError("");
 		}
 	},
 	/**
@@ -197,7 +211,7 @@ Router.prototype = {
 	 * @return {!ScraperPromise} A promise for the scraper.
 	 * @public
 	 */
-	createDynamic: function() {
+	createDynamic: function () {
 		var length = this.promises.length,
 			last = this.promises[length - 1];
 		if (length && last && !last.scraper) {
@@ -205,7 +219,7 @@ Router.prototype = {
 			last.scraper = ss;
 			return ss;
 		} else {
-			throw new ScraperError('');
+			throw new ScraperError("");
 		}
 	},
 	/**
@@ -218,39 +232,41 @@ Router.prototype = {
 	 * @return {!Router} This router.
 	 * @public
 	 */
-	route: function(url, callback) {
+	route: function (url, callback) {
 		var that = this,
 			atLeastOne = false,
 			stopFlag = {},
 			lastReturn;
-		callback = callback || function() {};
-		async.eachSeries(this.promises, function(promiseObj, done) {
-
-			var matcher = promiseObj.callback,
-				scraper,
-				reqMethod = promiseObj.rqMethod;
-			var result = matcher(url);
-			if (!!result) {
-				scraper = promiseObj.scraper.clone();
-				atLeastOne = true;
-				scraper._setChainParameter(result);
-				scraper.done(function(lr, utils) {
-					lastReturn = lr;
-					done(that.firstMatchStop ? stopFlag : undefined);
-				});
-				reqMethod(scraper, url);
-			} else {
-				done();
+		callback = callback || function () {};
+		async.eachSeries(
+			this.promises,
+			function (promiseObj, done) {
+				var matcher = promiseObj.callback,
+					scraper,
+					reqMethod = promiseObj.rqMethod;
+				var result = matcher(url);
+				if (!!result) {
+					scraper = promiseObj.scraper.clone();
+					atLeastOne = true;
+					scraper._setChainParameter(result);
+					scraper.done(function (lr, utils) {
+						lastReturn = lr;
+						done(that.firstMatchStop ? stopFlag : undefined);
+					});
+					reqMethod(scraper, url);
+				} else {
+					done();
+				}
+			},
+			function () {
+				if (!atLeastOne) {
+					that.otherwiseFn(url);
+				}
+				callback(atLeastOne, lastReturn);
 			}
-
-		}, function() {
-			if (!atLeastOne) {
-				that.otherwiseFn(url);
-			}
-			callback(atLeastOne, lastReturn);
-		});
+		);
 		return this;
-	}
+	},
 };
 /**
  * Creates a function to match a path against a string.
@@ -266,15 +282,15 @@ Router.prototype = {
  * @public
  * @static
  */
-Router.pathMatcher = function(pathOrRE) {
+Router.pathMatcher = function (pathOrRE) {
 	var pattern,
-		keys = ['url'];
+		keys = ["url"];
 	if (pathOrRE instanceof RegExp) {
 		pattern = pathOrRE;
-	} else if (typeof pathOrRE === 'string') {
+	} else if (typeof pathOrRE === "string") {
 		pattern = pathToRegExp(pathOrRE, keys);
 	} else {
-		throw new ScraperError('A path must be a string or a regular expression.');
+		throw new ScraperError("A path must be a string or a regular expression.");
 	}
 
 	return function patternMatchingFunction(url) {
@@ -282,7 +298,7 @@ Router.pathMatcher = function(pathOrRE) {
 		if (!match) {
 			return false;
 		} else {
-			return keys.reduce(function(obj, value, index) {
+			return keys.reduce(function (obj, value, index) {
 				obj[value] = match[index];
 				return obj;
 			}, {});

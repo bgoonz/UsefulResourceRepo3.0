@@ -1,14 +1,12 @@
 {
-    "command": "search",
-    "description": "Search for packages by name.",
-    "usage": [
-        "search <name> [<options>]"
-    ],
-    "options": [
-        {
-            "shorthand":   "-h",
-            "flag":        "--help",
-            "description": "Show this help message"
-        }
-    ]
+  "command": "search",
+  "description": "Search for packages by name.",
+  "usage": ["search <name> [<options>]"],
+  "options": [
+    {
+      "shorthand": "-h",
+      "flag": "--help",
+      "description": "Show this help message"
+    }
+  ]
 }
