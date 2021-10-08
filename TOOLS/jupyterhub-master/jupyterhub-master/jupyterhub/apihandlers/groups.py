@@ -44,7 +44,7 @@ class GroupListAPIHandler(_GroupAPIHandler):
     async def post(self):
         """POST creates Multiple groups """
         model = self.get_json_body()
-        if not model or not isinstance(model, dict) or not model.get('groups'):
+        if not model or not isinstance(model, dict) or not model.get("groups"):
             raise web.HTTPError(400, "Must specify at least one group to create")
 
         groupnames = model.pop("groups", [])
@@ -56,7 +56,7 @@ class GroupListAPIHandler(_GroupAPIHandler):
             if existing is not None:
                 raise web.HTTPError(409, "Group %s already exists" % name)
 
-            usernames = model.get('users', [])
+            usernames = model.get("users", [])
             # check that users exist
             users = self._usernames_to_users(usernames)
             # create the group
@@ -91,7 +91,7 @@ class GroupAPIHandler(_GroupAPIHandler):
         if existing is not None:
             raise web.HTTPError(409, "Group %s already exists" % name)
 
-        usernames = model.get('users', [])
+        usernames = model.get("users", [])
         # check that users exist
         users = self._usernames_to_users(usernames)
 
@@ -123,11 +123,11 @@ class GroupUsersAPIHandler(_GroupAPIHandler):
         group = self.find_group(name)
         data = self.get_json_body()
         self._check_group_model(data)
-        if 'users' not in data:
+        if "users" not in data:
             raise web.HTTPError(400, "Must specify users to add")
-        self.log.info("Adding %i users to group %s", len(data['users']), name)
-        self.log.debug("Adding: %s", data['users'])
-        for user in self._usernames_to_users(data['users']):
+        self.log.info("Adding %i users to group %s", len(data["users"]), name)
+        self.log.debug("Adding: %s", data["users"])
+        for user in self._usernames_to_users(data["users"]):
             if user not in group.users:
                 group.users.append(user)
             else:
@@ -141,11 +141,11 @@ class GroupUsersAPIHandler(_GroupAPIHandler):
         group = self.find_group(name)
         data = self.get_json_body()
         self._check_group_model(data)
-        if 'users' not in data:
+        if "users" not in data:
             raise web.HTTPError(400, "Must specify users to delete")
-        self.log.info("Removing %i users from group %s", len(data['users']), name)
-        self.log.debug("Removing: %s", data['users'])
-        for user in self._usernames_to_users(data['users']):
+        self.log.info("Removing %i users from group %s", len(data["users"]), name)
+        self.log.debug("Removing: %s", data["users"])
+        for user in self._usernames_to_users(data["users"]):
             if user in group.users:
                 group.users.remove(user)
             else:

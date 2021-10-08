@@ -24,7 +24,7 @@ class Generator:
         table_rows = []
         for name in dir(jupyterhub.metrics):
             obj = getattr(jupyterhub.metrics, name)
-            if obj.__class__.__module__.startswith('prometheus_client.'):
+            if obj.__class__.__module__.startswith("prometheus_client."):
                 for metric in obj.describe():
                     table_rows.append([metric.type, metric.name, metric.documentation])
         return table_rows
@@ -43,7 +43,7 @@ class Generator:
         title = "List of Prometheus Metrics"
         underline = "============================"
         content = f"{title}\n{underline}\n{writer.dumps()}"
-        with open(filename, 'w') as f:
+        with open(filename, "w") as f:
             f.write(content)
         print(f"Generated {filename}.")
 

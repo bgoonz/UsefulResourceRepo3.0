@@ -65,13 +65,13 @@ class _MockUser(HasTraits):
     name = Unicode()
     server = Instance(orm.Server, allow_none=True)
     state = Dict()
-    service = Instance(__name__ + '.Service')
+    service = Instance(__name__ + ".Service")
     host = Unicode()
 
     @property
     def url(self):
         if not self.server:
-            return ''
+            return ""
         if self.host:
             return self.host + self.server.base_url
         else:
@@ -80,7 +80,7 @@ class _MockUser(HasTraits):
     @property
     def base_url(self):
         if not self.server:
-            return ''
+            return ""
         return self.server.base_url
 
 
@@ -113,12 +113,12 @@ class _ServiceSpawner(LocalProcessSpawner):
         """Start the process"""
         env = self.get_env()
         # no activity url for services
-        env.pop('JUPYTERHUB_ACTIVITY_URL', None)
-        if os.name == 'nt':
-            env['SYSTEMROOT'] = os.environ['SYSTEMROOT']
+        env.pop("JUPYTERHUB_ACTIVITY_URL", None)
+        if os.name == "nt":
+            env["SYSTEMROOT"] = os.environ["SYSTEMROOT"]
         cmd = self.cmd
 
-        self.log.info("Spawning %s", ' '.join(pipes.quote(s) for s in cmd))
+        self.log.info("Spawning %s", " ".join(pipes.quote(s) for s in cmd))
         try:
             self.proc = Popen(
                 self.cmd,
@@ -235,7 +235,7 @@ class Service(LoggingConfigurable):
         - 'managed' for managed services
         - 'external' for external services
         """
-        return 'managed' if self.managed else 'external'
+        return "managed" if self.managed else "external"
 
     command = Command(minlen=0, help="Command to spawn this service, if managed.").tag(
         input=True
@@ -279,9 +279,9 @@ class Service(LoggingConfigurable):
         """
     ).tag(input=True)
 
-    @default('oauth_client_id')
+    @default("oauth_client_id")
     def _default_client_id(self):
-        return 'service-%s' % self.name
+        return "service-%s" % self.name
 
     oauth_redirect_uri = Unicode(
         help="""OAuth redirect URI for this service.
@@ -291,11 +291,11 @@ class Service(LoggingConfigurable):
         """
     ).tag(input=True)
 
-    @default('oauth_redirect_uri')
+    @default("oauth_redirect_uri")
     def _default_redirect_uri(self):
         if self.server is None:
-            return ''
-        return self.host + url_path_join(self.prefix, 'oauth_callback')
+            return ""
+        return self.host + url_path_join(self.prefix, "oauth_callback")
 
     @property
     def oauth_available(self):
@@ -314,12 +314,12 @@ class Service(LoggingConfigurable):
 
     @property
     def prefix(self):
-        return url_path_join(self.base_url, 'services', self.name + '/')
+        return url_path_join(self.base_url, "services", self.name + "/")
 
     @property
     def proxy_spec(self):
         if not self.server:
-            return ''
+            return ""
         if self.domain:
             return self.domain + self.server.base_url
         else:
@@ -329,7 +329,7 @@ class Service(LoggingConfigurable):
         return "<{cls}(name={name}{managed})>".format(
             cls=self.__class__.__name__,
             name=self.name,
-            managed=' managed' if self.managed else '',
+            managed=" managed" if self.managed else "",
         )
 
     def start(self):
@@ -340,19 +340,19 @@ class Service(LoggingConfigurable):
         env = {}
         env.update(self.environment)
 
-        env['JUPYTERHUB_SERVICE_NAME'] = self.name
+        env["JUPYTERHUB_SERVICE_NAME"] = self.name
         if self.url:
-            env['JUPYTERHUB_SERVICE_URL'] = self.url
-            env['JUPYTERHUB_SERVICE_PREFIX'] = self.server.base_url
+            env["JUPYTERHUB_SERVICE_URL"] = self.url
+            env["JUPYTERHUB_SERVICE_PREFIX"] = self.server.base_url
 
         hub = self.hub
-        if self.hub.ip in ('', '0.0.0.0', '::'):
+        if self.hub.ip in ("", "0.0.0.0", "::"):
             # if the Hub is listening on all interfaces,
             # tell services to connect via localhost
             # since they are always local subprocesses
             hub = copy.deepcopy(self.hub)
-            hub.connect_url = ''
-            hub.connect_ip = '127.0.0.1'
+            hub.connect_url = ""
+            hub.connect_ip = "127.0.0.1"
 
         self.spawner = _ServiceSpawner(
             cmd=self.command,

@@ -14,24 +14,24 @@ from jupyterhub import orm
 def populate_db(url):
     """Populate a jupyterhub database"""
     connect_args = {}
-    if 'mysql' in url:
-        connect_args['auth_plugin'] = 'mysql_native_password'
+    if "mysql" in url:
+        connect_args["auth_plugin"] = "mysql_native_password"
     db = orm.new_session_factory(url, connect_args=connect_args)()
     # create some users
-    admin = orm.User(name='admin', admin=True)
+    admin = orm.User(name="admin", admin=True)
     db.add(admin)
-    user = orm.User(name='has-server')
+    user = orm.User(name="has-server")
     db.add(user)
     db.commit()
 
     # create a group
-    g = orm.Group(name='group')
+    g = orm.Group(name="group")
     db.add(g)
     db.commit()
     g.users.append(user)
     db.commit()
 
-    service = orm.Service(name='service')
+    service = orm.Service(name="service")
     db.add(service)
     db.commit()
 
@@ -47,14 +47,14 @@ def populate_db(url):
     # Create a Spawner for user
     if jupyterhub.version_info >= (0, 8):
         # create spawner for user
-        spawner = orm.Spawner(name='', user=user)
+        spawner = orm.Spawner(name="", user=user)
         db.add(spawner)
         db.commit()
         spawner.server = orm.Server()
         db.commit()
 
         # admin's spawner is not running
-        spawner = orm.Spawner(name='', user=admin)
+        spawner = orm.Spawner(name="", user=admin)
         db.add(spawner)
         db.commit()
     else:
@@ -64,7 +64,7 @@ def populate_db(url):
     # create some oauth objects
     if jupyterhub.version_info >= (0, 8):
         # create oauth client
-        client = orm.OAuthClient(identifier='oauth-client')
+        client = orm.OAuthClient(identifier="oauth-client")
         db.add(client)
         db.commit()
         code = orm.OAuthCode(client_id=client.identifier)
@@ -84,18 +84,18 @@ def populate_db(url):
         assert admin.created
         # set last_activity
         user.last_activity = datetime.utcnow()
-        spawner = user.orm_spawners['']
+        spawner = user.orm_spawners[""]
         spawner.started = datetime.utcnow()
         spawner.last_activity = datetime.utcnow()
         db.commit()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     import sys
 
     if len(sys.argv) > 1:
         url = sys.argv[1]
     else:
-        url = 'sqlite:///jupyterhub.sqlite'
+        url = "sqlite:///jupyterhub.sqlite"
 
     populate_db(url)

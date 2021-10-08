@@ -9,19 +9,19 @@ from .. import crypto
 from ..crypto import decrypt
 from ..crypto import encrypt
 
-keys = [('%i' % i).encode('ascii') * 32 for i in range(3)]
-hex_keys = [b2a_hex(key).decode('ascii') for key in keys]
-b64_keys = [b2a_base64(key).decode('ascii').strip() for key in keys]
+keys = [("%i" % i).encode("ascii") * 32 for i in range(3)]
+hex_keys = [b2a_hex(key).decode("ascii") for key in keys]
+b64_keys = [b2a_base64(key).decode("ascii").strip() for key in keys]
 
 
 @pytest.mark.parametrize(
     "key_env, keys",
     [
         (hex_keys[0], [keys[0]]),
-        (';'.join([b64_keys[0], hex_keys[1]]), keys[:2]),
-        (';'.join([hex_keys[0], b64_keys[1], '']), keys[:2]),
-        ('', []),
-        (';', []),
+        (";".join([b64_keys[0], hex_keys[1]]), keys[:2]),
+        (";".join([hex_keys[0], b64_keys[1], ""]), keys[:2]),
+        ("", []),
+        (";", []),
     ],
 )
 def test_env_constructor(key_env, keys):
@@ -37,10 +37,10 @@ def test_env_constructor(key_env, keys):
 @pytest.mark.parametrize(
     "key",
     [
-        'a' * 44,  # base64, not 32 bytes
-        ('%44s' % 'notbase64'),  # not base64
-        b'x' * 64,  # not hex
-        b'short',  # not 32 bytes
+        "a" * 44,  # base64, not 32 bytes
+        ("%44s" % "notbase64"),  # not base64
+        b"x" * 64,  # not hex
+        b"short",  # not 32 bytes
     ],
 )
 def test_bad_keys(key):
@@ -62,19 +62,19 @@ def crypt_keeper():
 
 
 async def test_roundtrip(crypt_keeper):
-    data = {'key': 'value'}
+    data = {"key": "value"}
     encrypted = await encrypt(data)
     decrypted = await decrypt(encrypted)
     assert decrypted == data
 
 
 async def test_missing_crypto(crypt_keeper):
-    with patch.object(crypto, 'cryptography', None):
+    with patch.object(crypto, "cryptography", None):
         with pytest.raises(crypto.CryptographyUnavailable):
             await encrypt({})
 
         with pytest.raises(crypto.CryptographyUnavailable):
-            await decrypt(b'whatever')
+            await decrypt(b"whatever")
 
 
 async def test_missing_keys(crypt_keeper):
@@ -83,4 +83,4 @@ async def test_missing_keys(crypt_keeper):
         await encrypt({})
 
     with pytest.raises(crypto.NoEncryptionKeys):
-        await decrypt(b'whatever')
+        await decrypt(b"whatever")

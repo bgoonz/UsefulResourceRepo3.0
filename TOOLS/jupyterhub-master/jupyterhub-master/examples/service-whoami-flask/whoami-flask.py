@@ -15,9 +15,9 @@ from flask import Response
 from jupyterhub.services.auth import HubAuth
 
 
-prefix = os.environ.get('JUPYTERHUB_SERVICE_PREFIX', '/')
+prefix = os.environ.get("JUPYTERHUB_SERVICE_PREFIX", "/")
 
-auth = HubAuth(api_token=os.environ['JUPYTERHUB_API_TOKEN'], cache_max_age=60)
+auth = HubAuth(api_token=os.environ["JUPYTERHUB_API_TOKEN"], cache_max_age=60)
 
 app = Flask(__name__)
 
@@ -39,7 +39,7 @@ def authenticated(f):
             return f(user, *args, **kwargs)
         else:
             # redirect to login url on failed auth
-            return redirect(auth.login_url + '?next=%s' % quote(request.path))
+            return redirect(auth.login_url + "?next=%s" % quote(request.path))
 
     return decorated
 
@@ -48,5 +48,5 @@ def authenticated(f):
 @authenticated
 def whoami(user):
     return Response(
-        json.dumps(user, indent=1, sort_keys=True), mimetype='application/json'
+        json.dumps(user, indent=1, sort_keys=True), mimetype="application/json"
     )

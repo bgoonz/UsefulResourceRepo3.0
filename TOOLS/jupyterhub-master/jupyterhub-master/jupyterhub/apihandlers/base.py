@@ -27,10 +27,10 @@ class APIHandler(BaseHandler):
 
     @property
     def content_security_policy(self):
-        return '; '.join([super().content_security_policy, "default-src 'none'"])
+        return "; ".join([super().content_security_policy, "default-src 'none'"])
 
     def get_content_type(self):
-        return 'application/json'
+        return "application/json"
 
     def check_referer(self):
         """Check Origin for cross-site API requests.
@@ -52,8 +52,8 @@ class APIHandler(BaseHandler):
             return False
 
         host_path = url_path_join(host, self.hub.base_url)
-        referer_path = referer.split('://', 1)[-1]
-        if not (referer_path + '/').startswith(host_path):
+        referer_path = referer.split("://", 1)[-1]
+        if not (referer_path + "/").startswith(host_path):
             self.log.warning(
                 "Blocking Cross Origin API request.  Referer: %s, Host: %s",
                 referer,
@@ -76,21 +76,21 @@ class APIHandler(BaseHandler):
         """Return the body of the request as JSON data."""
         if not self.request.body:
             return None
-        body = self.request.body.strip().decode('utf-8')
+        body = self.request.body.strip().decode("utf-8")
         try:
             model = json.loads(body)
         except Exception:
             self.log.debug("Bad JSON: %r", body)
             self.log.error("Couldn't parse JSON", exc_info=True)
-            raise web.HTTPError(400, 'Invalid JSON in body of request')
+            raise web.HTTPError(400, "Invalid JSON in body of request")
         return model
 
     def write_error(self, status_code, **kwargs):
         """Write JSON errors instead of HTML"""
-        exc_info = kwargs.get('exc_info')
-        message = ''
+        exc_info = kwargs.get("exc_info")
+        message = ""
         exception = None
-        status_message = responses.get(status_code, 'Unknown Error')
+        status_message = responses.get(status_code, "Unknown Error")
         if exc_info:
             exception = exc_info[1]
             # get the custom message, if defined
@@ -100,7 +100,7 @@ class APIHandler(BaseHandler):
                 pass
 
             # construct the custom reason, if defined
-            reason = getattr(exception, 'reason', '')
+            reason = getattr(exception, "reason", "")
             if reason:
                 status_message = reason
 
@@ -116,45 +116,45 @@ class APIHandler(BaseHandler):
                 )
             self.db.rollback()
 
-        self.set_header('Content-Type', 'application/json')
+        self.set_header("Content-Type", "application/json")
         if isinstance(exception, web.HTTPError):
             # allow setting headers from exceptions
             # since exception handler clears headers
-            headers = getattr(exception, 'headers', None)
+            headers = getattr(exception, "headers", None)
             if headers:
                 for key, value in headers.items():
                     self.set_header(key, value)
             # Content-Length must be recalculated.
-            self.clear_header('Content-Length')
+            self.clear_header("Content-Length")
 
         self.write(
-            json.dumps({'status': status_code, 'message': message or status_message})
+            json.dumps({"status": status_code, "message": message or status_message})
         )
 
     def server_model(self, spawner, include_state=False):
         """Get the JSON model for a Spawner"""
         return {
-            'name': spawner.name,
-            'last_activity': isoformat(spawner.orm_spawner.last_activity),
-            'started': isoformat(spawner.orm_spawner.started),
-            'pending': spawner.pending,
-            'ready': spawner.ready,
-            'state': spawner.get_state() if include_state else None,
-            'url': url_path_join(spawner.user.url, spawner.name, '/'),
-            'user_options': spawner.user_options,
-            'progress_url': spawner._progress_url,
+            "name": spawner.name,
+            "last_activity": isoformat(spawner.orm_spawner.last_activity),
+            "started": isoformat(spawner.orm_spawner.started),
+            "pending": spawner.pending,
+            "ready": spawner.ready,
+            "state": spawner.get_state() if include_state else None,
+            "url": url_path_join(spawner.user.url, spawner.name, "/"),
+            "user_options": spawner.user_options,
+            "progress_url": spawner._progress_url,
         }
 
     def token_model(self, token):
         """Get the JSON model for an APIToken"""
         expires_at = None
         if isinstance(token, orm.APIToken):
-            kind = 'api_token'
-            extra = {'note': token.note}
+            kind = "api_token"
+            extra = {"note": token.note}
             expires_at = token.expires_at
         elif isinstance(token, orm.OAuthAccessToken):
-            kind = 'oauth'
-            extra = {'oauth_client': token.client.description or token.client.client_id}
+            kind = "oauth"
+            extra = {"oauth_client": token.client.description or token.client.client_id}
             if token.expires_at:
                 expires_at = datetime.fromtimestamp(token.expires_at)
         else:
@@ -163,20 +163,20 @@ class APIHandler(BaseHandler):
             )
 
         if token.user:
-            owner_key = 'user'
+            owner_key = "user"
             owner = token.user.name
 
         else:
-            owner_key = 'service'
+            owner_key = "service"
             owner = token.service.name
 
         model = {
             owner_key: owner,
-            'id': token.api_id,
-            'kind': kind,
-            'created': isoformat(token.created),
-            'last_activity': isoformat(token.last_activity),
-            'expires_at': isoformat(expires_at),
+            "id": token.api_id,
+            "kind": kind,
+            "created": isoformat(token.created),
+            "last_activity": isoformat(token.last_activity),
+            "expires_at": isoformat(expires_at),
         }
         model.update(extra)
         return model
@@ -187,23 +187,23 @@ class APIHandler(BaseHandler):
             user = self.users[user.id]
 
         model = {
-            'kind': 'user',
-            'name': user.name,
-            'admin': user.admin,
-            'groups': [g.name for g in user.groups],
-            'server': user.url if user.running else None,
-            'pending': None,
-            'created': isoformat(user.created),
-            'last_activity': isoformat(user.last_activity),
+            "kind": "user",
+            "name": user.name,
+            "admin": user.admin,
+            "groups": [g.name for g in user.groups],
+            "server": user.url if user.running else None,
+            "pending": None,
+            "created": isoformat(user.created),
+            "last_activity": isoformat(user.last_activity),
         }
-        if '' in user.spawners:
-            model['pending'] = user.spawners[''].pending
+        if "" in user.spawners:
+            model["pending"] = user.spawners[""].pending
 
         if not include_servers:
-            model['servers'] = None
+            model["servers"] = None
             return model
 
-        servers = model['servers'] = {}
+        servers = model["servers"] = {}
         for name, spawner in user.spawners.items():
             # include 'active' servers, not just ready
             # (this includes pending events)
@@ -214,18 +214,18 @@ class APIHandler(BaseHandler):
     def group_model(self, group):
         """Get the JSON model for a Group object"""
         return {
-            'kind': 'group',
-            'name': group.name,
-            'users': [u.name for u in group.users],
+            "kind": "group",
+            "name": group.name,
+            "users": [u.name for u in group.users],
         }
 
     def service_model(self, service):
         """Get the JSON model for a Service object"""
-        return {'kind': 'service', 'name': service.name, 'admin': service.admin}
+        return {"kind": "service", "name": service.name, "admin": service.admin}
 
-    _user_model_types = {'name': str, 'admin': bool, 'groups': list, 'auth_state': dict}
+    _user_model_types = {"name": str, "admin": bool, "groups": list, "auth_state": dict}
 
-    _group_model_types = {'name': str, 'users': list}
+    _group_model_types = {"name": str, "users": list}
 
     def _check_model(self, model, model_types, name):
         """Check a model provided by a REST API request
@@ -249,8 +249,8 @@ class APIHandler(BaseHandler):
 
     def _check_user_model(self, model):
         """Check a request-provided user model from a REST API"""
-        self._check_model(model, self._user_model_types, 'user')
-        for username in model.get('users', []):
+        self._check_model(model, self._user_model_types, "user")
+        for username in model.get("users", []):
             if not isinstance(username, str):
                 raise web.HTTPError(
                     400, ("usernames must be str, not %r", type(username))
@@ -258,8 +258,8 @@ class APIHandler(BaseHandler):
 
     def _check_group_model(self, model):
         """Check a request-provided group model from a REST API"""
-        self._check_model(model, self._group_model_types, 'group')
-        for groupname in model.get('groups', []):
+        self._check_model(model, self._group_model_types, "group")
+        for groupname in model.get("groups", []):
             if not isinstance(groupname, str):
                 raise web.HTTPError(
                     400, ("group names must be str, not %r", type(groupname))

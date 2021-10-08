@@ -71,12 +71,12 @@ class JSONDict(TypeDecorator):
             )
             return None
 
-        return {"__jupyterhub_bytes__": True, "data": encodebytes(obj).decode('ascii')}
+        return {"__jupyterhub_bytes__": True, "data": encodebytes(obj).decode("ascii")}
 
     def _object_hook(self, dct):
         """decode non-json objects packed by _json_default"""
         if dct.get("__jupyterhub_bytes__", False):
-            return decodebytes(dct['data'].encode('ascii'))
+            return decodebytes(dct["data"].encode("ascii"))
         return dct
 
     def process_bind_param(self, value, dialect):
@@ -100,14 +100,14 @@ class Server(Base):
     connection and cookie info
     """
 
-    __tablename__ = 'servers'
+    __tablename__ = "servers"
     id = Column(Integer, primary_key=True)
 
-    proto = Column(Unicode(15), default='http')
-    ip = Column(Unicode(255), default='')  # could also be a DNS name
+    proto = Column(Unicode(15), default="http")
+    ip = Column(Unicode(255), default="")  # could also be a DNS name
     port = Column(Integer, default=random_port)
-    base_url = Column(Unicode(255), default='/')
-    cookie_name = Column(Unicode(255), default='cookie')
+    base_url = Column(Unicode(255), default="/")
+    cookie_name = Column(Unicode(255), default="cookie")
 
     def __repr__(self):
         return "<Server(%s:%s)>" % (self.ip, self.port)
@@ -115,20 +115,20 @@ class Server(Base):
 
 # user:group many:many mapping table
 user_group_map = Table(
-    'user_group_map',
+    "user_group_map",
     Base.metadata,
-    Column('user_id', ForeignKey('users.id', ondelete='CASCADE'), primary_key=True),
-    Column('group_id', ForeignKey('groups.id', ondelete='CASCADE'), primary_key=True),
+    Column("user_id", ForeignKey("users.id", ondelete="CASCADE"), primary_key=True),
+    Column("group_id", ForeignKey("groups.id", ondelete="CASCADE"), primary_key=True),
 )
 
 
 class Group(Base):
     """User Groups"""
 
-    __tablename__ = 'groups'
+    __tablename__ = "groups"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Unicode(255), unique=True)
-    users = relationship('User', secondary='user_group_map', backref='groups')
+    users = relationship("User", secondary="user_group_map", backref="groups")
 
     def __repr__(self):
         return "<%s %s (%i users)>" % (
@@ -168,7 +168,7 @@ class User(Base):
     The method `server` returns the first entry in the user's `servers` list.
     """
 
-    __tablename__ = 'users'
+    __tablename__ = "users"
     id = Column(Integer, primary_key=True, autoincrement=True)
     name = Column(Unicode(255), unique=True)
 
@@ -225,15 +225,15 @@ class User(Base):
 class Spawner(Base):
     """"State about a Spawner"""
 
-    __tablename__ = 'spawners'
+    __tablename__ = "spawners"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"))
 
-    server_id = Column(Integer, ForeignKey('servers.id', ondelete='SET NULL'))
+    server_id = Column(Integer, ForeignKey("servers.id", ondelete="SET NULL"))
     server = relationship(
         Server,
-        backref=backref('spawner', uselist=False),
+        backref=backref("spawner", uselist=False),
         single_parent=True,
         cascade="all, delete-orphan",
     )
@@ -275,7 +275,7 @@ class Service(Base):
 
     """
 
-    __tablename__ = 'services'
+    __tablename__ = "services"
     id = Column(Integer, primary_key=True, autoincrement=True)
 
     # common user interface:
@@ -287,10 +287,10 @@ class Service(Base):
     )
 
     # service-specific interface
-    _server_id = Column(Integer, ForeignKey('servers.id', ondelete='SET NULL'))
+    _server_id = Column(Integer, ForeignKey("servers.id", ondelete="SET NULL"))
     server = relationship(
         Server,
-        backref=backref('service', uselist=False),
+        backref=backref("service", uselist=False),
         single_parent=True,
         cascade="all, delete-orphan",
     )
@@ -416,7 +416,7 @@ class Hashed(Expiring):
         # since we can't filter on hashed values, filter on prefix
         # so we aren't comparing with all tokens
         prefix_match = db.query(cls).filter(
-            bindparam('prefix', prefix).startswith(cls.prefix)
+            bindparam("prefix", prefix).startswith(cls.prefix)
         )
         prefix_match = prefix_match.filter(
             or_(cls.expires_at == None, cls.expires_at >= cls.now())
@@ -441,11 +441,11 @@ class Hashed(Expiring):
 class APIToken(Hashed, Base):
     """An API token"""
 
-    __tablename__ = 'api_tokens'
+    __tablename__ = "api_tokens"
 
-    user_id = Column(Integer, ForeignKey('users.id', ondelete="CASCADE"), nullable=True)
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"), nullable=True)
     service_id = Column(
-        Integer, ForeignKey('services.id', ondelete="CASCADE"), nullable=True
+        Integer, ForeignKey("services.id", ondelete="CASCADE"), nullable=True
     )
 
     id = Column(Integer, primary_key=True)
@@ -454,7 +454,7 @@ class APIToken(Hashed, Base):
 
     @property
     def api_id(self):
-        return 'a%i' % self.id
+        return "a%i" % self.id
 
     # token metadata for bookkeeping
     now = datetime.utcnow  # for expiry
@@ -465,15 +465,15 @@ class APIToken(Hashed, Base):
 
     def __repr__(self):
         if self.user is not None:
-            kind = 'user'
+            kind = "user"
             name = self.user.name
         elif self.service is not None:
-            kind = 'service'
+            kind = "service"
             name = self.service.name
         else:
             # this shouldn't happen
-            kind = 'owner'
-            name = 'unknown'
+            kind = "owner"
+            name = "unknown"
         return "<{cls}('{pre}...', {kind}='{name}')>".format(
             cls=self.__class__.__name__, pre=self.prefix, kind=kind, name=name
         )
@@ -488,9 +488,9 @@ class APIToken(Hashed, Base):
         `kind='service'` only returns API tokens for services
         """
         prefix_match = cls.find_prefix(db, token)
-        if kind == 'user':
+        if kind == "user":
             prefix_match = prefix_match.filter(cls.user_id != None)
-        elif kind == 'service':
+        elif kind == "service":
             prefix_match = prefix_match.filter(cls.service_id != None)
         elif kind is not None:
             raise ValueError("kind must be 'user', 'service', or None, not %r" % kind)
@@ -504,7 +504,7 @@ class APIToken(Hashed, Base):
         token=None,
         user=None,
         service=None,
-        note='',
+        note="",
         generated=True,
         expires_in=None,
     ):
@@ -521,7 +521,7 @@ class APIToken(Hashed, Base):
             cls.check_token(db, token)
         # two stages to ensure orm_token.generated has been set
         # before token setter is called
-        orm_token = cls(generated=generated, note=note or '')
+        orm_token = cls(generated=generated, note=note or "")
         orm_token.token = token
         if user:
             assert user.id is not None
@@ -543,15 +543,15 @@ class APIToken(Hashed, Base):
 
 class GrantType(enum.Enum):
     # we only use authorization_code for now
-    authorization_code = 'authorization_code'
-    implicit = 'implicit'
-    password = 'password'
-    client_credentials = 'client_credentials'
-    refresh_token = 'refresh_token'
+    authorization_code = "authorization_code"
+    implicit = "implicit"
+    password = "password"
+    client_credentials = "client_credentials"
+    refresh_token = "refresh_token"
 
 
 class OAuthAccessToken(Hashed, Base):
-    __tablename__ = 'oauth_access_tokens'
+    __tablename__ = "oauth_access_tokens"
     id = Column(Integer, primary_key=True, autoincrement=True)
 
     @staticmethod
@@ -560,17 +560,17 @@ class OAuthAccessToken(Hashed, Base):
 
     @property
     def api_id(self):
-        return 'o%i' % self.id
+        return "o%i" % self.id
 
     client_id = Column(
-        Unicode(255), ForeignKey('oauth_clients.identifier', ondelete='CASCADE')
+        Unicode(255), ForeignKey("oauth_clients.identifier", ondelete="CASCADE")
     )
     grant_type = Column(Enum(GrantType), nullable=False)
     expires_at = Column(Integer)
     refresh_token = Column(Unicode(255))
     # TODO: drop refresh_expires_at. Refresh tokens shouldn't expire
     refresh_expires_at = Column(Integer)
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"))
     service = None  # for API-equivalence with APIToken
 
     # the browser session id associated with a given token
@@ -607,18 +607,18 @@ class OAuthAccessToken(Hashed, Base):
 
 
 class OAuthCode(Expiring, Base):
-    __tablename__ = 'oauth_codes'
+    __tablename__ = "oauth_codes"
 
     id = Column(Integer, primary_key=True, autoincrement=True)
     client_id = Column(
-        Unicode(255), ForeignKey('oauth_clients.identifier', ondelete='CASCADE')
+        Unicode(255), ForeignKey("oauth_clients.identifier", ondelete="CASCADE")
     )
     code = Column(Unicode(36))
     expires_at = Column(Integer)
     redirect_uri = Column(Unicode(1023))
     session_id = Column(Unicode(255))
     # state = Column(Unicode(1023))
-    user_id = Column(Integer, ForeignKey('users.id', ondelete='CASCADE'))
+    user_id = Column(Integer, ForeignKey("users.id", ondelete="CASCADE"))
 
     @staticmethod
     def now():
@@ -635,7 +635,7 @@ class OAuthCode(Expiring, Base):
 
 
 class OAuthClient(Base):
-    __tablename__ = 'oauth_clients'
+    __tablename__ = "oauth_clients"
     id = Column(Integer, primary_key=True, autoincrement=True)
     identifier = Column(Unicode(255), unique=True)
     description = Column(Unicode(1023))
@@ -647,9 +647,9 @@ class OAuthClient(Base):
         return self.identifier
 
     access_tokens = relationship(
-        OAuthAccessToken, backref='client', cascade='all, delete-orphan'
+        OAuthAccessToken, backref="client", cascade="all, delete-orphan"
     )
-    codes = relationship(OAuthCode, backref='client', cascade='all, delete-orphan')
+    codes = relationship(OAuthCode, backref="client", cascade="all, delete-orphan")
 
 
 # General database utilities
@@ -785,23 +785,23 @@ def check_db_revision(engine):
             alembic.command.stamp(cfg, head)
             return
 
-        if 'alembic_version' not in current_table_names:
+        if "alembic_version" not in current_table_names:
             # Has not been tagged or upgraded before.
             # we didn't start tagging revisions correctly except during `upgrade-db`
             # until 0.8
             # This should only occur for databases created prior to JupyterHub 0.8
             msg_t = "Database schema version not found, guessing that JupyterHub %s created this database."
-            if 'spawners' in current_table_names:
+            if "spawners" in current_table_names:
                 # 0.8
-                app_log.warning(msg_t, '0.8.dev')
+                app_log.warning(msg_t, "0.8.dev")
                 rev = head
-            elif 'services' in current_table_names:
+            elif "services" in current_table_names:
                 # services is present, tag for 0.7
-                app_log.warning(msg_t, '0.7.x')
-                rev = 'af4cbdb2d13c'
+                app_log.warning(msg_t, "0.7.x")
+                rev = "af4cbdb2d13c"
             else:
                 # it's old, mark as first revision
-                app_log.warning(msg_t, '0.6 or earlier')
+                app_log.warning(msg_t, "0.6 or earlier")
                 rev = base
             app_log.debug("Stamping database schema version %s", rev)
             alembic.command.stamp(cfg, rev)
@@ -809,7 +809,7 @@ def check_db_revision(engine):
     # check database schema version
     # it should always be defined at this point
     alembic_revision = engine.execute(
-        'SELECT version_num FROM alembic_version'
+        "SELECT version_num FROM alembic_version"
     ).first()[0]
     if alembic_revision == head:
         app_log.debug("database schema version found: %s", alembic_revision)
@@ -826,18 +826,18 @@ def check_db_revision(engine):
 
 def mysql_large_prefix_check(engine):
     """Check mysql has innodb_large_prefix set"""
-    if not str(engine.url).startswith('mysql'):
+    if not str(engine.url).startswith("mysql"):
         return False
     variables = dict(
         engine.execute(
-            'show variables where variable_name like '
+            "show variables where variable_name like "
             '"innodb_large_prefix" or '
             'variable_name like "innodb_file_format";'
         ).fetchall()
     )
     if (
-        variables.get('innodb_file_format', 'Barracuda') == 'Barracuda'
-        and variables.get('innodb_large_prefix', 'ON') == 'ON'
+        variables.get("innodb_file_format", "Barracuda") == "Barracuda"
+        and variables.get("innodb_large_prefix", "ON") == "ON"
     ):
         return True
     else:
@@ -846,26 +846,26 @@ def mysql_large_prefix_check(engine):
 
 def add_row_format(base):
     for t in base.metadata.tables.values():
-        t.dialect_kwargs['mysql_ROW_FORMAT'] = 'DYNAMIC'
+        t.dialect_kwargs["mysql_ROW_FORMAT"] = "DYNAMIC"
 
 
 def new_session_factory(
     url="sqlite:///:memory:", reset=False, expire_on_commit=False, **kwargs
 ):
     """Create a new session at url"""
-    if url.startswith('sqlite'):
-        kwargs.setdefault('connect_args', {'check_same_thread': False})
+    if url.startswith("sqlite"):
+        kwargs.setdefault("connect_args", {"check_same_thread": False})
 
-    elif url.startswith('mysql'):
-        kwargs.setdefault('pool_recycle', 60)
+    elif url.startswith("mysql"):
+        kwargs.setdefault("pool_recycle", 60)
 
-    if url.endswith(':memory:'):
+    if url.endswith(":memory:"):
         # If we're using an in-memory database, ensure that only one connection
         # is ever created.
-        kwargs.setdefault('poolclass', StaticPool)
+        kwargs.setdefault("poolclass", StaticPool)
 
     engine = create_engine(url, **kwargs)
-    if url.startswith('sqlite'):
+    if url.startswith("sqlite"):
         register_foreign_keys(engine)
 
     # enable pessimistic disconnect handling

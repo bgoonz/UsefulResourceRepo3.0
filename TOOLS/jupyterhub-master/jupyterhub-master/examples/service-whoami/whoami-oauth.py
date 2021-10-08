@@ -30,32 +30,32 @@ class WhoAmIHandler(HubOAuthenticated, RequestHandler):
     @authenticated
     def get(self):
         user_model = self.get_current_user()
-        self.set_header('content-type', 'application/json')
+        self.set_header("content-type", "application/json")
         self.write(json.dumps(user_model, indent=1, sort_keys=True))
 
 
 def main():
     app = Application(
         [
-            (os.environ['JUPYTERHUB_SERVICE_PREFIX'], WhoAmIHandler),
+            (os.environ["JUPYTERHUB_SERVICE_PREFIX"], WhoAmIHandler),
             (
                 url_path_join(
-                    os.environ['JUPYTERHUB_SERVICE_PREFIX'], 'oauth_callback'
+                    os.environ["JUPYTERHUB_SERVICE_PREFIX"], "oauth_callback"
                 ),
                 HubOAuthCallbackHandler,
             ),
-            (r'.*', WhoAmIHandler),
+            (r".*", WhoAmIHandler),
         ],
         cookie_secret=os.urandom(32),
     )
 
     http_server = HTTPServer(app)
-    url = urlparse(os.environ['JUPYTERHUB_SERVICE_URL'])
+    url = urlparse(os.environ["JUPYTERHUB_SERVICE_URL"])
 
     http_server.listen(url.port, url.hostname)
 
     IOLoop.current().start()
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()

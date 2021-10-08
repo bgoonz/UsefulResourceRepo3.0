@@ -66,13 +66,13 @@ class HomeHandler(BaseHandler):
         # to establish that this is an explicit spawn request rather
         # than an implicit one, which can be caused by any link to `/user/:name(/:server_name)`
         if user.active:
-            url = url_path_join(self.base_url, 'user', user.escaped_name)
+            url = url_path_join(self.base_url, "user", user.escaped_name)
         else:
-            url = url_path_join(self.hub.base_url, 'spawn', user.escaped_name)
+            url = url_path_join(self.hub.base_url, "spawn", user.escaped_name)
 
         auth_state = await user.get_auth_state()
         html = await self.render_template(
-            'home.html',
+            "home.html",
             auth_state=auth_state,
             user=user,
             url=url,
@@ -96,10 +96,10 @@ class SpawnHandler(BaseHandler):
 
     default_url = None
 
-    async def _render_form(self, for_user, spawner_options_form, message=''):
+    async def _render_form(self, for_user, spawner_options_form, message=""):
         auth_state = await for_user.get_auth_state()
         return await self.render_template(
-            'spawn.html',
+            "spawn.html",
             for_user=for_user,
             auth_state=auth_state,
             spawner_options_form=spawner_options_form,
@@ -109,7 +109,7 @@ class SpawnHandler(BaseHandler):
         )
 
     @web.authenticated
-    async def get(self, for_user=None, server_name=''):
+    async def get(self, for_user=None, server_name=""):
         """GET renders form for spawning with user-specified options
 
         or triggers spawn via redirect if there is no form.
@@ -150,7 +150,7 @@ class SpawnHandler(BaseHandler):
             return
 
         if server_name is None:
-            server_name = ''
+            server_name = ""
 
         spawner = user.spawners[server_name]
 
@@ -177,13 +177,13 @@ class SpawnHandler(BaseHandler):
         await spawner.run_auth_state_hook(auth_state)
 
         # Try to start server directly when query arguments are passed.
-        error_message = ''
+        error_message = ""
         query_options = {}
         for key, byte_list in self.request.query_arguments.items():
-            query_options[key] = [bs.decode('utf8') for bs in byte_list]
+            query_options[key] = [bs.decode("utf8") for bs in byte_list]
 
         # 'next' is reserved argument for redirect after spawn
-        query_options.pop('next', None)
+        query_options.pop("next", None)
 
         if len(query_options) > 0:
             try:
@@ -222,7 +222,7 @@ class SpawnHandler(BaseHandler):
             )
 
     @web.authenticated
-    async def post(self, for_user=None, server_name=''):
+    async def post(self, for_user=None, server_name=""):
         """POST spawns with user-specified options"""
         user = current_user = self.current_user
         if for_user is not None and for_user != user.name:
@@ -245,7 +245,7 @@ class SpawnHandler(BaseHandler):
 
         form_options = {}
         for key, byte_list in self.request.body_arguments.items():
-            form_options[key] = [bs.decode('utf8') for bs in byte_list]
+            form_options[key] = [bs.decode("utf8") for bs in byte_list]
         for key, byte_list in self.request.files.items():
             form_options["%s_file" % key] = byte_list
         try:
@@ -286,11 +286,11 @@ class SpawnHandler(BaseHandler):
             self.hub.base_url, "spawn-pending", user.escaped_name, server_name
         )
 
-        pending_url = self.append_query_parameters(pending_url, exclude=['next'])
+        pending_url = self.append_query_parameters(pending_url, exclude=["next"])
 
-        if self.get_argument('next', None):
+        if self.get_argument("next", None):
             # preserve `?next=...` through spawn-pending
-            pending_url = url_concat(pending_url, {'next': self.get_argument('next')})
+            pending_url = url_concat(pending_url, {"next": self.get_argument("next")})
 
         return pending_url
 
@@ -337,7 +337,7 @@ class SpawnPendingHandler(BaseHandler):
     """
 
     @web.authenticated
-    async def get(self, for_user, server_name=''):
+    async def get(self, for_user, server_name=""):
         user = current_user = self.current_user
         if for_user is not None and for_user != current_user.name:
             if not current_user.admin:
@@ -389,7 +389,7 @@ class SpawnPendingHandler(BaseHandler):
                 server_name=server_name,
                 spawn_url=spawn_url,
                 failed=True,
-                failed_message=getattr(exc, 'jupyterhub_message', ''),
+                failed_message=getattr(exc, "jupyterhub_message", ""),
                 exception=exc,
             )
             self.finish(html)
@@ -460,28 +460,28 @@ class AdminHandler(BaseHandler):
         pagination = Pagination(url=self.request.uri, config=self.config)
         page, per_page, offset = pagination.get_page_args(self)
 
-        available = {'name', 'admin', 'running', 'last_activity'}
-        default_sort = ['admin', 'name']
-        mapping = {'running': orm.Spawner.server_id}
+        available = {"name", "admin", "running", "last_activity"}
+        default_sort = ["admin", "name"]
+        mapping = {"running": orm.Spawner.server_id}
         for name in available:
             if name not in mapping:
                 table = orm.User if name != "last_activity" else orm.Spawner
                 mapping[name] = getattr(table, name)
 
         default_order = {
-            'name': 'asc',
-            'last_activity': 'desc',
-            'admin': 'desc',
-            'running': 'desc',
+            "name": "asc",
+            "last_activity": "desc",
+            "admin": "desc",
+            "running": "desc",
         }
 
-        sorts = self.get_arguments('sort') or default_sort
-        orders = self.get_arguments('order')
+        sorts = self.get_arguments("sort") or default_sort
+        orders = self.get_arguments("order")
 
         for bad in set(sorts).difference(available):
             self.log.warning("ignoring invalid sort: %r", bad)
             sorts.remove(bad)
-        for bad in set(orders).difference({'asc', 'desc'}):
+        for bad in set(orders).difference({"asc", "desc"}):
             self.log.warning("ignoring invalid order: %r", bad)
             orders.remove(bad)
 
@@ -522,16 +522,16 @@ class AdminHandler(BaseHandler):
 
         auth_state = await self.current_user.get_auth_state()
         html = await self.render_template(
-            'admin.html',
+            "admin.html",
             current_user=self.current_user,
             auth_state=auth_state,
-            admin_access=self.settings.get('admin_access', False),
+            admin_access=self.settings.get("admin_access", False),
             users=users,
             running=running,
             sort={s: o for s, o in zip(sorts, orders)},
             allow_named_servers=self.allow_named_servers,
             named_server_limit_per_user=self.named_server_limit_per_user,
-            server_version='{} {}'.format(__version__, self.version_hash),
+            server_version="{} {}".format(__version__, self.version_hash),
             pagination=pagination,
         )
         self.finish(html)
@@ -592,27 +592,27 @@ class TokenPageHandler(BaseHandler):
             token = tokens[0]
             oauth_clients.append(
                 {
-                    'client': token.client,
-                    'description': token.client.description or token.client.identifier,
-                    'created': created,
-                    'last_activity': last_activity,
-                    'tokens': tokens,
+                    "client": token.client,
+                    "description": token.client.description or token.client.identifier,
+                    "created": created,
+                    "last_activity": last_activity,
+                    "tokens": tokens,
                     # only need one token id because
                     # revoking one oauth token revokes all oauth tokens for that client
-                    'token_id': tokens[0].api_id,
-                    'token_count': len(tokens),
+                    "token_id": tokens[0].api_id,
+                    "token_count": len(tokens),
                 }
             )
 
         # sort oauth clients by last activity, created
         def sort_key(client):
-            return (client['last_activity'] or never, client['created'] or never)
+            return (client["last_activity"] or never, client["created"] or never)
 
         oauth_clients = sorted(oauth_clients, key=sort_key, reverse=True)
 
         auth_state = await self.current_user.get_auth_state()
         html = await self.render_template(
-            'token.html',
+            "token.html",
             api_tokens=api_tokens,
             oauth_clients=oauth_clients,
             auth_state=auth_state,
@@ -625,13 +625,13 @@ class ProxyErrorHandler(BaseHandler):
 
     async def get(self, status_code_s):
         status_code = int(status_code_s)
-        status_message = responses.get(status_code, 'Unknown HTTP Error')
+        status_message = responses.get(status_code, "Unknown HTTP Error")
         # build template namespace
 
-        hub_home = url_path_join(self.hub.base_url, 'home')
-        message_html = ''
+        hub_home = url_path_join(self.hub.base_url, "home")
+        message_html = ""
         if status_code == 503:
-            message_html = ' '.join(
+            message_html = " ".join(
                 [
                     "Your server appears to be down.",
                     "Try restarting it <a href='%s'>from the hub</a>" % hub_home,
@@ -644,13 +644,13 @@ class ProxyErrorHandler(BaseHandler):
             logo_url=hub_home,
         )
 
-        self.set_header('Content-Type', 'text/html')
+        self.set_header("Content-Type", "text/html")
         # render the template
         try:
-            html = await self.render_template('%s.html' % status_code, **ns)
+            html = await self.render_template("%s.html" % status_code, **ns)
         except TemplateNotFound:
             self.log.debug("No template for %d", status_code)
-            html = await self.render_template('error.html', **ns)
+            html = await self.render_template("error.html", **ns)
 
         self.write(html)
 
@@ -667,15 +667,15 @@ class HealthCheckHandler(BaseHandler):
 
 
 default_handlers = [
-    (r'/', RootHandler),
-    (r'/home', HomeHandler),
-    (r'/admin', AdminHandler),
-    (r'/spawn-pending/([^/]+)', SpawnPendingHandler),
-    (r'/spawn-pending/([^/]+)/([^/]+)', SpawnPendingHandler),
-    (r'/spawn', SpawnHandler),
-    (r'/spawn/([^/]+)', SpawnHandler),
-    (r'/spawn/([^/]+)/([^/]+)', SpawnHandler),
-    (r'/token', TokenPageHandler),
-    (r'/error/(\d+)', ProxyErrorHandler),
-    (r'/health$', HealthCheckHandler),
+    (r"/", RootHandler),
+    (r"/home", HomeHandler),
+    (r"/admin", AdminHandler),
+    (r"/spawn-pending/([^/]+)", SpawnPendingHandler),
+    (r"/spawn-pending/([^/]+)/([^/]+)", SpawnPendingHandler),
+    (r"/spawn", SpawnHandler),
+    (r"/spawn/([^/]+)", SpawnHandler),
+    (r"/spawn/([^/]+)/([^/]+)", SpawnHandler),
+    (r"/token", TokenPageHandler),
+    (r"/error/(\d+)", ProxyErrorHandler),
+    (r"/health$", HealthCheckHandler),
 ]

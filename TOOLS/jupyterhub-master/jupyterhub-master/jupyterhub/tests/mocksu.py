@@ -37,31 +37,31 @@ class ArgsHandler(web.RequestHandler):
 
 
 def main(args):
-    options.logging = 'debug'
+    options.logging = "debug"
     log.enable_pretty_logging()
     app = web.Application(
-        [(r'.*/args', ArgsHandler), (r'.*/env', EnvHandler), (r'.*', EchoHandler)]
+        [(r".*/args", ArgsHandler), (r".*/env", EnvHandler), (r".*", EchoHandler)]
     )
 
     ssl_context = None
-    key = os.environ.get('JUPYTERHUB_SSL_KEYFILE') or ''
-    cert = os.environ.get('JUPYTERHUB_SSL_CERTFILE') or ''
-    ca = os.environ.get('JUPYTERHUB_SSL_CLIENT_CA') or ''
+    key = os.environ.get("JUPYTERHUB_SSL_KEYFILE") or ""
+    cert = os.environ.get("JUPYTERHUB_SSL_CERTFILE") or ""
+    ca = os.environ.get("JUPYTERHUB_SSL_CLIENT_CA") or ""
 
     if key and cert and ca:
         ssl_context = make_ssl_context(key, cert, cafile=ca, check_hostname=False)
 
     server = httpserver.HTTPServer(app, ssl_options=ssl_context)
     log.app_log.info("Starting mock singleuser server at 127.0.0.1:%s", args.port)
-    server.listen(args.port, '127.0.0.1')
+    server.listen(args.port, "127.0.0.1")
     try:
         ioloop.IOLoop.instance().start()
     except KeyboardInterrupt:
-        print('\nInterrupted')
+        print("\nInterrupted")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--port', type=int)
+    parser.add_argument("--port", type=int)
     args, extra = parser.parse_known_args()
     main(args)

@@ -40,7 +40,7 @@ class EnvHandler(web.RequestHandler):
     """Reply to an HTTP request with the service's environment as JSON."""
 
     def get(self):
-        self.set_header('Content-Type', 'application/json')
+        self.set_header("Content-Type", "application/json")
         self.write(json.dumps(dict(os.environ)))
 
 
@@ -48,13 +48,13 @@ class APIHandler(web.RequestHandler):
     """Relay API requests to the Hub's API using the service's API token."""
 
     def get(self, path):
-        api_token = os.environ['JUPYTERHUB_API_TOKEN']
-        api_url = os.environ['JUPYTERHUB_API_URL']
+        api_token = os.environ["JUPYTERHUB_API_TOKEN"]
+        api_url = os.environ["JUPYTERHUB_API_URL"]
         r = requests.get(
-            api_url + path, headers={'Authorization': 'token %s' % api_token}
+            api_url + path, headers={"Authorization": "token %s" % api_token}
         )
         r.raise_for_status()
-        self.set_header('Content-Type', 'application/json')
+        self.set_header("Content-Type", "application/json")
         self.write(r.text)
 
 
@@ -83,24 +83,24 @@ class OWhoAmIHandler(HubOAuthenticated, web.RequestHandler):
 def main():
     pprint.pprint(dict(os.environ), stream=sys.stderr)
 
-    if os.getenv('JUPYTERHUB_SERVICE_URL'):
-        url = urlparse(os.environ['JUPYTERHUB_SERVICE_URL'])
+    if os.getenv("JUPYTERHUB_SERVICE_URL"):
+        url = urlparse(os.environ["JUPYTERHUB_SERVICE_URL"])
         app = web.Application(
             [
-                (r'.*/env', EnvHandler),
-                (r'.*/api/(.*)', APIHandler),
-                (r'.*/whoami/?', WhoAmIHandler),
-                (r'.*/owhoami/?', OWhoAmIHandler),
-                (r'.*/oauth_callback', HubOAuthCallbackHandler),
-                (r'.*', EchoHandler),
+                (r".*/env", EnvHandler),
+                (r".*/api/(.*)", APIHandler),
+                (r".*/whoami/?", WhoAmIHandler),
+                (r".*/owhoami/?", OWhoAmIHandler),
+                (r".*/oauth_callback", HubOAuthCallbackHandler),
+                (r".*", EchoHandler),
             ],
             cookie_secret=os.urandom(32),
         )
 
         ssl_context = None
-        key = os.environ.get('JUPYTERHUB_SSL_KEYFILE') or ''
-        cert = os.environ.get('JUPYTERHUB_SSL_CERTFILE') or ''
-        ca = os.environ.get('JUPYTERHUB_SSL_CLIENT_CA') or ''
+        key = os.environ.get("JUPYTERHUB_SSL_KEYFILE") or ""
+        cert = os.environ.get("JUPYTERHUB_SSL_CERTFILE") or ""
+        ca = os.environ.get("JUPYTERHUB_SSL_CLIENT_CA") or ""
 
         if key and cert and ca:
             ssl_context = make_ssl_context(key, cert, cafile=ca, check_hostname=False)
@@ -110,10 +110,10 @@ def main():
     try:
         ioloop.IOLoop.instance().start()
     except KeyboardInterrupt:
-        print('\nInterrupted')
+        print("\nInterrupted")
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     from tornado.options import parse_command_line
 
     parse_command_line()

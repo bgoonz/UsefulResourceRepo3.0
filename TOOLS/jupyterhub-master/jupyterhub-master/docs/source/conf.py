@@ -4,31 +4,31 @@ import os
 import sys
 
 # Set paths
-sys.path.insert(0, os.path.abspath('.'))
+sys.path.insert(0, os.path.abspath("."))
 
 # -- General configuration ------------------------------------------------
 
 # Minimal Sphinx version
-needs_sphinx = '1.4'
+needs_sphinx = "1.4"
 
 # Sphinx extension modules
 extensions = [
-    'sphinx.ext.autodoc',
-    'sphinx.ext.intersphinx',
-    'sphinx.ext.napoleon',
-    'autodoc_traits',
-    'sphinx_copybutton',
-    'sphinx-jsonschema',
-    'recommonmark',
+    "sphinx.ext.autodoc",
+    "sphinx.ext.intersphinx",
+    "sphinx.ext.napoleon",
+    "autodoc_traits",
+    "sphinx_copybutton",
+    "sphinx-jsonschema",
+    "recommonmark",
 ]
 
 # The master toctree document.
-master_doc = 'index'
+master_doc = "index"
 
 # General information about the project.
-project = u'JupyterHub'
-copyright = u'2016, Project Jupyter team'
-author = u'Project Jupyter team'
+project = u"JupyterHub"
+copyright = u"2016, Project Jupyter team"
+author = u"Project Jupyter team"
 
 # Autopopulate version
 from os.path import dirname
@@ -40,17 +40,17 @@ sys.path.insert(0, root)
 import jupyterhub
 
 # The short X.Y version.
-version = '%i.%i' % jupyterhub.version_info[:2]
+version = "%i.%i" % jupyterhub.version_info[:2]
 # The full version, including alpha/beta/rc tags.
 release = jupyterhub.__version__
 
 language = None
 exclude_patterns = []
-pygments_style = 'sphinx'
+pygments_style = "sphinx"
 todo_include_todos = False
 
 # Set the default role so we can use `foo` instead of ``foo``
-default_role = 'literal'
+default_role = "literal"
 
 # -- Source -------------------------------------------------------------
 
@@ -82,8 +82,8 @@ class ConfigDirective(SphinxDirective):
         # The generated configuration file for this version
         generated_config = jupyterhub_app.generate_config_file()
         # post-process output
-        home_dir = os.environ['HOME']
-        generated_config = generated_config.replace(home_dir, '$HOME', 1)
+        home_dir = os.environ["HOME"]
+        generated_config = generated_config.replace(home_dir, "$HOME", 1)
         par = nodes.literal_block(text=generated_config)
         return [par]
 
@@ -101,38 +101,38 @@ class HelpAllDirective(SphinxDirective):
         # The output of the help command for this version
         buffer = StringIO()
         with redirect_stdout(buffer):
-            jupyterhub_app.print_help('--help-all')
+            jupyterhub_app.print_help("--help-all")
         all_help = buffer.getvalue()
         # post-process output
-        home_dir = os.environ['HOME']
-        all_help = all_help.replace(home_dir, '$HOME', 1)
+        home_dir = os.environ["HOME"]
+        all_help = all_help.replace(home_dir, "$HOME", 1)
         par = nodes.literal_block(text=all_help)
         return [par]
 
 
 def setup(app):
-    app.add_config_value('recommonmark_config', {'enable_eval_rst': True}, True)
-    app.add_css_file('custom.css')
+    app.add_config_value("recommonmark_config", {"enable_eval_rst": True}, True)
+    app.add_css_file("custom.css")
     app.add_transform(AutoStructify)
-    app.add_directive('jupyterhub-generate-config', ConfigDirective)
-    app.add_directive('jupyterhub-help-all', HelpAllDirective)
+    app.add_directive("jupyterhub-generate-config", ConfigDirective)
+    app.add_directive("jupyterhub-help-all", HelpAllDirective)
 
 
-source_suffix = ['.rst', '.md']
+source_suffix = [".rst", ".md"]
 # source_encoding = 'utf-8-sig'
 
 # -- Options for HTML output ----------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.
-html_theme = 'pydata_sphinx_theme'
+html_theme = "pydata_sphinx_theme"
 
-html_logo = '_static/images/logo/logo.png'
-html_favicon = '_static/images/logo/favicon.ico'
+html_logo = "_static/images/logo/logo.png"
+html_favicon = "_static/images/logo/favicon.ico"
 
 # Paths that contain custom static files (such as style sheets)
-html_static_path = ['_static']
+html_static_path = ["_static"]
 
-htmlhelp_basename = 'JupyterHubdoc'
+htmlhelp_basename = "JupyterHubdoc"
 
 # -- Options for LaTeX output ---------------------------------------------
 
@@ -149,10 +149,10 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        'JupyterHub.tex',
-        u'JupyterHub Documentation',
-        u'Project Jupyter team',
-        'manual',
+        "JupyterHub.tex",
+        u"JupyterHub Documentation",
+        u"Project Jupyter team",
+        "manual",
     )
 ]
 
@@ -168,7 +168,7 @@ latex_documents = [
 
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
-man_pages = [(master_doc, 'jupyterhub', u'JupyterHub Documentation', [author], 1)]
+man_pages = [(master_doc, "jupyterhub", u"JupyterHub Documentation", [author], 1)]
 
 # man_show_urls = False
 
@@ -181,12 +181,12 @@ man_pages = [(master_doc, 'jupyterhub', u'JupyterHub Documentation', [author], 1
 texinfo_documents = [
     (
         master_doc,
-        'JupyterHub',
-        u'JupyterHub Documentation',
+        "JupyterHub",
+        u"JupyterHub Documentation",
         author,
-        'JupyterHub',
-        'One line description of project.',
-        'Miscellaneous',
+        "JupyterHub",
+        "One line description of project.",
+        "Miscellaneous",
     )
 ]
 
@@ -205,21 +205,21 @@ epub_publisher = author
 epub_copyright = copyright
 
 # A list of files that should not be packed into the epub file.
-epub_exclude_files = ['search.html']
+epub_exclude_files = ["search.html"]
 
 # -- Intersphinx ----------------------------------------------------------
 
-intersphinx_mapping = {'https://docs.python.org/3/': None}
+intersphinx_mapping = {"https://docs.python.org/3/": None}
 
 # -- Read The Docs --------------------------------------------------------
 
-on_rtd = os.environ.get('READTHEDOCS', None) == 'True'
+on_rtd = os.environ.get("READTHEDOCS", None) == "True"
 if on_rtd:
     # readthedocs.org uses their theme by default, so no need to specify it
     # build both metrics and rest-api, since RTD doesn't run make
     from subprocess import check_call as sh
 
-    sh(['make', 'metrics', 'rest-api'], cwd=docs)
+    sh(["make", "metrics", "rest-api"], cwd=docs)
 
 # -- Spell checking -------------------------------------------------------
 
@@ -230,4 +230,4 @@ except ImportError:
 else:
     extensions.append("sphinxcontrib.spelling")
 
-spelling_word_list_filename = 'spelling_wordlist.txt'
+spelling_word_list_filename = "spelling_wordlist.txt"

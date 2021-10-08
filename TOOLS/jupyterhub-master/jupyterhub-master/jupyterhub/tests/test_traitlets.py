@@ -12,24 +12,24 @@ def test_url_prefix():
         url = URLPrefix()
 
     c = C()
-    c.url = '/a/b/c/'
-    assert c.url == '/a/b/c/'
-    c.url = '/a/b'
-    assert c.url == '/a/b/'
-    c.url = 'a/b/c/d'
-    assert c.url == '/a/b/c/d/'
+    c.url = "/a/b/c/"
+    assert c.url == "/a/b/c/"
+    c.url = "/a/b"
+    assert c.url == "/a/b/"
+    c.url = "a/b/c/d"
+    assert c.url == "/a/b/c/d/"
 
 
 def test_command():
     class C(HasTraits):
-        cmd = Command('default command')
-        cmd2 = Command(['default_cmd'])
+        cmd = Command("default command")
+        cmd2 = Command(["default_cmd"])
 
     c = C()
-    assert c.cmd == ['default command']
-    assert c.cmd2 == ['default_cmd']
-    c.cmd = 'foo bar'
-    assert c.cmd == ['foo bar']
+    assert c.cmd == ["default command"]
+    assert c.cmd2 == ["default_cmd"]
+    c.cmd = "foo bar"
+    assert c.cmd == ["foo bar"]
 
 
 def test_memoryspec():
@@ -42,25 +42,25 @@ def test_memoryspec():
     assert isinstance(c.mem, int)
     assert c.mem == 1024
 
-    c.mem = '1024K'
+    c.mem = "1024K"
     assert isinstance(c.mem, int)
     assert c.mem == 1024 * 1024
 
-    c.mem = '1024M'
+    c.mem = "1024M"
     assert isinstance(c.mem, int)
     assert c.mem == 1024 * 1024 * 1024
 
-    c.mem = '1.5M'
+    c.mem = "1.5M"
     assert isinstance(c.mem, int)
     assert c.mem == 1.5 * 1024 * 1024
 
-    c.mem = '1024G'
+    c.mem = "1024G"
     assert isinstance(c.mem, int)
     assert c.mem == 1024 * 1024 * 1024 * 1024
 
-    c.mem = '1024T'
+    c.mem = "1024T"
     assert isinstance(c.mem, int)
     assert c.mem == 1024 * 1024 * 1024 * 1024 * 1024
 
     with pytest.raises(TraitError):
-        c.mem = '1024Gi'
+        c.mem = "1024Gi"

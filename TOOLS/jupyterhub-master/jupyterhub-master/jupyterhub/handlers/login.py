@@ -17,7 +17,7 @@ class LogoutHandler(BaseHandler):
 
     @property
     def shutdown_on_logout(self):
-        return self.settings.get('shutdown_on_logout', False)
+        return self.settings.get("shutdown_on_logout", False)
 
     async def _shutdown_servers(self, user):
         """Shutdown servers for logout
@@ -43,7 +43,7 @@ class LogoutHandler(BaseHandler):
         """
         self.log.info("User logged out: %s", name)
         self.clear_login_cookie()
-        self.statsd.incr('logout')
+        self.statsd.incr("logout")
 
     async def default_handle_logout(self):
         """The default logout action
@@ -73,10 +73,10 @@ class LogoutHandler(BaseHandler):
         Override this function to set a custom logout page.
         """
         if self.authenticator.auto_login:
-            html = await self.render_template('logout.html')
+            html = await self.render_template("logout.html")
             self.finish(html)
         else:
-            self.redirect(self.settings['login_url'], permanent=False)
+            self.redirect(self.settings["login_url"], permanent=False)
 
     async def get(self):
         """Log the user out, call the custom action, forward the user
@@ -92,26 +92,22 @@ class LoginHandler(BaseHandler):
 
     def _render(self, login_error=None, username=None):
         context = {
-            "next": url_escape(self.get_argument('next', default='')),
+            "next": url_escape(self.get_argument("next", default="")),
             "username": username,
             "login_error": login_error,
-            "login_url": self.settings['login_url'],
+            "login_url": self.settings["login_url"],
             "authenticator_login_url": url_concat(
                 self.authenticator.login_url(self.hub.base_url),
-                {'next': self.get_argument('next', '')},
+                {"next": self.get_argument("next", "")},
             ),
         }
         custom_html = Template(
             self.authenticator.get_custom_html(self.hub.base_url)
         ).render(**context)
-        return self.render_template(
-            'login.html',
-            **context,
-            custom_html=custom_html,
-        )
+        return self.render_template("login.html", **context, custom_html=custom_html)
 
     async def get(self):
-        self.statsd.incr('login.request')
+        self.statsd.incr("login.request")
         user = self.current_user
         if user:
             # set new login cookie
@@ -121,7 +117,7 @@ class LoginHandler(BaseHandler):
         else:
             if self.authenticator.auto_login:
                 auto_login_url = self.authenticator.login_url(self.hub.base_url)
-                if auto_login_url == self.settings['login_url']:
+                if auto_login_url == self.settings["login_url"]:
                     # auto_login without a custom login handler
                     # means that auth info is already in the request
                     # (e.g. REMOTE_USER header)
@@ -132,13 +128,13 @@ class LoginHandler(BaseHandler):
                     else:
                         self.redirect(self.get_next_url(user))
                 else:
-                    if self.get_argument('next', default=False):
+                    if self.get_argument("next", default=False):
                         auto_login_url = url_concat(
-                            auto_login_url, {'next': self.get_next_url()}
+                            auto_login_url, {"next": self.get_next_url()}
                         )
                     self.redirect(auto_login_url)
                 return
-            username = self.get_argument('username', default='')
+            username = self.get_argument("username", default="")
             self.finish(await self._render(username=username))
 
     async def post(self):
@@ -147,7 +143,7 @@ class LoginHandler(BaseHandler):
         for arg in self.request.arguments:
             data[arg] = self.get_argument(arg, strip=False)
 
-        auth_timer = self.statsd.timer('login.authenticate').start()
+        auth_timer = self.statsd.timer("login.authenticate").start()
         user = await self.login_user(data)
         auth_timer.stop(send=False)
 
@@ -157,7 +153,7 @@ class LoginHandler(BaseHandler):
             self.redirect(self.get_next_url(user))
         else:
             html = await self._render(
-                login_error='Invalid username or password', username=data['username']
+                login_error="Invalid username or password", username=data["username"]
             )
             self.finish(html)
 

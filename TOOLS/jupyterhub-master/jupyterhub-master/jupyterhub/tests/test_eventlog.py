@@ -24,9 +24,9 @@ from .mocking import MockHub
 # { ( '<schema id>', <version> ) : { <event_data> } }
 valid_events = [
     (
-        'hub.jupyter.org/server-action',
+        "hub.jupyter.org/server-action",
         1,
-        dict(action='start', username='test-username', servername='test-servername'),
+        dict(action="start", username="test-username", servername="test-servername"),
     )
 ]
 
@@ -34,7 +34,7 @@ valid_events = [
 # { ( '<schema id>', <version> ) : { <event_data> } }
 invalid_events = [
     # Missing required keys
-    ('hub.jupyter.org/server-action', 1, dict(action='start'))
+    ("hub.jupyter.org/server-action", 1, dict(action="start"))
 ]
 
 
@@ -47,7 +47,7 @@ def eventlog_sink(app):
     cfg = Config()
     cfg.EventLog.handlers = [handler]
 
-    with mock.patch.object(app.config, 'EventLog', cfg.EventLog):
+    with mock.patch.object(app.config, "EventLog", cfg.EventLog):
         # recreate the eventlog object with our config
         app.init_eventlog()
         # return the sink from the fixture
@@ -56,7 +56,7 @@ def eventlog_sink(app):
     app.init_eventlog()
 
 
-@pytest.mark.parametrize('schema, version, event', valid_events)
+@pytest.mark.parametrize("schema, version, event", valid_events)
 def test_valid_events(eventlog_sink, schema, version, event):
     eventlog, sink = eventlog_sink
     eventlog.allowed_schemas = [schema]
@@ -70,7 +70,7 @@ def test_valid_events(eventlog_sink, schema, version, event):
     assert data is not None
 
 
-@pytest.mark.parametrize('schema, version, event', invalid_events)
+@pytest.mark.parametrize("schema, version, event", invalid_events)
 def test_invalid_events(eventlog_sink, schema, version, event):
     eventlog, sink = eventlog_sink
     eventlog.allowed_schemas = [schema]

@@ -25,17 +25,17 @@ def coroutine_frames(all_frames):
     """
     useful_frames = []
     for frame in all_frames:
-        if frame[0] == '<string>' and frame[2] == 'raise_exc_info':
+        if frame[0] == "<string>" and frame[2] == "raise_exc_info":
             continue
         # start out conservative with filename + function matching
         # maybe just filename matching would be sufficient
-        elif frame[0].endswith('tornado/gen.py') and frame[2] in {
-            'run',
-            'wrapper',
-            '__init__',
+        elif frame[0].endswith("tornado/gen.py") and frame[2] in {
+            "run",
+            "wrapper",
+            "__init__",
         }:
             continue
-        elif frame[0].endswith('tornado/concurrent.py') and frame[2] == 'result':
+        elif frame[0].endswith("tornado/concurrent.py") and frame[2] == "result":
             continue
         useful_frames.append(frame)
     return useful_frames
@@ -53,7 +53,7 @@ def coroutine_traceback(typ, value, tb):
     all_frames = traceback.extract_tb(tb)
     useful_frames = coroutine_frames(all_frames)
 
-    tb_list = ['Traceback (most recent call last):\n']
+    tb_list = ["Traceback (most recent call last):\n"]
     tb_list.extend(traceback.format_list(useful_frames))
     tb_list.extend(traceback.format_exception_only(typ, value))
     return tb_list
@@ -63,35 +63,35 @@ class CoroutineLogFormatter(LogFormatter):
     """Log formatter that scrubs coroutine frames"""
 
     def formatException(self, exc_info):
-        return ''.join(coroutine_traceback(*exc_info))
+        return "".join(coroutine_traceback(*exc_info))
 
 
 # url params to be scrubbed if seen
 # any url param that *contains* one of these
 # will be scrubbed from logs
-SCRUB_PARAM_KEYS = ('token', 'auth', 'key', 'code', 'state')
+SCRUB_PARAM_KEYS = ("token", "auth", "key", "code", "state")
 
 
 def _scrub_uri(uri):
     """scrub auth info from uri"""
-    if '/api/authorizations/cookie/' in uri or '/api/authorizations/token/' in uri:
-        uri = uri.rsplit('/', 1)[0] + '/[secret]'
+    if "/api/authorizations/cookie/" in uri or "/api/authorizations/token/" in uri:
+        uri = uri.rsplit("/", 1)[0] + "/[secret]"
     parsed = urlparse(uri)
     if parsed.query:
         # check for potentially sensitive url params
         # use manual list + split rather than parsing
         # to minimally perturb original
-        parts = parsed.query.split('&')
+        parts = parsed.query.split("&")
         changed = False
         for i, s in enumerate(parts):
-            if '=' in s:
-                key, value = s.split('=', 1)
+            if "=" in s:
+                key, value = s.split("=", 1)
                 for substring in SCRUB_PARAM_KEYS:
                     if substring in key:
-                        parts[i] = key + '=[secret]'
+                        parts[i] = key + "=[secret]"
                         changed = True
         if changed:
-            parsed = parsed._replace(query='&'.join(parts))
+            parsed = parsed._replace(query="&".join(parts))
             return urlunparse(parsed)
     return uri
 
@@ -99,20 +99,20 @@ def _scrub_uri(uri):
 def _scrub_headers(headers):
     """scrub auth info from headers"""
     headers = dict(headers)
-    if 'Authorization' in headers:
-        auth = headers['Authorization']
-        if ' ' in auth:
-            auth_type = auth.split(' ', 1)[0]
+    if "Authorization" in headers:
+        auth = headers["Authorization"]
+        if " " in auth:
+            auth_type = auth.split(" ", 1)[0]
         else:
             # no space, hide the whole thing in case there was a mistake
-            auth_type = ''
-        headers['Authorization'] = '{} [secret]'.format(auth_type)
-    if 'Cookie' in headers:
-        c = SimpleCookie(headers['Cookie'])
+            auth_type = ""
+        headers["Authorization"] = "{} [secret]".format(auth_type)
+    if "Cookie" in headers:
+        c = SimpleCookie(headers["Cookie"])
         redacted = []
         for name in c.keys():
             redacted.append("{}=[secret]".format(name))
-        headers['Cookie'] = '; '.join(redacted)
+        headers["Cookie"] = "; ".join(redacted)
     return headers
 
 
@@ -156,14 +156,14 @@ def log_request(handler):
     try:
         user = handler.current_user
     except (HTTPError, RuntimeError):
-        username = ''
+        username = ""
     else:
         if user is None:
-            username = ''
+            username = ""
         elif isinstance(user, str):
             username = user
         elif isinstance(user, dict):
-            username = user['name']
+            username = user["name"]
         else:
             username = user.name
 
@@ -174,7 +174,7 @@ def log_request(handler):
         uri=uri,
         request_time=request_time,
         user=username,
-        location='',
+        location="",
     )
     msg = "{status} {method} {uri}{location} ({user}@{ip}) {request_time:.2f}ms"
     if status >= 500 and status not in {502, 503}:
@@ -183,8 +183,8 @@ def log_request(handler):
         # log redirect targets
         # FIXME: _headers is private, but there doesn't appear to be a public way
         # to get headers from tornado
-        location = handler._headers.get('Location')
+        location = handler._headers.get("Location")
         if location:
-            ns['location'] = ' -> {}'.format(_scrub_uri(location))
+            ns["location"] = " -> {}".format(_scrub_uri(location))
     log_method(msg.format(**ns))
     prometheus_log_method(handler)

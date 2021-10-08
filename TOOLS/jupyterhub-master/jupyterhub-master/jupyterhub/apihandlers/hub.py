@@ -28,15 +28,15 @@ class ShutdownAPIHandler(APIHandler):
 
         data = self.get_json_body()
         if data:
-            if 'proxy' in data:
-                proxy = data['proxy']
+            if "proxy" in data:
+                proxy = data["proxy"]
                 if proxy not in {True, False}:
                     raise web.HTTPError(
                         400, "proxy must be true or false, got %r" % proxy
                     )
                 app.cleanup_proxy = proxy
-            if 'servers' in data:
-                servers = data['servers']
+            if "servers" in data:
+                servers = data["servers"]
                 if servers not in {True, False}:
                     raise web.HTTPError(
                         400, "servers must be true or false, got %r" % servers
@@ -60,7 +60,7 @@ class RootAPIHandler(APIHandler):
 
         For now, it just returns the version of JupyterHub itself.
         """
-        data = {'version': __version__}
+        data = {"version": __version__}
         self.finish(json.dumps(data))
 
 
@@ -77,22 +77,22 @@ class InfoAPIHandler(APIHandler):
         def _class_info(typ):
             """info about a class (Spawner or Authenticator)"""
             info = {
-                'class': '{mod}.{name}'.format(mod=typ.__module__, name=typ.__name__)
+                "class": "{mod}.{name}".format(mod=typ.__module__, name=typ.__name__)
             }
-            pkg = typ.__module__.split('.')[0]
+            pkg = typ.__module__.split(".")[0]
             try:
                 version = sys.modules[pkg].__version__
             except (KeyError, AttributeError):
-                version = 'unknown'
-            info['version'] = version
+                version = "unknown"
+            info["version"] = version
             return info
 
         data = {
-            'version': __version__,
-            'python': sys.version,
-            'sys_executable': sys.executable,
-            'spawner': _class_info(self.settings['spawner_class']),
-            'authenticator': _class_info(self.authenticator.__class__),
+            "version": __version__,
+            "python": sys.version,
+            "sys_executable": sys.executable,
+            "spawner": _class_info(self.settings["spawner_class"]),
+            "authenticator": _class_info(self.authenticator.__class__),
         }
         self.finish(json.dumps(data))
 

@@ -36,41 +36,41 @@ class Server(HasTraits):
     ip = Unicode()
     connect_ip = Unicode()
     connect_port = Integer()
-    proto = Unicode('http')
+    proto = Unicode("http")
     port = Integer()
-    base_url = URLPrefix('/')
-    cookie_name = Unicode('')
-    connect_url = Unicode('')
-    bind_url = Unicode('')
+    base_url = URLPrefix("/")
+    cookie_name = Unicode("")
+    connect_url = Unicode("")
+    bind_url = Unicode("")
     certfile = Unicode()
     keyfile = Unicode()
     cafile = Unicode()
 
-    @default('bind_url')
+    @default("bind_url")
     def bind_url_default(self):
         """representation of URL used for binding
 
         Never used in APIs, only logging,
         since it can be non-connectable value, such as '', meaning all interfaces.
         """
-        if self.ip in {'', '0.0.0.0', '::'}:
-            return self.url.replace(self._connect_ip, self.ip or '*', 1)
+        if self.ip in {"", "0.0.0.0", "::"}:
+            return self.url.replace(self._connect_ip, self.ip or "*", 1)
         return self.url
 
-    @observe('bind_url')
+    @observe("bind_url")
     def _bind_url_changed(self, change):
         urlinfo = urlparse(change.new)
         self.proto = urlinfo.scheme
-        self.ip = urlinfo.hostname or ''
+        self.ip = urlinfo.hostname or ""
         port = urlinfo.port
         if port is None:
-            if self.proto == 'https':
+            if self.proto == "https":
                 port = 443
             else:
                 port = 80
         self.port = port
 
-    @validate('connect_url')
+    @validate("connect_url")
     def _connect_url_add_prefix(self, proposal):
         """Ensure connect_url includes base_url"""
         if not proposal.value:
@@ -93,7 +93,7 @@ class Server(HasTraits):
         """
         if self.connect_ip:
             return self.connect_ip
-        elif self.ip in {'', '0.0.0.0', '::'}:
+        elif self.ip in {"", "0.0.0.0", "::"}:
             # if listening on all interfaces, default to hostname for connect
             return socket.gethostname()
         else:
@@ -120,11 +120,11 @@ class Server(HasTraits):
         """Create a Server from a given URL"""
         return cls(bind_url=url, base_url=urlparse(url).path)
 
-    @default('port')
+    @default("port")
     def _default_port(self):
         return random_port()
 
-    @observe('orm_server')
+    @observe("orm_server")
     def _orm_server_changed(self, change):
         """When we get an orm_server, get attributes from there."""
         obj = change.new
@@ -135,7 +135,7 @@ class Server(HasTraits):
         self.cookie_name = obj.cookie_name
 
     # setter to pass through to the database
-    @observe('ip', 'proto', 'port', 'base_url', 'cookie_name')
+    @observe("ip", "proto", "port", "base_url", "cookie_name")
     def _change(self, change):
         if self.orm_server and getattr(self.orm_server, change.name) != change.new:
             # setattr on an sqlalchemy object sets the dirty flag,
@@ -150,7 +150,7 @@ class Server(HasTraits):
             parsed = urlparse(self.connect_url)
             return "{proto}://{host}".format(proto=parsed.scheme, host=parsed.netloc)
 
-        if ':' in self._connect_ip:
+        if ":" in self._connect_ip:
             fmt = "{proto}://[{ip}]:{port}"
         else:
             fmt = "{proto}://{ip}:{port}"
@@ -198,7 +198,7 @@ class Hub(Server):
     of the server base_url.
     """
 
-    cookie_name = 'jupyterhub-hub-login'
+    cookie_name = "jupyterhub-hub-login"
 
     @property
     def server(self):
@@ -215,7 +215,7 @@ class Hub(Server):
     @property
     def api_url(self):
         """return the full API url (with proto://host...)"""
-        return url_path_join(self.url, 'api')
+        return url_path_join(self.url, "api")
 
     def __repr__(self):
         return "<%s %s:%s>" % (self.__class__.__name__, self.ip, self.port)

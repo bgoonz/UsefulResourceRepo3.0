@@ -136,12 +136,12 @@ class Proxy(LoggingConfigurable):
         - Checks host value vs host-based routing.
         - Ensures trailing slash on path.
         """
-        if routespec == '/':
+        if routespec == "/":
             # / is the default route.
             # don't check host-based routing
             return routespec
         # check host routing
-        host_route = not routespec.startswith('/')
+        host_route = not routespec.startswith("/")
         if host_route and not self.host_routing:
             raise ValueError(
                 "Cannot add host-based route %r, not using host-routing" % routespec
@@ -151,8 +151,8 @@ class Proxy(LoggingConfigurable):
                 "Cannot add route without host %r, using host-routing" % routespec
             )
         # add trailing slash
-        if not routespec.endswith('/'):
-            return routespec + '/'
+        if not routespec.endswith("/"):
+            return routespec + "/"
         else:
             return routespec
 
@@ -243,7 +243,7 @@ class Proxy(LoggingConfigurable):
         )
 
         await self.add_route(
-            service.proxy_spec, service.server.host, {'service': service.name}
+            service.proxy_spec, service.server.host, {"service": service.name}
         )
 
     async def delete_service(self, service, client=None):
@@ -251,7 +251,7 @@ class Proxy(LoggingConfigurable):
         self.log.info("Removing service %s from proxy", service.name)
         await self.delete_route(service.proxy_spec)
 
-    async def add_user(self, user, server_name='', client=None):
+    async def add_user(self, user, server_name="", client=None):
         """Add a user's server to the proxy table."""
         spawner = user.spawners[server_name]
         self.log.info(
@@ -261,7 +261,7 @@ class Proxy(LoggingConfigurable):
             spawner.server.host,
         )
 
-        if spawner.pending and spawner.pending != 'spawn':
+        if spawner.pending and spawner.pending != "spawn":
             raise RuntimeError(
                 "%s is pending %s, shouldn't be added to the proxy yet!"
                 % (spawner._log_name, spawner.pending)
@@ -270,14 +270,14 @@ class Proxy(LoggingConfigurable):
         await self.add_route(
             spawner.proxy_spec,
             spawner.server.host,
-            {'user': user.name, 'server_name': server_name},
+            {"user": user.name, "server_name": server_name},
         )
 
-    async def delete_user(self, user, server_name=''):
+    async def delete_user(self, user, server_name=""):
         """Remove a user's server from the proxy table."""
         routespec = user.proxy_spec
         if server_name:
-            routespec = url_path_join(user.proxy_spec, server_name, '/')
+            routespec = url_path_join(user.proxy_spec, server_name, "/")
         self.log.info("Removing user %s from proxy (%s)", user.name, routespec)
         await self.delete_route(routespec)
 
@@ -318,7 +318,7 @@ class Proxy(LoggingConfigurable):
         # as we are about
         self.log.info("Checking routes")
 
-        user_routes = {path for path, r in routes.items() if 'user' in r['data']}
+        user_routes = {path for path, r in routes.items() if "user" in r["data"]}
         futures = []
 
         good_routes = {self.app.hub.routespec}
@@ -328,9 +328,9 @@ class Proxy(LoggingConfigurable):
             futures.append(self.add_hub_route(hub))
         else:
             route = routes[self.app.hub.routespec]
-            if route['target'] != hub.host:
+            if route["target"] != hub.host:
                 self.log.warning(
-                    "Updating default route %s → %s", route['target'], hub.host
+                    "Updating default route %s → %s", route["target"], hub.host
                 )
                 futures.append(self.add_hub_route(hub))
 
@@ -346,11 +346,11 @@ class Proxy(LoggingConfigurable):
                         futures.append(self.add_user(user, name))
                     else:
                         route = routes[spec]
-                        if route['target'] != spawner.server.host:
+                        if route["target"] != spawner.server.host:
                             self.log.warning(
                                 "Updating route for %s (%s → %s)",
                                 spec,
-                                route['target'],
+                                route["target"],
                                 spawner.server,
                             )
                             futures.append(self.add_user(user, name))
@@ -362,7 +362,7 @@ class Proxy(LoggingConfigurable):
 
         # check service routes
         service_routes = {
-            r['data']['service']: r for r in routes.values() if 'service' in r['data']
+            r["data"]["service"]: r for r in routes.values() if "service" in r["data"]
         }
         for service in service_dict.values():
             if service.server is None:
@@ -375,11 +375,11 @@ class Proxy(LoggingConfigurable):
                 futures.append(self.add_service(service))
             else:
                 route = service_routes[service.name]
-                if route['target'] != service.server.host:
+                if route["target"] != service.server.host:
                     self.log.warning(
                         "Updating route for %s (%s → %s)",
-                        route['routespec'],
-                        route['target'],
+                        route["routespec"],
+                        route["target"],
                         service.server.host,
                     )
                     futures.append(self.add_service(service))
@@ -397,7 +397,7 @@ class Proxy(LoggingConfigurable):
     def add_hub_route(self, hub):
         """Add the default route for the Hub"""
         self.log.info("Adding default route for Hub: %s => %s", hub.routespec, hub.host)
-        return self.add_route(hub.routespec, self.hub.host, {'hub': True})
+        return self.add_route(hub.routespec, self.hub.host, {"hub": True})
 
     async def restore_routes(self):
         self.log.info("Setting up routes on new proxy")
@@ -435,11 +435,11 @@ class ConfigurableHTTPProxy(Proxy):
     )
     semaphore = Any()
 
-    @default('semaphore')
+    @default("semaphore")
     def _default_semaphore(self):
         return asyncio.BoundedSemaphore(self.concurrency)
 
-    @observe('concurrency')
+    @observe("concurrency")
     def _concurrency_changed(self, change):
         self.semaphore = asyncio.BoundedSemaphore(change.new)
 
@@ -456,9 +456,9 @@ class ConfigurableHTTPProxy(Proxy):
         config=True,
     )
 
-    @default('auth_token')
+    @default("auth_token")
     def _auth_token_default(self):
-        token = os.environ.get('CONFIGPROXY_AUTH_TOKEN', '')
+        token = os.environ.get("CONFIGPROXY_AUTH_TOKEN", "")
         if self.should_start and not token:
             # generating tokens is fine if the Hub is starting the proxy
             self.log.info("Generating new CONFIGPROXY_AUTH_TOKEN")
@@ -469,17 +469,17 @@ class ConfigurableHTTPProxy(Proxy):
         config=True, help="""The ip (or hostname) of the proxy's API endpoint"""
     )
 
-    @default('api_url')
+    @default("api_url")
     def _api_url_default(self):
-        url = '127.0.0.1:8001'
-        proto = 'http'
+        url = "127.0.0.1:8001"
+        proto = "http"
         if self.app.internal_ssl:
-            proto = 'https'
+            proto = "https"
 
         return "{proto}://{url}".format(proto=proto, url=url)
 
     command = Command(
-        'configurable-http-proxy',
+        "configurable-http-proxy",
         config=True,
         help="""The command to start the proxy""",
     )
@@ -495,7 +495,7 @@ class ConfigurableHTTPProxy(Proxy):
     )
 
     def _check_pid(self, pid):
-        if os.name == 'nt':
+        if os.name == "nt":
             import psutil
 
             if not psutil.pid_exists(pid):
@@ -548,11 +548,11 @@ class ConfigurableHTTPProxy(Proxy):
 
         # if we got here, CHP is still running
         self.log.warning("Proxy still running at pid=%s", pid)
-        if os.name != 'nt':
+        if os.name != "nt":
             sig_list = [signal.SIGTERM] * 2 + [signal.SIGKILL]
         for i in range(3):
             try:
-                if os.name == 'nt':
+                if os.name == "nt":
                     self._terminate_win(pid)
                 else:
                     os.kill(pid, sig_list[i])
@@ -593,29 +593,29 @@ class ConfigurableHTTPProxy(Proxy):
     def _get_ssl_options(self):
         """List of cmd proxy options to use internal SSL"""
         cmd = []
-        proxy_api = 'proxy-api'
-        proxy_client = 'proxy-client'
+        proxy_api = "proxy-api"
+        proxy_client = "proxy-client"
         api_key = self.app.internal_proxy_certs[proxy_api][
-            'keyfile'
+            "keyfile"
         ]  # Check content in next test and just patch manulaly or in the config of the file
-        api_cert = self.app.internal_proxy_certs[proxy_api]['certfile']
-        api_ca = self.app.internal_trust_bundles[proxy_api + '-ca']
+        api_cert = self.app.internal_proxy_certs[proxy_api]["certfile"]
+        api_ca = self.app.internal_trust_bundles[proxy_api + "-ca"]
 
-        client_key = self.app.internal_proxy_certs[proxy_client]['keyfile']
-        client_cert = self.app.internal_proxy_certs[proxy_client]['certfile']
-        client_ca = self.app.internal_trust_bundles[proxy_client + '-ca']
+        client_key = self.app.internal_proxy_certs[proxy_client]["keyfile"]
+        client_cert = self.app.internal_proxy_certs[proxy_client]["certfile"]
+        client_ca = self.app.internal_trust_bundles[proxy_client + "-ca"]
 
-        cmd.extend(['--api-ssl-key', api_key])
-        cmd.extend(['--api-ssl-cert', api_cert])
-        cmd.extend(['--api-ssl-ca', api_ca])
-        cmd.extend(['--api-ssl-request-cert'])
-        cmd.extend(['--api-ssl-reject-unauthorized'])
+        cmd.extend(["--api-ssl-key", api_key])
+        cmd.extend(["--api-ssl-cert", api_cert])
+        cmd.extend(["--api-ssl-ca", api_ca])
+        cmd.extend(["--api-ssl-request-cert"])
+        cmd.extend(["--api-ssl-reject-unauthorized"])
 
-        cmd.extend(['--client-ssl-key', client_key])
-        cmd.extend(['--client-ssl-cert', client_cert])
-        cmd.extend(['--client-ssl-ca', client_ca])
-        cmd.extend(['--client-ssl-request-cert'])
-        cmd.extend(['--client-ssl-reject-unauthorized'])
+        cmd.extend(["--client-ssl-key", client_key])
+        cmd.extend(["--client-ssl-cert", client_cert])
+        cmd.extend(["--client-ssl-ca", client_ca])
+        cmd.extend(["--client-ssl-request-cert"])
+        cmd.extend(["--client-ssl-reject-unauthorized"])
         return cmd
 
     async def start(self):
@@ -627,49 +627,49 @@ class ConfigurableHTTPProxy(Proxy):
         public_server = Server.from_url(self.public_url)
         api_server = Server.from_url(self.api_url)
         env = os.environ.copy()
-        env['CONFIGPROXY_AUTH_TOKEN'] = self.auth_token
+        env["CONFIGPROXY_AUTH_TOKEN"] = self.auth_token
         cmd = self.command + [
-            '--ip',
+            "--ip",
             public_server.ip,
-            '--port',
+            "--port",
             str(public_server.port),
-            '--api-ip',
+            "--api-ip",
             api_server.ip,
-            '--api-port',
+            "--api-port",
             str(api_server.port),
-            '--error-target',
-            url_path_join(self.hub.url, 'error'),
+            "--error-target",
+            url_path_join(self.hub.url, "error"),
         ]
         if self.app.subdomain_host:
-            cmd.append('--host-routing')
+            cmd.append("--host-routing")
         if self.debug:
-            cmd.extend(['--log-level', 'debug'])
+            cmd.extend(["--log-level", "debug"])
         if self.ssl_key:
-            cmd.extend(['--ssl-key', self.ssl_key])
+            cmd.extend(["--ssl-key", self.ssl_key])
         if self.ssl_cert:
-            cmd.extend(['--ssl-cert', self.ssl_cert])
+            cmd.extend(["--ssl-cert", self.ssl_cert])
         if self.app.internal_ssl:
             cmd.extend(self._get_ssl_options())
         if self.app.statsd_host:
             cmd.extend(
                 [
-                    '--statsd-host',
+                    "--statsd-host",
                     self.app.statsd_host,
-                    '--statsd-port',
+                    "--statsd-port",
                     str(self.app.statsd_port),
-                    '--statsd-prefix',
-                    self.app.statsd_prefix + '.chp',
+                    "--statsd-prefix",
+                    self.app.statsd_prefix + ".chp",
                 ]
             )
         # Warn if SSL is not used
-        if ' --ssl' not in ' '.join(cmd):
+        if " --ssl" not in " ".join(cmd):
             self.log.warning(
                 "Running JupyterHub without SSL."
                 "  I hope there is SSL termination happening somewhere else..."
             )
         self.log.info("Starting proxy @ %s", public_server.bind_url)
         self.log.debug("Proxy cmd: %s", cmd)
-        shell = os.name == 'nt'
+        shell = os.name == "nt"
         try:
             self.proxy_process = Popen(
                 cmd, env=env, start_new_session=True, shell=shell
@@ -730,7 +730,7 @@ class ConfigurableHTTPProxy(Proxy):
 
     def _terminate(self):
         """Terminate our process"""
-        if os.name == 'nt':
+        if os.name == "nt":
             self._terminate_win(self.proxy_process.pid)
         else:
             self.proxy_process.terminate()
@@ -752,7 +752,7 @@ class ConfigurableHTTPProxy(Proxy):
             return
         self.log.error(
             "Proxy stopped with exit code %r",
-            'unknown' if self.proxy_process is None else self.proxy_process.poll(),
+            "unknown" if self.proxy_process is None else self.proxy_process.poll(),
         )
         self._remove_pid_file()
         await self.start()
@@ -765,11 +765,11 @@ class ConfigurableHTTPProxy(Proxy):
         """
         path = self.validate_routespec(routespec)
         # CHP always wants to start with /
-        if not path.startswith('/'):
-            path = '/' + path
+        if not path.startswith("/"):
+            path = "/" + path
         # BUG: CHP doesn't seem to like trailing slashes on some endpoints (DELETE)
-        if path != '/' and path.endswith('/'):
-            path = path.rstrip('/')
+        if path != "/" and path.endswith("/"):
+            path = path.rstrip("/")
         return path
 
     def _routespec_from_chp_path(self, chp_path):
@@ -780,19 +780,19 @@ class ConfigurableHTTPProxy(Proxy):
         """
         # chp stores routes in unescaped form.
         # restore escaped-form we created it with.
-        routespec = quote(chp_path, safe='@/~')
+        routespec = quote(chp_path, safe="@/~")
         if self.host_routing:
             # host routes don't start with /
-            routespec = routespec.lstrip('/')
+            routespec = routespec.lstrip("/")
         # all routes should end with /
-        if not routespec.endswith('/'):
-            routespec = routespec + '/'
+        if not routespec.endswith("/"):
+            routespec = routespec + "/"
         return routespec
 
-    async def api_request(self, path, method='GET', body=None, client=None):
+    async def api_request(self, path, method="GET", body=None, client=None):
         """Make an authenticated API request of the proxy."""
         client = client or AsyncHTTPClient()
-        url = url_path_join(self.api_url, 'api/routes', path)
+        url = url_path_join(self.api_url, "api/routes", path)
 
         if isinstance(body, dict):
             body = json.dumps(body)
@@ -800,7 +800,7 @@ class ConfigurableHTTPProxy(Proxy):
         req = HTTPRequest(
             url,
             method=method,
-            headers={'Authorization': 'token {}'.format(self.auth_token)},
+            headers={"Authorization": "token {}".format(self.auth_token)},
             body=body,
             connect_timeout=3,  # default: 20s
             request_timeout=10,  # default: 20s
@@ -835,15 +835,15 @@ class ConfigurableHTTPProxy(Proxy):
 
     async def add_route(self, routespec, target, data):
         body = data or {}
-        body['target'] = target
-        body['jupyterhub'] = True
+        body["target"] = target
+        body["jupyterhub"] = True
         path = self._routespec_to_chp_path(routespec)
-        await self.api_request(path, method='POST', body=body)
+        await self.api_request(path, method="POST", body=body)
 
     async def delete_route(self, routespec):
         path = self._routespec_to_chp_path(routespec)
         try:
-            await self.api_request(path, method='DELETE')
+            await self.api_request(path, method="DELETE")
         except HTTPError as e:
             if e.code == 404:
                 # Warn about 404s because something might be wrong
@@ -855,19 +855,19 @@ class ConfigurableHTTPProxy(Proxy):
 
     def _reformat_routespec(self, routespec, chp_data):
         """Reformat CHP data format to JupyterHub's proxy API."""
-        target = chp_data.pop('target')
-        chp_data.pop('jupyterhub')
-        return {'routespec': routespec, 'target': target, 'data': chp_data}
+        target = chp_data.pop("target")
+        chp_data.pop("jupyterhub")
+        return {"routespec": routespec, "target": target, "data": chp_data}
 
     async def get_all_routes(self, client=None):
         """Fetch the proxy's routes."""
         proxy_poll_start_time = time.perf_counter()
-        resp = await self.api_request('', client=client)
-        chp_routes = json.loads(resp.body.decode('utf8', 'replace'))
+        resp = await self.api_request("", client=client)
+        chp_routes = json.loads(resp.body.decode("utf8", "replace"))
         all_routes = {}
         for chp_path, chp_data in chp_routes.items():
             routespec = self._routespec_from_chp_path(chp_path)
-            if 'jupyterhub' not in chp_data:
+            if "jupyterhub" not in chp_data:
                 # exclude routes not associated with JupyterHub
                 self.log.debug("Omitting non-jupyterhub route %r", routespec)
                 continue

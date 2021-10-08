@@ -25,42 +25,42 @@ from prometheus_client import Gauge
 from prometheus_client import Histogram
 
 REQUEST_DURATION_SECONDS = Histogram(
-    'jupyterhub_request_duration_seconds',
-    'request duration for all HTTP requests',
-    ['method', 'handler', 'code'],
+    "jupyterhub_request_duration_seconds",
+    "request duration for all HTTP requests",
+    ["method", "handler", "code"],
 )
 
 SERVER_SPAWN_DURATION_SECONDS = Histogram(
-    'jupyterhub_server_spawn_duration_seconds',
-    'time taken for server spawning operation',
-    ['status'],
+    "jupyterhub_server_spawn_duration_seconds",
+    "time taken for server spawning operation",
+    ["status"],
     # Use custom bucket sizes, since the default bucket ranges
     # are meant for quick running processes. Spawns can take a while!
     buckets=[0.5, 1, 2.5, 5, 10, 15, 30, 60, 120, float("inf")],
 )
 
 RUNNING_SERVERS = Gauge(
-    'jupyterhub_running_servers', 'the number of user servers currently running'
+    "jupyterhub_running_servers", "the number of user servers currently running"
 )
 
-TOTAL_USERS = Gauge('jupyterhub_total_users', 'total number of users')
+TOTAL_USERS = Gauge("jupyterhub_total_users", "total number of users")
 
 CHECK_ROUTES_DURATION_SECONDS = Histogram(
-    'jupyterhub_check_routes_duration_seconds',
-    'Time taken to validate all routes in proxy',
+    "jupyterhub_check_routes_duration_seconds",
+    "Time taken to validate all routes in proxy",
 )
 
 HUB_STARTUP_DURATION_SECONDS = Histogram(
-    'jupyterhub_hub_startup_duration_seconds', 'Time taken for Hub to start'
+    "jupyterhub_hub_startup_duration_seconds", "Time taken for Hub to start"
 )
 
 INIT_SPAWNERS_DURATION_SECONDS = Histogram(
-    'jupyterhub_init_spawners_duration_seconds', 'Time taken for spawners to initialize'
+    "jupyterhub_init_spawners_duration_seconds", "Time taken for spawners to initialize"
 )
 
 PROXY_POLL_DURATION_SECONDS = Histogram(
-    'jupyterhub_proxy_poll_duration_seconds',
-    'duration for polling all routes from proxy',
+    "jupyterhub_proxy_poll_duration_seconds",
+    "duration for polling all routes from proxy",
 )
 
 
@@ -69,11 +69,11 @@ class ServerSpawnStatus(Enum):
     Possible values for 'status' label of SERVER_SPAWN_DURATION_SECONDS
     """
 
-    success = 'success'
-    failure = 'failure'
-    already_pending = 'already-pending'
-    throttled = 'throttled'
-    too_many_users = 'too-many-users'
+    success = "success"
+    failure = "failure"
+    already_pending = "already-pending"
+    throttled = "throttled"
+    too_many_users = "too-many-users"
 
     def __str__(self):
         return self.value
@@ -85,9 +85,9 @@ for s in ServerSpawnStatus:
 
 
 PROXY_ADD_DURATION_SECONDS = Histogram(
-    'jupyterhub_proxy_add_duration_seconds',
-    'duration for adding user routes to proxy',
-    ['status'],
+    "jupyterhub_proxy_add_duration_seconds",
+    "duration for adding user routes to proxy",
+    ["status"],
 )
 
 
@@ -96,8 +96,8 @@ class ProxyAddStatus(Enum):
     Possible values for 'status' label of PROXY_ADD_DURATION_SECONDS
     """
 
-    success = 'success'
-    failure = 'failure'
+    success = "success"
+    failure = "failure"
 
     def __str__(self):
         return self.value
@@ -108,9 +108,9 @@ for s in ProxyAddStatus:
 
 
 SERVER_POLL_DURATION_SECONDS = Histogram(
-    'jupyterhub_server_poll_duration_seconds',
-    'time taken to poll if server is running',
-    ['status'],
+    "jupyterhub_server_poll_duration_seconds",
+    "time taken to poll if server is running",
+    ["status"],
 )
 
 
@@ -119,8 +119,8 @@ class ServerPollStatus(Enum):
     Possible values for 'status' label of SERVER_POLL_DURATION_SECONDS
     """
 
-    running = 'running'
-    stopped = 'stopped'
+    running = "running"
+    stopped = "stopped"
 
     @classmethod
     def from_status(cls, status):
@@ -135,9 +135,9 @@ for s in ServerPollStatus:
 
 
 SERVER_STOP_DURATION_SECONDS = Histogram(
-    'jupyterhub_server_stop_seconds',
-    'time taken for server stopping operation',
-    ['status'],
+    "jupyterhub_server_stop_seconds",
+    "time taken for server stopping operation",
+    ["status"],
 )
 
 
@@ -146,8 +146,8 @@ class ServerStopStatus(Enum):
     Possible values for 'status' label of SERVER_STOP_DURATION_SECONDS
     """
 
-    success = 'success'
-    failure = 'failure'
+    success = "success"
+    failure = "failure"
 
     def __str__(self):
         return self.value
@@ -158,9 +158,9 @@ for s in ServerStopStatus:
 
 
 PROXY_DELETE_DURATION_SECONDS = Histogram(
-    'jupyterhub_proxy_delete_duration_seconds',
-    'duration for deleting user routes from proxy',
-    ['status'],
+    "jupyterhub_proxy_delete_duration_seconds",
+    "duration for deleting user routes from proxy",
+    ["status"],
 )
 
 
@@ -169,8 +169,8 @@ class ProxyDeleteStatus(Enum):
     Possible values for 'status' label of PROXY_DELETE_DURATION_SECONDS
     """
 
-    success = 'success'
-    failure = 'failure'
+    success = "success"
+    failure = "failure"
 
     def __str__(self):
         return self.value
@@ -198,6 +198,6 @@ def prometheus_log_method(handler):
     """
     REQUEST_DURATION_SECONDS.labels(
         method=handler.request.method,
-        handler='{}.{}'.format(handler.__class__.__module__, type(handler).__name__),
+        handler="{}.{}".format(handler.__class__.__module__, type(handler).__name__),
         code=handler.get_status(),
     ).observe(handler.request.request_time())

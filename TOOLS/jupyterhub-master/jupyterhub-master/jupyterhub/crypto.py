@@ -25,7 +25,7 @@ except ImportError:
 
 from .utils import maybe_future
 
-KEY_ENV = 'JUPYTERHUB_CRYPT_KEY'
+KEY_ENV = "JUPYTERHUB_CRYPT_KEY"
 
 
 class EncryptionUnavailable(Exception):
@@ -56,7 +56,7 @@ def _validate_key(key):
     key (bytes): raw 32B key
     """
     if isinstance(key, str):
-        key = key.encode('ascii')
+        key = key.encode("ascii")
 
     if len(key) == 44:
         try:
@@ -90,7 +90,7 @@ class CryptKeeper(SingletonConfigurable):
         help="The number of threads to allocate for encryption",
     )
 
-    @default('config')
+    @default("config")
     def _config_default(self):
         # load application config by default
         from .app import JupyterHub
@@ -113,10 +113,10 @@ class CryptKeeper(SingletonConfigurable):
         # key can be a ;-separated sequence for key rotation.
         # First item in the list is used for encryption.
         return [
-            _validate_key(key) for key in os.environ[KEY_ENV].split(';') if key.strip()
+            _validate_key(key) for key in os.environ[KEY_ENV].split(";") if key.strip()
         ]
 
-    @validate('keys')
+    @validate("keys")
     def _ensure_bytes(self, proposal):
         # cast str to bytes
         return [_validate_key(key) for key in proposal.value]
@@ -128,7 +128,7 @@ class CryptKeeper(SingletonConfigurable):
             return None
         return MultiFernet([Fernet(base64.urlsafe_b64encode(key)) for key in self.keys])
 
-    @observe('keys')
+    @observe("keys")
     def _update_fernet(self, change):
         self.fernet = self._fernet_default()
 
@@ -144,7 +144,7 @@ class CryptKeeper(SingletonConfigurable):
         data is serialized to bytes with pickle.
         bytes are returned.
         """
-        return self.fernet.encrypt(json.dumps(data).encode('utf8'))
+        return self.fernet.encrypt(json.dumps(data).encode("utf8"))
 
     def encrypt(self, data):
         """Encrypt an object with cryptography"""
@@ -153,7 +153,7 @@ class CryptKeeper(SingletonConfigurable):
 
     def _decrypt(self, encrypted):
         decrypted = self.fernet.decrypt(encrypted)
-        return json.loads(decrypted.decode('utf8'))
+        return json.loads(decrypted.decode("utf8"))
 
     def decrypt(self, encrypted):
         """Decrypt an object with cryptography"""

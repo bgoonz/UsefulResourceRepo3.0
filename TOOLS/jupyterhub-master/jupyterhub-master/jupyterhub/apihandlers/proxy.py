@@ -39,16 +39,16 @@ class ProxyAPIHandler(APIHandler):
             raise web.HTTPError(400, "need JSON body")
 
         try:
-            model = json.loads(self.request.body.decode('utf8', 'replace'))
+            model = json.loads(self.request.body.decode("utf8", "replace"))
         except ValueError:
             raise web.HTTPError(400, "Request body must be JSON dict")
         if not isinstance(model, dict):
             raise web.HTTPError(400, "Request body must be JSON dict")
 
-        if 'api_url' in model:
-            self.proxy.api_url = model['api_url']
-        if 'auth_token' in model:
-            self.proxy.auth_token = model['auth_token']
+        if "api_url" in model:
+            self.proxy.api_url = model["api_url"]
+        if "auth_token" in model:
+            self.proxy.auth_token = model["auth_token"]
         self.log.info("Updated proxy at %s", self.proxy)
         await self.proxy.check_routes(self.users, self.services)
 

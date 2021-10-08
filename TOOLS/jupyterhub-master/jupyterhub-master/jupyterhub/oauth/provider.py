@@ -21,7 +21,7 @@ from ..utils import url_path_join
 
 
 def is_absolute_uri(uri):
-    if uri.startswith('/'):
+    if uri.startswith("/"):
         return True
     return uri_validate.is_absolute_uri(uri)
 
@@ -146,7 +146,7 @@ class JupyterHubRequestValidator(RequestValidator):
             - Resource Owner Password Credentials Grant
             - Client Credentials grant
         """
-        return ['identify']
+        return ["identify"]
 
     def get_original_scopes(self, refresh_token, request, *args, **kwargs):
         """Get the list of scopes associated with the refresh token.
@@ -200,8 +200,8 @@ class JupyterHubRequestValidator(RequestValidator):
         Method is used by:
             - Revocation Endpoint
         """
-        app_log.debug("Revoking %s %s", token_type_hint, token[:3] + '...')
-        raise NotImplementedError('Subclasses must implement this method.')
+        app_log.debug("Revoking %s %s", token_type_hint, token[:3] + "...")
+        raise NotImplementedError("Subclasses must implement this method.")
 
     def save_authorization_code(self, client_id, code, request, *args, **kwargs):
         """Persist the authorization_code.
@@ -227,7 +227,7 @@ class JupyterHubRequestValidator(RequestValidator):
         Method is used by:
             - Authorization Code Grant
         """
-        log_code = code.get('code', 'undefined')[:3] + '...'
+        log_code = code.get("code", "undefined")[:3] + "..."
         app_log.debug(
             "Saving authorization code %s, %s, %s, %s",
             client_id,
@@ -243,7 +243,7 @@ class JupyterHubRequestValidator(RequestValidator):
 
         orm_code = orm.OAuthCode(
             client=orm_client,
-            code=code['code'],
+            code=code["code"],
             # oauth has 5 minutes to complete
             expires_at=int(orm.OAuthCode.now() + 300),
             # TODO: persist oauth scopes
@@ -321,16 +321,16 @@ class JupyterHubRequestValidator(RequestValidator):
         """
         log_token = {}
         log_token.update(token)
-        scopes = token['scope'].split(' ')
+        scopes = token["scope"].split(" ")
         # TODO:
-        if scopes != ['identify']:
+        if scopes != ["identify"]:
             raise ValueError("Only 'identify' scope is supported")
         # redact sensitive keys in log
-        for key in ('access_token', 'refresh_token', 'state'):
+        for key in ("access_token", "refresh_token", "state"):
             if key in token:
                 value = token[key]
                 if isinstance(value, str):
-                    log_token[key] = 'REDACTED'
+                    log_token[key] = "REDACTED"
         app_log.debug("Saving bearer token %s", log_token)
         if request.user is None:
             raise ValueError("No user for access token: %s" % request.user)
@@ -342,11 +342,11 @@ class JupyterHubRequestValidator(RequestValidator):
         orm_access_token = orm.OAuthAccessToken(
             client=client,
             grant_type=orm.GrantType.authorization_code,
-            expires_at=orm.OAuthAccessToken.now() + token['expires_in'],
-            refresh_token=token['refresh_token'],
+            expires_at=orm.OAuthAccessToken.now() + token["expires_in"],
+            refresh_token=token["refresh_token"],
             # TODO: save scopes,
             # scopes=scopes,
-            token=token['access_token'],
+            token=token["access_token"],
             session_id=request.session_id,
             user=request.user,
         )
@@ -393,7 +393,7 @@ class JupyterHubRequestValidator(RequestValidator):
             - Resource Owner Password Credentials Grant
             - Client Credentials Grant
         """
-        raise NotImplementedError('Subclasses must implement this method.')
+        raise NotImplementedError("Subclasses must implement this method.")
 
     def validate_client_id(self, client_id, request, *args, **kwargs):
         """Ensure client_id belong to a valid and active client.
@@ -449,7 +449,7 @@ class JupyterHubRequestValidator(RequestValidator):
         request.session_id = orm_code.session_id
         # TODO: record state on oauth codes
         # TODO: specify scopes
-        request.scopes = ['identify']
+        request.scopes = ["identify"]
         return True
 
     def validate_grant_type(
@@ -467,7 +467,7 @@ class JupyterHubRequestValidator(RequestValidator):
             - Client Credentials Grant
             - Refresh Token Grant
         """
-        return grant_type == 'authorization_code'
+        return grant_type == "authorization_code"
 
     def validate_redirect_uri(self, client_id, redirect_uri, request, *args, **kwargs):
         """Ensure client is authorized to redirect to the redirect_uri requested.
@@ -514,7 +514,7 @@ class JupyterHubRequestValidator(RequestValidator):
             - Refresh Token Grant
         """
         return False
-        raise NotImplementedError('Subclasses must implement this method.')
+        raise NotImplementedError("Subclasses must implement this method.")
 
     def validate_response_type(
         self, client_id, response_type, client, request, *args, **kwargs
@@ -553,7 +553,7 @@ class JupyterHubOAuthServer(WebApplicationServer):
         self.db = db
         super().__init__(validator, *args, **kwargs)
 
-    def add_client(self, client_id, client_secret, redirect_uri, description=''):
+    def add_client(self, client_id, client_secret, redirect_uri, description=""):
         """Add a client
 
         hash its client_secret before putting it in the database.

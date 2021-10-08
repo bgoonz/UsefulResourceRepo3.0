@@ -29,12 +29,12 @@ def disable_check_routes(app):
 
 @skip_if_ssl
 async def test_external_proxy(request):
-    auth_token = 'secret!'
-    proxy_ip = '127.0.0.1'
+    auth_token = "secret!"
+    proxy_ip = "127.0.0.1"
     proxy_port = 54321
     cfg = Config()
     cfg.ConfigurableHTTPProxy.auth_token = auth_token
-    cfg.ConfigurableHTTPProxy.api_url = 'http://%s:%i' % (proxy_ip, proxy_port)
+    cfg.ConfigurableHTTPProxy.api_url = "http://%s:%i" % (proxy_ip, proxy_port)
     cfg.ConfigurableHTTPProxy.should_start = False
 
     app = MockHub.instance(config=cfg)
@@ -50,21 +50,21 @@ async def test_external_proxy(request):
 
     # configures and starts proxy process
     env = os.environ.copy()
-    env['CONFIGPROXY_AUTH_TOKEN'] = auth_token
+    env["CONFIGPROXY_AUTH_TOKEN"] = auth_token
     cmd = [
-        'configurable-http-proxy',
-        '--ip',
+        "configurable-http-proxy",
+        "--ip",
         app.ip,
-        '--port',
+        "--port",
         str(app.port),
-        '--api-ip',
+        "--api-ip",
         proxy_ip,
-        '--api-port',
+        "--api-port",
         str(proxy_port),
-        '--log-level=debug',
+        "--log-level=debug",
     ]
     if app.subdomain_host:
-        cmd.append('--host-routing')
+        cmd.append("--host-routing")
     proxy = Popen(cmd, env=env)
 
     def _cleanup_proxy():
@@ -75,7 +75,7 @@ async def test_external_proxy(request):
     request.addfinalizer(_cleanup_proxy)
 
     def wait_for_proxy():
-        return wait_for_http_server('http://%s:%i' % (proxy_ip, proxy_port))
+        return wait_for_http_server("http://%s:%i" % (proxy_ip, proxy_port))
 
     await wait_for_proxy()
 
@@ -88,20 +88,20 @@ async def test_external_proxy(request):
     assert list(routes.keys()) == [app.hub.routespec]
 
     # add user to the db and start a single user server
-    name = 'river'
+    name = "river"
     add_user(app.db, app, name=name)
     r = await api_request(
-        app, 'users', name, 'server', method='post', bypass_proxy=True
+        app, "users", name, "server", method="post", bypass_proxy=True
     )
     r.raise_for_status()
 
     routes = await app.proxy.get_all_routes()
     # sets the desired path result
-    user_path = ujoin(app.base_url, 'user/river') + '/'
+    user_path = ujoin(app.base_url, "user/river") + "/"
     print(app.base_url, user_path)
-    host = ''
+    host = ""
     if app.subdomain_host:
-        host = '%s.%s' % (name, urlparse(app.subdomain_host).hostname)
+        host = "%s.%s" % (name, urlparse(app.subdomain_host).hostname)
     user_spec = host + user_path
     assert sorted(routes.keys()) == [app.hub.routespec, user_spec]
 
@@ -116,7 +116,7 @@ async def test_external_proxy(request):
     assert list(routes.keys()) == []
 
     # poke the server to update the proxy
-    r = await api_request(app, 'proxy', method='post', bypass_proxy=True)
+    r = await api_request(app, "proxy", method="post", bypass_proxy=True)
     r.raise_for_status()
 
     # check that the routes are correct
@@ -126,34 +126,34 @@ async def test_external_proxy(request):
     # teardown the proxy, and start a new one with different auth and port
     proxy.terminate()
     proxy.wait(timeout=10)
-    new_auth_token = 'different!'
-    env['CONFIGPROXY_AUTH_TOKEN'] = new_auth_token
+    new_auth_token = "different!"
+    env["CONFIGPROXY_AUTH_TOKEN"] = new_auth_token
     proxy_port = 55432
     cmd = [
-        'configurable-http-proxy',
-        '--ip',
+        "configurable-http-proxy",
+        "--ip",
         app.ip,
-        '--port',
+        "--port",
         str(app.port),
-        '--api-ip',
+        "--api-ip",
         proxy_ip,
-        '--api-port',
+        "--api-port",
         str(proxy_port),
-        '--default-target',
-        'http://%s:%i' % (app.hub_ip, app.hub_port),
+        "--default-target",
+        "http://%s:%i" % (app.hub_ip, app.hub_port),
     ]
     if app.subdomain_host:
-        cmd.append('--host-routing')
+        cmd.append("--host-routing")
     proxy = Popen(cmd, env=env)
     await wait_for_proxy()
 
     # tell the hub where the new proxy is
-    new_api_url = 'http://{}:{}'.format(proxy_ip, proxy_port)
+    new_api_url = "http://{}:{}".format(proxy_ip, proxy_port)
     r = await api_request(
         app,
-        'proxy',
-        method='patch',
-        data=json.dumps({'api_url': new_api_url, 'auth_token': new_auth_token}),
+        "proxy",
+        method="patch",
+        data=json.dumps({"api_url": new_api_url, "auth_token": new_auth_token}),
         bypass_proxy=True,
     )
     r.raise_for_status()
@@ -166,11 +166,11 @@ async def test_external_proxy(request):
     assert sorted(routes.keys()) == [app.hub.routespec, user_spec]
 
 
-@pytest.mark.parametrize("username", ['zoe', '50fia', '秀樹', '~TestJH', 'has@'])
+@pytest.mark.parametrize("username", ["zoe", "50fia", "秀樹", "~TestJH", "has@"])
 async def test_check_routes(app, username, disable_check_routes):
     proxy = app.proxy
     test_user = add_user(app.db, app, name=username)
-    r = await api_request(app, 'users/%s/server' % username, method='post')
+    r = await api_request(app, "users/%s/server" % username, method="post")
     r.raise_for_status()
 
     # check a valid route exists for user
@@ -198,22 +198,22 @@ async def test_check_routes(app, username, disable_check_routes):
 @pytest.mark.parametrize(
     "routespec",
     [
-        '/has%20space/foo/',
-        '/missing-trailing/slash',
-        '/has/@/',
-        '/has/' + quote('üñîçø∂é'),
-        'host.name/path/',
-        'other.host/path/no/slash',
+        "/has%20space/foo/",
+        "/missing-trailing/slash",
+        "/has/@/",
+        "/has/" + quote("üñîçø∂é"),
+        "host.name/path/",
+        "other.host/path/no/slash",
     ],
 )
 async def test_add_get_delete(app, routespec, disable_check_routes):
     arg = routespec
-    if not routespec.endswith('/'):
-        routespec = routespec + '/'
+    if not routespec.endswith("/"):
+        routespec = routespec + "/"
 
     # host-routes when not host-routing raises an error
     # and vice versa
-    expect_value_error = bool(app.subdomain_host) ^ (not routespec.startswith('/'))
+    expect_value_error = bool(app.subdomain_host) ^ (not routespec.startswith("/"))
 
     @contextmanager
     def context():
@@ -224,7 +224,7 @@ async def test_add_get_delete(app, routespec, disable_check_routes):
             yield
 
     proxy = app.proxy
-    target = 'https://localhost:1234'
+    target = "https://localhost:1234"
     with context():
         await proxy.add_route(arg, target, {})
     routes = await proxy.get_all_routes()
@@ -233,9 +233,9 @@ async def test_add_get_delete(app, routespec, disable_check_routes):
     with context():
         route = await proxy.get_route(arg)
         assert route == {
-            'target': target,
-            'routespec': routespec,
-            'data': route.get('data'),
+            "target": target,
+            "routespec": routespec,
+            "data": route.get("data"),
         }
     with context():
         await proxy.delete_route(arg)
@@ -244,7 +244,7 @@ async def test_add_get_delete(app, routespec, disable_check_routes):
         assert route is None
 
 
-@pytest.mark.parametrize("test_data", [None, 'notjson', json.dumps([])])
+@pytest.mark.parametrize("test_data", [None, "notjson", json.dumps([])])
 async def test_proxy_patch_bad_request_data(app, test_data):
-    r = await api_request(app, 'proxy', method='patch', data=test_data)
+    r = await api_request(app, "proxy", method="patch", data=test_data)
     assert r.status_code == 400

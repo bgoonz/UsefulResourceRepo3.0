@@ -7,11 +7,7 @@ from jupyterhub.pagination import Pagination
 
 
 @mark.parametrize(
-    "per_page, max_per_page, expected",
-    [
-        (20, 10, 10),
-        (1000, 1000, 1000),
-    ],
+    "per_page, max_per_page, expected", [(20, 10, 10), (1000, 1000, 1000)]
 )
 def test_per_page_bounds(per_page, max_per_page, expected):
     cfg = Config()

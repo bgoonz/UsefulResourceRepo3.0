@@ -17,11 +17,11 @@ from . import orm
 
 _here = os.path.abspath(os.path.dirname(__file__))
 
-ALEMBIC_INI_TEMPLATE_PATH = os.path.join(_here, 'alembic.ini')
-ALEMBIC_DIR = os.path.join(_here, 'alembic')
+ALEMBIC_INI_TEMPLATE_PATH = os.path.join(_here, "alembic.ini")
+ALEMBIC_DIR = os.path.join(_here, "alembic")
 
 
-def write_alembic_ini(alembic_ini='alembic.ini', db_url='sqlite:///jupyterhub.sqlite'):
+def write_alembic_ini(alembic_ini="alembic.ini", db_url="sqlite:///jupyterhub.sqlite"):
     """Write a complete alembic.ini from our template.
 
     Parameters
@@ -35,7 +35,7 @@ def write_alembic_ini(alembic_ini='alembic.ini', db_url='sqlite:///jupyterhub.sq
     with open(ALEMBIC_INI_TEMPLATE_PATH) as f:
         alembic_ini_tpl = f.read()
 
-    with open(alembic_ini, 'w') as f:
+    with open(alembic_ini, "w") as f:
         f.write(
             alembic_ini_tpl.format(
                 alembic_dir=ALEMBIC_DIR,
@@ -43,7 +43,7 @@ def write_alembic_ini(alembic_ini='alembic.ini', db_url='sqlite:///jupyterhub.sq
                 # by default uses %() for substitution. You'll get %s in your URL when you have usernames
                 # with special chars (such as '@') that need to be URL encoded. URL Encoding is done with %s.
                 # YAY for nested templates?
-                db_url=str(db_url).replace('%', '%%'),
+                db_url=str(db_url).replace("%", "%%"),
             )
         )
 
@@ -70,12 +70,12 @@ def _temp_alembic_ini(db_url):
         This file will be cleaned up on exit from the context manager.
     """
     with TemporaryDirectory() as td:
-        alembic_ini = os.path.join(td, 'alembic.ini')
+        alembic_ini = os.path.join(td, "alembic.ini")
         write_alembic_ini(alembic_ini, db_url)
         yield alembic_ini
 
 
-def upgrade(db_url, revision='head'):
+def upgrade(db_url, revision="head"):
     """Upgrade the given database to revision.
 
     db_url: str
@@ -84,17 +84,17 @@ def upgrade(db_url, revision='head'):
         The alembic revision to upgrade to.
     """
     with _temp_alembic_ini(db_url) as alembic_ini:
-        check_call(['alembic', '-c', alembic_ini, 'upgrade', revision])
+        check_call(["alembic", "-c", alembic_ini, "upgrade", revision])
 
 
 def backup_db_file(db_file, log=None):
     """Backup a database file if it exists"""
-    timestamp = datetime.now().strftime('.%Y-%m-%d-%H%M%S')
+    timestamp = datetime.now().strftime(".%Y-%m-%d-%H%M%S")
     backup_db_file = db_file + timestamp
     for i in range(1, 10):
         if not os.path.exists(backup_db_file):
             break
-        backup_db_file = '{}.{}.{}'.format(db_file, timestamp, i)
+        backup_db_file = "{}.{}.{}".format(db_file, timestamp, i)
     #
     if os.path.exists(backup_db_file):
         raise OSError("backup db file already exists: %s" % backup_db_file)
@@ -123,7 +123,7 @@ def upgrade_if_needed(db_url, backup=True, log=None):
     if urlinfo.password:
         # avoid logging the database password
         urlinfo = urlinfo._replace(
-            netloc='{}:[redacted]@{}:{}'.format(
+            netloc="{}:[redacted]@{}:{}".format(
                 urlinfo.username, urlinfo.hostname, urlinfo.port
             )
         )
@@ -132,8 +132,8 @@ def upgrade_if_needed(db_url, backup=True, log=None):
         db_log_url = db_url
     log.info("Upgrading %s", db_log_url)
     # we need to upgrade, backup the database
-    if backup and db_url.startswith('sqlite:///'):
-        db_file = db_url.split(':///', 1)[1]
+    if backup and db_url.startswith("sqlite:///"):
+        db_file = db_url.split(":///", 1)[1]
         backup_db_file(db_file, log=log)
     upgrade(db_url)
 
@@ -146,7 +146,7 @@ def shell(args=None):
     hub.load_config_file(hub.config_file)
     db_url = hub.db_url
     db = orm.new_session_factory(db_url, **hub.db_kwargs)()
-    ns = {'db': db, 'db_url': db_url, 'orm': orm}
+    ns = {"db": db, "db_url": db_url, "orm": orm}
 
     import IPython
 
@@ -161,7 +161,7 @@ def _alembic(args):
     hub.load_config_file(hub.config_file)
     db_url = hub.db_url
     with _temp_alembic_ini(db_url) as alembic_ini:
-        check_call(['alembic', '-c', alembic_ini] + args)
+        check_call(["alembic", "-c", alembic_ini] + args)
 
 
 def main(args=None):
@@ -169,17 +169,17 @@ def main(args=None):
         args = sys.argv[1:]
     # dumb option parsing, since we want to pass things through
     # to subcommands
-    choices = ['shell', 'alembic']
+    choices = ["shell", "alembic"]
     if not args or args[0] not in choices:
-        print("Select a command from: %s" % ', '.join(choices))
+        print("Select a command from: %s" % ", ".join(choices))
         return 1
     cmd, args = args[0], args[1:]
 
-    if cmd == 'shell':
+    if cmd == "shell":
         shell(args)
-    elif cmd == 'alembic':
+    elif cmd == "alembic":
         _alembic(args)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     sys.exit(main())

@@ -1,4 +1,3 @@
-
 // In JavaScript, the word “modules” refers to small units of independent, reusable code.
 // They are the foundation of many JavaScript design patterns and are critically necessary
 // when building any substantial JavaScript-based application.
@@ -11,7 +10,6 @@
 // Maintain
 // Reuse
 // Abstract
-
 
 // AMD (Browser apps)
 // Common JS (Node.js) *

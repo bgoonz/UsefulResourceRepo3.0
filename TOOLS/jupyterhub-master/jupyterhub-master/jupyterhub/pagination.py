@@ -102,7 +102,7 @@ class Pagination(Configurable):
         if start > self.total:
             start = self.total
 
-        return {'total': self.total, 'start': start, 'end': end}
+        return {"total": self.total, "start": start, "end": end}
 
     def calculate_pages_window(self):
         """Calculates the set of pages to render later in links() method.
@@ -165,7 +165,7 @@ class Pagination(Configurable):
 
         pages_to_render = self.calculate_pages_window()
 
-        links = ['<nav>']
+        links = ["<nav>"]
         links.append('<ul class="pagination">')
 
         if self.page > 1:
@@ -206,7 +206,7 @@ class Pagination(Configurable):
                 '<li class="disabled"><span><span aria-hidden="true">»</span></span></li>'
             )
 
-        links.append('</ul>')
-        links.append('</nav>')
+        links.append("</ul>")
+        links.append("</nav>")
 
-        return ''.join(links)
+        return "".join(links)

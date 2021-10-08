@@ -25,7 +25,7 @@ async def refresh_expired(authenticator, user):
 @pytest.fixture
 def disable_refresh(app):
     """Fixture disabling auth refresh"""
-    with mock.patch.object(app.authenticator, 'refresh_user', refresh_expired):
+    with mock.patch.object(app.authenticator, "refresh_user", refresh_expired):
         yield
 
 
@@ -61,13 +61,13 @@ async def test_auth_refresh_page(app, user):
 
     # get a page with auth not expired
     # doesn't trigger refresh
-    r = await get_page('home', app, cookies=cookies)
+    r = await get_page("home", app, cookies=cookies)
     assert r.status_code == 200
     assert user._auth_refreshed == before
 
     # get a page with stale auth, refreshes auth
     user._auth_refreshed -= app.authenticator.auth_refresh_age
-    r = await get_page('home', app, cookies=cookies)
+    r = await get_page("home", app, cookies=cookies)
     assert r.status_code == 200
     assert user._auth_refreshed > before
 
@@ -79,22 +79,22 @@ async def test_auth_expired_page(app, user, disable_refresh):
     before = user._auth_refreshed
 
     # auth is fresh, doesn't trigger expiry
-    r = await get_page('home', app, cookies=cookies)
+    r = await get_page("home", app, cookies=cookies)
     assert user._auth_refreshed == before
     assert r.status_code == 200
 
     # get a page with stale auth, triggers expiry
     user._auth_refreshed -= app.authenticator.auth_refresh_age
     before = user._auth_refreshed
-    r = await get_page('home', app, cookies=cookies, allow_redirects=False)
+    r = await get_page("home", app, cookies=cookies, allow_redirects=False)
 
     # verify that we redirect to login with ?next=requested page
     assert r.status_code == 302
-    redirect_url = urlparse(r.headers['Location'])
-    assert redirect_url.path.endswith('/login')
+    redirect_url = urlparse(r.headers["Location"])
+    assert redirect_url.path.endswith("/login")
     query = parse_qs(redirect_url.query)
-    assert query['next']
-    next_url = urlparse(query['next'][0])
+    assert query["next"]
+    next_url = urlparse(query["next"][0])
     assert next_url.path == urlparse(r.url).path
 
     # make sure refresh didn't get updated
@@ -108,13 +108,13 @@ async def test_auth_expired_api(app, user, disable_refresh):
     before = user._auth_refreshed
 
     # auth is fresh, doesn't trigger expiry
-    r = await api_request(app, 'users/' + user.name, name=user.name)
+    r = await api_request(app, "users/" + user.name, name=user.name)
     assert user._auth_refreshed == before
     assert r.status_code == 200
 
     # get a page with stale auth, triggers expiry
     user._auth_refreshed -= app.authenticator.auth_refresh_age
-    r = await api_request(app, 'users/' + user.name, name=user.name)
+    r = await api_request(app, "users/" + user.name, name=user.name)
     # api requests can't do login redirects
     assert r.status_code == 403
 
@@ -127,7 +127,7 @@ async def test_refresh_pre_spawn(app, user, refresh_pre_spawn):
 
     # auth is fresh, but should be forced to refresh by spawn
     r = await api_request(
-        app, 'users/{}/server'.format(user.name), method='post', name=user.name
+        app, "users/{}/server".format(user.name), method="post", name=user.name
     )
     assert 200 <= r.status_code < 300
     assert user._auth_refreshed > before
@@ -141,7 +141,7 @@ async def test_refresh_pre_spawn_expired(app, user, refresh_pre_spawn, disable_r
 
     # auth is fresh, doesn't trigger expiry
     r = await api_request(
-        app, 'users/{}/server'.format(user.name), method='post', name=user.name
+        app, "users/{}/server".format(user.name), method="post", name=user.name
     )
     assert r.status_code == 403
     assert user._auth_refreshed == before
@@ -157,7 +157,7 @@ async def test_refresh_pre_spawn_admin_request(
 
     # admin request, auth is fresh. Should still refresh user auth.
     r = await api_request(
-        app, 'users', user.name, 'server', method='post', name=admin_user.name
+        app, "users", user.name, "server", method="post", name=admin_user.name
     )
     assert 200 <= r.status_code < 300
     assert user._auth_refreshed > before
@@ -173,7 +173,7 @@ async def test_refresh_pre_spawn_expired_admin_request(
     # auth needs refresh but can't without a new login; spawn should fail
     user._auth_refreshed -= app.authenticator.auth_refresh_age
     r = await api_request(
-        app, 'users', user.name, 'server', method='post', name=admin_user.name
+        app, "users", user.name, "server", method="post", name=admin_user.name
     )
     # api requests can't do login redirects
     assert r.status_code == 403

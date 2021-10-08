@@ -13,8 +13,8 @@ class MetricsHandler(BaseHandler):
 
     @metrics_authentication
     async def get(self):
-        self.set_header('Content-Type', CONTENT_TYPE_LATEST)
+        self.set_header("Content-Type", CONTENT_TYPE_LATEST)
         self.write(generate_latest(REGISTRY))
 
 
-default_handlers = [(r'/metrics$', MetricsHandler)]
+default_handlers = [(r"/metrics$", MetricsHandler)]

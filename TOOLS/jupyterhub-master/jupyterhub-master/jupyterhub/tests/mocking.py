@@ -66,7 +66,7 @@ def mock_authenticate(username, password, service, encoding):
 
 
 def mock_check_account(username, service, encoding):
-    if username.startswith('notallowed'):
+    if username.startswith("notallowed"):
         raise PAMError("Fake")
     else:
         return True
@@ -86,12 +86,12 @@ class MockSpawner(SimpleLocalProcessSpawner):
     def user_env(self, env):
         env = super().user_env(env)
         if self.handler:
-            env['HANDLER_ARGS'] = self.handler.request.query
+            env["HANDLER_ARGS"] = self.handler.request.query
         return env
 
-    @default('cmd')
+    @default("cmd")
     def _cmd_default(self):
-        return [sys.executable, '-m', 'jupyterhub.tests.mocksu']
+        return [sys.executable, "-m", "jupyterhub.tests.mocksu"]
 
     async def delete_forever(self):
         """Called when a user is deleted.
@@ -135,7 +135,7 @@ class SlowSpawner(MockSpawner):
 class NeverSpawner(MockSpawner):
     """A spawner that will never start"""
 
-    @default('start_timeout')
+    @default("start_timeout")
     def _start_timeout_default(self):
         return 1
 
@@ -171,15 +171,15 @@ class FormSpawner(MockSpawner):
     options_form = "IMAFORM"
 
     def options_from_form(self, form_data):
-        options = {'notspecified': 5}
-        if 'bounds' in form_data:
-            options['bounds'] = [int(i) for i in form_data['bounds']]
-        if 'energy' in form_data:
-            options['energy'] = form_data['energy'][0]
-        if 'hello_file' in form_data:
-            options['hello'] = form_data['hello_file'][0]
+        options = {"notspecified": 5}
+        if "bounds" in form_data:
+            options["bounds"] = [int(i) for i in form_data["bounds"]]
+        if "energy" in form_data:
+            options["energy"] = form_data["energy"][0]
+        if "hello_file" in form_data:
+            options["hello"] = form_data["hello_file"][0]
 
-        if 'illegal_argument' in form_data:
+        if "illegal_argument" in form_data:
             raise ValueError("You are not allowed to specify 'illegal_argument'")
         return options
 
@@ -212,17 +212,17 @@ class MockPAMAuthenticator(PAMAuthenticator):
     # If true, return admin users marked as admin.
     return_admin = False
 
-    @default('admin_users')
+    @default("admin_users")
     def _admin_users_default(self):
-        return {'admin'}
+        return {"admin"}
 
     def system_user_exists(self, user):
         # skip the add-system-user bit
-        return not user.name.startswith('dne')
+        return not user.name.startswith("dne")
 
     async def authenticate(self, *args, **kwargs):
         with mock.patch.multiple(
-            'pamela',
+            "pamela",
             authenticate=mock_authenticate,
             open_session=mock_open_session,
             close_session=mock_open_session,
@@ -234,7 +234,7 @@ class MockPAMAuthenticator(PAMAuthenticator):
         if username is None:
             return
         elif self.auth_state:
-            return {'name': username, 'auth_state': self.auth_state}
+            return {"name": username, "auth_state": self.auth_state}
         else:
             return username
 
@@ -245,9 +245,9 @@ class MockHub(JupyterHub):
     # disable some inherited traits with hardcoded values
     db_file = None
     last_activity_interval = 2
-    log_datefmt = '%M:%S'
+    log_datefmt = "%M:%S"
 
-    @default('log_level')
+    @default("log_level")
     def _default_log_level(self):
         return 10
 
@@ -255,28 +255,28 @@ class MockHub(JupyterHub):
     external_certs = Dict()
 
     def __init__(self, *args, **kwargs):
-        if 'internal_certs_location' in kwargs:
-            cert_location = kwargs['internal_certs_location']
-            kwargs['external_certs'] = ssl_setup(cert_location, 'hub-ca')
+        if "internal_certs_location" in kwargs:
+            cert_location = kwargs["internal_certs_location"]
+            kwargs["external_certs"] = ssl_setup(cert_location, "hub-ca")
         super().__init__(*args, **kwargs)
 
-    @default('subdomain_host')
+    @default("subdomain_host")
     def _subdomain_host_default(self):
-        return os.environ.get('JUPYTERHUB_TEST_SUBDOMAIN_HOST', '')
+        return os.environ.get("JUPYTERHUB_TEST_SUBDOMAIN_HOST", "")
 
-    @default('bind_url')
+    @default("bind_url")
     def _default_bind_url(self):
         if self.subdomain_host:
             port = urlparse(self.subdomain_host).port
         else:
             port = random_port()
-        return 'http://127.0.0.1:%i/@/space%%20word/' % (port,)
+        return "http://127.0.0.1:%i/@/space%%20word/" % (port,)
 
-    @default('ip')
+    @default("ip")
     def _ip_default(self):
-        return '127.0.0.1'
+        return "127.0.0.1"
 
-    @default('port')
+    @default("port")
     def _port_default(self):
         if self.subdomain_host:
             port = urlparse(self.subdomain_host).port
@@ -284,11 +284,11 @@ class MockHub(JupyterHub):
                 return port
         return random_port()
 
-    @default('authenticator_class')
+    @default("authenticator_class")
     def _authenticator_class_default(self):
         return MockPAMAuthenticator
 
-    @default('spawner_class')
+    @default("spawner_class")
     def _spawner_class_default(self):
         return MockSpawner
 
@@ -327,15 +327,15 @@ class MockHub(JupyterHub):
     async def initialize(self, argv=None):
         self.pid_file = NamedTemporaryFile(delete=False).name
         self.db_file = NamedTemporaryFile()
-        self.db_url = os.getenv('JUPYTERHUB_TEST_DB_URL') or self.db_file.name
-        if 'mysql' in self.db_url:
-            self.db_kwargs['connect_args'] = {'auth_plugin': 'mysql_native_password'}
+        self.db_url = os.getenv("JUPYTERHUB_TEST_DB_URL") or self.db_file.name
+        if "mysql" in self.db_url:
+            self.db_kwargs["connect_args"] = {"auth_plugin": "mysql_native_password"}
         await super().initialize([])
 
         # add an initial user
-        user = self.db.query(orm.User).filter(orm.User.name == 'user').first()
+        user = self.db.query(orm.User).filter(orm.User.name == "user").first()
         if user is None:
-            user = orm.User(name='user')
+            user = orm.User(name="user")
             self.db.add(user)
             self.db.commit()
             metrics.TOTAL_USERS.inc()
@@ -367,10 +367,10 @@ class MockHub(JupyterHub):
         base_url = public_url(self)
         external_ca = None
         if self.internal_ssl:
-            external_ca = self.external_certs['files']['ca']
+            external_ca = self.external_certs["files"]["ca"]
         r = await async_requests.post(
-            base_url + 'hub/login',
-            data={'username': name, 'password': name},
+            base_url + "hub/login",
+            data={"username": name, "password": name},
             allow_redirects=False,
             verify=external_ca,
         )
@@ -412,7 +412,7 @@ class StubSingleUserSpawner(MockSpawner):
     _thread = None
 
     async def start(self):
-        ip = self.ip = '127.0.0.1'
+        ip = self.ip = "127.0.0.1"
         port = self.port = random_port()
         env = self.get_env()
         args = self.get_args()

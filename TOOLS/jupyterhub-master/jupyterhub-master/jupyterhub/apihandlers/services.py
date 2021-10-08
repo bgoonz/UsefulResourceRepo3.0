@@ -16,14 +16,14 @@ from .base import APIHandler
 def service_model(service):
     """Produce the model for a service"""
     return {
-        'name': service.name,
-        'admin': service.admin,
-        'url': service.url,
-        'prefix': service.server.base_url if service.server else '',
-        'command': service.command,
-        'pid': service.proc.pid if service.proc else 0,
-        'info': service.info,
-        'display': service.display,
+        "name": service.name,
+        "admin": service.admin,
+        "url": service.url,
+        "prefix": service.server.base_url if service.server else "",
+        "command": service.command,
+        "pid": service.proc.pid if service.proc else 0,
+        "info": service.info,
+        "display": service.display,
     }
 
 

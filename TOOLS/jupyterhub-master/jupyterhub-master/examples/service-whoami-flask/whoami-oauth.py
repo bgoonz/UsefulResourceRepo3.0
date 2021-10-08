@@ -15,9 +15,9 @@ from flask import Response
 from jupyterhub.services.auth import HubOAuth
 
 
-prefix = os.environ.get('JUPYTERHUB_SERVICE_PREFIX', '/')
+prefix = os.environ.get("JUPYTERHUB_SERVICE_PREFIX", "/")
 
-auth = HubOAuth(api_token=os.environ['JUPYTERHUB_API_TOKEN'], cache_max_age=60)
+auth = HubOAuth(api_token=os.environ["JUPYTERHUB_API_TOKEN"], cache_max_age=60)
 
 app = Flask(__name__)
 
@@ -37,7 +37,7 @@ def authenticated(f):
         else:
             # redirect to login url on failed auth
             state = auth.generate_state(next_url=request.path)
-            response = make_response(redirect(auth.login_url + '&state=%s' % state))
+            response = make_response(redirect(auth.login_url + "&state=%s" % state))
             response.set_cookie(auth.state_cookie_name, state)
             return response
 
@@ -48,18 +48,18 @@ def authenticated(f):
 @authenticated
 def whoami(user):
     return Response(
-        json.dumps(user, indent=1, sort_keys=True), mimetype='application/json'
+        json.dumps(user, indent=1, sort_keys=True), mimetype="application/json"
     )
 
 
-@app.route(prefix + 'oauth_callback')
+@app.route(prefix + "oauth_callback")
 def oauth_callback():
-    code = request.args.get('code', None)
+    code = request.args.get("code", None)
     if code is None:
         return 403
 
     # validate state field
-    arg_state = request.args.get('state', None)
+    arg_state = request.args.get("state", None)
     cookie_state = request.cookies.get(auth.state_cookie_name)
     if arg_state is None or arg_state != cookie_state:
         # state doesn't match

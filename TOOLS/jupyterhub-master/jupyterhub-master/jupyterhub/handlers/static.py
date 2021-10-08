@@ -23,7 +23,7 @@ class LogoHandler(StaticFileHandler):
     """A singular handler for serving the logo."""
 
     def get(self):
-        return super().get('')
+        return super().get("")
 
     @classmethod
     def get_absolute_path(cls, root, path):

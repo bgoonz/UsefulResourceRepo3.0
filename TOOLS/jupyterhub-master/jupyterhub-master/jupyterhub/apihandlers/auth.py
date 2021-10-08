@@ -65,26 +65,26 @@ class TokenAPIHandler(APIHandler):
         else:
             data = self.get_json_body()
             # admin users can request tokens for other users
-            if data and data.get('username'):
-                user = self.find_user(data['username'])
+            if data and data.get("username"):
+                user = self.find_user(data["username"])
                 if user is not requester and not requester.admin:
                     raise web.HTTPError(
                         403, "Only admins can request tokens for other users."
                     )
                 if requester.admin and user is None:
-                    raise web.HTTPError(400, "No such user '%s'" % data['username'])
+                    raise web.HTTPError(400, "No such user '%s'" % data["username"])
 
-        note = (data or {}).get('note')
+        note = (data or {}).get("note")
         if not note:
             note = "Requested via deprecated api"
             if requester is not user:
-                kind = 'user' if isinstance(user, User) else 'service'
+                kind = "user" if isinstance(user, User) else "service"
                 note += " by %s %s" % (kind, requester.name)
 
         api_token = user.new_api_token(note=note)
         self.write(
             json.dumps(
-                {'token': api_token, 'warning': warn_msg, 'user': self.user_model(user)}
+                {"token": api_token, "warning": warn_msg, "user": self.user_model(user)}
             )
         )
 
@@ -92,14 +92,14 @@ class TokenAPIHandler(APIHandler):
 class CookieAPIHandler(APIHandler):
     @token_authenticated
     def get(self, cookie_name, cookie_value=None):
-        cookie_name = quote(cookie_name, safe='')
+        cookie_name = quote(cookie_name, safe="")
         if cookie_value is None:
             self.log.warning(
                 "Cookie values in request body is deprecated, use `/cookie_name/cookie_value`"
             )
             cookie_value = self.request.body
         else:
-            cookie_value = cookie_value.encode('utf8')
+            cookie_value = cookie_value.encode("utf8")
         user = self._user_for_cookie(cookie_name, cookie_value)
         if user is None:
             raise web.HTTPError(404)
@@ -131,19 +131,19 @@ class OAuthHandler:
         Currently unused in favor of monkeypatching
         oauthlib.is_absolute_uri to skip the check
         """
-        redirect_uri = self.get_argument('redirect_uri')
-        if not redirect_uri or not redirect_uri.startswith('/'):
+        redirect_uri = self.get_argument("redirect_uri")
+        if not redirect_uri or not redirect_uri.startswith("/"):
             return uri
         # make absolute local redirects full URLs
         # to satisfy oauthlib's absolute URI requirement
         redirect_uri = (
-            self.request.protocol + "://" + self.request.headers['Host'] + redirect_uri
+            self.request.protocol + "://" + self.request.headers["Host"] + redirect_uri
         )
         parsed_url = urlparse(uri)
         query_list = parse_qsl(parsed_url.query, keep_blank_values=True)
         for idx, item in enumerate(query_list):
-            if item[0] == 'redirect_uri':
-                query_list[idx] = ('redirect_uri', redirect_uri)
+            if item[0] == "redirect_uri":
+                query_list[idx] = ("redirect_uri", redirect_uri)
                 break
 
         return urlunparse(urlparse(uri)._replace(query=urlencode(query_list)))
@@ -165,7 +165,7 @@ class OAuthHandler:
         user = self.current_user
 
         # Extra credentials we need in the validator
-        credentials.update({'user': user, 'handler': self, 'session_id': session_id})
+        credentials.update({"user": user, "handler": self, "session_id": session_id})
         return credentials
 
     def send_oauth_response(self, headers, body, status):
@@ -190,7 +190,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
     def _complete_login(self, uri, headers, scopes, credentials):
         try:
             headers, body, status = self.oauth_provider.create_authorization_response(
-                uri, 'POST', '', headers, scopes, credentials
+                uri, "POST", "", headers, scopes, credentials
             )
 
         except oauth2.FatalClientError as e:
@@ -216,7 +216,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
             oauth_client.identifier in own_oauth_client_ids
             # or it's in the global no-confirm list
             or oauth_client.identifier
-            in self.settings.get('oauth_no_confirm_list', set())
+            in self.settings.get("oauth_no_confirm_list", set())
         ):
             return False
         # default: require confirmation
@@ -239,7 +239,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
                 uri, http_method, body, headers
             )
             credentials = self.add_credentials(credentials)
-            client = self.oauth_provider.fetch_by_client_id(credentials['client_id'])
+            client = self.oauth_provider.fetch_by_client_id(credentials["client_id"])
             if not self.needs_oauth_confirm(self.current_user, client):
                 self.log.debug(
                     "Skipping oauth confirmation for %s accessing %s",
@@ -273,7 +273,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
     @web.authenticated
     def post(self):
         uri, http_method, body, headers = self.extract_oauth_params()
-        referer = self.request.headers.get('Referer', 'no referer')
+        referer = self.request.headers.get("Referer", "no referer")
         full_url = self.request.full_url()
         # trim protocol, which cannot be trusted with multiple layers of proxies anyway
         # Referer is set by browser, but full_url can be modified by proxy layers to appear as http
@@ -301,7 +301,7 @@ class OAuthAuthorizeHandler(OAuthHandler, BaseHandler):
 
         # The scopes the user actually authorized, i.e. checkboxes
         # that were selected.
-        scopes = self.get_arguments('scopes')
+        scopes = self.get_arguments("scopes")
         # credentials we need in the validator
         credentials = self.add_credentials()
 
