@@ -1,6 +1,12 @@
 // Order of the includes matters, and it is: normal, bold, italic, bold+italic.
 
-@mixin font-face($font-family, $file-path, $weight: normal, $style: normal, $asset-pipeline: $asset-pipeline) {
+@mixin font-face(
+  $font-family,
+  $file-path,
+  $weight: normal,
+  $style: normal,
+  $asset-pipeline: $asset-pipeline
+) {
   @font-face {
     font-family: $font-family;
     font-weight: $weight;
@@ -8,16 +14,16 @@
 
     @if $asset-pipeline == true {
       src: font-url('#{$file-path}.eot');
-      src: font-url('#{$file-path}.eot?#iefix')          format('embedded-opentype'),
-           font-url('#{$file-path}.woff')                format('woff'),
-           font-url('#{$file-path}.ttf')                 format('truetype'),
-           font-url('#{$file-path}.svg##{$font-family}') format('svg');
+      src: font-url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+        font-url('#{$file-path}.woff') format('woff'),
+        font-url('#{$file-path}.ttf') format('truetype'),
+        font-url('#{$file-path}.svg##{$font-family}') format('svg');
     } @else {
       src: url('#{$file-path}.eot');
-      src: url('#{$file-path}.eot?#iefix')               format('embedded-opentype'),
-           url('#{$file-path}.woff')                     format('woff'),
-           url('#{$file-path}.ttf')                      format('truetype'),
-           url('#{$file-path}.svg##{$font-family}')      format('svg');
+      src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'),
+        url('#{$file-path}.woff') format('woff'),
+        url('#{$file-path}.ttf') format('truetype'),
+        url('#{$file-path}.svg##{$font-family}') format('svg');
     }
   }
 }

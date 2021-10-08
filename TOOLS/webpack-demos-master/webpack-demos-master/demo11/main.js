@@ -1,7 +1,7 @@
-var load = require('bundle-loader!./a.js');
+var load = require("bundle-loader!./a.js");
 
-load(function(file) {
+load(function (file) {
   document.open();
-  document.write('<h1>' + file + '</h1>');
+  document.write("<h1>" + file + "</h1>");
   document.close();
 });

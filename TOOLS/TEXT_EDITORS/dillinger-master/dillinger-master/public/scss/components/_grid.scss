@@ -22,7 +22,8 @@
 // -------------------------------------
 
 $g-columns: 12 !default;
-$g-defaults: 'm' 'mobile' $grid-gutter-mobile, 't' 'tablet' $grid-gutter-tablet, 'd' 'desktop' $grid-gutter-desktop !default;
+$g-defaults: 'm' 'mobile' $grid-gutter-mobile, 't' 'tablet' $grid-gutter-tablet,
+  'd' 'desktop' $grid-gutter-desktop !default;
 $g-silent: false !default;
 
 // -------------------------------------
@@ -35,7 +36,6 @@ $g-selector: if($g-silent, unquote('%'), unquote('.'));
 //   Base
 // -------------------------------------
 
-
 #{$g-selector}g {
   display: block;
   &:after {
@@ -45,15 +45,13 @@ $g-selector: if($g-silent, unquote('%'), unquote('.'));
   }
 }
 
-
 #{$g-selector}g-b {
   float: left;
   margin: 0;
   width: 100%;
 }
 
-
-@mixin grid-type( $gutter ) {
+@mixin grid-type($gutter) {
   #{$g-selector}g {
     margin-left: -($gutter / 2);
     margin-right: -($gutter / 2);
@@ -248,7 +246,6 @@ $g-selector: if($g-silent, unquote('%'), unquote('.'));
   }
 }
 
-
 // -------------------------------------
 //   Push
 // -------------------------------------
@@ -407,7 +404,6 @@ $g-selector: if($g-silent, unquote('%'), unquote('.'));
     }
   }
 }
-
 
 // -------------------------------------
 //   Pull
@@ -568,7 +564,6 @@ $g-selector: if($g-silent, unquote('%'), unquote('.'));
   }
 }
 
-
 // -------------------------------------
 //   Creation
 // -------------------------------------
@@ -579,8 +574,8 @@ $g-selector: if($g-silent, unquote('%'), unquote('.'));
 
 @each $device in $g-defaults {
   @include from(nth($device, 2)) {
-    @include device-type("#{nth($device, 1)}");
-    @include device-type-push("#{nth($device, 1)}");
-    @include device-type-pull("#{nth($device, 1)}");
+    @include device-type('#{nth($device, 1)}');
+    @include device-type-push('#{nth($device, 1)}');
+    @include device-type-pull('#{nth($device, 1)}');
   }
 }

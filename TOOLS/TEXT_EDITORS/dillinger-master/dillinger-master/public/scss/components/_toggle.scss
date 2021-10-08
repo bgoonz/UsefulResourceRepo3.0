@@ -41,14 +41,14 @@
     backface-visibility: hidden;
     background-color: $c-icon;
     height: 2px;
-    transition: all .3s;
+    transition: all 0.3s;
     width: 20px;
   }
 
   .open-menu & {
     span {
       background-color: transparent;
-      
+
       &:before {
         transform: rotate(45deg) translate(3px, 3px);
       }

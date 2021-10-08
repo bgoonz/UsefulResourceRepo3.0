@@ -6,7 +6,8 @@
     $height: nth($size, 2);
   }
 
-  @if $height == auto or (type-of($height) == number and not unitless($height)) {
+  @if $height == auto or (type-of($height) == number and not unitless($height))
+  {
     height: $height;
   }
 

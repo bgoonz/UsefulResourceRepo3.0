@@ -6,15 +6,23 @@
 </div>
 <div class="modal-body">
   <div>
-	  <label></label>
-	  <div class="row"><div class="col-xs-12"><input type="text" class="form-control" placeholder="GitHub Commit Message" ng-model="commitMessage"/></div></div>
-	  <input type="checkbox" ng-model="skipCI"/>
-	  Skip CI
+    <label></label>
+    <div class="row">
+      <div class="col-xs-12">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="GitHub Commit Message"
+          ng-model="commitMessage"
+        />
+      </div>
+    </div>
+    <input type="checkbox" ng-model="skipCI" />
+    Skip CI
   </div>
-  <p>
-</div>
-<div class="modal-footer">
-  <button class="btn btn-primary" 
-          data-ng-click="commit();">Commit</button>
+  <p></p>
 </div>
 
+<div class="modal-footer">
+  <button class="btn btn-primary" data-ng-click="commit();">Commit</button>
+</div>

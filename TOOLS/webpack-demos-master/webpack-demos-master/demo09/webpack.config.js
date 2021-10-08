@@ -1,13 +1,13 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
 
 var devFlagPlugin = new webpack.DefinePlugin({
-  __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || 'false'))
+  __DEV__: JSON.stringify(JSON.parse(process.env.DEBUG || "false")),
 });
 
 module.exports = {
-  entry: './main.js',
+  entry: "./main.js",
   output: {
-    filename: 'bundle.js'
+    filename: "bundle.js",
   },
-  plugins: [devFlagPlugin]
+  plugins: [devFlagPlugin],
 };

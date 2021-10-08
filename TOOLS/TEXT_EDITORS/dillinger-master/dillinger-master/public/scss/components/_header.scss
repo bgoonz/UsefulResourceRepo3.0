@@ -3,8 +3,15 @@
   position: relative;
 }
 
-.words, .characters {
-  @include sp($fontsize: eta, $font: $headingtype, $lineheight: 1, $below: 1, $breakpoint: all);
+.words,
+.characters {
+  @include sp(
+    $fontsize: eta,
+    $font: $headingtype,
+    $lineheight: 1,
+    $below: 1,
+    $breakpoint: all
+  );
   font-weight: map-get($headingtype, semibold);
   font-family: map-get($headingtype, font-family);
   letter-spacing: 1px;
@@ -23,7 +30,9 @@
   }
 }
 
-.words + .characters { top: 22px; }
+.words + .characters {
+  top: 22px;
+}
 
 .mr10 {
   margin-right: 10px;

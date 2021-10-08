@@ -25,14 +25,13 @@ $break-mid-4: 460px;
   width: 250px;
 }
 
-#_default_ a::before{
+#_default_ a::before {
   color: $c-ad;
 }
 
-#_default_ img{
+#_default_ img {
   display: none;
 }
-
 
 #_default_ #_default_ {
   display: block;
@@ -47,7 +46,7 @@ $break-mid-4: 460px;
 
 #_default_ ._default_ {
   display: block;
-  font-size: .75rem;
+  font-size: 0.75rem;
   height: 51px;
   letter-spacing: 1px;
   line-height: 1rem;
@@ -68,7 +67,7 @@ $break-mid-4: 460px;
 }
 
 #_default_ .default-title:after {
-  content: " — ";
+  content: ' — ';
 }
 
 #_default_ .default-title,
@@ -88,12 +87,11 @@ $break-mid-4: 460px;
   top: 0px;
   padding: 5px;
   color: #a0aabf;
-  content: "Ad";
+  content: 'Ad';
   text-transform: uppercase;
   font-size: 8px;
   font-family: Verdana, sans-serif;
 }
-
 
 #_default_ {
   display: block;
@@ -102,87 +100,84 @@ $break-mid-4: 460px;
   word-wrap: break-word;
 
   @media screen and (max-width: $break-large) {
-	  max-width: 30%;
+    max-width: 30%;
   }
   @media screen and (max-width: $break-large-2) {
-	  max-width: 27%;
+    max-width: 27%;
   }
   @media screen and (max-width: $break-large-3) {
-	  max-width: 24%;
+    max-width: 24%;
   }
   @media screen and (max-width: $break-large-4) {
-	  max-width: 30%;
+    max-width: 30%;
   }
 
   @media screen and (max-width: $break-mid) {
-	  max-width: 60%;
+    max-width: 60%;
   }
 
   @media screen and (max-width: $break-mid-2) {
-	  max-width: 55%;
+    max-width: 55%;
   }
 
   @media screen and (max-width: $break-mid-2) {
-	  max-width: 50%;
+    max-width: 50%;
   }
 
   @media screen and (max-width: $break-mid-4) {
-	  display: none;
+    display: none;
   }
 }
 
 // same as .dropdown-toggle
 
-#_default_ ._default_{
-	display: block;
-  font-size: .75rem;
+#_default_ ._default_ {
+  display: block;
+  font-size: 0.75rem;
   height: 51px;
   letter-spacing: 1px;
   line-height: 1rem;
   padding: 18px 24px;
 
   @media screen and (max-width: $break-large) {
-	  font-size: .825rem;
-	  line-height: .875rem;
-	  padding: 12px 12px 6px 24px;
-	  text-align: justify;
+    font-size: 0.825rem;
+    line-height: 0.875rem;
+    padding: 12px 12px 6px 24px;
+    text-align: justify;
   }
   @media screen and (max-width: $break-large-2) {
-	  font-size: .8rem;
-	  line-height: .85rem;
-	  padding: 12px 6px 6px 24px;
-	  text-align: justify;
+    font-size: 0.8rem;
+    line-height: 0.85rem;
+    padding: 12px 6px 6px 24px;
+    text-align: justify;
   }
 
   @media screen and (max-width: $break-large-3) {
-	  font-size: .775rem;
-	  line-height: .8rem;
-	  padding: 12px 6px 6px 24px;
-	  text-align: justify;
+    font-size: 0.775rem;
+    line-height: 0.8rem;
+    padding: 12px 6px 6px 24px;
+    text-align: justify;
   }
   @media screen and (max-width: $break-large-4) {
   }
 
   @media screen and (max-width: $break-mid) {
-	  font-size: .75rem;
-	  line-height: 1rem;
-	  padding: 12px 24px;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    padding: 12px 24px;
   }
 
   @media screen and (max-width: $break-mid-2) {
-	  font-size: .66rem;
-	  letter-spacing: 1px;
-	  line-height: 1rem;
-	  padding: 10px 24px;
+    font-size: 0.66rem;
+    letter-spacing: 1px;
+    line-height: 1rem;
+    padding: 10px 24px;
   }
 
   @media screen and (max-width: $break-mid-3) {
-	  font-size: .4rem;
-	  line-height: .875rem;
-	  padding: 6px 12px 6px 24px;
-	  text-align: justify;
+    font-size: 0.4rem;
+    line-height: 0.875rem;
+    padding: 6px 12px 6px 24px;
+    text-align: justify;
   }
-
-
 }
-

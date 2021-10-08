@@ -6,9 +6,8 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  * ======================================================================== */
 
-
-+function ($) {
-  'use strict';
+;+(function ($) {
+  'use strict'
 
   // TAB CLASS DEFINITION
   // ====================
@@ -20,8 +19,8 @@
   Tab.VERSION = '3.2.0'
 
   Tab.prototype.show = function () {
-    var $this    = this.element
-    var $ul      = $this.closest('ul:not(.dropdown-menu)')
+    var $this = this.element
+    var $ul = $this.closest('ul:not(.dropdown-menu)')
     var selector = $this.data('target')
 
     if (!selector) {
@@ -32,7 +31,7 @@
     if ($this.parent('li').hasClass('active')) return
 
     var previous = $ul.find('.active:last a')[0]
-    var e        = $.Event('show.bs.tab', {
+    var e = $.Event('show.bs.tab', {
       relatedTarget: previous
     })
 
@@ -52,10 +51,9 @@
   }
 
   Tab.prototype.activate = function (element, container, callback) {
-    var $active    = container.find('> .active')
-    var transition = callback
-      && $.support.transition
-      && $active.hasClass('fade')
+    var $active = container.find('> .active')
+    var transition =
+      callback && $.support.transition && $active.hasClass('fade')
 
     function next() {
       $active
@@ -79,15 +77,12 @@
       callback && callback()
     }
 
-    transition ?
-      $active
-        .one('bsTransitionEnd', next)
-        .emulateTransitionEnd(150) :
-      next()
+    transition
+      ? $active.one('bsTransitionEnd', next).emulateTransitionEnd(150)
+      : next()
 
     $active.removeClass('in')
   }
-
 
   // TAB PLUGIN DEFINITION
   // =====================
@@ -95,7 +90,7 @@
   function Plugin(option) {
     return this.each(function () {
       var $this = $(this)
-      var data  = $this.data('bs.tab')
+      var data = $this.data('bs.tab')
 
       if (!data) $this.data('bs.tab', (data = new Tab(this)))
       if (typeof option == 'string') data[option]()
@@ -104,9 +99,8 @@
 
   var old = $.fn.tab
 
-  $.fn.tab             = Plugin
+  $.fn.tab = Plugin
   $.fn.tab.Constructor = Tab
-
 
   // TAB NO CONFLICT
   // ===============
@@ -116,13 +110,15 @@
     return this
   }
 
-
   // TAB DATA-API
   // ============
 
-  $(document).on('click.bs.tab.data-api', '[data-toggle="tab"], [data-toggle="pill"]', function (e) {
-    e.preventDefault()
-    Plugin.call($(this), 'show')
-  })
-
-}(jQuery);
+  $(document).on(
+    'click.bs.tab.data-api',
+    '[data-toggle="tab"], [data-toggle="pill"]',
+    function (e) {
+      e.preventDefault()
+      Plugin.call($(this), 'show')
+    }
+  )
+})(jQuery)

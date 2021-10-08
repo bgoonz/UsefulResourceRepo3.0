@@ -8,7 +8,13 @@
 
 .title {
   // alpha beta gamma delta epsilon zeta eta theta iota
-  @include sp($fontsize: eta, $font: $headingtype, $lineheight: 1, $below: 1, $breakpoint: all);
+  @include sp(
+    $fontsize: eta,
+    $font: $headingtype,
+    $lineheight: 1,
+    $below: 1,
+    $breakpoint: all
+  );
   font-weight: map-get($headingtype, semibold);
   color: $c-links;
   letter-spacing: 1px;
@@ -17,32 +23,32 @@
   padding-right: 16px;
   margin-top: 1rem;
 
-// -------------------------------------
-//   Modifiers
-// -------------------------------------
+  // -------------------------------------
+  //   Modifiers
+  // -------------------------------------
 
-// .structure--modifier
+  // .structure--modifier
 
-// -------------------------------------
-//   States
-// -------------------------------------
+  // -------------------------------------
+  //   States
+  // -------------------------------------
 
-// .structure.is-state
+  // .structure.is-state
 
-// -------------------------------------
-//   Context
-// -------------------------------------
+  // -------------------------------------
+  //   Context
+  // -------------------------------------
 
-// .has-structure
+  // .has-structure
   .split-preview & {
     padding-left: 0;
   }
 
-// -------------------------------------
-//   Scaffolding
-// -------------------------------------
+  // -------------------------------------
+  //   Scaffolding
+  // -------------------------------------
 
-// .structure-scaffolding
+  // .structure-scaffolding
 
   &-document {
     @include sp(epsilon, $monospacetype, 1, 1, all);

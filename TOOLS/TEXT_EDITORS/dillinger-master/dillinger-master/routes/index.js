@@ -1,10 +1,22 @@
 'use strict'
 
 const path = require('path')
-const Dropbox = require(path.resolve(__dirname, '../plugins/dropbox/dropbox.js')).Dropbox
-const Bitbucket = require(path.resolve(__dirname, '../plugins/bitbucket/bitbucket.js')).Bitbucket
-const Github = require(path.resolve(__dirname, '../plugins/github/github.js')).Github
-const Medium = require(path.resolve(__dirname, '../plugins/medium/medium.js')).Medium
+const Dropbox = require(path.resolve(
+  __dirname,
+  '../plugins/dropbox/dropbox.js'
+)).Dropbox
+const Bitbucket = require(path.resolve(
+  __dirname,
+  '../plugins/bitbucket/bitbucket.js'
+)).Bitbucket
+const Github = require(path.resolve(
+  __dirname,
+  '../plugins/github/github.js'
+)).Github
+const Medium = require(path.resolve(
+  __dirname,
+  '../plugins/medium/medium.js'
+)).Medium
 const GoogleDrive = require('../plugins/googledrive/googledrive.js').GoogleDrive
 const OneDrive = require('../plugins/onedrive/onedrive.js').OneDrive
 const Sponsored = require('../plugins/sponsored/sponsored.js')
@@ -43,18 +55,22 @@ exports.index = function (req, res) {
 
   // If GA is enabled, let's create the HTML and tracking
   if (GoogleAnalytics.isConfigEnabled) {
-    indexConfig.GATrackSponsoredLinksHTML = GoogleAnalytics
-      .generateTrackSponsoredLinkClicks()
+    indexConfig.GATrackSponsoredLinksHTML =
+      GoogleAnalytics.generateTrackSponsoredLinkClicks()
     indexConfig.GATrackingHTML = GoogleAnalytics.generateGATrackingJS()
   }
 
   // Check for Medium bits...
-  if (req.session.medium && req.session.medium.oauth &&
+  if (
+    req.session.medium &&
+    req.session.medium.oauth &&
     req.session.medium.oauth.token &&
-    req.session.medium.oauth.token.access_token) {
+    req.session.medium.oauth.token.access_token
+  ) {
     // Set the access token on the medium client
-    Medium
-      .setAccessTokenFromSession(req.session.medium.oauth.token.access_token)
+    Medium.setAccessTokenFromSession(
+      req.session.medium.oauth.token.access_token
+    )
   } else {
     req.session.isMediumSynced = false
   }

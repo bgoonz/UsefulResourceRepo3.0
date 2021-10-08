@@ -24,7 +24,7 @@ module.exports = angular
 
     /// ///////////////////////////
 
-    function getTextInElement (node) {
+    function getTextInElement(node) {
       var txt
       if (node.nodeType === 3) {
         return node.data

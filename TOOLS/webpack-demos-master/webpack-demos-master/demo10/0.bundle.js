@@ -1,9 +1,11 @@
-webpackJsonp([0],[
-/* 0 */
-/***/ (function(module, exports) {
+webpackJsonp(
+  [0],
+  [
+    /* 0 */
+    /***/ function (module, exports) {
+      module.exports = "Hello World";
 
-module.exports = 'Hello World';
-
-
-/***/ })
-]);
+      /***/
+    },
+  ]
+);

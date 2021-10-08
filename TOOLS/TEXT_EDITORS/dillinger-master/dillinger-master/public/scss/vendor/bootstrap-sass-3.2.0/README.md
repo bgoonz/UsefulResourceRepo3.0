@@ -59,6 +59,7 @@ gem 'sass-rails', github: 'guilleiguaran/sass-rails', branch: 'backport'
 ### b. Compass without Rails
 
 Install the gem
+
 ```sh
 gem install bootstrap-sass
 ```
@@ -88,8 +89,8 @@ $ compass create my-new-project -r bootstrap-sass --using bootstrap
 
 This will create a new Compass project with the following files in it:
 
-* [styles.sass](/templates/project/styles.sass) - main project Sass file, imports Bootstrap and variables.
-* [_bootstrap-variables.sass](/templates/project/_bootstrap-variables.sass.erb) - all of Bootstrap variables, override them here.
+- [styles.sass](/templates/project/styles.sass) - main project Sass file, imports Bootstrap and variables.
+- [\_bootstrap-variables.sass](/templates/project/_bootstrap-variables.sass.erb) - all of Bootstrap variables, override them here.
 
 Some bootstrap-sass mixins may conflict with the Compass ones.
 If this happens, change the import order so that Compass mixins are loaded later.
@@ -117,8 +118,8 @@ In `application.css.ejs.scss` (NB **.css.ejs.css**):
 
 ```scss
 // Import mincer asset paths helper integration
-@import "bootstrap-mincer";
-@import "bootstrap";
+@import 'bootstrap-mincer';
+@import 'bootstrap';
 ```
 
 In `application.js`:
@@ -128,7 +129,6 @@ In `application.js`:
 ```
 
 See also this [example manifest.js](/test/dummy_node_mincer/manifest.js) for mincer.
-
 
 ### Configuration
 
@@ -158,7 +158,6 @@ When using ruby Sass compiler standalone or with the Bower version you can set i
 
 Note that libsass and node-sass do not currently support the precision option, due to an open bug ([bug #364](https://github.com/sass/libsass/issues/364)) in libsass.
 
-
 #### Sass: Autoprefixer
 
 Using [Autoprefixer][autoprefixer] with Bootstrap is recommended.
@@ -168,7 +167,6 @@ Using [Autoprefixer][autoprefixer] with Bootstrap is recommended.
 
 [`assets/javascripts/bootstrap.js`](/assets/javascripts/bootstrap.js) contains all of Bootstrap JavaScript,
 concatenated in the [correct order](/assets/javascripts/bootstrap-sprockets.js).
-
 
 #### JavaScript with Sprockets or Mincer
 
@@ -212,13 +210,13 @@ When using with Compass, Sprockets, or Mincer, make sure to import the relevant 
 Import Bootstrap into a Sass file (for example, application.css.scss) to get all of Bootstrap's styles, mixins and variables!
 
 ```scss
-@import "bootstrap";
+@import 'bootstrap';
 ```
 
 You can also include optional bootstrap theme:
 
 ```scss
-@import "bootstrap/theme";
+@import 'bootstrap/theme';
 ```
 
 The full list of bootstrap variables can be found [here](http://getbootstrap.com/customize/#less-variables). You can override these by simply redefining the variable before the `@import` directive, e.g.:
@@ -228,7 +226,7 @@ $navbar-default-bg: #312312;
 $light-orange: #ff8c00;
 $navbar-default-color: $light-orange;
 
-@import "bootstrap";
+@import 'bootstrap';
 ```
 
 ---
@@ -241,7 +239,7 @@ If you'd like to help with the development of bootstrap-sass itself, read this s
 
 Keeping bootstrap-sass in sync with upstream changes from Bootstrap used to be an error prone and time consuming manual process. With Bootstrap 3 we have introduced a converter that automates this.
 
-**Note: if you're just looking to *use* Bootstrap 3, see the [installation](#installation) section above.**
+**Note: if you're just looking to _use_ Bootstrap 3, see the [installation](#installation) section above.**
 
 Upstream changes to the Bootstrap project can now be pulled in using the `convert` rake task.
 
@@ -256,10 +254,10 @@ To convert a specific branch or version, pass the branch name or the commit hash
 
 The latest converter script is located [here][converter] and does the following:
 
-* Converts upstream bootstrap LESS files to its matching SCSS file.
-* Copies all upstream JavaScript into `assets/javascripts/bootstrap`, an Sprockets manifest at `assets/javascripts/bootstrap-sprockets.js`, and a concatenation at `assets/javascripts/bootstrap.js`.
-* Copies all upstream font files into `assets/fonts/bootstrap`.
-* Sets `Bootstrap::BOOTSTRAP_SHA` in [version.rb][version] to the branch sha.
+- Converts upstream bootstrap LESS files to its matching SCSS file.
+- Copies all upstream JavaScript into `assets/javascripts/bootstrap`, an Sprockets manifest at `assets/javascripts/bootstrap-sprockets.js`, and a concatenation at `assets/javascripts/bootstrap.js`.
+- Copies all upstream font files into `assets/fonts/bootstrap`.
+- Sets `Bootstrap::BOOTSTRAP_SHA` in [version.rb][version] to the branch sha.
 
 This converter fully converts original LESS to SCSS. Conversion is automatic but requires instructions for certain transformations (see converter output).
 Please submit GitHub issues tagged with `conversion`.
@@ -269,14 +267,16 @@ Please submit GitHub issues tagged with `conversion`.
 bootstrap-sass has a number of major contributors:
 
 <!-- feel free to make these link wherever you wish -->
-* [Thomas McDonald](https://twitter.com/thomasmcdonald_)
-* [Tristan Harward](http://www.trisweb.com)
-* Peter Gumeson
-* [Gleb Mazovetskiy](https://github.com/glebm)
+
+- [Thomas McDonald](https://twitter.com/thomasmcdonald_)
+- [Tristan Harward](http://www.trisweb.com)
+- Peter Gumeson
+- [Gleb Mazovetskiy](https://github.com/glebm)
 
 and a [significant number of other contributors][contrib].
 
 ## You're in good company
+
 bootstrap-sass is used to build some awesome projects all over the web, including
 [Diaspora](http://diasporaproject.org/), [rails_admin](https://github.com/sferik/rails_admin),
 Michael Hartl's [Rails Tutorial](http://railstutorial.org/), [gitlabhq](http://gitlabhq.com/) and

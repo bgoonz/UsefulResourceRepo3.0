@@ -1,69 +1,69 @@
+'use strict'
 
-'use strict';
+describe('googledriveService', function () {
+  var service = null,
+    $httpBackend = null,
+    diNotify = null
 
-describe("googledriveService", function() {
+  beforeEach(window.angular.mock.module('Dillinger'))
 
-  var
-      service      = null,
-      $httpBackend = null,
-      diNotify     = null;
+  beforeEach(inject(function (
+    _googledriveService_,
+    _$httpBackend_,
+    _diNotify_
+  ) {
+    service = _googledriveService_
+    $httpBackend = _$httpBackend_
+    diNotify = _diNotify_
+  }))
 
-  beforeEach(window.angular.mock.module('Dillinger'));
+  afterEach(function () {
+    $httpBackend.verifyNoOutstandingExpectation()
+    $httpBackend.verifyNoOutstandingRequest()
+  })
 
-  beforeEach( inject(function(_googledriveService_, _$httpBackend_, _diNotify_) {
-    service = _googledriveService_;
-    $httpBackend = _$httpBackend_;
-    diNotify = _diNotify_;
-  }));
+  it('should fetch files from googledrive and set it on the service.files variable', function () {
+    $httpBackend.whenGET('import/googledrive').respond({ items: [1, 2, 3] })
 
-  afterEach(function() {
-    $httpBackend.verifyNoOutstandingExpectation();
-    $httpBackend.verifyNoOutstandingRequest();
-  });
+    service.fetchFiles().success(function (data) {
+      expect(service.files).toEqual([1, 2, 3])
+    })
 
-  it('should fetch files from googledrive and set it on the service.files variable', function() {
+    $httpBackend.flush()
+  })
 
-    $httpBackend.whenGET('import/googledrive').respond({ items: [1,2,3] });
+  it('should fetch a file from googledrive and set it on the service.fetched.file variable', function () {
+    var fileId = '1'
 
-    service.fetchFiles().success(function(data) {
-      expect(service.files).toEqual([1,2,3]);
-    });
+    $httpBackend
+      .whenGET('fetch/googledrive?fileId=1')
+      .respond({ content: '#Dillinger Test Content' })
 
-    $httpBackend.flush();
-  });
+    service.fetchFile(fileId).success(function (data) {
+      expect(service.fetched.file).toEqual('#Dillinger Test Content')
+    })
 
-  it('should fetch a file from googledrive and set it on the service.fetched.file variable', function() {
+    $httpBackend.flush()
+  })
 
-    var fileId = '1';
-
-    $httpBackend.whenGET('fetch/googledrive?fileId=1').respond({ content: '#Dillinger Test Content' });
-
-    service.fetchFile(fileId).success(function(data) {
-      expect(service.fetched.file).toEqual('#Dillinger Test Content');
-    });
-
-    $httpBackend.flush();
-  });
-
-  it('should save the current file on googledrive and return success message', function() {
-
+  it('should save the current file on googledrive and return success message', function () {
     var markDownDocument = {
-      title:  'TestDocument',
-      body:   '#Dillinger Test'
-    };
-
-    $httpBackend.expectPOST('save/googledrive').respond();
-
-    service.saveFile(markDownDocument.title, markDownDocument.body);
-
-    $httpBackend.flush();
-
-    var diNotifyElements = document.getElementsByClassName('diNotify-message');
-    var diNotifyElementsText = '';
-    for (var i= 0; i < diNotifyElements.length; ++i) {
-      diNotifyElementsText = diNotifyElementsText + diNotifyElements[i].innerHTML;
+      title: 'TestDocument',
+      body: '#Dillinger Test'
     }
-    expect(diNotifyElementsText).toContain('Successfully saved to Google Drive');
-  });
 
-});
+    $httpBackend.expectPOST('save/googledrive').respond()
+
+    service.saveFile(markDownDocument.title, markDownDocument.body)
+
+    $httpBackend.flush()
+
+    var diNotifyElements = document.getElementsByClassName('diNotify-message')
+    var diNotifyElementsText = ''
+    for (var i = 0; i < diNotifyElements.length; ++i) {
+      diNotifyElementsText =
+        diNotifyElementsText + diNotifyElements[i].innerHTML
+    }
+    expect(diNotifyElementsText).toContain('Successfully saved to Google Drive')
+  })
+})

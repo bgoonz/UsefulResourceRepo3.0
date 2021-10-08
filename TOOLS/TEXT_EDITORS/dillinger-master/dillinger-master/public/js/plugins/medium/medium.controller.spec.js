@@ -1,9 +1,7 @@
-'use strict';
+'use strict'
 
-describe('mediumController', function() {
-
-  var
-    $controller = null,
+describe('mediumController', function () {
+  var $controller = null,
     $scope = null,
     $rootScope = null,
     $modal = null,
@@ -12,47 +10,54 @@ describe('mediumController', function() {
     $httpBackend = null,
     diNotify = null,
     q = null,
-    deferred = null;
+    deferred = null
 
   var fakeModal = {
     result: {
-      then: function() {
-        $scope.$emit('document.refresh');
-        return $scope.$emit('autosave');
+      then: function () {
+        $scope.$emit('document.refresh')
+        return $scope.$emit('autosave')
       }
     }
-  };
+  }
 
-  beforeEach(window.angular.mock.module('Dillinger'));
+  beforeEach(window.angular.mock.module('Dillinger'))
 
-  beforeEach(inject(function($modal) {
-    spyOn($modal, 'open').and.returnValue(fakeModal);
-  }));
+  beforeEach(inject(function ($modal) {
+    spyOn($modal, 'open').and.returnValue(fakeModal)
+  }))
 
-  beforeEach(function() {
+  beforeEach(function () {
     mediumService = {
-      saveFile: function(data) {
-        deferred = q.defer();
-        deferred.resolve();
-        return deferred.promise;
+      saveFile: function (data) {
+        deferred = q.defer()
+        deferred.resolve()
+        return deferred.promise
       }
     }
-  });
+  })
 
-  beforeEach(function() {
+  beforeEach(function () {
     documentsService = {
-      getCurrentDocumentTitle: function() {
-        return 'Dilinger Test Document Title';
+      getCurrentDocumentTitle: function () {
+        return 'Dilinger Test Document Title'
       },
-      getCurrentDocumentBody: function() {
-        return '### Dilinger file body';
+      getCurrentDocumentBody: function () {
+        return '### Dilinger file body'
       }
     }
-  });
+  })
 
-  beforeEach(inject(function($controller, $rootScope,  $modal, _mediumService_, _documentsService_, $q) {
-    $scope = $rootScope;
-    q = $q;
+  beforeEach(inject(function (
+    $controller,
+    $rootScope,
+    $modal,
+    _mediumService_,
+    _documentsService_,
+    $q
+  ) {
+    $scope = $rootScope
+    q = $q
 
     // Create the controller
     $controller('Medium as vm', {
@@ -60,13 +65,12 @@ describe('mediumController', function() {
       $modal: $modal,
       mediumService: mediumService,
       documentsService: documentsService
-    });
-  }));
+    })
+  }))
 
-  it('should save the document', function() {
-    var saved = $scope.vm.saveTo("dilinger-save");
-    $scope.$digest();
-    expect(saved.$$state.status).toEqual(1);
-  });
-
-});
+  it('should save the document', function () {
+    var saved = $scope.vm.saveTo('dilinger-save')
+    $scope.$digest()
+    expect(saved.$$state.status).toEqual(1)
+  })
+})

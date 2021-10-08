@@ -1,17 +1,17 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
 
 module.exports = {
   entry: {
-    app: './main.js',
-    vendor: ['jquery'],
+    app: "./main.js",
+    vendor: ["jquery"],
   },
   output: {
-    filename: 'bundle.js'
+    filename: "bundle.js",
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
-      name: 'vendor',
-      filename: 'vendor.js'
-    })
-  ]
+      name: "vendor",
+      filename: "vendor.js",
+    }),
+  ],
 };

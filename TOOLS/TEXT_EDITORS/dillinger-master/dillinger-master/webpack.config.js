@@ -18,11 +18,7 @@ module.exports = {
     moduleExtensions: ['-loader']
   },
   module: {
-    noParse: [
-      /brace/,
-      /angular/,
-      /autoit.js/
-    ],
+    noParse: [/brace/, /angular/, /autoit.js/],
     rules: [
       {
         test: /\.js$/,

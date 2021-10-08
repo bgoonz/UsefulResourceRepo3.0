@@ -1,7 +1,7 @@
-$default-order:
-  '!' '#' '$' '%' '&' "'" '(' ')' '*' '+' ',' '-' '.' '/' '[' '\\' ']' '^' '_' '{' '|' '}' '~'
-  '0' '1' '2' '3' '4' '5' '6' '7' '8' '9'
-  'a' 'b' 'c' 'd' 'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w' 'x' 'y' 'z' !default;
+$default-order: '!' '#' '$' '%' '&' "'" '(' ')' '*' '+' ',' '-' '.' '/' '[' '\\'']'
+  '^' '_' '{' '|' '}' '~''0' '1' '2' '3' '4' '5' '6' '7' '8' '9' 'a' 'b' 'c' 'd'
+  'e' 'f' 'g' 'h' 'i' 'j' 'k' 'l' 'm' 'n' 'o' 'p' 'q' 'r' 's' 't' 'u' 'v' 'w'
+  'x' 'y' 'z' !default;
 
 // Compares two string to determine which comes first
 //
@@ -20,16 +20,16 @@ $default-order:
   @for $i from 1 through min(str-length($a), str-length($b)) {
     $char-a: str-slice($a, $i, $i);
     $char-b: str-slice($b, $i, $i);
-    @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b) {
+    @if $char-a and $char-b and index($order, $char-a) != index($order, $char-b)
+    {
       @return index($order, $char-a) < index($order, $char-b);
     }
   }
   @return str-length($a) < str-length($b);
 }
 
-
 @function quick-sort($list, $order: $default-order) {
-  $less:  ();
+  $less: ();
   $equal: ();
   $large: ();
   @if length($list) > 1 {
@@ -37,21 +37,27 @@ $default-order:
     @each $item in $list {
       @if $item == $seed {
         $equal: append($equal, $item, comma);
-      }
-      @else if str-compare($item, $seed, $order) {
+      } @else if str-compare($item, $seed, $order) {
         $less: append($less, $item, comma);
-      }
-      @else if not str-compare($item, $seed, $order) {
+      } @else if not str-compare($item, $seed, $order) {
         $large: append($large, $item, comma);
       }
     }
-    @return join(join(quick-sort($less, $order), $equal), quick-sort($large, $order));
+    @return join(
+      join(quick-sort($less, $order), $equal),
+      quick-sort($large, $order)
+    );
   }
   @return $list;
 }
 
-@function scale-range($ideal: 16, $ratio: 1.333, $important: 0, $offset-important: -4, $offset-ideal: -1) {
-
+@function scale-range(
+  $ideal: 16,
+  $ratio: 1.333,
+  $important: 0,
+  $offset-important: -4,
+  $offset-ideal: -1
+) {
   $greek: (alpha beta gamma delta epsilon zeta eta theta iota);
   $numbers: ();
 
@@ -68,7 +74,10 @@ $default-order:
     $imp: $offset-important;
 
     @while $ide < $greek-length {
-      $important-list: join($important-list, modular-scale($important, $ide, $ratio));
+      $important-list: join(
+        $important-list,
+        modular-scale($important, $ide, $ratio)
+      );
       $ide: $ide + 1;
     }
 
@@ -82,7 +91,11 @@ $default-order:
 
     @for $i from 1 through $greek-length {
       $numbers: append($numbers, nth($tmp-list, $i));
-      $return-list: map-merge($return-list, nth($greek, -$i) nth($numbers, $i), comma);
+      $return-list: map-merge(
+        $return-list,
+        nth($greek, -$i) nth($numbers, $i),
+        comma
+      );
     }
   }
 

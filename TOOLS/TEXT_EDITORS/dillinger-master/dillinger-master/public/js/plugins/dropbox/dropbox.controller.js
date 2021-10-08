@@ -1,94 +1,95 @@
-
-'use strict';
+'use strict'
 
 /**
  *    Dropbox Controller.
  */
 
-module.exports =
-  angular
+module.exports = angular
   .module('plugins.dropbox', [
     'plugins.dropbox.service',
     'plugins.dropbox.modal'
   ])
-  .controller('Dropbox', function($rootScope, $modal, dropboxService, documentsService) {
+  .controller(
+    'Dropbox',
+    function ($rootScope, $modal, dropboxService, documentsService) {
+      // I.
+      // Self-reference
+      var vm = this
 
+      // II.
+      // Requirements
 
-  // I.
-  // Self-reference
-  var vm = this;
+      // III.
+      // Scope Stuff
 
-  // II.
-  // Requirements
+      // III. a)
+      // Watchers
 
-  // III.
-  // Scope Stuff
+      // III. b)
+      // Scope Methods
 
-  // III. a)
-  // Watchers
+      // III. c)
+      // Listen to Events
 
-  // III. b)
-  // Scope Methods
+      // IV.
+      // Methods on the Controller
+      vm.importFile = importFile
+      vm.saveTo = saveTo
 
-  // III. c)
-  // Listen to Events
+      // IV. a)
+      // Properties on the Controller
 
-  // IV.
-  // Methods on the Controller
-  vm.importFile = importFile;
-  vm.saveTo     = saveTo;
+      // V.
+      // Cleanup
 
-  // IV. a)
-  // Properties on the Controller
+      // VI.
+      // Implementation
+      // ------------------------------
 
-  // V.
-  // Cleanup
+      /**
+       *    Opens the Bootstrap Modal and returns a Promise which will then
+       *    update the current document.
+       */
+      function importFile() {
+        var modalInstance = $modal.open({
+          template: require('raw!./dropbox-modal.directive.html'),
+          controller: 'DropboxModal as modal',
+          windowClass: 'modal--dillinger',
+          resolve: {
+            items: function () {
+              return dropboxService.fetchFiles()
+            }
+          }
+        })
 
-  // VI.
-  // Implementation
-  // ------------------------------
+        return modalInstance.result.then(
+          function () {
+            documentsService.setCurrentDocumentTitle(
+              dropboxService.fetched.fileName
+            )
+            documentsService.setCurrentDocumentBody(dropboxService.fetched.file)
 
-  /**
-   *    Opens the Bootstrap Modal and returns a Promise which will then
-   *    update the current document.
-   */
-  function importFile() {
-    var modalInstance = $modal.open({
-      template:    require('raw!./dropbox-modal.directive.html'),
-      controller:  'DropboxModal as modal',
-      windowClass: 'modal--dillinger',
-      resolve: {
-        items: function() {
-          return dropboxService.fetchFiles();
-        }
+            // tell other services
+            $rootScope.$emit('document.refresh')
+            $rootScope.$emit('autosave')
+
+            return false
+          },
+          function () {
+            modalInstance.dismiss('cancel')
+          }
+        )
       }
-    });
 
-    return modalInstance.result.then(function() {
+      /**
+       *    Saves the File on Dropbox.
+       */
+      function saveTo() {
+        var body, title
 
-      documentsService.setCurrentDocumentTitle(dropboxService.fetched.fileName);
-      documentsService.setCurrentDocumentBody(dropboxService.fetched.file);
-
-      // tell other services
-      $rootScope.$emit('document.refresh');
-      $rootScope.$emit('autosave');
-
-      return false;
-    }, function() {
-      modalInstance.dismiss('cancel');
-    });
-  }
-
-  /**
-   *    Saves the File on Dropbox.
-   */
-  function saveTo() {
-    
-    var body, title;
-
-    title  = documentsService.getCurrentDocumentTitle();
-    body   = documentsService.getCurrentDocumentBody();
-    return dropboxService.saveFile(title, body);
-  }
-
-});
+        title = documentsService.getCurrentDocumentTitle()
+        body = documentsService.getCurrentDocumentBody()
+        return dropboxService.saveFile(title, body)
+      }
+    }
+  )

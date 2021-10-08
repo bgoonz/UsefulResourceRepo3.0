@@ -17,10 +17,10 @@
 // Convert pixel based values to ems
 @function em($pxval, $base: 16px) {
   @if not unitless($pxval) {
-      $pxval: strip-units($pxval);
+    $pxval: strip-units($pxval);
   }
   @if not unitless($base) {
-      $base: strip-units($base);
+    $base: strip-units($base);
   }
   @return ($pxval / $base) * 1em;
 }
@@ -28,10 +28,10 @@
 // Convert pixel based values to rems
 @function rem($pxval, $base: 16px) {
   @if not unitless($pxval) {
-      $pxval: strip-units($pxval);
+    $pxval: strip-units($pxval);
   }
   @if not unitless($base) {
-      $base: strip-units($base);
+    $base: strip-units($base);
   }
   @return ($pxval / $base) * 1rem;
 }
@@ -42,9 +42,9 @@
 
 @mixin clearfix {
   &:after {
-    content:"";
-    display:table;
-    clear:both;
+    content: '';
+    display: table;
+    clear: both;
   }
 }
 
@@ -55,7 +55,6 @@
   top: -100px;
   position: absolute;
 }
-
 
 // -------------------------------------
 //   Extends
@@ -89,7 +88,6 @@
     width: 0;
   }
 }
-
 
 // -------------------------------------
 //   Animations

@@ -1,7 +1,7 @@
 // Settings
 // @import "settings/prefixer";
-@import "settings/px-to-em";
-@import "settings/asset-pipeline";
+@import 'settings/px-to-em';
+@import 'settings/asset-pipeline';
 
 // Custom Helpers
 // @import "helpers/convert-units";
@@ -21,13 +21,13 @@
 // Custom Functions
 // @import "functions/assign";
 // @import "functions/color-lightness";
-@import "functions/flex-grid";
+@import 'functions/flex-grid';
 // @import "functions/golden-ratio";
 // @import "functions/grid-width";
-@import "functions/modular-scale";
-@import "functions/px-to-em";
-@import "functions/px-to-rem";
-@import "functions/strip-units";
+@import 'functions/modular-scale';
+@import 'functions/px-to-em';
+@import 'functions/px-to-rem';
+@import 'functions/strip-units';
 // @import "functions/tint-shade";
 // @import "functions/transition-property-name";
 // @import "functions/unpack";
@@ -61,18 +61,18 @@
 
 // Addons & other mixins
 // @import "addons/button";
-@import "addons/clearfix";
-@import "addons/directional-values";
-@import "addons/ellipsis";
+@import 'addons/clearfix';
+@import 'addons/directional-values';
+@import 'addons/ellipsis';
 // @import "addons/font-family";
-@import "addons/hide-text";
+@import 'addons/hide-text';
 // @import "addons/html5-input-types";
 // @import "addons/position";
 // @import "addons/prefixer";
-@import "addons/retina-image";
+@import 'addons/retina-image';
 // @import "addons/size";
-@import "addons/timing-functions";
-@import "addons/triangle";
+@import 'addons/timing-functions';
+@import 'addons/triangle';
 // @import "addons/word-wrap";
 
 // Soon to be deprecated Mixins

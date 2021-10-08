@@ -18,16 +18,14 @@
 // *************************************
 
 .modal {
-
-// -------------------------------------
-//   Modifiers
-// -------------------------------------
+  // -------------------------------------
+  //   Modifiers
+  // -------------------------------------
 
   &--dillinger {
-
     &.about .modal-dialog {
       @include fontsize(epsilon, all);
-       max-width: 500px;
+      max-width: 500px;
     }
 
     &.scope .modal-dialog {
@@ -42,9 +40,9 @@
     }
 
     .modal-content {
-      background: #373D49;
+      background: #373d49;
       border-radius: 3px;
-      box-shadow: 0px 2px 5px 0px #2C3B59;
+      box-shadow: 0px 2px 5px 0px #2c3b59;
       color: #fff;
       font-family: map-get($headingtype, font-family);
       font-weight: map-get($headingtype, regular);
@@ -80,27 +78,25 @@
       color: #fff;
       opacity: 1;
     }
-
   }
 
-// -------------------------------------
-//   States
-// -------------------------------------
+  // -------------------------------------
+  //   States
+  // -------------------------------------
 
-// .structure.is-state
+  // .structure.is-state
 
-// -------------------------------------
-//   Context
-// -------------------------------------
+  // -------------------------------------
+  //   Context
+  // -------------------------------------
 
-// .has-structure
+  // .has-structure
 
-// -------------------------------------
-//   Scaffolding
-// -------------------------------------
+  // -------------------------------------
+  //   Scaffolding
+  // -------------------------------------
 
   &-backdrop {
-    background-color: #373D49;
+    background-color: #373d49;
   }
-
 }

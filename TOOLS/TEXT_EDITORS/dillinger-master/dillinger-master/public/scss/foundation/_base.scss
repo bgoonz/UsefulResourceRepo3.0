@@ -42,7 +42,13 @@ li > ol {
 }
 
 p {
-  @include baseline($fontsize: zeta, $font: $bodytype, $lineheight: 2, $below: 2, $breakpoint: all);
+  @include baseline(
+    $fontsize: zeta,
+    $font: $bodytype,
+    $lineheight: 2,
+    $below: 2,
+    $breakpoint: all
+  );
   font-feature-settings: 'kern' 1, 'onum' 1, 'liga' 1;
   margin-top: 0;
 }
@@ -53,14 +59,14 @@ pre {
   background: linear-gradient(
     to bottom,
     rgba(#fff, 1) 0,
-    rgba(#fff, 1) .75rem,
-    rgba(#F5F7FA, 1) .75rem,
-    rgba(#F5F7FA, 1) 2.75rem,
+    rgba(#fff, 1) 0.75rem,
+    rgba(#f5f7fa, 1) 0.75rem,
+    rgba(#f5f7fa, 1) 2.75rem,
     rgba(#fff, 1) 2.75rem,
     rgba(#fff, 1) 4rem
   );
   background-size: 100% 4rem;
-  border-color: #D3DAEA;
+  border-color: #d3daea;
 }
 
 blockquote {
@@ -97,7 +103,13 @@ h6 {
 }
 
 h1 {
-  @include sp($fontsize: alpha, $font: $headingtype, $lineheight: 3, $below: 1, $breakpoint: all);
+  @include sp(
+    $fontsize: alpha,
+    $font: $headingtype,
+    $lineheight: 3,
+    $below: 1,
+    $breakpoint: all
+  );
 }
 
 h2 {

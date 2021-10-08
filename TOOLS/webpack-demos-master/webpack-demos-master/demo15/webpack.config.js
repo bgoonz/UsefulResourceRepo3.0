@@ -1,24 +1,24 @@
 module.exports = {
-  entry: './index.js',
+  entry: "./index.js",
   output: {
-    filename: 'bundle.js'
+    filename: "bundle.js",
   },
   module: {
     rules: [
       {
         test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['es2015', 'react']
-          }
-        }
+            presets: ["es2015", "react"],
+          },
+        },
       },
-    ]
-  }
+    ],
+  },
 };

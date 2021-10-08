@@ -56,11 +56,10 @@
   }
 
   .unlinked .icon {
-    opacity: .3;
+    opacity: 0.3;
   }
 
   &.documents {
-
     li {
       background-image: url('../img/icons/file.svg');
       background-position: 240px center;
@@ -77,9 +76,8 @@
 
     li {
       &:last-child {
-      margin-bottom: 1rem;
-    }
-
+        margin-bottom: 1rem;
+      }
     }
     li.active a {
       color: $c-highlight;

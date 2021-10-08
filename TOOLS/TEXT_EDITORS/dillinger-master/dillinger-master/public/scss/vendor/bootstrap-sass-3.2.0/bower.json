@@ -28,11 +28,7 @@
     "assets/javascripts/bootstrap/tooltip.js",
     "assets/javascripts/bootstrap/popover.js"
   ],
-  "keywords": [
-    "twbs",
-    "bootstrap",
-    "sass"
-  ],
+  "keywords": ["twbs", "bootstrap", "sass"],
   "license": "MIT",
   "ignore": [
     "**/.*",

@@ -23,29 +23,29 @@ $debug: false;
 
 // ----- Palette ----- //
 
-$plum: #35D7BB;
+$plum: #35d7bb;
 
 // ----- Base ----- //
 
 //$c-background: #fafafa;
 $c-background: #fff;
-$c-border: #E8E8E8;
-$c-border-settings: #4F535B;
-$c-highlight: #35D7BB;
+$c-border: #e8e8e8;
+$c-border-settings: #4f535b;
+$c-highlight: #35d7bb;
 $c-subdue: lighten($plum, 40%);
 $c-text-invert: white;
-$c-text: #373D49;
-$c-ad: #A0AABF;
-$c-links: #A0AABF;
-$c-icon: #D3DAEA;
-$c-dropdown-link: #D0D6E2;
-$c-background-highlight: #1D212A;
+$c-text: #373d49;
+$c-ad: #a0aabf;
+$c-links: #a0aabf;
+$c-icon: #d3daea;
+$c-dropdown-link: #d0d6e2;
+$c-background-highlight: #1d212a;
 $c-background-navbar: $c-text;
 $c-background-settings: $c-text;
-$c-background-sidebar: #2B2F36;
-$c-button-save: #4A5261;
-$c-switchery: #4B5363;
-$c-box-shadow-switchery: #14171F;
+$c-background-sidebar: #2b2f36;
+$c-button-save: #4a5261;
+$c-switchery: #4b5363;
+$c-box-shadow-switchery: #14171f;
 
 // ----- Components ----- //
 
@@ -60,13 +60,9 @@ $z-index: (
   debug 99
 );
 
-$component-widths: (
-  sidebar 270px
-);
+$component-widths: (sidebar 270px);
 
-$transitions: (
-  menu #{all .25s ease-in-out}
-);
+$transitions: (menu #{all 0.25s ease-in-out});
 
 // ----- Structures ----- //
 
@@ -78,13 +74,15 @@ $transitions: (
 
 // ----- Typography ----- //
 
-$base-font-family:         Georgia, Cambria, serif;
-$base-font-family-heading: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-$base-font-family-serif:   Palatino, "Palatino Linotype", "Palatino LT STD", "Book Antiqua", Georgia, serif;
-$base-font-family-monospace:  "Ubuntu Mono", Monaco;
+$base-font-family: Georgia, Cambria, serif;
+$base-font-family-heading: 'Source Sans Pro', 'Helvetica Neue', Helvetica, Arial,
+  sans-serif;
+$base-font-family-serif: Palatino, 'Palatino Linotype', 'Palatino LT STD',
+  'Book Antiqua', Georgia, serif;
+$base-font-family-monospace: 'Ubuntu Mono', Monaco;
 
-$base-font-size:    14px;
-$base-line-height:  24px;
+$base-font-size: 14px;
+$base-line-height: 24px;
 // $base-font-unit: rem;
 
 $bodytype: (
@@ -92,7 +90,7 @@ $bodytype: (
   regular 400,
   bold 600,
   italic italic,
-  cap-height .68
+  cap-height 0.68
 );
 
 $headingtype: (
@@ -101,24 +99,27 @@ $headingtype: (
   regular 400,
   semibold 500,
   bold 600,
-  cap-height .70
+  cap-height 0.7
 );
 
 $monospacetype: (
   font-family $base-font-family-monospace,
   regular 400,
-  cap-height .64
+  cap-height 0.64
 );
-
 
 // Root font-sizes for each breakpoint. Set to half desired line-height of body text.
 // ! Make sure to have as many sizes as breakpoints above.
 $rootsizes: (
-  rootsize-0 14,    // 24px line-height body text
-  rootsize-1 14,    // 28px line-height body text
-  rootsize-2 14,    // 30px line-height body text
-  rootsize-3 14,    // 32px line-height body text
-  rootsize-4 14    // 36px line-height body text
+  rootsize-0 14,
+  // 24px line-height body text
+  rootsize-1 14,
+  // 28px line-height body text
+  rootsize-2 14,
+  // 30px line-height body text
+  rootsize-3 14,
+  // 32px line-height body text
+  rootsize-4 14 // 36px line-height body text
 );
 
 // Here are some cap-height sizes to get you started:
@@ -142,14 +143,13 @@ $modular-scale: (
   scale-4 scale-range(14, 1.25, 36, -3, -2)
 );
 
-
 // ----- Borders & Box Shadow ----- //
 
 $base-border-radius: 3px;
-$base-border-style:  solid;
-$base-border-width:  2px;
-$base-border:        $base-border-width $base-border-style $c-border;
-$base-box-shadow:    0 2px 0 rgba($c-text, .25);
+$base-border-style: solid;
+$base-border-width: 2px;
+$base-border: $base-border-width $base-border-style $c-border;
+$base-box-shadow: 0 2px 0 rgba($c-text, 0.25);
 
 // -------------------------------------
 //   Components
@@ -157,23 +157,23 @@ $base-box-shadow:    0 2px 0 rgba($c-text, .25);
 
 // ----- Grid ----- //
 
-$grid-palm:    300px;
-$grid-mobile:  400px;
-$grid-tablet:  660px;
+$grid-palm: 300px;
+$grid-mobile: 400px;
+$grid-tablet: 660px;
 $grid-desktop: 960px;
 
-$grid-gutter:         32px;
-$grid-gutter-mobile:  $grid-gutter;
-$grid-gutter-tablet:  32px;
+$grid-gutter: 32px;
+$grid-gutter-mobile: $grid-gutter;
+$grid-gutter-tablet: 32px;
 $grid-gutter-desktop: 32px;
 // $g-xl:             1440px;
 
 // ----- Breakpoints ----- //
 
 // Provide pixel values
-$mobile:     440px;
-$tablet:     740px;
-$desktop:    1000px;
+$mobile: 440px;
+$tablet: 740px;
+$desktop: 1000px;
 $widescreen: 1400px;
 
 // Breakpoint sizes in ems. Add more values here to add more breakpoints.
@@ -182,23 +182,30 @@ $widescreen: 1400px;
 // Note: not relative to root font-size.
 
 $breakpoints: (
-  break-zero 0px,     // 0px       Mobile first
-  mobile     $mobile,   // 440px   ~ Small Tablet or Landscape Mobile
-  tablet     $tablet,   // 700px   ~ Tablet
-  desktop    $desktop,  // 1000px  ~ Desktop
-  widescreen $widescreen   // 1400px  ~ Large desktop up
+  break-zero 0px,
+  // 0px       Mobile first
+  mobile $mobile,
+  // 440px   ~ Small Tablet or Landscape Mobile
+  tablet $tablet,
+  // 700px   ~ Tablet
+  desktop $desktop,
+  // 1000px  ~ Desktop
+  widescreen $widescreen // 1400px  ~ Large desktop up
 );
-
 
 // Control the line-length with max-width values for the container.
 // Aim for 75–100 characters a line when possible, at smaller sizes type size is more important.
 // ! Make sure to have as many widths as breakpoints above.
 $maxwidths: (
-  maxwidth-0 500,  // 500px wide
-  maxwidth-1 550,  // 550px wide
-  maxwidth-2 600,  // 600px wide
-  maxwidth-3 680,  // 680px wide
-  maxwidth-4 750   // 750px wide
+  maxwidth-0 500,
+  // 500px wide
+  maxwidth-1 550,
+  // 550px wide
+  maxwidth-2 600,
+  // 600px wide
+  maxwidth-3 680,
+  // 680px wide
+  maxwidth-4 750 // 750px wide
 );
 
 // -------------------------------------

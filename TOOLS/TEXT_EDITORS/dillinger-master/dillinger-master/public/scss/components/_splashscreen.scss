@@ -18,12 +18,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: #373D49;
+  background-color: #373d49;
   z-index: 22;
 
-// -------------------------------------
-//   Scaffolding
-// -------------------------------------
+  // -------------------------------------
+  //   Scaffolding
+  // -------------------------------------
 
   &-dillinger {
     width: 260px;
@@ -46,15 +46,20 @@
   }
 
   p {
-    @include sp($fontsize: epsilon, $font: $headingtype, $lineheight: 2, $below: 2, $breakpoint: all);
+    @include sp(
+      $fontsize: epsilon,
+      $font: $headingtype,
+      $lineheight: 2,
+      $below: 2,
+      $breakpoint: all
+    );
     font-family: map-get($headingtype, font-family);
     font-weight: map-get($headingtype, regular);
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
-    color: #FFF;
+    color: #fff;
   }
-
 }
 
 .sp-center {

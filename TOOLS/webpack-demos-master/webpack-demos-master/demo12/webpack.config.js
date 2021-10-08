@@ -1,26 +1,26 @@
-var webpack = require('webpack');
+var webpack = require("webpack");
 
 module.exports = {
   entry: {
-    bundle1: './main1.jsx',
-    bundle2: './main2.jsx'
+    bundle1: "./main1.jsx",
+    bundle2: "./main2.jsx",
   },
   output: {
-    filename: '[name].js'
+    filename: "[name].js",
   },
   module: {
-    rules:[
+    rules: [
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: "babel-loader",
           options: {
-            presets: ['es2015', 'react']
-          }
-        }
+            presets: ["es2015", "react"],
+          },
+        },
       },
-    ]
+    ],
   },
   plugins: [
     new webpack.optimize.CommonsChunkPlugin({
@@ -29,6 +29,6 @@ module.exports = {
 
       filename: "commons.js",
       // (the filename of the commons chunk)
-    })
-  ]
-}
+    }),
+  ],
+};

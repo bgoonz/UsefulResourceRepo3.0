@@ -15,9 +15,9 @@
   width: 100%;
   height: 100%;
   z-index: 10;
-  background-color: #FFF;
+  background-color: #fff;
   opacity: 0;
-  transition: opacity .25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
 
   &.on {
     opacity: 1;
@@ -32,8 +32,8 @@
   height: 32px;
   display: block;
   position: absolute;
-  right: .5rem;
-  top: .313rem;
+  right: 0.5rem;
+  top: 0.313rem;
   display: none;
 
   @include from('tablet') {
@@ -93,7 +93,7 @@
 
   &:before,
   &:after {
-    content: "";
+    content: '';
     position: absolute;
     height: 10%;
     width: 100%;
@@ -105,5 +105,4 @@
   //   top: 0;
   //   background-image: linear-gradient(0deg, rgba(255,255,255,0) 0%, #FFFFFF 100%);
   // }
-
 }
