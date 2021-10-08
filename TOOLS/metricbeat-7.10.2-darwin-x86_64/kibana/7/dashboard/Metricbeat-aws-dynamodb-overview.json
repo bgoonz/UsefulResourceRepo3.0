@@ -1,0 +1,301 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of DynamoDB AWS Cloudwatch metrics",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 10, \"x\": 0, \"y\": 0, \"i\": \"9642fcd0-464b-46ea-815c-cd2d9efc056d\", \"h\": 9}, \"panelIndex\": \"9642fcd0-464b-46ea-815c-cd2d9efc056d\", \"title\": \"Region/Account Filters\", \"embeddableConfig\": {\"title\": \"Region/Account Filters\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 14, \"x\": 10, \"y\": 0, \"i\": \"bb4b0cfa-7d6f-48e3-913e-2713c5aa3fe0\", \"h\": 9}, \"panelIndex\": \"bb4b0cfa-7d6f-48e3-913e-2713c5aa3fe0\", \"title\": \"Consumed Read Capacity Units\", \"embeddableConfig\": {\"title\": \"Consumed Read Capacity Units\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 14, \"x\": 24, \"y\": 0, \"i\": \"09bdf20b-43b4-47a3-a113-d34ef3b2596c\", \"h\": 9}, \"panelIndex\": \"09bdf20b-43b4-47a3-a113-d34ef3b2596c\", \"title\": \"Consumed Write Capacity Units\", \"embeddableConfig\": {\"title\": \"Consumed Write Capacity Units\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 10, \"x\": 38, \"y\": 0, \"i\": \"1bd7141d-b410-4ca0-8550-f8f645d97983\", \"h\": 9}, \"panelIndex\": \"1bd7141d-b410-4ca0-8550-f8f645d97983\", \"title\": \"Max Read/Write Account Limits\", \"embeddableConfig\": {\"title\": \"Max Read/Write Account Limits\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 17, \"x\": 0, \"y\": 9, \"i\": \"073302ad-0e44-4cd1-b16d-58f017a71816\", \"h\": 10}, \"panelIndex\": \"073302ad-0e44-4cd1-b16d-58f017a71816\", \"title\": \"Successful Request Latency\", \"embeddableConfig\": {\"title\": \"Successful Request Latency\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 16, \"x\": 17, \"y\": 9, \"i\": \"ddcbc858-d2a0-42c3-8074-74f7d08ecb60\", \"h\": 10}, \"panelIndex\": \"ddcbc858-d2a0-42c3-8074-74f7d08ecb60\", \"title\": \"Read Throttle Events\", \"embeddableConfig\": {\"title\": \"Read Throttle Events\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 15, \"x\": 33, \"y\": 9, \"i\": \"95ffd42d-b28d-4f40-b3cb-6a6ac52943e1\", \"h\": 10}, \"panelIndex\": \"95ffd42d-b28d-4f40-b3cb-6a6ac52943e1\", \"title\": \"Throttle Requests\", \"embeddableConfig\": {\"title\": \"Throttle Requests\"}, \"panelRefName\": \"panel_6\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 17, \"x\": 0, \"y\": 19, \"i\": \"0a588a08-997a-422f-a5db-e56728bc6702\", \"h\": 11}, \"panelIndex\": \"0a588a08-997a-422f-a5db-e56728bc6702\", \"title\": \"Max Request Latency Per Operation\", \"embeddableConfig\": {\"title\": \"Max Request Latency Per Operation\"}, \"panelRefName\": \"panel_7\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 16, \"x\": 17, \"y\": 19, \"i\": \"897ae224-d367-4fe0-aa23-5bb13165cc67\", \"h\": 11}, \"panelIndex\": \"897ae224-d367-4fe0-aa23-5bb13165cc67\", \"title\": \"Write Throttle Events\", \"embeddableConfig\": {\"title\": \"Write Throttle Events\"}, \"panelRefName\": \"panel_8\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 15, \"x\": 33, \"y\": 19, \"i\": \"e81e9817-c971-454b-881a-09cec10da0e9\", \"h\": 11}, \"panelIndex\": \"e81e9817-c971-454b-881a-09cec10da0e9\", \"title\": \"Account Provisioned Write Capacity Utilization\", \"embeddableConfig\": {\"title\": \"Account Provisioned Write Capacity Utilization\"}, \"panelRefName\": \"panel_9\", \"version\": \"7.6.2\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat AWS] DynamoDB Overview",
+                "version": 1
+            },
+            "id": "68ba7bd0-20b6-11ea-8f72-2f8d21e50b0c",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "bc8bd8f0-31fd-11ea-bcbf-59cb7eefc1f0",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9d284bc0-7b08-11ea-9bb4-e958b64b5685",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "49379b70-7b07-11ea-9bb4-e958b64b5685",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "7d1e0870-7a3f-11ea-bfa4-dfea8c457654",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "8cf5fbe0-7b07-11ea-9bb4-e958b64b5685",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "7b93bab0-7b0a-11ea-9bb4-e958b64b5685",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9f0425c0-7b0a-11ea-9bb4-e958b64b5685",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "3dee68c0-7b0c-11ea-9bb4-e958b64b5685",
+                    "name": "panel_7",
+                    "type": "visualization"
+                },
+                {
+                    "id": "b403f7b0-7b15-11ea-9bb4-e958b64b5685",
+                    "name": "panel_8",
+                    "type": "visualization"
+                },
+                {
+                    "id": "31ad4090-2003-11ea-8f72-2f8d21e50b0c",
+                    "name": "panel_9",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-04-10T10:32:31.580Z",
+            "version": "WzUwNTYsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Region/Account Filters [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"Region/Account Filters [Metricbeat AWS]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549397251041\", \"fieldName\": \"cloud.region\", \"label\": \"region\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549512126406\", \"fieldName\": \"cloud.account.name\", \"label\": \"account name\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "bc8bd8f0-31fd-11ea-bcbf-59cb7eefc1f0",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3ODcsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "DynamoDB Consumed Read Capacity Units [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"DynamoDB Consumed Read Capacity Units [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"3c733ea0-7b05-11ea-8ef8-01625a2f68ac\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"series\": [{\"steps\": 0, \"split_color_mode\": \"gradient\", \"separate_axis\": 0, \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_field\": \"aws.dimensions.TableName\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.dynamodb.metrics.ConsumedReadCapacityUnits.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"offset_time\": \"\", \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Consumed Read Capacity Units\"}], \"isModelInvalid\": false, \"index_pattern\": \"metricbeat-*\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"background_color_rules\": [{\"id\": \"43e58670-7b05-11ea-8ef8-01625a2f68ac\"}], \"gauge_color_rules\": [{\"id\": \"499c62a0-7b05-11ea-8ef8-01625a2f68ac\"}], \"drop_last_bucket\": 1, \"gauge_width\": 10, \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"gauge_style\": \"half\", \"show_grid\": 1, \"gauge_inner_width\": 10}}"
+            },
+            "id": "9d284bc0-7b08-11ea-9bb4-e958b64b5685",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3ODgsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "DynamoDB Consumed Write Capacity Units [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"DynamoDB Consumed Write Capacity Units [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"3c733ea0-7b05-11ea-8ef8-01625a2f68ac\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"series\": [{\"steps\": 0, \"split_color_mode\": \"gradient\", \"separate_axis\": 0, \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_field\": \"aws.dimensions.TableName\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.dynamodb.metrics.ConsumedWriteCapacityUnits.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"offset_time\": \"\", \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Consumed Write Capacity Units\"}], \"isModelInvalid\": false, \"index_pattern\": \"metricbeat-*\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"background_color_rules\": [{\"id\": \"43e58670-7b05-11ea-8ef8-01625a2f68ac\"}], \"gauge_color_rules\": [{\"id\": \"499c62a0-7b05-11ea-8ef8-01625a2f68ac\"}], \"drop_last_bucket\": 1, \"gauge_width\": 10, \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"gauge_style\": \"half\", \"show_grid\": 1, \"gauge_inner_width\": 10}}"
+            },
+            "id": "49379b70-7b07-11ea-9bb4-e958b64b5685",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3ODksNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\"}"
+                },
+                "title": "DynamoDB Max Read/Write Account Limits [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"max\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.dynamodb.metrics.AccountMaxReads.max\", \"customLabel\": \"Reads\"}}, {\"type\": \"max\", \"enabled\": true, \"id\": \"2\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.dynamodb.metrics.AccountMaxTableLevelReads.max\", \"customLabel\": \"Table Reads\"}}, {\"type\": \"max\", \"enabled\": true, \"id\": \"3\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.dynamodb.metrics.AccountMaxWrites.max\", \"customLabel\": \"Writes\"}}, {\"type\": \"max\", \"enabled\": true, \"id\": \"4\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.dynamodb.metrics.AccountMaxTableLevelWrites.max\", \"customLabel\": \"Table Writes\"}}], \"type\": \"histogram\", \"title\": \"DynamoDB Max Read/Write Account Limits [Metricbeat AWS]\", \"params\": {\"addLegend\": true, \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"showCircles\": true, \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"Reads\"}, \"lineWidth\": 2, \"show\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"showCircles\": true, \"mode\": \"normal\", \"data\": {\"id\": \"2\", \"label\": \"Table Reads\"}, \"lineWidth\": 2, \"show\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"showCircles\": true, \"mode\": \"normal\", \"data\": {\"id\": \"3\", \"label\": \"Writes\"}, \"lineWidth\": 2, \"show\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"histogram\", \"showCircles\": true, \"mode\": \"normal\", \"data\": {\"id\": \"4\", \"label\": \"Table Writes\"}, \"lineWidth\": 2, \"show\": true}], \"addTooltip\": true, \"times\": [], \"addTimeMarker\": false, \"dimensions\": {\"x\": null, \"y\": [{\"accessor\": 0, \"format\": {\"id\": \"number\", \"params\": {\"parsedUrl\": {\"pathname\": \"/app/kibana\", \"origin\": \"http://localhost:5601\", \"basePath\": \"\"}}}, \"aggType\": \"max\", \"params\": {}, \"label\": \"Reads\"}, {\"accessor\": 1, \"format\": {\"id\": \"number\", \"params\": {\"parsedUrl\": {\"pathname\": \"/app/kibana\", \"origin\": \"http://localhost:5601\", \"basePath\": \"\"}}}, \"aggType\": \"max\", \"params\": {}, \"label\": \"Table Reads\"}, {\"accessor\": 2, \"format\": {\"id\": \"number\", \"params\": {\"parsedUrl\": {\"pathname\": \"/app/kibana\", \"origin\": \"http://localhost:5601\", \"basePath\": \"\"}}}, \"aggType\": \"max\", \"params\": {}, \"label\": \"Writes\"}]}, \"labels\": {\"show\": false}, \"grid\": {\"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"Account Max Reads\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"type\": \"histogram\", \"thresholdLine\": {\"width\": 1, \"show\": false, \"value\": 10, \"color\": \"#E7664C\", \"style\": \"full\"}, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"filter\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}]}}"
+            },
+            "id": "7d1e0870-7a3f-11ea-bfa4-dfea8c457654",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3OTAsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "DynamoDB Successful Request Latency [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"DynamoDB Successful Request Latency [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"3c733ea0-7b05-11ea-8ef8-01625a2f68ac\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"series\": [{\"steps\": 0, \"split_color_mode\": \"gradient\", \"separate_axis\": 0, \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_field\": \"aws.dimensions.TableName\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.dynamodb.metrics.SuccessfulRequestLatency.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"offset_time\": \"\", \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Successful Request Latency\"}], \"isModelInvalid\": false, \"index_pattern\": \"metricbeat-*\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"background_color_rules\": [{\"id\": \"43e58670-7b05-11ea-8ef8-01625a2f68ac\"}], \"gauge_color_rules\": [{\"id\": \"499c62a0-7b05-11ea-8ef8-01625a2f68ac\"}], \"drop_last_bucket\": 1, \"gauge_width\": 10, \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"gauge_style\": \"half\", \"show_grid\": 1, \"gauge_inner_width\": 10}}"
+            },
+            "id": "8cf5fbe0-7b07-11ea-9bb4-e958b64b5685",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3OTEsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "DynamoDB Read Throttle Events [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"DynamoDB Read Throttle Events [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.TableName\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"aws.dynamodb.metrics.ReadThrottleEvents.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Read Throttle Events\"}], \"show_grid\": 1}}"
+            },
+            "id": "7b93bab0-7b0a-11ea-9bb4-e958b64b5685",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3OTMsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "DynamoDB Throttle Requests [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"DynamoDB Throttle Requests [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.TableName\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"aws.dynamodb.metrics.ThrottledRequests.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Throttled Requests\"}], \"show_grid\": 1}}"
+            },
+            "id": "9f0425c0-7b0a-11ea-9bb4-e958b64b5685",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3OTQsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "DynamoDB Max Request Latency Per Operation [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"DynamoDB Max Request Latency Per Operation [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.Operation\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"aws.dynamodb.metrics.SuccessfulRequestLatency.max\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Max Request Latency Per Operation\"}], \"show_grid\": 1}}"
+            },
+            "id": "3dee68c0-7b0c-11ea-9bb4-e958b64b5685",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:11:30.282Z",
+            "version": "WzQ3OTUsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "DynamoDB Write Throttle Events [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"DynamoDB Write Throttle Events [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.TableName\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"aws.dynamodb.metrics.WriteThrottleEvents.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Write Throttle Events\"}], \"show_grid\": 1}}"
+            },
+            "id": "b403f7b0-7b15-11ea-9bb4-e958b64b5685",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:26:13.291Z",
+            "version": "WzUwNTAsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"filter\": []}"
+                },
+                "title": "DynamoDB Account Provisioned Capacity Utilization [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"max\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.dynamodb.metrics.AccountProvisionedWriteCapacityUtilization.avg\", \"customLabel\": \"Write Utilization\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"scaleMetricValues\": false, \"extended_bounds\": {}, \"field\": \"@timestamp\", \"interval\": \"auto\", \"min_doc_count\": 1, \"drop_partials\": false, \"timeRange\": {\"from\": \"now-15m\", \"to\": \"now\"}, \"useNormalizedEsInterval\": true}}, {\"type\": \"max\", \"enabled\": true, \"id\": \"3\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.dynamodb.metrics.AccountProvisionedReadCapacityUtilization.avg\", \"customLabel\": \"Read Utilization\"}}], \"type\": \"line\", \"title\": \"DynamoDB Account Provisioned Capacity Utilization [Metricbeat AWS]\", \"params\": {\"addLegend\": true, \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"Write Utilization\"}, \"show\": \"true\", \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"3\", \"label\": \"Read Utilization\"}, \"show\": \"true\", \"showCircles\": true}], \"addTooltip\": true, \"times\": [], \"addTimeMarker\": false, \"dimensions\": {\"x\": {\"accessor\": 0, \"format\": {\"id\": \"date\", \"params\": {\"pattern\": \"HH:mm:ss\"}}, \"aggType\": \"date_histogram\", \"params\": {\"format\": \"HH:mm:ss\", \"interval\": \"PT30S\", \"intervalESUnit\": \"s\", \"bounds\": {\"min\": \"2020-04-10T10:14:58.462Z\", \"max\": \"2020-04-10T10:29:58.462Z\"}, \"date\": true, \"intervalESValue\": 30}, \"label\": \"@timestamp per 30 seconds\"}, \"y\": [{\"accessor\": 1, \"format\": {\"id\": \"number\", \"params\": {\"parsedUrl\": {\"pathname\": \"/app/kibana\", \"origin\": \"http://localhost:5601\", \"basePath\": \"\"}}}, \"aggType\": \"max\", \"params\": {}, \"label\": \"Write Utilization\"}, {\"accessor\": 2, \"format\": {\"id\": \"number\", \"params\": {\"parsedUrl\": {\"pathname\": \"/app/kibana\", \"origin\": \"http://localhost:5601\", \"basePath\": \"\"}}}, \"aggType\": \"max\", \"params\": {}, \"label\": \"Read Utilization\"}]}, \"labels\": {}, \"grid\": {\"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"Write Utilization\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"type\": \"line\", \"thresholdLine\": {\"width\": 1, \"show\": false, \"value\": 10, \"color\": \"#34130C\", \"style\": \"full\"}, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"filter\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}]}}"
+            },
+            "id": "31ad4090-2003-11ea-8f72-2f8d21e50b0c",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-04-10T10:30:33.840Z",
+            "version": "WzUwNTQsNV0="
+        }
+    ],
+    "version": "7.6.2"
+}

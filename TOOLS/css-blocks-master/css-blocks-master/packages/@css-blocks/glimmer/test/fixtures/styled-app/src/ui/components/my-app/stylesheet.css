@@ -1,0 +1,14 @@
+:scope {
+  color: red;
+}
+
+:scope[state|is-loading] {
+  color: blue;
+}
+
+.editor {
+  display: block;
+}
+.editor[state|disabled] {
+  pointer-events: none;
+}

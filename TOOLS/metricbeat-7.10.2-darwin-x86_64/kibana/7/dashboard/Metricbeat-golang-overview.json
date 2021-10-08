@@ -1,0 +1,113 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Heap Summary [Metricbeat Golang] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"timelion\", \"title\": \"Heap Summary [Metricbeat Golang] ECS\", \"params\": {\"interval\": \"10s\", \"expression\": \".es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.system.total\\\").label(\\\"System Total Memory\\\").yaxis(label=\\\"Bytes\\\",units=bytes),.es(index=\\\"metricbeat*\\\",metric=\\\"min:golang.heap.allocations.allocated\\\").label(\\\"Bytes Allocated(min)\\\").movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.allocations.allocated\\\").label(\\\"Bytes Allocated(max)\\\").movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.gc.next_gc_limit\\\").label(\\\"GC Limit\\\"),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.gc.pause.count\\\").condition(lt,1, null).points().label(\\\"GC Cycles(count)\\\").yaxis(2,label=\\\"Count\\\")\"}}"
+            },
+            "id": "58000780-f529-11e6-844d-b170e2f0a07e-ecs",
+            "type": "visualization",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Heap [Metricbeat Golang] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"timelion\", \"title\": \"Heap [Metricbeat Golang] ECS\", \"params\": {\"interval\": \"10s\", \"expression\": \".es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.allocations.total\\\").label(\\\"Heap Total\\\").derivative().movingaverage(30).yaxis(label=\\\"Bytes\\\",units=bytes),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.allocations.active\\\").label(\\\"Heap Inuse\\\").movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.allocations.allocated\\\").label(\\\"Heap Allocated\\\").movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.allocations.idle\\\").label(\\\"Heap Idle\\\").movingaverage(30)\"}}"
+            },
+            "id": "95388680-f52a-11e6-969c-518c48c913e4-ecs",
+            "type": "visualization",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Objects [Metricbeat Golang] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"timelion\", \"title\": \"Objects [Metricbeat Golang] ECS\", \"params\": {\"interval\": \"10s\", \"expression\": \".es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.allocations.objects\\\").label(\\\"Object Count(avg)\\\").yaxis(1,label=\\\"Count\\\").movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.allocations.total\\\").derivative().label(\\\"Allocation Rate\\\").yaxis(2,label=\\\"Rate\\\").movingaverage(30)\"}}"
+            },
+            "id": "b59a5200-f52a-11e6-969c-518c48c913e4-ecs",
+            "type": "visualization",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "System [Metricbeat Golang] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"timelion\", \"title\": \"System  [Metricbeat Golang] ECS\", \"params\": {\"interval\": \"10s\", \"expression\": \".es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.system.total\\\").label(\\\"System Total\\\").yaxis(label=\\\"Bytes\\\",units=bytes),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.system.obtained\\\").label(\\\"System Obtained\\\"),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.system.stack\\\").label(\\\"System Stack\\\"),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.system.released\\\").label(\\\"System Released\\\")\"}}"
+            },
+            "id": "9a9a8bf0-f52a-11e6-969c-518c48c913e4-ecs",
+            "type": "visualization",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "GC count [Metricbeat Golang] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"timelion\", \"title\": \"GC count [Metricbeat Golang] ECS\", \"params\": {\"interval\": \"10s\", \"expression\": \".es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.gc.pause.count\\\").label(\\\"GC Count\\\").bars().yaxis(label=\\\"Count\\\"),.es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.gc.total_count\\\").label(\\\"GC Rate\\\").derivative().movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.gc.cpu_fraction\\\").label(\\\"CPU Fraction\\\").yaxis(2,label=\\\"Fraction\\\")\"}}"
+            },
+            "id": "b046cb80-f52a-11e6-969c-518c48c913e4-ecs",
+            "type": "visualization",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "GC durations [Metricbeat Golang] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"timelion\", \"title\": \"GC durations [Metricbeat Golang] ECS\", \"params\": {\"interval\": \"10s\", \"expression\": \".es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.gc.pause.sum.ns\\\").bars().label(\\\"sum of GC Pause durations(ns)\\\").yaxis(label=\\\"Durations(ns)\\\"),.es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.gc.total_pause.ns\\\").derivative().movingaverage(30).label(\\\"Total GC Pause(ns) Rate\\\"),.es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.gc.pause.max.ns\\\").label(\\\"Max GC Pause(ns)\\\").movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"avg:golang.heap.gc.pause.avg.ns\\\").label(\\\"Avg GC Pause(ns)\\\").movingaverage(30),.es(index=\\\"metricbeat*\\\",metric=\\\"max:golang.heap.gc.pause.count\\\").condition(lt,1, null).label(\\\"GC Pause count\\\").points().yaxis(2,label=\\\"Count\\\")\"}}"
+            },
+            "id": "ab226b50-f52a-11e6-969c-518c48c913e4-ecs",
+            "type": "visualization",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "Overview of Go profiling information",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"version\": true, \"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"highlightAll\": true, \"filter\": []}"
+                },
+                "optionsJSON": "{\"darkTheme\": false}",
+                "panelsJSON": "[{\"panelIndex\": 8, \"size_x\": 12, \"type\": \"visualization\", \"size_y\": 3, \"id\": \"58000780-f529-11e6-844d-b170e2f0a07e-ecs\", \"col\": 1, \"row\": 1}, {\"panelIndex\": 9, \"size_x\": 4, \"type\": \"visualization\", \"size_y\": 4, \"id\": \"95388680-f52a-11e6-969c-518c48c913e4-ecs\", \"col\": 1, \"row\": 4}, {\"panelIndex\": 10, \"size_x\": 4, \"type\": \"visualization\", \"size_y\": 4, \"id\": \"b59a5200-f52a-11e6-969c-518c48c913e4-ecs\", \"col\": 9, \"row\": 4}, {\"panelIndex\": 11, \"size_x\": 4, \"type\": \"visualization\", \"size_y\": 4, \"id\": \"9a9a8bf0-f52a-11e6-969c-518c48c913e4-ecs\", \"col\": 5, \"row\": 4}, {\"panelIndex\": 12, \"size_x\": 6, \"type\": \"visualization\", \"size_y\": 4, \"id\": \"b046cb80-f52a-11e6-969c-518c48c913e4-ecs\", \"col\": 7, \"row\": 8}, {\"panelIndex\": 13, \"size_x\": 6, \"type\": \"visualization\", \"size_y\": 4, \"id\": \"ab226b50-f52a-11e6-969c-518c48c913e4-ecs\", \"col\": 1, \"row\": 8}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Golang] Overview ECS",
+                "uiStateJSON": "{}",
+                "version": 1
+            },
+            "id": "f2dc7320-f519-11e6-a3c9-9d1f7c42b045-ecs",
+            "type": "dashboard",
+            "version": 3
+        }
+    ],
+    "version": "6.0.0-beta1-SNAPSHOT"
+}

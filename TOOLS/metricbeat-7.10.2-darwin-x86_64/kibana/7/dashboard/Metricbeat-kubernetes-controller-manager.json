@@ -1,0 +1,269 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Kubernetes Controller Manager metrics",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [{\"query\": {\"match\": {\"event.dataset\": {\"query\": \"kubernetes.controllermanager\", \"type\": \"phrase\"}}}, \"meta\": {\"alias\": null, \"type\": \"phrase\", \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\", \"key\": \"event.dataset\", \"disabled\": false, \"params\": {\"query\": \"kubernetes.controllermanager\"}, \"value\": \"kubernetes.controllermanager\", \"negate\": false}, \"$state\": {\"store\": \"appState\"}}]}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"panelRefName\": \"panel_0\", \"gridData\": {\"w\": 11, \"x\": 0, \"y\": 0, \"i\": \"1\", \"h\": 14}, \"panelIndex\": \"1\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_1\", \"gridData\": {\"w\": 11, \"x\": 11, \"y\": 0, \"i\": \"2\", \"h\": 14}, \"panelIndex\": \"2\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_2\", \"gridData\": {\"w\": 26, \"x\": 22, \"y\": 0, \"i\": \"3\", \"h\": 14}, \"panelIndex\": \"3\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_3\", \"gridData\": {\"w\": 24, \"x\": 0, \"y\": 39, \"i\": \"5\", \"h\": 12}, \"panelIndex\": \"5\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_4\", \"gridData\": {\"w\": 24, \"x\": 24, \"y\": 39, \"i\": \"6\", \"h\": 12}, \"panelIndex\": \"6\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_5\", \"gridData\": {\"w\": 24, \"x\": 24, \"y\": 14, \"i\": \"7\", \"h\": 13}, \"panelIndex\": \"7\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_6\", \"gridData\": {\"w\": 24, \"x\": 0, \"y\": 27, \"i\": \"8\", \"h\": 12}, \"panelIndex\": \"8\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_7\", \"gridData\": {\"w\": 24, \"x\": 24, \"y\": 27, \"i\": \"9\", \"h\": 12}, \"panelIndex\": \"9\", \"embeddableConfig\": {}, \"version\": \"7.1.1\"}, {\"panelRefName\": \"panel_8\", \"gridData\": {\"w\": 24, \"x\": 0, \"y\": 14, \"i\": \"10\", \"h\": 13}, \"panelIndex\": \"10\", \"embeddableConfig\": {}, \"version\": \"7.2.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Kubernetes] Controller Manager",
+                "version": 1
+            },
+            "id": "97312060-9c1b-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "dashboard": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "bcb194a0-9bf8-11e9-9dc8-fd27291d427f",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "3dbf6230-9c20-11e9-9dc8-fd27291d427f",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "d86b2da0-9c20-11e9-9dc8-fd27291d427f",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "0ca95350-9c24-11e9-9dc8-fd27291d427f",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "3e1e1fd0-9c27-11e9-9dc8-fd27291d427f",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "2ba628e0-9c2a-11e9-9dc8-fd27291d427f",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "8a95de50-9c38-11e9-9dc8-fd27291d427f",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "485c8550-9c3a-11e9-9dc8-fd27291d427f",
+                    "name": "panel_7",
+                    "type": "visualization"
+                },
+                {
+                    "id": "7d80f790-9d96-11e9-b2ae-49acc4cbcea9",
+                    "name": "panel_8",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-07-03T16:33:10.995Z",
+            "version": "WzI5OSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Host selector [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"Host selector [Metricbeat Kubernetes]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1561982488150\", \"fieldName\": \"host.hostname\", \"label\": \"Hostname\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": false, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1561982723711\", \"fieldName\": \"service.address\", \"label\": \"Service address\"}], \"updateFiltersOnChange\": false, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "bcb194a0-9bf8-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-07-03T07:20:34.226Z",
+            "version": "WzEzMywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller Process [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller Process [Metricbeat Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"markdown\": \"|  |   |\\n|---|---|\\n|**Days running**|{{ math.started.last.raw }}|\\n|**File descriptors open**|{{ average_of_kubernetes_controllermanager_process_fds_open_count.fds.last.raw }}|\\n|**Resident Memory**|{{ average_of_kubernetes_controllermanager_process_memory_resident_bytes.resident_memory.last.formatted }}|\\n|**Virtual Memory**|{{ average_of_kubernetes_controllermanager_process_memory_virtual_bytes.virtual_memory.last.formatted }}|\\n\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"drop_last_bucket\": 1, \"markdown_css\": \"#markdown-61ca57f0-469d-11e7-af02-69e470af7417 table,#markdown-61ca57f0-469d-11e7-af02-69e470af7417 tr,#markdown-61ca57f0-469d-11e7-af02-69e470af7417 td,#markdown-61ca57f0-469d-11e7-af02-69e470af7417 th{border:none}\", \"type\": \"markdown\", \"interval\": \"30s\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"markdown_less\": \"\\ntable, tr, td, th {\\n    border: none;\\n}\\n\\n\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"kubernetes.controllermanager.process.started.sec\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"script\": \"round( (params._timestamp /1000 - params.started) / 86400, 2)\", \"type\": \"math\", \"id\": \"ebfdb1c0-9c1c-11e9-b29f-d55be9348723\", \"variables\": [{\"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"ef30a230-9c1c-11e9-b29f-d55be9348723\", \"name\": \"started\"}]}], \"separate_axis\": 0, \"point_size\": 1, \"var_name\": \"started\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"axis_position\": \"right\"}, {\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"1212ba80-9c1e-11e9-b29f-d55be9348723\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.process.fds.open.count\", \"id\": \"1212ba81-9c1e-11e9-b29f-d55be9348723\"}], \"separate_axis\": 0, \"point_size\": 1, \"var_name\": \"fds\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"\"}, {\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"3f3b17a0-9c1e-11e9-b29f-d55be9348723\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.process.memory.resident.bytes\", \"id\": \"3f3b17a1-9c1e-11e9-b29f-d55be9348723\"}], \"separate_axis\": 0, \"point_size\": 1, \"var_name\": \"resident_memory\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"\"}, {\"color\": \"#68BC00\", \"line_width\": 1, \"id\": \"b1a01b50-9c1f-11e9-b29f-d55be9348723\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.process.memory.virtual.bytes\", \"id\": \"b1a01b51-9c1f-11e9-b29f-d55be9348723\"}], \"separate_axis\": 0, \"point_size\": 1, \"var_name\": \"virtual_memory\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"axis_position\": \"right\"}], \"show_grid\": 1}}"
+            },
+            "id": "3dbf6230-9c20-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T14:46:23.136Z",
+            "version": "WzI5MSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller HTTP request duration [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller HTTP request duration [Metricbeat Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(165,228,85,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.http.request.duration.us.percentile.99\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"us,ms,2\", \"label\": \"P99\"}, {\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"24fb4960-9c22-11e9-b29f-d55be9348723\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.http.request.duration.us.percentile.90\", \"id\": \"24fb4961-9c22-11e9-b29f-d55be9348723\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"us,ms,2\", \"label\": \"P90\"}, {\"color\": \"rgba(65,117,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"2e397790-9c22-11e9-b29f-d55be9348723\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.http.request.duration.us.percentile.50\", \"id\": \"2e397791-9c22-11e9-b29f-d55be9348723\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"us,ms,2\", \"label\": \"P50\"}], \"show_grid\": 1}}"
+            },
+            "id": "d86b2da0-9c20-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T13:31:57.207Z",
+            "version": "WzI2MywyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller Longest running processor [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller Longest running processor [Metricbeat Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"kubernetes.controllermanager.name\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"terms_size\": \"5\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.workqueue.longestrunning.sec\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"terms_direction\": \"desc\", \"formatter\": \"number\", \"label\": \"\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "0ca95350-9c24-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T16:31:08.744Z",
+            "version": "WzI5OCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller Unfinished jobs sec [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller Unfinished jobs sec [Metricbeat Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"line_width\": 1, \"terms_field\": \"kubernetes.controllermanager.name\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"terms_size\": \"5\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.workqueue.unfinished.sec\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"axis_position\": \"right\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "3e1e1fd0-9c27-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T16:30:46.554Z",
+            "version": "WzI5NywyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller Memory [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller Memory [Metricset Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(251,158,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.process.memory.resident.bytes\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Resident\"}, {\"color\": \"rgba(164,221,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"ac896b30-9c29-11e9-92c1-f7d03186c592\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.process.memory.virtual.bytes\", \"id\": \"ac896b31-9c29-11e9-92c1-f7d03186c592\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Virtual\"}], \"show_grid\": 1}}"
+            },
+            "id": "2ba628e0-9c2a-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T14:04:36.575Z",
+            "version": "WzI3NSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller Workqueue adds [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller Workqueue adds [Metricbeat Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"line_width\": 1, \"terms_field\": \"kubernetes.controllermanager.name\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"terms_size\": \"5\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.workqueue.adds.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"9b5d85d0-9c38-11e9-92c1-f7d03186c592\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"axis_position\": \"right\"}], \"show_grid\": 1}}"
+            },
+            "id": "8a95de50-9c38-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T16:30:20.439Z",
+            "version": "WzI5NiwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller Workqueue retries [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller Workqueue retries [Metricbeat Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"kubernetes.controllermanager.name\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"terms_size\": \"5\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.workqueue.retries.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"b3107560-9c39-11e9-92c1-f7d03186c592\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"terms_direction\": \"desc\", \"formatter\": \"number\", \"label\": \"\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "485c8550-9c3a-11e9-9dc8-fd27291d427f",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T16:29:29.303Z",
+            "version": "WzI5NSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Controller CPU [Metricbeat Kubernetes]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Controller CPU [Metricbeat Kubernetes]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"kubernetes.controllermanager.process.cpu.sec\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"47731390-9d96-11e9-9e81-115d18bcfeaa\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value}} s\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"CPU time\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "7d80f790-9d96-11e9-b2ae-49acc4cbcea9",
+            "migrationVersion": {
+                "visualization": "7.2.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-07-03T14:12:01.291Z",
+            "version": "WzI3OCwyXQ=="
+        }
+    ],
+    "version": "7.2.0"
+}

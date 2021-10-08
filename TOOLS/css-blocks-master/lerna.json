@@ -1,0 +1,8 @@
+{
+  "version": "0.18.0",
+  "packages": [
+    "packages/@css-blocks/*"
+  ],
+  "npmClient": "yarn",
+  "useWorkspaces": true
+}

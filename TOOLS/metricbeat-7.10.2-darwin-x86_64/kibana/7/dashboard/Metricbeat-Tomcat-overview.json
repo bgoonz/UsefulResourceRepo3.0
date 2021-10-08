@@ -1,0 +1,228 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "An overview dashboards of all key metrics included in the Tomcat Metricbeat module",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 18, \"x\": 16, \"y\": 18, \"i\": \"1\", \"h\": 9}, \"panelIndex\": \"1\", \"title\": \"Other Memory usage\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_0\", \"version\": \"8.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 25, \"x\": 0, \"y\": 0, \"i\": \"2\", \"h\": 9}, \"panelIndex\": \"2\", \"title\": \"Heap memory usage\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_1\", \"version\": \"8.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 16, \"x\": 0, \"y\": 18, \"i\": \"3\", \"h\": 9}, \"panelIndex\": \"3\", \"title\": \"Total Threads\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_2\", \"version\": \"8.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 14, \"x\": 34, \"y\": 18, \"i\": \"5\", \"h\": 9}, \"panelIndex\": \"5\", \"title\": \"Cache Size\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_3\", \"version\": \"8.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 23, \"x\": 25, \"y\": 0, \"i\": \"6\", \"h\": 9}, \"panelIndex\": \"6\", \"title\": \"Total requests\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_4\", \"version\": \"8.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 16, \"x\": 0, \"y\": 9, \"i\": \"7\", \"h\": 9}, \"panelIndex\": \"7\", \"title\": \"Bytes sent/received\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_5\", \"version\": \"8.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 18, \"x\": 16, \"y\": 9, \"i\": \"8\", \"h\": 9}, \"panelIndex\": \"8\", \"title\": \"Processing time ms\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_6\", \"version\": \"8.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 14, \"x\": 34, \"y\": 9, \"i\": \"9\", \"h\": 9}, \"panelIndex\": \"9\", \"title\": \"Cache Hit Total\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_7\", \"version\": \"8.0.0-SNAPSHOT\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Tomcat] Overview",
+                "version": 1
+            },
+            "id": "b7675d90-ec34-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "618130c0-ec31-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "e037f620-ec30-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "17ec8fd0-ec32-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "b3e833d0-ec32-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9d0616e0-ec33-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "7bcc3ae0-ec33-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9343a810-ec34-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "38f55440-ec33-11e9-a4bb-7b5324058fcc",
+                    "name": "panel_7",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-02-06T17:15:24.232Z",
+            "version": "WzEzMDUsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Other Memory usage [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Other Memory usage [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(159,5,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.other.usage.used\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Used\"}, {\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"f34791d0-ec30-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.other.usage.committed\", \"id\": \"f34791d1-ec30-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Committed\"}, {\"color\": \"rgba(115,216,255,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"2acecf60-ec31-11e9-a38d-abb22848ef7c\", \"formatter\": \"bytes\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.other.usage.init\", \"id\": \"2acecf61-ec31-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"hidden\": false, \"fill\": 0.5, \"chart_type\": \"line\", \"label\": \"Init\"}, {\"color\": \"rgba(226,115,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"36d48200-ec31-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.other.usage.max\", \"id\": \"36d48201-ec31-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Max\"}], \"legend_position\": \"right\", \"show_grid\": 1}}"
+            },
+            "id": "618130c0-ec31-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:15:24.232Z",
+            "version": "WzEzMDYsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Heap memory usage [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Heap memory usage [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(159,5,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"9057a880-ec30-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.heap.usage.used\", \"id\": \"9057a881-ec30-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Used\"}, {\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.heap.usage.committed\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Committed\"}, {\"color\": \"rgba(115,216,255,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"78d8a4c0-ec30-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.heap.usage.init\", \"id\": \"78d8cbd0-ec30-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Init\"}, {\"color\": \"rgba(254,146,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"855cd630-ec30-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.memory.heap.usage.max\", \"id\": \"855cd631-ec30-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Max\"}], \"show_grid\": 1}}"
+            },
+            "id": "e037f620-ec30-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:15:24.232Z",
+            "version": "WzEzMDcsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Total Threads [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Total Threads [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"steps\": 0, \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"hide_in_legend\": 0, \"terms_field\": \"tomcat.threading.mbean\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.threading.total\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Total\"}, {\"color\": \"rgba(244,78,59,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"2e15eea0-ec32-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.threading.peak\", \"id\": \"2e15eea1-ec32-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Peak\"}], \"legend_position\": \"bottom\", \"show_grid\": 1}}"
+            },
+            "id": "17ec8fd0-ec32-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:15:24.232Z",
+            "version": "WzEzMDgsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Cache Size [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Cache Size [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"814df2c0-ec32-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.cache.size.total.kb\", \"id\": \"814df2c1-ec32-11e9-a38d-abb22848ef7c\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Total\"}, {\"color\": \"rgba(254,146,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.cache.size.max.kb\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value/1024}}\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Max\"}], \"legend_position\": \"bottom\", \"show_grid\": 1}}"
+            },
+            "id": "b3e833d0-ec32-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:15:24.232Z",
+            "version": "WzEzMDksNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Total requests [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Total requests [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"a2ae7420-ec33-11e9-a38d-abb22848ef7c\", \"formatter\": \"number\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.requests.total\", \"id\": \"a2ae7421-ec33-11e9-a38d-abb22848ef7c\", \"sigma\": \"1\", \"mode\": \"raw\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"a2ae7421-ec33-11e9-a38d-abb22848ef7c\", \"id\": \"40d82510-ee8c-11e9-a452-e36b1c5ca82b\"}, {\"unit\": \"\", \"type\": \"positive_only\", \"field\": \"40d82510-ee8c-11e9-a452-e36b1c5ca82b\", \"id\": \"a3934920-ee94-11e9-a452-e36b1c5ca82b\"}], \"separate_axis\": 0, \"point_size\": 1, \"hidden\": false, \"fill\": 0.5, \"chart_type\": \"line\", \"label\": \"Total\"}, {\"color\": \"rgba(244,78,59,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.requests.errors.total\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"be872850-ee94-11e9-a452-e36b1c5ca82b\"}, {\"unit\": \"\", \"type\": \"positive_only\", \"field\": \"be872850-ee94-11e9-a452-e36b1c5ca82b\", \"id\": \"c2290730-ee94-11e9-a452-e36b1c5ca82b\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Errors\"}], \"legend_position\": \"bottom\", \"show_grid\": 1}}"
+            },
+            "id": "9d0616e0-ec33-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:46:49.245Z",
+            "version": "WzE4MzAsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Bytes sent/received [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Bytes sent/received [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.requests.bytes.sent\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"a0d8b6a0-ee8c-11e9-a452-e36b1c5ca82b\"}, {\"unit\": \"\", \"type\": \"positive_only\", \"field\": \"a0d8b6a0-ee8c-11e9-a452-e36b1c5ca82b\", \"id\": \"e3099fa0-ee94-11e9-a452-e36b1c5ca82b\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Received\"}, {\"color\": \"rgba(115,216,255,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"5310fbe0-ec33-11e9-a38d-abb22848ef7c\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.requests.bytes.received\", \"id\": \"5310fbe1-ec33-11e9-a38d-abb22848ef7c\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"5310fbe1-ec33-11e9-a38d-abb22848ef7c\", \"id\": \"bbfe0610-ee8c-11e9-a452-e36b1c5ca82b\"}, {\"unit\": \"\", \"type\": \"positive_only\", \"field\": \"bbfe0610-ee8c-11e9-a452-e36b1c5ca82b\", \"id\": \"e6da0890-ee94-11e9-a452-e36b1c5ca82b\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Sent\"}], \"legend_position\": \"bottom\", \"show_grid\": 1}}"
+            },
+            "id": "7bcc3ae0-ec33-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:46:17.902Z",
+            "version": "WzE4MjEsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Processing time ms [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Processing time ms [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 0, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.requests.processing.ms\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"cbb9e2e0-ee8c-11e9-a452-e36b1c5ca82b\"}, {\"unit\": \"\", \"type\": \"positive_only\", \"field\": \"cbb9e2e0-ee8c-11e9-a452-e36b1c5ca82b\", \"id\": \"d0327910-ee94-11e9-a452-e36b1c5ca82b\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"ms,ms,3\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "9343a810-ec34-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:45:36.872Z",
+            "version": "WzE4MTQsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Cache Hit Total [Metricbeat Tomcat]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Cache Hit Total [Metricbeat Tomcat]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 0, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"tomcat.cache.hit.total\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Total\"}], \"show_grid\": 1}}"
+            },
+            "id": "38f55440-ec33-11e9-a4bb-7b5324058fcc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-02-06T17:15:24.232Z",
+            "version": "WzEzMTMsNV0="
+        }
+    ],
+    "version": "8.0.0-SNAPSHOT"
+}

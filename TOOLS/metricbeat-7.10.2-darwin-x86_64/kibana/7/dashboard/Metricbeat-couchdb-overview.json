@@ -1,0 +1,203 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "This CouchDB dashboard visualizes the most important CouchDB server metrics.\n\n",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 10, \"i\": \"1\", \"h\": 15}, \"panelIndex\": \"1\", \"title\": \"HTTP Status Codes\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_0\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 10, \"i\": \"2\", \"h\": 15}, \"panelIndex\": \"2\", \"title\": \"HTTP Request Methods\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_1\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 10, \"x\": 0, \"y\": 0, \"i\": \"3\", \"h\": 10}, \"panelIndex\": \"3\", \"title\": \"Open Databases\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_2\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 0, \"i\": \"4\", \"h\": 10}, \"panelIndex\": \"4\", \"title\": \"Database Read/Writes\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_3\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 25, \"i\": \"5\", \"h\": 10}, \"panelIndex\": \"5\", \"title\": \"Auth Cache Hit/Miss\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_4\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 14, \"x\": 10, \"y\": 0, \"i\": \"6\", \"h\": 10}, \"panelIndex\": \"6\", \"title\": \"Number of HTTP Requests\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_5\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 25, \"i\": \"7\", \"h\": 10}, \"panelIndex\": \"7\", \"title\": \"Number of View Reads\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_6\", \"version\": \"7.3.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat CouchDB] Database Overview",
+                "version": 1
+            },
+            "id": "a3ab9a60-b952-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "8e15ece0-b94e-11e9-a579-f5c0a5d81340",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "1b60bb70-b94f-11e9-a579-f5c0a5d81340",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "f8c29f10-b94f-11e9-a579-f5c0a5d81340",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "702584a0-b950-11e9-a579-f5c0a5d81340",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "abfaf130-b951-11e9-a579-f5c0a5d81340",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "06018310-b952-11e9-a579-f5c0a5d81340",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "496910f0-b952-11e9-a579-f5c0a5d81340",
+                    "name": "panel_6",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-08-19T15:05:11.218Z",
+            "version": "WzE1NzksMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "HTTP Status Codes [Metricbeat CouchDB] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"HTTP Status Codes [Metricbeat CouchDB] ECS\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"id\": \"c8c0f520-b94d-11e9-8899-f736e404b0e7\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#3185FC\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f521-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.200\", \"id\": \"c8c0f522-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f522-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f524-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f524-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f523-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"200 OK\"}, {\"color\": \"#00B3A4\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f529-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.400\", \"id\": \"c8c0f52a-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f52a-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f52c-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f52c-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f52b-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"400 Bad Request\"}, {\"color\": \"#490092\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f52d-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.401\", \"id\": \"c8c0f52e-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f52e-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f530-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f530-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f52f-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"401 Unauthorized\"}, {\"color\": \"#461A0A\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f541-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.500\", \"id\": \"c8c0f542-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f542-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f544-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f544-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f543-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"500  Internal Server Error\"}, {\"color\": \"#FEB6DB\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f531-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.403\", \"id\": \"c8c0f532-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f532-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f534-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f534-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f533-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"403 Forbidden\"}, {\"color\": \"#E6C220\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f535-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.404\", \"id\": \"c8c0f536-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f536-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f538-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f538-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f537-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"404 Not Found\"}, {\"color\": \"#DB1374\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f525-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.202\", \"id\": \"c8c0f526-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f526-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f528-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f528-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f527-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"202 Accepted\"}, {\"color\": \"#BFA180\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f539-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.405\", \"id\": \"c8c0f53a-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f53a-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f53c-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f53c-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f53b-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"405 Method Not Allowed\"}, {\"color\": \"#F98510\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f53d-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.409\", \"id\": \"c8c0f53e-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f53e-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f540-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f540-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f53f-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"409 Conflict\"}, {\"color\": \"#920000\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c8c0f545-b94d-11e9-8899-f736e404b0e7\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_status_codes.201\", \"id\": \"c8c0f546-b94d-11e9-8899-f736e404b0e7\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"c8c0f546-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f548-b94d-11e9-8899-f736e404b0e7\"}, {\"type\": \"positive_only\", \"field\": \"c8c0f548-b94d-11e9-8899-f736e404b0e7\", \"id\": \"c8c0f547-b94d-11e9-8899-f736e404b0e7\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"201 Created\"}], \"show_grid\": 1}}"
+            },
+            "id": "8e15ece0-b94e-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "visualization": "7.3.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-08-09T10:30:56.854Z",
+            "version": "WzExMTksMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "HTTP Request Methods [Metricbeat CouchDB] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"HTTP Request Methods [Metricbeat CouchDB] ECS\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"id\": \"bb936ee0-b94e-11e9-86ee-f5b628c75be4\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(164,221,0,1)\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"bb936ee1-b94e-11e9-86ee-f5b628c75be4\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_request_methods.GET\", \"id\": \"bb936ee2-b94e-11e9-86ee-f5b628c75be4\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"bb936ee2-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ee4-b94e-11e9-86ee-f5b628c75be4\"}, {\"type\": \"positive_only\", \"field\": \"bb936ee4-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ee3-b94e-11e9-86ee-f5b628c75be4\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"GET\"}, {\"color\": \"#DB1374\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"bb936ee5-b94e-11e9-86ee-f5b628c75be4\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_request_methods.POST\", \"id\": \"bb936ee6-b94e-11e9-86ee-f5b628c75be4\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"bb936ee6-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ee8-b94e-11e9-86ee-f5b628c75be4\"}, {\"type\": \"positive_only\", \"field\": \"bb936ee8-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ee7-b94e-11e9-86ee-f5b628c75be4\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"POST\"}, {\"color\": \"#00B3A4\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"bb936ee9-b94e-11e9-86ee-f5b628c75be4\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_request_methods.PUT\", \"id\": \"bb936eea-b94e-11e9-86ee-f5b628c75be4\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"bb936eea-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936eec-b94e-11e9-86ee-f5b628c75be4\"}, {\"type\": \"positive_only\", \"field\": \"bb936eec-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936eeb-b94e-11e9-86ee-f5b628c75be4\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"PUT\"}, {\"color\": \"#490092\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"bb936eed-b94e-11e9-86ee-f5b628c75be4\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_request_methods.DELETE\", \"id\": \"bb936eee-b94e-11e9-86ee-f5b628c75be4\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"bb936eee-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ef0-b94e-11e9-86ee-f5b628c75be4\"}, {\"type\": \"positive_only\", \"field\": \"bb936ef0-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936eef-b94e-11e9-86ee-f5b628c75be4\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"DELETE\"}, {\"color\": \"#FEB6DB\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"bb936ef1-b94e-11e9-86ee-f5b628c75be4\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_request_methods.HEAD\", \"id\": \"bb936ef2-b94e-11e9-86ee-f5b628c75be4\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"bb936ef2-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ef4-b94e-11e9-86ee-f5b628c75be4\"}, {\"type\": \"positive_only\", \"field\": \"bb936ef4-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ef3-b94e-11e9-86ee-f5b628c75be4\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"HEAD\"}, {\"color\": \"#E6C220\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"bb936ef5-b94e-11e9-86ee-f5b628c75be4\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd_request_methods.COPY\", \"id\": \"bb936ef6-b94e-11e9-86ee-f5b628c75be4\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"bb936ef6-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ef8-b94e-11e9-86ee-f5b628c75be4\"}, {\"type\": \"positive_only\", \"field\": \"bb936ef8-b94e-11e9-86ee-f5b628c75be4\", \"id\": \"bb936ef7-b94e-11e9-86ee-f5b628c75be4\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"COPY\"}], \"show_grid\": 1}}"
+            },
+            "id": "1b60bb70-b94f-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "visualization": "7.3.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-08-09T10:31:20.866Z",
+            "version": "WzExMjQsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Open Databases [Metricbeat CouchDB] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Open Databases [Metricbeat CouchDB] ECS\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"gauge_inner_width\": 10, \"axis_formatter\": \"number\", \"id\": \"71dd6340-b94f-11e9-9f6f-832b64f4a79f\", \"filter\": {\"language\": \"kuery\", \"query\": \"couchdb\"}, \"series\": [{\"color\": \"rgba(12,121,125,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"71dd8a50-b94f-11e9-9f6f-832b64f4a79f\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.couchdb.open_databases\", \"id\": \"71dd8a51-b94f-11e9-9f6f-832b64f4a79f\"}], \"separate_axis\": 0, \"point_size\": \"0\", \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.1\", \"formatter\": \"number\", \"label\": \"Open Databases\"}], \"background_color\": null, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"ef4c9800-b94f-11e9-bce6-47447dde021d\"}], \"gauge_inner_color\": null, \"gauge_width\": 10, \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"@timestamp\", \"show_legend\": 1, \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"gauge_style\": \"half\", \"legend_position\": \"right\", \"show_grid\": 1}}"
+            },
+            "id": "f8c29f10-b94f-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "visualization": "7.3.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-08-09T10:26:58.696Z",
+            "version": "WzExMDUsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Database Read/Writes [Metricbeat CouchDB] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Database Read/Writes [Metricbeat CouchDB] ECS\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"couchdb\"}, \"id\": \"48918790-b950-11e9-84ff-97e538653deb\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(226,115,0,1)\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"48918791-b950-11e9-84ff-97e538653deb\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.couchdb.database_writes\", \"id\": \"48918792-b950-11e9-84ff-97e538653deb\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"48918792-b950-11e9-84ff-97e538653deb\", \"id\": \"48918794-b950-11e9-84ff-97e538653deb\"}, {\"type\": \"positive_only\", \"field\": \"48918794-b950-11e9-84ff-97e538653deb\", \"id\": \"48918793-b950-11e9-84ff-97e538653deb\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"database_writes\"}, {\"color\": \"rgba(160,203,38,1)\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"7c71dd30-b950-11e9-bd31-d98b40ea3379\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.couchdb.database_reads\", \"id\": \"7c71dd31-b950-11e9-bd31-d98b40ea3379\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"7c71dd31-b950-11e9-bd31-d98b40ea3379\", \"id\": \"7c71dd32-b950-11e9-bd31-d98b40ea3379\"}, {\"unit\": \"\", \"type\": \"positive_only\", \"field\": \"7c71dd32-b950-11e9-bd31-d98b40ea3379\", \"id\": \"7c71dd33-b950-11e9-bd31-d98b40ea3379\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"database_reads\"}], \"show_grid\": 1}}"
+            },
+            "id": "702584a0-b950-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "visualization": "7.3.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-08-09T10:30:34.762Z",
+            "version": "WzExMTUsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Auth Cache Hit/Miss [Metricbeat CouchDB] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Auth Cache Hit/Miss [Metricbeat CouchDB] ECS\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"couchdb\"}, \"id\": \"7ccd9c50-b951-11e9-8e1d-17d2519ede48\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(179,101,87,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"7ccd9c51-b951-11e9-8e1d-17d2519ede48\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.couchdb.auth_cache_misses\", \"id\": \"7ccd9c52-b951-11e9-8e1d-17d2519ede48\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"7ccd9c52-b951-11e9-8e1d-17d2519ede48\", \"id\": \"7ccd9c54-b951-11e9-8e1d-17d2519ede48\"}, {\"type\": \"positive_only\", \"field\": \"7ccd9c54-b951-11e9-8e1d-17d2519ede48\", \"id\": \"7ccd9c53-b951-11e9-8e1d-17d2519ede48\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"number\", \"label\": \"auth_cache_misses\"}, {\"color\": \"rgba(129,169,80,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"7ccd9c55-b951-11e9-8e1d-17d2519ede48\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.couchdb.auth_cache_hits\", \"id\": \"7ccd9c56-b951-11e9-8e1d-17d2519ede48\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"7ccd9c56-b951-11e9-8e1d-17d2519ede48\", \"id\": \"7ccd9c58-b951-11e9-8e1d-17d2519ede48\"}, {\"type\": \"positive_only\", \"field\": \"7ccd9c58-b951-11e9-8e1d-17d2519ede48\", \"id\": \"7ccd9c57-b951-11e9-8e1d-17d2519ede48\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"number\", \"label\": \"auth_cache_hits\"}], \"show_grid\": 1}}"
+            },
+            "id": "abfaf130-b951-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "visualization": "7.3.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-08-09T10:32:05.471Z",
+            "version": "WzExMzYsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Number of HTTP Requests [Metricbeat CouchDB] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Number of HTTP Requests [Metricbeat CouchDB] ECS\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"couchdb\"}, \"id\": \"caae9780-b951-11e9-8945-b5f393c4775d\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(82,174,177,1)\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"caae9781-b951-11e9-8945-b5f393c4775d\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd.requests\", \"id\": \"caae9782-b951-11e9-8945-b5f393c4775d\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"caae9782-b951-11e9-8945-b5f393c4775d\", \"id\": \"caae9784-b951-11e9-8945-b5f393c4775d\"}, {\"type\": \"positive_only\", \"field\": \"caae9784-b951-11e9-8945-b5f393c4775d\", \"id\": \"caae9783-b951-11e9-8945-b5f393c4775d\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"requests\"}, {\"color\": \"rgba(237,193,119,1)\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"caae9785-b951-11e9-8945-b5f393c4775d\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd.bulk_requests\", \"id\": \"caae9786-b951-11e9-8945-b5f393c4775d\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"caae9786-b951-11e9-8945-b5f393c4775d\", \"id\": \"caae9788-b951-11e9-8945-b5f393c4775d\"}, {\"type\": \"positive_only\", \"field\": \"caae9788-b951-11e9-8945-b5f393c4775d\", \"id\": \"caae9787-b951-11e9-8945-b5f393c4775d\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"0.2\", \"formatter\": \"number\", \"label\": \"bulk_requests\"}], \"show_grid\": 1}}"
+            },
+            "id": "06018310-b952-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "visualization": "7.3.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-08-09T10:30:13.765Z",
+            "version": "WzExMTAsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Number of View Reads [Metricbeat CouchDB] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Number of View Reads [Metricbeat CouchDB] ECS\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"couchdb\"}, \"id\": \"1d4e0520-b952-11e9-b9f3-4d741a808166\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"color\": \"rgba(0,156,224,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"1d4e0521-b952-11e9-b9f3-4d741a808166\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd.view_reads\", \"id\": \"1d4e0522-b952-11e9-b9f3-4d741a808166\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"1d4e0522-b952-11e9-b9f3-4d741a808166\", \"id\": \"1d4e0524-b952-11e9-b9f3-4d741a808166\"}, {\"type\": \"positive_only\", \"field\": \"1d4e0524-b952-11e9-b9f3-4d741a808166\", \"id\": \"1d4e0523-b952-11e9-b9f3-4d741a808166\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"number\", \"label\": \"view_reads\"}, {\"color\": \"rgba(247,61,231,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"1d4e0525-b952-11e9-b9f3-4d741a808166\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"max\", \"field\": \"couchdb.server.httpd.temporary_view_reads\", \"id\": \"1d4e0526-b952-11e9-b9f3-4d741a808166\"}, {\"unit\": \"1s\", \"type\": \"derivative\", \"field\": \"1d4e0526-b952-11e9-b9f3-4d741a808166\", \"id\": \"1d4e0528-b952-11e9-b9f3-4d741a808166\"}, {\"type\": \"positive_only\", \"field\": \"1d4e0528-b952-11e9-b9f3-4d741a808166\", \"id\": \"1d4e0527-b952-11e9-b9f3-4d741a808166\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"number\", \"label\": \"temporary_view_reads\"}], \"show_grid\": 1}}"
+            },
+            "id": "496910f0-b952-11e9-a579-f5c0a5d81340",
+            "migrationVersion": {
+                "visualization": "7.3.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-08-09T10:31:41.262Z",
+            "version": "WzExMzEsMV0="
+        }
+    ],
+    "version": "7.3.0"
+}

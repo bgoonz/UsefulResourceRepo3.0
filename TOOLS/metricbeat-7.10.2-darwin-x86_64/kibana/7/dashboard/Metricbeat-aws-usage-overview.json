@@ -1,0 +1,233 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of AWS Usage Metrics",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 9, \"x\": 0, \"y\": 0, \"i\": \"2ea7bd59-d748-4e4a-889d-f7e2ca1cfe36\", \"h\": 5}, \"panelIndex\": \"2ea7bd59-d748-4e4a-889d-f7e2ca1cfe36\", \"title\": \"Region Filter\", \"embeddableConfig\": {\"title\": \"AWS Region Filter\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 20, \"x\": 9, \"y\": 0, \"i\": \"00c2b1f6-3367-4b6f-ac01-7e48b76c262a\", \"h\": 15}, \"panelIndex\": \"00c2b1f6-3367-4b6f-ac01-7e48b76c262a\", \"title\": \"Usage Resource Count\", \"embeddableConfig\": {\"title\": \"Usage Resource Count\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 18, \"x\": 30, \"y\": 0, \"i\": \"fecfe5d4-ef1c-4f38-954a-a2506d72bc5b\", \"h\": 15}, \"panelIndex\": \"fecfe5d4-ef1c-4f38-954a-a2506d72bc5b\", \"title\": \"Usage API Call Count\", \"embeddableConfig\": {\"title\": \"Usage API Call Count\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 9, \"x\": 0, \"y\": 5, \"i\": \"69ce7461-36ad-4e7c-b541-c6a1601bf089\", \"h\": 5}, \"panelIndex\": \"69ce7461-36ad-4e7c-b541-c6a1601bf089\", \"title\": \"AWS Account Filter\", \"embeddableConfig\": {\"title\": \"AWS Account Filter\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 9, \"x\": 0, \"y\": 10, \"i\": \"62e86407-6ae3-47d3-9136-dd61bdf3267a\", \"h\": 5}, \"panelIndex\": \"62e86407-6ae3-47d3-9136-dd61bdf3267a\", \"title\": \"AWS Service Filter\", \"embeddableConfig\": {\"title\": \"AWS Service Filter\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 48, \"x\": 0, \"y\": 15, \"i\": \"196a044c-5c20-4417-8aa0-f60fc502e46c\", \"h\": 10}, \"panelIndex\": \"196a044c-5c20-4417-8aa0-f60fc502e46c\", \"title\": \"Usage Resource Count Per Service\", \"embeddableConfig\": {\"title\": \"Usage Resource Count Per Service\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.3.0\"}, {\"gridData\": {\"w\": 48, \"x\": 0, \"y\": 25, \"i\": \"022941b7-01a1-4570-86e9-d03451d4e102\", \"h\": 12}, \"panelIndex\": \"022941b7-01a1-4570-86e9-d03451d4e102\", \"title\": \"Usage API Call Count Per Service\", \"embeddableConfig\": {\"title\": \"Usage API Call Count Per Service\"}, \"panelRefName\": \"panel_6\", \"version\": \"7.3.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat AWS] Usage Overview",
+                "version": 1
+            },
+            "id": "917a07b0-178e-11ea-8650-fb606deb5be4",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "b5308940-7347-11e9-816b-07687310a99a",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9202d1a0-178c-11ea-8650-fb606deb5be4",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "681aab60-178c-11ea-8650-fb606deb5be4",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "deab0260-2981-11e9-86eb-a3a07a77f530",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "2929edb0-178e-11ea-8650-fb606deb5be4",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "59e2e110-178d-11ea-8650-fb606deb5be4",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "75ebfda0-1789-11ea-8650-fb606deb5be4",
+                    "name": "panel_6",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-12-05T18:44:44.105Z",
+            "version": "WzU5NCw0XQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "AWS Region Filter [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"AWS Region Filter\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549397251041\", \"fieldName\": \"cloud.region\", \"label\": \"region name\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "b5308940-7347-11e9-816b-07687310a99a",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-12-02T16:41:47.384Z",
+            "version": "WzE1MiwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"filter\": []}"
+                },
+                "title": "Usage ResourceCount [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"sum\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.usage.metrics.ResourceCount.sum\"}}, {\"type\": \"filters\", \"enabled\": true, \"id\": \"2\", \"schema\": \"split\", \"params\": {\"row\": true, \"filters\": [{\"input\": {\"language\": \"kuery\", \"query\": \"aws.dimensions.Type : \\\"Resource\\\" \"}, \"label\": \"\"}]}}, {\"type\": \"terms\", \"enabled\": true, \"id\": \"3\", \"schema\": \"segment\", \"params\": {\"orderBy\": \"1\", \"otherBucketLabel\": \"Other\", \"field\": \"aws.dimensions.Service\", \"order\": \"desc\", \"size\": 5, \"otherBucket\": true, \"missingBucketLabel\": \"Missing\", \"missingBucket\": false}}, {\"type\": \"terms\", \"enabled\": true, \"id\": \"4\", \"schema\": \"segment\", \"params\": {\"orderBy\": \"1\", \"otherBucketLabel\": \"Other\", \"field\": \"aws.dimensions.Resource\", \"order\": \"desc\", \"size\": 5, \"otherBucket\": true, \"missingBucketLabel\": \"Missing\", \"missingBucket\": false}}], \"type\": \"pie\", \"title\": \"Usage ResourceCount [Metricbeat AWS]\", \"params\": {\"dimensions\": {\"splitRow\": [{\"accessor\": 0, \"format\": {}, \"aggType\": \"filters\", \"params\": {}}], \"metric\": {\"accessor\": 3, \"format\": {\"id\": \"number\"}, \"aggType\": \"sum\", \"params\": {}}, \"buckets\": [{\"accessor\": 2, \"format\": {\"id\": \"terms\", \"params\": {\"otherBucketLabel\": \"Other\", \"id\": \"string\", \"missingBucketLabel\": \"Missing\"}}, \"aggType\": \"terms\", \"params\": {}}, {\"accessor\": 4, \"format\": {\"id\": \"terms\", \"params\": {\"otherBucketLabel\": \"Other\", \"id\": \"string\", \"missingBucketLabel\": \"Missing\"}}, \"aggType\": \"terms\", \"params\": {}}]}, \"labels\": {\"truncate\": 100, \"show\": true, \"values\": true, \"last_level\": false}, \"addLegend\": true, \"addTooltip\": true, \"type\": \"pie\", \"legendPosition\": \"right\", \"isDonut\": true}}"
+            },
+            "id": "9202d1a0-178c-11ea-8650-fb606deb5be4",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-12-05T18:25:10.073Z",
+            "version": "WzU4Niw0XQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"filter\": []}"
+                },
+                "title": "Usage CallCount [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"sum\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"aws.usage.metrics.CallCount.sum\"}}, {\"type\": \"filters\", \"enabled\": true, \"id\": \"2\", \"schema\": \"split\", \"params\": {\"row\": true, \"filters\": [{\"input\": {\"language\": \"kuery\", \"query\": \"aws.dimensions.Type : \\\"API\\\" \"}, \"label\": \"\"}]}}, {\"type\": \"terms\", \"enabled\": true, \"id\": \"3\", \"schema\": \"segment\", \"params\": {\"orderBy\": \"1\", \"otherBucketLabel\": \"Other\", \"field\": \"aws.dimensions.Service\", \"order\": \"desc\", \"size\": 5, \"otherBucket\": true, \"missingBucketLabel\": \"Missing\", \"missingBucket\": false}}, {\"type\": \"terms\", \"enabled\": true, \"id\": \"4\", \"schema\": \"segment\", \"params\": {\"orderBy\": \"1\", \"otherBucketLabel\": \"Other\", \"field\": \"aws.dimensions.Resource\", \"order\": \"desc\", \"size\": 5, \"otherBucket\": true, \"missingBucketLabel\": \"Missing\", \"missingBucket\": false}}], \"type\": \"pie\", \"title\": \"Usage CallCount [Metricbeat AWS]\", \"params\": {\"dimensions\": {\"splitRow\": [{\"accessor\": 0, \"format\": {}, \"aggType\": \"filters\", \"params\": {}}], \"metric\": {\"accessor\": 3, \"format\": {\"id\": \"number\"}, \"aggType\": \"sum\", \"params\": {}}, \"buckets\": [{\"accessor\": 2, \"format\": {\"id\": \"terms\", \"params\": {\"otherBucketLabel\": \"Other\", \"id\": \"string\", \"missingBucketLabel\": \"Missing\"}}, \"aggType\": \"terms\", \"params\": {}}, {\"accessor\": 4, \"format\": {\"id\": \"terms\", \"params\": {\"otherBucketLabel\": \"Other\", \"id\": \"string\", \"missingBucketLabel\": \"Missing\"}}, \"aggType\": \"terms\", \"params\": {}}]}, \"labels\": {\"truncate\": 100, \"show\": true, \"values\": true, \"last_level\": false}, \"addLegend\": true, \"addTooltip\": true, \"type\": \"pie\", \"legendPosition\": \"right\", \"isDonut\": true}}"
+            },
+            "id": "681aab60-178c-11ea-8650-fb606deb5be4",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-12-05T18:25:30.221Z",
+            "version": "WzU4Nyw0XQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "AWS Account Filter [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"AWS Account Filter [Metricbeat AWS]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549397251041\", \"fieldName\": \"cloud.account.name\", \"label\": \"account name\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "deab0260-2981-11e9-86eb-a3a07a77f530",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-12-02T18:50:52.450Z",
+            "version": "WzU1MywyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "AWS Service Filter [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"AWS Service Filter [Metricbeat AWS]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549397251041\", \"fieldName\": \"aws.dimensions.Service\", \"label\": \"service name\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "2929edb0-178e-11ea-8650-fb606deb5be4",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-12-05T18:37:35.326Z",
+            "version": "WzU5MSw0XQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Usage Resource Count Per Service [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Usage Resource Count Per Service [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"filebeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.Service\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"aws.dimensions.Type : \\\"Resource\\\" \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"sum\", \"field\": \"aws.usage.metrics.ResourceCount.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"4\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "59e2e110-178d-11ea-8650-fb606deb5be4",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-12-05T18:30:45.409Z",
+            "version": "WzU4OCw0XQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Usage Call Count Per Service [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Usage Call Count Per Service [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"filebeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.Service\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"aws.dimensions.Type : \\\"API\\\"  \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"sum\", \"field\": \"aws.usage.metrics.CallCount.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"4\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "75ebfda0-1789-11ea-8650-fb606deb5be4",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-12-05T18:31:35.904Z",
+            "version": "WzU4OSw0XQ=="
+        }
+    ],
+    "version": "7.3.0"
+}

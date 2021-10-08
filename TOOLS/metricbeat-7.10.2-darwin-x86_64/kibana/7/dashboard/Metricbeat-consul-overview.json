@@ -1,0 +1,228 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of Consul",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 0, \"i\": \"1\", \"h\": 15}, \"panelIndex\": \"1\", \"title\": \"Garbage Collector stats\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_0\", \"version\": \"7.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 16, \"x\": 15, \"y\": 15, \"i\": \"2\", \"h\": 15}, \"panelIndex\": \"2\", \"title\": \"Goroutines\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_1\", \"version\": \"7.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 0, \"i\": \"3\", \"h\": 15}, \"panelIndex\": \"3\", \"title\": \"Bytes Allocated\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_2\", \"version\": \"7.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 17, \"x\": 31, \"y\": 15, \"i\": \"4\", \"h\": 15}, \"panelIndex\": \"4\", \"title\": \"Heap Objects\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_3\", \"version\": \"7.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 15, \"x\": 0, \"y\": 15, \"i\": \"5\", \"h\": 15}, \"panelIndex\": \"5\", \"title\": \"Bytes of memory obtained from the OS\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_4\", \"version\": \"7.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 16, \"x\": 31, \"y\": 30, \"i\": \"6\", \"h\": 15}, \"panelIndex\": \"6\", \"title\": \"Malloc count\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_5\", \"version\": \"7.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 14, \"x\": 0, \"y\": 30, \"i\": \"7\", \"h\": 15}, \"panelIndex\": \"7\", \"title\": \"Garbage Collector pause ms\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_6\", \"version\": \"7.0.0-SNAPSHOT\"}, {\"gridData\": {\"w\": 17, \"x\": 14, \"y\": 30, \"i\": \"8\", \"h\": 15}, \"panelIndex\": \"8\", \"title\": \"Garbage Collector Runs\", \"embeddableConfig\": {}, \"panelRefName\": \"panel_7\", \"version\": \"7.0.0-SNAPSHOT\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Consul] Overview",
+                "version": 1
+            },
+            "id": "6d0cf140-2deb-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "dashboard": "7.0.0"
+            },
+            "references": [
+                {
+                    "id": "dda0c950-2dea-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "ea842730-2de9-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "6c39d4b0-2de9-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "37c75bc0-2dea-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "69b29820-2dea-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "8ab67000-2dea-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "d275dbc0-2de9-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "1e97c1d0-2dea-11e9-bf7e-f35bf5d2e71b",
+                    "name": "panel_7",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-02-11T10:55:39.323Z",
+            "version": "WzU5NywzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Garbage Collector stats [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Garbage Collector stats [Metricbeat Consul]\", \"params\": {\"time_field\": \"@timestamp\", \"type\": \"timeseries\", \"axis_formatter\": \"number\", \"interval\": \"auto\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"show_legend\": 1, \"series\": [{\"color\": \"#68BC00\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"consul.agent.runtime.garbage_collector.pause.current.ns\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value}} ms\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"ns,ms,2\", \"label\": \"Pause time\"}, {\"steps\": 1, \"color\": \"rgba(115,216,255,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"9728a010-2dea-11e9-83ed-b7c793d35de5\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"sum\", \"field\": \"consul.agent.runtime.garbage_collector.runs\", \"id\": \"9728a011-2dea-11e9-83ed-b7c793d35de5\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"9728a011-2dea-11e9-83ed-b7c793d35de5\", \"id\": \"9ed22480-2dea-11e9-83ed-b7c793d35de5\"}], \"separate_axis\": 1, \"point_size\": 1, \"chart_type\": \"bar\", \"fill\": \"0.5\", \"formatter\": \"number\", \"label\": \"Runs\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"show_grid\": 1}}"
+            },
+            "id": "dda0c950-2dea-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:55:03.187Z",
+            "version": "WzU5NSwzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Goroutines [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Goroutines [Metricbeat Consul]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"consul.agent.runtime.goroutines\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Goroutines\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "ea842730-2de9-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:43:49.667Z",
+            "version": "WzU4NywzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Bytes Allocated [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Bytes Allocated [Metricbeat Consul]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"consul.agent.runtime.alloc.bytes\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Bytes allocated\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "6c39d4b0-2de9-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:40:41.790Z",
+            "version": "WzU4NSwzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Heap Objects [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Heap Objects [Metricbeat Consul]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"consul.agent.runtime.heap_objects\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Heap Objects\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "37c75bc0-2dea-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:45:59.292Z",
+            "version": "WzU4OSwzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Bytes of memory obtained from the OS [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Bytes of memory obtained from the OS [Metricbeat Consul]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"consul.agent.runtime.sys.bytes\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"label\": \"Bytes of memory obtained from the OS\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "69b29820-2dea-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:47:23.042Z",
+            "version": "WzU5MCwzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Malloc count [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Malloc count [Metricbeat Consul]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"sum\", \"field\": \"consul.agent.runtime.malloc_count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"7a6e0aa0-2dea-11e9-83ed-b7c793d35de5\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Malloc Count\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "8ab67000-2dea-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:48:18.432Z",
+            "version": "WzU5MSwzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Garbage Collector pause ms [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Garbage Collector pause ms [Metricbeat Consul]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"consul.agent.runtime.garbage_collector.pause.current.ns\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"value_template\": \"{{value}} ms\", \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"ns,ms,4\", \"label\": \"Garbage Collector pause\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "d275dbc0-2de9-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:43:09.308Z",
+            "version": "WzU4NiwzXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"lucene\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Garbage Collector Runs [Metricbeat Consul]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Garbage Collector Runs [Metricbeat Consul]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"type\": \"timeseries\", \"series\": [{\"steps\": 1, \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"sum\", \"field\": \"consul.agent.runtime.garbage_collector.runs\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"ffaa1fc0-2de9-11e9-83ed-b7c793d35de5\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Garbage Collector Runs\"}], \"interval\": \"auto\", \"show_grid\": 1}}"
+            },
+            "id": "1e97c1d0-2dea-11e9-bf7e-f35bf5d2e71b",
+            "migrationVersion": {
+                "visualization": "7.0.0"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-02-11T10:51:44.187Z",
+            "version": "WzU5MywzXQ=="
+        }
+    ],
+    "version": "7.0.0-SNAPSHOT"
+}

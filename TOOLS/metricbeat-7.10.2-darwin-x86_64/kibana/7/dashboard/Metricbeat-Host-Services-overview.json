@@ -1,0 +1,232 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of services on an individual host.",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 14, \"x\": 0, \"y\": 0, \"i\": \"023b7623-9610-47ee-a10c-64ee8d2ccfa1\", \"h\": 11}, \"panelIndex\": \"023b7623-9610-47ee-a10c-64ee8d2ccfa1\", \"title\": \"Running Services\", \"embeddableConfig\": {\"title\": \"Running Services\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 12, \"x\": 14, \"y\": 0, \"i\": \"40ebab84-f48f-4060-a7af-3ffdf833ad3a\", \"h\": 11}, \"panelIndex\": \"40ebab84-f48f-4060-a7af-3ffdf833ad3a\", \"title\": \"Service States\", \"embeddableConfig\": {\"title\": \"Service States\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 12, \"x\": 26, \"y\": 0, \"i\": \"0ad1caa8-2a3f-4429-9631-42d1c57a9e64\", \"h\": 11}, \"panelIndex\": \"0ad1caa8-2a3f-4429-9631-42d1c57a9e64\", \"title\": \"Service Sub-State\", \"embeddableConfig\": {\"title\": \"Service Sub-State\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 10, \"x\": 38, \"y\": 0, \"i\": \"9e37921b-da6f-464d-9683-5c9bd550640b\", \"h\": 11}, \"panelIndex\": \"9e37921b-da6f-464d-9683-5c9bd550640b\", \"title\": \"Return Codes Of Exited Services\", \"embeddableConfig\": {\"title\": \"Return Codes Of Exited Services\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 11, \"i\": \"e3ec1fe3-a03a-466e-8bc2-69136e3e6302\", \"h\": 11}, \"panelIndex\": \"e3ec1fe3-a03a-466e-8bc2-69136e3e6302\", \"title\": \"Top Services By Memory Usage\", \"embeddableConfig\": {\"title\": \"Top Services By Memory Usage\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 11, \"i\": \"cc928f52-22c9-402d-a7a1-4f32720a4290\", \"h\": 11}, \"panelIndex\": \"cc928f52-22c9-402d-a7a1-4f32720a4290\", \"title\": \"Top Services By Task Count\", \"embeddableConfig\": {\"title\": \"Top Services By Task Count\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 48, \"x\": 0, \"y\": 22, \"i\": \"c83f16cd-286f-411b-bae9-bade176a8db2\", \"h\": 14}, \"panelIndex\": \"c83f16cd-286f-411b-bae9-bade176a8db2\", \"title\": \"Service Memory Use Over Time\", \"embeddableConfig\": {\"title\": \"Service Memory Use Over Time\"}, \"panelRefName\": \"panel_6\", \"version\": \"7.4.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat System] Host Services Overview",
+                "version": 1
+            },
+            "id": "c431f410-f9ac-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "a30871f0-f98f-11e9-90e8-1fb18e796788",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "bb3a8720-f991-11e9-90e8-1fb18e796788",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "e6e639e0-f992-11e9-90e8-1fb18e796788",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c69cad0-f9b0-11e9-90e8-1fb18e796788",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "8c071e20-f999-11e9-90e8-1fb18e796788",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "4b254630-f998-11e9-90e8-1fb18e796788",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "d3f51850-f9b6-11e9-90e8-1fb18e796788",
+                    "name": "panel_6",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-10-31T14:21:04.680Z",
+            "version": "WzE0NjksMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"filter\": []}"
+                },
+                "title": "Running Services [Metricbeat System]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"cardinality\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"system.service.name\", \"customLabel\": \"Running Services [Metricbeat Services]\"}}], \"type\": \"metric\", \"title\": \"Running Services [Metricbeat System]\", \"params\": {\"metric\": {\"labels\": {\"show\": true}, \"style\": {\"subText\": \"\", \"labelColor\": false, \"bgColor\": false, \"bgFill\": \"#000\", \"fontSize\": 60}, \"metricColorMode\": \"None\", \"invertColors\": false, \"percentageMode\": false, \"useRanges\": false, \"colorSchema\": \"Green to Red\", \"colorsRange\": [{\"from\": 0, \"to\": 10000, \"type\": \"range\"}]}, \"dimensions\": {\"metrics\": [{\"accessor\": 0, \"format\": {\"id\": \"number\", \"params\": {}}, \"type\": \"vis_dimension\"}]}, \"type\": \"metric\", \"addLegend\": false, \"addTooltip\": true}}"
+            },
+            "id": "a30871f0-f98f-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-31T13:35:51.219Z",
+            "version": "WzE0NTAsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"filter\": []}"
+                },
+                "title": "Service States [Metricbeat System]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"count\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"customLabel\": \"Service States [Metricbeat Services]\"}}, {\"type\": \"terms\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"orderBy\": \"1\", \"otherBucketLabel\": \"Other\", \"field\": \"system.service.state\", \"order\": \"desc\", \"size\": 5, \"otherBucket\": false, \"missingBucketLabel\": \"Missing\", \"missingBucket\": false}}], \"type\": \"pie\", \"title\": \"Service States [Metricbeat System]\", \"params\": {\"dimensions\": {\"metric\": {\"accessor\": 1, \"format\": {\"id\": \"number\"}, \"aggType\": \"count\", \"params\": {}}, \"buckets\": [{\"accessor\": 0, \"format\": {\"id\": \"terms\", \"params\": {\"otherBucketLabel\": \"Other\", \"id\": \"string\", \"missingBucketLabel\": \"Missing\"}}, \"aggType\": \"terms\", \"params\": {}}]}, \"labels\": {\"truncate\": 100, \"show\": false, \"values\": true, \"last_level\": true}, \"addLegend\": true, \"addTooltip\": true, \"type\": \"pie\", \"legendPosition\": \"right\", \"isDonut\": true}}"
+            },
+            "id": "bb3a8720-f991-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-31T13:38:51.526Z",
+            "version": "WzE0NTIsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"filter\": []}"
+                },
+                "title": "Service Sub-State [Metricbeat System]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"count\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"customLabel\": \"Service Sub-State [Metricbeat Services]\"}}, {\"type\": \"terms\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"orderBy\": \"1\", \"otherBucketLabel\": \"Other\", \"field\": \"system.service.sub_state\", \"order\": \"desc\", \"size\": 5, \"otherBucket\": false, \"missingBucketLabel\": \"Missing\", \"missingBucket\": false}}], \"type\": \"pie\", \"title\": \"Service Sub-State [Metricbeat System]\", \"params\": {\"dimensions\": {\"metric\": {\"accessor\": 1, \"format\": {\"id\": \"number\"}, \"aggType\": \"count\", \"params\": {}}, \"buckets\": [{\"accessor\": 0, \"format\": {\"id\": \"terms\", \"params\": {\"otherBucketLabel\": \"Other\", \"id\": \"string\", \"missingBucketLabel\": \"Missing\"}}, \"aggType\": \"terms\", \"params\": {}}]}, \"labels\": {\"truncate\": 100, \"show\": false, \"values\": true, \"last_level\": true}, \"addLegend\": true, \"addTooltip\": true, \"type\": \"pie\", \"legendPosition\": \"right\", \"isDonut\": true}}"
+            },
+            "id": "e6e639e0-f992-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-31T13:40:09.336Z",
+            "version": "WzE0NTQsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.index\", \"filter\": [{\"query\": {\"match\": {\"metricset.name\": {\"query\": \"service\", \"type\": \"phrase\"}}}, \"meta\": {\"alias\": null, \"type\": \"phrase\", \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\", \"key\": \"metricset.name\", \"disabled\": false, \"params\": {\"query\": \"service\"}, \"value\": \"service\", \"negate\": false}, \"$state\": {\"store\": \"appState\"}}]}"
+                },
+                "title": "Return Codes Of Exited Services [Metricbeat System]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"count\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"customLabel\": \"Return Codes Of Exited Services [Metricbeat Services]\"}}, {\"type\": \"terms\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"orderBy\": \"1\", \"otherBucketLabel\": \"Other\", \"field\": \"process.exit_code\", \"order\": \"desc\", \"size\": 5, \"otherBucket\": false, \"missingBucketLabel\": \"Missing\", \"missingBucket\": false}}], \"type\": \"pie\", \"title\": \"Return Codes Of Exited Services [Metricbeat System]\", \"params\": {\"dimensions\": {\"metric\": {\"accessor\": 1, \"format\": {\"id\": \"number\"}, \"aggType\": \"count\", \"params\": {}}, \"buckets\": [{\"accessor\": 0, \"format\": {\"id\": \"terms\", \"params\": {\"otherBucketLabel\": \"Other\", \"id\": \"number\", \"missingBucketLabel\": \"Missing\"}}, \"aggType\": \"terms\", \"params\": {}}]}, \"labels\": {\"truncate\": 100, \"show\": false, \"values\": true, \"last_level\": true}, \"addLegend\": true, \"addTooltip\": true, \"type\": \"pie\", \"legendPosition\": \"right\", \"isDonut\": true}}"
+            },
+            "id": "9c69cad0-f9b0-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.index",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-31T14:03:44.126Z",
+            "version": "WzE0NjEsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Top Services By Memory Usage [Metricbeat System]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Top Services By Memory Usage [Metricbeat System]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"5af08c50-f998-11e9-ac67-272468589910\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"top_n\", \"series\": [{\"color\": \"#68BC00\", \"line_width\": 1, \"terms_field\": \"system.service.name\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"system.service.resources.memory.usage.bytes\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"bytes\", \"axis_position\": \"right\"}], \"show_grid\": 1}}"
+            },
+            "id": "8c071e20-f999-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-31T14:11:44.048Z",
+            "version": "WzE0NjMsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Top Services By Task Count [Metricbeat System]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Top Services By Task Count [Metricbeat System]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"3aeae000-f997-11e9-ac67-272468589910\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"top_n\", \"series\": [{\"terms_field\": \"system.service.name\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"formatter\": \"number\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"system.service.resources.tasks.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"hidden\": false, \"fill\": 0.5, \"chart_type\": \"line\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "4b254630-f998-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-31T14:14:42.665Z",
+            "version": "WzE0NjUsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Service Memory Use Over Time [Metricbeat System]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Service Memory Use Over Time [Metricbeat System]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \"\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"system.service.name\", \"split_color_mode\": \"rainbow\", \"color\": \"rgba(244,78,59,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"terms_size\": \"5\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"system.service.resources.memory.usage.bytes\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "d3f51850-f9b6-11e9-90e8-1fb18e796788",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-31T14:18:54.802Z",
+            "version": "WzE0NjcsMV0="
+        }
+    ],
+    "version": "7.4.0"
+}

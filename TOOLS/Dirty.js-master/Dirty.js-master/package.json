@@ -1,0 +1,27 @@
+{
+    "name": "dirtyjs",
+    "version": "2.0.5",
+    "description": "do questionable things to the native js objects",
+    "keywords": [
+        "sugar"
+    ],
+    "author": "Spencer Kelly <spencermountain@gmail.com> (http://spencermounta.in)",
+    "main": "./dirty.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/spencermountain/dirty.js.git"
+    },
+    "scripts": {
+      "test": "nodeunit ./test.js "
+    },
+    "engines": {
+        "node": ">= 0.4.0"
+    },
+    "devDependencies": {
+      "nodeunit":"0.9.*",
+      "grunt": "~0.4.*",
+      "grunt-contrib-jshint": "~0.1.*",
+      "grunt-contrib-concat": "~0.1.*",
+      "grunt-contrib-uglify": "~0.2.*"
+    }
+}

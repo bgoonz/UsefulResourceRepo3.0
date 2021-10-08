@@ -1,0 +1,215 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Subscriptions Info [Metricbeat NATS] ECS",
+                "uiStateJSON": "{\"vis\": {\"params\": {\"sort\": {\"direction\": null, \"columnIndex\": null}}}}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.cache.fanout.avg\", \"customLabel\": \"Cache Fanout Avg\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"2\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.cache.fanout.max\", \"customLabel\": \"Cache Fanout Max\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"3\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.cache.hit_rate\", \"customLabel\": \"Cache Hit Rate\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"4\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.cache.size\", \"customLabel\": \"Cache Size\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"5\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.inserts\", \"customLabel\": \"Inserts\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"6\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.matches\", \"customLabel\": \"Matches\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"7\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.removes\", \"customLabel\": \"Removes\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"8\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.total\", \"customLabel\": \"Total\"}}], \"type\": \"table\", \"title\": \"Subscriptions Info [Metricbeat NATS] ECS\", \"params\": {\"showMeticsAtAllLevels\": false, \"showTotal\": false, \"totalFunc\": \"sum\", \"showMetricsAtAllLevels\": false, \"perPage\": 1, \"showPartialRows\": false, \"sort\": {\"direction\": null, \"columnIndex\": null}}}"
+            },
+            "id": "b129b220-1e44-11e9-a1b4-79a7ae42ab61-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:54:30.301Z",
+            "version": 3
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Current Memory Usage [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.mem.bytes\", \"customLabel\": \"Memory (Bytes)\"}}], \"type\": \"metric\", \"title\": \"Current Memory Usage [Metricbeat NATS] ECS\", \"params\": {\"metric\": {\"labels\": {\"show\": true}, \"style\": {\"subText\": \"\", \"labelColor\": false, \"bgColor\": false, \"bgFill\": \"#000\", \"fontSize\": 42}, \"metricColorMode\": \"None\", \"invertColors\": false, \"percentageMode\": false, \"useRanges\": false, \"colorSchema\": \"Green to Red\", \"colorsRange\": [{\"from\": 0, \"to\": 10000}]}, \"type\": \"metric\", \"addLegend\": false, \"addTooltip\": true}}"
+            },
+            "id": "30a61c00-1e45-11e9-a1b4-79a7ae42ab61-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:56:32.097Z",
+            "version": 4
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Server Uptime [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.uptime\", \"customLabel\": \"Server Uptime\"}}], \"type\": \"metric\", \"title\": \"Server Uptime [Metricbeat NATS] ECS\", \"params\": {\"metric\": {\"labels\": {\"show\": true}, \"style\": {\"subText\": \"\", \"labelColor\": false, \"bgColor\": false, \"bgFill\": \"#000\", \"fontSize\": 42}, \"metricColorMode\": \"None\", \"invertColors\": false, \"percentageMode\": false, \"useRanges\": false, \"colorSchema\": \"Green to Red\", \"colorsRange\": [{\"from\": 0, \"to\": 10000}]}, \"type\": \"metric\", \"addLegend\": false, \"addTooltip\": true}}"
+            },
+            "id": "206f1bc0-1e45-11e9-a1b4-79a7ae42ab61-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:57:04.084Z",
+            "version": 4
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Total Connections [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.total_connections\", \"customLabel\": \"Total Connections\"}}], \"type\": \"metric\", \"title\": \"Total Connections [Metricbeat NATS] ECS\", \"params\": {\"metric\": {\"labels\": {\"show\": true}, \"style\": {\"subText\": \"\", \"labelColor\": false, \"bgColor\": false, \"bgFill\": \"#000\", \"fontSize\": 42}, \"metricColorMode\": \"None\", \"invertColors\": false, \"percentageMode\": false, \"useRanges\": false, \"colorSchema\": \"Green to Red\", \"colorsRange\": [{\"from\": 0, \"to\": 10000}]}, \"type\": \"metric\", \"addLegend\": false, \"addTooltip\": true}}"
+            },
+            "id": "4c380ff0-1e45-11e9-a1b4-79a7ae42ab61-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:57:32.006Z",
+            "version": 4
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Remotes-Subsz-Connz-Routez Timeline [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.connections.total\", \"customLabel\": \"Connections\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"3\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.routes.total\", \"customLabel\": \"Routes\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"4\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.remotes\", \"customLabel\": \"Remotes\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"5\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.total\", \"customLabel\": \"Subscriptions\"}}], \"type\": \"area\", \"title\": \"Remotes-Subsz-Connz-Routez Timeline [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"area\", \"interpolate\": \"linear\", \"mode\": \"stacked\", \"data\": {\"id\": \"1\", \"label\": \"Connections\"}, \"show\": \"true\", \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"area\", \"interpolate\": \"linear\", \"mode\": \"stacked\", \"data\": {\"id\": \"3\", \"label\": \"Routes\"}, \"show\": true, \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"area\", \"interpolate\": \"linear\", \"mode\": \"stacked\", \"data\": {\"id\": \"4\", \"label\": \"Remotes\"}, \"show\": true, \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"area\", \"interpolate\": \"linear\", \"mode\": \"stacked\", \"data\": {\"id\": \"5\", \"label\": \"Subscriptions\"}, \"show\": true, \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"Connections\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"area\"}}"
+            },
+            "id": "199d3d30-1e46-11e9-a1b4-79a7ae42ab61-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:53:31.785Z",
+            "version": 3
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Subscription Stats Timeline [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.cache.fanout.avg\", \"customLabel\": \"Cache Fanout Avg\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"3\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.cache.fanout.max\", \"customLabel\": \"Cache Fanout Max\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"5\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.inserts\", \"customLabel\": \"Inserts\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"6\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.removes\", \"customLabel\": \"Removes\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"7\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.matches\", \"customLabel\": \"Matches\"}}], \"type\": \"line\", \"title\": \"Subscription Stats Timeline [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"Cache Fanout Avg\"}, \"show\": \"true\", \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"3\", \"label\": \"Cache Fanout Max\"}, \"show\": true, \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"5\", \"label\": \"Inserts\"}, \"show\": true, \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"6\", \"label\": \"Removes\"}, \"show\": true, \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"7\", \"label\": \"Matches\"}, \"show\": true, \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"Cache Fanout Avg\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"line\"}}"
+            },
+            "id": "754215c0-1e46-11e9-a1b4-79a7ae42ab61-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-23T14:55:04.899Z",
+            "version": 3
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Slow Consumers Timeline [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.slow_consumers\", \"customLabel\": \"Slow Consumers\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}], \"type\": \"line\", \"title\": \"Slow Consumers Timeline [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"Slow Consumers\"}, \"show\": \"true\", \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"Slow Consumers\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"line\"}}"
+            },
+            "id": "94534190-1e97-11e9-b9e7-93b3bd2eec90-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-23T14:53:57.137Z",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "IO Bytes Stats [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.in.bytes\", \"customLabel\": \"In Bytes\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"2\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.out.bytes\", \"customLabel\": \"Out Bytes\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"3\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}], \"type\": \"line\", \"title\": \"IO Bytes Stats [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"In Bytes\"}, \"show\": \"true\", \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"2\", \"label\": \"Out Bytes\"}, \"show\": true, \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"IO Bytes\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"line\"}}"
+            },
+            "id": "be1d8a20-1e98-11e9-b9e7-93b3bd2eec90-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:48:22.914Z",
+            "version": 4
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Memory Utilization Timeline [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.mem.bytes\", \"customLabel\": \"Memory Avg\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}], \"type\": \"line\", \"title\": \"Memory Utilization Timeline [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"Memory Avg\"}, \"show\": \"true\", \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"Memory Avg (Bytes)\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"line\"}}"
+            },
+            "id": "8204e820-1e99-11e9-b9e7-93b3bd2eec90-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:52:55.445Z",
+            "version": 5
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "IO Messages Stats [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.in.messages\", \"customLabel\": \"In Messages\"}}, {\"type\": \"avg\", \"enabled\": true, \"id\": \"2\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.out.messages\", \"customLabel\": \"Out Messages\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"3\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}], \"type\": \"line\", \"title\": \"IO Messages Stats [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"In Messages\"}, \"show\": \"true\", \"showCircles\": true}, {\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"2\", \"label\": \"Out Messages\"}, \"show\": true, \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"IO Messages\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"line\"}}"
+            },
+            "id": "cdbf4110-1f0d-11e9-a673-d9577e5e50eb-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:47:25.774Z",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "CPU Utilization Timeline [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.stats.cpu\", \"customLabel\": \"CPU Avg\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}], \"type\": \"line\", \"title\": \"CPU Utilization Timeline [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"CPU Avg\"}, \"show\": \"true\", \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"CPU Avg (%)\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"line\"}}"
+            },
+            "id": "138dc660-1f1a-11e9-a673-d9577e5e50eb-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-24T07:51:51.767Z",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [], \"index\": \"metricbeat-*\"}"
+                },
+                "title": "Cache Hit Rate Timeline [Metricbeat NATS] ECS",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [{\"type\": \"avg\", \"enabled\": true, \"id\": \"1\", \"schema\": \"metric\", \"params\": {\"field\": \"nats.subscriptions.cache.hit_rate\", \"customLabel\": \"Cache Hit Rate\"}}, {\"type\": \"date_histogram\", \"enabled\": true, \"id\": \"2\", \"schema\": \"segment\", \"params\": {\"extended_bounds\": {}, \"customInterval\": \"2h\", \"interval\": \"auto\", \"field\": \"@timestamp\", \"min_doc_count\": 1}}], \"type\": \"line\", \"title\": \"Cache Hit Rate Timeline [Metricbeat NATS] ECS\", \"params\": {\"times\": [], \"seriesParams\": [{\"valueAxis\": \"ValueAxis-1\", \"drawLinesBetweenPoints\": true, \"type\": \"line\", \"mode\": \"normal\", \"data\": {\"id\": \"1\", \"label\": \"Cache Hit Rate\"}, \"show\": \"true\", \"showCircles\": true}], \"grid\": {\"style\": {\"color\": \"#eee\"}, \"categoryLines\": false}, \"valueAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true, \"rotate\": 0, \"filter\": false}, \"title\": {\"text\": \"Cache Hit Rate (%)\"}, \"style\": {}, \"position\": \"left\", \"scale\": {\"type\": \"linear\", \"mode\": \"normal\"}, \"id\": \"ValueAxis-1\", \"name\": \"LeftAxis-1\", \"type\": \"value\"}], \"addTooltip\": true, \"addLegend\": true, \"legendPosition\": \"right\", \"categoryAxes\": [{\"show\": true, \"labels\": {\"truncate\": 100, \"show\": true}, \"title\": {}, \"style\": {}, \"scale\": {\"type\": \"linear\"}, \"id\": \"CategoryAxis-1\", \"position\": \"bottom\", \"type\": \"category\"}], \"addTimeMarker\": false, \"type\": \"line\"}}"
+            },
+            "id": "dff743a0-1f1c-11e9-a673-d9577e5e50eb-ecs",
+            "type": "visualization",
+            "updated_at": "2019-01-23T14:57:20.994Z",
+            "version": 2
+        },
+        {
+            "attributes": {
+                "description": "Overview of NATS server status",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"version\": true, \"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"highlightAll\": true, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"darkTheme\": false, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 45, \"i\": \"6\", \"h\": 11}, \"panelIndex\": \"6\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"b129b220-1e44-11e9-a1b4-79a7ae42ab61-ecs\"}, {\"gridData\": {\"w\": 13, \"x\": 24, \"y\": 34, \"i\": \"7\", \"h\": 7}, \"panelIndex\": \"7\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"30a61c00-1e45-11e9-a1b4-79a7ae42ab61-ecs\"}, {\"gridData\": {\"w\": 11, \"x\": 37, \"y\": 34, \"i\": \"8\", \"h\": 7}, \"panelIndex\": \"8\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"206f1bc0-1e45-11e9-a1b4-79a7ae42ab61-ecs\"}, {\"gridData\": {\"w\": 8, \"x\": 24, \"y\": 41, \"i\": \"9\", \"h\": 8}, \"panelIndex\": \"9\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"4c380ff0-1e45-11e9-a1b4-79a7ae42ab61-ecs\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 34, \"i\": \"11\", \"h\": 11}, \"panelIndex\": \"11\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"199d3d30-1e46-11e9-a1b4-79a7ae42ab61-ecs\"}, {\"gridData\": {\"w\": 18, \"x\": 15, \"y\": 0, \"i\": \"12\", \"h\": 10}, \"panelIndex\": \"12\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"754215c0-1e46-11e9-a1b4-79a7ae42ab61-ecs\"}, {\"gridData\": {\"w\": 15, \"x\": 0, \"y\": 0, \"i\": \"13\", \"h\": 10}, \"panelIndex\": \"13\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"94534190-1e97-11e9-b9e7-93b3bd2eec90-ecs\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 10, \"i\": \"14\", \"h\": 12}, \"panelIndex\": \"14\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.5.4\", \"id\": \"be1d8a20-1e98-11e9-b9e7-93b3bd2eec90-ecs\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 22, \"i\": \"15\", \"h\": 12}, \"panelIndex\": \"15\", \"type\": \"visualization\", \"embeddableConfig\": {\"vis\": {\"legendOpen\": true}}, \"version\": \"6.5.4\", \"id\": \"8204e820-1e99-11e9-b9e7-93b3bd2eec90-ecs\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 10, \"i\": \"16\", \"h\": 12}, \"panelIndex\": \"16\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.3.2\", \"id\": \"cdbf4110-1f0d-11e9-a673-d9577e5e50eb-ecs\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 22, \"i\": \"17\", \"h\": 12}, \"panelIndex\": \"17\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.3.2\", \"id\": \"138dc660-1f1a-11e9-a673-d9577e5e50eb-ecs\"}, {\"gridData\": {\"w\": 15, \"x\": 33, \"y\": 0, \"i\": \"18\", \"h\": 10}, \"panelIndex\": \"18\", \"type\": \"visualization\", \"embeddableConfig\": {}, \"version\": \"6.3.2\", \"id\": \"dff743a0-1f1c-11e9-a673-d9577e5e50eb-ecs\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat NATS] Overview ECS",
+                "version": 1
+            },
+            "id": "Metricbeat-Nats-Dashboard-ecs",
+            "type": "dashboard",
+            "updated_at": "2019-01-24T08:13:29.732Z",
+            "version": 4
+        }
+    ],
+    "version": "6.3.2"
+}

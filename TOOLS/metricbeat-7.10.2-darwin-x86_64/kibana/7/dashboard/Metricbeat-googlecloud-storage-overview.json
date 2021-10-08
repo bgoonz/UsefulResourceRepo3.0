@@ -1,0 +1,194 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of Googlecloud Storage Metrics",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 10, \"x\": 0, \"y\": 0, \"i\": \"8d4e63d8-5747-4ebc-aeae-02d20e304526\", \"h\": 15}, \"panelIndex\": \"8d4e63d8-5747-4ebc-aeae-02d20e304526\", \"title\": \"Filters\", \"embeddableConfig\": {\"title\": \"Filters\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 38, \"x\": 10, \"y\": 0, \"i\": \"70c46ee3-be59-4fb1-a437-c8e92a1d0b2a\", \"h\": 15}, \"panelIndex\": \"70c46ee3-be59-4fb1-a437-c8e92a1d0b2a\", \"title\": \"Total Size of Objects\", \"embeddableConfig\": {\"title\": \"Total Size of Objects\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 15, \"i\": \"ba356b1b-ec2b-4a05-8a70-19a43b3dc3a8\", \"h\": 15}, \"panelIndex\": \"ba356b1b-ec2b-4a05-8a70-19a43b3dc3a8\", \"title\": \"Total Number of Objects\", \"embeddableConfig\": {\"title\": \"Total Number of Objects\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 15, \"i\": \"77f185ba-74ad-4102-bca7-08587cd1bf6c\", \"h\": 15}, \"panelIndex\": \"77f185ba-74ad-4102-bca7-08587cd1bf6c\", \"title\": \"API Request Count\", \"embeddableConfig\": {\"title\": \"API Request Count\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 30, \"i\": \"f2ab3410-44b0-4b01-bb93-1394d6a64257\", \"h\": 15}, \"panelIndex\": \"f2ab3410-44b0-4b01-bb93-1394d6a64257\", \"title\": \"Number of Bytes Received Over Network\", \"embeddableConfig\": {\"title\": \"Number of Bytes Received Over Network\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 30, \"i\": \"75d342a5-f67b-4c61-b31d-b0b2db2ab50a\", \"h\": 15}, \"panelIndex\": \"75d342a5-f67b-4c61-b31d-b0b2db2ab50a\", \"title\": \"Number of Bytes Sent Over Network\", \"embeddableConfig\": {\"title\": \"Number of Bytes Sent Over Network\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.6.2\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Googlecloud] Storage Overview",
+                "version": 1
+            },
+            "id": "ca401040-8e52-11ea-9fa6-4d675d5290dc",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "4b44b2b0-8e51-11ea-9fa6-4d675d5290dc",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "239e2290-8e52-11ea-9fa6-4d675d5290dc",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "02b3c620-8e52-11ea-9fa6-4d675d5290dc",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "91eb8d10-8e51-11ea-9fa6-4d675d5290dc",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "d4cc5ec0-8e51-11ea-9fa6-4d675d5290dc",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "e9e44d90-8e51-11ea-9fa6-4d675d5290dc",
+                    "name": "panel_5",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-05-12T22:08:40.264Z",
+            "version": "Wzg5OCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Storage Filters [Metricbeat GoogleCloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"Storage Filters [Metricbeat GoogleCloud]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1588628954328\", \"fieldName\": \"googlecloud.labels.resource.bucket_name\", \"label\": \"Bucket Name\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1588628981768\", \"fieldName\": \"googlecloud.labels.resource.location\", \"label\": \"Location\"}, {\"indexPatternRefName\": \"control_2_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1588629001851\", \"fieldName\": \"googlecloud.labels.metrics.storage_class\", \"label\": \"Storage Class\"}], \"updateFiltersOnChange\": false, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "4b44b2b0-8e51-11ea-9fa6-4d675d5290dc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_2_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-05-12T20:42:02.393Z",
+            "version": "WzQ2NiwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Storage Total Bytes [Metricbeat GoogleCloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Total Bytes [Metricbeat GoogleCloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"8fdd7820-8e52-11ea-8164-1ddf506ac7af\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"8ec10ba0-8e52-11ea-8164-1ddf506ac7af\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 1, \"interval\": \">=15m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"top_n\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.bucket_name\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.storage.storage.total_bytes.value : * \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"terms_include\": \"\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.storage.storage.total_bytes.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "239e2290-8e52-11ea-9fa6-4d675d5290dc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-12T22:08:00.766Z",
+            "version": "Wzg5NSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Storage Object Count [Metricbeat GoogleCloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Object Count [Metricbeat GoogleCloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"23042750-8e64-11ea-9fba-216938b39761\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"series\": [{\"terms_field\": \"googlecloud.labels.resource.bucket_name\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.storage.storage.object_count.value : * \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.storage.storage.object_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"2268f8c0-8e64-11ea-9fba-216938b39761\"}], \"gauge_inner_width\": 10, \"default_timefield\": \"@timestamp\", \"interval\": \">=15m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"gauge_width\": 10, \"type\": \"top_n\", \"gauge_style\": \"half\", \"show_grid\": 1}}"
+            },
+            "id": "02b3c620-8e52-11ea-9fa6-4d675d5290dc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-12T22:08:13.670Z",
+            "version": "Wzg5NiwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Storage API Request Count [Metricbeat GoogleCloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage API Request Count [Metricbeat GoogleCloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \">=5m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.bucket_name\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.storage.api.request_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "91eb8d10-8e51-11ea-9fa6-4d675d5290dc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-12T22:08:30.520Z",
+            "version": "Wzg5NywyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Storage Network Received Bytes [Metricbeat GoogleCloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Network Received Bytes [Metricbeat GoogleCloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \">=5m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.bucket_name\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.storage.network.received_bytes_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "d4cc5ec0-8e51-11ea-9fa6-4d675d5290dc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-12T22:07:26.735Z",
+            "version": "Wzg5NCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Storage Network Sent Bytes [Metricbeat GoogleCloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Network Sent Bytes [Metricbeat GoogleCloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"interval\": \">=5m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.bucket_name\", \"split_color_mode\": \"rainbow\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.storage.network.sent_bytes_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "e9e44d90-8e51-11ea-9fa6-4d675d5290dc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-12T22:06:26.974Z",
+            "version": "Wzg3NywyXQ=="
+        }
+    ],
+    "version": "7.6.2"
+}

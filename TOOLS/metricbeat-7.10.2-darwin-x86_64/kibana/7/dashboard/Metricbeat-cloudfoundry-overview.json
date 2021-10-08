@@ -1,0 +1,765 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of Cloud Foundry",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"panelRefName\": \"panel_0\", \"gridData\": {\"w\": 48, \"x\": 0, \"y\": 0, \"i\": \"614e3c18-7b1d-4510-9308-a7c64077076b\", \"h\": 2}, \"panelIndex\": \"614e3c18-7b1d-4510-9308-a7c64077076b\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 15, \"x\": 0, \"y\": 2, \"i\": \"efc5cc53-f0f5-4d09-850f-36baed6cea70\", \"h\": 1}, \"panelIndex\": \"efc5cc53-f0f5-4d09-850f-36baed6cea70\", \"title\": \"Components health\", \"embeddableConfig\": {\"title\": \"Components health\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 14, \"x\": 15, \"y\": 2, \"i\": \"77151f90-5dd1-4c52-bbc8-eae071029c74\", \"h\": 7}, \"panelIndex\": \"77151f90-5dd1-4c52-bbc8-eae071029c74\", \"title\": \"Job queue length\", \"embeddableConfig\": {\"title\": \"Job queue length\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 7, \"x\": 29, \"y\": 2, \"i\": \"e3830a7f-00ba-4133-9be0-5bf881956830\", \"h\": 13}, \"panelIndex\": \"e3830a7f-00ba-4133-9be0-5bf881956830\", \"title\": \"Top CPU usage\", \"embeddableConfig\": {\"title\": \"Top CPU usage\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 6, \"x\": 36, \"y\": 2, \"i\": \"f9d0d4bf-f7b3-45f1-9bde-2ed389ecffe0\", \"h\": 13}, \"panelIndex\": \"f9d0d4bf-f7b3-45f1-9bde-2ed389ecffe0\", \"title\": \"Top ephemeral disk usage\", \"embeddableConfig\": {\"title\": \"Top ephemeral disk usage\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 6, \"x\": 42, \"y\": 2, \"i\": \"e00759d3-5853-4e0e-bb74-9c6be0f0cafe\", \"h\": 13}, \"panelIndex\": \"e00759d3-5853-4e0e-bb74-9c6be0f0cafe\", \"title\": \"Top persistent disk usage\", \"embeddableConfig\": {\"title\": \"Top persistent disk usage\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_6\", \"gridData\": {\"w\": 3, \"x\": 0, \"y\": 3, \"i\": \"8ba21983-ee6b-464a-b9e6-083b8f9af911\", \"h\": 7}, \"panelIndex\": \"8ba21983-ee6b-464a-b9e6-083b8f9af911\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_7\", \"gridData\": {\"w\": 3, \"x\": 3, \"y\": 3, \"i\": \"ffb54b2e-36b9-477e-a722-96d4c4c6f493\", \"h\": 7}, \"panelIndex\": \"ffb54b2e-36b9-477e-a722-96d4c4c6f493\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_8\", \"gridData\": {\"w\": 3, \"x\": 6, \"y\": 3, \"i\": \"1695ac40-80fd-4164-8db3-41b31604c757\", \"h\": 7}, \"panelIndex\": \"1695ac40-80fd-4164-8db3-41b31604c757\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_9\", \"gridData\": {\"w\": 3, \"x\": 9, \"y\": 3, \"i\": \"8f111936-e953-45c2-859f-7adc28161741\", \"h\": 7}, \"panelIndex\": \"8f111936-e953-45c2-859f-7adc28161741\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_10\", \"gridData\": {\"w\": 3, \"x\": 12, \"y\": 3, \"i\": \"040843ca-cc51-4b6e-b15f-6cf8684ee63d\", \"h\": 7}, \"panelIndex\": \"040843ca-cc51-4b6e-b15f-6cf8684ee63d\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 14, \"x\": 15, \"y\": 9, \"i\": \"207fe6aa-ca8e-4931-abae-7c2b0f78cc1d\", \"h\": 7}, \"panelIndex\": \"207fe6aa-ca8e-4931-abae-7c2b0f78cc1d\", \"title\": \"Outstanding requests\", \"embeddableConfig\": {\"title\": \"Outstanding requests\"}, \"panelRefName\": \"panel_11\", \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_12\", \"gridData\": {\"w\": 5, \"x\": 0, \"y\": 10, \"i\": \"c4e3338c-f3d9-4c7d-bac7-e784f706bb57\", \"h\": 5}, \"panelIndex\": \"c4e3338c-f3d9-4c7d-bac7-e784f706bb57\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_13\", \"gridData\": {\"w\": 5, \"x\": 5, \"y\": 10, \"i\": \"30ed1180-cf4b-41b2-a60a-5332de7f6e46\", \"h\": 5}, \"panelIndex\": \"30ed1180-cf4b-41b2-a60a-5332de7f6e46\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_14\", \"gridData\": {\"w\": 5, \"x\": 10, \"y\": 10, \"i\": \"d77bfe2e-7057-4cfb-829b-c4011640ae2d\", \"h\": 5}, \"panelIndex\": \"d77bfe2e-7057-4cfb-829b-c4011640ae2d\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_15\", \"gridData\": {\"w\": 5, \"x\": 0, \"y\": 15, \"i\": \"b1ba0667-de29-4458-95d6-49217a6875cb\", \"h\": 5}, \"panelIndex\": \"b1ba0667-de29-4458-95d6-49217a6875cb\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_16\", \"gridData\": {\"w\": 5, \"x\": 5, \"y\": 15, \"i\": \"ff23d11d-8396-4245-a334-ddafc5cbc198\", \"h\": 5}, \"panelIndex\": \"ff23d11d-8396-4245-a334-ddafc5cbc198\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_17\", \"gridData\": {\"w\": 5, \"x\": 10, \"y\": 15, \"i\": \"ee0d79d3-92f8-4360-b724-e9ebfd73b53e\", \"h\": 5}, \"panelIndex\": \"ee0d79d3-92f8-4360-b724-e9ebfd73b53e\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 19, \"x\": 29, \"y\": 15, \"i\": \"da31ae1e-e713-4d4f-b225-59824b203797\", \"h\": 8}, \"panelIndex\": \"da31ae1e-e713-4d4f-b225-59824b203797\", \"title\": \"GoRouter latency PAS\", \"embeddableConfig\": {\"title\": \"GoRouter latency PAS\"}, \"panelRefName\": \"panel_18\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 14, \"x\": 15, \"y\": 16, \"i\": \"a7138e23-fa21-42b8-8d09-d124c2640293\", \"h\": 7}, \"panelIndex\": \"a7138e23-fa21-42b8-8d09-d124c2640293\", \"title\": \"Diego cell time to sync\", \"embeddableConfig\": {\"title\": \"Diego cell time to sync\"}, \"panelRefName\": \"panel_19\", \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_20\", \"gridData\": {\"w\": 7, \"x\": 0, \"y\": 20, \"i\": \"2b4f53d8-a91c-447d-a8e4-f94589abe07f\", \"h\": 3}, \"panelIndex\": \"2b4f53d8-a91c-447d-a8e4-f94589abe07f\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"panelRefName\": \"panel_21\", \"gridData\": {\"w\": 8, \"x\": 7, \"y\": 20, \"i\": \"fdd1c5d5-bd8f-41db-8d16-9d0b8adcb3a4\", \"h\": 3}, \"panelIndex\": \"fdd1c5d5-bd8f-41db-8d16-9d0b8adcb3a4\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 7, \"x\": 0, \"y\": 23, \"i\": \"e2291bb2-2b6d-452b-8bb0-652ed6b4ea7b\", \"h\": 10}, \"panelIndex\": \"e2291bb2-2b6d-452b-8bb0-652ed6b4ea7b\", \"title\": \"Maximum CPU utilization\", \"embeddableConfig\": {\"title\": \"Maximum CPU utilization\"}, \"panelRefName\": \"panel_22\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 8, \"x\": 7, \"y\": 23, \"i\": \"5db37b04-577a-4703-a8ef-07d70299023e\", \"h\": 10}, \"panelIndex\": \"5db37b04-577a-4703-a8ef-07d70299023e\", \"title\": \"Available disk space\", \"embeddableConfig\": {\"title\": \"Available disk space\"}, \"panelRefName\": \"panel_23\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 14, \"x\": 15, \"y\": 23, \"i\": \"dfb10794-82ba-4da3-80b7-5e4aa82dfd5c\", \"h\": 10}, \"panelIndex\": \"dfb10794-82ba-4da3-80b7-5e4aa82dfd5c\", \"title\": \"Available memory by cell\", \"embeddableConfig\": {\"title\": \"Available memory by cell\"}, \"panelRefName\": \"panel_24\", \"version\": \"7.9.0\"}, {\"gridData\": {\"w\": 19, \"x\": 29, \"y\": 23, \"i\": \"a6c34327-7e71-4bf3-a057-f43de540247c\", \"h\": 10}, \"panelIndex\": \"a6c34327-7e71-4bf3-a057-f43de540247c\", \"title\": \"Total routes in GoRouter\", \"embeddableConfig\": {\"title\": \"Total routes in GoRouter\"}, \"panelRefName\": \"panel_25\", \"version\": \"7.9.0\"}]",
+                "refreshInterval": {
+                    "pause": true,
+                    "value": 0
+                },
+                "timeFrom": "now-15m",
+                "timeRestore": true,
+                "timeTo": "now",
+                "title": "[Metricbeat Cloud Foundry] Overview",
+                "version": 1
+            },
+            "id": "9c81cf34-f84e-11ea-a49d-f3f94f5e4fac",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [
+                {
+                    "id": "435133e4-f8d2-11ea-a49e-d36460a01dbe",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9ca39c36-f84e-11ea-9b0e-af32e8072a87",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9ca9737c-f84e-11ea-b8a5-9f245d6f7121",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c9f12b0-f84e-11ea-bfe0-8f64de3dbbbd",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c5e5c7a-f84e-11ea-9c79-3f5f46484ce3",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c975020-f84e-11ea-9d35-0ba5b289cee7",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9caafdaa-f84e-11ea-8c78-43aac4b09aa5",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c7b602c-f84e-11ea-8762-e7aef60b5522",
+                    "name": "panel_7",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9cb33038-f84e-11ea-8929-07701f2b1c26",
+                    "name": "panel_8",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9ca526aa-f84e-11ea-aad5-ef2777854f3d",
+                    "name": "panel_9",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9caf798e-f84e-11ea-ac4b-4795663aee6b",
+                    "name": "panel_10",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9cbb8cd8-f84e-11ea-9a20-af708256c3a9",
+                    "name": "panel_11",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c69684a-f84e-11ea-bf59-4bba486da283",
+                    "name": "panel_12",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c93270c-f84e-11ea-8b23-c7a1cc31369e",
+                    "name": "panel_13",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c7328ee-f84e-11ea-9259-772ddb1805fb",
+                    "name": "panel_14",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c99314c-f84e-11ea-92d5-9bcd6abdce0f",
+                    "name": "panel_15",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c635824-f84e-11ea-9b02-735b8407166a",
+                    "name": "panel_16",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9caddb24-f84e-11ea-b008-df9bd2aed7cc",
+                    "name": "panel_17",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c58b248-f84e-11ea-87a9-67d346210280",
+                    "name": "panel_18",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9ca805fa-f84e-11ea-ab90-2b00dd50450c",
+                    "name": "panel_19",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c89336e-f84e-11ea-bbcd-23e329286ac7",
+                    "name": "panel_20",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c9d9c14-f84e-11ea-a575-a30e017a09e9",
+                    "name": "panel_21",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c8ed8fa-f84e-11ea-b20d-bb82d7a8e05d",
+                    "name": "panel_22",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c948fb6-f84e-11ea-96f5-dff115716ba4",
+                    "name": "panel_23",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9cac69e2-f84e-11ea-b8d4-4b40313a5eb0",
+                    "name": "panel_24",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c77cf84-f84e-11ea-a3ff-7f7f73eabd57",
+                    "name": "panel_25",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-09-17T10:38:25.337Z",
+            "version": "WzE5MCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Dashboards Navigation Overview [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"markdown\", \"title\": \"Dashboards Navigation [Metricbeat Cloud Foundry]\", \"params\": {\"markdown\": \"**Overview** | [Platform Health](#/dashboard/94364424-f851-11ea-8206-7b08cd60917a)\", \"openLinksInNewTab\": false, \"fontSize\": 12}}"
+            },
+            "id": "435133e4-f8d2-11ea-a49e-d36460a01dbe",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:37:54.081Z",
+            "version": "WzE4MiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Components health title [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"markdown\", \"title\": \"Components health title [Metricbeat Cloud Foundry]\", \"params\": {\"markdown\": \"\", \"openLinksInNewTab\": false, \"fontSize\": 12}}"
+            },
+            "id": "9ca39c36-f84e-11ea-9b0e-af32e8072a87",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "Wzk0LDFd"
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Job Queue [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Job queue [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 0, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"cc\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"terms_field\": \"cloudfoundry.envelope.deployment\", \"split_color_mode\": \"gradient\", \"color\": \"rgba(188,0,19,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"failed_job_count.total\\\"  \"}, \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"9c9054dc-f84e-11ea-920b-1f1a72488310\", \"hide_in_legend\": 1, \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c91bfd4-f84e-11ea-a2df-b7ca8c11c9b1\"}], \"separate_axis\": 0, \"point_size\": \"4\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"Avg Failed Job Count\"}, {\"terms_field\": \"cloudfoundry.value.value\", \"split_color_mode\": \"gradient\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name:\\\"job_queue_length.total\\\" \"}, \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"9c837802-f84e-11ea-8b5e-ef886d2383c6\", \"hide_in_legend\": 1, \"terms_order_by\": \"_count\", \"stacked\": \"none\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"count\", \"id\": \"9c84e098-f84e-11ea-b8dc-ff0b80823e94\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"Avg Job Queue Length\"}]}}"
+            },
+            "id": "9ca9737c-f84e-11ea-b8a5-9f245d6f7121",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "Wzk1LDFd"
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell Top CPU user usage [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Top CPU user usage [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"drilldown_url\": \"\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"bar_color\": \"rgba(104,188,0,1)\", \"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\", \"value\": 65, \"operator\": \"lt\"}, {\"bar_color\": \"rgba(252,220,0,1)\", \"id\": \"9c87c1f0-f84e-11ea-abf6-9bcf7a4dd500\", \"value\": 65, \"operator\": \"gte\"}, {\"bar_color\": \"rgba(244,78,59,1)\", \"id\": \"9c95f1b2-f84e-11ea-9ca9-53ceca17b640\", \"value\": 75, \"operator\": \"gt\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"top_n\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Max CPU utilization (Load)\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.cpu.user\\\" \"}, \"terms_field\": \"cloudfoundry.envelope.job\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"size\": 1, \"field\": \"cloudfoundry.value.value\", \"order\": \"desc\", \"type\": \"avg\", \"agg_with\": \"avg\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"number\"}]}}"
+            },
+            "id": "9c9f12b0-f84e-11ea-bfe0-8f64de3dbbbd",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "Wzk2LDFd"
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Top ephemeral disk usage [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Top ephemeral disk usage [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"drilldown_url\": \"\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"bar_color\": \"rgba(104,188,0,1)\", \"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\", \"value\": 65, \"operator\": \"lt\"}, {\"bar_color\": \"rgba(252,220,0,1)\", \"id\": \"9c87c1f0-f84e-11ea-abf6-9bcf7a4dd500\", \"value\": 65, \"operator\": \"gte\"}, {\"bar_color\": \"rgba(244,78,59,1)\", \"id\": \"9c95f1b2-f84e-11ea-9ca9-53ceca17b640\", \"value\": 75, \"operator\": \"gt\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"top_n\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}} %\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Top Max Ephemeral Disk Usage (%)\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.disk.ephemeral.percent\\\" \"}, \"terms_field\": \"cloudfoundry.envelope.job\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"size\": 1, \"field\": \"cloudfoundry.value.value\", \"order\": \"desc\", \"type\": \"max\", \"agg_with\": \"avg\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"00.00\"}]}}"
+            },
+            "id": "9c5e5c7a-f84e-11ea-9c79-3f5f46484ce3",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "Wzk3LDFd"
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Top persistent disk usage [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Top persistent disk usage [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"drilldown_url\": \"\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"bar_color\": \"rgba(104,188,0,1)\", \"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\", \"value\": 65, \"operator\": \"lt\"}, {\"bar_color\": \"rgba(252,220,0,1)\", \"id\": \"9c87c1f0-f84e-11ea-abf6-9bcf7a4dd500\", \"value\": 65, \"operator\": \"gte\"}, {\"bar_color\": \"rgba(244,78,59,1)\", \"id\": \"9c95f1b2-f84e-11ea-9ca9-53ceca17b640\", \"value\": 75, \"operator\": \"gt\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"top_n\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}} %\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Top Max Ephemeral Disk Usage (%)\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.disk.persistent.percent\\\"  \"}, \"terms_field\": \"cloudfoundry.envelope.job\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"size\": 1, \"field\": \"cloudfoundry.value.value\", \"order\": \"desc\", \"type\": \"max\", \"agg_with\": \"avg\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"00.00\"}]}}"
+            },
+            "id": "9c975020-f84e-11ea-9d35-0ba5b289cee7",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "Wzk4LDFd"
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Doppler health [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Doppler health [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"  and cloudfoundry.envelope.job :\\\"doppler\\\"  \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 1, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gte\"}, {\"id\": \"9c6cce9a-f84e-11ea-9fea-039104d18522\", \"value\": 1, \"operator\": \"lt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Doppler\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.healthy\\\"\"}, \"terms_field\": null, \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"percent\"}]}}"
+            },
+            "id": "9caafdaa-f84e-11ea-8c78-43aac4b09aa5",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "Wzk5LDFd"
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Router health [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Router health [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"  and cloudfoundry.envelope.job :\\\"router\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 1, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gte\"}, {\"id\": \"9c6cce9a-f84e-11ea-9fea-039104d18522\", \"value\": 1, \"operator\": \"lt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Router\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.healthy\\\"\"}, \"terms_field\": null, \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"percent\"}]}}"
+            },
+            "id": "9c7b602c-f84e-11ea-8762-e7aef60b5522",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwMCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Backup-Restore health [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Backup-Restore health [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"  and cloudfoundry.envelope.job :\\\"backup_restore\\\"   \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 1, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gte\"}, {\"id\": \"9c6cce9a-f84e-11ea-9fea-039104d18522\", \"value\": 1, \"operator\": \"lt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Backup-Restore\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.healthy\\\"\"}, \"terms_field\": null, \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"percent\"}]}}"
+            },
+            "id": "9cb33038-f84e-11ea-8929-07701f2b1c26",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwMSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego Brain health [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego Brain health [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"  and cloudfoundry.envelope.job :\\\"diego_brain\\\"    \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 1, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gte\"}, {\"id\": \"9c6cce9a-f84e-11ea-9fea-039104d18522\", \"value\": 1, \"operator\": \"lt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Diego Brain\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.healthy\\\"\"}, \"terms_field\": null, \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"percent\"}]}}"
+            },
+            "id": "9ca526aa-f84e-11ea-aad5-ef2777854f3d",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwMiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell health [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell health [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"  and cloudfoundry.envelope.job :\\\"diego_cell\\\"     \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 1, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gte\"}, {\"value\": 1, \"background_color\": \"rgba(252,220,0,1)\", \"color\": null, \"id\": \"9c6cce9a-f84e-11ea-9fea-039104d18522\", \"operator\": \"lt\"}, {\"value\": 0.5, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9cb7224c-f84e-11ea-aedc-27587a803e41\", \"operator\": \"lt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Diego cell\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.healthy\\\"\"}, \"terms_field\": null, \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"percent\"}]}}"
+            },
+            "id": "9caf798e-f84e-11ea-ac4b-4795663aee6b",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwMywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Outstanding Requests [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Outstanding Requests [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"cc\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"1\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Avg Oustanding Requests\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(0,156,224,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"requests.outstanding\\\"\"}, \"terms_field\": null, \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"number\"}]}}"
+            },
+            "id": "9cbb8cd8-f84e-11ea-9a20-af708256c3a9",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwNCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell time to sync [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell time to sync [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: cloudfoundry and cloudfoundry.envelope.origin :\\\"rep\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 10000000000, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"lt\"}, {\"background_color\": \"rgba(252,220,0,1)\", \"id\": \"9cb134b8-f84e-11ea-9fd8-cb6a1b33696f\", \"value\": 10000000000, \"operator\": \"gte\"}, {\"background_color\": \"rgba(244,78,59,1)\", \"id\": \"9cb588d8-f84e-11ea-af5a-c3012766d944\", \"value\": 15000000000, \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}} s\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Max Cell Rep Time to Sync\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"RepBulkSyncDuration\\\"\"}, \"terms_field\": \"cf.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"max\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"ns,s,2\"}]}}"
+            },
+            "id": "9c69684a-f84e-11ea-bf59-4bba486da283",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwNSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell Missing LRPs [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell Missing LRPs [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"bbs\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 5, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"lt\"}, {\"background_color\": \"rgba(252,220,0,1)\", \"id\": \"9cb134b8-f84e-11ea-9fd8-cb6a1b33696f\", \"value\": 5, \"operator\": \"gte\"}, {\"background_color\": \"rgba(244,78,59,1)\", \"id\": \"9cb588d8-f84e-11ea-af5a-c3012766d944\", \"value\": 10, \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Max Missing LRPs\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"LRPsMissing\\\" \"}, \"terms_field\": \"cf.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"number\"}]}}"
+            },
+            "id": "9c93270c-f84e-11ea-8b23-c7a1cc31369e",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwNiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell fetch state times [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell fetch state times [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"auctioneer\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 5000000000, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"lt\"}, {\"background_color\": \"rgba(252,220,0,1)\", \"id\": \"9cb134b8-f84e-11ea-9fd8-cb6a1b33696f\", \"value\": 5000000000, \"operator\": \"gte\"}, {\"background_color\": \"rgba(244,78,59,1)\", \"id\": \"9cb588d8-f84e-11ea-af5a-c3012766d944\", \"value\": 10000000000, \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Max fetch cell state times\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"AuctioneerFetchStatesDuration\\\" \"}, \"terms_field\": \"cf.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"max\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"ns,s,\"}]}}"
+            },
+            "id": "9c7328ee-f84e-11ea-9259-772ddb1805fb",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwNywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell Apps domain freshness [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego-cell Apps domain freshness [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": null, \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"bbs\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 0.9, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gte\"}, {\"background_color\": \"rgba(252,220,0,1)\", \"id\": \"9cb134b8-f84e-11ea-9fd8-cb6a1b33696f\", \"value\": 0.9, \"operator\": \"lte\"}, {\"background_color\": \"rgba(244,78,59,1)\", \"id\": \"9cb588d8-f84e-11ea-af5a-c3012766d944\", \"value\": 0.8, \"operator\": \"lt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Avg 'cf-apps' Domain Freshness\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"Domain.cf-apps\\\" \"}, \"terms_field\": \"cf.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"percent\"}]}}"
+            },
+            "id": "9c99314c-f84e-11ea-92d5-9bcd6abdce0f",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwOCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell Router emitter sync duration [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell Router emitter sync duration [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"route_emitter\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 10000000000, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"lt\"}, {\"background_color\": \"rgba(252,220,0,1)\", \"id\": \"9cb134b8-f84e-11ea-9fd8-cb6a1b33696f\", \"value\": 10000000000, \"operator\": \"gte\"}, {\"background_color\": \"rgba(244,78,59,1)\", \"id\": \"9cb588d8-f84e-11ea-af5a-c3012766d944\", \"value\": 20000000000, \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}} s\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Max Router emitter sync duration\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"RouteEmitterSyncDuration\\\" \"}, \"terms_field\": \"cf.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"max\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"ns,s,\"}]}}"
+            },
+            "id": "9c635824-f84e-11ea-9b02-735b8407166a",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzEwOSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell convergence LRP duration [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell convergence LRP duration [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"bbs\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 10000000000, \"background_color\": \"rgba(104,188,0,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"lt\"}, {\"background_color\": \"rgba(252,220,0,1)\", \"id\": \"9cb134b8-f84e-11ea-9fd8-cb6a1b33696f\", \"value\": 10000000000, \"operator\": \"gte\"}, {\"background_color\": \"rgba(244,78,59,1)\", \"id\": \"9cb588d8-f84e-11ea-af5a-c3012766d944\", \"value\": 20000000000, \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}} s\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Max Convergence LRP Duration\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"ConvergenceLRPDuration\\\" \"}, \"terms_field\": \"cf.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"max\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"ns,s,\"}]}}"
+            },
+            "id": "9caddb24-f84e-11ea-b008-df9bd2aed7cc",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExMCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "GoRouter latency PAS [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"GoRouter latency PAS [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"gorouter\\\" \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}} ms\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"GoRouter latency\", \"fill\": \"0.2\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(123,100,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"latency\\\"\"}, \"terms_field\": \"cloudfoundry.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"number\"}]}}"
+            },
+            "id": "9c58b248-f84e-11ea-87a9-67d346210280",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExMSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell rep time to sync [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell rep time to sync [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"rep\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}} ms\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Cell Rep Time to Sync\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"RepBulkSyncDuration\\\"\"}, \"terms_field\": \"cloudfoundry.envelope.deployment\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"ns,ms,2\"}]}}"
+            },
+            "id": "9ca805fa-f84e-11ea-ab90-2b00dd50450c",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExMiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell total disk [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell total disk [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"rep\\\"  \"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"id\": \"9c8666fc-f84e-11ea-a43e-0f7a3a14396c\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"{{value}} MiB\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Total Disk\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"CapacityTotalDisk\\\" \"}, \"terms_field\": \"cloudfoundry.envelope.ip\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"0,0\"}]}}"
+            },
+            "id": "9c89336e-f84e-11ea-bbcd-23e329286ac7",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExMywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell total memory [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell total memory [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"rep\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"id\": \"9c8666fc-f84e-11ea-a43e-0f7a3a14396c\"}], \"drop_last_bucket\": 1, \"type\": \"metric\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Total Memory\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"CapacityTotalMemory\\\"   \"}, \"terms_field\": \"cloudfoundry.value.value\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}, {\"script\": \"params.megabytes * 1024 * 1024\", \"type\": \"math\", \"id\": \"9c9ac4da-f84e-11ea-8efa-7393d43821d0\", \"variables\": [{\"field\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\", \"id\": \"9c9c36e4-f84e-11ea-bba1-abb4ba65473f\", \"name\": \"megabytes\"}]}], \"separate_axis\": 0, \"formatter\": \"bytes\"}]}}"
+            },
+            "id": "9c9d9c14-f84e-11ea-a575-a30e017a09e9",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExNCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell CPU utilization load [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell CPU utilization load [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"bosh-system-metrics-forwarder\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"everything\", \"axis_position\": \"right\", \"point_size\": \"4\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Max CPU utilization Load\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"system.cpu.user\\\" \"}, \"terms_field\": null, \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"max\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"number\"}]}}"
+            },
+            "id": "9c8ed8fa-f84e-11ea-b20d-bb82d7a8e05d",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExNSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell remaining disk [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell remaining disk [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_range_mode\": \"entire_time_range\", \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin : \\\"rep\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"id\": \"9c8666fc-f84e-11ea-a43e-0f7a3a14396c\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 1, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"point_size\": \"2\", \"value_template\": \"\", \"hidden\": false, \"split_color_mode\": \"gradient\", \"chart_type\": \"line\", \"label\": \"Remaining Disk\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(115,216,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"CapacityRemainingDisk\\\"  \"}, \"terms_field\": \"cloudfoundry.envelope.ip\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}, {\"script\": \"params.megabytes * 1024 * 1024\", \"type\": \"math\", \"id\": \"9c79728a-f84e-11ea-a0b0-cbbc2af24ed3\", \"variables\": [{\"field\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\", \"id\": \"9c8030c0-f84e-11ea-acf6-13a6b4ddcd67\", \"name\": \"megabytes\"}]}], \"separate_axis\": 0, \"formatter\": \"bytes\"}]}}"
+            },
+            "id": "9c948fb6-f84e-11ea-96f5-dff115716ba4",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExNiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Diego cell available memory by cell [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Diego cell available memory by cell [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 0, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"tooltip_mode\": \"show_all\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"rep\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 0, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"2\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"terms_direction\": \"asc\", \"point_size\": \"4\", \"value_template\": \"\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Available memory by cell\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"CapacityRemainingMemory\\\"\"}, \"terms_field\": \"cloudfoundry.envelope.ip\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"avg\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}, {\"script\": \"params.megabytes*1024*1024\", \"type\": \"math\", \"id\": \"9ca088ac-f84e-11ea-86ca-0f96c7565718\", \"variables\": [{\"field\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\", \"id\": \"9ca214c4-f84e-11ea-a6d7-0b115dba93eb\", \"name\": \"megabytes\"}]}], \"separate_axis\": 0, \"formatter\": \"bytes\"}]}}"
+            },
+            "id": "9cac69e2-f84e-11ea-b8d4-4b40313a5eb0",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExNywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "GoRouter total routes [Metricbeat Cloud Foundry]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"GoRouter total routes [Metricbeat Cloud Foundry]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"gauge\": null, \"id\": \"9ca68d56-f84e-11ea-a6bb-f3164c0bb859\", \"text\": null, \"value\": 0}], \"time_field\": \"@timestamp\", \"axis_position\": \"left\", \"gauge_max\": \"300000\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"legend_position\": \"bottom\", \"gauge_inner_width\": 10, \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"9cb8a18a-f84e-11ea-bd11-836ecccfc401\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"event.module: \\\"cloudfoundry\\\" and cloudfoundry.envelope.origin :\\\"gorouter\\\"\"}, \"id\": \"9c8aab7c-f84e-11ea-b4a3-e31a518913fa\", \"background_color_rules\": [{\"value\": 60000, \"background_color\": \"rgba(244,78,59,1)\", \"color\": null, \"id\": \"9c7cf130-f84e-11ea-bdee-833d96fe1a00\", \"operator\": \"gt\"}], \"drop_last_bucket\": 1, \"type\": \"timeseries\", \"interval\": \">=1m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"ignore_global_filter\": 0, \"series\": [{\"steps\": 0, \"offset_time\": \"\", \"line_width\": \"01\", \"hide_in_legend\": 0, \"stacked\": \"none\", \"split_mode\": \"terms\", \"axis_position\": \"right\", \"point_size\": \"1.5\", \"value_template\": \"{{value}}\", \"hidden\": false, \"split_color_mode\": \"rainbow\", \"chart_type\": \"line\", \"label\": \"Total routes (ISO)\", \"fill\": \"0\", \"split_filters\": [{\"id\": \"9c753c7e-f84e-11ea-96e9-33ff984da2c7\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"label\": \"\"}], \"color\": \"rgba(123,100,255,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"cloudfoundry.value.name: \\\"total_routes\\\"\"}, \"terms_field\": \"cloudfoundry.envelope.index\", \"id\": \"9c8c18f4-f84e-11ea-97ff-b32117553dae\", \"terms_order_by\": \"_key\", \"terms_include\": \"\", \"type\": \"timeseries\", \"metrics\": [{\"type\": \"sum\", \"field\": \"cloudfoundry.value.value\", \"id\": \"9c8d7514-f84e-11ea-9457-93fdc9395544\"}], \"separate_axis\": 0, \"formatter\": \"number\"}]}}"
+            },
+            "id": "9c77cf84-f84e-11ea-a3ff-7f7f73eabd57",
+            "migrationVersion": {
+                "visualization": "7.8.0"
+            },
+            "namespaces": [
+                "default"
+            ],
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-09-17T10:33:06.273Z",
+            "version": "WzExOCwxXQ=="
+        }
+    ],
+    "version": "7.9.0"
+}

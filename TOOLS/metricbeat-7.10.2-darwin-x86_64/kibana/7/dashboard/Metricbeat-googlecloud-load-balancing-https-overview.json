@@ -1,0 +1,219 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of Googlecloud Load Balancing HTTPS Metrics",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 48, \"x\": 0, \"y\": 0, \"i\": \"f89112f9-0f3a-4712-a317-23230cd66213\", \"h\": 6}, \"panelIndex\": \"f89112f9-0f3a-4712-a317-23230cd66213\", \"title\": \"Filters\", \"embeddableConfig\": {\"title\": \"Filters\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 6, \"i\": \"8f4baaa9-6f4d-40fa-a77f-9f68f83a379c\", \"h\": 15}, \"panelIndex\": \"8f4baaa9-6f4d-40fa-a77f-9f68f83a379c\", \"title\": \"Backend Request Count\", \"embeddableConfig\": {\"title\": \"Backend Request Count\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 6, \"i\": \"10490530-a766-4f87-824a-3fc18bf2e85b\", \"h\": 15}, \"panelIndex\": \"10490530-a766-4f87-824a-3fc18bf2e85b\", \"title\": \"Request Count\", \"embeddableConfig\": {\"title\": \"Request Count\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 21, \"i\": \"e737b020-eb94-4eb1-b53d-50fa551df648\", \"h\": 15}, \"panelIndex\": \"e737b020-eb94-4eb1-b53d-50fa551df648\", \"title\": \"Backend Request Bytes\", \"embeddableConfig\": {\"title\": \"Backend Request Bytes\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 21, \"i\": \"b90db52e-982e-4360-b5ed-71147ba79246\", \"h\": 15}, \"panelIndex\": \"b90db52e-982e-4360-b5ed-71147ba79246\", \"title\": \"Request Bytes\", \"embeddableConfig\": {\"title\": \"Request Bytes\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 36, \"i\": \"a2a5c845-d426-425f-b2e6-e8df6038fd9d\", \"h\": 15}, \"panelIndex\": \"a2a5c845-d426-425f-b2e6-e8df6038fd9d\", \"title\": \"Backend Response Bytes\", \"embeddableConfig\": {\"title\": \"Backend Response Bytes\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.6.2\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 36, \"i\": \"2bf5bf09-e743-4c6d-8251-d12c9c70f273\", \"h\": 15}, \"panelIndex\": \"2bf5bf09-e743-4c6d-8251-d12c9c70f273\", \"title\": \"Response Bytes\", \"embeddableConfig\": {\"title\": \"Response Bytes\"}, \"panelRefName\": \"panel_6\", \"version\": \"7.6.2\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Googlecloud] Load Balancing HTTPS Overview",
+                "version": 1
+            },
+            "id": "aa5b8bd0-9157-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "d5418f80-9156-11ea-8180-7b0dacd9df87",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "dff87070-9155-11ea-8180-7b0dacd9df87",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "6f933ef0-9155-11ea-8180-7b0dacd9df87",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "eb891a20-9155-11ea-8180-7b0dacd9df87",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "8d4ddf40-9155-11ea-8180-7b0dacd9df87",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "0bd0a6e0-9156-11ea-8180-7b0dacd9df87",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "d63465e0-9154-11ea-8180-7b0dacd9df87",
+                    "name": "panel_6",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-05-08T18:31:49.177Z",
+            "version": "WzQ3NTgsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Load Balancing HTTPS Filters [Metricbeat Googlecloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"Load Balancing HTTPS Filters [Metricbeat Googlecloud]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1588961027791\", \"fieldName\": \"googlecloud.labels.resource.url_map_name\", \"label\": \"URL Map Name\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1588961077426\", \"fieldName\": \"googlecloud.labels.resource.region\", \"label\": \"Region\"}, {\"indexPatternRefName\": \"control_2_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1588961157559\", \"fieldName\": \"googlecloud.labels.metrics.client_country\", \"label\": \"Client Country\"}], \"updateFiltersOnChange\": false, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "d5418f80-9156-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_2_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-05-08T18:24:56.731Z",
+            "version": "WzQ3NTUsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Load Balancing HTTPS Backend Request Count [Metricbeat Googlecloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Load Balancing HTTPS Backend Request Count [Metricbeat Googlecloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": null, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.url_map_name\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.backend_request_count.value : * \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.loadbalancing.https.backend_request_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "dff87070-9155-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-08T18:20:05.237Z",
+            "version": "WzQ3NTIsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Load Balancing HTTPS Request Count [Metricbeat Googlecloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Load Balancing HTTPS Request Count [Metricbeat Googlecloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.request_count.value : * \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": null, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.url_map_name\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.request_count.value : * \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.loadbalancing.https.request_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "6f933ef0-9155-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-08T18:18:06.538Z",
+            "version": "WzQ3NDksNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Load Balancing HTTPS Backend Request Bytes [Metricbeat Googlecloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Load Balancing HTTPS Backend Request Bytes [Metricbeat Googlecloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": null, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.url_map_name\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.backend_request_bytes_count.value : * \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.loadbalancing.https.backend_request_bytes_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "eb891a20-9155-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-08T18:17:31.778Z",
+            "version": "WzQ3NDgsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Load Balancing HTTPS Request Bytes [Metricbeat Googlecloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Load Balancing HTTPS Request Bytes [Metricbeat Googlecloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.request_bytes_count.value : * \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": null, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.url_map_name\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.loadbalancing.https.request_bytes_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "8d4ddf40-9155-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-08T18:16:10.886Z",
+            "version": "WzQ3NDQsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Load Balancing HTTPS Backend Response Bytes [Metricbeat Googlecloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Load Balancing HTTPS Backend Response Bytes [Metricbeat Googlecloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.backend_response_bytes_count.value : * \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": null, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.url_map_name\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.loadbalancing.https.backend_response_bytes_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "0bd0a6e0-9156-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-08T18:17:07.251Z",
+            "version": "WzQ3NDcsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Load Balancing HTTPS Response Bytes [Metricbeat Googlecloud]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Load Balancing HTTPS Response Bytes [Metricbeat Googlecloud]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.response_bytes_count.value : * \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": null, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"googlecloud.labels.resource.url_map_name\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"googlecloud.loadbalancing.https.response_bytes_count.value : * \"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"googlecloud.loadbalancing.https.response_bytes_count.value\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "d63465e0-9154-11ea-8180-7b0dacd9df87",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-05-08T18:19:42.432Z",
+            "version": "WzQ3NTEsNV0="
+        }
+    ],
+    "version": "7.6.2"
+}

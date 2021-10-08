@@ -1,0 +1,374 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "This dashboard shows metrics for file storage type in Azure.",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": [{\"query\": {\"match_phrase\": {\"azure.namespace\": \"Microsoft.Storage/storageAccounts/fileServices\"}}, \"meta\": {\"alias\": \"file\", \"type\": \"phrase\", \"indexRefName\": \"kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index\", \"key\": \"azure.namespace\", \"disabled\": false, \"params\": {\"query\": \"Microsoft.Storage/storageAccounts/fileServices\"}, \"negate\": false}, \"$state\": {\"store\": \"appState\"}}]}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"panelRefName\": \"panel_0\", \"gridData\": {\"w\": 9, \"x\": 0, \"y\": 0, \"i\": \"ee131d2d-7ab5-4434-9e3b-230759c3e5ff\", \"h\": 5}, \"panelIndex\": \"ee131d2d-7ab5-4434-9e3b-230759c3e5ff\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.7.0\"}, {\"gridData\": {\"w\": 5, \"x\": 9, \"y\": 0, \"i\": \"a9456b9b-efa6-410d-a56c-4b66aa8c499e\", \"h\": 9}, \"panelIndex\": \"a9456b9b-efa6-410d-a56c-4b66aa8c499e\", \"title\": \"Availability\", \"embeddableConfig\": {\"title\": \"Availability\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.7.0\"}, {\"panelRefName\": \"panel_2\", \"gridData\": {\"w\": 5, \"x\": 14, \"y\": 0, \"i\": \"b24e3e0d-a748-4bb9-ad71-e0de392e2696\", \"h\": 9}, \"panelIndex\": \"b24e3e0d-a748-4bb9-ad71-e0de392e2696\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.7.0\"}, {\"panelRefName\": \"panel_3\", \"gridData\": {\"w\": 5, \"x\": 19, \"y\": 0, \"i\": \"8131dfcd-2c52-4641-8259-2f4f2e7558d0\", \"h\": 9}, \"panelIndex\": \"8131dfcd-2c52-4641-8259-2f4f2e7558d0\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.7.0\"}, {\"panelRefName\": \"panel_4\", \"gridData\": {\"w\": 5, \"x\": 24, \"y\": 0, \"i\": \"49233089-be1d-4cda-9ccf-2815152e1016\", \"h\": 9}, \"panelIndex\": \"49233089-be1d-4cda-9ccf-2815152e1016\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.7.0\"}, {\"gridData\": {\"w\": 19, \"x\": 29, \"y\": 0, \"i\": \"1d623c03-4d02-4a81-b91e-49e82e112016\", \"h\": 9}, \"panelIndex\": \"1d623c03-4d02-4a81-b91e-49e82e112016\", \"title\": \"Transactions\", \"embeddableConfig\": {\"title\": \"Transactions\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.7.0\"}, {\"panelRefName\": \"panel_6\", \"gridData\": {\"w\": 9, \"x\": 0, \"y\": 5, \"i\": \"ff6441f8-d66d-4399-bae5-25d3d861b299\", \"h\": 15}, \"panelIndex\": \"ff6441f8-d66d-4399-bae5-25d3d861b299\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.7.0\"}, {\"gridData\": {\"w\": 20, \"x\": 9, \"y\": 9, \"i\": \"87066244-7840-4555-9d12-026d64977f1a\", \"h\": 15}, \"panelIndex\": \"87066244-7840-4555-9d12-026d64977f1a\", \"title\": \"Success Server Latency\", \"embeddableConfig\": {\"title\": \"Success Server Latency\"}, \"panelRefName\": \"panel_7\", \"version\": \"7.7.0\"}, {\"gridData\": {\"w\": 19, \"x\": 29, \"y\": 9, \"i\": \"756da375-e6a2-4668-af43-0cd294878254\", \"h\": 15}, \"panelIndex\": \"756da375-e6a2-4668-af43-0cd294878254\", \"title\": \"Success E2E Latency\", \"embeddableConfig\": {\"title\": \"Success E2E Latency\"}, \"panelRefName\": \"panel_8\", \"version\": \"7.7.0\"}, {\"panelRefName\": \"panel_9\", \"gridData\": {\"w\": 4, \"x\": 0, \"y\": 20, \"i\": \"2d5c6c0f-f4d2-44fb-b7e5-1a855b75e40f\", \"h\": 8}, \"panelIndex\": \"2d5c6c0f-f4d2-44fb-b7e5-1a855b75e40f\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.7.0\"}, {\"panelRefName\": \"panel_10\", \"gridData\": {\"w\": 5, \"x\": 4, \"y\": 20, \"i\": \"c6792441-37b6-4ef4-ad8b-21f137b2f0b4\", \"h\": 8}, \"panelIndex\": \"c6792441-37b6-4ef4-ad8b-21f137b2f0b4\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.7.0\"}, {\"gridData\": {\"w\": 20, \"x\": 9, \"y\": 24, \"i\": \"a715fafc-ca38-410c-9253-12ba506eabc0\", \"h\": 14}, \"panelIndex\": \"a715fafc-ca38-410c-9253-12ba506eabc0\", \"title\": \"Egress Traffic by APIName\", \"embeddableConfig\": {\"title\": \"Egress Traffic by APIName\"}, \"panelRefName\": \"panel_11\", \"version\": \"7.7.0\"}, {\"gridData\": {\"w\": 19, \"x\": 29, \"y\": 24, \"i\": \"75f72920-be71-47a9-a967-f1c862ab2961\", \"h\": 14}, \"panelIndex\": \"75f72920-be71-47a9-a967-f1c862ab2961\", \"title\": \"Ingress Traffic by APIName\", \"embeddableConfig\": {\"title\": \"Ingress Traffic by APIName\"}, \"panelRefName\": \"panel_12\", \"version\": \"7.7.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Azure] File Storage Overview",
+                "version": 1
+            },
+            "id": "dff7a080-32f7-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "kibanaSavedObjectMeta.searchSourceJSON.filter[0].meta.index",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "f18a7cb0-32f6-11ea-a83e-25b8612d00cc",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "40dbc0d0-32e3-11ea-a83e-25b8612d00cc",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "453965a0-3393-11ea-a83e-25b8612d00cc",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "722ef2f0-3393-11ea-a83e-25b8612d00cc",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "a4bf9710-3393-11ea-a83e-25b8612d00cc",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "553f9320-32e9-11ea-a83e-25b8612d00cc",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "acced050-32d1-11ea-a83e-25b8612d00cc",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "81f16b40-32ea-11ea-a83e-25b8612d00cc",
+                    "name": "panel_7",
+                    "type": "visualization"
+                },
+                {
+                    "id": "685fbeb0-32eb-11ea-a83e-25b8612d00cc",
+                    "name": "panel_8",
+                    "type": "visualization"
+                },
+                {
+                    "id": "09a6f150-3399-11ea-a83e-25b8612d00cc",
+                    "name": "panel_9",
+                    "type": "visualization"
+                },
+                {
+                    "id": "241a55e0-3399-11ea-a83e-25b8612d00cc",
+                    "name": "panel_10",
+                    "type": "visualization"
+                },
+                {
+                    "id": "599c62c0-32d7-11ea-a83e-25b8612d00cc",
+                    "name": "panel_11",
+                    "type": "visualization"
+                },
+                {
+                    "id": "4eaef260-32e1-11ea-a83e-25b8612d00cc",
+                    "name": "panel_12",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-04-07T17:45:34.658Z",
+            "version": "WzI1NjcsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Navigation File Storage Overview [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"markdown\", \"title\": \"Navigation File Storage Overview [Metricbeat Azure]\", \"params\": {\"markdown\": \"### Azure Storage\\n\\n[Overview](#/dashboard/1a151f80-32db-11ea-a83e-25b8612d00cc) | [Blob](#/dashboard/b165ef60-32f7-11ea-a83e-25b8612d00cc) | [**File**](#/dashboard/dff7a080-32f7-11ea-a83e-25b8612d00cc) | [Table](#/dashboard/ff2fe020-32f7-11ea-a83e-25b8612d00cc) | [Queue](#/dashboard/10efa340-32f8-11ea-a83e-25b8612d00cc) \", \"openLinksInNewTab\": false, \"fontSize\": 10}}"
+            },
+            "id": "f18a7cb0-32f6-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:04:27.299Z",
+            "version": "WzE2MjcsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage Availability [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Availability [Metricbeat Azure]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"0e91b810-32e2-11ea-a93d-dd20c62559b3\", \"isModelInvalid\": false, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"29808e30-32e2-11ea-867b-37070aefa392\"}], \"time_range_mode\": \"last_value\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"circle\", \"gauge_inner_width\": \"7\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"28142cf0-32e2-11ea-867b-37070aefa392\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"show_legend\": 1, \"background_color_rules\": [{\"background_color\": \"rgba(104,204,202,1)\", \"id\": \"18f616c0-32e2-11ea-867b-37070aefa392\", \"value\": 100, \"operator\": \"gte\"}, {\"background_color\": \"rgba(244,78,59,1)\", \"id\": \"998b1c90-32e2-11ea-867b-37070aefa392\", \"value\": 100, \"operator\": \"lt\"}], \"drop_last_bucket\": 0, \"interval\": \"5m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"type\": \"timeseries\", \"series\": [{\"terms_field\": null, \"color\": \"rgba(22,165,165,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"0e91b811-32e2-11ea-a93d-dd20c62559b3\", \"hide_in_legend\": 1, \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.availability.avg\", \"id\": \"0e91b812-32e2-11ea-a93d-dd20c62559b3\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}} %\", \"chart_type\": \"line\", \"fill\": \"0.6\", \"formatter\": \"number\", \"label\": \"Availability\"}]}}"
+            },
+            "id": "40dbc0d0-32e3-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:04:30.376Z",
+            "version": "WzE2NjcsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage File Capacity [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage File Capacity [Metricbeat Azure]\", \"params\": {\"pivot_id\": \"azure.resource.name\", \"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"9c09ed50-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_color\": null, \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"circle\", \"pivot_type\": \"string\", \"time_field\": \"@timestamp\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"f11cfd90-32e5-11ea-af9e-d70582a45bda\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"pivot_rows\": \"30\", \"id\": \"61fb4190-32e4-11ea-b9f8-4d0b340ad993\", \"background_color_rules\": [{\"id\": \"71978870-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_width\": \"6\", \"type\": \"gauge\", \"interval\": \"60m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": \"10\", \"drilldown_url\": \"\", \"pivot_label\": \"Resource Name\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"split_color_mode\": \"gradient\", \"color\": \"rgba(252,196,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"61fb4191-32e4-11ea-b9f8-4d0b340ad993\", \"terms_order_by\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.file_capacity.avg\", \"id\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"1.2\", \"formatter\": \"bytes\", \"label\": \"File Capacity\"}]}}"
+            },
+            "id": "453965a0-3393-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:44:50.934Z",
+            "version": "WzI1NTEsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage File Count [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage File Count [Metricbeat Azure]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"9c09ed50-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_color\": null, \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"circle\", \"time_field\": \"@timestamp\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"f11cfd90-32e5-11ea-af9e-d70582a45bda\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"id\": \"61fb4190-32e4-11ea-b9f8-4d0b340ad993\", \"background_color_rules\": [{\"id\": \"71978870-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_width\": \"6\", \"type\": \"gauge\", \"interval\": \"60m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": \"10\", \"drilldown_url\": \"\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"split_color_mode\": \"gradient\", \"color\": \"rgba(164,221,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"61fb4191-32e4-11ea-b9f8-4d0b340ad993\", \"terms_order_by\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.file_count.avg\", \"id\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"1.2\", \"formatter\": \"'0'\", \"label\": \"File Count\"}]}}"
+            },
+            "id": "722ef2f0-3393-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:45:14.875Z",
+            "version": "WzI1NjMsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage File Share Count [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage File Share Count [Metricbeat Azure]\", \"params\": {\"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"9c09ed50-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_color\": null, \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"circle\", \"time_field\": \"@timestamp\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"f11cfd90-32e5-11ea-af9e-d70582a45bda\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"id\": \"61fb4190-32e4-11ea-b9f8-4d0b340ad993\", \"background_color_rules\": [{\"id\": \"71978870-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_width\": \"6\", \"type\": \"gauge\", \"interval\": \"60m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": \"10\", \"drilldown_url\": \"\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"split_color_mode\": \"gradient\", \"color\": \"rgba(164,221,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"61fb4191-32e4-11ea-b9f8-4d0b340ad993\", \"terms_order_by\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.file_share_count.avg\", \"id\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"1.2\", \"formatter\": \"'0'\", \"label\": \"File Share Count\"}]}}"
+            },
+            "id": "a4bf9710-3393-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:45:25.865Z",
+            "version": "WzI1NjYsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage Transactions [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Transactions [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"id\": \"c9fd65d0-32e8-11ea-84f4-e9593f8ba8f6\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.dimensions.response_type\", \"split_color_mode\": \"rainbow\", \"color\": \"#3185FC\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"c9fd8ce0-32e8-11ea-84f4-e9593f8ba8f6\", \"terms_order_by\": \"c9fd8ce1-32e8-11ea-84f4-e9593f8ba8f6\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"azure.storage.transactions.total\", \"id\": \"c9fd8ce1-32e8-11ea-84f4-e9593f8ba8f6\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"bar\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"avg(azure.storage.transactions.total)\"}], \"interval\": \"5m\", \"show_grid\": 1}}"
+            },
+            "id": "553f9320-32e9-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:29:35.827Z",
+            "version": "WzIzODMsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage Filters [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"Storage Filters [Metricbeat Azure]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": false, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549397251041\", \"fieldName\": \"azure.subscription_id\", \"label\": \"Subscription\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549512142947\", \"fieldName\": \"azure.resource.group\", \"label\": \"Resource Group\"}, {\"indexPatternRefName\": \"control_2_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1578578146383\", \"fieldName\": \"azure.resource.name\", \"label\": \"Resource Name\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "acced050-32d1-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_2_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:04:30.376Z",
+            "version": "WzE2NzIsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage Success Server Latency [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Success Server Latency [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"id\": \"e9a40230-32e9-11ea-bda2-69435df36a5c\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.dimensions.api_name\", \"split_color_mode\": \"rainbow\", \"color\": \"#3185FC\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"e9a40231-32e9-11ea-bda2-69435df36a5c\", \"terms_order_by\": \"e9a40232-32e9-11ea-bda2-69435df36a5c\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.success_server_latency.avg\", \"id\": \"e9a40232-32e9-11ea-bda2-69435df36a5c\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}} ms\", \"chart_type\": \"bar\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"SuccessServerLatency (ms)\"}], \"interval\": \"5m\", \"show_grid\": 1}}"
+            },
+            "id": "81f16b40-32ea-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:15:09.491Z",
+            "version": "WzIxNzYsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage Success E2E Latency [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Success E2E Latency [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"id\": \"da4459b0-32ea-11ea-be35-cb10be813609\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.dimensions.api_name\", \"split_color_mode\": \"rainbow\", \"color\": \"#3185FC\", \"line_width\": \"1\", \"axis_position\": \"right\", \"id\": \"da4459b1-32ea-11ea-be35-cb10be813609\", \"terms_order_by\": \"da4459b2-32ea-11ea-be35-cb10be813609\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.success_e2elatency.avg\", \"id\": \"da4459b2-32ea-11ea-be35-cb10be813609\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}} ms\", \"chart_type\": \"bar\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Success E2E Latency (ms)\"}], \"interval\": \"5m\", \"show_grid\": 1}}"
+            },
+            "id": "685fbeb0-32eb-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:28:09.199Z",
+            "version": "WzIzMzUsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage File Share Snapshot Count [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage File Share Snapshot Count [Metricbeat Azure]\", \"params\": {\"pivot_id\": \"azure.resource.name\", \"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"9c09ed50-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_color\": null, \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"circle\", \"pivot_type\": \"string\", \"time_field\": \"@timestamp\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"f11cfd90-32e5-11ea-af9e-d70582a45bda\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"pivot_rows\": \"30\", \"id\": \"61fb4190-32e4-11ea-b9f8-4d0b340ad993\", \"background_color_rules\": [{\"id\": \"71978870-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_width\": \"6\", \"type\": \"gauge\", \"interval\": \"60m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": \"10\", \"drilldown_url\": \"\", \"pivot_label\": \"Resource Name\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"split_color_mode\": \"gradient\", \"color\": \"rgba(0,98,177,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"61fb4191-32e4-11ea-b9f8-4d0b340ad993\", \"terms_order_by\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.file_share_snapshot_count.avg\", \"id\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"1.2\", \"formatter\": \"'0'\", \"label\": \"File Share Snapshot Count\"}]}}"
+            },
+            "id": "09a6f150-3399-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:43:27.381Z",
+            "version": "WzI1MjUsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage File Share Snapshot Size [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage File Share Snapshot Size [Metricbeat Azure]\", \"params\": {\"pivot_id\": \"azure.resource.name\", \"axis_formatter\": \"number\", \"background_color\": null, \"isModelInvalid\": false, \"show_legend\": 1, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"9c09ed50-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_color\": null, \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"circle\", \"pivot_type\": \"string\", \"time_field\": \"@timestamp\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"f11cfd90-32e5-11ea-af9e-d70582a45bda\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"pivot_rows\": \"30\", \"id\": \"61fb4190-32e4-11ea-b9f8-4d0b340ad993\", \"background_color_rules\": [{\"id\": \"71978870-32e4-11ea-af9e-d70582a45bda\"}], \"gauge_inner_width\": \"6\", \"type\": \"gauge\", \"interval\": \"60m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": \"10\", \"drilldown_url\": \"\", \"pivot_label\": \"Resource Name\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"split_color_mode\": \"gradient\", \"color\": \"rgba(0,98,177,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"61fb4191-32e4-11ea-b9f8-4d0b340ad993\", \"terms_order_by\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.storage.file_share_snapshot_size.avg\", \"id\": \"61fb4192-32e4-11ea-b9f8-4d0b340ad993\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": \"1.2\", \"formatter\": \"bytes\", \"label\": \"File Share Snapshot Size\"}]}}"
+            },
+            "id": "241a55e0-3399-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:44:18.919Z",
+            "version": "WzI1NDIsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage Account Egress Traffic [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Account Egress Traffic [Metricbeat Azure]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"f0edca80-32d5-11ea-b19d-fb5049b980ca\", \"isModelInvalid\": false, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"fb8be7c0-32de-11ea-a435-e7199eba380d\"}], \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"fca016e0-32de-11ea-a435-e7199eba380d\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"show_legend\": 1, \"background_color_rules\": [{\"id\": \"0791c5a0-32d8-11ea-98d2-1194b9f2bfc0\"}], \"gauge_inner_width\": 10, \"interval\": \"5m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.dimensions.api_name\", \"split_color_mode\": \"gradient\", \"split_filters\": [{\"id\": \"283dc410-32d9-11ea-98d2-1194b9f2bfc0\", \"color\": \"rgba(0,98,177,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}}], \"color\": \"rgba(0,149,177,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"f0edf190-32d5-11ea-b19d-fb5049b980ca\", \"formatter\": \"bytes\", \"terms_order_by\": \"f0edf191-32d5-11ea-b19d-fb5049b980ca\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"azure.storage.egress.total\", \"id\": \"f0edf191-32d5-11ea-b19d-fb5049b980ca\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"hidden\": false, \"fill\": 0, \"chart_type\": \"line\", \"label\": \"Storage Accounts Egress Total\"}]}}"
+            },
+            "id": "599c62c0-32d7-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:21:03.231Z",
+            "version": "WzIyNzIsNF0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Storage Account Ingress Traffic [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Storage Account Ingress Traffic [Metricbeat Azure]\", \"params\": {\"axis_formatter\": \"number\", \"id\": \"f0edca80-32d5-11ea-b19d-fb5049b980ca\", \"isModelInvalid\": false, \"index_pattern\": \"metricbeat-*\", \"gauge_color_rules\": [{\"id\": \"fb8be7c0-32de-11ea-a435-e7199eba380d\"}], \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"gauge_style\": \"half\", \"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"fca016e0-32de-11ea-a435-e7199eba380d\"}], \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"show_legend\": 1, \"background_color_rules\": [{\"id\": \"0791c5a0-32d8-11ea-98d2-1194b9f2bfc0\"}], \"gauge_inner_width\": 10, \"interval\": \"5m\", \"axis_scale\": \"normal\", \"show_grid\": 1, \"gauge_width\": 10, \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.dimensions.api_name\", \"split_color_mode\": \"gradient\", \"split_filters\": [{\"id\": \"283dc410-32d9-11ea-98d2-1194b9f2bfc0\", \"color\": \"rgba(0,98,177,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}}], \"color\": \"rgba(104,188,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"f0edf190-32d5-11ea-b19d-fb5049b980ca\", \"formatter\": \"bytes\", \"terms_order_by\": \"f0edf191-32d5-11ea-b19d-fb5049b980ca\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"azure.storage.ingress.total\", \"id\": \"f0edf191-32d5-11ea-b19d-fb5049b980ca\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"hidden\": false, \"fill\": 0, \"chart_type\": \"line\", \"label\": \"Storage Accounts Ingress Total\"}]}}"
+            },
+            "id": "4eaef260-32e1-11ea-a83e-25b8612d00cc",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-04-07T17:21:51.411Z",
+            "version": "WzIyODMsNF0="
+        }
+    ],
+    "version": "7.7.0"
+}

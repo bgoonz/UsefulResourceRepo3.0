@@ -1,0 +1,269 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "This dashboard visualized relevant metrics for VMs running on Azure cloud.",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 6, \"x\": 0, \"y\": 0, \"i\": \"d84767cd-3fc9-438c-a969-f15c4d5fc9c5\", \"h\": 12}, \"panelIndex\": \"d84767cd-3fc9-438c-a969-f15c4d5fc9c5\", \"title\": \"Filters\", \"embeddableConfig\": {\"title\": \"Filters\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 20, \"x\": 6, \"y\": 0, \"i\": \"127eff01-d34c-4bda-8f19-4cf06982989f\", \"h\": 12}, \"panelIndex\": \"127eff01-d34c-4bda-8f19-4cf06982989f\", \"title\": \"Percentage CPU\", \"embeddableConfig\": {\"title\": \"Percentage CPU\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 22, \"x\": 26, \"y\": 0, \"i\": \"2f85c4f1-a575-49a1-99d3-fbed8a2806ec\", \"h\": 12}, \"panelIndex\": \"2f85c4f1-a575-49a1-99d3-fbed8a2806ec\", \"title\": \"Available Memory\", \"embeddableConfig\": {\"title\": \"Available Memory\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 12, \"x\": 36, \"y\": 12, \"i\": \"6cbc30b4-658e-4f7a-a888-221775fd0af3\", \"h\": 11}, \"panelIndex\": \"6cbc30b4-658e-4f7a-a888-221775fd0af3\", \"title\": \"Disk Reads\", \"embeddableConfig\": {\"title\": \"Disk Reads\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 12, \"x\": 0, \"y\": 12, \"i\": \"e195e7ba-c736-4bf7-9f23-c96f4acd9b6b\", \"h\": 11}, \"panelIndex\": \"e195e7ba-c736-4bf7-9f23-c96f4acd9b6b\", \"title\": \"Network In Total\", \"embeddableConfig\": {\"title\": \"Network In Total\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 12, \"x\": 12, \"y\": 12, \"i\": \"64fc0214-97f7-4d52-a9bd-a91449293f1c\", \"h\": 11}, \"panelIndex\": \"64fc0214-97f7-4d52-a9bd-a91449293f1c\", \"title\": \"Network Out Total\", \"embeddableConfig\": {\"title\": \"Network Out Total\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 12, \"x\": 24, \"y\": 12, \"i\": \"12c9c185-81ed-4313-b274-b3384de2d396\", \"h\": 11}, \"panelIndex\": \"12c9c185-81ed-4313-b274-b3384de2d396\", \"title\": \"Disk Writes\", \"embeddableConfig\": {\"title\": \"Disk Writes\"}, \"panelRefName\": \"panel_6\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 23, \"i\": \"200ae92b-4184-4aed-9868-6ce5e16e7a8d\", \"h\": 15}, \"panelIndex\": \"200ae92b-4184-4aed-9868-6ce5e16e7a8d\", \"title\": \"Disk Read Operations/s\", \"embeddableConfig\": {\"title\": \"Disk Read Operations/s\"}, \"panelRefName\": \"panel_7\", \"version\": \"7.4.0\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 23, \"i\": \"36c46a84-3e6b-4a7e-9246-357ae9d10d1e\", \"h\": 15}, \"panelIndex\": \"36c46a84-3e6b-4a7e-9246-357ae9d10d1e\", \"title\": \"Disk Write Operations/s\", \"embeddableConfig\": {\"title\": \"Disk Write Operations/s\"}, \"panelRefName\": \"panel_8\", \"version\": \"7.4.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Azure] VM Scale Sets Overview ",
+                "version": 1
+            },
+            "id": "91afcc50-eaad-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "686bc990-ea92-11e9-90ec-112a988266d5",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "33500790-eaaf-11e9-90ec-112a988266d5",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "cecd6680-eb41-11e9-90ec-112a988266d5",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "42cc28d0-ea9a-11e9-90ec-112a988266d5",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "64266ec0-eb42-11e9-90ec-112a988266d5",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "b45fd8e0-eb42-11e9-90ec-112a988266d5",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "0d03a670-eb43-11e9-90ec-112a988266d5",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9c1a1910-ea9a-11e9-90ec-112a988266d5",
+                    "name": "panel_7",
+                    "type": "visualization"
+                },
+                {
+                    "id": "cfaedaf0-eb43-11e9-90ec-112a988266d5",
+                    "name": "panel_8",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-10-15T11:55:55.792Z",
+            "version": "WzMyMDksMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Filters [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"VMSS Filters [Metricbeat Azure]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549397251041\", \"fieldName\": \"cloud.region\", \"label\": \"Region\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1549512142947\", \"fieldName\": \"azure.resource.group\", \"label\": \"Resource Group\"}, {\"indexPatternRefName\": \"control_2_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1570711989416\", \"fieldName\": \"azure.dimensions.vmname\", \"label\": \"VM Name (dimension)\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "686bc990-ea92-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_2_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2019-10-10T13:24:24.225Z",
+            "version": "WzE0MTMsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS CPU Utilization [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS CPU Utilization [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type :\\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"7666abc0-eaae-11e9-a083-57ad7f0b1ec1\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"split_color_mode\": \"rainbow\", \"color\": \"#3185FC\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"7666abc1-eaae-11e9-a083-57ad7f0b1ec1\", \"stacked\": \"none\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.percentage_cpu.avg\", \"id\": \"7666abc2-eaae-11e9-a083-57ad7f0b1ec1\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"number\", \"label\": \"avg(azure.compute_vm_scaleset.percentage_cpu.avg)\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "33500790-eaaf-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:53:31.250Z",
+            "version": "WzMxOTMsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Available Memory [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS Available Memory [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type :\\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"e25fa710-eb3e-11e9-8bf6-ff656bce9010\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(22,165,165,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"e25fa711-eb3e-11e9-8bf6-ff656bce9010\", \"stacked\": \"none\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.memory_available_bytes.avg\", \"id\": \"e25fa712-eb3e-11e9-8bf6-ff656bce9010\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"bytes\", \"label\": \"avg(azure.compute_vm_scaleset.memory_available_bytes.avg)\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "cecd6680-eb41-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:53:55.061Z",
+            "version": "WzMxOTUsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Disk Reads [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS Disk Reads [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type :\\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"39b6adc0-ea99-11e9-8328-799c817fb96b\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(252,196,0,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"39b6adc1-ea99-11e9-8328-799c817fb96b\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.disk_read_bytes.total\", \"id\": \"39b6adc2-ea99-11e9-8328-799c817fb96b\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"bytes\", \"label\": \"VM Disk Read bytes\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "42cc28d0-ea9a-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:55:06.753Z",
+            "version": "WzMyMDMsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Network In Total [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS Network In Total [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"39b6adc0-ea99-11e9-8328-799c817fb96b\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(104,204,202,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"39b6adc1-ea99-11e9-8328-799c817fb96b\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.network_in_total.total\", \"id\": \"39b6adc2-ea99-11e9-8328-799c817fb96b\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"bytes\", \"label\": \"Azure VMSS Network In Total\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "64266ec0-eb42-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:54:14.745Z",
+            "version": "WzMxOTcsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Network Out Total [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS Network Out Total [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"39b6adc0-ea99-11e9-8328-799c817fb96b\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(104,188,0,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"39b6adc1-ea99-11e9-8328-799c817fb96b\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.network_out_total.total\", \"id\": \"39b6adc2-ea99-11e9-8328-799c817fb96b\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"bytes\", \"label\": \"Azure VM Network Out Total\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "b45fd8e0-eb42-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:54:30.361Z",
+            "version": "WzMxOTksMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Disk Writes [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS Disk Writes [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type :\\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"39b6adc0-ea99-11e9-8328-799c817fb96b\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(0,180,251,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"39b6adc1-ea99-11e9-8328-799c817fb96b\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.disk_write_bytes.total\", \"id\": \"39b6adc2-ea99-11e9-8328-799c817fb96b\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"bytes\", \"label\": \"VM Disk Writes bytes\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "0d03a670-eb43-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:54:48.472Z",
+            "version": "WzMyMDEsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Disk Read Operations [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS Disk Read Operations [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"39b6adc0-ea99-11e9-8328-799c817fb96b\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(252,196,0,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"39b6adc1-ea99-11e9-8328-799c817fb96b\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.disk_read_operations_per_sec.avg\", \"id\": \"39b6adc2-ea99-11e9-8328-799c817fb96b\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"number\", \"label\": \"VM Disk Read Operations/s\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "9c1a1910-ea9a-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:55:26.389Z",
+            "version": "WzMyMDUsMV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VMSS Disk Write Operations [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VMSS Disk Write Operations [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.Compute/virtualMachineScaleSets\\\" \"}, \"isModelInvalid\": false, \"id\": \"39b6adc0-ea99-11e9-8328-799c817fb96b\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": 0, \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(104,204,202,1)\", \"line_width\": 2, \"axis_position\": \"right\", \"id\": \"39b6adc1-ea99-11e9-8328-799c817fb96b\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.compute_vm_scaleset.disk_write_operations_per_sec.avg\", \"id\": \"39b6adc2-ea99-11e9-8328-799c817fb96b\"}], \"separate_axis\": 0, \"point_size\": 0, \"value_template\": \"{{value}}\", \"chart_type\": \"line\", \"fill\": 0, \"formatter\": \"number\", \"label\": \"VM Disk Write Operations/s\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "cfaedaf0-eb43-11e9-90ec-112a988266d5",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-10-15T11:55:48.348Z",
+            "version": "WzMyMDcsMV0="
+        }
+    ],
+    "version": "7.4.0"
+}

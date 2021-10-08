@@ -1,0 +1,224 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of AWS VPN Metrics",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 8, \"x\": 0, \"y\": 0, \"i\": \"8ef52400-6eac-417b-936e-dce159dd5e89\", \"h\": 14}, \"panelIndex\": \"8ef52400-6eac-417b-936e-dce159dd5e89\", \"title\": \"Filters\", \"embeddableConfig\": {\"title\": \"Filters\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 20, \"x\": 8, \"y\": 0, \"i\": \"eb78041b-afc4-458e-af92-0951b1d0cadd\", \"h\": 14}, \"panelIndex\": \"eb78041b-afc4-458e-af92-0951b1d0cadd\", \"title\": \"Tunnel State Per VPN ID\", \"embeddableConfig\": {\"title\": \"Tunnel State Per VPN ID\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 20, \"x\": 28, \"y\": 0, \"i\": \"39a9be08-98c6-470c-b76b-312a57e11e2d\", \"h\": 14}, \"panelIndex\": \"39a9be08-98c6-470c-b76b-312a57e11e2d\", \"title\": \"Tunnel State Per Tunnel IP\", \"embeddableConfig\": {\"title\": \"Tunnel State Per Tunnel IP\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 14, \"i\": \"5c8122a2-fbf0-4404-918e-249bf6fd7f07\", \"h\": 15}, \"panelIndex\": \"5c8122a2-fbf0-4404-918e-249bf6fd7f07\", \"title\": \"Tunnel Data In Per VPN ID\", \"embeddableConfig\": {\"title\": \"Tunnel Data In Per VPN ID\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 14, \"i\": \"8ecd0f73-146f-4aed-bfd1-5c236c5dfe8c\", \"h\": 15}, \"panelIndex\": \"8ecd0f73-146f-4aed-bfd1-5c236c5dfe8c\", \"title\": \"Tunnel Data In Per Tunnel IP\", \"embeddableConfig\": {\"title\": \"Tunnel Data In Per Tunnel IP\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 29, \"i\": \"eb10ea7d-ffc9-4c51-9386-6f63be6322aa\", \"h\": 15}, \"panelIndex\": \"eb10ea7d-ffc9-4c51-9386-6f63be6322aa\", \"title\": \"Tunnel Data Out Per VPN ID\", \"embeddableConfig\": {\"title\": \"Tunnel Data Out Per VPN ID\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 29, \"i\": \"3b01a7e9-eb8b-43bb-977d-53d8bc9d21b7\", \"h\": 15}, \"panelIndex\": \"3b01a7e9-eb8b-43bb-977d-53d8bc9d21b7\", \"title\": \"Tunnel Data Out Per Tunnel IP\", \"embeddableConfig\": {\"title\": \"Tunnel Data Out Per Tunnel IP\"}, \"panelRefName\": \"panel_6\", \"version\": \"7.6.1\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat AWS] VPN Overview",
+                "version": 1
+            },
+            "id": "67c9f900-693e-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "fcfc8d80-693e-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "142ad600-693b-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "58f5a3c0-6943-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "2ee7f420-6943-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "ea9e3d40-693a-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "26b73e50-6943-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "f58f99b0-693a-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_6",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-03-18T18:21:32.094Z",
+            "version": "WzkxNSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "VPN Filters [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"VPN Filters [Metricbeat AWS]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1565034367477\", \"fieldName\": \"cloud.account.name\", \"label\": \"account name\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": false, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584478324642\", \"fieldName\": \"cloud.region\", \"label\": \"region\"}, {\"indexPatternRefName\": \"control_2_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584552913938\", \"fieldName\": \"aws.dimensions.VpnId\", \"label\": \"VPN ID\"}, {\"indexPatternRefName\": \"control_3_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584552958445\", \"fieldName\": \"aws.dimensions.TunnelIpAddress\", \"label\": \"Tunnel IP\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": true}}"
+            },
+            "id": "fcfc8d80-693e-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_2_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_3_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-03-18T17:36:24.152Z",
+            "version": "Wzg5MSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "VPN Tunnel Data State [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VPN Tunnel Data State [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"fdd5ac40-693a-11ea-8bb6-25461aeac3d5\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"05e19c00-693b-11ea-8bb6-25461aeac3d5\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"top_n\", \"series\": [{\"terms_field\": \"aws.dimensions.VpnId\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.vpn.metrics.TunnelState.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "142ad600-693b-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-18T17:41:15.560Z",
+            "version": "Wzg5OCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "VPN Tunnel Data State Per Tunnel IP [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VPN Tunnel Data State Per Tunnel IP [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"fdd5ac40-693a-11ea-8bb6-25461aeac3d5\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"05e19c00-693b-11ea-8bb6-25461aeac3d5\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"top_n\", \"series\": [{\"terms_field\": \"aws.dimensions.TunnelIpAddress\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.vpn.metrics.TunnelState.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "58f5a3c0-6943-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-18T18:07:36.444Z",
+            "version": "WzkxMiwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "VPN Tunnel Data In Per VPN ID [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VPN Tunnel Data In Per VPN ID [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.VpnId\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.vpn.metrics.TunnelDataIn.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "2ee7f420-6943-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-18T18:06:25.890Z",
+            "version": "WzkxMSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "VPN Tunnel Data In [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VPN Tunnel Data In [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.TunnelIpAddress\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.vpn.metrics.TunnelDataIn.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "ea9e3d40-693a-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-18T17:07:15.348Z",
+            "version": "Wzg3NywyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "VPN Tunnel Data Out Per VPN ID [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VPN Tunnel Data Out Per VPN ID [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.VpnId\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.vpn.metrics.TunnelDataOut.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "26b73e50-6943-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-18T18:06:12.149Z",
+            "version": "WzkxMCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "VPN Tunnel Data Out [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"VPN Tunnel Data Out [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.TunnelIpAddress\", \"color\": \"#68BC00\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.vpn.metrics.TunnelDataOut.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "f58f99b0-693a-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-18T17:07:33.707Z",
+            "version": "Wzg3OSwyXQ=="
+        }
+    ],
+    "version": "7.6.1"
+}

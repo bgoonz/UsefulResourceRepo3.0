@@ -1,0 +1,11 @@
+name: aws
+metricsets:
+  - elb
+  - ebs
+  - usage
+  - sns
+  - lambda
+  - dynamodb
+  - vpn
+  - transitgateway
+  - natgateway

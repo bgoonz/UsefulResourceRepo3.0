@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <style>
+    body {
+      padding: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<form id="search-form">
+  <div class="form-group">
+    <label for="q">Search here</label>
+    <input type="text" class="form-control" id="q" placeholder="Movie name">
+  </div>
+</form>
+
+<ul class="list-group" id="result">
+  <li class="list-group-item"></li>
+</ul>
+
+<script>
+  // Isolate from global scope
+  (() => {
+    class App {
+      /**
+       * Fetches single movie page
+       * @param title
+       * @param page
+       * @returns {Promise}
+       */
+      static fetchMoviePage(title, page) {
+        return fetch('https://jsonmock.hackerrank.com/api/movies/search/?Title=' + encodeURIComponent(title) + '&page=' + encodeURIComponent(page))
+          .then((response) => {return response.json();})
+      }
+
+      /**
+       * Creates and returns result DOM element
+       * @param text
+       * @param additionalClasses
+       * @returns {Element}
+       */
+      static createResultItemElement(text, additionalClasses = []) {
+        const el = document.createElement('li');
+        el.className = [
+          'list-group-item',
+          ...additionalClasses
+        ].join(' ');
+        el.innerText = text;
+
+        return el;
+      }
+
+      constructor() {
+        document.querySelector('#search-form').addEventListener('submit', this.onFormSubmit.bind(this));
+      }
+
+      /**
+       * Performs movie search and returns all results from all pages
+       * @param title
+       * @returns {Promise}
+       */
+      searchMovie(title) {
+        let result = [];
+        let currentPage = 1;
+        let fetchCurrentPage = () => {
+          return App.fetchMoviePage(title, currentPage).then((data) => {
+            result = result.concat(data.data);
+
+            if (data.page < data.total_pages) {
+              currentPage++;
+              return fetchCurrentPage();
+            } else {
+              return result;
+            }
+          });
+        };
+
+        return fetchCurrentPage();
+      }
+
+      /**
+       * Callback for form submit
+       * @returns {boolean}
+       */
+      onFormSubmit(e) {
+        e.preventDefault();
+        
+        this.searchMovie(document.querySelector('#q').value).then((movies) => {
+          const list = document.querySelector('#result');
+
+          // Clean the list
+          list.innerHTML = '';
+
+          // Add elements
+          if (movies.length) {
+            movies.forEach((movie) => {
+              list.appendChild(App.createResultItemElement(movie.Title));
+            });
+          } else {
+            list.appendChild(App.createResultItemElement('< No results >', ['text-secondary']));
+          }
+        });
+      }
+    }
+
+    // Bootstrap the app
+    new App();
+  })();
+</script>
+
+</body>
+</html>

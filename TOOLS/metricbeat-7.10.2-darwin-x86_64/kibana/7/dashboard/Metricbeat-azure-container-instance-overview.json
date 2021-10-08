@@ -1,0 +1,194 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "This dashboard shows metrics for the container instances in Azure.",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"panelRefName\": \"panel_0\", \"gridData\": {\"w\": 11, \"x\": 0, \"y\": 0, \"i\": \"c3f93abd-4a7c-43fa-bde7-d26925082d2f\", \"h\": 5}, \"panelIndex\": \"c3f93abd-4a7c-43fa-bde7-d26925082d2f\", \"embeddableConfig\": {\"title\": \"\"}, \"version\": \"7.6.0\"}, {\"gridData\": {\"w\": 17, \"x\": 11, \"y\": 0, \"i\": \"ea4c505b-43fb-4869-a94a-bba028071ecc\", \"h\": 16}, \"panelIndex\": \"ea4c505b-43fb-4869-a94a-bba028071ecc\", \"title\": \"Container Instance CPU Utilization\", \"embeddableConfig\": {\"title\": \"Container Instance CPU Utilization\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.6.0\"}, {\"gridData\": {\"w\": 20, \"x\": 28, \"y\": 0, \"i\": \"0899027b-629e-4889-821f-45ee0161bd91\", \"h\": 16}, \"panelIndex\": \"0899027b-629e-4889-821f-45ee0161bd91\", \"title\": \"Container Instance Memory Utilization\", \"embeddableConfig\": {\"title\": \"Container Instance Memory Utilization\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.6.0\"}, {\"gridData\": {\"w\": 11, \"x\": 0, \"y\": 5, \"i\": \"f72bd066-3696-4e0a-9660-78fb47c92152\", \"h\": 11}, \"panelIndex\": \"f72bd066-3696-4e0a-9660-78fb47c92152\", \"title\": \"Containers Filters\", \"embeddableConfig\": {\"title\": \"Containers Filters\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.6.0\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 16, \"i\": \"7c9016b9-a76e-41f6-9945-ac6880fd9ab0\", \"h\": 15}, \"panelIndex\": \"7c9016b9-a76e-41f6-9945-ac6880fd9ab0\", \"title\": \"Container Instance Netowrk Bytes Received/s\", \"embeddableConfig\": {\"title\": \"Container Instance Netowrk Bytes Received/s\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.6.0\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 16, \"i\": \"0abdf4ee-b569-430b-972a-a60160ef2221\", \"h\": 15}, \"panelIndex\": \"0abdf4ee-b569-430b-972a-a60160ef2221\", \"title\": \"Container Instance Network Bytes Transmitted/s\", \"embeddableConfig\": {\"title\": \"Container Instance Network Bytes Transmitted/s\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.6.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat Azure] Container Instance Overview",
+                "version": 1
+            },
+            "id": "9c11ac60-6cf6-11ea-8fe8-71add5fd7c38",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "5720b830-6aad-11ea-af5c-73e8f396b3e9",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "04f8eec0-6ab1-11ea-af5c-73e8f396b3e9",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "942844b0-6ac5-11ea-af5c-73e8f396b3e9",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "0fa31060-6aae-11ea-af5c-73e8f396b3e9",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "bd1c93b0-6cf7-11ea-8fe8-71add5fd7c38",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "74a8e130-6cfa-11ea-8fe8-71add5fd7c38",
+                    "name": "panel_5",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-03-24T13:44:34.832Z",
+            "version": "WzY1MzIsN10="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Navigation Container Instance Overview [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"markdown\", \"title\": \"Navigation Container Instance Overview [Metricbeat Azure]\", \"params\": {\"markdown\": \"### Azure Containers\\n\\n[**Instances**](#/dashboard/9c11ac60-6cf6-11ea-8fe8-71add5fd7c38) |\\n[Registries](#/dashboard/6f2393f0-6d08-11ea-8fe8-71add5fd7c38) |\\n[Services](#/dashboard/dae20ed0-6d0a-11ea-8fe8-71add5fd7c38) \", \"openLinksInNewTab\": false, \"fontSize\": 12}}"
+            },
+            "id": "5720b830-6aad-11ea-af5c-73e8f396b3e9",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-23T19:02:37.594Z",
+            "version": "WzY0NDQsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Container Instance CPU Utilization [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Container Instance CPU Utilization [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"filebeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.ContainerInstance/containerGroups\\\"  \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"interval\": \">=5m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(164,221,0,1)\", \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.container_instance.cpu_usage.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"\", \"chart_type\": \"line\", \"fill\": \"\", \"formatter\": \"number\", \"label\": \"Azure Container CPU Utilization\"}], \"show_grid\": 1}}"
+            },
+            "id": "04f8eec0-6ab1-11ea-af5c-73e8f396b3e9",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-23T11:39:04.001Z",
+            "version": "WzU5NjYsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Container Instance Memory Utilization [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Container Instance Memory Utilization [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"filebeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.ContainerInstance/containerGroups\\\"  \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.container_instance.memory_usage.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"0\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"Container Instance Memory Utilization\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "942844b0-6ac5-11ea-af5c-73e8f396b3e9",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-23T11:40:55.708Z",
+            "version": "WzU5NzEsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Containers Filters [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"Containers Filters [Metricbeat Azure]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": false, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584710440054\", \"fieldName\": \"azure.subscription_id\", \"label\": \"Subscription\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": false, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584710497045\", \"fieldName\": \"azure.resource.group\", \"label\": \"Resource Group\"}, {\"indexPatternRefName\": \"control_2_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": false, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584710535722\", \"fieldName\": \"azure.resource.name\", \"label\": \"Resource\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": false}}"
+            },
+            "id": "0fa31060-6aae-11ea-af5c-73e8f396b3e9",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_2_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-03-23T18:32:43.461Z",
+            "version": "WzY0MDAsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Container Instance Network Bytes Received/s [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Container Instance Network Bytes Received/s [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"filebeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.ContainerInstance/containerGroups\\\"  \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(251,158,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.container_instance.network_bytes_received_per_second.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"Container Instance Network Bytes Received/s\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "bd1c93b0-6cf7-11ea-8fe8-71add5fd7c38",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-23T16:22:21.233Z",
+            "version": "WzYyODUsNV0="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "Container Instance Network Bytes Transmitted/s [Metricbeat Azure]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Container Instance Network Bytes Transmitted/s [Metricbeat Azure]\", \"params\": {\"default_index_pattern\": \"filebeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"azure.resource.type : \\\"Microsoft.ContainerInstance/containerGroups\\\"  \"}, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"@timestamp\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"azure.resource.name\", \"color\": \"rgba(128,137,0,1)\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"azure.container_instance.network_bytes_transmitted_per_second.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"Container Instance Network Bytes Transmitted/s\"}], \"interval\": \">=5m\", \"show_grid\": 1}}"
+            },
+            "id": "74a8e130-6cfa-11ea-8fe8-71add5fd7c38",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-23T16:23:04.729Z",
+            "version": "WzYyOTMsNV0="
+        }
+    ],
+    "version": "7.6.0"
+}

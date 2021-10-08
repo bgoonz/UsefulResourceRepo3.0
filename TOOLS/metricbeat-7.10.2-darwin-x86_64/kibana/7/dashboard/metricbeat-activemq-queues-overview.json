@@ -1,0 +1,228 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "The dashboard presents metric data describing ActiveMQ queues. Metrics show statistics of exchanged messages, consumers, producers and memory usage.",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"panelRefName\": \"panel_0\", \"gridData\": {\"w\": 24, \"x\": 0, \"y\": 0, \"i\": \"446c6be8-61e2-4c9c-9bfa-8da8879db215\", \"h\": 15}, \"panelIndex\": \"446c6be8-61e2-4c9c-9bfa-8da8879db215\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}, {\"panelRefName\": \"panel_1\", \"gridData\": {\"w\": 24, \"x\": 24, \"y\": 0, \"i\": \"85158251-14d2-4100-9ce2-1eea4885adf6\", \"h\": 15}, \"panelIndex\": \"85158251-14d2-4100-9ce2-1eea4885adf6\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}, {\"panelRefName\": \"panel_2\", \"gridData\": {\"w\": 24, \"x\": 0, \"y\": 15, \"i\": \"e0104818-b373-4a20-990a-aa7558522e9e\", \"h\": 15}, \"panelIndex\": \"e0104818-b373-4a20-990a-aa7558522e9e\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}, {\"panelRefName\": \"panel_3\", \"gridData\": {\"w\": 24, \"x\": 24, \"y\": 15, \"i\": \"7b83ee6f-cd69-4748-80c5-305fdf49b9d0\", \"h\": 15}, \"panelIndex\": \"7b83ee6f-cd69-4748-80c5-305fdf49b9d0\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}, {\"panelRefName\": \"panel_4\", \"gridData\": {\"w\": 24, \"x\": 0, \"y\": 30, \"i\": \"b2cfe5e4-f220-480e-91fa-4088484eda17\", \"h\": 15}, \"panelIndex\": \"b2cfe5e4-f220-480e-91fa-4088484eda17\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}, {\"panelRefName\": \"panel_5\", \"gridData\": {\"w\": 24, \"x\": 24, \"y\": 30, \"i\": \"5f4b107c-94d0-4bdb-be30-b3cd26257658\", \"h\": 15}, \"panelIndex\": \"5f4b107c-94d0-4bdb-be30-b3cd26257658\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}, {\"panelRefName\": \"panel_6\", \"gridData\": {\"w\": 24, \"x\": 0, \"y\": 45, \"i\": \"b5a5ea30-c313-4c80-8e28-2894f292d779\", \"h\": 15}, \"panelIndex\": \"b5a5ea30-c313-4c80-8e28-2894f292d779\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}, {\"panelRefName\": \"panel_7\", \"gridData\": {\"w\": 24, \"x\": 24, \"y\": 45, \"i\": \"4a004976-426b-445e-9ecf-1f9964074523\", \"h\": 15}, \"panelIndex\": \"4a004976-426b-445e-9ecf-1f9964074523\", \"embeddableConfig\": {}, \"version\": \"7.4.0\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat ActiveMQ] Queues Overview",
+                "version": 1
+            },
+            "id": "a8160560-0bd0-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "ad2d4960-0bd4-11ea-81bb-cf244189d349",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "00e33010-0bd5-11ea-81bb-cf244189d349",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "4a93ef10-0bd5-11ea-81bb-cf244189d349",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "fab93e30-0bbd-11ea-81bb-cf244189d349",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "99f41030-0bd5-11ea-81bb-cf244189d349",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "55cc9840-0bd6-11ea-81bb-cf244189d349",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "8599cea0-0c2e-11ea-81bb-cf244189d349",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "a8ac8950-0c2e-11ea-81bb-cf244189d349",
+                    "name": "panel_7",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ0MiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Messages Dequeue [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Messages Dequeue [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"#68BC00\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"activemq.queue.messages.dequeue.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"4f39bd50-0bbd-11ea-b87b-6d4c24968040\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Dequeue\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "ad2d4960-0bd4-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ0MywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Messages Enqueue [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Messages Enqueue [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"rgba(115,216,255,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"activemq.queue.messages.enqueue.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"4f39bd50-0bbd-11ea-b87b-6d4c24968040\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Enqueue\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "00e33010-0bd5-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ0NCwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Messages Dispatch [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Messages Dispatch [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"rgba(104,204,202,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"activemq.queue.messages.dispatch.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"4f39bd50-0bbd-11ea-b87b-6d4c24968040\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Dispatch\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "4a93ef10-0bd5-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ0NSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Messages Expired [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Messages Expired [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"rgba(174,161,255,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"activemq.queue.messages.expired.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"4f39bd50-0bbd-11ea-b87b-6d4c24968040\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Expired\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "fab93e30-0bbd-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ0NiwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Messages In-flight [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Messages In-flight [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"rgba(211,49,21,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"activemq.queue.messages.inflight.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}, {\"unit\": \"\", \"type\": \"derivative\", \"field\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"id\": \"4f39bd50-0bbd-11ea-b87b-6d4c24968040\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"In-flight\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "99f41030-0bd5-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ0NywxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Messages Enqueue Time [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Messages Enqueue Time [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"rgba(226,115,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"activemq.queue.messages.enqueue.time.avg\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"ms,ms,\", \"label\": \"Equeue\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "55cc9840-0bd6-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-22T12:43:58.984Z",
+            "version": "WzUzMCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Consumers [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Consumers [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"rgba(104,188,0,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"activemq.queue.consumers.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Consumers\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "8599cea0-0c2e-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ0OSwxXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "Queues Producers [Metricbeat ActiveMQ]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"Queues Producers [Metricbeat ActiveMQ]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_field\": \"\", \"axis_min\": \"0\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"activemq.queue.name\", \"color\": \"rgba(0,156,224,1)\", \"line_width\": 1, \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"max\", \"field\": \"activemq.queue.producers.count\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": 1, \"chart_type\": \"line\", \"fill\": 0.5, \"formatter\": \"number\", \"label\": \"Producers\"}], \"interval\": \"\", \"show_grid\": 1}}"
+            },
+            "id": "a8ac8950-0c2e-11ea-81bb-cf244189d349",
+            "migrationVersion": {
+                "visualization": "7.3.1"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2019-11-21T13:34:09.899Z",
+            "version": "WzQ1MCwxXQ=="
+        }
+    ],
+    "version": "7.4.0"
+}

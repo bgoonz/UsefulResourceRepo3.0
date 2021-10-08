@@ -1,0 +1,369 @@
+{
+    "objects": [
+        {
+            "attributes": {
+                "description": "Overview of AWS NAT Gateway Metrics",
+                "hits": 0,
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "optionsJSON": "{\"useMargins\": true, \"hidePanelTitles\": false}",
+                "panelsJSON": "[{\"gridData\": {\"w\": 7, \"x\": 0, \"y\": 0, \"i\": \"346ce7bf-e1af-4e0d-856b-5aa412903167\", \"h\": 11}, \"panelIndex\": \"346ce7bf-e1af-4e0d-856b-5aa412903167\", \"title\": \"Filters\", \"embeddableConfig\": {\"title\": \"Filters\"}, \"panelRefName\": \"panel_0\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 8, \"x\": 7, \"y\": 0, \"i\": \"19a9f053-a548-4e9d-a257-45932c3b73a5\", \"h\": 11}, \"panelIndex\": \"19a9f053-a548-4e9d-a257-45932c3b73a5\", \"title\": \"Error Port Allocation\", \"embeddableConfig\": {\"title\": \"Error Port Allocation\"}, \"panelRefName\": \"panel_1\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 8, \"x\": 15, \"y\": 0, \"i\": \"a7a70775-f4ad-4323-b13c-9c9a3bf1bdf3\", \"h\": 11}, \"panelIndex\": \"a7a70775-f4ad-4323-b13c-9c9a3bf1bdf3\", \"title\": \"Packets Drop\", \"embeddableConfig\": {\"title\": \"Packets Drop\"}, \"panelRefName\": \"panel_2\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 8, \"x\": 23, \"y\": 0, \"i\": \"b5fe853e-d5b0-4918-93ec-8be70f2881a8\", \"h\": 11}, \"panelIndex\": \"b5fe853e-d5b0-4918-93ec-8be70f2881a8\", \"title\": \"Total Connection Established\", \"embeddableConfig\": {\"title\": \"Total Connection Established\"}, \"panelRefName\": \"panel_3\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 17, \"x\": 31, \"y\": 0, \"i\": \"33663eae-1bc3-47d4-a9fc-3cd2b43c66ef\", \"h\": 11}, \"panelIndex\": \"33663eae-1bc3-47d4-a9fc-3cd2b43c66ef\", \"title\": \"Active Connection Count\", \"embeddableConfig\": {\"title\": \"Active Connection Count\"}, \"panelRefName\": \"panel_4\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 11, \"i\": \"4e454740-281a-43b1-92f4-8dd2e37e184f\", \"h\": 13}, \"panelIndex\": \"4e454740-281a-43b1-92f4-8dd2e37e184f\", \"title\": \"Bytes In From Destination\", \"embeddableConfig\": {\"title\": \"Bytes In From Destination\"}, \"panelRefName\": \"panel_5\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 11, \"i\": \"f40587a4-47f1-494a-b8b9-33365ce34d2f\", \"h\": 13}, \"panelIndex\": \"f40587a4-47f1-494a-b8b9-33365ce34d2f\", \"title\": \"Bytes In From Source\", \"embeddableConfig\": {\"title\": \"Bytes In From Source\"}, \"panelRefName\": \"panel_6\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 24, \"i\": \"00075068-bf27-49e1-8beb-d5572500205b\", \"h\": 13}, \"panelIndex\": \"00075068-bf27-49e1-8beb-d5572500205b\", \"title\": \"Bytes Out To Destination\", \"embeddableConfig\": {\"title\": \"Bytes Out To Destination\"}, \"panelRefName\": \"panel_7\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 24, \"i\": \"c95ab156-9118-4c3c-94ee-55b4c9f5589c\", \"h\": 13}, \"panelIndex\": \"c95ab156-9118-4c3c-94ee-55b4c9f5589c\", \"title\": \"Bytes Out To Source\", \"embeddableConfig\": {\"title\": \"Bytes Out To Source\"}, \"panelRefName\": \"panel_8\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 37, \"i\": \"f7c6e3f7-419d-43ff-a2bb-d5931371f347\", \"h\": 13}, \"panelIndex\": \"f7c6e3f7-419d-43ff-a2bb-d5931371f347\", \"title\": \"Packets In From Destination\", \"embeddableConfig\": {\"title\": \"Packets In From Destination\"}, \"panelRefName\": \"panel_9\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 37, \"i\": \"dcc56438-240a-45a4-81ec-a54be3d27c43\", \"h\": 13}, \"panelIndex\": \"dcc56438-240a-45a4-81ec-a54be3d27c43\", \"title\": \"Packets In From Source\", \"embeddableConfig\": {\"title\": \"Packets In From Source\"}, \"panelRefName\": \"panel_10\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 0, \"y\": 50, \"i\": \"db77d690-f343-4dc2-8695-d45a03361e01\", \"h\": 13}, \"panelIndex\": \"db77d690-f343-4dc2-8695-d45a03361e01\", \"title\": \"Packets Out To Destination\", \"embeddableConfig\": {\"title\": \"Packets Out To Destination\"}, \"panelRefName\": \"panel_11\", \"version\": \"7.6.1\"}, {\"gridData\": {\"w\": 24, \"x\": 24, \"y\": 50, \"i\": \"d882a862-87aa-4169-9dc3-0591252fa736\", \"h\": 13}, \"panelIndex\": \"d882a862-87aa-4169-9dc3-0591252fa736\", \"title\": \"Packets Out To Source\", \"embeddableConfig\": {\"title\": \"Packets Out To Source\"}, \"panelRefName\": \"panel_12\", \"version\": \"7.6.1\"}]",
+                "timeRestore": false,
+                "title": "[Metricbeat AWS] NATGateway Overview",
+                "version": 1
+            },
+            "id": "c2b1cbc0-6891-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "dashboard": "7.3.0"
+            },
+            "references": [
+                {
+                    "id": "8345d580-6891-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_0",
+                    "type": "visualization"
+                },
+                {
+                    "id": "ce7445c0-688f-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_1",
+                    "type": "visualization"
+                },
+                {
+                    "id": "9bf8e1e0-6890-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_2",
+                    "type": "visualization"
+                },
+                {
+                    "id": "68970b10-6890-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_3",
+                    "type": "visualization"
+                },
+                {
+                    "id": "c186b610-688d-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_4",
+                    "type": "visualization"
+                },
+                {
+                    "id": "b36532e0-688e-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_5",
+                    "type": "visualization"
+                },
+                {
+                    "id": "bc5dcc90-688e-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_6",
+                    "type": "visualization"
+                },
+                {
+                    "id": "e0e65e60-688e-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_7",
+                    "type": "visualization"
+                },
+                {
+                    "id": "c7d6cf90-688e-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_8",
+                    "type": "visualization"
+                },
+                {
+                    "id": "bdb8ddd0-6890-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_9",
+                    "type": "visualization"
+                },
+                {
+                    "id": "c84ed3d0-6890-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_10",
+                    "type": "visualization"
+                },
+                {
+                    "id": "08645080-6891-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_11",
+                    "type": "visualization"
+                },
+                {
+                    "id": "fd915180-6890-11ea-b0ac-95d4ecb1fecd",
+                    "name": "panel_12",
+                    "type": "visualization"
+                }
+            ],
+            "type": "dashboard",
+            "updated_at": "2020-03-17T21:29:15.037Z",
+            "version": "Wzg2NiwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{\"query\": {\"language\": \"kuery\", \"query\": \"\"}, \"filter\": []}"
+                },
+                "title": "NATGateway Filters [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"input_control_vis\", \"title\": \"NATGateway Filters [Metricbeat AWS]\", \"params\": {\"controls\": [{\"indexPatternRefName\": \"control_0_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1565034367477\", \"fieldName\": \"cloud.account.name\", \"label\": \"account name\"}, {\"indexPatternRefName\": \"control_1_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584478324642\", \"fieldName\": \"cloud.region\", \"label\": \"region\"}, {\"indexPatternRefName\": \"control_2_index_pattern\", \"type\": \"list\", \"parent\": \"\", \"options\": {\"dynamicOptions\": true, \"size\": 5, \"multiselect\": true, \"order\": \"desc\", \"type\": \"terms\"}, \"id\": \"1584479118709\", \"fieldName\": \"aws.dimensions.NatGatewayId\", \"label\": \"NATGateway ID\"}], \"updateFiltersOnChange\": true, \"pinFilters\": false, \"useTimeFilter\": true}}"
+            },
+            "id": "8345d580-6891-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_0_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_1_index_pattern",
+                    "type": "index-pattern"
+                },
+                {
+                    "id": "metricbeat-*",
+                    "name": "control_2_index_pattern",
+                    "type": "index-pattern"
+                }
+            ],
+            "type": "visualization",
+            "updated_at": "2020-03-17T21:16:38.008Z",
+            "version": "Wzg2MCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Error Port Allocation [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Error Port Allocation [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\", \"value\": 0}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"metric\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"_count\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"sum\", \"field\": \"aws.natgateway.metrics.ErrorPortAllocation.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"Total Error of Port Allocation\"}], \"show_grid\": 1}}"
+            },
+            "id": "ce7445c0-688f-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:42:24.156Z",
+            "version": "WzgzNywyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Packet Drop [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Packet Drop [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\", \"value\": 0}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"metric\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"f444c0e0-688f-11ea-8b7d-fd9d15a13cd0\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"sum\", \"field\": \"aws.natgateway.metrics.PacketsDropCount.sum\", \"id\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"Total Packets Drop\"}], \"show_grid\": 1}}"
+            },
+            "id": "9bf8e1e0-6890-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:48:08.957Z",
+            "version": "WzgzOSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Connection Established [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Connection Established [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\", \"value\": 0}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"metric\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"f444c0e0-688f-11ea-8b7d-fd9d15a13cd0\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"everything\", \"metrics\": [{\"type\": \"sum\", \"field\": \"aws.natgateway.metrics.ConnectionEstablishedCount.sum\", \"id\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"Total Connections Established\"}], \"show_grid\": 1}}"
+            },
+            "id": "68970b10-6890-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T21:17:52.918Z",
+            "version": "Wzg2MSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Active Connection Count Top10 [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Active Connection Count Top10 [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"top_n\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"line_width\": \"3\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.ActiveConnectionCount.max\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"2\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "c186b610-688d-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:27:54.652Z",
+            "version": "WzgzMCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Bytes In From Destination [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Bytes In From Destination [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.BytesInFromDestination.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "b36532e0-688e-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:34:29.261Z",
+            "version": "WzgzMSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Bytes In From Source [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Bytes In From Source [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.BytesInFromSource.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "bc5dcc90-688e-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:34:44.313Z",
+            "version": "WzgzMiwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Bytes Out To Destination [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Bytes Out To Destination [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.BytesOutToDestination.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "e0e65e60-688e-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:35:45.606Z",
+            "version": "WzgzNSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Bytes Out To Source [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Bytes Out To Source [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\"}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"61ca57f1-469d-11e7-af02-69e470af7417\", \"terms_order_by\": \"61ca57f2-469d-11e7-af02-69e470af7417\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.BytesOutToSource.sum\", \"id\": \"61ca57f2-469d-11e7-af02-69e470af7417\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"bytes\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "c7d6cf90-688e-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:35:28.424Z",
+            "version": "WzgzNCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Packet In From Destination [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Packet In From Destination [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\", \"value\": 0}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"f444c0e0-688f-11ea-8b7d-fd9d15a13cd0\", \"terms_order_by\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.PacketsInFromDestination.sum\", \"id\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "bdb8ddd0-6890-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:49:05.580Z",
+            "version": "Wzg0MCwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Packet In From Source [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Packet In From Source [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\", \"value\": 0}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"f444c0e0-688f-11ea-8b7d-fd9d15a13cd0\", \"terms_order_by\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.PacketsInFromSource.sum\", \"id\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "c84ed3d0-6890-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:49:23.341Z",
+            "version": "Wzg0MSwyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Packet Out To Destination [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Packet Out To Destination [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\", \"value\": 0}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"f444c0e0-688f-11ea-8b7d-fd9d15a13cd0\", \"terms_order_by\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.PacketsOutToDestination.sum\", \"id\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "08645080-6891-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:51:10.856Z",
+            "version": "Wzg0MywyXQ=="
+        },
+        {
+            "attributes": {
+                "description": "",
+                "kibanaSavedObjectMeta": {
+                    "searchSourceJSON": "{}"
+                },
+                "title": "NATGateway Packet Out To Source [Metricbeat AWS]",
+                "uiStateJSON": "{}",
+                "version": 1,
+                "visState": "{\"aggs\": [], \"type\": \"metrics\", \"title\": \"NATGateway Packet Out To Source [Metricbeat AWS]\", \"params\": {\"default_index_pattern\": \"metricbeat-*\", \"bar_color_rules\": [{\"id\": \"6b6b1a00-688d-11ea-8b7d-fd9d15a13cd0\"}], \"axis_formatter\": \"number\", \"show_legend\": 1, \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"isModelInvalid\": false, \"background_color_rules\": [{\"id\": \"688b0480-688d-11ea-8b7d-fd9d15a13cd0\", \"value\": 0}], \"id\": \"61ca57f0-469d-11e7-af02-69e470af7417\", \"index_pattern\": \"metricbeat-*\", \"time_range_mode\": \"last_value\", \"drop_last_bucket\": 0, \"interval\": \"1m\", \"axis_scale\": \"normal\", \"axis_position\": \"left\", \"time_field\": \"\", \"default_timefield\": \"@timestamp\", \"type\": \"timeseries\", \"series\": [{\"terms_field\": \"aws.dimensions.NatGatewayId\", \"color\": \"#68BC00\", \"filter\": {\"language\": \"kuery\", \"query\": \"\"}, \"line_width\": \"2\", \"axis_position\": \"right\", \"id\": \"f444c0e0-688f-11ea-8b7d-fd9d15a13cd0\", \"terms_order_by\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\", \"stacked\": \"none\", \"type\": \"timeseries\", \"split_mode\": \"terms\", \"metrics\": [{\"type\": \"avg\", \"field\": \"aws.natgateway.metrics.PacketsOutToSource.sum\", \"id\": \"f444c0e1-688f-11ea-8b7d-fd9d15a13cd0\"}], \"separate_axis\": 0, \"point_size\": \"3\", \"chart_type\": \"line\", \"fill\": \"0\", \"formatter\": \"number\", \"label\": \"\"}], \"show_grid\": 1}}"
+            },
+            "id": "fd915180-6890-11ea-b0ac-95d4ecb1fecd",
+            "migrationVersion": {
+                "visualization": "7.4.2"
+            },
+            "references": [],
+            "type": "visualization",
+            "updated_at": "2020-03-17T20:50:52.696Z",
+            "version": "Wzg0MiwyXQ=="
+        }
+    ],
+    "version": "7.6.1"
+}
