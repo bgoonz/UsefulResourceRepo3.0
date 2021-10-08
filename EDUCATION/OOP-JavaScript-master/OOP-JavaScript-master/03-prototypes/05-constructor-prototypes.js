@@ -1,14 +1,12 @@
-
 function Circle(radius) {
-  this.radius = radius
+  this.radius = radius;
 }
 const circle = new Circle(8);
 
-Circle.prototype
+Circle.prototype;
 
-
-let obj = {}
-console.log(Object.getPrototypeOf(obj)) // parent of obj
+let obj = {};
+console.log(Object.getPrototypeOf(obj)); // parent of obj
 
 // constructor: ƒ Object()
 // hasOwnProperty: ƒ hasOwnProperty()
@@ -24,13 +22,13 @@ console.log(Object.getPrototypeOf(obj)) // parent of obj
 // get __proto__: ƒ __proto__()
 // set __proto__: ƒ __proto__()
 
-Object.prototype // same Object base
+Object.prototype; // same Object base
 
 ////////////////////////////////////////////
 
 let array = [];
 
-console.log(Object.getPrototypeOf(array))
+console.log(Object.getPrototypeOf(array));
 
 // concat: ƒ concat()
 // constructor: ƒ Array()
@@ -69,4 +67,4 @@ console.log(Object.getPrototypeOf(array))
 // Symbol(Symbol.unscopables): {copyWithin: true, entries: true, fill: true, find: true, findIndex: true, …}
 // __proto__: Object
 
-Array.prototype // Same array base
+Array.prototype; // Same array base

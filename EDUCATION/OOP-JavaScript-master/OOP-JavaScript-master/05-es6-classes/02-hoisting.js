@@ -1,15 +1,14 @@
-
-sayHello() //valid
-sayGoodBye() //error
+sayHello(); //valid
+sayGoodBye(); //error
 
 // Function Declaration
 function sayHello() {
-  console.log('hello');
+  console.log("hello");
 }
 
 // Function Expression
-const sayGoodBye = function() {
-  console.log('goodbye')
+const sayGoodBye = function () {
+  console.log("goodbye");
 };
 
 //Function declarations are hoisted [Moved to the top of the JavaScript file
@@ -18,11 +17,9 @@ const sayGoodBye = function() {
 //Function Expression are not hoisted
 
 //Class Declaration
-class Circle {
-}
+class Circle {}
 
 //Class Expression
-const square = class {
-}
+const square = class {};
 
 //Class declaration are not hoisted

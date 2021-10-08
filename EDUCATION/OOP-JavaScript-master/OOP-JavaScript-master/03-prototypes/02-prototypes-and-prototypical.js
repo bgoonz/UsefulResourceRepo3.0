@@ -1,8 +1,7 @@
-
 // A prototpye is the parent or base of another Object
 // Every Object EXCEPT A SINGLE OBJECT has a Prototype and inherits all the actions in its prototype.
 
-let x = {}
+let x = {};
 console.log(x); // __proto__: Object
 
 // constructor: ƒ Object()
@@ -19,8 +18,7 @@ console.log(x); // __proto__: Object
 // get __proto__: ƒ __proto__()
 // set __proto__: ƒ __proto__()
 
-
-let y = {}
+let y = {};
 console.log(y); // __proto__: Object
 
 // constructor: ƒ Object()
@@ -47,7 +45,6 @@ console.log(Object.getPrototypeOf(x) === Object.getPrototypeOf(y));
 console.log(x.__proto__ === y.__proto__);
 // true
 // This style is deprecated, but you can use in console to debug
-
 
 // Prototypical Inheritance
 // when you access a property or method on an Object, JavaScript engine first checks if the method/property belongs to the Object,

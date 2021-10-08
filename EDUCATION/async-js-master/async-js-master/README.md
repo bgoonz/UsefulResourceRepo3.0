@@ -1,4 +1,5 @@
 # async-js
+
 Learn Asynchronous JavaScript :zap:
 
 ## Table Of Contents
@@ -13,4 +14,3 @@ Learn Asynchronous JavaScript :zap:
 8. [x] The Fetch API - [Demo](https://bolajiayodeji.github.io/async-js/08-The%20Fetch%20API)
 9. [x] Custom FETCH API Library - [Demo](https://bolajiayodeji.github.io/async-js/09-Custom%20FETCH%20Library)
 10. [x] Async and Await - [Demo](https://bolajiayodeji.github.io/async-js/10-Async%20%26%20Await)
-

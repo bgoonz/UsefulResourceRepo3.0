@@ -1,4 +1,3 @@
-
 # REST => Representational State Transfer
 
 It is an architecture style for designing networked applications.

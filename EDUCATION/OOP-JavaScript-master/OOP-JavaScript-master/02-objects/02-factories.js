@@ -3,8 +3,8 @@ function createCircle(radius) {
   return {
     radius,
     draw() {
-      console.log('draw');
-    }
+      console.log("draw");
+    },
   };
 }
 

@@ -1,39 +1,30 @@
-
 function extend(Child, Parent) {
-  Child.prototype = Object.create(Parent.prototype)
+  Child.prototype = Object.create(Parent.prototype);
   Child.prototype.constructor = Child;
 }
 
-function Shape() {
-}
+function Shape() {}
 
-Shape.prototype.duplicate = function() {
-  console.log('duplicate shape');
-}
+Shape.prototype.duplicate = function () {
+  console.log("duplicate shape");
+};
 
-function Circle() {
-}
+function Circle() {}
 extend(Circle, Shape);
 
-Circle.prototype.duplicate = function() {
-  console.log('duplicate circle');
-}
+Circle.prototype.duplicate = function () {
+  console.log("duplicate circle");
+};
 
-function Square() {
-}
-extend(Square, Shape)
+function Square() {}
+extend(Square, Shape);
 
-Square.prototype.duplicate = function() {
-  console.log('duplicate square');
-}
+Square.prototype.duplicate = function () {
+  console.log("duplicate square");
+};
 
-const shapes = [
-  new Circle(),
-  new Square(),
-  new Circle(),
-  new Square
-];
+const shapes = [new Circle(), new Square(), new Circle(), new Square()];
 
-shapes.map(shape => {
+shapes.map((shape) => {
   shape.duplicate();
-})
+});

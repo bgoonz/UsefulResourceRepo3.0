@@ -1,5 +1,4 @@
-
-let myArray = []
+let myArray = [];
 console.log(myArray); // __proto__: Array(0)
 
 // concat: ƒ concat()
@@ -53,17 +52,16 @@ console.log(myArray); // __proto__: Array(0)
 // get __proto__: ƒ __proto__()
 // set __proto__: ƒ __proto__()
 
-
 // myArray inherits from the ARRAY base which inherits from the Object root.
 
 function Circle(radius) {
   this.radius = radius;
-  this.draw = function() {
-    console.log('draw');
+  this.draw = function () {
+    console.log("draw");
   };
 }
 
 const circle = new Circle(12);
-console.log(circle)
+console.log(circle);
 
 // Objects created by a given constructor will have the same prototypes.

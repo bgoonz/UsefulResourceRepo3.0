@@ -1,10 +1,10 @@
-const c = require('./scripts/script2.js')
+const c = require("./scripts/script2.js");
 
 const a = c.largeNumber;
 const b = 8;
 
-console.log(a + b)
+console.log(a + b);
 
 setTimeout(() => {
-    console.log(__dirname)
-},3000)
+  console.log(__dirname);
+}, 3000);

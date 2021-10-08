@@ -1,4 +1,3 @@
-
 // async function myFunc() {
 //     const promise = new Promise((resolve, reject) => {
 //         setTimeout(() => resolve('Hello'), 1000);
@@ -18,15 +17,18 @@
 //   .catch(err => console.log(err));
 
 async function getUsers() {
-    // await response of the fetch request
-    const response = await fetch('https://jsonplaceholder.typicode.com/users');
+  // await response of the fetch request
+  const response = await fetch("https://jsonplaceholder.typicode.com/users");
 
-    // proceed once fetch is resolved
-    const data = await response.json();
-    // proceed once the second promise is resolved
-    return data;
+  // proceed once fetch is resolved
+  const data = await response.json();
+  // proceed once the second promise is resolved
+  return data;
 }
 
-getUsers().then(users => document.body.innerHTML = `
+getUsers().then(
+  (users) =>
+    (document.body.innerHTML = `
 <pre><code>${JSON.stringify(users, null, 2)}</code</pre>
-`);
+`)
+);

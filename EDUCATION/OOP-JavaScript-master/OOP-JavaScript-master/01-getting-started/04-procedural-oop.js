@@ -6,9 +6,9 @@ let overTime = 10;
 let rate = 20;
 
 function getWage(baseSalary, overTime, rate) {
-  return baseSalary + (overTime * rate);
+  return baseSalary + overTime * rate;
 }
-console.log('PROCEDURAL => ' + getWage(baseSalary, overTime, rate));
+console.log("PROCEDURAL => " + getWage(baseSalary, overTime, rate));
 
 // OOP
 let employee = {
@@ -16,7 +16,7 @@ let employee = {
   overTime: 10,
   rate: 20,
   getWage() {
-    return this.baseSalary + (this.overTime * this.rate);
-  }
+    return this.baseSalary + this.overTime * this.rate;
+  },
 };
-console.log('OOP => ' + employee.getWage());
+console.log("OOP => " + employee.getWage());

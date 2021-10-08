@@ -1,4 +1,3 @@
-
 class Circle {
   constructor(radius) {
     this.radius = radius;
@@ -6,7 +5,7 @@ class Circle {
 
   // Instance method
   draw() {
-    console.log('drawing');
+    console.log("drawing");
   }
 
   // Static method
@@ -25,4 +24,4 @@ class Math2 {
   }
 }
 
-Math2.abs
+Math2.abs;

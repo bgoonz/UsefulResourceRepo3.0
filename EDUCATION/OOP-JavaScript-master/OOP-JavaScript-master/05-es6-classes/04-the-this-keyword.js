@@ -1,4 +1,3 @@
-
 // 'use strict';
 
 // const Circle = function() {
@@ -15,7 +14,6 @@
 
 // // Function call
 // draw();
-
 
 class Circle {
   draw() {

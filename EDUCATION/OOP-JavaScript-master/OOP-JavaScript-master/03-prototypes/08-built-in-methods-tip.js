@@ -1,5 +1,4 @@
-
-Array.prototype.shuffle = function() {
+Array.prototype.shuffle = function () {
   // ..
 };
 
