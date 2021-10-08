@@ -7,7 +7,7 @@ input:
     hosts: ["localhost:8775"]
     path: "/jolokia/?ignoreErrors=true&canonicalNaming=false"
     jmx.mappings:
-      - mbean: 'kafka.producer:type=producer-metrics,client-id=*'
+      - mbean: "kafka.producer:type=producer-metrics,client-id=*"
         attributes:
           - attr: buffer-available-bytes
             field: available_buffer_bytes
@@ -33,7 +33,7 @@ input:
             field: response_rate
           - attr: io-wait-time-ns-avg
             field: io_wait
-      - mbean: 'kafka.producer:client-id=*,node-id=*,type=producer-node-metrics'
+      - mbean: "kafka.producer:client-id=*,node-id=*,type=producer-node-metrics"
         attributes:
           - attr: outgoing-byte-total
             field: out.bytes_per_sec
@@ -41,6 +41,3 @@ input:
         attributes:
           - attr: Count
             field: message_rate
-
-
-

@@ -6,15 +6,32 @@ input:
     metrics:
       - namespace: AWS/Lambda
         statistic: ["Average"]
-        name: ["Invocations", "Errors", "DeadLetterErrors", "DestinationDeliveryFailures", "Duration",
-               "Throttles", "IteratorAge", "ConcurrentExecutions",
-               "UnreservedConcurrentExecutions"]
+        name:
+          [
+            "Invocations",
+            "Errors",
+            "DeadLetterErrors",
+            "DestinationDeliveryFailures",
+            "Duration",
+            "Throttles",
+            "IteratorAge",
+            "ConcurrentExecutions",
+            "UnreservedConcurrentExecutions",
+          ]
         resource_type: lambda
       - namespace: AWS/Lambda
         statistic: ["Maximum"]
-        name: ["ProvisionedConcurrentExecutions", "ProvisionedConcurrencyUtilization"]
+        name:
+          [
+            "ProvisionedConcurrentExecutions",
+            "ProvisionedConcurrencyUtilization",
+          ]
         resource_type: lambda
       - namespace: AWS/Lambda
         statistic: ["Sum"]
-        name: ["ProvisionedConcurrencyInvocations", "ProvisionedConcurrencySpilloverInvocations"]
+        name:
+          [
+            "ProvisionedConcurrencyInvocations",
+            "ProvisionedConcurrencySpilloverInvocations",
+          ]
         resource_type: lambda

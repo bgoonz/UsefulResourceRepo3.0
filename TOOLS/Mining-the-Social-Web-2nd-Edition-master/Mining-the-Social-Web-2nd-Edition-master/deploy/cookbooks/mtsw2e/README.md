@@ -6,19 +6,11 @@ See [Appendix A](http://nbviewer.ipython.org/urls/raw.github.com/ptwobrussell/Mi
 
 ## Using With Chef-Solo
 
-Create a file called *mtsw2e.json* containing the following:
-`
-{
-  "run_list": [ "recipe[mtsw2e::default]" ]
- }
-`
+Create a file called _mtsw2e.json_ containing the following:
+`{ "run_list": [ "recipe[mtsw2e::default]" ] }`
 
-Create a file called *mtsw2e.rb* containing the following:
-`
-file_cache_path "/vagrant/deploy/chef-solo"
-cookbook_path "/vagrant/deploy/cookbooks"
-log_level :debug
-`
+Create a file called _mtsw2e.rb_ containing the following:
+`file_cache_path "/vagrant/deploy/chef-solo" cookbook_path "/vagrant/deploy/cookbooks" log_level :debug`
 
 ## Help
 

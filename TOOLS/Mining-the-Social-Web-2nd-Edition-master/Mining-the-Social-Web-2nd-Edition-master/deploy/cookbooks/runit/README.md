@@ -1,5 +1,4 @@
-Description
-===========
+# Description
 
 Installs runit and provides the `runit_service` service resource for
 managing processes (services) under runit.
@@ -9,10 +8,9 @@ plans to do so.
 
 For more information about runit:
 
-* http://smarden.org/runit/
+- http://smarden.org/runit/
 
-About Runit
-===========
+# About Runit
 
 In brief, Runit is a process supervision suite. It is simple to set
 up, and doesn't require complex shell scripts to be written to start
@@ -20,7 +18,7 @@ processes running as system services.
 
 To manage a process in runit, create a "service" directory that
 contains a "`run`" script. In this cookbook we refer to that directory
-as the `sv_dir` (see __Attributes__ and __Resource/Provider__). That
+as the `sv_dir` (see **Attributes** and **Resource/Provider**). That
 service directory is symbolically linked into runit's own service
 directory where its `runsvdir` program looks for processes to manage.
 See the [runit documentation](http://smarden.org/runit/) for detailed
@@ -29,35 +27,31 @@ information on runit.
 Supervised processes are analogous to services under other systems
 such as sysvinit or upstart.
 
-Requirements
-============
+# Requirements
 
 ## Platform:
 
-* Debian/Ubuntu
-* Gentoo
-* RHEL
+- Debian/Ubuntu
+- Gentoo
+- RHEL
 
-Attributes
-==========
+# Attributes
 
 See `attributes/default.rb` for defaults generated per platform.
 
-* `node['runit']['sv_bin']` - Full path to the `sv` binary.
-* `node['runit']['chpst_bin']` - Full path to the `chpst` binary.
-* `node['runit']['service_dir']` - Full path to the default "services"
+- `node['runit']['sv_bin']` - Full path to the `sv` binary.
+- `node['runit']['chpst_bin']` - Full path to the `chpst` binary.
+- `node['runit']['service_dir']` - Full path to the default "services"
   directory where enabled services are linked.
-* `node['runit']['sv_dir']` - Full path to the directory where
+- `node['runit']['sv_dir']` - Full path to the directory where
   service lives, which gets linked to `service_dir`.
-* `node['runit']['start']` - Command to start the runsvdir service
-* `node['runit']['stop]` - Command to stop the runsvdir service
-* `node['runit']['reload']` - Command to reload the runsvdir service
+- `node['runit']['start']` - Command to start the runsvdir service
+- `node['runit']['stop]` - Command to stop the runsvdir service
+- `node['runit']['reload']` - Command to reload the runsvdir service
 
-Recipes
-=======
+# Recipes
 
-default
--------
+## default
 
 The default recipe installs runit and starts `runsvdir` to supervise
 the services in runit's service directory (e.g., `/etc/service`).
@@ -71,8 +65,7 @@ installation.
 
 On Gentoo, the runit ebuild package is installed.
 
-Resource/Provider
-=================
+# Resource/Provider
 
 This cookbook has a resource, `runit_service`, for managing services
 under runit. This service subclasses the Chef `service` resource.
@@ -85,7 +78,7 @@ runit_service.**
 ## Actions:
 
 - **enable** - enables the service, creating the required run scripts
-   and symlinks. This is the default action.
+  and symlinks. This is the default action.
 - **start** - starts the service with `sv start`
 - **stop** - stops the service with `sv stop`
 - **disable** - stops the service with `sv down` and removes the service symlink
@@ -116,66 +109,65 @@ platform systems.
 Many of these parameters are only used in the `:enable` action.
 
 - **sv_dir** - The base "service directory" for the services managed by
-   the resource. By default, this will attempt to use the
-   `node['runit']['sv_dir']` attribute, and falls back to `/etc/sv`.
+  the resource. By default, this will attempt to use the
+  `node['runit']['sv_dir']` attribute, and falls back to `/etc/sv`.
 - **service_dir** - The directory where services are symlinked to be
-   supervised by `runsvdir`. By default, this will attempt to use the
-   `node['runit']['service_dir']` attribute, and falls back to
-   `/etc/service`.
+  supervised by `runsvdir`. By default, this will attempt to use the
+  `node['runit']['service_dir']` attribute, and falls back to
+  `/etc/service`.
 - **sv_bin** - The path to the `sv` program binary. This will attempt
-    to use the `node['runit']['sv_bin']` attribute, and falls back to
-    `/usr/bin/sv`.
-- **service_name** - *Name attribute*. The name of the service. This
-   will be used in the directory of the managed service in the
-   `sv_dir` and `service_dir`.
+  to use the `node['runit']['sv_bin']` attribute, and falls back to
+  `/usr/bin/sv`.
+- **service_name** - _Name attribute_. The name of the service. This
+  will be used in the directory of the managed service in the
+  `sv_dir` and `service_dir`.
 - **sv_templates** - If true, the `:enable` action will create the
-    service directory with the appropriate templates. Default is
-    `true`. Set this to `false` if the service has a package that
-    provides its own service directory. See __Usage__ examples.
+  service directory with the appropriate templates. Default is
+  `true`. Set this to `false` if the service has a package that
+  provides its own service directory. See **Usage** examples.
 - **options** - Options passed as variables to templates, for
-   compatibility with legacy runit service definition. Default is an
-   empty hash.
+  compatibility with legacy runit service definition. Default is an
+  empty hash.
 - **env** - A hash of environment variables with their values as content
-   used in the service's `env` directory. Default is an empty hash.
+  used in the service's `env` directory. Default is an empty hash.
 - **log** - Whether to start the service's logger with svlogd, requires
-   a template `sv-service_name-log-run.erb` to configure the log's run
-   script. Default is true.
+  a template `sv-service_name-log-run.erb` to configure the log's run
+  script. Default is true.
 - **default_logger** - Whether a default `log/run` script should be set
-   up. If true, the default content of the run script will use
-   `svlogd` to write logs to `/var/log/service_name`. Default is false.
+  up. If true, the default content of the run script will use
+  `svlogd` to write logs to `/var/log/service_name`. Default is false.
 - **cookbook** - A cookbook where templates are located instead of
-   where the resource is used. Applies for all the templates in the
-   `enable` action.
+  where the resource is used. Applies for all the templates in the
+  `enable` action.
 - **finish** - whether the service has a finish script, requires a
-   template `sv-service_name-finish.erb`
+  template `sv-service_name-finish.erb`
 - **control** - An array of signals to customize control of the service,
-   see [runsv man page](http://smarden.org/runit/runsv.8.html) on how
-   to use this. This requires that each template be created with the
-   name `sv-service_name-signal.erb`.
+  see [runsv man page](http://smarden.org/runit/runsv.8.html) on how
+  to use this. This requires that each template be created with the
+  name `sv-service_name-signal.erb`.
 - **owner** - user that should own the templates created to enable the
-   service
+  service
 - **group** - group that should own the templates created to enable the
-   service
+  service
 - **run_template_name** - alternate filename of the run run script to
-   use replacing `service_name`.
+  use replacing `service_name`.
 - **log_template_name** - alternate filename of the log run script to
-   use replacing `service_name`.
+  use replacing `service_name`.
 - **finish_script_template_name** - alternate filename of the finish
-   script to use, replacing `service_name`.
-- **control_template_names** - a hash of control signals (see *control*
-   above) and their alternate template name(s) replacing
-   `service_name`.
+  script to use, replacing `service_name`.
+- **control_template_names** - a hash of control signals (see _control_
+  above) and their alternate template name(s) replacing
+  `service_name`.
 - **status_command** - The command used to check the status of the
-   service to see if it is enabled/running (if it's running, it's
-   enabled). This hardcodes the location of the sv program to
-   `/usr/bin/sv` due to the aforementioned cookbook load order.
+  service to see if it is enabled/running (if it's running, it's
+  enabled). This hardcodes the location of the sv program to
+  `/usr/bin/sv` due to the aforementioned cookbook load order.
 
 Unlike previous versions of the cookbook using the `runit_service`
 definition, the `runit_service` resource can be notified. See
-__Usage__ examples below.
+**Usage** examples below.
 
-Usage
-=====
+# Usage
 
 To get runit installed on supported platforms, use `recipe[runit]`.
 Once it is installed, use the `runit_service` resource to set up
@@ -191,8 +183,7 @@ script will be created with the default content:
     #!/bin/sh
     exec svlogd -tt /var/log/service_name
 
-Examples
---------
+## Examples
 
 These are example use cases of the `runit_service` resource described
 above. There are others in the `runit_test` cookbook that is included
@@ -218,7 +209,7 @@ Then create the required log/run template,
     #!/bin/sh
     exec svlogd -tt ./main
 
-__Note__ This will cause output of the running process to go to
+**Note** This will cause output of the running process to go to
 `/etc/sv/chef-client/log/main/current`. Some people may not like this,
 see the following example. This is preserved for compatibility reasons.
 
@@ -293,8 +284,7 @@ create a `runsvdir-floyd` runit_service.
 
     runit_service "runsvdir-floyd"
 
-Create the `sv-runsvdir-floyd-log-run.erb` template, or add `log
-false`. Also create the `sv-runsvdir-floyd-run.erb` with the following
+Create the `sv-runsvdir-floyd-log-run.erb` template, or add `log false`. Also create the `sv-runsvdir-floyd-run.erb` with the following
 content:
 
     #!/bin/sh
@@ -396,8 +386,7 @@ conditional, such as based on an attribute:
 For more examples, see the `runit_test` cookbook's `service` recipe in
 the [git repository](https://github.com/opscode-cookbooks/runit).
 
-Testing
-=======
+# Testing
 
 This cookbook has tests in the GitHub repository. To run the tests:
 
@@ -424,8 +413,7 @@ automatically run under test kitchen.
 This tests the default recipe ("default" configuration), and various
 uses of the `runit_service` resource ("service" configuration).
 
-License and Author
-==================
+# License and Author
 
 Author:: Adam Jacob <adam@opscode.com>
 Author:: Joshua Timberman <joshua@opscode.com>

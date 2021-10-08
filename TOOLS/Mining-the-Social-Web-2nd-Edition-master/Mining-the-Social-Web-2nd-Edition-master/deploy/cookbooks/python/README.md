@@ -1,49 +1,42 @@
-Description
-===========
+# Description
 
-Installs and configures Python.  Also includes LWRPs for managing python packages with `pip` and `virtualenv` isolated Python environments.
+Installs and configures Python. Also includes LWRPs for managing python packages with `pip` and `virtualenv` isolated Python environments.
 
-Requirements
-============
+# Requirements
 
-Platform
---------
+## Platform
 
-* Debian, Ubuntu
-* CentOS, Red Hat, Fedora
+- Debian, Ubuntu
+- CentOS, Red Hat, Fedora
 
-Cookbooks
----------
+## Cookbooks
 
-* build-essential
-* yum
+- build-essential
+- yum
 
 NOTE: The `yum` cookbook is a dependency of the cookbook, and will be used to install [EPEL](http://fedoraproject.org/wiki/EPEL) on RedHet/CentOS 5.x systems to provide the Python 2.6 packages.
 
-Attributes
-==========
+# Attributes
 
 See `attributes/default.rb` for default values.
 
-* `node["python"]["install_method"]` - method to install python with, default `package`.
+- `node["python"]["install_method"]` - method to install python with, default `package`.
 
 The file also contains the following attributes:
 
-* platform specific locations and settings.
-* source installation settings
+- platform specific locations and settings.
+- source installation settings
 
-Resource/Provider
-=================
+# Resource/Provider
 
 This cookbook includes LWRPs for managing:
 
-* pip packages
-* virtualenv isolated Python environments
+- pip packages
+- virtualenv isolated Python environments
 
-`python_pip`
-------------
+## `python_pip`
 
-Install packages using the new hotness in Python package management...[`pip`](http://pypi.python.org/pypi/pip).  Yo dawg...easy_install is so 2009, you better ask your local Pythonista if you don't know! The usage semantics are like that of any normal package provider.
+Install packages using the new hotness in Python package management...[`pip`](http://pypi.python.org/pypi/pip). Yo dawg...easy_install is so 2009, you better ask your local Pythonista if you don't know! The usage semantics are like that of any normal package provider.
 
 # Actions
 
@@ -52,12 +45,12 @@ Install packages using the new hotness in Python package management...[`pip`](ht
 - :remove: Remove a pip package
 - :user: User to run pip as, for using with virtualenv
 - :group: Group to run pip as, for using with virtualenv
-- :purge: Purge a pip package (this usually entails removing configuration files as well as the package itself).  With pip packages this behaves the same as `:remove`
+- :purge: Purge a pip package (this usually entails removing configuration files as well as the package itself). With pip packages this behaves the same as `:remove`
 
 # Attribute Parameters
 
 - package_name: name attribute. The name of the pip package to install
-- version: the version of the package to install/upgrade.  If no version is given latest is assumed.
+- version: the version of the package to install/upgrade. If no version is given latest is assumed.
 - virtualenv: virtualenv environment to install pip package into
 - options: Add additional options to the underlying pip package command
 - timeout: timeout in seconds for the command to execute. Useful for pip packages that may take a long time to install. Default 900 seconds.
@@ -82,10 +75,9 @@ Install packages using the new hotness in Python package management...[`pip`](ht
       provider Chef::Provider::PythonPip
     end
 
-`python_virtualenv`
--------------------
+## `python_virtualenv`
 
-[`virtualenv`](http://pypi.python.org/pypi/virtualenv) is a great tool that creates isolated python environments.  Think of it as RVM without all those hipsters and tight jeans.
+[`virtualenv`](http://pypi.python.org/pypi/virtualenv) is a great tool that creates isolated python environments. Think of it as RVM without all those hipsters and tight jeans.
 
 # Actions
 
@@ -125,36 +117,29 @@ Install packages using the new hotness in Python package management...[`pip`](ht
       action :create
     end
 
-Usage
-=====
+# Usage
 
-default
--------
+## default
 
 Include default recipe in a run list, to get `python`, `pip` and `virtualenv`. Installs python by package or source depending on the platform.
 
-package
--------
+## package
 
 Installs Python from packages.
 
-source
-------
+## source
 
 Installs Python from source.
 
-pip
----
+## pip
 
 Installs `pip` from source.
 
-virtualenv
-----------
+## virtualenv
 
 Installs virtualenv using the `python_pip` resource.
 
-License and Author
-==================
+# License and Author
 
 Author:: Seth Chisamore (<schisamo@opscode.com>)
 

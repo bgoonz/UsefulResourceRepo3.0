@@ -1,6 +1,6 @@
 # Description
 
-Configures various YUM components on Red Hat-like systems.  Includes
+Configures various YUM components on Red Hat-like systems. Includes
 LWRP for managing repositories and their GPG keys.
 
 Based on the work done by Eric Wolfe and Charles Duffy on the
@@ -13,80 +13,94 @@ family.
 
 # Attributes
 
-* `yum['exclude']`
-    - An array containing a list of packages to exclude from updates or
-      installs.  Wildcards and shell globs are supported.
-    - Defaults to an empty exclude list.
+- `yum['exclude']`
 
-* `yum['installonlypkgs']`
-    - An array containing a list of packages which should only be
-      installed, never updated.
-    - Defaults to an empty install-only list.
+  - An array containing a list of packages to exclude from updates or
+    installs. Wildcards and shell globs are supported.
+  - Defaults to an empty exclude list.
 
-* `yum['ius_release']`
-    - Set the IUS release to install.
-    - Defaults to the current release of the IUS repo.
+- `yum['installonlypkgs']`
 
-* `yum['repoforge_release']`
-    - Set the RepoForge release to install.
-    - Defaults to the current release of the repoforge repo.
+  - An array containing a list of packages which should only be
+    installed, never updated.
+  - Defaults to an empty install-only list.
+
+- `yum['ius_release']`
+
+  - Set the IUS release to install.
+  - Defaults to the current release of the IUS repo.
+
+- `yum['repoforge_release']`
+  - Set the RepoForge release to install.
+  - Defaults to the current release of the repoforge repo.
 
 EPEL attributes used in the `yum::epel` recipe, see
 `attributes/epel.rb` for default values:
 
-* `yum['epel']['key']`
-    - Name of the GPG key used for the repo.
+- `yum['epel']['key']`
 
-* `yum['epel']['baseurl']`
-    - Base URL to an EPEL mirror.
+  - Name of the GPG key used for the repo.
 
-* `yum['epel']['url']`
-    - URL to the EPEL mirrorlist.
+- `yum['epel']['baseurl']`
 
-* `yum['epel']['key_url']`
-    - URL to the GPG key for the repo.
+  - Base URL to an EPEL mirror.
 
-* `yum['epel']['includepkgs']`
-    - list of packages you want to use for the repo.
+- `yum['epel']['url']`
 
-* `yum['epel']['exclude']`
-    - list of packages you do NOT want to use for the repo.
+  - URL to the EPEL mirrorlist.
 
-The `node['yum']['epel_release']` attribute is removed, see the __epel__
+- `yum['epel']['key_url']`
+
+  - URL to the GPG key for the repo.
+
+- `yum['epel']['includepkgs']`
+
+  - list of packages you want to use for the repo.
+
+- `yum['epel']['exclude']`
+  - list of packages you do NOT want to use for the repo.
+
+The `node['yum']['epel_release']` attribute is removed, see the **epel**
 recipe information below.
 
 remi attributes used in the `yum::remi` recipe, see
 `attributes/remi.rb` for default values:
 
-* `yum['remi']['key']`
-    - Name of the GPG key used for the repo.
+- `yum['remi']['key']`
 
-* `yum['remi']['url']`
-    - URL to the remi mirrorlist.
+  - Name of the GPG key used for the repo.
 
-* `yum['remi']['key_url']`
-    - URL to the GPG key for the repo.
+- `yum['remi']['url']`
 
-* `yum['remi']['includepkgs']`
-    - list of packages you want to use for the repo.
+  - URL to the remi mirrorlist.
 
-* `yum['remi']['exclude']`
-    - list of packages you do NOT want to use for the repo.
+- `yum['remi']['key_url']`
+
+  - URL to the GPG key for the repo.
+
+- `yum['remi']['includepkgs']`
+
+  - list of packages you want to use for the repo.
+
+- `yum['remi']['exclude']`
+  - list of packages you do NOT want to use for the repo.
 
 Proxy settings used in yum.conf on RHEL family 5 and 6:
 
-* `yum['proxy']`
-    - Set the URL for an HTTP proxy
-    - None of the proxy settings are used if this is an empty string
-      (default)
+- `yum['proxy']`
 
-* `yum['proxy_username']`
-    - Set the username for the proxy
-    - not used if `yum['proxy']` above is an empty string
+  - Set the URL for an HTTP proxy
+  - None of the proxy settings are used if this is an empty string
+    (default)
 
-* `yum['proxy_password']`
-    - Set the password for the proxy
-    - not used if `yum['proxy']` above is an empty string
+- `yum['proxy_username']`
+
+  - Set the username for the proxy
+  - not used if `yum['proxy']` above is an empty string
+
+- `yum['proxy_password']`
+  - Set the password for the proxy
+  - not used if `yum['proxy']` above is an empty string
 
 # Recipes
 
@@ -96,7 +110,7 @@ The default recipe does nothing.
 
 ## yum
 
-Manages the configuration of the `/etc/yum.conf` via attributes.  See
+Manages the configuration of the `/etc/yum.conf` via attributes. See
 the aforementioned Array attributes `yum['exclude']` and
 `yum['installonlypkgs']`.
 
@@ -143,7 +157,7 @@ dependency.
 
 Install the [Les RPM de Remi - Repository](http://rpms.famillecollet.com/)
 with the `yum_key` and `yum_repository` resources from this cookbook
-are used to manage the remi repository.  Use the `yum['remi']`
+are used to manage the remi repository. Use the `yum['remi']`
 attributes (see above) to configure the key, url and download the GPG
 key for the repo. The defaults are detected by platform and should
 just work without modification in most use cases.
@@ -168,7 +182,7 @@ recipe and then installed with the LWRP without passing the URL.
 
 #### Example
 
-``` ruby
+```ruby
 # add the Zenoss GPG key
 yum_key "RPM-GPG-KEY-zenoss" do
   url "http://dev.zenoss.com/yum/RPM-GPG-KEY-zenoss"
@@ -184,7 +198,7 @@ end
 ### yum_repository
 
 This LWRP provides an easy way to manage additional YUM repositories.
-GPG keys can be managed with the `yum_key` LWRP.  The LWRP automatically
+GPG keys can be managed with the `yum_key` LWRP. The LWRP automatically
 updates the package management cache upon the first run, when a new
 repo is added.
 
@@ -209,18 +223,17 @@ repo is added.
 - type: Optional, alternate type of repository
 - failovermethod: Optional, failovermethod
 - bootstrapurl: Optional, bootstrapurl
-- make_cache: Optional, Default is `true`, if `false` then `yum -q
-  makecache` will not be ran
+- make_cache: Optional, Default is `true`, if `false` then `yum -q makecache` will not be ran
 - metadata_expire: Optional, Default is nil (or not applied)
 - type: Optional, Default is nil (or not applied)
 
-*Note*: When using both url (to set baseurl) and mirrorlist, it is probably a
+_Note_: When using both url (to set baseurl) and mirrorlist, it is probably a
 good idea to also install the fastestmirror plugin, and use
 failovermethod "priority".
 
 ### Example
 
-``` ruby
+```ruby
 # add the Zenoss repository
 yum_repository "zenoss" do
   repo_name "zenoss"
@@ -243,7 +256,7 @@ correctly for your environment within your Chef run.
 
 Use the `yum::epel` recipe to enable EPEL, or the `yum::ius` recipe to
 enable IUS, or the `yum::repoforge` recipe to enable RepoForge, or the
-`yum::remi` recipe to enable remi per __Recipes__ section above.
+`yum::remi` recipe to enable remi per **Recipes** section above.
 
 You can manage GPG keys either with cookbook_file in a recipe if you
 want to package it with a cookbook or use the `url` parameter of the

@@ -6,7 +6,17 @@ input:
     metrics:
       - namespace: AWS/EBS
         statistic: ["Average"]
-        name: ["VolumeReadBytes", "VolumeWriteBytes", "VolumeReadOps", "VolumeWriteOps", "VolumeQueueLength", "VolumeThroughputPercentage", "VolumeConsumedReadWriteOps", "BurstBalance"]
+        name:
+          [
+            "VolumeReadBytes",
+            "VolumeWriteBytes",
+            "VolumeReadOps",
+            "VolumeWriteOps",
+            "VolumeQueueLength",
+            "VolumeThroughputPercentage",
+            "VolumeConsumedReadWriteOps",
+            "BurstBalance",
+          ]
         resource_type: ec2
       - namespace: AWS/EBS
         statistic: ["Sum"]

@@ -1,15 +1,14 @@
-python_test Cookbook
-====================
+# python_test Cookbook
 
 This cookbook tests the pip and virtualenv providers
 
-Requirements
-------------
+## Requirements
 
 #### packages
-- `python` - Version *2.5* or higher
 
-License and Authors
--------------------
+- `python` - Version _2.5_ or higher
+
+## License and Authors
+
 Authors: Scott Likens <scott@mopub.com>
-		 Sean Porter <portertech@gmail.com>
+Sean Porter <portertech@gmail.com>

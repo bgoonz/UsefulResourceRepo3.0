@@ -5,7 +5,7 @@ input:
   defaults:
     namespace: "requests"
     jmx.mappings:
-      - mbean: 'Catalina:name=*,type=GlobalRequestProcessor'
+      - mbean: "Catalina:name=*,type=GlobalRequestProcessor"
         attributes:
           - attr: requestCount
             field: total

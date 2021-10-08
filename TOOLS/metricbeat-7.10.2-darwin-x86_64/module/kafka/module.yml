@@ -1,5 +1,5 @@
 name: kafka
 metricsets:
-- broker
-- producer
-- consumer
+  - broker
+  - producer
+  - consumer

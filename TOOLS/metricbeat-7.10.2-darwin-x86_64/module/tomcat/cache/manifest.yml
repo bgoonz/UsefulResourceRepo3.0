@@ -5,7 +5,7 @@ input:
   defaults:
     namespace: "cache"
     jmx.mappings:
-      - mbean: 'Catalina:context=*,host=*,name=Cache,type=WebResourceRoot'
+      - mbean: "Catalina:context=*,host=*,name=Cache,type=WebResourceRoot"
         attributes:
           - attr: hitCount
             field: hit.total

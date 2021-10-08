@@ -5,7 +5,7 @@ input:
   defaults:
     namespace: "threading"
     jmx.mappings:
-      - mbean: 'Catalina:name=*,type=ThreadPool'
+      - mbean: "Catalina:name=*,type=ThreadPool"
         attributes:
           - attr: currentThreadsBusy
             field: busy
@@ -18,7 +18,7 @@ input:
           - attr: keepAliveTimeout
             field: keep_alive.timeout.ms
 
-      - mbean: 'java.lang:type=Threading'
+      - mbean: "java.lang:type=Threading"
         attributes:
           - attr: TotalStartedThreadCount
             field: started.total
