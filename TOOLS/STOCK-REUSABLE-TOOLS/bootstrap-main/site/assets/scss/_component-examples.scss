@@ -6,10 +6,10 @@
   .row {
     > .col,
     > [class^="col-"] {
-      padding-top: .75rem;
-      padding-bottom: .75rem;
-      background-color: rgba(39, 41, 43, .03);
-      border: 1px solid rgba(39, 41, 43, .1);
+      padding-top: 0.75rem;
+      padding-bottom: 0.75rem;
+      background-color: rgba(39, 41, 43, 0.03);
+      border: 1px solid rgba(39, 41, 43, 0.1);
     }
   }
 
@@ -20,12 +20,12 @@
 
 .bd-example-row-flex-cols .row {
   min-height: 10rem;
-  background-color: rgba(255, 0, 0, .1);
+  background-color: rgba(255, 0, 0, 0.1);
 }
 
 .bd-highlight {
-  background-color: rgba($bd-purple, .15);
-  border: 1px solid rgba($bd-purple, .15);
+  background-color: rgba($bd-purple, 0.15);
+  border: 1px solid rgba($bd-purple, 0.15);
 }
 
 // Grid mixins
@@ -62,7 +62,6 @@
   }
 }
 
-
 //
 // Docs examples
 //
@@ -80,10 +79,10 @@
     margin-right: 0;
     margin-left: 0;
     border-width: 1px;
-    @include border-top-radius(.25rem);
+    @include border-top-radius(0.25rem);
 
     + .bd-clipboard + .highlight {
-      @include border-bottom-radius(.25rem);
+      @include border-bottom-radius(0.25rem);
     }
   }
 
@@ -93,7 +92,7 @@
 
   > .form-control {
     + .form-control {
-      margin-top: .5rem;
+      margin-top: 0.5rem;
     }
   }
 
@@ -116,16 +115,16 @@
   // Images
   > svg + svg,
   > img + img {
-    margin-left: .5rem;
+    margin-left: 0.5rem;
   }
 
   // Buttons
   > .btn,
   > .btn-group {
-    margin: .25rem .125rem;
+    margin: 0.25rem 0.125rem;
   }
   > .btn-toolbar + .btn-toolbar {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
   }
 
   // List groups
@@ -161,8 +160,8 @@
 
   // Pagination
   .pagination {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
   }
 }
 
@@ -210,7 +209,7 @@
 .scrollspy-example {
   position: relative;
   height: 200px;
-  margin-top: .5rem;
+  margin-top: 0.5rem;
   overflow: auto;
 }
 
@@ -225,7 +224,7 @@
     display: inline-block;
     width: 5rem;
     height: 5rem;
-    margin: .25rem;
+    margin: 0.25rem;
     background-color: #f5f5f5;
   }
 }
@@ -238,7 +237,7 @@
 
 .bd-example-rounded-utils {
   [class*="rounded"] {
-    margin: .25rem;
+    margin: 0.25rem;
   }
 }
 
@@ -285,8 +284,8 @@
 
   pre {
     padding: 0;
-    margin-top: .65rem;
-    margin-bottom: .65rem;
+    margin-top: 0.65rem;
+    margin-bottom: 0.65rem;
     white-space: pre;
     background-color: transparent;
     border: 0;

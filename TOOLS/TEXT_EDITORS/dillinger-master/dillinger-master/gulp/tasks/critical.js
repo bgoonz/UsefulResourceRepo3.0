@@ -1,4 +1,3 @@
-
 'use strict'
 
 const critical = require('critical')

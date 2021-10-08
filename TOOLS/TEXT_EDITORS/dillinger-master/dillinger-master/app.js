@@ -50,32 +50,40 @@ if (env === 'development') {
   app.use(logger('short'))
 }
 if (env === 'production') {
-  app.use(require('connect-assets')({
-    paths: ['public/js', 'public/css'],
-    fingerprinting: true,
-    build: false
-  }))
+  app.use(
+    require('connect-assets')({
+      paths: ['public/js', 'public/css'],
+      fingerprinting: true,
+      build: false
+    })
+  )
 }
 
 app.use(compress())
 
-app.use(bodyParser.json({
-  limit: '512mb'
-}))
-app.use(bodyParser.urlencoded({
-  limit: '512mb',
-  extended: true
-}))
+app.use(
+  bodyParser.json({
+    limit: '512mb'
+  })
+)
+app.use(
+  bodyParser.urlencoded({
+    limit: '512mb',
+    extended: true
+  })
+)
 
 app.use(methodOverride())
 app.use(cookieParser('1337 h4x0r'))
-app.use(cookieSession({
-  name: 'dillinger-session',
-  keys: ['open', 'source']
-}))
+app.use(
+  cookieSession({
+    name: 'dillinger-session',
+    keys: ['open', 'source']
+  })
+)
 
 // Let's 301 redirect to simply dillinger.io
-app.use(function forceLiveDomain (req, res, next) {
+app.use(function forceLiveDomain(req, res, next) {
   const host = req.get('Host')
   if (host === 'www.dillinger.io') {
     return res.redirect(301, 'http://dillinger.io' + req.originalUrl)
@@ -84,18 +92,21 @@ app.use(function forceLiveDomain (req, res, next) {
 })
 
 // Support for HTTP/2 Server Push
-app.use(netjet({
-  cache: {
-    max: 100
-  }
-}))
+app.use(
+  netjet({
+    cache: {
+      max: 100
+    }
+  })
+)
 
 // We do need this in any environment that is not Now/Zeit
 app.use(serveStatic(path.join(__dirname, '/public')))
 
 // Setup local variables to be available in the views.
 app.locals.title = config.title || 'Dillinger.'
-app.locals.description = config.description || 'Dillinger, the last Markdown Editor, ever.'
+app.locals.description =
+  config.description || 'Dillinger, the last Markdown Editor, ever.'
 app.locals.dillinger_version = require('./package.json').version
 
 if (config.googleWebmasterMeta) {
@@ -114,7 +125,10 @@ app.locals.node_version = process.version.replace('v', '')
 app.locals.env = process.env.NODE_ENV
 
 // At startup time so sync is ok.
-app.locals.readme = fs.readFileSync(path.resolve(__dirname, './README.md'), 'utf-8')
+app.locals.readme = fs.readFileSync(
+  path.resolve(__dirname, './README.md'),
+  'utf-8'
+)
 
 if (env === 'development') {
   app.use(errorHandler())
@@ -134,5 +148,7 @@ app.use(onedrive)
 
 app.listen(app.get('port'), function () {
   console.log('Express server listening on port ' + app.get('port'))
-  console.log('\nhttp://' + app.get('bind-address') + ':' + app.get('port') + '\n')
+  console.log(
+    '\nhttp://' + app.get('bind-address') + ':' + app.get('port') + '\n'
+  )
 })

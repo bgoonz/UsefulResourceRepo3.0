@@ -98,7 +98,9 @@ Add, remove, or modify values within the map to update how they're used in many 
 Here's how you can use these in your Sass:
 
 ```scss
-.alpha { color: $purple; }
+.alpha {
+  color: $purple;
+}
 .beta {
   color: $yellow-300;
   background-color: $indigo-900;

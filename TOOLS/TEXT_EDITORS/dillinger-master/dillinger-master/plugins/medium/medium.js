@@ -4,7 +4,11 @@ const fs = require('fs')
 const path = require('path')
 const mediumSdk = require('medium-sdk')
 
-var mediumConfigFile = path.resolve(__dirname, '../../configs/medium/', 'medium-config.json')
+var mediumConfigFile = path.resolve(
+  __dirname,
+  '../../configs/medium/',
+  'medium-config.json'
+)
 var mediumConfig = {}
 var isConfigEnabled = false
 
@@ -29,7 +33,9 @@ if (fs.existsSync(mediumConfigFile)) {
     callback_url: 'YOUR_CALLBACK_URL',
     redirect_url: 'YOUR_REDIRECT_URL'
   }
-  console.warn('Medium config not found at ' + mediumConfigFile + '. Plugin disabled.')
+  console.warn(
+    'Medium config not found at ' + mediumConfigFile + '. Plugin disabled.'
+  )
 }
 
 exports.Medium = (function () {
@@ -43,12 +49,14 @@ exports.Medium = (function () {
     isConfigured: isConfigEnabled,
     config: mediumConfig,
     generateAuthUrl: function (req, res, cb) {
-      return mediumApp.getAuthorizationUrl('dillinger-secrets-are-insecure', mediumConfig.redirect_url, [
-        mediumSdk.Scope.BASIC_PROFILE, mediumSdk.Scope.PUBLISH_POST
-      ])
+      return mediumApp.getAuthorizationUrl(
+        'dillinger-secrets-are-insecure',
+        mediumConfig.redirect_url,
+        [mediumSdk.Scope.BASIC_PROFILE, mediumSdk.Scope.PUBLISH_POST]
+      )
     },
     getUser: function (req, res, cb) {
-      mediumApp.getUser(function getMediumUserCb (err, user) {
+      mediumApp.getUser(function getMediumUserCb(err, user) {
         if (err) return cb(err)
         else return cb(null, user)
       })
@@ -59,20 +67,27 @@ exports.Medium = (function () {
     save: function (req, res) {
       var title = req.body.title || 'New Unnamed Post'
 
-      mediumApp.createPost({
-        userId: req.session.medium.userId,
-        title: title,
-        contentFormat: mediumSdk.PostContentFormat.MARKDOWN,
-        content: req.body.content,
-        publishStatus: mediumSdk.PostPublishStatus.DRAFT
-      }, function (err, post) {
-        if (err) {
-          console.error(err.message)
-          return res.status(400).json(err.message + ' Please unlink and relink your Medium account.')
-        }
+      mediumApp.createPost(
+        {
+          userId: req.session.medium.userId,
+          title: title,
+          contentFormat: mediumSdk.PostContentFormat.MARKDOWN,
+          content: req.body.content,
+          publishStatus: mediumSdk.PostPublishStatus.DRAFT
+        },
+        function (err, post) {
+          if (err) {
+            console.error(err.message)
+            return res
+              .status(400)
+              .json(
+                err.message + ' Please unlink and relink your Medium account.'
+              )
+          }
 
-        return res.status(200).json(post)
-      }) // end createPost
+          return res.status(200).json(post)
+        }
+      ) // end createPost
     } // end SaveToMedium
   } // end return object
 })()

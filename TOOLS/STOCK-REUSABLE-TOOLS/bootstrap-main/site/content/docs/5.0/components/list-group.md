@@ -11,6 +11,7 @@ toc: true
 The most basic list group is an unordered list with list items and the proper classes. Build upon it with the options that follow, or with your own CSS as needed.
 
 {{< example >}}
+
 <ul class="list-group">
   <li class="list-group-item">An item</li>
   <li class="list-group-item">A second item</li>
@@ -25,6 +26,7 @@ The most basic list group is an unordered list with list items and the proper cl
 Add `.active` to a `.list-group-item` to indicate the current active selection.
 
 {{< example >}}
+
 <ul class="list-group">
   <li class="list-group-item active" aria-current="true">An active item</li>
   <li class="list-group-item">A second item</li>
@@ -39,6 +41,7 @@ Add `.active` to a `.list-group-item` to indicate the current active selection.
 Add `.disabled` to a `.list-group-item` to make it _appear_ disabled. Note that some elements with `.disabled` will also require custom JavaScript to fully disable their click events (e.g., links).
 
 {{< example >}}
+
 <ul class="list-group">
   <li class="list-group-item disabled" aria-disabled="true">A disabled item</li>
   <li class="list-group-item">A second item</li>
@@ -55,6 +58,7 @@ Use `<a>`s or `<button>`s to create _actionable_ list group items with hover, di
 Be sure to **not use the standard `.btn` classes here**.
 
 {{< example >}}
+
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
     The current link item
@@ -69,6 +73,7 @@ Be sure to **not use the standard `.btn` classes here**.
 With `<button>`s, you can also make use of the `disabled` attribute instead of the `.disabled` class. Sadly, `<a>`s don't support the disabled attribute.
 
 {{< example >}}
+
 <div class="list-group">
   <button type="button" class="list-group-item list-group-item-action active" aria-current="true">
     The current button
@@ -85,6 +90,7 @@ With `<button>`s, you can also make use of the `disabled` attribute instead of t
 Add `.list-group-flush` to remove some borders and rounded corners to render list group items edge-to-edge in a parent container (e.g., cards).
 
 {{< example >}}
+
 <ul class="list-group list-group-flush">
   <li class="list-group-item">An item</li>
   <li class="list-group-item">A second item</li>
@@ -103,6 +109,7 @@ Add `.list-group-horizontal` to change the layout of list group items from verti
 {{< example >}}
 {{< list-group.inline >}}
 {{- range $.Site.Data.breakpoints }}
+
 <ul class="list-group list-group-horizontal{{ .abbr }}">
   <li class="list-group-item">An item</li>
   <li class="list-group-item">A second item</li>
@@ -117,6 +124,7 @@ Add `.list-group-horizontal` to change the layout of list group items from verti
 Use contextual classes to style list items with a stateful background and color.
 
 {{< example >}}
+
 <ul class="list-group">
   <li class="list-group-item">A simple default list group item</li>
 {{< list.inline >}}
@@ -130,6 +138,7 @@ Use contextual classes to style list items with a stateful background and color.
 Contextual classes also work with `.list-group-item-action`. Note the addition of the hover styles here not present in the previous example. Also supported is the `.active` state; apply it to indicate an active selection on a contextual list group item.
 
 {{< example >}}
+
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action">A simple default list group item</a>
 {{< list.inline >}}
@@ -149,6 +158,7 @@ Contextual classes also work with `.list-group-item-action`. Note the addition o
 Add badges to any list group item to show unread counts, activity, and more with the help of some [utilities]({{< docsref "/utilities/flex" >}}).
 
 {{< example >}}
+
 <ul class="list-group">
   <li class="list-group-item d-flex justify-content-between align-items-center">
     A list item
@@ -170,6 +180,7 @@ Add badges to any list group item to show unread counts, activity, and more with
 Add nearly any HTML within, even for linked list groups like the one below, with the help of [flexbox utilities]({{< docsref "/utilities/flex" >}}).
 
 {{< example >}}
+
 <div class="list-group">
   <a href="#" class="list-group-item list-group-item-action active" aria-current="true">
     <div class="d-flex w-100 justify-content-between">
@@ -203,6 +214,7 @@ Add nearly any HTML within, even for linked list groups like the one below, with
 Place Bootstrap's checkboxes and radios within list group items and customize as needed. You can use them without `<label>`s, but please remember to include an `aria-label` attribute and value for accessibility.
 
 {{< example >}}
+
 <ul class="list-group">
   <li class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
@@ -230,6 +242,7 @@ Place Bootstrap's checkboxes and radios within list group items and customize as
 And if you want `<label>`s as the `.list-group-item` for large hit areas, you can do that, too.
 
 {{< example >}}
+
 <div class="list-group">
   <label class="list-group-item">
     <input class="form-check-input me-1" type="checkbox" value="">
@@ -253,7 +266,6 @@ And if you want `<label>`s as the `.list-group-item` for large hit areas, you ca
   </label>
 </div>
 {{< /example >}}
-
 
 ## JavaScript behavior
 
@@ -292,18 +304,78 @@ Use the tab JavaScript plugin—include it individually or through the compiled 
 <div class="row">
   <div class="col-4">
     <div class="list-group" id="list-tab" role="tablist">
-      <a class="list-group-item list-group-item-action active" id="list-home-list" data-bs-toggle="list" href="#list-home" role="tab" aria-controls="home">Home</a>
-      <a class="list-group-item list-group-item-action" id="list-profile-list" data-bs-toggle="list" href="#list-profile" role="tab" aria-controls="profile">Profile</a>
-      <a class="list-group-item list-group-item-action" id="list-messages-list" data-bs-toggle="list" href="#list-messages" role="tab" aria-controls="messages">Messages</a>
-      <a class="list-group-item list-group-item-action" id="list-settings-list" data-bs-toggle="list" href="#list-settings" role="tab" aria-controls="settings">Settings</a>
+      <a
+        class="list-group-item list-group-item-action active"
+        id="list-home-list"
+        data-bs-toggle="list"
+        href="#list-home"
+        role="tab"
+        aria-controls="home"
+        >Home</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        id="list-profile-list"
+        data-bs-toggle="list"
+        href="#list-profile"
+        role="tab"
+        aria-controls="profile"
+        >Profile</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        id="list-messages-list"
+        data-bs-toggle="list"
+        href="#list-messages"
+        role="tab"
+        aria-controls="messages"
+        >Messages</a
+      >
+      <a
+        class="list-group-item list-group-item-action"
+        id="list-settings-list"
+        data-bs-toggle="list"
+        href="#list-settings"
+        role="tab"
+        aria-controls="settings"
+        >Settings</a
+      >
     </div>
   </div>
   <div class="col-8">
     <div class="tab-content" id="nav-tabContent">
-      <div class="tab-pane fade show active" id="list-home" role="tabpanel" aria-labelledby="list-home-list">...</div>
-      <div class="tab-pane fade" id="list-profile" role="tabpanel" aria-labelledby="list-profile-list">...</div>
-      <div class="tab-pane fade" id="list-messages" role="tabpanel" aria-labelledby="list-messages-list">...</div>
-      <div class="tab-pane fade" id="list-settings" role="tabpanel" aria-labelledby="list-settings-list">...</div>
+      <div
+        class="tab-pane fade show active"
+        id="list-home"
+        role="tabpanel"
+        aria-labelledby="list-home-list"
+      >
+        ...
+      </div>
+      <div
+        class="tab-pane fade"
+        id="list-profile"
+        role="tabpanel"
+        aria-labelledby="list-profile-list"
+      >
+        ...
+      </div>
+      <div
+        class="tab-pane fade"
+        id="list-messages"
+        role="tabpanel"
+        aria-labelledby="list-messages-list"
+      >
+        ...
+      </div>
+      <div
+        class="tab-pane fade"
+        id="list-settings"
+        role="tabpanel"
+        aria-labelledby="list-settings-list"
+      >
+        ...
+      </div>
     </div>
   </div>
 </div>
@@ -317,10 +389,34 @@ You can activate a list group navigation without writing any JavaScript by simpl
 <div role="tabpanel">
   <!-- List group -->
   <div class="list-group" id="myList" role="tablist">
-    <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#home" role="tab">Home</a>
-    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#profile" role="tab">Profile</a>
-    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#messages" role="tab">Messages</a>
-    <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#settings" role="tab">Settings</a>
+    <a
+      class="list-group-item list-group-item-action active"
+      data-bs-toggle="list"
+      href="#home"
+      role="tab"
+      >Home</a
+    >
+    <a
+      class="list-group-item list-group-item-action"
+      data-bs-toggle="list"
+      href="#profile"
+      role="tab"
+      >Profile</a
+    >
+    <a
+      class="list-group-item list-group-item-action"
+      data-bs-toggle="list"
+      href="#messages"
+      role="tab"
+      >Messages</a
+    >
+    <a
+      class="list-group-item list-group-item-action"
+      data-bs-toggle="list"
+      href="#settings"
+      role="tab"
+      >Settings</a
+    >
   </div>
 
   <!-- Tab panes -->
@@ -338,25 +434,25 @@ You can activate a list group navigation without writing any JavaScript by simpl
 Enable tabbable list item via JavaScript (each list item needs to be activated individually):
 
 ```js
-var triggerTabList = [].slice.call(document.querySelectorAll('#myTab a'))
+var triggerTabList = [].slice.call(document.querySelectorAll("#myTab a"));
 triggerTabList.forEach(function (triggerEl) {
-  var tabTrigger = new bootstrap.Tab(triggerEl)
+  var tabTrigger = new bootstrap.Tab(triggerEl);
 
-  triggerEl.addEventListener('click', function (event) {
-    event.preventDefault()
-    tabTrigger.show()
-  })
-})
+  triggerEl.addEventListener("click", function (event) {
+    event.preventDefault();
+    tabTrigger.show();
+  });
+});
 ```
 
 You can activate individual list item in several ways:
 
 ```js
-var triggerEl = document.querySelector('#myTab a[href="#profile"]')
-bootstrap.Tab.getInstance(triggerEl).show() // Select tab by name
+var triggerEl = document.querySelector('#myTab a[href="#profile"]');
+bootstrap.Tab.getInstance(triggerEl).show(); // Select tab by name
 
-var triggerFirstTabEl = document.querySelector('#myTab li:first-child a')
-bootstrap.Tab.getInstance(triggerFirstTabEl).show() // Select first tab
+var triggerFirstTabEl = document.querySelector("#myTab li:first-child a");
+bootstrap.Tab.getInstance(triggerFirstTabEl).show(); // Select first tab
 ```
 
 ### Fade effect
@@ -380,10 +476,34 @@ Activates a list item element and content container. Tab should have either a `d
 
 ```html
 <div class="list-group" id="myList" role="tablist">
-  <a class="list-group-item list-group-item-action active" data-bs-toggle="list" href="#home" role="tab">Home</a>
-  <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#profile" role="tab">Profile</a>
-  <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#messages" role="tab">Messages</a>
-  <a class="list-group-item list-group-item-action" data-bs-toggle="list" href="#settings" role="tab">Settings</a>
+  <a
+    class="list-group-item list-group-item-action active"
+    data-bs-toggle="list"
+    href="#home"
+    role="tab"
+    >Home</a
+  >
+  <a
+    class="list-group-item list-group-item-action"
+    data-bs-toggle="list"
+    href="#profile"
+    role="tab"
+    >Profile</a
+  >
+  <a
+    class="list-group-item list-group-item-action"
+    data-bs-toggle="list"
+    href="#messages"
+    role="tab"
+    >Messages</a
+  >
+  <a
+    class="list-group-item list-group-item-action"
+    data-bs-toggle="list"
+    href="#settings"
+    role="tab"
+    >Settings</a
+  >
 </div>
 
 <div class="tab-content">
@@ -394,10 +514,10 @@ Activates a list item element and content container. Tab should have either a `d
 </div>
 
 <script>
-  var firstTabEl = document.querySelector('#myTab a:last-child')
-  var firstTab = new bootstrap.Tab(firstTabEl)
+  var firstTabEl = document.querySelector("#myTab a:last-child");
+  var firstTab = new bootstrap.Tab(firstTabEl);
 
-  firstTab.show()
+  firstTab.show();
 </script>
 ```
 
@@ -406,10 +526,10 @@ Activates a list item element and content container. Tab should have either a `d
 Selects the given list item and shows its associated pane. Any other list item that was previously selected becomes unselected and its associated pane is hidden. **Returns to the caller before the tab pane has actually been shown** (for example, before the `shown.bs.tab` event occurs).
 
 ```js
-  var someListItemEl = document.querySelector('#someListItem')
-  var tab = new bootstrap.Tab(someListItemEl)
+var someListItemEl = document.querySelector("#someListItem");
+var tab = new bootstrap.Tab(someListItemEl);
 
-  tab.show()
+tab.show();
 ```
 
 #### dispose
@@ -418,11 +538,11 @@ Destroys an element's tab.
 
 #### getInstance
 
-*Static* method which allows you to get the tab instance associated with a DOM element
+_Static_ method which allows you to get the tab instance associated with a DOM element
 
 ```js
-var triggerEl = document.querySelector('#trigger')
-var tab = bootstrap.Tab.getInstance(triggerEl) // Returns a Bootstrap tab instance
+var triggerEl = document.querySelector("#trigger");
+var tab = bootstrap.Tab.getInstance(triggerEl); // Returns a Bootstrap tab instance
 ```
 
 ### Events
@@ -464,9 +584,9 @@ If no tab was already active, the `hide.bs.tab` and `hidden.bs.tab` events will 
 </table>
 
 ```js
-var tabEl = document.querySelector('a[data-bs-toggle="list"]')
-tabEl.addEventListener('shown.bs.tab', function (event) {
-  event.target // newly activated tab
-  event.relatedTarget // previous active tab
-})
+var tabEl = document.querySelector('a[data-bs-toggle="list"]');
+tabEl.addEventListener("shown.bs.tab", function (event) {
+  event.target; // newly activated tab
+  event.relatedTarget; // previous active tab
+});
 ```

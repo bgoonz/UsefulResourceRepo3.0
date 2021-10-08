@@ -1,14 +1,13 @@
-var express = require('express')
-  , app = module.exports = express()
-  , Medium = require('./medium.js').Medium
-  , fs = require('fs')
-  , path = require('path')
+var express = require('express'),
+  app = (module.exports = express()),
+  Medium = require('./medium.js').Medium,
+  fs = require('fs'),
+  path = require('path')
 
 /* Medium Stuff */
 
 // "http://dillinger.io/oauth/medium"
-var oauth_medium_redirect = function(req, res) {
-  
+var oauth_medium_redirect = function (req, res) {
   // Create Medium session object and stash for later.
   req.session.medium = {
     oauth: {
@@ -16,71 +15,68 @@ var oauth_medium_redirect = function(req, res) {
     }
   }
 
-  return res.redirect( Medium.generateAuthUrl(req) )
+  return res.redirect(Medium.generateAuthUrl(req))
 }
 
-
-var oauth_medium = function(req, res, cb) {
-
-  if (!req.query.code) { cb() } 
-  else {
+var oauth_medium = function (req, res, cb) {
+  if (!req.query.code) {
+    cb()
+  } else {
     req.session.oauth = {}
 
-    var code = req.query.code
-      , client_id = Medium.config.client_id
-      , redirect_url = Medium.config.redirect_url
-      , client_secret = Medium.config.client_secret
-      ;
+    var code = req.query.code,
+      client_id = Medium.config.client_id,
+      redirect_url = Medium.config.redirect_url,
+      client_secret = Medium.config.client_secret
+    Medium.mediumClient.exchangeAuthorizationCode(
+      code,
+      redirect_url,
+      function (err, token) {
+        // Fix this...this is bad for the user...
+        if (err) return console.error(err.message)
 
-    Medium.mediumClient.exchangeAuthorizationCode(code, redirect_url, function (err, token) {
-
-      // Fix this...this is bad for the user...
-      if(err) return console.error(err.message)
-
-      // If it doesn't exist, create it.
-      if (!req.session.medium) {
-        req.session.medium = {
-          oauth: null
+        // If it doesn't exist, create it.
+        if (!req.session.medium) {
+          req.session.medium = {
+            oauth: null
+          }
         }
+        // Attach the token object to the session
+        req.session.medium.oauth.token = token
+
+        // Initiate a getUser call to stash the user ID
+        Medium.mediumClient.getUser(function (err, user) {
+          if (err) {
+            // something went wrong
+            console.error(err.message)
+            unlink_medium(req, res)
+            return res.send(err.message)
+          } else {
+            req.session.medium.userId = user.id
+            req.session.isMediumSynced = true
+            res.redirect('/')
+          }
+        }) // end getUser
       }
-      // Attach the token object to the session
-      req.session.medium.oauth.token = token
-
-      // Initiate a getUser call to stash the user ID      
-      Medium.mediumClient.getUser(function (err, user) {
-        if(err) {
-          // something went wrong
-          console.error(err.message)
-          unlink_medium(req, res)
-          return res.send(err.message)
-        }
-        else{
-          req.session.medium.userId  = user.id
-          req.session.isMediumSynced = true
-          res.redirect('/')            
-        }
-      }) // end getUser
-    }) // end exchangeAuthorizationCode
+    ) // end exchangeAuthorizationCode
   } // end else
 } // end oauth_medium()
 
-var unlink_medium = function(req, res) {
+var unlink_medium = function (req, res) {
   // Essentially remove the session for medium...
   delete req.session.medium
   req.session.isMediumSynced = false
   res.redirect('/')
 }
 
-var save_medium = function(req, res) { 
-
+var save_medium = function (req, res) {
   if (!req.session.medium) {
-    res.status(401).send('Medium is not linked.');
-    return;
+    res.status(401).send('Medium is not linked.')
+    return
   }
 
-  if(req.session.isMediumSynced) Medium.save(req,res)
+  if (req.session.isMediumSynced) Medium.save(req, res)
   else res.redirect('/redirect/medium/')
-
 }
 
 /* End Medium stuff */
@@ -97,12 +93,11 @@ app.get('/unlink/medium', unlink_medium)
 
 app.post('/save/medium', save_medium)
 
-app.get('/js/medium.js', function(req, res) {
-  fs.readFile(path.join(__dirname, 'client.js'), 'utf8', function(err, data) {
+app.get('/js/medium.js', function (req, res) {
+  fs.readFile(path.join(__dirname, 'client.js'), 'utf8', function (err, data) {
     if (err) {
       res.send(500, "Sorry couldn't read file")
-    }
-    else {
+    } else {
       res.setHeader('content-type', 'text/javascript')
       res.send(200, data)
     }

@@ -18,7 +18,9 @@ const md = require('markdown-it')({
 md.use(require('markdown-it-math'), {
   inlineRenderer: function (str) {
     try {
-      return '<span class="math inline">' + katex.renderToString(str) + '</span>'
+      return (
+        '<span class="math inline">' + katex.renderToString(str) + '</span>'
+      )
     } catch (e) {
       return '<span class="math inline">' + e + '</span>'
     }
@@ -32,8 +34,7 @@ md.use(require('markdown-it-math'), {
   }
 })
 
-md
-  .use(require('markdown-it-toc'))
+md.use(require('markdown-it-toc'))
   .use(require('markdown-it-footnote'))
   .use(require('markdown-it-sub'))
   .use(require('markdown-it-sup'))
@@ -43,9 +44,7 @@ md
   .use(require('markdown-it-abbr'))
   .use(require('markdown-it-checkbox'))
 
-md.renderer.rules.table_open = function (
-  tokens, idx, options, env, self
-) {
+md.renderer.rules.table_open = function (tokens, idx, options, env, self) {
   var token = tokens[idx]
   token.attrPush(['class', 'table table-striped table-bordered'])
 
@@ -91,16 +90,30 @@ md.renderer.rules.heading_open = function (tokens, idx) {
   var level = token.tag
   var label = tokens[idx + 1]
   var makeSafe = function (label) {
-    return label.replace(/[^\w\s]/gi, '').split(' ').join('_')
+    return label
+      .replace(/[^\w\s]/gi, '')
+      .split(' ')
+      .join('_')
   }
   if (label.type === 'inline') {
     var anchor = makeSafe(label.content) + '_' + label.map[0]
-    return '<' + level +
-      ' ' + 'class="code-line"' +
-      ' ' + 'data-line-start=' + token.map[0] +
-      ' ' + 'data-line-end=' + token.map[1] +
-      ' ' + '>' +
-      '<a id="' + anchor + '"></a>'
+    return (
+      '<' +
+      level +
+      ' ' +
+      'class="code-line"' +
+      ' ' +
+      'data-line-start=' +
+      token.map[0] +
+      ' ' +
+      'data-line-end=' +
+      token.map[1] +
+      ' ' +
+      '>' +
+      '<a id="' +
+      anchor +
+      '"></a>'
+    )
   } else {
     return '</h1>'
   }

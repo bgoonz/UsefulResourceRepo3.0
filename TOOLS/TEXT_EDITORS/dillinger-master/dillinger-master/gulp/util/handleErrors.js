@@ -1,20 +1,19 @@
+'use strict'
 
-'use strict';
+var notify,
+  __slice = [].slice
 
-var
-  notify,
-  __slice = [].slice;
+notify = require('gulp-notify')
 
-notify = require('gulp-notify');
+module.exports = function () {
+  var args = 1 <= arguments.length ? __slice.call(arguments, 0) : []
 
-module.exports = function() {
+  notify
+    .onError({
+      title: 'Compile Error',
+      message: '<%= error.message %>'
+    })
+    .apply(this, args)
 
-  var args = 1 <= arguments.length ? __slice.call(arguments, 0) : [];
-
-  notify.onError({
-    title: 'Compile Error',
-    message: '<%= error.message %>'
-  }).apply(this, args);
-
-  this.emit('end');
-};
+  this.emit('end')
+}

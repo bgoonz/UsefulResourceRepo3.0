@@ -3,8 +3,11 @@ var path = require('path')
 var googleapis = require('googleapis')
 var request = require('request')
 
-var configFile = path.resolve(__dirname, '../../configs/googledrive/',
-  'googledrive-config.json')
+var configFile = path.resolve(
+  __dirname,
+  '../../configs/googledrive/',
+  'googledrive-config.json'
+)
 var config = {}
 var scopes = ['https://www.googleapis.com/auth/drive.file']
 var isConfigEnabled = false
@@ -21,15 +24,21 @@ if (fs.existsSync(configFile)) {
   }
 
   isConfigEnabled = true
-  console.log('Google Drive config found in environment. Plugin enabled.' +
-  ' (Key: "' + config.client_id + '")')
+  console.log(
+    'Google Drive config found in environment. Plugin enabled.' +
+      ' (Key: "' +
+      config.client_id +
+      '")'
+  )
 } else {
   config = {
     client_id: 'CLIENT_ID',
     client_secret: 'CLIENT_SECRET',
-    redirect_uri: 'http://dillinger.io/' }
-  console.warn('Google Drive config not found at ' + configFile +
-      '. Plugin disabled.')
+    redirect_uri: 'http://dillinger.io/'
+  }
+  console.warn(
+    'Google Drive config not found at ' + configFile + '. Plugin disabled.'
+  )
 }
 
 var GoogleDrive = {
@@ -48,25 +57,38 @@ var GoogleDrive = {
     var OAuth2 = googleapis.auth.OAuth2
 
     var oauth2Client = new OAuth2(
-      config.client_id, config.client_secret, config.redirect_uri)
+      config.client_id,
+      config.client_secret,
+      config.redirect_uri
+    )
     return oauth2Client.generateAuthUrl({ scope: scopes.join(' ') })
   },
   getToken: function (code, callback) {
     var OAuth2 = googleapis.auth.OAuth2
     var oauth2Client = new OAuth2(
-      config.client_id, config.client_secret, config.redirect_uri)
+      config.client_id,
+      config.client_secret,
+      config.redirect_uri
+    )
     oauth2Client.getToken(code, callback)
   },
   search: function (tokens, callback) {
     this._loadDriveIfRequired(function () {
       var OAuth2 = googleapis.auth.OAuth2
       var oauth2Client = new OAuth2(
-        config.client_id, config.client_secret, config.redirect_uri)
+        config.client_id,
+        config.client_secret,
+        config.redirect_uri
+      )
       oauth2Client.credentials = tokens
       // TODO: handle pagination
-      drive.files.list({
-        q: 'mimeType = "text/x-markdown" and trashed = false',
-        auth: oauth2Client }, callback)
+      drive.files.list(
+        {
+          q: 'mimeType = "text/x-markdown" and trashed = false',
+          auth: oauth2Client
+        },
+        callback
+      )
     })
   },
   get: function (tokens, fileId, callback) {
@@ -74,7 +96,10 @@ var GoogleDrive = {
     this._loadDriveIfRequired(function () {
       var OAuth2 = googleapis.auth.OAuth2
       var oauth2Client = new OAuth2(
-        config.client_id, config.client_secret, config.redirect_uri)
+        config.client_id,
+        config.client_secret,
+        config.redirect_uri
+      )
 
       oauth2Client.credentials = tokens
       drive.files.get({ fileId: fileId, auth: oauth2Client }, (err, result) => {
@@ -91,13 +116,22 @@ var GoogleDrive = {
     title = title || 'Untitled.md'
 
     var boundaryTag = 'a_unique_boundary_tag'
-    var body = '--' + boundaryTag + '\n' +
-               'Content-Type: application/json; charset=UTF-8\n\n' +
-               JSON.stringify({ title: title }) + '\n\n' +
-               '--' + boundaryTag + '\n' +
-               'Content-Type: text/x-markdown\n\n' +
-               content + '\n\n' +
-               '--' + boundaryTag + '--'
+    var body =
+      '--' +
+      boundaryTag +
+      '\n' +
+      'Content-Type: application/json; charset=UTF-8\n\n' +
+      JSON.stringify({ title: title }) +
+      '\n\n' +
+      '--' +
+      boundaryTag +
+      '\n' +
+      'Content-Type: text/x-markdown\n\n' +
+      content +
+      '\n\n' +
+      '--' +
+      boundaryTag +
+      '--'
 
     var uploadUrl = 'https://www.googleapis.com/upload/drive/v2/files'
     var method = 'post'
@@ -107,27 +141,33 @@ var GoogleDrive = {
       method = 'put'
     }
 
-    request({
-      uri: uploadUrl + '?uploadType=multipart',
-      body: body,
-      method: method,
-      headers: {
-        Authorization: 'Bearer ' + tokens.access_token,
-        'Content-type': 'multipart/related; boundary="' + boundaryTag + '"'
+    request(
+      {
+        uri: uploadUrl + '?uploadType=multipart',
+        body: body,
+        method: method,
+        headers: {
+          Authorization: 'Bearer ' + tokens.access_token,
+          'Content-type': 'multipart/related; boundary="' + boundaryTag + '"'
+        }
+      },
+      function (err, res, body) {
+        callback(err, body)
       }
-    }, function (err, res, body) {
-      callback(err, body)
-    })
+    )
   },
   _getContents: function (tokens, url, callback) {
-    request({
-      uri: url,
-      headers: {
-        Authorization: 'Bearer ' + tokens.access_token
+    request(
+      {
+        uri: url,
+        headers: {
+          Authorization: 'Bearer ' + tokens.access_token
+        }
+      },
+      function (err, res, body) {
+        callback(err, body)
       }
-    }, function (err, res, body) {
-      callback(err, body)
-    })
+    )
   }
 }
 

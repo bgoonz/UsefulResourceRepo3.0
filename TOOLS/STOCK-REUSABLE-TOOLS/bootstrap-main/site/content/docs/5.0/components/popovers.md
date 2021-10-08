@@ -36,10 +36,12 @@ Keep reading to see how popovers work with some examples.
 One way to initialize all popovers on a page would be to select them by their `data-bs-toggle` attribute:
 
 ```js
-var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverTriggerList = [].slice.call(
+  document.querySelectorAll('[data-bs-toggle="popover"]')
+);
 var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
-  return new bootstrap.Popover(popoverTriggerEl)
-})
+  return new bootstrap.Popover(popoverTriggerEl);
+});
 ```
 
 ## Example: Using the `container` option
@@ -47,9 +49,12 @@ var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
 When you have some styles on a parent element that interfere with a popover, you'll want to specify a custom `container` so that the popover's HTML appears within that element instead.
 
 ```js
-var popover = new bootstrap.Popover(document.querySelector('.example-popover'), {
-  container: 'body'
-})
+var popover = new bootstrap.Popover(
+  document.querySelector(".example-popover"),
+  {
+    container: "body",
+  }
+);
 ```
 
 ## Example
@@ -64,16 +69,16 @@ Four options are available: top, right, bottom, and left aligned. Directions are
 
 {{< example >}}
 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top" data-bs-content="Top popover">
-  Popover on top
+Popover on top
 </button>
 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="right" data-bs-content="Right popover">
-  Popover on right
+Popover on right
 </button>
 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="bottom" data-bs-content="Bottom popover">
-  Popover on bottom
+Popover on bottom
 </button>
 <button type="button" class="btn btn-secondary" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="left" data-bs-content="Left popover">
-  Popover on left
+Popover on left
 </button>
 {{< /example >}}
 
@@ -82,6 +87,7 @@ Four options are available: top, right, bottom, and left aligned. Directions are
 Use the `focus` trigger to dismiss popovers on the user's next click of a different element than the toggle element.
 
 {{< callout danger >}}
+
 #### Specific markup required for dismiss-on-next-click
 
 For proper cross-browser and cross-platform behavior, you must use the `<a>` tag, _not_ the `<button>` tag, and you also must include a [`tabindex`](https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/tabindex) attribute.
@@ -92,9 +98,12 @@ For proper cross-browser and cross-platform behavior, you must use the `<a>` tag
 {{< /example >}}
 
 ```js
-var popover = new bootstrap.Popover(document.querySelector('.popover-dismiss'), {
-  trigger: 'focus'
-})
+var popover = new bootstrap.Popover(
+  document.querySelector(".popover-dismiss"),
+  {
+    trigger: "focus",
+  }
+);
 ```
 
 ### Disabled elements
@@ -105,7 +114,7 @@ For disabled popover triggers, you may also prefer `data-bs-trigger="hover focus
 
 {{< example >}}
 <span class="d-inline-block" tabindex="0" data-bs-toggle="popover" data-bs-trigger="hover focus" data-bs-content="Disabled popover">
-  <button class="btn btn-primary" type="button" disabled>Disabled button</button>
+<button class="btn btn-primary" type="button" disabled>Disabled button</button>
 </span>
 {{< /example >}}
 
@@ -114,11 +123,12 @@ For disabled popover triggers, you may also prefer `data-bs-trigger="hover focus
 Enable popovers via JavaScript:
 
 ```js
-var exampleEl = document.getElementById('example')
-var popover = new bootstrap.Popover(exampleEl, options)
+var exampleEl = document.getElementById("example");
+var popover = new bootstrap.Popover(exampleEl, options);
 ```
 
 {{< callout warning >}}
+
 ### Making popovers work for keyboard and assistive technology users
 
 To allow keyboard users to activate your popovers, you should only add them to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard users, and most assistive technologies currently do not announce the popover's content in this situation. Additionally, do not rely solely on `hover` as the trigger for your popovers, as this will make them impossible to trigger for keyboard users.
@@ -277,6 +287,7 @@ Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` opt
 </table>
 
 {{< callout info >}}
+
 #### Data attributes for individual popovers
 
 Options for individual popovers can alternatively be specified through the use of data attributes, as explained above.
@@ -288,13 +299,12 @@ Options for individual popovers can alternatively be specified through the use o
 {{< partial "callout-danger-async-methods.md" >}}
 {{< /callout >}}
 
-
 #### show
 
 Reveals an element's popover. **Returns to the caller before the popover has actually been shown** (i.e. before the `shown.bs.popover` event occurs). This is considered a "manual" triggering of the popover. Popovers whose title and content are both zero-length are never displayed.
 
 ```js
-myPopover.show()
+myPopover.show();
 ```
 
 #### hide
@@ -302,7 +312,7 @@ myPopover.show()
 Hides an element's popover. **Returns to the caller before the popover has actually been hidden** (i.e. before the `hidden.bs.popover` event occurs). This is considered a "manual" triggering of the popover.
 
 ```js
-myPopover.hide()
+myPopover.hide();
 ```
 
 #### toggle
@@ -310,7 +320,7 @@ myPopover.hide()
 Toggles an element's popover. **Returns to the caller before the popover has actually been shown or hidden** (i.e. before the `shown.bs.popover` or `hidden.bs.popover` event occurs). This is considered a "manual" triggering of the popover.
 
 ```js
-myPopover.toggle()
+myPopover.toggle();
 ```
 
 #### dispose
@@ -318,7 +328,7 @@ myPopover.toggle()
 Hides and destroys an element's popover (Removes stored data on the DOM element). Popovers that use delegation (which are created using [the `selector` option](#options)) cannot be individually destroyed on descendant trigger elements.
 
 ```js
-myPopover.dispose()
+myPopover.dispose();
 ```
 
 #### enable
@@ -326,7 +336,7 @@ myPopover.dispose()
 Gives an element's popover the ability to be shown. **Popovers are enabled by default.**
 
 ```js
-myPopover.enable()
+myPopover.enable();
 ```
 
 #### disable
@@ -334,7 +344,7 @@ myPopover.enable()
 Removes the ability for an element's popover to be shown. The popover will only be able to be shown if it is re-enabled.
 
 ```js
-myPopover.disable()
+myPopover.disable();
 ```
 
 #### toggleEnabled
@@ -342,7 +352,7 @@ myPopover.disable()
 Toggles the ability for an element's popover to be shown or hidden.
 
 ```js
-myPopover.toggleEnabled()
+myPopover.toggleEnabled();
 ```
 
 #### update
@@ -350,16 +360,16 @@ myPopover.toggleEnabled()
 Updates the position of an element's popover.
 
 ```js
-myPopover.update()
+myPopover.update();
 ```
 
 #### getInstance
 
-*Static* method which allows you to get the popover instance associated with a DOM element
+_Static_ method which allows you to get the popover instance associated with a DOM element
 
 ```js
-var exampleTriggerEl = document.getElementById('example')
-var popover = bootstrap.Popover.getInstance(exampleTriggerEl) // Returns a Bootstrap popover instance
+var exampleTriggerEl = document.getElementById("example");
+var popover = bootstrap.Popover.getInstance(exampleTriggerEl); // Returns a Bootstrap popover instance
 ```
 
 ### Events
@@ -396,8 +406,8 @@ var popover = bootstrap.Popover.getInstance(exampleTriggerEl) // Returns a Boots
 </table>
 
 ```js
-var myPopoverTrigger = document.getElementById('myPopover')
-myPopoverTrigger.addEventListener('hidden.bs.popover', function () {
+var myPopoverTrigger = document.getElementById("myPopover");
+myPopoverTrigger.addEventListener("hidden.bs.popover", function () {
   // do something...
-})
+});
 ```

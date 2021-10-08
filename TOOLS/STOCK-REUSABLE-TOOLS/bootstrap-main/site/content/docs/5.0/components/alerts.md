@@ -13,6 +13,7 @@ Alerts are available for any length of text, as well as an optional close button
 {{< example >}}
 {{< alerts.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
+
 <div class="alert alert-{{ .name }}" role="alert">
   A simple {{ .name }} alert—check it out!
 </div>{{- end -}}
@@ -30,6 +31,7 @@ Use the `.alert-link` utility class to quickly provide matching colored links wi
 {{< example >}}
 {{< alerts.inline >}}
 {{- range (index $.Site.Data "theme-colors") }}
+
 <div class="alert alert-{{ .name }}" role="alert">
   A simple {{ .name }} alert with <a href="#" class="alert-link">an example link</a>. Give it a click if you like.
 </div>{{ end -}}
@@ -41,6 +43,7 @@ Use the `.alert-link` utility class to quickly provide matching colored links wi
 Alerts can also contain additional HTML elements like headings, paragraphs and dividers.
 
 {{< example >}}
+
 <div class="alert alert-success" role="alert">
   <h4 class="alert-heading">Well done!</h4>
   <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
@@ -61,6 +64,7 @@ Using the alert JavaScript plugin, it's possible to dismiss any alert inline. He
 You can see this in action with a live demo:
 
 {{< example >}}
+
 <div class="alert alert-warning alert-dismissible fade show" role="alert">
   <strong>Holy guacamole!</strong> You should check in on some of those fields below.
   <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
@@ -78,16 +82,21 @@ When an alert is dismissed, the element is completely removed from the page stru
 Enable dismissal of an alert via JavaScript:
 
 ```js
-var alertList = document.querySelectorAll('.alert')
+var alertList = document.querySelectorAll(".alert");
 alertList.forEach(function (alert) {
-  new bootstrap.Alert(alert)
-})
+  new bootstrap.Alert(alert);
+});
 ```
 
 Or with `data` attributes on a button **within the alert**, as demonstrated above:
 
 ```html
-<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+<button
+  type="button"
+  class="btn-close"
+  data-bs-dismiss="alert"
+  aria-label="Close"
+></button>
 ```
 
 Note that closing an alert will remove it from the DOM.
@@ -97,8 +106,8 @@ Note that closing an alert will remove it from the DOM.
 You can create an alert instance with the alert constructor, for example:
 
 ```js
-var myAlert = document.getElementById('myAlert')
-var bsAlert = new bootstrap.Alert(myAlert)
+var myAlert = document.getElementById("myAlert");
+var bsAlert = new bootstrap.Alert(myAlert);
 ```
 
 This makes an alert listen for click events on descendant elements which have the `data-bs-dismiss="alert"` attribute. (Not necessary when using the data-api's auto-initialization.)
@@ -139,9 +148,9 @@ This makes an alert listen for click events on descendant elements which have th
 </table>
 
 ```js
-var alertNode = document.querySelector('.alert')
-var alert = bootstrap.Alert.getInstance(alertNode)
-alert.close()
+var alertNode = document.querySelector(".alert");
+var alert = bootstrap.Alert.getInstance(alertNode);
+alert.close();
 ```
 
 ### Events
@@ -172,10 +181,10 @@ Bootstrap's alert plugin exposes a few events for hooking into alert functionali
 </table>
 
 ```js
-var myAlert = document.getElementById('myAlert')
-myAlert.addEventListener('closed.bs.alert', function () {
+var myAlert = document.getElementById("myAlert");
+myAlert.addEventListener("closed.bs.alert", function () {
   // do something, for instance, explicitly move focus to the most appropriate element,
   // so it doesn't get lost/reset to the start of the page
   // document.getElementById('...').focus()
-})
+});
 ```

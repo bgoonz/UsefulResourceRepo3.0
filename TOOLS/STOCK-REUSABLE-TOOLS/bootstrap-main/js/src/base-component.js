@@ -5,7 +5,7 @@
  * --------------------------------------------------------------------------
  */
 
-import Data from './dom/data'
+import Data from "./dom/data";
 
 /**
  * ------------------------------------------------------------------------
@@ -13,32 +13,32 @@ import Data from './dom/data'
  * ------------------------------------------------------------------------
  */
 
-const VERSION = '5.0.0-beta1'
+const VERSION = "5.0.0-beta1";
 
 class BaseComponent {
   constructor(element) {
     if (!element) {
-      return
+      return;
     }
 
-    this._element = element
-    Data.setData(element, this.constructor.DATA_KEY, this)
+    this._element = element;
+    Data.setData(element, this.constructor.DATA_KEY, this);
   }
 
   dispose() {
-    Data.removeData(this._element, this.constructor.DATA_KEY)
-    this._element = null
+    Data.removeData(this._element, this.constructor.DATA_KEY);
+    this._element = null;
   }
 
   /** Static */
 
   static getInstance(element) {
-    return Data.getData(element, this.DATA_KEY)
+    return Data.getData(element, this.DATA_KEY);
   }
 
   static get VERSION() {
-    return VERSION
+    return VERSION;
   }
 }
 
-export default BaseComponent
+export default BaseComponent;

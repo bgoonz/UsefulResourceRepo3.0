@@ -17,14 +17,8 @@
         "SwitchCase": 1
       }
     ],
-    "max-params": [
-      "warn",
-      5
-    ],
-    "multiline-ternary": [
-      "error",
-      "always-multiline"
-    ],
+    "max-params": ["warn", 5],
+    "multiline-ternary": ["error", "always-multiline"],
     "new-cap": [
       "error",
       {
@@ -32,15 +26,9 @@
       }
     ],
     "no-console": "error",
-    "object-curly-spacing": [
-      "error",
-      "always"
-    ],
+    "object-curly-spacing": ["error", "always"],
     "prefer-named-capture-group": "off",
-    "semi": [
-      "error",
-      "never"
-    ],
+    "semi": ["error", "never"],
     "unicorn/consistent-function-scoping": "off",
     "unicorn/explicit-length-check": "off",
     "unicorn/no-array-callback-reference": "off",

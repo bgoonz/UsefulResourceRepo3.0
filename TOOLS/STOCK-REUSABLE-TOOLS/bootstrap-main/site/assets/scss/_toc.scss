@@ -11,7 +11,7 @@
   }
 
   nav {
-    @include font-size(.875rem);
+    @include font-size(0.875rem);
 
     ul {
       padding-left: 0;
@@ -19,12 +19,12 @@
 
       ul {
         padding-left: 1rem;
-        margin-top: .25rem;
+        margin-top: 0.25rem;
       }
     }
 
     li {
-      margin-bottom: .25rem;
+      margin-bottom: 0.25rem;
     }
 
     a {

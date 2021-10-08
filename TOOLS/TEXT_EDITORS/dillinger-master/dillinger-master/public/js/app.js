@@ -1,13 +1,12 @@
+'use strict'
 
-'use strict';
-
-(function (window, document) {
+;(function (window, document) {
   var angular
 
   // jQuery
-  window.jQuery = require('jquery'),
-  require('jquery-ui-bundle/jquery-ui.js'),
-  require('inverseresize/alsoResizeReverse/alsoResizeInverse')
+  ;(window.jQuery = require('jquery')),
+    require('jquery-ui-bundle/jquery-ui.js'),
+    require('inverseresize/alsoResizeReverse/alsoResizeInverse')
 
   // AngularJS
   angular = require('exports-loader?angular!angular')
@@ -105,10 +104,14 @@
 
   // Simple and works.
   return jQuery(window).on('load', function () {
-    return jQuery('.splashscreen').animate({
-      opacity: 0
-    }, 150, function () {
-      return jQuery('.splashscreen').remove()
-    })
+    return jQuery('.splashscreen').animate(
+      {
+        opacity: 0
+      },
+      150,
+      function () {
+        return jQuery('.splashscreen').remove()
+      }
+    )
   })
 })(window, document)

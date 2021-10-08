@@ -12,56 +12,56 @@
  */
 
 const mapData = (() => {
-  const storeData = {}
-  let id = 1
+  const storeData = {};
+  let id = 1;
   return {
     set(element, key, data) {
-      if (typeof element.bsKey === 'undefined') {
+      if (typeof element.bsKey === "undefined") {
         element.bsKey = {
           key,
-          id
-        }
-        id++
+          id,
+        };
+        id++;
       }
 
-      storeData[element.bsKey.id] = data
+      storeData[element.bsKey.id] = data;
     },
     get(element, key) {
-      if (!element || typeof element.bsKey === 'undefined') {
-        return null
+      if (!element || typeof element.bsKey === "undefined") {
+        return null;
       }
 
-      const keyProperties = element.bsKey
+      const keyProperties = element.bsKey;
       if (keyProperties.key === key) {
-        return storeData[keyProperties.id]
+        return storeData[keyProperties.id];
       }
 
-      return null
+      return null;
     },
     delete(element, key) {
-      if (typeof element.bsKey === 'undefined') {
-        return
+      if (typeof element.bsKey === "undefined") {
+        return;
       }
 
-      const keyProperties = element.bsKey
+      const keyProperties = element.bsKey;
       if (keyProperties.key === key) {
-        delete storeData[keyProperties.id]
-        delete element.bsKey
+        delete storeData[keyProperties.id];
+        delete element.bsKey;
       }
-    }
-  }
-})()
+    },
+  };
+})();
 
 const Data = {
   setData(instance, key, data) {
-    mapData.set(instance, key, data)
+    mapData.set(instance, key, data);
   },
   getData(instance, key) {
-    return mapData.get(instance, key)
+    return mapData.get(instance, key);
   },
   removeData(instance, key) {
-    mapData.delete(instance, key)
-  }
-}
+    mapData.delete(instance, key);
+  },
+};
 
-export default Data
+export default Data;

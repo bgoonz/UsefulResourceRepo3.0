@@ -1,50 +1,53 @@
-'use strict'
+"use strict";
 
-const path = require('path')
-const { babel } = require('@rollup/plugin-babel')
-const { nodeResolve } = require('@rollup/plugin-node-resolve')
-const replace = require('@rollup/plugin-replace')
-const banner = require('./banner.js')
+const path = require("path");
+const { babel } = require("@rollup/plugin-babel");
+const { nodeResolve } = require("@rollup/plugin-node-resolve");
+const replace = require("@rollup/plugin-replace");
+const banner = require("./banner.js");
 
-const BUNDLE = process.env.BUNDLE === 'true'
-const ESM = process.env.ESM === 'true'
+const BUNDLE = process.env.BUNDLE === "true";
+const ESM = process.env.ESM === "true";
 
-let fileDest = `bootstrap${ESM ? '.esm' : ''}`
-const external = ['@popperjs/core']
+let fileDest = `bootstrap${ESM ? ".esm" : ""}`;
+const external = ["@popperjs/core"];
 const plugins = [
   babel({
     // Only transpile our source code
-    exclude: 'node_modules/**',
+    exclude: "node_modules/**",
     // Include the helpers in the bundle, at most one copy of each
-    babelHelpers: 'bundled'
-  })
-]
+    babelHelpers: "bundled",
+  }),
+];
 const globals = {
-  '@popperjs/core': 'Popper'
-}
+  "@popperjs/core": "Popper",
+};
 
 if (BUNDLE) {
-  fileDest += '.bundle'
+  fileDest += ".bundle";
   // Remove last entry in external array to bundle Popper
-  external.pop()
-  delete globals['@popperjs/core']
-  plugins.push(replace({ 'process.env.NODE_ENV': '"production"' }), nodeResolve())
+  external.pop();
+  delete globals["@popperjs/core"];
+  plugins.push(
+    replace({ "process.env.NODE_ENV": '"production"' }),
+    nodeResolve()
+  );
 }
 
 const rollupConfig = {
-  input: path.resolve(__dirname, `../js/index.${ESM ? 'esm' : 'umd'}.js`),
+  input: path.resolve(__dirname, `../js/index.${ESM ? "esm" : "umd"}.js`),
   output: {
     banner,
     file: path.resolve(__dirname, `../dist/js/${fileDest}.js`),
-    format: ESM ? 'esm' : 'umd',
-    globals
+    format: ESM ? "esm" : "umd",
+    globals,
   },
   external,
-  plugins
-}
+  plugins,
+};
 
 if (!ESM) {
-  rollupConfig.output.name = 'bootstrap'
+  rollupConfig.output.name = "bootstrap";
 }
 
-module.exports = rollupConfig
+module.exports = rollupConfig;

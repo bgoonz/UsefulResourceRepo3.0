@@ -1,13 +1,18 @@
 /*!
-  * Bootstrap manipulator.js v5.0.0-beta1 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap manipulator.js v5.0.0-beta1 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Manipulator = factory());
-}(this, (function () { 'use strict';
+  typeof exports === "object" && typeof module !== "undefined"
+    ? (module.exports = factory())
+    : typeof define === "function" && define.amd
+    ? define(factory)
+    : ((global =
+        typeof globalThis !== "undefined" ? globalThis : global || self),
+      (global.Manipulator = factory()));
+})(this, function () {
+  "use strict";
 
   /**
    * --------------------------------------------------------------------------
@@ -16,11 +21,11 @@
    * --------------------------------------------------------------------------
    */
   function normalizeData(val) {
-    if (val === 'true') {
+    if (val === "true") {
       return true;
     }
 
-    if (val === 'false') {
+    if (val === "false") {
       return false;
     }
 
@@ -28,7 +33,7 @@
       return Number(val);
     }
 
-    if (val === '' || val === 'null') {
+    if (val === "" || val === "null") {
       return null;
     }
 
@@ -54,34 +59,38 @@
       }
 
       var attributes = {};
-      Object.keys(element.dataset).filter(function (key) {
-        return key.startsWith('bs');
-      }).forEach(function (key) {
-        var pureKey = key.replace(/^bs/, '');
-        pureKey = pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
-        attributes[pureKey] = normalizeData(element.dataset[key]);
-      });
+      Object.keys(element.dataset)
+        .filter(function (key) {
+          return key.startsWith("bs");
+        })
+        .forEach(function (key) {
+          var pureKey = key.replace(/^bs/, "");
+          pureKey =
+            pureKey.charAt(0).toLowerCase() + pureKey.slice(1, pureKey.length);
+          attributes[pureKey] = normalizeData(element.dataset[key]);
+        });
       return attributes;
     },
     getDataAttribute: function getDataAttribute(element, key) {
-      return normalizeData(element.getAttribute("data-bs-" + normalizeDataKey(key)));
+      return normalizeData(
+        element.getAttribute("data-bs-" + normalizeDataKey(key))
+      );
     },
     offset: function offset(element) {
       var rect = element.getBoundingClientRect();
       return {
         top: rect.top + document.body.scrollTop,
-        left: rect.left + document.body.scrollLeft
+        left: rect.left + document.body.scrollLeft,
       };
     },
     position: function position(element) {
       return {
         top: element.offsetTop,
-        left: element.offsetLeft
+        left: element.offsetLeft,
       };
-    }
+    },
   };
 
   return Manipulator;
-
-})));
+});
 //# sourceMappingURL=manipulator.js.map

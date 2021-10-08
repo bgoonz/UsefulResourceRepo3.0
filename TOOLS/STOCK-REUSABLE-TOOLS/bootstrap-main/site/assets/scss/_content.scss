@@ -20,14 +20,14 @@
 
   > ul li,
   > ol li {
-    margin-bottom: .25rem;
+    margin-bottom: 0.25rem;
   }
 
   // Override Bootstrap defaults
   > .table {
     max-width: 100%;
     margin-bottom: 1.5rem;
-    @include font-size(.875rem);
+    @include font-size(0.875rem);
 
     @include media-breakpoint-down(lg) {
       display: block;

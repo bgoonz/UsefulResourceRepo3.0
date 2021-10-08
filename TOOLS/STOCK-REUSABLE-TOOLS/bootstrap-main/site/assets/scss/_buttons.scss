@@ -16,7 +16,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px rgba($bd-purple-bright, .25);
+    box-shadow: 0 0 0 3px rgba($bd-purple-bright, 0.25);
   }
 }
 
@@ -33,7 +33,7 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px rgba($bd-download, .25);
+    box-shadow: 0 0 0 3px rgba($bd-download, 0.25);
   }
 }
 
@@ -50,6 +50,6 @@
   }
 
   &:focus {
-    box-shadow: 0 0 0 3px rgba($bd-purple-bright, .25);
+    box-shadow: 0 0 0 3px rgba($bd-purple-bright, 0.25);
   }
 }

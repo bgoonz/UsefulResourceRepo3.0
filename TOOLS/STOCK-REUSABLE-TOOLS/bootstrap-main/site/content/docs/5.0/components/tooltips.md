@@ -35,10 +35,12 @@ Got all that? Great, let's see how they work with some examples.
 One way to initialize all tooltips on a page would be to select them by their `data-bs-toggle` attribute:
 
 ```js
-var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+var tooltipTriggerList = [].slice.call(
+  document.querySelectorAll('[data-bs-toggle="tooltip"]')
+);
 var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
-  return new bootstrap.Tooltip(tooltipTriggerEl)
-})
+  return new bootstrap.Tooltip(tooltipTriggerEl);
+});
 ```
 
 ## Examples
@@ -63,16 +65,40 @@ Hover over the buttons below to see the four tooltips directions: top, right, bo
 </div>
 
 ```html
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="top" title="Tooltip on top">
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-toggle="tooltip"
+  data-bs-placement="top"
+  title="Tooltip on top"
+>
   Tooltip on top
 </button>
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="right" title="Tooltip on right">
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-toggle="tooltip"
+  data-bs-placement="right"
+  title="Tooltip on right"
+>
   Tooltip on right
 </button>
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="bottom" title="Tooltip on bottom">
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-toggle="tooltip"
+  data-bs-placement="bottom"
+  title="Tooltip on bottom"
+>
   Tooltip on bottom
 </button>
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-placement="left" title="Tooltip on left">
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-toggle="tooltip"
+  data-bs-placement="left"
+  title="Tooltip on left"
+>
   Tooltip on left
 </button>
 ```
@@ -80,7 +106,13 @@ Hover over the buttons below to see the four tooltips directions: top, right, bo
 And with custom HTML added:
 
 ```html
-<button type="button" class="btn btn-secondary" data-bs-toggle="tooltip" data-bs-html="true" title="<em>Tooltip</em> <u>with</u> <b>HTML</b>">
+<button
+  type="button"
+  class="btn btn-secondary"
+  data-bs-toggle="tooltip"
+  data-bs-html="true"
+  title="<em>Tooltip</em> <u>with</u> <b>HTML</b>"
+>
   Tooltip with HTML
 </button>
 ```
@@ -103,21 +135,23 @@ The tooltip plugin generates content and markup on demand, and by default places
 Trigger the tooltip via JavaScript:
 
 ```js
-var exampleEl = document.getElementById('example')
-var tooltip = new bootstrap.Tooltip(exampleEl, options)
+var exampleEl = document.getElementById("example");
+var tooltip = new bootstrap.Tooltip(exampleEl, options);
 ```
 
 {{< callout warning >}}
+
 ##### Overflow `auto` and `scroll`
 
 Tooltip position attempts to automatically change when a parent container has `overflow: auto` or `overflow: scroll` like our `.table-responsive`, but still keeps the original placement's positioning. To resolve, set the `boundary` option to anything other than default value, `'scrollParent'`, such as `'window'`:
 
 ```js
-var exampleEl = document.getElementById('example')
+var exampleEl = document.getElementById("example");
 var tooltip = new bootstrap.Tooltip(exampleEl, {
-  boundary: 'window'
-})
+  boundary: "window",
+});
 ```
+
 {{< /callout >}}
 
 ### Markup
@@ -125,6 +159,7 @@ var tooltip = new bootstrap.Tooltip(exampleEl, {
 The required markup for a tooltip is only a `data` attribute and `title` on the HTML element you wish to have a tooltip. The generated markup of a tooltip is rather simple, though it does require a position (by default, set to `top` by the plugin).
 
 {{< callout warning >}}
+
 ##### Making tooltips work for keyboard and assistive technology users
 
 You should only add tooltips to HTML elements that are traditionally keyboard-focusable and interactive (such as links or form controls). Although arbitrary HTML elements (such as `<span>`s) can be made focusable by adding the `tabindex="0"` attribute, this will add potentially annoying and confusing tab stops on non-interactive elements for keyboard users, and most assistive technologies currently do not announce the tooltip in this situation. Additionally, do not rely solely on `hover` as the trigger for your tooltip, as this will make your tooltips impossible to trigger for keyboard users.
@@ -132,14 +167,14 @@ You should only add tooltips to HTML elements that are traditionally keyboard-fo
 
 ```html
 <!-- HTML to write -->
-<a href="#" data-bs-toggle="tooltip" title="Some tooltip text!">Hover over me</a>
+<a href="#" data-bs-toggle="tooltip" title="Some tooltip text!"
+  >Hover over me</a
+>
 
 <!-- Generated markup by the plugin -->
 <div class="tooltip bs-tooltip-top" role="tooltip">
   <div class="tooltip-arrow"></div>
-  <div class="tooltip-inner">
-    Some tooltip text!
-  </div>
+  <div class="tooltip-inner">Some tooltip text!</div>
 </div>
 ```
 
@@ -302,6 +337,7 @@ Note that for security reasons the `sanitize`, `sanitizeFn`, and `allowList` opt
 </table>
 
 {{< callout info >}}
+
 #### Data attributes for individual tooltips
 
 Options for individual tooltips can alternatively be specified through the use of data attributes, as explained above.
@@ -318,7 +354,7 @@ Options for individual tooltips can alternatively be specified through the use o
 Reveals an element's tooltip. **Returns to the caller before the tooltip has actually been shown** (i.e. before the `shown.bs.tooltip` event occurs). This is considered a "manual" triggering of the tooltip. Tooltips with zero-length titles are never displayed.
 
 ```js
-tooltip.show()
+tooltip.show();
 ```
 
 #### hide
@@ -326,7 +362,7 @@ tooltip.show()
 Hides an element's tooltip. **Returns to the caller before the tooltip has actually been hidden** (i.e. before the `hidden.bs.tooltip` event occurs). This is considered a "manual" triggering of the tooltip.
 
 ```js
-tooltip.hide()
+tooltip.hide();
 ```
 
 #### toggle
@@ -334,7 +370,7 @@ tooltip.hide()
 Toggles an element's tooltip. **Returns to the caller before the tooltip has actually been shown or hidden** (i.e. before the `shown.bs.tooltip` or `hidden.bs.tooltip` event occurs). This is considered a "manual" triggering of the tooltip.
 
 ```js
-tooltip.toggle()
+tooltip.toggle();
 ```
 
 #### dispose
@@ -342,7 +378,7 @@ tooltip.toggle()
 Hides and destroys an element's tooltip (Removes stored data on the DOM element). Tooltips that use delegation (which are created using [the `selector` option](#options)) cannot be individually destroyed on descendant trigger elements.
 
 ```js
-tooltip.dispose()
+tooltip.dispose();
 ```
 
 #### enable
@@ -350,7 +386,7 @@ tooltip.dispose()
 Gives an element's tooltip the ability to be shown. **Tooltips are enabled by default.**
 
 ```js
-tooltip.enable()
+tooltip.enable();
 ```
 
 #### disable
@@ -358,7 +394,7 @@ tooltip.enable()
 Removes the ability for an element's tooltip to be shown. The tooltip will only be able to be shown if it is re-enabled.
 
 ```js
-tooltip.disable()
+tooltip.disable();
 ```
 
 #### toggleEnabled
@@ -366,7 +402,7 @@ tooltip.disable()
 Toggles the ability for an element's tooltip to be shown or hidden.
 
 ```js
-tooltip.toggleEnabled()
+tooltip.toggleEnabled();
 ```
 
 #### update
@@ -374,16 +410,16 @@ tooltip.toggleEnabled()
 Updates the position of an element's tooltip.
 
 ```js
-tooltip.update()
+tooltip.update();
 ```
 
 #### getInstance
 
-*Static* method which allows you to get the tooltip instance associated with a DOM element
+_Static_ method which allows you to get the tooltip instance associated with a DOM element
 
 ```js
-var exampleTriggerEl = document.getElementById('example')
-var tooltip = bootstrap.Tooltip.getInstance(exampleTriggerEl) // Returns a Bootstrap tooltip instance
+var exampleTriggerEl = document.getElementById("example");
+var tooltip = bootstrap.Tooltip.getInstance(exampleTriggerEl); // Returns a Bootstrap tooltip instance
 ```
 
 ### Events
@@ -420,12 +456,12 @@ var tooltip = bootstrap.Tooltip.getInstance(exampleTriggerEl) // Returns a Boots
 </table>
 
 ```js
-var myTooltipEl = document.getElementById('myTooltip')
-var tooltip = new bootstrap.Tooltip(myTooltipEl)
+var myTooltipEl = document.getElementById("myTooltip");
+var tooltip = new bootstrap.Tooltip(myTooltipEl);
 
-myTooltipEl.addEventListener('hidden.bs.tooltip', function () {
+myTooltipEl.addEventListener("hidden.bs.tooltip", function () {
   // do something...
-})
+});
 
-tooltip.hide()
+tooltip.hide();
 ```

@@ -1,9 +1,9 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="../../../dist/css/bootstrap.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link href="../../../dist/css/bootstrap.min.css" rel="stylesheet" />
     <title>Toast</title>
     <style>
       .notifications {
@@ -26,27 +26,50 @@
     </div>
 
     <div class="notifications">
-      <div id="toastAutoHide" class="toast" role="alert" aria-live="assertive" aria-atomic="true" data-bs-delay="2000">
+      <div
+        id="toastAutoHide"
+        class="toast"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+        data-bs-delay="2000"
+      >
         <div class="toast-header">
-          <span class="d-block bg-primary rounded me-2" style="width: 20px; height: 20px;"></span>
+          <span
+            class="d-block bg-primary rounded me-2"
+            style="width: 20px; height: 20px"
+          ></span>
           <strong class="me-auto">Bootstrap</strong>
           <small>11 mins ago</small>
         </div>
         <div class="toast-body">
-          Hello, world! This is a toast message with <strong>autohide</strong> in 2 seconds
+          Hello, world! This is a toast message with
+          <strong>autohide</strong> in 2 seconds
         </div>
       </div>
 
-      <div class="toast" data-bs-autohide="false" role="alert" aria-live="assertive" aria-atomic="true">
+      <div
+        class="toast"
+        data-bs-autohide="false"
+        role="alert"
+        aria-live="assertive"
+        aria-atomic="true"
+      >
         <div class="toast-header">
-          <span class="d-block bg-primary rounded me-2" style="width: 20px; height: 20px;"></span>
+          <span
+            class="d-block bg-primary rounded me-2"
+            style="width: 20px; height: 20px"
+          ></span>
           <strong class="me-auto">Bootstrap</strong>
           <small class="text-muted">2 seconds ago</small>
-          <button type="button" class="ms-2 mb-1 btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          <button
+            type="button"
+            class="ms-2 mb-1 btn-close"
+            data-bs-dismiss="toast"
+            aria-label="Close"
+          ></button>
         </div>
-        <div class="toast-body">
-          Heads up, toasts will stack automatically
-        </div>
+        <div class="toast-body">Heads up, toasts will stack automatically</div>
       </div>
     </div>
 
@@ -55,28 +78,35 @@
     <script src="../../dist/dom/data.js"></script>
     <script src="../../dist/toast.js"></script>
     <script>
-      window.addEventListener('load', function () {
-        Array.from(document.querySelectorAll('.toast'))
-          .forEach(function (toastNode) {
-            new Toast(toastNode)
-          })
+      window.addEventListener("load", function () {
+        Array.from(document.querySelectorAll(".toast")).forEach(function (
+          toastNode
+        ) {
+          new Toast(toastNode);
+        });
 
-          document.getElementById('btnShowToast').addEventListener('click', function () {
-            Array.from(document.querySelectorAll('.toast'))
-              .forEach(function (toastNode) {
-                var toast = Toast.getInstance(toastNode)
-                toast.show()
-              })
-          })
+        document
+          .getElementById("btnShowToast")
+          .addEventListener("click", function () {
+            Array.from(document.querySelectorAll(".toast")).forEach(function (
+              toastNode
+            ) {
+              var toast = Toast.getInstance(toastNode);
+              toast.show();
+            });
+          });
 
-          document.getElementById('btnHideToast').addEventListener('click', function () {
-            Array.from(document.querySelectorAll('.toast'))
-              .forEach(function (toastNode) {
-                var toast = Toast.getInstance(toastNode)
-                toast.hide()
-              })
-          })
-      })
+        document
+          .getElementById("btnHideToast")
+          .addEventListener("click", function () {
+            Array.from(document.querySelectorAll(".toast")).forEach(function (
+              toastNode
+            ) {
+              var toast = Toast.getInstance(toastNode);
+              toast.hide();
+            });
+          });
+      });
     </script>
   </body>
 </html>

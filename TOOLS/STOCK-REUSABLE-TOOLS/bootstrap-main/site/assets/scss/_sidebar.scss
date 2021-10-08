@@ -1,6 +1,6 @@
 .bd-sidebar {
   @include media-breakpoint-down(md) {
-    margin: 0 -.75rem 1rem;
+    margin: 0 -0.75rem 1rem;
   }
 }
 
@@ -16,50 +16,50 @@
     display: block !important;
     height: subtract(100vh, 7rem);
     // Prevent focus styles to be cut off:
-    padding-left: .25rem;
-    margin-left: -.25rem;
+    padding-left: 0.25rem;
+    margin-left: -0.25rem;
     overflow-y: auto;
   }
 
   > ul {
     @include media-breakpoint-down(md) {
-      padding: 1.5rem .75rem;
+      padding: 1.5rem 0.75rem;
       background-color: $gray-100;
       border-bottom: 1px solid $gray-200;
     }
   }
 
   a {
-    padding: .1875rem .5rem;
-    margin-top: .125rem;
+    padding: 0.1875rem 0.5rem;
+    margin-top: 0.125rem;
     margin-left: 1.25rem;
-    color: rgba($black, .65);
+    color: rgba($black, 0.65);
     text-decoration: if($link-decoration == none, null, none);
 
     &:hover,
     &:focus {
-      color: rgba($black, .85);
+      color: rgba($black, 0.85);
       text-decoration: if($link-hover-decoration == underline, none, null);
-      background-color: rgba($bd-purple-bright, .1);
+      background-color: rgba($bd-purple-bright, 0.1);
     }
   }
 
   .btn {
     // Custom styles (as we don't have a completely neutral button style)
-    padding: .25rem .5rem;
+    padding: 0.25rem 0.5rem;
     font-weight: 600;
-    color: rgba($black, .65);
+    color: rgba($black, 0.65);
     background-color: transparent;
     border: 0;
 
     &:hover,
     &:focus {
-      color: rgba($black, .85);
-      background-color: rgba($bd-purple-bright, .1);
+      color: rgba($black, 0.85);
+      background-color: rgba($bd-purple-bright, 0.1);
     }
 
     &:focus {
-      box-shadow: 0 0 0 1px rgba($bd-purple-bright, .7);
+      box-shadow: 0 0 0 1px rgba($bd-purple-bright, 0.7);
     }
 
     // Add chevron if there's a submenu
@@ -67,12 +67,12 @@
       width: 1.25em;
       line-height: 0; // Align in the middle
       content: escape-svg($sidebar-collapse-icon);
-      @include transition(transform .35s ease);
-      transform-origin: .5em 50%;
+      @include transition(transform 0.35s ease);
+      transform-origin: 0.5em 50%;
     }
 
     &[aria-expanded="true"] {
-      color: rgba($black, .85);
+      color: rgba($black, 0.85);
 
       &::before {
         transform: rotate(90deg);
@@ -82,6 +82,6 @@
 
   .active {
     font-weight: 600;
-    color: rgba($black, .85);
+    color: rgba($black, 0.85);
   }
 }

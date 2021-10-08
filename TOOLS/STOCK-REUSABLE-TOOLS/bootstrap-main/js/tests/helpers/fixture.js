@@ -1,41 +1,41 @@
-const fixtureId = 'fixture'
+const fixtureId = "fixture";
 
 export const getFixture = () => {
-  let fixtureEl = document.getElementById(fixtureId)
+  let fixtureEl = document.getElementById(fixtureId);
 
   if (!fixtureEl) {
-    fixtureEl = document.createElement('div')
-    fixtureEl.setAttribute('id', fixtureId)
-    fixtureEl.style.position = 'absolute'
-    fixtureEl.style.top = '-10000px'
-    fixtureEl.style.left = '-10000px'
-    fixtureEl.style.width = '10000px'
-    fixtureEl.style.height = '10000px'
-    document.body.appendChild(fixtureEl)
+    fixtureEl = document.createElement("div");
+    fixtureEl.setAttribute("id", fixtureId);
+    fixtureEl.style.position = "absolute";
+    fixtureEl.style.top = "-10000px";
+    fixtureEl.style.left = "-10000px";
+    fixtureEl.style.width = "10000px";
+    fixtureEl.style.height = "10000px";
+    document.body.appendChild(fixtureEl);
   }
 
-  return fixtureEl
-}
+  return fixtureEl;
+};
 
 export const clearFixture = () => {
-  const fixtureEl = getFixture()
+  const fixtureEl = getFixture();
 
-  fixtureEl.innerHTML = ''
-}
+  fixtureEl.innerHTML = "";
+};
 
 export const createEvent = (eventName, params = {}) => {
-  const e = document.createEvent('Event')
+  const e = document.createEvent("Event");
 
-  e.initEvent(eventName, Boolean(params.bubbles), Boolean(params.cancelable))
-  return e
-}
+  e.initEvent(eventName, Boolean(params.bubbles), Boolean(params.cancelable));
+  return e;
+};
 
 export const jQueryMock = {
   elements: undefined,
   fn: {},
   each(fn) {
-    this.elements.forEach(el => {
-      fn.call(el)
-    })
-  }
-}
+    this.elements.forEach((el) => {
+      fn.call(el);
+    });
+  },
+};

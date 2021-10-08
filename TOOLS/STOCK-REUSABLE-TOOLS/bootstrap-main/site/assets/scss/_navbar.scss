@@ -1,5 +1,5 @@
 .bd-navbar {
-  padding: .75rem 0;
+  padding: 0.75rem 0;
   background-color: $bd-purple-bright;
 
   .navbar-toggler {
@@ -11,7 +11,7 @@
     .nav-link {
       padding-right: $spacer / 4;
       padding-left: $spacer / 4;
-      color: rgba($white, .85);
+      color: rgba($white, 0.85);
 
       &:hover,
       &:focus {

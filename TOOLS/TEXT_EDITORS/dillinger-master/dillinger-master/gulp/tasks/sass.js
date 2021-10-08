@@ -23,39 +23,59 @@ gulp.task('sass', function () {
 
   console.log('app sass build')
 
-  gulp.src('./public/scss/app.{scss,sass}')
-    .pipe(sass({
-      precision: 7,
-      outputStyle: 'nested'
-    }))
+  gulp
+    .src('./public/scss/app.{scss,sass}')
+    .pipe(
+      sass({
+        precision: 7,
+        outputStyle: 'nested'
+      })
+    )
     .on('error', handleErrors)
     .pipe(autoprefixer())
-    .pipe(gulpif(global.isProduction, cmq({
-      log: true
-    })))
+    .pipe(
+      gulpif(
+        global.isProduction,
+        cmq({
+          log: true
+        })
+      )
+    )
     .pipe(csso())
     .pipe(gulp.dest(dest))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
+    .pipe(
+      browserSync.reload({
+        stream: true
+      })
+    )
     .pipe(size())
 
   console.log('export sass build')
 
-  return gulp.src('./public/scss/export.{scss,sass}')
-    .pipe(sass({
-      precision: 7,
-      outputStyle: 'nested'
-    }))
+  return gulp
+    .src('./public/scss/export.{scss,sass}')
+    .pipe(
+      sass({
+        precision: 7,
+        outputStyle: 'nested'
+      })
+    )
     .on('error', handleErrors)
     .pipe(autoprefixer())
-    .pipe(gulpif(global.isProduction, cmq({
-      log: true
-    })))
+    .pipe(
+      gulpif(
+        global.isProduction,
+        cmq({
+          log: true
+        })
+      )
+    )
     .pipe(csso())
     .pipe(gulp.dest(dest))
-    .pipe(browserSync.reload({
-      stream: true
-    }))
+    .pipe(
+      browserSync.reload({
+        stream: true
+      })
+    )
     .pipe(size())
 })

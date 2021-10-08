@@ -1,7 +1,7 @@
 'use strict'
 
 const express = require('express')
-const app = module.exports = express()
+const app = (module.exports = express())
 const fs = require('fs')
 const path = require('path')
 const md = require('./markdown-it.js')
@@ -9,16 +9,23 @@ const breakdance = require('breakdance')
 const { mdToPdf } = require('md-to-pdf')
 
 const _getFullHtml = (name, str, style) => {
-  return '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' +
-    name + '</title><style>' +
-    ((style) || '') + '</style></head><body id="preview">\n' +
-    md.render(str) + '\n</body></html>'
+  return (
+    '<!DOCTYPE html><html><head><meta charset="utf-8"><title>' +
+    name +
+    '</title><style>' +
+    (style || '') +
+    '</style></head><body id="preview">\n' +
+    md.render(str) +
+    '\n</body></html>'
+  )
 }
 
 // Move this into _getFormat() to reload the CSS without restarting node.
 
 const _getFormat = () => {
-  const _format = fs.readFileSync(path.resolve(__dirname, '../../public/css/export.css')).toString('utf-8')
+  const _format = fs
+    .readFileSync(path.resolve(__dirname, '../../public/css/export.css'))
+    .toString('utf-8')
   return _format
 }
 
@@ -79,7 +86,7 @@ const fetchPdf = async (req, res) => {
 
   if (!content) return res.end('No PDF content exists in the data')
 
-  const filename = name.replace(/\.md$/, '') + '.pdf';
+  const filename = name.replace(/\.md$/, '') + '.pdf'
 
   if (req.body.preview === 'false') {
     res.attachment(filename)
@@ -116,9 +123,12 @@ const markdown2Pdf = async (md) => {
   let pdf = null
 
   try {
-    pdf = await mdToPdf({ content: md }, {
-      launch_options: ['--no-sandbox', '--disable-setuid-sandbox']
-    })
+    pdf = await mdToPdf(
+      { content: md },
+      {
+        launch_options: ['--no-sandbox', '--disable-setuid-sandbox']
+      }
+    )
   } catch (err) {
     return { err }
   }

@@ -5,18 +5,21 @@
  * --------------------------------------------------------------------------
  */
 
-const MAX_UID = 1000000
-const MILLISECONDS_MULTIPLIER = 1000
-const TRANSITION_END = 'transitionend'
+const MAX_UID = 1000000;
+const MILLISECONDS_MULTIPLIER = 1000;
+const TRANSITION_END = "transitionend";
 
 // Shoutout AngusCroll (https://goo.gl/pxwQGp)
-const toType = obj => {
+const toType = (obj) => {
   if (obj === null || obj === undefined) {
-    return `${obj}`
+    return `${obj}`;
   }
 
-  return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase()
-}
+  return {}.toString
+    .call(obj)
+    .match(/\s([a-z]+)/i)[1]
+    .toLowerCase();
+};
 
 /**
  * --------------------------------------------------------------------------
@@ -24,184 +27,191 @@ const toType = obj => {
  * --------------------------------------------------------------------------
  */
 
-const getUID = prefix => {
+const getUID = (prefix) => {
   do {
-    prefix += Math.floor(Math.random() * MAX_UID)
-  } while (document.getElementById(prefix))
+    prefix += Math.floor(Math.random() * MAX_UID);
+  } while (document.getElementById(prefix));
 
-  return prefix
-}
+  return prefix;
+};
 
-const getSelector = element => {
-  let selector = element.getAttribute('data-bs-target')
+const getSelector = (element) => {
+  let selector = element.getAttribute("data-bs-target");
 
-  if (!selector || selector === '#') {
-    const hrefAttr = element.getAttribute('href')
+  if (!selector || selector === "#") {
+    const hrefAttr = element.getAttribute("href");
 
-    selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null
+    selector = hrefAttr && hrefAttr !== "#" ? hrefAttr.trim() : null;
   }
 
-  return selector
-}
+  return selector;
+};
 
-const getSelectorFromElement = element => {
-  const selector = getSelector(element)
+const getSelectorFromElement = (element) => {
+  const selector = getSelector(element);
 
   if (selector) {
-    return document.querySelector(selector) ? selector : null
+    return document.querySelector(selector) ? selector : null;
   }
 
-  return null
-}
+  return null;
+};
 
-const getElementFromSelector = element => {
-  const selector = getSelector(element)
+const getElementFromSelector = (element) => {
+  const selector = getSelector(element);
 
-  return selector ? document.querySelector(selector) : null
-}
+  return selector ? document.querySelector(selector) : null;
+};
 
-const getTransitionDurationFromElement = element => {
+const getTransitionDurationFromElement = (element) => {
   if (!element) {
-    return 0
+    return 0;
   }
 
   // Get transition-duration of the element
-  let { transitionDuration, transitionDelay } = window.getComputedStyle(element)
+  let { transitionDuration, transitionDelay } =
+    window.getComputedStyle(element);
 
-  const floatTransitionDuration = Number.parseFloat(transitionDuration)
-  const floatTransitionDelay = Number.parseFloat(transitionDelay)
+  const floatTransitionDuration = Number.parseFloat(transitionDuration);
+  const floatTransitionDelay = Number.parseFloat(transitionDelay);
 
   // Return 0 if element or transition duration is not found
   if (!floatTransitionDuration && !floatTransitionDelay) {
-    return 0
+    return 0;
   }
 
   // If multiple durations are defined, take the first
-  transitionDuration = transitionDuration.split(',')[0]
-  transitionDelay = transitionDelay.split(',')[0]
+  transitionDuration = transitionDuration.split(",")[0];
+  transitionDelay = transitionDelay.split(",")[0];
 
-  return (Number.parseFloat(transitionDuration) + Number.parseFloat(transitionDelay)) * MILLISECONDS_MULTIPLIER
-}
+  return (
+    (Number.parseFloat(transitionDuration) +
+      Number.parseFloat(transitionDelay)) *
+    MILLISECONDS_MULTIPLIER
+  );
+};
 
-const triggerTransitionEnd = element => {
-  element.dispatchEvent(new Event(TRANSITION_END))
-}
+const triggerTransitionEnd = (element) => {
+  element.dispatchEvent(new Event(TRANSITION_END));
+};
 
-const isElement = obj => (obj[0] || obj).nodeType
+const isElement = (obj) => (obj[0] || obj).nodeType;
 
 const emulateTransitionEnd = (element, duration) => {
-  let called = false
-  const durationPadding = 5
-  const emulatedDuration = duration + durationPadding
+  let called = false;
+  const durationPadding = 5;
+  const emulatedDuration = duration + durationPadding;
 
   function listener() {
-    called = true
-    element.removeEventListener(TRANSITION_END, listener)
+    called = true;
+    element.removeEventListener(TRANSITION_END, listener);
   }
 
-  element.addEventListener(TRANSITION_END, listener)
+  element.addEventListener(TRANSITION_END, listener);
   setTimeout(() => {
     if (!called) {
-      triggerTransitionEnd(element)
+      triggerTransitionEnd(element);
     }
-  }, emulatedDuration)
-}
+  }, emulatedDuration);
+};
 
 const typeCheckConfig = (componentName, config, configTypes) => {
-  Object.keys(configTypes).forEach(property => {
-    const expectedTypes = configTypes[property]
-    const value = config[property]
-    const valueType = value && isElement(value) ? 'element' : toType(value)
+  Object.keys(configTypes).forEach((property) => {
+    const expectedTypes = configTypes[property];
+    const value = config[property];
+    const valueType = value && isElement(value) ? "element" : toType(value);
 
     if (!new RegExp(expectedTypes).test(valueType)) {
       throw new TypeError(
         `${componentName.toUpperCase()}: ` +
-        `Option "${property}" provided type "${valueType}" ` +
-        `but expected type "${expectedTypes}".`
-      )
+          `Option "${property}" provided type "${valueType}" ` +
+          `but expected type "${expectedTypes}".`
+      );
     }
-  })
-}
+  });
+};
 
-const isVisible = element => {
+const isVisible = (element) => {
   if (!element) {
-    return false
+    return false;
   }
 
   if (element.style && element.parentNode && element.parentNode.style) {
-    const elementStyle = getComputedStyle(element)
-    const parentNodeStyle = getComputedStyle(element.parentNode)
+    const elementStyle = getComputedStyle(element);
+    const parentNodeStyle = getComputedStyle(element.parentNode);
 
-    return elementStyle.display !== 'none' &&
-      parentNodeStyle.display !== 'none' &&
-      elementStyle.visibility !== 'hidden'
+    return (
+      elementStyle.display !== "none" &&
+      parentNodeStyle.display !== "none" &&
+      elementStyle.visibility !== "hidden"
+    );
   }
 
-  return false
-}
+  return false;
+};
 
-const findShadowRoot = element => {
+const findShadowRoot = (element) => {
   if (!document.documentElement.attachShadow) {
-    return null
+    return null;
   }
 
   // Can find the shadow root otherwise it'll return the document
-  if (typeof element.getRootNode === 'function') {
-    const root = element.getRootNode()
-    return root instanceof ShadowRoot ? root : null
+  if (typeof element.getRootNode === "function") {
+    const root = element.getRootNode();
+    return root instanceof ShadowRoot ? root : null;
   }
 
   if (element instanceof ShadowRoot) {
-    return element
+    return element;
   }
 
   // when we don't find a shadow root
   if (!element.parentNode) {
-    return null
+    return null;
   }
 
-  return findShadowRoot(element.parentNode)
-}
+  return findShadowRoot(element.parentNode);
+};
 
-const noop = () => function () {}
+const noop = () => function () {};
 
-const reflow = element => element.offsetHeight
+const reflow = (element) => element.offsetHeight;
 
 const getjQuery = () => {
-  const { jQuery } = window
+  const { jQuery } = window;
 
-  if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
-    return jQuery
+  if (jQuery && !document.body.hasAttribute("data-bs-no-jquery")) {
+    return jQuery;
   }
 
-  return null
-}
+  return null;
+};
 
-const onDOMContentLoaded = callback => {
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', callback)
+const onDOMContentLoaded = (callback) => {
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", callback);
   } else {
-    callback()
+    callback();
   }
-}
+};
 
-const isRTL = document.documentElement.dir === 'rtl'
+const isRTL = document.documentElement.dir === "rtl";
 
 const defineJQueryPlugin = (name, plugin) => {
   onDOMContentLoaded(() => {
-    const $ = getjQuery()
+    const $ = getjQuery();
     /* istanbul ignore if */
     if ($) {
-      const JQUERY_NO_CONFLICT = $.fn[name]
-      $.fn[name] = plugin.jQueryInterface
-      $.fn[name].Constructor = plugin
+      const JQUERY_NO_CONFLICT = $.fn[name];
+      $.fn[name] = plugin.jQueryInterface;
+      $.fn[name].Constructor = plugin;
       $.fn[name].noConflict = () => {
-        $.fn[name] = JQUERY_NO_CONFLICT
-        return plugin.jQueryInterface
-      }
+        $.fn[name] = JQUERY_NO_CONFLICT;
+        return plugin.jQueryInterface;
+      };
     }
-  })
-}
+  });
+};
 
 export {
   getUID,
@@ -219,5 +229,5 @@ export {
   getjQuery,
   onDOMContentLoaded,
   isRTL,
-  defineJQueryPlugin
-}
+  defineJQueryPlugin,
+};

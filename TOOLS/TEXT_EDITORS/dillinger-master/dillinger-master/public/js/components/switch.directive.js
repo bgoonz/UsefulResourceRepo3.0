@@ -1,18 +1,15 @@
-
-'use strict';
-module.exports =
-  angular
+'use strict'
+module.exports = angular
   .module('diBase.directives.switch', [])
-  .directive('switch', function() {
+  .directive('switch', function () {
+    var directive = {
+      restrict: 'AE',
+      replace: true,
+      scope: {
+        toggleValue: '=value'
+      },
+      template: require('raw!./switch.directive.html')
+    }
 
-  var directive = {
-    restrict: 'AE',
-    replace: true,
-    scope: {
-      toggleValue: '=value'
-    },
-    template: require('raw!./switch.directive.html')
-  };
-
-  return directive;
-});
+    return directive
+  })

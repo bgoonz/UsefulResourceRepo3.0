@@ -15,9 +15,9 @@ js2svg:
   indent: 2
 
 plugins:
-#  - addAttributesToSVGElement:
-#      attributes:
-#        - focusable: false
+  #  - addAttributesToSVGElement:
+  #      attributes:
+  #        - focusable: false
   - cleanupAttrs: true
   - cleanupEnableBackground: true
   - cleanupIDs: true

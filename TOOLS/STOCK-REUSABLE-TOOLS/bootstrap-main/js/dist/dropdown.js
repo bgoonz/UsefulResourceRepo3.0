@@ -1,41 +1,76 @@
 /*!
-  * Bootstrap dropdown.js v5.0.0-beta1 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap dropdown.js v5.0.0-beta1 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory(require('@popperjs/core'), require('./dom/data.js'), require('./dom/event-handler.js'), require('./dom/manipulator.js'), require('./dom/selector-engine.js')) :
-  typeof define === 'function' && define.amd ? define(['@popperjs/core', './dom/data', './dom/event-handler', './dom/manipulator', './dom/selector-engine'], factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.Dropdown = factory(global.Popper, global.Data, global.EventHandler, global.Manipulator, global.SelectorEngine));
-}(this, (function (Popper, Data, EventHandler, Manipulator, SelectorEngine) { 'use strict';
+  typeof exports === "object" && typeof module !== "undefined"
+    ? (module.exports = factory(
+        require("@popperjs/core"),
+        require("./dom/data.js"),
+        require("./dom/event-handler.js"),
+        require("./dom/manipulator.js"),
+        require("./dom/selector-engine.js")
+      ))
+    : typeof define === "function" && define.amd
+    ? define(
+        [
+          "@popperjs/core",
+          "./dom/data",
+          "./dom/event-handler",
+          "./dom/manipulator",
+          "./dom/selector-engine",
+        ],
+        factory
+      )
+    : ((global =
+        typeof globalThis !== "undefined" ? globalThis : global || self),
+      (global.Dropdown = factory(
+        global.Popper,
+        global.Data,
+        global.EventHandler,
+        global.Manipulator,
+        global.SelectorEngine
+      )));
+})(this, function (Popper, Data, EventHandler, Manipulator, SelectorEngine) {
+  "use strict";
 
-  function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+  function _interopDefaultLegacy(e) {
+    return e && typeof e === "object" && "default" in e ? e : { default: e };
+  }
 
   function _interopNamespace(e) {
     if (e && e.__esModule) return e;
     var n = Object.create(null);
     if (e) {
       Object.keys(e).forEach(function (k) {
-        if (k !== 'default') {
+        if (k !== "default") {
           var d = Object.getOwnPropertyDescriptor(e, k);
-          Object.defineProperty(n, k, d.get ? d : {
-            enumerable: true,
-            get: function () {
-              return e[k];
-            }
-          });
+          Object.defineProperty(
+            n,
+            k,
+            d.get
+              ? d
+              : {
+                  enumerable: true,
+                  get: function () {
+                    return e[k];
+                  },
+                }
+          );
         }
       });
     }
-    n['default'] = e;
+    n["default"] = e;
     return Object.freeze(n);
   }
 
-  var Popper__namespace = /*#__PURE__*/_interopNamespace(Popper);
-  var Data__default = /*#__PURE__*/_interopDefaultLegacy(Data);
-  var EventHandler__default = /*#__PURE__*/_interopDefaultLegacy(EventHandler);
-  var Manipulator__default = /*#__PURE__*/_interopDefaultLegacy(Manipulator);
-  var SelectorEngine__default = /*#__PURE__*/_interopDefaultLegacy(SelectorEngine);
+  var Popper__namespace = /*#__PURE__*/ _interopNamespace(Popper);
+  var Data__default = /*#__PURE__*/ _interopDefaultLegacy(Data);
+  var EventHandler__default = /*#__PURE__*/ _interopDefaultLegacy(EventHandler);
+  var Manipulator__default = /*#__PURE__*/ _interopDefaultLegacy(Manipulator);
+  var SelectorEngine__default =
+    /*#__PURE__*/ _interopDefaultLegacy(SelectorEngine);
 
   /**
    * --------------------------------------------------------------------------
@@ -49,15 +84,18 @@
       return "" + obj;
     }
 
-    return {}.toString.call(obj).match(/\s([a-z]+)/i)[1].toLowerCase();
+    return {}.toString
+      .call(obj)
+      .match(/\s([a-z]+)/i)[1]
+      .toLowerCase();
   };
 
   var getSelector = function getSelector(element) {
-    var selector = element.getAttribute('data-bs-target');
+    var selector = element.getAttribute("data-bs-target");
 
-    if (!selector || selector === '#') {
-      var hrefAttr = element.getAttribute('href');
-      selector = hrefAttr && hrefAttr !== '#' ? hrefAttr.trim() : null;
+    if (!selector || selector === "#") {
+      var hrefAttr = element.getAttribute("href");
+      selector = hrefAttr && hrefAttr !== "#" ? hrefAttr.trim() : null;
     }
 
     return selector;
@@ -72,14 +110,23 @@
     return (obj[0] || obj).nodeType;
   };
 
-  var typeCheckConfig = function typeCheckConfig(componentName, config, configTypes) {
+  var typeCheckConfig = function typeCheckConfig(
+    componentName,
+    config,
+    configTypes
+  ) {
     Object.keys(configTypes).forEach(function (property) {
       var expectedTypes = configTypes[property];
       var value = config[property];
-      var valueType = value && isElement(value) ? 'element' : toType(value);
+      var valueType = value && isElement(value) ? "element" : toType(value);
 
       if (!new RegExp(expectedTypes).test(valueType)) {
-        throw new Error(componentName.toUpperCase() + ": " + ("Option \"" + property + "\" provided type \"" + valueType + "\" ") + ("but expected type \"" + expectedTypes + "\"."));
+        throw new Error(
+          componentName.toUpperCase() +
+            ": " +
+            ('Option "' + property + '" provided type "' + valueType + '" ') +
+            ('but expected type "' + expectedTypes + '".')
+        );
       }
     });
   };
@@ -92,7 +139,11 @@
     if (element.style && element.parentNode && element.parentNode.style) {
       var elementStyle = getComputedStyle(element);
       var parentNodeStyle = getComputedStyle(element.parentNode);
-      return elementStyle.display !== 'none' && parentNodeStyle.display !== 'none' && elementStyle.visibility !== 'hidden';
+      return (
+        elementStyle.display !== "none" &&
+        parentNodeStyle.display !== "none" &&
+        elementStyle.visibility !== "hidden"
+      );
     }
 
     return false;
@@ -104,9 +155,9 @@
 
   var getjQuery = function getjQuery() {
     var _window = window,
-        jQuery = _window.jQuery;
+      jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute("data-bs-no-jquery")) {
       return jQuery;
     }
 
@@ -114,84 +165,137 @@
   };
 
   var onDOMContentLoaded = function onDOMContentLoaded(callback) {
-    if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', callback);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", callback);
     } else {
       callback();
     }
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
+  var isRTL = document.documentElement.dir === "rtl";
 
-  function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  function _defineProperties(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
 
-  function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
+  function _createClass(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties(Constructor, staticProps);
+    return Constructor;
+  }
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  var VERSION = '5.0.0-beta1';
+  var VERSION = "5.0.0-beta1";
 
-  var BaseComponent = /*#__PURE__*/function () {
+  var BaseComponent = /*#__PURE__*/ (function () {
     function BaseComponent(element) {
       if (!element) {
         return;
       }
 
       this._element = element;
-      Data__default['default'].setData(element, this.constructor.DATA_KEY, this);
+      Data__default["default"].setData(
+        element,
+        this.constructor.DATA_KEY,
+        this
+      );
     }
 
     var _proto = BaseComponent.prototype;
 
     _proto.dispose = function dispose() {
-      Data__default['default'].removeData(this._element, this.constructor.DATA_KEY);
+      Data__default["default"].removeData(
+        this._element,
+        this.constructor.DATA_KEY
+      );
       this._element = null;
-    }
+    };
     /** Static */
-    ;
 
     BaseComponent.getInstance = function getInstance(element) {
-      return Data__default['default'].getData(element, this.DATA_KEY);
+      return Data__default["default"].getData(element, this.DATA_KEY);
     };
 
-    _createClass(BaseComponent, null, [{
-      key: "VERSION",
-      get: function get() {
-        return VERSION;
-      }
-    }]);
+    _createClass(BaseComponent, null, [
+      {
+        key: "VERSION",
+        get: function get() {
+          return VERSION;
+        },
+      },
+    ]);
 
     return BaseComponent;
-  }();
+  })();
 
-  function _extends() { _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; }; return _extends.apply(this, arguments); }
+  function _extends() {
+    _extends =
+      Object.assign ||
+      function (target) {
+        for (var i = 1; i < arguments.length; i++) {
+          var source = arguments[i];
+          for (var key in source) {
+            if (Object.prototype.hasOwnProperty.call(source, key)) {
+              target[key] = source[key];
+            }
+          }
+        }
+        return target;
+      };
+    return _extends.apply(this, arguments);
+  }
 
-  function _defineProperties$1(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  function _defineProperties$1(target, props) {
+    for (var i = 0; i < props.length; i++) {
+      var descriptor = props[i];
+      descriptor.enumerable = descriptor.enumerable || false;
+      descriptor.configurable = true;
+      if ("value" in descriptor) descriptor.writable = true;
+      Object.defineProperty(target, descriptor.key, descriptor);
+    }
+  }
 
-  function _createClass$1(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties$1(Constructor.prototype, protoProps); if (staticProps) _defineProperties$1(Constructor, staticProps); return Constructor; }
+  function _createClass$1(Constructor, protoProps, staticProps) {
+    if (protoProps) _defineProperties$1(Constructor.prototype, protoProps);
+    if (staticProps) _defineProperties$1(Constructor, staticProps);
+    return Constructor;
+  }
 
-  function _inheritsLoose(subClass, superClass) { subClass.prototype = Object.create(superClass.prototype); subClass.prototype.constructor = subClass; subClass.__proto__ = superClass; }
+  function _inheritsLoose(subClass, superClass) {
+    subClass.prototype = Object.create(superClass.prototype);
+    subClass.prototype.constructor = subClass;
+    subClass.__proto__ = superClass;
+  }
   /**
    * ------------------------------------------------------------------------
    * Constants
    * ------------------------------------------------------------------------
    */
 
-  var NAME = 'dropdown';
-  var DATA_KEY = 'bs.dropdown';
+  var NAME = "dropdown";
+  var DATA_KEY = "bs.dropdown";
   var EVENT_KEY = "." + DATA_KEY;
-  var DATA_API_KEY = '.data-api';
-  var ESCAPE_KEY = 'Escape';
-  var SPACE_KEY = 'Space';
-  var TAB_KEY = 'Tab';
-  var ARROW_UP_KEY = 'ArrowUp';
-  var ARROW_DOWN_KEY = 'ArrowDown';
+  var DATA_API_KEY = ".data-api";
+  var ESCAPE_KEY = "Escape";
+  var SPACE_KEY = "Space";
+  var TAB_KEY = "Tab";
+  var ARROW_UP_KEY = "ArrowUp";
+  var ARROW_DOWN_KEY = "ArrowDown";
   var RIGHT_MOUSE_BUTTON = 2; // MouseEvent.button value for the secondary button, usually the right button
 
-  var REGEXP_KEYDOWN = new RegExp(ARROW_UP_KEY + "|" + ARROW_DOWN_KEY + "|" + ESCAPE_KEY);
+  var REGEXP_KEYDOWN = new RegExp(
+    ARROW_UP_KEY + "|" + ARROW_DOWN_KEY + "|" + ESCAPE_KEY
+  );
   var EVENT_HIDE = "hide" + EVENT_KEY;
   var EVENT_HIDDEN = "hidden" + EVENT_KEY;
   var EVENT_SHOW = "show" + EVENT_KEY;
@@ -200,38 +304,39 @@
   var EVENT_CLICK_DATA_API = "click" + EVENT_KEY + DATA_API_KEY;
   var EVENT_KEYDOWN_DATA_API = "keydown" + EVENT_KEY + DATA_API_KEY;
   var EVENT_KEYUP_DATA_API = "keyup" + EVENT_KEY + DATA_API_KEY;
-  var CLASS_NAME_DISABLED = 'disabled';
-  var CLASS_NAME_SHOW = 'show';
-  var CLASS_NAME_DROPUP = 'dropup';
-  var CLASS_NAME_DROPEND = 'dropend';
-  var CLASS_NAME_DROPSTART = 'dropstart';
-  var CLASS_NAME_NAVBAR = 'navbar';
+  var CLASS_NAME_DISABLED = "disabled";
+  var CLASS_NAME_SHOW = "show";
+  var CLASS_NAME_DROPUP = "dropup";
+  var CLASS_NAME_DROPEND = "dropend";
+  var CLASS_NAME_DROPSTART = "dropstart";
+  var CLASS_NAME_NAVBAR = "navbar";
   var SELECTOR_DATA_TOGGLE = '[data-bs-toggle="dropdown"]';
-  var SELECTOR_FORM_CHILD = '.dropdown form';
-  var SELECTOR_MENU = '.dropdown-menu';
-  var SELECTOR_NAVBAR_NAV = '.navbar-nav';
-  var SELECTOR_VISIBLE_ITEMS = '.dropdown-menu .dropdown-item:not(.disabled):not(:disabled)';
-  var PLACEMENT_TOP = isRTL ? 'top-end' : 'top-start';
-  var PLACEMENT_TOPEND = isRTL ? 'top-start' : 'top-end';
-  var PLACEMENT_BOTTOM = isRTL ? 'bottom-end' : 'bottom-start';
-  var PLACEMENT_BOTTOMEND = isRTL ? 'bottom-start' : 'bottom-end';
-  var PLACEMENT_RIGHT = isRTL ? 'left-start' : 'right-start';
-  var PLACEMENT_LEFT = isRTL ? 'right-start' : 'left-start';
+  var SELECTOR_FORM_CHILD = ".dropdown form";
+  var SELECTOR_MENU = ".dropdown-menu";
+  var SELECTOR_NAVBAR_NAV = ".navbar-nav";
+  var SELECTOR_VISIBLE_ITEMS =
+    ".dropdown-menu .dropdown-item:not(.disabled):not(:disabled)";
+  var PLACEMENT_TOP = isRTL ? "top-end" : "top-start";
+  var PLACEMENT_TOPEND = isRTL ? "top-start" : "top-end";
+  var PLACEMENT_BOTTOM = isRTL ? "bottom-end" : "bottom-start";
+  var PLACEMENT_BOTTOMEND = isRTL ? "bottom-start" : "bottom-end";
+  var PLACEMENT_RIGHT = isRTL ? "left-start" : "right-start";
+  var PLACEMENT_LEFT = isRTL ? "right-start" : "left-start";
   var Default = {
     offset: 0,
     flip: true,
-    boundary: 'clippingParents',
-    reference: 'toggle',
-    display: 'dynamic',
-    popperConfig: null
+    boundary: "clippingParents",
+    reference: "toggle",
+    display: "dynamic",
+    popperConfig: null,
   };
   var DefaultType = {
-    offset: '(number|string|function)',
-    flip: 'boolean',
-    boundary: '(string|element)',
-    reference: '(string|element)',
-    display: 'string',
-    popperConfig: '(null|object)'
+    offset: "(number|string|function)",
+    flip: "boolean",
+    boundary: "(string|element)",
+    reference: "(string|element)",
+    display: "string",
+    popperConfig: "(null|object)",
   };
   /**
    * ------------------------------------------------------------------------
@@ -239,7 +344,7 @@
    * ------------------------------------------------------------------------
    */
 
-  var Dropdown = /*#__PURE__*/function (_BaseComponent) {
+  var Dropdown = /*#__PURE__*/ (function (_BaseComponent) {
     _inheritsLoose(Dropdown, _BaseComponent);
 
     function Dropdown(element, config) {
@@ -256,12 +361,14 @@
       return _this;
     } // Getters
 
-
     var _proto = Dropdown.prototype;
 
     // Public
     _proto.toggle = function toggle() {
-      if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED)) {
+      if (
+        this._element.disabled ||
+        this._element.classList.contains(CLASS_NAME_DISABLED)
+      ) {
         return;
       }
 
@@ -277,74 +384,108 @@
     };
 
     _proto.show = function show() {
-      if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED) || this._menu.classList.contains(CLASS_NAME_SHOW)) {
+      if (
+        this._element.disabled ||
+        this._element.classList.contains(CLASS_NAME_DISABLED) ||
+        this._menu.classList.contains(CLASS_NAME_SHOW)
+      ) {
         return;
       }
 
       var parent = Dropdown.getParentFromElement(this._element);
       var relatedTarget = {
-        relatedTarget: this._element
+        relatedTarget: this._element,
       };
-      var showEvent = EventHandler__default['default'].trigger(this._element, EVENT_SHOW, relatedTarget);
+      var showEvent = EventHandler__default["default"].trigger(
+        this._element,
+        EVENT_SHOW,
+        relatedTarget
+      );
 
       if (showEvent.defaultPrevented) {
         return;
       } // Totally disable Popper for Dropdowns in Navbar
 
-
       if (!this._inNavbar) {
-        if (typeof Popper__namespace === 'undefined') {
-          throw new TypeError('Bootstrap\'s dropdowns require Popper (https://popper.js.org)');
+        if (typeof Popper__namespace === "undefined") {
+          throw new TypeError(
+            "Bootstrap's dropdowns require Popper (https://popper.js.org)"
+          );
         }
 
         var referenceElement = this._element;
 
-        if (this._config.reference === 'parent') {
+        if (this._config.reference === "parent") {
           referenceElement = parent;
         } else if (isElement(this._config.reference)) {
           referenceElement = this._config.reference; // Check if it's jQuery element
 
-          if (typeof this._config.reference.jquery !== 'undefined') {
+          if (typeof this._config.reference.jquery !== "undefined") {
             referenceElement = this._config.reference[0];
           }
         }
 
-        this._popper = Popper.createPopper(referenceElement, this._menu, this._getPopperConfig());
+        this._popper = Popper.createPopper(
+          referenceElement,
+          this._menu,
+          this._getPopperConfig()
+        );
       } // If this is a touch-enabled device we add extra
       // empty mouseover listeners to the body's immediate children;
       // only needed because of broken event delegation on iOS
       // https://www.quirksmode.org/blog/archives/2014/02/mouse_event_bub.html
 
-
-      if ('ontouchstart' in document.documentElement && !parent.closest(SELECTOR_NAVBAR_NAV)) {
+      if (
+        "ontouchstart" in document.documentElement &&
+        !parent.closest(SELECTOR_NAVBAR_NAV)
+      ) {
         var _ref;
 
-        (_ref = []).concat.apply(_ref, document.body.children).forEach(function (elem) {
-          return EventHandler__default['default'].on(elem, 'mouseover', null, noop());
-        });
+        (_ref = []).concat
+          .apply(_ref, document.body.children)
+          .forEach(function (elem) {
+            return EventHandler__default["default"].on(
+              elem,
+              "mouseover",
+              null,
+              noop()
+            );
+          });
       }
 
       this._element.focus();
 
-      this._element.setAttribute('aria-expanded', true);
+      this._element.setAttribute("aria-expanded", true);
 
       this._menu.classList.toggle(CLASS_NAME_SHOW);
 
       this._element.classList.toggle(CLASS_NAME_SHOW);
 
-      EventHandler__default['default'].trigger(parent, EVENT_SHOWN, relatedTarget);
+      EventHandler__default["default"].trigger(
+        parent,
+        EVENT_SHOWN,
+        relatedTarget
+      );
     };
 
     _proto.hide = function hide() {
-      if (this._element.disabled || this._element.classList.contains(CLASS_NAME_DISABLED) || !this._menu.classList.contains(CLASS_NAME_SHOW)) {
+      if (
+        this._element.disabled ||
+        this._element.classList.contains(CLASS_NAME_DISABLED) ||
+        !this._menu.classList.contains(CLASS_NAME_SHOW)
+      ) {
         return;
       }
 
       var parent = Dropdown.getParentFromElement(this._element);
       var relatedTarget = {
-        relatedTarget: this._element
+        relatedTarget: this._element,
       };
-      var hideEvent = EventHandler__default['default'].trigger(parent, EVENT_HIDE, relatedTarget);
+      var hideEvent = EventHandler__default["default"].trigger(
+        parent,
+        EVENT_HIDE,
+        relatedTarget
+      );
 
       if (hideEvent.defaultPrevented) {
         return;
@@ -358,13 +499,17 @@
 
       this._element.classList.toggle(CLASS_NAME_SHOW);
 
-      EventHandler__default['default'].trigger(parent, EVENT_HIDDEN, relatedTarget);
+      EventHandler__default["default"].trigger(
+        parent,
+        EVENT_HIDDEN,
+        relatedTarget
+      );
     };
 
     _proto.dispose = function dispose() {
       _BaseComponent.prototype.dispose.call(this);
 
-      EventHandler__default['default'].off(this._element, EVENT_KEY);
+      EventHandler__default["default"].off(this._element, EVENT_KEY);
       this._menu = null;
 
       if (this._popper) {
@@ -380,28 +525,39 @@
       if (this._popper) {
         this._popper.update();
       }
-    } // Private
-    ;
+    }; // Private
 
     _proto._addEventListeners = function _addEventListeners() {
       var _this2 = this;
 
-      EventHandler__default['default'].on(this._element, EVENT_CLICK, function (event) {
-        event.preventDefault();
-        event.stopPropagation();
+      EventHandler__default["default"].on(
+        this._element,
+        EVENT_CLICK,
+        function (event) {
+          event.preventDefault();
+          event.stopPropagation();
 
-        _this2.toggle();
-      });
+          _this2.toggle();
+        }
+      );
     };
 
     _proto._getConfig = function _getConfig(config) {
-      config = _extends({}, this.constructor.Default, Manipulator__default['default'].getDataAttributes(this._element), config);
+      config = _extends(
+        {},
+        this.constructor.Default,
+        Manipulator__default["default"].getDataAttributes(this._element),
+        config
+      );
       typeCheckConfig(NAME, config, this.constructor.DefaultType);
       return config;
     };
 
     _proto._getMenuElement = function _getMenuElement() {
-      return SelectorEngine__default['default'].next(this._element, SELECTOR_MENU)[0];
+      return SelectorEngine__default["default"].next(
+        this._element,
+        SELECTOR_MENU
+      )[0];
     };
 
     _proto._getPlacement = function _getPlacement() {
@@ -415,8 +571,10 @@
         return PLACEMENT_LEFT;
       } // We need to trim the value because custom properties can also include spaces
 
-
-      var isEnd = getComputedStyle(this._menu).getPropertyValue('--bs-position').trim() === 'end';
+      var isEnd =
+        getComputedStyle(this._menu)
+          .getPropertyValue("--bs-position")
+          .trim() === "end";
 
       if (parentDropdown.classList.contains(CLASS_NAME_DROPUP)) {
         return isEnd ? PLACEMENT_TOPEND : PLACEMENT_TOP;
@@ -432,38 +590,41 @@
     _proto._getPopperConfig = function _getPopperConfig() {
       var popperConfig = {
         placement: this._getPlacement(),
-        modifiers: [{
-          name: 'preventOverflow',
-          options: {
-            altBoundary: this._config.flip,
-            rootBoundary: this._config.boundary
-          }
-        }]
+        modifiers: [
+          {
+            name: "preventOverflow",
+            options: {
+              altBoundary: this._config.flip,
+              rootBoundary: this._config.boundary,
+            },
+          },
+        ],
       }; // Disable Popper if we have a static display
 
-      if (this._config.display === 'static') {
-        popperConfig.modifiers = [{
-          name: 'applyStyles',
-          enabled: false
-        }];
+      if (this._config.display === "static") {
+        popperConfig.modifiers = [
+          {
+            name: "applyStyles",
+            enabled: false,
+          },
+        ];
       }
 
       return _extends({}, popperConfig, this._config.popperConfig);
-    } // Static
-    ;
+    }; // Static
 
     Dropdown.dropdownInterface = function dropdownInterface(element, config) {
-      var data = Data__default['default'].getData(element, DATA_KEY);
+      var data = Data__default["default"].getData(element, DATA_KEY);
 
-      var _config = typeof config === 'object' ? config : null;
+      var _config = typeof config === "object" ? config : null;
 
       if (!data) {
         data = new Dropdown(element, _config);
       }
 
-      if (typeof config === 'string') {
-        if (typeof data[config] === 'undefined') {
-          throw new TypeError("No method named \"" + config + "\"");
+      if (typeof config === "string") {
+        if (typeof data[config] === "undefined") {
+          throw new TypeError('No method named "' + config + '"');
         }
 
         data[config]();
@@ -477,20 +638,25 @@
     };
 
     Dropdown.clearMenus = function clearMenus(event) {
-      if (event && (event.button === RIGHT_MOUSE_BUTTON || event.type === 'keyup' && event.key !== TAB_KEY)) {
+      if (
+        event &&
+        (event.button === RIGHT_MOUSE_BUTTON ||
+          (event.type === "keyup" && event.key !== TAB_KEY))
+      ) {
         return;
       }
 
-      var toggles = SelectorEngine__default['default'].find(SELECTOR_DATA_TOGGLE);
+      var toggles =
+        SelectorEngine__default["default"].find(SELECTOR_DATA_TOGGLE);
 
       for (var i = 0, len = toggles.length; i < len; i++) {
         var parent = Dropdown.getParentFromElement(toggles[i]);
-        var context = Data__default['default'].getData(toggles[i], DATA_KEY);
+        var context = Data__default["default"].getData(toggles[i], DATA_KEY);
         var relatedTarget = {
-          relatedTarget: toggles[i]
+          relatedTarget: toggles[i],
         };
 
-        if (event && event.type === 'click') {
+        if (event && event.type === "click") {
           relatedTarget.clickEvent = event;
         }
 
@@ -504,27 +670,43 @@
           continue;
         }
 
-        if (event && (event.type === 'click' && /input|textarea/i.test(event.target.tagName) || event.type === 'keyup' && event.key === TAB_KEY) && dropdownMenu.contains(event.target)) {
+        if (
+          event &&
+          ((event.type === "click" &&
+            /input|textarea/i.test(event.target.tagName)) ||
+            (event.type === "keyup" && event.key === TAB_KEY)) &&
+          dropdownMenu.contains(event.target)
+        ) {
           continue;
         }
 
-        var hideEvent = EventHandler__default['default'].trigger(parent, EVENT_HIDE, relatedTarget);
+        var hideEvent = EventHandler__default["default"].trigger(
+          parent,
+          EVENT_HIDE,
+          relatedTarget
+        );
 
         if (hideEvent.defaultPrevented) {
           continue;
         } // If this is a touch-enabled device we remove the extra
         // empty mouseover listeners we added for iOS support
 
-
-        if ('ontouchstart' in document.documentElement) {
+        if ("ontouchstart" in document.documentElement) {
           var _ref2;
 
-          (_ref2 = []).concat.apply(_ref2, document.body.children).forEach(function (elem) {
-            return EventHandler__default['default'].off(elem, 'mouseover', null, noop());
-          });
+          (_ref2 = []).concat
+            .apply(_ref2, document.body.children)
+            .forEach(function (elem) {
+              return EventHandler__default["default"].off(
+                elem,
+                "mouseover",
+                null,
+                noop()
+              );
+            });
         }
 
-        toggles[i].setAttribute('aria-expanded', 'false');
+        toggles[i].setAttribute("aria-expanded", "false");
 
         if (context._popper) {
           context._popper.destroy();
@@ -532,7 +714,11 @@
 
         dropdownMenu.classList.remove(CLASS_NAME_SHOW);
         toggles[i].classList.remove(CLASS_NAME_SHOW);
-        EventHandler__default['default'].trigger(parent, EVENT_HIDDEN, relatedTarget);
+        EventHandler__default["default"].trigger(
+          parent,
+          EVENT_HIDDEN,
+          relatedTarget
+        );
       }
     };
 
@@ -548,7 +734,14 @@
       //  - If key is other than escape
       //    - If key is not up or down => not a dropdown command
       //    - If trigger inside the menu => not a dropdown command
-      if (/input|textarea/i.test(event.target.tagName) ? event.key === SPACE_KEY || event.key !== ESCAPE_KEY && (event.key !== ARROW_DOWN_KEY && event.key !== ARROW_UP_KEY || event.target.closest(SELECTOR_MENU)) : !REGEXP_KEYDOWN.test(event.key)) {
+      if (
+        /input|textarea/i.test(event.target.tagName)
+          ? event.key === SPACE_KEY ||
+            (event.key !== ESCAPE_KEY &&
+              ((event.key !== ARROW_DOWN_KEY && event.key !== ARROW_UP_KEY) ||
+                event.target.closest(SELECTOR_MENU)))
+          : !REGEXP_KEYDOWN.test(event.key)
+      ) {
         return;
       }
 
@@ -563,7 +756,12 @@
       var isActive = this.classList.contains(CLASS_NAME_SHOW);
 
       if (event.key === ESCAPE_KEY) {
-        var button = this.matches(SELECTOR_DATA_TOGGLE) ? this : SelectorEngine__default['default'].prev(this, SELECTOR_DATA_TOGGLE)[0];
+        var button = this.matches(SELECTOR_DATA_TOGGLE)
+          ? this
+          : SelectorEngine__default["default"].prev(
+              this,
+              SELECTOR_DATA_TOGGLE
+            )[0];
         button.focus();
         Dropdown.clearMenus();
         return;
@@ -574,7 +772,9 @@
         return;
       }
 
-      var items = SelectorEngine__default['default'].find(SELECTOR_VISIBLE_ITEMS, parent).filter(isVisible);
+      var items = SelectorEngine__default["default"]
+        .find(SELECTOR_VISIBLE_ITEMS, parent)
+        .filter(isVisible);
 
       if (!items.length) {
         return;
@@ -586,54 +786,83 @@
         index--;
       } // Down
 
-
       if (event.key === ARROW_DOWN_KEY && index < items.length - 1) {
         index++;
       } // index is -1 if the first keydown is an ArrowUp
-
 
       index = index === -1 ? 0 : index;
       items[index].focus();
     };
 
-    _createClass$1(Dropdown, null, [{
-      key: "Default",
-      get: function get() {
-        return Default;
-      }
-    }, {
-      key: "DefaultType",
-      get: function get() {
-        return DefaultType;
-      }
-    }, {
-      key: "DATA_KEY",
-      get: function get() {
-        return DATA_KEY;
-      }
-    }]);
+    _createClass$1(Dropdown, null, [
+      {
+        key: "Default",
+        get: function get() {
+          return Default;
+        },
+      },
+      {
+        key: "DefaultType",
+        get: function get() {
+          return DefaultType;
+        },
+      },
+      {
+        key: "DATA_KEY",
+        get: function get() {
+          return DATA_KEY;
+        },
+      },
+    ]);
 
     return Dropdown;
-  }(BaseComponent);
+  })(BaseComponent);
   /**
    * ------------------------------------------------------------------------
    * Data Api implementation
    * ------------------------------------------------------------------------
    */
 
-
-  EventHandler__default['default'].on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_DATA_TOGGLE, Dropdown.dataApiKeydownHandler);
-  EventHandler__default['default'].on(document, EVENT_KEYDOWN_DATA_API, SELECTOR_MENU, Dropdown.dataApiKeydownHandler);
-  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, Dropdown.clearMenus);
-  EventHandler__default['default'].on(document, EVENT_KEYUP_DATA_API, Dropdown.clearMenus);
-  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_DATA_TOGGLE, function (event) {
-    event.preventDefault();
-    event.stopPropagation();
-    Dropdown.dropdownInterface(this, 'toggle');
-  });
-  EventHandler__default['default'].on(document, EVENT_CLICK_DATA_API, SELECTOR_FORM_CHILD, function (e) {
-    return e.stopPropagation();
-  });
+  EventHandler__default["default"].on(
+    document,
+    EVENT_KEYDOWN_DATA_API,
+    SELECTOR_DATA_TOGGLE,
+    Dropdown.dataApiKeydownHandler
+  );
+  EventHandler__default["default"].on(
+    document,
+    EVENT_KEYDOWN_DATA_API,
+    SELECTOR_MENU,
+    Dropdown.dataApiKeydownHandler
+  );
+  EventHandler__default["default"].on(
+    document,
+    EVENT_CLICK_DATA_API,
+    Dropdown.clearMenus
+  );
+  EventHandler__default["default"].on(
+    document,
+    EVENT_KEYUP_DATA_API,
+    Dropdown.clearMenus
+  );
+  EventHandler__default["default"].on(
+    document,
+    EVENT_CLICK_DATA_API,
+    SELECTOR_DATA_TOGGLE,
+    function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+      Dropdown.dropdownInterface(this, "toggle");
+    }
+  );
+  EventHandler__default["default"].on(
+    document,
+    EVENT_CLICK_DATA_API,
+    SELECTOR_FORM_CHILD,
+    function (e) {
+      return e.stopPropagation();
+    }
+  );
   /**
    * ------------------------------------------------------------------------
    * jQuery
@@ -658,6 +887,5 @@
   });
 
   return Dropdown;
-
-})));
+});
 //# sourceMappingURL=dropdown.js.map

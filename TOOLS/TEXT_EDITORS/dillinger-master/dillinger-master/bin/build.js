@@ -17,21 +17,22 @@ const exec_opts = {
 
 const filenameProd = path.join(__dirname, '..', 'dillinger.k8s.production.yml')
 
-function updateKubeFile (filename) {
-  fs.readFile(filename, 'utf8',
-    function readfileCB (err, data) {
+function updateKubeFile(filename) {
+  fs.readFile(filename, 'utf8', function readfileCB(err, data) {
+    if (err) return console.error(err)
+
+    const pattern = /dillinger:([^\s]+)/gi
+
+    data = data.replace(pattern, `dillinger:${pkg.version}`)
+
+    fs.writeFile(filename, data, function writeFileCb(err, d) {
       if (err) return console.error(err)
 
-      const pattern = /dillinger:([^\s]+)/ig
-
-      data = data.replace(pattern, `dillinger:${pkg.version}`)
-
-      fs.writeFile(filename, data, function writeFileCb (err, d) {
-        if (err) return console.error(err)
-
-        console.log(`\nUpdated Kubernetes deploy file: ${filename} to dillinger:${pkg.version}\n`)
-      }) // end write
-    }) // end read
+      console.log(
+        `\nUpdated Kubernetes deploy file: ${filename} to dillinger:${pkg.version}\n`
+      )
+    }) // end write
+  }) // end read
 }
 
 // Build the docker image...

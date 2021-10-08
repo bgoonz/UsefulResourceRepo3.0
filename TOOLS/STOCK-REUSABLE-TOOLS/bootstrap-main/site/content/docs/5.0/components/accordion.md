@@ -22,6 +22,7 @@ The accordion uses [collapse]({{< docsref "/components/collapse" >}}) internally
 Click the accordions below to expand/collapse the accordion content.
 
 {{< example >}}
+
 <div class="accordion" id="accordionExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="headingOne">
@@ -67,6 +68,7 @@ Click the accordions below to expand/collapse the accordion content.
 Add `.accordion-flush` to remove the default `background-color`, some borders, and some rounded corners to render accordions edge-to-edge with their parent container.
 
 {{< example class="bg-light" >}}
+
 <div class="accordion accordion-flush" id="accordionFlushExample">
   <div class="accordion-item">
     <h2 class="accordion-header" id="flush-headingOne">

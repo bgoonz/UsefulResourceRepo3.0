@@ -1,13 +1,18 @@
 /*!
-  * Bootstrap event-handler.js v5.0.0-beta1 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap event-handler.js v5.0.0-beta1 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.EventHandler = factory());
-}(this, (function () { 'use strict';
+  typeof exports === "object" && typeof module !== "undefined"
+    ? (module.exports = factory())
+    : typeof define === "function" && define.amd
+    ? define(factory)
+    : ((global =
+        typeof globalThis !== "undefined" ? globalThis : global || self),
+      (global.EventHandler = factory()));
+})(this, function () {
+  "use strict";
 
   /**
    * --------------------------------------------------------------------------
@@ -18,16 +23,16 @@
 
   var getjQuery = function getjQuery() {
     var _window = window,
-        jQuery = _window.jQuery;
+      jQuery = _window.jQuery;
 
-    if (jQuery && !document.body.hasAttribute('data-bs-no-jquery')) {
+    if (jQuery && !document.body.hasAttribute("data-bs-no-jquery")) {
       return jQuery;
     }
 
     return null;
   };
 
-  var isRTL = document.documentElement.dir === 'rtl';
+  var isRTL = document.documentElement.dir === "rtl";
 
   /**
    * --------------------------------------------------------------------------
@@ -48,10 +53,57 @@
 
   var uidEvent = 1;
   var customEvents = {
-    mouseenter: 'mouseover',
-    mouseleave: 'mouseout'
+    mouseenter: "mouseover",
+    mouseleave: "mouseout",
   };
-  var nativeEvents = new Set(['click', 'dblclick', 'mouseup', 'mousedown', 'contextmenu', 'mousewheel', 'DOMMouseScroll', 'mouseover', 'mouseout', 'mousemove', 'selectstart', 'selectend', 'keydown', 'keypress', 'keyup', 'orientationchange', 'touchstart', 'touchmove', 'touchend', 'touchcancel', 'pointerdown', 'pointermove', 'pointerup', 'pointerleave', 'pointercancel', 'gesturestart', 'gesturechange', 'gestureend', 'focus', 'blur', 'change', 'reset', 'select', 'submit', 'focusin', 'focusout', 'load', 'unload', 'beforeunload', 'resize', 'move', 'DOMContentLoaded', 'readystatechange', 'error', 'abort', 'scroll']);
+  var nativeEvents = new Set([
+    "click",
+    "dblclick",
+    "mouseup",
+    "mousedown",
+    "contextmenu",
+    "mousewheel",
+    "DOMMouseScroll",
+    "mouseover",
+    "mouseout",
+    "mousemove",
+    "selectstart",
+    "selectend",
+    "keydown",
+    "keypress",
+    "keyup",
+    "orientationchange",
+    "touchstart",
+    "touchmove",
+    "touchend",
+    "touchcancel",
+    "pointerdown",
+    "pointermove",
+    "pointerup",
+    "pointerleave",
+    "pointercancel",
+    "gesturestart",
+    "gesturechange",
+    "gestureend",
+    "focus",
+    "blur",
+    "change",
+    "reset",
+    "select",
+    "submit",
+    "focusin",
+    "focusout",
+    "load",
+    "unload",
+    "beforeunload",
+    "resize",
+    "move",
+    "DOMContentLoaded",
+    "readystatechange",
+    "error",
+    "abort",
+    "scroll",
+  ]);
   /**
    * ------------------------------------------------------------------------
    * Private methods
@@ -59,7 +111,7 @@
    */
 
   function getUidEvent(element, uid) {
-    return uid && uid + "::" + uidEvent++ || element.uidEvent || uidEvent++;
+    return (uid && uid + "::" + uidEvent++) || element.uidEvent || uidEvent++;
   }
 
   function getEvent(element) {
@@ -85,8 +137,12 @@
     return function handler(event) {
       var domElements = element.querySelectorAll(selector);
 
-      for (var target = event.target; target && target !== this; target = target.parentNode) {
-        for (var i = domElements.length; i--;) {
+      for (
+        var target = event.target;
+        target && target !== this;
+        target = target.parentNode
+      ) {
+        for (var i = domElements.length; i--; ) {
           if (domElements[i] === target) {
             event.delegateTarget = target;
 
@@ -98,7 +154,6 @@
           }
         }
       } // To please ESLint
-
 
       return null;
     };
@@ -114,7 +169,10 @@
     for (var i = 0, len = uidEventList.length; i < len; i++) {
       var event = events[uidEventList[i]];
 
-      if (event.originalHandler === handler && event.delegationSelector === delegationSelector) {
+      if (
+        event.originalHandler === handler &&
+        event.delegationSelector === delegationSelector
+      ) {
         return event;
       }
     }
@@ -123,10 +181,10 @@
   }
 
   function normalizeParams(originalTypeEvent, handler, delegationFn) {
-    var delegation = typeof handler === 'string';
+    var delegation = typeof handler === "string";
     var originalHandler = delegation ? delegationFn : handler; // allow to get the native events from namespaced events ('click.bs.button' --> 'click')
 
-    var typeEvent = originalTypeEvent.replace(stripNameRegex, '');
+    var typeEvent = originalTypeEvent.replace(stripNameRegex, "");
     var custom = customEvents[typeEvent];
 
     if (custom) {
@@ -142,8 +200,14 @@
     return [delegation, originalHandler, typeEvent];
   }
 
-  function addHandler(element, originalTypeEvent, handler, delegationFn, oneOff) {
-    if (typeof originalTypeEvent !== 'string' || !element) {
+  function addHandler(
+    element,
+    originalTypeEvent,
+    handler,
+    delegationFn,
+    oneOff
+  ) {
+    if (typeof originalTypeEvent !== "string" || !element) {
       return;
     }
 
@@ -152,22 +216,35 @@
       delegationFn = null;
     }
 
-    var _normalizeParams = normalizeParams(originalTypeEvent, handler, delegationFn),
-        delegation = _normalizeParams[0],
-        originalHandler = _normalizeParams[1],
-        typeEvent = _normalizeParams[2];
+    var _normalizeParams = normalizeParams(
+        originalTypeEvent,
+        handler,
+        delegationFn
+      ),
+      delegation = _normalizeParams[0],
+      originalHandler = _normalizeParams[1],
+      typeEvent = _normalizeParams[2];
 
     var events = getEvent(element);
     var handlers = events[typeEvent] || (events[typeEvent] = {});
-    var previousFn = findHandler(handlers, originalHandler, delegation ? handler : null);
+    var previousFn = findHandler(
+      handlers,
+      originalHandler,
+      delegation ? handler : null
+    );
 
     if (previousFn) {
       previousFn.oneOff = previousFn.oneOff && oneOff;
       return;
     }
 
-    var uid = getUidEvent(originalHandler, originalTypeEvent.replace(namespaceRegex, ''));
-    var fn = delegation ? bootstrapDelegationHandler(element, handler, delegationFn) : bootstrapHandler(element, handler);
+    var uid = getUidEvent(
+      originalHandler,
+      originalTypeEvent.replace(namespaceRegex, "")
+    );
+    var fn = delegation
+      ? bootstrapDelegationHandler(element, handler, delegationFn)
+      : bootstrapHandler(element, handler);
     fn.delegationSelector = delegation ? handler : null;
     fn.originalHandler = originalHandler;
     fn.oneOff = oneOff;
@@ -176,7 +253,13 @@
     element.addEventListener(typeEvent, fn, delegation);
   }
 
-  function removeHandler(element, events, typeEvent, handler, delegationSelector) {
+  function removeHandler(
+    element,
+    events,
+    typeEvent,
+    handler,
+    delegationSelector
+  ) {
     var fn = findHandler(events[typeEvent], handler, delegationSelector);
 
     if (!fn) {
@@ -192,7 +275,13 @@
     Object.keys(storeElementEvent).forEach(function (handlerKey) {
       if (handlerKey.includes(namespace)) {
         var event = storeElementEvent[handlerKey];
-        removeHandler(element, events, typeEvent, event.originalHandler, event.delegationSelector);
+        removeHandler(
+          element,
+          events,
+          typeEvent,
+          event.originalHandler,
+          event.delegationSelector
+        );
       }
     });
   }
@@ -205,52 +294,73 @@
       addHandler(element, event, handler, delegationFn, true);
     },
     off: function off(element, originalTypeEvent, handler, delegationFn) {
-      if (typeof originalTypeEvent !== 'string' || !element) {
+      if (typeof originalTypeEvent !== "string" || !element) {
         return;
       }
 
-      var _normalizeParams2 = normalizeParams(originalTypeEvent, handler, delegationFn),
-          delegation = _normalizeParams2[0],
-          originalHandler = _normalizeParams2[1],
-          typeEvent = _normalizeParams2[2];
+      var _normalizeParams2 = normalizeParams(
+          originalTypeEvent,
+          handler,
+          delegationFn
+        ),
+        delegation = _normalizeParams2[0],
+        originalHandler = _normalizeParams2[1],
+        typeEvent = _normalizeParams2[2];
 
       var inNamespace = typeEvent !== originalTypeEvent;
       var events = getEvent(element);
-      var isNamespace = originalTypeEvent.startsWith('.');
+      var isNamespace = originalTypeEvent.startsWith(".");
 
-      if (typeof originalHandler !== 'undefined') {
+      if (typeof originalHandler !== "undefined") {
         // Simplest case: handler is passed, remove that listener ONLY.
         if (!events || !events[typeEvent]) {
           return;
         }
 
-        removeHandler(element, events, typeEvent, originalHandler, delegation ? handler : null);
+        removeHandler(
+          element,
+          events,
+          typeEvent,
+          originalHandler,
+          delegation ? handler : null
+        );
         return;
       }
 
       if (isNamespace) {
         Object.keys(events).forEach(function (elementEvent) {
-          removeNamespacedHandlers(element, events, elementEvent, originalTypeEvent.slice(1));
+          removeNamespacedHandlers(
+            element,
+            events,
+            elementEvent,
+            originalTypeEvent.slice(1)
+          );
         });
       }
 
       var storeElementEvent = events[typeEvent] || {};
       Object.keys(storeElementEvent).forEach(function (keyHandlers) {
-        var handlerKey = keyHandlers.replace(stripUidRegex, '');
+        var handlerKey = keyHandlers.replace(stripUidRegex, "");
 
         if (!inNamespace || originalTypeEvent.includes(handlerKey)) {
           var event = storeElementEvent[keyHandlers];
-          removeHandler(element, events, typeEvent, event.originalHandler, event.delegationSelector);
+          removeHandler(
+            element,
+            events,
+            typeEvent,
+            event.originalHandler,
+            event.delegationSelector
+          );
         }
       });
     },
     trigger: function trigger(element, event, args) {
-      if (typeof event !== 'string' || !element) {
+      if (typeof event !== "string" || !element) {
         return null;
       }
 
       var $ = getjQuery();
-      var typeEvent = event.replace(stripNameRegex, '');
+      var typeEvent = event.replace(stripNameRegex, "");
       var inNamespace = event !== typeEvent;
       var isNative = nativeEvents.has(typeEvent);
       var jQueryEvent;
@@ -268,22 +378,21 @@
       }
 
       if (isNative) {
-        evt = document.createEvent('HTMLEvents');
+        evt = document.createEvent("HTMLEvents");
         evt.initEvent(typeEvent, bubbles, true);
       } else {
         evt = new CustomEvent(event, {
           bubbles: bubbles,
-          cancelable: true
+          cancelable: true,
         });
       } // merge custom information in our event
 
-
-      if (typeof args !== 'undefined') {
+      if (typeof args !== "undefined") {
         Object.keys(args).forEach(function (key) {
           Object.defineProperty(evt, key, {
             get: function get() {
               return args[key];
-            }
+            },
           });
         });
       }
@@ -296,15 +405,14 @@
         element.dispatchEvent(evt);
       }
 
-      if (evt.defaultPrevented && typeof jQueryEvent !== 'undefined') {
+      if (evt.defaultPrevented && typeof jQueryEvent !== "undefined") {
         jQueryEvent.preventDefault();
       }
 
       return evt;
-    }
+    },
   };
 
   return EventHandler;
-
-})));
+});
 //# sourceMappingURL=event-handler.js.map

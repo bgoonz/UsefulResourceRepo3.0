@@ -123,7 +123,7 @@ Later on, theses variables are set in Bootstrap's `$theme-colors` map:
 ```scss
 $theme-colors: (
   "primary": $primary,
-  "danger": $danger
+  "danger": $danger,
 );
 ```
 
@@ -134,7 +134,7 @@ Add new colors to `$theme-colors`, or any other map, by creating a new Sass map 
 ```scss
 // Create your own map
 $custom-colors: (
-  "custom-color": #900
+  "custom-color": #900,
 );
 
 // Merge the maps
@@ -238,7 +238,7 @@ We use the `add` and `subtract` functions to wrap the CSS `calc` function. The p
 Example where the calc is valid:
 
 ```scss
-$border-radius: .25rem;
+$border-radius: 0.25rem;
 $border-width: 1px;
 
 .element {
@@ -255,7 +255,7 @@ $border-width: 1px;
 Example where the calc is invalid:
 
 ```scss
-$border-radius: .25rem;
+$border-radius: 0.25rem;
 $border-width: 0;
 
 .element {

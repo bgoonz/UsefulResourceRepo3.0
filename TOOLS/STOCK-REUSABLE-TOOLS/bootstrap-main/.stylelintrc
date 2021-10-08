@@ -1,17 +1,11 @@
 {
-  "extends": [
-    "stylelint-config-twbs-bootstrap/scss"
-  ],
+  "extends": ["stylelint-config-twbs-bootstrap/scss"],
   "rules": {
     "declaration-property-value-disallowed-list": {
       "border": "none",
       "outline": "none"
     },
-    "function-disallowed-list": [
-      "calc",
-      "lighten",
-      "darken"
-    ],
+    "function-disallowed-list": ["calc", "lighten", "darken"],
     "property-disallowed-list": [
       "border-radius",
       "border-top-left-radius",

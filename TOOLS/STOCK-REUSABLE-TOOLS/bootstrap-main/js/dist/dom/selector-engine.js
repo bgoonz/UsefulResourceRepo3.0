@@ -1,13 +1,18 @@
 /*!
-  * Bootstrap selector-engine.js v5.0.0-beta1 (https://getbootstrap.com/)
-  * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
-  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-  */
+ * Bootstrap selector-engine.js v5.0.0-beta1 (https://getbootstrap.com/)
+ * Copyright 2011-2020 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
+ * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
+ */
 (function (global, factory) {
-  typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-  typeof define === 'function' && define.amd ? define(factory) :
-  (global = typeof globalThis !== 'undefined' ? globalThis : global || self, global.SelectorEngine = factory());
-}(this, (function () { 'use strict';
+  typeof exports === "object" && typeof module !== "undefined"
+    ? (module.exports = factory())
+    : typeof define === "function" && define.amd
+    ? define(factory)
+    : ((global =
+        typeof globalThis !== "undefined" ? globalThis : global || self),
+      (global.SelectorEngine = factory()));
+})(this, function () {
+  "use strict";
 
   /**
    * --------------------------------------------------------------------------
@@ -33,7 +38,10 @@
         element = document.documentElement;
       }
 
-      return (_ref = []).concat.apply(_ref, Element.prototype.querySelectorAll.call(element, selector));
+      return (_ref = []).concat.apply(
+        _ref,
+        Element.prototype.querySelectorAll.call(element, selector)
+      );
     },
     findOne: function findOne(selector, element) {
       if (element === void 0) {
@@ -55,7 +63,11 @@
       var parents = [];
       var ancestor = element.parentNode;
 
-      while (ancestor && ancestor.nodeType === Node.ELEMENT_NODE && ancestor.nodeType !== NODE_TEXT) {
+      while (
+        ancestor &&
+        ancestor.nodeType === Node.ELEMENT_NODE &&
+        ancestor.nodeType !== NODE_TEXT
+      ) {
         if (this.matches(ancestor, selector)) {
           parents.push(ancestor);
         }
@@ -90,10 +102,9 @@
       }
 
       return [];
-    }
+    },
   };
 
   return SelectorEngine;
-
-})));
+});
 //# sourceMappingURL=selector-engine.js.map

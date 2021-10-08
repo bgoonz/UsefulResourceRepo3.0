@@ -1,33 +1,28 @@
-
-'use strict';
-module.exports =
-  angular
+'use strict'
+module.exports = angular
   .module('diBase.directives.settingsToggle', [])
-  .directive('settingsToggle', function() {
+  .directive('settingsToggle', function () {
+    var directive = {
+      link: function (scope, el, attrs) {
+        var $body = angular.element(document).find('body'),
+          $overlay = angular.element(document).find('.overlay')
 
-  var directive = {
-    link: function(scope, el, attrs) {
+        el.bind('click', function () {
+          el.toggleClass('open')
+          $body.toggleClass('show-settings')
+          return false
+        })
 
-      var
-        $body = angular.element(document).find('body'),
-        $overlay = angular.element(document).find('.overlay');
+        $overlay.bind('click', function () {
+          if ($body.hasClass('show-settings')) {
+            el.toggleClass('open')
+            $body.toggleClass('show-settings')
+          }
+          return false
+        })
 
-      el.bind('click', function() {
-        el.toggleClass('open');
-        $body.toggleClass('show-settings');
-        return false;
-      });
-
-      $overlay.bind('click', function() {
-        if ($body.hasClass('show-settings')) {
-          el.toggleClass('open');
-          $body.toggleClass('show-settings');
-        }
-        return false;
-      });
-
-      return;
+        return
+      }
     }
-  };
-  return directive;
-});
+    return directive
+  })

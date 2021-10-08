@@ -25,6 +25,7 @@ Click the buttons below to show and hide another element via class changes:
 Generally, we recommend using a button with the `data-bs-target` attribute. While not recommended from a semantic point of view, you can also use a link with the `href` attribute (and a `role="button"`). In both cases, the `data-bs-toggle="collapse"` is required.
 
 {{< example >}}
+
 <p>
   <a class="btn btn-primary" data-bs-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">
     Link with href
@@ -46,6 +47,7 @@ A `<button>` or `<a>` can show and hide multiple elements by referencing them wi
 Multiple `<button>` or `<a>` can show and hide an element if they each reference it with their `href` or `data-bs-target` attribute
 
 {{< example >}}
+
 <p>
   <a class="btn btn-primary" data-bs-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
   <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
@@ -75,7 +77,7 @@ Be sure to add `aria-expanded` to the control element. This attribute explicitly
 
 If your control element is targeting a single collapsible element – i.e. the `data-bs-target` attribute is pointing to an `id` selector – you should add the `aria-controls` attribute to the control element, containing the `id` of the collapsible element. Modern screen readers and similar assistive technologies make use of this attribute to provide users with additional shortcuts to navigate directly to the collapsible element itself.
 
-Note that Bootstrap's current implementation does not cover the various *optional* keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
+Note that Bootstrap's current implementation does not cover the various _optional_ keyboard interactions described in the [WAI-ARIA Authoring Practices 1.1 accordion pattern](https://www.w3.org/TR/wai-aria-practices-1.1/#accordion) - you will need to include these yourself with custom JavaScript.
 
 ## Usage
 
@@ -98,10 +100,10 @@ To add accordion-like group management to a collapsible area, add the data attri
 Enable manually with:
 
 ```js
-var collapseElementList = [].slice.call(document.querySelectorAll('.collapse'))
+var collapseElementList = [].slice.call(document.querySelectorAll(".collapse"));
 var collapseList = collapseElementList.map(function (collapseEl) {
-  return new bootstrap.Collapse(collapseEl)
-})
+  return new bootstrap.Collapse(collapseEl);
+});
 ```
 
 ### Options
@@ -144,10 +146,10 @@ Activates your content as a collapsible element. Accepts an optional options `ob
 You can create a collapse instance with the constructor, for example:
 
 ```js
-var myCollapse = document.getElementById('myCollapse')
+var myCollapse = document.getElementById("myCollapse");
 var bsCollapse = new bootstrap.Collapse(myCollapse, {
-  toggle: false
-})
+  toggle: false,
+});
 ```
 
 <table class="table">
@@ -213,8 +215,8 @@ Bootstrap's collapse class exposes a few events for hooking into collapse functi
 </table>
 
 ```js
-var myCollapsible = document.getElementById('myCollapsible')
-myCollapsible.addEventListener('hidden.bs.collapse', function () {
+var myCollapsible = document.getElementById("myCollapsible");
+myCollapsible.addEventListener("hidden.bs.collapse", function () {
   // do something...
-})
+});
 ```

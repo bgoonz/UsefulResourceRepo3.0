@@ -1,4 +1,3 @@
-
 'use strict'
 
 const gulp = require('gulp')
@@ -14,8 +13,7 @@ const webpackConfig = require('../../webpack.config.js')
 const NGAnnotatePlugin = require('ng-annotate-webpack-plugin')
 
 gulp.task('webpack:dev', function (cb) {
-  const
-    webpackDevConfig = Object.assign(webpackConfig, {})
+  const webpackDevConfig = Object.assign(webpackConfig, {})
 
   let devCompiler = null
 
@@ -47,17 +45,18 @@ gulp.task('webpack:dev', function (cb) {
 gulp.task('webpack:build', function (cb) {
   const webpackProductionConfig = Object.assign(webpackConfig, {})
 
-  webpackProductionConfig.plugins = webpackProductionConfig.plugins.concat(new webpack.DefinePlugin({
-    'process.env': {
-      'NODE_ENV': JSON.stringify('production')
-    }
-  }),
-  new NGAnnotatePlugin({
-    add: true
-  }),
-  new webpack.LoaderOptionsPlugin({
-    debug: true
-  })
+  webpackProductionConfig.plugins = webpackProductionConfig.plugins.concat(
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production')
+      }
+    }),
+    new NGAnnotatePlugin({
+      add: true
+    }),
+    new webpack.LoaderOptionsPlugin({
+      debug: true
+    })
   )
 
   return webpack(webpackProductionConfig, function (err, stats) {
@@ -65,9 +64,12 @@ gulp.task('webpack:build', function (cb) {
       throw new gutil.PluginError('webpack:dev', err)
     }
 
-    gutil.log('[webpack:build]', stats.toString({
-      colors: true
-    }))
+    gutil.log(
+      '[webpack:build]',
+      stats.toString({
+        colors: true
+      })
+    )
 
     return cb()
   })

@@ -11,6 +11,7 @@ toc: true
 Wrap a series of buttons with `.btn` in `.btn-group`.
 
 {{< example >}}
+
 <div class="btn-group" role="group" aria-label="Basic example">
   <button type="button" class="btn btn-primary">Left</button>
   <button type="button" class="btn btn-primary">Middle</button>
@@ -19,6 +20,7 @@ Wrap a series of buttons with `.btn` in `.btn-group`.
 {{< /example >}}
 
 {{< callout warning >}}
+
 ##### Ensure correct `role` and provide a label
 
 In order for assistive technologies (such as screen readers) to convey that a series of buttons is grouped, an appropriate `role` attribute needs to be provided. For button groups, this would be `role="group"`, while toolbars should have a `role="toolbar"`.
@@ -29,6 +31,7 @@ In addition, groups and toolbars should be given an explicit label, as most assi
 These classes can also be added to groups of links, as an alternative to the [`.nav` navigation components]({{< docsref "/components/navs-tabs" >}}).
 
 {{< example >}}
+
 <div class="btn-group">
   <a href="#" class="btn btn-primary active" aria-current="page">Active link</a>
   <a href="#" class="btn btn-primary">Link</a>
@@ -39,6 +42,7 @@ These classes can also be added to groups of links, as an alternative to the [`.
 ## Mixed styles
 
 {{< example >}}
+
 <div class="btn-group" role="group" aria-label="Basic mixed styles example">
   <button type="button" class="btn btn-danger">Left</button>
   <button type="button" class="btn btn-warning">Middle</button>
@@ -49,6 +53,7 @@ These classes can also be added to groups of links, as an alternative to the [`.
 ## Outlined styles
 
 {{< example >}}
+
 <div class="btn-group" role="group" aria-label="Basic outlined example">
   <button type="button" class="btn btn-outline-primary">Left</button>
   <button type="button" class="btn btn-outline-primary">Middle</button>
@@ -61,6 +66,7 @@ These classes can also be added to groups of links, as an alternative to the [`.
 Combine button-like checkbox and radio [toggle buttons]({{< docsref "/forms/checks-radios" >}}) into a seamless looking button group.
 
 {{< example >}}
+
 <div class="btn-group" role="group" aria-label="Basic checkbox toggle button group">
   <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
   <label class="btn btn-outline-primary" for="btncheck1">Checkbox 1</label>
@@ -74,6 +80,7 @@ Combine button-like checkbox and radio [toggle buttons]({{< docsref "/forms/chec
 {{< /example >}}
 
 {{< example >}}
+
 <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
   <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
   <label class="btn btn-outline-primary" for="btnradio1">Radio 1</label>
@@ -91,6 +98,7 @@ Combine button-like checkbox and radio [toggle buttons]({{< docsref "/forms/chec
 Combine sets of button groups into button toolbars for more complex components. Use utility classes as needed to space out groups, buttons, and more.
 
 {{< example >}}
+
 <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
   <div class="btn-group me-2" role="group" aria-label="First group">
     <button type="button" class="btn btn-primary">1</button>
@@ -112,6 +120,7 @@ Combine sets of button groups into button toolbars for more complex components. 
 Feel free to mix input groups with button groups in your toolbars. Similar to the example above, you'll likely need some utilities though to space things properly.
 
 {{< example >}}
+
 <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
   <div class="btn-group me-2" role="group" aria-label="First group">
     <button type="button" class="btn btn-outline-secondary">1</button>
@@ -174,6 +183,7 @@ Instead of applying button sizing classes to every button in a group, just add `
 Place a `.btn-group` within another `.btn-group` when you want dropdown menus mixed with a series of buttons.
 
 {{< example >}}
+
 <div class="btn-group" role="group" aria-label="Button group with nested dropdown">
   <button type="button" class="btn btn-primary">1</button>
   <button type="button" class="btn btn-primary">2</button>
@@ -262,7 +272,5 @@ Make a set of buttons appear vertically stacked rather than horizontally. **Spli
 </div>
 
 ```html
-<div class="btn-group-vertical">
-  ...
-</div>
+<div class="btn-group-vertical">...</div>
 ```

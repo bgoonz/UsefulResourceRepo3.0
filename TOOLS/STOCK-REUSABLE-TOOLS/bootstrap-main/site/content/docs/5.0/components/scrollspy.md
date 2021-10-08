@@ -17,6 +17,7 @@ Scrollspy has a few requirements to function properly:
 When successfully implemented, your nav or list group will update accordingly, moving the `.active` class from one item to the next based on their associated targets.
 
 {{< callout >}}
+
 ### Scrollable containers and keyboard access
 
 If you're making a scrollable container (other than the `<body>`), be sure to have a `height` set and `overflow-y: scroll;` applied to it—alongside a `tabindex="0"` to ensure keyboard access.
@@ -73,17 +74,29 @@ Scroll the area below the navbar and watch the active class change. The dropdown
       <a class="nav-link" href="#mdo">@mdo</a>
     </li>
     <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Dropdown</a>
+      <a
+        class="nav-link dropdown-toggle"
+        data-bs-toggle="dropdown"
+        href="#"
+        role="button"
+        aria-expanded="false"
+        >Dropdown</a
+      >
       <ul class="dropdown-menu dropdown-menu-end">
         <li><a class="dropdown-item" href="#one">one</a></li>
         <li><a class="dropdown-item" href="#two">two</a></li>
-        <li><hr class="dropdown-divider"></li>
+        <li><hr class="dropdown-divider" /></li>
         <li><a class="dropdown-item" href="#three">three</a></li>
       </ul>
     </li>
   </ul>
 </nav>
-<div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-offset="0" tabindex="0">
+<div
+  data-bs-spy="scroll"
+  data-bs-target="#navbar-example2"
+  data-bs-offset="0"
+  tabindex="0"
+>
   <h4 id="fat">@fat</h4>
   <p>...</p>
   <h4 id="mdo">@mdo</h4>
@@ -160,7 +173,12 @@ Scrollspy also works with nested `.nav`s. If a nested `.nav` is `.active`, its p
   </nav>
 </nav>
 
-<div data-bs-spy="scroll" data-bs-target="#navbar-example3" data-bs-offset="0" tabindex="0">
+<div
+  data-bs-spy="scroll"
+  data-bs-target="#navbar-example3"
+  data-bs-offset="0"
+  tabindex="0"
+>
   <h4 id="item-1">Item 1</h4>
   <p>...</p>
   <h5 id="item-1-1">Item 1-1</h5>
@@ -209,12 +227,26 @@ Scrollspy also works with `.list-group`s. Scroll the area next to the list group
 
 ```html
 <div id="list-example" class="list-group">
-  <a class="list-group-item list-group-item-action" href="#list-item-1">Item 1</a>
-  <a class="list-group-item list-group-item-action" href="#list-item-2">Item 2</a>
-  <a class="list-group-item list-group-item-action" href="#list-item-3">Item 3</a>
-  <a class="list-group-item list-group-item-action" href="#list-item-4">Item 4</a>
+  <a class="list-group-item list-group-item-action" href="#list-item-1"
+    >Item 1</a
+  >
+  <a class="list-group-item list-group-item-action" href="#list-item-2"
+    >Item 2</a
+  >
+  <a class="list-group-item list-group-item-action" href="#list-item-3"
+    >Item 3</a
+  >
+  <a class="list-group-item list-group-item-action" href="#list-item-4"
+    >Item 4</a
+  >
 </div>
-<div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example" tabindex="0">
+<div
+  data-bs-spy="scroll"
+  data-bs-target="#list-example"
+  data-bs-offset="0"
+  class="scrollspy-example"
+  tabindex="0"
+>
   <h4 id="list-item-1">Item 1</h4>
   <p>...</p>
   <h4 id="list-item-2">Item 2</h4>
@@ -256,17 +288,19 @@ After adding `position: relative;` in your CSS, call the scrollspy via JavaScrip
 
 ```js
 var scrollSpy = new bootstrap.ScrollSpy(document.body, {
-  target: '#navbar-example'
-})
+  target: "#navbar-example",
+});
 ```
 
 {{< callout danger >}}
+
 #### Resolvable ID targets required
 
 Navbar links must have resolvable id targets. For example, a `<a href="#home">home</a>` must correspond to something in the DOM like `<div id="home"></div>`.
 {{< /callout >}}
 
 {{< callout info >}}
+
 #### Non-visible target elements ignored
 
 Target elements that are not visible will be ignored and their corresponding nav items will never be highlighted.
@@ -279,11 +313,12 @@ Target elements that are not visible will be ignored and their corresponding nav
 When using scrollspy in conjunction with adding or removing of elements from the DOM, you'll need to call the refresh method like so:
 
 ```js
-var dataSpyList = [].slice.call(document.querySelectorAll('[data-bs-spy="scroll"]'))
+var dataSpyList = [].slice.call(
+  document.querySelectorAll('[data-bs-spy="scroll"]')
+);
 dataSpyList.forEach(function (dataSpyEl) {
-  bootstrap.ScrollSpy.getInstance(dataSpyEl)
-    .refresh()
-})
+  bootstrap.ScrollSpy.getInstance(dataSpyEl).refresh();
+});
 ```
 
 #### dispose
@@ -292,11 +327,11 @@ Destroys an element's scrollspy. (Removes stored data on the DOM element)
 
 #### getInstance
 
-*Static* method which allows you to get the scrollspy instance associated with a DOM element
+_Static_ method which allows you to get the scrollspy instance associated with a DOM element
 
 ```js
-var scrollSpyContentEl = document.getElementById('content')
-var scrollSpy = bootstrap.ScrollSpy.getInstance(scrollSpyContentEl) // Returns a Bootstrap scrollspy instance
+var scrollSpyContentEl = document.getElementById("content");
+var scrollSpy = bootstrap.ScrollSpy.getInstance(scrollSpyContentEl); // Returns a Bootstrap scrollspy instance
 ```
 
 ### Options
@@ -352,8 +387,8 @@ Options can be passed via data attributes or JavaScript. For data attributes, ap
 </table>
 
 ```js
-var firstScrollSpyEl = document.querySelector('[data-bs-spy="scroll"]')
-firstScrollSpyEl.addEventListener('activate.bs.scrollspy', function () {
+var firstScrollSpyEl = document.querySelector('[data-bs-spy="scroll"]');
+firstScrollSpyEl.addEventListener("activate.bs.scrollspy", function () {
   // do something...
-})
+});
 ```
