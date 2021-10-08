@@ -57,7 +57,7 @@ def ssl_setup(cert_dir, authority_name):
 
 """Skip tests that don't work under internal-ssl when testing under internal-ssl"""
 skip_if_ssl = pytest.mark.skipif(
-    os.environ.get('SSL_ENABLED', False), reason="Does not use internal SSL"
+    os.environ.get("SSL_ENABLED", False), reason="Does not use internal SSL"
 )
 
 
@@ -82,8 +82,8 @@ def check_db_locks(func):
         retval = func(app, *args, **kwargs)
 
         temp_session = app.session_factory()
-        temp_session.execute('CREATE TABLE dummy (foo INT)')
-        temp_session.execute('DROP TABLE dummy')
+        temp_session.execute("CREATE TABLE dummy (foo INT)")
+        temp_session.execute("DROP TABLE dummy")
         temp_session.close()
 
         return retval
@@ -102,7 +102,7 @@ def find_user(db, name, app=None):
 
 def add_user(db, app=None, **kwargs):
     """Add a user to the database."""
-    orm_user = find_user(db, name=kwargs.get('name'))
+    orm_user = find_user(db, name=kwargs.get("name"))
     if orm_user is None:
         orm_user = orm.User(**kwargs)
         db.add(orm_user)
@@ -123,12 +123,12 @@ def auth_header(db, name):
     if user is None:
         raise KeyError(f"No such user: {name}")
     token = user.new_api_token()
-    return {'Authorization': 'token %s' % token}
+    return {"Authorization": "token %s" % token}
 
 
 @check_db_locks
 async def api_request(
-    app, *api_path, method='get', noauth=False, bypass_proxy=False, **kwargs
+    app, *api_path, method="get", noauth=False, bypass_proxy=False, **kwargs
 ):
     """Make an API request"""
     if bypass_proxy:
@@ -136,35 +136,35 @@ async def api_request(
         # skipping the proxy
         base_url = app.hub.url
     else:
-        base_url = public_url(app, path='hub')
-    headers = kwargs.setdefault('headers', {})
+        base_url = public_url(app, path="hub")
+    headers = kwargs.setdefault("headers", {})
 
-    if 'Authorization' not in headers and not noauth and 'cookies' not in kwargs:
+    if "Authorization" not in headers and not noauth and "cookies" not in kwargs:
         # make a copy to avoid modifying arg in-place
-        kwargs['headers'] = h = {}
+        kwargs["headers"] = h = {}
         h.update(headers)
-        h.update(auth_header(app.db, kwargs.pop('name', 'admin')))
+        h.update(auth_header(app.db, kwargs.pop("name", "admin")))
 
-    if 'cookies' in kwargs:
+    if "cookies" in kwargs:
         # for cookie-authenticated requests,
         # set Referer so it looks like the request originated
         # from a Hub-served page
-        headers.setdefault('Referer', ujoin(base_url, 'test'))
+        headers.setdefault("Referer", ujoin(base_url, "test"))
 
-    url = ujoin(base_url, 'api', *api_path)
+    url = ujoin(base_url, "api", *api_path)
     f = getattr(async_requests, method)
     if app.internal_ssl:
-        kwargs['cert'] = (app.internal_ssl_cert, app.internal_ssl_key)
+        kwargs["cert"] = (app.internal_ssl_cert, app.internal_ssl_key)
         kwargs["verify"] = app.internal_ssl_ca
     resp = await f(url, **kwargs)
-    assert "frame-ancestors 'self'" in resp.headers['Content-Security-Policy']
+    assert "frame-ancestors 'self'" in resp.headers["Content-Security-Policy"]
     assert (
         ujoin(app.hub.base_url, "security/csp-report")
-        in resp.headers['Content-Security-Policy']
+        in resp.headers["Content-Security-Policy"]
     )
-    assert 'http' not in resp.headers['Content-Security-Policy']
-    if not kwargs.get('stream', False) and resp.content:
-        assert resp.headers.get('content-type') == 'application/json'
+    assert "http" not in resp.headers["Content-Security-Policy"]
+    if not kwargs.get("stream", False) and resp.content:
+        assert resp.headers.get("content-type") == "application/json"
     return resp
 
 
@@ -189,7 +189,7 @@ def public_host(app):
         return Server.from_url(app.proxy.public_url).host
 
 
-def public_url(app, user_or_service=None, path=''):
+def public_url(app, user_or_service=None, path=""):
     """Return the full, public base URL (including prefix) of the given JupyterHub instance."""
     if user_or_service:
         if app.subdomain_host:

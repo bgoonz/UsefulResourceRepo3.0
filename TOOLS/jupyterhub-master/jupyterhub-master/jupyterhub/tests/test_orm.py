@@ -27,65 +27,65 @@ def test_server(db):
     server = orm.Server()
     db.add(server)
     db.commit()
-    assert server.ip == ''
-    assert server.base_url == '/'
-    assert server.proto == 'http'
+    assert server.ip == ""
+    assert server.base_url == "/"
+    assert server.proto == "http"
     assert isinstance(server.port, int)
     assert isinstance(server.cookie_name, str)
 
     # test wrapper
     server = objects.Server(orm_server=server)
-    assert server.host == 'http://%s:%i' % (socket.gethostname(), server.port)
-    assert server.url == server.host + '/'
-    assert server.bind_url == 'http://*:%i/' % server.port
-    server.ip = '127.0.0.1'
-    assert server.host == 'http://127.0.0.1:%i' % server.port
-    assert server.url == server.host + '/'
+    assert server.host == "http://%s:%i" % (socket.gethostname(), server.port)
+    assert server.url == server.host + "/"
+    assert server.bind_url == "http://*:%i/" % server.port
+    server.ip = "127.0.0.1"
+    assert server.host == "http://127.0.0.1:%i" % server.port
+    assert server.url == server.host + "/"
 
-    server.connect_ip = 'hub'
-    assert server.host == 'http://hub:%i' % server.port
-    assert server.url == server.host + '/'
+    server.connect_ip = "hub"
+    assert server.host == "http://hub:%i" % server.port
+    assert server.url == server.host + "/"
 
-    server.connect_url = 'http://hub-url:%i/connect' % server.port
-    assert server.host == 'http://hub-url:%i' % server.port
+    server.connect_url = "http://hub-url:%i/connect" % server.port
+    assert server.host == "http://hub-url:%i" % server.port
 
-    server.bind_url = 'http://127.0.0.1/'
+    server.bind_url = "http://127.0.0.1/"
     assert server.port == 80
 
-    check_connect_url = objects.Server(connect_url='http://127.0.0.1:80')
-    assert check_connect_url.connect_url == 'http://127.0.0.1:80/'
-    check_connect_url = objects.Server(connect_url='http://127.0.0.1:80/')
-    assert check_connect_url.connect_url == 'http://127.0.0.1:80/'
+    check_connect_url = objects.Server(connect_url="http://127.0.0.1:80")
+    assert check_connect_url.connect_url == "http://127.0.0.1:80/"
+    check_connect_url = objects.Server(connect_url="http://127.0.0.1:80/")
+    assert check_connect_url.connect_url == "http://127.0.0.1:80/"
 
 
 def test_user(db):
-    orm_user = orm.User(name='kaylee')
+    orm_user = orm.User(name="kaylee")
     db.add(orm_user)
     db.commit()
     user = User(orm_user)
-    spawner = user.spawners['']
-    spawner.orm_spawner.state = {'pid': 4234}
-    assert user.name == 'kaylee'
-    assert user.orm_spawners[''].state == {'pid': 4234}
+    spawner = user.spawners[""]
+    spawner.orm_spawner.state = {"pid": 4234}
+    assert user.name == "kaylee"
+    assert user.orm_spawners[""].state == {"pid": 4234}
 
-    found = orm.User.find(db, 'kaylee')
+    found = orm.User.find(db, "kaylee")
     assert found.name == user.name
-    found = orm.User.find(db, 'badger')
+    found = orm.User.find(db, "badger")
     assert found is None
 
 
 def test_user_escaping(db):
-    orm_user = orm.User(name='company\\user@company.com,\"quoted\"')
+    orm_user = orm.User(name='company\\user@company.com,"quoted"')
     db.add(orm_user)
     db.commit()
     user = User(orm_user)
-    assert user.name == 'company\\user@company.com,\"quoted\"'
-    assert user.escaped_name == 'company%5Cuser@company.com%2C%22quoted%22'
-    assert user.json_escaped_name == 'company\\\\user@company.com,\\\"quoted\\\"'
+    assert user.name == 'company\\user@company.com,"quoted"'
+    assert user.escaped_name == "company%5Cuser@company.com%2C%22quoted%22"
+    assert user.json_escaped_name == 'company\\\\user@company.com,\\"quoted\\"'
 
 
 def test_tokens(db):
-    user = orm.User(name='inara')
+    user = orm.User(name="inara")
     db.add(user)
     db.commit()
     token = user.new_api_token()
@@ -96,21 +96,21 @@ def test_tokens(db):
     assert found.match(token)
     assert found.user is user
     assert found.service is None
-    algo, rounds, salt, checksum = found.hashed.split(':')
+    algo, rounds, salt, checksum = found.hashed.split(":")
     assert algo == orm.APIToken.algorithm
-    assert rounds == '1'
+    assert rounds == "1"
     assert len(salt) == orm.APIToken.generated_salt_bytes * 2
 
-    found = orm.APIToken.find(db, 'something else')
+    found = orm.APIToken.find(db, "something else")
     assert found is None
 
-    secret = 'super-secret-preload-token'
+    secret = "super-secret-preload-token"
     token = user.new_api_token(secret, generated=False)
     assert token == secret
     assert len(user.api_tokens) == 3
     found = orm.APIToken.find(db, token=token)
     assert found.match(secret)
-    algo, rounds, salt, _ = found.hashed.split(':')
+    algo, rounds, salt, _ = found.hashed.split(":")
     assert algo == orm.APIToken.algorithm
     assert rounds == str(orm.APIToken.rounds)
     assert len(salt) == 2 * orm.APIToken.salt_bytes
@@ -122,7 +122,7 @@ def test_tokens(db):
 
 
 def test_token_expiry(db):
-    user = orm.User(name='parker')
+    user = orm.User(name="parker")
     db.add(user)
     db.commit()
     now = datetime.utcnow()
@@ -134,7 +134,7 @@ def test_token_expiry(db):
     assert orm_token.expires_at > now + timedelta(seconds=50)
     assert orm_token.expires_at < now + timedelta(seconds=70)
     the_future = mock.patch(
-        'jupyterhub.orm.APIToken.now', lambda: now + timedelta(seconds=70)
+        "jupyterhub.orm.APIToken.now", lambda: now + timedelta(seconds=70)
     )
     with the_future:
         found = orm.APIToken.find(db, token=token)
@@ -150,7 +150,7 @@ def test_token_expiry(db):
 
 
 def test_service_tokens(db):
-    service = orm.Service(name='secret')
+    service = orm.Service(name="secret")
     db.add(service)
     db.commit()
     token = service.new_api_token()
@@ -161,14 +161,14 @@ def test_service_tokens(db):
     assert found.match(token)
     assert found.user is None
     assert found.service is service
-    service2 = orm.Service(name='secret')
+    service2 = orm.Service(name="secret")
     db.add(service)
     db.commit()
     assert service2.id != service.id
 
 
 def test_service_server(db):
-    service = orm.Service(name='has_servers')
+    service = orm.Service(name="has_servers")
     db.add(service)
     db.commit()
 
@@ -192,7 +192,7 @@ def test_token_find(db):
     service_token = service.new_api_token()
     user_token = user.new_api_token()
     with pytest.raises(ValueError):
-        orm.APIToken.find(db, 'irrelevant', kind='richard')
+        orm.APIToken.find(db, "irrelevant", kind="richard")
     # no kind, find anything
     found = orm.APIToken.find(db, token=user_token)
     assert found
@@ -202,22 +202,22 @@ def test_token_find(db):
     assert found.match(service_token)
 
     # kind=user, only find user tokens
-    found = orm.APIToken.find(db, token=user_token, kind='user')
+    found = orm.APIToken.find(db, token=user_token, kind="user")
     assert found
     assert found.match(user_token)
-    found = orm.APIToken.find(db, token=service_token, kind='user')
+    found = orm.APIToken.find(db, token=service_token, kind="user")
     assert found is None
 
     # kind=service, only find service tokens
-    found = orm.APIToken.find(db, token=service_token, kind='service')
+    found = orm.APIToken.find(db, token=service_token, kind="service")
     assert found
     assert found.match(service_token)
-    found = orm.APIToken.find(db, token=user_token, kind='service')
+    found = orm.APIToken.find(db, token=user_token, kind="service")
     assert found is None
 
 
 async def test_spawn_fails(db):
-    orm_user = orm.User(name='aeofel')
+    orm_user = orm.User(name="aeofel")
     db.add(orm_user)
     db.commit()
 
@@ -226,20 +226,20 @@ async def test_spawn_fails(db):
             raise RuntimeError("Split the party")
 
     user = User(
-        orm_user, {'spawner_class': BadSpawner, 'config': None, 'statsd': EmptyClass()}
+        orm_user, {"spawner_class": BadSpawner, "config": None, "statsd": EmptyClass()}
     )
 
     with pytest.raises(RuntimeError) as exc:
         await user.spawn()
-    assert user.spawners[''].server is None
+    assert user.spawners[""].server is None
     assert not user.running
 
 
 def test_groups(db):
-    user = orm.User.find(db, name='aeofel')
+    user = orm.User.find(db, name="aeofel")
     db.add(user)
 
-    group = orm.Group(name='lives')
+    group = orm.Group(name="lives")
     db.add(group)
     db.commit()
     assert group.users == []
@@ -254,7 +254,7 @@ def test_groups(db):
 
 
 async def test_auth_state(db):
-    orm_user = orm.User(name='eve')
+    orm_user = orm.User(name="eve")
     db.add(orm_user)
     db.commit()
     user = User(orm_user)
@@ -265,7 +265,7 @@ async def test_auth_state(db):
     assert user.encrypted_auth_state is None
 
     # can't set auth_state without keys
-    state = {'key': 'value'}
+    state = {"key": "value"}
     ck.keys = []
     with pytest.raises(crypto.EncryptionUnavailable):
         await user.save_auth_state(state)
@@ -295,7 +295,7 @@ async def test_auth_state(db):
     decrypted_state = await user.get_auth_state()
     assert decrypted_state == state
 
-    new_state = {'key': 'newvalue'}
+    new_state = {"key": "newvalue"}
     await user.save_auth_state(new_state)
     db.commit()
 
@@ -317,7 +317,7 @@ async def test_auth_state(db):
 
 
 def test_spawner_delete_cascade(db):
-    user = orm.User(name='spawner-delete')
+    user = orm.User(name="spawner-delete")
     db.add(user)
     db.commit()
 
@@ -338,8 +338,8 @@ def test_spawner_delete_cascade(db):
 
 
 def test_user_delete_cascade(db):
-    user = orm.User(name='db-delete')
-    oauth_client = orm.OAuthClient(identifier='db-delete-client')
+    user = orm.User(name="db-delete")
+    oauth_client = orm.OAuthClient(identifier="db-delete-client")
     db.add(user)
     db.add(oauth_client)
     db.commit()
@@ -379,8 +379,8 @@ def test_user_delete_cascade(db):
 
 
 def test_oauth_client_delete_cascade(db):
-    user = orm.User(name='oauth-delete')
-    oauth_client = orm.OAuthClient(identifier='oauth-delete-client')
+    user = orm.User(name="oauth-delete")
+    oauth_client = orm.OAuthClient(identifier="oauth-delete-client")
     db.add(user)
     db.add(oauth_client)
     db.commit()
@@ -412,7 +412,7 @@ def test_oauth_client_delete_cascade(db):
 
 
 def test_delete_token_cascade(db):
-    user = orm.User(name='mobs')
+    user = orm.User(name="mobs")
     db.add(user)
     db.commit()
     user.new_api_token()
@@ -423,10 +423,10 @@ def test_delete_token_cascade(db):
 
 
 def test_group_delete_cascade(db):
-    user1 = orm.User(name='user1')
-    user2 = orm.User(name='user2')
-    group1 = orm.Group(name='group1')
-    group2 = orm.Group(name='group2')
+    user1 = orm.User(name="user1")
+    user2 = orm.User(name="user2")
+    group1 = orm.Group(name="group1")
+    group2 = orm.Group(name="group2")
     db.add(user1)
     db.add(user2)
     db.add(group1)
@@ -486,7 +486,7 @@ def test_group_delete_cascade(db):
 def test_expiring_api_token(app, user):
     db = app.db
     token = orm.APIToken.new(expires_in=30, user=user)
-    orm_token = orm.APIToken.find(db, token, kind='user')
+    orm_token = orm.APIToken.find(db, token, kind="user")
     assert orm_token
 
     # purge_expired doesn't delete non-expired
@@ -495,7 +495,7 @@ def test_expiring_api_token(app, user):
     assert found is orm_token
 
     with mock.patch.object(
-        orm.APIToken, 'now', lambda: datetime.utcnow() + timedelta(seconds=60)
+        orm.APIToken, "now", lambda: datetime.utcnow() + timedelta(seconds=60)
     ):
         found = orm.APIToken.find(db, token)
         assert found is None
@@ -527,7 +527,7 @@ def test_expiring_oauth_token(app, user):
     found = orm.OAuthAccessToken.find(db, token)
     assert found is orm_token
 
-    with mock.patch.object(orm.OAuthAccessToken, 'now', lambda: now() + 60):
+    with mock.patch.object(orm.OAuthAccessToken, "now", lambda: now() + 60):
         found = orm.OAuthAccessToken.find(db, token)
         assert found is None
         assert orm_token in db.query(orm.OAuthAccessToken)
@@ -550,7 +550,7 @@ def test_expiring_oauth_code(app, user):
     found = orm.OAuthCode.find(db, code)
     assert found is orm_code
 
-    with mock.patch.object(orm.OAuthCode, 'now', lambda: now() + 60):
+    with mock.patch.object(orm.OAuthCode, "now", lambda: now() + 60):
         found = orm.OAuthCode.find(db, code)
         assert found is None
         assert orm_code in db.query(orm.OAuthCode)

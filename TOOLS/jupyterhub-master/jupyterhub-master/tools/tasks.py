@@ -35,21 +35,21 @@ pjoin = os.path.join
 here = os.path.dirname(__file__)
 
 repo = "git@github.com:jupyter/jupyterhub"
-pkg = repo.rsplit('/', 1)[-1]
+pkg = repo.rsplit("/", 1)[-1]
 
-py_exe = os.environ.get('PYTHON_EXE', 'python3.4')
+py_exe = os.environ.get("PYTHON_EXE", "python3.4")
 
 tmp = "/tmp"
-env_root = os.path.join(tmp, 'envs')
-repo_root = pjoin(tmp, '%s-repo' % pkg)
-sdist_root = pjoin(tmp, '%s-release' % pkg)
+env_root = os.path.join(tmp, "envs")
+repo_root = pjoin(tmp, "%s-repo" % pkg)
+sdist_root = pjoin(tmp, "%s-release" % pkg)
 
 
 def run(cmd, **kwargs):
     """wrapper around invoke.run that accepts a Popen list"""
     if isinstance(cmd, list):
         cmd = " ".join(pipes.quote(s) for s in cmd)
-    kwargs.setdefault('echo', True)
+    kwargs.setdefault("echo", True)
     return invoke_run(cmd, **kwargs)
 
 
@@ -77,10 +77,10 @@ def clone_repo(reset=False):
 
 
 @task
-def patch_version(vs, path=pjoin(here, '..')):
+def patch_version(vs, path=pjoin(here, "..")):
     """Patch zmq/sugar/version.py for the current release"""
     v = parse_vs(vs)
-    version_py = pjoin(path, 'jupyterhub', 'version.py')
+    version_py = pjoin(path, "jupyterhub", "version.py")
     print("patching %s with %s" % (version_py, vs))
     # read version.py, minus version parts
     with open(version_py) as f:
@@ -91,18 +91,18 @@ def patch_version(vs, path=pjoin(here, '..')):
             if line.startswith("version_info"):
                 break
         for line in f:
-            if line.startswith(')'):
+            if line.startswith(")"):
                 post_lines.append(line)
                 break
         for line in f:
             post_lines.append(line)
 
     # write new version.py
-    with open(version_py, 'w') as f:
+    with open(version_py, "w") as f:
         for line in pre_lines:
             f.write(line)
         for part in v:
-            f.write('    %r,\n' % part)
+            f.write("    %r,\n" % part)
         for line in post_lines:
             f.write(line)
 
@@ -110,7 +110,7 @@ def patch_version(vs, path=pjoin(here, '..')):
     ns = {}
     with open(version_py) as f:
         exec(f.read(), {}, ns)
-    assert ns['__version__'] == vs, "%r != %r" % (ns['__version__'], vs)
+    assert ns["__version__"] == vs, "%r != %r" % (ns["__version__"], vs)
 
 
 @task
@@ -121,15 +121,15 @@ def tag(vs, push=False):
         run('git commit -a -m "release {}"'.format(vs))
         run('git tag -a -m "release {0}" {0}'.format(vs))
         if push:
-            run('git push')
-            run('git push --tags')
+            run("git push")
+            run("git push --tags")
 
 
 @task
 def untag(vs, push=False):
     """Make the post-tag 'back to dev' commit"""
     v2 = parse_vs(vs)
-    v2.append('dev')
+    v2.append("dev")
     v2[1] += 1
     v2[2] = 0
     vs2 = unparse_vs(v2)
@@ -137,7 +137,7 @@ def untag(vs, push=False):
     with cd(repo_root):
         run('git commit -a -m "back to dev"')
         if push:
-            run('git push')
+            run("git push")
 
 
 def make_env(*packages):
@@ -149,17 +149,17 @@ def make_env(*packages):
         os.makedirs(env_root)
 
     env = os.path.join(env_root, os.path.basename(py_exe))
-    py = pjoin(env, 'bin', 'python')
+    py = pjoin(env, "bin", "python")
     # new env
     if not os.path.exists(py):
         run(
-            'python -m virtualenv {} -p {}'.format(
+            "python -m virtualenv {} -p {}".format(
                 pipes.quote(env), pipes.quote(py_exe)
             )
         )
-        py = pjoin(env, 'bin', 'python')
-        run([py, '-V'])
-        install(py, 'pip', 'setuptools')
+        py = pjoin(env, "bin", "python")
+        run([py, "-V"])
+        install(py, "pip", "setuptools")
     if packages:
         install(py, *packages)
     return py
@@ -171,10 +171,10 @@ def build_sdist(py):
     Returns the path to the tarball
     """
     with cd(repo_root):
-        cmd = [py, 'setup.py', 'sdist', '--formats=gztar']
+        cmd = [py, "setup.py", "sdist", "--formats=gztar"]
         run(cmd)
 
-    return glob.glob(pjoin(repo_root, 'dist', '*.tar.gz'))[0]
+    return glob.glob(pjoin(repo_root, "dist", "*.tar.gz"))[0]
 
 
 @task
@@ -185,15 +185,15 @@ def sdist(vs, upload=False):
     tarball = build_sdist(py)
     if upload:
         with cd(repo_root):
-            install(py, 'twine')
-            run([py, '-m', 'twine', 'upload', 'dist/*'])
+            install(py, "twine")
+            run([py, "-m", "twine", "upload", "dist/*"])
 
     untag(vs, push=upload)
     return untar(tarball)
 
 
 def install(py, *packages):
-    run([py, '-m', 'pip', 'install', '--upgrade'] + list(packages))
+    run([py, "-m", "pip", "install", "--upgrade"] + list(packages))
 
 
 def parse_vs(vs):
@@ -203,7 +203,7 @@ def parse_vs(vs):
 
 def unparse_vs(tup):
     """version list to string"""
-    return '.'.join(map(str, tup))
+    return ".".join(map(str, tup))
 
 
 def untar(tarball):
@@ -212,15 +212,15 @@ def untar(tarball):
         shutil.rmtree(sdist_root)
     os.makedirs(sdist_root)
     with cd(sdist_root):
-        run(['tar', '-xzf', tarball])
+        run(["tar", "-xzf", tarball])
 
-    return glob.glob(pjoin(sdist_root, '*'))[0]
+    return glob.glob(pjoin(sdist_root, "*"))[0]
 
 
 def bdist():
     """build a wheel, optionally uploading it"""
-    py = make_env('wheel')
-    run([py, 'setup.py', 'bdist_wheel'])
+    py = make_env("wheel")
+    run([py, "setup.py", "bdist_wheel"])
 
 
 @task
@@ -236,5 +236,5 @@ def release(vs, upload=False):
     with cd(path):
         bdist()
         if upload:
-            py = make_env('twine')
-            run([py, '-m', 'twine', 'upload', 'dist/*'])
+            py = make_env("twine")
+            run([py, "-m", "twine", "upload", "dist/*"])

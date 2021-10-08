@@ -105,14 +105,14 @@ class UserListAPIHandler(APIHandler):
     @admin_only
     async def post(self):
         data = self.get_json_body()
-        if not data or not isinstance(data, dict) or not data.get('usernames'):
+        if not data or not isinstance(data, dict) or not data.get("usernames"):
             raise web.HTTPError(400, "Must specify at least one user to create")
 
-        usernames = data.pop('usernames')
+        usernames = data.pop("usernames")
         self._check_user_model(data)
         # admin is set for all users
         # to create admin and non-admin users requires at least two API requests
-        admin = data.get('admin', False)
+        admin = data.get("admin", False)
 
         to_create = []
         invalid_names = []
@@ -131,7 +131,7 @@ class UserListAPIHandler(APIHandler):
             if len(invalid_names) == 1:
                 msg = "Invalid username: %s" % invalid_names[0]
             else:
-                msg = "Invalid usernames: %s" % ', '.join(invalid_names)
+                msg = "Invalid usernames: %s" % ", ".join(invalid_names)
             raise web.HTTPError(400, msg)
 
         if not to_create:
@@ -189,7 +189,7 @@ class UserAPIHandler(APIHandler):
         # will see their auth state but normal users won't
         requester = self.current_user
         if requester.admin:
-            model['auth_state'] = await user.get_auth_state()
+            model["auth_state"] = await user.get_auth_state()
         self.write(json.dumps(model))
 
     @admin_only
@@ -202,8 +202,8 @@ class UserAPIHandler(APIHandler):
         user = self.user_from_username(name)
         if data:
             self._check_user_model(data)
-            if 'admin' in data:
-                user.admin = data['admin']
+            if "admin" in data:
+                user.admin = data["admin"]
                 self.db.commit()
 
         try:
@@ -256,21 +256,21 @@ class UserAPIHandler(APIHandler):
             raise web.HTTPError(404)
         data = self.get_json_body()
         self._check_user_model(data)
-        if 'name' in data and data['name'] != name:
+        if "name" in data and data["name"] != name:
             # check if the new name is already taken inside db
-            if self.find_user(data['name']):
+            if self.find_user(data["name"]):
                 raise web.HTTPError(
                     400,
-                    "User %s already exists, username must be unique" % data['name'],
+                    "User %s already exists, username must be unique" % data["name"],
                 )
         for key, value in data.items():
-            if key == 'auth_state':
+            if key == "auth_state":
                 await user.save_auth_state(value)
             else:
                 setattr(user, key, value)
         self.db.commit()
         user_ = self.user_model(user)
-        user_['auth_state'] = await user.get_auth_state()
+        user_["auth_state"] = await user.get_auth_state()
         self.write(json.dumps(user_))
 
 
@@ -309,7 +309,7 @@ class UserTokenListAPIHandler(APIHandler):
                 self.db.commit()
                 continue
             oauth_tokens.append(self.token_model(token))
-        self.write(json.dumps({'api_tokens': api_tokens, 'oauth_tokens': oauth_tokens}))
+        self.write(json.dumps({"api_tokens": api_tokens, "oauth_tokens": oauth_tokens}))
 
     async def post(self, name):
         body = self.get_json_body() or {}
@@ -321,10 +321,10 @@ class UserTokenListAPIHandler(APIHandler):
             # defer to Authenticator for identifying the user
             # can be username+password or an upstream auth token
             try:
-                name = await self.authenticate(body.get('auth'))
+                name = await self.authenticate(body.get("auth"))
                 if isinstance(name, dict):
                     # not a simple string so it has to be a dict
-                    name = name.get('name')
+                    name = name.get("name")
             except web.HTTPError as e:
                 # turn any authentication error into 403
                 raise web.HTTPError(403)
@@ -345,16 +345,16 @@ class UserTokenListAPIHandler(APIHandler):
         if not user:
             raise web.HTTPError(404, "No such user: %s" % name)
         if requester is not user:
-            kind = 'user' if isinstance(requester, User) else 'service'
+            kind = "user" if isinstance(requester, User) else "service"
 
-        note = body.get('note')
+        note = body.get("note")
         if not note:
             note = "Requested via api"
             if requester is not user:
                 note += " by %s %s" % (kind, requester.name)
 
         api_token = user.new_api_token(
-            note=note, expires_in=body.get('expires_in', None)
+            note=note, expires_in=body.get("expires_in", None)
         )
         if requester is not user:
             self.log.info(
@@ -364,11 +364,11 @@ class UserTokenListAPIHandler(APIHandler):
                 user.name,
             )
         else:
-            user_kind = 'user' if isinstance(user, User) else 'service'
+            user_kind = "user" if isinstance(user, User) else "service"
             self.log.info("%s %s requested new API token", user_kind.title(), user.name)
         # retrieve the model
         token_model = self.token_model(orm.APIToken.find(self.db, api_token))
-        token_model['token'] = api_token
+        token_model["token"] = api_token
         self.write(json.dumps(token_model))
 
 
@@ -383,9 +383,9 @@ class UserTokenAPIHandler(APIHandler):
         """
         not_found = "No such token %s for user %s" % (token_id, user.name)
         prefix, id = token_id[0], token_id[1:]
-        if prefix == 'a':
+        if prefix == "a":
             Token = orm.APIToken
-        elif prefix == 'o':
+        elif prefix == "o":
             Token = orm.OAuthAccessToken
         else:
             raise web.HTTPError(404, not_found)
@@ -426,7 +426,7 @@ class UserTokenAPIHandler(APIHandler):
         for token in tokens:
             self.db.delete(token)
         self.db.commit()
-        self.set_header('Content-Type', 'text/plain')
+        self.set_header("Content-Type", "text/plain")
         self.set_status(204)
 
 
@@ -434,7 +434,7 @@ class UserServerAPIHandler(APIHandler):
     """Start and stop single-user servers"""
 
     @admin_or_self
-    async def post(self, name, server_name=''):
+    async def post(self, name, server_name=""):
         user = self.find_user(name)
         if server_name:
             if not self.allow_named_servers:
@@ -454,8 +454,8 @@ class UserServerAPIHandler(APIHandler):
                     )
         spawner = user.spawners[server_name]
         pending = spawner.pending
-        if pending == 'spawn':
-            self.set_header('Content-Type', 'text/plain')
+        if pending == "spawn":
+            self.set_header("Content-Type", "text/plain")
             self.set_status(202)
             return
         elif pending:
@@ -474,15 +474,15 @@ class UserServerAPIHandler(APIHandler):
 
         options = self.get_json_body()
         await self.spawn_single_user(user, server_name, options=options)
-        status = 202 if spawner.pending == 'spawn' else 201
-        self.set_header('Content-Type', 'text/plain')
+        status = 202 if spawner.pending == "spawn" else 201
+        self.set_header("Content-Type", "text/plain")
         self.set_status(status)
 
     @admin_or_self
-    async def delete(self, name, server_name=''):
+    async def delete(self, name, server_name=""):
         user = self.find_user(name)
         options = self.get_json_body()
-        remove = (options or {}).get('remove', False)
+        remove = (options or {}).get("remove", False)
 
         def _remove_spawner(f=None):
             if f and f.exception():
@@ -503,9 +503,9 @@ class UserServerAPIHandler(APIHandler):
             raise web.HTTPError(400, "Cannot delete the default server")
 
         spawner = user.spawners[server_name]
-        if spawner.pending == 'stop':
+        if spawner.pending == "stop":
             self.log.debug("%s already stopping", spawner._log_name)
-            self.set_header('Content-Type', 'text/plain')
+            self.set_header("Content-Type", "text/plain")
             self.set_status(202)
             if remove:
                 spawner._stop_future.add_done_callback(_remove_spawner)
@@ -531,7 +531,7 @@ class UserServerAPIHandler(APIHandler):
                 _remove_spawner()
 
         status = 202 if spawner._stop_pending else 204
-        self.set_header('Content-Type', 'text/plain')
+        self.set_header("Content-Type", "text/plain")
         self.set_status(status)
 
 
@@ -551,7 +551,7 @@ class UserAdminAccessAPIHandler(APIHandler):
         self.log.warning(
             "Admin user %s has requested access to %s's server", current.name, name
         )
-        if not self.settings.get('admin_access', False):
+        if not self.settings.get("admin_access", False):
             raise web.HTTPError(403, "admin access to user servers disabled")
         user = self.find_user(name)
         if user is None:
@@ -564,11 +564,11 @@ class SpawnProgressAPIHandler(APIHandler):
     keepalive_interval = 8
 
     def get_content_type(self):
-        return 'text/event-stream'
+        return "text/event-stream"
 
     async def send_event(self, event):
         try:
-            self.write('data: {}\n\n'.format(json.dumps(event)))
+            self.write("data: {}\n\n".format(json.dumps(event)))
             await self.flush()
         except StreamClosedError:
             self.log.warning("Stream closed while handling %s", self.request.uri)
@@ -598,10 +598,10 @@ class SpawnProgressAPIHandler(APIHandler):
             await asyncio.wait([self._finish_future], timeout=self.keepalive_interval)
 
     @admin_or_self
-    async def get(self, username, server_name=''):
-        self.set_header('Cache-Control', 'no-cache')
+    async def get(self, username, server_name=""):
+        self.set_header("Cache-Control", "no-cache")
         if server_name is None:
-            server_name = ''
+            server_name = ""
         user = self.find_user(username)
         if user is None:
             # no such user
@@ -618,15 +618,15 @@ class SpawnProgressAPIHandler(APIHandler):
         # - spawner not running at all
         # - spawner failed
         # - spawner pending start (what we expect)
-        url = url_path_join(user.url, server_name, '/')
+        url = url_path_join(user.url, server_name, "/")
         ready_event = {
-            'progress': 100,
-            'ready': True,
-            'message': "Server ready at {}".format(url),
-            'html_message': 'Server ready at <a href="{0}">{0}</a>'.format(url),
-            'url': url,
+            "progress": 100,
+            "ready": True,
+            "message": "Server ready at {}".format(url),
+            "html_message": 'Server ready at <a href="{0}">{0}</a>'.format(url),
+            "url": url,
         }
-        failed_event = {'progress': 100, 'failed': True, 'message': "Spawn failed"}
+        failed_event = {"progress": 100, "failed": True, "message": "Spawn failed"}
 
         if spawner.ready:
             # spawner already ready. Trigger progress-completion immediately
@@ -641,7 +641,7 @@ class SpawnProgressAPIHandler(APIHandler):
             # check if spawner has just failed
             f = spawn_future
             if f and f.done() and f.exception():
-                failed_event['message'] = "Spawn failed: %s" % f.exception()
+                failed_event["message"] = "Spawn failed: %s" % f.exception()
                 await self.send_event(failed_event)
                 return
             else:
@@ -654,8 +654,8 @@ class SpawnProgressAPIHandler(APIHandler):
             try:
                 async for event in events:
                     # don't allow events to sneakily set the 'ready' flag
-                    if 'ready' in event:
-                        event.pop('ready', None)
+                    if "ready" in event:
+                        event.pop("ready", None)
                     await self.send_event(event)
             except asyncio.CancelledError:
                 pass
@@ -674,7 +674,7 @@ class SpawnProgressAPIHandler(APIHandler):
             # what happened? Maybe spawn failed?
             f = spawn_future
             if f and f.done() and f.exception():
-                failed_event['message'] = "Spawn failed: %s" % f.exception()
+                failed_event["message"] = "Spawn failed: %s" % f.exception()
             else:
                 self.log.warning(
                     "Server %s didn't start for unknown reason", spawner._log_name
@@ -731,12 +731,12 @@ class ActivityAPIHandler(APIHandler):
             if not isinstance(server_info, dict):
                 raise web.HTTPError(400, msg)
             # check that last_activity is defined for each per-server dict
-            if 'last_activity' not in server_info:
+            if "last_activity" not in server_info:
                 raise web.HTTPError(400, msg)
             # parse last_activity timestamps
             # _parse_timestamp above is responsible for raising errors
-            server_info['last_activity'] = _parse_timestamp(
-                server_info['last_activity']
+            server_info["last_activity"] = _parse_timestamp(
+                server_info["last_activity"]
             )
         return servers
 
@@ -751,8 +751,8 @@ class ActivityAPIHandler(APIHandler):
         if not isinstance(body, dict):
             raise web.HTTPError(400, "body must be a json dict")
 
-        last_activity_timestamp = body.get('last_activity')
-        servers = body.get('servers')
+        last_activity_timestamp = body.get("last_activity")
+        servers = body.get("servers")
         if not last_activity_timestamp and not servers:
             raise web.HTTPError(
                 400, "body must contain at least one of `last_activity` or `servers`"
@@ -783,7 +783,7 @@ class ActivityAPIHandler(APIHandler):
 
         if servers:
             for server_name, server_info in servers.items():
-                last_activity = server_info['last_activity']
+                last_activity = server_info["last_activity"]
                 spawner = user.orm_spawners[server_name]
 
                 if (not spawner.last_activity) or last_activity > spawner.last_activity:

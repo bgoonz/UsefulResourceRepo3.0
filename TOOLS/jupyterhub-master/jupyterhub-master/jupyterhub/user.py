@@ -167,12 +167,12 @@ class UserDict(dict):
             for spawner in user.spawners.values():
                 pending = spawner.pending
                 if pending:
-                    counts['pending'] += 1
-                    counts[pending + '_pending'] += 1
+                    counts["pending"] += 1
+                    counts[pending + "_pending"] += 1
                 if spawner.active:
-                    counts['active'] += 1
+                    counts["active"] += 1
                 if spawner.ready:
-                    counts['ready'] += 1
+                    counts["ready"] += 1
 
         return counts
 
@@ -202,26 +202,26 @@ class User:
         self.settings = settings or {}
         self.orm_user = orm_user
 
-        self.allow_named_servers = self.settings.get('allow_named_servers', False)
+        self.allow_named_servers = self.settings.get("allow_named_servers", False)
 
         self.base_url = self.prefix = (
-            url_path_join(self.settings.get('base_url', '/'), 'user', self.escaped_name)
-            + '/'
+            url_path_join(self.settings.get("base_url", "/"), "user", self.escaped_name)
+            + "/"
         )
 
         self.spawners = _SpawnerDict(self._new_spawner)
 
         # ensure default spawner exists in the database
-        if '' not in self.orm_user.orm_spawners:
-            self._new_orm_spawner('')
+        if "" not in self.orm_user.orm_spawners:
+            self._new_orm_spawner("")
 
     @property
     def authenticator(self):
-        return self.settings.get('authenticator', None)
+        return self.settings.get("authenticator", None)
 
     @property
     def spawner_class(self):
-        return self.settings.get('spawner_class', LocalProcessSpawner)
+        return self.settings.get("spawner_class", LocalProcessSpawner)
 
     async def save_auth_state(self, auth_state):
         """Encrypt and store auth_state"""
@@ -262,7 +262,7 @@ class User:
         """
 
         for name, orm_spawner in sorted(self.orm_user.orm_spawners.items()):
-            if name == '' and not include_default:
+            if name == "" and not include_default:
                 continue
             if name and not self.allow_named_servers:
                 continue
@@ -290,40 +290,40 @@ class User:
         orm_spawner = self.orm_spawners.get(server_name)
         if orm_spawner is None:
             orm_spawner = self._new_orm_spawner(server_name)
-        if server_name == '' and self.state:
+        if server_name == "" and self.state:
             # migrate user.state to spawner.state
             orm_spawner.state = self.state
             self.state = None
 
         # use fully quoted name for client_id because it will be used in cookie-name
         # self.escaped_name may contain @ which is legal in URLs but not cookie keys
-        client_id = 'jupyterhub-user-%s' % quote(self.name)
+        client_id = "jupyterhub-user-%s" % quote(self.name)
         if server_name:
-            client_id = '%s-%s' % (client_id, quote(server_name))
+            client_id = "%s-%s" % (client_id, quote(server_name))
 
         trusted_alt_names = []
-        trusted_alt_names.extend(self.settings.get('trusted_alt_names', []))
-        if self.settings.get('subdomain_host'):
-            trusted_alt_names.append('DNS:' + self.domain)
+        trusted_alt_names.extend(self.settings.get("trusted_alt_names", []))
+        if self.settings.get("subdomain_host"):
+            trusted_alt_names.append("DNS:" + self.domain)
 
         spawn_kwargs = dict(
             user=self,
             orm_spawner=orm_spawner,
-            hub=self.settings.get('hub'),
+            hub=self.settings.get("hub"),
             authenticator=self.authenticator,
-            config=self.settings.get('config'),
-            proxy_spec=url_path_join(self.proxy_spec, server_name, '/'),
+            config=self.settings.get("config"),
+            proxy_spec=url_path_join(self.proxy_spec, server_name, "/"),
             db=self.db,
             oauth_client_id=client_id,
-            cookie_options=self.settings.get('cookie_options', {}),
+            cookie_options=self.settings.get("cookie_options", {}),
             trusted_alt_names=trusted_alt_names,
         )
 
-        if self.settings.get('internal_ssl'):
+        if self.settings.get("internal_ssl"):
             ssl_kwargs = dict(
-                internal_ssl=self.settings.get('internal_ssl'),
-                internal_trust_bundles=self.settings.get('internal_trust_bundles'),
-                internal_certs_location=self.settings.get('internal_certs_location'),
+                internal_ssl=self.settings.get("internal_ssl"),
+                internal_trust_bundles=self.settings.get("internal_trust_bundles"),
+                internal_certs_location=self.settings.get("internal_certs_location"),
             )
             spawn_kwargs.update(ssl_kwargs)
 
@@ -336,11 +336,11 @@ class User:
     # singleton property, self.spawner maps onto spawner with empty server_name
     @property
     def spawner(self):
-        return self.spawners['']
+        return self.spawners[""]
 
     @spawner.setter
     def spawner(self, spawner):
-        self.spawners[''] = spawner
+        self.spawners[""] = spawner
 
     # pass get/setattr to ORM user
     def __getattr__(self, attr):
@@ -350,7 +350,7 @@ class User:
             raise AttributeError(attr)
 
     def __setattr__(self, attr, value):
-        if not attr.startswith('_') and self.orm_user and hasattr(self.orm_user, attr):
+        if not attr.startswith("_") and self.orm_user and hasattr(self.orm_user, attr):
             setattr(self.orm_user, attr, value)
         else:
             super().__setattr__(attr, value)
@@ -378,7 +378,7 @@ class User:
             "User.spawn_pending is deprecated in JupyterHub 0.8. Use Spawner.pending",
             DeprecationWarning,
         )
-        return self.spawner.pending == 'spawn'
+        return self.spawner.pending == "spawn"
 
     @property
     def stop_pending(self):
@@ -386,7 +386,7 @@ class User:
             "User.stop_pending is deprecated in JupyterHub 0.8. Use Spawner.pending",
             DeprecationWarning,
         )
-        return self.spawner.pending == 'stop'
+        return self.spawner.pending == "stop"
 
     @property
     def server(self):
@@ -395,7 +395,7 @@ class User:
     @property
     def escaped_name(self):
         """My name, escaped for use in URLs, cookies, etc."""
-        return quote(self.name, safe='@~')
+        return quote(self.name, safe="@~")
 
     @property
     def json_escaped_name(self):
@@ -405,27 +405,27 @@ class User:
     @property
     def proxy_spec(self):
         """The proxy routespec for my default server"""
-        if self.settings.get('subdomain_host'):
-            return url_path_join(self.domain, self.base_url, '/')
+        if self.settings.get("subdomain_host"):
+            return url_path_join(self.domain, self.base_url, "/")
         else:
-            return url_path_join(self.base_url, '/')
+            return url_path_join(self.base_url, "/")
 
     @property
     def domain(self):
         """Get the domain for my server."""
         # use underscore as escape char for domains
         return (
-            quote(self.name).replace('%', '_').lower() + '.' + self.settings['domain']
+            quote(self.name).replace("%", "_").lower() + "." + self.settings["domain"]
         )
 
     @property
     def host(self):
         """Get the *host* for my server (proto://domain[:port])"""
         # FIXME: escaped_name probably isn't escaped enough in general for a domain fragment
-        parsed = urlparse(self.settings['subdomain_host'])
-        h = '%s://%s' % (parsed.scheme, self.domain)
+        parsed = urlparse(self.settings["subdomain_host"])
+        h = "%s://%s" % (parsed.scheme, self.domain)
         if parsed.port:
-            h += ':%i' % parsed.port
+            h += ":%i" % parsed.port
         return h
 
     @property
@@ -434,25 +434,25 @@ class User:
 
         Full name.domain/path if using subdomains, otherwise just my /base/url
         """
-        if self.settings.get('subdomain_host'):
-            return '{host}{path}'.format(host=self.host, path=self.base_url)
+        if self.settings.get("subdomain_host"):
+            return "{host}{path}".format(host=self.host, path=self.base_url)
         else:
             return self.base_url
 
-    def server_url(self, server_name=''):
+    def server_url(self, server_name=""):
         """Get the url for a server with a given name"""
         if not server_name:
             return self.url
         else:
             return url_path_join(self.url, server_name)
 
-    def progress_url(self, server_name=''):
+    def progress_url(self, server_name=""):
         """API URL for progress endpoint for a server with a given name"""
-        url_parts = [self.settings['hub'].base_url, 'api/users', self.escaped_name]
+        url_parts = [self.settings["hub"].base_url, "api/users", self.escaped_name]
         if server_name:
-            url_parts.extend(['servers', server_name, 'progress'])
+            url_parts.extend(["servers", server_name, "progress"])
         else:
-            url_parts.extend(['server/progress'])
+            url_parts.extend(["server/progress"])
         return url_path_join(*url_parts)
 
     async def refresh_auth(self, handler):
@@ -493,11 +493,11 @@ class User:
         )
         # auth expired, cannot spawn without a fresh login
         # it's the current user *and* spawn via GET, trigger login redirect
-        if handler.request.method == 'GET' and handler.current_user is self:
+        if handler.request.method == "GET" and handler.current_user is self:
             self.log.info("Redirecting %s to login to refresh auth", self.name)
             url = self.get_login_url()
             next_url = self.request.uri
-            sep = '&' if '?' in url else '?'
+            sep = "&" if "?" in url else "?"
             url += sep + urlencode(dict(next=next_url))
             self.redirect(url)
             raise web.Finish()
@@ -508,7 +508,7 @@ class User:
                 400, "{}'s authentication has expired".format(self.name)
             )
 
-    async def spawn(self, server_name='', options=None, handler=None):
+    async def spawn(self, server_name="", options=None, handler=None):
         """Start the user's spawner
 
         depending from the value of JupyterHub.allow_named_servers
@@ -526,7 +526,7 @@ class User:
         if handler:
             await self.refresh_auth(handler)
 
-        base_url = url_path_join(self.base_url, server_name) + '/'
+        base_url = url_path_join(self.base_url, server_name) + "/"
 
         orm_server = orm.Server(base_url=base_url)
         db.add(orm_server)
@@ -557,9 +557,9 @@ class User:
 
         # create API and OAuth tokens
         spawner.api_token = api_token
-        spawner.admin_access = self.settings.get('admin_access', False)
+        spawner.admin_access = self.settings.get("admin_access", False)
         client_id = spawner.oauth_client_id
-        oauth_provider = self.settings.get('oauth_provider')
+        oauth_provider = self.settings.get("oauth_provider")
         if oauth_provider:
             oauth_client = oauth_provider.fetch_by_client_id(client_id)
             # create a new OAuth client + secret on every launch
@@ -567,9 +567,9 @@ class User:
             oauth_provider.add_client(
                 client_id,
                 api_token,
-                url_path_join(self.url, server_name, 'oauth_callback'),
+                url_path_join(self.url, server_name, "oauth_callback"),
                 description="Server at %s"
-                % (url_path_join(self.base_url, server_name) + '/'),
+                % (url_path_join(self.base_url, server_name) + "/"),
             )
         db.commit()
 
@@ -595,7 +595,7 @@ class User:
             # wait for spawner.start to return
             # run optional preparation work to bootstrap the notebook
             await maybe_future(spawner.run_pre_spawn_hook())
-            if self.settings.get('internal_ssl'):
+            if self.settings.get("internal_ssl"):
                 self.log.debug("Creating internal SSL certs for %s", spawner._log_name)
                 hub_paths = await maybe_future(spawner.create_certs())
                 spawner.cert_paths = await maybe_future(spawner.move_certs(hub_paths))
@@ -611,19 +611,19 @@ class User:
                     pass
                 else:
                     # >= 0.7 returns (ip, port)
-                    proto = 'https' if self.settings['internal_ssl'] else 'http'
+                    proto = "https" if self.settings["internal_ssl"] else "http"
 
                     # check if spawner returned an IPv6 address
-                    if ':' in url[0]:
-                        url = '%s://[%s]:%i' % ((proto,) + url)
+                    if ":" in url[0]:
+                        url = "%s://[%s]:%i" % ((proto,) + url)
                     else:
-                        url = '%s://%s:%i' % ((proto,) + url)
+                        url = "%s://%s:%i" % ((proto,) + url)
                 urlinfo = urlparse(url)
                 server.proto = urlinfo.scheme
                 server.ip = urlinfo.hostname
                 port = urlinfo.port
                 if not port:
-                    if urlinfo.scheme == 'https':
+                    if urlinfo.scheme == "https":
                         port = 443
                     else:
                         port = 80
@@ -672,7 +672,7 @@ class User:
                     oauth_provider.add_client(
                         client_id,
                         spawner.api_token,
-                        url_path_join(self.url, server_name, 'oauth_callback'),
+                        url_path_join(self.url, server_name, "oauth_callback"),
                     )
                     db.commit()
 
@@ -683,16 +683,16 @@ class User:
                         user=self.name, s=spawner.start_timeout
                     )
                 )
-                e.reason = 'timeout'
-                self.settings['statsd'].incr('spawner.failure.timeout')
+                e.reason = "timeout"
+                self.settings["statsd"].incr("spawner.failure.timeout")
             else:
                 self.log.error(
                     "Unhandled error starting {user}'s server: {error}".format(
                         user=self.name, error=e
                     )
                 )
-                self.settings['statsd'].incr('spawner.failure.error')
-                e.reason = 'error'
+                self.settings["statsd"].incr("spawner.failure.error")
+                e.reason = "error"
             try:
                 await self.stop(spawner.name)
             except Exception:
@@ -725,9 +725,9 @@ class User:
         spawner.http_timeout.
         """
         server = spawner.server
-        key = self.settings.get('internal_ssl_key')
-        cert = self.settings.get('internal_ssl_cert')
-        ca = self.settings.get('internal_ssl_ca')
+        key = self.settings.get("internal_ssl_key")
+        cert = self.settings.get("internal_ssl_cert")
+        ca = self.settings.get("internal_ssl_ca")
         ssl_context = make_ssl_context(key, cert, cafile=ca)
         try:
             resp = await server.wait_up(
@@ -743,16 +743,16 @@ class User:
                         http_timeout=spawner.http_timeout,
                     )
                 )
-                e.reason = 'timeout'
-                self.settings['statsd'].incr('spawner.failure.http_timeout')
+                e.reason = "timeout"
+                self.settings["statsd"].incr("spawner.failure.http_timeout")
             else:
-                e.reason = 'error'
+                e.reason = "error"
                 self.log.error(
                     "Unhandled error waiting for {user}'s server to show up at {url}: {error}".format(
                         user=self.name, url=server.url, error=e
                     )
                 )
-                self.settings['statsd'].incr('spawner.failure.http_error')
+                self.settings["statsd"].incr("spawner.failure.http_error")
             try:
                 await self.stop(spawner.name)
             except Exception:
@@ -765,7 +765,7 @@ class User:
             # raise original TimeoutError
             raise e
         else:
-            server_version = resp.headers.get('X-JupyterHub-Version')
+            server_version = resp.headers.get("X-JupyterHub-Version")
             _check_version(__version__, server_version, self.log)
             # record the Spawner version for better error messages
             # if it doesn't work
@@ -775,7 +775,7 @@ class User:
             spawner._start_pending = False
         return spawner
 
-    async def stop(self, server_name=''):
+    async def stop(self, server_name=""):
         """Stop the user's spawner
 
         and cleanup after it.
@@ -808,7 +808,7 @@ class User:
                 # not just `jupyterhub-user-USERNAME`
                 client_ids = (
                     spawner.oauth_client_id,
-                    spawner.oauth_client_id.split('-', 1)[1],
+                    spawner.oauth_client_id.split("-", 1)[1],
                 )
                 for oauth_client in self.db.query(orm.OAuthClient).filter(
                     orm.OAuthClient.identifier.in_(client_ids)

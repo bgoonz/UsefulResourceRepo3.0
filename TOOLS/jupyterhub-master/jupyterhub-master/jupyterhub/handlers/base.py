@@ -49,19 +49,19 @@ from ..utils import maybe_future
 from ..utils import url_path_join
 
 # pattern for the authentication token header
-auth_header_pat = re.compile(r'^(?:token|bearer)\s+([^\s]+)$', flags=re.IGNORECASE)
+auth_header_pat = re.compile(r"^(?:token|bearer)\s+([^\s]+)$", flags=re.IGNORECASE)
 
 # mapping of reason: reason_message
 reasons = {
-    'timeout': "Failed to reach your server."
+    "timeout": "Failed to reach your server."
     "  Please try again later."
     "  Contact admin if the issue persists.",
-    'error': "Failed to start your server on the last attempt.  "
+    "error": "Failed to start your server on the last attempt.  "
     "  Please contact admin if the issue persists.",
 }
 
 # constant, not configurable
-SESSION_COOKIE_NAME = 'jupyterhub-session-id'
+SESSION_COOKIE_NAME = "jupyterhub-session-id"
 
 
 class BaseHandler(RequestHandler):
@@ -90,79 +90,79 @@ class BaseHandler(RequestHandler):
     @property
     def log(self):
         """I can't seem to avoid typing self.log"""
-        return self.settings.get('log', app_log)
+        return self.settings.get("log", app_log)
 
     @property
     def config(self):
-        return self.settings.get('config', None)
+        return self.settings.get("config", None)
 
     @property
     def base_url(self):
-        return self.settings.get('base_url', '/')
+        return self.settings.get("base_url", "/")
 
     @property
     def default_url(self):
-        return self.settings.get('default_url', '')
+        return self.settings.get("default_url", "")
 
     @property
     def version_hash(self):
-        return self.settings.get('version_hash', '')
+        return self.settings.get("version_hash", "")
 
     @property
     def subdomain_host(self):
-        return self.settings.get('subdomain_host', '')
+        return self.settings.get("subdomain_host", "")
 
     @property
     def allow_named_servers(self):
-        return self.settings.get('allow_named_servers', False)
+        return self.settings.get("allow_named_servers", False)
 
     @property
     def named_server_limit_per_user(self):
-        return self.settings.get('named_server_limit_per_user', 0)
+        return self.settings.get("named_server_limit_per_user", 0)
 
     @property
     def domain(self):
-        return self.settings['domain']
+        return self.settings["domain"]
 
     @property
     def db(self):
-        return self.settings['db']
+        return self.settings["db"]
 
     @property
     def users(self):
-        return self.settings.setdefault('users', {})
+        return self.settings.setdefault("users", {})
 
     @property
     def services(self):
-        return self.settings.setdefault('services', {})
+        return self.settings.setdefault("services", {})
 
     @property
     def hub(self):
-        return self.settings['hub']
+        return self.settings["hub"]
 
     @property
     def app(self):
-        return self.settings['app']
+        return self.settings["app"]
 
     @property
     def proxy(self):
-        return self.settings['proxy']
+        return self.settings["proxy"]
 
     @property
     def statsd(self):
-        return self.settings['statsd']
+        return self.settings["statsd"]
 
     @property
     def authenticator(self):
-        return self.settings.get('authenticator', None)
+        return self.settings.get("authenticator", None)
 
     @property
     def oauth_provider(self):
-        return self.settings['oauth_provider']
+        return self.settings["oauth_provider"]
 
     @property
     def eventlog(self):
-        return self.settings['eventlog']
+        return self.settings["eventlog"]
 
     def finish(self, *args, **kwargs):
         """Roll back any uncommitted transactions from the handler."""
@@ -178,7 +178,7 @@ class BaseHandler(RequestHandler):
     @property
     def csp_report_uri(self):
         return self.settings.get(
-            'csp_report_uri', url_path_join(self.hub.base_url, 'security/csp-report')
+            "csp_report_uri", url_path_join(self.hub.base_url, "security/csp-report")
         )
 
     @property
@@ -187,12 +187,12 @@ class BaseHandler(RequestHandler):
 
         Can be overridden by defining Content-Security-Policy in settings['headers']
         """
-        return '; '.join(
+        return "; ".join(
             ["frame-ancestors 'self'", "report-uri " + self.csp_report_uri]
         )
 
     def get_content_type(self):
-        return 'text/html'
+        return "text/html"
 
     def set_default_headers(self):
         """
@@ -202,19 +202,19 @@ class BaseHandler(RequestHandler):
         Also responsible for setting content-type header
         """
         # wrap in HTTPHeaders for case-insensitivity
-        headers = HTTPHeaders(self.settings.get('headers', {}))
+        headers = HTTPHeaders(self.settings.get("headers", {}))
         headers.setdefault("X-JupyterHub-Version", __version__)
 
         for header_name, header_content in headers.items():
             self.set_header(header_name, header_content)
 
-        if 'Access-Control-Allow-Headers' not in headers:
+        if "Access-Control-Allow-Headers" not in headers:
             self.set_header(
-                'Access-Control-Allow-Headers', 'accept, content-type, authorization'
+                "Access-Control-Allow-Headers", "accept, content-type, authorization"
             )
-        if 'Content-Security-Policy' not in headers:
-            self.set_header('Content-Security-Policy', self.content_security_policy)
-        self.set_header('Content-Type', self.get_content_type())
+        if "Content-Security-Policy" not in headers:
+            self.set_header("Content-Security-Policy", self.content_security_policy)
+        self.set_header("Content-Type", self.get_content_type())
 
     # ---------------------------------------------------------------
     # Login and cookie-related
@@ -222,23 +222,23 @@ class BaseHandler(RequestHandler):
 
     @property
     def admin_users(self):
-        return self.settings.setdefault('admin_users', set())
+        return self.settings.setdefault("admin_users", set())
 
     @property
     def cookie_max_age_days(self):
-        return self.settings.get('cookie_max_age_days', None)
+        return self.settings.get("cookie_max_age_days", None)
 
     @property
     def redirect_to_server(self):
-        return self.settings.get('redirect_to_server', True)
+        return self.settings.get("redirect_to_server", True)
 
     @property
     def authenticate_prometheus(self):
-        return self.settings.get('authenticate_prometheus', True)
+        return self.settings.get("authenticate_prometheus", True)
 
     def get_auth_token(self):
         """Get the authorization token from Authorization header"""
-        auth_header = self.request.headers.get('Authorization', '')
+        auth_header = self.request.headers.get("Authorization", "")
         match = auth_header_pat.match(auth_header)
         if not match:
             return None
@@ -318,7 +318,7 @@ class BaseHandler(RequestHandler):
             return user
 
         # refresh a user at most once per request
-        if not hasattr(self, '_refreshed_users'):
+        if not hasattr(self, "_refreshed_users"):
             self._refreshed_users = set()
         if user.name in self._refreshed_users:
             # already refreshed during this request
@@ -342,12 +342,12 @@ class BaseHandler(RequestHandler):
             return user
 
         # Ensure name field is set. It cannot be updated.
-        auth_info['name'] = user.name
+        auth_info["name"] = user.name
 
-        if 'auth_state' not in auth_info:
+        if "auth_state" not in auth_info:
             # refresh didn't specify auth_state,
             # so preserve previous value to avoid clearing it
-            auth_info['auth_state'] = await user.get_auth_state()
+            auth_info["auth_state"] = await user.get_auth_state()
         return await self.auth_to_user(auth_info, user)
 
     def get_current_user_token(self):
@@ -390,7 +390,7 @@ class BaseHandler(RequestHandler):
                 self.log.warning("Invalid or expired cookie token")
                 clear()
             return
-        cookie_id = cookie_id.decode('utf8', 'replace')
+        cookie_id = cookie_id.decode("utf8", "replace")
         u = self.db.query(orm.User).filter(orm.User.cookie_id == cookie_id).first()
         user = self._user_from_orm(u)
         if user is None:
@@ -415,7 +415,7 @@ class BaseHandler(RequestHandler):
 
     async def get_current_user(self):
         """get current username"""
-        if not hasattr(self, '_jupyterhub_user'):
+        if not hasattr(self, "_jupyterhub_user"):
             try:
                 user = self.get_current_user_token()
                 if user is None:
@@ -435,7 +435,7 @@ class BaseHandler(RequestHandler):
 
         Allows .get_current_user to be async.
         """
-        if not hasattr(self, '_jupyterhub_user'):
+        if not hasattr(self, "_jupyterhub_user"):
             raise RuntimeError("Must call async get_current_user first!")
         return self._jupyterhub_user
 
@@ -462,7 +462,7 @@ class BaseHandler(RequestHandler):
     def clear_login_cookie(self, name=None):
         kwargs = {}
         if self.subdomain_host:
-            kwargs['domain'] = self.domain
+            kwargs["domain"] = self.domain
         user = self.get_current_user_cookie()
         session_id = self.get_session_cookie()
         if session_id:
@@ -489,15 +489,12 @@ class BaseHandler(RequestHandler):
         self.clear_cookie(self.hub.cookie_name, path=self.hub.base_url, **kwargs)
         # clear services cookie
         self.clear_cookie(
-            'jupyterhub-services',
-            path=url_path_join(self.base_url, 'services'),
+            "jupyterhub-services",
+            path=url_path_join(self.base_url, "services"),
             **kwargs,
         )
         # clear tornado cookie
-        self.clear_cookie(
-            '_xsrf',
-            **self.settings.get('xsrf_cookie_kwargs', {}),
-        )
+        self.clear_cookie("_xsrf", **self.settings.get("xsrf_cookie_kwargs", {}))
         # Reset _jupyterhub_user
         self._jupyterhub_user = None
 
@@ -509,13 +506,13 @@ class BaseHandler(RequestHandler):
         """
         # tornado <4.2 have a bug that consider secure==True as soon as
         # 'secure' kwarg is passed to set_secure_cookie
-        kwargs = {'httponly': True}
-        if self.request.protocol == 'https':
-            kwargs['secure'] = True
+        kwargs = {"httponly": True}
+        if self.request.protocol == "https":
+            kwargs["secure"] = True
         if self.subdomain_host:
-            kwargs['domain'] = self.domain
+            kwargs["domain"] = self.domain
 
-        kwargs.update(self.settings.get('cookie_options', {}))
+        kwargs.update(self.settings.get("cookie_options", {}))
         kwargs.update(overrides)
 
         if encrypted:
@@ -556,8 +553,8 @@ class BaseHandler(RequestHandler):
         self._set_user_cookie(
             user,
             orm.Server(
-                cookie_name='jupyterhub-services',
-                base_url=url_path_join(self.base_url, 'services'),
+                cookie_name="jupyterhub-services",
+                base_url=url_path_join(self.base_url, "services"),
             ),
         )
 
@@ -596,13 +593,13 @@ class BaseHandler(RequestHandler):
         - if redirect_to_server (default): send to user's own server
         - else: /hub/home
         """
-        next_url = self.get_argument('next', default='')
+        next_url = self.get_argument("next", default="")
         # protect against some browsers' buggy handling of backslash as slash
-        next_url = next_url.replace('\\', '%5C')
-        if (next_url + '/').startswith(
+        next_url = next_url.replace("\\", "%5C")
+        if (next_url + "/").startswith(
             (
-                '%s://%s/' % (self.request.protocol, self.request.host),
-                '//%s/' % self.request.host,
+                "%s://%s/" % (self.request.protocol, self.request.host),
+                "//%s/" % self.request.host,
             )
         ) or (
             self.subdomain_host
@@ -616,20 +613,20 @@ class BaseHandler(RequestHandler):
             parsed = urlparse(next_url)
             next_url = parsed.path
             if parsed.query:
-                next_url = next_url + '?' + parsed.query
+                next_url = next_url + "?" + parsed.query
             if parsed.fragment:
-                next_url = next_url + '#' + parsed.fragment
+                next_url = next_url + "#" + parsed.fragment
 
         # if it still has host info, it didn't match our above check for *this* host
         if next_url and (
-            '://' in next_url
-            or next_url.startswith('//')
-            or not next_url.startswith('/')
+            "://" in next_url
+            or next_url.startswith("//")
+            or not next_url.startswith("/")
         ):
             self.log.warning("Disallowing redirect outside JupyterHub: %r", next_url)
-            next_url = ''
+            next_url = ""
 
-        if next_url and next_url.startswith(url_path_join(self.base_url, 'user/')):
+        if next_url and next_url.startswith(url_path_join(self.base_url, "user/")):
             # add /hub/ prefix, to ensure we redirect to the right user's server.
             # The next request will be handled by SpawnHandler,
             # ultimately redirecting to the logged-in user's server.
@@ -668,14 +665,14 @@ class BaseHandler(RequestHandler):
                     next_url = user.url
                 else:
                     # send to spawn url
-                    next_url = url_path_join(self.hub.base_url, 'spawn')
+                    next_url = url_path_join(self.hub.base_url, "spawn")
             else:
-                next_url = url_path_join(self.hub.base_url, 'home')
+                next_url = url_path_join(self.hub.base_url, "home")
 
         if not next_url_from_param:
             # when a request made with ?next=... assume all the params have already been encoded
             # otherwise, preserve params from the current request across the redirect
-            next_url = self.append_query_parameters(next_url, exclude=['next'])
+            next_url = self.append_query_parameters(next_url, exclude=["next"])
         return next_url
 
     def append_query_parameters(self, url, exclude=None):
@@ -699,7 +696,7 @@ class BaseHandler(RequestHandler):
         :rtype (str)
         """
         if exclude is None:
-            exclude = ['next']
+            exclude = ["next"]
         if self.request.query:
             query_string = [
                 param
@@ -720,10 +717,10 @@ class BaseHandler(RequestHandler):
             user(User): the constructed User object
         """
         if isinstance(authenticated, str):
-            authenticated = {'name': authenticated}
-        username = authenticated['name']
-        auth_state = authenticated.get('auth_state')
-        admin = authenticated.get('admin')
+            authenticated = {"name": authenticated}
+        username = authenticated["name"]
+        auth_state = authenticated.get("auth_state")
+        admin = authenticated.get("admin")
         refreshing = user is not None
 
         if user and username != user.name:
@@ -750,23 +747,23 @@ class BaseHandler(RequestHandler):
 
     async def login_user(self, data=None):
         """Login a user"""
-        auth_timer = self.statsd.timer('login.authenticate').start()
+        auth_timer = self.statsd.timer("login.authenticate").start()
         authenticated = await self.authenticate(data)
         auth_timer.stop(send=False)
 
         if authenticated:
             user = await self.auth_to_user(authenticated)
             self.set_login_cookie(user)
-            self.statsd.incr('login.success')
-            self.statsd.timing('login.authenticate.success', auth_timer.ms)
+            self.statsd.incr("login.success")
+            self.statsd.timing("login.authenticate.success", auth_timer.ms)
             self.log.info("User logged in: %s", user.name)
             user._auth_refreshed = time.monotonic()
             return user
         else:
-            self.statsd.incr('login.failure')
-            self.statsd.timing('login.authenticate.failure', auth_timer.ms)
+            self.statsd.incr("login.failure")
+            self.statsd.timing("login.authenticate.failure", auth_timer.ms)
             self.log.warning(
-                "Failed login for %s", (data or {}).get('username', 'unknown user')
+                "Failed login for %s", (data or {}).get("username", "unknown user")
             )
 
     # ---------------------------------------------------------------
@@ -775,25 +772,25 @@ class BaseHandler(RequestHandler):
 
     @property
     def slow_spawn_timeout(self):
-        return self.settings.get('slow_spawn_timeout', 10)
+        return self.settings.get("slow_spawn_timeout", 10)
 
     @property
     def slow_stop_timeout(self):
-        return self.settings.get('slow_stop_timeout', 10)
+        return self.settings.get("slow_stop_timeout", 10)
 
     @property
     def spawner_class(self):
-        return self.settings.get('spawner_class', LocalProcessSpawner)
+        return self.settings.get("spawner_class", LocalProcessSpawner)
 
     @property
     def concurrent_spawn_limit(self):
-        return self.settings.get('concurrent_spawn_limit', 0)
+        return self.settings.get("concurrent_spawn_limit", 0)
 
     @property
     def active_server_limit(self):
-        return self.settings.get('active_server_limit', 0)
+        return self.settings.get("active_server_limit", 0)
 
-    async def spawn_single_user(self, user, server_name='', options=None):
+    async def spawn_single_user(self, user, server_name="", options=None):
         # in case of error, include 'try again from /hub/home' message
         if self.authenticator.refresh_pre_spawn:
             auth_user = await self.refresh_auth(user, force=True)
@@ -808,7 +805,7 @@ class BaseHandler(RequestHandler):
         user_server_name = user.name
 
         if server_name:
-            user_server_name = '%s:%s' % (user.name, server_name)
+            user_server_name = "%s:%s" % (user.name, server_name)
 
         if server_name in user.spawners and user.spawners[server_name].pending:
             pending = user.spawners[server_name].pending
@@ -823,9 +820,9 @@ class BaseHandler(RequestHandler):
         # and saves us from bookkeeping errors
         active_counts = self.users.count_active_users()
         spawn_pending_count = (
-            active_counts['spawn_pending'] + active_counts['proxy_pending']
+            active_counts["spawn_pending"] + active_counts["proxy_pending"]
         )
-        active_count = active_counts['active']
+        active_count = active_counts["active"]
         RUNNING_SERVERS.set(active_count)
 
         concurrent_spawn_limit = self.concurrent_spawn_limit
@@ -838,7 +835,7 @@ class BaseHandler(RequestHandler):
             # Suggest number of seconds client should wait before retrying
             # This helps prevent thundering herd problems, where users simply
             # immediately retry when we are overloaded.
-            retry_range = self.settings['spawn_throttle_retry_range']
+            retry_range = self.settings["spawn_throttle_retry_range"]
             retry_time = int(random.uniform(*retry_range))
 
             # round suggestion to nicer human value (nearest 10 seconds or minute)
@@ -850,7 +847,7 @@ class BaseHandler(RequestHandler):
                 human_retry_time = "%i minutes" % math.round(retry_time / 60.0)
 
             self.log.warning(
-                '%s pending spawns, throttling. Suggested retry in %s seconds.',
+                "%s pending spawns, throttling. Suggested retry in %s seconds.",
                 spawn_pending_count,
                 retry_time,
             )
@@ -863,11 +860,11 @@ class BaseHandler(RequestHandler):
             # can't call set_header directly here because it gets ignored
             # when errors are raised
             # we handle err.headers ourselves in Handler.write_error
-            err.headers = {'Retry-After': retry_time}
+            err.headers = {"Retry-After": retry_time}
             raise err
 
         if active_server_limit and active_count >= active_server_limit:
-            self.log.info('%s servers active, no space available', active_count)
+            self.log.info("%s servers active, no space available", active_count)
             SERVER_SPAWN_DURATION_SECONDS.labels(
                 status=ServerSpawnStatus.too_many_users
             ).observe(time.perf_counter() - spawn_start_time)
@@ -884,12 +881,12 @@ class BaseHandler(RequestHandler):
         self.log.debug(
             "%i%s concurrent spawns",
             spawn_pending_count,
-            '/%i' % concurrent_spawn_limit if concurrent_spawn_limit else '',
+            "/%i" % concurrent_spawn_limit if concurrent_spawn_limit else "",
         )
         self.log.debug(
             "%i%s active servers",
             active_count,
-            '/%i' % active_server_limit if active_server_limit else '',
+            "/%i" % active_server_limit if active_server_limit else "",
         )
 
         spawner = user.spawners[server_name]
@@ -909,21 +906,21 @@ class BaseHandler(RequestHandler):
             self.log.info(
                 "User %s took %.3f seconds to start", user_server_name, toc - tic
             )
-            self.statsd.timing('spawner.success', (toc - tic) * 1000)
+            self.statsd.timing("spawner.success", (toc - tic) * 1000)
             SERVER_SPAWN_DURATION_SECONDS.labels(
                 status=ServerSpawnStatus.success
             ).observe(time.perf_counter() - spawn_start_time)
             self.eventlog.record_event(
-                'hub.jupyter.org/server-action',
+                "hub.jupyter.org/server-action",
                 1,
-                {'action': 'start', 'username': user.name, 'servername': server_name},
+                {"action": "start", "username": user.name, "servername": server_name},
             )
             proxy_add_start_time = time.perf_counter()
             spawner._proxy_pending = True
             try:
                 await self.proxy.add_user(user, server_name)
 
-                PROXY_ADD_DURATION_SECONDS.labels(status='success').observe(
+                PROXY_ADD_DURATION_SECONDS.labels(status="success").observe(
                     time.perf_counter() - proxy_add_start_time
                 )
                 RUNNING_SERVERS.inc()
@@ -933,7 +930,7 @@ class BaseHandler(RequestHandler):
                     "Stopping %s to avoid inconsistent state", user_server_name
                 )
                 await user.stop(server_name)
-                PROXY_ADD_DURATION_SECONDS.labels(status='failure').observe(
+                PROXY_ADD_DURATION_SECONDS.labels(status="failure").observe(
                     time.perf_counter() - proxy_add_start_time
                 )
             else:
@@ -962,15 +959,15 @@ class BaseHandler(RequestHandler):
         def _track_failure_count(f):
             if f.cancelled() or f.exception() is None:
                 # spawn succeeded, reset failure count
-                self.settings['failure_count'] = 0
+                self.settings["failure_count"] = 0
                 return
             # spawn failed, increment count and abort if limit reached
             SERVER_SPAWN_DURATION_SECONDS.labels(
                 status=ServerSpawnStatus.failure
             ).observe(time.perf_counter() - spawn_start_time)
-            self.settings.setdefault('failure_count', 0)
-            self.settings['failure_count'] += 1
-            failure_count = self.settings['failure_count']
+            self.settings.setdefault("failure_count", 0)
+            self.settings["failure_count"] += 1
+            failure_count = self.settings["failure_count"]
             failure_limit = spawner.consecutive_failure_limit
             if failure_limit and 1 < failure_count < failure_limit:
                 self.log.warning(
@@ -1022,7 +1019,7 @@ class BaseHandler(RequestHandler):
 
             if status is not None:
                 toc = IOLoop.current().time()
-                self.statsd.timing('spawner.failure', (toc - tic) * 1000)
+                self.statsd.timing("spawner.failure", (toc - tic) * 1000)
                 SERVER_SPAWN_DURATION_SECONDS.labels(
                     status=ServerSpawnStatus.failure
                 ).observe(time.perf_counter() - spawn_start_time)
@@ -1067,7 +1064,7 @@ class BaseHandler(RequestHandler):
         ).observe(time.perf_counter() - poll_start_time)
 
         if status is None:
-            status = 'unknown'
+            status = "unknown"
 
         self.log.warning(
             "User %s server stopped, with exit code: %s", user.name, status
@@ -1086,7 +1083,7 @@ class BaseHandler(RequestHandler):
 
         await user.stop(server_name)
 
-    async def stop_single_user(self, user, server_name=''):
+    async def stop_single_user(self, user, server_name=""):
         if server_name not in user.spawners:
             raise KeyError("User %s has no such spawner %r", user.name, server_name)
         spawner = user.spawners[server_name]
@@ -1115,17 +1112,17 @@ class BaseHandler(RequestHandler):
                 self.log.info(
                     "User %s server took %.3f seconds to stop", user.name, toc - tic
                 )
-                self.statsd.timing('spawner.stop', (toc - tic) * 1000)
+                self.statsd.timing("spawner.stop", (toc - tic) * 1000)
                 SERVER_STOP_DURATION_SECONDS.labels(
                     status=ServerStopStatus.success
                 ).observe(toc - tic)
                 self.eventlog.record_event(
-                    'hub.jupyter.org/server-action',
+                    "hub.jupyter.org/server-action",
                     1,
                     {
-                        'action': 'stop',
-                        'username': user.name,
-                        'servername': server_name,
+                        "action": "stop",
+                        "username": user.name,
+                        "servername": server_name,
                     },
                 )
             except:
@@ -1166,7 +1163,7 @@ class BaseHandler(RequestHandler):
         Should be added to `self.extra_error_html` for any handler
         that could serve a failed spawn message.
         """
-        home = url_path_join(self.hub.base_url, 'home')
+        home = url_path_join(self.hub.base_url, "home")
         return (
             "You can try restarting your server from the "
             "<a href='{home}'>home page</a>.".format(home=home)
@@ -1182,9 +1179,9 @@ class BaseHandler(RequestHandler):
         If sync is False, we return a Template that is compiled with async support
         """
         if sync:
-            key = 'jinja2_env_sync'
+            key = "jinja2_env_sync"
         else:
-            key = 'jinja2_env'
+            key = "jinja2_env"
         return self.settings[key].get_template(name)
 
     def render_template(self, name, sync=False, **ns):
@@ -1210,15 +1207,15 @@ class BaseHandler(RequestHandler):
             base_url=self.hub.base_url,
             prefix=self.base_url,
             user=user,
-            login_url=self.settings['login_url'],
+            login_url=self.settings["login_url"],
             login_service=self.authenticator.login_service,
-            logout_url=self.settings['logout_url'],
+            logout_url=self.settings["logout_url"],
             static_url=self.static_url,
             version_hash=self.version_hash,
             services=self.get_accessible_services(user),
         )
-        if self.settings['template_vars']:
-            ns.update(self.settings['template_vars'])
+        if self.settings["template_vars"]:
+            ns.update(self.settings["template_vars"])
         return ns
 
     def get_accessible_services(self, user):
@@ -1235,10 +1232,10 @@ class BaseHandler(RequestHandler):
 
     def write_error(self, status_code, **kwargs):
         """render custom error pages"""
-        exc_info = kwargs.get('exc_info')
-        message = ''
+        exc_info = kwargs.get("exc_info")
+        message = ""
         exception = None
-        status_message = responses.get(status_code, 'Unknown HTTP Error')
+        status_message = responses.get(status_code, "Unknown HTTP Error")
         if exc_info:
             exception = exc_info[1]
             # get the custom message, if defined
@@ -1248,7 +1245,7 @@ class BaseHandler(RequestHandler):
                 pass
 
             # construct the custom reason, if defined
-            reason = getattr(exception, 'reason', '')
+            reason = getattr(exception, "reason", "")
             if reason:
                 message = reasons.get(reason, reason)
 
@@ -1261,34 +1258,34 @@ class BaseHandler(RequestHandler):
             status_code=status_code,
             status_message=status_message,
             message=message,
-            extra_error_html=getattr(self, 'extra_error_html', ''),
+            extra_error_html=getattr(self, "extra_error_html", ""),
             exception=exception,
         )
 
-        self.set_header('Content-Type', 'text/html')
+        self.set_header("Content-Type", "text/html")
         if isinstance(exception, web.HTTPError):
             # allow setting headers from exceptions
             # since exception handler clears headers
-            headers = getattr(exception, 'headers', None)
+            headers = getattr(exception, "headers", None)
             if headers:
                 for key, value in headers.items():
                     self.set_header(key, value)
             # Content-Length must be recalculated.
-            self.clear_header('Content-Length')
+            self.clear_header("Content-Length")
 
         # render_template is async, but write_error can't be!
         # so we run it sync here, instead of making a sync version of render_template
 
         try:
-            html = self.render_template('%s.html' % status_code, sync=True, **ns)
+            html = self.render_template("%s.html" % status_code, sync=True, **ns)
         except TemplateNotFound:
             self.log.debug("No template for %d", status_code)
             try:
-                html = self.render_template('error.html', sync=True, **ns)
+                html = self.render_template("error.html", sync=True, **ns)
             except:
                 # In this case, any side effect must be avoided.
-                ns['no_spawner_check'] = True
-                html = self.render_template('error.html', sync=True, **ns)
+                ns["no_spawner_check"] = True
+                html = self.render_template("error.html", sync=True, **ns)
 
         self.write(html)
 
@@ -1312,8 +1309,8 @@ class PrefixRedirectHandler(BaseHandler):
         # Since self.base_url will end with trailing slash.
         # Ensure uri will end with trailing slash when matching
         # with self.base_url.
-        if not uri.endswith('/'):
-            uri += '/'
+        if not uri.endswith("/"):
+            uri += "/"
         if uri.startswith(self.base_url):
             path = self.request.uri[len(self.base_url) :]
         else:
@@ -1321,7 +1318,7 @@ class PrefixRedirectHandler(BaseHandler):
         if not path:
             # default / -> /hub/ redirect
             # avoiding extra hop through /hub
-            path = '/'
+            path = "/"
         self.redirect(url_path_join(self.hub.base_url, path), permanent=False)
 
 
@@ -1344,7 +1341,7 @@ class UserUrlHandler(BaseHandler):
     Note that this only occurs if bob's server is not already running.
     """
 
-    def _fail_api_request(self, user_name='', server_name=''):
+    def _fail_api_request(self, user_name="", server_name=""):
         """Fail an API request to a not-running server"""
         self.log.warning(
             "Failing suspected API request to not-running server: %s", self.request.path
@@ -1387,12 +1384,12 @@ class UserUrlHandler(BaseHandler):
             and self.current_user
             and user_name == self.current_user.name
         ):
-            server_name = user_path.lstrip('/').split('/', 1)[0]
+            server_name = user_path.lstrip("/").split("/", 1)[0]
             if server_name not in self.current_user.orm_user.orm_spawners:
                 # no such server, assume default
-                server_name = ''
+                server_name = ""
         else:
-            server_name = ''
+            server_name = ""
 
         self._fail_api_request(user_name, server_name)
 
@@ -1403,14 +1400,14 @@ class UserUrlHandler(BaseHandler):
     @web.authenticated
     async def get(self, user_name, user_path):
         if not user_path:
-            user_path = '/'
+            user_path = "/"
         current_user = self.current_user
 
         if (
             current_user
             and current_user.name != user_name
             and current_user.admin
-            and self.settings.get('admin_access', False)
+            and self.settings.get("admin_access", False)
         ):
             # allow admins to spawn on behalf of users
             user = self.find_user(user_name)
@@ -1438,13 +1435,13 @@ class UserUrlHandler(BaseHandler):
             # this is only a stop-gap for a common mistake,
             # because the same request will be a 403
             # if the requested server is running
-            self.statsd.incr('redirects.user_to_user', 1)
+            self.statsd.incr("redirects.user_to_user", 1)
             self.log.warning(
                 "User %s requested server for %s, which they don't own",
                 current_user.name,
                 user_name,
             )
-            target = url_path_join(current_user.url, user_path or '')
+            target = url_path_join(current_user.url, user_path or "")
             if self.request.query:
                 target = url_concat(target, parse_qsl(self.request.query))
             self.redirect(target)
@@ -1457,7 +1454,7 @@ class UserUrlHandler(BaseHandler):
         host_info = urlparse(self.request.full_url())
         port = host_info.port
         if not port:
-            port = 443 if host_info.scheme == 'https' else 80
+            port = 443 if host_info.scheme == "https" else 80
         if (
             port != Server.from_url(self.proxy.public_url).connect_port
             and port == self.hub.connect_port
@@ -1474,15 +1471,15 @@ class UserUrlHandler(BaseHandler):
 
         # url could be `/user/:name/tree/... for the default server, or
         # /user/:name/:server_name/... if using named servers
-        server_name = ''
+        server_name = ""
         if self.allow_named_servers:
             # check if url prefix matches an existing server name
-            server_name = user_path.lstrip('/').split('/', 1)[0]
+            server_name = user_path.lstrip("/").split("/", 1)[0]
             if server_name not in user.orm_user.orm_spawners:
                 # not found, assume default server
-                server_name = ''
+                server_name = ""
         else:
-            server_name = ''
+            server_name = ""
         spawner = user.spawners[server_name]
 
         if spawner.ready:
@@ -1492,22 +1489,18 @@ class UserUrlHandler(BaseHandler):
 
         # if request is expecting JSON, assume it's an API request and fail with 503
         # because it won't like the redirect to the pending page
-        if (
-            get_accepted_mimetype(
-                self.request.headers.get('Accept', ''),
-                choices=['application/json', 'text/html'],
-            )
-            == 'application/json'
-            or 'api' in user_path.split('/')
-        ):
+        if get_accepted_mimetype(
+            self.request.headers.get("Accept", ""),
+            choices=["application/json", "text/html"],
+        ) == "application/json" or "api" in user_path.split("/"):
             self._fail_api_request(user_name, server_name)
             return
 
         pending_url = url_concat(
             url_path_join(
-                self.hub.base_url, 'spawn-pending', user.escaped_name, server_name
+                self.hub.base_url, "spawn-pending", user.escaped_name, server_name
             ),
-            {'next': self.request.uri},
+            {"next": self.request.uri},
         )
         if spawner.pending or spawner._failed:
             # redirect to pending page for progress, etc.
@@ -1545,16 +1538,16 @@ class UserUrlHandler(BaseHandler):
         consistent and can take up to a couple of seconds to actually apply throughout the cluster.
         """
         try:
-            redirects = int(self.get_argument('redirects', 0))
+            redirects = int(self.get_argument("redirects", 0))
         except ValueError:
             self.log.warning(
-                "Invalid redirects argument %r", self.get_argument('redirects')
+                "Invalid redirects argument %r", self.get_argument("redirects")
             )
             redirects = 0
 
         # check redirect limit to prevent browser-enforced limits.
         # In case of version mismatch, raise on only two redirects.
-        if redirects >= self.settings.get('user_redirect_limit', 4) or (
+        if redirects >= self.settings.get("user_redirect_limit", 4) or (
             redirects >= 2 and spawner._jupyterhub_version != __version__
         ):
             # We stop if we've been redirected too many times.
@@ -1565,7 +1558,7 @@ class UserUrlHandler(BaseHandler):
                     " Try installing jupyterhub=={hub} in the user environment"
                     " if you continue to have problems."
                 ).format(
-                    singleuser=spawner._jupyterhub_version or 'unknown (likely < 0.8)',
+                    singleuser=spawner._jupyterhub_version or "unknown (likely < 0.8)",
                     hub=__version__,
                 )
             raise web.HTTPError(500, msg)
@@ -1575,7 +1568,7 @@ class UserUrlHandler(BaseHandler):
         if self.subdomain_host:
             target = user.host + target
 
-        referer = self.request.headers.get('Referer', '')
+        referer = self.request.headers.get("Referer", "")
         # record redirect count in query parameter
         if redirects:
             self.log.warning("Redirect loop detected on %s", self.request.uri)
@@ -1584,15 +1577,15 @@ class UserUrlHandler(BaseHandler):
             # rewrite target url with new `redirects` query value
             url_parts = urlparse(target)
             query_parts = parse_qs(url_parts.query)
-            query_parts['redirects'] = redirects + 1
+            query_parts["redirects"] = redirects + 1
             url_parts = url_parts._replace(query=urlencode(query_parts, doseq=True))
             target = urlunparse(url_parts)
-        elif '/user/{}'.format(user.name) in referer or not referer:
+        elif "/user/{}".format(user.name) in referer or not referer:
             # add first counter only if it's a redirect from /user/:name -> /hub/user/:name
-            target = url_concat(target, {'redirects': 1})
+            target = url_concat(target, {"redirects": 1})
 
         self.redirect(target)
-        self.statsd.incr('redirects.user_after_login')
+        self.statsd.incr("redirects.user_after_login")
 
 
 class UserRedirectHandler(BaseHandler):
@@ -1654,17 +1647,17 @@ class UserRedirectHandler(BaseHandler):
 
 
 class CSPReportHandler(BaseHandler):
-    '''Accepts a content security policy violation report'''
+    """Accepts a content security policy violation report"""
 
     @web.authenticated
     def post(self):
-        '''Log a content security policy violation report'''
+        """Log a content security policy violation report"""
         self.log.warning(
             "Content security violation: %s",
-            self.request.body.decode('utf8', 'replace'),
+            self.request.body.decode("utf8", "replace"),
         )
         # Report it to statsd as well
-        self.statsd.incr('csp_report')
+        self.statsd.incr("csp_report")
 
 
 class AddSlashHandler(BaseHandler):
@@ -1676,8 +1669,8 @@ class AddSlashHandler(BaseHandler):
 
 
 default_handlers = [
-    (r'', AddSlashHandler),  # add trailing / to `/hub`
-    (r'/user/(?P<user_name>[^/]+)(?P<user_path>/.*)?', UserUrlHandler),
-    (r'/user-redirect/(.*)?', UserRedirectHandler),
-    (r'/security/csp-report', CSPReportHandler),
+    (r"", AddSlashHandler),  # add trailing / to `/hub`
+    (r"/user/(?P<user_name>[^/]+)(?P<user_path>/.*)?", UserUrlHandler),
+    (r"/user-redirect/(.*)?", UserRedirectHandler),
+    (r"/security/csp-report", CSPReportHandler),
 ]

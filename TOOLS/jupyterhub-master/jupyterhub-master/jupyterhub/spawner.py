@@ -14,7 +14,7 @@ import warnings
 from subprocess import Popen
 from tempfile import mkdtemp
 
-if os.name == 'nt':
+if os.name == "nt":
     import psutil
 from async_generator import aclosing
 from sqlalchemy import inspect
@@ -97,7 +97,7 @@ class Spawner(LoggingConfigurable):
         Used in logging for consistency with named servers.
         """
         if self.name:
-            return '%s:%s' % (self.user.name, self.name)
+            return "%s:%s" % (self.user.name, self.name)
         else:
             return self.user.name
 
@@ -118,11 +118,11 @@ class Spawner(LoggingConfigurable):
         Return False if nothing is pending.
         """
         if self._spawn_pending:
-            return 'spawn'
+            return "spawn"
         elif self._stop_pending:
-            return 'stop'
+            return "stop"
         elif self._check_pending:
-            return 'check'
+            return "check"
         return None
 
     @property
@@ -152,7 +152,7 @@ class Spawner(LoggingConfigurable):
     db = Any()
     cookie_options = Dict()
 
-    @observe('orm_spawner')
+    @observe("orm_spawner")
     def _orm_spawner_changed(self, change):
         if change.new and change.new.server:
             self._server = Server(orm_server=change.new.server)
@@ -165,7 +165,7 @@ class Spawner(LoggingConfigurable):
         super().__init_subclass__()
 
         missing = []
-        for attr in ('start', 'stop', 'poll'):
+        for attr in ("start", "stop", "poll"):
             if getattr(Spawner, attr) is getattr(cls, attr):
                 missing.append(attr)
 
@@ -173,7 +173,7 @@ class Spawner(LoggingConfigurable):
             raise NotImplementedError(
                 "class `{}` needs to redefine the `start`,"
                 "`stop` and `poll` methods. `{}` not redefined.".format(
-                    cls.__name__, '`, `'.join(missing)
+                    cls.__name__, "`, `".join(missing)
                 )
             )
 
@@ -185,7 +185,7 @@ class Spawner(LoggingConfigurable):
 
     @property
     def server(self):
-        if hasattr(self, '_server'):
+        if hasattr(self, "_server"):
             return self._server
         if self.orm_spawner and self.orm_spawner.server:
             return Server(orm_server=self.orm_spawner.server)
@@ -207,11 +207,11 @@ class Spawner(LoggingConfigurable):
     def name(self):
         if self.orm_spawner:
             return self.orm_spawner.name
-        return ''
+        return ""
 
     internal_ssl = Bool(False)
     internal_trust_bundles = Dict()
-    internal_certs_location = Unicode('')
+    internal_certs_location = Unicode("")
     cert_paths = Dict()
     admin_access = Bool(False)
     api_token = Unicode()
@@ -231,7 +231,7 @@ class Spawner(LoggingConfigurable):
     )
 
     ip = Unicode(
-        '',
+        "",
         help="""
         The IP address (or hostname) the single-user server should listen on.
 
@@ -379,7 +379,7 @@ class Spawner(LoggingConfigurable):
             (with additional support for bytes in case of uploaded file data),
             and any non-bytes non-jsonable values will be replaced with None
             if the user_options are re-used.
-        """,
+        """
     ).tag(config=True)
 
     @default("options_from_form")
@@ -431,14 +431,14 @@ class Spawner(LoggingConfigurable):
 
     env_keep = List(
         [
-            'PATH',
-            'PYTHONPATH',
-            'CONDA_ROOT',
-            'CONDA_DEFAULT_ENV',
-            'VIRTUAL_ENV',
-            'LANG',
-            'LC_ALL',
-            'JUPYTERHUB_SINGLEUSER_APP',
+            "PATH",
+            "PYTHONPATH",
+            "CONDA_ROOT",
+            "CONDA_DEFAULT_ENV",
+            "VIRTUAL_ENV",
+            "LANG",
+            "LC_ALL",
+            "JUPYTERHUB_SINGLEUSER_APP",
         ],
         help="""
         List of environment variables for the single-user server to inherit from the JupyterHub process.
@@ -482,7 +482,7 @@ class Spawner(LoggingConfigurable):
     ).tag(config=True)
 
     cmd = Command(
-        ['jupyterhub-singleuser'],
+        ["jupyterhub-singleuser"],
         allow_none=True,
         help="""
         The command used for starting the single-user server.
@@ -539,16 +539,16 @@ class Spawner(LoggingConfigurable):
         """
     ).tag(config=True)
 
-    @validate('notebook_dir', 'default_url')
+    @validate("notebook_dir", "default_url")
     def _deprecate_percent_u(self, proposal):
-        v = proposal['value']
-        if '%U' in v:
+        v = proposal["value"]
+        if "%U" in v:
             self.log.warning(
                 "%%U for username in %s is deprecated in JupyterHub 0.7, use {username}",
-                proposal['trait'].name,
+                proposal["trait"].name,
             )
-            v = v.replace('%U', '{username}')
-            self.log.warning("Converting %r to %r", proposal['value'], v)
+            v = v.replace("%U", "{username}")
+            self.log.warning("Converting %r to %r", proposal["value"], v)
         return v
 
     disable_user_config = Bool(
@@ -727,7 +727,7 @@ class Spawner(LoggingConfigurable):
 
         Subclasses should call super, to ensure that state is properly cleared.
         """
-        self.api_token = ''
+        self.api_token = ""
 
     def get_env(self):
         """Return the environment dict to use for the Spawner.
@@ -751,52 +751,52 @@ class Spawner(LoggingConfigurable):
             if key in os.environ:
                 env[key] = os.environ[key]
 
-        env['JUPYTERHUB_API_TOKEN'] = self.api_token
+        env["JUPYTERHUB_API_TOKEN"] = self.api_token
         # deprecated (as of 0.7.2), for old versions of singleuser
-        env['JPY_API_TOKEN'] = self.api_token
+        env["JPY_API_TOKEN"] = self.api_token
         if self.admin_access:
-            env['JUPYTERHUB_ADMIN_ACCESS'] = '1'
+            env["JUPYTERHUB_ADMIN_ACCESS"] = "1"
         # OAuth settings
-        env['JUPYTERHUB_CLIENT_ID'] = self.oauth_client_id
+        env["JUPYTERHUB_CLIENT_ID"] = self.oauth_client_id
         if self.cookie_options:
-            env['JUPYTERHUB_COOKIE_OPTIONS'] = json.dumps(self.cookie_options)
-        env['JUPYTERHUB_HOST'] = self.hub.public_host
-        env['JUPYTERHUB_OAUTH_CALLBACK_URL'] = url_path_join(
-            self.user.url, self.name, 'oauth_callback'
+            env["JUPYTERHUB_COOKIE_OPTIONS"] = json.dumps(self.cookie_options)
+        env["JUPYTERHUB_HOST"] = self.hub.public_host
+        env["JUPYTERHUB_OAUTH_CALLBACK_URL"] = url_path_join(
+            self.user.url, self.name, "oauth_callback"
         )
 
         # Info previously passed on args
-        env['JUPYTERHUB_USER'] = self.user.name
-        env['JUPYTERHUB_SERVER_NAME'] = self.name
-        env['JUPYTERHUB_API_URL'] = self.hub.api_url
-        env['JUPYTERHUB_ACTIVITY_URL'] = url_path_join(
+        env["JUPYTERHUB_USER"] = self.user.name
+        env["JUPYTERHUB_SERVER_NAME"] = self.name
+        env["JUPYTERHUB_API_URL"] = self.hub.api_url
+        env["JUPYTERHUB_ACTIVITY_URL"] = url_path_join(
             self.hub.api_url,
-            'users',
+            "users",
             # tolerate mocks defining only user.name
-            getattr(self.user, 'escaped_name', self.user.name),
-            'activity',
+            getattr(self.user, "escaped_name", self.user.name),
+            "activity",
         )
-        env['JUPYTERHUB_BASE_URL'] = self.hub.base_url[:-4]
+        env["JUPYTERHUB_BASE_URL"] = self.hub.base_url[:-4]
         if self.server:
-            env['JUPYTERHUB_SERVICE_PREFIX'] = self.server.base_url
+            env["JUPYTERHUB_SERVICE_PREFIX"] = self.server.base_url
 
         # Put in limit and guarantee info if they exist.
         # Note that this is for use by the humans / notebook extensions in the
         # single-user notebook server, and not for direct usage by the spawners
         # themselves. Spawners should just use the traitlets directly.
         if self.mem_limit:
-            env['MEM_LIMIT'] = str(self.mem_limit)
+            env["MEM_LIMIT"] = str(self.mem_limit)
         if self.mem_guarantee:
-            env['MEM_GUARANTEE'] = str(self.mem_guarantee)
+            env["MEM_GUARANTEE"] = str(self.mem_guarantee)
         if self.cpu_limit:
-            env['CPU_LIMIT'] = str(self.cpu_limit)
+            env["CPU_LIMIT"] = str(self.cpu_limit)
         if self.cpu_guarantee:
-            env['CPU_GUARANTEE'] = str(self.cpu_guarantee)
+            env["CPU_GUARANTEE"] = str(self.cpu_guarantee)
 
         if self.cert_paths:
-            env['JUPYTERHUB_SSL_KEYFILE'] = self.cert_paths['keyfile']
-            env['JUPYTERHUB_SSL_CERTFILE'] = self.cert_paths['certfile']
-            env['JUPYTERHUB_SSL_CLIENT_CA'] = self.cert_paths['cafile']
+            env["JUPYTERHUB_SSL_KEYFILE"] = self.cert_paths["keyfile"]
+            env["JUPYTERHUB_SSL_CERTFILE"] = self.cert_paths["certfile"]
+            env["JUPYTERHUB_SSL_CLIENT_CA"] = self.cert_paths["cafile"]
 
         # env overrides from config. If the value is a callable, it will be called with
         # one parameter - the current spawner instance - and the return value
@@ -846,9 +846,9 @@ class Spawner(LoggingConfigurable):
 
             ns (dict): namespace for string formatting.
         """
-        d = {'username': self.user.name}
+        d = {"username": self.user.name}
         if self.server:
-            d['base_url'] = self.server.base_url
+            d["base_url"] = self.server.base_url
         return d
 
     def format_string(self, s):
@@ -878,7 +878,7 @@ class Spawner(LoggingConfigurable):
         """,
     )
 
-    @default('ssl_alt_names')
+    @default("ssl_alt_names")
     def _default_ssl_alt_names(self):
         # by default, use trusted_alt_names
         # inherited from global app
@@ -927,20 +927,20 @@ class Spawner(LoggingConfigurable):
         if self.ssl_alt_names_include_local:
             alt_names = default_names + alt_names
 
-        self.log.info("Creating certs for %s: %s", self._log_name, ';'.join(alt_names))
+        self.log.info("Creating certs for %s: %s", self._log_name, ";".join(alt_names))
 
-        common_name = self.user.name or 'service'
+        common_name = self.user.name or "service"
         certipy = Certipy(store_dir=self.internal_certs_location)
-        notebook_component = 'notebooks-ca'
+        notebook_component = "notebooks-ca"
         notebook_key_pair = certipy.create_signed_pair(
-            'user-' + common_name,
+            "user-" + common_name,
             notebook_component,
             alt_names=alt_names,
             overwrite=True,
         )
         paths = {
-            "keyfile": notebook_key_pair['files']['key'],
-            "certfile": notebook_key_pair['files']['cert'],
+            "keyfile": notebook_key_pair["files"]["key"],
+            "certfile": notebook_key_pair["files"]["cert"],
             "cafile": self.internal_trust_bundles[notebook_component],
         }
         return paths
@@ -980,29 +980,29 @@ class Spawner(LoggingConfigurable):
         args = []
 
         if self.ip:
-            args.append('--ip=%s' % _quote_safe(self.ip))
+            args.append("--ip=%s" % _quote_safe(self.ip))
 
         if self.port:
-            args.append('--port=%i' % self.port)
+            args.append("--port=%i" % self.port)
         elif self.server and self.server.port:
             self.log.warning(
                 "Setting port from user.server is deprecated as of JupyterHub 0.7."
             )
-            args.append('--port=%i' % self.server.port)
+            args.append("--port=%i" % self.server.port)
 
         if self.notebook_dir:
             notebook_dir = self.format_string(self.notebook_dir)
-            args.append('--notebook-dir=%s' % _quote_safe(notebook_dir))
+            args.append("--notebook-dir=%s" % _quote_safe(notebook_dir))
         if self.default_url:
             default_url = self.format_string(self.default_url)
             args.append(
-                '--SingleUserNotebookApp.default_url=%s' % _quote_safe(default_url)
+                "--SingleUserNotebookApp.default_url=%s" % _quote_safe(default_url)
             )
 
         if self.debug:
-            args.append('--debug')
+            args.append("--debug")
         if self.disable_user_config:
-            args.append('--disable-user-config')
+            args.append("--disable-user-config")
         args.extend(self.args)
         return args
 
@@ -1184,7 +1184,7 @@ class Spawner(LoggingConfigurable):
         try:
             r = await exponential_backoff(
                 _wait_for_death,
-                'Process did not die in {timeout} seconds'.format(timeout=timeout),
+                "Process did not die in {timeout} seconds".format(timeout=timeout),
                 start_wait=self.death_interval,
                 timeout=timeout,
             )
@@ -1198,7 +1198,7 @@ def _try_setcwd(path):
 
     If no valid directory is found, a temp directory is created and cwd is set to that.
     """
-    while path != '/':
+    while path != "/":
         try:
             os.chdir(path)
         except OSError as e:
@@ -1238,7 +1238,7 @@ def set_user_setuid(username, chdir=True):
         try:
             os.setgroups(gids)
         except Exception as e:
-            print('Failed to set groups %s' % e, file=sys.stderr)
+            print("Failed to set groups %s" % e, file=sys.stderr)
         os.setuid(uid)
 
         # start in the user's home dir
@@ -1350,8 +1350,8 @@ class LocalProcessSpawner(Spawner):
         Local processes only need the process id.
         """
         super(LocalProcessSpawner, self).load_state(state)
-        if 'pid' in state:
-            self.pid = state['pid']
+        if "pid" in state:
+            self.pid = state["pid"]
 
     def get_state(self):
         """Save state that is needed to restore this spawner instance after a hub restore.
@@ -1360,7 +1360,7 @@ class LocalProcessSpawner(Spawner):
         """
         state = super(LocalProcessSpawner, self).get_state()
         if self.pid:
-            state['pid'] = self.pid
+            state["pid"] = self.pid
         return state
 
     def clear_state(self):
@@ -1372,15 +1372,15 @@ class LocalProcessSpawner(Spawner):
         """Augment environment of spawned process with user specific env variables."""
         import pwd
 
-        env['USER'] = self.user.name
+        env["USER"] = self.user.name
         home = pwd.getpwnam(self.user.name).pw_dir
         shell = pwd.getpwnam(self.user.name).pw_shell
         # These will be empty if undefined,
         # in which case don't set the env:
         if home:
-            env['HOME'] = home
+            env["HOME"] = home
         if shell:
-            env['SHELL'] = shell
+            env["SHELL"] = shell
         return env
 
     def get_env(self):
@@ -1404,9 +1404,9 @@ class LocalProcessSpawner(Spawner):
         """
         import pwd
 
-        key = paths['keyfile']
-        cert = paths['certfile']
-        ca = paths['cafile']
+        key = paths["keyfile"]
+        cert = paths["certfile"]
+        ca = paths["cafile"]
 
         user = pwd.getpwnam(self.user.name)
         uid = user.pw_uid
@@ -1420,13 +1420,13 @@ class LocalProcessSpawner(Spawner):
         os.makedirs(out_dir, 0o700, exist_ok=True)
 
         # Move certs to users dir
-        shutil.move(paths['keyfile'], out_dir)
-        shutil.move(paths['certfile'], out_dir)
-        shutil.copy(paths['cafile'], out_dir)
+        shutil.move(paths["keyfile"], out_dir)
+        shutil.move(paths["certfile"], out_dir)
+        shutil.copy(paths["cafile"], out_dir)
 
-        key = os.path.join(out_dir, os.path.basename(paths['keyfile']))
-        cert = os.path.join(out_dir, os.path.basename(paths['certfile']))
-        ca = os.path.join(out_dir, os.path.basename(paths['cafile']))
+        key = os.path.join(out_dir, os.path.basename(paths["keyfile"]))
+        cert = os.path.join(out_dir, os.path.basename(paths["certfile"]))
+        ca = os.path.join(out_dir, os.path.basename(paths["cafile"]))
 
         # Set cert ownership to user
         for f in [hub_dir, out_dir, key, cert, ca]:
@@ -1446,9 +1446,9 @@ class LocalProcessSpawner(Spawner):
         if self.shell_cmd:
             # using shell_cmd (e.g. bash -c),
             # add our cmd list as the last (single) argument:
-            cmd = self.shell_cmd + [' '.join(pipes.quote(s) for s in cmd)]
+            cmd = self.shell_cmd + [" ".join(pipes.quote(s) for s in cmd)]
 
-        self.log.info("Spawning %s", ' '.join(pipes.quote(s) for s in cmd))
+        self.log.info("Spawning %s", " ".join(pipes.quote(s) for s in cmd))
 
         popen_kwargs = dict(
             preexec_fn=self.make_preexec_fn(self.user.name),
@@ -1456,7 +1456,7 @@ class LocalProcessSpawner(Spawner):
         )
         popen_kwargs.update(self.popen_kwargs)
         # don't let user config override env
-        popen_kwargs['env'] = env
+        popen_kwargs["env"] = env
         try:
             self.proc = Popen(cmd, **popen_kwargs)
         except PermissionError:
@@ -1481,7 +1481,7 @@ class LocalProcessSpawner(Spawner):
                 self.server.ip = self.ip
             self.server.port = self.port
             self.db.commit()
-        return (self.ip or '127.0.0.1', self.port)
+        return (self.ip or "127.0.0.1", self.port)
 
     async def poll(self):
         """Poll the spawned process to see if it is still running.
@@ -1505,7 +1505,7 @@ class LocalProcessSpawner(Spawner):
             return 0
 
         # We use pustil.pid_exists on windows
-        if os.name == 'nt':
+        if os.name == "nt":
             alive = psutil.pid_exists(self.pid)
         else:
             alive = await self._signal(0)
@@ -1581,7 +1581,7 @@ class SimpleLocalProcessSpawner(LocalProcessSpawner):
     """
 
     home_dir_template = Unicode(
-        '/tmp/{username}',
+        "/tmp/{username}",
         config=True,
         help="""
         Template to expand to set the user home.
@@ -1591,7 +1591,7 @@ class SimpleLocalProcessSpawner(LocalProcessSpawner):
 
     home_dir = Unicode(help="The home directory for the user")
 
-    @default('home_dir')
+    @default("home_dir")
     def _default_home_dir(self):
         return self.home_dir_template.format(username=self.user.name)
 
@@ -1608,9 +1608,9 @@ class SimpleLocalProcessSpawner(LocalProcessSpawner):
         return preexec
 
     def user_env(self, env):
-        env['USER'] = self.user.name
-        env['HOME'] = self.home_dir
-        env['SHELL'] = '/bin/bash'
+        env["USER"] = self.user.name
+        env["HOME"] = self.home_dir
+        env["SHELL"] = "/bin/bash"
         return env
 
     def move_certs(self, paths):

@@ -16,10 +16,10 @@ from traitlets import Unicode
 class URLPrefix(Unicode):
     def validate(self, obj, value):
         u = super().validate(obj, value)
-        if not u.startswith('/'):
-            u = '/' + u
-        if not u.endswith('/'):
-            u = u + '/'
+        if not u.startswith("/"):
+            u = "/" + u
+        if not u.endswith("/"):
+            u = u + "/"
         return u
 
 
@@ -29,7 +29,7 @@ class Command(List):
     """
 
     def __init__(self, default_value=Undefined, **kwargs):
-        kwargs.setdefault('minlen', 1)
+        kwargs.setdefault("minlen", 1)
         if isinstance(default_value, str):
             default_value = [default_value]
         if default_value is not Undefined and (
@@ -56,10 +56,10 @@ class ByteSpecification(Integer):
     """
 
     UNIT_SUFFIXES = {
-        'K': 1024,
-        'M': 1024 * 1024,
-        'G': 1024 * 1024 * 1024,
-        'T': 1024 * 1024 * 1024 * 1024,
+        "K": 1024,
+        "M": 1024 * 1024,
+        "G": 1024 * 1024 * 1024,
+        "T": 1024 * 1024 * 1024 * 1024,
     }
 
     # Default to allowing None as a value
@@ -80,14 +80,14 @@ class ByteSpecification(Integer):
             num = float(value[:-1])
         except ValueError:
             raise TraitError(
-                '{val} is not a valid memory specification. Must be an int or a string with suffix K, M, G, T'.format(
+                "{val} is not a valid memory specification. Must be an int or a string with suffix K, M, G, T".format(
                     val=value
                 )
             )
         suffix = value[-1]
         if suffix not in self.UNIT_SUFFIXES:
             raise TraitError(
-                '{val} is not a valid memory specification. Must be an int or a string with suffix K, M, G, T'.format(
+                "{val} is not a valid memory specification. Must be an int or a string with suffix K, M, G, T".format(
                     val=value
                 )
             )
@@ -103,7 +103,7 @@ class Callable(TraitType):
     with a __call__() method.
     """
 
-    info_text = 'a callable'
+    info_text = "a callable"
 
     def validate(self, obj, value):
         if callable(value):
@@ -119,7 +119,7 @@ class EntryPointType(Type):
     in addition to standard 'mypackage.MyClass' strings
     """
 
-    _original_help = ''
+    _original_help = ""
 
     def __init__(self, *args, entry_point_group, **kwargs):
         self.entry_point_group = entry_point_group
@@ -136,7 +136,7 @@ class EntryPointType(Type):
                     key, entry_point.module_name, entry_point.object_name
                 )
             )
-        return '\n'.join(chunks)
+        return "\n".join(chunks)
 
     @help.setter
     def help(self, value):
