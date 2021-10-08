@@ -1,6 +1,6 @@
 {
-  "extends" : "../../.jshintrc",
-  "devel"   : true,
-  "es3"     : false,
-  "qunit"   : true
+  "extends": "../../.jshintrc",
+  "devel": true,
+  "es3": false,
+  "qunit": true
 }

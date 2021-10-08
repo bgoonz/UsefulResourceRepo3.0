@@ -1,5 +1,4 @@
--
-  browser: >
+- browser: >
     Microsoft Edge
   summary: >
     Implement the [`:dir()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:dir) from Selectors Level 4
@@ -8,8 +7,7 @@
   origin: >
     Bootstrap#19984
 
--
-  browser: >
+- browser: >
     Microsoft Edge
   summary: >
     Implement [sticky positioning](http://html5please.com/#position:sticky) from CSS Positioned Layout Level 3
@@ -18,8 +16,7 @@
   origin: >
     Bootstrap#17021
 
--
-  browser: >
+- browser: >
     Microsoft Edge
   summary: >
     Implement the HTML5 [`<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
@@ -28,8 +25,7 @@
   origin: >
     Bootstrap#20175
 
--
-  browser: >
+- browser: >
     Firefox
   summary: >
     Fire a [`transitioncancel` event](https://developer.mozilla.org/en-US/docs/Web/Events/transitioncancel) when a CSS transition is canceled
@@ -38,8 +34,7 @@
   origin: >
     Mozilla#1182856
 
--
-  browser: >
+- browser: >
     Firefox
   summary: >
     Implement the [`of <selector-list>` clause](https://caniuse.com/#feat=css-nth-child-of) of the `:nth-child()` pseudo-class
@@ -48,8 +43,7 @@
   origin: >
     Bootstrap#20143
 
--
-  browser: >
+- browser: >
     Firefox
   summary: >
     Implement the HTML5 [`<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)
@@ -58,8 +52,7 @@
   origin: >
     Bootstrap#20175
 
--
-  browser: >
+- browser: >
     Chrome
   summary: >
     Implement the [`of <selector-list>` clause](https://caniuse.com/#feat=css-nth-child-of) of the `:nth-child()` pseudo-class
@@ -68,8 +61,7 @@
   origin: >
     Bootstrap#20143
 
--
-  browser: >
+- browser: >
     Chrome
   summary: >
     Implement the [`:dir()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:dir) from Selectors Level 4
@@ -78,8 +70,7 @@
   origin: >
     Bootstrap#19984
 
--
-  browser: >
+- browser: >
     Chrome
   summary: >
     Implement [sticky positioning](http://html5please.com/#position:sticky) from CSS Positioned Layout Level 3
@@ -88,8 +79,7 @@
   origin: >
     Bootstrap#17021
 
--
-  browser: >
+- browser: >
     Safari
   summary: >
     Implement the [`:dir()` pseudo-class](https://developer.mozilla.org/en-US/docs/Web/CSS/:dir) from Selectors Level 4
@@ -98,8 +88,7 @@
   origin: >
     Bootstrap#19984
 
--
-  browser: >
+- browser: >
     Safari
   summary: >
     Implement the HTML5 [`<dialog>` element](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog)

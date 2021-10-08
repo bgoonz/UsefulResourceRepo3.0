@@ -1,16 +1,10 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     {% include header.html %}
   </head>
   <body class="bs-docs-home">
-    {% include skippy.html %}
-    {% include v4.html %}
-
-    {% include nav/main.html %}
-
-    {{ content }}
-
-    {% include footer.html %}
+    {% include skippy.html %} {% include v4.html %} {% include nav/main.html %}
+    {{ content }} {% include footer.html %}
   </body>
 </html>

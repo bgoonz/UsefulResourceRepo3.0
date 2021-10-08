@@ -380,7 +380,13 @@
   text-align: center;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   background-color: #6f5499;
-  background-image: -webkit-gradient(linear, left top, left bottom, from(#563d7c), to(#6f5499));
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(#563d7c),
+    to(#6f5499)
+  );
   background-image: -webkit-linear-gradient(top, #563d7c 0%, #6f5499 100%);
   background-image: -o-linear-gradient(top, #563d7c 0%, #6f5499 100%);
   background-image: linear-gradient(to bottom, #563d7c 0%, #6f5499 100%);
@@ -1279,8 +1285,10 @@
   color: #fff;
   background-color: #a83c3a;
   border-color: #973634;
-  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05), 0 1px 0 rgba(255, 255, 255, 0.1);
+  -webkit-box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.05),
+    0 1px 0 rgba(255, 255, 255, 0.1);
 }
 .bs-dropzone {
   position: relative;
@@ -1484,12 +1492,16 @@
 .algolia-autocomplete .algolia-docsearch-suggestion--content:before {
   display: none !important;
 }
-.algolia-autocomplete .ds-suggestion:not(:first-child) .algolia-docsearch-suggestion--category-header {
+.algolia-autocomplete
+  .ds-suggestion:not(:first-child)
+  .algolia-docsearch-suggestion--category-header {
   padding-top: 10px !important;
   margin-top: 10px !important;
   border-top: 1px solid #eee;
 }
-.algolia-autocomplete .ds-suggestion .algolia-docsearch-suggestion--subcategory-column {
+.algolia-autocomplete
+  .ds-suggestion
+  .algolia-docsearch-suggestion--subcategory-column {
   display: none !important;
 }
 .algolia-autocomplete .algolia-docsearch-suggestion--title {
@@ -1527,11 +1539,15 @@
   color: #5f2dab;
   background-color: #eee;
 }
-.algolia-autocomplete .algolia-docsearch-suggestion--text .algolia-docsearch-suggestion--highlight {
+.algolia-autocomplete
+  .algolia-docsearch-suggestion--text
+  .algolia-docsearch-suggestion--highlight {
   -webkit-box-shadow: inset 0 -2px 0 0 rgba(95, 45, 171, 0.5) !important;
   box-shadow: inset 0 -2px 0 0 rgba(95, 45, 171, 0.5) !important;
 }
-.algolia-autocomplete .ds-suggestion.ds-cursor .algolia-docsearch-suggestion--content {
+.algolia-autocomplete
+  .ds-suggestion.ds-cursor
+  .algolia-docsearch-suggestion--content {
   background-color: #e5e5e5 !important;
 }
 body {

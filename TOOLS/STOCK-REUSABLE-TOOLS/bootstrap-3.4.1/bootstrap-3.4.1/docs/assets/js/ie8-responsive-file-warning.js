@@ -8,6 +8,8 @@
  * details, see https://creativecommons.org/licenses/by/3.0/.
  */
 // Intended to prevent false-positive bug reports about responsive styling supposedly not working in IE8.
-if (window.location.protocol == 'file:') {
-  window.alert('ERROR: Bootstrap\'s responsive CSS is disabled!\nSee getbootstrap.com/getting-started/#respond-file-proto for details.')
+if (window.location.protocol == "file:") {
+  window.alert(
+    "ERROR: Bootstrap's responsive CSS is disabled!\nSee getbootstrap.com/getting-started/#respond-file-proto for details."
+  );
 }
