@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from www.abeautifulsite.net/posts/generate-random-passwords-in-php/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:19 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate random passwords in PHP</title>
+    <meta name="description" content="A blog about everything web. Est. 2007">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
+    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body class="post-template">
+    <header>
+      <a href="../../index.html" class="header-link">
+        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+      </a>
+
+      <nav class="nav">
+          <a class="nav-item" href="../../index.html">
+            Home
+          </a>
+          <a class="nav-item" href="../../tags/index.html">
+            Tags
+          </a>
+          <a class="nav-item" href="../index.html">
+            Archive
+          </a>
+          <a class="nav-item" href="../../about/index.html">
+            About
+          </a>
+        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="content">
+      
+<hr>
+
+<article class="post">
+  <h1>Generate random passwords in PHP</h1>
+
+  <div class="post-date">
+    <time datetime="2008-05-17">
+      May 17, 2008
+    </time>
+    &bull;
+    1 min read
+  </div>
+
+  
+    <div class="legacy-warning">
+      <img src="../../images/artwork/pointer.gif" alt="A drawing of a cartoon man pointing upwards">
+      <p>
+        Heads up! This post was written in 2008, so it may contain information that is no longer
+        accurate. I keep posts like this around for historical purposes and to prevent link rot, so please keep this in
+        mind as you're reading.
+      </p>
+      <p>
+        — Cory
+      </p>
+    </div>
+  
+
+  <p>Here is a function I wrote to generate a random string in PHP. It is probably most useful for generating passwords. You can specify the length of the resulting string, as well as what characters are allowed. The default length is eight and the default character set is alphanumeric.</p>
+<pre><code class="language-php">function random_string($length = 8, $chars = null) {
+  if (empty($chars)) $chars = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789&quot;;
+  while (strlen($s) &lt; $length) {
+    $s .= substr($chars, rand(0, strlen($chars) - 1), 1);
+  }
+  return $s;
+}
+
+// Usage
+echo random_string(10);
+</code></pre>
+
+
+  <div class="tags">
+    
+  <a href="../../tags/development/index.html" class="post-tag">development</a>
+  <a href="../../tags/php/index.html" class="post-tag">php</a>
+  <a href="../../tags/tips/index.html" class="post-tag">tips</a>
+
+  </div>
+</article>
+
+<hr>
+
+<footer class="post-footer">
+  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+
+  <p>
+    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
+    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
+    other <a href="https://github.com/claviska">open source things</a>.
+  </p>
+
+  <p>
+    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
+  </p>
+</footer>
+
+<hr>
+
+<nav class="post-nav">
+    <a href="../fetching-remote-web-pages-with-curl-and-php/index.html" class="post-nav-previous">
+      <small>Previous post</small>
+      Fetching remote web pages with curl and PHP
+    </a>
+  
+    <a href="../postjson-for-jquery/index.html" class="post-nav-next">
+      <small>Up next</small>
+      $.postJSON() for jQuery
+    </a>
+  
+</nav>
+
+    </main>
+
+    <div class="site-search" hidden>
+      <div class="site-search-panel">
+        <header class="site-search-header">
+          <input type="text" placeholder="Search" class="site-search-input">
+        </header>
+        <div class="site-search-body">
+          <ul class="site-search-results"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../cdn.jsdelivr.net/npm/lunr%402.3.9/lunr.min.js"></script>
+    <script src="../../js/search.js"></script>
+
+    <script defer src="../../js/greeting.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+
+    <!-- Current page: /posts/generate-random-passwords-in-php/ -->
+  </body>
+
+<!-- Mirrored from www.abeautifulsite.net/posts/generate-random-passwords-in-php/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:19 GMT -->
+</html>

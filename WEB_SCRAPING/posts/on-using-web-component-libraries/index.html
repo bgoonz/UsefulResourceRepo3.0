@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from www.abeautifulsite.net/posts/on-using-web-component-libraries/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:56 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>On Using Web Component Libraries</title>
+    <meta name="description" content="Some thoughts on why we use libraries to build Web Components.">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
+    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body class="post-template">
+    <header>
+      <a href="../../index.html" class="header-link">
+        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+      </a>
+
+      <nav class="nav">
+          <a class="nav-item" href="../../index.html">
+            Home
+          </a>
+          <a class="nav-item" href="../../tags/index.html">
+            Tags
+          </a>
+          <a class="nav-item" href="../index.html">
+            Archive
+          </a>
+          <a class="nav-item" href="../../about/index.html">
+            About
+          </a>
+        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="content">
+      
+<hr>
+
+<article class="post">
+  <h1>On Using Web Component Libraries</h1>
+
+  <div class="post-date">
+    <time datetime="2021-09-20">
+      September 20, 2021
+    </time>
+    &bull;
+    2 min read
+  </div>
+
+  
+
+  <p>We tend to think of components as things that belong to a framework. After all, React has components, Vue has components, Angular has components…it's just how we've always used them.</p>
+<p>Because of that, people tend to refer to <a href="https://lit.dev/">Lit</a> and <a href="https://www.fast.design/docs/fast-element/getting-started/">FAST Element</a> as frameworks, but they’re not. They’re <em>libraries</em>, and that’s an important distinction.</p>
+<p>If you want a React component to work, you have to use it with React. If you want a Vue component to work, you have to use it with Vue. If you want an Angular component to work…well, you get the point.</p>
+<p><em>With web components, the platform is the framework.</em></p>
+<p>Naturally, a follow up question is &quot;why do you need a library then?&quot; The truth is that we don’t. We can create web components without a library. <a href="https://codepen.io/claviska/pen/abwGLPm?editors=0010">Here's a counter component written in pure JavaScript</a>.</p>
+<pre><code class="language-js">class MyCounter extends HTMLElement {
+  static get observedAttributes() {
+    return ['count'];
+  }
+
+  constructor() {
+    super();
+    this.state = {
+      count: 0
+    };
+    this.attachShadow({ mode: 'open' });
+    this.shadowRoot.innerHTML = `
+      &lt;button type=&quot;button&quot;&gt;
+        Count:
+        &lt;span class=&quot;count&quot;&gt;${this.state.count}&lt;/span&gt;
+      &lt;/button&gt;
+    `;
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  connectedCallback() {
+    this.shadowRoot.querySelector('button').addEventListener('click', this.handleClick);
+  }
+
+  disconnectedCallback() {
+    this.shadowRoot.querySelector('button').removeEventListener('click', this.handleClick);
+  }
+
+  get count() {
+    return this.state.count;
+  }
+
+  set count(newCount) {
+    this.state.count = newCount;
+    this.update();
+  }
+
+  attributeChangedCallback(name, oldValue, newValue) {
+    if (name === 'count') {
+      this.state.count = Number(newValue);
+      this.update();
+    }
+  }
+
+  handleClick() {
+    this.count = this.count + 1;
+  }
+
+  update() {
+    this.shadowRoot.querySelector('.count').textContent = this.state.count;
+  }
+}
+
+customElements.define('my-counter', MyCounter);
+</code></pre>
+<p>We <em>choose</em> to use libraries to improve the the component authoring experience and abstract messy boilerplate into efficient, reusable modules. <a href="https://codepen.io/claviska/pen/LYLmzKL?editors=0010">Here's a functionally equivalent counter built with Lit</a>.</p>
+<pre><code class="language-ts">import { LitElement, html } from 'lit';
+import { customElement, property } from 'lit/decorators.js';
+
+@customElement('my-counter')
+class MyCounter extends LitElement {
+  @property({ type: Number }) count = 0;
+
+  handleClick() {
+    this.count++;
+  }
+
+  render() {
+    return html`
+      &lt;button type=&quot;button&quot; @click=${this.handleClick}&gt;
+        Count: ${this.count}
+      &lt;/button&gt;
+    `;
+  }
+}
+</code></pre>
+<p>Sure, we can bake features such as declarative rendering and reactivity into each and every component, but that’s not <abbr title="Don't Repeat Yourself">DRY</abbr>. It would convolute the code and make our components larger and more difficult to maintain. That’s not what I want and it's probably not what my users want.</p>
+<p>Alternatively, we could build those features ourselves and split them off into reusable modules — but that's just reinventing the wheel, isn't it?</p>
+<p>When you think of it that way, using a library to build web components makes a lot of sense.</p>
+<hr>
+<small>
+<p>Aside: <a href="https://twitter.com/evanplaice/status/1420922358534049804?s=20">It’s been said</a> that developer experience is the only benefit to using a library. While it’s true that benefits to the end user are marginalized with one-off components, it's worth noting that APIs such as those offered by Lit and FAST Element lead to less bugs due to reduced complexity and less code in the component itself. Consider the counter examples above. Which one is easier to maintain?</p>
+</small>
+
+
+  <div class="tags">
+    
+  <a href="../../tags/web%20components/index.html" class="post-tag">web components</a>
+  <a href="../../tags/html/index.html" class="post-tag">html</a>
+  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
+
+  </div>
+</article>
+
+<hr>
+
+<footer class="post-footer">
+  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+
+  <p>
+    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
+    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
+    other <a href="https://github.com/claviska">open source things</a>.
+  </p>
+
+  <p>
+    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
+  </p>
+</footer>
+
+<hr>
+
+<nav class="post-nav">
+    <a href="../finding-the-closest-element-through-shadow-roots/index.html" class="post-nav-previous">
+      <small>Previous post</small>
+      Finding the Closest Element Through Shadow Roots
+    </a>
+  
+    <a href="../on-buttons-and-links/index.html" class="post-nav-next">
+      <small>Up next</small>
+      On Buttons and Links
+    </a>
+  
+</nav>
+
+    </main>
+
+    <div class="site-search" hidden>
+      <div class="site-search-panel">
+        <header class="site-search-header">
+          <input type="text" placeholder="Search" class="site-search-input">
+        </header>
+        <div class="site-search-body">
+          <ul class="site-search-results"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../cdn.jsdelivr.net/npm/lunr%402.3.9/lunr.min.js"></script>
+    <script src="../../js/search.js"></script>
+
+    <script defer src="../../js/greeting.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+
+    <!-- Current page: /posts/on-using-web-component-libraries/ -->
+  </body>
+
+<!-- Mirrored from www.abeautifulsite.net/posts/on-using-web-component-libraries/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:56 GMT -->
+</html>

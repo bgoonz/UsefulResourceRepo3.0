@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from www.abeautifulsite.net/posts/link-to-a-specific-page-in-a-pdf-file/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:12 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Link to a specific page in a PDF file</title>
+    <meta name="description" content="A blog about everything web. Est. 2007">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
+    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body class="post-template">
+    <header>
+      <a href="../../index.html" class="header-link">
+        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+      </a>
+
+      <nav class="nav">
+          <a class="nav-item" href="../../index.html">
+            Home
+          </a>
+          <a class="nav-item" href="../../tags/index.html">
+            Tags
+          </a>
+          <a class="nav-item" href="../index.html">
+            Archive
+          </a>
+          <a class="nav-item" href="../../about/index.html">
+            About
+          </a>
+        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="content">
+      
+<hr>
+
+<article class="post">
+  <h1>Link to a specific page in a PDF file</h1>
+
+  <div class="post-date">
+    <time datetime="2014-08-13">
+      August 13, 2014
+    </time>
+    &bull;
+    1 min read
+  </div>
+
+  
+
+  <p>Both Chrome and Firefox render PDF files in the browser, making them easier for users to view. Today I wanted to send someone a link to a certain page in a PDF user's manual. Here's how I did it.</p>
+<p>In HTML, you can link to a specific part of the page this using anchors. For example:</p>
+<pre><code class="language-html">&lt;!-- page.html --&gt;
+&lt;h2 id=&quot;anchor-name&quot;&gt;Deep Linking Rocks!&lt;/h2&gt;
+
+&lt;!-- another-page.html --&gt;
+&lt;a href=&quot;page.html#anchor-name&quot;&gt;Go to it!&lt;/a&gt;
+</code></pre>
+<p>When you click the link, your browser will take you to the correct location in <code>page.html</code>, no matter how far down it is.</p>
+<p>But how do you do that with a PDF file? Well, we don't have access to any IDs so the best we can do is pick a page and link to that instead. Try this:</p>
+<pre><code class="language-html">&lt;a href=&quot;document.pdf#page=10&quot;&gt;
+</code></pre>
+<p><a href="http://helpx.adobe.com/acrobat/kb/link-html-pdf-page-acrobat.html">Per Adobe</a>, this will link the user to page 10 of <code>document.pdf</code> in Chrome and Firefox. Note that we're using a hash instead of a question mark—it's not actually query string even though it looks a lot like one.</p>
+<p>Alas, not all browsers open PDFs, so it's best to tell users which page they should look for in case they're using an unsupportive browser.</p>
+<p>As of this writing, Chrome and Firefox both handle this beautifully. Although Safari opens PDFs, it doesn't seem to acknowledge the hash. Of course, this will also work if the user has the Adobe Reader plugin installed.</p>
+
+
+  <div class="tags">
+    
+  <a href="../../tags/development/index.html" class="post-tag">development</a>
+  <a href="../../tags/html/index.html" class="post-tag">html</a>
+  <a href="../../tags/pdf/index.html" class="post-tag">pdf</a>
+  <a href="../../tags/tips/index.html" class="post-tag">tips</a>
+
+  </div>
+</article>
+
+<hr>
+
+<footer class="post-footer">
+  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+
+  <p>
+    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
+    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
+    other <a href="https://github.com/claviska">open source things</a>.
+  </p>
+
+  <p>
+    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
+  </p>
+</footer>
+
+<hr>
+
+<nav class="post-nav">
+    <a href="../lessons-from-my-20s-a-presentation-by-ryan-allis/index.html" class="post-nav-previous">
+      <small>Previous post</small>
+      Lessons from my 20s: a presentation by Ryan Allis
+    </a>
+  
+    <a href="../smaller-volume-increments-in-os-x/index.html" class="post-nav-next">
+      <small>Up next</small>
+      Smaller volume increments in macOS
+    </a>
+  
+</nav>
+
+    </main>
+
+    <div class="site-search" hidden>
+      <div class="site-search-panel">
+        <header class="site-search-header">
+          <input type="text" placeholder="Search" class="site-search-input">
+        </header>
+        <div class="site-search-body">
+          <ul class="site-search-results"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../cdn.jsdelivr.net/npm/lunr%402.3.9/lunr.min.js"></script>
+    <script src="../../js/search.js"></script>
+
+    <script defer src="../../js/greeting.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+
+    <!-- Current page: /posts/link-to-a-specific-page-in-a-pdf-file/ -->
+  </body>
+
+<!-- Mirrored from www.abeautifulsite.net/posts/link-to-a-specific-page-in-a-pdf-file/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:12 GMT -->
+</html>

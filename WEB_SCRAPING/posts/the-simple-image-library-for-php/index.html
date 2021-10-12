@@ -1,0 +1,179 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from www.abeautifulsite.net/posts/the-simple-image-library-for-php/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:16 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The SimpleImage library for PHP</title>
+    <meta name="description" content="A blog about everything web. Est. 2007">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
+    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body class="post-template">
+    <header>
+      <a href="../../index.html" class="header-link">
+        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+      </a>
+
+      <nav class="nav">
+          <a class="nav-item" href="../../index.html">
+            Home
+          </a>
+          <a class="nav-item" href="../../tags/index.html">
+            Tags
+          </a>
+          <a class="nav-item" href="../index.html">
+            Archive
+          </a>
+          <a class="nav-item" href="../../about/index.html">
+            About
+          </a>
+        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="content">
+      
+<hr>
+
+<article class="post">
+  <h1>The SimpleImage library for PHP</h1>
+
+  <div class="post-date">
+    <time datetime="2011-11-16">
+      November 16, 2011
+    </time>
+    &bull;
+    1 min read
+  </div>
+
+  
+    <div class="legacy-warning">
+      <img src="../../images/artwork/pointer.gif" alt="A drawing of a cartoon man pointing upwards">
+      <p>
+        Heads up! This post was written in 2011, so it may contain information that is no longer
+        accurate. I keep posts like this around for historical purposes and to prevent link rot, so please keep this in
+        mind as you're reading.
+      </p>
+      <p>
+        — Cory
+      </p>
+    </div>
+  
+
+  <p>If you love working with PHP but hate the GD library, you'll love the Simple Image PHP class I'm releasing today. This class takes the headache out of dealing with images and features over 25 useful methods.</p>
+<p>The class is incredibly simple to use.  The following two lines will load <strong>image.jpg</strong>, flip it horizontally, rotate it 90 degrees, shrink it to fit within a 320x200 box, apply a sepia effect, convert it to a GIF, and save it to <code>result.gif</code>:</p>
+<pre><code class="language-php">$img = new SimpleImage('image.jpg');
+$img-&gt;flip('x')-&gt;rotate(90)-&gt;best_fit(320, 200)-&gt;sepia()-&gt;save('result.gif');
+</code></pre>
+<p>Here's a list of the supported methods:</p>
+<ul>
+<li><code>flip()</code> - flips an image vertically or horizontally</li>
+<li><code>rotate()</code> - rotates an image at the specified angle</li>
+<li><code>auto_orient()</code> - adjusts the orientation based on the image's EXIF data</li>
+<li><code>resize()</code> - resizes an image to the specified width/height</li>
+<li><code>fit_to_width()</code> - proportionally resizes an image to the specified width</li>
+<li><code>fit_to_height()</code> - proportionally resizes an image to the specified height</li>
+<li><code>best_fit()</code> - proportionally resizes an image to fit within the specified width/height</li>
+<li><code>crop()</code> - crop an image from x1/y1 to x2/y2</li>
+<li><code>square_crop()</code> - trim the image to a square and resize to the specified size</li>
+<li><code>desaturate()</code> - convert the image to grayscale</li>
+<li><code>invert()</code> - invert the image</li>
+<li><code>brightness()</code> - adjust the image's brightness</li>
+<li><code>contrast()</code> - adjust the image's contrast</li>
+<li><code>colorize()</code> - apply the colorize filter</li>
+<li><code>edges()</code> - apply the edges filter</li>
+<li><code>emboss()</code> - apply the emboss filter</li>
+<li><code>mean_remove()</code> - apply the mean removal filter</li>
+<li><code>blur()</code> - apply selective or gaussian blur to the image</li>
+<li><code>sketch()</code> - apply the sketch filter</li>
+<li><code>smooth()</code> - apply the smooth filter</li>
+<li><code>pixelate()</code> - pixelate the image to blocks of the specified size</li>
+<li><code>sepia()</code> - apply a simulated sepia effect</li>
+<li><code>overlay()</code> - overlay one image onto another to create a watermark effect</li>
+<li><code>text()</code> - Add text to the image</li>
+</ul>
+<h2 id="download">Download <a class="direct-link" href="#download">#</a></h2>
+<p>This project is actively maintained on GitHub. Please submit all issues and contributions to the project page. Licensed under the MIT license.</p>
+<p><a href="https://github.com/claviska/SimpleImage">Download the latest version from GitHub</a></p>
+<p><em>January 10, 2017: SimpleImage 3.0 has been released. Please refer to <a href="https://github.com/claviska/SimpleImage">the repo</a> for API changes and the latest features.</em></p>
+
+
+  <div class="tags">
+    
+  <a href="../../tags/development/index.html" class="post-tag">development</a>
+  <a href="../../tags/php/index.html" class="post-tag">php</a>
+  <a href="../../tags/images/index.html" class="post-tag">images</a>
+
+  </div>
+</article>
+
+<hr>
+
+<footer class="post-footer">
+  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+
+  <p>
+    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
+    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
+    other <a href="https://github.com/claviska">open source things</a>.
+  </p>
+
+  <p>
+    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
+  </p>
+</footer>
+
+<hr>
+
+<nav class="post-nav">
+    <a href="../how-to-delete-a-tag-on-github/index.html" class="post-nav-previous">
+      <small>Previous post</small>
+      How to delete a tag on GitHub
+    </a>
+  
+    <a href="../redirecting-to-and-from-the-www-subdomain-with-htaccess/index.html" class="post-nav-next">
+      <small>Up next</small>
+      Redirecting to and from the www subdomain with .htaccess
+    </a>
+  
+</nav>
+
+    </main>
+
+    <div class="site-search" hidden>
+      <div class="site-search-panel">
+        <header class="site-search-header">
+          <input type="text" placeholder="Search" class="site-search-input">
+        </header>
+        <div class="site-search-body">
+          <ul class="site-search-results"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../cdn.jsdelivr.net/npm/lunr%402.3.9/lunr.min.js"></script>
+    <script src="../../js/search.js"></script>
+
+    <script defer src="../../js/greeting.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+
+    <!-- Current page: /posts/the-simple-image-library-for-php/ -->
+  </body>
+
+<!-- Mirrored from www.abeautifulsite.net/posts/the-simple-image-library-for-php/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:16 GMT -->
+</html>

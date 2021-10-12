@@ -1,0 +1,156 @@
+<!doctype html>
+<html lang="en">
+  
+<!-- Mirrored from www.abeautifulsite.net/posts/prefers-reduced-motion/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:59:00 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prefers Reduced Motion</title>
+    <meta name="description" content="A simple function you can use to detect if the user prefers less motion.">
+    <link rel="stylesheet" href="../../css/index.css">
+    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
+    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.gstatic.com/">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  </head>
+  <body class="post-template">
+    <header>
+      <a href="../../index.html" class="header-link">
+        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+      </a>
+
+      <nav class="nav">
+          <a class="nav-item" href="../../index.html">
+            Home
+          </a>
+          <a class="nav-item" href="../../tags/index.html">
+            Tags
+          </a>
+          <a class="nav-item" href="../index.html">
+            Archive
+          </a>
+          <a class="nav-item" href="../../about/index.html">
+            About
+          </a>
+        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
+          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
+            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>
+        </a>
+      </nav>
+    </header>
+
+    <main class="content">
+      
+<hr>
+
+<article class="post">
+  <h1>Prefers Reduced Motion</h1>
+
+  <div class="post-date">
+    <time datetime="2021-05-19">
+      May 19, 2021
+    </time>
+    &bull;
+    1 min read
+  </div>
+
+  
+
+  <p>By now, most devs are familiar with the <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-reduced-motion"><code>prefers-reduced-motion</code></a> media query that tells whether or not a user prefers, well, reduced motion. You can use this to tone down (or turn off) transitions and animations in your stylesheet to accommodate users with vestibular motion disorders.</p>
+<pre><code class="language-css">.animation {
+  /* normal animation */
+}
+
+@media (prefers-reduced-motion) {
+  .animation {
+    /* subtle or no animation */
+  }
+}
+</code></pre>
+<p>That's pretty useful, but if you're using the <a href="https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API">Web Animations API</a>, you may want to check for this with JavaScript instead. Thanks to <code>window.matchMedia</code>, it's pretty easy to do. I like to wrap it up in a small function that returns a boolean: <code>true</code> if the users prefers reduced motion or <code>false</code> if they have no preference.</p>
+<pre><code class="language-js">function prefersReducedMotion() {
+  const query = window.matchMedia('(prefers-reduced-motion: reduce)');
+  return query?.matches;
+}
+</code></pre>
+<p>Usage looks something like this:</p>
+<pre><code class="language-js">if (prefersReducedMotion()) {
+  // subtle or no animation
+} else {
+  // normal animation
+  document.querySelector('.my-element').animate(...);
+}
+</code></pre>
+
+
+  <div class="tags">
+    
+  <a href="../../tags/css/index.html" class="post-tag">css</a>
+  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
+  <a href="../../tags/accessibility/index.html" class="post-tag">accessibility</a>
+
+  </div>
+</article>
+
+<hr>
+
+<footer class="post-footer">
+  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+
+  <p>
+    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
+    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
+    other <a href="https://github.com/claviska">open source things</a>.
+  </p>
+
+  <p>
+    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
+  </p>
+</footer>
+
+<hr>
+
+<nav class="post-nav">
+    <a href="../finding-the-active-element-in-a-shadow-root/index.html" class="post-nav-previous">
+      <small>Previous post</small>
+      Finding the active element in a shadow root
+    </a>
+  
+    <a href="../querying-through-shadow-roots/index.html" class="post-nav-next">
+      <small>Up next</small>
+      Querying through shadow roots
+    </a>
+  
+</nav>
+
+    </main>
+
+    <div class="site-search" hidden>
+      <div class="site-search-panel">
+        <header class="site-search-header">
+          <input type="text" placeholder="Search" class="site-search-input">
+        </header>
+        <div class="site-search-body">
+          <ul class="site-search-results"></ul>
+        </div>
+      </div>
+    </div>
+
+    <script src="../../../cdn.jsdelivr.net/npm/lunr%402.3.9/lunr.min.js"></script>
+    <script src="../../js/search.js"></script>
+
+    <script defer src="../../js/greeting.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
+    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+
+    <!-- Current page: /posts/prefers-reduced-motion/ -->
+  </body>
+
+<!-- Mirrored from www.abeautifulsite.net/posts/prefers-reduced-motion/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:59:00 GMT -->
+</html>
