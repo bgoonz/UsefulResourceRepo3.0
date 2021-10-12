@@ -1,13 +1,13 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { TimelineLite, Power2 } from 'gsap';
-import { bindActionCreators } from 'redux';
-import imagesLoaded from 'imagesloaded';
-import * as actionCreators from '../../common/actions';
-import ImageSection from '../../components/imageSection';
-import ContentSection from '../../components/contentSection';
-import backgroundImage from '../../common/images/snaer_seljan_thoroddsson.png';
-import './home.css';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { TimelineLite, Power2 } from "gsap";
+import { bindActionCreators } from "redux";
+import imagesLoaded from "imagesloaded";
+import * as actionCreators from "../../common/actions";
+import ImageSection from "../../components/imageSection";
+import ContentSection from "../../components/contentSection";
+import backgroundImage from "../../common/images/snaer_seljan_thoroddsson.png";
+import "./home.css";
 
 class Home extends Component {
   constructor(props) {
@@ -39,10 +39,9 @@ class Home extends Component {
       mobileImage,
     } = this.refs;
 
-    tl
-      .set([firstName, lastName], { rotationX: -45 })
+    tl.set([firstName, lastName], { rotationX: -45 })
       .to([left, right, mobileImage], 1.5, {
-        x: '0%',
+        x: "0%",
         opacity: 1,
         ease: Power2.easeOut,
       })
@@ -50,9 +49,9 @@ class Home extends Component {
         firstName,
         1.5,
         {
-          y: '0%',
+          y: "0%",
           opacity: 1,
-          transformOrigin: '0 50%',
+          transformOrigin: "0 50%",
           rotationX: 0,
           ease: Power2.easeOut,
         },
@@ -62,9 +61,9 @@ class Home extends Component {
         lastName,
         1.5,
         {
-          y: '0%',
+          y: "0%",
           opacity: 1,
-          transformOrigin: '0 50%',
+          transformOrigin: "0 50%",
           rotationX: 0,
           ease: Power2.easeOut,
         },
@@ -73,7 +72,7 @@ class Home extends Component {
       .to(
         [github, githubMobile, lang],
         1,
-        { y: '0%', opacity: 1, ease: Power2.easeOut },
+        { y: "0%", opacity: 1, ease: Power2.easeOut },
         1
       )
       .play();
@@ -84,7 +83,7 @@ class Home extends Component {
     setTimeout(() => {
       this.props.actions.removePageLoading();
       this.props.actions.setLanguage(
-        this.props.common.lang === 'en' ? 'is' : 'en'
+        this.props.common.lang === "en" ? "is" : "en"
       );
     }, 300);
   }
@@ -125,7 +124,7 @@ class Home extends Component {
             />
           </svg>
           <span className="language">
-            {this.props.common.lang === 'en' ? 'IS' : 'EN'}
+            {this.props.common.lang === "en" ? "IS" : "EN"}
           </span>
         </span>
         <a
