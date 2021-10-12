@@ -1,6 +1,6 @@
 .container-wave svg path {
   stroke: none;
-  fill: #CCCCCC;
+  fill: #cccccc;
 }
 
 .container-wave svg {
@@ -14,11 +14,11 @@
 }
 
 .resume-section:nth-of-type(odd) .container-wave svg path {
-  stroke: #CCCCCC;
+  stroke: #cccccc;
 }
 
 .resume-section:nth-of-type(even) .container-wave svg {
-  background: #CCCCCC;
+  background: #cccccc;
 }
 @media only screen and (max-width: 992px) {
   .container-wave {

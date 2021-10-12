@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { processImage } from '../../common/stackBlur';
-import './imageBlurWrapper.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import { processImage } from "../../common/stackBlur";
+import "./imageBlurWrapper.css";
 
 /**
  * Image blur wrapper component
@@ -21,13 +21,13 @@ class ImageBlurWrapper extends Component {
     id: PropTypes.number.isRequired,
     overlay: PropTypes.bool,
     overlayTitle: PropTypes.string,
-    overlayText: PropTypes.string
+    overlayText: PropTypes.string,
   };
 
   componentDidMount() {
     const { blur, thumbnail } = this.props;
     let img = new Image();
-    img.src = thumbnail || 'images/thumbnails/placeholder.png';
+    img.src = thumbnail || "images/thumbnails/placeholder.png";
     img.onload = () => {
       let canvas = this.refs.canvas;
       processImage(img, canvas, blur || 10);
@@ -38,9 +38,9 @@ class ImageBlurWrapper extends Component {
     let img = new Image();
     img.src = src;
     img.onload = () => {
-      this.refs.canvas.parentNode.classList.add('heightAuto');
-      this.refs.canvas.classList.add('image-blur--image--hide');
-      this.refs.image.classList.add('image-blur--image--show');
+      this.refs.canvas.parentNode.classList.add("heightAuto");
+      this.refs.canvas.classList.add("image-blur--image--hide");
+      this.refs.image.classList.add("image-blur--image--show");
     };
   }
 
@@ -57,7 +57,7 @@ class ImageBlurWrapper extends Component {
       overlay,
       overlayText,
       overlayTitle,
-      visible
+      visible,
     } = this.props;
 
     if (visible === true) {
@@ -66,13 +66,13 @@ class ImageBlurWrapper extends Component {
 
     return (
       <div
-        className={classnames('image-blur--wrapper', className)}
+        className={classnames("image-blur--wrapper", className)}
         ref="wrapper"
       >
         <figure className="image-blur--wrapper-image">
           <div>
             <img
-              src={visible ? src : ''}
+              src={visible ? src : ""}
               alt={alt}
               className="image-blur--image"
               ref="image"

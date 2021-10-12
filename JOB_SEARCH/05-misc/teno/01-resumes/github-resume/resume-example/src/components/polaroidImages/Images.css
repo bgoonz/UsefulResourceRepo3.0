@@ -9,8 +9,8 @@
 .images-section .image-wrapper {
   margin: 0 3em;
   opacity: 0;
-  transform: scale3d(0.8,0.8,0.8);
-  font: 400 18px/1 'Kaushan Script', cursive;
+  transform: scale3d(0.8, 0.8, 0.8);
+  font: 400 18px/1 "Kaushan Script", cursive;
   max-width: 400px;
 }
 
@@ -66,6 +66,6 @@
 @media only screen and (max-width: 480px) {
   .images-section .image-wrapper {
     opacity: 1;
-    transform: scale3d(1,1,1);
+    transform: scale3d(1, 1, 1);
   }
 }

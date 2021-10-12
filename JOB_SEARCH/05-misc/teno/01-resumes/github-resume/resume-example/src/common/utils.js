@@ -1,4 +1,4 @@
-if (typeof window === 'undefined') {
+if (typeof window === "undefined") {
   global.window = {};
 }
 
@@ -16,7 +16,7 @@ function throttle(func, wait, options) {
   const _ = {
     now:
       Date.now ||
-      function() {
+      function () {
         return new Date().getTime();
       },
   };
@@ -146,10 +146,10 @@ export function withinViewport(
   // http://webfieldmanual.com/guides/cutting-the-mustard.html
   if (window.requestAnimationFrame && document.documentElement.classList) {
     // Passes the test so add enhanced class to HTML tag
-    document.documentElement.classList.add('enhanced');
+    document.documentElement.classList.add("enhanced");
 
     // Global class for revealing element
-    const revealer = document.querySelectorAll('.' + selector);
+    const revealer = document.querySelectorAll("." + selector);
 
     // Run a loop with checkVisibility() and add / remove classes to the elements
     const toggleElement = () => {
@@ -171,11 +171,11 @@ export function withinViewport(
     if (unsubscribeEvents) {
       // Listening for events
       if (window.addEventListener) {
-        window.removeEventListener('scroll', scrollHandler, false);
-        window.removeEventListener('resize', resizeHandler, false);
+        window.removeEventListener("scroll", scrollHandler, false);
+        window.removeEventListener("resize", resizeHandler, false);
       } else if (window.attachEvent) {
-        window.detachEvent('onscroll', scrollHandler);
-        window.detachEvent('onresize', resizeHandler);
+        window.detachEvent("onscroll", scrollHandler);
+        window.detachEvent("onresize", resizeHandler);
       } else {
         window.onscroll = null;
         window.onresize = null;
@@ -193,11 +193,11 @@ export function withinViewport(
 
       // Listening for events
       if (window.addEventListener) {
-        window.addEventListener('scroll', scrollHandler, false);
-        window.addEventListener('resize', resizeHandler, false);
+        window.addEventListener("scroll", scrollHandler, false);
+        window.addEventListener("resize", resizeHandler, false);
       } else if (window.attachEvent) {
-        window.attachEvent('onscroll', scrollHandler);
-        window.attachEvent('onresize', resizeHandler);
+        window.attachEvent("onscroll", scrollHandler);
+        window.attachEvent("onresize", resizeHandler);
       } else {
         window.onscroll = scrollHandler;
         window.onresize = resizeHandler;
@@ -209,10 +209,10 @@ export function withinViewport(
 // From https://davidwalsh.name/javascript-debounce-function.
 function debounce(func, wait, immediate) {
   let timeout;
-  return function() {
+  return function () {
     const context = this,
       args = arguments;
-    const later = function() {
+    const later = function () {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };
@@ -226,21 +226,21 @@ function debounce(func, wait, immediate) {
 export function initElementTilt(el, destroy) {
   if (!destroy) {
     const newElmentTilt = new ElmentTilt(el);
-    el.style.transition = 'transform 0.2s ease-out';
-    if (typeof requestAnimationFrame === 'undefined') return;
+    el.style.transition = "transform 0.2s ease-out";
+    if (typeof requestAnimationFrame === "undefined") return;
     document.addEventListener(
-      'mousemove',
+      "mousemove",
       onMouseMoveHandler.bind(newElmentTilt)
     );
     window.addEventListener(
-      'resize',
+      "resize",
       debounceResizeHandler.bind(newElmentTilt)
     );
   } else {
-    document.removeEventListener('mousemove', onMouseMoveHandler);
-    window.removeEventListener('resize', debounceResizeHandler);
-    el.style.transition = '';
-    el.style.transform = '';
+    document.removeEventListener("mousemove", onMouseMoveHandler);
+    window.removeEventListener("resize", debounceResizeHandler);
+    el.style.transition = "";
+    el.style.transform = "";
   }
 }
 
@@ -262,7 +262,7 @@ ElmentTilt.prototype.options = {
   },
 };
 
-ElmentTilt.prototype.getMousePos = function(e) {
+ElmentTilt.prototype.getMousePos = function (e) {
   // from http://www.quirksmode.org/js/events_properties.html#position
   let posx = 0;
   let posy = 0;
@@ -292,16 +292,16 @@ function onMouseMoveHandler(ev) {
   requestAnimationFrame(() => {
     const mousepos = this.getMousePos(ev);
     const rotX =
-      2 * this.options.tilt.maxRotationX / this.win.height * mousepos.y -
+      ((2 * this.options.tilt.maxRotationX) / this.win.height) * mousepos.y -
       this.options.tilt.maxRotationX;
     const rotY =
-      2 * this.options.tilt.maxRotationY / this.win.width * mousepos.x -
+      ((2 * this.options.tilt.maxRotationY) / this.win.width) * mousepos.x -
       this.options.tilt.maxRotationY;
     const transX =
-      2 * this.options.tilt.maxTranslationX / this.win.width * mousepos.x -
+      ((2 * this.options.tilt.maxTranslationX) / this.win.width) * mousepos.x -
       this.options.tilt.maxTranslationX;
     const transY =
-      2 * this.options.tilt.maxTranslationY / this.win.height * mousepos.y -
+      ((2 * this.options.tilt.maxTranslationY) / this.win.height) * mousepos.y -
       this.options.tilt.maxTranslationY;
     this.el.style.transform = `perspective(1000px) 
                                translate3d( ${transX}px, ${transY}px, 0) 
@@ -312,7 +312,7 @@ function onMouseMoveHandler(ev) {
 
 // Window resize.
 function debounceResizeHandler() {
-  debounce(function() {
+  debounce(function () {
     this.win = { width: window.innerWidth, height: window.innerHeight };
   }, 10);
 }
