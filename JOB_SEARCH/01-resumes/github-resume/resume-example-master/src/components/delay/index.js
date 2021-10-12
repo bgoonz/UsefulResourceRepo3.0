@@ -1,2 +1,2 @@
-import DelayWrapper from './delay';
+import DelayWrapper from "./delay";
 export default DelayWrapper;

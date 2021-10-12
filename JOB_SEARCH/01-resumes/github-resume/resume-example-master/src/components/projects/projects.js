@@ -1,14 +1,14 @@
-import React, { Component, Fragment } from 'react';
-import PropTypes from 'prop-types';
-import { TimelineLite, Elastic, Power2 } from 'gsap';
-import classnames from 'classnames';
-import ImageBlurWrapper from '../imageBlurWrapper';
-import './projects.css';
+import React, { Component, Fragment } from "react";
+import PropTypes from "prop-types";
+import { TimelineLite, Elastic, Power2 } from "gsap";
+import classnames from "classnames";
+import ImageBlurWrapper from "../imageBlurWrapper";
+import "./projects.css";
 
 class Projects extends Component {
   static propTypes = {
     data: PropTypes.array.isRequired,
-    visible: PropTypes.bool.isRequired
+    visible: PropTypes.bool.isRequired,
   };
 
   constructor(props) {
@@ -16,7 +16,7 @@ class Projects extends Component {
 
     this.state = {
       tl: new TimelineLite(),
-      hasShown: false
+      hasShown: false,
     };
   }
 
@@ -45,7 +45,7 @@ class Projects extends Component {
     let images = [];
 
     for (let i = 0, len = children.length; i < len; i++) {
-      if (children[i].tagName !== 'H1') {
+      if (children[i].tagName !== "H1") {
         headers.push(children[i].children[0]);
 
         const temp = children[i].children[1].children;
@@ -61,20 +61,20 @@ class Projects extends Component {
       headers,
       1.5,
       {
-        y: '0%',
+        y: "0%",
         autoAlpha: 1,
         ease: Elastic.easeOut,
-        easeParams: [0.9, 1]
+        easeParams: [0.9, 1],
       },
       1
     ).staggerTo(
       images,
       1.5,
       {
-        y: '0%',
+        y: "0%",
         autoAlpha: 1,
         ease: Elastic.easeOut,
-        easeParams: [0.9, 1]
+        easeParams: [0.9, 1],
       },
       0.1,
       0.3
@@ -90,7 +90,7 @@ class Projects extends Component {
         <a
           href={url}
           title={text}
-          key={'project-image' + i}
+          key={"project-image" + i}
           className="project"
           target="_blank"
           rel="noopener noreferrer"
@@ -98,8 +98,8 @@ class Projects extends Component {
           <div className="even">
             <ImageBlurWrapper
               id={id}
-              src={'images/' + image}
-              thumbnail={'images/' + thumbnail}
+              src={"images/" + image}
+              thumbnail={"images/" + thumbnail}
               alt={text}
               text={text}
               overlay={true}
@@ -122,11 +122,11 @@ class Projects extends Component {
       title,
       1.5,
       {
-        y: '0%',
+        y: "0%",
         opacity: 1,
-        transformOrigin: '0 50%',
+        transformOrigin: "0 50%",
         rotationX: 0,
-        ease: Power2.easeOut
+        ease: Power2.easeOut,
       },
       0.5
     );
@@ -137,11 +137,11 @@ class Projects extends Component {
 
     return sections.map((section, i) => {
       const { title, projects, text } = section;
-      const titleClass = i === 1 ? 'work-header' : '';
+      const titleClass = i === 1 ? "work-header" : "";
 
       return (
-        <div key={'project-' + i}>
-          <h2 className={classnames('project-header', titleClass)}>
+        <div key={"project-" + i}>
+          <h2 className={classnames("project-header", titleClass)}>
             <span>{title}</span>
           </h2>
           <div className="image-blur--container">
@@ -150,7 +150,7 @@ class Projects extends Component {
                 {this.renderHobbyProjects(projects)}
                 <a
                   href={
-                    'https://github.com/snaerth/create-react-component-folder/'
+                    "https://github.com/snaerth/create-react-component-folder/"
                   }
                   title={text}
                   key="project-image-5"

@@ -1,2 +1,2 @@
-import columnImages from './columnImages';
+import columnImages from "./columnImages";
 export default columnImages;

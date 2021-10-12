@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { connect } from 'react-redux';
-import { TimelineLite, Power2 } from 'gsap';
-import './nav.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import { connect } from "react-redux";
+import { TimelineLite, Power2 } from "gsap";
+import "./nav.css";
 
 class Nav extends Component {
   static propTypes = {
     linksState: PropTypes.array.isRequired,
-    links: PropTypes.array.isRequired
+    links: PropTypes.array.isRequired,
   };
 
   constructor(props) {
@@ -16,7 +16,7 @@ class Nav extends Component {
     this.onClickHandler = this.onClickHandler.bind(this);
 
     this.state = {
-      tl: new TimelineLite()
+      tl: new TimelineLite(),
     };
   }
 
@@ -24,9 +24,9 @@ class Nav extends Component {
     const winW = window.innerWidth;
     const { ul } = this.refs;
     const { tl } = this.state;
-    let animateOptions = { x: '0%', opacity: 1, ease: Power2.easeOut };
+    let animateOptions = { x: "0%", opacity: 1, ease: Power2.easeOut };
     if (winW <= 1500) {
-      animateOptions = { y: '0%', opacity: 1, ease: Power2.easeOut };
+      animateOptions = { y: "0%", opacity: 1, ease: Power2.easeOut };
     }
 
     tl.staggerTo(ul.children, 0.7, animateOptions, 0.1).pause();
@@ -54,7 +54,7 @@ class Nav extends Component {
       <nav>
         <ul className="nav" ref="ul">
           {links.map((link, i) => {
-            const active = linksState[i] ? 'active' : '';
+            const active = linksState[i] ? "active" : "";
 
             return (
               <li
@@ -63,7 +63,7 @@ class Nav extends Component {
                 onClick={() => this.onClickHandler(i)}
               >
                 {link.text}
-                <svg className={classnames('icon-line', active)}>
+                <svg className={classnames("icon-line", active)}>
                   <use
                     xmlnsXlink="http://www.w3.org/1999/xlink"
                     xlinkHref="#svg_line"
@@ -89,7 +89,4 @@ function mapStateToProps(state) {
   return { common: state.common };
 }
 
-export default connect(
-  mapStateToProps,
-  null
-)(Nav);
+export default connect(mapStateToProps, null)(Nav);

@@ -1,18 +1,18 @@
-import React, { Component } from 'react';
-import { TimelineLite, Power2 } from 'gsap';
-import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { withRouter, Link } from 'react-router-dom';
-import classnames from 'classnames';
-import ProcessBarsList from '../processBarsList';
-import Projects from '../projects';
-import Button from '../button';
-import Evenodd from '../evenodd';
-import Nav from '../nav';
-import WaveSvg from '../waveSvg';
-import * as actionCreators from '../../common/actions';
-import { withinViewport } from '../../common/utils';
-import './resume.css';
+import React, { Component } from "react";
+import { TimelineLite, Power2 } from "gsap";
+import { connect } from "react-redux";
+import { bindActionCreators } from "redux";
+import { withRouter, Link } from "react-router-dom";
+import classnames from "classnames";
+import ProcessBarsList from "../processBarsList";
+import Projects from "../projects";
+import Button from "../button";
+import Evenodd from "../evenodd";
+import Nav from "../nav";
+import WaveSvg from "../waveSvg";
+import * as actionCreators from "../../common/actions";
+import { withinViewport } from "../../common/utils";
+import "./resume.css";
 
 class Resume extends Component {
   constructor(props) {
@@ -29,7 +29,7 @@ class Resume extends Component {
       imagesVisible: [false, false, false],
       linksState: nav.map((link, i) => {
         return link.active;
-      })
+      }),
     };
   }
 
@@ -39,12 +39,12 @@ class Resume extends Component {
     const { tl } = this.state;
     let text = title.parentNode.nextSibling;
     this.animateTitle(title, tl);
-    tl.to(back, 1, { x: '0%', opacity: 1, ease: Power2.easeOut }, 0.2).pause();
+    tl.to(back, 1, { x: "0%", opacity: 1, ease: Power2.easeOut }, 0.2).pause();
     tl.to(
       text,
       1,
-      { y: '0%', opacity: 1, ease: Power2.easeOut },
-      '-=0.4'
+      { y: "0%", opacity: 1, ease: Power2.easeOut },
+      "-=0.4"
     ).play();
   }
 
@@ -55,14 +55,14 @@ class Resume extends Component {
   initElementInViewportChecker() {
     const self = this;
     let cnt = 0;
-    const maxCount = document.querySelectorAll('.onscroll-reveal').length - 4;
+    const maxCount = document.querySelectorAll(".onscroll-reveal").length - 4;
     let currentSection = 0;
     let allSectionsAnimated = false;
 
-    withinViewport(null, 'onscroll-reveal', 'inViewport', (isVisible, el) => {
+    withinViewport(null, "onscroll-reveal", "inViewport", (isVisible, el) => {
       if (isVisible) {
-        if (el.classList.contains('resume-section')) {
-          const id = parseInt(el.attributes['data-navid'].value, 10);
+        if (el.classList.contains("resume-section")) {
+          const id = parseInt(el.attributes["data-navid"].value, 10);
 
           if (currentSection !== id) {
             currentSection = id;
@@ -74,31 +74,31 @@ class Resume extends Component {
       if (isVisible && !el.isAnimated && !allSectionsAnimated) {
         const { imagesVisible, processbarVisible } = this.state;
 
-        if (el.classList.contains('processbars')) {
+        if (el.classList.contains("processbars")) {
           this.changeStateVisibility(
             el,
             processbarVisible,
-            'processbarVisible',
-            'processbar'
+            "processbarVisible",
+            "processbar"
           );
 
           el.isAnimated = true;
           cnt++;
         }
 
-        if (el.classList.contains('images-container')) {
+        if (el.classList.contains("images-container")) {
           this.changeStateVisibility(
             el,
             imagesVisible,
-            'imagesVisible',
-            'images-container'
+            "imagesVisible",
+            "images-container"
           );
 
           el.isAnimated = true;
           cnt++;
         }
 
-        if (el.classList.contains('projects-wrapper')) {
+        if (el.classList.contains("projects-wrapper")) {
           this.setState((prevState, props) => {
             return { projectsVisible: true };
           });
@@ -107,9 +107,9 @@ class Resume extends Component {
           cnt++;
         }
 
-        if (el.classList.contains('resume-section')) {
-          const id = el.attributes['data-navid'].value;
-          const row = self.refs['rows' + id];
+        if (el.classList.contains("resume-section")) {
+          const id = el.attributes["data-navid"].value;
+          const row = self.refs["rows" + id];
           if (row) {
             self.animateSections(row.children, 3);
             el.isAnimated = true;
@@ -174,7 +174,7 @@ class Resume extends Component {
           tl.to(
             cols[j],
             1,
-            { y: '0%', opacity: 1, ease: Power2.easeOut },
+            { y: "0%", opacity: 1, ease: Power2.easeOut },
             delayBetween + extraDelay
           );
         }
@@ -192,11 +192,11 @@ class Resume extends Component {
       title,
       1.5,
       {
-        y: '0%',
+        y: "0%",
         opacity: 1,
-        transformOrigin: '0 50%',
+        transformOrigin: "0 50%",
         rotationX: 0,
-        ease: Power2.easeOut
+        ease: Power2.easeOut,
       },
       0.5
     );
@@ -204,10 +204,10 @@ class Resume extends Component {
 
   back(ev) {
     ev.preventDefault();
-    this.refs['images-container0'].classList.add('fadeOut');
+    this.refs["images-container0"].classList.add("fadeOut");
     this.state.tl.timeScale(4).reverse();
     this.props.actions.revealAnimationBackward();
-    setTimeout(this.props.history.push, 1500, '/');
+    setTimeout(this.props.history.push, 1500, "/");
   }
 
   renderSection(section, index, last) {
@@ -217,24 +217,24 @@ class Resume extends Component {
 
     return (
       <div
-        className={classnames('resume-section onscroll-reveal')}
+        className={classnames("resume-section onscroll-reveal")}
         data-navid={index}
         key={index}
-        ref={'section' + index}
+        ref={"section" + index}
       >
         <div>
           <h1 className="name visible relative">
-            <span ref={index === 0 ? 'title' : ''}>{section.title}</span>
+            <span ref={index === 0 ? "title" : ""}>{section.title}</span>
           </h1>
           {rows ? (
-            <div className="resume-section--row" ref={'rows' + index}>
+            <div className="resume-section--row" ref={"rows" + index}>
               {rows}
               {rows.length > 3 ? (
                 <div className="text-center">
                   <button
-                    ref={'morebutton' + index}
+                    ref={"morebutton" + index}
                     className="more"
-                    onClick={e => this.removeHiddenClass(e, index, rows)}
+                    onClick={(e) => this.removeHiddenClass(e, index, rows)}
                   >
                     {more}
                   </button>
@@ -245,8 +245,8 @@ class Resume extends Component {
           {section.text ? (
             <div
               className={classnames(
-                'resume-section--row',
-                index === 0 ? 'first' : ''
+                "resume-section--row",
+                index === 0 ? "first" : ""
               )}
             >
               <div className="resume-row">
@@ -277,16 +277,16 @@ class Resume extends Component {
     return (
       <div
         className={classnames(
-          'onscroll-reveal',
-          'images-container',
-          'images-container' + index
+          "onscroll-reveal",
+          "images-container",
+          "images-container" + index
         )}
-        ref={'images-container' + index}
+        ref={"images-container" + index}
       >
         <Evenodd
           left={left}
           right={right}
-          type={index % 2 !== 0 ? 'odd' : 'even'}
+          type={index % 2 !== 0 ? "odd" : "even"}
           visible={imagesVisible[index]}
         />
       </div>
@@ -296,10 +296,10 @@ class Resume extends Component {
   renderRows(rows, index) {
     return rows.map((row, i) => {
       const hidden =
-        !this.state.sectionsVisible[index] && i > 2 ? 'hidden' : '';
+        !this.state.sectionsVisible[index] && i > 2 ? "hidden" : "";
 
       return (
-        <div className={classnames('resume-row', hidden)} key={'row-' + i}>
+        <div className={classnames("resume-row", hidden)} key={"row-" + i}>
           <div className="resume-left">
             <h2>{row.title}</h2>
             <h2>{row.secondTitle}</h2>
@@ -320,21 +320,21 @@ class Resume extends Component {
     const newArr = [...this.state.sectionsVisible];
     newArr[index] = true;
     let newRows = [];
-    rows = this.refs['rows' + index].children;
+    rows = this.refs["rows" + index].children;
 
     for (let i = 3; i < rows.length; i++) {
       const row = rows[i];
 
-      if (row.className.indexOf('hidden') > 1) {
+      if (row.className.indexOf("hidden") > 1) {
         newRows.push(rows[i]);
       }
     }
 
-    const button = this.refs['morebutton' + index];
-    button.classList.add('fadeOutButton');
+    const button = this.refs["morebutton" + index];
+    button.classList.add("fadeOutButton");
 
     setTimeout(() => {
-      button.classList.add('hidden');
+      button.classList.add("hidden");
       this.setState((prevState, props) => {
         return { sectionsVisible: newArr };
       });
@@ -373,25 +373,19 @@ class Resume extends Component {
 
   render() {
     const { translations } = this.props;
-    const {
-      processbars,
-      career,
-      education,
-      projects,
-      about,
-      nav
-    } = translations;
+    const { processbars, career, education, projects, about, nav } =
+      translations;
     const { processbarVisible, linksState } = this.state;
 
     return (
       <div>
-        <Link to="/" onClick={ev => this.back(ev)}>
+        <Link to="/" onClick={(ev) => this.back(ev)}>
           <div
             className={classnames(
-              'job-application--button-container',
-              'button-left',
-              'button-left--offset',
-              'button-back--fixed'
+              "job-application--button-container",
+              "button-left",
+              "button-left--offset",
+              "button-back--fixed"
             )}
             ref="back"
           >
@@ -431,13 +425,8 @@ function mapStateToProps(state) {
  */
 function mapDispatchToProps(dispatch) {
   return {
-    actions: bindActionCreators(actionCreators, dispatch)
+    actions: bindActionCreators(actionCreators, dispatch),
   };
 }
 
-export default withRouter(
-  connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Resume)
-);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Resume));

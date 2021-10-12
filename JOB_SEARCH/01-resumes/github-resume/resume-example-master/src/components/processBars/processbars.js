@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import classnames from 'classnames';
-import { TimelineMax, TimelineLite, Power2, Elastic, Linear } from 'gsap';
-import './processbars.css';
+import React, { Component } from "react";
+import PropTypes from "prop-types";
+import classnames from "classnames";
+import { TimelineMax, TimelineLite, Power2, Elastic, Linear } from "gsap";
+import "./processbars.css";
 
 class Processbar extends Component {
   static propTypes = {
     height: PropTypes.number.isRequired,
     data: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
-    id: PropTypes.number.isRequired
+    id: PropTypes.number.isRequired,
   };
 
   constructor(props) {
@@ -17,7 +17,7 @@ class Processbar extends Component {
     this.animateProcessbar = this.animateProcessbar.bind(this);
     this.resize = this.resize.bind(this);
     this.state = {
-      tl: new TimelineMax()
+      tl: new TimelineMax(),
     };
   }
 
@@ -25,8 +25,8 @@ class Processbar extends Component {
     const tl = new TimelineLite();
 
     for (let i = 0, len = this.props.data.length; i < len; i++) {
-      const counterEl = this.refs['processcounter-' + i];
-      const processbarEl = this.refs['processbar-' + i];
+      const counterEl = this.refs["processcounter-" + i];
+      const processbarEl = this.refs["processbar-" + i];
 
       if (processbarEl) {
         const percentage = this.props.data[i].percentage;
@@ -39,24 +39,24 @@ class Processbar extends Component {
           0.3,
           {
             x: calcPercentageWidth,
-            ease: Power2.easeOut
+            ease: Power2.easeOut,
           },
-          '-=0.3'
+          "-=0.3"
         ).to(
           processbarEl,
           0.5,
           {
-            attr: { width: percentage + '%' },
-            ease: Power2.easeOut
+            attr: { width: percentage + "%" },
+            ease: Power2.easeOut,
           },
-          '-=0.5'
+          "-=0.5"
         );
       }
     }
   }
 
   componentDidMount() {
-    window.addEventListener('resize', this.resize);
+    window.addEventListener("resize", this.resize);
     const tl = this.state.tl;
     tl.add(this.animateTitle(), 1);
     tl.add(this.animateColumns(), 1.5);
@@ -65,17 +65,17 @@ class Processbar extends Component {
 
   animateTitle() {
     const tl = new TimelineLite();
-    const title = this.refs['title-' + this.props.id];
+    const title = this.refs["title-" + this.props.id];
 
     tl.set(title, { rotationX: -45 }).to(
       title,
       1,
       {
-        y: '0%',
+        y: "0%",
         opacity: 1,
-        transformOrigin: '0 50%',
+        transformOrigin: "0 50%",
         rotationX: 0,
-        ease: Power2.easeOut
+        ease: Power2.easeOut,
       },
       0.2
     );
@@ -91,33 +91,33 @@ class Processbar extends Component {
     const tlR = new TimelineLite();
 
     tlContainer.set(
-      '.processbar-row--container',
+      ".processbar-row--container",
       {
-        autoAlpha: 1
+        autoAlpha: 1,
       },
       1.6
     );
 
     tlL
-      .set('.processbar-left-' + id, {
+      .set(".processbar-left-" + id, {
         autoAlpha: 0,
-        x: '-200px'
+        x: "-200px",
       })
       .staggerTo(
-        '.processbar-left-' + id,
+        ".processbar-left-" + id,
         1,
-        { autoAlpha: 1, x: '0%', ease: Elastic.easeOut, easeParams: [0.9, 1] },
+        { autoAlpha: 1, x: "0%", ease: Elastic.easeOut, easeParams: [0.9, 1] },
         1.4
       );
     tlR
-      .set('.processbar-right-' + id, {
+      .set(".processbar-right-" + id, {
         autoAlpha: 0,
-        x: '200px'
+        x: "200px",
       })
       .staggerTo(
-        '.processbar-right-' + id,
+        ".processbar-right-" + id,
         1,
-        { autoAlpha: 1, x: '0%', ease: Elastic.easeOut, easeParams: [0.9, 1] },
+        { autoAlpha: 1, x: "0%", ease: Elastic.easeOut, easeParams: [0.9, 1] },
         1.4
       );
 
@@ -132,8 +132,8 @@ class Processbar extends Component {
     let counters = [];
 
     for (let i = 0, len = this.props.data.length; i < len; i++) {
-      const counterEl = this.refs['processcounter-' + i];
-      const processbarEl = this.refs['processbar-' + i];
+      const counterEl = this.refs["processcounter-" + i];
+      const processbarEl = this.refs["processbar-" + i];
       const percentage = this.props.data[i].percentage;
       const fullWidth =
         processbarEl.viewportElement.clientWidth ||
@@ -145,45 +145,45 @@ class Processbar extends Component {
         autoAlpha: 0,
         scale: 0,
         z: 0.01,
-        y: '20px'
+        y: "20px",
       })
         .to(counterEl, 1.5, {
           scale: 1,
-          y: '0%',
+          y: "0%",
           autoAlpha: 1,
           ease: Elastic.easeOut,
-          easeParams: [1.2, 0.3]
+          easeParams: [1.2, 0.3],
         })
         .to(
           counterEl,
           1.5,
           {
             x: calcPercentageWidth,
-            ease: Power2.easeOut
+            ease: Power2.easeOut,
           },
-          '-=1.5'
+          "-=1.5"
         )
         .to(
           counters[i],
           1.5,
           {
-            score: '+=' + percentage,
-            roundProps: 'score',
+            score: "+=" + percentage,
+            roundProps: "score",
             onUpdate: () => {
               counterEl.children[0].innerHTML = counters[i].score;
             },
-            ease: Linear.easeNone
+            ease: Linear.easeNone,
           },
-          '-=1.5'
+          "-=1.5"
         )
         .to(
           processbarEl,
           1.5,
           {
-            attr: { width: percentage + '%' },
-            ease: Power2.easeOut
+            attr: { width: percentage + "%" },
+            ease: Power2.easeOut,
           },
-          '-=1.5'
+          "-=1.5"
         );
     }
 
@@ -195,14 +195,14 @@ class Processbar extends Component {
       return (
         <div className="processbar-row" key={i}>
           <div
-            className={classnames('processbar-left', 'processbar-left-' + id)}
+            className={classnames("processbar-left", "processbar-left-" + id)}
           >
             <h2>{row.name}</h2>
           </div>
           <div
-            className={classnames('processbar-right', 'processbar-right-' + id)}
+            className={classnames("processbar-right", "processbar-right-" + id)}
           >
-            <span className="processbar-counter" ref={'processcounter-' + i}>
+            <span className="processbar-counter" ref={"processcounter-" + i}>
               <span>0</span>
               <span>%</span>
             </span>
@@ -222,7 +222,7 @@ class Processbar extends Component {
                   height={this.props.height}
                   fill="#FF92F6"
                   width="0"
-                  ref={'processbar-' + i}
+                  ref={"processbar-" + i}
                 />
               </svg>
             </div>
@@ -237,7 +237,7 @@ class Processbar extends Component {
     return (
       <div className="processbar-container">
         <h2 className="name processbars-header">
-          <span ref={'title-' + id}>{title}</span>
+          <span ref={"title-" + id}>{title}</span>
         </h2>
         <div className="processbar-row--container">
           {this.renderRows(data, id)}

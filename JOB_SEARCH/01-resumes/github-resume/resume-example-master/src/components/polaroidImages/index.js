@@ -1,2 +1,2 @@
-import PolariodImages from './polaroidImages';
+import PolariodImages from "./polaroidImages";
 export default PolariodImages;
