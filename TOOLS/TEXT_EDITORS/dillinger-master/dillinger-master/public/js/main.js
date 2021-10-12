@@ -27023,15 +27023,17 @@
     })(window, document)
   },
   function (e, t, i) {
-    var n, r, a
-    /*! jQuery UI - v1.12.1 - 2017-03-19
-     * http://jqueryui.com
-     * Includes: widget.js, position.js, data.js, disable-selection.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/draggable.js, widgets/droppable.js, widgets/resizable.js, widgets/selectable.js, widgets/sortable.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/selectmenu.js, widgets/slider.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js
-     * Copyright jQuery Foundation and other contributors; Licensed MIT */
-    /*! jQuery UI - v1.12.1 - 2017-03-19
-     * http://jqueryui.com
-     * Includes: widget.js, position.js, data.js, disable-selection.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/draggable.js, widgets/droppable.js, widgets/resizable.js, widgets/selectable.js, widgets/sortable.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/selectmenu.js, widgets/slider.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js
-     * Copyright jQuery Foundation and other contributors; Licensed MIT */
+    var n,
+      r,
+      a
+      /*! jQuery UI - v1.12.1 - 2017-03-19
+       * http://jqueryui.com
+       * Includes: widget.js, position.js, data.js, disable-selection.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/draggable.js, widgets/droppable.js, widgets/resizable.js, widgets/selectable.js, widgets/sortable.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/selectmenu.js, widgets/slider.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js
+       * Copyright jQuery Foundation and other contributors; Licensed MIT */
+      /*! jQuery UI - v1.12.1 - 2017-03-19
+       * http://jqueryui.com
+       * Includes: widget.js, position.js, data.js, disable-selection.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/draggable.js, widgets/droppable.js, widgets/resizable.js, widgets/selectable.js, widgets/sortable.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/selectmenu.js, widgets/slider.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js
+       * Copyright jQuery Foundation and other contributors; Licensed MIT */
     ;(function (s) {
       if (true) {
         !((r = [i(43)]),
@@ -32774,13 +32776,11 @@
               })
               .attr('tabIndex', -1)
           }
-          i.attr('aria-hidden', 'false')
-            .prev()
-            .attr({
-              'aria-selected': 'true',
-              'aria-expanded': 'true',
-              tabIndex: 0
-            })
+          i.attr('aria-hidden', 'false').prev().attr({
+            'aria-selected': 'true',
+            'aria-expanded': 'true',
+            tabIndex: 0
+          })
         },
         _animate: function (e, t, i) {
           var n,
@@ -39435,13 +39435,11 @@
           this._setOptionDisabled(this.options.disabled)
           this._setupEvents(this.options.event)
           this._setupHeightStyle(this.options.heightStyle)
-          this.tabs
-            .not(this.active)
-            .attr({
-              'aria-selected': 'false',
-              'aria-expanded': 'false',
-              tabIndex: -1
-            })
+          this.tabs.not(this.active).attr({
+            'aria-selected': 'false',
+            'aria-expanded': 'false',
+            tabIndex: -1
+          })
           this.panels
             .not(this._getPanelForTab(this.active))
             .hide()
@@ -40953,15 +40951,13 @@
                   height: t.outerHeight(true),
                   float: t.css('float')
                 },
-                n = e('<div></div>')
-                  .addClass('ui-effects-wrapper')
-                  .css({
-                    fontSize: '100%',
-                    background: 'transparent',
-                    border: 'none',
-                    margin: 0,
-                    padding: 0
-                  }),
+                n = e('<div></div>').addClass('ui-effects-wrapper').css({
+                  fontSize: '100%',
+                  background: 'transparent',
+                  border: 'none',
+                  margin: 0,
+                  padding: 0
+                }),
                 r = { width: t.width(), height: t.height() },
                 a = document.activeElement
               try {

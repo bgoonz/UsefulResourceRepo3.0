@@ -20,7 +20,6 @@ module.exports = angular
       vm.importFile = importFile
 
       //////////////////////////////
-
       ;(function () {
         setInterval(function () {
           bitbucketService.refreshToken()

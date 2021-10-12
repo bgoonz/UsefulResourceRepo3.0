@@ -15416,20 +15416,21 @@
     }
   },
   function (on, sn, e) {
-    var ln, cn
-    /*!
-     * jQuery JavaScript Library v3.4.1
-     * https://jquery.com/
-     *
-     * Includes Sizzle.js
-     * https://sizzlejs.com/
-     *
-     * Copyright JS Foundation and other contributors
-     * Released under the MIT license
-     * https://jquery.org/license
-     *
-     * Date: 2019-05-01T21:04Z
-     */
+    var ln,
+      cn
+      /*!
+       * jQuery JavaScript Library v3.4.1
+       * https://jquery.com/
+       *
+       * Includes Sizzle.js
+       * https://sizzlejs.com/
+       *
+       * Copyright JS Foundation and other contributors
+       * Released under the MIT license
+       * https://jquery.org/license
+       *
+       * Date: 2019-05-01T21:04Z
+       */
     ;(function (e, t) {
       'use strict'
       if (true && typeof on.exports === 'object') {
@@ -27289,11 +27290,13 @@
     })(window, document)
   },
   function (t, n, i) {
-    var r, a, o
-    /*! jQuery UI - v1.12.1 - 2017-03-19
-     * http://jqueryui.com
-     * Includes: widget.js, position.js, data.js, disable-selection.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/draggable.js, widgets/droppable.js, widgets/resizable.js, widgets/selectable.js, widgets/sortable.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/selectmenu.js, widgets/slider.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js
-     * Copyright jQuery Foundation and other contributors; Licensed MIT */
+    var r,
+      a,
+      o
+      /*! jQuery UI - v1.12.1 - 2017-03-19
+       * http://jqueryui.com
+       * Includes: widget.js, position.js, data.js, disable-selection.js, focusable.js, form-reset-mixin.js, jquery-1-7.js, keycode.js, labels.js, scroll-parent.js, tabbable.js, unique-id.js, widgets/draggable.js, widgets/droppable.js, widgets/resizable.js, widgets/selectable.js, widgets/sortable.js, widgets/accordion.js, widgets/autocomplete.js, widgets/button.js, widgets/checkboxradio.js, widgets/controlgroup.js, widgets/datepicker.js, widgets/dialog.js, widgets/menu.js, widgets/mouse.js, widgets/progressbar.js, widgets/selectmenu.js, widgets/slider.js, widgets/spinner.js, widgets/tabs.js, widgets/tooltip.js, effect.js, effects/effect-blind.js, effects/effect-bounce.js, effects/effect-clip.js, effects/effect-drop.js, effects/effect-explode.js, effects/effect-fade.js, effects/effect-fold.js, effects/effect-highlight.js, effects/effect-puff.js, effects/effect-pulsate.js, effects/effect-scale.js, effects/effect-shake.js, effects/effect-size.js, effects/effect-slide.js, effects/effect-transfer.js
+       * Copyright jQuery Foundation and other contributors; Licensed MIT */
     ;(function (e) {
       if (true) {
         !((a = [i(43)]),
@@ -33026,13 +33029,11 @@
               })
               .attr('tabIndex', -1)
           }
-          t.attr('aria-hidden', 'false')
-            .prev()
-            .attr({
-              'aria-selected': 'true',
-              'aria-expanded': 'true',
-              tabIndex: 0
-            })
+          t.attr('aria-hidden', 'false').prev().attr({
+            'aria-selected': 'true',
+            'aria-expanded': 'true',
+            tabIndex: 0
+          })
         },
         _animate: function (e, n, t) {
           var i,
@@ -39683,13 +39684,11 @@
           this._setOptionDisabled(this.options.disabled)
           this._setupEvents(this.options.event)
           this._setupHeightStyle(this.options.heightStyle)
-          this.tabs
-            .not(this.active)
-            .attr({
-              'aria-selected': 'false',
-              'aria-expanded': 'false',
-              tabIndex: -1
-            })
+          this.tabs.not(this.active).attr({
+            'aria-selected': 'false',
+            'aria-expanded': 'false',
+            tabIndex: -1
+          })
           this.panels
             .not(this._getPanelForTab(this.active))
             .hide()
@@ -41191,15 +41190,13 @@
                   height: n.outerHeight(true),
                   float: n.css('float')
                 },
-                e = E('<div></div>')
-                  .addClass('ui-effects-wrapper')
-                  .css({
-                    fontSize: '100%',
-                    background: 'transparent',
-                    border: 'none',
-                    margin: 0,
-                    padding: 0
-                  }),
+                e = E('<div></div>').addClass('ui-effects-wrapper').css({
+                  fontSize: '100%',
+                  background: 'transparent',
+                  border: 'none',
+                  margin: 0,
+                  padding: 0
+                }),
                 t = { width: n.width(), height: n.height() },
                 r = document.activeElement
               try {
@@ -102400,7 +102397,8 @@ object-assign
   function (e, O, B) {
     ;(function (P, L) {
       var R
-      /*! https://mths.be/punycode v1.4.1 by @mathias */ ;(function (e) {
+        /*! https://mths.be/punycode v1.4.1 by @mathias */
+      ;(function (e) {
         var t = true && O && !O.nodeType && O
         var n = true && P && !P.nodeType && P
         var i = typeof L == 'object' && L
