@@ -1,4 +1,5 @@
 ## 2.0 BOOTSTRAP JS PHILOSOPHY
+
 These are the high-level design rules which guide the development of Bootstrap's plugin apis.
 
 ---
@@ -65,7 +66,6 @@ All events should have an infinitive and past participle form. The infinitive is
 ### CONSTRUCTORS
 
 Each plugin should expose it's raw constructor on a `Constructor` property -- accessed in the following way:
-
 
     $.fn.popover.Constructor
 
