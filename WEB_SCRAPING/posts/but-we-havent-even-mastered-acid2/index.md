@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# But we haven't even mastered Acid2!
+But we haven't even mastered Acid2!
+===================================
 
 March 06, 2008 • 1 min read
 
@@ -24,7 +25,7 @@ Just as no browser properly rendered the Acid2 Test when it was released, no bro
 
 <a href="../../tags/browsers/index.html" class="post-tag">browsers</a> <a href="../../tags/web%20standards/index.html" class="post-tag">web standards</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -32,6 +33,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../netscape-support-ending-in-february-2008/index.html" class="post-nav-previous"><span class="small">Previous post</span> Netscape support ending in February 2008</a> <a href="../determine-file-extensions-using-javascript/index.html" class="post-nav-next"><span class="small">Up next</span> Determine file extensions using JavaScript</a>

@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Feature detection for CSS transitions via jQuery $.support
+Feature detection for CSS transitions via jQuery $.support
+==========================================================
 
 December 09, 2012 • 1 min read
 
@@ -27,7 +28,7 @@ The value of `$.support.transition` will be `true` or `false` depending on th
 
 <a href="../../tags/javascript/index.html" class="post-tag">javascript</a> <a href="../../tags/jquery/index.html" class="post-tag">jquery</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -35,6 +36,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../access-pages-without-the-php-extension-using-htaccess/index.html" class="post-nav-previous"><span class="small">Previous post</span> Access pages without the php extension using .htaccess</a> <a href="../down-with-the-share-widget/index.html" class="post-nav-next"><span class="small">Up next</span> Down with the share widget!</a>

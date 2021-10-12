@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Creating a printable website using print stylesheets
+Creating a printable website using print stylesheets
+====================================================
 
 May 28, 2007 • 4 min read
 
@@ -22,13 +23,15 @@ To add insult to injury, both of the aforementioned methods result in the user d
 
 ![Example without print styles](../../images/no_print_styles_example.jpg)
 
-## Enter print stylesheets <a href="#enter-print-stylesheets" class="direct-link">#</a>
+Enter print stylesheets <a href="#enter-print-stylesheets" class="direct-link">#</a>
+------------------------------------------------------------------------------------
 
 With the web standards revolution going at full force, more and more people are understanding the need for semantic markup and stylesheets. The benefits are many compared to what little old-fashioned development techniques have to offer. In fact, there are [millions of articles](http://www.google.com/search?q=the+benefits+of+web+standards) on the web that outline the very benefits I'm referring to.
 
 This article will cover one aspect of standard CSS that is becoming more and more popular in everyday development practice: print stylesheets.
 
-## A new way of printing <a href="#a-new-way-of-printing" class="direct-link">#</a>
+A new way of printing <a href="#a-new-way-of-printing" class="direct-link">#</a>
+--------------------------------------------------------------------------------
 
 When I began developing A Beautiful Site's Notebook, one of the things I really wanted people to be able to do was print the articles. After all, what good is an article if you can't print it out and take it with you? Another thing I wanted was for the printouts to look clean and professional, which is what I ultimately achieved. If you don't believe me, print this page and see for yourself. I think the before & after results are rather convincing:
 
@@ -38,7 +41,8 @@ Notice how the version without print styles has the website title, navigation me
 
 Note that, compared to the previous examples, the non-styled version of A Beautiful Site's webpages are still clean and easy to read. One of the benefits of using semantic markup means that, print styles or not, your pages will be more legible when they come out of the printer.
 
-## Minimal effort <a href="#minimal-effort" class="direct-link">#</a>
+Minimal effort <a href="#minimal-effort" class="direct-link">#</a>
+------------------------------------------------------------------
 
 ### Linking the print stylesheet <a href="#linking-the-print-stylesheet" class="direct-link">#</a>
 
@@ -56,7 +60,7 @@ You could simply start from scratch and attempt to recreate the entire look and 
 
 First, I copy the normal stylesheet to the new stylesheet. That's right, `select all` → `copy` → `paste`.
 
-Second, I decide which elements I _don't_ want to appear on the printed version. For this example, let's pretend we have the following elements: `header`, `nav-menu`, `sidebar`, `content`, and `footer`. The only essential element for the printed version will be `content`, which contains the information that the user is actually trying to print.
+Second, I decide which elements I *don't* want to appear on the printed version. For this example, let's pretend we have the following elements: `header`, `nav-menu`, `sidebar`, `content`, and `footer`. The only essential element for the printed version will be `content`, which contains the information that the user is actually trying to print.
 
 Next, I disable all of the unnecessary elements from appearing using standard CSS:
 
@@ -77,7 +81,7 @@ You can preview your design without having to print it out using the `Print Prev
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/css/index.html" class="post-tag">css</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -85,6 +89,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../css-drop-caps/index.html" class="post-nav-previous"><span class="small">Previous post</span> CSS drop caps</a> <a href="../creating-stylesheets-for-handheld-devices/index.html" class="post-nav-next"><span class="small">Up next</span> Creating stylesheets for handheld devices</a>

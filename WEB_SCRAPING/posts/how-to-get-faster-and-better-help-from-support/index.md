@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# How to get faster and better help from support
+How to get faster and better help from support
+==============================================
 
 August 05, 2014 • 6 min read
 
@@ -13,18 +14,20 @@ Of course, support isn't an easy job. I've done my fair share in the past, and I
 
 Here are some tips you can use to better your odds of getting a resolution on your first interaction with support.
 
-## Explain the problem clearly <a href="#explain-the-problem-clearly" class="direct-link">#</a>
+Explain the problem clearly <a href="#explain-the-problem-clearly" class="direct-link">#</a>
+--------------------------------------------------------------------------------------------
 
 What's obvious to you may not be obvious to the person reading your support ticket. Tell them exactly what's going on. Re-read what you wrote before sending it in and ask yourself if the following questions would make sense to another person:
 
-- What were you trying to do?
-- How did you try to do it?
-- What did you expect to happen?
-- What actually happened?
+-   What were you trying to do?
+-   How did you try to do it?
+-   What did you expect to happen?
+-   What actually happened?
 
 In most cases, this would be enough information for me to resolve a support ticket. Don't have tunnel vision when you submit your request. The person on the other end may not know that you were in a certain screen or trying to do a certain task. A clear, concise explanation will alleviate questions that are otherwise obvious to you and can result in a faster resolution.
 
-## Provide step-by-step instructions <a href="#provide-step-by-step-instructions" class="direct-link">#</a>
+Provide step-by-step instructions <a href="#provide-step-by-step-instructions" class="direct-link">#</a>
+--------------------------------------------------------------------------------------------------------
 
 When applicable, provide a bulleted list of the steps you took to produce the error or problem. Unless they have a screen-sharing app, support has no way to see what you're seeing. Tell them what you click, type, or do in a simple list:
 
@@ -36,19 +39,22 @@ When applicable, provide a bulleted list of the steps you took to produce the er
 
 Don't say something like, "I tried to delete Bob but couldn't." There could be many ways to delete a user and the way you're doing it could be broken—or you could be doing it wrong. Supports needs to know how you're doing things to replicate and fix whatever the issue is.
 
-## Act like a decent person <a href="#act-like-a-decent-person" class="direct-link">#</a>
+Act like a decent person <a href="#act-like-a-decent-person" class="direct-link">#</a>
+--------------------------------------------------------------------------------------
 
 It should go without saying, but some people still think that hiding behind their monitor and acting like a pretentious asshole is a great way to get help from support. Nothing personal, but the individual you're trying to get help from doesn't care if you're a CEO, a doctor, or the Pope. You're just a number, and reiterating how important you think you are doesn't do anything to get a faster resolution. Neither does sarcasm, name calling, or profanity.
 
 If you want to have a better support experience, just act like a decent human being. Throw a smiley in there to relieve the tension a bit. I guarantee you'll have a better shot at getting help if you don't act like a jerk. (Tip: I almost always pick the "nice" tickets before the "mean" ones and I pay more attention when those names come up again in the future.)
 
-## Be responsive <a href="#be-responsive" class="direct-link">#</a>
+Be responsive <a href="#be-responsive" class="direct-link">#</a>
+----------------------------------------------------------------
 
 This is absolutely critical if the support team requires additional information or clarification from you. Make yourself available to answer any questions and aid them in resolving the problem. I've seen tickets sit open for weeks because the person who submitted it went on holiday or "didn't have time" to respond.
 
 Once your support ticket is in progress, you'll almost always see faster response times than when you submit a new ticket. Take advantage of it and respond as quickly as possible. The sooner you get back to them, the sooner they can get back to you.
 
-## Talk about your technology <a href="#talk-about-your-technology" class="direct-link">#</a>
+Talk about your technology <a href="#talk-about-your-technology" class="direct-link">#</a>
+------------------------------------------------------------------------------------------
 
 If you're having a problem with software or a web app, tell the support team what operating system and version you're running. When applicable, do the same for your web browser. You'd be surprised how many times simply knowing this would have let me close out tickets on the first interaction. Many web apps include this information in their error reporting or ticketing systems—but it still doesn't hurt to provide it.
 
@@ -56,13 +62,15 @@ If you don't know what operating system or browser you're using, you can find ou
 
 If you're submitting an issue about a web app, keep in mind that browser plugins and add-ons can cause mysterious things to happen. I've seen all sorts of seemingly unrelated things happen as a result of third-party plugins. Try disabling them before submitting a support ticket, or at least let the support person know which ones you have installed in case there's a known issue.
 
-## Don't paste in huge amounts of text <a href="#don&#39;t-paste-in-huge-amounts-of-text" class="direct-link">#</a>
+Don't paste in huge amounts of text <a href="#don&#39;t-paste-in-huge-amounts-of-text" class="direct-link">#</a>
+----------------------------------------------------------------------------------------------------------------
 
 This is especially true if you're a developer. Don't paste in a megabyte of code or text to "show" support. It just makes the ticket harder to read. I get a certain tingling in my hand when I open a ticket that does this and it makes me want to skip forward to the next one. Please, for the love of everything sacred, use a service like [PasteBin](http://pastebin.com/). If you don't want the information to be public, create a secure link using [Dropbox](http://www.dropbox.com/) or even send it as an email attachment.
 
 Whatever you do, don't start pasting globs of text into your support ticket. Keep the message area to a minimum and link to or attach supplemental information as needed.
 
-## Know when to mark things as "urgent" <a href="#know-when-to-mark-things-as-%22urgent%22" class="direct-link">#</a>
+Know when to mark things as "urgent" <a href="#know-when-to-mark-things-as-%22urgent%22" class="direct-link">#</a>
+------------------------------------------------------------------------------------------------------------------
 
 It's true. Not every issue you submit to support is urgent, so think twice before you check that box or litter the subject line with words like "critical" and "important."
 
@@ -72,7 +80,8 @@ Think of it like this. If you're looking out your living room window and see a s
 
 Is your issue worth dialing your support team's 911 hotline? If so, it's probably urgent.
 
-## Don't email your password <a href="#don&#39;t-email-your-password" class="direct-link">#</a>
+Don't email your password <a href="#don&#39;t-email-your-password" class="direct-link">#</a>
+--------------------------------------------------------------------------------------------
 
 A support person should never ask you for your password. They have ways of accessing your account securely without having you send your login credentials through a ticket system or email. Don't volunteer it to them, either, because every time they hit "reply" or "forward" your password might be getting sent across the Internet in plain-text.
 
@@ -80,7 +89,8 @@ In some cases, like Media Temple, you'll need to generate a support pin to verif
 
 If you haven't already, you should probably train your brain to throw a red flag whenever anyone asks you for your password.
 
-## Be patient <a href="#be-patient" class="direct-link">#</a>
+Be patient <a href="#be-patient" class="direct-link">#</a>
+----------------------------------------------------------
 
 Last but not least, give the support team time to respond. One of my services promises a 24-hour response time—and we deliver on that 99.9% of the time. That's not an easy feat for a bootstrapped company serving users all over the world, but it doesn't stop people from submitting multiple requests, often less than a couple hours apart.
 
@@ -90,7 +100,7 @@ Remember, you're speaking with real people out there. Even though support issues
 
 <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -98,6 +108,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../swapping-variables-with-javascript/index.html" class="post-nav-previous"><span class="small">Previous post</span> Swapping variables with JavaScript</a> <a href="../give-your-jpegs-alpha-channels/index.html" class="post-nav-next"><span class="small">Up next</span> Give your JPEGs alpha channels</a>

@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Getting localized month and day names in the browser
+Getting localized month and day names in the browser
+====================================================
 
 November 25, 2020 • 1 min read
 
@@ -53,7 +54,7 @@ And here's another tip — you can generate localized relative times such as "4 
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/news/index.html" class="post-tag">news</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -61,6 +62,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../shoelace-a-forward-thinking-library-of-web-components/index.html" class="post-nav-previous"><span class="small">Previous post</span> Shoelace 2.0: a forward-thinking library of web components</a> <a href="../archiving-postleaf/index.html" class="post-nav-next"><span class="small">Up next</span> Archiving Postleaf</a>

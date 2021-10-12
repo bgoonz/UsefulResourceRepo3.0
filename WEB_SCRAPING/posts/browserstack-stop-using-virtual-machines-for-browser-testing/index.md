@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# BrowserStack: stop using virtual machines for browser testing
+BrowserStack: stop using virtual machines for browser testing
+=============================================================
 
 August 29, 2014 • 1 min read
 
@@ -22,7 +23,7 @@ Either way, it's worth checking out. They offer a free trial that gives you 30 m
 
 <a href="../../tags/browsers/index.html" class="post-tag">browsers</a> <a href="../../tags/development/index.html" class="post-tag">development</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -30,6 +31,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../im-taking-startup-back/index.html" class="post-nav-previous"><span class="small">Previous post</span> I'm taking "startup" back</a> <a href="../stop-trying-to-build-the-next-unicorn/index.html" class="post-nav-next"><span class="small">Up next</span> Stop trying to build the next unicorn</a>

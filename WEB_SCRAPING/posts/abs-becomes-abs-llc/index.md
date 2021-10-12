@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# A Beautiful Site becomes "A Beautiful Site, LLC"
+A Beautiful Site becomes "A Beautiful Site, LLC"
+================================================
 
 October 18, 2008 • 1 min read
 
@@ -20,7 +21,7 @@ To all of our clients, readers, and friends: Thank you for all of your support o
 
 <a href="../../tags/news/index.html" class="post-tag">news</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -28,6 +29,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../import-restore-mysql-files-from-the-command-line/index.html" class="post-nav-previous"><span class="small">Previous post</span> Import/restore MySQL files from the command line</a> <a href="../prevent-white-noise-from-appearing-in-images-after-fading/index.html" class="post-nav-next"><span class="small">Up next</span> Prevent white noise from appearing in images after fading</a>
