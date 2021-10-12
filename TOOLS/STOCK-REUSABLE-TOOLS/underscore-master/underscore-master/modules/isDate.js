@@ -1,3 +1,3 @@
-import tagTester from './_tagTester.js';
+import tagTester from "./_tagTester.js";
 
-export default tagTester('Date');
+export default tagTester("Date");

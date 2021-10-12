@@ -1,4 +1,4 @@
-import partial from './partial.js';
+import partial from "./partial.js";
 
 // Returns the first function passed as an argument to the second,
 // allowing you to adjust arguments, run code before and after, and

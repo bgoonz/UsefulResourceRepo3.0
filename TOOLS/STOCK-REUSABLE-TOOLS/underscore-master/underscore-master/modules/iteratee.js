@@ -1,5 +1,5 @@
-import _ from './underscore.js';
-import baseIteratee from './_baseIteratee.js';
+import _ from "./underscore.js";
+import baseIteratee from "./_baseIteratee.js";
 
 // External wrapper for our callback generator. Users may customize
 // `_.iteratee` if they want additional predicate/iteratee shorthand styles.

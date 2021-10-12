@@ -1,16 +1,16 @@
-import _ from './underscore.js';
-import { toString, SymbolProto } from './_setup.js';
-import getByteLength from './_getByteLength.js';
-import isTypedArray from './isTypedArray.js';
-import isFunction from './isFunction.js';
-import { hasStringTagBug }  from './_stringTagBug.js';
-import isDataView from './isDataView.js';
-import keys from './keys.js';
-import has from './_has.js';
-import toBufferView from './_toBufferView.js';
+import _ from "./underscore.js";
+import { toString, SymbolProto } from "./_setup.js";
+import getByteLength from "./_getByteLength.js";
+import isTypedArray from "./isTypedArray.js";
+import isFunction from "./isFunction.js";
+import { hasStringTagBug } from "./_stringTagBug.js";
+import isDataView from "./isDataView.js";
+import keys from "./keys.js";
+import has from "./_has.js";
+import toBufferView from "./_toBufferView.js";
 
 // We use this string twice, so give it a name for minification.
-var tagDataView = '[object DataView]';
+var tagDataView = "[object DataView]";
 
 // Internal recursive comparison function for `_.isEqual`.
 function eq(a, b, aStack, bStack) {
@@ -23,7 +23,8 @@ function eq(a, b, aStack, bStack) {
   if (a !== a) return b !== b;
   // Exhaust primitive checks
   var type = typeof a;
-  if (type !== 'function' && type !== 'object' && typeof b != 'object') return false;
+  if (type !== "function" && type !== "object" && typeof b != "object")
+    return false;
   return deepEq(a, b, aStack, bStack);
 }
 
@@ -36,54 +37,63 @@ function deepEq(a, b, aStack, bStack) {
   var className = toString.call(a);
   if (className !== toString.call(b)) return false;
   // Work around a bug in IE 10 - Edge 13.
-  if (hasStringTagBug && className == '[object Object]' && isDataView(a)) {
+  if (hasStringTagBug && className == "[object Object]" && isDataView(a)) {
     if (!isDataView(b)) return false;
     className = tagDataView;
   }
   switch (className) {
     // These types are compared by value.
-    case '[object RegExp]':
-      // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
-    case '[object String]':
+    case "[object RegExp]":
+    // RegExps are coerced to strings for comparison (Note: '' + /a/i === '/a/i')
+    case "[object String]":
       // Primitives and their corresponding object wrappers are equivalent; thus, `"5"` is
       // equivalent to `new String("5")`.
-      return '' + a === '' + b;
-    case '[object Number]':
+      return "" + a === "" + b;
+    case "[object Number]":
       // `NaN`s are equivalent, but non-reflexive.
       // Object(NaN) is equivalent to NaN.
       if (+a !== +a) return +b !== +b;
       // An `egal` comparison is performed for other numeric values.
       return +a === 0 ? 1 / +a === 1 / b : +a === +b;
-    case '[object Date]':
-    case '[object Boolean]':
+    case "[object Date]":
+    case "[object Boolean]":
       // Coerce dates and booleans to numeric primitive values. Dates are compared by their
       // millisecond representations. Note that invalid dates with millisecond representations
       // of `NaN` are not equivalent.
       return +a === +b;
-    case '[object Symbol]':
+    case "[object Symbol]":
       return SymbolProto.valueOf.call(a) === SymbolProto.valueOf.call(b);
-    case '[object ArrayBuffer]':
+    case "[object ArrayBuffer]":
     case tagDataView:
       // Coerce to typed array so we can fall through.
       return deepEq(toBufferView(a), toBufferView(b), aStack, bStack);
   }
 
-  var areArrays = className === '[object Array]';
+  var areArrays = className === "[object Array]";
   if (!areArrays && isTypedArray(a)) {
-      var byteLength = getByteLength(a);
-      if (byteLength !== getByteLength(b)) return false;
-      if (a.buffer === b.buffer && a.byteOffset === b.byteOffset) return true;
-      areArrays = true;
+    var byteLength = getByteLength(a);
+    if (byteLength !== getByteLength(b)) return false;
+    if (a.buffer === b.buffer && a.byteOffset === b.byteOffset) return true;
+    areArrays = true;
   }
   if (!areArrays) {
-    if (typeof a != 'object' || typeof b != 'object') return false;
+    if (typeof a != "object" || typeof b != "object") return false;
 
     // Objects with different constructors are not equivalent, but `Object`s or `Array`s
     // from different frames are.
-    var aCtor = a.constructor, bCtor = b.constructor;
-    if (aCtor !== bCtor && !(isFunction(aCtor) && aCtor instanceof aCtor &&
-                             isFunction(bCtor) && bCtor instanceof bCtor)
-                        && ('constructor' in a && 'constructor' in b)) {
+    var aCtor = a.constructor,
+      bCtor = b.constructor;
+    if (
+      aCtor !== bCtor &&
+      !(
+        isFunction(aCtor) &&
+        aCtor instanceof aCtor &&
+        isFunction(bCtor) &&
+        bCtor instanceof bCtor
+      ) &&
+      "constructor" in a &&
+      "constructor" in b
+    ) {
       return false;
     }
   }
@@ -116,7 +126,8 @@ function deepEq(a, b, aStack, bStack) {
     }
   } else {
     // Deep compare objects.
-    var _keys = keys(a), key;
+    var _keys = keys(a),
+      key;
     length = _keys.length;
     // Ensure that both objects contain the same number of properties before comparing deep equality.
     if (keys(b).length !== length) return false;

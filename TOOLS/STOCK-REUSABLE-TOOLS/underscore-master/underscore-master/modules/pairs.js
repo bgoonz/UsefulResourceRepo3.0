@@ -1,4 +1,4 @@
-import keys from './keys.js';
+import keys from "./keys.js";
 
 // Convert an object into a list of `[key, value]` pairs.
 // The opposite of `_.object` with one argument.

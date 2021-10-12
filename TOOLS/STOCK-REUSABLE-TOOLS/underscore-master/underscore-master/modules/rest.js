@@ -1,4 +1,4 @@
-import { slice } from './_setup.js';
+import { slice } from "./_setup.js";
 
 // Returns everything but the first entry of the `array`. Especially useful on
 // the `arguments` object. Passing an **n** will return the rest N values in the

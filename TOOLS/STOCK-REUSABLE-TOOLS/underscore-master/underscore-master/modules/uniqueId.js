@@ -2,6 +2,6 @@
 // Useful for temporary DOM ids.
 var idCounter = 0;
 export default function uniqueId(prefix) {
-  var id = ++idCounter + '';
+  var id = ++idCounter + "";
   return prefix ? prefix + id : id;
 }

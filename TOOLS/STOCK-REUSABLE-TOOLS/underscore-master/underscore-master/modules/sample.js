@@ -1,8 +1,8 @@
-import isArrayLike from './_isArrayLike.js';
-import clone from './clone.js';
-import values from './values.js';
-import getLength from './_getLength.js';
-import random from './random.js';
+import isArrayLike from "./_isArrayLike.js";
+import clone from "./clone.js";
+import values from "./values.js";
+import getLength from "./_getLength.js";
+import random from "./random.js";
 
 // Sample **n** random values from a collection using the modern version of the
 // [Fisher-Yates shuffle](https://en.wikipedia.org/wiki/Fisher–Yates_shuffle).

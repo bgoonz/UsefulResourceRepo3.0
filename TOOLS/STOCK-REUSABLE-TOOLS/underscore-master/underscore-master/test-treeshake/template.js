@@ -1,1 +1,1 @@
-export { template } from '../modules/index-all.js';
+export { template } from "../modules/index-all.js";

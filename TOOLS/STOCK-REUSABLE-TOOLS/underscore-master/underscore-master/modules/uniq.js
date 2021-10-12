@@ -1,7 +1,7 @@
-import isBoolean from './isBoolean.js';
-import cb from './_cb.js';
-import getLength from './_getLength.js';
-import contains from './contains.js';
+import isBoolean from "./isBoolean.js";
+import cb from "./_cb.js";
+import getLength from "./_getLength.js";
+import contains from "./contains.js";
 
 // Produce a duplicate-free version of the array. If the array has already
 // been sorted, you have the option of using a faster algorithm.
@@ -19,7 +19,7 @@ export default function uniq(array, isSorted, iteratee, context) {
   var seen = [];
   for (var i = 0, length = getLength(array); i < length; i++) {
     var value = array[i],
-        computed = iteratee ? iteratee(value, i, array) : value;
+      computed = iteratee ? iteratee(value, i, array) : value;
     if (isSorted && !iteratee) {
       if (!i || seen !== computed) result.push(value);
       seen = computed;

@@ -1,9 +1,8 @@
 'use strict'
-
 ;(function (window, document) {
   var angular
 
-  // jQuery
+    // jQuery
   ;(window.jQuery = require('jquery')),
     require('jquery-ui-bundle/jquery-ui.js'),
     require('inverseresize/alsoResizeReverse/alsoResizeInverse')

@@ -1,5 +1,5 @@
-import getLength from './_getLength.js';
-import contains from './contains.js';
+import getLength from "./_getLength.js";
+import contains from "./contains.js";
 
 // Produce an array that contains every item shared between all the
 // passed-in arrays.

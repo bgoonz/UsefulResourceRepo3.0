@@ -16,8 +16,8 @@
 // // UMD in the browser
 // // _ is available as a global variable
 // ```
-import * as allExports from './index.js';
-import { mixin } from './index.js';
+import * as allExports from "./index.js";
+import { mixin } from "./index.js";
 
 // Add all of the Underscore functions to the wrapper object.
 var _ = mixin(allExports);

@@ -1,5 +1,5 @@
-import _has from './_has.js';
-import toPath from './_toPath.js';
+import _has from "./_has.js";
+import toPath from "./_toPath.js";
 
 // Shortcut function for checking if an object has a given property directly on
 // itself (in other words, not on a prototype). Unlike the internal `has`

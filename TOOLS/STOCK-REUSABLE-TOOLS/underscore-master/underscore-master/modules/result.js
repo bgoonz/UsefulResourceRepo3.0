@@ -1,5 +1,5 @@
-import isFunction from './isFunction.js';
-import toPath from './_toPath.js';
+import isFunction from "./isFunction.js";
+import toPath from "./_toPath.js";
 
 // Traverses the children of `obj` along `path`. If a child is a function, it
 // is invoked with its parent as context. Returns the value of the final

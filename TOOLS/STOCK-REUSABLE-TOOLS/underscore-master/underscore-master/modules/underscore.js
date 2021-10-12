@@ -1,4 +1,4 @@
-import { VERSION } from './_setup.js';
+import { VERSION } from "./_setup.js";
 
 // If Underscore is called as a function, it returns a wrapped object that can
 // be used OO-style. This wrapper holds altered versions of all functions added
@@ -12,7 +12,7 @@ export default function _(obj) {
 _.VERSION = VERSION;
 
 // Extracts the result from a wrapped and chained object.
-_.prototype.value = function() {
+_.prototype.value = function () {
   return this._wrapped;
 };
 
@@ -20,6 +20,6 @@ _.prototype.value = function() {
 // such as arithmetic and JSON stringification.
 _.prototype.valueOf = _.prototype.toJSON = _.prototype.value;
 
-_.prototype.toString = function() {
+_.prototype.toString = function () {
   return String(this._wrapped);
 };

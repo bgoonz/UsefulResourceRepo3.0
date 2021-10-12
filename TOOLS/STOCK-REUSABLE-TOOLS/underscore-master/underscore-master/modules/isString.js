@@ -1,3 +1,3 @@
-import tagTester from './_tagTester.js';
+import tagTester from "./_tagTester.js";
 
-export default tagTester('String');
+export default tagTester("String");

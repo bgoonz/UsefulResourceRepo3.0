@@ -1,4 +1,4 @@
-import getLength  from './_getLength.js';
+import getLength from "./_getLength.js";
 
 // Converts lists into objects. Pass either a single array of `[key, value]`
 // pairs, or two parallel arrays of the same length -- one of keys, and one of

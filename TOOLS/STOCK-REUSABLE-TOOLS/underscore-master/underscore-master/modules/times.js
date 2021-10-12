@@ -1,4 +1,4 @@
-import optimizeCb from './_optimizeCb.js';
+import optimizeCb from "./_optimizeCb.js";
 
 // Run a function **n** times.
 export default function times(n, iteratee, context) {

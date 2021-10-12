@@ -1,4 +1,4 @@
-import now from './now.js';
+import now from "./now.js";
 
 // Returns a function, that, when invoked, will only be triggered at most once
 // during a given window of time. Normally, the throttled function will run
@@ -10,14 +10,14 @@ export default function throttle(func, wait, options) {
   var previous = 0;
   if (!options) options = {};
 
-  var later = function() {
+  var later = function () {
     previous = options.leading === false ? 0 : now();
     timeout = null;
     result = func.apply(context, args);
     if (!timeout) context = args = null;
   };
 
-  var throttled = function() {
+  var throttled = function () {
     var _now = now();
     if (!previous && options.leading === false) previous = _now;
     var remaining = wait - (_now - previous);
@@ -37,7 +37,7 @@ export default function throttle(func, wait, options) {
     return result;
   };
 
-  throttled.cancel = function() {
+  throttled.cancel = function () {
     clearTimeout(timeout);
     previous = 0;
     timeout = context = args = null;

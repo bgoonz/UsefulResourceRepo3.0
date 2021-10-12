@@ -1,4 +1,4 @@
-import isFunction from './isFunction.js';
+import isFunction from "./isFunction.js";
 
 // Return a sorted list of the function names available on the object.
 export default function functions(obj) {

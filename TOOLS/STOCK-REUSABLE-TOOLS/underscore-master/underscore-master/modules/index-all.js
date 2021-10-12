@@ -14,5 +14,5 @@
 // export, its properties are not automatically available as named exports. For
 // this reason, we re-export the named exports in addition to providing the same
 // default export as in `./index-default`.
-export { default } from './index-default.js';
-export * from './index.js';
+export { default } from "./index-default.js";
+export * from "./index.js";

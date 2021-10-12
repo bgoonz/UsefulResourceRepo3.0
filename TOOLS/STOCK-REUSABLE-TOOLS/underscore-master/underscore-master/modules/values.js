@@ -1,4 +1,4 @@
-import keys from './keys.js';
+import keys from "./keys.js";
 
 // Retrieve the values of an object's properties.
 export default function values(obj) {

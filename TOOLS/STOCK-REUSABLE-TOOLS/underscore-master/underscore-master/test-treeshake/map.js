@@ -1,1 +1,1 @@
-export { default as map } from '../modules/map.js';
+export { default as map } from "../modules/map.js";
