@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Lessons from a failed Kickstarter
+Lessons from a failed Kickstarter
+=================================
 
 March 28, 2016 • 8 min read
 
@@ -10,7 +11,8 @@ Last week, I launched Particle on Kickstarter. Today, I pulled the plug and canc
 
 The fact is, this campaign failed before it started, and it was all my fault. I became so consumed by building and running the Kickstarter that I lost my focus on the product I was creating. Here are some of the things I did wrong and why I terminated the campaign early.
 
-## Not building a following <a href="#not-building-a-following" class="direct-link">#</a>
+Not building a following <a href="#not-building-a-following" class="direct-link">#</a>
+--------------------------------------------------------------------------------------
 
 The most important element to a successful crowdfunding campaign is reaching people. Not just anyone, but people interested in what you have to offer — potential backers. Before launching on Kickstarter, I was well aware that many campaigns spent months or even years building a following prior to launching.
 
@@ -18,7 +20,8 @@ This was my fatal mistake. I thought I could bypass this requirement because I h
 
 The results of this obviously weren't favorable. In hindsight, I would have been better off buying ad space on the back of milk cartons. Or maybe not...
 
-## Relying on advertisements <a href="#relying-on-advertisements" class="direct-link">#</a>
+Relying on advertisements <a href="#relying-on-advertisements" class="direct-link">#</a>
+----------------------------------------------------------------------------------------
 
 As a SaaS owner, I'm no stranger to buying banner ads to promote my services. When I realized my first plan of action wasn't performing very well, I figured I'd try a paid advertisement. I knew this was a bad idea, but surely people would see how great my unreleased Kickstarter product was in a 300x125 banner ad and start throwing dollar bills at it!
 
@@ -26,7 +29,8 @@ Yeah, what was I thinking? It only took a couple days to confirm this mistake. E
 
 In short, if you rely on ads to drive traffic to your crowdfunding campaign, you're gonna have a bad time.
 
-## Falling for kickstarter spam <a href="#falling-for-kickstarter-spam" class="direct-link">#</a>
+Falling for kickstarter spam <a href="#falling-for-kickstarter-spam" class="direct-link">#</a>
+----------------------------------------------------------------------------------------------
 
 Something I didn't realize until after my campaign launched is that you'll receive a ton of spam through Kickstarter's messaging system. You'll get messages from people who seem legit, but obviously aren't when you look closely at their profile (hint: a signup date of today is a dead giveaway).
 
@@ -38,7 +42,8 @@ BackerClub pretends to be exclusive. You have to "apply" to be featured in their
 
 It's amazing how crowdfunding has spawned an entire ecosystem of scumbags who feed off creators that are trying to raise money for projects they've put so much heart and soul into. Trust me, no matter how desperate you are or how good it sounds, it's bullshit.
 
-## Promoting via social media <a href="#promoting-via-social-media" class="direct-link">#</a>
+Promoting via social media <a href="#promoting-via-social-media" class="direct-link">#</a>
+------------------------------------------------------------------------------------------
 
 This goes hand in hand with not building a following, but I did have a little bit of success promoting Particle on Twitter. Obviously, your results will be better if you have a strong network established and you maintain proper etiquette.
 
@@ -50,7 +55,8 @@ You start crapping out links to your project with every tweet and your whole soc
 
 Don't "promote" your campaign like I did. While I did recruit a handful of backers from Twitter, it wasn't worth the effort or the dent in my reputation. There's a right way and a wrong way to promote things on social media. That was the wrong way.
 
-## Hoping for a break <a href="#hoping-for-a-break" class="direct-link">#</a>
+Hoping for a break <a href="#hoping-for-a-break" class="direct-link">#</a>
+--------------------------------------------------------------------------
 
 If your Plan B involves sending emails to everyone at TechCrunch, Mashable, and every other big name blog you can think of hoping to get picked up, don't fucking launch a crowdfunding campaign.
 
@@ -60,13 +66,15 @@ It's not that they don't give a shit about Particle, they just have a million em
 
 Honestly, who wants to write about a blogging platform that hasn't launched yet? Not TechCrunch or Mashable, that's for sure.
 
-## Not having a shill <a href="#not-having-a-shill" class="direct-link">#</a>
+Not having a shill <a href="#not-having-a-shill" class="direct-link">#</a>
+--------------------------------------------------------------------------
 
 Crowdfunding is a tough nut to crack if you're a new creator. It would have helped a lot to have the support of someone reputable openly supporting the project. In Particle's case, a well-known blogger, for example, could have helped spread the word and instill more confidence in potential backers.
 
 [Quantum Chess](https://www.kickstarter.com/projects/507726696/quantum-chess/description) is a great example. They managed to get Paul Rudd to make a comedic video of him and Stephen Hawking playing the game, and that propelled them to exceed their funding goal by almost $3,000. Really, almost $33,000 for a digital chess game (that I'm also guilty of backing). You need a shill.
 
-## Letting it consume you <a href="#letting-it-consume-you" class="direct-link">#</a>
+Letting it consume you <a href="#letting-it-consume-you" class="direct-link">#</a>
+----------------------------------------------------------------------------------
 
 Those are all things I failed gloriously at in terms of promoting the campaign, but that's not the reason I pulled the plug. Even if Particle wouldn't have met its funding goal, it would have been fun to see just how much it would have reached.
 
@@ -82,7 +90,8 @@ That's when I should have realized I made the wrong decision. I didn't prepare w
 
 Particle launched when it shouldn't have launched. In fact, it probably never should have been on Kickstarter. I became too consumed by the magic and allure of crowdfunding that I completely lost my ability to think straight. Now, just five days into the live campaign I'm beginning to lose my mind. What has this circus act turned me into? This isn't me. This isn't Particle.
 
-## What's next? <a href="#what&#39;s-next%3F" class="direct-link">#</a>
+What's next? <a href="#what&#39;s-next%3F" class="direct-link">#</a>
+--------------------------------------------------------------------
 
 I spent a year and a half building this software, so I'm obviously not giving up on it. Particle is a great product. In fact, I'm using it to write this very post on my iPad and it truly is the best blogging experience I've ever had. No bullshit. Inline editing is awesome!
 
@@ -92,7 +101,8 @@ I would still like to open source Particle and turn it into a sustainable busine
 
 Particle needs a premium service or some alternative way to make it sustainable before it can be open sourced.
 
-## There's a light <a href="#there&#39;s-a-light" class="direct-link">#</a>
+There's a light <a href="#there&#39;s-a-light" class="direct-link">#</a>
+------------------------------------------------------------------------
 
 I do have some great news: I've teamed up with a good friend who also happens to be one of the best developers I know. After studying Particle's code, he's decided to come onboard to help out with development. This will definitely help speed things up! We'll be taking some time this week to discuss the best approach for releasing Particle, be it open source, SaaS, or a combination of both. Anything is game at this point. Except fucking crowdfunding.
 
@@ -106,7 +116,7 @@ Update: Particle has been renamed to Postleaf and is now available at [postleaf.
 
 <a href="../../tags/tips/index.html" class="post-tag">tips</a> <a href="../../tags/postleaf/index.html" class="post-tag">postleaf</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -114,6 +124,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../democratizing-publishing/index.html" class="post-nav-previous"><span class="small">Previous post</span> Democratizing publishing</a> <a href="../adding-and-removing-virtual-hosts-on-ubuntu-1404/index.html" class="post-nav-next"><span class="small">Up next</span> Adding and removing virtual hosts on Ubuntu 14.04</a>

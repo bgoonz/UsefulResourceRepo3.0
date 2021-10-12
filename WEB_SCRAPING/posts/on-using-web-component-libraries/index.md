@@ -1,18 +1,19 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# On Using Web Component Libraries
+On Using Web Component Libraries
+================================
 
 September 20, 2021 • 2 min read
 
 We tend to think of components as things that belong to a framework. After all, React has components, Vue has components, Angular has components…it's just how we've always used them.
 
-Because of that, people tend to refer to [Lit](https://lit.dev/) and [FAST Element](https://www.fast.design/docs/fast-element/getting-started/) as frameworks, but they’re not. They’re _libraries_, and that’s an important distinction.
+Because of that, people tend to refer to [Lit](https://lit.dev/) and [FAST Element](https://www.fast.design/docs/fast-element/getting-started/) as frameworks, but they’re not. They’re *libraries*, and that’s an important distinction.
 
 If you want a React component to work, you have to use it with React. If you want a Vue component to work, you have to use it with Vue. If you want an Angular component to work…well, you get the point.
 
-_With web components, the platform is the framework._
+*With web components, the platform is the framework.*
 
 Naturally, a follow up question is "why do you need a library then?" The truth is that we don’t. We can create web components without a library. [Here's a counter component written in pure JavaScript](https://codepen.io/claviska/pen/abwGLPm?editors=0010).
 
@@ -71,7 +72,7 @@ Naturally, a follow up question is "why do you need a library then?" The truth i
 
     customElements.define('my-counter', MyCounter);
 
-We _choose_ to use libraries to improve the the component authoring experience and abstract messy boilerplate into efficient, reusable modules. [Here's a functionally equivalent counter built with Lit](https://codepen.io/claviska/pen/LYLmzKL?editors=0010).
+We *choose* to use libraries to improve the the component authoring experience and abstract messy boilerplate into efficient, reusable modules. [Here's a functionally equivalent counter built with Lit](https://codepen.io/claviska/pen/LYLmzKL?editors=0010).
 
     import { LitElement, html } from 'lit';
     import { customElement, property } from 'lit/decorators.js';
@@ -99,7 +100,7 @@ Alternatively, we could build those features ourselves and split them off into r
 
 When you think of it that way, using a library to build web components makes a lot of sense.
 
----
+------------------------------------------------------------------------
 
 <span class="small"></span>
 
@@ -107,7 +108,7 @@ Aside: [It’s been said](https://twitter.com/evanplaice/status/1420922358534049
 
 <a href="../../tags/web%20components/index.html" class="post-tag">web components</a> <a href="../../tags/html/index.html" class="post-tag">html</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -115,6 +116,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../finding-the-closest-element-through-shadow-roots/index.html" class="post-nav-previous"><span class="small">Previous post</span> Finding the Closest Element Through Shadow Roots</a> <a href="../on-buttons-and-links/index.html" class="post-nav-next"><span class="small">Up next</span> On Buttons and Links</a>

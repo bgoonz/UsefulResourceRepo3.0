@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Using an ORM
+Using an ORM
+============
 
 February 06, 2017 • 2 min read
 
@@ -10,7 +11,7 @@ I've never really bothered with [ORMs](https://en.wikipedia.org/wiki/Object-rela
 
 I figured it was time to see for myself. For the Postleaf rebuild, I decided to try out [Sequelize](http://docs.sequelizejs.com/en/v3/). I discovered it some time ago and really liked what I saw, but never had a chance to use it. I'm glad I finally did.
 
-The previous version of Postleaf required MySQL. All the models were written from scratch, including CRUD methods (create, read, update, delete) and validation. Believe me when I say that you can waste _a lot of time_ writing your own CRUD methods.
+The previous version of Postleaf required MySQL. All the models were written from scratch, including CRUD methods (create, read, update, delete) and validation. Believe me when I say that you can waste *a lot of time* writing your own CRUD methods.
 
 To make matters worse, some of the queries were proprietary, meaning they'd only work with MySQL. I've wanted to remove that requirement for a long time.
 
@@ -62,7 +63,7 @@ For now, I've decided to develop with SQLite. It's fast, and I love having a sin
 
 <a href="../../tags/postleaf/index.html" class="post-tag">postleaf</a> <a href="../../tags/databases/index.html" class="post-tag">databases</a> <a href="../../tags/development/index.html" class="post-tag">development</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -70,6 +71,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../solving-the-search-problem/index.html" class="post-nav-previous"><span class="small">Previous post</span> Solving the search problem</a> <a href="../hashing-passwords-with-nodejs-and-bcrypt/index.html" class="post-nav-next"><span class="small">Up next</span> Hashing Passwords with Node.js and bcrypt</a>

@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# IE8 burns the Acid 2 test
+IE8 burns the Acid 2 test
+=========================
 
 December 21, 2007 • 1 min read
 
@@ -24,7 +25,7 @@ A Beta version of IE8 is expected to be available in the first half of 2008.
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/ie/index.html" class="post-tag">ie</a> <a href="../../tags/web%20standards/index.html" class="post-tag">web standards</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -32,6 +33,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../jquery-checkboxes-select-all-select-none-and-invert-selection/index.html" class="post-nav-previous"><span class="small">Previous post</span> Select all, select none, and invert selection with jQuery</a> <a href="../netscape-support-ending-in-february-2008/index.html" class="post-nav-next"><span class="small">Up next</span> Netscape support ending in February 2008</a>

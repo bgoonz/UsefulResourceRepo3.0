@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Testing Support for :focus-visible
+Testing Support for :focus-visible
+==================================
 
 August 24, 2021 • 1 min read
 
@@ -21,11 +22,12 @@ Fortunately, `:focus-visible` gives us a way to make everyone happy by only appl
       outline: dashed 2px orange;
     }
 
-It's [currently available in all browsers _except_ Safari](https://caniuse.com/mdn-css_selectors_focus-visible). Well, it _is_ available in Safari Technology Preview, but it's buried under the experimental features menu and it's not clear when it will land in mainstream Safari.
+It's [currently available in all browsers *except* Safari](https://caniuse.com/mdn-css_selectors_focus-visible). Well, it *is* available in Safari Technology Preview, but it's buried under the experimental features menu and it's not clear when it will land in mainstream Safari.
 
 [There's a polyfill](https://github.com/WICG/focus-visible) you can use in the meantime but, since you can't polyfill pseudo selectors, it applies a `focus-visible` class instead. It's still useful if you really want this behavior, though!
 
-## Detecting Support <a href="#detecting-support" class="direct-link">#</a>
+Detecting Support <a href="#detecting-support" class="direct-link">#</a>
+------------------------------------------------------------------------
 
 If you're trying to figure out how to feature detect `:focus-visible`, you might be surprised to learn that there isn't an obvious way to do it — but there is a way!
 
@@ -60,7 +62,7 @@ This can be pretty helpful if you're building something and you want to provide 
 
 <a href="../../tags/accessibility/index.html" class="post-tag">accessibility</a> <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/css/index.html" class="post-tag">css</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -68,6 +70,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../querying-through-shadow-roots/index.html" class="post-nav-previous"><span class="small">Previous post</span> Querying through shadow roots</a> <a href="../finding-the-closest-element-through-shadow-roots/index.html" class="post-nav-next"><span class="small">Up next</span> Finding the Closest Element Through Shadow Roots</a>

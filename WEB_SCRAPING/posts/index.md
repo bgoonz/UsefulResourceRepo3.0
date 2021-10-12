@@ -1,160 +1,161 @@
 <a href="../index.html" class="header-link"><img src="../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../index.html" class="nav-item">Home</a> <a href="../tags/index.html" class="nav-item">Tags</a> <a href="index.html" class="nav-item nav-item-active">Archive</a> <a href="../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# The archive
+The archive
+===========
 
-_Showing all 146 posts._
+*Showing all 146 posts.*
 
-- <a href="know-when-to-draw-the-line/index.html" class="post-list-item-link">Know When To Draw The Line</a> 11 Oct 2021
-- <a href="dont-do-magic/index.html" class="post-list-item-link">Don't Do Magic</a> 11 Oct 2021
-- <a href="on-buttons-and-links/index.html" class="post-list-item-link">On Buttons and Links</a> 06 Oct 2021
-- <a href="on-using-web-component-libraries/index.html" class="post-list-item-link">On Using Web Component Libraries</a> 20 Sep 2021
-- <a href="finding-the-closest-element-through-shadow-roots/index.html" class="post-list-item-link">Finding the Closest Element Through Shadow Roots</a> 13 Sep 2021
-- <a href="testing-support-for-focus-visible/index.html" class="post-list-item-link">Testing Support for :focus-visible</a> 24 Aug 2021
-- <a href="querying-through-shadow-roots/index.html" class="post-list-item-link">Querying through shadow roots</a> 04 Aug 2021
-- <a href="prefers-reduced-motion/index.html" class="post-list-item-link">Prefers Reduced Motion</a> 19 May 2021
-- <a href="finding-the-active-element-in-a-shadow-root/index.html" class="post-list-item-link">Finding the active element in a shadow root</a> 22 Mar 2021
-- <a href="moving-from-stencil-to-lit-element/index.html" class="post-list-item-link">Moving from Stencil to LitElement</a> 02 Mar 2021
-- <a href="svg-repo/index.html" class="post-list-item-link">SVG Repo</a> 15 Feb 2021
-- <a href="archiving-postleaf/index.html" class="post-list-item-link">Archiving Postleaf</a> 03 Feb 2021
-- <a href="getting-localized-month-and-day-names-in-the-browser/index.html" class="post-list-item-link">Getting localized month and day names in the browser</a> 25 Nov 2020
-- <a href="shoelace-a-forward-thinking-library-of-web-components/index.html" class="post-list-item-link">Shoelace 2.0: a forward-thinking library of web components</a> 24 Jul 2020
-- <a href="corys-amazing-dot-paper/index.html" class="post-list-item-link">Cory's amazing dot paper</a> 03 Jun 2019
-- <a href="a-free-html-css-and-js-beautifier/index.html" class="post-list-item-link">A free HTML, CSS, and JavaScript beautifier</a> 22 May 2019
-- <a href="lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/index.html" class="post-list-item-link">Let's Encrypt renews but browsers still seeing old/expired SSL certificate</a> 10 May 2019
-- <a href="introducing-surreal-cms-7/index.html" class="post-list-item-link">Introducing Surreal CMS 7</a> 26 Apr 2019
-- <a href="getting-duplicate-ids-in-an-html-document/index.html" class="post-list-item-link">Getting duplicate ids in an HTML document</a> 05 Apr 2019
-- <a href="a-clever-way-to-style-the-mark-element/index.html" class="post-list-item-link">A clever way to style the &lt;mark&gt; element</a> 01 Feb 2019
-- <a href="opening-a-new-window-after-an-async-operation/index.html" class="post-list-item-link">Opening a new window after an async operation</a> 28 Aug 2018
-- <a href="zipping-multiple-folders-into-separate-zip-files/index.html" class="post-list-item-link">Zipping multiple folders into separate zip files</a> 31 Jul 2017
-- <a href="shoelacecss-a-back-to-the-basics-css-starter-kit/index.html" class="post-list-item-link">Shoelace.style — A back to the basics CSS starter kit</a> 27 Jul 2017
-- <a href="downloading-a-list-of-urls-automatically/index.html" class="post-list-item-link">Downloading a list of URLs automatically</a> 21 Jul 2017
-- <a href="surreal-cms-acquires-pagelime/index.html" class="post-list-item-link">Surreal CMS acquires PageLime</a> 14 Jul 2017
-- <a href="rebuilding-your-spotlight-index-in-macos/index.html" class="post-list-item-link">Rebuilding your Spotlight index in macOS</a> 14 Jul 2017
-- <a href="thoughts-on-amp/index.html" class="post-list-item-link">Thoughts on AMP</a> 23 May 2017
-- <a href="json-feed/index.html" class="post-list-item-link">JSON Feed</a> 23 May 2017
-- <a href="postleaf-reimagined/index.html" class="post-list-item-link">Postleaf: reimagined</a> 26 Apr 2017
-- <a href="thoughts-on-uploads/index.html" class="post-list-item-link">Thoughts on uploads</a> 21 Mar 2017
-- <a href="importing-plain-css-files-with-sass/index.html" class="post-list-item-link">Importing plain CSS files with Sass</a> 10 Feb 2017
-- <a href="determining-your-apps-base-directory-in-nodejs/index.html" class="post-list-item-link">Determining your app's base directory in Node.js</a> 09 Feb 2017
-- <a href="hashing-passwords-with-nodejs-and-bcrypt/index.html" class="post-list-item-link">Hashing Passwords with Node.js and bcrypt</a> 08 Feb 2017
-- <a href="using-an-orm/index.html" class="post-list-item-link">Using an ORM</a> 06 Feb 2017
-- <a href="solving-the-search-problem/index.html" class="post-list-item-link">Solving the search problem</a> 06 Feb 2017
-- <a href="moving-to-nodejs/index.html" class="post-list-item-link">Moving to Node.js</a> 06 Feb 2017
-- <a href="ssh-failing-on-macos-sierra/index.html" class="post-list-item-link">SSH failing on macOS Sierra</a> 15 Jan 2017
-- <a href="getting-it-right/index.html" class="post-list-item-link">Getting it right</a> 14 Jan 2017
-- <a href="simpleimage-3/index.html" class="post-list-item-link">SimpleImage 3.0</a> 10 Jan 2017
-- <a href="dont-hate-on-php/index.html" class="post-list-item-link">Don't hate on PHP</a> 22 Nov 2016
-- <a href="thoughts-on-comments/index.html" class="post-list-item-link">Thoughts on comments</a> 12 Jun 2016
-- <a href="code-can-change/index.html" class="post-list-item-link">Code can change</a> 10 May 2016
-- <a href="a-better-way-to-write-config-files-in-php/index.html" class="post-list-item-link">A better way to write config files in PHP</a> 02 May 2016
-- <a href="how-to-upgrade-or-downgrade-nodejs-using-npm/index.html" class="post-list-item-link">How to upgrade or downgrade Node.js using npm</a> 05 Apr 2016
-- <a href="adding-and-removing-virtual-hosts-on-ubuntu-1404/index.html" class="post-list-item-link">Adding and removing virtual hosts on Ubuntu 14.04</a> 29 Mar 2016
-- <a href="lessons-from-a-failed-kickstarter/index.html" class="post-list-item-link">Lessons from a failed Kickstarter</a> 28 Mar 2016
-- <a href="democratizing-publishing/index.html" class="post-list-item-link">Democratizing publishing</a> 28 Mar 2016
-- <a href="animated-css-hamburger-icons/index.html" class="post-list-item-link">Animated CSS hamburger icons</a> 07 Mar 2016
-- <a href="flush-dns-cache-on-os-x/index.html" class="post-list-item-link">Flushing DNS cache on macOS</a> 02 Mar 2016
-- <a href="a-clean-fade-in-effect-for-webpages/index.html" class="post-list-item-link">A clean fade-in effect for webpages</a> 23 Sep 2015
-- <a href="how-to-remove-box-shadows-from-input-controls-on-ios/index.html" class="post-list-item-link">How to remove box shadows from input controls on iOS</a> 16 Sep 2015
-- <a href="passing-data-from-php-to-javascript/index.html" class="post-list-item-link">Passing data from PHP to JavaScript</a> 05 Mar 2015
-- <a href="the-html5-download-attribute/index.html" class="post-list-item-link">The HTML5 download attribute</a> 19 Feb 2015
-- <a href="get-comfortable-with-abstraction/index.html" class="post-list-item-link">Get comfortable with abstraction</a> 18 Feb 2015
-- <a href="thoughts-on-being-a-good-manager/index.html" class="post-list-item-link">Thoughts on being a good manager</a> 09 Feb 2015
-- <a href="i-should-have-been-asking-my-users-this-from-the-start/index.html" class="post-list-item-link">I should have been asking my users this from the start</a> 20 Jan 2015
-- <a href="why-developers-hate-being-interrupted/index.html" class="post-list-item-link">Why developers hate being interrupted</a> 08 Jan 2015
-- <a href="social-sharing-buttons-are-ineffective/index.html" class="post-list-item-link">Social sharing buttons are ineffective</a> 16 Dec 2014
-- <a href="how-to-use-currentcolor-in-your-stylesheet/index.html" class="post-list-item-link">How to use currentColor in your stylesheet</a> 04 Dec 2014
-- <a href="i-switched-from-tabs-to-spaces-and-havent-looked-back/index.html" class="post-list-item-link">I switched from tabs to spaces and haven't looked back</a> 25 Nov 2014
-- <a href="css-shapes-are-here/index.html" class="post-list-item-link">CSS shapes are here</a> 16 Oct 2014
-- <a href="css-reset-with-box-sizing-fix/index.html" class="post-list-item-link">CSS reset with box-sizing fix</a> 14 Oct 2014
-- <a href="what-can-you-do-with-a-single-div/index.html" class="post-list-item-link">What can you do with a single &lt;div&gt;?</a> 05 Sep 2014
-- <a href="is-your-product-the-reason-your-startup-is-failing/index.html" class="post-list-item-link">Is your product the reason your startup is failing?</a> 04 Sep 2014
-- <a href="stop-trying-to-build-the-next-unicorn/index.html" class="post-list-item-link">Stop trying to build the next unicorn</a> 02 Sep 2014
-- <a href="browserstack-stop-using-virtual-machines-for-browser-testing/index.html" class="post-list-item-link">BrowserStack: stop using virtual machines for browser testing</a> 29 Aug 2014
-- <a href="im-taking-startup-back/index.html" class="post-list-item-link">I'm taking "startup" back</a> 28 Aug 2014
-- <a href="hide-the-mouse-cursor-with-css/index.html" class="post-list-item-link">Hide the mouse cursor with CSS</a> 28 Aug 2014
-- <a href="how-to-leave-a-console-greeting-for-your-visitors/index.html" class="post-list-item-link">How to leave a console greeting for your visitors</a> 27 Aug 2014
-- <a href="subtle-patterns-hundreds-of-free-backgrounds-that-tile/index.html" class="post-list-item-link">Subtle Patterns: hundreds of free backgrounds that tile</a> 25 Aug 2014
-- <a href="find-a-name-for-almost-any-hex-color/index.html" class="post-list-item-link">Find a name for almost any hex color</a> 22 Aug 2014
-- <a href="working-with-html5-data-attributes/index.html" class="post-list-item-link">Working with HTML5 data attributes</a> 21 Aug 2014
-- <a href="is-it-possible-to-be-an-introverted-entrepreneur/index.html" class="post-list-item-link">Is it possible to be an introverted entrepreneur?</a> 21 Aug 2014
-- <a href="how-to-use-the-php-ternary-operator/index.html" class="post-list-item-link">How to use the PHP ternary operator</a> 18 Aug 2014
-- <a href="five-things-ive-learned-about-taking-risks/index.html" class="post-list-item-link">Five things I've learned about taking risks</a> 18 Aug 2014
-- <a href="using-the-classlist-api/index.html" class="post-list-item-link">Using the classList API</a> 15 Aug 2014
-- <a href="tinypng-a-better-way-to-compress-png-images/index.html" class="post-list-item-link">TinyPNG: A better way to compress PNG images</a> 15 Aug 2014
-- <a href="what-is-my-browser-this-tool-will-tell-you/index.html" class="post-list-item-link">What is my browser? This tool will tell you</a> 14 Aug 2014
-- <a href="smaller-volume-increments-in-os-x/index.html" class="post-list-item-link">Smaller volume increments in macOS</a> 13 Aug 2014
-- <a href="link-to-a-specific-page-in-a-pdf-file/index.html" class="post-list-item-link">Link to a specific page in a PDF file</a> 13 Aug 2014
-- <a href="lessons-from-my-20s-a-presentation-by-ryan-allis/index.html" class="post-list-item-link">Lessons from my 20s: a presentation by Ryan Allis</a> 12 Aug 2014
-- <a href="how-to-get-the-dominant-colors-of-an-image-with-color-thief/index.html" class="post-list-item-link">How to get the dominant colors of an image with Color Thief</a> 12 Aug 2014
-- <a href="playcanvas-an-easy-open-source-webgl-game-engine/index.html" class="post-list-item-link">PlayCanvas: an easy, open source WebGL game engine</a> 11 Aug 2014
-- <a href="box-sizing-border-box-explained/index.html" class="post-list-item-link">box-sizing: border-box explained</a> 08 Aug 2014
-- <a href="give-your-jpegs-alpha-channels/index.html" class="post-list-item-link">Give your JPEGs alpha channels</a> 07 Aug 2014
-- <a href="how-to-get-faster-and-better-help-from-support/index.html" class="post-list-item-link">How to get faster and better help from support</a> 05 Aug 2014
-- <a href="swapping-variables-with-javascript/index.html" class="post-list-item-link">Swapping variables with JavaScript</a> 04 Aug 2014
-- <a href="the-next-version-of-php-may-very-well-be-7/index.html" class="post-list-item-link">The next version of PHP may very well be 7</a> 01 Aug 2014
-- <a href="svg-has-a-logo/index.html" class="post-list-item-link">SVG has a logo</a> 01 Aug 2014
-- <a href="a-user-interface-is-like-a-joke/index.html" class="post-list-item-link">A user interface is like a joke</a> 01 Aug 2014
-- <a href="parsing-urls-in-javascript/index.html" class="post-list-item-link">Parsing URLs in JavaScript</a> 24 Oct 2013
-- <a href="an-icon-converter-that-supports-multiple-sizes-and-transparency/index.html" class="post-list-item-link">An icon converter that supports multiple sizes and transparency</a> 19 Sep 2013
-- <a href="validating-urls-and-email-addresses-in-php/index.html" class="post-list-item-link">Validating URLs and email addresses in PHP</a> 18 Sep 2013
-- <a href="semantic-version-numbers/index.html" class="post-list-item-link">Semantic version numbers</a> 21 Aug 2013
-- <a href="theres-a-reason-that-bootstrap-3-has-ugly-buttons/index.html" class="post-list-item-link">There's a reason that Bootstrap 3 has ugly buttons</a> 20 Aug 2013
-- <a href="whipping-file-inputs-into-shape-with-bootstrap-3/index.html" class="post-list-item-link">Whipping file inputs into shape with Bootstrap</a> 08 Aug 2013
-- <a href="tips-for-the-aspiring-web-developer/index.html" class="post-list-item-link">Tips for the aspiring web developer</a> 17 Dec 2012
-- <a href="down-with-the-share-widget/index.html" class="post-list-item-link">Down with the share widget!</a> 14 Dec 2012
-- <a href="feature-detection-for-css-transitions-via-jquery-support/index.html" class="post-list-item-link">Feature detection for CSS transitions via jQuery $.support</a> 09 Dec 2012
-- <a href="access-pages-without-the-php-extension-using-htaccess/index.html" class="post-list-item-link">Access pages without the php extension using .htaccess</a> 03 Feb 2012
-- <a href="detecting-mobile-devices-with-javascript/index.html" class="post-list-item-link">Detecting mobile devices with JavaScript</a> 23 Nov 2011
-- <a href="redirecting-to-and-from-the-www-subdomain-with-htaccess/index.html" class="post-list-item-link">Redirecting to and from the www subdomain with .htaccess</a> 17 Nov 2011
-- <a href="the-simple-image-library-for-php/index.html" class="post-list-item-link">The SimpleImage library for PHP</a> 16 Nov 2011
-- <a href="how-to-delete-a-tag-on-github/index.html" class="post-list-item-link">How to delete a tag on GitHub</a> 16 Nov 2011
-- <a href="office-2007-files-downloading-as-zip-in-internet-explorer/index.html" class="post-list-item-link">Office 2007 files downloading as ZIP files in Internet Explorer</a> 18 Mar 2010
-- <a href="smoothly-scroll-to-an-element-without-a-jquery-plugin-2/index.html" class="post-list-item-link">Smoothly scroll to an element without a jQuery plugin</a> 22 Jan 2010
-- <a href="the-difference-between-web-designers-and-web-developers/index.html" class="post-list-item-link">The difference between web designers and web developers</a> 22 Dec 2009
-- <a href="new-shortcut-keys-in-windows-7/index.html" class="post-list-item-link">New shortcut keys in Windows 7</a> 19 Nov 2009
-- <a href="icon-finder-an-awesome-search-engine-for-icons/index.html" class="post-list-item-link">Icon Finder: an awesome search engine for icons</a> 13 Nov 2009
-- <a href="jsnes-a-nintendo-emulator-built-in-javascript/index.html" class="post-list-item-link">JSNES: a Nintendo emulator built in JavaScript</a> 10 Nov 2009
-- <a href="table-cells-and-max-widths-in-internet-explorer-8/index.html" class="post-list-item-link">Table cells and max-widths in Internet Explorer 8</a> 30 Sep 2009
-- <a href="browser-makers-wheres-the-new-tab-homepage-option/index.html" class="post-list-item-link">Browser makers: where’s the new tab + homepage option?</a> 07 Aug 2009
-- <a href="what-happens-if-ie8-breaks-my-website/index.html" class="post-list-item-link">What happens if IE8 "breaks" my website?</a> 27 Jun 2009
-- <a href="images-display-in-firefox-and-safari-but-not-in-internet-explorer/index.html" class="post-list-item-link">Images display in Firefox and Safari, but not in Internet Explorer</a> 24 Apr 2009
-- <a href="php-functions-to-get-and-remove-the-file-extension-from-a-string/index.html" class="post-list-item-link">PHP functions to get and remove the file extension from a string</a> 12 Mar 2009
-- <a href="prevent-white-noise-from-appearing-in-images-after-fading/index.html" class="post-list-item-link">Prevent white noise from appearing in images after fading</a> 10 Jan 2009
-- <a href="abs-becomes-abs-llc/index.html" class="post-list-item-link">A Beautiful Site becomes "A Beautiful Site, LLC"</a> 18 Oct 2008
-- <a href="import-restore-mysql-files-from-the-command-line/index.html" class="post-list-item-link">Import/restore MySQL files from the command line</a> 24 Jul 2008
-- <a href="parsing-a-json-string-results-in-an-invalid-label-error/index.html" class="post-list-item-link">Parsing a JSON string results in an 'Invalid Label' error</a> 17 Jul 2008
-- <a href="postjson-for-jquery/index.html" class="post-list-item-link">$.postJSON() for jQuery</a> 31 May 2008
-- <a href="generate-random-passwords-in-php/index.html" class="post-list-item-link">Generate random passwords in PHP</a> 17 May 2008
-- <a href="fetching-remote-web-pages-with-curl-and-php/index.html" class="post-list-item-link">Fetching remote web pages with curl and PHP</a> 08 Apr 2008
-- <a href="determine-file-extensions-using-javascript/index.html" class="post-list-item-link">Determine file extensions using JavaScript</a> 20 Mar 2008
-- <a href="but-we-havent-even-mastered-acid2/index.html" class="post-list-item-link">But we haven't even mastered Acid2!</a> 06 Mar 2008
-- <a href="netscape-support-ending-in-february-2008/index.html" class="post-list-item-link">Netscape support ending in February 2008</a> 03 Jan 2008
-- <a href="ie8-burns-the-acid-2-test/index.html" class="post-list-item-link">IE8 burns the Acid 2 test</a> 21 Dec 2007
-- <a href="jquery-checkboxes-select-all-select-none-and-invert-selection/index.html" class="post-list-item-link">Select all, select none, and invert selection with jQuery</a> 09 Dec 2007
-- <a href="external-popup-links-using-jquery/index.html" class="post-list-item-link">External popup links using jQuery</a> 15 Nov 2007
-- <a href="convert-arrays-to-csv-with-php/index.html" class="post-list-item-link">Convert arrays to CSV with PHP</a> 03 Oct 2007
-- <a href="getting-proportionally-resized-dimensions-of-an-image/index.html" class="post-list-item-link">Getting proportionally-resized dimensions of an image</a> 17 Sep 2007
-- <a href="javascript-functions-for-basename-and-dirname/index.html" class="post-list-item-link">JavaScript functions for basename and dirname</a> 16 Sep 2007
-- <a href="avoiding-timestamp-errors-when-calculating-dates-in-php/index.html" class="post-list-item-link">Avoiding timestamp errors when calculating dates in php</a> 29 Aug 2007
-- <a href="an-excellent-free-font-resource/index.html" class="post-list-item-link">DaFont: an excellent free font resource</a> 31 Jul 2007
-- <a href="forcing-file-downloads-in-php/index.html" class="post-list-item-link">Forcing file downloads in PHP</a> 08 Jul 2007
-- <a href="web-standards-are-just-minor-details/index.html" class="post-list-item-link">Web standards are just "minor details"</a> 02 Jul 2007
-- <a href="creating-stylesheets-for-handheld-devices/index.html" class="post-list-item-link">Creating stylesheets for handheld devices</a> 30 May 2007
-- <a href="creating-a-printable-website-using-print-stylesheets/index.html" class="post-list-item-link">Creating a printable website using print stylesheets</a> 28 May 2007
-- <a href="css-drop-caps/index.html" class="post-list-item-link">CSS drop caps</a> 23 May 2007
-- <a href="find-and-replace-hyperlinks-and-email-addresses-in-php/index.html" class="post-list-item-link">Find and replace hyperlinks and email addresses in PHP</a> 15 May 2007
-- <a href="what-are-favicons/index.html" class="post-list-item-link">What are favicons?</a> 11 May 2007
-- <a href="using-javascript-to-prevent-comment-spam/index.html" class="post-list-item-link">Using JavaScript to prevent comment spam</a> 05 May 2007
-- <a href="password-protection-using-htaccess-and-htpasswd/index.html" class="post-list-item-link">Password protection using .htaccess and .htpasswd</a> 29 Apr 2007
-- <a href="gif-jpeg-or-png-using-images-on-the-web/index.html" class="post-list-item-link">GIF, JPEG or PNG? Using images on the web</a> 29 Apr 2007
-- <a href="business-cards/index.html" class="post-list-item-link">Business cards</a> 29 Apr 2007
-- <a href="an-event-apart-boston/index.html" class="post-list-item-link">An Event Apart, Boston</a> 29 Apr 2007
-- <a href="a-beautiful-site-launched/index.html" class="post-list-item-link">A Beautiful Site launched</a> 29 Apr 2007
+-   <a href="know-when-to-draw-the-line/index.html" class="post-list-item-link">Know When To Draw The Line</a> 11 Oct 2021
+-   <a href="dont-do-magic/index.html" class="post-list-item-link">Don't Do Magic</a> 11 Oct 2021
+-   <a href="on-buttons-and-links/index.html" class="post-list-item-link">On Buttons and Links</a> 06 Oct 2021
+-   <a href="on-using-web-component-libraries/index.html" class="post-list-item-link">On Using Web Component Libraries</a> 20 Sep 2021
+-   <a href="finding-the-closest-element-through-shadow-roots/index.html" class="post-list-item-link">Finding the Closest Element Through Shadow Roots</a> 13 Sep 2021
+-   <a href="testing-support-for-focus-visible/index.html" class="post-list-item-link">Testing Support for :focus-visible</a> 24 Aug 2021
+-   <a href="querying-through-shadow-roots/index.html" class="post-list-item-link">Querying through shadow roots</a> 04 Aug 2021
+-   <a href="prefers-reduced-motion/index.html" class="post-list-item-link">Prefers Reduced Motion</a> 19 May 2021
+-   <a href="finding-the-active-element-in-a-shadow-root/index.html" class="post-list-item-link">Finding the active element in a shadow root</a> 22 Mar 2021
+-   <a href="moving-from-stencil-to-lit-element/index.html" class="post-list-item-link">Moving from Stencil to LitElement</a> 02 Mar 2021
+-   <a href="svg-repo/index.html" class="post-list-item-link">SVG Repo</a> 15 Feb 2021
+-   <a href="archiving-postleaf/index.html" class="post-list-item-link">Archiving Postleaf</a> 03 Feb 2021
+-   <a href="getting-localized-month-and-day-names-in-the-browser/index.html" class="post-list-item-link">Getting localized month and day names in the browser</a> 25 Nov 2020
+-   <a href="shoelace-a-forward-thinking-library-of-web-components/index.html" class="post-list-item-link">Shoelace 2.0: a forward-thinking library of web components</a> 24 Jul 2020
+-   <a href="corys-amazing-dot-paper/index.html" class="post-list-item-link">Cory's amazing dot paper</a> 03 Jun 2019
+-   <a href="a-free-html-css-and-js-beautifier/index.html" class="post-list-item-link">A free HTML, CSS, and JavaScript beautifier</a> 22 May 2019
+-   <a href="lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/index.html" class="post-list-item-link">Let's Encrypt renews but browsers still seeing old/expired SSL certificate</a> 10 May 2019
+-   <a href="introducing-surreal-cms-7/index.html" class="post-list-item-link">Introducing Surreal CMS 7</a> 26 Apr 2019
+-   <a href="getting-duplicate-ids-in-an-html-document/index.html" class="post-list-item-link">Getting duplicate ids in an HTML document</a> 05 Apr 2019
+-   <a href="a-clever-way-to-style-the-mark-element/index.html" class="post-list-item-link">A clever way to style the &lt;mark&gt; element</a> 01 Feb 2019
+-   <a href="opening-a-new-window-after-an-async-operation/index.html" class="post-list-item-link">Opening a new window after an async operation</a> 28 Aug 2018
+-   <a href="zipping-multiple-folders-into-separate-zip-files/index.html" class="post-list-item-link">Zipping multiple folders into separate zip files</a> 31 Jul 2017
+-   <a href="shoelacecss-a-back-to-the-basics-css-starter-kit/index.html" class="post-list-item-link">Shoelace.style — A back to the basics CSS starter kit</a> 27 Jul 2017
+-   <a href="downloading-a-list-of-urls-automatically/index.html" class="post-list-item-link">Downloading a list of URLs automatically</a> 21 Jul 2017
+-   <a href="surreal-cms-acquires-pagelime/index.html" class="post-list-item-link">Surreal CMS acquires PageLime</a> 14 Jul 2017
+-   <a href="rebuilding-your-spotlight-index-in-macos/index.html" class="post-list-item-link">Rebuilding your Spotlight index in macOS</a> 14 Jul 2017
+-   <a href="thoughts-on-amp/index.html" class="post-list-item-link">Thoughts on AMP</a> 23 May 2017
+-   <a href="json-feed/index.html" class="post-list-item-link">JSON Feed</a> 23 May 2017
+-   <a href="postleaf-reimagined/index.html" class="post-list-item-link">Postleaf: reimagined</a> 26 Apr 2017
+-   <a href="thoughts-on-uploads/index.html" class="post-list-item-link">Thoughts on uploads</a> 21 Mar 2017
+-   <a href="importing-plain-css-files-with-sass/index.html" class="post-list-item-link">Importing plain CSS files with Sass</a> 10 Feb 2017
+-   <a href="determining-your-apps-base-directory-in-nodejs/index.html" class="post-list-item-link">Determining your app's base directory in Node.js</a> 09 Feb 2017
+-   <a href="hashing-passwords-with-nodejs-and-bcrypt/index.html" class="post-list-item-link">Hashing Passwords with Node.js and bcrypt</a> 08 Feb 2017
+-   <a href="using-an-orm/index.html" class="post-list-item-link">Using an ORM</a> 06 Feb 2017
+-   <a href="solving-the-search-problem/index.html" class="post-list-item-link">Solving the search problem</a> 06 Feb 2017
+-   <a href="moving-to-nodejs/index.html" class="post-list-item-link">Moving to Node.js</a> 06 Feb 2017
+-   <a href="ssh-failing-on-macos-sierra/index.html" class="post-list-item-link">SSH failing on macOS Sierra</a> 15 Jan 2017
+-   <a href="getting-it-right/index.html" class="post-list-item-link">Getting it right</a> 14 Jan 2017
+-   <a href="simpleimage-3/index.html" class="post-list-item-link">SimpleImage 3.0</a> 10 Jan 2017
+-   <a href="dont-hate-on-php/index.html" class="post-list-item-link">Don't hate on PHP</a> 22 Nov 2016
+-   <a href="thoughts-on-comments/index.html" class="post-list-item-link">Thoughts on comments</a> 12 Jun 2016
+-   <a href="code-can-change/index.html" class="post-list-item-link">Code can change</a> 10 May 2016
+-   <a href="a-better-way-to-write-config-files-in-php/index.html" class="post-list-item-link">A better way to write config files in PHP</a> 02 May 2016
+-   <a href="how-to-upgrade-or-downgrade-nodejs-using-npm/index.html" class="post-list-item-link">How to upgrade or downgrade Node.js using npm</a> 05 Apr 2016
+-   <a href="adding-and-removing-virtual-hosts-on-ubuntu-1404/index.html" class="post-list-item-link">Adding and removing virtual hosts on Ubuntu 14.04</a> 29 Mar 2016
+-   <a href="lessons-from-a-failed-kickstarter/index.html" class="post-list-item-link">Lessons from a failed Kickstarter</a> 28 Mar 2016
+-   <a href="democratizing-publishing/index.html" class="post-list-item-link">Democratizing publishing</a> 28 Mar 2016
+-   <a href="animated-css-hamburger-icons/index.html" class="post-list-item-link">Animated CSS hamburger icons</a> 07 Mar 2016
+-   <a href="flush-dns-cache-on-os-x/index.html" class="post-list-item-link">Flushing DNS cache on macOS</a> 02 Mar 2016
+-   <a href="a-clean-fade-in-effect-for-webpages/index.html" class="post-list-item-link">A clean fade-in effect for webpages</a> 23 Sep 2015
+-   <a href="how-to-remove-box-shadows-from-input-controls-on-ios/index.html" class="post-list-item-link">How to remove box shadows from input controls on iOS</a> 16 Sep 2015
+-   <a href="passing-data-from-php-to-javascript/index.html" class="post-list-item-link">Passing data from PHP to JavaScript</a> 05 Mar 2015
+-   <a href="the-html5-download-attribute/index.html" class="post-list-item-link">The HTML5 download attribute</a> 19 Feb 2015
+-   <a href="get-comfortable-with-abstraction/index.html" class="post-list-item-link">Get comfortable with abstraction</a> 18 Feb 2015
+-   <a href="thoughts-on-being-a-good-manager/index.html" class="post-list-item-link">Thoughts on being a good manager</a> 09 Feb 2015
+-   <a href="i-should-have-been-asking-my-users-this-from-the-start/index.html" class="post-list-item-link">I should have been asking my users this from the start</a> 20 Jan 2015
+-   <a href="why-developers-hate-being-interrupted/index.html" class="post-list-item-link">Why developers hate being interrupted</a> 08 Jan 2015
+-   <a href="social-sharing-buttons-are-ineffective/index.html" class="post-list-item-link">Social sharing buttons are ineffective</a> 16 Dec 2014
+-   <a href="how-to-use-currentcolor-in-your-stylesheet/index.html" class="post-list-item-link">How to use currentColor in your stylesheet</a> 04 Dec 2014
+-   <a href="i-switched-from-tabs-to-spaces-and-havent-looked-back/index.html" class="post-list-item-link">I switched from tabs to spaces and haven't looked back</a> 25 Nov 2014
+-   <a href="css-shapes-are-here/index.html" class="post-list-item-link">CSS shapes are here</a> 16 Oct 2014
+-   <a href="css-reset-with-box-sizing-fix/index.html" class="post-list-item-link">CSS reset with box-sizing fix</a> 14 Oct 2014
+-   <a href="what-can-you-do-with-a-single-div/index.html" class="post-list-item-link">What can you do with a single &lt;div&gt;?</a> 05 Sep 2014
+-   <a href="is-your-product-the-reason-your-startup-is-failing/index.html" class="post-list-item-link">Is your product the reason your startup is failing?</a> 04 Sep 2014
+-   <a href="stop-trying-to-build-the-next-unicorn/index.html" class="post-list-item-link">Stop trying to build the next unicorn</a> 02 Sep 2014
+-   <a href="browserstack-stop-using-virtual-machines-for-browser-testing/index.html" class="post-list-item-link">BrowserStack: stop using virtual machines for browser testing</a> 29 Aug 2014
+-   <a href="im-taking-startup-back/index.html" class="post-list-item-link">I'm taking "startup" back</a> 28 Aug 2014
+-   <a href="hide-the-mouse-cursor-with-css/index.html" class="post-list-item-link">Hide the mouse cursor with CSS</a> 28 Aug 2014
+-   <a href="how-to-leave-a-console-greeting-for-your-visitors/index.html" class="post-list-item-link">How to leave a console greeting for your visitors</a> 27 Aug 2014
+-   <a href="subtle-patterns-hundreds-of-free-backgrounds-that-tile/index.html" class="post-list-item-link">Subtle Patterns: hundreds of free backgrounds that tile</a> 25 Aug 2014
+-   <a href="find-a-name-for-almost-any-hex-color/index.html" class="post-list-item-link">Find a name for almost any hex color</a> 22 Aug 2014
+-   <a href="working-with-html5-data-attributes/index.html" class="post-list-item-link">Working with HTML5 data attributes</a> 21 Aug 2014
+-   <a href="is-it-possible-to-be-an-introverted-entrepreneur/index.html" class="post-list-item-link">Is it possible to be an introverted entrepreneur?</a> 21 Aug 2014
+-   <a href="how-to-use-the-php-ternary-operator/index.html" class="post-list-item-link">How to use the PHP ternary operator</a> 18 Aug 2014
+-   <a href="five-things-ive-learned-about-taking-risks/index.html" class="post-list-item-link">Five things I've learned about taking risks</a> 18 Aug 2014
+-   <a href="using-the-classlist-api/index.html" class="post-list-item-link">Using the classList API</a> 15 Aug 2014
+-   <a href="tinypng-a-better-way-to-compress-png-images/index.html" class="post-list-item-link">TinyPNG: A better way to compress PNG images</a> 15 Aug 2014
+-   <a href="what-is-my-browser-this-tool-will-tell-you/index.html" class="post-list-item-link">What is my browser? This tool will tell you</a> 14 Aug 2014
+-   <a href="smaller-volume-increments-in-os-x/index.html" class="post-list-item-link">Smaller volume increments in macOS</a> 13 Aug 2014
+-   <a href="link-to-a-specific-page-in-a-pdf-file/index.html" class="post-list-item-link">Link to a specific page in a PDF file</a> 13 Aug 2014
+-   <a href="lessons-from-my-20s-a-presentation-by-ryan-allis/index.html" class="post-list-item-link">Lessons from my 20s: a presentation by Ryan Allis</a> 12 Aug 2014
+-   <a href="how-to-get-the-dominant-colors-of-an-image-with-color-thief/index.html" class="post-list-item-link">How to get the dominant colors of an image with Color Thief</a> 12 Aug 2014
+-   <a href="playcanvas-an-easy-open-source-webgl-game-engine/index.html" class="post-list-item-link">PlayCanvas: an easy, open source WebGL game engine</a> 11 Aug 2014
+-   <a href="box-sizing-border-box-explained/index.html" class="post-list-item-link">box-sizing: border-box explained</a> 08 Aug 2014
+-   <a href="give-your-jpegs-alpha-channels/index.html" class="post-list-item-link">Give your JPEGs alpha channels</a> 07 Aug 2014
+-   <a href="how-to-get-faster-and-better-help-from-support/index.html" class="post-list-item-link">How to get faster and better help from support</a> 05 Aug 2014
+-   <a href="swapping-variables-with-javascript/index.html" class="post-list-item-link">Swapping variables with JavaScript</a> 04 Aug 2014
+-   <a href="the-next-version-of-php-may-very-well-be-7/index.html" class="post-list-item-link">The next version of PHP may very well be 7</a> 01 Aug 2014
+-   <a href="svg-has-a-logo/index.html" class="post-list-item-link">SVG has a logo</a> 01 Aug 2014
+-   <a href="a-user-interface-is-like-a-joke/index.html" class="post-list-item-link">A user interface is like a joke</a> 01 Aug 2014
+-   <a href="parsing-urls-in-javascript/index.html" class="post-list-item-link">Parsing URLs in JavaScript</a> 24 Oct 2013
+-   <a href="an-icon-converter-that-supports-multiple-sizes-and-transparency/index.html" class="post-list-item-link">An icon converter that supports multiple sizes and transparency</a> 19 Sep 2013
+-   <a href="validating-urls-and-email-addresses-in-php/index.html" class="post-list-item-link">Validating URLs and email addresses in PHP</a> 18 Sep 2013
+-   <a href="semantic-version-numbers/index.html" class="post-list-item-link">Semantic version numbers</a> 21 Aug 2013
+-   <a href="theres-a-reason-that-bootstrap-3-has-ugly-buttons/index.html" class="post-list-item-link">There's a reason that Bootstrap 3 has ugly buttons</a> 20 Aug 2013
+-   <a href="whipping-file-inputs-into-shape-with-bootstrap-3/index.html" class="post-list-item-link">Whipping file inputs into shape with Bootstrap</a> 08 Aug 2013
+-   <a href="tips-for-the-aspiring-web-developer/index.html" class="post-list-item-link">Tips for the aspiring web developer</a> 17 Dec 2012
+-   <a href="down-with-the-share-widget/index.html" class="post-list-item-link">Down with the share widget!</a> 14 Dec 2012
+-   <a href="feature-detection-for-css-transitions-via-jquery-support/index.html" class="post-list-item-link">Feature detection for CSS transitions via jQuery $.support</a> 09 Dec 2012
+-   <a href="access-pages-without-the-php-extension-using-htaccess/index.html" class="post-list-item-link">Access pages without the php extension using .htaccess</a> 03 Feb 2012
+-   <a href="detecting-mobile-devices-with-javascript/index.html" class="post-list-item-link">Detecting mobile devices with JavaScript</a> 23 Nov 2011
+-   <a href="redirecting-to-and-from-the-www-subdomain-with-htaccess/index.html" class="post-list-item-link">Redirecting to and from the www subdomain with .htaccess</a> 17 Nov 2011
+-   <a href="the-simple-image-library-for-php/index.html" class="post-list-item-link">The SimpleImage library for PHP</a> 16 Nov 2011
+-   <a href="how-to-delete-a-tag-on-github/index.html" class="post-list-item-link">How to delete a tag on GitHub</a> 16 Nov 2011
+-   <a href="office-2007-files-downloading-as-zip-in-internet-explorer/index.html" class="post-list-item-link">Office 2007 files downloading as ZIP files in Internet Explorer</a> 18 Mar 2010
+-   <a href="smoothly-scroll-to-an-element-without-a-jquery-plugin-2/index.html" class="post-list-item-link">Smoothly scroll to an element without a jQuery plugin</a> 22 Jan 2010
+-   <a href="the-difference-between-web-designers-and-web-developers/index.html" class="post-list-item-link">The difference between web designers and web developers</a> 22 Dec 2009
+-   <a href="new-shortcut-keys-in-windows-7/index.html" class="post-list-item-link">New shortcut keys in Windows 7</a> 19 Nov 2009
+-   <a href="icon-finder-an-awesome-search-engine-for-icons/index.html" class="post-list-item-link">Icon Finder: an awesome search engine for icons</a> 13 Nov 2009
+-   <a href="jsnes-a-nintendo-emulator-built-in-javascript/index.html" class="post-list-item-link">JSNES: a Nintendo emulator built in JavaScript</a> 10 Nov 2009
+-   <a href="table-cells-and-max-widths-in-internet-explorer-8/index.html" class="post-list-item-link">Table cells and max-widths in Internet Explorer 8</a> 30 Sep 2009
+-   <a href="browser-makers-wheres-the-new-tab-homepage-option/index.html" class="post-list-item-link">Browser makers: where’s the new tab + homepage option?</a> 07 Aug 2009
+-   <a href="what-happens-if-ie8-breaks-my-website/index.html" class="post-list-item-link">What happens if IE8 "breaks" my website?</a> 27 Jun 2009
+-   <a href="images-display-in-firefox-and-safari-but-not-in-internet-explorer/index.html" class="post-list-item-link">Images display in Firefox and Safari, but not in Internet Explorer</a> 24 Apr 2009
+-   <a href="php-functions-to-get-and-remove-the-file-extension-from-a-string/index.html" class="post-list-item-link">PHP functions to get and remove the file extension from a string</a> 12 Mar 2009
+-   <a href="prevent-white-noise-from-appearing-in-images-after-fading/index.html" class="post-list-item-link">Prevent white noise from appearing in images after fading</a> 10 Jan 2009
+-   <a href="abs-becomes-abs-llc/index.html" class="post-list-item-link">A Beautiful Site becomes "A Beautiful Site, LLC"</a> 18 Oct 2008
+-   <a href="import-restore-mysql-files-from-the-command-line/index.html" class="post-list-item-link">Import/restore MySQL files from the command line</a> 24 Jul 2008
+-   <a href="parsing-a-json-string-results-in-an-invalid-label-error/index.html" class="post-list-item-link">Parsing a JSON string results in an 'Invalid Label' error</a> 17 Jul 2008
+-   <a href="postjson-for-jquery/index.html" class="post-list-item-link">$.postJSON() for jQuery</a> 31 May 2008
+-   <a href="generate-random-passwords-in-php/index.html" class="post-list-item-link">Generate random passwords in PHP</a> 17 May 2008
+-   <a href="fetching-remote-web-pages-with-curl-and-php/index.html" class="post-list-item-link">Fetching remote web pages with curl and PHP</a> 08 Apr 2008
+-   <a href="determine-file-extensions-using-javascript/index.html" class="post-list-item-link">Determine file extensions using JavaScript</a> 20 Mar 2008
+-   <a href="but-we-havent-even-mastered-acid2/index.html" class="post-list-item-link">But we haven't even mastered Acid2!</a> 06 Mar 2008
+-   <a href="netscape-support-ending-in-february-2008/index.html" class="post-list-item-link">Netscape support ending in February 2008</a> 03 Jan 2008
+-   <a href="ie8-burns-the-acid-2-test/index.html" class="post-list-item-link">IE8 burns the Acid 2 test</a> 21 Dec 2007
+-   <a href="jquery-checkboxes-select-all-select-none-and-invert-selection/index.html" class="post-list-item-link">Select all, select none, and invert selection with jQuery</a> 09 Dec 2007
+-   <a href="external-popup-links-using-jquery/index.html" class="post-list-item-link">External popup links using jQuery</a> 15 Nov 2007
+-   <a href="convert-arrays-to-csv-with-php/index.html" class="post-list-item-link">Convert arrays to CSV with PHP</a> 03 Oct 2007
+-   <a href="getting-proportionally-resized-dimensions-of-an-image/index.html" class="post-list-item-link">Getting proportionally-resized dimensions of an image</a> 17 Sep 2007
+-   <a href="javascript-functions-for-basename-and-dirname/index.html" class="post-list-item-link">JavaScript functions for basename and dirname</a> 16 Sep 2007
+-   <a href="avoiding-timestamp-errors-when-calculating-dates-in-php/index.html" class="post-list-item-link">Avoiding timestamp errors when calculating dates in php</a> 29 Aug 2007
+-   <a href="an-excellent-free-font-resource/index.html" class="post-list-item-link">DaFont: an excellent free font resource</a> 31 Jul 2007
+-   <a href="forcing-file-downloads-in-php/index.html" class="post-list-item-link">Forcing file downloads in PHP</a> 08 Jul 2007
+-   <a href="web-standards-are-just-minor-details/index.html" class="post-list-item-link">Web standards are just "minor details"</a> 02 Jul 2007
+-   <a href="creating-stylesheets-for-handheld-devices/index.html" class="post-list-item-link">Creating stylesheets for handheld devices</a> 30 May 2007
+-   <a href="creating-a-printable-website-using-print-stylesheets/index.html" class="post-list-item-link">Creating a printable website using print stylesheets</a> 28 May 2007
+-   <a href="css-drop-caps/index.html" class="post-list-item-link">CSS drop caps</a> 23 May 2007
+-   <a href="find-and-replace-hyperlinks-and-email-addresses-in-php/index.html" class="post-list-item-link">Find and replace hyperlinks and email addresses in PHP</a> 15 May 2007
+-   <a href="what-are-favicons/index.html" class="post-list-item-link">What are favicons?</a> 11 May 2007
+-   <a href="using-javascript-to-prevent-comment-spam/index.html" class="post-list-item-link">Using JavaScript to prevent comment spam</a> 05 May 2007
+-   <a href="password-protection-using-htaccess-and-htpasswd/index.html" class="post-list-item-link">Password protection using .htaccess and .htpasswd</a> 29 Apr 2007
+-   <a href="gif-jpeg-or-png-using-images-on-the-web/index.html" class="post-list-item-link">GIF, JPEG or PNG? Using images on the web</a> 29 Apr 2007
+-   <a href="business-cards/index.html" class="post-list-item-link">Business cards</a> 29 Apr 2007
+-   <a href="an-event-apart-boston/index.html" class="post-list-item-link">An Event Apart, Boston</a> 29 Apr 2007
+-   <a href="a-beautiful-site-launched/index.html" class="post-list-item-link">A Beautiful Site launched</a> 29 Apr 2007
 
-_Feeds available in [Atom](../feed/feed.xml) & [JSON](../feed/feed.json)_
+*Feeds available in [Atom](../feed/feed.xml) & [JSON](../feed/feed.json)*
 
----
+------------------------------------------------------------------------
 
 You can also [browse by tag](../index-3.html) or press / to search.

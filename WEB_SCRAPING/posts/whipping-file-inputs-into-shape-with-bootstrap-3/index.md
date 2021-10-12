@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Whipping file inputs into shape with Bootstrap
+Whipping file inputs into shape with Bootstrap
+==============================================
 
 August 08, 2013 • 2 min read
 
@@ -10,7 +11,8 @@ There are [many](http://www.quirksmode.org/dom/inputfile.html), [many](https://c
 
 Today, I would like to propose a more fundamental approach for file inputs in Bootstrap 3 and 4.
 
-## Modern approach (IE9+) <a href="#modern-approach-(ie9%2B)" class="direct-link">#</a>
+Modern approach (IE9+) <a href="#modern-approach-(ie9%2B)" class="direct-link">#</a>
+------------------------------------------------------------------------------------
 
 Let's start by nesting a button inside a `<label>`, adding the appropriate button classes to style it as we want:
 
@@ -18,7 +20,8 @@ Let's start by nesting a button inside a `<label>`, adding the appropriate butto
       Browse <input type="file" style="display: none;">
     </label>
 
-## Legacy approach (IE8 and below) <a href="#legacy-approach-(ie8-and-below)" class="direct-link">#</a>
+Legacy approach (IE8 and below) <a href="#legacy-approach-(ie8-and-below)" class="direct-link">#</a>
+----------------------------------------------------------------------------------------------------
 
 If you need support for old IE, you can use this legacy approach. Instead of a `<label>`, wrap your button in a `<span>`:
 
@@ -49,7 +52,8 @@ And then apply the following CSS:
       display: block;
     }
 
-## Customizing the button's appearance <a href="#customizing-the-button&#39;s-appearance" class="direct-link">#</a>
+Customizing the button's appearance <a href="#customizing-the-button&#39;s-appearance" class="direct-link">#</a>
+----------------------------------------------------------------------------------------------------------------
 
 So far so good. Whether you're using the modern approach or the legacy approach, clicking on the "button" will trigger the file input. As a bonus, it will also acquire the `:hover` and `:active` pseudo classes so it behaves like a real button too.
 
@@ -57,7 +61,8 @@ You can use these buttons like you normally would…by themselves, in a button g
 
 ![](../../images/bootstrap-file-input-example.png)
 
-## Providing feedback <a href="#providing-feedback" class="direct-link">#</a>
+Providing feedback <a href="#providing-feedback" class="direct-link">#</a>
+--------------------------------------------------------------------------
 
 Now with the hard part out of the way, it's a good practice to provide users with a bit of feedback about their selection. A touch of jQuery magic will keep an eye on your file inputs and fire an event called `fileselect` when a file is chosen:
 
@@ -81,15 +86,16 @@ You can use the `numFiles` or `label` parameter to show users the name of the f
 
 This method was tested to work in IE8–IE11 and recent versions of Chrome, Safari, Firefox, and Opera.
 
-## See it in action <a href="#see-it-in-action" class="direct-link">#</a>
+See it in action <a href="#see-it-in-action" class="direct-link">#</a>
+----------------------------------------------------------------------
 
 For a live demo that you can tinker with, [view the demo CodePen](http://codepen.io/claviska/pen/vAgmd/).
 
-_May 20, 2016: added the modern approach and updated the demo._
+*May 20, 2016: added the modern approach and updated the demo.*
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/bootstrap/index.html" class="post-tag">bootstrap</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a> <a href="../../tags/jquery/index.html" class="post-tag">jquery</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -97,6 +103,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../tips-for-the-aspiring-web-developer/index.html" class="post-nav-previous"><span class="small">Previous post</span> Tips for the aspiring web developer</a> <a href="../theres-a-reason-that-bootstrap-3-has-ugly-buttons/index.html" class="post-nav-next"><span class="small">Up next</span> There's a reason that Bootstrap 3 has ugly buttons</a>

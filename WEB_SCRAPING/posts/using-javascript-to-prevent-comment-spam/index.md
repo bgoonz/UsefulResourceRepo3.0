@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Using JavaScript to prevent comment spam
+Using JavaScript to prevent comment spam
+========================================
 
 May 05, 2007 • 3 min read
 
@@ -14,7 +15,8 @@ Heads up! This post was written in 2007, so it may contain information that is n
 
 Comment spam (also known as 'link spam', 'blog spam', and 'wikispam') occurs when people or spam bots post comments on someones blog, guestbook, or wiki for the sole purpose of boosting traffic and promoting better search engine rankings for their site. Like email spam, it can be particularly annoying and troublesome to deal with.
 
-## Common Solutions <a href="#common-solutions" class="direct-link">#</a>
+Common Solutions <a href="#common-solutions" class="direct-link">#</a>
+----------------------------------------------------------------------
 
 Many companies and organizations have put forth efforts to prevent comment spam. The well-known search engine [Google](http://google.com/), who owns the popular blog site [Blogger](http://blogger.com/), [announced back in 2005](http://googleblog.blogspot.com/2005/01/preventing-comment-spam.html) that it would no longer index anchor tags with the `rel="nofollow"` attribute in them. Web developers were encouraged to make their software automatically add this attribute to all user-contributed hyperlinks. Although this method will discourage a lot of spammers from wasting their time, it doesn't actually prevent them from posting spam comments.
 
@@ -24,9 +26,10 @@ A reasonably good method of preventing this type of spam is called [CAPTCHA](htt
 
 Of course, you could require that all comments be approved before they are posted, but that requires a lot of extra time and effort, especially for busy sites.
 
-## A Better Method? <a href="#a-better-method%3F" class="direct-link">#</a>
+A Better Method? <a href="#a-better-method%3F" class="direct-link">#</a>
+------------------------------------------------------------------------
 
-I've decided to share a method that I've been using on [my personal site](http://laviska.com/) for a few years now. I used to get lots of guestbook and comment spam on a daily basis when my forms were left wide open. Since I've applied this technique, I haven't recieved any comment spam at all. That's right, _not one_. Of course, once I post this there will be nothing stopping spammers from tweaking their bots to work around this solution. At least, for now, it works extremely well.
+I've decided to share a method that I've been using on [my personal site](http://laviska.com/) for a few years now. I used to get lots of guestbook and comment spam on a daily basis when my forms were left wide open. Since I've applied this technique, I haven't recieved any comment spam at all. That's right, *not one*. Of course, once I post this there will be nothing stopping spammers from tweaking their bots to work around this solution. At least, for now, it works extremely well.
 
 ### How it works <a href="#how-it-works" class="direct-link">#</a>
 
@@ -64,16 +67,16 @@ As you can see, the when the user clicks on the button labeled 'Post Comment', t
 
 ### Pros <a href="#pros" class="direct-link">#</a>
 
-- A lot less comment spam — possibly none
-- Users aren't required to take any extra steps in order to post a comment
+-   A lot less comment spam — possibly none
+-   Users aren't required to take any extra steps in order to post a comment
 
 ### Cons <a href="#cons" class="direct-link">#</a>
 
-- Requires JavaScript, otherwise users won't be able to post comments
+-   Requires JavaScript, otherwise users won't be able to post comments
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -81,6 +84,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../password-protection-using-htaccess-and-htpasswd/index.html" class="post-nav-previous"><span class="small">Previous post</span> Password protection using .htaccess and .htpasswd</a> <a href="../what-are-favicons/index.html" class="post-nav-next"><span class="small">Up next</span> What are favicons?</a>

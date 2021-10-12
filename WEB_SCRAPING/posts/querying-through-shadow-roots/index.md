@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Querying through shadow roots
+Querying through shadow roots
+=============================
 
 August 04, 2021 • 1 min read
 
@@ -14,7 +15,7 @@ Inside the shadow root is a `<button>` that I want to target with JavaScript.\* 
 
     const button = document.querySelector('sl-button').shadowRoot.querySelector('button');
 
-That's pretty verbose! It's nice that we can chain the selectors, but it would be even nicer if we could poke through shadow roots _right in_ the selector.
+That's pretty verbose! It's nice that we can chain the selectors, but it would be even nicer if we could poke through shadow roots *right in* the selector.
 
     // This doesn't work, but we can dream
     const button = document.querySelector('sl-button >>> button');
@@ -51,11 +52,11 @@ Finally, you can even traverse multiple shadow roots in one query.
 
     shadowQuery('my-element >>> my-second-element >>> my-third-element');
 
-\*It's worth noting that you probably _shouldn't_ be targeting shadow roots — they're encapsulated for a reason! Nevertheless, this can be very useful in exceptional situations.
+\*It's worth noting that you probably *shouldn't* be targeting shadow roots — they're encapsulated for a reason! Nevertheless, this can be very useful in exceptional situations.
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a> <a href="../../tags/web%20components/index.html" class="post-tag">web components</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -63,6 +64,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../prefers-reduced-motion/index.html" class="post-nav-previous"><span class="small">Previous post</span> Prefers Reduced Motion</a> <a href="../testing-support-for-focus-visible/index.html" class="post-nav-next"><span class="small">Up next</span> Testing Support for :focus-visible</a>

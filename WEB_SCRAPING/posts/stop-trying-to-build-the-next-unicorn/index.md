@@ -1,14 +1,16 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Stop trying to build the next unicorn
+Stop trying to build the next unicorn
+=====================================
 
 September 02, 2014 • 3 min read
 
 So, you're building the next big thing? You say you're going to make millions and have a fancy office building out in the valley? That's cool. By the same odds we'll both be rich, because I'm holding tonight's winning lotto ticket.
 
-## Your idea probably won't be the next big thing <a href="#your-idea-probably-won&#39;t-be-the-next-big-thing" class="direct-link">#</a>
+Your idea probably won't be the next big thing <a href="#your-idea-probably-won&#39;t-be-the-next-big-thing" class="direct-link">#</a>
+--------------------------------------------------------------------------------------------------------------------------------------
 
 It's true. The odds are against you. Whatever you're building probably won't be the next Facebook or Twitter, but that doesn't mean you can't make a living doing what you love.
 
@@ -16,7 +18,8 @@ It sounds discouraging, but I'm really just trying to bring you down to earth. S
 
 You're probably well aware that [most startups fail](http://www.businessinsider.com/startup-odds-of-success-2013-5). It's a vicious world out there with entrepreneurs trying desperately to get their ideas funded. They have an exit strategy even before they have a product. Building something great has taken a backseat to trying to become a billionaire.
 
-## Success may not be what you think it is <a href="#success-may-not-be-what-you-think-it-is" class="direct-link">#</a>
+Success may not be what you think it is <a href="#success-may-not-be-what-you-think-it-is" class="direct-link">#</a>
+--------------------------------------------------------------------------------------------------------------------
 
 When someone says "success", what do you think of? Is it the money? The fame? The idea of retiring young? Is it having big houses and little cars? What type of lifestyle would you live if you were "successful" by your own standard?
 
@@ -26,7 +29,8 @@ When we're young, we're taught to aim for the sky, but success doesn't have to b
 
 So what makes you truly happy?
 
-## Less is more <a href="#less-is-more" class="direct-link">#</a>
+Less is more <a href="#less-is-more" class="direct-link">#</a>
+--------------------------------------------------------------
 
 What if you could live in a comfortable house, have a nice car, work decent hours, enjoy the work you do, have a healthy budget for your day-to-day needs, and be able to spend more time with your family and friends? The average person would kill to have this life. (If you didn't know that already, you must be a very fortunate person.)
 
@@ -34,7 +38,8 @@ The truth is, your success is based on many things that are important to you, no
 
 So how do you reach that balance yet still be successful? There's nothing wrong with aiming high—just don't aim too high.
 
-## There's no shame in a lifestyle business <a href="#there&#39;s-no-shame-in-a-lifestyle-business" class="direct-link">#</a>
+There's no shame in a lifestyle business <a href="#there&#39;s-no-shame-in-a-lifestyle-business" class="direct-link">#</a>
+--------------------------------------------------------------------------------------------------------------------------
 
 Some people don't like the term [lifestyle business](http://en.wikipedia.org/wiki/Lifestyle_business). If you're not familiar with it, a good definition is:
 
@@ -52,7 +57,7 @@ And who knows? Maybe your idea will take you to the top. But if it doesn't, at l
 
 <a href="../../tags/business/index.html" class="post-tag">business</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -60,6 +65,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../browserstack-stop-using-virtual-machines-for-browser-testing/index.html" class="post-nav-previous"><span class="small">Previous post</span> BrowserStack: stop using virtual machines for browser testing</a> <a href="../is-your-product-the-reason-your-startup-is-failing/index.html" class="post-nav-next"><span class="small">Up next</span> Is your product the reason your startup is failing?</a>

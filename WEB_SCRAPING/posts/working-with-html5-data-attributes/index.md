@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Working with HTML5 data attributes
+Working with HTML5 data attributes
+==================================
 
 August 21, 2014 • 3 min read
 
@@ -10,7 +11,8 @@ Before HTML5, working with arbitrary data sucked. To keep things valid, you had 
 
 But that all changed with the introduction of HTML5 custom data attributes. Now you can store arbitrary data in an easy, standards-compliant way.
 
-## How do data attributes work? <a href="#how-do-data-attributes-work%3F" class="direct-link">#</a>
+How do data attributes work? <a href="#how-do-data-attributes-work%3F" class="direct-link">#</a>
+------------------------------------------------------------------------------------------------
 
 A data attribute is exactly that: a custom attribute that stores data. They are always prefixed with `data-` followed by something descriptive (according to [the spec](http://www.w3.org/html/wg/drafts/html/master/dom.html#custom-data-attribute), only lower case letters and hyphens are allowed). An element can have any number of data attributes you want.
 
@@ -24,13 +26,15 @@ Of course, this data isn't very useful to a visitor because they can't actually 
 
 All the data you need is right there to send to your backend script. No more `rel` stuffing or parsing IDs and actions out of other attributes. Data URLs make your life easier.
 
-## What can you store? <a href="#what-can-you-store%3F" class="direct-link">#</a>
+What can you store? <a href="#what-can-you-store%3F" class="direct-link">#</a>
+------------------------------------------------------------------------------
 
 One thing to remember when working with data attributes is that you can't store objects in them. Well, you can if you serialize them, but we'll save that for another post.
 
 For now, just know that you're pretty much limited to storing strings.
 
-## Reading/writing data attributes with JavaScript <a href="#reading%2Fwriting-data-attributes-with-javascript" class="direct-link">#</a>
+Reading/writing data attributes with JavaScript <a href="#reading%2Fwriting-data-attributes-with-javascript" class="direct-link">#</a>
+--------------------------------------------------------------------------------------------------------------------------------------
 
 Using the delete button as an example, let's look at how we can access this data with JavaScript.
 
@@ -47,7 +51,8 @@ Using the delete button as an example, let's look at how we can access this da
 
 Pretty simple, right? Now you can pass `cmd` and `id` to your app in an AJAX request or do whatever else you need to do with it.
 
-## Reading/writing data attributes with jQuery <a href="#reading%2Fwriting-data-attributes-with-jquery" class="direct-link">#</a>
+Reading/writing data attributes with jQuery <a href="#reading%2Fwriting-data-attributes-with-jquery" class="direct-link">#</a>
+------------------------------------------------------------------------------------------------------------------------------
 
 Here's the same thing using jQuery's [`.attr()`](http://api.jquery.com/attr/) method:
 
@@ -62,7 +67,8 @@ Here's the same thing using jQuery's [`.attr()`](http://api.jquery.com/attr/) m
 
 Don't get this confused with jQuery's [`.data()`](http://api.jquery.com/data/) method. Although there is some overlap in how data attributes and `.data()` work, they're two totally different things. If you're not familiar with it, just stick with `.attr()`.
 
-## Using the dataset API <a href="#using-the-dataset-api" class="direct-link">#</a>
+Using the dataset API <a href="#using-the-dataset-api" class="direct-link">#</a>
+--------------------------------------------------------------------------------
 
 HTML5 actually has an API just for working with this type of data. Alas, [IE10 and below](http://caniuse.com/#feat=dataset) don't fully support it, but it's still worth mentioning.
 
@@ -81,7 +87,8 @@ Using the button example again, here's how to get and set data attributes using 
 
 Note how there's no `data` prefix or dashes here. Similar to the way CSS properties work in JavaScript, you'll need to use camel case notation. The dataset API converts each one so you'll always have `data-some-attribute-name` in your HTML and `dataset.someAttributeName` in your JavaScript. Magic!
 
-## Things you can do with data attributes <a href="#things-you-can-do-with-data-attributes" class="direct-link">#</a>
+Things you can do with data attributes <a href="#things-you-can-do-with-data-attributes" class="direct-link">#</a>
+------------------------------------------------------------------------------------------------------------------
 
 The examples above are very basic, but you can do so much with custom data attributes. Here are a few examples off the top of my head.
 
@@ -132,7 +139,8 @@ But what if we wanted to style it based on the data attribute's value? This wil
       Popover on top
     </button>
 
-## A better way to store data <a href="#a-better-way-to-store-data" class="direct-link">#</a>
+A better way to store data <a href="#a-better-way-to-store-data" class="direct-link">#</a>
+------------------------------------------------------------------------------------------
 
 Custom data attributes are widely used all over the web. The nice thing is that they work fine in older browsers, and they adhere to web standards moving forward. That means you can start using them today knowing that they won't stop working tomorrow.
 
@@ -140,7 +148,7 @@ I've shown you a few common ways to use custom data attributes. What other uses
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/html/index.html" class="post-tag">html</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -148,6 +156,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../is-it-possible-to-be-an-introverted-entrepreneur/index.html" class="post-nav-previous"><span class="small">Previous post</span> Is it possible to be an introverted entrepreneur?</a> <a href="../find-a-name-for-almost-any-hex-color/index.html" class="post-nav-next"><span class="small">Up next</span> Find a name for almost any hex color</a>

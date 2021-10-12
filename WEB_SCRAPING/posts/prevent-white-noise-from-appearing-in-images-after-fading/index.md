@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Prevent white noise from appearing in images after fading
+Prevent white noise from appearing in images after fading
+=========================================================
 
 January 10, 2009 • 1 min read
 
@@ -32,7 +33,7 @@ In most cases, there won't be a noticeable difference in color. Alas, this work 
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/ie/index.html" class="post-tag">ie</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -40,6 +41,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../abs-becomes-abs-llc/index.html" class="post-nav-previous"><span class="small">Previous post</span> A Beautiful Site becomes "A Beautiful Site, LLC"</a> <a href="../php-functions-to-get-and-remove-the-file-extension-from-a-string/index.html" class="post-nav-next"><span class="small">Up next</span> PHP functions to get and remove the file extension from a string</a>

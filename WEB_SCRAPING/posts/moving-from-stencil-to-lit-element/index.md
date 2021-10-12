@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# Moving from Stencil to LitElement
+Moving from Stencil to LitElement
+=================================
 
 March 02, 2021 • 7 min read
 
@@ -12,9 +13,10 @@ Naturally, such a big change brings questions from the community, such as ["what
 
 But before I jump in, it's worth mentioning that Stencil is a great project that played a significant role in getting me into web components. Being able to type `npm init stencil` and have an entire project ready to go is really something special.
 
-Let it also be clear that this isn't a jab at Stencil, nor is it advice for or against using Stencil to build your own projects. This is why _I_ chose to move on based on _my_ experience, _my_ observations, and _my_ desire to own as much of my own code as possible.
+Let it also be clear that this isn't a jab at Stencil, nor is it advice for or against using Stencil to build your own projects. This is why *I* chose to move on based on *my* experience, *my* observations, and *my* desire to own as much of my own code as possible.
 
-## Less is more <a href="#less-is-more" class="direct-link">#</a>
+Less is more <a href="#less-is-more" class="direct-link">#</a>
+--------------------------------------------------------------
 
 When you're managing a software project, dependencies can quickly become liabilities. Despite its many niceties, Stencil can be a box of mystery at times. As a contributor, it was difficult for me to dive into its codebase and figure things out. There's little documentation on its internals, so everything requires digging. A lot of digging. Even as a member of the Stencil team, I found it hard to get the information I needed to make useful contributions to the project.
 
@@ -24,13 +26,15 @@ One might surmise that the maintainers are overwhelmed by the number of bugs tha
 
 And what happens when I have an issue that I can't resolve myself? Will someone point me in the right direction? Will it ever get fixed? [Probably not.](https://github.com/ionic-team/stencil/issues/2198) (That was submitted a year ago, before issues were automatically closed.)
 
-## Build & distribution <a href="#build-%26-distribution" class="direct-link">#</a>
+Build & distribution <a href="#build-%26-distribution" class="direct-link">#</a>
+--------------------------------------------------------------------------------
 
 Stencil is a compiler that generates components using any number of possible [output targets](https://stenciljs.com/docs/output-targets). In theory, this is really convenient because it can produce multiple distributions from a single source. In practice, I found that having two separate distributions made my project harder to document and left users confused.
 
 These output targets are also limited in terms of configuration. Since last year, Shoelace was plagued with a [tree shaking problem](https://github.com/shoelace-style/shoelace/issues/180) I couldn't fix because of this. Moving away from Stencil, I was able to gain full control over how my build works and the tooling used to power it. I leaned on standards and went with a single collection of [ES modules](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Modules) that work in both browsers and bundlers. Best of all, having full control over the build let me finally resolve that pesky tree shaking issue.
 
-## Less Magic <a href="#less-magic" class="direct-link">#</a>
+Less Magic <a href="#less-magic" class="direct-link">#</a>
+----------------------------------------------------------
 
 Speaking of distributions, one thing I'm losing by leaving Stencil is its [lazy loading dist](https://stenciljs.com/docs/distribution). At first, I wondered how I could reproduce this outside of Stencil. It's a very convenient feature for users.
 
@@ -44,7 +48,8 @@ I'm pretty sure this was a combination of how Docsify loads pages and Stencil's 
 
 Considering all this, I thought long and hard about the benefits and drawbacks of lazy loading. Ultimately, I decided it wasn't worth the effort. With the latest version of Shoelace, users can load the [entire library](https://shoelace.style/getting-started/installation) or [cherry pick](https://shoelace.style/getting-started/installation?id=cherry-picking) components — something that wasn't possible before. I think that's a fair tradeoff to avoid all the weird issues it seemed to be causing.
 
-## Native templates <a href="#native-templates" class="direct-link">#</a>
+Native templates <a href="#native-templates" class="direct-link">#</a>
+----------------------------------------------------------------------
 
 I prefer to stick to the platform when possible. Although I like JSX, I like [template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) even better because they're simple and they don't require transpilation. Now that the platform has a built-in for templating, we should utilize it.
 
@@ -100,7 +105,8 @@ They're so similar. I just don't see why I should run the code through another l
 
 A special syntax is no longer necessary.
 
-## Virtual DOM <a href="#virtual-dom" class="direct-link">#</a>
+Virtual DOM <a href="#virtual-dom" class="direct-link">#</a>
+------------------------------------------------------------
 
 Like React and other popular frameworks, Stencil uses a virtual DOM ("VDOM") to render things faster than working directly with the real DOM. However, it's a common misconception that VDOMs are actually faster. [Rich Harris writes:](https://svelte.dev/blog/virtual-dom-is-pure-overhead)
 
@@ -110,7 +116,8 @@ It's an outdated meme. You can write poor performing components with or without 
 
 There's no need for an extra layer here, either.
 
-## A long time coming <a href="#a-long-time-coming" class="direct-link">#</a>
+A long time coming <a href="#a-long-time-coming" class="direct-link">#</a>
+--------------------------------------------------------------------------
 
 The move away from Stencil was inevitable. As part of my never-ending quest for simplicity, I've been experimenting with other libraries for a long time. One of the first I explored was [Hybrids](https://hybrids.js.org/#/), which is great if you want to go with a more functional approach. Ultimately, I decided that class-based made the most sense because, well, that's how you create custom elements. You can't do it without extending `HTMLElement`.
 
@@ -126,7 +133,8 @@ I do have a few \[opinionated\] DX concerns that I'll be sending over to the Lit
 
 I guess that's the nice thing about decorators — you can customize them to your liking.
 
-## Moving forward <a href="#moving-forward" class="direct-link">#</a>
+Moving forward <a href="#moving-forward" class="direct-link">#</a>
+------------------------------------------------------------------
 
 Consumers of Shoelace won't notice much of a difference in this release. I've simply replaced the old engine with a new one that does the same thing except with a leaner, simpler codebase with less magic. I have a responsibility to my users, so I need to be able to fix problems when they arise. I wasn't always able to do that before. Now I can.
 
@@ -134,11 +142,11 @@ I'm tired of rebuilding buttons. I designed Shoelace for longevity, taking advan
 
 With LitElement, I'm getting all the features I want with the smallest possible footprint. Now I can get back to building components again.
 
-_March 8, 2021 - updated to reflect the latest changes to the library._
+*March 8, 2021 - updated to reflect the latest changes to the library.*
 
 <a href="../../tags/news/index.html" class="post-tag">news</a> <a href="../../tags/shoelace/index.html" class="post-tag">shoelace</a> <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/web%20components/index.html" class="post-tag">web components</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -146,6 +154,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../svg-repo/index.html" class="post-nav-previous"><span class="small">Previous post</span> SVG Repo</a> <a href="../finding-the-active-element-in-a-shadow-root/index.html" class="post-nav-next"><span class="small">Up next</span> Finding the active element in a shadow root</a>

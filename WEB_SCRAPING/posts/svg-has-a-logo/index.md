@@ -1,8 +1,9 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
----
+------------------------------------------------------------------------
 
-# SVG has a logo
+SVG has a logo
+==============
 
 August 01, 2014 • 1 min read
 
@@ -24,7 +25,7 @@ What do you think of the SVG logo? Have you seen it used anywhere? I have to be 
 
 <a href="../../tags/news/index.html" class="post-tag">news</a> <a href="../../tags/svg/index.html" class="post-tag">svg</a> <a href="../../tags/web%20standards/index.html" class="post-tag">web standards</a>
 
----
+------------------------------------------------------------------------
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -32,6 +33,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
----
+------------------------------------------------------------------------
 
 <a href="../a-user-interface-is-like-a-joke/index.html" class="post-nav-previous"><span class="small">Previous post</span> A user interface is like a joke</a> <a href="../the-next-version-of-php-may-very-well-be-7/index.html" class="post-nav-next"><span class="small">Up next</span> The next version of PHP may very well be 7</a>
