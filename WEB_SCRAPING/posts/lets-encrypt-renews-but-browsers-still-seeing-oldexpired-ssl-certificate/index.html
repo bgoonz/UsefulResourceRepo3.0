@@ -1,124 +1,189 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:59:50 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Let&#39;s Encrypt renews but browsers still seeing old/expired SSL certificate</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  <!-- Mirrored from www.abeautifulsite.net/posts/lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:59:50 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Let&#39;s Encrypt renews but browsers still seeing old/expired SSL
+      certificate
+    </title>
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Let&#39;s Encrypt renews but browsers still seeing old/expired SSL certificate</h1>
+      <article class="post">
+        <h1>
+          Let&#39;s Encrypt renews but browsers still seeing old/expired SSL
+          certificate
+        </h1>
 
-  <div class="post-date">
-    <time datetime="2019-05-10">
-      May 10, 2019
-    </time>
-    &bull;
-    1 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2019-05-10"> May 10, 2019 </time>
+          &bull; 1 min read
+        </div>
 
-  
-
-  <p>This morning was frustrating. I recently upgraded my VPS from the deprecated <code>letsencrypt</code> client to the newer <code>cerbot</code> client and generated new certificates for all my personal domains. I thought everything was fine — until I kept seeing intermittent SSL errors.</p>
-<p>I figured I did something wrong, so I triple checked my Apache configs, made sure each website was pointing to the correct certificate, and restarted Apache...things seemed to work in Chrome, but not Firefox.</p>
-<p>Ok, obviously Firefox was caching the certificate, right? I cleared everything. Same error. I reinstalled Firefox. Same error. Then I noticed that, when I refreshed Chrome, I would <em>occasionally</em> see images blocked, then a moment later they would load.</p>
-<p>I ran some SSL tests with mixed results. They were seeing both certs intermittently too. 🤔</p>
-<p>So I disabled the server with <code>sudo service apache2 stop</code>. To my surprise, my websites were online, but this time the SSL was consistently invalid.</p>
-<p>It turns out, when I upgraded to <code>certbot</code>, I somehow launched a second instance Apache that wasn't responding to reloads, so there were two instances handling HTTPS traffic — one serving up the cached certificate from memory.</p>
-<p>To solve the problem, I ran:</p>
-<pre><code class="language-bash">sudo killall apache2
+        <p>
+          This morning was frustrating. I recently upgraded my VPS from the
+          deprecated <code>letsencrypt</code> client to the newer
+          <code>cerbot</code> client and generated new certificates for all my
+          personal domains. I thought everything was fine — until I kept seeing
+          intermittent SSL errors.
+        </p>
+        <p>
+          I figured I did something wrong, so I triple checked my Apache
+          configs, made sure each website was pointing to the correct
+          certificate, and restarted Apache...things seemed to work in Chrome,
+          but not Firefox.
+        </p>
+        <p>
+          Ok, obviously Firefox was caching the certificate, right? I cleared
+          everything. Same error. I reinstalled Firefox. Same error. Then I
+          noticed that, when I refreshed Chrome, I would
+          <em>occasionally</em> see images blocked, then a moment later they
+          would load.
+        </p>
+        <p>
+          I ran some SSL tests with mixed results. They were seeing both certs
+          intermittently too. 🤔
+        </p>
+        <p>
+          So I disabled the server with <code>sudo service apache2 stop</code>.
+          To my surprise, my websites were online, but this time the SSL was
+          consistently invalid.
+        </p>
+        <p>
+          It turns out, when I upgraded to <code>certbot</code>, I somehow
+          launched a second instance Apache that wasn't responding to reloads,
+          so there were two instances handling HTTPS traffic — one serving up
+          the cached certificate from memory.
+        </p>
+        <p>To solve the problem, I ran:</p>
+        <pre><code class="language-bash">sudo killall apache2
 sudo service apache2 start
 </code></pre>
-<p>Evidently, Chrome is more resilient to this than Firefox. Perhaps when Chrome sees a valid certificate from at least one HTTPS request, it retries any that fail until it gets a valid one.</p>
-<p>Either way, mystery solved. 🕵🏻‍♂️</p>
+        <p>
+          Evidently, Chrome is more resilient to this than Firefox. Perhaps when
+          Chrome sees a valid certificate from at least one HTTPS request, it
+          retries any that fail until it gets a valid one.
+        </p>
+        <p>Either way, mystery solved. 🕵🏻‍♂️</p>
 
+        <div class="tags">
+          <a href="../../tags/browsers/index.html" class="post-tag">browsers</a>
+          <a href="../../tags/ssl/index.html" class="post-tag">ssl</a>
+          <a href="../../tags/gotchas/index.html" class="post-tag">gotchas</a>
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/browsers/index.html" class="post-tag">browsers</a>
-  <a href="../../tags/ssl/index.html" class="post-tag">ssl</a>
-  <a href="../../tags/gotchas/index.html" class="post-tag">gotchas</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a
+          href="../introducing-surreal-cms-7/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          Introducing Surreal CMS 7
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../introducing-surreal-cms-7/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      Introducing Surreal CMS 7
-    </a>
-  
-    <a href="../a-free-html-css-and-js-beautifier/index.html" class="post-nav-next">
-      <small>Up next</small>
-      A free HTML, CSS, and JavaScript beautifier
-    </a>
-  
-</nav>
-
+        <a
+          href="../a-free-html-css-and-js-beautifier/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          A free HTML, CSS, and JavaScript beautifier
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -130,14 +195,29 @@ sudo service apache2 start
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:59:50 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:59:50 GMT -->
 </html>

@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Surreal CMS acquires PageLime
-=============================
+# Surreal CMS acquires PageLime
 
 July 14, 2017 • 2 min read
 
@@ -17,8 +16,7 @@ I never imagined that seven years later I would acquire them.
 
 ![A decorative backdrop used by the original PageLime website](../../images/pagelime-backdrop.png)
 
-What happened? <a href="#what-happened%3F" class="direct-link">#</a>
---------------------------------------------------------------------
+## What happened? <a href="#what-happened%3F" class="direct-link">#</a>
 
 About three years ago, I noticed PageLime's support starting to slip. This was evidenced by users' feedback on Twitter and emails from new Surreal CMS users that were coming from PageLime.
 
@@ -26,15 +24,13 @@ Turns out, for whatever reason, PageLime's founders had moved on to other busine
 
 Since then, PageLime remained stagnant. Development stopped. The forum went offline. Then the blog was taken down. Sure, the website and service were still online, but they were just kinda there.
 
-Down for a week <a href="#down-for-a-week" class="direct-link">#</a>
---------------------------------------------------------------------
+## Down for a week <a href="#down-for-a-week" class="direct-link">#</a>
 
 On May 25, 2017, Twitter users began reporting that [PageLime was down](https://twitter.com/karenzadesign/status/869266717108834305). Sure enough it was, and it stayed down until June 2 with no official response from support.
 
 I can only speculate as to what happened. I don't know why it took so long to get the service back online. It was upsetting to users, for sure, but it also upset me as a SaaS owner who takes pride in offering [top notch support](https://twitter.com/claviska/status/869614153828315136).
 
-The acquisition <a href="#the-acquisition" class="direct-link">#</a>
---------------------------------------------------------------------
+## The acquisition <a href="#the-acquisition" class="direct-link">#</a>
 
 In early June, one of PageLime's co-founders contacted me about sunsetting the service. I outlined my vision for migrating users to Surreal CMS and we eventually came to an agreement for acquisition. (Details of the acquisition will remain private as part of the agreement.)
 
@@ -42,8 +38,7 @@ Over the last few weeks, I've worked diligently to create a tool that helps Page
 
 Starting today, you can migrate your PageLime account to Surreal CMS in just a few seconds with the automated migration tool available on PageLime's website.
 
-The shutdown <a href="#the-shutdown" class="direct-link">#</a>
---------------------------------------------------------------
+## The shutdown <a href="#the-shutdown" class="direct-link">#</a>
 
 PageLime will officially shutdown on August 31, 2017.
 
@@ -57,7 +52,7 @@ If you have questions about your PageLime account or the acquisition, please vis
 
 <a href="../../tags/news/index.html" class="post-tag">news</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -65,6 +60,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../rebuilding-your-spotlight-index-in-macos/index.html" class="post-nav-previous"><span class="small">Previous post</span> Rebuilding your Spotlight index in macOS</a> <a href="../downloading-a-list-of-urls-automatically/index.html" class="post-nav-next"><span class="small">Up next</span> Downloading a list of URLs automatically</a>

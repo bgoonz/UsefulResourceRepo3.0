@@ -1,133 +1,202 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/parsing-a-json-string-results-in-an-invalid-label-error/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:18 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parsing a JSON string results in an &#39;Invalid Label&#39; error</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+  <!-- Mirrored from www.abeautifulsite.net/posts/parsing-a-json-string-results-in-an-invalid-label-error/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:18 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Parsing a JSON string results in an &#39;Invalid Label&#39; error
+    </title>
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Parsing a JSON string results in an &#39;Invalid Label&#39; error</h1>
+      <article class="post">
+        <h1>
+          Parsing a JSON string results in an &#39;Invalid Label&#39; error
+        </h1>
 
-  <div class="post-date">
-    <time datetime="2008-07-17">
-      July 17, 2008
-    </time>
-    &bull;
-    1 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2008-07-17"> July 17, 2008 </time>
+          &bull; 1 min read
+        </div>
 
-  
-    <div class="legacy-warning">
-      <img src="../../images/artwork/pointer.gif" alt="A drawing of a cartoon man pointing upwards">
-      <p>
-        Heads up! This post was written in 2008, so it may contain information that is no longer
-        accurate. I keep posts like this around for historical purposes and to prevent link rot, so please keep this in
-        mind as you're reading.
-      </p>
-      <p>
-        — Cory
-      </p>
-    </div>
-  
+        <div class="legacy-warning">
+          <img
+            src="../../images/artwork/pointer.gif"
+            alt="A drawing of a cartoon man pointing upwards"
+          />
+          <p>
+            Heads up! This post was written in 2008, so it may contain
+            information that is no longer accurate. I keep posts like this
+            around for historical purposes and to prevent link rot, so please
+            keep this in mind as you're reading.
+          </p>
+          <p>— Cory</p>
+        </div>
 
-  <p>Whenever I work with AJAX, jQuery is my preferred JavaScript library and PHP is my preferred server-side language. I use JSON whenever I can to pass data between JavaScript and PHP. After all, <code>$.get</code> and <code>$.post</code> both process JSON easily, so it's my data type of choice.</p>
-<p>Sometimes, however, I can't rely on <code>$.get</code> and <code>$.post</code> to do the dirty work for me. One example is when I'm using a hidden <code>iframe</code> to upload a file via &quot;AJAX&quot;. To do this, the form posts the file to a server-side script. The script loads in the hidden <code>iframe</code>, so users don't see what's happening behind the scene. Once the upload is complete, the script outputs some information about the file to the <code>iframe</code> (filename, location, size, etc.). You can then use JavaScript to capture that information.</p>
-<p>For the sake of consistency, my server-side script always outputs a valid JSON string. I rely on this data, which gets scooped out of the <code>iframe</code>, to tell me if the file got uploaded successfully and, if not, what the error was. If so, I need to know the filename, size, and location. What ends up in the <code>iframe</code> usually looks something like this:</p>
-<pre><code class="language-js">{&quot;filename&quot;:&quot;file.ext&quot;,&quot;size&quot;:&quot;2516582&quot;,&quot;location&quot;:&quot;/path/to/file/file.ext&quot;}
+        <p>
+          Whenever I work with AJAX, jQuery is my preferred JavaScript library
+          and PHP is my preferred server-side language. I use JSON whenever I
+          can to pass data between JavaScript and PHP. After all,
+          <code>$.get</code> and <code>$.post</code> both process JSON easily,
+          so it's my data type of choice.
+        </p>
+        <p>
+          Sometimes, however, I can't rely on <code>$.get</code> and
+          <code>$.post</code> to do the dirty work for me. One example is when
+          I'm using a hidden <code>iframe</code> to upload a file via
+          &quot;AJAX&quot;. To do this, the form posts the file to a server-side
+          script. The script loads in the hidden <code>iframe</code>, so users
+          don't see what's happening behind the scene. Once the upload is
+          complete, the script outputs some information about the file to the
+          <code>iframe</code> (filename, location, size, etc.). You can then use
+          JavaScript to capture that information.
+        </p>
+        <p>
+          For the sake of consistency, my server-side script always outputs a
+          valid JSON string. I rely on this data, which gets scooped out of the
+          <code>iframe</code>, to tell me if the file got uploaded successfully
+          and, if not, what the error was. If so, I need to know the filename,
+          size, and location. What ends up in the <code>iframe</code> usually
+          looks something like this:
+        </p>
+        <pre><code class="language-js">{&quot;filename&quot;:&quot;file.ext&quot;,&quot;size&quot;:&quot;2516582&quot;,&quot;location&quot;:&quot;/path/to/file/file.ext&quot;}
 </code></pre>
-<p>To parse the JSON string into a JavaScript object, I use <code>eval()</code>. (Some people prefer to use a <a href="http://www.json.org/">JSON parser</a>, but since the output of the script is controlled, I've never found it necessary for this application.) Alas, when JavaScript evaluates the string it results in an <code>invalid label</code> error.</p>
-<p>The error is the result of <code>eval()</code> interpreting the first item in the string as a label. This gets me everytime, but it's extremely easy to fix. Simply wrap the JSON string in parenthesis within <code>eval()</code>:</p>
-<pre><code class="language-js">var response = eval('(' + jsonString + ')');
+        <p>
+          To parse the JSON string into a JavaScript object, I use
+          <code>eval()</code>. (Some people prefer to use a
+          <a href="http://www.json.org/">JSON parser</a>, but since the output
+          of the script is controlled, I've never found it necessary for this
+          application.) Alas, when JavaScript evaluates the string it results in
+          an <code>invalid label</code> error.
+        </p>
+        <p>
+          The error is the result of <code>eval()</code> interpreting the first
+          item in the string as a label. This gets me everytime, but it's
+          extremely easy to fix. Simply wrap the JSON string in parenthesis
+          within <code>eval()</code>:
+        </p>
+        <pre><code class="language-js">var response = eval('(' + jsonString + ')');
 </code></pre>
-<p>This is one of those JavaScript &quot;&quot;gotchas&quot;, so I hope I can save people (and myself) a lot of time by documenting it.</p>
+        <p>
+          This is one of those JavaScript &quot;&quot;gotchas&quot;, so I hope I
+          can save people (and myself) a lot of time by documenting it.
+        </p>
 
+        <div class="tags">
+          <a href="../../tags/javascript/index.html" class="post-tag"
+            >javascript</a
+          >
+          <a href="../../tags/gotchas/index.html" class="post-tag">gotchas</a>
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
-  <a href="../../tags/gotchas/index.html" class="post-tag">gotchas</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a href="../postjson-for-jquery/index.html" class="post-nav-previous">
+          <small>Previous post</small>
+          $.postJSON() for jQuery
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../postjson-for-jquery/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      $.postJSON() for jQuery
-    </a>
-  
-    <a href="../import-restore-mysql-files-from-the-command-line/index.html" class="post-nav-next">
-      <small>Up next</small>
-      Import/restore MySQL files from the command line
-    </a>
-  
-</nav>
-
+        <a
+          href="../import-restore-mysql-files-from-the-command-line/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          Import/restore MySQL files from the command line
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -139,14 +208,29 @@
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/parsing-a-json-string-results-in-an-invalid-label-error/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/parsing-a-json-string-results-in-an-invalid-label-error/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:18 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/parsing-a-json-string-results-in-an-invalid-label-error/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:18 GMT -->
 </html>

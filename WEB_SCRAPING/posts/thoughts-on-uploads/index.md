@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Thoughts on uploads
-===================
+# Thoughts on uploads
 
 March 21, 2017 • 1 min read
 
@@ -31,7 +30,7 @@ At this rate, I should have the uploads manager ready to roll in a couple days!
 
 <a href="../../tags/postleaf/index.html" class="post-tag">postleaf</a> <a href="../../tags/design/index.html" class="post-tag">design</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -39,6 +38,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../importing-plain-css-files-with-sass/index.html" class="post-nav-previous"><span class="small">Previous post</span> Importing plain CSS files with Sass</a> <a href="../postleaf-reimagined/index.html" class="post-nav-next"><span class="small">Up next</span> Postleaf: reimagined</a>

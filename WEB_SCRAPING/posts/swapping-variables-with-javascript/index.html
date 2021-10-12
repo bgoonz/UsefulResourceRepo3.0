@@ -1,68 +1,95 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/swapping-variables-with-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/swapping-variables-with-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Swapping variables with JavaScript</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Swapping variables with JavaScript</h1>
+      <article class="post">
+        <h1>Swapping variables with JavaScript</h1>
 
-  <div class="post-date">
-    <time datetime="2014-08-04">
-      August 04, 2014
-    </time>
-    &bull;
-    1 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2014-08-04"> August 04, 2014 </time>
+          &bull; 1 min read
+        </div>
 
-  
-
-  <p>Swapping the value of two variables normally takes three lines and a temporary variable. What if I told you there was an easier way to do this with JavaScript?</p>
-<h2 id="traditional-method">Traditional method <a class="direct-link" href="#traditional-method">#</a></h2>
-<p>The goal is to swap the values of <code>a</code> and <code>b</code>. The textbook method for doing this looks something like this:</p>
-<pre><code class="language-js">var a = 1; 
+        <p>
+          Swapping the value of two variables normally takes three lines and a
+          temporary variable. What if I told you there was an easier way to do
+          this with JavaScript?
+        </p>
+        <h2 id="traditional-method">
+          Traditional method
+          <a class="direct-link" href="#traditional-method">#</a>
+        </h2>
+        <p>
+          The goal is to swap the values of <code>a</code> and <code>b</code>.
+          The textbook method for doing this looks something like this:
+        </p>
+        <pre><code class="language-js">var a = 1; 
 var b = 2;
 var c;
 
@@ -70,68 +97,112 @@ c = a;
 a = b;
 b = c;
 </code></pre>
-<p>Of course, we've introduced another variable called <code>c</code> to temporarily store the original value of <code>a</code> during the swap. But can we do it without <code>c</code>?</p>
-<h2 id="one-line-method">One-line method <a class="direct-link" href="#one-line-method">#</a></h2>
-<p>This trick uses an array to perform the swap. Take a second to wrap your head around it:</p>
-<pre><code class="language-js">b = [a, a = b][0];
+        <p>
+          Of course, we've introduced another variable called <code>c</code> to
+          temporarily store the original value of <code>a</code> during the
+          swap. But can we do it without <code>c</code>?
+        </p>
+        <h2 id="one-line-method">
+          One-line method <a class="direct-link" href="#one-line-method">#</a>
+        </h2>
+        <p>
+          This trick uses an array to perform the swap. Take a second to wrap
+          your head around it:
+        </p>
+        <pre><code class="language-js">b = [a, a = b][0];
 </code></pre>
-<p>There are a few things happening here, so if you're still having trouble understanding how or why this works, I'll explain:</p>
-<ol>
-<li>We're utilizing an array where the first index is the value of <code>a</code> and the second index is the value of  <code>b</code></li>
-<li><code>a</code> is set to the value of <code>b</code> when the array is created</li>
-<li><code>b</code> is set to the first index of the array, which is  a</li>
-<li>MAGIC</li>
-</ol>
-<p>While this trick definitely saves you a few lines of code and a temp variable, be cautious when using it. It's doesn't help that whole code clarity thing.</p>
-<p>Want to learn another cool way to swap variables? If you're a math buff, you'll like the <a href="http://chris-taylor.github.io/blog/2013/02/25/xor-trick/">xor trick</a>.</p>
+        <p>
+          There are a few things happening here, so if you're still having
+          trouble understanding how or why this works, I'll explain:
+        </p>
+        <ol>
+          <li>
+            We're utilizing an array where the first index is the value
+            of <code>a</code> and the second index is the value of 
+            <code>b</code>
+          </li>
+          <li>
+            <code>a</code> is set to the value of <code>b</code> when the array
+            is created
+          </li>
+          <li>
+            <code>b</code> is set to the first index of the array, which is  a
+          </li>
+          <li>MAGIC</li>
+        </ol>
+        <p>
+          While this trick definitely saves you a few lines of code and a temp
+          variable, be cautious when using it. It's doesn't help that whole code
+          clarity thing.
+        </p>
+        <p>
+          Want to learn another cool way to swap variables? If you're a math
+          buff, you'll like the
+          <a href="http://chris-taylor.github.io/blog/2013/02/25/xor-trick/"
+            >xor trick</a
+          >.
+        </p>
 
+        <div class="tags">
+          <a href="../../tags/development/index.html" class="post-tag"
+            >development</a
+          >
+          <a href="../../tags/javascript/index.html" class="post-tag"
+            >javascript</a
+          >
+          <a href="../../tags/tips/index.html" class="post-tag">tips</a>
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/development/index.html" class="post-tag">development</a>
-  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
-  <a href="../../tags/tips/index.html" class="post-tag">tips</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a
+          href="../the-next-version-of-php-may-very-well-be-7/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          The next version of PHP may very well be 7
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../the-next-version-of-php-may-very-well-be-7/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      The next version of PHP may very well be 7
-    </a>
-  
-    <a href="../how-to-get-faster-and-better-help-from-support/index.html" class="post-nav-next">
-      <small>Up next</small>
-      How to get faster and better help from support
-    </a>
-  
-</nav>
-
+        <a
+          href="../how-to-get-faster-and-better-help-from-support/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          How to get faster and better help from support
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -143,14 +214,29 @@ b = c;
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/swapping-variables-with-javascript/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/swapping-variables-with-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/swapping-variables-with-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
 </html>

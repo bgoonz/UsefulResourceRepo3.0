@@ -1,160 +1,333 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/creating-stylesheets-for-handheld-devices/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:19 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/creating-stylesheets-for-handheld-devices/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:19 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Creating stylesheets for handheld devices</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Creating stylesheets for handheld devices</h1>
+      <article class="post">
+        <h1>Creating stylesheets for handheld devices</h1>
 
-  <div class="post-date">
-    <time datetime="2007-05-30">
-      May 30, 2007
-    </time>
-    &bull;
-    3 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2007-05-30"> May 30, 2007 </time>
+          &bull; 3 min read
+        </div>
 
-  
-    <div class="legacy-warning">
-      <img src="../../images/artwork/pointer.gif" alt="A drawing of a cartoon man pointing upwards">
-      <p>
-        Heads up! This post was written in 2007, so it may contain information that is no longer
-        accurate. I keep posts like this around for historical purposes and to prevent link rot, so please keep this in
-        mind as you're reading.
-      </p>
-      <p>
-        — Cory
-      </p>
-    </div>
-  
+        <div class="legacy-warning">
+          <img
+            src="../../images/artwork/pointer.gif"
+            alt="A drawing of a cartoon man pointing upwards"
+          />
+          <p>
+            Heads up! This post was written in 2007, so it may contain
+            information that is no longer accurate. I keep posts like this
+            around for historical purposes and to prevent link rot, so please
+            keep this in mind as you're reading.
+          </p>
+          <p>— Cory</p>
+        </div>
 
-  <p>It's not uncommon so see someone surfing the net with their cell phone or PDA these days or, at least, trying to. Unfortunately, portable technologies still have a long way to go before they conquer the web with their tiny screens. The good news is that, with a little help from stylesheets, your website can look presentable even in the palm of somebody's hand!</p>
-<h2 id="handheld-stylesheets">Handheld stylesheets <a class="direct-link" href="#handheld-stylesheets">#</a></h2>
-<p>Similar to the way that <a href="http://abeautifulsite.net/notebook.php?article=16">print stylesheets</a> make your webpages ready for paper, handheld stylesheets make your webpages ready for portable devices. This is often necessary due to the fact that most websites aren't designed for small screens. Fortunately, with a little extra effort, this obstacle is easy to overcome.</p>
-<h3 id="linking-the-handheld-stylesheet">Linking the handheld stylesheet <a class="direct-link" href="#linking-the-handheld-stylesheet">#</a></h3>
-<p>We start off by linking to what will become our handheld stylesheet:</p>
-<pre><code class="language-html">&lt;link href=&quot;your_handheld_style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;handheld&quot; /&gt;
+        <p>
+          It's not uncommon so see someone surfing the net with their cell phone
+          or PDA these days or, at least, trying to. Unfortunately, portable
+          technologies still have a long way to go before they conquer the web
+          with their tiny screens. The good news is that, with a little help
+          from stylesheets, your website can look presentable even in the palm
+          of somebody's hand!
+        </p>
+        <h2 id="handheld-stylesheets">
+          Handheld stylesheets
+          <a class="direct-link" href="#handheld-stylesheets">#</a>
+        </h2>
+        <p>
+          Similar to the way that
+          <a href="http://abeautifulsite.net/notebook.php?article=16"
+            >print stylesheets</a
+          >
+          make your webpages ready for paper, handheld stylesheets make your
+          webpages ready for portable devices. This is often necessary due to
+          the fact that most websites aren't designed for small screens.
+          Fortunately, with a little extra effort, this obstacle is easy to
+          overcome.
+        </p>
+        <h3 id="linking-the-handheld-stylesheet">
+          Linking the handheld stylesheet
+          <a class="direct-link" href="#linking-the-handheld-stylesheet">#</a>
+        </h3>
+        <p>
+          We start off by linking to what will become our handheld stylesheet:
+        </p>
+        <pre><code class="language-html">&lt;link href=&quot;your_handheld_style.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; media=&quot;handheld&quot; /&gt;
 </code></pre>
-<p>Notice how the <code>media</code> attribute is set to <code>handheld</code> instead of <code>screen</code>.<br>
-Now it's time to create <code>your_handheld_style.css</code>.</p>
-<h3 id="creating-the-handheld-stylesheet">Creating the handheld stylesheet <a class="direct-link" href="#creating-the-handheld-stylesheet">#</a></h3>
-<p>You could use the normal screen stylesheet as a starting point to make your handheld stylesheet. Depending on the complexity of the CSS, it may be better to start from scratch or just copy and paste one section at a time, modifying the styles little by little and testing as you go. You could even choose to make a completely different look and feel for the handheld version of your website. The key thing to remember here is that you're creating a design that is meant to display on small screens, often no larger than 240x320 pixels.</p>
-<p>Which ever route you take, the fact that you will eventually need to preview the &quot;portable&quot; version of your website is inescapable...but what if you don't have a handheld device?</p>
-<h2 id="testing-the-handheld-stylesheet-without-a-handheld-device">Testing the handheld stylesheet without a handheld device <a class="direct-link" href="#testing-the-handheld-stylesheet-without-a-handheld-device">#</a></h2>
-<h3 id="using-the-opera-web-browser">Using the Opera web browser <a class="direct-link" href="#using-the-opera-web-browser">#</a></h3>
-<p>There are a lot of features I really love about <a href="http://www.opera.com/">Opera</a>, one of them being the <em>Small screen</em> feature. By clicking on <code>View</code> → <code>Small screen</code> or by pressing <kbd>Shift</kbd> + <kbd>F11</kbd>, you can preview any website in a simulated &quot;handheld&quot; mode. This is usually how I test my handheld stylesheets when I don't have a portable device laying around:</p>
-<p><img src="../../images/opera_small_screen.jpg" alt="Opera small screen"></p>
-<p>During testing in <em>Small screen</em> mode, it may be helpful to add the following code to your stylesheet. This will simulate the screen width of many common portable devices. Just remember to remove it before you upload!</p>
-<pre><code class="language-css">html {
+        <p>
+          Notice how the <code>media</code> attribute is set to
+          <code>handheld</code> instead of <code>screen</code>.<br />
+          Now it's time to create <code>your_handheld_style.css</code>.
+        </p>
+        <h3 id="creating-the-handheld-stylesheet">
+          Creating the handheld stylesheet
+          <a class="direct-link" href="#creating-the-handheld-stylesheet">#</a>
+        </h3>
+        <p>
+          You could use the normal screen stylesheet as a starting point to make
+          your handheld stylesheet. Depending on the complexity of the CSS, it
+          may be better to start from scratch or just copy and paste one section
+          at a time, modifying the styles little by little and testing as you
+          go. You could even choose to make a completely different look and feel
+          for the handheld version of your website. The key thing to remember
+          here is that you're creating a design that is meant to display on
+          small screens, often no larger than 240x320 pixels.
+        </p>
+        <p>
+          Which ever route you take, the fact that you will eventually need to
+          preview the &quot;portable&quot; version of your website is
+          inescapable...but what if you don't have a handheld device?
+        </p>
+        <h2 id="testing-the-handheld-stylesheet-without-a-handheld-device">
+          Testing the handheld stylesheet without a handheld device
+          <a
+            class="direct-link"
+            href="#testing-the-handheld-stylesheet-without-a-handheld-device"
+            >#</a
+          >
+        </h2>
+        <h3 id="using-the-opera-web-browser">
+          Using the Opera web browser
+          <a class="direct-link" href="#using-the-opera-web-browser">#</a>
+        </h3>
+        <p>
+          There are a lot of features I really love about
+          <a href="http://www.opera.com/">Opera</a>, one of them being the
+          <em>Small screen</em> feature. By clicking on <code>View</code> →
+          <code>Small screen</code> or by pressing <kbd>Shift</kbd> +
+          <kbd>F11</kbd>, you can preview any website in a simulated
+          &quot;handheld&quot; mode. This is usually how I test my handheld
+          stylesheets when I don't have a portable device laying around:
+        </p>
+        <p>
+          <img
+            src="../../images/opera_small_screen.jpg"
+            alt="Opera small screen"
+          />
+        </p>
+        <p>
+          During testing in <em>Small screen</em> mode, it may be helpful to add
+          the following code to your stylesheet. This will simulate the screen
+          width of many common portable devices. Just remember to remove it
+          before you upload!
+        </p>
+        <pre><code class="language-css">html {
   width: 240px;
   border: solid 1px #000000;
 }
 </code></pre>
-<p>Another thing I would recommend using in your handheld stylesheet is this:</p>
-<pre><code class="language-html">* { max-width: 100%; }
+        <p>
+          Another thing I would recommend using in your handheld stylesheet is
+          this:
+        </p>
+        <pre><code class="language-html">* { max-width: 100%; }
 </code></pre>
-<p>This will prevent elements such as images and textareas from exceeding the width of the device's screen.</p>
-<h3 id="using-opera-mini">Using Opera Mini <a class="direct-link" href="#using-opera-mini">#</a></h3>
-<p>Another method to test your handheld stylesheet is with <a href="http://www.operamini.com/">Opera Mini</a>. The program itself requires a mobile phone, but no worries! There's also an <a href="http://www.operamini.com/demo/?url=http://abeautifulsite.net">online simulator</a> you can try out on any website. Here is what A Beautiful Site looks like on it:</p>
-<p><img src="../../images/opera_mini_simulator.jpg" alt="Opera Mini simulator"></p>
-<h2 id="a-note-about-handheld-stylesheets">A note about handheld stylesheets <a class="direct-link" href="#a-note-about-handheld-stylesheets">#</a></h2>
-<p>An important thing to remember while you're coding up a handheld stylesheet is the fact that most handhelds <em>will not</em> display your site exactly the way you intend them to. It sounds kind of ironic that you just spent the time writing up a completely different stylesheet just to find out that it's not going to work on the media you intended it to work on. Well, all is not lost. Let me explain...</p>
-<p>Due to hardware and software limitations, most handheld devices are designed to display certain elements of webpages in ways that work for both the device and the user. For example, it wouldn't be of much use if a PDA with a screen resolution of 240x320 pixels displayed a full-size image that was 800x600 pixels. In most cases, the device will automatically scale the image down so the entire image can be viewed. Similar adjustments are made to text, links, form elements, floated elements, etc.</p>
-<p>So what good is a handheld stylesheet if they aren't really supported? Well, they provide a foundation for the design which you <em>intend</em> the portable version of your website to have. Not only that, support for handheld stylesheets is growing rapidly as technology advances. For the little time and effort they actually require to produce, I'd say they're worth the effort.</p>
-<h2 id="what-if-i-don't-have-a-handheld-stylesheet%3F">What if I don't have a handheld stylesheet? <a class="direct-link" href="#what-if-i-don't-have-a-handheld-stylesheet%3F">#</a></h2>
-<p>A good question indeed. Most portable browsers will either make a good attempt at using your normal stylesheet or ditch the styles altogether. The benefit of using handheld stylesheets is that you are, to some extent, guaranteed your website will reflect at least a little bit of the design which you intended.</p>
-<h2 id="the-future-of-handheld-stylesheets">The future of handheld stylesheets <a class="direct-link" href="#the-future-of-handheld-stylesheets">#</a></h2>
-<p>Some portable browsers, such as Opera Mini and Apple's anticipated iPhone version of Safari, do a fairly good job of rendering websites based on their default screen styles. Aside from the low resolutions that portable devices commonly suffer, it makes me wonder if handheld stylesheets will even be necessary in years to come. Since the path is still unclear, however, it can't really hurt to have them.</p>
+        <p>
+          This will prevent elements such as images and textareas from exceeding
+          the width of the device's screen.
+        </p>
+        <h3 id="using-opera-mini">
+          Using Opera Mini <a class="direct-link" href="#using-opera-mini">#</a>
+        </h3>
+        <p>
+          Another method to test your handheld stylesheet is with
+          <a href="http://www.operamini.com/">Opera Mini</a>. The program itself
+          requires a mobile phone, but no worries! There's also an
+          <a href="http://www.operamini.com/demo/?url=http://abeautifulsite.net"
+            >online simulator</a
+          >
+          you can try out on any website. Here is what A Beautiful Site looks
+          like on it:
+        </p>
+        <p>
+          <img
+            src="../../images/opera_mini_simulator.jpg"
+            alt="Opera Mini simulator"
+          />
+        </p>
+        <h2 id="a-note-about-handheld-stylesheets">
+          A note about handheld stylesheets
+          <a class="direct-link" href="#a-note-about-handheld-stylesheets">#</a>
+        </h2>
+        <p>
+          An important thing to remember while you're coding up a handheld
+          stylesheet is the fact that most handhelds <em>will not</em> display
+          your site exactly the way you intend them to. It sounds kind of ironic
+          that you just spent the time writing up a completely different
+          stylesheet just to find out that it's not going to work on the media
+          you intended it to work on. Well, all is not lost. Let me explain...
+        </p>
+        <p>
+          Due to hardware and software limitations, most handheld devices are
+          designed to display certain elements of webpages in ways that work for
+          both the device and the user. For example, it wouldn't be of much use
+          if a PDA with a screen resolution of 240x320 pixels displayed a
+          full-size image that was 800x600 pixels. In most cases, the device
+          will automatically scale the image down so the entire image can be
+          viewed. Similar adjustments are made to text, links, form elements,
+          floated elements, etc.
+        </p>
+        <p>
+          So what good is a handheld stylesheet if they aren't really supported?
+          Well, they provide a foundation for the design which you
+          <em>intend</em> the portable version of your website to have. Not only
+          that, support for handheld stylesheets is growing rapidly as
+          technology advances. For the little time and effort they actually
+          require to produce, I'd say they're worth the effort.
+        </p>
+        <h2 id="what-if-i-don't-have-a-handheld-stylesheet%3F">
+          What if I don't have a handheld stylesheet?
+          <a
+            class="direct-link"
+            href="#what-if-i-don't-have-a-handheld-stylesheet%3F"
+            >#</a
+          >
+        </h2>
+        <p>
+          A good question indeed. Most portable browsers will either make a good
+          attempt at using your normal stylesheet or ditch the styles
+          altogether. The benefit of using handheld stylesheets is that you are,
+          to some extent, guaranteed your website will reflect at least a little
+          bit of the design which you intended.
+        </p>
+        <h2 id="the-future-of-handheld-stylesheets">
+          The future of handheld stylesheets
+          <a class="direct-link" href="#the-future-of-handheld-stylesheets"
+            >#</a
+          >
+        </h2>
+        <p>
+          Some portable browsers, such as Opera Mini and Apple's anticipated
+          iPhone version of Safari, do a fairly good job of rendering websites
+          based on their default screen styles. Aside from the low resolutions
+          that portable devices commonly suffer, it makes me wonder if handheld
+          stylesheets will even be necessary in years to come. Since the path is
+          still unclear, however, it can't really hurt to have them.
+        </p>
 
+        <div class="tags">
+          <a href="../../tags/design/index.html" class="post-tag">design</a>
+          <a href="../../tags/css/index.html" class="post-tag">css</a>
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/design/index.html" class="post-tag">design</a>
-  <a href="../../tags/css/index.html" class="post-tag">css</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a
+          href="../creating-a-printable-website-using-print-stylesheets/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          Creating a printable website using print stylesheets
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../creating-a-printable-website-using-print-stylesheets/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      Creating a printable website using print stylesheets
-    </a>
-  
-    <a href="../web-standards-are-just-minor-details/index.html" class="post-nav-next">
-      <small>Up next</small>
-      Web standards are just &quot;minor details&quot;
-    </a>
-  
-</nav>
-
+        <a
+          href="../web-standards-are-just-minor-details/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          Web standards are just &quot;minor details&quot;
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -166,14 +339,29 @@ Now it's time to create <code>your_handheld_style.css</code>.</p>
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/creating-stylesheets-for-handheld-devices/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/creating-stylesheets-for-handheld-devices/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:19 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/creating-stylesheets-for-handheld-devices/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:19 GMT -->
 </html>

@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Is your product the reason your startup is failing?
-===================================================
+# Is your product the reason your startup is failing?
 
 September 04, 2014 • 4 min read
 
@@ -11,15 +10,13 @@ The idea of launching a product, running your own business, and being your own b
 
 There are hundreds of reasons a startup can fail, but let's focus on one for a minute: your product. Just because you think your product is great, doesn't mean the rest of the world does. Before jumping into anything too serious, ask yourself these questions to determine whether or not your product will fail before it even launches.
 
-Is it something people want? <a href="#is-it-something-people-want%3F" class="direct-link">#</a>
-------------------------------------------------------------------------------------------------
+## Is it something people want? <a href="#is-it-something-people-want%3F" class="direct-link">#</a>
 
 Before you start building, you need to figure out if your product is viable. Is it something that you want to build, or is it something that people want to buy? It's easy to get excited over an idea only to realize later on that nobody actually has a need for what you're making.
 
 So how can you tell if a product is viable? It's not easy, but you can feel it out by asking potential customers what they think of your idea, if they'd use it, what they'd pay for it, etc. You'd be surprised at how honest most people will be with you.
 
-Has it been done before? <a href="#has-it-been-done-before%3F" class="direct-link">#</a>
-----------------------------------------------------------------------------------------
+## Has it been done before? <a href="#has-it-been-done-before%3F" class="direct-link">#</a>
 
 Pick a problem and it's probably been solved already. At least, that's what it seems like these days. Seriously, you want a social network for your cat? You got it. How about an app that does nothing more than text your friends the word "yo"? Ditto.
 
@@ -27,8 +24,7 @@ But you may not be completely out of luck. If you're trying to do something that
 
 It's not impossible to successfully do what's already been done, but you'll need to study your competition. Find their weak spots and beat them at their own game. Do what they're doing (or what they're not doing), but do it better. That's how a second-to-market product will have a shot at winning.
 
-Is it economical? <a href="#is-it-economical%3F" class="direct-link">#</a>
---------------------------------------------------------------------------
+## Is it economical? <a href="#is-it-economical%3F" class="direct-link">#</a>
 
 Your product must be cost effective so you don't drown in the debt of producing or maintaining it, but it also needs to be cheap enough so your users can afford it. The only reason every other car on the road isn't a [Tesla](http://www.teslamotors.com/) right now is because of their higher-than-average price. (Why do you think they're [trying so hard](http://www.forbes.com/sites/gregorymcneal/2014/07/16/a-35000-tesla-model-iii-is-coming-in-2017/) to get the cost down?)
 
@@ -36,8 +32,7 @@ This isn't an easy task either, but overpricing your product can be detrimental 
 
 Don't forget to take into account operating costs, marketing budgets, employee salaries, and other expenses. They can add up fast and, if you're not careful, quickly run you into debt.
 
-Is it too confusing? <a href="#is-it-too-confusing%3F" class="direct-link">#</a>
---------------------------------------------------------------------------------
+## Is it too confusing? <a href="#is-it-too-confusing%3F" class="direct-link">#</a>
 
 Maybe your product works well, but the average person can't figure out how to use it. That's not good in terms of revenue, because they probably won't become a paying customer. You could be losing your best customers because your product is too confusing to them.
 
@@ -47,8 +42,7 @@ Keep in mind that you're using and testing your own product all the time. You li
 
 Step back for a minute and purge your brain. Pretend you've never seen your product before. What might be confusing for new users? What could be made easier or more obvious? How could your product become more friendly and inviting? There's always room for improvement, so if you can't identify these things on your own, ask someone for their opinion. A fresh pair of eyes could be just what you need to improve your onboarding strategy.
 
-Is the timing right? <a href="#is-the-timing-right%3F" class="direct-link">#</a>
---------------------------------------------------------------------------------
+## Is the timing right? <a href="#is-the-timing-right%3F" class="direct-link">#</a>
 
 [Netflix was founded in 1997](https://pr.netflix.com/WebClient/loginPageSalesNetWorksAction.do?contentGroupId=10477) and mailed its first DVD in 1999. Nowadays, pretty much everyone and their mother has a Netflix account, but I bet you're not checking your mailbox for DVDs anymore. That's because [in 2007](http://www.nytimes.com/2007/01/16/technology/16netflix.html), they started their transition into a streaming video service.
 
@@ -58,8 +52,7 @@ Timing is everything, and that's something Netflix got right. They started by ma
 
 Maybe your product has the same problem. Maybe it's ahead of its time, or maybe it would have been useful a few years ago. Either way, you have to make sure whatever you're producing is relevant to the here and now. Otherwise, you'll probably have a lot of trouble selling it.
 
-At the end of the day <a href="#at-the-end-of-the-day" class="direct-link">#</a>
---------------------------------------------------------------------------------
+## At the end of the day <a href="#at-the-end-of-the-day" class="direct-link">#</a>
 
 I hope these questions help you identify any weak points your product may have. This list obviously isn't comprehensive, so if you have anything to add I'd love to hear about it in the comments.
 
@@ -69,7 +62,7 @@ I hate coming across as a pessimist, but the reality is that starting a business
 
 <a href="../../tags/business/index.html" class="post-tag">business</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -77,6 +70,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../stop-trying-to-build-the-next-unicorn/index.html" class="post-nav-previous"><span class="small">Previous post</span> Stop trying to build the next unicorn</a> <a href="../what-can-you-do-with-a-single-div/index.html" class="post-nav-next"><span class="small">Up next</span> What can you do with a single &lt;div&gt;?</a>

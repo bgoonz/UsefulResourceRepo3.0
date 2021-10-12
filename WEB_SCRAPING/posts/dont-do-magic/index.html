@@ -1,157 +1,288 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/dont-do-magic/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:49 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/dont-do-magic/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:49 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Don&#39;t Do Magic</title>
-    <meta name="description" content="Painting yourself into a corner with code.">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="Painting yourself into a corner with code."
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Don&#39;t Do Magic</h1>
+      <article class="post">
+        <h1>Don&#39;t Do Magic</h1>
 
-  <div class="post-date">
-    <time datetime="2021-10-11">
-      October 11, 2021
-    </time>
-    &bull;
-    3 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2021-10-11"> October 11, 2021 </time>
+          &bull; 3 min read
+        </div>
 
-  
-
-  <p>We recently had a design for an &quot;alert&quot; component with an <code>actions</code> slot. In the spec, only secondary buttons were allowed in it.</p>
-<blockquote>
-<p>Dev: &quot;Design only wants secondary buttons in the actions slot, so I'm forcing it.&quot;</p>
-</blockquote>
-<p>The developer was listening for the <code>slotchange</code> event and applying the <code>secondary</code> variant to all buttons in the slot automatically. The idea was to prevent consumers from using the wrong buttons by constraining the design in code. This magic will cause problems.</p>
-<p>Here's the thing: designers change their minds. Sometimes a lot. They might <em>tell</em> you that a design will never, ever change. They might swear to everything holy that it will never change. But it can and often will.</p>
-<p>In this case, forcing a variant on slotted buttons changed them from:</p>
-<pre><code class="language-html">&lt;my-button&gt;
+        <p>
+          We recently had a design for an &quot;alert&quot; component with an
+          <code>actions</code> slot. In the spec, only secondary buttons were
+          allowed in it.
+        </p>
+        <blockquote>
+          <p>
+            Dev: &quot;Design only wants secondary buttons in the actions slot,
+            so I'm forcing it.&quot;
+          </p>
+        </blockquote>
+        <p>
+          The developer was listening for the <code>slotchange</code> event and
+          applying the <code>secondary</code> variant to all buttons in the slot
+          automatically. The idea was to prevent consumers from using the wrong
+          buttons by constraining the design in code. This magic will cause
+          problems.
+        </p>
+        <p>
+          Here's the thing: designers change their minds. Sometimes a lot. They
+          might <em>tell</em> you that a design will never, ever change. They
+          might swear to everything holy that it will never change. But it can
+          and often will.
+        </p>
+        <p>
+          In this case, forcing a variant on slotted buttons changed them from:
+        </p>
+        <pre><code class="language-html">&lt;my-button&gt;
 </code></pre>
-<p>to:</p>
-<pre><code class="language-html">&lt;my-button appearance=&quot;secondary&quot;&gt;
+        <p>to:</p>
+        <pre><code class="language-html">&lt;my-button appearance=&quot;secondary&quot;&gt;
 </code></pre>
-<p>Aside from being unexpected, it leaves the user with no obvious way to add anything other than a secondary button to the slot.</p>
-<blockquote>
-<p>&quot;But that's what design wants!&quot;</p>
-</blockquote>
-<p>...until they realize they need a primary action button in that slot. Now you have to write code to account for this new requirement, PR it, get it reviewed, approved, and push a new version so they can use it. Problem solved, right?</p>
-<p>Not so fast…</p>
-<h2 id="scopes-change">Scopes Change <a class="direct-link" href="#scopes-change">#</a></h2>
-<p>Turns out, another team is using the same component to prototype a new feature and they want to use all possible button variations. This isn't the use case the design team initially specced the component for, but it doesn't make sense to create one from scratch because this one is close enough. Due to time and cost constraints, management decides the existing component should be modified to support both use cases.</p>
-<p>Boom. The design that won't change has changed.</p>
-<p>But remember the magic we coded that forced all slotted buttons to be secondary buttons? Because of that, we have to introduce a breaking change in our alert component OR give users an alternate API that's inconsistent with how buttons already work. Neither option is great.</p>
-<p>In my opinion, locking design choices down with code, or &quot;magic,&quot; is an antipattern. It creates more work for devs, makes things less intuitive for users, and introduces tech debt that will haunt you later on.</p>
-<blockquote>
-<p>&quot;Well then how do we force users to use the right buttons?&quot;</p>
-</blockquote>
-<p>We don't! That's not our job. Neither design nor engineering can account for every possible use case for the components we build.</p>
-<p>Our job is to give users tools to build things with. If I give you a hammer and you smash a hole in the wall instead of tapping in a nail, that's a misuse of the tool.</p>
-<p><img src="../../images/hammer-oops.gif" alt="Hammering a hole into the wall. Oops."></p>
-<h2 id="when-bulletproofing-is-overengineering">When Bulletproofing is Overengineering <a class="direct-link" href="#when-bulletproofing-is-overengineering">#</a></h2>
-<p>As engineers, it can be tempting to make components &quot;bulletproof&quot; using ✨magic✨ code. This is usually an overstep. There are two things you shouldn't underestimate:</p>
-<ol>
-<li>The importance of design reviews</li>
-<li>Use cases that evolve over time</li>
-</ol>
-<p>If you're not taking the time to do design reviews, do them! But don't wait until the very end. You'll have better success if design and engineering work together <em>throughout</em> the process.</p>
-<p>As for magic — I consider it a code smell. If you find yourself forcing things like this via code, that's a red flag. A better approach is good documentation! Show examples of approved use cases. Give users code to copy and paste. Make it easy for them to get it right.</p>
-<p>Users will definitely do things they're not supposed to. Get comfortable with that and catch it in design reviews. Use these instances to understand <em>why</em> they're doing it that way and work with design to iterate if necessary. These are great opportunities to learn from each other.</p>
-<p>Don't assume users are dumb or just don't get it. Give them the tools they need and make it easy for them to succeed. Most importantly, listen to feedback and know when it's time to steer them away from incorrect usage vs. adapting the tooling for new requirements.</p>
-<hr>
-<small>
-<p>This post was originally <a href="https://twitter.com/claviska/status/1447562886314971141?s=20">a series of tweets</a>.</p>
-</small>
+        <p>
+          Aside from being unexpected, it leaves the user with no obvious way to
+          add anything other than a secondary button to the slot.
+        </p>
+        <blockquote>
+          <p>&quot;But that's what design wants!&quot;</p>
+        </blockquote>
+        <p>
+          ...until they realize they need a primary action button in that slot.
+          Now you have to write code to account for this new requirement, PR it,
+          get it reviewed, approved, and push a new version so they can use it.
+          Problem solved, right?
+        </p>
+        <p>Not so fast…</p>
+        <h2 id="scopes-change">
+          Scopes Change <a class="direct-link" href="#scopes-change">#</a>
+        </h2>
+        <p>
+          Turns out, another team is using the same component to prototype a new
+          feature and they want to use all possible button variations. This
+          isn't the use case the design team initially specced the component
+          for, but it doesn't make sense to create one from scratch because this
+          one is close enough. Due to time and cost constraints, management
+          decides the existing component should be modified to support both use
+          cases.
+        </p>
+        <p>Boom. The design that won't change has changed.</p>
+        <p>
+          But remember the magic we coded that forced all slotted buttons to be
+          secondary buttons? Because of that, we have to introduce a breaking
+          change in our alert component OR give users an alternate API that's
+          inconsistent with how buttons already work. Neither option is great.
+        </p>
+        <p>
+          In my opinion, locking design choices down with code, or
+          &quot;magic,&quot; is an antipattern. It creates more work for devs,
+          makes things less intuitive for users, and introduces tech debt that
+          will haunt you later on.
+        </p>
+        <blockquote>
+          <p>
+            &quot;Well then how do we force users to use the right
+            buttons?&quot;
+          </p>
+        </blockquote>
+        <p>
+          We don't! That's not our job. Neither design nor engineering can
+          account for every possible use case for the components we build.
+        </p>
+        <p>
+          Our job is to give users tools to build things with. If I give you a
+          hammer and you smash a hole in the wall instead of tapping in a nail,
+          that's a misuse of the tool.
+        </p>
+        <p>
+          <img
+            src="../../images/hammer-oops.gif"
+            alt="Hammering a hole into the wall. Oops."
+          />
+        </p>
+        <h2 id="when-bulletproofing-is-overengineering">
+          When Bulletproofing is Overengineering
+          <a class="direct-link" href="#when-bulletproofing-is-overengineering"
+            >#</a
+          >
+        </h2>
+        <p>
+          As engineers, it can be tempting to make components
+          &quot;bulletproof&quot; using ✨magic✨ code. This is usually an
+          overstep. There are two things you shouldn't underestimate:
+        </p>
+        <ol>
+          <li>The importance of design reviews</li>
+          <li>Use cases that evolve over time</li>
+        </ol>
+        <p>
+          If you're not taking the time to do design reviews, do them! But don't
+          wait until the very end. You'll have better success if design and
+          engineering work together <em>throughout</em> the process.
+        </p>
+        <p>
+          As for magic — I consider it a code smell. If you find yourself
+          forcing things like this via code, that's a red flag. A better
+          approach is good documentation! Show examples of approved use cases.
+          Give users code to copy and paste. Make it easy for them to get it
+          right.
+        </p>
+        <p>
+          Users will definitely do things they're not supposed to. Get
+          comfortable with that and catch it in design reviews. Use these
+          instances to understand <em>why</em> they're doing it that way and
+          work with design to iterate if necessary. These are great
+          opportunities to learn from each other.
+        </p>
+        <p>
+          Don't assume users are dumb or just don't get it. Give them the tools
+          they need and make it easy for them to succeed. Most importantly,
+          listen to feedback and know when it's time to steer them away from
+          incorrect usage vs. adapting the tooling for new requirements.
+        </p>
+        <hr />
+        <small>
+          <p>
+            This post was originally
+            <a
+              href="https://twitter.com/claviska/status/1447562886314971141?s=20"
+              >a series of tweets</a
+            >.
+          </p>
+        </small>
 
+        <div class="tags">
+          <a href="../../tags/design%20systems/index.html" class="post-tag"
+            >design systems</a
+          >
+          <a href="../../tags/web%20components/index.html" class="post-tag"
+            >web components</a
+          >
+          <a href="../../tags/html/index.html" class="post-tag">html</a>
+          <a href="../../tags/css/index.html" class="post-tag">css</a>
+          <a href="../../tags/javascript/index.html" class="post-tag"
+            >javascript</a
+          >
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/design%20systems/index.html" class="post-tag">design systems</a>
-  <a href="../../tags/web%20components/index.html" class="post-tag">web components</a>
-  <a href="../../tags/html/index.html" class="post-tag">html</a>
-  <a href="../../tags/css/index.html" class="post-tag">css</a>
-  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a href="../on-buttons-and-links/index.html" class="post-nav-previous">
+          <small>Previous post</small>
+          On Buttons and Links
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../on-buttons-and-links/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      On Buttons and Links
-    </a>
-  
-    <a href="../know-when-to-draw-the-line/index.html" class="post-nav-next">
-      <small>Up next</small>
-      Know When To Draw The Line
-    </a>
-  
-</nav>
-
+        <a
+          href="../know-when-to-draw-the-line/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          Know When To Draw The Line
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -163,14 +294,29 @@
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/dont-do-magic/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/dont-do-magic/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:50 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/dont-do-magic/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:50 GMT -->
 </html>

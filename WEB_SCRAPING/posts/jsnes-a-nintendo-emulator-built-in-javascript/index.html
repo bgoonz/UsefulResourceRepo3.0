@@ -1,133 +1,238 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/jsnes-a-nintendo-emulator-built-in-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:16 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/jsnes-a-nintendo-emulator-built-in-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:16 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>JSNES: a Nintendo emulator built in JavaScript</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>JSNES: a Nintendo emulator built in JavaScript</h1>
+      <article class="post">
+        <h1>JSNES: a Nintendo emulator built in JavaScript</h1>
 
-  <div class="post-date">
-    <time datetime="2009-11-10">
-      November 10, 2009
-    </time>
-    &bull;
-    1 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2009-11-10"> November 10, 2009 </time>
+          &bull; 1 min read
+        </div>
 
-  
-    <div class="legacy-warning">
-      <img src="../../images/artwork/pointer.gif" alt="A drawing of a cartoon man pointing upwards">
-      <p>
-        Heads up! This post was written in 2009, so it may contain information that is no longer
-        accurate. I keep posts like this around for historical purposes and to prevent link rot, so please keep this in
-        mind as you're reading.
-      </p>
-      <p>
-        — Cory
-      </p>
-    </div>
-  
+        <div class="legacy-warning">
+          <img
+            src="../../images/artwork/pointer.gif"
+            alt="A drawing of a cartoon man pointing upwards"
+          />
+          <p>
+            Heads up! This post was written in 2009, so it may contain
+            information that is no longer accurate. I keep posts like this
+            around for historical purposes and to prevent link rot, so please
+            keep this in mind as you're reading.
+          </p>
+          <p>— Cory</p>
+        </div>
 
-  <p>I remember, not too long ago, arguing with people who said that JavaScript would never be as good as Flash. Granted, at the time many people were afraid of JavaScript and, thus, it wasn't used as widely as it is today. With the introduction of popular libraries such as <a href="http://jquery.com/">jQuery</a>, <a href="http://www.prototypejs.org/">Prototype</a>, <a href="http://mootools.net/">MooTools</a> and <a href="http://www.extjs.com/">many</a>, <a href="http://www.dojotoolkit.org/">many</a>, <a href="http://mochikit.com/">many</a> others, JavaScript has been on the forefront of the Web 2.0 movement. In fact, it's rare today to visit a webpage that doesn't use JavaScript for at least <em>something</em>. Sure, Flash is still pretty popular, but trends seem to indicate that people are moving further away from it for design and reserving it for <a href="http://youtube.com/">videos</a>, <a href="http://developer.yahoo.com/yui/uploader/">file uploaders</a>, <a href="http://www.pogo.com/">online games</a>, and <a href="http://aviary.com/">high level web-based applications</a>.</p>
-<p><em>So why bother comparing JavaScript to Flash? Everyone knows Flash is better, right?</em></p>
-<p>And by <em>better</em>, we can pretty much agree that Flash can do smoother animations, higher level programming, awesome 3D stuff...the list goes on. In fact, you can make an entire website out of pure Flash if you so desire, and it will look exactly the same in every browser. Why use anything else?</p>
-<p>Well, <a href="http://www.useit.com/alertbox/20001029.html">Flash has its problems</a>, and that goes without even mentioning the fact that it's a closed-source, proprietary technology. (Hint: <a href="http://en.wikipedia.org/wiki/ECMAScript">JavaScript <em>isn't</em></a>.)</p>
-<p><em>But still, you can't do much when it comes to JavaScript. I mean, it's slow, clunky, and each browser does things just a little bit differently.</em></p>
-<p>Yes, this is very much true. Until now, and even still to some degree, JavaScript remains an emerging technology for more advanced applications such as <a href="http://sixrevisions.com/javascript/10-impressive-javascript-animation-frameworks/">animation</a>, <a href="http://ui.jquery.com/">user interface</a>, and even <a href="http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/">games</a>, but it is by no means primitive. Proof of this lays with JSNES, an 8-bit Nintendo Emulator that was built purely in JavaScript.</p>
-<p><img src="../../images/super-mario-bros-3.png" alt="Screenshot of Super Mario Bros. 3"></p>
-<p>If you're running Internet Explorer right now, don't bother with the link. You'll need to switch to <a href="http://google.com/chrome">Chrome</a> if you want to play it at near-normal speed. Even Firefox's JavaScript engine is too slow, but it's playable...just really slow.</p>
-<p>So there you have it. No, JavaScript isn't anywhere near Flash in speed or capabilities, but it's definitely getting there and it's making plenty of waves in the process.</p>
+        <p>
+          I remember, not too long ago, arguing with people who said that
+          JavaScript would never be as good as Flash. Granted, at the time many
+          people were afraid of JavaScript and, thus, it wasn't used as widely
+          as it is today. With the introduction of popular libraries such as
+          <a href="http://jquery.com/">jQuery</a>,
+          <a href="http://www.prototypejs.org/">Prototype</a>,
+          <a href="http://mootools.net/">MooTools</a> and
+          <a href="http://www.extjs.com/">many</a>,
+          <a href="http://www.dojotoolkit.org/">many</a>,
+          <a href="http://mochikit.com/">many</a> others, JavaScript has been on
+          the forefront of the Web 2.0 movement. In fact, it's rare today to
+          visit a webpage that doesn't use JavaScript for at least
+          <em>something</em>. Sure, Flash is still pretty popular, but trends
+          seem to indicate that people are moving further away from it for
+          design and reserving it for <a href="http://youtube.com/">videos</a>,
+          <a href="http://developer.yahoo.com/yui/uploader/">file uploaders</a>,
+          <a href="http://www.pogo.com/">online games</a>, and
+          <a href="http://aviary.com/">high level web-based applications</a>.
+        </p>
+        <p>
+          <em
+            >So why bother comparing JavaScript to Flash? Everyone knows Flash
+            is better, right?</em
+          >
+        </p>
+        <p>
+          And by <em>better</em>, we can pretty much agree that Flash can do
+          smoother animations, higher level programming, awesome 3D stuff...the
+          list goes on. In fact, you can make an entire website out of pure
+          Flash if you so desire, and it will look exactly the same in every
+          browser. Why use anything else?
+        </p>
+        <p>
+          Well,
+          <a href="http://www.useit.com/alertbox/20001029.html"
+            >Flash has its problems</a
+          >, and that goes without even mentioning the fact that it's a
+          closed-source, proprietary technology. (Hint:
+          <a href="http://en.wikipedia.org/wiki/ECMAScript"
+            >JavaScript <em>isn't</em></a
+          >.)
+        </p>
+        <p>
+          <em
+            >But still, you can't do much when it comes to JavaScript. I mean,
+            it's slow, clunky, and each browser does things just a little bit
+            differently.</em
+          >
+        </p>
+        <p>
+          Yes, this is very much true. Until now, and even still to some degree,
+          JavaScript remains an emerging technology for more advanced
+          applications such as
+          <a
+            href="http://sixrevisions.com/javascript/10-impressive-javascript-animation-frameworks/"
+            >animation</a
+          >, <a href="http://ui.jquery.com/">user interface</a>, and even
+          <a
+            href="http://www.webresourcesdepot.com/25-amazing-javascript-games-some-fun-and-inspiration/"
+            >games</a
+          >, but it is by no means primitive. Proof of this lays with JSNES, an
+          8-bit Nintendo Emulator that was built purely in JavaScript.
+        </p>
+        <p>
+          <img
+            src="../../images/super-mario-bros-3.png"
+            alt="Screenshot of Super Mario Bros. 3"
+          />
+        </p>
+        <p>
+          If you're running Internet Explorer right now, don't bother with the
+          link. You'll need to switch to
+          <a href="http://google.com/chrome">Chrome</a> if you want to play it
+          at near-normal speed. Even Firefox's JavaScript engine is too slow,
+          but it's playable...just really slow.
+        </p>
+        <p>
+          So there you have it. No, JavaScript isn't anywhere near Flash in
+          speed or capabilities, but it's definitely getting there and it's
+          making plenty of waves in the process.
+        </p>
 
+        <div class="tags">
+          <a href="../../tags/development/index.html" class="post-tag"
+            >development</a
+          >
+          <a href="../../tags/javascript/index.html" class="post-tag"
+            >javascript</a
+          >
+          <a href="../../tags/nes/index.html" class="post-tag">nes</a>
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/development/index.html" class="post-tag">development</a>
-  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
-  <a href="../../tags/nes/index.html" class="post-tag">nes</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a
+          href="../table-cells-and-max-widths-in-internet-explorer-8/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          Table cells and max-widths in Internet Explorer 8
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../table-cells-and-max-widths-in-internet-explorer-8/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      Table cells and max-widths in Internet Explorer 8
-    </a>
-  
-    <a href="../icon-finder-an-awesome-search-engine-for-icons/index.html" class="post-nav-next">
-      <small>Up next</small>
-      Icon Finder: an awesome search engine for icons
-    </a>
-  
-</nav>
-
+        <a
+          href="../icon-finder-an-awesome-search-engine-for-icons/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          Icon Finder: an awesome search engine for icons
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -139,14 +244,29 @@
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/jsnes-a-nintendo-emulator-built-in-javascript/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/jsnes-a-nintendo-emulator-built-in-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:17 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/jsnes-a-nintendo-emulator-built-in-javascript/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:17 GMT -->
 </html>

@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-The difference between web designers and web developers
-=======================================================
+# The difference between web designers and web developers
 
 December 22, 2009 • 4 min read
 
@@ -22,27 +21,23 @@ Due to the demanding nature of the industry, it's all too common to find individ
 
 Perhaps the most effective way to differentiate between the two positions is to establish a clear line that separates the roles and responsibilities of each position in the context of a Web-based project. This will, of course, vary from project to project and from person to person, but we can define a reasonable boundary which the average Web Designer and Web Developer will be comfortable with.
 
-What exactly is a web designer? <a href="#what-exactly-is-a-web-designer%3F" class="direct-link">#</a>
-------------------------------------------------------------------------------------------------------
+## What exactly is a web designer? <a href="#what-exactly-is-a-web-designer%3F" class="direct-link">#</a>
 
 The best Web Designers are of the creative type. They have a knack for getting inside of their clients' heads and realizing their clients' vision. They take this vision and masterfully convert it into an aesthetically pleasing, artistic design that aims to impress millions of potential viewers. Some designers study typography, user interface design, and usability. Most include tools such as Photoshop, Illustrator, and DreamWeaver in their arsenal and frequent sites such as iStockPhoto, Kuler, and a long list of CSS galleries.
 
 It is common, albeit arguable, that a designer's role should also include slicing images, writing (X)HTML, coding CSS, and drafting or editing copy. For the most part, you can think of a Web Designer as a creative expert.
 
-What exactly is a web developer? <a href="#what-exactly-is-a-web-developer%3F" class="direct-link">#</a>
---------------------------------------------------------------------------------------------------------
+## What exactly is a web developer? <a href="#what-exactly-is-a-web-developer%3F" class="direct-link">#</a>
 
 Web Developers are usually more technical in nature. They tend to have excellent problem solving skills and are generally good at math. On a daily basis, a developer will write code in five or more different languages including (X)HTML, CSS, JavaScript, \[PHP, ASP, ColdFusion, Ruby, Python, Perl, etc.\], and some flavor of SQL. Web Developers can usually be found wielding some kind of text editor or IDE, an FTP client, three or more web browsers, and development plugins such as Firebug. They frequent sites similar to the PHP manual, the Mozilla JavaScript reference, and the jQuery Documentation. A developer also knows what an API is and how to develop with it.
 
 Although Web Developers are sometimes referred to as programmers, their skills usually exceed those of a conventional software developer. Think of a Web Developer as more of a technical expert with programming skills.
 
-What about people that do both? <a href="#what-about-people-that-do-both%3F" class="direct-link">#</a>
-------------------------------------------------------------------------------------------------------
+## What about people that do both? <a href="#what-about-people-that-do-both%3F" class="direct-link">#</a>
 
 As suggested earlier, it is actually quite common for Web Designers and Web Developers to be expected to take on tasks that are outside of their personal skillsets. In my experience, I would only consider a very small number of people that I've worked with to be proficient in both design and development. In most cases, you'll find a cocky developer that thinks his designs are the greatest thing that ever hit the Internet when, in reality, they're mediocre at best. It's far less common to find a designer who thinks he can code up an entire Web application.
 
-So, which one should i choose? <a href="#so%2C-which-one-should-i-choose%3F" class="direct-link">#</a>
-------------------------------------------------------------------------------------------------------
+## So, which one should i choose? <a href="#so%2C-which-one-should-i-choose%3F" class="direct-link">#</a>
 
 Which one you choose depends on what exactly you are trying to do, but in many cases your project will require skills from both. If you're looking to start a new website or to redesign your old one, you'll want to look for someone with design talent. If you're looking for some kind of database, E-Commerce solution, or integration with another application, you'll want to look for someone with strong development skills.
 
@@ -52,7 +47,7 @@ Perhaps the most important aspect of managing a Web-based project is being able 
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/development/index.html" class="post-tag">development</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -60,6 +55,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../new-shortcut-keys-in-windows-7/index.html" class="post-nav-previous"><span class="small">Previous post</span> New shortcut keys in Windows 7</a> <a href="../smoothly-scroll-to-an-element-without-a-jquery-plugin-2/index.html" class="post-nav-next"><span class="small">Up next</span> Smoothly scroll to an element without a jQuery plugin</a>

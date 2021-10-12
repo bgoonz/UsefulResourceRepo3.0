@@ -1,130 +1,201 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/how-to-get-the-dominant-colors-of-an-image-with-color-thief/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:13 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/how-to-get-the-dominant-colors-of-an-image-with-color-thief/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:13 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>How to get the dominant colors of an image with Color Thief</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>How to get the dominant colors of an image with Color Thief</h1>
+      <article class="post">
+        <h1>How to get the dominant colors of an image with Color Thief</h1>
 
-  <div class="post-date">
-    <time datetime="2014-08-12">
-      August 12, 2014
-    </time>
-    &bull;
-    1 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2014-08-12"> August 12, 2014 </time>
+          &bull; 1 min read
+        </div>
 
-  
-
-  <p>You know how <a href="https://dribbble.com/">Dribbble</a> shows a color palette for each shot users upload? They always look perfect right? Here's a tool that can give you the same quality results using pure JavaScript.</p>
-<p>I played with <a href="http://lokeshdhakar.com/projects/color-thief/">Color Thief</a> a few months ago but surprisingly never posted about it. For me, something that's easy to use and has consistently great results is pure gold. Here's how it works.</p>
-<h2 id="getting-the-dominant-color-of-an-image">Getting the dominant color of an image <a class="direct-link" href="#getting-the-dominant-color-of-an-image">#</a></h2>
-<pre><code class="language-js">var colorThief = new ColorThief();
+        <p>
+          You know how <a href="https://dribbble.com/">Dribbble</a> shows a
+          color palette for each shot users upload? They always look perfect
+          right? Here's a tool that can give you the same quality results using
+          pure JavaScript.
+        </p>
+        <p>
+          I played with
+          <a href="http://lokeshdhakar.com/projects/color-thief/">Color Thief</a
+          > a few months ago but surprisingly never posted about it. For me,
+          something that's easy to use and has consistently great results is
+          pure gold. Here's how it works.
+        </p>
+        <h2 id="getting-the-dominant-color-of-an-image">
+          Getting the dominant color of an image
+          <a class="direct-link" href="#getting-the-dominant-color-of-an-image"
+            >#</a
+          >
+        </h2>
+        <pre><code class="language-js">var colorThief = new ColorThief();
 colorThief.getColor(sourceImage);
 
 // { r: num, g: num, b: num }
 </code></pre>
-<h2 id="generating-a-color-palette-from-an-image">Generating a color palette from an image <a class="direct-link" href="#generating-a-color-palette-from-an-image">#</a></h2>
-<pre><code class="language-js">var colorThief = new ColorThief();
+        <h2 id="generating-a-color-palette-from-an-image">
+          Generating a color palette from an image
+          <a
+            class="direct-link"
+            href="#generating-a-color-palette-from-an-image"
+            >#</a
+          >
+        </h2>
+        <pre><code class="language-js">var colorThief = new ColorThief();
 colorThief.getPalette(sourceImage, 8);
 
 // [[num, num, num], [num, num, num], ...]
 </code></pre>
-<p>Learn more about <a href="http://lokeshdhakar.com/projects/color-thief/">how Color Thief works</a> and try it out with your own photo. The project was created by <a href="https://twitter.com/lokesh">Lokesh Dhakar</a> and licensed under the MIT license.</p>
-<h2 id="what-about-a-php-version%3F">What about a PHP version? <a class="direct-link" href="#what-about-a-php-version%3F">#</a></h2>
-<p>It's amazing that JavaScript can do all these great things, but if you're running PHP on the backend then you're out of luck. In that case, there's a <a href="https://github.com/ksubileau/color-thief-php">PHP port of Color Thief</a> that you can use for similar results.</p>
+        <p>
+          Learn more about
+          <a href="http://lokeshdhakar.com/projects/color-thief/"
+            >how Color Thief works</a
+          >
+          and try it out with your own photo. The project was created by
+          <a href="https://twitter.com/lokesh">Lokesh Dhakar</a> and licensed
+          under the MIT license.
+        </p>
+        <h2 id="what-about-a-php-version%3F">
+          What about a PHP version?
+          <a class="direct-link" href="#what-about-a-php-version%3F">#</a>
+        </h2>
+        <p>
+          It's amazing that JavaScript can do all these great things, but if
+          you're running PHP on the backend then you're out of luck. In that
+          case, there's a <a href="https://github.com/ksubileau/color-thief-php"
+            >PHP port of Color Thief</a
+          >
+          that you can use for similar results.
+        </p>
 
+        <div class="tags">
+          <a href="../../tags/design/index.html" class="post-tag">design</a>
+          <a href="../../tags/development/index.html" class="post-tag"
+            >development</a
+          >
+          <a href="../../tags/javascript/index.html" class="post-tag"
+            >javascript</a
+          >
+          <a href="../../tags/php/index.html" class="post-tag">php</a>
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/design/index.html" class="post-tag">design</a>
-  <a href="../../tags/development/index.html" class="post-tag">development</a>
-  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
-  <a href="../../tags/php/index.html" class="post-tag">php</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a
+          href="../playcanvas-an-easy-open-source-webgl-game-engine/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          PlayCanvas: an easy, open source WebGL game engine
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../playcanvas-an-easy-open-source-webgl-game-engine/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      PlayCanvas: an easy, open source WebGL game engine
-    </a>
-  
-    <a href="../lessons-from-my-20s-a-presentation-by-ryan-allis/index.html" class="post-nav-next">
-      <small>Up next</small>
-      Lessons from my 20s: a presentation by Ryan Allis
-    </a>
-  
-</nav>
-
+        <a
+          href="../lessons-from-my-20s-a-presentation-by-ryan-allis/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          Lessons from my 20s: a presentation by Ryan Allis
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -136,14 +207,29 @@ colorThief.getPalette(sourceImage, 8);
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/how-to-get-the-dominant-colors-of-an-image-with-color-thief/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/how-to-get-the-dominant-colors-of-an-image-with-color-thief/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:13 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/how-to-get-the-dominant-colors-of-an-image-with-color-thief/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:13 GMT -->
 </html>

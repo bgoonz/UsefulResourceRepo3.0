@@ -17,7 +17,7 @@
   --link-color: var(--text-color);
   --link-color-hover: var(--abs-green);
 
-  --code-font: Menlo, Monaco, 'Courier New', monospace;
+  --code-font: Menlo, Monaco, "Courier New", monospace;
   --code-font-size: 0.875em;
 
   --tag-font-family: var(--body-font-family);
@@ -105,7 +105,7 @@ header {
 }
 
 header:after {
-  content: '';
+  content: "";
   display: table;
   clear: both;
 }
@@ -272,7 +272,7 @@ header {
 
 .post hr::after {
   position: relative;
-  content: '···';
+  content: "···";
   top: 0;
   left: calc(50% - 1.33em);
   letter-spacing: 1em;
@@ -452,7 +452,7 @@ a[href].direct-link:focus:visited,
 }
 
 .content .starred::before {
-  content: '★';
+  content: "★";
   position: absolute;
   margin-left: -1.33em;
 }
@@ -704,7 +704,7 @@ code {
 }
 
 pre,
-code[class*='language-'] {
+code[class*="language-"] {
   background: #282c34;
   border-radius: 0.125rem;
   color: #abb2bf;
@@ -721,10 +721,10 @@ code[class*='language-'] {
   hyphens: none;
 }
 
-pre[class*='language-']::selection,
-pre[class*='language-'] ::selection,
-code[class*='language-']::selection,
-code[class*='language-'] ::selection {
+pre[class*="language-"]::selection,
+pre[class*="language-"] ::selection,
+code[class*="language-"]::selection,
+code[class*="language-"] ::selection {
   background: #575f70;
 }
 

@@ -1,102 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/using-javascript-to-prevent-comment-spam/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:21 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/using-javascript-to-prevent-comment-spam/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:21 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Using JavaScript to prevent comment spam</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Using JavaScript to prevent comment spam</h1>
+      <article class="post">
+        <h1>Using JavaScript to prevent comment spam</h1>
 
-  <div class="post-date">
-    <time datetime="2007-05-05">
-      May 05, 2007
-    </time>
-    &bull;
-    3 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2007-05-05"> May 05, 2007 </time>
+          &bull; 3 min read
+        </div>
 
-  
-    <div class="legacy-warning">
-      <img src="../../images/artwork/pointer.gif" alt="A drawing of a cartoon man pointing upwards">
-      <p>
-        Heads up! This post was written in 2007, so it may contain information that is no longer
-        accurate. I keep posts like this around for historical purposes and to prevent link rot, so please keep this in
-        mind as you're reading.
-      </p>
-      <p>
-        — Cory
-      </p>
-    </div>
-  
+        <div class="legacy-warning">
+          <img
+            src="../../images/artwork/pointer.gif"
+            alt="A drawing of a cartoon man pointing upwards"
+          />
+          <p>
+            Heads up! This post was written in 2007, so it may contain
+            information that is no longer accurate. I keep posts like this
+            around for historical purposes and to prevent link rot, so please
+            keep this in mind as you're reading.
+          </p>
+          <p>— Cory</p>
+        </div>
 
-  <p>Comment spam (also known as 'link spam', 'blog spam', and 'wikispam') occurs when people or spam bots post comments on someones blog, guestbook, or wiki for the sole purpose of boosting traffic and promoting better search engine rankings for their site. Like email spam, it can be particularly annoying and troublesome to deal with.</p>
-<h2 id="common-solutions">Common Solutions <a class="direct-link" href="#common-solutions">#</a></h2>
-<p>Many companies and organizations have put forth efforts to prevent comment spam. The well-known search engine <a href="http://google.com/">Google</a>, who owns the popular blog site <a href="http://blogger.com/">Blogger</a>, <a href="http://googleblog.blogspot.com/2005/01/preventing-comment-spam.html">announced back in 2005</a> that it would no longer index anchor tags with the <code>rel=&quot;nofollow&quot;</code> attribute in them. Web developers were encouraged to make their software automatically add this attribute to all user-contributed hyperlinks. Although this method will discourage a lot of spammers from wasting their time, it doesn't actually prevent them from posting spam comments.</p>
-<p>Other efforts to combat comment spam focus on the fact that most spammers use automated scripts to submit their messages. These scripts work very much like traditional spam bots but, rather than harvesting email addresses, they target comment forms. Once spammers have a list of comment forms and know the fields that each one asks for, they can use programs like <a href="http://curl.haxx.se/">curl</a> to forge comment submissions. This is an effective way to spam many blogs in a short period of time, so it's used quite commonly.</p>
-<p>A reasonably good method of preventing this type of spam is called <a href="http://www.captcha.net/">CAPTCHA</a>. CAPTCHA typically displays an image of a word or phrase with obscured lettering that OCR scanners can't read. This means that, to successfully submit a comment, the user has to provide the correct response to the CAPTCHA test. Since a human is typically required to pass the test, spam bots can't post bogus comments to sites that use this technology. Unfortunately, this method requires users to take additional steps in order to post comments.</p>
-<p>Of course, you could require that all comments be approved before they are posted, but that requires a lot of extra time and effort, especially for busy sites.</p>
-<h2 id="a-better-method%3F">A Better Method? <a class="direct-link" href="#a-better-method%3F">#</a></h2>
-<p>I've decided to share a method that I've been using on <a href="http://laviska.com/">my personal site</a> for a few years now. I used to get lots of guestbook and comment spam on a daily basis when my forms were left wide open. Since I've applied this technique, I haven't recieved any comment spam at all. That's right, <em>not one</em>. Of course, once I post this there will be nothing stopping spammers from tweaking their bots to work around this solution. At least, for now, it works extremely well.</p>
-<h3 id="how-it-works">How it works <a class="direct-link" href="#how-it-works">#</a></h3>
-<p>It's really quite simple. You start with a basic comment form:</p>
-<pre><code class="language-html">&lt;form id=&quot;comment-form&quot; action=&quot;add-comment.php&quot; method=&quot;post&quot;&gt;
+        <p>
+          Comment spam (also known as 'link spam', 'blog spam', and 'wikispam')
+          occurs when people or spam bots post comments on someones blog,
+          guestbook, or wiki for the sole purpose of boosting traffic and
+          promoting better search engine rankings for their site. Like email
+          spam, it can be particularly annoying and troublesome to deal with.
+        </p>
+        <h2 id="common-solutions">
+          Common Solutions <a class="direct-link" href="#common-solutions">#</a>
+        </h2>
+        <p>
+          Many companies and organizations have put forth efforts to prevent
+          comment spam. The well-known search engine
+          <a href="http://google.com/">Google</a>, who owns the popular blog
+          site <a href="http://blogger.com/">Blogger</a>,
+          <a
+            href="http://googleblog.blogspot.com/2005/01/preventing-comment-spam.html"
+            >announced back in 2005</a
+          >
+          that it would no longer index anchor tags with the
+          <code>rel=&quot;nofollow&quot;</code> attribute in them. Web
+          developers were encouraged to make their software automatically add
+          this attribute to all user-contributed hyperlinks. Although this
+          method will discourage a lot of spammers from wasting their time, it
+          doesn't actually prevent them from posting spam comments.
+        </p>
+        <p>
+          Other efforts to combat comment spam focus on the fact that most
+          spammers use automated scripts to submit their messages. These scripts
+          work very much like traditional spam bots but, rather than harvesting
+          email addresses, they target comment forms. Once spammers have a list
+          of comment forms and know the fields that each one asks for, they can
+          use programs like <a href="http://curl.haxx.se/">curl</a> to forge
+          comment submissions. This is an effective way to spam many blogs in a
+          short period of time, so it's used quite commonly.
+        </p>
+        <p>
+          A reasonably good method of preventing this type of spam is called
+          <a href="http://www.captcha.net/">CAPTCHA</a>. CAPTCHA typically
+          displays an image of a word or phrase with obscured lettering that OCR
+          scanners can't read. This means that, to successfully submit a
+          comment, the user has to provide the correct response to the CAPTCHA
+          test. Since a human is typically required to pass the test, spam bots
+          can't post bogus comments to sites that use this technology.
+          Unfortunately, this method requires users to take additional steps in
+          order to post comments.
+        </p>
+        <p>
+          Of course, you could require that all comments be approved before they
+          are posted, but that requires a lot of extra time and effort,
+          especially for busy sites.
+        </p>
+        <h2 id="a-better-method%3F">
+          A Better Method?
+          <a class="direct-link" href="#a-better-method%3F">#</a>
+        </h2>
+        <p>
+          I've decided to share a method that I've been using on
+          <a href="http://laviska.com/">my personal site</a> for a few years
+          now. I used to get lots of guestbook and comment spam on a daily basis
+          when my forms were left wide open. Since I've applied this technique,
+          I haven't recieved any comment spam at all. That's right,
+          <em>not one</em>. Of course, once I post this there will be nothing
+          stopping spammers from tweaking their bots to work around this
+          solution. At least, for now, it works extremely well.
+        </p>
+        <h3 id="how-it-works">
+          How it works <a class="direct-link" href="#how-it-works">#</a>
+        </h3>
+        <p>It's really quite simple. You start with a basic comment form:</p>
+        <pre><code class="language-html">&lt;form id=&quot;comment-form&quot; action=&quot;add-comment.php&quot; method=&quot;post&quot;&gt;
   [other input fields here]
   &lt;input type=&quot;submit&quot; value=&quot;Post Comment&quot; /&gt;
 &lt;/form&gt;
 </code></pre>
-<p>Now, to prevent comment spammers, we make a few basic adjustments:</p>
-<pre><code class="language-html">&lt;form id=&quot;comment-form&quot; action=&quot;NO-BLOG-SPAM.PHP&quot; method=&quot;post&quot;&gt;
+        <p>
+          Now, to prevent comment spammers, we make a few basic adjustments:
+        </p>
+        <pre><code class="language-html">&lt;form id=&quot;comment-form&quot; action=&quot;NO-BLOG-SPAM.PHP&quot; method=&quot;post&quot;&gt;
   [other input fields here]
   &lt;input type=&quot;button&quot; value=&quot;Post Comment&quot; onclick=&quot;submitCommentForm();&quot; /&gt;
 &lt;/form&gt;
 </code></pre>
-<p>Notice I changed the form <code>action</code> to <code>NO-BLOG-SPAM.PHP</code>. This could be anything, really, as long as it's not a valid page. Next, I changed the submit button to a regular button and added a JavaScript <code>onclick</code> event. I'll show you the <code>submitCommentForm()</code> function in a minute. First, I want to explain my reasoning for doing all this.</p>
-<p>It makes sense to me to have a bogus <code>action</code> so that, when a spam bot indexes the form information, it is indexing a submission page that doesn't exist. If the spammer was trying to use curl to submit the comment, they would receive a 'Page Does Not Exist' error.</p>
-<p>It also makes sense to me to change the submit button to a regular button. If the spam bot is trying to submit the form from the within the page, it won't know which field triggers the submission. In fact, it would have to be smart enough to follow the JavaScript events for every form element that has one (which, in our case, is only one).</p>
-<p>Now, here's the <code>submitCommentForm()</code> function. Note that I am including this function from a separate file, which means the spam bot would not only have to be able to follow the JavaScript, but also support including scripts from other parts of the page.</p>
-<pre><code class="language-js">function submitCommentForm() {
+        <p>
+          Notice I changed the form <code>action</code> to
+          <code>NO-BLOG-SPAM.PHP</code>. This could be anything, really, as long
+          as it's not a valid page. Next, I changed the submit button to a
+          regular button and added a JavaScript <code>onclick</code> event. I'll
+          show you the <code>submitCommentForm()</code> function in a minute.
+          First, I want to explain my reasoning for doing all this.
+        </p>
+        <p>
+          It makes sense to me to have a bogus <code>action</code> so that, when
+          a spam bot indexes the form information, it is indexing a submission
+          page that doesn't exist. If the spammer was trying to use curl to
+          submit the comment, they would receive a 'Page Does Not Exist' error.
+        </p>
+        <p>
+          It also makes sense to me to change the submit button to a regular
+          button. If the spam bot is trying to submit the form from the within
+          the page, it won't know which field triggers the submission. In fact,
+          it would have to be smart enough to follow the JavaScript events for
+          every form element that has one (which, in our case, is only one).
+        </p>
+        <p>
+          Now, here's the <code>submitCommentForm()</code> function. Note that I
+          am including this function from a separate file, which means the spam
+          bot would not only have to be able to follow the JavaScript, but also
+          support including scripts from other parts of the page.
+        </p>
+        <pre><code class="language-js">function submitCommentForm() {
   // Change the form action to the real submission page
   document.getElementById('comment-form').action = &quot;add-comment.php&quot;;
 
@@ -104,63 +208,87 @@
   document.getElementById('comment-form').submit();
 }
 </code></pre>
-<p>As you can see, the when the user clicks on the button labeled 'Post Comment', the <code>submitCommentForm()</code> function is triggered. This changes the form <code>action</code> to the real submission page, allowing the user's submission to post. Of course, this still won't prevent a real human from submitting comment spam, but humans aren't usually into wasting countless hours of their time typing in comment spam. As I stated before, this method has prevented automated comment spam on my personal site for well over two years.</p>
-<h3 id="pros">Pros <a class="direct-link" href="#pros">#</a></h3>
-<ul>
-<li>A lot less comment spam — possibly none</li>
-<li>Users aren't required to take any extra steps in order to post a comment</li>
-</ul>
-<h3 id="cons">Cons <a class="direct-link" href="#cons">#</a></h3>
-<ul>
-<li>Requires JavaScript, otherwise users won't be able to post comments</li>
-</ul>
+        <p>
+          As you can see, the when the user clicks on the button labeled 'Post
+          Comment', the <code>submitCommentForm()</code> function is triggered.
+          This changes the form <code>action</code> to the real submission page,
+          allowing the user's submission to post. Of course, this still won't
+          prevent a real human from submitting comment spam, but humans aren't
+          usually into wasting countless hours of their time typing in comment
+          spam. As I stated before, this method has prevented automated comment
+          spam on my personal site for well over two years.
+        </p>
+        <h3 id="pros">Pros <a class="direct-link" href="#pros">#</a></h3>
+        <ul>
+          <li>A lot less comment spam — possibly none</li>
+          <li>
+            Users aren't required to take any extra steps in order to post a
+            comment
+          </li>
+        </ul>
+        <h3 id="cons">Cons <a class="direct-link" href="#cons">#</a></h3>
+        <ul>
+          <li>
+            Requires JavaScript, otherwise users won't be able to post comments
+          </li>
+        </ul>
 
+        <div class="tags">
+          <a href="../../tags/development/index.html" class="post-tag"
+            >development</a
+          >
+          <a href="../../tags/javascript/index.html" class="post-tag"
+            >javascript</a
+          >
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/development/index.html" class="post-tag">development</a>
-  <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a
+          href="../password-protection-using-htaccess-and-htpasswd/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          Password protection using .htaccess and .htpasswd
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="../password-protection-using-htaccess-and-htpasswd/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      Password protection using .htaccess and .htpasswd
-    </a>
-  
-    <a href="../what-are-favicons/index.html" class="post-nav-next">
-      <small>Up next</small>
-      What are favicons?
-    </a>
-  
-</nav>
-
+        <a href="../what-are-favicons/index.html" class="post-nav-next">
+          <small>Up next</small>
+          What are favicons?
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -172,14 +300,29 @@
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/using-javascript-to-prevent-comment-spam/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/using-javascript-to-prevent-comment-spam/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:21 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/using-javascript-to-prevent-comment-spam/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:21 GMT -->
 </html>

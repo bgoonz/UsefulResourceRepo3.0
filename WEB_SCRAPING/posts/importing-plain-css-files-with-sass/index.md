@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Importing plain CSS files with Sass
-===================================
+# Importing plain CSS files with Sass
 
 February 10, 2017 • 1 min read
 
@@ -26,7 +25,7 @@ This works as of version 3.2. And for those using Less, here's the equivalent sy
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/css/index.html" class="post-tag">css</a> <a href="../../tags/sass/index.html" class="post-tag">sass</a> <a href="../../tags/less/index.html" class="post-tag">less</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -34,6 +33,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../determining-your-apps-base-directory-in-nodejs/index.html" class="post-nav-previous"><span class="small">Previous post</span> Determining your app's base directory in Node.js</a> <a href="../thoughts-on-uploads/index.html" class="post-nav-next"><span class="small">Up next</span> Thoughts on uploads</a>

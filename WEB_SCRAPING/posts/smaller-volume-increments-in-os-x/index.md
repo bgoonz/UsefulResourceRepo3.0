@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Smaller volume increments in macOS
-==================================
+# Smaller volume increments in macOS
 
 August 13, 2014 • 1 min read
 
@@ -19,7 +18,7 @@ What other hidden features of OS X have you come across? Give me something post-
 
 <a href="../../tags/macos/index.html" class="post-tag">macos</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -27,6 +26,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../link-to-a-specific-page-in-a-pdf-file/index.html" class="post-nav-previous"><span class="small">Previous post</span> Link to a specific page in a PDF file</a> <a href="../what-is-my-browser-this-tool-will-tell-you/index.html" class="post-nav-next"><span class="small">Up next</span> What is my browser? This tool will tell you</a>

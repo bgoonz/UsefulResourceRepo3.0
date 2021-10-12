@@ -1,118 +1,158 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/know-when-to-draw-the-line/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:47 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/know-when-to-draw-the-line/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:47 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Know When To Draw The Line</title>
-    <meta name="description" content="New variant or custom style? Here&#39;s a quick look at a real world example.">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta
+      name="description"
+      content="New variant or custom style? Here&#39;s a quick look at a real world example."
+    />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Know When To Draw The Line</h1>
+      <article class="post">
+        <h1>Know When To Draw The Line</h1>
 
-  <div class="post-date">
-    <time datetime="2021-10-11">
-      October 11, 2021
-    </time>
-    &bull;
-    1 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2021-10-11"> October 11, 2021 </time>
+          &bull; 1 min read
+        </div>
 
-  
-
-  <p>One-off variations aren't uncommon, but they don't belong in your design system. You're design system isn't solving for every possible use case — it's encouraging visual consistency and efficient development. Use custom styles for one-offs.</p>
-<p>This came up recently on my team.</p>
-<p>We have a button component that supports prefix icons. By default, the icon color matches the text. In one design, the same button was used but the icon color was the primary color instead. The question came up:</p>
-<blockquote>
-<p>&quot;Should we make a new button variant?&quot;</p>
-</blockquote>
-<p>The answer, of course, was no. Because the button should only look like that in a specific toolbar, the solution was something like:</p>
-<pre><code class="language-css">my-toolbar my-button::part(icon) {
+        <p>
+          One-off variations aren't uncommon, but they don't belong in your
+          design system. You're design system isn't solving for every possible
+          use case — it's encouraging visual consistency and efficient
+          development. Use custom styles for one-offs.
+        </p>
+        <p>This came up recently on my team.</p>
+        <p>
+          We have a button component that supports prefix icons. By default, the
+          icon color matches the text. In one design, the same button was used
+          but the icon color was the primary color instead. The question came
+          up:
+        </p>
+        <blockquote>
+          <p>&quot;Should we make a new button variant?&quot;</p>
+        </blockquote>
+        <p>
+          The answer, of course, was no. Because the button should only look
+          like that in a specific toolbar, the solution was something like:
+        </p>
+        <pre><code class="language-css">my-toolbar my-button::part(icon) {
   color: var(--primary);
 }
 </code></pre>
-<p>Know when to draw the line.</p>
+        <p>Know when to draw the line.</p>
 
+        <div class="tags">
+          <a href="../../tags/design%20systems/index.html" class="post-tag"
+            >design systems</a
+          >
+          <a href="../../tags/web%20components/index.html" class="post-tag"
+            >web components</a
+          >
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../../tags/design%20systems/index.html" class="post-tag">design systems</a>
-  <a href="../../tags/web%20components/index.html" class="post-tag">web components</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
-
-<hr>
-
-<nav class="post-nav">
-    <a href="../dont-do-magic/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      Don&#39;t Do Magic
-    </a>
-  
-</nav>
-
+      <nav class="post-nav">
+        <a href="../dont-do-magic/index.html" class="post-nav-previous">
+          <small>Previous post</small>
+          Don&#39;t Do Magic
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -124,14 +164,29 @@
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/know-when-to-draw-the-line/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/know-when-to-draw-the-line/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:47 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/know-when-to-draw-the-line/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 08:58:47 GMT -->
 </html>

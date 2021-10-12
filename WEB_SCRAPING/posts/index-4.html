@@ -1,85 +1,143 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/forcing-file-downloads-in-php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:23 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/forcing-file-downloads-in-php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:23 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forcing file downloads in PHP</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../css/index.css">
-    <link rel="alternate" href="../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../css/index.css" />
+    <link
+      rel="alternate"
+      href="../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../index.html" class="header-link">
-        <img src="../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../index.html"> Home </a>
+        <a class="nav-item" href="../tags/index.html"> Tags </a>
+        <a class="nav-item" href="index.html"> Archive </a>
+        <a class="nav-item" href="../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Forcing file downloads in PHP</h1>
+      <article class="post">
+        <h1>Forcing file downloads in PHP</h1>
 
-  <div class="post-date">
-    <time datetime="2007-07-08">
-      July 08, 2007
-    </time>
-    &bull;
-    3 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2007-07-08"> July 08, 2007 </time>
+          &bull; 3 min read
+        </div>
 
-  
-    <div class="legacy-warning">
-      <img src="../images/artwork/pointer.gif" alt="A drawing of a cartoon man pointing upwards">
-      <p>
-        Heads up! This post was written in 2007, so it may contain information that is no longer
-        accurate. I keep posts like this around for historical purposes and to prevent link rot, so please keep this in
-        mind as you're reading.
-      </p>
-      <p>
-        — Cory
-      </p>
-    </div>
-  
+        <div class="legacy-warning">
+          <img
+            src="../images/artwork/pointer.gif"
+            alt="A drawing of a cartoon man pointing upwards"
+          />
+          <p>
+            Heads up! This post was written in 2007, so it may contain
+            information that is no longer accurate. I keep posts like this
+            around for historical purposes and to prevent link rot, so please
+            keep this in mind as you're reading.
+          </p>
+          <p>— Cory</p>
+        </div>
 
-  <p>I've seen a number of methods to force file downloads using the PHP <code>header()</code> function which, essentially, sends a raw HTTP header to the browser. Depending on your browser, some files won't be downloaded automatically. Instead, they will be handled by the browser itself or a corresponding plug-in. This is often an issue with PDF files, TXT files, CSV files, LOG files, multimedia files (MP3, WAV, MOV, MPEG, AVI, etc.), and, for many users, Microsoft Office files. As a developer, being able to force the download of any type of file is extremely useful.</p>
-<h2 id="to-force%2C-or-not-to-force%3F">To force, or not to force? <a class="direct-link" href="#to-force%2C-or-not-to-force%3F">#</a></h2>
-<p>The argument of whether or not it is considered &quot;good practice&quot; to force users to download files rather than letting their browser handle them as exepected does not really have a place in this article. In some cases it is appropriate while in others it is probably not.</p>
-<p>It has been a convenience the many times I have used it to push CSV files out to end users who wouldn't know enough to copy and paste the data from the browser window into a file and then save it.</p>
-<p>It is also handy for when you generate PDF files and want to push them to the user as a download rather than have it open up inside the browser window. Not only does this make the PDF easier for the user to download, it also provides consistency for the way downloads are handled regardless of what browser plug-ins the user has installed.</p>
-<p>Again, in some cases it is appropriate to force a download, in others it is not.</p>
-<h2 id="the-force-download-script">The force download script <a class="direct-link" href="#the-force-download-script">#</a></h2>
-<p>After rigorous browser testing and code tweaking, here is the script I ended up with. All of the unnecessary stuff has been stripped out and it has been simplified as much as possible.</p>
-<pre><code class="language-php">$file = &quot;filename.ext&quot;;
+        <p>
+          I've seen a number of methods to force file downloads using the PHP
+          <code>header()</code> function which, essentially, sends a raw HTTP
+          header to the browser. Depending on your browser, some files won't be
+          downloaded automatically. Instead, they will be handled by the browser
+          itself or a corresponding plug-in. This is often an issue with PDF
+          files, TXT files, CSV files, LOG files, multimedia files (MP3, WAV,
+          MOV, MPEG, AVI, etc.), and, for many users, Microsoft Office files. As
+          a developer, being able to force the download of any type of file is
+          extremely useful.
+        </p>
+        <h2 id="to-force%2C-or-not-to-force%3F">
+          To force, or not to force?
+          <a class="direct-link" href="#to-force%2C-or-not-to-force%3F">#</a>
+        </h2>
+        <p>
+          The argument of whether or not it is considered &quot;good
+          practice&quot; to force users to download files rather than letting
+          their browser handle them as exepected does not really have a place in
+          this article. In some cases it is appropriate while in others it is
+          probably not.
+        </p>
+        <p>
+          It has been a convenience the many times I have used it to push CSV
+          files out to end users who wouldn't know enough to copy and paste the
+          data from the browser window into a file and then save it.
+        </p>
+        <p>
+          It is also handy for when you generate PDF files and want to push them
+          to the user as a download rather than have it open up inside the
+          browser window. Not only does this make the PDF easier for the user to
+          download, it also provides consistency for the way downloads are
+          handled regardless of what browser plug-ins the user has installed.
+        </p>
+        <p>
+          Again, in some cases it is appropriate to force a download, in others
+          it is not.
+        </p>
+        <h2 id="the-force-download-script">
+          The force download script
+          <a class="direct-link" href="#the-force-download-script">#</a>
+        </h2>
+        <p>
+          After rigorous browser testing and code tweaking, here is the script I
+          ended up with. All of the unnecessary stuff has been stripped out and
+          it has been simplified as much as possible.
+        </p>
+        <pre><code class="language-php">$file = &quot;filename.ext&quot;;
 
 // Quick check to verify that the file exists
 if (!file_exists($file)) die(&quot;File not found&quot;);
@@ -90,84 +148,170 @@ header(&quot;Content-Length: &quot; . filesize($file));
 header(&quot;Content-Type: application/octet-stream;&quot;);
 readfile($file);
 </code></pre>
-<h3 id="using-the-script">Using the script <a class="direct-link" href="#using-the-script">#</a></h3>
-<p>Although you can implement this script practically anywhere you want, it is easiest to copy the code into a file named something like <code>force_download.php</code> and pass an identifier via query string, POST form data, or session variable. Users who are directed to the script will be prompted to download the appropriate file regardless of their browser and plug-in settings.</p>
-<p>The PHP <code>readfile()</code> function reads files verbatim, including PHP files. This opens up a major security hole if you are passing the actual filename using GET or POST form data (or anything else that the user can spoof). A curious user could easily gain access to sensitive database connection information or other system data by entering something like <code>?file=../includes/db_connection.php</code>. You should always use some kind of identifier to prevent unauthorized access to sensitive information.</p>
-<h3 id="compatibility">Compatibility <a class="direct-link" href="#compatibility">#</a></h3>
-<p>This script has been tested to work in IE6/7, Firefox 2, Opera 9, and Safari 3.</p>
-<h2 id="browser-issues">Browser issues <a class="direct-link" href="#browser-issues">#</a></h2>
-<h3 id="safari-%26-filenames">Safari &amp; filenames <a class="direct-link" href="#safari-%26-filenames">#</a></h3>
-<p>Surprisingly, all of the force-download scripts I researched online failed to work properly in Safari. The download occurred, but the resulting file was named after the script (i.e. <code>force_download.php</code>). If I renamed the downloaded file to its correct name, it would open just fine. This, however, was a terrible inconvenience. A bit of testing revealed the culprit. Most of the scripts had a line similar to this:</p>
-<pre><code class="language-php">header(&quot;Content-Disposition: attachment&quot;);
+        <h3 id="using-the-script">
+          Using the script <a class="direct-link" href="#using-the-script">#</a>
+        </h3>
+        <p>
+          Although you can implement this script practically anywhere you want,
+          it is easiest to copy the code into a file named something like
+          <code>force_download.php</code> and pass an identifier via query
+          string, POST form data, or session variable. Users who are directed to
+          the script will be prompted to download the appropriate file
+          regardless of their browser and plug-in settings.
+        </p>
+        <p>
+          The PHP <code>readfile()</code> function reads files verbatim,
+          including PHP files. This opens up a major security hole if you are
+          passing the actual filename using GET or POST form data (or anything
+          else that the user can spoof). A curious user could easily gain access
+          to sensitive database connection information or other system data by
+          entering something like
+          <code>?file=../includes/db_connection.php</code>. You should always
+          use some kind of identifier to prevent unauthorized access to
+          sensitive information.
+        </p>
+        <h3 id="compatibility">
+          Compatibility <a class="direct-link" href="#compatibility">#</a>
+        </h3>
+        <p>
+          This script has been tested to work in IE6/7, Firefox 2, Opera 9, and
+          Safari 3.
+        </p>
+        <h2 id="browser-issues">
+          Browser issues <a class="direct-link" href="#browser-issues">#</a>
+        </h2>
+        <h3 id="safari-%26-filenames">
+          Safari &amp; filenames
+          <a class="direct-link" href="#safari-%26-filenames">#</a>
+        </h3>
+        <p>
+          Surprisingly, all of the force-download scripts I researched online
+          failed to work properly in Safari. The download occurred, but the
+          resulting file was named after the script (i.e.
+          <code>force_download.php</code>). If I renamed the downloaded file to
+          its correct name, it would open just fine. This, however, was a
+          terrible inconvenience. A bit of testing revealed the culprit. Most of
+          the scripts had a line similar to this:
+        </p>
+        <pre><code class="language-php">header(&quot;Content-Disposition: attachment&quot;);
 </code></pre>
-<p>Others went a step further and had something like this:</p>
-<pre><code class="language-php">header(&quot;Content-Disposition: attachment; filename=&quot; . basename($file));
+        <p>Others went a step further and had something like this:</p>
+        <pre><code class="language-php">header(&quot;Content-Disposition: attachment; filename=&quot; . basename($file));
 </code></pre>
-<p>But the correct way to specify the filename requires that you put double quotes around the filename attribute:</p>
-<pre><code class="language-php">header(&quot;Content-Disposition: attachment; filename=&quot;&quot; . basename($file) . &quot;&quot;&quot;);
+        <p>
+          But the correct way to specify the filename requires that you put
+          double quotes around the filename attribute:
+        </p>
+        <pre><code class="language-php">header(&quot;Content-Disposition: attachment; filename=&quot;&quot; . basename($file) . &quot;&quot;&quot;);
 </code></pre>
-<p>By simply adding quotes around the filename, Safari correctly names the resulting download.</p>
-<h3 id="caching-problems">Caching problems <a class="direct-link" href="#caching-problems">#</a></h3>
-<p>Many of the scripts I found included header calls to tell the browser not to use a cached version of the file. Caching wasn't an issue with any of the browsers I tested, but if it becomes problematic, add the following lines to the script (above the call to <code>readfile()</code>).</p>
-<pre><code class="language-php">header(&quot;Cache-Control: no-cache, must-revalidate&quot;);
+        <p>
+          By simply adding quotes around the filename, Safari correctly names
+          the resulting download.
+        </p>
+        <h3 id="caching-problems">
+          Caching problems <a class="direct-link" href="#caching-problems">#</a>
+        </h3>
+        <p>
+          Many of the scripts I found included header calls to tell the browser
+          not to use a cached version of the file. Caching wasn't an issue with
+          any of the browsers I tested, but if it becomes problematic, add the
+          following lines to the script (above the call to
+          <code>readfile()</code>).
+        </p>
+        <pre><code class="language-php">header(&quot;Cache-Control: no-cache, must-revalidate&quot;);
 header(&quot;Expires: Mon, 26 Jul 1997 05:00:00 GMT&quot;);
 </code></pre>
-<p>The above lines are from the <a href="http://php.net/header">PHP Manual</a> and are expected to work in most browsers.</p>
-<h3 id="internet-explorer-%26-https">Internet explorer &amp; https <a class="direct-link" href="#internet-explorer-%26-https">#</a></h3>
-<p>Certain versions of Internet Explorer will generate the following error message when downloads are forced using this technique:</p>
-<p>Internet Explorer cannot download file from server.  Internet Explorer was not able to open this Internet site. The requested site is either unavailable or cannot be found. Please try again later.</p>
-<p>To get around this, whenever you are forcing a download over HTTPS append the following two lines of code to the force download script (above the call to <code>readfile()</code>).</p>
-<pre><code class="language-php">// IE fix (for HTTPS only) header('Cache-Control: private');
+        <p>
+          The above lines are from the
+          <a href="http://php.net/header">PHP Manual</a> and are expected to
+          work in most browsers.
+        </p>
+        <h3 id="internet-explorer-%26-https">
+          Internet explorer &amp; https
+          <a class="direct-link" href="#internet-explorer-%26-https">#</a>
+        </h3>
+        <p>
+          Certain versions of Internet Explorer will generate the following
+          error message when downloads are forced using this technique:
+        </p>
+        <p>
+          Internet Explorer cannot download file from server. Internet Explorer
+          was not able to open this Internet site. The requested site is either
+          unavailable or cannot be found. Please try again later.
+        </p>
+        <p>
+          To get around this, whenever you are forcing a download over HTTPS
+          append the following two lines of code to the force download script
+          (above the call to <code>readfile()</code>).
+        </p>
+        <pre><code class="language-php">// IE fix (for HTTPS only) header('Cache-Control: private');
 header('Pragma: private');
 </code></pre>
-<p>You can find more information about this bug on the <a href="http://support.microsoft.com/kb/316431">MSDN Help &amp; Support</a> website.</p>
+        <p>
+          You can find more information about this bug on the
+          <a href="http://support.microsoft.com/kb/316431"
+            >MSDN Help &amp; Support</a
+          >
+          website.
+        </p>
 
+        <div class="tags">
+          <a href="../tags/development/index.html" class="post-tag"
+            >development</a
+          >
+          <a href="../tags/php/index.html" class="post-tag">php</a>
+        </div>
+      </article>
 
-  <div class="tags">
-    
-  <a href="../tags/development/index.html" class="post-tag">development</a>
-  <a href="../tags/php/index.html" class="post-tag">php</a>
+      <hr />
 
-  </div>
-</article>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-<hr>
+        <p>
+          Written by <a href="../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-  <p>
-    Written by <a href="../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <hr />
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
+      <nav class="post-nav">
+        <a
+          href="web-standards-are-just-minor-details/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          Web standards are just &quot;minor details&quot;
+        </a>
 
-<hr>
-
-<nav class="post-nav">
-    <a href="web-standards-are-just-minor-details/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      Web standards are just &quot;minor details&quot;
-    </a>
-  
-    <a href="an-excellent-free-font-resource/index.html" class="post-nav-next">
-      <small>Up next</small>
-      DaFont: an excellent free font resource
-    </a>
-  
-</nav>
-
+        <a
+          href="an-excellent-free-font-resource/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          DaFont: an excellent free font resource
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -179,14 +323,29 @@ header('Pragma: private');
     <script src="../js/search.js"></script>
 
     <script defer src="../js/greeting.js"></script>
-    <script defer src="../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/forcing-file-downloads-in-php/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/forcing-file-downloads-in-php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:23 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/forcing-file-downloads-in-php by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:23 GMT -->
 </html>

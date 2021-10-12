@@ -1,120 +1,181 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  
-<!-- Mirrored from www.abeautifulsite.net/posts/semantic-version-numbers/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
-<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Mirrored from www.abeautifulsite.net/posts/semantic-version-numbers/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
+  <!-- Added by HTTrack --><meta
+    http-equiv="content-type"
+    content="text/html;charset=utf-8"
+  /><!-- /Added by HTTrack -->
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Semantic version numbers</title>
-    <meta name="description" content="A blog about everything web. Est. 2007">
-    <link rel="stylesheet" href="../../css/index.css">
-    <link rel="alternate" href="../../feed/feed.xml" type="application/atom+xml" title="A Beautiful Site">
-    <link rel="alternate" href="../../feed/feed.json" type="application/json" title="A Beautiful Site">
-    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon">
-    <link rel="preconnect" href="https://fonts.gstatic.com/">
-    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet">
+    <meta name="description" content="A blog about everything web. Est. 2007" />
+    <link rel="stylesheet" href="../../css/index.css" />
+    <link
+      rel="alternate"
+      href="../../feed/feed.xml"
+      type="application/atom+xml"
+      title="A Beautiful Site"
+    />
+    <link
+      rel="alternate"
+      href="../../feed/feed.json"
+      type="application/json"
+      title="A Beautiful Site"
+    />
+    <link rel="icon" href="../../images/logos/leaf.svg" type="image/x-icon" />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body class="post-template">
     <header>
       <a href="../../index.html" class="header-link">
-        <img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark">
+        <img
+          src="../../images/logos/wordmark.svg"
+          alt="A Beautiful Site"
+          class="wordmark"
+        />
       </a>
 
       <nav class="nav">
-          <a class="nav-item" href="../../index.html">
-            Home
-          </a>
-          <a class="nav-item" href="../../tags/index.html">
-            Tags
-          </a>
-          <a class="nav-item" href="../index.html">
-            Archive
-          </a>
-          <a class="nav-item" href="../../about/index.html">
-            About
-          </a>
-        <a class="nav-item" href="#search" arial-label="Search" title="Press / to search" data-site-search>
-          <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 16 16">
-            <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+        <a class="nav-item" href="../../index.html"> Home </a>
+        <a class="nav-item" href="../../tags/index.html"> Tags </a>
+        <a class="nav-item" href="../index.html"> Archive </a>
+        <a class="nav-item" href="../../about/index.html"> About </a>
+        <a
+          class="nav-item"
+          href="#search"
+          arial-label="Search"
+          title="Press / to search"
+          data-site-search
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="currentColor"
+            viewBox="0 0 16 16"
+          >
+            <path
+              d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
+            />
           </svg>
         </a>
       </nav>
     </header>
 
     <main class="content">
-      
-<hr>
+      <hr />
 
-<article class="post">
-  <h1>Semantic version numbers</h1>
+      <article class="post">
+        <h1>Semantic version numbers</h1>
 
-  <div class="post-date">
-    <time datetime="2013-08-21">
-      August 21, 2013
-    </time>
-    &bull;
-    1 min read
-  </div>
+        <div class="post-date">
+          <time datetime="2013-08-21"> August 21, 2013 </time>
+          &bull; 1 min read
+        </div>
 
-  
+        <p>
+          Gone are the days of arbitrarily assigning version numbers to every
+          new software release. With
+          <a href="http://semver.org/">semantic versioning</a>, the question of
+          how and when to bump versions is made simple.
+        </p>
+        <p>
+          According to <a href="http://semver.org/">semver.org</a>, the syntax
+          for version numbers should go like this: <code
+            >MAJOR.MINOR.PATCH</code
+          >
+        </p>
+        <p>
+          When you release a new version, it's easy to determine which numbers
+          to increment:
+        </p>
+        <ol>
+          <li>
+            <code>MAJOR</code> version when you make incompatible API changes,
+          </li>
+          <li>
+            <code>MINOR</code> version when you add functionality in a
+            backwards-compatible manner, and
+          </li>
+          <li>
+            <code>PATCH</code> version when you make backwards-compatible bug
+            fixes.
+          </li>
+        </ol>
+        <p>
+          The entire spec is actually quite short and simple (for a spec), but
+          the concepts therein will [hopefully] change the way developers
+          version their software in the future. While many projects already
+          follow similar conventions, there are still many that don't. This is
+          especially true in the case of smaller projects, where developers seem
+          to arbitrarily bump version numbers without considering the impact
+          such changes may have on their users.
+        </p>
+        <p>
+          If you don't have an existing standard for versioning your software,
+          help make the world a better place and consider adopting SemVer in
+          your next project!
+        </p>
 
-  <p>Gone are the days of arbitrarily assigning version numbers to every new software release. With <a href="http://semver.org/">semantic versioning</a>, the question of how and when to bump versions is made simple.</p>
-<p>According to <a href="http://semver.org/">semver.org</a>, the syntax for version numbers should go like this: <code>MAJOR.MINOR.PATCH</code></p>
-<p>When you release a new version, it's easy to determine which numbers to increment:</p>
-<ol>
-<li><code>MAJOR</code> version when you make incompatible API changes,</li>
-<li><code>MINOR</code> version when you add functionality in a backwards-compatible manner, and</li>
-<li><code>PATCH</code> version when you make backwards-compatible bug fixes.</li>
-</ol>
-<p>The entire spec is actually quite short and simple (for a spec), but the concepts therein will [hopefully] change the way developers version their software in the future. While many projects already follow similar conventions, there are still many that don't. This is especially true in the case of smaller projects, where developers seem to arbitrarily bump version numbers without considering the impact such changes may have on their users.</p>
-<p>If you don't have an existing standard for versioning your software, help make the world a better place and consider adopting SemVer in your next project!</p>
+        <div class="tags">
+          <a href="../../tags/development/index.html" class="post-tag"
+            >development</a
+          >
+        </div>
+      </article>
 
+      <hr />
 
-  <div class="tags">
-    
-  <a href="../../tags/development/index.html" class="post-tag">development</a>
+      <footer class="post-footer">
+        <img
+          src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512"
+          alt="Photo of Cory"
+          class="avatar avatar-small"
+        />
 
-  </div>
-</article>
+        <p>
+          Written by <a href="../../index-4.html">Cory LaViska</a>, a software
+          engineer and UX architect responsible for
+          <a href="https://shoelace.style/">Shoelace.style</a>,
+          <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and other
+          <a href="https://github.com/claviska">open source things</a>.
+        </p>
 
-<hr>
+        <p>
+          You can follow Cory on
+          <a href="https://twitter.com/claviska">Twitter</a> and
+          <a href="https://github.com/claviska">GitHub</a>.
+        </p>
+      </footer>
 
-<footer class="post-footer">
-  <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small">
+      <hr />
 
-  <p>
-    Written by <a href="../../index-4.html">Cory LaViska</a>, a software engineer and UX architect responsible for
-    <a href="https://shoelace.style/">Shoelace.style</a>, <a href="https://www.surrealcms.com/">Surreal&nbsp;CMS</a>, and
-    other <a href="https://github.com/claviska">open source things</a>.
-  </p>
+      <nav class="post-nav">
+        <a
+          href="../theres-a-reason-that-bootstrap-3-has-ugly-buttons/index.html"
+          class="post-nav-previous"
+        >
+          <small>Previous post</small>
+          There&#39;s a reason that Bootstrap 3 has ugly buttons
+        </a>
 
-  <p>
-    You can follow Cory on <a href="https://twitter.com/claviska">Twitter</a> and <a href="https://github.com/claviska">GitHub</a>.
-  </p>
-</footer>
-
-<hr>
-
-<nav class="post-nav">
-    <a href="../theres-a-reason-that-bootstrap-3-has-ugly-buttons/index.html" class="post-nav-previous">
-      <small>Previous post</small>
-      There&#39;s a reason that Bootstrap 3 has ugly buttons
-    </a>
-  
-    <a href="../validating-urls-and-email-addresses-in-php/index.html" class="post-nav-next">
-      <small>Up next</small>
-      Validating URLs and email addresses in PHP
-    </a>
-  
-</nav>
-
+        <a
+          href="../validating-urls-and-email-addresses-in-php/index.html"
+          class="post-nav-next"
+        >
+          <small>Up next</small>
+          Validating URLs and email addresses in PHP
+        </a>
+      </nav>
     </main>
 
     <div class="site-search" hidden>
       <div class="site-search-panel">
         <header class="site-search-header">
-          <input type="text" placeholder="Search" class="site-search-input">
+          <input type="text" placeholder="Search" class="site-search-input" />
         </header>
         <div class="site-search-body">
           <ul class="site-search-results"></ul>
@@ -126,14 +187,29 @@
     <script src="../../js/search.js"></script>
 
     <script defer src="../../js/greeting.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"></script>
-    <script defer src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/gh/PrismJS/prism%401.23.0/prism.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-bash.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-markup-templating.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-php.js"
+    ></script>
+    <script
+      defer
+      src="../../../cdn.jsdelivr.net/npm/prismjs%401.23.0/components/prism-typescript.js"
+    ></script>
 
     <!-- Current page: /posts/semantic-version-numbers/ -->
   </body>
 
-<!-- Mirrored from www.abeautifulsite.net/posts/semantic-version-numbers/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
+  <!-- Mirrored from www.abeautifulsite.net/posts/semantic-version-numbers/ by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 12 Oct 2021 09:00:14 GMT -->
 </html>

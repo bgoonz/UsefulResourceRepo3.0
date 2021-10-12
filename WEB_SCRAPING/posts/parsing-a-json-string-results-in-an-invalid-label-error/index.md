@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Parsing a JSON string results in an 'Invalid Label' error
-=========================================================
+# Parsing a JSON string results in an 'Invalid Label' error
 
 July 17, 2008 • 1 min read
 
@@ -31,7 +30,7 @@ This is one of those JavaScript ""gotchas", so I hope I can save people (and mys
 
 <a href="../../tags/javascript/index.html" class="post-tag">javascript</a> <a href="../../tags/gotchas/index.html" class="post-tag">gotchas</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -39,6 +38,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../postjson-for-jquery/index.html" class="post-nav-previous"><span class="small">Previous post</span> $.postJSON() for jQuery</a> <a href="../import-restore-mysql-files-from-the-command-line/index.html" class="post-nav-next"><span class="small">Up next</span> Import/restore MySQL files from the command line</a>

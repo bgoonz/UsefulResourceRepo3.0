@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Semantic version numbers
-========================
+# Semantic version numbers
 
 August 21, 2013 • 1 min read
 
@@ -23,7 +22,7 @@ If you don't have an existing standard for versioning your software, help make t
 
 <a href="../../tags/development/index.html" class="post-tag">development</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -31,6 +30,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../theres-a-reason-that-bootstrap-3-has-ugly-buttons/index.html" class="post-nav-previous"><span class="small">Previous post</span> There's a reason that Bootstrap 3 has ugly buttons</a> <a href="../validating-urls-and-email-addresses-in-php/index.html" class="post-nav-next"><span class="small">Up next</span> Validating URLs and email addresses in PHP</a>
