@@ -45,7 +45,7 @@
     "nsolid": "3.x.x"
   },
   "dependencies": {
-    "angular": "^1.7.9",
+    "angular": "1.8.2",
     "angular-bootstrap": "^0.12.0",
     "body-parser": "^1.18.3",
     "body-scroll-lock": "^2.6.3",
@@ -104,7 +104,7 @@
     "@babel/core": "^7.7.2",
     "ajv": "^6.5.3",
     "ajv-keywords": "^3.2.0",
-    "angular-mocks": "^1.7.4",
+    "angular-mocks": "1.8.2",
     "babel": "^6.23.0",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
