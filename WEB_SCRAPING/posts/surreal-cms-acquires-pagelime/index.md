@@ -31,7 +31,7 @@ Down for a week <a href="#down-for-a-week" class="direct-link">#</a>
 
 On May 25, 2017, Twitter users began reporting that [PageLime was down](https://twitter.com/karenzadesign/status/869266717108834305). Sure enough it was, and it stayed down until June 2 with no official response from support.
 
-I can only speculate as to what happened. I don't know why it took so long to get the service back online. It was upsetting to users, for sure, but it also upset me as a SaaS owner who takes pride in offering [top notch support](https://twitter.com/claviska/status/869614153828315136).
+I can only speculate as to what happened. I don't know why it took so long to get the service back online. It was upsetting to users, for sure, but it also upset me as a SaaS owner who takes pride in offering [top notch support](https://twitter.com/bgooonz/status/869614153828315136).
 
 The acquisition <a href="#the-acquisition" class="direct-link">#</a>
 --------------------------------------------------------------------
@@ -63,7 +63,7 @@ If you have questions about your PageLime account or the acquisition, please vis
 
 Written by [Cory LaViska](../../index-4.html), a software engineer and UX architect responsible for [Shoelace.style](https://shoelace.style/), [Surreal CMS](https://www.surrealcms.com/), and other [open source things](https://github.com/claviska).
 
-You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
+You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
 ------------------------------------------------------------------------
 

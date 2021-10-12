@@ -70,7 +70,7 @@ Don't assume users are dumb or just don't get it. Give them the tools they need 
 
 <span class="small"></span>
 
-This post was originally [a series of tweets](https://twitter.com/claviska/status/1447562886314971141?s=20).
+This post was originally [a series of tweets](https://twitter.com/bgooonz/status/1447562886314971141?s=20).
 
 <a href="../../tags/design%20systems/index.html" class="post-tag">design systems</a> <a href="../../tags/web%20components/index.html" class="post-tag">web components</a> <a href="../../tags/html/index.html" class="post-tag">html</a> <a href="../../tags/css/index.html" class="post-tag">css</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
 
@@ -80,7 +80,7 @@ This post was originally [a series of tweets](https://twitter.com/claviska/statu
 
 Written by [Cory LaViska](../../index-4.html), a software engineer and UX architect responsible for [Shoelace.style](https://shoelace.style/), [Surreal CMS](https://www.surrealcms.com/), and other [open source things](https://github.com/claviska).
 
-You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
+You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
 ------------------------------------------------------------------------
 

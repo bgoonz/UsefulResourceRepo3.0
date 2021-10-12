@@ -15,7 +15,7 @@ I know you can change the mouse cursor using CSS, but I never realized that you 
 
 Of course, that doesn't mean you *should*, it just means you *can*. Practical uses for this are definitely limited, but things like mouse-based games come to mind.
 
-What other use cases can you think of for hiding the mouse cursor? If you think of any, [let me know on Twitter.](https://twitter.com/claviska)
+What other use cases can you think of for hiding the mouse cursor? If you think of any, [let me know on Twitter.](https://twitter.com/bgooonz)
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
@@ -25,7 +25,7 @@ What other use cases can you think of for hiding the mouse cursor? If you think 
 
 Written by [Cory LaViska](../../index-4.html), a software engineer and UX architect responsible for [Shoelace.style](https://shoelace.style/), [Surreal CMS](https://www.surrealcms.com/), and other [open source things](https://github.com/claviska).
 
-You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
+You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
 ------------------------------------------------------------------------
 

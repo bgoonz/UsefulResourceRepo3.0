@@ -34,7 +34,7 @@ The value of `$.support.transition` will be `true` or `false` depending on th
 
 Written by [Cory LaViska](../../index-4.html), a software engineer and UX architect responsible for [Shoelace.style](https://shoelace.style/), [Surreal CMS](https://www.surrealcms.com/), and other [open source things](https://github.com/claviska).
 
-You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
+You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
 ------------------------------------------------------------------------
 

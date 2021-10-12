@@ -4,7 +4,7 @@ console.log(
     "For more posts about life and code, be sure to\n" +
     "follow me on Twitter:\n" +
     "\n" +
-    "https://twitter.com/claviska\n" +
+    "https://twitter.com/bgooonz\n" +
     "\n" +
     "I hope you enjoy your time and learn something\n" +
     "new while you're here!\n" +

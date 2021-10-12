@@ -2,7 +2,7 @@
 
 ------------------------------------------------------------------------
 
-*A collection of thoughts about HTML, CSS, JavaScript, UX, a11y, web standards, and related things. Posts by [Cory LaViska](https://twitter.com/claviska).*
+*A collection of thoughts about HTML, CSS, JavaScript, UX, a11y, web standards, and related things. Posts by [Cory LaViska](https://twitter.com/bgooonz).*
 
 ------------------------------------------------------------------------
 

@@ -11,20 +11,20 @@ I posted a tweet yesterday that was met with some controversy, so I thought it w
 
 > Unpopular opinion: in a design system, a "link" and a "button" should be one component.
 >
-> — Cory LaViska (@claviska) [October 5, 2021](https://twitter.com/claviska/status/1445479402532261892?ref_src=twsrc%5Etfw)
+> — Cory LaViska (@claviska) [October 5, 2021](https://twitter.com/bgooonz/status/1445479402532261892?ref_src=twsrc%5Etfw)
 
-At face value, I understand why people are upset with this. It's hard to provide context in 280 characters, though, so [I made it a thread](https://twitter.com/claviska/status/1445479402532261892). That was a mistake, because people don't always read the thread so the intent gets lost and assumptions get made. Twitter is a wonderful place.
+At face value, I understand why people are upset with this. It's hard to provide context in 280 characters, though, so [I made it a thread](https://twitter.com/bgooonz/status/1445479402532261892). That was a mistake, because people don't always read the thread so the intent gets lost and assumptions get made. Twitter is a wonderful place.
 
 Semantically Different <a href="#semantically-different" class="direct-link">#</a>
 ----------------------------------------------------------------------------------
 
 Let's start by stating the obvious. A button and a link are [semantically different HTML elements](https://www.webaxe.org/proper-use-buttons-links/), so no need to bust out the keyboard to tell me that. The idea of merging the two into a single component comes from real world experience working on multiple design system teams for large companies.
 
-The fact is that designers always, always ask for links that look like buttons and buttons that look like links. I know, [designers shouldn't do this](https://twitter.com/oliverturner/status/1445724464860127244?s=20). But this isn't a fantasy, it's our reality, and [when it costs your organization measurable value](https://twitter.com/claviska/status/1445722314889437184) in terms of conversions, sales, etc., you're not going to win that argument.
+The fact is that designers always, always ask for links that look like buttons and buttons that look like links. I know, [designers shouldn't do this](https://twitter.com/oliverturner/status/1445724464860127244?s=20). But this isn't a fantasy, it's our reality, and [when it costs your organization measurable value](https://twitter.com/bgooonz/status/1445722314889437184) in terms of conversions, sales, etc., you're not going to win that argument.
 
 Emotions aside, this often leads to developers producing two separate [button](https://explore.fast.design/components/fast-button) and [link](https://explore.fast.design/components/fast-anchor) components with the same styles and logic, and consumers end up misusing them just like `<button>` and `<a>`.
 
-To alleviate this, [I propose that a custom element](https://twitter.com/claviska/status/1445480631832436747) such as `<my-button>` should render the same "button" visually, but based on the presense of an optional `href` attribute, it will use a `<button>` or an `<a>` under the hood.
+To alleviate this, [I propose that a custom element](https://twitter.com/bgooonz/status/1445480631832436747) such as `<my-button>` should render the same "button" visually, but based on the presense of an optional `href` attribute, it will use a `<button>` or an `<a>` under the hood.
 
     <my-button>Save</my-button>
     <!-- 👉 <button class="button button--primary">Save</button> -->
@@ -91,7 +91,7 @@ Just know that, if you're working on a design system, it's extremely likely you 
 
 Written by [Cory LaViska](../../index-4.html), a software engineer and UX architect responsible for [Shoelace.style](https://shoelace.style/), [Surreal CMS](https://www.surrealcms.com/), and other [open source things](https://github.com/claviska).
 
-You can follow Cory on [Twitter](https://twitter.com/claviska) and [GitHub](https://github.com/claviska).
+You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
 ------------------------------------------------------------------------
 
