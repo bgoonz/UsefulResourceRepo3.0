@@ -247,7 +247,7 @@
     "@glimmer/util" "^0.33.7"
     "@glimmer/wire-format" "^0.33.7"
 
-"@glimmer/component@^0.9.1":
+"@glimmer/component@0.9.1", "@glimmer/component@^0.9.1":
   version "0.9.1"
   resolved "https://registry.npmjs.org/@glimmer/component/-/component-0.9.1.tgz#9c103457ee0c9e0e9ffb6e7957c151bb10378383"
   dependencies:
