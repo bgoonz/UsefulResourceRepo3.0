@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>api-routes-body-size-limit</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="api-routes-body-size-limited-to-4mb">API Routes Body Size Limited to 4MB</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>API Routes are meant to respond quickly and are not intended to support responding with large amounts of data. The maximum size of responses is 4 MB.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Limit your API Route responses to less than 4 MB. If you need to support sending large files to the client, you should consider using a dedicated media host for those assets. See link below for suggestions.</p>
+<h3 id="useful-links">Useful Links</h3>
+<p><a href="https://vercel.com/support/articles/how-to-bypass-vercel-5mb-body-size-limit-serverless-functions">Tips to avoid the 5 MB limit</a></p>
+</body>
+</html>

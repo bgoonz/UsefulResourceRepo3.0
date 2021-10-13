@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>image-optimization</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h1 id="image-component-and-image-optimization">Image Component and Image Optimization</h1>
+<details open>
+<summary><b>Examples</b></summary>
+<ul>
+<li>
+<a href="https://github.com/vercel/next.js/tree/canary/examples/image-component">Image Component</a>
+</li>
+</ul>
+</details>
+<p>The Next.js Image component, <a href="/docs/api-reference/next/image.md"><code>next/image</code></a>, is an extension of the HTML <code>&lt;img&gt;</code> element, evolved for the modern web. It includes a variety of built-in performance optimizations to help you achieve good <a href="https://nextjs.org/learn/seo/web-performance">Core Web Vitals</a>. These scores are an important measurement of user experience on your website, and are <a href="https://nextjs.org/learn/seo/web-performance/seo-impact">factored into Google’s search rankings</a>.</p>
+<p>Some of the optimizations built into the Image component include:</p>
+<ul>
+<li><strong>Improved Performance:</strong> Always serve correctly sized image for each device, using modern image formats.</li>
+<li><strong>Visual Stability:</strong> Prevent <a href="https://nextjs.org/learn/seo/web-performance/cls">Cumulative Layout Shift</a> automatically.</li>
+<li><strong>Faster Page Loads:</strong> Images are only loaded when they enter the viewport, with optional blur-up placeholders</li>
+<li><strong>Asset Flexibility:</strong> On-demand image resizing, even for images stored on remote servers</li>
+</ul>
+<h2 id="using-the-image-component">Using the Image Component</h2>
+<p>To add an image to your application, import the <a href="/docs/api-reference/next/image.md"><code>next/image</code></a> component:</p>
+<pre class="jsx"><code>import Image from &#39;next/image&#39;</code></pre>
+<p>Now, you can define the <code>src</code> for your image (either local or remote).</p>
+<h3 id="local-images">Local Images</h3>
+<p>To use a local image, <code>import</code> your <code>.jpg</code>, <code>.png</code>, or <code>.webp</code> files:</p>
+<pre class="jsx"><code>import profilePic from &#39;../public/me.png&#39;</code></pre>
+<p>Dynamic <code>await import()</code> or <code>require()</code> are <em>not</em> supported. The <code>import</code> must be static so it can be analyzed at build time.</p>
+<p>Next.js will automatically determine the <code>width</code> and <code>height</code> of your image based on the imported file. These values are used to prevent <a href="https://nextjs.org/learn/seo/web-performance/cls">Cumulative Layout Shift</a> while your image is loading.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb3-1" title="1"><span class="im">import</span> Image <span class="im">from</span> <span class="st">&#39;next/image&#39;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"><span class="im">import</span> profilePic <span class="im">from</span> <span class="st">&#39;../public/me.png&#39;</span></a>
+<a class="sourceLine" id="cb3-3" title="3"></a>
+<a class="sourceLine" id="cb3-4" title="4"><span class="kw">function</span> <span class="at">Home</span>() <span class="op">{</span></a>
+<a class="sourceLine" id="cb3-5" title="5">  <span class="cf">return</span> (</a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="op">&lt;&gt;</span></a>
+<a class="sourceLine" id="cb3-7" title="7">      <span class="op">&lt;</span>h1<span class="op">&gt;</span>My Homepage&lt;/h1<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-8" title="8">      <span class="op">&lt;</span>Image</a>
+<a class="sourceLine" id="cb3-9" title="9">        src<span class="op">={</span>profilePic<span class="op">}</span></a>
+<a class="sourceLine" id="cb3-10" title="10">        alt<span class="op">=</span><span class="st">&quot;Picture of the author&quot;</span></a>
+<a class="sourceLine" id="cb3-11" title="11">        <span class="co">// width={500} automatically provided</span></a>
+<a class="sourceLine" id="cb3-12" title="12">        <span class="co">// height={500} automatically provided</span></a>
+<a class="sourceLine" id="cb3-13" title="13">        <span class="co">// blurDataURL=&quot;data:...&quot; automatically provided</span></a>
+<a class="sourceLine" id="cb3-14" title="14">        <span class="co">// placeholder=&quot;blur&quot; // Optional blur-up while loading</span></a>
+<a class="sourceLine" id="cb3-15" title="15">      /&gt;</a>
+<a class="sourceLine" id="cb3-16" title="16">      <span class="op">&lt;</span>p<span class="op">&gt;</span>Welcome to my homepage<span class="op">!</span>&lt;/p<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-17" title="17">    &lt;/<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb3-18" title="18">  )</a>
+<a class="sourceLine" id="cb3-19" title="19"><span class="op">}</span></a></code></pre></div>
+<h3 id="remote-images">Remote Images</h3>
+<p>To use a remote image, the <code>src</code> property should be a URL string, which can be <a href="#loaders">relative</a> or <a href="#domains">absolute</a>. Because Next.js does not have access to remote files during the build process, you’ll need to provide the <a href="/docs/api-reference/next/image.md#width"><code>width</code></a>, <a href="/docs/api-reference/next/image.md#height"><code>height</code></a> and optional <a href="/docs/api-reference/next/image.md#blurdataurl"><code>blurDataURL</code></a> props manually:</p>
+<pre class="jsx"><code>import Image from &#39;next/image&#39;
+
+export default function Home() {
+  return (
+    &lt;&gt;
+      &lt;h1&gt;My Homepage&lt;/h1&gt;
+      &lt;Image
+        src=&quot;/me.png&quot;
+        alt=&quot;Picture of the author&quot;
+        width={500}
+        height={500}
+      /&gt;
+      &lt;p&gt;Welcome to my homepage!&lt;/p&gt;
+    &lt;/&gt;
+  )
+}</code></pre>
+<blockquote>
+<p>Learn more about the <a href="#image-sizing">sizing requirements</a> in <code>next/image</code>.</p>
+</blockquote>
+<h3 id="domains">Domains</h3>
+<p>Sometimes you may want to access a remote image, but still use the built-in Next.js Image Optimization API. To do this, leave the <code>loader</code> at its default setting and enter an absolute URL for the Image <code>src</code>.</p>
+<p>To protect your application from malicious users, you must define a list of remote domains that you intend to access this way. This is configured in your <code>next.config.js</code> file, as shown below:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode js"><code class="sourceCode javascript"><a class="sourceLine" id="cb5-1" title="1"><span class="va">module</span>.<span class="at">exports</span> <span class="op">=</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-2" title="2">  <span class="dt">images</span><span class="op">:</span> <span class="op">{</span></a>
+<a class="sourceLine" id="cb5-3" title="3">    <span class="dt">domains</span><span class="op">:</span> [<span class="st">&#39;example.com&#39;</span><span class="op">,</span> <span class="st">&#39;example2.com&#39;</span>]<span class="op">,</span></a>
+<a class="sourceLine" id="cb5-4" title="4">  <span class="op">},</span></a>
+<a class="sourceLine" id="cb5-5" title="5"><span class="op">}</span></a></code></pre></div>
+<h3 id="loaders">Loaders</h3>
+<p>Note that in the <a href="#remote-images">example earlier</a>, a partial URL (<code>"/me.png"</code>) is provided for a remote image. This is possible because of the <code>next/image</code> <a href="/docs/api-reference/next/image.md#loader">loader</a> architecture.</p>
+<p>A loader is a function that generates the URLs for your image. It appends a root domain to your provided <code>src</code>, and generates multiple URLs to request the image at different sizes. These multiple URLs are used in the automatic <a href="https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/srcset">srcset</a> generation, so that visitors to your site will be served an image that is the right size for their viewport.</p>
+<p>The default loader for Next.js applications uses the built-in Image Optimization API, which optimizes images from anywhere on the web, and then serves them directly from the Next.js web server. If you would like to serve your images directly from a CDN or image server, you can use one of the <a href="/docs/api-reference/next/image.md#built-in-loaders">built-in loaders</a> or write your own with a few lines of JavaScript.</p>
+<p>Loaders can be defined per-image, or at the application level.</p>
+<h2 id="image-sizing">Image Sizing</h2>
+<p>One of the ways that images most commonly hurt performance is through <em>layout shift</em>, where the image pushes other elements around on the page as it loads in. This performance problem is so annoying to users that it has its own Core Web Vital, called <a href="https://web.dev/cls/">Cumulative Layout Shift</a>. The way to avoid image-based layout shifts is to <a href="https://web.dev/optimize-cls/#images-without-dimensions">always size your images</a>. This allows the browser to reserve precisely enough space for the image before it loads.</p>
+<p>Because <code>next/image</code> is designed to guarantee good performance results, it cannot be used in a way that will contribute to layout shift, and <strong>must</strong> be sized in one of three ways:</p>
+<ol type="1">
+<li>Automatically, using a <a href="#local-images">static import</a></li>
+<li>Explicitly, by including a <code>height</code> <strong>and</strong> <code>width</code> property</li>
+<li>Implicitly, by using <code>layout="fill"</code> which causes the image to expand to fill its parent element.</li>
+</ol>
+<blockquote>
+<h3 id="what-if-i-dont-know-the-size-of-my-images">What if I don’t know the size of my images?</h3>
+<p>If you are accessing images from a source without knowledge of the images’ sizes, there are several things you can do:</p>
+<p><strong>Use <code>layout='fill'</code></strong></p>
+<p>The <code>fill</code> layout mode allows your image to be sized by its parent element. Consider using CSS to give the image’s parent element space on the page, then using the <a href="/docs/api-reference/next/image.md#objectfit"><code>objectFit property</code></a> with <code>fill</code>, <code>contain</code>, or <code>cover</code>, along with the <a href="/docs/api-reference/next/image.md#objectposition"><code>objectPosition property</code></a> to define how the image should occupy that space.</p>
+<p><strong>Normalize your images</strong></p>
+<p>If you’re serving images from a source that you control, consider modifying your image pipeline to normalize the images to a specific size.</p>
+<p><strong>Modify your API calls</strong></p>
+<p>If your application is retrieving image URLs using an API call (such as to a CMS), you may be able to modify the API call to return the image dimensions along with the URL.</p>
+</blockquote>
+<p>If none of the suggested methods works for sizing your images, the <code>next/image</code> component is designed to work well on a page alongside standard <code>&lt;img&gt;</code> elements.</p>
+<h2 id="styling">Styling</h2>
+<p>Styling the Image component is not that different from styling a normal <code>&lt;img&gt;</code> element, but there are a few guidelines to keep in mind:</p>
+<p><strong>Pick the correct layout mode</strong></p>
+<p>The image component has several different <a href="/docs/api-reference/next/image.md#layout">layout modes</a> that define how it is sized on the page. If the styling of your image isn’t turning out the way you want, consider experimenting with other layout modes.</p>
+<p><strong>Target the image with className, not based on DOM structure</strong></p>
+<p>Regardless of the layout mode used, the Image component will have a consistent DOM structure of one <code>&lt;img&gt;</code> tag wrapped by exactly one <code>&lt;div&gt;</code>. For some modes, it may also have a sibling <code>&lt;div&gt;</code> for spacing. These additional <code>&lt;div&gt;</code> elements are critical to allow the component to prevent layout shifts.</p>
+<p>The recommended way to style the inner <code>&lt;img&gt;</code> is to set the <code>className</code> prop on the Image component to the value of an imported <a href="/docs/basic-features/built-in-css-support.md#adding-component-level-css">CSS Module</a>. The value of <code>className</code> will be automatically applied to the underlying <code>&lt;img&gt;</code> element.</p>
+<p>Alternatively, you can import a <a href="/docs/basic-features/built-in-css-support#adding-a-global-stylesheet">global stylesheet</a> and manually set the <code>className</code> prop to the same name used in the global stylesheet.</p>
+<p>You cannot use <a href="/basic-features/built-in-css-support.md#css-in-js">styled-jsx</a> because its scoped to the current component.</p>
+<p>You cannot use the <code>style</code> prop because the <code>&lt;Image&gt;</code> component does not pass it through to the underlying <code>&lt;img&gt;</code>.</p>
+<p><strong>When using <code>layout='fill'</code>, the parent element must have <code>position: relative</code></strong></p>
+<p>This is necessary for the proper rendering of the image element in that layout mode.</p>
+<p><strong>When using <code>layout='responsive'</code>, the parent element must have <code>display: block</code></strong></p>
+<p>This is the default for <code>&lt;div&gt;</code> elements but should be specified otherwise.</p>
+<h2 id="properties">Properties</h2>
+<p><a href="/docs/api-reference/next/image.md"><strong>View all properties available to the <code>next/image</code> component.</strong></a></p>
+<h3 id="styling-examples">Styling Examples</h3>
+<p>For examples of the Image component used with the various fill modes, see the <a href="https://image-component.nextjs.gallery/">Image component example app</a>.</p>
+<h2 id="configuration">Configuration</h2>
+<p>The <code>next/image</code> component and Next.js Image Optimization API can be configured in the <a href="/docs/api-reference/next.config.js/introduction.md"><code>next.config.js</code> file</a>. These configurations allow you to <a href="/docs/api-reference/next/image.md#domains">enable remote domains</a>, <a href="/docs/api-reference/next/image.md#device-sizes">define custom image breakpoints</a>, <a href="/docs/api-reference/next/image.md#caching-behavior">change caching behavior</a> and more.</p>
+<p><a href="/docs/api-reference/next/image.md#configuration-options"><strong>Read the full image configuration documentation for more information.</strong></a></p>
+<h2 id="related">Related</h2>
+<p>For more information on what to do next, we recommend the following sections:</p>
+<div class="card">
+<p><a href="/docs/api-reference/next/image.md"> <b>next/image</b> <small>See all available properties for the Image component</small> </a></p>
+</div>
+</body>
+</html>

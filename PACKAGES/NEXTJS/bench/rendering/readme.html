@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="next.js-server-side-benchmarks">Next.js server-side benchmarks</h1>
+    <h2 id="installation">Installation</h2>
+    <p>Follow the steps in <a href="../contributing.md">contributing.md</a></p>
+    <p>
+      Both benchmarks use <code>ab</code>. So make sure you have that installed.
+    </p>
+    <h2 id="usage">Usage</h2>
+    <p>Before running the test:</p>
+    <pre><code>npm run start</code></pre>
+    <p>Then run one of these tests:</p>
+    <ul>
+      <li>
+        Stateless application which renders
+        <code>&lt;h1&gt;My component!&lt;/h1&gt;</code>. Runs 3000 http
+        requests.
+      </li>
+    </ul>
+    <pre><code>npm run bench:stateless</code></pre>
+    <ul>
+      <li>
+        Stateless application which renders
+        <code>&lt;li&gt;This is row {i}&lt;/li&gt;</code> 10.000 times. Runs 500
+        http requests.
+      </li>
+    </ul>
+    <pre><code>npm run bench:stateless-big</code></pre>
+  </body>
+</html>
