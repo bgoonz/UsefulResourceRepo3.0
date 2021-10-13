@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>static-page-generation-timeout</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="static-page-generation-timed-out-after-multiple-attempts">Static page generation timed out after multiple attempts</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>Next.js tries to restart the worker pool of the static page generation when no progress happens for a while, to avoid hanging builds.</p>
+<p>When restarted it will retry all uncompleted jobs, but if a job was unsuccessfully attempted multiple times, this will lead to an error.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<ul>
+<li>Make sure that there is no infinite loop during execution.</li>
+<li>Make sure all Promises in <code>getStaticPaths</code>/<code>getStaticProps</code> <code>resolve</code> or <code>reject</code> correctly.</li>
+<li>Avoid very long timeouts for network requests.</li>
+<li>Increase the timeout by changing the <code>experimental.staticPageGenerationTimeout</code> configuration option (default <code>60</code> in seconds).</li>
+</ul>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation"><code>getStaticPaths</code></a></li>
+<li><a href="https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation"><code>getStaticProps</code></a></li>
+</ul>
+</body>
+</html>
