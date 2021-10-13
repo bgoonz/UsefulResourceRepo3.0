@@ -1,19 +1,13 @@
----
-description: Configure module path aliases that allow you to remap certain import paths.
----
+Absolute Imports and Module path aliases
+========================================
 
-# Absolute Imports and Module path aliases
+**Examples**
 
-<details>
-  <summary><b>Examples</b></summary>
-  <ul>
-    <li><a href="https://github.com/vercel/next.js/tree/canary/examples/with-absolute-imports">Absolute Imports</a></li>
-  </ul>
-</details>
+-   [Absolute Imports](https://github.com/vercel/next.js/tree/canary/examples/with-absolute-imports)
 
 Next.js automatically supports the `tsconfig.json` and `jsconfig.json` `"paths"` and `"baseUrl"` options since [Next.js 9.4](https://nextjs.org/blog/next-9-4).
 
-> Note: `jsconfig.json` can be used when you don't use TypeScript
+> Note: `jsconfig.json` can be used when you don’t use TypeScript
 
 > Note: you need to restart dev server to reflect modifications done in `tsconfig.json` / `jsconfig.json`
 
@@ -25,71 +19,59 @@ The `baseUrl` configuration option allows you to import directly from the root o
 
 An example of this configuration:
 
-```json
-// tsconfig.json or jsconfig.json
-{
-  "compilerOptions": {
-    "baseUrl": "."
-  }
-}
-```
+    // tsconfig.json or jsconfig.json
+    {
+      "compilerOptions": {
+        "baseUrl": "."
+      }
+    }
 
-```jsx
-// components/button.js
-export default function Button() {
-  return <button>Click me</button>
-}
-```
+    // components/button.js
+    export default function Button() {
+      return <button>Click me</button>
+    }
 
-```jsx
-// pages/index.js
-import Button from 'components/button'
+    // pages/index.js
+    import Button from 'components/button'
 
-export default function HomePage() {
-  return (
-    <>
-      <h1>Hello World</h1>
-      <Button />
-    </>
-  )
-}
-```
+    export default function HomePage() {
+      return (
+        <>
+          <h1>Hello World</h1>
+          <Button />
+        </>
+      )
+    }
 
-While `baseUrl` is useful you might want to add other aliases that don't match 1 on 1. For this TypeScript has the `"paths"` option.
+While `baseUrl` is useful you might want to add other aliases that don’t match 1 on 1. For this TypeScript has the `"paths"` option.
 
 Using `"paths"` allows you to configure module aliases. For example `@/components/*` to `components/*`.
 
 An example of this configuration:
 
-```json
-// tsconfig.json or jsconfig.json
-{
-  "compilerOptions": {
-    "baseUrl": ".",
-    "paths": {
-      "@/components/*": ["components/*"]
+    // tsconfig.json or jsconfig.json
+    {
+      "compilerOptions": {
+        "baseUrl": ".",
+        "paths": {
+          "@/components/*": ["components/*"]
+        }
+      }
     }
-  }
-}
-```
 
-```jsx
-// components/button.js
-export default function Button() {
-  return <button>Click me</button>
-}
-```
+    // components/button.js
+    export default function Button() {
+      return <button>Click me</button>
+    }
 
-```jsx
-// pages/index.js
-import Button from '@/components/button'
+    // pages/index.js
+    import Button from '@/components/button'
 
-export default function HomePage() {
-  return (
-    <>
-      <h1>Hello World</h1>
-      <Button />
-    </>
-  )
-}
-```
+    export default function HomePage() {
+      return (
+        <>
+          <h1>Hello World</h1>
+          <Button />
+        </>
+      )
+    }
