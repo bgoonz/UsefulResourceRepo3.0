@@ -10,7 +10,7 @@
     "@commitlint/cli": "^6.1.0",
     "@commitlint/config-conventional": "^6.1.0",
     "@types/async": "^2.0.40",
-    "@types/babel-core": "^6.25.2",
+    "@types/babel-core": "6.25.7",
     "@types/babel-generator": "^6.25.0",
     "@types/babel-template": "^6.25.0",
     "@types/babel-traverse": "^6.25.2",
