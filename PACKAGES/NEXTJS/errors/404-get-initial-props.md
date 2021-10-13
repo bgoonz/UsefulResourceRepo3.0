@@ -1,4 +1,5 @@
-# 404.js Cannot Have getInitialProps
+404.js Cannot Have getInitialProps
+==================================
 
 #### Why This Error Occurred
 
@@ -6,10 +7,10 @@ In your `404.js` page you added `getInitialProps` or `getServerSideProps` which 
 
 #### Possible Ways to Fix It
 
-Remove `getInitialProps` from `404.js` and make sure no HOC's used in `404.js` attach `getInitialProps`.
+Remove `getInitialProps` from `404.js` and make sure no HOC’s used in `404.js` attach `getInitialProps`.
 
 If you want to fetch data for your `404.js` page move it to a client side fetch inside of `componentDidMount` or `useEffect(() => {}, [])`.
 
 ### Useful Links
 
-- [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)
+-   [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)

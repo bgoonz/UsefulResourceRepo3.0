@@ -1,4 +1,5 @@
-# getInitialProps was defined as an instance method
+getInitialProps was defined as an instance method
+=================================================
 
 #### Why This Error Occurred
 
@@ -8,32 +9,28 @@
 
 Use the static keyword.
 
-```js
-export default class YourEntryComponent extends React.Component {
-  static getInitialProps() {
-    return {}
-  }
+    export default class YourEntryComponent extends React.Component {
+      static getInitialProps() {
+        return {}
+      }
 
-  render() {
-    return 'foo'
-  }
-}
-```
+      render() {
+        return 'foo'
+      }
+    }
 
 or
 
-```js
-const YourEntryComponent = function () {
-  return 'foo'
-}
+    const YourEntryComponent = function () {
+      return 'foo'
+    }
 
-YourEntryComponent.getInitialProps = () => {
-  return {}
-}
+    YourEntryComponent.getInitialProps = () => {
+      return {}
+    }
 
-export default YourEntryComponent
-```
+    export default YourEntryComponent
 
 ### Useful Links
 
-- [Fetching data and component lifecycle](https://nextjs.org/docs/api-reference/data-fetching/getInitialProps)
+-   [Fetching data and component lifecycle](https://nextjs.org/docs/api-reference/data-fetching/getInitialProps)

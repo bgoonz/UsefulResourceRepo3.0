@@ -1,4 +1,5 @@
-# Invalid webpack 5 version
+Invalid webpack 5 version
+=========================
 
 #### Why This Error Occurred
 
@@ -10,4 +11,4 @@ Upgrade the version of webpack 5 being used with Next.js to at least `v5.15.0` b
 
 ### Useful Links
 
-- [Yarn Selective Dependency Resolutions Documentation](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/)
+-   [Yarn Selective Dependency Resolutions Documentation](https://classic.yarnpkg.com/en/docs/selective-version-resolutions/)

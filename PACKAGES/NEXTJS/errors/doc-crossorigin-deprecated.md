@@ -1,4 +1,5 @@
-# `Head` or `NextScript` attribute `crossOrigin` is deprecated
+`Head` or `NextScript` attribute `crossOrigin` is deprecated
+============================================================
 
 #### Why This Error Occurred
 
@@ -8,13 +9,11 @@ This option has been moved to `next.config.js`.
 
 Add the config option:
 
-```js
-// next.config.js
-module.exports = {
-  crossOrigin: 'anonymous',
-}
-```
+    // next.config.js
+    module.exports = {
+      crossOrigin: 'anonymous',
+    }
 
 ### Useful Links
 
-- [The issue this was reported in: #5674](https://github.com/vercel/next.js/issues/5674)
+-   [The issue this was reported in: \#5674](https://github.com/vercel/next.js/issues/5674)

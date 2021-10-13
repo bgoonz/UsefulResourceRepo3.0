@@ -1,4 +1,5 @@
-# `future.webpack5` has been moved to `webpack5`
+`future.webpack5` has been moved to `webpack5`
+==============================================
 
 #### Why This Error Occurred
 
@@ -14,20 +15,16 @@ Change `future.webpack5` to `webpack5`.
 
 Current `next.config.js`:
 
-```js
-// next.config.js
-module.exports = {
-  future: {
-    webpack5: false,
-  },
-}
-```
+    // next.config.js
+    module.exports = {
+      future: {
+        webpack5: false,
+      },
+    }
 
 Updated `next.config.js`:
 
-```js
-// next.config.js
-module.exports = {
-  webpack5: false,
-}
-```
+    // next.config.js
+    module.exports = {
+      webpack5: false,
+    }

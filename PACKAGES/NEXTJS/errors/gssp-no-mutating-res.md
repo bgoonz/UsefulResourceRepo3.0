@@ -1,10 +1,11 @@
-# Must not access ServerResponse after getServerSideProps() resolves
+Must not access ServerResponse after getServerSideProps() resolves
+==================================================================
 
 #### Why This Error Occurred
 
 `getServerSideProps()` surfaces a `ServerResponse` object through the `res` property of its `context` arg. This object is not intended to be accessed or changed after `getServerSideProps()` resolves.
 
-This is because the framework tries to optimize when items like headers or status codes are flushed to the browser. If they are changed after `getServerSideProps()` completes, we can't guarantee that the changes will work.
+This is because the framework tries to optimize when items like headers or status codes are flushed to the browser. If they are changed after `getServerSideProps()` completes, we can’t guarantee that the changes will work.
 
 For this reason, accessing the object after this time is disallowed.
 
@@ -14,4 +15,4 @@ You can fix this error by moving any access of the `res` object into `getServerS
 
 ### Useful Links
 
-- [Data Fetching Docs](https://nextjs.org/docs/basic-features/data-fetching)
+-   [Data Fetching Docs](https://nextjs.org/docs/basic-features/data-fetching)

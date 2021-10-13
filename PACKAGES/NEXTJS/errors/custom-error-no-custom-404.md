@@ -1,4 +1,5 @@
-# Custom /\_error without /404
+Custom /\_error without /404
+============================
 
 #### Why This Error Occurred
 
@@ -10,5 +11,5 @@ Add a `pages/404.js` with the 404 page you would like to show.
 
 ### Useful Links
 
-- [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)
-- [404 Page](https://nextjs.org/docs/advanced-features/custom-error-page#404-page)
+-   [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)
+-   [404 Page](https://nextjs.org/docs/advanced-features/custom-error-page#404-page)

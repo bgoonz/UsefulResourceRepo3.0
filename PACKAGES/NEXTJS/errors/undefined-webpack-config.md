@@ -1,4 +1,5 @@
-# Missing webpack config
+Missing webpack config
+======================
 
 #### Why This Error Occurred
 
@@ -8,21 +9,19 @@ The value returned from the custom `webpack` function in your `next.config.js` w
 
 Make sure to return the `webpack` config from your custom `webpack` function in your `next.config.js`
 
-```js
-// next.config.js
+    // next.config.js
 
-module.exports = {
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // Note: we provide webpack above so you should not `require` it
-    // Perform customizations to webpack config
-    config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
+    module.exports = {
+      webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+        // Note: we provide webpack above so you should not `require` it
+        // Perform customizations to webpack config
+        config.plugins.push(new webpack.IgnorePlugin(/\/__tests__\//))
 
-    // Important: return the modified config
-    return config
-  },
-}
-```
+        // Important: return the modified config
+        return config
+      },
+    }
 
 ### Useful Links
 
-- [Custom webpack config Documentation](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config)
+-   [Custom webpack config Documentation](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config)

@@ -1,4 +1,5 @@
-# Invalid PostCSS Configuration
+Invalid PostCSS Configuration
+=============================
 
 #### Why This Error Occurred
 
@@ -8,122 +9,108 @@ PostCSS configuration was provided in an unsupported shape.
 
 PostCSS configuration must be defined in the following shape:
 
-```js
-module.exports = {
-  plugins: [
-    // A plugin that does not require configuration:
-    'simple-plugin-example',
+    module.exports = {
+      plugins: [
+        // A plugin that does not require configuration:
+        'simple-plugin-example',
 
-    // A plugin which needs a configuration object:
-    [
-      'plugin-with-configuration',
-      {
-        optionA: '...',
-      },
-    ],
-
-    // A plugin that is toggled on or off based on environment:
-    [
-      'plugin-toggled',
-      process.env.NODE_ENV === 'production'
-        ? {
+        // A plugin which needs a configuration object:
+        [
+          'plugin-with-configuration',
+          {
             optionA: '...',
-          }
-        : false,
-    ],
+          },
+        ],
 
-    // Boolean expressions are also valid.
-    // `true` enables the plugin, `false` disables the plugin:
-    ['plugin-toggled-2', true /* a === b, etc */],
-  ],
-}
-```
+        // A plugin that is toggled on or off based on environment:
+        [
+          'plugin-toggled',
+          process.env.NODE_ENV === 'production'
+            ? {
+                optionA: '...',
+              }
+            : false,
+        ],
+
+        // Boolean expressions are also valid.
+        // `true` enables the plugin, `false` disables the plugin:
+        ['plugin-toggled-2', true /* a === b, etc */],
+      ],
+    }
 
 You can [read more about configuring PostCSS in Next.js here](https://nextjs.org/docs/advanced-features/customizing-postcss-config).
 
 #### Common Errors
 
-**Before: plugin is require()'d**
+**Before: plugin is require()’d**
 
-```js
-const pluginA = require('postcss-plugin-a')
-module.exports = {
-  plugins: [require('postcss-plugin'), pluginA],
-}
-```
+    const pluginA = require('postcss-plugin-a')
+    module.exports = {
+      plugins: [require('postcss-plugin'), pluginA],
+    }
 
 **After**
 
-```js
-module.exports = {
-  plugins: ['postcss-plugin', 'postcss-plugin-a'],
-}
-```
+    module.exports = {
+      plugins: ['postcss-plugin', 'postcss-plugin-a'],
+    }
 
----
+------------------------------------------------------------------------
 
 **Before: plugin is instantiated with configuration**
 
-```js
-module.exports = {
-  plugins: [
-    require('postcss-plugin')({
-      optionA: '...',
-    }),
-  ],
-}
-```
+    module.exports = {
+      plugins: [
+        require('postcss-plugin')({
+          optionA: '...',
+        }),
+      ],
+    }
 
 **After**
 
-```js
-module.exports = {
-  plugins: [
-    // Pay attention to this nested array. The first index is the plugin name,
-    // the second index is the configuration.
-    [
-      'postcss-plugin',
-      {
-        optionA: '...',
-      },
-    ],
-  ],
-}
-```
+    module.exports = {
+      plugins: [
+        // Pay attention to this nested array. The first index is the plugin name,
+        // the second index is the configuration.
+        [
+          'postcss-plugin',
+          {
+            optionA: '...',
+          },
+        ],
+      ],
+    }
 
----
+------------------------------------------------------------------------
 
 **Before: plugin is missing configuration**
 
-```js
-module.exports = {
-  plugins: [
-    [
-      'postcss-plugin-1',
-      {
-        optionA: '...',
-      },
-    ],
-    // This single-entry array is detected as misconfigured because it's
-    // missing the second element. To fix, unwrap the value.
-    ['postcss-plugin-2'],
-  ],
-}
-```
+    module.exports = {
+      plugins: [
+        [
+          'postcss-plugin-1',
+          {
+            optionA: '...',
+          },
+        ],
+        // This single-entry array is detected as misconfigured because it's
+        // missing the second element. To fix, unwrap the value.
+        ['postcss-plugin-2'],
+      ],
+    }
 
 **After**
 
-```js
-module.exports = {
-  plugins: [
-    [
-      'postcss-plugin-1',
-      {
-        optionA: '...',
-      },
-    ],
-    // Only string:
-    'postcss-plugin-2',
-  ],
-}
-```
+    module.exports = {
+      plugins: [
+        [
+          'postcss-plugin-1',
+          {
+            optionA: '...',
+          },
+        ],
+        // Only string:
+        'postcss-plugin-2',
+      ],
+    }

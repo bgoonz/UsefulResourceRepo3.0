@@ -1,14 +1,15 @@
-# Ignored PostCSS Plugin
+Ignored PostCSS Plugin
+======================
 
 #### Why This Error Occurred
 
-The project's custom PostCSS configuration attempts to configure unnecessary plugins:
+The project’s custom PostCSS configuration attempts to configure unnecessary plugins:
 
-- postcss-modules-values
-- postcss-modules-scope
-- postcss-modules-extract-imports
-- postcss-modules-local-by-default
-- postcss-modules
+-   postcss-modules-values
+-   postcss-modules-scope
+-   postcss-modules-extract-imports
+-   postcss-modules-local-by-default
+-   postcss-modules
 
 #### Possible Ways to Fix It
 
@@ -16,5 +17,4 @@ Remove the plugin specified in the error message from your custom PostCSS config
 
 #### How do I configure CSS Modules?
 
-CSS Modules are supported in [Next.js' built-in CSS support](https://nextjs.org/docs/advanced-features/customizing-postcss-config).
-You can [read more about how to use CSS Modules here](https://nextjs.org/docs/advanced-features/customizing-postcss-config).
+CSS Modules are supported in [Next.js’ built-in CSS support](https://nextjs.org/docs/advanced-features/customizing-postcss-config). You can [read more about how to use CSS Modules here](https://nextjs.org/docs/advanced-features/customizing-postcss-config).

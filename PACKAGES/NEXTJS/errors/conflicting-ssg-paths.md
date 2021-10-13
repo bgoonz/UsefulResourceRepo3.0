@@ -1,4 +1,5 @@
-# Conflicting SSG Paths
+Conflicting SSG Paths
+=====================
 
 #### Why This Error Occurred
 
@@ -10,59 +11,55 @@ Remove any conflicting paths shown in the error message and only return them fro
 
 Example conflicting paths:
 
-```jsx
-// pages/hello/world.js
-export default function Hello() {
-  return 'hello world!'
-}
+    // pages/hello/world.js
+    export default function Hello() {
+      return 'hello world!'
+    }
 
-// pages/[...catchAll].js
-export const getStaticProps = () => ({ props: {} })
+    // pages/[...catchAll].js
+    export const getStaticProps = () => ({ props: {} })
 
-export const getStaticPaths = () => ({
-  paths: [
-    // this conflicts with the /hello/world.js page, remove to resolve error
-    '/hello/world',
-    '/another',
-  ],
-  fallback: false,
-})
+    export const getStaticPaths = () => ({
+      paths: [
+        // this conflicts with the /hello/world.js page, remove to resolve error
+        '/hello/world',
+        '/another',
+      ],
+      fallback: false,
+    })
 
-export default function CatchAll() {
-  return 'Catch-all page'
-}
-```
+    export default function CatchAll() {
+      return 'Catch-all page'
+    }
 
 Example conflicting paths:
 
-```jsx
-// pages/blog/[slug].js
-export const getStaticPaths = () => ({
-  paths: ['/blog/conflicting', '/blog/another'],
-  fallback: false,
-})
+    // pages/blog/[slug].js
+    export const getStaticPaths = () => ({
+      paths: ['/blog/conflicting', '/blog/another'],
+      fallback: false,
+    })
 
-export default function Blog() {
-  return 'Blog!'
-}
+    export default function Blog() {
+      return 'Blog!'
+    }
 
-// pages/[...catchAll].js
-export const getStaticProps = () => ({ props: {} })
+    // pages/[...catchAll].js
+    export const getStaticProps = () => ({ props: {} })
 
-export const getStaticPaths = () => ({
-  paths: [
-    // this conflicts with the /blog/conflicting path above, remove to resolve error
-    '/blog/conflicting',
-    '/another',
-  ],
-  fallback: false,
-})
+    export const getStaticPaths = () => ({
+      paths: [
+        // this conflicts with the /blog/conflicting path above, remove to resolve error
+        '/blog/conflicting',
+        '/another',
+      ],
+      fallback: false,
+    })
 
-export default function CatchAll() {
-  return 'Catch-all page'
-}
-```
+    export default function CatchAll() {
+      return 'Catch-all page'
+    }
 
 ### Useful Links
 
-- [`getStaticPaths` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)
+-   [`getStaticPaths` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)

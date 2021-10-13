@@ -1,4 +1,5 @@
-# Link passHref
+Link passHref
+=============
 
 ### Why This Error Occurred
 
@@ -6,27 +7,25 @@
 
 ### Possible Ways to Fix It
 
-If you're using a custom component that wraps an `<a>` tag, make sure to add `passHref`:
+If you’re using a custom component that wraps an `<a>` tag, make sure to add `passHref`:
 
-```jsx
-import Link from 'next/link'
-import styled from 'styled-components'
+    import Link from 'next/link'
+    import styled from 'styled-components'
 
-const StyledLink = styled.a`
-  color: red;
-`
+    const StyledLink = styled.a`
+      color: red;
+    `
 
-function NavLink({ href, name }) {
-  return (
-    <Link href={href} passHref>
-      <StyledLink>{name}</StyledLink>
-    </Link>
-  )
-}
+    function NavLink({ href, name }) {
+      return (
+        <Link href={href} passHref>
+          <StyledLink>{name}</StyledLink>
+        </Link>
+      )
+    }
 
-export default NavLink
-```
+    export default NavLink
 
 ### Useful Links
 
-- [next/link - Custom Component](https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag)
+-   [next/link - Custom Component](https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag)

@@ -1,4 +1,5 @@
-# Invalid External Rewrite
+Invalid External Rewrite
+========================
 
 #### Why This Error Occurred
 
@@ -10,4 +11,4 @@ Look for any rewrite where `basePath` is `false` and make sure its `destination`
 
 ### Useful Links
 
-- [Rewrites section in Documentation](https://nextjs.org/docs/api-reference/next.config.js/rewrites)
+-   [Rewrites section in Documentation](https://nextjs.org/docs/api-reference/next.config.js/rewrites)

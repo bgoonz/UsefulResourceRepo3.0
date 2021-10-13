@@ -1,10 +1,8 @@
----
-description: Learn how to upgrade Next.js.
----
+Upgrade Guide
+=============
 
-# Upgrade Guide
-
-## Upgrading from version 10 to 11
+Upgrading from version 10 to 11
+-------------------------------
 
 ### Upgrade React version to latest
 
@@ -12,29 +10,21 @@ Most applications already use the latest version of React, with Next.js 11 the m
 
 To upgrade you can run the following command:
 
-```
-npm install react@latest react-dom@latest
-```
+    npm install react@latest react-dom@latest
 
 Or using `yarn`:
 
-```
-yarn add react@latest react-dom@latest
-```
+    yarn add react@latest react-dom@latest
 
 ### Upgrade Next.js version to latest
 
 To upgrade you can run the following command in the terminal:
 
-```
-npm install next@latest
-```
+    npm install next@latest
 
 or
 
-```
-yarn add next@latest
-```
+    yarn add next@latest
 
 ### Webpack 5
 
@@ -52,31 +42,27 @@ Next.js 11 supports the `PORT` environment variable to set the port the applicat
 
 Example:
 
-```
-PORT=4000 next start
-```
+    PORT=4000 next start
 
 ### `next.config.js` customization to import images
 
 Next.js 11 supports static image imports with `next/image`. This new feature relies on being able to process image imports. If you previously added the `next-images` or `next-optimized-images` packages you can either move to the new built-in support using `next/image` or disable the feature:
 
-```js
-module.exports = {
-  images: {
-    disableStaticImages: true,
-  },
-}
-```
+    module.exports = {
+      images: {
+        disableStaticImages: true,
+      },
+    }
 
 ### Remove `super.componentDidCatch()` from `pages/_app.js`
 
-The `next/app` component's `componentDidCatch` has been deprecated since Next.js 9 as it's no longer needed and has since been a no-op, in Next.js 11 it has been removed.
+The `next/app` component’s `componentDidCatch` has been deprecated since Next.js 9 as it’s no longer needed and has since been a no-op, in Next.js 11 it has been removed.
 
 If your `pages/_app.js` has a custom `componentDidCatch` method you can remove `super.componentDidCatch` as it is no longer needed.
 
 ### Remove `Container` from `pages/_app.js`
 
-This export has been deprecated since Next.js 9 as it's no longer needed and has since been a no-op with a warning during development. In Next.js 11 it has been removed.
+This export has been deprecated since Next.js 9 as it’s no longer needed and has since been a no-op with a warning during development. In Next.js 11 it has been removed.
 
 If your `pages/_app.js` imports `Container` from `next/app` you can remove `Container` as it has been removed. Learn more in [the documentation](https://nextjs.org/docs/messages/app-container-deprecated).
 
@@ -94,7 +80,7 @@ The `unsized` property on `next/image` was deprecated in Next.js 10.0.1. You can
 
 The `modules` and `render` option for `next/dynamic` have been deprecated since Next.js 9.5 showing a warning that it has been deprecated. This was done in order to make `next/dynamic` close to `React.lazy` in API surface. In Next.js 11 the `modules` and `render` options have been removed.
 
-This option hasn't been mentioned in the documentation since Next.js 8 so it's less likely that your application is using it.
+This option hasn’t been mentioned in the documentation since Next.js 8 so it’s less likely that your application is using it.
 
 If you application does use `modules` and `render` you can refer to [the documentation](https://nextjs.org/docs/messages/next-dynamic-modules).
 
@@ -108,74 +94,69 @@ Moment.js includes translations for a lot of locales by default. Next.js now aut
 
 To load a specific locale use this snippet:
 
-```js
-import moment from 'moment'
-import 'moment/locale/ja'
+    import moment from 'moment'
+    import 'moment/locale/ja'
 
-moment.locale('ja')
-```
+    moment.locale('ja')
 
-You can opt-out of this new default by adding `excludeDefaultMomentLocales: false` to `next.config.js` if you do not want the new behavior, do note it's highly recommended to not disable this new optimization as it significantly reduces the size of Moment.js.
+You can opt-out of this new default by adding `excludeDefaultMomentLocales: false` to `next.config.js` if you do not want the new behavior, do note it’s highly recommended to not disable this new optimization as it significantly reduces the size of Moment.js.
 
 ### Update usage of `router.events`
 
-In case you're accessing `router.events` during rendering, in Next.js 11 `router.events` is no longer provided during pre-rendering. Ensure you're accessing `router.events` in `useEffect`:
+In case you’re accessing `router.events` during rendering, in Next.js 11 `router.events` is no longer provided during pre-rendering. Ensure you’re accessing `router.events` in `useEffect`:
 
-```js
-useEffect(() => {
-  const handleRouteChange = (url, { shallow }) => {
-    console.log(
-      `App is changing to ${url} ${
-        shallow ? 'with' : 'without'
-      } shallow routing`
-    )
-  }
+    useEffect(() => {
+      const handleRouteChange = (url, { shallow }) => {
+        console.log(
+          `App is changing to ${url} ${
+            shallow ? 'with' : 'without'
+          } shallow routing`
+        )
+      }
 
-  router.events.on('routeChangeStart', handleRouteChange)
+      router.events.on('routeChangeStart', handleRouteChange)
 
-  // If the component is unmounted, unsubscribe
-  // from the event with the `off` method:
-  return () => {
-    router.events.off('routeChangeStart', handleRouteChange)
-  }
-}, [router])
-```
+      // If the component is unmounted, unsubscribe
+      // from the event with the `off` method:
+      return () => {
+        router.events.off('routeChangeStart', handleRouteChange)
+      }
+    }, [router])
 
 If your application uses `router.router.events` which was an internal property that was not public please make sure to use `router.events` as well.
 
-## React 16 to 17
+React 16 to 17
+--------------
 
 React 17 introduced a new [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) that brings a long-time Next.js feature to the wider React ecosystem: Not having to `import React from 'react'` when using JSX. When using React 17 Next.js will automatically use the new transform. This transform does not make the `React` variable global, which was an unintended side-effect of the previous Next.js implementation. A [codemod is available](/docs/advanced-features/codemods.md#add-missing-react-import) to automatically fix cases where you accidentally used `React` without importing it.
 
-## Upgrading from version 9 to 10
+Upgrading from version 9 to 10
+------------------------------
 
 There were no breaking changes between version 9 and 10.
 
 To upgrade run the following command:
 
-```
-npm install next@10
-```
+    npm install next@10
 
 Or using `yarn`:
 
-```
-yarn add next@10
-```
+    yarn add next@10
 
-## Upgrading from version 8 to 9
+Upgrading from version 8 to 9
+-----------------------------
 
 ### Preamble
 
 #### Production Deployment on Vercel
 
-If you previously configured `routes` in your `vercel.json` file for dynamic routes, these rules can be removed when leveraging Next.js 9's new [Dynamic Routing feature](/docs/routing/dynamic-routes.md).
+If you previously configured `routes` in your `vercel.json` file for dynamic routes, these rules can be removed when leveraging Next.js 9’s new [Dynamic Routing feature](/docs/routing/dynamic-routes.md).
 
-Next.js 9's dynamic routes are **automatically configured on [Vercel](https://vercel.com/)** and do not require any `vercel.json` customization.
+Next.js 9’s dynamic routes are **automatically configured on [Vercel](https://vercel.com/)** and do not require any `vercel.json` customization.
 
 You can read more about [Dynamic Routing here](/docs/routing/dynamic-routes.md).
 
-#### Check your Custom <App> (`pages/_app.js`)
+#### Check your Custom (`pages/_app.js`)
 
 If you previously copied the [Custom `<App>`](/docs/advanced-features/custom-app.md) example, you may be able to remove your `getInitialProps`.
 
@@ -183,24 +164,22 @@ Removing `getInitialProps` from `pages/_app.js` (when possible) is important to 
 
 The following `getInitialProps` does nothing and may be removed:
 
-```js
-class MyApp extends App {
-  // Remove me, I do nothing!
-  static async getInitialProps({ Component, ctx }) {
-    let pageProps = {}
+    class MyApp extends App {
+      // Remove me, I do nothing!
+      static async getInitialProps({ Component, ctx }) {
+        let pageProps = {}
 
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps(ctx)
+        if (Component.getInitialProps) {
+          pageProps = await Component.getInitialProps(ctx)
+        }
+
+        return { pageProps }
+      }
+
+      render() {
+        // ... etc
+      }
     }
-
-    return { pageProps }
-  }
-
-  render() {
-    // ... etc
-  }
-}
-```
 
 ### Breaking Changes
 
@@ -220,41 +199,34 @@ The following types are different:
 
 From:
 
-```tsx
-import { NextContext } from 'next'
-import { NextAppContext, DefaultAppIProps } from 'next/app'
-import { NextDocumentContext, DefaultDocumentIProps } from 'next/document'
-```
+    import { NextContext } from 'next'
+    import { NextAppContext, DefaultAppIProps } from 'next/app'
+    import { NextDocumentContext, DefaultDocumentIProps } from 'next/document'
 
 to
 
-```tsx
-import { NextPageContext } from 'next'
-import { AppContext, AppInitialProps } from 'next/app'
-import { DocumentContext, DocumentInitialProps } from 'next/document'
-```
+    import { NextPageContext } from 'next'
+    import { AppContext, AppInitialProps } from 'next/app'
+    import { DocumentContext, DocumentInitialProps } from 'next/document'
 
 #### The `config` key is now an export on a page
 
-You may no longer export a custom variable named `config` from a page (i.e. `export { config }` / `export const config ...`).
-This exported variable is now used to specify page-level Next.js configuration like Opt-in AMP and API Route features.
+You may no longer export a custom variable named `config` from a page (i.e. `export { config }` / `export const config ...`). This exported variable is now used to specify page-level Next.js configuration like Opt-in AMP and API Route features.
 
 You must rename a non-Next.js-purposed `config` export to something different.
 
-#### `next/dynamic` no longer renders "loading..." by default while loading
+#### `next/dynamic` no longer renders “loading…” by default while loading
 
 Dynamic components will not render anything by default while loading. You can still customize this behavior by setting the `loading` property:
 
-```jsx
-import dynamic from 'next/dynamic'
+    import dynamic from 'next/dynamic'
 
-const DynamicComponentWithCustomLoading = dynamic(
-  () => import('../components/hello2'),
-  {
-    loading: () => <p>Loading</p>,
-  }
-)
-```
+    const DynamicComponentWithCustomLoading = dynamic(
+      () => import('../components/hello2'),
+      {
+        loading: () => <p>Loading</p>,
+      }
+    )
 
 #### `withAmp` has been removed in favor of an exported configuration object
 
@@ -262,39 +234,33 @@ Next.js now has the concept of page-level configuration, so the `withAmp` higher
 
 This change can be **automatically migrated by running the following commands in the root of your Next.js project:**
 
-```bash
-curl -L https://github.com/vercel/next-codemod/archive/master.tar.gz | tar -xz --strip=2 next-codemod-master/transforms/withamp-to-config.js npx jscodeshift -t ./withamp-to-config.js pages/**/*.js
-```
+    curl -L https://github.com/vercel/next-codemod/archive/master.tar.gz | tar -xz --strip=2 next-codemod-master/transforms/withamp-to-config.js npx jscodeshift -t ./withamp-to-config.js pages/**/*.js
 
 To perform this migration by hand, or view what the codemod will produce, see below:
 
 **Before**
 
-```jsx
-import { withAmp } from 'next/amp'
+    import { withAmp } from 'next/amp'
 
-function Home() {
-  return <h1>My AMP Page</h1>
-}
+    function Home() {
+      return <h1>My AMP Page</h1>
+    }
 
-export default withAmp(Home)
-// or
-export default withAmp(Home, { hybrid: true })
-```
+    export default withAmp(Home)
+    // or
+    export default withAmp(Home, { hybrid: true })
 
 **After**
 
-```jsx
-export default function Home() {
-  return <h1>My AMP Page</h1>
-}
+    export default function Home() {
+      return <h1>My AMP Page</h1>
+    }
 
-export const config = {
-  amp: true,
-  // or
-  amp: 'hybrid',
-}
-```
+    export const config = {
+      amp: true,
+      // or
+      amp: 'hybrid',
+    }
 
 #### `next export` no longer exports pages as `index.html`
 
@@ -302,77 +268,71 @@ Previously, exporting `pages/about.js` would result in `out/about/index.html`. T
 
 You can revert to the previous behavior by creating a `next.config.js` with the following content:
 
-```js
-// next.config.js
-module.exports = {
-  trailingSlash: true,
-}
-```
+    // next.config.js
+    module.exports = {
+      trailingSlash: true,
+    }
 
 #### `./pages/api/` is treated differently
 
-Pages in `./pages/api/` are now considered [API Routes](https://nextjs.org/blog/next-9#api-routes).
-Pages in this directory will no longer contain a client-side bundle.
+Pages in `./pages/api/` are now considered [API Routes](https://nextjs.org/blog/next-9#api-routes). Pages in this directory will no longer contain a client-side bundle.
 
-## Deprecated Features
+Deprecated Features
+-------------------
 
 #### `next/dynamic` has deprecated loading multiple modules at once
 
-The ability to load multiple modules at once has been deprecated in `next/dynamic` to be closer to React's implementation (`React.lazy` and `Suspense`).
+The ability to load multiple modules at once has been deprecated in `next/dynamic` to be closer to React’s implementation (`React.lazy` and `Suspense`).
 
-Updating code that relies on this behavior is relatively straightforward! We've provided an example of a before/after to help you migrate your application:
+Updating code that relies on this behavior is relatively straightforward! We’ve provided an example of a before/after to help you migrate your application:
 
 **Before**
 
-```jsx
-import dynamic from 'next/dynamic'
+    import dynamic from 'next/dynamic'
 
-const HelloBundle = dynamic({
-  modules: () => {
-    const components = {
-      Hello1: () => import('../components/hello1').then((m) => m.default),
-      Hello2: () => import('../components/hello2').then((m) => m.default),
+    const HelloBundle = dynamic({
+      modules: () => {
+        const components = {
+          Hello1: () => import('../components/hello1').then((m) => m.default),
+          Hello2: () => import('../components/hello2').then((m) => m.default),
+        }
+
+        return components
+      },
+      render: (props, { Hello1, Hello2 }) => (
+        <div>
+          <h1>{props.title}</h1>
+          <Hello1 />
+          <Hello2 />
+        </div>
+      ),
+    })
+
+    function DynamicBundle() {
+      return <HelloBundle title="Dynamic Bundle" />
     }
 
-    return components
-  },
-  render: (props, { Hello1, Hello2 }) => (
-    <div>
-      <h1>{props.title}</h1>
-      <Hello1 />
-      <Hello2 />
-    </div>
-  ),
-})
-
-function DynamicBundle() {
-  return <HelloBundle title="Dynamic Bundle" />
-}
-
-export default DynamicBundle
-```
+    export default DynamicBundle
 
 **After**
 
-```jsx
-import dynamic from 'next/dynamic'
+    import dynamic from 'next/dynamic'
 
-const Hello1 = dynamic(() => import('../components/hello1'))
-const Hello2 = dynamic(() => import('../components/hello2'))
+    const Hello1 = dynamic(() => import('../components/hello1'))
+    const Hello2 = dynamic(() => import('../components/hello2'))
 
-function HelloBundle({ title }) {
-  return (
-    <div>
-      <h1>{title}</h1>
-      <Hello1 />
-      <Hello2 />
-    </div>
-  )
-}
+    function HelloBundle({ title }) {
+      return (
+        <div>
+          <h1>{title}</h1>
+          <Hello1 />
+          <Hello2 />
+        </div>
+      )
+    }
 
-function DynamicBundle() {
-  return <HelloBundle title="Dynamic Bundle" />
-}
+    function DynamicBundle() {
+      return <HelloBundle title="Dynamic Bundle" />
+    }
 
-export default DynamicBundle
-```
+    export default DynamicBundle

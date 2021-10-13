@@ -1,4 +1,5 @@
-# No Document Import in Page
+No Document Import in Page
+==========================
 
 ### Why This Error Occurred
 
@@ -8,17 +9,15 @@
 
 Only import and use `next/document` within `pages/_document.js` (or `pages/_document.tsx`) to override the default `Document` component:
 
-```jsx
-// pages/_document.js
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+    // pages/_document.js
+    import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-class MyDocument extends Document {
-  //...
-}
+    class MyDocument extends Document {
+      //...
+    }
 
-export default MyDocument
-```
+    export default MyDocument
 
 ### Useful Links
 
-- [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
+-   [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)

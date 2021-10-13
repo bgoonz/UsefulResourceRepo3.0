@@ -1,4 +1,5 @@
-# Invalid assetPrefix
+Invalid assetPrefix
+===================
 
 #### Why This Error Occurred
 
@@ -10,8 +11,6 @@ Ensure that `assetPrefix` is a `string`.
 
 Example:
 
-```js
-module.exports = {
-  assetPrefix: '/',
-}
-```
+    module.exports = {
+      assetPrefix: '/',
+    }

@@ -1,4 +1,5 @@
-# Rewriting to Auto Export or Fallback Dynamic Route
+Rewriting to Auto Export or Fallback Dynamic Route
+==================================================
 
 #### Why This Error Occurred
 
@@ -14,5 +15,5 @@ For static dynamic routes, you will currently need to either rewrite to non-dyna
 
 ### Useful Links
 
-- [Dynamic Routes Documentation](https://nextjs.org/docs/routing/dynamic-routes)
-- [Fallback Documentation](https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required)
+-   [Dynamic Routes Documentation](https://nextjs.org/docs/routing/dynamic-routes)
+-   [Fallback Documentation](https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required)

@@ -1,4 +1,5 @@
-# `next export` No Custom Routes
+`next export` No Custom Routes
+==============================
 
 #### Why This Error Occurred
 
@@ -12,8 +13,8 @@ Disable the `rewrites`, `redirects`, and `headers` from your `next.config.js` wh
 
 ### Useful Links
 
-- [Deployment Documentation](https://nextjs.org/docs/deployment#vercel-recommended)
-- [`next export` Documentation](https://nextjs.org/docs/advanced-features/static-html-export)
-- [Rewrites Documentation](https://nextjs.org/docs/api-reference/next.config.js/rewrites)
-- [Redirects Documentation](https://nextjs.org/docs/api-reference/next.config.js/redirects)
-- [Headers Documentation](https://nextjs.org/docs/api-reference/next.config.js/headers)
+-   [Deployment Documentation](https://nextjs.org/docs/deployment#vercel-recommended)
+-   [`next export` Documentation](https://nextjs.org/docs/advanced-features/static-html-export)
+-   [Rewrites Documentation](https://nextjs.org/docs/api-reference/next.config.js/rewrites)
+-   [Redirects Documentation](https://nextjs.org/docs/api-reference/next.config.js/redirects)
+-   [Headers Documentation](https://nextjs.org/docs/api-reference/next.config.js/headers)

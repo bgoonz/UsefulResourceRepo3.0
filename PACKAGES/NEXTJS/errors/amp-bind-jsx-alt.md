@@ -1,4 +1,5 @@
-# AMP Bind JSX Error
+AMP Bind JSX Error
+==================
 
 #### Why This Error Occurred
 
@@ -10,5 +11,5 @@ Instead you can use `data-amp-bind-prop='something'` which is a valid AMP altern
 
 ### Useful Links
 
-- [AMP HTML Specification](https://www.ampproject.org/docs/fundamentals/spec)
-- [Possible future syntax](https://github.com/ampproject/amphtml/issues/21600)
+-   [AMP HTML Specification](https://www.ampproject.org/docs/fundamentals/spec)
+-   [Possible future syntax](https://github.com/ampproject/amphtml/issues/21600)

@@ -1,10 +1,11 @@
-# Circular structure in "getInitialProps" result
+Circular structure in “getInitialProps” result
+==============================================
 
 #### Why This Error Occurred
 
 `getInitialProps` is serialized to JSON using `JSON.stringify` and sent to the client side for hydrating the page.
 
-However, the result returned from `getInitialProps` can't be serialized when it has a circular structure.
+However, the result returned from `getInitialProps` can’t be serialized when it has a circular structure.
 
 #### Possible Ways to Fix It
 

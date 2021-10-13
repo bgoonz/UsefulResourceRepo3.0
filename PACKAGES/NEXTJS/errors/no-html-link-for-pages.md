@@ -1,4 +1,5 @@
-# No HTML link for pages
+No HTML link for pages
+======================
 
 ### Why This Error Occurred
 
@@ -12,33 +13,29 @@ Make sure to import the `Link` component and wrap anchor elements that route to 
 
 **Before:**
 
-```jsx
-function Home() {
-  return (
-    <div>
-      <a href="/about">About Us</a>
-    </div>
-  )
-}
-```
+    function Home() {
+      return (
+        <div>
+          <a href="/about">About Us</a>
+        </div>
+      )
+    }
 
 **After:**
 
-```jsx
-import Link from 'next/link'
+    import Link from 'next/link'
 
-function Home() {
-  return (
-    <div>
-      <Link href="/about">
-        <a>About Us</a>
-      </Link>
-    </div>
-  )
-}
+    function Home() {
+      return (
+        <div>
+          <Link href="/about">
+            <a>About Us</a>
+          </Link>
+        </div>
+      )
+    }
 
-export default Home
-```
+    export default Home
 
 ### Options
 
@@ -46,18 +43,16 @@ export default Home
 
 This rule can normally locate your `pages` directory automatically.
 
-If you're working in a monorepo, we recommend configuring the [`rootDir`](/docs/basic-features/eslint.md#rootDir) setting in `eslint-plugin-next`, which `pagesDir` will use to locate your `pages` directory.
+If you’re working in a monorepo, we recommend configuring the [`rootDir`](/docs/basic-features/eslint.md#rootDir) setting in `eslint-plugin-next`, which `pagesDir` will use to locate your `pages` directory.
 
 In some cases, you may also need to configure this rule directly by providing a `pages` directory. This can be a path or an array of paths.
 
-```json
-{
-  "rules": {
-    "@next/next/no-html-link-for-pages": ["error", "/my-app/pages/"]
-  }
-}
-```
+    {
+      "rules": {
+        "@next/next/no-html-link-for-pages": ["error", "/my-app/pages/"]
+      }
+    }
 
 ### Useful Links
 
-- [next/link API Reference](https://nextjs.org/docs/api-reference/next/link)
+-   [next/link API Reference](https://nextjs.org/docs/api-reference/next/link)

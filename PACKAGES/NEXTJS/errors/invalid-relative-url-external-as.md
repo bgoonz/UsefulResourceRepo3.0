@@ -1,4 +1,5 @@
-# Invalid relative `href` and external `as` values
+Invalid relative `href` and external `as` values
+================================================
 
 #### Why This Error Occurred
 
@@ -8,35 +9,31 @@ Note: this error will only show when the `next/link` component is clicked not wh
 
 **Incompatible `href` and `as`**
 
-```jsx
-import Link from 'next/link'
+    import Link from 'next/link'
 
-export default function Page(props) {
-  return (
-    <>
-      <Link href="/invalid" as="mailto:john@example.com">
-        <a>Invalid link</a>
-      </Link>
-    </>
-  )
-}
-```
+    export default function Page(props) {
+      return (
+        <>
+          <Link href="/invalid" as="mailto:john@example.com">
+            <a>Invalid link</a>
+          </Link>
+        </>
+      )
+    }
 
 **Compatible `href` and `as`**
 
-```jsx
-import Link from 'next/link'
+    import Link from 'next/link'
 
-export default function Page(props) {
-  return (
-    <>
-      <Link href="mailto:john@example.com">
-        <a>Invalid link</a>
-      </Link>
-    </>
-  )
-}
-```
+    export default function Page(props) {
+      return (
+        <>
+          <Link href="mailto:john@example.com">
+            <a>Invalid link</a>
+          </Link>
+        </>
+      )
+    }
 
 #### Possible Ways to Fix It
 
@@ -44,4 +41,4 @@ Look for any usage of the `next/link` component, `Router#push`, or `Router#repla
 
 ### Useful Links
 
-- [Routing section in Documentation](https://nextjs.org/docs/routing/introduction)
+-   [Routing section in Documentation](https://nextjs.org/docs/routing/introduction)

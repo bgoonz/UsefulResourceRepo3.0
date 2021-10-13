@@ -1,4 +1,5 @@
-# Page Without Valid React Component
+Page Without Valid React Component
+==================================
 
 #### Why This Error Occurred
 
@@ -8,9 +9,8 @@ This is a hard error because the page would error when rendered, and causes poor
 
 #### Possible Ways to Fix It
 
-Investigate the list of page(s) specified in the error message.
-For each, you'll want to check if the file is meant to be a page.
+Investigate the list of page(s) specified in the error message. For each, you’ll want to check if the file is meant to be a page.
 
 If the file is not meant to be a page, and instead, is a shared component or file, move the file to a different folder like `components` or `lib`.
 
-If the file is meant to be a page, double check you have an `export default` with the React Component instead of an `export`. If you're already using `export default`, make sure the returned value is a valid React Component.
+If the file is meant to be a page, double check you have an `export default` with the React Component instead of an `export`. If you’re already using `export default`, make sure the returned value is a valid React Component.

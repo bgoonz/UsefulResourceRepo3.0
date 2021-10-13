@@ -1,8 +1,9 @@
-# `next-head-count` is missing
+`next-head-count` is missing
+============================
 
 #### Why This Error Occurred
 
-You have a custom `pages/_document.js` that doesn't have the components required for Next.js to render correctly.
+You have a custom `pages/_document.js` that doesn’t have the components required for Next.js to render correctly.
 
 #### Possible Ways to Fix It
 

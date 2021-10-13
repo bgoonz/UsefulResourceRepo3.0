@@ -1,4 +1,5 @@
-# Google Font Display
+Google Font Display
+===================
 
 ### Why This Error Occurred
 
@@ -8,22 +9,20 @@ For a Google Font, the `display` descriptor was either not assigned or set to `a
 
 For most cases, the best font display strategy for custom fonts is `optional`.
 
-```jsx
-import Head from 'next/head'
+    import Head from 'next/head'
 
-export default function IndexPage() {
-  return (
-    <div>
-      <Head>
-        <link
-          href="https://fonts.googleapis.com/css2?family=Krona+One&display=optional"
-          rel="stylesheet"
-        />
-      </Head>
-    </div>
-  )
-}
-```
+    export default function IndexPage() {
+      return (
+        <div>
+          <Head>
+            <link
+              href="https://fonts.googleapis.com/css2?family=Krona+One&display=optional"
+              rel="stylesheet"
+            />
+          </Head>
+        </div>
+      )
+    }
 
 Specifying `display=optional` minimizes the risk of invisible text or layout shift. If swapping to the custom font after it has loaded is important to you, then use `display=swap` instead.
 
@@ -33,4 +32,4 @@ If you want to specifically display a font using a `block` or `fallback` strateg
 
 ### Useful Links
 
-- [Font-display](https://font-display.glitch.me/)
+-   [Font-display](https://font-display.glitch.me/)

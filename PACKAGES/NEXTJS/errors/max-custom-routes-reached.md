@@ -1,4 +1,5 @@
-# Max Custom Routes Reached
+Max Custom Routes Reached
+=========================
 
 #### Why This Error Occurred
 
@@ -6,12 +7,12 @@ The number of combined routes from `headers`, `redirects`, and `rewrites` exceed
 
 #### Possible Ways to Fix It
 
-- Leverage dynamic routes inside of the `pages` folder to reduce the number of rewrites needed
-- Combine headers routes into dynamic matches e.g. `/first-header-route` `/second-header-route` -> `/(first-header-route$|second-header-route$)`
+-   Leverage dynamic routes inside of the `pages` folder to reduce the number of rewrites needed
+-   Combine headers routes into dynamic matches e.g. `/first-header-route` `/second-header-route` -&gt; `/(first-header-route$|second-header-route$)`
 
 ### Useful Links
 
-- [Dynamic Routes documentation](https://nextjs.org/docs/routing/dynamic-routes)
-- [Rewrites documentation](https://nextjs.org/docs/api-reference/next.config.js/rewrites)
-- [Redirects documentation](https://nextjs.org/docs/api-reference/next.config.js/redirects)
-- [Headers documentation](https://nextjs.org/docs/api-reference/next.config.js/headers)
+-   [Dynamic Routes documentation](https://nextjs.org/docs/routing/dynamic-routes)
+-   [Rewrites documentation](https://nextjs.org/docs/api-reference/next.config.js/rewrites)
+-   [Redirects documentation](https://nextjs.org/docs/api-reference/next.config.js/redirects)
+-   [Headers documentation](https://nextjs.org/docs/api-reference/next.config.js/headers)

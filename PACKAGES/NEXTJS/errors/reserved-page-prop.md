@@ -1,8 +1,9 @@
-# Reserved Page Prop
+Reserved Page Prop
+==================
 
 #### Why This Error Occurred
 
-In a page's `getInitialProps` a reserved prop was returned. Currently the only reserved page prop is `url` for legacy reasons.
+In a page’s `getInitialProps` a reserved prop was returned. Currently the only reserved page prop is `url` for legacy reasons.
 
 #### Possible Ways to Fix It
 

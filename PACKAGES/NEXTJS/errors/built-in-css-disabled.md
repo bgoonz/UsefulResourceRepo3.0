@@ -1,4 +1,5 @@
-# Built-in CSS Support Disabled
+Built-in CSS Support Disabled
+=============================
 
 #### Why This Error Occurred
 
@@ -14,5 +15,5 @@ If you would prefer not to leverage the built-in support you can ignore this mes
 
 ### Useful Links
 
-- [Built-in CSS Support docs](https://nextjs.org/docs/basic-features/built-in-css-support)
-- [Custom webpack config docs](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config)
+-   [Built-in CSS Support docs](https://nextjs.org/docs/basic-features/built-in-css-support)
+-   [Custom webpack config docs](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config)

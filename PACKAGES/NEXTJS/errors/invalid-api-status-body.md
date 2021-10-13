@@ -12,21 +12,17 @@ Send an empty body when using a 204 or 304 status code or use a different status
 
 Before
 
-```js
-export default function handler(req, res) {
-  res.status(204).send('invalid body')
-}
-```
+    export default function handler(req, res) {
+      res.status(204).send('invalid body')
+    }
 
 After
 
-```js
-export default function handler(req, res) {
-  res.status(204).send()
-}
-```
+    export default function handler(req, res) {
+      res.status(204).send()
+    }
 
 ### Useful Links
 
-- [204 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
-- [304 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304)
+-   [204 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
+-   [304 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304)

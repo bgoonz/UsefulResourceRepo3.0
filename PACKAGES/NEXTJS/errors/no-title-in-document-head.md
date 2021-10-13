@@ -1,4 +1,5 @@
-# No Title in Document Head
+No Title in Document Head
+=========================
 
 ### Why This Error Occurred
 
@@ -8,23 +9,21 @@ A `<title>` element was defined within the `Head` component imported from `next/
 
 Within a page or component, import and use `next/head` to define a page title:
 
-```jsx
-import Head from 'next/head'
+    import Head from 'next/head'
 
-export class Home {
-  render() {
-    return (
-      <div>
-        <Head>
-          <title>My page title</title>
-        </Head>
-      </div>
-    )
-  }
-}
-```
+    export class Home {
+      render() {
+        return (
+          <div>
+            <Head>
+              <title>My page title</title>
+            </Head>
+          </div>
+        )
+      }
+    }
 
 ### Useful links
 
-- [next/head](https://nextjs.org/docs/api-reference/next/head)
-- [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
+-   [next/head](https://nextjs.org/docs/api-reference/next/head)
+-   [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)

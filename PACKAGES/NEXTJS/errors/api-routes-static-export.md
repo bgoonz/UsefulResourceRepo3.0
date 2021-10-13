@@ -1,4 +1,5 @@
-# API routes in Static export
+API routes in Static export
+===========================
 
 #### Why This Warning Occurred
 
@@ -8,8 +9,8 @@ This command is meant for a static-only setup, and is not necessary to make your
 
 #### Possible Ways to Fix It
 
-Use `next build` with platforms that don't require `next export` like https://vercel.com or remove any paths using API routes from your `exportPathMap` in `next.config.js`.
+Use `next build` with platforms that don’t require `next export` like https://vercel.com or remove any paths using API routes from your `exportPathMap` in `next.config.js`.
 
 ### Useful Links
 
-- [Static HTML export](https://nextjs.org/docs/advanced-features/static-html-export)
+-   [Static HTML export](https://nextjs.org/docs/advanced-features/static-html-export)

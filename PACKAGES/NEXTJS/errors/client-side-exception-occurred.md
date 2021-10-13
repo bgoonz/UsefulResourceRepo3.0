@@ -1,4 +1,5 @@
-# Client-side Exception Occurred
+Client-side Exception Occurred
+==============================
 
 #### Why This Error Occurred
 
@@ -10,5 +11,5 @@ Add error boundaries in your React tree to gracefully handle client-side errors 
 
 ### Useful Links
 
-- [Error Boundaries Documentation](https://reactjs.org/docs/error-boundaries.html)
-- [Custom Error Page Documentation](https://nextjs.org/docs/advanced-features/custom-error-page#more-advanced-error-page-customizing)
+-   [Error Boundaries Documentation](https://reactjs.org/docs/error-boundaries.html)
+-   [Custom Error Page Documentation](https://nextjs.org/docs/advanced-features/custom-error-page#more-advanced-error-page-customizing)

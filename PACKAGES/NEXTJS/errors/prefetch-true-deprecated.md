@@ -1,12 +1,13 @@
-# `prefetch={true}` is deprecated
+`prefetch={true}` is deprecated
+===============================
 
 #### Why This Error Occurred
 
-See https://nextjs.org/blog/next-9#prefetching-in-viewport-links
+See https://nextjs.org/blog/next-9\#prefetching-in-viewport-links
 
-<Link> will automatically prefetch pages in the background as they appear in the view. If certain pages are rarely visited you can manually set prefetch to false, here's how:
+will automatically prefetch pages in the background as they appear in the view. If certain pages are rarely visited you can manually set prefetch to false, here’s how:
 
-Next.js 9 will automatically prefetch <Link> components as they appear in-viewport.
+Next.js 9 will automatically prefetch components as they appear in-viewport.
 
 This feature improves the responsiveness of your application by making navigations to new pages quicker.
 

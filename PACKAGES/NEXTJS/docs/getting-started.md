@@ -1,71 +1,62 @@
----
-description: Get started with Next.js in the official documentation, and learn more about all our features!
----
-
-# Getting Started
+Getting Started
+===============
 
 Welcome to the Next.js documentation!
 
-If you're new to Next.js we recommend that you start with the [learn course](https://nextjs.org/learn/basics/create-nextjs-app).
+If you’re new to Next.js we recommend that you start with the [learn course](https://nextjs.org/learn/basics/create-nextjs-app).
 
 The interactive course with quizzes will guide you through everything you need to know to use Next.js.
 
-If you have questions about anything related to Next.js, you're always welcome to ask our community on [GitHub Discussions](https://github.com/vercel/next.js/discussions).
+If you have questions about anything related to Next.js, you’re always welcome to ask our community on [GitHub Discussions](https://github.com/vercel/next.js/discussions).
 
 #### System Requirements
 
-- [Node.js 12.0](https://nodejs.org/) or later
-- MacOS, Windows (including WSL), and Linux are supported
+-   [Node.js 12.0](https://nodejs.org/) or later
+-   MacOS, Windows (including WSL), and Linux are supported
 
-## Setup
+Setup
+-----
 
 We recommend creating a new Next.js app using `create-next-app`, which sets up everything automatically for you. To create a project, run:
 
-```bash
-npx create-next-app@latest
-# or
-yarn create next-app
-```
+    npx create-next-app@latest
+    # or
+    yarn create next-app
 
 If you want to start with a TypeScript project you can use the `--typescript` flag:
 
-```bash
-npx create-next-app@latest --typescript
-# or
-yarn create next-app --typescript
-```
+    npx create-next-app@latest --typescript
+    # or
+    yarn create next-app --typescript
 
 After the installation is complete, follow the instructions to start the development server. Try editing `pages/index.js` and see the result on your browser.
 
 For more information on how to use `create-next-app`, you can review the [`create-next-app` documentation](/docs/api-reference/create-next-app.md)
 
-## Manual Setup
+Manual Setup
+------------
 
 Install `next`, `react` and `react-dom` in your project:
 
-```bash
-npm install next react react-dom
-# or
-yarn add next react react-dom
-```
+    npm install next react react-dom
+    # or
+    yarn add next react react-dom
 
 Open `package.json` and add the following `scripts`:
 
-```json
-"scripts": {
-  "dev": "next dev",
-  "build": "next build",
-  "start": "next start",
-  "lint": "next lint"
-}
-```
+    "scripts": {
+      "dev": "next dev",
+      "build": "next build",
+      "start": "next start",
+      "lint": "next lint"
+    }
 
 These scripts refer to the different stages of developing an application:
 
-- `dev` - Runs [`next dev`](/docs/api-reference/cli.md#development) which starts Next.js in development mode
-- `build` - Runs [`next build`](/docs/api-reference/cli.md#build) which builds the application for production usage
-- `start` - Runs [`next start`](/docs/api-reference/cli.md#production) which starts a Next.js production server
-- `lint` - Runs [`next lint`](/docs/api-reference/cli.md#lint) which sets up Next.js' built-in ESLint configuration
+-   `dev` - Runs [`next dev`](/docs/api-reference/cli.md#development) which starts Next.js in development mode
+-   `build` - Runs [`next build`](/docs/api-reference/cli.md#build) which builds the application for production usage
+-   `start` - Runs [`next start`](/docs/api-reference/cli.md#production) which starts a Next.js production server
+-   `lint` - Runs [`next lint`](/docs/api-reference/cli.md#lint) which sets up Next.js’ built-in ESLint configuration
 
 Next.js is built around the concept of [pages](/docs/basic-features/pages.md). A page is a [React Component](https://reactjs.org/docs/components-and-props.html) exported from a `.js`, `.jsx`, `.ts`, or `.tsx` file in the `pages` directory.
 
@@ -75,13 +66,11 @@ Create a `pages` directory inside your project.
 
 Populate `./pages/index.js` with the following contents:
 
-```jsx
-function HomePage() {
-  return <div>Welcome to Next.js!</div>
-}
+    function HomePage() {
+      return <div>Welcome to Next.js!</div>
+    }
 
-export default HomePage
-```
+    export default HomePage
 
 To start developing your application run `npm run dev` or `yarn dev`. This starts the development server on `http://localhost:3000`.
 
@@ -89,34 +78,20 @@ Visit `http://localhost:3000` to view your application.
 
 So far, we get:
 
-- Automatic compilation and bundling (with webpack and babel)
-- [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)
-- [Static generation and server-side rendering](/docs/basic-features/data-fetching.md) of [`./pages/`](/docs/basic-features/pages.md)
-- [Static file serving](/docs/basic-features/static-file-serving.md). `./public/` is mapped to `/`
+-   Automatic compilation and bundling (with webpack and babel)
+-   [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)
+-   [Static generation and server-side rendering](/docs/basic-features/data-fetching.md) of [`./pages/`](/docs/basic-features/pages.md)
+-   [Static file serving](/docs/basic-features/static-file-serving.md). `./public/` is mapped to `/`
 
 In addition, any Next.js application is ready for production from the start, read more in our [Deployment documentation](/docs/deployment.md).
 
-## Related
+Related
+-------
 
 For more information on what to do next, we recommend the following sections:
 
-<div class="card">
-  <a href="/docs/basic-features/pages.md">
-    <b>Pages:</b>
-    <small>Learn more about what pages are in Next.js.</small>
-  </a>
-</div>
+[**Pages:** <span class="small">Learn more about what pages are in Next.js.</span>](/docs/basic-features/pages.md)
 
-<div class="card">
-  <a href="/docs/basic-features/built-in-css-support.md">
-    <b>CSS Support:</b>
-    <small>Use the built-in CSS support to add custom styles to your app.</small>
-  </a>
-</div>
+[**CSS Support:** <span class="small">Use the built-in CSS support to add custom styles to your app.</span>](/docs/basic-features/built-in-css-support.md)
 
-<div class="card">
-  <a href="/docs/api-reference/cli.md">
-    <b>CLI:</b>
-    <small>Learn more about the Next.js CLI.</small>
-  </a>
-</div>
+[**CLI:** <span class="small">Learn more about the Next.js CLI.</span>](/docs/api-reference/cli.md)

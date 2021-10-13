@@ -1,17 +1,9 @@
----
-description: Next.js helps you optimize loading third-party scripts with the built-in next/script component.
----
+Script Component
+================
 
-# Script Component
+**Version History**
 
-<details>
-  <summary><b>Version History</b></summary>
-
-| Version   | Changes                   |
-| --------- | ------------------------- |
-| `v11.0.0` | `next/script` introduced. |
-
-</details>
+<table><thead><tr class="header"><th>Version</th><th>Changes</th></tr></thead><tbody><tr class="odd"><td><code>v11.0.0</code></td><td><code>next/script</code> introduced.</td></tr></tbody></table>
 
 The Next.js Script component enables developers to set the loading priority of third-party scripts to save developer time and improve loading performance.
 
@@ -19,150 +11,138 @@ Websites often need third parties for things like analytics, ads, customer suppo
 
 With `next/script`, you can define the `strategy` property and Next.js will optimize loading for the script:
 
-- `beforeInteractive`: For critical scripts that need to be fetched and executed **before** the page is interactive, such as bot detection and consent management. These scripts are injected into the initial HTML from the server and run before self-bundled JavaScript is executed.
-- `afterInteractive` (**default**): For scripts that can fetch and execute **after** the page is interactive, such as tag managers and analytics. These scripts are injected on the client-side and will run after hydration.
-- `lazyOnload` For scripts that can wait to load during idle time, such as chat support and social media widgets.
+-   `beforeInteractive`: For critical scripts that need to be fetched and executed **before** the page is interactive, such as bot detection and consent management. These scripts are injected into the initial HTML from the server and run before self-bundled JavaScript is executed.
+-   `afterInteractive` (**default**): For scripts that can fetch and execute **after** the page is interactive, such as tag managers and analytics. These scripts are injected on the client-side and will run after hydration.
+-   `lazyOnload` For scripts that can wait to load during idle time, such as chat support and social media widgets.
 
 > **Note:**
 >
-> - `<Script>` supports inline scripts with `afterInteractive` and `lazyOnload` strategy.
-> - Inline scripts wrapped with `<Script>` _require an `id` attribute to be defined_ to track and optimize the script.
+> -   `<Script>` supports inline scripts with `afterInteractive` and `lazyOnload` strategy.
+> -   Inline scripts wrapped with `<Script>` *require an `id` attribute to be defined* to track and optimize the script.
 
-## Usage
+Usage
+-----
 
 Previously, you needed to define `script` tags inside the `Head` of your Next.js page.
 
-```js
-// Before
+    // Before
 
-// pages/index.js
-import Head from 'next/head'
+    // pages/index.js
+    import Head from 'next/head'
 
-export default function Home() {
-  return (
-    <>
-      <Head>
-        <script async src="https://www.google-analytics.com/analytics.js" />
-      </Head>
-    </>
-  )
-}
-```
+    export default function Home() {
+      return (
+        <>
+          <Head>
+            <script async src="https://www.google-analytics.com/analytics.js" />
+          </Head>
+        </>
+      )
+    }
 
 Now, you use `next/script` in the body of your Next.js page. It has client-side functionality that decides when and how to load the remote script based on the `strategy`.
 
 > **Note:**
 >
-> - `next/script` **must not** be placed in either a `next/head` component or in `pages/_document.js`.
+> -   `next/script` **must not** be placed in either a `next/head` component or in `pages/_document.js`.
 
-```js
-// After
+    // After
 
-// pages/index.js
-import Script from 'next/script'
+    // pages/index.js
+    import Script from 'next/script'
 
-export default function Home() {
-  return (
-    <>
-      <Script src="https://www.google-analytics.com/analytics.js" />
-    </>
-  )
-}
-```
+    export default function Home() {
+      return (
+        <>
+          <Script src="https://www.google-analytics.com/analytics.js" />
+        </>
+      )
+    }
 
-## Examples
+Examples
+--------
 
 ### Loading Polyfills
 
-```js
-import Script from 'next/script'
+    import Script from 'next/script'
 
-export default function Home() {
-  return (
-    <>
-      <Script
-        src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserverEntry%2CIntersectionObserver"
-        strategy="beforeInteractive"
-      />
-    </>
-  )
-}
-```
+    export default function Home() {
+      return (
+        <>
+          <Script
+            src="https://polyfill.io/v3/polyfill.min.js?features=IntersectionObserverEntry%2CIntersectionObserver"
+            strategy="beforeInteractive"
+          />
+        </>
+      )
+    }
 
 ### Lazy-Loading
 
-```js
-import Script from 'next/script'
+    import Script from 'next/script'
 
-export default function Home() {
-  return (
-    <>
-      <Script
-        src="https://connect.facebook.net/en_US/sdk.js"
-        strategy="lazyOnload"
-      />
-    </>
-  )
-}
-```
+    export default function Home() {
+      return (
+        <>
+          <Script
+            src="https://connect.facebook.net/en_US/sdk.js"
+            strategy="lazyOnload"
+          />
+        </>
+      )
+    }
 
 ### Executing Code After Loading (`onLoad`)
 
-```js
-import { useState } from 'react'
-import Script from 'next/script'
+    import { useState } from 'react'
+    import Script from 'next/script'
 
-export default function Home() {
-  const [stripe, setStripe] = useState(null)
+    export default function Home() {
+      const [stripe, setStripe] = useState(null)
 
-  return (
-    <>
-      <Script
-        id="stripe-js"
-        src="https://js.stripe.com/v3/"
-        onLoad={() => {
-          setStripe({ stripe: window.Stripe('pk_test_12345') })
-        }}
-      />
-    </>
-  )
-}
-```
+      return (
+        <>
+          <Script
+            id="stripe-js"
+            src="https://js.stripe.com/v3/"
+            onLoad={() => {
+              setStripe({ stripe: window.Stripe('pk_test_12345') })
+            }}
+          />
+        </>
+      )
+    }
 
 ### Inline Scripts
 
-```js
-import Script from 'next/script'
+    import Script from 'next/script'
 
-<Script id="show-banner" strategy="lazyOnload">
-  {`document.getElementById('banner').classList.remove('hidden')`}
-</Script>
+    <Script id="show-banner" strategy="lazyOnload">
+      {`document.getElementById('banner').classList.remove('hidden')`}
+    </Script>
 
-// or
+    // or
 
-<Script
-  id="show-banner"
-  dangerouslySetInnerHTML={{
-    __html: `document.getElementById('banner').classList.remove('hidden')`
-  }}
-/>
-```
+    <Script
+      id="show-banner"
+      dangerouslySetInnerHTML={{
+        __html: `document.getElementById('banner').classList.remove('hidden')`
+      }}
+    />
 
 ### Forwarding Attributes
 
-```js
-import Script from 'next/script'
+    import Script from 'next/script'
 
-export default function Home() {
-  return (
-    <>
-      <Script
-        src="https://www.google-analytics.com/analytics.js"
-        id="analytics"
-        nonce="XUENAJFW"
-        data-test="analytics"
-      />
-    </>
-  )
-}
-```
+    export default function Home() {
+      return (
+        <>
+          <Script
+            src="https://www.google-analytics.com/analytics.js"
+            id="analytics"
+            nonce="XUENAJFW"
+            data-test="analytics"
+          />
+        </>
+      )
+    }
