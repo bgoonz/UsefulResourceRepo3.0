@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>render-no-starting-slash</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="rendering-without-starting-slash">Rendering Without Starting Slash</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>When calling <code>app.render(req, res, path)</code> the <code>path</code> did not begin with a slash (<code>/</code>). This causes unexpected behavior and should be corrected.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Make sure the <code>path</code> being passed to <code>app.render</code> always starts with a slash (<code>/</code>)</p>
+</body>
+</html>

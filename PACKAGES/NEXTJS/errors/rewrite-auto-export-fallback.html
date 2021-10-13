@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>rewrite-auto-export-fallback</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="rewriting-to-auto-export-or-fallback-dynamic-route">Rewriting to Auto Export or Fallback Dynamic Route</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>One of your rewrites in your <code>next.config.js</code> point to a <a href="https://nextjs.org/docs/routing/dynamic-routes">dynamic route</a> that is automatically statically optimized or is a <a href="https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required">fallback SSG page</a>.</p>
+<p>Rewriting to these pages are not yet supported since rewrites are not available client-side and the dynamic route params are unable to be parsed. Support for this may be added in a future release.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>For fallback SSG pages you can add the page to the list of <a href="https://nextjs.org/docs/basic-features/data-fetching#the-paths-key-required">prerendered paths</a>.</p>
+<p>For static dynamic routes, you will currently need to either rewrite to non-dynamic route or opt the page out of the static optimization with <a href="https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering"><code>getServerSideProps</code></a></p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/routing/dynamic-routes">Dynamic Routes Documentation</a></li>
+<li><a href="https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required">Fallback Documentation</a></li>
+</ul>
+</body>
+</html>

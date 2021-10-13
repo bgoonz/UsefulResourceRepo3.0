@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>link-passhref</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="link-passhref">Link passHref</h1>
+<h3 id="why-this-error-occurred">Why This Error Occurred</h3>
+<p><code>passHref</code> was not used for a <code>Link</code> component that wraps a custom component. This is needed in order to pass the <code>href</code> to the child <code>&lt;a&gt;</code> tag.</p>
+<h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
+<p>If you’re using a custom component that wraps an <code>&lt;a&gt;</code> tag, make sure to add <code>passHref</code>:</p>
+<pre class="jsx"><code>import Link from &#39;next/link&#39;
+import styled from &#39;styled-components&#39;
+
+const StyledLink = styled.a`
+  color: red;
+`
+
+function NavLink({ href, name }) {
+  return (
+    &lt;Link href={href} passHref&gt;
+      &lt;StyledLink&gt;{name}&lt;/StyledLink&gt;
+    &lt;/Link&gt;
+  )
+}
+
+export default NavLink</code></pre>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag">next/link - Custom Component</a></li>
+</ul>
+</body>
+</html>

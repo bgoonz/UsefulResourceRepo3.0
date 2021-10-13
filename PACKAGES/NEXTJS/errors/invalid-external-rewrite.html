@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>invalid-external-rewrite</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="invalid-external-rewrite">Invalid External Rewrite</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>A rewrite was defined with both <code>basePath: false</code> and an internal <code>destination</code>. Rewrites that capture urls outside of the <code>basePath</code> must route externally, as they are intended for proxying in the case of incremental adoption of Next.js in a project.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Look for any rewrite where <code>basePath</code> is <code>false</code> and make sure its <code>destination</code> starts with <code>http://</code> or <code>https://</code>.</p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/rewrites">Rewrites section in Documentation</a></li>
+</ul>
+</body>
+</html>

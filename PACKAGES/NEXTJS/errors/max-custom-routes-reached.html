@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>max-custom-routes-reached</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="max-custom-routes-reached">Max Custom Routes Reached</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>The number of combined routes from <code>headers</code>, <code>redirects</code>, and <code>rewrites</code> exceeds 1000. This can impact performance because each request will iterate over all routes to check for a match in the worst case.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<ul>
+<li>Leverage dynamic routes inside of the <code>pages</code> folder to reduce the number of rewrites needed</li>
+<li>Combine headers routes into dynamic matches e.g. <code>/first-header-route</code> <code>/second-header-route</code> -&gt; <code>/(first-header-route$|second-header-route$)</code></li>
+</ul>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/routing/dynamic-routes">Dynamic Routes documentation</a></li>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/rewrites">Rewrites documentation</a></li>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/redirects">Redirects documentation</a></li>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/headers">Headers documentation</a></li>
+</ul>
+</body>
+</html>

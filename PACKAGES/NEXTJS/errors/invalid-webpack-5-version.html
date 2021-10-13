@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>invalid-webpack-5-version</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="invalid-webpack-5-version">Invalid webpack 5 version</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>While leveraging webpack 5 support in Next.js the minimum required version of <code>v5.15.0</code> was not met. This version is needed while leveraging webpack 5 support with Next.js as early versions are missing patches that cause unexpected behavior.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Upgrade the version of webpack 5 being used with Next.js to at least <code>v5.15.0</code> by updating your resolutions field for <code>webpack</code> in your <code>package.json</code>.</p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://classic.yarnpkg.com/en/docs/selective-version-resolutions/">Yarn Selective Dependency Resolutions Documentation</a></li>
+</ul>
+</body>
+</html>

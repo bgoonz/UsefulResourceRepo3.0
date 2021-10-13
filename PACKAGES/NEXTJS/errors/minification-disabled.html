@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>minification-disabled</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="minification-disabled-in-production">Minification Disabled in Production</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>Code optimization has been disabled for your <strong>production build</strong>. The <code>optimization.minimize</code> or <code>optimization.minimizer</code> was incorrectly overridden in <code>next.config.js</code>.</p>
+<p>This severely degrades your application’s performance at runtime. It can also result in server-side-only code being downloaded by your users.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Be sure your <code>next.config.js</code> has not modified <code>optimization.minimize</code> or <code>optimization.minimizer</code>.</p>
+<p>You can file an issue on our GitHub if you do not understand why minification is being disabled by your <code>next.config.js</code>.</p>
+</body>
+</html>

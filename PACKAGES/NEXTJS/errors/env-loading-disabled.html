@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>env-loading-disabled</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="env-loading-disabled">Env Loading Disabled</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>In your project you have <code>dotenv</code> listed as a <code>dependency</code> or a <code>devDependency</code> which opts-out of Next.js’ automatic loading to prevent creating a conflict with any existing <code>dotenv</code> behavior in your project.</p>
+<p>This is also disabled if a <code>package.json</code> isn’t able to found in your project somehow.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Update to the latest version of Next.js (&gt;= v9.4.1) where this support is enabled regardless of <code>dotenv</code> being installed.</p>
+<p>Remove <code>dotenv</code> from your <code>devDependencies</code> or <code>dependencies</code> and allow Next.js to load your <code>dotenv</code> files for you.</p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://npmjs.com/package/dotenv">dotenv</a></li>
+<li><a href="https://npmjs.com/package/dotenv-expand">dotenv-expand</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Environment_variable">Environment Variables</a></li>
+<li><a href="https://nextjs.org/docs/basic-features/environment-variables">Next.js Environment Variables Docs</a></li>
+</ul>
+</body>
+</html>

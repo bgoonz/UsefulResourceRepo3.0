@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>css-npm</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="css-imported-by-a-dependency">CSS Imported by a Dependency</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>One of your dependencies (<code>node_modules</code>) imports a CSS file.</p>
+<p>This normally happens when a package’s source files are accidentally consumed, instead of the built package.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Reach out to the maintainer and ask for them to publish a compiled version of their dependency.</p>
+<p>Compiled dependencies do not have references to CSS files, or any other files that require bundler-specific integrations.</p>
+<p>The dependency should also provide instructions about what CSS needs to be imported by you, in your application.</p>
+<p>Importing CSS files within <code>node_modules</code> cannot be supported because we cannot know the correct behavior:</p>
+<ul>
+<li>Should the file be consumed as Global CSS or CSS Modules?</li>
+<li>If Global, in what order does the file need to be injected?</li>
+<li>If Modules, what are the emitted class names? As-is, camel-case, snake case?</li>
+<li>Etc…</li>
+</ul>
+</body>
+</html>

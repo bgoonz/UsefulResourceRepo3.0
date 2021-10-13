@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>prerender-error</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="prerender-error">Prerender Error</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>While prerendering a page an error occurred. This can occur for many reasons from adding non-pages e.g. <code>components</code> to your <code>pages</code> folder or expecting props to be populated which are not.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<ul>
+<li>Make sure to move any non-pages out of the <code>pages</code> folder</li>
+<li>Check for any code that assumes a prop is available even when it might not be. e.g., have default data for all dynamic pages’ props.</li>
+<li>Check for any out of date modules that you might be relying on</li>
+<li>Make sure your component handles <code>fallback</code> if it is enabled in <code>getStaticPaths</code>. <a href="https://nextjs.org/docs/basic-features/data-fetching#the-fallback-key-required">Fallback docs</a></li>
+<li>Make sure you are not trying to export (<code>next export</code>) pages that have server-side rendering enabled <a href="https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering">(getServerSideProps)</a></li>
+</ul>
+</body>
+</html>

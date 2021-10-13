@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>incompatible-href-as</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="incompatible-href-and-as-values">Incompatible <code>href</code> and <code>as</code> values</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>Somewhere you are utilizing the <code>next/link</code> component, <code>Router#push</code>, or <code>Router#replace</code> with a dynamic route in your <code>href</code> that has an incompatible <code>as</code> value. The <code>as</code> value is incompatible when the path doesn’t provide only the expected parameters for the dynamic route.</p>
+<p>Note: this error will only show when the <code>next/link</code> component is clicked not when only rendered.</p>
+<p><strong>Incompatible <code>href</code> and <code>as</code></strong></p>
+<pre class="jsx"><code>import Link from &#39;next/link&#39;
+
+export default function Page(props) {
+  return (
+    &lt;&gt;
+      &lt;Link href=&quot;/[post]&quot; as=&quot;/post-1/comments&quot;&gt;
+        &lt;a&gt;Invalid link&lt;/a&gt;
+      &lt;/Link&gt;
+    &lt;/&gt;
+  )
+}</code></pre>
+<p><strong>Compatible <code>href</code> and <code>as</code></strong></p>
+<pre class="jsx"><code>import Link from &#39;next/link&#39;
+
+export default function Page(props) {
+  return (
+    &lt;&gt;
+      &lt;Link href=&quot;/[post]&quot; as=&quot;/post-1&quot;&gt;
+        &lt;a&gt;Valid link&lt;/a&gt;
+      &lt;/Link&gt;
+    &lt;/&gt;
+  )
+}</code></pre>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Look for any usage of the <code>next/link</code> component, <code>Router#push</code>, or <code>Router#replace</code> and make sure that the provided <code>href</code> and <code>as</code> values are compatible</p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/routing/introduction">Routing section in Documentation</a></li>
+<li><a href="https://nextjs.org/docs/routing/dynamic-routes">Dynamic routing section in Documentation</a></li>
+</ul>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>invalid-project-dir-casing</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="invalid-project-directory-casing">Invalid Project Directory Casing</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>When starting Next.js, the current directory is a different casing than the actual directory on your filesystem. This can cause files to resolve inconsistently.</p>
+<p>This can occur when using a case-insensitive filesystem. For example, opening PowerShell on Windows navigating to <code>cd path/to/myproject</code> instead of <code>cd path/to/MyProject</code>.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Ensure the casing for the current working directory matches the actual case of the real directory. Use a terminal that enforces case-sensitivity.</p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/api-reference/cli">Next.js CLI documentation</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Case_sensitivity#In_filesystems">Case sensitivity in filesystems</a></li>
+</ul>
+</body>
+</html>

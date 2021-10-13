@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>no-document-import-in-page</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="no-document-import-in-page">No Document Import in Page</h1>
+<h3 id="why-this-error-occurred">Why This Error Occurred</h3>
+<p><code>next/document</code> was imported in a page outside of <code>pages/_document.js</code> (or <code>pages/_document.tsx</code> if you are using TypeScript). This can cause unexpected issues in your application.</p>
+<h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
+<p>Only import and use <code>next/document</code> within <code>pages/_document.js</code> (or <code>pages/_document.tsx</code>) to override the default <code>Document</code> component:</p>
+<pre class="jsx"><code>// pages/_document.js
+import Document, { Html, Head, Main, NextScript } from &#39;next/document&#39;
+
+class MyDocument extends Document {
+  //...
+}
+
+export default MyDocument</code></pre>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/advanced-features/custom-document">Custom Document</a></li>
+</ul>
+</body>
+</html>

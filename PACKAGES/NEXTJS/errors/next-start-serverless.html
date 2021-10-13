@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>next-start-serverless</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="using-next-start-with-target-not-set-to-server">Using <code>next start</code> with <code>target</code> not set to <code>server</code></h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>Next.js can only handle running a server when the <code>target</code> is set to <code>server</code> (this is the default value). A serverless build, for instance, has no handler for requests–this is usually implemented by a hosting provider.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Use a different handler than <code>next start</code> when testing a serverless <strong>production</strong> build, otherwise use <code>next dev</code>.</p>
+</body>
+</html>

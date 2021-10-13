@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>export-no-custom-routes</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="next-export-no-custom-routes"><code>next export</code> No Custom Routes</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>In your <code>next.config.js</code> <code>rewrites</code>, <code>redirects</code>, or <code>headers</code> were defined while <code>next export</code> was being run outside of a platform that supports them.</p>
+<p>These configs do not apply when exporting your Next.js application manually.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Disable the <code>rewrites</code>, <code>redirects</code>, and <code>headers</code> from your <code>next.config.js</code> when using <code>next export</code> to deploy your application or deploy your application using <a href="https://nextjs.org/docs/deployment#vercel-recommended">a method</a> that supports these configs.</p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/deployment#vercel-recommended">Deployment Documentation</a></li>
+<li><a href="https://nextjs.org/docs/advanced-features/static-html-export"><code>next export</code> Documentation</a></li>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/rewrites">Rewrites Documentation</a></li>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/redirects">Redirects Documentation</a></li>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/headers">Headers Documentation</a></li>
+</ul>
+</body>
+</html>

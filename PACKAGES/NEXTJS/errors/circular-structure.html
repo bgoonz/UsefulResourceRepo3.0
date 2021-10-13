@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>circular-structure</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="circular-structure-in-getinitialprops-result">Circular structure in “getInitialProps” result</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p><code>getInitialProps</code> is serialized to JSON using <code>JSON.stringify</code> and sent to the client side for hydrating the page.</p>
+<p>However, the result returned from <code>getInitialProps</code> can’t be serialized when it has a circular structure.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>Circular structures are not supported, so the way to fix this error is removing the circular structure from the object that is returned from <code>getInitialProps</code>.</p>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>built-in-css-disabled</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="built-in-css-support-disabled">Built-in CSS Support Disabled</h1>
+<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+<p>Custom CSS configuration was added in <code>next.config.js</code> which disables the built-in CSS/SCSS support to prevent conflicting configuration.</p>
+<p>A legacy plugin such as <code>@zeit/next-css</code> being added in <code>next.config.js</code> can cause this message.</p>
+<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+<p>If you would like to leverage the built-in CSS/SCSS support you can remove any custom CSS configuration or any plugins like <code>@zeit/next-css</code> or <code>@zeit/next-sass</code> in your <code>next.config.js</code>.</p>
+<p>If you would prefer not to leverage the built-in support you can ignore this message.</p>
+<h3 id="useful-links">Useful Links</h3>
+<ul>
+<li><a href="https://nextjs.org/docs/basic-features/built-in-css-support">Built-in CSS Support docs</a></li>
+<li><a href="https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config">Custom webpack config docs</a></li>
+</ul>
+</body>
+</html>
