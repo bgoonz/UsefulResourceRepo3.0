@@ -51,7 +51,7 @@
     "@swc/cli": "0.1.49",
     "@swc/core": "1.2.88",
     "@swc/jest": "0.2.3",
-    "@testing-library/react": "11.2.5",
+    "@testing-library/react": "11.2.7",
     "@types/cheerio": "0.22.16",
     "@types/fs-extra": "8.1.0",
     "@types/http-proxy": "1.17.3",
