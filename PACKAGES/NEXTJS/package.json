@@ -50,7 +50,7 @@
     "@svgr/webpack": "5.5.0",
     "@swc/cli": "0.1.49",
     "@swc/core": "1.2.88",
-    "@swc/jest": "0.2.3",
+    "@swc/jest": "0.2.4",
     "@testing-library/react": "11.2.5",
     "@types/cheerio": "0.22.16",
     "@types/fs-extra": "8.1.0",
