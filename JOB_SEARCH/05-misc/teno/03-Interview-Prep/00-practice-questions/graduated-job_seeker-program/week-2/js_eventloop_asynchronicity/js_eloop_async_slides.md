@@ -9,6 +9,7 @@
 ---
 
 # Today's Topics
+
 - What JavaScript is
 - The pieces that make up JavaScript
 - Asynchronicity in JavaScript
@@ -22,21 +23,22 @@
 ---
 
 ## JAvaScript is
+
 a high level interpreted programming language. It is:
 
-* Dynamic
+- Dynamic
 
-* Weakly Typed
+- Weakly Typed
 
-* Prototype-Based
+- Prototype-Based
 
-* Multi-paradigm
+- Multi-paradigm
 
-* Single-threaded
+- Single-threaded
 
-* Concurrent
+- Concurrent
 
-* Never Blocking
+- Never Blocking
 
 Note:
 
@@ -50,7 +52,7 @@ Multi-paradigm (permits the use of different programming paradigms)
 
 Single-threaded (it can only execute one action at any given time)
 
-Concurrent (capable of delegating multiple tasks simultaneously)*
+Concurrent (capable of delegating multiple tasks simultaneously)\*
 
 Never Blocking (I/O does not interfere with user input and activity)
 
@@ -59,27 +61,30 @@ How can it be concurrent and single threaded??? We'll get to that.
 ---
 
 # Parallelism
+
 # and
+
 # Concurrency
 
-Note:  Can anyone describe these terms?
----
+## Note: Can anyone describe these terms?
 
-* **Concurrency**:
-processes can run independently of one another, but they do not necessarily run at the same time.
+- **Concurrency**:
+  processes can run independently of one another, but they do not necessarily run at the same time.
 
-* **Parallelism**:
-multiple processes can run at exactly the same time.
+- **Parallelism**:
+  multiple processes can run at exactly the same time.
 
 Note:
 Parallel environments can be described as concurrent, but not all concurrent environments are parallel.
 
 ---
+
 <div style='display: flex; justify-content: space-around;'>
 <div style='display:flex; flex-direction: column;'>
 <div>Concurrent</div>
 
 <img src='https://camo.githubusercontent.com/6b343cdc5f88e50537f6f01fbd36030f0c7334dc/68747470733a2f2f627974656172636865722e636f6d2f61727469636c65732f706172616c6c656c2d76732d636f6e63757272656e742f636f6e63757272656e742d322e706e67' style='height: 500px;'/></div>
+
 <div style='display:flex; flex-direction: column;'></div>
 
 <div style='display:flex; flex-direction: column;'>
@@ -87,14 +92,18 @@ Parallel environments can be described as concurrent, but not all concurrent env
 <div>Parallel</div>
 
 <img src='https://camo.githubusercontent.com/822abcb289939f1647d76957f15c3fe78c87a146/68747470733a2f2f627974656172636865722e636f6d2f61727469636c65732f706172616c6c656c2d76732d636f6e63757272656e742f706172616c6c656c2d322e706e67' style='height: 500px;'/></div>
+
 </div>
 
 Note:
 Which term did we use to describe JS before? How does JavaScript execute code concurrently?
+
 ---
 
 ## The JavaScript Engine
+
 ## and
+
 ## The JavaScript Runtime Environment
 
 Note:
@@ -102,11 +111,11 @@ Can anyone describe these?
 
 ---
 
-* **JavaScript Engine**:
-interprets your JS code and turns it into runnable commands.
+- **JavaScript Engine**:
+  interprets your JS code and turns it into runnable commands.
 
-* **JavaScript Runtime Environemnt**:
-supports your JavaScript by providing it with common objects and ways to communicate with the world outside your code
+- **JavaScript Runtime Environemnt**:
+  supports your JavaScript by providing it with common objects and ways to communicate with the world outside your code
 
 Note:
 These two things make up the JS we use everyday.
@@ -118,7 +127,8 @@ Which pieces belong to which parts?
 <img style='height: 600px;' src='https://camo.githubusercontent.com/bd3cc88e02a70dbd46694ef8ad2f0b5741725d7e/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a4641394e47784e42362d76316f4932714745746c52512e706e67'/>
 
 Note:
-Walk step by step through the flow of the e-loop.  Define each part.
+Walk step by step through the flow of the e-loop. Define each part.
+
 ---
 
 How it all comes together:
@@ -135,8 +145,9 @@ What does this mean?
 ---
 
 ## Asynchronicity in JS:
-* Callbacks
-* Promises
+
+- Callbacks
+- Promises
 
 Note:
 The combination of callbacks and promises on top of the task queue and event loop are what give us asynchronicity in JS.
