@@ -970,9 +970,16 @@
     "@types/babel-types" "*"
     "@types/babylon" "*"
 
-"@types/babel-generator@*", "@types/babel-generator@^6.25.0":
+"@types/babel-generator@*":
   version "6.25.1"
   resolved "https://registry.npmjs.org/@types/babel-generator/-/babel-generator-6.25.1.tgz#f86ab3cf132b04597fe6c431d3083aaf1b76b530"
+  dependencies:
+    "@types/babel-types" "*"
+
+"@types/babel-generator@6.25.4":
+  version "6.25.4"
+  resolved "https://registry.npmjs.org/@types/babel-generator/-/babel-generator-6.25.4.tgz#74eacdaa4822c4c6923e68c541144a04415ad8a1"
+  integrity sha512-Rnsen+ckop5mbl9d43bempS7i9wdTN1vytiTlmQla/YiNm6kH8kEVABVSXmp1UbnpkUV44nUCPeDQoa+Mu7ALA==
   dependencies:
     "@types/babel-types" "*"
 
