@@ -976,9 +976,17 @@
   dependencies:
     "@types/babel-types" "*"
 
-"@types/babel-template@*", "@types/babel-template@^6.25.0":
+"@types/babel-template@*":
   version "6.25.0"
   resolved "https://registry.npmjs.org/@types/babel-template/-/babel-template-6.25.0.tgz#2505d7b55b88f821d98048b4fdf07b3b22563d30"
+  dependencies:
+    "@types/babel-types" "*"
+    "@types/babylon" "*"
+
+"@types/babel-template@6.25.2":
+  version "6.25.2"
+  resolved "https://registry.npmjs.org/@types/babel-template/-/babel-template-6.25.2.tgz#3c4cde02dbcbbf461a58d095a9f69f35eabd5f06"
+  integrity sha512-QKtDQRJmAz3Y1HSxfMl0syIHebMc/NnOeH/8qeD0zjgU2juD0uyC922biMxCy5xjTNvHinigML2l8kxE8eEBmw==
   dependencies:
     "@types/babel-types" "*"
     "@types/babylon" "*"
