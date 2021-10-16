@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>mg to grams converter (mg to g)</title>
+    <meta
+      name="description"
+      content="Milligrams (mg) to Grams (g) weight conversion calculator and how to convert."
+    />
+    <style>
+      h1 {
+        font-size: 20px;
+      }
+      .calc2 textarea {
+        width: 220px;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        h1 {
+          font-size: 20px;
+        }
+        .calc2 {
+          width: 100%;
+        }
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+          padding: 5px;
+        }
+        .calc2 textarea {
+          width: 100%;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 240px;
+          width: calc(100% - 40px);
+        }
+        .calc2 tr td:nth-child(3) {
+          padding-top: 20px;
+        }
+        #tbl1 td {
+          float: none;
+          padding: 0;
+          width: calc(50% - 20px);
+        }
+        #tbl1 td:nth-child(2) {
+          padding-top: 15px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        #tbl1 input {
+          width: 100px;
+        }
+        #tbl1,
+        #tbl1 tr,
+        #tbl1 tr td {
+          margin: 0;
+          padding: 0;
+          border: 0;
+        }
+      }
+
+      .ntable td:nth-child(1),
+      .ntable td:nth-child(2) {
+        width: 90px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Weight</a>&rsaquo; mg to grams
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>mg to grams conversion</h1>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="x">Milligrams:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="x"
+                    name="x"
+                    class="intext"
+                    autofocus
+                    tabindex="1"
+                  />
+                </td>
+                <td class="mathsymbol">mg</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>
+                  <input
+                    onclick="calc()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                    tabindex="2"
+                  />
+                  <input type="reset" value="Reset" class="btn" tabindex="3" />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Grams:</td>
+                <td>
+                  <input
+                    type="text"
+                    name="y"
+                    class="outtext"
+                    readonly
+                    tabindex="4"
+                  />
+                </td>
+                <td class="mathsymbol">g</td>
+              </tr>
+              <tr id="pf1">
+                <td>Calculation:</td>
+                <td>
+                  <textarea
+                    name="TA"
+                    rows="3"
+                    class="outtext"
+                    readonly
+                  ></textarea>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <p><a href="gram-to-mg.html">Grams to mg &#9658;</a></p>
+          <h2><a name="how"></a>How to convert Milligrams to Grams</h2>
+          <p>1 milligram (mg) is equal to 1/1000 grams (g).</p>
+          <p class="math">1 mg = (1/1000) g = 0.001 g</p>
+          <p>
+            The mass <i>m</i> in grams (g) is equal to the mass m in milligrams
+            (mg) divided by 1000:
+          </p>
+          <p class="math">
+            <i>m</i><sub>(g)</sub> = <i>m</i><sub>(mg)</sub> / 1000
+          </p>
+          <h4>Example</h4>
+          <p>Convert 5mg to grams:</p>
+          <p class="math"><i>m</i><sub>(g)</sub> = 5 mg / 1000 = 0.005 g</p>
+          <h2><a name="table"></a>Milligrams to Grams conversion table</h2>
+          <table class="ntable">
+            <thead>
+              <tr>
+                <th>Milligrams (mg)</th>
+                <th>Grams (g)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0 mg</td>
+                <td>0 g</td>
+              </tr>
+              <tr>
+                <td>0.1 mg</td>
+                <td>0.0001 g</td>
+              </tr>
+              <tr>
+                <td>1 mg</td>
+                <td>0.001 g</td>
+              </tr>
+              <tr>
+                <td>2 mg</td>
+                <td>0.002 g</td>
+              </tr>
+              <tr>
+                <td>3 mg</td>
+                <td>0.003 g</td>
+              </tr>
+              <tr>
+                <td>4 mg</td>
+                <td>0.004 g</td>
+              </tr>
+              <tr>
+                <td>5 mg</td>
+                <td>0.005 g</td>
+              </tr>
+              <tr>
+                <td>6 mg</td>
+                <td>0.006 g</td>
+              </tr>
+              <tr>
+                <td>7 mg</td>
+                <td>0.007 g</td>
+              </tr>
+              <tr>
+                <td>8 mg</td>
+                <td>0.008 g</td>
+              </tr>
+              <tr>
+                <td>9 mg</td>
+                <td>0.009 g</td>
+              </tr>
+              <tr>
+                <td>10 mg</td>
+                <td>0.01 g</td>
+              </tr>
+              <tr>
+                <td>20 mg</td>
+                <td>0.02 g</td>
+              </tr>
+              <tr>
+                <td>30 mg</td>
+                <td>0.03 g</td>
+              </tr>
+              <tr>
+                <td>40 mg</td>
+                <td>0.04 g</td>
+              </tr>
+              <tr>
+                <td>50 mg</td>
+                <td>0.05 g</td>
+              </tr>
+              <tr>
+                <td>60 mg</td>
+                <td>0.06 g</td>
+              </tr>
+              <tr>
+                <td>70 mg</td>
+                <td>0.07 g</td>
+              </tr>
+              <tr>
+                <td>80 mg</td>
+                <td>0.08 g</td>
+              </tr>
+              <tr>
+                <td>90 mg</td>
+                <td>0.09 g</td>
+              </tr>
+              <tr>
+                <td>100 mg</td>
+                <td>0.1 g</td>
+              </tr>
+              <tr>
+                <td>1000 mg</td>
+                <td>1 g</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="gram-to-mg.html">Grams to Milligrams &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="gram-to-mg.html">Grams to Milligrams converter</a></li>
+            <li><a href="gram-to-kg.html">Grams to Kilograms converter</a></li>
+            <li>
+              <a href="pound-to-kg.html">Pounds to Kilograms converter</a>
+            </li>
+            <li><a href="../length/index.html">Length conversion</a></li>
+            <li>
+              <a href="../temperature/index.html">Temperature conversion</a>
+            </li>
+            <li><a href="../electric/index.html">Electric conversion</a></li>
+            <li><a href="../power/index.html">Power conversion</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEIGHT CONVERSION</h5>
+        <ul>
+          <li><a href="gram-to-kg.html">Grams to Kilograms</a></li>
+          <li><a href="gram-to-mg.html">Grams to Milligrams</a></li>
+          <li><a href="gram-to-ounce.html">Grams to Ounces</a></li>
+          <li><a href="gram-to-pound.html">Grams to Pounds</a></li>
+          <li><a href="kg-to-gram.html">Kilograms to Grams</a></li>
+          <li><a href="kg-to-mg.html">Kilograms to Milligrams</a></li>
+          <li><a href="kg-to-ounce.html">Kilograms to Ounces</a></li>
+          <li><a href="kg-to-pound.html">Kilograms to Pounds</a></li>
+          <li><a href="kg-to-ton.html">Kilograms to Tons</a></li>
+          <li><a href="mg-to-gram.html">Milligrams to Grams</a></li>
+          <li><a href="mg-to-kg.html">Milligrams to Kilograms</a></li>
+          <li><a href="mg-to-mcg.html">Milligrams to Micrograms</a></li>
+          <li><a href="mcg-to-mg.html">Micrograms to Milligrams</a></li>
+          <li><a href="ounce-to-gram.html">Ounces to Grams</a></li>
+          <li><a href="ounce-to-kg.html">Ounces to Kilograms</a></li>
+          <li><a href="ounce-to-pound.html">Ounces to Pounds</a></li>
+          <li><a href="pound-to-gram.html">Pounds to Grams</a></li>
+          <li><a href="pound-to-kg.html">Pounds to Kilograms</a></li>
+          <li><a href="pound-to-ounce.html">Pounds to Ounces</a></li>
+          <li><a href="pound-to-stone.html">Pounds to Stones</a></li>
+          <li><a href="pound-to-ton.html">Pounds to Tons</a></li>
+          <li><a href="stone-to-pound.html">Stones to Pounds</a></li>
+          <li><a href="ton-to-kg.html">Tons to Kilograms</a></li>
+          <li><a href="ton-to-pound.html">Tons to Pounds</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="mg-to-gram.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script src="../convert.js"></script>
+        <script>
+          function convert(x) {
+            var y = parseFloat(x) / 1000;
+            var yy = roundresult(y);
+            var txt = x + " mg / 1000\n";
+            txt += "= " + yy + " g";
+            document.calcform.TA.value = txt;
+            return y;
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

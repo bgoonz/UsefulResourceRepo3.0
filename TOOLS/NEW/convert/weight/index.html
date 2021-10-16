@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Weight converter</title>
+    <style>
+      @media all and (max-width: 576px) {
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+          padding: 5px;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 240px;
+          width: calc(100% - 130px);
+        }
+        .calc2 tr td:nth-child(3) {
+          width: 30px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo; Weight converter
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Weight converter</h1>
+          <p>
+            Enter the weight in one of the text boxes and press the
+            <i>Convert</i> button:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="ton">Metric tons:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="ton"
+                    name="ton"
+                    autofocus
+                  />
+                </td>
+                <td class="mathsymbol">t</td>
+                <td>
+                  <input
+                    onclick="ConvertTon()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="kg">Kilograms:</label></td>
+                <td class="math">
+                  <input type="number" min="0" step="any" id="kg" name="kg" />
+                </td>
+                <td class="mathsymbol">kg</td>
+                <td>
+                  <input
+                    onclick="ConvertKg()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="gr">Grams:</label></td>
+                <td class="math">
+                  <input type="number" min="0" step="any" id="gr" name="gr" />
+                </td>
+                <td class="mathsymbol">g</td>
+                <td>
+                  <input
+                    onclick="ConvertGr()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="mg">Milligrams:</label></td>
+                <td class="math">
+                  <input type="number" min="0" step="any" id="mg" name="mg" />
+                </td>
+                <td class="mathsymbol">mg</td>
+                <td>
+                  <input
+                    onclick="ConvertMg()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="mcg">Micrograms:</label></td>
+                <td class="math">
+                  <input type="number" min="0" step="any" id="mcg" name="mcg" />
+                </td>
+                <td class="mathsymbol">mcg</td>
+                <td>
+                  <input
+                    onclick="ConvertMcg()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="st">Stones:</label></td>
+                <td class="math">
+                  <input type="number" min="0" step="any" id="st" name="st" />
+                </td>
+                <td class="mathsymbol">st</td>
+                <td>
+                  <input
+                    onclick="ConvertSt()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="lb">Pounds:</label></td>
+                <td class="math">
+                  <input type="number" min="0" step="any" id="lb" name="lb" />
+                </td>
+                <td class="mathsymbol">lb</td>
+                <td>
+                  <input
+                    onclick="ConvertLb()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="oz">Ounces:</label></td>
+                <td class="math">
+                  <input type="number" min="0" step="any" id="oz" name="oz" />
+                </td>
+                <td class="mathsymbol">oz</td>
+                <td>
+                  <input
+                    onclick="ConvertOz()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td><input type="reset" value="Reset" class="btn" /></td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp;</p>
+          <ul>
+            <li><a href="gram-to-kg.html">Grams to Kilograms</a></li>
+            <li><a href="gram-to-mg.html">Grams to Milligrams</a></li>
+            <li><a href="gram-to-ounce.html">Grams to Ounces</a></li>
+            <li><a href="gram-to-pound.html">Grams to Pounds</a></li>
+            <li><a href="kg-to-gram.html">Kilograms to Grams</a></li>
+            <li><a href="kg-to-mg.html">Kilograms to Milligrams</a></li>
+            <li><a href="kg-to-ounce.html">Kilograms to Ounces</a></li>
+            <li><a href="kg-to-pound.html">Kilograms to Pounds</a></li>
+            <li><a href="kg-to-ton.html">Kilograms to Tons</a></li>
+            <li><a href="mg-to-gram.html">Milligrams to Grams</a></li>
+            <li><a href="mg-to-kg.html">Milligrams to Kilograms</a></li>
+            <li><a href="mg-to-mcg.html">Milligrams to Micrograms</a></li>
+            <li><a href="mcg-to-mg.html">Micrograms to Milligrams</a></li>
+            <li><a href="ounce-to-gram.html">Ounces to Grams</a></li>
+            <li><a href="ounce-to-kg.html">Ounces to Kilograms</a></li>
+            <li><a href="ounce-to-pound.html">Ounces to Pounds</a></li>
+            <li><a href="pound-to-gram.html">Pounds to Grams</a></li>
+            <li><a href="pound-to-kg.html">Pounds to Kilograms</a></li>
+            <li><a href="pound-to-ounce.html">Pounds to Ounces</a></li>
+            <li><a href="pound-to-stone.html">Pounds to Stones</a></li>
+            <li><a href="pound-to-ton.html">Pounds to Tons</a></li>
+            <li>
+              <a href="pound-ounce-to-kg.html">Pounds+Ounces to Kilograms</a>
+            </li>
+            <li><a href="stone-to-pound.html">Stones to Pounds</a></li>
+            <li><a href="ton-to-kg.html">Tons to Kilograms</a></li>
+            <li><a href="ton-to-pound.html">Tons to Pounds</a></li>
+            <li>
+              <a href="how-kg-to-pound.html"
+                >How to convert Kilograms to Pounds</a
+              >
+            </li>
+            <li>
+              <a href="how-pound-to-kg.html"
+                >How to convert Pounds to Kilograms</a
+              >
+            </li>
+            <li>
+              <a href="how-gram-to-ounce.html"
+                >How to convert Grams to Ounces</a
+              >
+            </li>
+            <li>
+              <a href="how-ounce-to-gram.html"
+                >How to convert Ounces to Grams</a
+              >
+            </li>
+            <li>
+              <a href="how-many-grams-in-kg.html"
+                >How many Grams in a Kilogram</a
+              >
+            </li>
+            <li>
+              <a href="how-many-grams-in-ounce.html"
+                >How many Grams in an Ounce</a
+              >
+            </li>
+            <li>
+              <a href="how-many-grams-in-pound.html"
+                >How many Grams in a Pound</a
+              >
+            </li>
+            <li>
+              <a href="how-many-kg-in-gram.html"
+                >How many Kilograms in a Gram</a
+              >
+            </li>
+            <li>
+              <a href="how-many-kg-in-pound.html"
+                >How many Kilograms in a Pound</a
+              >
+            </li>
+            <li>
+              <a href="how-many-mg-in-gram.html"
+                >How many Milligrams in a Gram</a
+              >
+            </li>
+            <li>
+              <a href="how-many-ounces-in-gram.html"
+                >How many Ounces in a Gram</a
+              >
+            </li>
+            <li>
+              <a href="how-many-ounces-in-pound.html"
+                >How many Ounces in a Pound</a
+              >
+            </li>
+            <li>
+              <a href="how-many-pounds-in-gram.html"
+                >How many Pounds in a Gram</a
+              >
+            </li>
+            <li>
+              <a href="how-many-pounds-in-kg.html"
+                >How many Pounds in a Kilogram</a
+              >
+            </li>
+            <li>
+              <a href="how-many-pounds-in-ounce.html"
+                >How many Pounds in an Ounce</a
+              >
+            </li>
+          </ul>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../length/index.html">Length conversion</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CONVERSION</h5>
+        <ul>
+          <li><a href="../color/index.html">Color conversion</a></li>
+          <li><a href="../charge/index.html">Electric charge conversion</a></li>
+          <li><a href="../energy/index.html">Energy conversion</a></li>
+          <li><a href="../frequency/index.html">Frequency conversion</a></li>
+          <li><a href="../image/index.html">Image conversion</a></li>
+          <li><a href="../length/index.html">Length conversion</a></li>
+          <li><a href="../number/index.html">Number conversion</a></li>
+          <li><a href="../power/index.html">Power conversion</a></li>
+          <li>
+            <a href="../temperature/index.html">Temperature conversion</a>
+          </li>
+          <li><a href="../voltage/index.html">Voltage conversion</a></li>
+          <li><a href="index.html">Weight conversion</a></li>
+          <li><a href="../electric/index.html">Electrical calculation</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="index.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script src="../convert.js"></script>
+        <script>
+          function ConvertTon() {
+            d = document.calcform.ton.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(d, 6);
+            document.calcform.kg.value = roundnum(d * 1e3, 6);
+            document.calcform.gr.value = roundnum(d * 1e6, 6);
+            document.calcform.mg.value = roundnum(d * 1e9, 6);
+            document.calcform.mcg.value = roundnum(d * 1e12, 6);
+            document.calcform.st.value = roundnum(
+              (d * 1e3) / 0.45359237 / 14,
+              6
+            );
+            document.calcform.lb.value = roundnum((d * 1e3) / 0.45359237, 6);
+            document.calcform.oz.value = roundnum(
+              ((d * 1e3) / 0.45359237) * 16,
+              6
+            );
+          }
+          function ConvertKg() {
+            d = document.calcform.kg.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(d * 1e-3, 6);
+            document.calcform.kg.value = roundnum(d, 6);
+            document.calcform.gr.value = roundnum(d * 1e3, 6);
+            document.calcform.mg.value = roundnum(d * 1e6, 6);
+            document.calcform.mcg.value = roundnum(d * 1e9, 6);
+            document.calcform.st.value = roundnum(d / 0.45359237 / 14, 6);
+            document.calcform.lb.value = roundnum(d / 0.45359237, 6);
+            document.calcform.oz.value = roundnum((d / 0.45359237) * 16, 6);
+          }
+          function ConvertGr() {
+            d = document.calcform.gr.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(d * 1e-6, 6);
+            document.calcform.kg.value = roundnum(d * 1e-3, 6);
+            document.calcform.gr.value = roundnum(d, 6);
+            document.calcform.mg.value = roundnum(d * 1e3, 6);
+            document.calcform.mcg.value = roundnum(d * 1e6, 6);
+            document.calcform.st.value = roundnum(
+              (d * 1e-3) / 0.45359237 / 14,
+              6
+            );
+            document.calcform.lb.value = roundnum((d * 1e-3) / 0.45359237, 6);
+            document.calcform.oz.value = roundnum(
+              ((d * 1e-3) / 0.45359237) * 16,
+              6
+            );
+          }
+          function ConvertMg() {
+            d = document.calcform.mg.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(d * 1e-9, 6);
+            document.calcform.kg.value = roundnum(d * 1e-6, 6);
+            document.calcform.gr.value = roundnum(d * 1e-3, 6);
+            document.calcform.mg.value = roundnum(d, 6);
+            document.calcform.mcg.value = roundnum(d * 1e3, 6);
+            document.calcform.st.value = roundnum(
+              (d * 1e-6) / 0.45359237 / 14,
+              6
+            );
+            document.calcform.lb.value = roundnum((d * 1e-6) / 0.45359237, 6);
+            document.calcform.oz.value = roundnum(
+              ((d * 1e-6) / 0.45359237) * 16,
+              6
+            );
+          }
+          function ConvertMcg() {
+            d = document.calcform.mcg.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(d * 1e-12, 6);
+            document.calcform.kg.value = roundnum(d * 1e-9, 6);
+            document.calcform.gr.value = roundnum(d * 1e-6, 6);
+            document.calcform.mg.value = roundnum(d * 1e-3, 6);
+            document.calcform.mcg.value = roundnum(d, 6);
+            document.calcform.st.value = roundnum(
+              (d * 1e-9) / 0.45359237 / 14,
+              6
+            );
+            document.calcform.lb.value = roundnum((d * 1e-9) / 0.45359237, 6);
+            document.calcform.oz.value = roundnum(
+              ((d * 1e-9) / 0.45359237) * 16,
+              6
+            );
+          }
+          function ConvertSt() {
+            d = document.calcform.st.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(
+              d * 14 * 0.45359237 * 1e-3,
+              6
+            );
+            document.calcform.kg.value = roundnum(d * 14 * 0.45359237, 6);
+            document.calcform.gr.value = roundnum(d * 14 * 0.45359237 * 1e3, 6);
+            document.calcform.mg.value = roundnum(d * 14 * 0.45359237 * 1e6, 6);
+            document.calcform.mcg.value = roundnum(
+              d * 14 * 0.45359237 * 1e9,
+              6
+            );
+            document.calcform.st.value = roundnum(d, 6);
+            document.calcform.lb.value = roundnum(d * 14, 6);
+            document.calcform.oz.value = roundnum(d * 14 * 16, 6);
+          }
+          function ConvertLb() {
+            d = document.calcform.lb.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(d * 0.45359237 * 1e-3, 6);
+            document.calcform.kg.value = roundnum(d * 0.45359237, 6);
+            document.calcform.gr.value = roundnum(d * 0.45359237 * 1e3, 6);
+            document.calcform.mg.value = roundnum(d * 0.45359237 * 1e6, 6);
+            document.calcform.mcg.value = roundnum(d * 0.45359237 * 1e9, 6);
+            document.calcform.st.value = roundnum(d / 14, 6);
+            document.calcform.lb.value = roundnum(d, 6);
+            document.calcform.oz.value = roundnum(d * 16, 6);
+          }
+          function ConvertOz() {
+            d = document.calcform.oz.value;
+            if (d == "") return;
+            d = parseFloat(d);
+            document.calcform.ton.value = roundnum(
+              (d / 16) * 0.45359237 * 1e-3,
+              6
+            );
+            document.calcform.kg.value = roundnum((d / 16) * 0.45359237, 6);
+            document.calcform.gr.value = roundnum(
+              (d / 16) * 0.45359237 * 1e3,
+              6
+            );
+            document.calcform.mg.value = roundnum(
+              (d / 16) * 0.45359237 * 1e6,
+              6
+            );
+            document.calcform.mcg.value = roundnum(
+              (d / 16) * 0.45359237 * 1e9,
+              6
+            );
+            document.calcform.st.value = roundnum(d / 16 / 14, 6);
+            document.calcform.lb.value = roundnum(d / 16, 6);
+            document.calcform.oz.value = roundnum(d, 6);
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>
