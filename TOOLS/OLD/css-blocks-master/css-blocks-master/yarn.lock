@@ -993,9 +993,16 @@
   version "7.0.1"
   resolved "https://registry.npmjs.org/@types/babel-types/-/babel-types-7.0.1.tgz#1405e5396968c4302994b0161ce405b72b874257"
 
-"@types/babylon@*", "@types/babylon@^6.16.1":
+"@types/babylon@*":
   version "6.16.2"
   resolved "https://registry.npmjs.org/@types/babylon/-/babylon-6.16.2.tgz#062ce63b693d9af1c246f5aedf928bc9c30589c8"
+  dependencies:
+    "@types/babel-types" "*"
+
+"@types/babylon@6.16.6":
+  version "6.16.6"
+  resolved "https://registry.npmjs.org/@types/babylon/-/babylon-6.16.6.tgz#a1e7e01567b26a5ebad321a74d10299189d8d932"
+  integrity sha512-G4yqdVlhr6YhzLXFKy5F7HtRBU8Y23+iWy7UKthMq/OSQnL1hbsoeXESQ2LY8zEDlknipDG3nRGhUC9tkwvy/w==
   dependencies:
     "@types/babel-types" "*"
 
