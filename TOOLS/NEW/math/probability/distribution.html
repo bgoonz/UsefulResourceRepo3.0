@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Probability distribution F(x) in statistics</title>
+    <meta
+      name="description"
+      content="Probability distribution definition and tables. In probability and statistics distribution is a characteristic of a random variable, describes the probability of the random variable in each value.  Each distribution has a certain probability density function and probability distribution function. "
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html"> Home</a>
+        &gt; <a href="../index.html">Math</a> &gt;
+        <a href="index.html">Probability</a> &gt; Probability distribution
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Probability Distribution</h1>
+          <p>
+            In probability and statistics <i>distribution</i> is a
+            characteristic of a random variable, describes the probability of
+            the random variable in each value.
+          </p>
+          <p>
+            Each distribution has a certain probability density function and
+            probability distribution function.
+          </p>
+          <p>
+            Though there are indefinite number of probability distributions,
+            there are several common distributions in use.
+          </p>
+          <ul>
+            <li>
+              <a href="distribution.html#cdf"
+                >Cumulative distribution function</a
+              >
+            </li>
+            <li>
+              <a href="distribution.html#cont"
+                >Continuous distributions table</a
+              >
+            </li>
+            <li>
+              <a href="distribution.html#disc">Discrete distributions table</a>
+            </li>
+          </ul>
+          <h3><a name="cdf"></a>Cumulative distribution function</h3>
+          <p>
+            The probability distribution is described by the cumulative
+            distribution function F(x),
+          </p>
+          <p>
+            which is the probability of random variable X to get value smaller
+            than or equal to x:
+          </p>
+          <p class="math">
+            <i>F</i>(<i>x</i>) = <i>P</i>(<i>X</i> &#8804; <i>x</i>)
+          </p>
+          <h5>Continuous distribution</h5>
+          <p>
+            The cumulative distribution function F(x) is calculated by
+            integration of the probability density function f(u) of continuous
+            random variable X.
+          </p>
+          <p>
+            <img
+              border="0"
+              src="distribution/cont_cdf.gif"
+              width="305"
+              height="51"
+            />
+          </p>
+          <h5>Discrete distribution</h5>
+          <p>
+            The cumulative distribution function F(x) is calculated by summation
+            of the probability mass function P(u) of discrete random variable X.
+          </p>
+          <p>
+            <img
+              border="0"
+              src="distribution/discrete_cdf.gif"
+              width="300"
+              height="59"
+            />
+          </p>
+          <h3><a name="cont"></a>Continuous distributions table</h3>
+          <p>
+            Continuous distribution is the distribution of a continuous random
+            variable.
+          </p>
+          <h4>Continuous distribution example</h4>
+          <p>...</p>
+          <h4>Continuous distributions table</h4>
+          <table
+            border="1"
+            width="650"
+            style="border-collapse: collapse"
+            bordercolor="#C0C0C0"
+          >
+            <tr>
+              <th width="91">Distribution name</th>
+              <th width="143">Distribution symbol</th>
+              <th width="179">Probability density function (pdf)</th>
+              <th>Mean</th>
+              <th width="113">Variance</th>
+            </tr>
+            <tr>
+              <th width="91">&nbsp;</th>
+              <th width="143">&nbsp;</th>
+              <th width="179">
+                <p class="mathsymbol" align="center">
+                  <span style="font-weight: 400"
+                    ><i>f</i
+                    ><sub
+                      ><i><span style="font-size: 0.8em">X</span></i></sub
+                    >(<i>x</i>)</span
+                  >
+                </p>
+              </th>
+
+              <th>
+                <p align="center" class="mathsymbol">
+                  <span style="font-weight: 400"
+                    ><i>&#956;</i> = <i>E</i>(<i>X</i>)</span
+                  >
+                </p>
+              </th>
+
+              <th width="113">
+                <p class="mathsymbol">
+                  <span style="font-weight: 400"
+                    ><i>&#963;</i
+                    ><sup><span style="font-size: 0.8em">2</span></sup> =
+                    <i>Var</i>(<i>X</i>)</span
+                  >
+                </p>
+              </th>
+            </tr>
+            <tr>
+              <td width="83">
+                <a href="normal_distribution.html">Normal / gaussian</a>
+              </td>
+              <td width="135">
+                <p class="mathsymbol">
+                  <i>X </i>~<i> N</i>(&#956;,&#963;<sup
+                    ><span style="font-size: 0.8em">2</span></sup
+                  >)
+                </p>
+              </td>
+
+              <td width="171">
+                <img
+                  border="0"
+                  src="distribution/normal_distribution.GIF"
+                  width="110"
+                  height="47"
+                  alt="\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}"
+                />
+              </td>
+              <td class="mathsymbol"><i>&#956;</i></td>
+              <td class="mathsymbol" width="105">
+                <i>&#963;</i><sup><span style="font-size: 0.8em"> 2</span></sup>
+              </td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)"
+                  >Uniform</a
+                >
+              </td>
+              <td width="135">
+                <p class="mathsymbol"><i>X </i>~<i> U</i>(<i>a</i>,<i>b</i>)</p>
+              </td>
+
+              <td width="171">
+                <img
+                  border="0"
+                  src="distribution/cont_uniform_distribution.GIF"
+                  width="150"
+                  height="71"
+                  alt="\begin{Bmatrix}\frac{1}{b-a} &amp; ,a\leq x\leq b\\ &amp; \\0 &amp; ,otherwise\end{matrix}"
+                />
+              </td>
+              <td class="mathsymbol">
+                <img
+                  border="0"
+                  src="distribution/uniform_mean.GIF"
+                  width="43"
+                  height="42"
+                />
+              </td>
+              <td class="mathsymbol" width="105">
+                <img
+                  border="0"
+                  src="distribution/cont_uniform_var.GIF"
+                  width="66"
+                  height="43"
+                  alt="\frac{(b-a)^2}{12}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Exponential_distribution"
+                  >Exponential</a
+                >
+              </td>
+              <td class="mathsymbol" width="135">
+                <i>X </i>~<i> exp</i>(&#955;)
+              </td>
+              <td width="171">
+                <img
+                  border="0"
+                  src="distribution/exp_distribution.GIF"
+                  width="121"
+                  height="48"
+                  alt="\begin{Bmatrix}\lambda e^{-\lambda x} &amp; x\geq 0\\ 0 &amp; x&lt;0\end{matrix}"
+                />
+              </td>
+              <td class="mathsymbol">
+                <img
+                  border="0"
+                  src="distribution/exp_mean.GIF"
+                  width="19"
+                  height="43"
+                  alt="\frac{1}{\lambda}"
+                />
+              </td>
+              <td class="mathsymbol" width="105">
+                <img
+                  border="0"
+                  src="distribution/exp_var.GIF"
+                  width="19"
+                  height="43"
+                  alt="\frac{1}{\lambda^2}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Gamma_distribution"
+                  >Gamma</a
+                >
+              </td>
+              <td class="mathsymbol" width="135">
+                <i>X </i>~<i> gamma</i>(<i>c</i>, &#955;)
+              </td>
+              <td width="171">
+                <img
+                  border="0"
+                  src="distribution/gamma_distribution.GIF"
+                  width="90"
+                  height="50"
+                  alt="\frac{\lambda ^c x^{c-1}e^{-\lambda x}}{\Gamma (c)}"
+                />
+                <p class="mathsymbol">
+                  <i>x</i> &gt; 0, <i>c</i> &gt; 0, &#955; &gt; 0
+                </p>
+              </td>
+
+              <td class="mathsymbol">
+                <img
+                  border="0"
+                  src="distribution/gamma_mean.GIF"
+                  width="19"
+                  height="37"
+                  alt="\frac{c}{\lambda }"
+                />
+              </td>
+              <td class="mathsymbol" width="105">
+                <img
+                  border="0"
+                  src="distribution/gamma_var.GIF"
+                  width="19"
+                  height="37"
+                  alt="\frac{c}{\lambda ^2}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Chi-square_distribution"
+                  >Chi square</a
+                >
+              </td>
+              <td width="135">
+                <p class="mathsymbol">
+                  <i>X </i>~<i> </i>&#967;<sup
+                    ><span style="font-size: 0.8em"> 2</span></sup
+                  >(<i>k</i>)
+                </p>
+              </td>
+
+              <td width="171">
+                <img
+                  border="0"
+                  src="distribution/chi_square_distribution.gif"
+                  width="103"
+                  height="56"
+                  alt="\frac{x^{k/2-1}e^{-x/2}}{2^{k/2}\Gamma (k/2)}"
+                />
+              </td>
+              <td>
+                <p class="mathsymbol"><i>k</i></p>
+              </td>
+
+              <td width="105">
+                <p class="mathsymbol">2<i>k</i></p>
+              </td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a href="https://en.wikipedia.org/wiki/Wishart_distribution">
+                  Wishart</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/F-distribution"
+                  >F</a
+                >
+              </td>
+              <td width="135">
+                <p class="mathsymbol">
+                  <i>X </i>~ <i>F </i>(<i>k</i><sub>1</sub><i>, k<sub>2</sub></i
+                  >)
+                </p>
+              </td>
+
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Beta_distribution"
+                  >Beta</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Weibull_distribution"
+                  >Weibull</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Log-normal_distribution"
+                  >Log-normal</a
+                >
+              </td>
+              <td width="135">
+                <p class="mathsymbol">
+                  <i>X </i>~ <i>LN</i>(&#956;,&#963;<sup
+                    ><span style="font-size: 0.8em">2</span></sup
+                  >)
+                </p>
+              </td>
+
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Rayleigh_distribution"
+                  >Rayleigh</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Cauchy_distribution"
+                  >Cauchy</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Dirichlet_distribution"
+                  >Dirichlet</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Laplace_distribution"
+                  >Laplace</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/L&eacute;vy_distribution"
+                  >Levy</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a href="https://en.wikipedia.org/wiki/Rice_distribution"
+                  >Rice</a
+                >
+              </td>
+              <td width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td>&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+            <tr>
+              <td width="83">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Student's_t-distribution"
+                  >Student's t</a
+                >
+              </td>
+              <td class="mathsymbol" width="135">&nbsp;</td>
+              <td width="171">&nbsp;</td>
+              <td class="mathsymbol">&nbsp;</td>
+              <td width="105">&nbsp;</td>
+            </tr>
+          </table>
+          <h3><a name="disc"></a>Discrete distributions table</h3>
+          <p>
+            Discrete distribution is the distribution of a discrete random
+            variable.
+          </p>
+          <h4>Discrete distribution example</h4>
+          <p>...</p>
+          <h4>Discrete distributions table</h4>
+          <table
+            border="1"
+            width="750"
+            style="border-collapse: collapse"
+            bordercolor="#C0C0C0"
+          >
+            <tr>
+              <th width="102">Distribution name</th>
+              <th width="114">Distribution symbol</th>
+              <th width="183" colspan="2">Probability mass function (pmf)</th>
+              <th>Mean</th>
+              <th width="149">Variance</th>
+            </tr>
+            <tr>
+              <th width="102">&nbsp;</th>
+              <th width="114">&nbsp;</th>
+              <th width="183" colspan="2" class="mathsymbol">
+                <i>f<sub>x</sub></i
+                >(<i>k</i>) =<i> P</i>(<i>X</i>=<i>k</i>)
+                <p class="mathsymbol">
+                  <i><span style="font-size: 0.8em">k</span></i
+                  ><span style="font-size: 0.8em"> = 0,1,2,...</span>
+                </p>
+              </th>
+
+              <th class="mathsymbol"><i>E</i>(<i>x</i>)</th>
+              <th width="149" class="mathsymbol"><i>Var</i>(<i>x</i>)</th>
+            </tr>
+            <tr>
+              <td width="94">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Binomial_distribution"
+                  >Binomial</a
+                >
+              </td>
+              <td width="106">
+                <p class="mathsymbol">
+                  <i>X </i>~<i> Bin</i>(<i>n</i>,<i>p</i>)
+                </p>
+              </td>
+
+              <td width="175" colspan="2">
+                <img
+                  border="0"
+                  src="distribution/binomial_distribution.GIF"
+                  width="140"
+                  height="48"
+                  alt="\binom{n}{k}p^{k}(1-p)^{n-k}"
+                />
+              </td>
+              <td>
+                <p class="mathsymbol"><i>np</i></p>
+              </td>
+
+              <td width="141">
+                <p class="mathsymbol"><i>np</i>(1-<i>p</i>)</p>
+              </td>
+            </tr>
+            <tr>
+              <td width="94">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Poisson_distribution"
+                  >Poisson</a
+                >
+              </td>
+              <td width="106">
+                <p class="mathsymbol"><i>X </i>~<i> Poisson</i>(&#955;)</p>
+              </td>
+
+              <td width="88">
+                <img
+                  border="0"
+                  src="distribution/poisson_distribution.GIF"
+                  width="49"
+                  height="45"
+                />
+              </td>
+              <td width="87">
+                <p class="mathsymbol">&#955; &#8805; 0</p>
+              </td>
+
+              <td>
+                <p class="mathsymbol">&#955;</p>
+              </td>
+
+              <td width="141">
+                <p class="mathsymbol">&#955;</p>
+              </td>
+            </tr>
+            <tr>
+              <td width="94">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Uniform_distribution_(discrete)"
+                  >Uniform</a
+                >
+              </td>
+              <td width="106">
+                <p class="mathsymbol"><i>X </i>~<i> U</i>(<i>a,b</i>)</p>
+              </td>
+
+              <td width="175" colspan="2">
+                <img
+                  border="0"
+                  src="distribution/discrete_uniform_distribution.GIF"
+                  width="167"
+                  height="71"
+                  alt="\begin{Bmatrix}\frac{1}{b-a+1} &amp; ,a\leq k\leq b\\ &amp; \\0 &amp; ,otherwise\end{matrix}"
+                />
+              </td>
+              <td class="mathsymbol">
+                <img
+                  border="0"
+                  src="distribution/uniform_mean.GIF"
+                  width="43"
+                  height="42"
+                  alt="\frac{a+b}{2}"
+                />
+              </td>
+              <td class="mathsymbol" width="141">
+                <img
+                  border="0"
+                  src="distribution/discrete_uniform_var.GIF"
+                  width="134"
+                  height="43"
+                  alt="\frac{(b-a+1)^{2}-1}{12}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td width="94">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Geometric_distribution"
+                  >Geometric</a
+                >
+              </td>
+              <td width="106">
+                <p class="mathsymbol"><i>X </i>~<i> Geom</i>(<i>p</i>)</p>
+              </td>
+
+              <td width="175" colspan="2">
+                <img
+                  border="0"
+                  src="distribution/geometric_distribution.GIF"
+                  width="77"
+                  height="28"
+                  alt="p(1-p)^{k}"
+                />
+              </td>
+              <td>
+                <p class="mathsymbol">
+                  <img
+                    border="0"
+                    src="distribution/geometric_mean.GIF"
+                    width="44"
+                    height="46"
+                    alt="\frac{1-p}{p}"
+                  />
+                </p>
+              </td>
+
+              <td width="141">
+                <p class="mathsymbol">
+                  <img
+                    border="0"
+                    src="distribution/geometric_var.GIF"
+                    width="44"
+                    height="46"
+                    alt="\frac{1-p}{p^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="94">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Hypergeometric_distribution"
+                  >Hyper-geometric</a
+                >
+              </td>
+              <td width="106">
+                <p class="mathsymbol">
+                  <i>X </i>~<i> HG</i>(<i>N</i>,<i>K</i>,<i>n</i>)
+                </p>
+              </td>
+
+              <td width="88">
+                <img
+                  border="0"
+                  src="distribution/hypergeometric_distribution.GIF"
+                  width="86"
+                  height="57"
+                />
+              </td>
+              <td width="87">
+                <p class="mathsymbol"><i>N </i>= 0,1,2,...</p>
+                <p class="mathsymbol"><i>K </i>= 0,1,..,<i>N</i></p>
+                <p class="mathsymbol"><i>n </i>= 0,1,...,<i>N</i></p>
+              </td>
+
+              <td>
+                <img
+                  border="0"
+                  src="distribution/hypergeometric_mean.GIF"
+                  width="30"
+                  height="41"
+                  alt="\frac{nK}{N}"
+                />
+              </td>
+              <td width="141">
+                <img
+                  border="0"
+                  src="distribution/hypergeometric_var.GIF"
+                  width="174"
+                  height="48"
+                  alt="\frac{nK(N-K)(N-n)}{N^2(N-1)}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td width="94">
+                <a
+                  target="_blank"
+                  href="https://en.wikipedia.org/wiki/Bernoulli_distribution"
+                  >Bernoulli</a
+                >
+              </td>
+              <td width="106">
+                <p class="mathsymbol"><i>X </i>~ <i>Bern</i>(<i>p</i>)</p>
+              </td>
+
+              <td width="175" colspan="2">
+                <img
+                  border="0"
+                  src="distribution/bernoulli_distribution.GIF"
+                  width="181"
+                  height="71"
+                  alt="\begin{Bmatrix}(1-p) &amp; ,k=0\\ p &amp; ,k=1\\ 0 &amp; ,otherwise\end{matrix}"
+                />
+              </td>
+              <td>
+                <p class="mathsymbol"><i>p</i></p>
+              </td>
+
+              <td width="141">
+                <p class="mathsymbol"><i>p</i>(1-<i>p</i>)</p>
+              </td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="normal_distribution.html">Normal distribution</a></li>
+            <li>
+              <a href="../symbols/Statistical_Symbols.html"
+                >Statistical symbols</a
+              >
+            </li>
+            <li>
+              <a
+                target="_blank"
+                href="https://en.wikipedia.org/wiki/Probability_distributions"
+                >Distribution - Wikipedia</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>PROBABILITY &amp; STATISTICS</h5>
+        <ul>
+          <li><a href="basic_probability.html">Basic probability</a></li>
+          <li><a href="Expectation.html">Expectation</a></li>
+          <li><a href="Variance.html">Variance</a></li>
+          <li><a href="standard_deviation.html">Standard deviation</a></li>
+          <li><a href="distribution.html">Probability distribution</a></li>
+          <li><a href="normal_distribution.html">Normal distribution</a></li>
+          <li>
+            <a href="../symbols/Statistical_Symbols.html">Statistics symbols</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="distribution.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

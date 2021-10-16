@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Power Conversion - RapidTables.com</title>
+    <meta
+      name="description"
+      content="Power conversion calculator. Convert kW, mW, W, MW, GW, dBm, dBW, hp, BTU/hr."
+    />
+    <style>
+      @media all and (max-width: 576px) {
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+          padding: 5px;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 160px;
+          width: calc(100% - 140px);
+        }
+        .calc2 tr td:nth-child(3) {
+          width: 45px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo; Power conversion
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Power Conversion</h1>
+          <p>Power conversion calculator. Convert power units.</p>
+          <h3>Power unit conversion calculator</h3>
+          <p>
+            Enter the power in one of the text boxes and press the
+            <i>Convert</i> button:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="mw">Enter milliwatts:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="mw"
+                    name="mw"
+                    autofocus
+                    tabindex="1"
+                  />
+                </td>
+                <td class="mathsymbol">mW</td>
+                <td>
+                  <input
+                    onclick="Convert_mW()"
+                    type="button"
+                    value="Convert"
+                    tabindex="2"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="w">Enter watts:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="w"
+                    name="w"
+                    tabindex="3"
+                  />
+                </td>
+                <td class="mathsymbol">W</td>
+                <td>
+                  <input
+                    onclick="Convert_W()"
+                    type="button"
+                    value="Convert"
+                    tabindex="4"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="kw">Enter kilowatts:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    min="0"
+                    step="any"
+                    id="kw"
+                    name="kw"
+                    tabindex="5"
+                  />
+                </td>
+                <td class="mathsymbol">kW</td>
+                <td>
+                  <input
+                    onclick="Convert_kW()"
+                    type="button"
+                    value="Convert"
+                    tabindex="6"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="mew">Enter megawatts:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="mew"
+                    name="mew"
+                    tabindex="7"
+                  />
+                </td>
+                <td class="mathsymbol">MW</td>
+                <td>
+                  <input
+                    onclick="Convert_MW()"
+                    type="button"
+                    value="Convert"
+                    tabindex="8"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="gw">Enter gigawatts:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="gw"
+                    name="gw"
+                    tabindex="9"
+                  />
+                </td>
+                <td class="mathsymbol">GW</td>
+                <td>
+                  <input
+                    onclick="Convert_GW()"
+                    type="button"
+                    value="Convert"
+                    tabindex="10"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="dbm">Enter decibel-milliwatts:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="dbm"
+                    name="dbm"
+                    tabindex="11"
+                  />
+                </td>
+                <td class="mathsymbol">dBm</td>
+                <td>
+                  <input
+                    onclick="Convert_dBm()"
+                    type="button"
+                    value="Convert"
+                    tabindex="12"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="dbw">Enter decibel-watts:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="dbw"
+                    name="dbw"
+                    tabindex="13"
+                  />
+                </td>
+                <td class="mathsymbol">dBW</td>
+                <td>
+                  <input
+                    onclick="Convert_dBW()"
+                    type="button"
+                    value="Convert"
+                    tabindex="14"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="hpm">Enter horsepower (mechanic):</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="hpm"
+                    name="hpm"
+                    tabindex="15"
+                  />
+                </td>
+                <td class="mathsymbol">hp(I)</td>
+                <td>
+                  <input
+                    onclick="Convert_hpM()"
+                    type="button"
+                    value="Convert"
+                    tabindex="16"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="hpe">Enter horsepower (electric):</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="hpe"
+                    name="hpe"
+                    tabindex="17"
+                  />
+                </td>
+                <td class="mathsymbol">hp(E)</td>
+                <td>
+                  <input
+                    onclick="Convert_hpE()"
+                    type="button"
+                    value="Convert"
+                    tabindex="18"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="btuhr">Enter BTU/hr:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="btuhr"
+                    name="btuhr"
+                    tabindex="19"
+                  />
+                </td>
+                <td class="mathsymbol">
+                  BTU<sub><span style="font-size: 10px">IT</span></sub
+                  >/hr
+                </td>
+                <td>
+                  <input
+                    onclick="Convert_BTUhr()"
+                    type="button"
+                    value="Convert"
+                    tabindex="20"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><input type="reset" value="Reset" class="btn" /></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <h2>Power conversion</h2>
+          <ul>
+            <li><a href="bhp-to-kw.html">BHP to kW conversion</a></li>
+            <li><a href="BTU_to_kW.html">BTU/hr to kW conversion</a></li>
+            <li>
+              <a href="btu-to-ton.html"
+                >BTU/hr to refrigeration tons conversion</a
+              >
+            </li>
+            <li><a href="BTU_to_Watt.html">BTU/hr to watts conversion</a></li>
+            <li><a href="dbm-converter.html">dBm converter</a></li>
+            <li><a href="dBm_to_mW.html">dBm to mW conversion</a></li>
+            <li><a href="dBm_to_Watt.html">dBm to watts conversion</a></li>
+            <li><a href="gw-to-watt.html">GW to watts conversion</a></li>
+            <li><a href="hp-to-kw.html">hp to kW conversion</a></li>
+            <li><a href="hp-to-watt.html">hp to watts conversion</a></li>
+            <li><a href="kw-to-bhp.html">kW to BHP conversion</a></li>
+            <li><a href="kW_to_BTU.html">kW to BTU/hr conversion</a></li>
+            <li><a href="kw-to-hp.html">kW to hp conversion</a></li>
+            <li><a href="kW_to_mW.html">kW to mW conversion</a></li>
+            <li><a href="kw-to-megaw.html">kW to MW conversion</a></li>
+            <li>
+              <a href="kw-to-ton.html">kW to refrigeration tons conversion</a>
+            </li>
+            <li><a href="kW_to_Watt.html">kW to watts conversion</a></li>
+            <li><a href="mW_to_Watt.html">mW to watts conversion</a></li>
+            <li><a href="mW_to_kW.html">mW to kW conversion</a></li>
+            <li><a href="mW_to_dBm.html">mW to dBm conversion</a></li>
+            <li><a href="megaw-to-watt.html">MW to watts conversion</a></li>
+            <li><a href="megaw-to-kw.html">MW to kW conversion</a></li>
+            <li>
+              <a href="ton-to-btu.html"
+                >Refrigeration tons to BTU/hr conversion</a
+              >
+            </li>
+            <li>
+              <a href="ton-to-kw.html">Refrigeration tons to kW conversion</a>
+            </li>
+            <li><a href="Watt_to_mW.html">Watts to mW conversion</a></li>
+            <li><a href="Watt_to_kW.html">Watts to kW conversion</a></li>
+            <li><a href="watt-to-megaw.html">Watts to MW conversion</a></li>
+            <li><a href="watt-to-gw.html">Watts to GW conversion</a></li>
+            <li><a href="Watt_to_dBm.html">Watts to dBm conversion</a></li>
+            <li><a href="watt-to-hp.html">Watts to hp conversion</a></li>
+            <li><a href="Watt_to_BTU.html">Watts to BTU/hr conversion</a></li>
+          </ul>
+          <h2>Power calculations</h2>
+          <ul>
+            <li><a href="how-bhp-to-kw.html">BHP to kW calculation</a></li>
+            <li>
+              <a href="how-btu-to-watt.html">BTU/hr to watt calculation</a>
+            </li>
+            <li><a href="how-btu-to-kw.html">BTU/hr to kW calculation</a></li>
+            <li>
+              <a href="how-btu-to-ton.html"
+                >BTU/hr to refrigeration tons calculation</a
+              >
+            </li>
+            <li><a href="how-hp-to-watt.html">hp to watt calculation</a></li>
+            <li><a href="how-hp-to-kw.html">hp to kW calculation</a></li>
+            <li><a href="how-kw-to-bhp.html">kW to BHP calculation</a></li>
+            <li><a href="how-kw-to-btu.html">kW to BTU/hr calculcation</a></li>
+            <li><a href="how-kw-to-hp.html">kW to hp calculation</a></li>
+            <li>
+              <a href="how-kw-to-ton.html"
+                >kW to refrigeration tons calculation</a
+              >
+            </li>
+            <li><a href="how-kw-to-watt.html">kW to watt calculation</a></li>
+            <li><a href="how-mw-to-watt.html">mW to watt calculation</a></li>
+            <li>
+              <a href="how-ton-to-btu.html"
+                >Refrigeration tons to BTU/hr calculation</a
+              >
+            </li>
+            <li>
+              <a href="how-ton-to-kw.html"
+                >Refrigeration tons to kW calculation</a
+              >
+            </li>
+            <li><a href="how-watt-to-mw.html">Watt to mW calculation</a></li>
+            <li><a href="how-watt-to-kw.html">Watt to kW calculation</a></li>
+            <li><a href="how-watt-to-hp.html">Watt to hp calculation</a></li>
+            <li>
+              <a href="how-watt-to-btu.html">Watt to BTU/hr calculation</a>
+            </li>
+            <li>
+              <a href="../electric/va-to-watt.html">VA to watts calculation</a>
+            </li>
+            <li>
+              <a href="../electric/va-to-kw.html">VA to kW calculation</a>
+            </li>
+            <li>
+              <a href="../electric/va-to-kva.html">VA to kVA calculation</a>
+            </li>
+            <li>
+              <a href="../electric/kVA_to_Amp.html">kVA to amps calculation</a>
+            </li>
+            <li>
+              <a href="../electric/kva-to-watt.html"
+                >kVA to watts calculation</a
+              >
+            </li>
+            <li>
+              <a href="../electric/kva-to-kw.html">kVA to kW calculation</a>
+            </li>
+            <li>
+              <a href="../electric/kva-to-va.html">kVA to VA calculation</a>
+            </li>
+          </ul>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../energy/index.html">Energy conversion</a></li>
+            <li><a href="../voltage/index.html">Voltage conversion</a></li>
+            <li><a href="../frequency/index.html">Frequency conversion</a></li>
+            <li><a href="../charge/index.html">Charge conversion</a></li>
+            <li>
+              <a href="../../calc/electric/index.html"
+                >Electrical calculators</a
+              >
+            </li>
+            <li>
+              <a href="../electric/index.html">Electrical calculations</a>
+            </li>
+            <li><a href="../../electric/watt.html">Watt</a></li>
+            <li><a href="../../electric/dBm.html">dBm</a></li>
+            <li>
+              <a href="../../electric/electric_power.html">Electric power</a>
+            </li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script>
+            function setfocus() {
+              document.calcform.mw.focus();
+            }
+            function Round(x, res) {
+              //check 33 GW
+              y = parseFloat(x);
+              res = Math.pow(10, res);
+              y = Math.round(y * res) / res;
+              //y = roundnum(x,p)
+              return y;
+            }
+            function Convert_mW() {
+              mw = document.calcform.mw.value;
+              if (mw == "") return;
+              mw = parseFloat(mw);
+              document.calcform.w.value = Round(mw / 1e3, 12);
+              document.calcform.kw.value = Round(mw / 1e6, 12);
+              document.calcform.mew.value = Round(mw / 1e9, 12);
+              document.calcform.gw.value = Round(mw / 1e12, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(mw) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(mw) * Math.LOG10E - 30,
+                12
+              );
+              document.calcform.hpm.value = Round((mw * 1e-3) / 745.699872, 12);
+              document.calcform.hpe.value = Round((mw * 1e-3) / 746, 12);
+              document.calcform.btuhr.value = Round(
+                (mw * 1e-3) / 0.29307107,
+                12
+              );
+            }
+            function Convert_W() {
+              w = document.calcform.w.value;
+              if (w == "") return;
+              w = parseFloat(w);
+              document.calcform.mw.value = Round(w * 1e3, 12);
+              document.calcform.kw.value = Round(w / 1e3, 12);
+              document.calcform.mew.value = Round(w / 1e6, 12);
+              document.calcform.gw.value = Round(w / 1e9, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(w * 1000) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(w) * Math.LOG10E,
+                12
+              );
+              document.calcform.hpm.value = Round(w / 745.699872, 12);
+              document.calcform.hpe.value = Round(w / 746, 12);
+              document.calcform.btuhr.value = Round(w / 0.29307107, 12);
+            }
+            function Convert_kW() {
+              kw = document.calcform.kw.value;
+              if (kw == "") return;
+              kw = parseFloat(kw);
+              document.calcform.mw.value = Round(kw * 1e6, 12);
+              document.calcform.w.value = Round(kw * 1e3, 12);
+              document.calcform.mew.value = Round(kw / 1e3, 12);
+              document.calcform.gw.value = Round(kw / 1e6, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(kw * 1e6) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(kw * 1e3) * Math.LOG10E,
+                12
+              );
+              document.calcform.hpm.value = Round((kw * 1e3) / 745.699872, 12);
+              document.calcform.hpe.value = Round((kw * 1e3) / 746, 12);
+              document.calcform.btuhr.value = Round(
+                (kw * 1e3) / 0.29307107,
+                12
+              );
+            }
+            function Convert_MW() {
+              mw = document.calcform.mew.value;
+              if (mw == "") return;
+              mw = parseFloat(mw);
+              document.calcform.mw.value = Round(mw * 1e9, 12);
+              document.calcform.w.value = Round(mw * 1e6, 12);
+              document.calcform.kw.value = Round(mw * 1e3, 12);
+              document.calcform.gw.value = Round(mw / 1e3, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(mw * 1e9) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(mw * 1e6) * Math.LOG10E,
+                12
+              );
+              document.calcform.hpm.value = Round((mw * 1e6) / 745.699872, 12);
+              document.calcform.hpe.value = Round((mw * 1e6) / 746, 12);
+              document.calcform.btuhr.value = Round(
+                (mw * 1e6) / 0.29307107,
+                12
+              );
+            }
+            function Convert_GW() {
+              gw = document.calcform.gw.value;
+              if (gw == "") return;
+              gw = parseFloat(gw);
+              document.calcform.mw.value = Round(gw * 1e12, 12);
+              document.calcform.w.value = Round(gw * 1e9, 12);
+              document.calcform.kw.value = Round(gw * 1e6, 12);
+              document.calcform.mew.value = Round(gw * 1e3, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(gw * 1e12) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(gw * 1e9) * Math.LOG10E,
+                12
+              );
+              document.calcform.hpm.value = Round((gw * 1e9) / 745.699872, 12);
+              document.calcform.hpe.value = Round((gw * 1e9) / 746, 12);
+              document.calcform.btuhr.value = Round(
+                (gw * 1e9) / 0.29307107,
+                12
+              );
+            }
+            function Convert_dBm() {
+              dbm = document.calcform.dbm.value;
+              if (dbm == "") return;
+              dbm = parseFloat(dbm);
+              mw = Math.pow(10, dbm / 10);
+              document.calcform.mw.value = Round(mw, 12);
+              document.calcform.w.value = Round(mw / 1e3, 12);
+              document.calcform.kw.value = Round(mw / 1e6, 12);
+              document.calcform.mew.value = Round(mw / 1e9, 12);
+              document.calcform.gw.value = Round(mw / 1e12, 12);
+              document.calcform.dbw.value = Round(dbm - 30, 12);
+              document.calcform.hpm.value = Round((mw * 1e-3) / 745.699872, 12);
+              document.calcform.hpe.value = Round((mw * 1e-3) / 746, 12);
+              document.calcform.btuhr.value = Round(
+                (mw * 1e-3) / 0.29307107,
+                12
+              );
+            }
+            function Convert_dBW() {
+              dbw = document.calcform.dbw.value;
+              if (dbw == "") return;
+              dbw = parseFloat(dbw);
+              w = Math.pow(10, dbw / 10);
+              document.calcform.mw.value = Round(w * 1e3, 12);
+              document.calcform.w.value = Round(w, 12);
+              document.calcform.kw.value = Round(w / 1e3, 12);
+              document.calcform.mew.value = Round(w / 1e6, 12);
+              document.calcform.gw.value = Round(w / 1e9, 12);
+              document.calcform.dbm.value = Round(dbw + 30, 12);
+              document.calcform.hpm.value = Round(w / 745.699872, 12);
+              document.calcform.hpe.value = Round(w / 746, 12);
+              document.calcform.btuhr.value = Round(w / 0.29307107, 12);
+            }
+            function Convert_hpM() {
+              hpm = document.calcform.hpm.value;
+              if (hpm == "") return;
+              w = hpm * 745.699872;
+              w = parseFloat(w);
+              document.calcform.mw.value = Round(w * 1e3, 12);
+              document.calcform.w.value = Round(w, 12);
+              document.calcform.kw.value = Round(w / 1e3, 12);
+              document.calcform.mew.value = Round(w / 1e6, 12);
+              document.calcform.gw.value = Round(w / 1e9, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(w * 1000) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(w) * Math.LOG10E,
+                12
+              );
+              document.calcform.hpe.value = Round(w / 746, 12);
+              document.calcform.btuhr.value = Round(w / 0.29307107, 12);
+            }
+            function Convert_hpE() {
+              hpe = document.calcform.hpe.value;
+              if (hpe == "") return;
+              w = hpe * 746;
+              w = parseFloat(w);
+              document.calcform.mw.value = Round(w * 1e3, 12);
+              document.calcform.w.value = Round(w, 12);
+              document.calcform.kw.value = Round(w / 1e3, 12);
+              document.calcform.mew.value = Round(w / 1e6, 12);
+              document.calcform.gw.value = Round(w / 1e9, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(w * 1000) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(w) * Math.LOG10E,
+                12
+              );
+              document.calcform.hpm.value = Round(w / 745.699872, 12);
+              document.calcform.btuhr.value = Round(w / 0.29307107, 12);
+            }
+            function Convert_BTUhr() {
+              btuhr = document.calcform.btuhr.value;
+              if (btuhr == "") return;
+              w = btuhr * 0.29307107;
+              w = parseFloat(w);
+              document.calcform.mw.value = Round(w * 1e3, 12);
+              document.calcform.w.value = Round(w, 12);
+              document.calcform.kw.value = Round(w / 1e3, 12);
+              document.calcform.mew.value = Round(w / 1e6, 12);
+              document.calcform.gw.value = Round(w / 1e9, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(w * 1000) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(w) * Math.LOG10E,
+                12
+              );
+              document.calcform.hpm.value = Round(w / 745.699872, 12);
+              document.calcform.hpe.value = Round(w / 746, 12);
+            }
+            //-->
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CONVERSION</h5>
+        <ul>
+          <li><a href="../color/index.html">Color conversion</a></li>
+          <li><a href="../charge/index.html">Electric charge conversion</a></li>
+          <li><a href="../energy/index.html">Energy conversion</a></li>
+          <li><a href="../frequency/index.html">Frequency conversion</a></li>
+          <li><a href="../image/index.html">Image conversion</a></li>
+          <li><a href="../length/index.html">Length conversion</a></li>
+          <li><a href="../number/index.html">Number conversion</a></li>
+          <li><a href="index.html">Power conversion</a></li>
+          <li>
+            <a href="../temperature/index.html">Temperature conversion</a>
+          </li>
+          <li><a href="../voltage/index.html">Voltage conversion</a></li>
+          <li><a href="../electric/index.html">Electrical calculation</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="index.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

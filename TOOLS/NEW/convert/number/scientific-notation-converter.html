@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Scientific Notation Converter</title>
+    <meta
+      content="Scientific notation conversion calculator: decimal notation, E notation, engineering notation."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1,
+      h2 {
+        font-size: 1.6rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      #calcform {
+        padding: 20px;
+        background: #eee8d5;
+        max-width: 500px;
+      }
+      #calcform .input-group input[type="text"]:nth-child(4) {
+        margin-top: 20px;
+      }
+      #calcform .input-group input[type="text"]:nth-child(5) {
+        margin-top: 20px;
+      }
+      #calcform .input-group span {
+        margin-top: 25px;
+      }
+      #calcform div:nth-child(1) .input-group input[type="text"]:nth-child(1) {
+        margin-top: 20px;
+      }
+      #calcform div:nth-child(4) .input-group input[type="text"]:nth-child(1) {
+        margin-top: 20px;
+      }
+      #calcform div:nth-child(5) .input-group input[type="text"]:nth-child(1) {
+        margin-top: 20px;
+      }
+      #calcform div:nth-child(1) .input-group .btn {
+        margin-top: 25px;
+      }
+      #calcform div:nth-child(4) .input-group input[type="text"]:nth-child(1) {
+        max-width: 173px;
+      }
+      #calcform div:nth-child(4) .input-group input[type="text"]:nth-child(3) {
+        max-width: 171px;
+      }
+      #calcform div:nth-child(5) .input-group .btn {
+        margin-top: 25px;
+      }
+      #calcform select {
+        font-weight: bold;
+      }
+      #calcform .btn span {
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; Scientific
+        notation converter
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Scientific Notation Converter</h1>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a
+                href="../../calc/math/scientific-notation-calculator.html"
+                class="nav-link"
+                >Scientific notation calculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="scientific-notation-converter.html"
+                class="nav-link active"
+                >Scientific notation converter</a
+              >
+            </li>
+          </ul>
+          <br />
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-group">
+              <label for="sci">Scientific notation</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="sci"
+                  name="sci"
+                  class="form-control"
+                  autofocus
+                />
+                <span class="math">&times;10&nbsp;</span>
+                <input type="text" id="sci2" class="form-control" name="sci2" />
+
+                <input
+                  type="submit"
+                  value="Convert"
+                  class="btn btn-secondary ml-1"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="dec">Decimal notation</label>
+              <div class="input-group">
+                <input type="text" id="dec" name="dec" class="form-control" />
+
+                <input
+                  type="submit"
+                  value="Convert"
+                  class="btn btn-secondary ml-1"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="e">E notation</label>
+              <div class="input-group">
+                <input type="text" id="e" name="e" class="form-control" />
+
+                <input
+                  type="submit"
+                  value="Convert"
+                  class="btn btn-secondary ml-1"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="norm">Normalized notation</label>
+              <div class="input-group">
+                <input type="text" id="norm" class="form-control" readonly />
+                <span class="math">&times;10&nbsp;</span>
+                <input type="text" id="norm2" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="eng">Engineering notation</label>
+              <div class="input-group">
+                <input type="text" id="eng" class="form-control" readonly />
+                <span class="math">&times;10&nbsp;</span>
+                <input type="text" id="eng2" class="form-control" readonly />
+                <input
+                  type="button"
+                  value="&lsaquo;"
+                  class="btn btn-secondary ml-1"
+                  onclick="Convert_Eng(0)"
+                />
+                <input
+                  type="button"
+                  value="&rsaquo;"
+                  class="btn btn-secondary"
+                  onclick="Convert_Eng(1)"
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <button type="reset" class="btn btn-secondary">
+                <span>&times;</span> Reset
+              </button>
+            </div>
+          </form>
+          <p>
+            <a href="../../calc/math/scientific-notation-calculator.html"
+              >Scientific notation calculator &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="../../calc/math/scientific-notation-calculator.html"
+                >Scientific notation calculator</a
+              >
+            </li>
+            <li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+            <li>
+              <a href="roman-numerals-converter.html"
+                >Roman numerals converter</a
+              >
+            </li>
+            <li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+            <li>
+              <a href="Fraction_to_Decimal.html"
+                >Fraction to decimal converter</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/Percentage_Calculator.html"
+                >Percentage calculator</a
+              >
+            </li>
+            <li><a href="../../math/number/PPM.html">ppm</a></li>
+            <li><a href="../index.html">Conversion</a></li>
+            <li><a href="../../calc/math/index.html">Math calculators</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li>
+            <a href="ascii-hex-bin-dec-converter.html"
+              >ASCII,Hex,Binary,Decimal converter</a
+            >
+          </li>
+          <li>
+            <a href="ascii-to-binary.html">ASCII text to binary converter</a>
+          </li>
+          <li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-converter.html">Binary converter</a></li>
+          <li>
+            <a href="binary-to-ascii.html">Binary to ASCII text converter</a>
+          </li>
+          <li>
+            <a href="binary-to-decimal.html">Binary to decimal converter</a>
+          </li>
+          <li><a href="binary-to-hex.html">Binary to hex converter</a></li>
+          <li>
+            <a href="date-to-roman-numerals.html"
+              >Date to roman numerals converter</a
+            >
+          </li>
+          <li>
+            <a href="Decimal_to_Fraction.html">Decimal to fraction converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-percent.html">Decimal to percent converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-binary.html">Decimal to binary converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-octal.html">Decimal to octal converter</a>
+          </li>
+          <li><a href="decimal-to-hex.html">Decimal to hex converter</a></li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html"
+              >Degrees to deg,min,sec converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Deg,min,sec to degrees converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-to-radians.html">Degrees to radians converter</a>
+          </li>
+          <li>
+            <a href="Fraction_to_Decimal.html">Fraction to decimal converter</a>
+          </li>
+          <li>
+            <a href="fraction-to-percent.html">Fraction to percent converter</a>
+          </li>
+          <li>
+            <a href="hex-dec-bin-converter.html"
+              >Hex/decimal/octal/binary converter</a
+            >
+          </li>
+          <li><a href="hex-to-ascii.html">Hex to ASCII text converter</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary converter</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal converter</a></li>
+          <li>
+            <a href="octal-to-decimal.html">Octal to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-decimal.html">Percent to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-fraction.html">Percent to fraction converter</a>
+          </li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm converter</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb converter</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt converter</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm converter</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm converter</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li>
+            <a href="radians-to-degrees.html">Radians to degrees converter</a>
+          </li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html"
+              >Scientific notation converter</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../convert.js"></script>
+    <script>
+      var sci_input,
+        sci2_input,
+        dec_input,
+        e_input,
+        norm_input,
+        norm2_input,
+        eng_input,
+        eng2_input;
+      window.onload = function () {
+        sci_input = document.getElementById("sci");
+        sci2_input = document.getElementById("sci2");
+        dec_input = document.getElementById("dec");
+        e_input = document.getElementById("e");
+        norm_input = document.getElementById("norm");
+        norm2_input = document.getElementById("norm2");
+        eng_input = document.getElementById("eng");
+        eng2_input = document.getElementById("eng2");
+        //sci_input.onkeypress = function(e) { if( e.keyCode==13 ) Convert_Sci(); };
+        //sci2_input.onkeypress = function(e) { if( e.keyCode==13 ) Convert_Sci(); };
+        //dec_input.onkeypress = function(e) { if( e.keyCode==13 ) Convert_Dec(); };
+        //e_input.onkeypress = function(e) { if( e.keyCode==13 ) Convert_E(); };
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0) {
+          if (params.sci != "" && params.sci2 != "") {
+            //params.sci=params.sci.replace("%2B","+");
+            //params.sci=params.sci.replace("%2D","-");
+            //params.sci2=params.sci2.replace("%2B","+");
+            //params.sci2=params.sci2.replace("%2D","-");
+            params.sci = decodeURIComponent(params.sci);
+            params.sci2 = decodeURIComponent(params.sci2);
+            sci_input.value = params.sci;
+            sci2_input.value = params.sci2;
+            Convert_Sci();
+          } else if (params.dec != "") {
+            //params.dec=params.dec.replace("%2B","+");
+            //params.dec=params.dec.replace("%2D","-");
+            params.dec = decodeURIComponent(params.dec);
+            dec_input.value = params.dec;
+            Convert_Dec();
+          } else if (params.e != "") {
+            //params.e=params.e.replace("%2B","+");
+            //params.e=params.e.replace("%2D","-");
+            params.e = decodeURIComponent(params.e);
+            e.value = params.e;
+            Convert_E();
+          }
+        }
+        sci_input.addEventListener("change", function () {
+          clear("011");
+        });
+        sci2_input.addEventListener("change", function () {
+          clear("011");
+        });
+        dec_input.addEventListener("change", function () {
+          clear("101");
+        });
+        e_input.addEventListener("change", function () {
+          clear("110");
+        });
+      };
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function clear(s) {
+        if (s.charAt(0) == "1") {
+          sci_input.value = "";
+          sci2_input.value = "";
+        }
+        if (s.charAt(1) == "1") {
+          dec_input.value = "";
+        }
+        if (s.charAt(2) == "1") {
+          e_input.value = "";
+        }
+      }
+      function Convert_Sci() {
+        var a = str2num(sci_input.value);
+        var b = str2num(sci2_input.value);
+        b = parseInt(b);
+        var dec = a * Math.pow(10, b);
+        dec = roundnum(dec, 10);
+        var sign = "";
+        if (b >= 0) sign = "+";
+        e = a + "e" + sign + b;
+        f = a == 0 ? 0 : Math.floor(Math.log(Math.abs(a)) * Math.LOG10E);
+        norm = a / Math.pow(10, f);
+        norm = roundnum(norm, 10);
+        norm2 = parseInt(b) + f;
+        mod = norm2 % 3;
+        eng = norm * Math.pow(10, mod);
+        eng = roundnum(eng, 10);
+        eng2 = norm2 - mod;
+        if (Math.abs(eng) < 1 && eng != 0) {
+          eng *= 1000;
+          eng2 -= 3;
+        }
+        eng = roundnum(eng, 10);
+        dec = parseFloat(dec)
+          .toFixed(20)
+          .replace(/\.?0+$/, "");
+        dec_input.value = roundresult(dec);
+        e_input.value = e;
+        norm_input.value = norm;
+        norm2_input.value = norm2;
+        eng_input.value = eng;
+        eng2_input.value = eng2;
+      }
+      function Convert_Dec() {
+        var dec = str2num(document.getElementById("dec").value);
+        //dec = parseFloat(dec);
+        var e = dec.toExponential();
+        var a = e;
+        b = 0;
+        var i = e.indexOf("e");
+        if (i != -1) {
+          a = e.substring(0, i);
+          b = e.substring(i + 1, e.length);
+        }
+        b = parseInt(b);
+        f = a == 0 ? 0 : Math.floor(Math.log(Math.abs(a)) * Math.LOG10E);
+        norm = a / Math.pow(10, f);
+        norm = roundnum(norm, 10);
+        norm2 = parseInt(b) + f;
+        mod = norm2 % 3;
+        eng = norm * Math.pow(10, mod);
+        eng = roundnum(eng, 10);
+        eng2 = norm2 - mod;
+        if (Math.abs(eng) < 1 && eng != 0) {
+          eng *= 1000;
+          eng2 -= 3;
+        }
+        eng = roundnum(eng, 10);
+
+        sci_input.value = a;
+        sci2_input.value = b;
+        e_input.value = e;
+        norm_input.value = norm;
+        norm2_input.value = norm2;
+        eng_input.value = eng;
+        eng2_input.value = eng2;
+      }
+      function Convert_E() {
+        var e = document.getElementById("e").value;
+        var a = e;
+        b = 0;
+        var i = e.indexOf("e");
+        if (i != -1) {
+          a = e.substring(0, i);
+          b = e.substring(i + 1, e.length);
+        }
+        b = parseInt(b);
+        dec = a * Math.pow(10, b);
+        dec = roundnum(dec, 10);
+        f = a == 0 ? 0 : Math.floor(Math.log(Math.abs(a)) * Math.LOG10E);
+        norm = a / Math.pow(10, f);
+        norm = roundnum(norm, 10);
+        norm2 = parseInt(b) + f;
+        mod = norm2 % 3;
+        eng = norm * Math.pow(10, mod);
+        eng = roundnum(eng, 10);
+        eng2 = norm2 - mod;
+        if (Math.abs(eng) < 1 && eng != 0) {
+          eng *= 1000;
+          eng2 -= 3;
+        }
+        eng = roundnum(eng, 10);
+        dec = parseFloat(dec)
+          .toFixed(20)
+          .replace(/\.?0+$/, "");
+
+        sci_input.value = a;
+        sci2_input.value = b;
+        dec_input.value = roundresult(dec);
+        norm_input.value = norm;
+        norm2_input.value = norm2;
+        eng_input.value = eng;
+        eng2_input.value = eng2;
+      }
+      function Convert_Eng(e) {
+        var a = document.getElementById("eng").value;
+        var b = document.getElementById("eng2").value;
+        a = parseFloat(a);
+        b = parseInt(b);
+
+        if (e == 0) {
+          a *= 1000;
+          b -= 3;
+        } else {
+          a /= 1000;
+          b += 3;
+        }
+
+        eng_input.value = a;
+        eng2_input.value = b;
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Base converter | number conversion</title>
+    <meta
+      name="description"
+      content="Base conversion calculator with steps: binary,decimal,octal,hex conversion."
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #wrapper td {
+        padding: 0.75rem;
+      }
+      #calcform {
+        max-width: 500px;
+        padding: 20px;
+        background: #f0eedc;
+        border: 1px solid #e0e0e0;
+        border-radius: 7px;
+      }
+      #calcform button img {
+        filter: invert(100%);
+      }
+      #cal2tbl th {
+        font-weight: normal;
+      }
+      #cal2tbl td {
+        line-height: 1;
+      }
+      #cal2tbl th p {
+        word-break: break-all;
+      }
+      #cal2tbl p {
+        line-height: 1;
+      }
+      #cal2tbl tbody tr td:nth-child(3) {
+        background: #f8f8f8;
+        border: dashed 1px #333;
+      }
+      /*#cal { background:#e9ecef; padding:.375rem .75rem; font-size:1rem; color:#495057; border:1px solid #ced4da; }*/
+      #cal {
+        background: #e9ecef;
+        height: auto;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; Base
+        converter
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Base Converter</h1>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="../../calc/math/base-calculator.html"
+                >Base calculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="base-converter.html#calcform"
+                >Base converter</a
+              >
+            </li>
+          </ul>
+          <br />
+          <p>Convert number from any base to any base:</p>
+          <form id="calcform" autocomplete="off">
+            <div class="form-group">
+              <label for="x">Enter number</label>
+              <input
+                type="text"
+                id="x"
+                name="x"
+                class="form-control form-control-lg"
+                required
+                autofocus
+              />
+            </div>
+            <div class="form-group">
+              <label for="sel1">From Base</label>
+              <select name="sel1" id="sel1" class="form-control">
+                <option value="2">2 (binary)</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option value="8">8 (octal)</option>
+                <option>9</option>
+                <option value="10" selected>10 (decimal)</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option value="16">16 (hex)</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="sel2">To base</label>
+              <select name="sel2" id="sel2" class="form-control">
+                <option value="2">2 (binary)</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option value="8">8 (octal)</option>
+                <option>9</option>
+                <option value="10">10 (decimal)</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option value="16" selected>16 (hex)</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+                <option>32</option>
+                <option>33</option>
+                <option>34</option>
+                <option>35</option>
+                <option>36</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Convert"
+                class="btn btn-secondary"
+                onclick="onconvert()"
+              >
+                <span>=</span> Convert
+              </button>
+
+              <button
+                type="reset"
+                title="Reset"
+                class="btn btn-secondary"
+                onclick="onrst()"
+              >
+                <span>&times;</span> Reset
+              </button>
+              <button
+                type="button"
+                title="Swap conversion"
+                class="btn btn-secondary"
+                onclick="swap()"
+              >
+                <img
+                  src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                  alt=""
+                />
+                Swap
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="y">Result number</label>
+              <textarea
+                rows="2"
+                id="y"
+                class="form-control form-control-lg"
+                readonly
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <input
+                type="button"
+                value="Copy"
+                onclick="copy()"
+                class="btn btn-secondary"
+              />
+            </div>
+            <div class="form-group"></div>
+            <div id="calgroup" class="form-group">
+              <label>Calculation</label>
+              <div id="cal" class="form-control">
+                <div id="cal1">
+                  <p>Base <span id="b1txt"></span> to decimal calculation:</p>
+                  <p id="cal1txt"></p>
+                </div>
+                <div id="cal2">
+                  <p>Decimal to base <span id="b2txt"></span> calculation:</p>
+                  <p id="cal2dec"></p>
+                  <p>
+                    Divide by the base to get the digits from the remainders:
+                  </p>
+                  <table id="cal2tbl" class="table">
+                    <thead>
+                      <tr>
+                        <th>Division</th>
+                        <th>Quotient</th>
+                        <th>
+                          <p>Remainder</p>
+                          (Digit)
+                        </th>
+                        <th>Digit #</th>
+                      </tr>
+                    </thead>
+                    <tbody></tbody>
+                  </table>
+                  <p id="cal2result"></p>
+                </div>
+              </div>
+            </div>
+          </form>
+          <p>
+            <a href="../../calc/math/base-calculator.html"
+              >Base calculator &#9658;</a
+            >
+          </p>
+          <h2>How to convert from any base to any base</h2>
+          <ol>
+            <li>
+              Convert from source base to decimal (base 10 ) by multiplying each
+              digit with the base raised to the power of the digit number
+              (starting from right digit number 0): <br /><br /><span
+                class="mathsymbol"
+                >decimal = &sum;(digit&times;base<sup>digit number</sup>)</span
+              >
+            </li>
+            <li>
+              Convert from decimal to destination base: divide the decimal with
+              the base until the quotient is 0 and calculate the remainder each
+              time. The destination base digits are the calculated remainders.
+            </li>
+          </ol>
+          <p>
+            <a href="../../calc/math/base-calculator.html"
+              >Base calculator &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="../../calc/math/base-calculator.html">Base calculator</a>
+            </li>
+            <li>
+              <a href="../../calc/math/binary-calculator.html"
+                >Binary/Hex calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../math/number/Numeral_system.html"
+                >Numeral systems</a
+              >
+            </li>
+            <li>
+              <a href="hex-dec-bin-converter.html"
+                >Hex/decimal/octal/binary bits converter</a
+              >
+            </li>
+            <li><a href="binary-to-hex.html">Binary to Hex converter</a></li>
+            <li><a href="hex-to-decimal.html">Hex to Decimal converter</a></li>
+            <li><a href="index.html">Number conversion</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li>
+            <a href="ascii-to-binary.html">ASCII text to binary converter</a>
+          </li>
+          <li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-converter.html">Binary converter</a></li>
+          <li>
+            <a href="binary-to-ascii.html">Binary to ASCII text converter</a>
+          </li>
+          <li>
+            <a href="binary-to-decimal.html">Binary to decimal converter</a>
+          </li>
+          <li><a href="binary-to-hex.html">Binary to hex converter</a></li>
+          <li>
+            <a href="date-to-roman-numerals.html"
+              >Date to roman numerals converter</a
+            >
+          </li>
+          <li>
+            <a href="Decimal_to_Fraction.html">Decimal to fraction converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-percent.html">Decimal to percent converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-binary.html">Decimal to binary converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-octal.html">Decimal to octal converter</a>
+          </li>
+          <li><a href="decimal-to-hex.html">Decimal to hex converter</a></li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html"
+              >Degrees to deg,min,sec converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Deg,min, sec to degrees converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-to-radians.html">Degrees to radians converter</a>
+          </li>
+          <li>
+            <a href="Fraction_to_Decimal.html">Fraction to decimal converter</a>
+          </li>
+          <li>
+            <a href="fraction-to-percent.html">Fraction to percent converter</a>
+          </li>
+          <li>
+            <a href="hex-dec-bin-converter.html"
+              >Hex/decimal/octal/binary converter</a
+            >
+          </li>
+          <li><a href="hex-to-ascii.html">Hex to ASCII text converter</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary conversion</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal conversion</a></li>
+          <li>
+            <a href="octal-to-decimal.html">Octal to decimal conversion</a>
+          </li>
+          <li>
+            <a href="percent-to-decimal.html">Percent to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-fraction.html"
+              >Percent to fraction conversion</a
+            >
+          </li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm conversion</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent conversion</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb conversion</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt conversion</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm conversion</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm conversion</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li>
+            <a href="radians-to-degrees.html">Radians to degrees converter</a>
+          </li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html"
+              >Scientific notation converter</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="base-converter.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../../lib/bignumber/bignumber.min.js"></script>
+    <script>
+      var xelem = document.getElementById("x");
+      var sel1elem = document.getElementById("sel1");
+      var sel2elem = document.getElementById("sel2");
+      var yelem = document.getElementById("y");
+      var calgroup = document.getElementById("calgroup");
+      var cal1elem = document.getElementById("cal1");
+      var cal2elem = document.getElementById("cal2");
+      window.addEventListener("DOMContentLoaded", function () {
+        calgroup.style.display = "none";
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0 && params.x != "") {
+          xelem.value = params.x;
+          sel1elem.selectedIndex = params.sel1 - 2;
+          sel2elem.selectedIndex = params.sel2 - 2;
+          onconvert();
+        }
+      });
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function copy() {
+        yelem.select();
+        document.execCommand("copy");
+      }
+
+      function swap() {
+        var i1 = sel1elem.selectedIndex;
+        var i2 = sel2elem.selectedIndex;
+        sel1elem.selectedIndex = i2;
+        sel2elem.selectedIndex = i1;
+        xelem.value = yelem.value;
+        yelem.value = "";
+      }
+      function base2decimal(x, dec, b) {
+        var txt = "(" + x + ")<sub>" + b.toString() + "</sub> = ";
+        var d,
+          e,
+          minus = false;
+        var len = x.length;
+        if (x[0] == "-") {
+          txt += "-[";
+          x = x.substr(1);
+          len--;
+          minus = true;
+        }
+        var idot = x.indexOf(".");
+        if (idot >= 0) {
+          x = x.substring(0, idot) + x.substring(idot + 1, len);
+          len--;
+        } else idot = len;
+        for (var i = 0; i < len; i++) {
+          d = parseInt(x[i], b);
+          e = idot - i - 1;
+          e = e.toString();
+          txt += "(" + d + " \u00D7 " + b + "<sup>" + e + "</sup>)";
+          if (i < len - 1) txt += " + ";
+        }
+        if (minus) txt += "]";
+        txt += " = (" + dec + ")<sub>10</sub>";
+        document.getElementById("cal1txt").innerHTML = txt;
+      }
+      function digits_after_period(x) {
+        f = x.toString();
+        i = f.indexOf(".");
+        len = f.length - i - 1;
+        return len;
+      }
+      function decimal2base(dec, y, b) {
+        var row;
+        //$("#cal2tbl tbody tr").remove();
+        document
+          .getElementById("cal2tbl")
+          .getElementsByTagName("tbody")[0].innerHTML = "";
+        if (dec < 0) dec = -dec;
+        dec = dec.toString();
+        var nd = dec.indexOf(".");
+        if (nd >= 0) {
+          var txt =
+            "   Multiply the number with the base raised to the power of decimals in result:<br>";
+          txt += dec + "&times;" + b + "<sup>5</sup> = ";
+          dec = dec * Math.pow(b, 5);
+          txt += dec;
+          document.getElementById("cal2dec").innerHTML = txt;
+        }
+        for (var n = dec, k = 0; n >= 1; k++) {
+          row = "<tr>";
+          row += "<td>" + n + "/" + b + "</td>";
+          row += "<td>" + Math.floor(n / b) + "</td>";
+          row += "<td>" + (n % b).toFixed() + "</td>";
+          row += "<td>" + k + "</td>";
+          row += "</tr>";
+          n = Math.floor(n / b);
+          //$("#cal2tbl tbody").append(row);
+          var tableRef = document
+            .getElementById("cal2tbl")
+            .getElementsByTagName("tbody")[0];
+          var newRow = tableRef.insertRow(k);
+          newRow.innerHTML = row;
+        }
+        document.getElementById("cal2result").innerHTML =
+          "= (" + y + ")<sub>" + b + "</sub>";
+      }
+      function onconvert() {
+        var x = xelem.value;
+        var b1 = sel1elem.selectedIndex + 2;
+        var b2 = sel2elem.selectedIndex + 2;
+        try {
+          var y = new BigNumber(x, b1);
+          //$("#x").css("background-color", "white");
+          xelem.style.background = "white";
+        } catch (err) {
+          xelem.style.background = "#fff0f0";
+          yelem.value = "";
+          return;
+        }
+        var dec = y.toString(10);
+        y = y.toString(b2).toUpperCase();
+        yelem.value = y;
+        document.getElementById("b1txt").innerHTML = b1;
+        document.getElementById("b2txt").innerHTML = b2;
+        base2decimal(x, dec, b1);
+        decimal2base(dec, y, b2);
+        if (b1 == 10) cal1elem.style.display = "none";
+        else cal1elem.style.display = "block";
+        if (b2 == 10) cal2elem.style.display = "none";
+        else cal2elem.style.display = "block";
+        calgroup.style.display = "block";
+      }
+      function onrst() {
+        calgroup.style.display = "none";
+      }
+    </script>
+  </body>
+</html>

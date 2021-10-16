@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng5.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <title>Decimal to Binary Converter</title>
+    <meta
+      name="description"
+      content="Decimal to binary conversion calculator and how to convert."
+    />
+    <link rel="canonical" href="decimal-to-binary.html" />
+    <style>
+      #div-gpt-ad-1631993686440-0 {
+        display: none;
+      }
+      #div-gpt-ad-1631210698489-0,
+      #div-gpt-ad-1631993686440-0 {
+        min-width: 300px;
+        min-height: 250px;
+      }
+      #div-gpt-ad-1631210698489-0 {
+        margin-bottom: 15px;
+      }
+      #div-gpt-ad-1631993686440-0 {
+        margin-top: 30px;
+        margin-bottom: 10px;
+      }
+      @media all and (max-width: 970px) {
+        #div-gpt-ad-1631210698489-0 {
+          display: none;
+        }
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #wrapper td {
+        padding: 0.75rem;
+      }
+      #calcform {
+        max-width: 500px;
+        padding: 20px;
+        background: #f0eedc;
+        border: 1px solid #e0e0e0;
+        border-radius: 7px;
+      }
+      #calcform button img {
+        filter: invert(100%);
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      #calcform .input-group sub {
+        font-size: large;
+      }
+      #caldiv {
+        display: none;
+      }
+      #cal2tbl th {
+        font-weight: normal;
+      }
+      #cal2tbl td {
+        line-height: 1; /*background:#fff;*/
+      }
+      #cal2tbl th p {
+        word-break: break-all;
+      }
+      #cal2tbl p {
+        line-height: 1;
+      }
+      #cal2tbl tbody tr td:nth-child(3) {
+        background: #f8f8f8;
+        border: dashed 1px #333;
+      }
+      #cal {
+        background: #e9ecef;
+        height: auto;
+      }
+      .ntable thead {
+        position: sticky;
+        top: 0;
+        background: #f0f0f0;
+      }
+      .ntable tr td:nth-child(3) {
+        background: #fff0f0;
+      }
+      .dtable td {
+        text-align: right;
+        line-height: 0.5 !important;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo;<a
+          href="decimal-to-binary.html"
+          >Decimal to binary</a
+        >
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Decimal to Binary converter</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div id="unitnav" class="form-row">
+              <div class="form-group col">
+                <label for="unit1">From</label>
+                <select id="unit1" class="form-control">
+                  <option>Binary</option>
+                  <option selected>Decimal</option>
+                  <option>Hexadecimal</option>
+                </select>
+              </div>
+              <div class="form-group col">
+                <label for="unit2">To</label>
+                <select id="unit2" class="form-control">
+                  <option selected>Binary</option>
+                  <option>Decimal</option>
+                  <option>Hexadecimal</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="x">Enter decimal number</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="x"
+                  name="x"
+                  class="form-control form-control-lg"
+                  required
+                  autofocus
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text"><sub>10</sub></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Convert"
+                class="btn btn-success"
+                onclick="convert()"
+              >
+                <span>=</span> Convert
+              </button>
+              <button
+                type="reset"
+                title="Reset"
+                class="btn btn-secondary"
+                onclick="onreset0()"
+              >
+                <span>&times;</span> Reset
+              </button>
+              <button
+                type="button"
+                title="Swap conversion"
+                class="btn btn-secondary"
+                onclick="location.href='binary-to-decimal.html';"
+              >
+                <span></span
+                ><img
+                  src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                  alt=""
+                />
+                Swap
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="y">Binary number</label>
+              <div class="input-group">
+                <textarea
+                  rows="2"
+                  id="y"
+                  class="form-control form-control-lg"
+                  readonly
+                ></textarea>
+                <div class="input-group-append">
+                  <span class="input-group-text"><sub>2</sub></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="y2">Binary signed 2's complement</label>
+              <div class="input-group">
+                <textarea
+                  rows="2"
+                  id="y2"
+                  class="form-control form-control-lg"
+                  readonly
+                ></textarea>
+                <div class="input-group-append">
+                  <span class="input-group-text"><sub>2</sub></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="y5">Hex number</label>
+              <div class="input-group">
+                <textarea
+                  rows="2"
+                  id="y5"
+                  class="form-control form-control-lg"
+                  readonly
+                ></textarea>
+                <div class="input-group-append">
+                  <span class="input-group-text"><sub>16</sub></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="group"
+                onclick="ongroup()"
+              />
+              <label class="form-check-label" for="group">Digit grouping</label>
+            </div>
+            <div id="caldiv" class="form-group">
+              <p>Decimal to binary calculation steps</p>
+              <div id="cal" class="form-control">
+                <p id="cal2dec"></p>
+                <p>
+                  Divide by the base 2 to get the digits from the remainders:
+                </p>
+                <table id="cal2tbl" class="table">
+                  <thead>
+                    <tr>
+                      <th>Division<br />by 2</th>
+                      <th>Quotient</th>
+                      <th>
+                        <p>Remainder</p>
+                        (Digit)
+                      </th>
+                      <th>Bit #</th>
+                    </tr>
+                  </thead>
+                  <tbody></tbody>
+                </table>
+                <p id="cal2result1"></p>
+                <p id="cal2result2"></p>
+              </div>
+            </div>
+          </form>
+          <p id="p1">
+            <a href="binary-to-decimal.html"
+              >Binary to Decimal conversion &#9658;</a
+            >
+          </p>
+
+          <div id="div-gpt-ad-1631993686440-0"></div>
+
+          <h2>How to convert decimal to binary</h2>
+          <h4>Conversion steps:</h4>
+          <ol>
+            <li>Divide the number by 2.</li>
+            <li>Get the integer quotient for the next iteration.</li>
+            <li>Get the remainder for the binary digit.</li>
+            <li>Repeat the steps until the quotient is equal to 0.</li>
+          </ol>
+          <h4>Example #1</h4>
+          <p>Convert 13<sub>10</sub> to binary:</p>
+          <table class="ntable">
+            <tr>
+              <th>Division<br />by 2</th>
+              <th>Quotient</th>
+              <th>Remainder</th>
+              <th>Bit #</th>
+            </tr>
+            <tr>
+              <td>13/2</td>
+              <td>6</td>
+              <td>1</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>6/2</td>
+              <td>3</td>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>3/2</td>
+              <td>1</td>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>1/2</td>
+              <td>0</td>
+              <td>1</td>
+              <td>3</td>
+            </tr>
+          </table>
+          <p>So 13<sub>10</sub> = 1101<sub>2</sub></p>
+          <h4>Example #2</h4>
+          <p>Convert 174<sub>10</sub> to binary:</p>
+          <table class="ntable">
+            <tr>
+              <th>Division<br />by 2</th>
+              <th>Quotient</th>
+              <th>Remainder</th>
+              <th>Bit #</th>
+            </tr>
+            <tr>
+              <td>174/2</td>
+              <td>87</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>87/2</td>
+              <td>43</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>43/2</td>
+              <td>21</td>
+              <td>1</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>21/2</td>
+              <td>10</td>
+              <td>1</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>10/2</td>
+              <td>5</td>
+              <td>0</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>5/2</td>
+              <td>2</td>
+              <td>1</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>2/2</td>
+              <td>1</td>
+              <td>0</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>1/2</td>
+              <td>0</td>
+              <td>1</td>
+              <td>7</td>
+            </tr>
+          </table>
+          <p>So 174<sub>10</sub> = 10101110<sub>2</sub></p>
+          <h2>Decimal to binary conversion table</h2>
+          <table class="dtable">
+            <thead>
+              <tr>
+                <th>Decimal<br />Number</th>
+                <th>Binary<br />Number</th>
+                <th>Hex<br />Number</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>10</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>11</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>100</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>101</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>110</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>111</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>1000</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>1001</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>1010</td>
+              <td>A</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>1011</td>
+              <td>B</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>1100</td>
+              <td>C</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>1101</td>
+              <td>D</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>1110</td>
+              <td>E</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>1111</td>
+              <td>F</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>10000</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>10001</td>
+              <td>11</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>10010</td>
+              <td>12</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>10011</td>
+              <td>13</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>10100</td>
+              <td>14</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>10101</td>
+              <td>15</td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td>10110</td>
+              <td>16</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>10111</td>
+              <td>17</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>11000</td>
+              <td>18</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>11001</td>
+              <td>19</td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td>11010</td>
+              <td>1A</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>11011</td>
+              <td>1B</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>11100</td>
+              <td>1C</td>
+            </tr>
+            <tr>
+              <td>29</td>
+              <td>11101</td>
+              <td>1D</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>11110</td>
+              <td>1E</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td>11111</td>
+              <td>1F</td>
+            </tr>
+            <tr>
+              <td>32</td>
+              <td>100000</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>64</td>
+              <td>1000000</td>
+              <td>40</td>
+            </tr>
+            <tr>
+              <td>128</td>
+              <td>10000000</td>
+              <td>80</td>
+            </tr>
+            <tr>
+              <td>256</td>
+              <td>100000000</td>
+              <td>100</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="binary-to-decimal.html">Binary to Decimal converter</a>
+            </li>
+            <li><a href="decimal-to-hex.html">Decimal to Hex converter</a></li>
+            <li>
+              <a href="decimal-to-octal.html">Decimal to Octal converter</a>
+            </li>
+            <li>
+              <a href="Decimal_to_Fraction.html"
+                >Decimal to Fraction converter</a
+              >
+            </li>
+            <li>
+              <a href="decimal-to-percent.html">Decimal to Percent converter</a>
+            </li>
+            <li>
+              <a href="../../calc/math/binary-calculator.html"
+                >Binary calculator</a
+              >
+            </li>
+            <li>
+              <a href="ascii-to-binary.html">ASCII text to binary converter</a>
+            </li>
+            <li>
+              <a href="how-decimal-to-binary.html"
+                >How to convert decimal to binary</a
+              >
+            </li>
+            <li>
+              <a href="../../math/number/Numeral_system.html"
+                >Numeral systems</a
+              >
+            </li>
+            <li>
+              <a href="decimal-to-binary.html%3Fx=16.html"
+                >16 decimal to binary</a
+              >
+            </li>
+            <li>
+              <a href="decimal-to-binary.html%3Fx=64.html"
+                >64 decimal to binary</a
+              >
+            </li>
+            <li>
+              <a href="decimal-to-binary.html%3Fx=255.html"
+                >255 decimal to binary</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <div id="div-gpt-ad-1631210698489-0"></div>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li>
+            <a href="ascii-hex-bin-dec-converter.html"
+              >ASCII,Hex,Binary,Decimal converter</a
+            >
+          </li>
+          <li>
+            <a href="ascii-to-binary.html">ASCII text to binary converter</a>
+          </li>
+          <li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-converter.html">Binary converter</a></li>
+          <li>
+            <a href="binary-to-ascii.html">Binary to ASCII text converter</a>
+          </li>
+          <li>
+            <a href="binary-to-decimal.html">Binary to decimal converter</a>
+          </li>
+          <li><a href="binary-to-hex.html">Binary to hex converter</a></li>
+          <li>
+            <a href="date-to-roman-numerals.html"
+              >Date to roman numerals converter</a
+            >
+          </li>
+          <li>
+            <a href="Decimal_to_Fraction.html">Decimal to fraction converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-percent.html">Decimal to percent converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-binary.html">Decimal to binary converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-octal.html">Decimal to octal converter</a>
+          </li>
+          <li><a href="decimal-to-hex.html">Decimal to hex converter</a></li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html"
+              >Degrees to deg,min,sec converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Deg,min,sec to degrees converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-to-radians.html">Degrees to radians converter</a>
+          </li>
+          <li>
+            <a href="Fraction_to_Decimal.html">Fraction to decimal converter</a>
+          </li>
+          <li>
+            <a href="fraction-to-percent.html">Fraction to percent converter</a>
+          </li>
+          <li>
+            <a href="hex-dec-bin-converter.html"
+              >Hex/decimal/octal/binary converter</a
+            >
+          </li>
+          <li><a href="hex-to-ascii.html">Hex to ASCII text converter</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary converter</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal converter</a></li>
+          <li>
+            <a href="octal-to-decimal.html">Octal to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-decimal.html">Percent to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-fraction.html">Percent to fraction converter</a>
+          </li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm converter</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb converter</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt converter</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm converter</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm converter</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li>
+            <a href="radians-to-degrees.html">Radians to degrees converter</a>
+          </li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html"
+              >Scientific notation converter</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="decimal-to-binary.html%3Fx=64.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script async src="../../lib/unitnav.js"></script>
+    <script src="../../lib/bignumber/bignumber.min.js"></script>
+    <script>
+      //window.onload=function(){
+      window.addEventListener("DOMContentLoaded", function () {
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0 && params.x != "") {
+          var x2 = str2num(decodeURIComponent(params.x));
+          document.title = x2 + " decimal to binary conversion";
+          SetLinks(x2);
+          document.getElementById("x").value = x2;
+          convert();
+        }
+      });
+      function onreset0() {
+        document.getElementById("caldiv").style.display = "none";
+      }
+      function onxclick() {
+        document.getElementById("keys").style.display = "block";
+      }
+      function onxblur() {
+        document.getElementById("keys").style.display = "none";
+      }
+      function addchar(c) {
+        var x = document.getElementById("x").value;
+        if (x == "") x = "0";
+        if (c == "-") x = c + x;
+        if (c == ".") x = x + c;
+        document.getElementById("x").value = x;
+        document.getElementById("x").focus();
+      }
+      function ongroup() {
+        if (document.getElementById("x").value != "") convert();
+      }
+      function SetLinks(x) {
+        var p1 = document.getElementById("p1");
+        var p2 = document.createElement("p");
+        var p3 = document.createElement("p");
+        var x = new BigNumber(x, 10);
+        var x1 = x.minus(1).toString(10);
+        var x2 = x.plus(1).toString(10);
+        p2.innerHTML =
+          "<a href='decimal-to-binary.html%3Fx=&quot;+x1+&quot;.html'>" +
+          x1 +
+          " decimal to binary &#9658;</a>";
+        p3.innerHTML =
+          "<a href='decimal-to-binary.html%3Fx=&quot;+x2+&quot;.html'>" +
+          x2 +
+          " decimal to binary &#9658;</a>";
+        p1.parentNode.insertBefore(p2, p1);
+        p1.parentNode.insertBefore(p3, p1);
+      }
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function pad(n, width, z) {
+        z = z || "0";
+        n = n + "";
+        return n.length >= width
+          ? n
+          : new Array(width - n.length + 1).join(z) + n;
+      }
+      function decimal2base(dec, y, b) {
+        var row;
+        var y2 = null;
+        var tbl = document.getElementById("cal2tbl");
+        var len = tbl.tBodies[0].rows.length;
+        if (len) {
+          for (var i = 0; i < len; i++) tbl.tBodies[0].deleteRow(0);
+        }
+        if (dec < 0) dec = -dec;
+        dec = dec.toString();
+        y = y.toString().replace(/\s/g, "");
+        var nd = y.indexOf(".");
+        var ndigits = y.length - nd - 1;
+        if (ndigits > 8) ndigits = 8;
+        if (nd >= 0) {
+          var txt =
+            "To avoid the decimal separator, multiply the decimal number with the base raised to the power of decimals in result:<br>";
+          txt += dec + "&times;" + b + "<sup>" + ndigits + "</sup> = ";
+          dec = dec * Math.pow(b, ndigits);
+          dec = Math.round(dec);
+          txt += dec;
+          document.getElementById("cal2dec").innerHTML = txt;
+        }
+        for (var n = dec, k = 0; n >= 1; k++) {
+          row = "<tr>";
+          row += "<td>(" + n + ")/" + b + "</td>";
+          row += "<td>" + Math.floor(n / b) + "</td>";
+          row += "<td>" + (n % b).toFixed() + "</td>";
+          row += "<td>" + k + "</td>";
+          row += "</tr>";
+          n = Math.floor(n / b);
+          var r = tbl.tBodies[0].insertRow();
+          r.innerHTML = row;
+        }
+        document.getElementById("cal2result1").innerHTML = "";
+        if (nd >= 0) {
+          y2 = y.toString();
+          var n = y2.length - y2.indexOf(".") - ndigits - 1;
+          y2 = y2.substring(0, y2.length - n).replace(".", "");
+          //var txt = "= ("+y2+")<sub>"+b+"</sub> >> "+ndigits;
+          var txt =
+            "= (" +
+            y2 +
+            ")<sub>" +
+            b +
+            "</sub> / " +
+            b +
+            "<sup>" +
+            ndigits +
+            "</sup>";
+          document.getElementById("cal2result1").innerHTML = txt;
+        }
+        if (nd >= 0) y = y.substring(0, y2.length + 1);
+        var txt = "= (" + y + ")<sub>" + b + "</sub>";
+        document.getElementById("cal2result2").innerHTML = txt;
+        document.getElementById("caldiv").style.display = "block";
+      }
+      function str2num(s) {
+        s = s
+          .toString()
+          .trim()
+          .replace(/(\d)(\s+)(?=\d)/gm, "$1+")
+          .replace(/[^-()\d/*+.]/g, "");
+        if (s == "") return 0;
+        return Function('"use strict";return (' + s + ")")();
+      }
+      function convert() {
+        //var dec = str2num(document.calcform.x.value);
+        var dec = document.calcform.x.value;
+        try {
+          var x = new BigNumber(dec, 10);
+          document.getElementById("x").style.backgroundColor = "white";
+        } catch (err) {
+          document.getElementById("x").style.backgroundColor = "#fff0f0";
+          return;
+        }
+        var y = x.toString(2);
+        var y5 = x.toString(16).toUpperCase();
+        var t1 = new BigNumber("-8000000000000000", 16);
+        var t2 = new BigNumber("7FFFFFFFFFFFFFFF", 16);
+        var t3 = new BigNumber("10000000000000000", 16);
+        var y2 = new BigNumber(x, 10);
+        if (x.isInteger() && x.gte(-32768) && x.lte(32767)) {
+          if (x.lessThan(0)) y2 = x.plus("10000", 16);
+          y2 = pad(y2.toString(2).toUpperCase(), 16);
+        } else if (x.isInteger() && x.gte(-2147483648) && x.lte(2147483647)) {
+          if (x.lessThan(0)) y2 = x.plus("100000000", 16);
+          y2 = pad(y2.toString(2).toUpperCase(), 32);
+        } else if (x.isInteger() && x.gte(t1) && x.lte(t2)) {
+          if (x.lessThan(0)) y2 = x.plus(t3);
+          y2 = pad(y2.toString(2).toUpperCase(), 64);
+        } else {
+          y2 = "N/A";
+        }
+        if (document.getElementById("group").checked) {
+          y = digitgroup(y, 8, " ");
+          y2 = digitgroup(y2, 8, " ");
+          y5 = digitgroup(y5, 4, " ");
+        }
+        decimal2base(dec, y, 2);
+        document.getElementById("y").value = y;
+        document.getElementById("y2").value = y2;
+        document.getElementById("y5").value = y5;
+      }
+      function digitgroup(x, n, d) {
+        if (x == "N/A") return x;
+        var x0 = x.split(".")[0];
+        var x1 = x.split(".")[1];
+        var y = "";
+        var x0head = "";
+        var re = new RegExp("(.{" + n + "})", "g");
+        if (x0 != "" && x0 != undefined) {
+          if (x0[0] == "-") {
+            y = "-";
+            x0 = x0.substring(1, x0.length);
+          }
+          x0head = x0.substring(0, x0.length % n);
+          y += x0head;
+          x0 = x0.substring(x0.length % n, x0.length);
+          //x0 = x0.replace(/(.{4})/g,"$1 ");
+          x0 = x0.replace(re, "$1 ");
+          x0 = x0.substring(0, x0.length - 1);
+          if (x0head != "" && x0 != "") y += d;
+          y += x0;
+        }
+        if (x1 != "" && x1 != undefined) {
+          y += ".";
+          //y += x1.replace(/(.{4})/g,"$1 ");
+          y += x1.replace(re, "$1 ");
+        }
+        return y;
+      }
+    </script>
+  </body>
+</html>

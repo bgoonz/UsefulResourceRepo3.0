@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Decimal Degrees to Degrees,Minutes,Seconds converter</title>
+    <meta
+      content="Decimal degrees to degrees (&deg;), minutes ('), seconds ('') angle converter and how to convert."
+      name="description"
+    />
+    <style>
+      .calc2 td {
+        white-space: nowrap;
+      }
+      .calc2 td:nth-child(2),
+      .calc2 input[type="number"] {
+        width: 250px;
+      }
+      .calc2 textarea {
+        font-size: large;
+        width: 300px;
+      }
+      @media all and (max-width: 576px) {
+        .calc2 button {
+          padding: 7px 3px;
+        }
+        .calc2 {
+          width: 100%;
+        }
+      }
+      #angle {
+        border: 1px #ccc solid;
+        padding: 10px 20px;
+        width: 250px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; Degrees to
+        degrees,minutes,seconds
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Decimal Degrees to Degrees,Minutes,Seconds conversion</h1>
+          <p>
+            Decimal degrees to degrees (&deg;), minutes ('), seconds ('') angle
+            converter and how to convert.
+          </p>
+          <p>
+            Enter angle in degrees and press the <em>Convert</em> button
+            (e.g:30.56&deg;, -60.2&deg;):
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="x">Decimal degrees:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    step="any"
+                    id="x"
+                    name="x"
+                    class="intext"
+                    autofocus
+                    tabindex="1"
+                  />
+                </td>
+                <td class="math">&deg;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <button
+                    type="button"
+                    title="Convert"
+                    class="btn"
+                    tabindex="2"
+                    onclick="convert()"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_030_refresh.png"
+                      alt=""
+                    />
+                    Convert
+                  </button>
+                  <button type="reset" title="Reset" class="btn" tabindex="3">
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                      alt=""
+                    />
+                    Reset
+                  </button>
+                  <button
+                    type="button"
+                    title="Swap conversion"
+                    class="btn"
+                    tabindex="4"
+                    onclick="location.href='degrees-minutes-seconds-to-degrees.html';"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                      alt=""
+                    />
+                    Swap
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Degrees,minutes,seconds:</td>
+                <td colspan="2">
+                  <input
+                    type="text"
+                    name="y"
+                    class="outtext"
+                    readonly
+                    style="width: 100%"
+                    tabindex="5"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Calculation:</td>
+                <td colspan="2">
+                  <textarea
+                    name="y2"
+                    rows="7"
+                    class="outtext"
+                    readonly
+                    style="width: 100%"
+                    tabindex="6"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td>Angle view:</td>
+                <td><canvas id="angle"></canvas></td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <p>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Degrees,minutes, seconds to degrees converter &#9658;</a
+            >
+          </p>
+          <h2>How to convert decimal degrees to degrees,minutes,seconds</h2>
+          <p>
+            One degree (&deg;) is equal&nbsp;to 60 minutes (') and equal to 3600
+            seconds (&quot;):
+          </p>
+          <p class="math">1&deg; = 60' = 3600&quot;</p>
+          <p>
+            The integer degrees (d) are equal to the integer part of the decimal
+            degrees (dd):
+          </p>
+          <p class="math">d = integer(dd)</p>
+          <p>
+            The minutes (m) are equal to the integer part of the decimal degrees
+            (dd) minus integer degrees (d) times 60:
+          </p>
+          <p class="math">m = integer((dd - d) &times; 60)</p>
+          <p>
+            The seconds (s) are equal to the decimal degrees (dd) minus integer
+            degrees (d) minus minutes (m) divided by 60 times 3600:
+          </p>
+          <p class="math">s = (dd - d - m/60) &times; 3600</p>
+          <h4>Example</h4>
+          <p>Convert 30.263888889&deg; angle to degrees,minutes,seconds:</p>
+          <p class="math">d = integer(30.263888889&deg;) = 30&deg;</p>
+          <p class="math">m = integer((dd - d) &times; 60) = 15'</p>
+          <p class="math">s = (dd - d - m/60) &times; 3600 = 50&quot;</p>
+          <p>So</p>
+          <p class="math">30.263888889&deg; = 30&deg; 15' 50&quot;</p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Degrees,minutes, seconds to degrees conversion &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="degrees-minutes-seconds-to-degrees.html"
+                >Degrees,minutes, seconds to degrees</a
+              >
+            </li>
+            <li>
+              <a href="degrees-to-radians.html"
+                >Degrees to radians conversion</a
+              >
+            </li>
+            <li>
+              <a href="radians-to-degrees.html"
+                >Radians to degrees conversion</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/Sin_Calculator.html">Sine calculator</a>
+            </li>
+            <li>
+              <a href="../../calc/math/Cos_Calculator.html"
+                >Cosine calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/Tan_Calculator.html"
+                >Tangent calculator</a
+              >
+            </li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script src="../../lib/utils/mathview.js"></script>
+          <script>
+            function convert(x) {
+              var dd = document.calcform.x.value;
+              var x = dd;
+              sign = "";
+              if (dd < 0) {
+                sign = "-";
+                dd = -dd;
+              }
+              var d = Math.floor(dd);
+              var m = Math.floor((dd - d) * 60);
+              var s = (dd - d - m / 60) * 3600;
+              //s = roundnum(s,6);
+              s = Math.round(s * 100) / 100;
+              if (s == 60) {
+                s = 0;
+                m++;
+              }
+              if (m == 60) {
+                m = 0;
+                d++;
+              }
+              var txt = "d = int(" + dd + "\u00B0) = " + d + "\u00B0";
+              txt +=
+                "\nm = int((" +
+                dd +
+                "\u00B0 - " +
+                d +
+                "\u00B0) \u00D7 60) = " +
+                m +
+                "'";
+              txt +=
+                "\ns = (" +
+                dd +
+                "\u00B0 - " +
+                d +
+                "\u00B0 - " +
+                m +
+                "'/60) \u00D7 3600 = " +
+                s +
+                '"';
+              txt += "\n" + sign + dd + "\u00B0";
+              txt += "\n= " + sign + d + "\u00B0 " + m + "' " + s + '"';
+              document.calcform.y.value =
+                sign + d + "\u00B0 " + m + "' " + s + '"';
+              document.calcform.y2.value = txt;
+              var obj = document.getElementById("angle");
+              Angle(obj, {
+                degrees: x,
+                radius: 60,
+                fillColor: "rgb(255,255,180)",
+                lineWidth: 2,
+                width: 250,
+              });
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li>
+            <a href="ascii-hex-bin-dec-converter.html"
+              >ASCII,Hex,Binary,Decimal converter</a
+            >
+          </li>
+          <li><a href="ascii-to-binary.html">ASCII to binary</a></li>
+          <li><a href="ascii-to-hex.html">ASCII to hex</a></li>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-converter.html">Binary converter</a></li>
+          <li><a href="binary-to-ascii.html">Binary to ASCII</a></li>
+          <li><a href="binary-to-decimal.html">Binary to decimal</a></li>
+          <li><a href="binary-to-hex.html">Binary to hex</a></li>
+          <li><a href="date-to-roman-numerals.html">Date to roman</a></li>
+          <li><a href="Decimal_to_Fraction.html">Decimal to fraction</a></li>
+          <li><a href="decimal-to-percent.html">Decimal to percent</a></li>
+          <li><a href="decimal-to-binary.html">Decimal to binary</a></li>
+          <li><a href="decimal-to-octal.html">Decimal to octal</a></li>
+          <li><a href="decimal-to-hex.html">Decimal to hex</a></li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html"
+              >Degrees to minutes,seconds</a
+            >
+          </li>
+          <li><a href="degrees-to-radians.html">Degrees to radians</a></li>
+          <li><a href="Fraction_to_Decimal.html">Fraction to decimal</a></li>
+          <li><a href="fraction-to-percent.html">Fraction to percent</a></li>
+          <li>
+            <a href="hex-dec-bin-converter.html"
+              >Hex/decimal/octal/binary converter</a
+            >
+          </li>
+          <li><a href="hex-to-ascii.html">Hex to ASCII</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal</a></li>
+          <li>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Minutes, seconds to degrees</a
+            >
+          </li>
+          <li><a href="octal-to-decimal.html">Octal to decimal</a></li>
+          <li><a href="percent-to-decimal.html">Percent to decimal</a></li>
+          <li><a href="percent-to-fraction.html">Percent to fraction</a></li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li><a href="radians-to-degrees.html">Radians to degrees</a></li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

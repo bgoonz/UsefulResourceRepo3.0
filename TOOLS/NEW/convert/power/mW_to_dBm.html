@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>mW to dBm conversion - RapidTables.com</title>
+    <meta
+      name="description"
+      content="milliwatt (mW) to dBm, power conversion: calculator and how to convert."
+    />
+    <style>
+      .calc2 {
+        padding: 20px;
+      }
+      .calc2 input[type="text"],
+      .calc2 input[type="number"] {
+        padding: 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Power conversion</a>&rsaquo; mW to dBm
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>mW to dBm Conversion</h1>
+          <ul>
+            <li>
+              <a href="mW_to_dBm.html#calculator"
+                >mW to dBm conversion calculator</a
+              >
+            </li>
+            <li><a href="mW_to_dBm.html#how">How to convert mW to dBm</a></li>
+            <li>
+              <a href="mW_to_dBm.html#table">mW to dBm conversion table</a>
+            </li>
+          </ul>
+          <h2><a id="calculator"></a>mW to dBm conversion calculator</h2>
+          <p>
+            milliwatts (mW) to
+            <a href="../../electric/dBm.html">decibel-milliwatts (dBm)</a>,
+            <a href="../../electric/electric_power.html">power</a> conversion
+            calculator.
+          </p>
+          <p>Enter the power in mW and press the <i>Convert</i> button:</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="x">Enter power in milliwatts:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="x"
+                    name="x"
+                    class="intext"
+                    autofocus
+                    tabindex="1"
+                  />
+                </td>
+                <td class="mathsymbol">mW</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>
+                  <input
+                    onclick="calc()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                    tabindex="2"
+                  />
+                  <input
+                    onclick="setfocus()"
+                    type="reset"
+                    value="Reset"
+                    class="btn"
+                    tabindex="3"
+                  />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>dBm result:</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="y"
+                    class="outtext"
+                    readonly
+                    tabindex="4"
+                  />
+                </td>
+                <td class="mathsymbol">dBm</td>
+              </tr>
+            </table>
+          </form>
+          <p>
+            <a href="dBm_to_mW.html">dBm to mW conversion calculator &#9658;</a>
+          </p>
+          <h2><a id="how"></a>How to convert mW to dBm</h2>
+          <p>
+            The power <i>P</i><sub>(dBm)</sub> in dBm is equal to 10 times the
+            base 10 <a href="../../math/algebra/Logarithm.html">logarithm</a> of
+            the power <i>P</i><sub>(mW)</sub> in milliwatts (mW) divided by 1
+            milliwatt (mW):
+          </p>
+          <p class="math">
+            <i>P</i><sub>(dBm)</sub> = 10 &sdot; log<sub>10</sub>( <i>P</i
+            ><sub>(mW)</sub> / 1mW)
+          </p>
+          <p>&nbsp;</p>
+          <p>So,</p>
+          <p class="math">1mW = 0dBm</p>
+          <h4>Example</h4>
+          <p>Convert 20mW to dBm:,</p>
+          <p class="math">
+            <i>P</i><sub>(dBm)</sub> = 10 &sdot; log<sub>10</sub>( 20mW / 1mW) =
+            13.0103dBm
+          </p>
+          <h2><a id="table"></a>mW to dBm conversion table</h2>
+          <table class="ntable">
+            <tr>
+              <th>Power (mW)</th>
+              <th>Power (dBm)</th>
+            </tr>
+            <tr>
+              <td>0<sup>+</sup> mW</td>
+              <td>-&#8734; dBm</td>
+            </tr>
+            <tr>
+              <td>0.01 mW</td>
+              <td>-20 dBm</td>
+            </tr>
+            <tr>
+              <td>0.1 mW</td>
+              <td>-10 dBm</td>
+            </tr>
+            <tr>
+              <td>1 mW</td>
+              <td>0 dBm</td>
+            </tr>
+            <tr>
+              <td>2 mW</td>
+              <td>3.0103 dBm</td>
+            </tr>
+            <tr>
+              <td>3 mW</td>
+              <td>4.7712 dBm</td>
+            </tr>
+            <tr>
+              <td>4 mW</td>
+              <td>6.0206 dBm</td>
+            </tr>
+            <tr>
+              <td>5 mW</td>
+              <td>6.9897 dBm</td>
+            </tr>
+            <tr>
+              <td>6 mW</td>
+              <td>7.7815 dBm</td>
+            </tr>
+            <tr>
+              <td>7 mW</td>
+              <td>8.4510 dBm</td>
+            </tr>
+            <tr>
+              <td>8 mW</td>
+              <td>9.0309 dBm</td>
+            </tr>
+            <tr>
+              <td>&nbsp;9 mW</td>
+              <td>9.5424 dBm</td>
+            </tr>
+            <tr>
+              <td>10 mW</td>
+              <td>10 dBm</td>
+            </tr>
+            <tr>
+              <td>100 mW</td>
+              <td>20 dBm</td>
+            </tr>
+            <tr>
+              <td>1000 mW</td>
+              <td>30 dBm</td>
+            </tr>
+            <tr>
+              <td>10000 mW</td>
+              <td>40 dBm</td>
+            </tr>
+            <tr>
+              <td>&nbsp;100000 mW</td>
+              <td>50 dBm</td>
+            </tr>
+            <tr>
+              <td>&nbsp;1000000 mW</td>
+              <td>60 dBm</td>
+            </tr>
+            <tr>
+              <td>&nbsp;10000000 mW</td>
+              <td>70 dBm</td>
+            </tr>
+            <tr>
+              <td>100000000 mW</td>
+              <td>80 dBm</td>
+            </tr>
+            <tr>
+              <td>1000000000 mW</td>
+              <td>90 dBm</td>
+            </tr>
+            <tr>
+              <td>&nbsp;10000000000 mW</td>
+              <td>100 dBm</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="dBm_to_mW.html">dBm to mW conversion &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="dBm_to_mW.html">dBm to mW conversion</a></li>
+            <li><a href="Watt_to_dBm.html">Watts to dBm conversion</a></li>
+            <li><a href="mW_to_kW.html">mW to kW conversion</a></li>
+            <li><a href="mW_to_Watt.html">mW to watts conversion</a></li>
+            <li><a href="../../electric/dBm.html">What is dBm?</a></li>
+            <li><a href="../../electric/watt.html">Watt</a></li>
+            <li><a href="../../electric/dBW.html">dBW</a></li>
+            <li><a href="../../electric/decibel.html">Decibel</a></li>
+            <li><a href="../../math/algebra/Logarithm.html">Logarithm</a></li>
+            <li>
+              <a href="../../electric/electric_power.html">Electric power</a>
+            </li>
+            <li><a href="index.html">Power conversion</a></li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script>
+            function convert(x) {
+              return 10 * Math.log(x) * Math.LOG10E;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>POWER CONVERSION</h5>
+        <ul>
+          <li><a href="Watt_to_mW.html">watts to mW</a></li>
+          <li><a href="Watt_to_kW.html">watts to kW</a></li>
+          <li><a href="watt-to-megaw.html">watts to MW</a></li>
+          <li><a href="Watt_to_dBm.html">watts to dBm</a></li>
+          <li><a href="watt-to-hp.html">watts to hp</a></li>
+          <li><a href="Watt_to_BTU.html">watts to BTU/hr</a></li>
+          <li><a href="mW_to_Watt.html">mW to watts</a></li>
+          <li><a href="mW_to_kW.html">mW to kW</a></li>
+          <li><a href="mW_to_dBm.html">mW to dBm</a></li>
+          <li><a href="kW_to_Watt.html">kW to watts</a></li>
+          <li><a href="kW_to_mW.html">kW to mW</a></li>
+          <li><a href="kw-to-megaw.html">kW to MW</a></li>
+          <li><a href="kw-to-hp.html">kW to hp</a></li>
+          <li><a href="kW_to_BTU.html">kW to BTU/hr</a></li>
+          <li><a href="megaw-to-watt.html">MW to watts</a></li>
+          <li><a href="megaw-to-kw.html">MW to kW</a></li>
+          <li><a href="dBm_to_mW.html">dBm to mW</a></li>
+          <li><a href="dBm_to_Watt.html">dBm to watts</a></li>
+          <li><a href="hp-to-kw.html">hp to kW</a></li>
+          <li><a href="hp-to-watt.html">hp to watts</a></li>
+          <li><a href="BTU_to_Watt.html">BTU/hr to watts</a></li>
+          <li><a href="BTU_to_kW.html">BTU/hr to kW</a></li>
+          <li><a href="dbm-converter.html">dBm converter</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="mW_to_dBm.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

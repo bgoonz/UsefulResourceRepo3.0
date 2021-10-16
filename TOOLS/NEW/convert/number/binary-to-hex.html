@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <title>Binary to Hex Converter</title>
+    <meta
+      name="description"
+      content="Binary to hexadecimal number conversion calculator."
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        max-width: 500px;
+        padding: 20px;
+        background: #f0eedc;
+        border: 1px solid #e0e0e0;
+        border-radius: 7px;
+      }
+      #calcform button img {
+        filter: invert(100%);
+      }
+      #calcform .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      #calcform .input-group sub {
+        font-size: large;
+      }
+      .table {
+        max-width: 200px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; Binary to
+        hex
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Binary to Hex converter</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div id="unitnav" class="form-row">
+              <div class="form-group col">
+                <label for="unit1">From</label>
+                <select id="unit1" class="form-control">
+                  <option selected>Binary</option>
+                  <option>Decimal</option>
+                  <option>Hexadecimal</option>
+                </select>
+              </div>
+              <div class="form-group col">
+                <label for="unit2">To</label>
+                <select id="unit2" class="form-control">
+                  <option>Binary</option>
+                  <option>Decimal</option>
+                  <option selected>Hexadecimal</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="x">Enter binary number</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="x"
+                  name="x"
+                  class="form-control form-control-lg"
+                  required
+                  autofocus
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text"><sub>2</sub></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Convert"
+                class="btn btn-success"
+                onclick="convert()"
+              >
+                <span>=</span> Convert
+              </button>
+              <button type="reset" title="Reset" class="btn btn-secondary">
+                <span>&times;</span> Reset
+              </button>
+              <button
+                type="button"
+                title="Swap conversion"
+                class="btn btn-secondary"
+                onclick="location.href='hex-to-binary.html';"
+              >
+                <span></span
+                ><img
+                  src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                  alt=""
+                />
+                Swap
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="y">Hex number</label>
+              <div class="input-group">
+                <textarea
+                  rows="2"
+                  id="y"
+                  class="form-control form-control-lg"
+                  readonly
+                ></textarea>
+                <div class="input-group-append">
+                  <span class="input-group-text"><sub>16</sub></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="y2">Decimal number</label>
+              <div class="input-group">
+                <textarea
+                  rows="2"
+                  id="y2"
+                  class="form-control form-control-lg"
+                  readonly
+                ></textarea>
+                <div class="input-group-append">
+                  <span class="input-group-text"><sub>10</sub></span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-check">
+              <input
+                type="checkbox"
+                class="form-check-input"
+                id="group"
+                onclick="ongroup()"
+              />
+              <label class="form-check-label" for="group">Digit grouping</label>
+            </div>
+            <div class="form-group"></div>
+          </form>
+          <p>
+            <a href="hex-to-binary.html">Hex to Binary converter &#9658;</a>
+          </p>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+
+          <h2>How to convert binary to hex</h2>
+          <p>
+            Convert every 4 binary digits (start from bit 0) to 1 hex digit,
+            with this table:
+          </p>
+          <table class="table table-sm">
+            <tr>
+              <th>Binary</th>
+              <th>Hex</th>
+            </tr>
+            <tr>
+              <td>0000</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>0001</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>0010</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>0011</td>
+              <td>3</td>
+            </tr>
+            <tr>
+              <td>0100</td>
+              <td>4</td>
+            </tr>
+            <tr>
+              <td>0101</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>0110</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>0111</td>
+              <td>7</td>
+            </tr>
+            <tr>
+              <td>1000</td>
+              <td>8</td>
+            </tr>
+            <tr>
+              <td>1001</td>
+              <td>9</td>
+            </tr>
+            <tr>
+              <td>1010</td>
+              <td>A</td>
+            </tr>
+            <tr>
+              <td>1011</td>
+              <td>B</td>
+            </tr>
+            <tr>
+              <td>1100</td>
+              <td>C</td>
+            </tr>
+            <tr>
+              <td>1101</td>
+              <td>D</td>
+            </tr>
+            <tr>
+              <td>1110</td>
+              <td>E</td>
+            </tr>
+            <tr>
+              <td>1111</td>
+              <td>F</td>
+            </tr>
+          </table>
+          <h4>Example</h4>
+          <p>Convert binary 1101100<sub>2</sub> to hex:</p>
+          <p>Convert every 4 binary bits (from bit0) to hex digit:</p>
+          <p>1101100<sub>2</sub> = 110 1100 = 6 C = 6C<sub>16</sub></p>
+          <br />
+          <p>
+            <a href="hex-to-binary.html">Hex to Binary converter &#9658;</a>
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="how-binary-to-hex.html">How to convert binary to hex</a>
+            </li>
+            <li><a href="hex-to-binary.html">Hex to Binary converter</a></li>
+            <li>
+              <a href="binary-to-decimal.html">Binary to Decimal converter</a>
+            </li>
+            <li>
+              <a href="../../math/number/Numeral_system.html"
+                >Numeral systems</a
+              >
+            </li>
+            <li><a href="../index.html">Conversion</a></li>
+          </ul>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li>
+            <a href="ascii-hex-bin-dec-converter.html"
+              >ASCII,Hex,Binary,Decimal converter</a
+            >
+          </li>
+          <li>
+            <a href="ascii-to-binary.html">ASCII text to binary converter</a>
+          </li>
+          <li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-converter.html">Binary converter</a></li>
+          <li>
+            <a href="binary-to-ascii.html">Binary to ASCII text converter</a>
+          </li>
+          <li>
+            <a href="binary-to-decimal.html">Binary to decimal converter</a>
+          </li>
+          <li><a href="binary-to-hex.html">Binary to hex converter</a></li>
+          <li>
+            <a href="date-to-roman-numerals.html"
+              >Date to roman numerals converter</a
+            >
+          </li>
+          <li>
+            <a href="Decimal_to_Fraction.html">Decimal to fraction converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-percent.html">Decimal to percent converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-binary.html">Decimal to binary converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-octal.html">Decimal to octal converter</a>
+          </li>
+          <li><a href="decimal-to-hex.html">Decimal to hex converter</a></li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html"
+              >Degrees to deg,min,sec converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Deg,min,sec to degrees converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-to-radians.html">Degrees to radians converter</a>
+          </li>
+          <li>
+            <a href="Fraction_to_Decimal.html">Fraction to decimal converter</a>
+          </li>
+          <li>
+            <a href="fraction-to-percent.html">Fraction to percent converter</a>
+          </li>
+          <li>
+            <a href="hex-dec-bin-converter.html"
+              >Hex/decimal/octal/binary converter</a
+            >
+          </li>
+          <li><a href="hex-to-ascii.html">Hex to ASCII text converter</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary converter</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal converter</a></li>
+          <li>
+            <a href="octal-to-decimal.html">Octal to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-decimal.html">Percent to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-fraction.html">Percent to fraction converter</a>
+          </li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm converter</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb converter</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt converter</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm converter</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm converter</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li>
+            <a href="radians-to-degrees.html">Radians to degrees converter</a>
+          </li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html"
+              >Scientific notation converter</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="binary-to-hex.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../../lib/bignumber/bignumber.min.js"></script>
+    <script async src="../../lib/unitnav.js"></script>
+    <script>
+      var xelem = document.getElementById("x");
+      var yelem = document.getElementById("y");
+      var y2elem = document.getElementById("y2");
+      var groupelem = document.getElementById("group");
+      //window.onload = function() {
+      window.addEventListener("DOMContentLoaded", function () {
+        //xelem.onkeypress = function(e) { if( e.keyCode==13 ) convert(); };
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0 && params.x != "") {
+          document.title = params.x + " binary to hex conversion";
+          //SetLinks(params);
+          xelem.value = params.x;
+          convert();
+        }
+      });
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function ongroup() {
+        if (xelem.value != "") convert();
+      }
+      function convert() {
+        var bin = xelem.value;
+        try {
+          var x = new BigNumber(bin, 2);
+          xelem.style.backgroundColor = "white";
+        } catch (err) {
+          xelem.style.backgroundColor = "#fff0f0";
+          return;
+        }
+        var y = x.toString(16).toUpperCase();
+        var y2 = x.toString(10);
+        if (groupelem.checked) {
+          y = digitgroup(y, 4, " ");
+          y2 = digitgroup(y2, 3, " ");
+        }
+        yelem.value = y;
+        y2elem.value = y2;
+      }
+      function digitgroup(x, n, d) {
+        if (x == "N/A") return x;
+        var x0 = x.split(".")[0];
+        var x1 = x.split(".")[1];
+        var y = "";
+        var x0head = "";
+        var re = new RegExp("(.{" + n + "})", "g");
+        if (x0 != "" && x0 != undefined) {
+          if (x0[0] == "-") {
+            y = "-";
+            x0 = x0.substring(1, x0.length);
+          }
+          x0head = x0.substring(0, x0.length % n);
+          y += x0head;
+          x0 = x0.substring(x0.length % n, x0.length);
+          //x0 = x0.replace(/(.{4})/g,"$1 ");
+          x0 = x0.replace(re, "$1 ");
+          x0 = x0.substring(0, x0.length - 1);
+          if (x0head != "" && x0 != "") y += d;
+          y += x0;
+        }
+        if (x1 != "" && x1 != undefined) {
+          y += ".";
+          //y += x1.replace(/(.{4})/g,"$1 ");
+          y += x1.replace(re, "$1 ");
+        }
+        return y;
+      }
+    </script>
+  </body>
+</html>

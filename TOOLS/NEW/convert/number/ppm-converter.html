@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>ppm converter | ppm conversion calculator</title>
+    <meta
+      name="description"
+      content="Parts-per million (ppm) conversion calculator."
+    />
+    <style>
+      @media all and (min-width: 577px) {
+        .calc2 input[type="text"],
+        .calc2 input[type="number"],
+        .calc2 input[type="url"] {
+          width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; ppm
+        converter
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>ppm converter</h1>
+          <p>Parts-per million (ppm) conversion calculator.</p>
+          <h2>
+            <a name="convert_ppm_to"></a>Decimal, percent, permille, ppm, ppb,
+            ppt conversion calculator
+          </h2>
+          <p>
+            Enter proportion part in one of the text boxes and press the
+            <i>Convert</i> button:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td><label for="ratio">Enter decimal:</label></td>
+                  <td class="math">
+                    <input type="number" step="any" id="ratio" name="ratio" />
+                  </td>
+                  <td class="mathsymbol">&nbsp;</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_Ratio()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="percent">Enter percent:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="percent"
+                      name="percent"
+                    />
+                  </td>
+                  <td class="mathsymbol">%</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_Percent()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="permil">Enter permille:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="permil"
+                      name="permil"
+                    />
+                  </td>
+                  <td class="mathsymbol">&permil;</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_Permil()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="ppm">Enter ppm:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="ppm"
+                      name="ppm"
+                    />
+                  </td>
+                  <td class="mathsymbol">ppm</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_PPM()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="ppb">Enter ppb:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="ppb"
+                      name="ppb"
+                    />
+                  </td>
+                  <td class="mathsymbol">ppb</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_PPB()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="ppt">Enter ppt:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="ppt"
+                      name="ppt"
+                    />
+                  </td>
+                  <td class="mathsymbol">ppt</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_PPT()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="mathsymbol">
+                    <input type="reset" value="Reset" />
+                  </td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>
+            <a href="../chemistry/ppm-to-mg-per-liter.html"
+              >ppm to mg/liter &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+            <li><a href="Percent_to_PPM.html">percent to ppm converter</a></li>
+            <li>
+              <a href="../chemistry/ppm-to-mg-per-liter.html"
+                >ppm to mg/liter</a
+              >
+            </li>
+            <li>
+              <a href="../../math/number/PPM.html">Parts-per million (ppm)</a>
+            </li>
+            <li>
+              <a href="../../electric/Electric_units.html">Electrical units</a>
+            </li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script>
+            function setfocus() {
+              document.calcform.r.focus();
+            }
+            function Round(x, res) {
+              y = parseFloat(x);
+              res = Math.pow(10, res);
+              y = Math.round(y * res + 1) / res;
+              return y;
+            }
+            function roundnum(x, p) {
+              var n = parseFloat(x);
+              var m = n.toFixed(p);
+              var y = String(m);
+              var i = y.length;
+              while (i > 0) {
+                if (y.charAt(--i) == "0") y = y.slice(0, i);
+                else break;
+              }
+              if (y.charAt(i) == ".") y = y.slice(0, i);
+              return y;
+            }
+            function Convert_Ratio() {
+              ratio = document.calcform.ratio.value;
+              if (ratio == "") return;
+              ratio = parseFloat(ratio);
+              document.calcform.percent.value = roundnum(ratio * 100, 12);
+              document.calcform.permil.value = roundnum(ratio * 1e3, 12);
+              document.calcform.ppm.value = roundnum(ratio * 1e6, 12);
+              document.calcform.ppb.value = roundnum(ratio * 1e9, 12);
+              document.calcform.ppt.value = roundnum(ratio * 1e12, 12);
+            }
+            function Convert_Percent() {
+              percent = document.calcform.percent.value;
+              if (percent == "") return;
+              percent = parseFloat(percent);
+              document.calcform.ratio.value = roundnum(percent / 100, 12);
+              document.calcform.permil.value = roundnum(percent * 1e1, 12);
+              document.calcform.ppm.value = roundnum(percent * 1e4, 12);
+              document.calcform.ppb.value = roundnum(percent * 1e7, 12);
+              document.calcform.ppt.value = roundnum(percent * 1e10, 12);
+            }
+            function Convert_Permil() {
+              permil = document.calcform.permil.value;
+              if (permil == "") return;
+              permil = parseFloat(permil);
+              document.calcform.ratio.value = roundnum(permil / 1e3, 12);
+              document.calcform.percent.value = roundnum(permil / 1e1, 12);
+              document.calcform.ppm.value = roundnum(permil * 1e3, 12);
+              document.calcform.ppb.value = roundnum(permil * 1e6, 12);
+              document.calcform.ppt.value = roundnum(permil * 1e9, 12);
+            }
+            function Convert_PPM() {
+              ppm = document.calcform.ppm.value;
+              if (ppm == "") return;
+              ppm = parseFloat(ppm);
+              document.calcform.ratio.value = roundnum(ppm / 1e6, 12);
+              document.calcform.percent.value = roundnum(ppm / 1e4, 12);
+              document.calcform.permil.value = roundnum(ppm / 1e3, 12);
+              document.calcform.ppb.value = roundnum(ppm * 1e3, 12);
+              document.calcform.ppt.value = roundnum(ppm * 1e6, 12);
+            }
+            function Convert_PPB() {
+              ppb = document.calcform.ppb.value;
+              if (ppb == "") return;
+              ppb = parseFloat(ppb);
+              document.calcform.ratio.value = roundnum(ppb / 1e9, 12);
+              document.calcform.percent.value = roundnum(ppb / 1e7, 12);
+              document.calcform.permil.value = roundnum(ppb / 1e6, 12);
+              document.calcform.ppm.value = roundnum(ppb / 1e3, 12);
+              document.calcform.ppt.value = roundnum(ppb * 1e3, 12);
+            }
+            function Convert_PPT() {
+              ppt = document.calcform.ppt.value;
+              if (ppt == "") return;
+              ppt = parseFloat(ppt);
+              document.calcform.ratio.value = roundnum(ppt / 1e12, 12);
+              document.calcform.percent.value = roundnum(ppt / 1e10, 12);
+              document.calcform.permil.value = roundnum(ppt / 1e9, 12);
+              document.calcform.ppm.value = roundnum(ppt / 1e6, 12);
+              document.calcform.ppb.value = roundnum(ppt / 1e3, 12);
+            }
+
+            //-->
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-to-decimal.html">Binary to decimal</a></li>
+          <li><a href="binary-to-hex.html">Binary to hex</a></li>
+          <li><a href="date-to-roman-numerals.html">Date to roman</a></li>
+          <li><a href="Decimal_to_Fraction.html">Decimal to fraction</a></li>
+          <li><a href="decimal-to-percent.html">Decimal to percent</a></li>
+          <li><a href="decimal-to-binary.html">Decimal to binary</a></li>
+          <li><a href="decimal-to-octal.html">Decimal to octal</a></li>
+          <li><a href="decimal-to-hex.html">Decimal to hex</a></li>
+          <li><a href="Fraction_to_Decimal.html">Fraction to decimal</a></li>
+          <li><a href="fraction-to-percent.html">Fraction to percent</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal</a></li>
+          <li><a href="octal-to-decimal.html">Octal to decimal</a></li>
+          <li><a href="percent-to-decimal.html">Percent to decimal</a></li>
+          <li><a href="percent-to-fraction.html">Percent to fraction</a></li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="ppm-converter.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

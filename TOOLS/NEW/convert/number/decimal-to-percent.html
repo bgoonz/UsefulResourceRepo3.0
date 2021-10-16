@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Decimal to percent conversion calculator</title>
+    <meta
+      name="description"
+      content="Decimal to percent number conversion: calculator, how to convert and conversion table."
+    />
+    <style>
+      .ntable td {
+        width: 120px;
+      }
+      .calc2 button {
+        margin: 20px auto;
+        padding: 7px;
+      }
+      #area {
+        width: 220px;
+        font-size: x-large;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; Decimal to
+        percent
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Decimal to percent Conversion</h1>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Enter decimal number:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    id="x"
+                    name="x"
+                    class="intext"
+                    autofocus
+                    tabindex="1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>
+                  <button
+                    type="button"
+                    title="Convert"
+                    class="btn"
+                    tabindex="2"
+                    onclick="convert()"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_030_refresh.png"
+                      alt=""
+                    />
+                    Convert
+                  </button>
+                  <button type="reset" title="Reset" class="btn" tabindex="3">
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                      alt=""
+                    />
+                    Reset
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Percent result:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    name="y"
+                    class="outtext"
+                    readonly
+                    tabindex="4"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Calculation:</td>
+                <td>
+                  <textarea
+                    rows="3"
+                    id="area"
+                    name="area"
+                    tabindex="5"
+                    class="outtext"
+                    readonly
+                  ></textarea>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>
+            <a href="percent-to-decimal.html"
+              >Percent to Decimal converter &#9658;</a
+            >
+          </p>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+
+          <h2><a id="how"></a>How to convert decimal to percent</h2>
+          <p class="math">1 = 100%</p>
+          <p>
+            The value <em>V</em><sub>%</sub> in percent (%) is equal to the
+            decimal value <em>V</em><sub><em>d</em></sub> times 100%:
+          </p>
+          <p class="math">
+            <em>V</em><sub>%</sub> = <em>V</em><sub><em>d</em></sub> &times;
+            100%
+          </p>
+          <h4>Examples</h4>
+          <p class="math">0.01 = 0.01 &times; 100% = 1%</p>
+          <p class="math">0.05 = 0.05 &times; 100% = 5%</p>
+          <p class="math">0.3&nbsp;&nbsp; = 0.3 &times; 100% = 30%</p>
+          <p class="math">0.35 = 0.35 &times; 100% = 35%</p>
+          <p class="math">3.5&nbsp;&nbsp; = 3.5 &times; 100% = 350%</p>
+          <h2><a id="table"></a>Decimal to percent conversion table</h2>
+          <table class="ntable">
+            <tr>
+              <th>Decimal</th>
+              <th>Percent</th>
+            </tr>
+            <tr>
+              <td>0.001</td>
+              <td>0.1%</td>
+            </tr>
+            <tr>
+              <td>0.01</td>
+              <td>1%</td>
+            </tr>
+            <tr>
+              <td>0.02</td>
+              <td>2%</td>
+            </tr>
+            <tr>
+              <td>0.03</td>
+              <td>3%</td>
+            </tr>
+            <tr>
+              <td>0.04</td>
+              <td>4%</td>
+            </tr>
+            <tr>
+              <td>0.05</td>
+              <td>5%</td>
+            </tr>
+            <tr>
+              <td>0.06</td>
+              <td>6%</td>
+            </tr>
+            <tr>
+              <td>0.07</td>
+              <td>7%</td>
+            </tr>
+            <tr>
+              <td>0.08</td>
+              <td>8%</td>
+            </tr>
+            <tr>
+              <td>0.09</td>
+              <td>9%</td>
+            </tr>
+            <tr>
+              <td>0.1</td>
+              <td>10%</td>
+            </tr>
+            <tr>
+              <td>0.2</td>
+              <td>20%</td>
+            </tr>
+            <tr>
+              <td>0.3</td>
+              <td>30%</td>
+            </tr>
+            <tr>
+              <td>0.4</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>0.5</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>0.6</td>
+              <td>60%</td>
+            </tr>
+            <tr>
+              <td>0.7</td>
+              <td>70%</td>
+            </tr>
+            <tr>
+              <td>0.8</td>
+              <td>80%</td>
+            </tr>
+            <tr>
+              <td>0.9</td>
+              <td>90%</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>100%</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>200%</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>300%</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>400%</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>500%</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="percent-to-decimal.html"
+              >Percent to decimal conversion &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="percent-to-decimal.html"
+                >Percent to decimal conversion</a
+              >
+            </li>
+            <li>
+              <a href="Decimal_to_Fraction.html"
+                >Decimal to fraction conversion</a
+              >
+            </li>
+            <li>
+              <a href="fraction-to-percent.html"
+                >Fraction to percent conversion</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/fractions-calculator.html"
+                >Fractions calculator</a
+              >
+            </li>
+            <li><a href="Fraction_Convert.html">Fraction conversion</a></li>
+            <li><a href="index.html">Number conversion</a></li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script src="../number.js"></script>
+          <script>
+            function convert() {
+              x = document.calcform.x.value;
+              y = parseFloat(x);
+              n = y * 100;
+              n = roundresult(n);
+              y = x + "\u00D7100% \n= " + n + "%";
+              document.calcform.y.value = n + "%";
+              document.calcform.area.value = y;
+            }
+          </script>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li>
+            <a href="ascii-hex-bin-dec-converter.html"
+              >ASCII,Hex,Binary,Decimal converter</a
+            >
+          </li>
+          <li>
+            <a href="ascii-to-binary.html">ASCII text to binary converter</a>
+          </li>
+          <li><a href="ascii-to-hex.html">ASCII text to hex converter</a></li>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-converter.html">Binary converter</a></li>
+          <li>
+            <a href="binary-to-ascii.html">Binary to ASCII text converter</a>
+          </li>
+          <li>
+            <a href="binary-to-decimal.html">Binary to decimal converter</a>
+          </li>
+          <li><a href="binary-to-hex.html">Binary to hex converter</a></li>
+          <li>
+            <a href="date-to-roman-numerals.html"
+              >Date to roman numerals converter</a
+            >
+          </li>
+          <li>
+            <a href="Decimal_to_Fraction.html">Decimal to fraction converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-percent.html">Decimal to percent converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-binary.html">Decimal to binary converter</a>
+          </li>
+          <li>
+            <a href="decimal-to-octal.html">Decimal to octal converter</a>
+          </li>
+          <li><a href="decimal-to-hex.html">Decimal to hex converter</a></li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html"
+              >Degrees to deg,min,sec converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Deg,min,sec to degrees converter</a
+            >
+          </li>
+          <li>
+            <a href="degrees-to-radians.html">Degrees to radians converter</a>
+          </li>
+          <li>
+            <a href="Fraction_to_Decimal.html">Fraction to decimal converter</a>
+          </li>
+          <li>
+            <a href="fraction-to-percent.html">Fraction to percent converter</a>
+          </li>
+          <li>
+            <a href="hex-dec-bin-converter.html"
+              >Hex/decimal/octal/binary converter</a
+            >
+          </li>
+          <li><a href="hex-to-ascii.html">Hex to ASCII text converter</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary converter</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal converter</a></li>
+          <li>
+            <a href="octal-to-decimal.html">Octal to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-decimal.html">Percent to decimal converter</a>
+          </li>
+          <li>
+            <a href="percent-to-fraction.html">Percent to fraction converter</a>
+          </li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm converter</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent converter</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb converter</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt converter</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm converter</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm converter</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li>
+            <a href="radians-to-degrees.html">Radians to degrees converter</a>
+          </li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html"
+              >Scientific notation converter</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="decimal-to-percent.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

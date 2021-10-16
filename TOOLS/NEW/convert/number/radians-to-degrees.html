@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Radians to Degrees conversion</title>
+    <meta
+      content="Radians to degrees angle conversion calculator and how to convert."
+      name="description"
+    />
+    <style>
+      .calc2 input[type="text"] {
+        padding: 5px;
+        font-size: x-large;
+      }
+      @media all and (max-width: 576px) {
+        .calc2 tr td:nth-child(3) {
+          margin-top: -5px;
+        }
+      }
+      #angle {
+        border: 1px #ccc solid;
+        padding: 10px 20px;
+        width: 230px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; Radians to
+        degrees
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Radians to Degrees conversion calculator</h1>
+          <p>
+            Enter angle in radians and press the <em>Convert</em> button
+            (e.g:0.5, &#960;/2, 3&#960;/2):
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Enter Radians:</td>
+                <td>
+                  <input
+                    type="text"
+                    id="x"
+                    name="x"
+                    class="intext"
+                    style="width: 230px"
+                    autofocus
+                  />
+                </td>
+                <td class="math">rad</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>
+                  <input
+                    type="button"
+                    value="&pi;"
+                    class="btn"
+                    style="font: large 'Times'; width: 43px"
+                    onclick="SetPI()"
+                  />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <button
+                    type="button"
+                    title="Convert"
+                    class="btn"
+                    onclick="convert()"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_030_refresh.png"
+                      alt=""
+                    />
+                    Convert
+                  </button>
+                  <button type="reset" title="Reset" class="btn">
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                      alt=""
+                    />
+                    Reset
+                  </button>
+                  <button
+                    type="button"
+                    title="Swap conversion"
+                    class="btn"
+                    onclick="location.href='degrees-to-radians.html';"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                      alt=""
+                    />
+                    Swap
+                  </button>
+                </td>
+              </tr>
+
+              <tr>
+                <td>Degrees result:</td>
+                <td>
+                  <textarea
+                    id="y"
+                    rows="2"
+                    class="outtext"
+                    style="width: 230px; font-size: 1.3em; font-family: times"
+                    readonly
+                  ></textarea>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Angle view:</td>
+                <td><canvas id="angle"></canvas></td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <p>
+            <a href="degrees-to-radians.html"
+              >Degrees to radians converter &#9658;</a
+            >
+          </p>
+          <h2><a id="how"></a>How to convert radians to degrees</h2>
+          <p>Pi radians are equal to 180 degrees:</p>
+          <p class="math">&#960; rad = 180&deg;</p>
+          <p>One radian is equal 57.295779513 degrees:</p>
+          <p class="math">1 rad = 180&deg;/&#960; = 57.295779513&deg;</p>
+          <p>
+            The angle &#945; in degrees is equal to the angle &#945; in radians
+            times 180 degrees divided by pi constant:
+          </p>
+          <p class="math">
+            &alpha;<sub>(degrees)</sub> = &alpha;<sub>(radians)</sub> &times;
+            180&deg; / &pi;
+          </p>
+          <p>or</p>
+          <p class="math">degrees = radians &times; 180&deg; / &#960;</p>
+          <h4>Example</h4>
+          <p>Convert 2 radians angle to degrees:</p>
+          <p class="math">
+            &alpha;<sub>(degrees)</sub> = &alpha;<sub>(radians)</sub> &times;
+            180&deg; / &pi; = 2 &times; 180&deg; / 3.14159 = 114.592&deg;
+          </p>
+          <h2><a id="table">Radians to degrees conversion table</a></h2>
+          <table class="ntable">
+            <tr>
+              <th>Radians (rad)</th>
+              <th>Radians (rad)</th>
+              <th>Degrees (&deg;)</th>
+            </tr>
+            <tr>
+              <td>0 rad</td>
+              <td>0 rad</td>
+              <td>0&deg;</td>
+            </tr>
+            <tr>
+              <td>&#960;/6 rad</td>
+              <td>0.5235987756 rad</td>
+              <td>30&deg;</td>
+            </tr>
+            <tr>
+              <td>&#960;/4 rad</td>
+              <td>0.7853981634 rad</td>
+              <td>45&deg;</td>
+            </tr>
+            <tr>
+              <td>&#960;/3 rad</td>
+              <td>1.0471975512 rad</td>
+              <td>60&deg;</td>
+            </tr>
+            <tr>
+              <td>&#960;/2 rad</td>
+              <td>1.5707963268 rad</td>
+              <td>90&deg;</td>
+            </tr>
+            <tr>
+              <td>2&#960;/3 rad</td>
+              <td>2.0943951024 rad</td>
+              <td>120&deg;</td>
+            </tr>
+            <tr>
+              <td>3&#960;/4 rad</td>
+              <td>2.3561944902 rad</td>
+              <td>135&deg;</td>
+            </tr>
+            <tr>
+              <td>5&#960;/6 rad</td>
+              <td>2.6179938780 rad</td>
+              <td>150&deg;</td>
+            </tr>
+            <tr>
+              <td>&#960; rad</td>
+              <td>3.1415926536 rad</td>
+              <td>180&deg;</td>
+            </tr>
+            <tr>
+              <td>3&#960;/2 rad</td>
+              <td>4.7123889804 rad</td>
+              <td>270&deg;</td>
+            </tr>
+            <tr>
+              <td>2&#960; rad</td>
+              <td>6.2831853072 rad</td>
+              <td>360&deg;</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="degrees-to-radians.html"
+              >Degrees to radians conversion &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="degrees-to-radians.html"
+                >Degrees to radians conversion</a
+              >
+            </li>
+            <li>
+              <a href="degrees-to-degrees-minutes-seconds.html"
+                >Degrees to degrees,minutes,seconds</a
+              >
+            </li>
+            <li>
+              <a href="degrees-minutes-seconds-to-degrees.html"
+                >Degrees,minutes, seconds to degrees</a
+              >
+            </li>
+            <li>
+              <a href="how-radians-to-degrees.html"
+                >How to convert radians to degrees</a
+              >
+            </li>
+            <li>
+              <a href="how-degrees-to-radians.html"
+                >How to convert degrees to radians</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/Sin_Calculator.html">Sine calculator</a>
+            </li>
+            <li>
+              <a href="../../calc/math/Cos_Calculator.html"
+                >Cosine calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/Tan_Calculator.html"
+                >Tangent calculator</a
+              >
+            </li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script src="../../lib/utils/mathview.js"></script>
+          <script>
+            window.onload = function () {
+              var params = GetURLParams();
+              if (Object.keys(params).length > 0 && params.x != "") {
+                document.getElementById("x").value = params.x;
+                convert();
+              }
+            };
+            function GetURLParams() {
+              var url = window.location.href;
+              var regex = /[?&]([^=#]+)=([^&#]*)/g,
+                //url = "www.domain.com/?v=123&p=hello",
+                params = {},
+                match;
+              while ((match = regex.exec(url))) {
+                params[match[1]] = match[2];
+              }
+              return params;
+            }
+            function SetPI() {
+              x = document.calcform.x.value;
+              document.calcform.x.value = x + "\u03C0";
+              document.calcform.x.focus();
+            }
+            function isDigit(s, i) {
+              var len = s.length;
+              if (i < 0 || i >= len) return false;
+              var c = s.charAt(i);
+              if (c >= "0" && c <= "9") return true;
+              return false;
+            }
+            function convert(x) {
+              x = document.calcform.x.value;
+              x0 = x;
+              y = "";
+              if (isNaN(x)) {
+                x = x.replace(/\*/g, "");
+                len = x.length;
+                i = x.indexOf("\u03C0");
+                dl = isDigit(x, i - 1);
+                dr = isDigit(x, i + 1);
+                if (!dl && dr) x = x.replace(/\u03C0/, "Math.PI*");
+                else if (dl && !dr) x = x.replace(/\u03C0/, "*Math.PI");
+                else if (dl && dr) x = x.replace(/\u03C0/, "*Math.PI*");
+                else x = x.replace(/\u03C0/, "Math.PI");
+
+                x = eval(x);
+                x = roundresult(x);
+              }
+              y = (x * 180) / Math.PI;
+              y = roundresult(y);
+              txt =
+                x0.toString() +
+                "\u00D7180\u00B0/\u03C0 = " +
+                y.toString() +
+                "\u00B0";
+
+              //document.calcform.y.value = txt;
+              //document.calcform.y2.value = y;
+              document.getElementById("y").value = txt;
+
+              var obj = document.getElementById("angle");
+              Angle(obj, {
+                degrees: y,
+                radius: 60,
+                //lineColor: "rgb(255,255,255)",
+                fillColor: "rgb(255,255,180)",
+                lineWidth: 2,
+                label: "180\u00B0",
+                width: 230,
+              });
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li>
+            <a href="ascii-hex-bin-dec-converter.html"
+              >ASCII,Hex,Binary,Decimal converter</a
+            >
+          </li>
+          <li><a href="ascii-to-binary.html">ASCII to binary</a></li>
+          <li><a href="ascii-to-hex.html">ASCII to hex</a></li>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-converter.html">Binary converter</a></li>
+          <li><a href="binary-to-ascii.html">Binary to ASCII</a></li>
+          <li><a href="binary-to-decimal.html">Binary to decimal</a></li>
+          <li><a href="binary-to-hex.html">Binary to hex</a></li>
+          <li><a href="date-to-roman-numerals.html">Date to roman</a></li>
+          <li><a href="Decimal_to_Fraction.html">Decimal to fraction</a></li>
+          <li><a href="decimal-to-percent.html">Decimal to percent</a></li>
+          <li><a href="decimal-to-binary.html">Decimal to binary</a></li>
+          <li><a href="decimal-to-octal.html">Decimal to octal</a></li>
+          <li><a href="decimal-to-hex.html">Decimal to hex</a></li>
+          <li>
+            <a href="degrees-to-degrees-minutes-seconds.html"
+              >Degrees to minutes,seconds</a
+            >
+          </li>
+          <li><a href="degrees-to-radians.html">Degrees to radians</a></li>
+          <li><a href="Fraction_to_Decimal.html">Fraction to decimal</a></li>
+          <li><a href="fraction-to-percent.html">Fraction to percent</a></li>
+          <li>
+            <a href="hex-dec-bin-converter.html"
+              >Hex/decimal/octal/binary converter</a
+            >
+          </li>
+          <li><a href="hex-to-ascii.html">Hex to ASCII</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal</a></li>
+          <li>
+            <a href="degrees-minutes-seconds-to-degrees.html"
+              >Minutes, seconds to degrees</a
+            >
+          </li>
+          <li><a href="octal-to-decimal.html">Octal to decimal</a></li>
+          <li><a href="percent-to-decimal.html">Percent to decimal</a></li>
+          <li><a href="percent-to-fraction.html">Percent to fraction</a></li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li><a href="radians-to-degrees.html">Radians to degrees</a></li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html"
+              >Scientific notation converter</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="radians-to-degrees.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

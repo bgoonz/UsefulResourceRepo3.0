@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>How to convert roman numerals to numbers</title>
+    <meta
+      name="description"
+      content="How to convert roman numerals to decimal number."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; How to
+        convert roman numerals to number
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>How to convert roman numerals to number</h1>
+          <p>
+            How to convert
+            <a href="../../math/symbols/roman_numerals.html">roman numerals</a>
+            to decimal number.
+          </p>
+          <h2>Roman numerals to decimal number conversion</h2>
+          <p>For roman numeral r:</p>
+          <ol>
+            <li>
+              From the following table, find the highest roman numeral (n) with
+              the highest decimal value (v)
+              <p>that is taken from the left part of the roman numeral r:</p>
+            </li>
+            <p>&nbsp;</p>
+            <table class="ntable" style="width: 200px">
+              <tr>
+                <th>Roman numeral (n)</th>
+                <th>Decimal value (v)</th>
+              </tr>
+              <tr>
+                <td>I</td>
+                <td>1</td>
+              </tr>
+              <tr>
+                <td>IV</td>
+                <td>4</td>
+              </tr>
+              <tr>
+                <td>V</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td>IX</td>
+                <td>9</td>
+              </tr>
+              <tr>
+                <td>X</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>XL</td>
+                <td>40</td>
+              </tr>
+              <tr>
+                <td>L</td>
+                <td>50</td>
+              </tr>
+              <tr>
+                <td>XC</td>
+                <td>90</td>
+              </tr>
+              <tr>
+                <td>C</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>CD</td>
+                <td>400</td>
+              </tr>
+              <tr>
+                <td>D</td>
+                <td>500</td>
+              </tr>
+              <tr>
+                <td>CM</td>
+                <td>900</td>
+              </tr>
+              <tr>
+                <td>M</td>
+                <td>1000</td>
+              </tr>
+            </table>
+            <p>&nbsp;</p>
+            <li>
+              Add to the decimal number x the value v of the roman numeral that
+              you found:
+              <p class="math"><i>x</i> = <i>x </i>+<i> v</i></p>
+            </li>
+            <li>
+              Repeat stages 1 and 2 until you get all the roman numerals of r.
+            </li>
+          </ol>
+          <h4>Example #1</h4>
+          <p class="math"><i>r</i> = XXXVI</p>
+          <table class="ntable" style="width: 250px">
+            <tr>
+              <th>Iteration #</th>
+              <th>Highest roman numeral (n)</th>
+              <th>Highest decimal value (v)</th>
+              <th>Decimal number (x)</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>X</td>
+              <td>10</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>X</td>
+              <td>10</td>
+              <td>20</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>X</td>
+              <td>10</td>
+              <td>30</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>V</td>
+              <td>5</td>
+              <td>35</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>I</td>
+              <td>1</td>
+              <td>36</td>
+            </tr>
+          </table>
+          <h4>&nbsp;</h4>
+          <h4>Example #2</h4>
+          <p class="math"><i>r</i> = MMXII</p>
+          <table class="ntable" style="width: 250px">
+            <tr>
+              <th>Iteration #</th>
+              <th>Highest roman numeral (n)</th>
+              <th>Highest decimal value (v)</th>
+              <th>Decimal number (x)</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>M</td>
+              <td>1000</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>M</td>
+              <td>1000</td>
+              <td>2000</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>X</td>
+              <td>10</td>
+              <td>2010</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>I</td>
+              <td>1</td>
+              <td>2011</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>I</td>
+              <td>1</td>
+              <td>2012</td>
+            </tr>
+          </table>
+          <h4>&nbsp;</h4>
+          <p>&nbsp;</p>
+          <h4>Example #3</h4>
+          <p class="math"><i>r</i> = MCMXCVI</p>
+          <table class="ntable" style="width: 250px">
+            <tr>
+              <th>Iteration #</th>
+              <th>Highest roman numeral (n)</th>
+              <th>Highest decimal value (v)</th>
+              <th>Decimal number (x)</th>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>M</td>
+              <td>1000</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>CM</td>
+              <td>900</td>
+              <td>1900</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>XC</td>
+              <td>90</td>
+              <td>1990</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>V</td>
+              <td>5</td>
+              <td>1995</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>I</td>
+              <td>1</td>
+              <td>1996</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="how-number-to-roman-numerals.html"
+              >How to convert number to roman numerals &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="roman-numerals-converter.html"
+                >Roman numerals converter</a
+              >
+            </li>
+            <li>
+              <a href="date-to-roman-numerals.html"
+                >Date to roman numerals converter</a
+              >
+            </li>
+            <li>
+              <a href="../../math/symbols/roman_numerals.html"
+                >Roman numerals chart</a
+              >
+            </li>
+            <li><a href="index.html">Number conversion</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li><a href="how-binary-to-decimal.html">Binary to decimal</a></li>
+          <li><a href="how-binary-to-hex.html">Binary to hex</a></li>
+          <li><a href="how-decimal-to-binary.html">Decimal to binary</a></li>
+          <li><a href="how-decimal-to-hex.html">Decimal to hex</a></li>
+          <li><a href="how-degrees-to-radians.html">Degrees to radians</a></li>
+          <li>
+            <a href="how-fraction-to-decimal.html">Fraction to decimal</a>
+          </li>
+          <li><a href="how-hex-to-decimal.html">Hex to decimal</a></li>
+          <li><a href="how-hex-to-binary.html">Hex to binary</a></li>
+          <li>
+            <a href="how-number-to-roman-numerals.html">Number to roman</a>
+          </li>
+          <li><a href="how-percent-to-ppm.html">Percent to ppm</a></li>
+          <li><a href="how-ppm-to-percent.html">ppm to percent</a></li>
+          <li><a href="how-radians-to-degrees.html">Radians to degrees</a></li>
+          <li>
+            <a href="how-roman-numerals-to-number.html">Roman to number</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="how-roman-numerals-to-number.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

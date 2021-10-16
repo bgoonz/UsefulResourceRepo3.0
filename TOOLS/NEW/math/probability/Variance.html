@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Variance - var(X) | Statistics - RapidTables.com</title>
+    <meta
+      name="description"
+      content="In probability and statistics, the variance of a random variable is the average value of the square distance from the mean value."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Probability</a>&rsaquo; Variance
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Variance</h1>
+          <p>
+            In probability and statistics, the <i>variance</i> of a random
+            variable is the average value of the square distance from the mean
+            value. It represents the how the random variable is distributed near
+            the mean value. Small variance indicates that the random variable is
+            distributed near the mean value. Big variance indicates that the
+            random variable is distributed far from the mean value. For example,
+            with normal distribution, narrow bell curve will have small variance
+            and wide bell curve will have big variance.
+          </p>
+          <h3>Variance definition</h3>
+          <p>
+            The variance of random variable X is the expected value of squares
+            of difference of X and the expected value &#956;.
+          </p>
+          <p class="math">
+            &#963;<sup>2</sup> = <i>Var </i>(<i> X </i>) = <i>E </i> [(<i>X</i
+            ><sup> </sup>- <i>&#956;</i>)<sup>2</sup>]
+          </p>
+          <p>From the definition of the variance we can get</p>
+          <p class="math">
+            &#963;<sup>2</sup> = <i>Var </i>(<i> X </i>) = <i>E</i>(<i>X</i
+            ><sup> 2</sup>) - <i>&#956;</i><sup>2</sup>
+          </p>
+          <h3>Variance of continuous random variable</h3>
+          <p>
+            For continuous random variable with mean value &#956; and
+            probability density function f(x):
+          </p>
+          <p>
+            <img
+              border="0"
+              src="variance/cont_var.gif"
+              width="340"
+              height="51"
+              alt="\sigma ^2=Var(X)=\int_{-\infty }^{\infty }(x-\mu)^2\: f(x)dx"
+            />
+          </p>
+          <p>or</p>
+          <p>
+            <img
+              border="0"
+              src="variance/cont_var2.gif"
+              width="307"
+              height="53"
+              alt="Var(X)=\left [ \int_{-\infty }^{\infty }x^2\: f(x)dx \right ]-\mu^2"
+            />
+          </p>
+          <h3>Variance of discrete random variable</h3>
+          <p>
+            For discrete random variable X with mean value &#956; and
+            probability mass function P(x):
+          </p>
+          <p>
+            <img
+              border="0"
+              src="variance/disc_var.gif"
+              width="319"
+              height="46"
+              alt="\sigma ^2=Var(X)=\sum_{i}^{}(x_i-\mu _X)^2P_X(x_i)"
+            />
+          </p>
+          <p>or</p>
+          <p>
+            <img
+              border="0"
+              src="variance/disc_var2.gif"
+              width="283"
+              height="67"
+              alt="Var(X)=\left [ \sum_{i}^{}x_i^2P(x_i) \right ]-\mu^2"
+            />
+          </p>
+          <h3>Properties of variance</h3>
+          <p>When X and Y are independent random variables:</p>
+          <h5 class="math">
+            <i>Var</i>(<i>X</i>+<i>Y</i>) = <i>Var</i>(<i>X</i>) +
+            <i>Var</i>(<i>Y</i>)
+          </h5>
+          <p>&nbsp;</p>
+          <p>
+            <a href="standard_deviation.html">Standard deviation &#9658;</a>
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="standard_deviation.html">Standard deviation</a></li>
+            <li><a href="Expectation.html">Expectation</a></li>
+            <li><a href="distribution.html">Distribution</a></li>
+            <li><a href="normal_distribution.html">Normal distribution</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>PROBABILITY &amp; STATISTICS</h5>
+        <ul>
+          <li><a href="basic_probability.html">Basic probability</a></li>
+          <li><a href="Expectation.html">Expectation</a></li>
+          <li><a href="Variance.html">Variance</a></li>
+          <li><a href="standard_deviation.html">Standard deviation</a></li>
+          <li><a href="distribution.html">Probability distribution</a></li>
+          <li><a href="normal_distribution.html">Normal distribution</a></li>
+          <li>
+            <a href="../symbols/Statistical_Symbols.html">Statistics symbols</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Variance.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

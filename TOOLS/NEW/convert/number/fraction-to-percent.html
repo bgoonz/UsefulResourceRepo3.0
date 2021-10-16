@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Fraction to percent conversion calculator</title>
+    <meta
+      name="description"
+      content="Fraction to percent (%) conversion: calculator, how to convert and conversion table."
+    />
+    <style>
+      .calc2 {
+        padding: 15px;
+      }
+      .ntable td {
+        width: 120px;
+      }
+      #tbl {
+        border: 0px;
+        line-height: 1;
+      }
+      #tbl td {
+        text-align: center;
+      }
+      #tbl tr:last-child td {
+        border-top: #000 2px solid;
+      }
+
+      @media all and (max-width: 576px) {
+        .calc {
+          padding: 20px;
+          width: 100%;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc {
+          padding: 20px;
+          width: 380px;
+        }
+      }
+
+      .calc tr td {
+        padding: 0px;
+        margin: 0px;
+        width: 2em;
+      }
+      #td12,
+      #td31,
+      #td34 {
+        width: 2em !important;
+        padding-bottom: 0px;
+      }
+      #td21,
+      #td41,
+      #td42 {
+        width: 2em !important;
+        border-top: #000 2px solid;
+        padding-top: 1px;
+      }
+      #td11 input[type="text"],
+      #td33 input[type="text"] {
+        width: 1.5em;
+        text-align: center;
+        font-size: 250%;
+      }
+      .calc ul {
+        list-style-type: none;
+        margin: 0 0 20px 0;
+        padding: 0;
+        overflow: hidden;
+        font: bold 1.2em;
+      }
+      .calc li {
+        float: left;
+        margin: 0;
+        padding: 0;
+        border: 1px #ddd solid;
+        background: #fff;
+      }
+      .calc li a {
+        display: block;
+        text-decoration: none;
+        padding: 8px;
+      }
+      .calc li a:hover {
+        background: #fff;
+      }
+      .calc input[type="text"] {
+        width: 2em;
+        text-align: center;
+        font-size: x-large;
+        padding: 4px;
+      }
+      .calc input[type="button"],
+      .calc input[type="reset"],
+      .calc button {
+        margin: 20px auto;
+        padding: 7px;
+      }
+      .calc #td32 {
+        margin: auto 5px;
+        font: bold xx-large "Times New Roman";
+        text-align: center;
+      }
+      .calc #tbl1 input[type="text"]:focus {
+        background: #fff;
+        -webkit-box-shadow: #68b4df 0 0 3px 2px;
+        -moz-box-shadow: #68b4df 0 0 3px 2px;
+        box-shadow: #68b4df 0 0 3px 2px;
+      }
+      .active {
+        background: #eee;
+        color: #000 !important;
+      }
+      #y {
+        width: 100%;
+        text-align: left;
+        margin-bottom: 5px;
+      }
+      #area {
+        width: 100%;
+        font-size: x-large;
+      }
+      #frac {
+        border: 0px #ccc solid;
+        padding: 10px 20px;
+        max-width: 180px;
+        max-height: 80px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Number conversion</a>&rsaquo; Fraction to
+        percent
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Fraction to percent conversion</h1>
+          <form name="calcform" autocomplete="off">
+            <table class="calc">
+              <tr>
+                <td>
+                  <ul>
+                    <li>
+                      <a href="javascript:void(0)" id="sf">Simple Fraction</a>
+                    </li>
+                    <li>
+                      <a href="javascript:void(0)" id="mf">Mixed Fraction</a>
+                    </li>
+                  </ul>
+                </td>
+              </tr>
+              <tr>
+                <td style="padding-bottom: 5px">Enter fraction:</td>
+              </tr>
+              <tr>
+                <td>
+                  <table id="tbl1">
+                    <tr>
+                      <td id="td11" rowspan="2">
+                        <input type="text" id="x" tabindex="1" />
+                      </td>
+                      <td id="td12">
+                        <input type="text" id="n" tabindex="2" autofocus />
+                      </td>
+                      <td id="td13" rowspan="2"><canvas id="frac"></canvas></td>
+                    </tr>
+                    <tr>
+                      <td id="td21">
+                        <input type="text" id="d" tabindex="3" />
+                      </td>
+                    </tr>
+                  </table>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    type="button"
+                    title="Convert"
+                    class="btn"
+                    onclick="convert()"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_030_refresh.png"
+                      alt=""
+                    />
+                    Convert
+                  </button>
+                  <button type="reset" title="Reset" class="btn">
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                      alt=""
+                    />
+                    Reset
+                  </button>
+                  <button
+                    type="button"
+                    title="Swap conversion"
+                    class="btn"
+                    onclick="location.href='percent-to-fraction.html';"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                      alt=""
+                    />
+                    Swap
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Percent result:</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    id="y"
+                    tabindex="6"
+                    class="outtext"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Calculation:</td>
+              </tr>
+              <tr>
+                <td>
+                  <textarea
+                    rows="3"
+                    id="area"
+                    tabindex="7"
+                    class="outtext"
+                    readonly
+                  ></textarea>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>
+            <a href="percent-to-fraction.html"
+              >Percent to fraction converter &#9658;</a
+            >
+          </p>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+
+          <h2><a id="how"></a>How to convert fraction to percent</h2>
+          <p>
+            For example, in order to get a decimal fraction, 3/4 is expanded to
+            75/100 by multiplying the numerator by 25 and denominator by 25:
+          </p>
+          <table id="tbl" class="math">
+            <tr>
+              <td>3</td>
+              <td rowspan="2">=</td>
+              <td>3&times;25</td>
+              <td rowspan="2">=</td>
+              <td>75</td>
+              <td rowspan="2">&times; 100% =</td>
+              <td rowspan="2">75%</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>4&times;25</td>
+              <td>100</td>
+            </tr>
+          </table>
+          <p>Other method is to do long division of 3 divided by 4.</p>
+          <h2><a id="table"></a>Fraction to percent conversion table</h2>
+          <table class="ntable">
+            <tr>
+              <th>Fraction</th>
+              <th>Percent</th>
+            </tr>
+            <tr>
+              <td>1/2</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>1/3</td>
+              <td>33.33%</td>
+            </tr>
+            <tr>
+              <td>2/3</td>
+              <td>66.67%</td>
+            </tr>
+            <tr>
+              <td>1/4</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>2/4</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>3/4</td>
+              <td>75%</td>
+            </tr>
+            <tr>
+              <td>1/5</td>
+              <td>20%</td>
+            </tr>
+            <tr>
+              <td>2/5</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>3/5</td>
+              <td>60%</td>
+            </tr>
+            <tr>
+              <td>4/5</td>
+              <td>80%</td>
+            </tr>
+            <tr>
+              <td>1/6</td>
+              <td>16.67%</td>
+            </tr>
+            <tr>
+              <td>2/6</td>
+              <td>33.33%</td>
+            </tr>
+            <tr>
+              <td>3/6</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>4/6</td>
+              <td>66.67%</td>
+            </tr>
+            <tr>
+              <td>5/6</td>
+              <td>83.33%</td>
+            </tr>
+            <tr>
+              <td>1/7</td>
+              <td>14.285714%</td>
+            </tr>
+            <tr>
+              <td>2/7</td>
+              <td>28.571429%</td>
+            </tr>
+            <tr>
+              <td>3/7</td>
+              <td>42.857143%</td>
+            </tr>
+            <tr>
+              <td>4/7</td>
+              <td>57.142858%</td>
+            </tr>
+            <tr>
+              <td>5/7</td>
+              <td>71.428571%</td>
+            </tr>
+            <tr>
+              <td>6/7</td>
+              <td>85.714286%</td>
+            </tr>
+            <tr>
+              <td>1/8</td>
+              <td>12.5%</td>
+            </tr>
+            <tr>
+              <td>2/8</td>
+              <td>25%</td>
+            </tr>
+            <tr>
+              <td>3/8</td>
+              <td>37.5%</td>
+            </tr>
+            <tr>
+              <td>4/8</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>5/8</td>
+              <td>62.5%</td>
+            </tr>
+            <tr>
+              <td>6/8</td>
+              <td>75%</td>
+            </tr>
+            <tr>
+              <td>7/8</td>
+              <td>87.5%</td>
+            </tr>
+            <tr>
+              <td>1/9</td>
+              <td>11.111111%</td>
+            </tr>
+            <tr>
+              <td>2/9</td>
+              <td>22.222222%</td>
+            </tr>
+            <tr>
+              <td>3/9</td>
+              <td>33.333333%</td>
+            </tr>
+            <tr>
+              <td>4/9</td>
+              <td>44.444444%</td>
+            </tr>
+            <tr>
+              <td>5/9</td>
+              <td>55.555556%</td>
+            </tr>
+            <tr>
+              <td>6/9</td>
+              <td>66.666667%</td>
+            </tr>
+            <tr>
+              <td>7/9</td>
+              <td>77.777778%</td>
+            </tr>
+            <tr>
+              <td>8/9</td>
+              <td>88.888889%</td>
+            </tr>
+            <tr>
+              <td>1/10</td>
+              <td>10%</td>
+            </tr>
+            <tr>
+              <td>2/10</td>
+              <td>20%</td>
+            </tr>
+            <tr>
+              <td>3/10</td>
+              <td>30%</td>
+            </tr>
+            <tr>
+              <td>4/10</td>
+              <td>40%</td>
+            </tr>
+            <tr>
+              <td>5/10</td>
+              <td>50%</td>
+            </tr>
+            <tr>
+              <td>6/10</td>
+              <td>60%</td>
+            </tr>
+            <tr>
+              <td>7/10</td>
+              <td>70%</td>
+            </tr>
+            <tr>
+              <td>8/10</td>
+              <td>80%</td>
+            </tr>
+            <tr>
+              <td>9/10</td>
+              <td>90%</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="percent-to-fraction.html"
+              >Percent to fraction conversion &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="percent-to-fraction.html"
+                >Percent to fraction conversion</a
+              >
+            </li>
+            <li>
+              <a href="Decimal_to_Fraction.html"
+                >Decimal to fraction conversion</a
+              >
+            </li>
+            <li>
+              <a href="percent-to-decimal.html"
+                >Percent to decimal conversion</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/adding-fractions-calculator.html"
+                >Adding fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/subtracting-fractions-calculator.html"
+                >Subtracting fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/multiplying-fractions-calculator.html"
+                >Multiplying fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/dividing-fractions-calculator.html"
+                >Dividing fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/fractions-calculator.html"
+                >Fractions calculator</a
+              >
+            </li>
+            <li><a href="Fraction_Convert.html">Fraction conversion</a></li>
+            <li><a href="index.html">Number conversion</a></li>
+          </ul>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBER CONVERSION</h5>
+        <ul>
+          <li><a href="base-converter.html">Base converter</a></li>
+          <li><a href="binary-to-decimal.html">Binary to decimal</a></li>
+          <li><a href="binary-to-hex.html">Binary to hex</a></li>
+          <li><a href="date-to-roman-numerals.html">Date to roman</a></li>
+          <li><a href="Decimal_to_Fraction.html">Decimal to fraction</a></li>
+          <li><a href="decimal-to-percent.html">Decimal to percent</a></li>
+          <li><a href="decimal-to-binary.html">Decimal to binary</a></li>
+          <li><a href="decimal-to-octal.html">Decimal to octal</a></li>
+          <li><a href="decimal-to-hex.html">Decimal to hex</a></li>
+          <li><a href="Fraction_to_Decimal.html">Fraction to decimal</a></li>
+          <li><a href="fraction-to-percent.html">Fraction to percent</a></li>
+          <li><a href="hex-to-binary.html">Hex to binary</a></li>
+          <li><a href="hex-to-decimal.html">Hex to decimal</a></li>
+          <li><a href="octal-to-decimal.html">Octal to decimal</a></li>
+          <li><a href="percent-to-decimal.html">Percent to decimal</a></li>
+          <li><a href="percent-to-fraction.html">Percent to fraction</a></li>
+          <li><a href="Percent_to_PPM.html">Percent to ppm</a></li>
+          <li><a href="PPM_to_Percent.html">ppm to percent</a></li>
+          <li><a href="ppm-to-ppb.html">ppm to ppb</a></li>
+          <li><a href="ppm-to-ppt.html">ppm to ppt</a></li>
+          <li><a href="ppb-to-ppm.html">ppb to ppm</a></li>
+          <li><a href="ppt-to-ppm.html">ppt to ppm</a></li>
+          <li><a href="ppm-converter.html">ppm converter</a></li>
+          <li>
+            <a href="roman-numerals-converter.html">Roman numerals converter</a>
+          </li>
+          <li>
+            <a href="scientific-notation-converter.html"
+              >Scientific notation converter</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="fraction-to-percent.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script src="../convert.js"></script>
+        <script src="../number.js"></script>
+        <script src="../../lib/utils/mathview.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+        <script>
+          $(document).ready(function () {
+            $("#td11").hide();
+            $("#mf").toggleClass("active");
+            $("#sf").click(function () {
+              if ($(this).hasClass("active")) {
+                $(this).toggleClass("active");
+                $("#mf").toggleClass("active");
+                $("#td11").hide();
+                $("#x").val("");
+                $("#n").focus();
+              }
+            });
+            $("#mf").click(function () {
+              if ($(this).hasClass("active")) {
+                $(this).toggleClass("active");
+                $("#sf").toggleClass("active");
+                $("#td11").show();
+                $("#x").focus();
+              }
+            });
+          });
+          function convert(x) {
+            s = 1;
+            x = $("#x").val();
+            n = $("#n").val();
+            d = $("#d").val();
+            if (x == "-") {
+              s = -1;
+              x = "0";
+            }
+            if (x == "") x = "0";
+            x = parseInt(x);
+            n = parseInt(n);
+            d = parseInt(d);
+            if (x < 0) {
+              s = -1;
+              x = -x;
+            }
+            y = s * (x + n / d) * 100;
+            y = roundresult(y);
+            $("#y").val(y + "%");
+            var out = "(";
+            if (s == -1) out += "-";
+            if (x != 0) out += x + " ";
+            out += n + "/" + d + ") \u00D7 100%";
+            out += "\n= " + y + "%";
+            out += "\n= " + y / 100;
+            $("#area").val(out);
+
+            var obj = document.getElementById("frac");
+            CircNumber(obj, {
+              n: x,
+              num: n,
+              den: d,
+              radius: 20,
+              fillColor: "rgb(80,192,0)",
+              lineWidth: 1,
+            });
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Basic probability formulas</title>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Probability</a>&rsaquo; Basic Probability
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Basic Probability Formulas</h1>
+          <p>&nbsp;</p>
+          <h4>Probability Range</h4>
+          <p class="math">
+            <span style="font-style: normal">0 &#8804; </span><i>P</i
+            ><span style="font-style: normal">(</span>A<span
+              style="font-style: normal"
+              >) &#8804; 1</span
+            >
+          </p>
+          <h4>Rule of Complementary Events</h4>
+          <p class="math">
+            <i>P</i><span style="font-style: normal">(</span>A<sup
+              ><span style="font-size: 10pt; font-style: normal">C</span></sup
+            ><span style="font-style: normal">) + </span><i>P</i
+            ><span style="font-style: normal">(</span>A<span
+              style="font-style: normal"
+              >) = 1</span
+            >
+          </p>
+          <h4>Rule of Addition</h4>
+          <p class="math">
+            <i>P</i>(A&#8746;B) = <i>P</i>(A) + <i>P</i>(B) -
+            <i>P</i>(A&#8745;B)
+          </p>
+          <h4>Disjoint Events</h4>
+          <p class="MsoNormal">Events A and B are disjoint iff</p>
+          <p class="math"><i>P</i>(A&#8745;B) = 0</p>
+          <h4>Conditional Probability</h4>
+          <p class="math">
+            <i>P</i>(A | B) = <i>P</i>(A&#8745;B) / <i>P</i>(B)
+          </p>
+          <h4>Bayes Formula</h4>
+          <p class="math">
+            <i>P</i>(A | B) = <i>P</i>(B | A) &sdot;<i> P</i>(A) / <i>P</i>(B)
+          </p>
+          <h4>Independent Events</h4>
+          <p class="MsoNormal">Events A and B are independent iff</p>
+          <p class="math">
+            <i>P</i>(A&#8745;B) = <i>P</i>(A) &sdot; <i>P</i>(B)
+          </p>
+          <h4>Cumulative Distribution Function</h4>
+          <p class="math">
+            <i>F<sub>X</sub></i
+            >(<i>x</i>) = <i>P</i>(<i>X</i> &#8804; <i>x</i>)
+          </p>
+          <h4>Probability Mass Function</h4>
+          <p class="MsoNormal">
+            <sub
+              ><!--[if gte vml 1
+                ]><v:shapetype
+                  id="_x0000_t75"
+                  coordsize="21600,21600"
+                  o:spt="75"
+                  o:preferrelative="t"
+                  path="m@4@5l@4@11@9@11@9@5xe"
+                  filled="f"
+                  stroked="f"
+                >
+                  <v:stroke joinstyle="miter" />
+                  <v:formulas>
+                    <v:f eqn="if lineDrawn pixelLineWidth 0" />
+                    <v:f eqn="sum @0 1 0" />
+                    <v:f eqn="sum 0 0 @1" />
+                    <v:f eqn="prod @2 1 2" />
+                    <v:f eqn="prod @3 21600 pixelWidth" />
+                    <v:f eqn="prod @3 21600 pixelHeight" />
+                    <v:f eqn="sum @0 0 1" />
+                    <v:f eqn="prod @6 1 2" />
+                    <v:f eqn="prod @7 21600 pixelWidth" />
+                    <v:f eqn="sum @8 21600 0" />
+                    <v:f eqn="prod @7 21600 pixelHeight" />
+                    <v:f eqn="sum @10 21600 0" />
+                  </v:formulas>
+                  <v:path
+                    o:extrusionok="f"
+                    gradientshapeok="t"
+                    o:connecttype="rect"
+                  />
+                  <o:lock v:ext="edit" aspectratio="t" /> </v:shapetype
+                ><v:shape
+                  id="_x0000_s1032"
+                  type="#_x0000_t75"
+                  alt="sum(i=1..n, P(X=x(i)) = 1"
+                  style="width: 84pt; height: 33.75pt"
+                >
+                  <v:imagedata
+                    src="basic_probability.files/image001.wmz"
+                    o:title=""
+                  /> </v:shape><!
+              [endif]--><![if !vml]><img
+                border="0"
+                width="112"
+                height="45"
+                src="basic_probability.files/image002.gif"
+                alt="sum(i=1..n, P(X=x(i)) = 1"
+                v:shapes="_x0000_s1032"
+              /><![endif]></sub
+            ><!--[if gte mso 9]> <![endif]-->
+          </p>
+          <h4>Probability Density Function</h4>
+          <p class="MsoNormal">
+            <!--[if gte vml 1
+              ]><v:shape
+                id="_x0000_s1031"
+                type="#_x0000_t75"
+                alt="fX(x) = dFX(x)/dx"
+                style="width: 83.25pt; height: 32.25pt"
+              >
+                <v:imagedata
+                  src="basic_probability.files/image003.wmz"
+                  o:title=""
+                /> </v:shape><!
+            [endif]--><![if !vml]><img
+              border="0"
+              width="111"
+              height="43"
+              src="basic_probability.files/image004.gif"
+              alt="fX(x) = dFX(x)/dx"
+              v:shapes="_x0000_s1031"
+            /><![endif]><!--[if gte mso 9
+            ]> <![endif]-->
+          </p>
+          <p class="MsoNormal">
+            <sub
+              ><!--[if gte vml 1
+                ]><v:shape
+                  id="_x0000_s1030"
+                  type="#_x0000_t75"
+                  alt="FX(x) = integral(-inf..x, fX(y)*dy)"
+                  style="width: 96.75pt; height: 36.75pt"
+                >
+                  <v:imagedata
+                    src="basic_probability.files/image005.wmz"
+                    o:title=""
+                  /> </v:shape><!
+              [endif]--><![if !vml]><img
+                border="0"
+                width="129"
+                height="49"
+                src="basic_probability.files/image006.gif"
+                alt="FX(x) = integral(-inf..x, fX(y)*dy)"
+                v:shapes="_x0000_s1030"
+              /><![endif]></sub
+            ><!--[if gte mso 9]> <![endif]-->
+          </p>
+          <p class="MsoNormal">
+            <sub
+              ><!--[if gte vml 1
+                ]><v:shape
+                  id="_x0000_s1029"
+                  type="#_x0000_t75"
+                  alt="FX(x) = sum(k=1..x, P(X=k))"
+                  style="width: 105.75pt; height: 33.75pt"
+                >
+                  <v:imagedata
+                    src="basic_probability.files/image007.wmz"
+                    o:title=""
+                  /> </v:shape><!
+              [endif]--><![if !vml]><img
+                border="0"
+                width="141"
+                height="45"
+                src="basic_probability.files/image008.gif"
+                alt="FX(x) = sum(k=1..x, P(X=k))"
+                v:shapes="_x0000_s1029"
+              /><![endif]></sub
+            ><!--[if gte mso 9]> <![endif]-->
+          </p>
+          <p class="MsoNormal">
+            <sub
+              ><!--[if gte vml 1
+                ]><v:shape
+                  id="_x0000_s1028"
+                  type="#_x0000_t75"
+                  alt="P(a&lt;=X&lt;=b) = integral(a..b, fX(x)*dx)"
+                  style="width: 129pt; height: 38.25pt"
+                >
+                  <v:imagedata
+                    src="basic_probability.files/image009.wmz"
+                    o:title=""
+                  /> </v:shape><!
+              [endif]--><![if !vml]><img
+                border="0"
+                width="172"
+                height="51"
+                src="basic_probability.files/image010.gif"
+                alt="P(a&lt;=X&lt;=b) = integral(a..b, fX(x)*dx)"
+                v:shapes="_x0000_s1028"
+              /><![endif]></sub
+            ><!--[if gte mso 9]> <![endif]-->
+          </p>
+          <p class="MsoNormal">
+            <sub
+              ><!--[if gte vml 1
+                ]><v:shape
+                  id="_x0000_s1027"
+                  type="#_x0000_t75"
+                  alt="integral(-inf..inf, fX(x)*dx) = 1"
+                  style="width: 69.75pt; height: 36.75pt"
+                >
+                  <v:imagedata
+                    src="basic_probability.files/image011.wmz"
+                    o:title=""
+                  /> </v:shape><!
+              [endif]--><![if !vml]><img
+                border="0"
+                width="93"
+                height="49"
+                src="basic_probability.files/image012.gif"
+                alt="integral(-inf..inf, fX(x)*dx) = 1"
+                v:shapes="_x0000_s1027"
+              /><![endif]></sub
+            ><!--[if gte mso 9]> <![endif]-->
+          </p>
+          <p class="MsoNormal">&nbsp;</p>
+          <h4>Covariance</h4>
+          <p class="MathText">
+            <!--[if gte vml 1
+              ]><v:shape
+                id="_x0000_s1026"
+                type="#_x0000_t75"
+                alt="Cox(X,Y) = E(X-ux)(Y-uy) = E(XY) - ux*uy"
+                style="width: 246.75pt; height: 17.25pt"
+              >
+                <v:imagedata
+                  src="basic_probability.files/image013.wmz"
+                  o:title=""
+                /> </v:shape><!
+            [endif]--><![if !vml]><img
+              border="0"
+              width="329"
+              height="23"
+              src="basic_probability.files/image014.gif"
+              alt="Cox(X,Y) = E(X-ux)(Y-uy) = E(XY) - ux*uy"
+              v:shapes="_x0000_s1026"
+            /><![endif]><!--[if gte mso 9
+            ]> <![endif]-->
+          </p>
+          <h4>Correlation</h4>
+          <p class="MsoNormal">
+            <!--[if gte vml 1
+              ]><v:shape
+                id="_x0000_s1025"
+                type="#_x0000_t75"
+                alt="corr(X,Y) = Cov(X,Y)/(Std(X)*Std(Y))"
+                style="width: 87.75pt; height: 33.75pt"
+              >
+                <v:imagedata
+                  src="basic_probability.files/image015.wmz"
+                  o:title=""
+                /> </v:shape><!
+            [endif]--><![if !vml]><img
+              border="0"
+              width="117"
+              height="45"
+              src="basic_probability.files/image016.gif"
+              alt="corr(X,Y) = Cov(X,Y)/(Std(X)*Std(Y))"
+              v:shapes="_x0000_s1025"
+            /><![endif]><!--[if gte mso 9
+            ]> <![endif]-->
+          </p>
+          <p class="MsoNormal">&nbsp;</p>
+          <p class="MsoNormal">Bernoulli: 0-failure 1-success</p>
+          <p class="MsoNormal">Geometric: 0-failure 1-success</p>
+          <p class="MsoNormal">
+            Hypergeometric: N objects with K success objects, n objects are
+            taken.
+          </p>
+          <p class="MsoNormal">&nbsp;</p>
+          <p>&nbsp;</p>
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        &nbsp;
+        <h5>&nbsp;</h5>
+        <h5>PROBABILITY &amp; STATISTICS</h5>
+        <ul>
+          <li><a href="basic_probability.html">Basic probability</a></li>
+          <li><a href="Expectation.html">Expectation</a></li>
+          <li><a href="Variance.html">Variance</a></li>
+          <li><a href="standard_deviation.html">Standard deviation</a></li>
+          <li><a href="distribution.html">Probability distribution</a></li>
+          <li><a href="normal_distribution.html">Normal distribution</a></li>
+          <li>
+            <a href="../symbols/Statistical_Symbols.html">Statistics symbols</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="basic_probability.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>
