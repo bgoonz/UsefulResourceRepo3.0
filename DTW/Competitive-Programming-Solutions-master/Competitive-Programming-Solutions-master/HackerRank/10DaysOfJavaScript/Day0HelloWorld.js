@@ -10,51 +10,52 @@ tasks to complete this challenge:
 
 */
 
-'use strict';
+"use strict";
 
 process.stdin.resume();
-process.stdin.setEncoding('utf-8');
+process.stdin.setEncoding("utf-8");
 
-let inputString = '';
+let inputString = "";
 let currentLine = 0;
 
-process.stdin.on('data', inputStdin => {
-    inputString += inputStdin;
+process.stdin.on("data", (inputStdin) => {
+  inputString += inputStdin;
 });
 
-process.stdin.on('end', _ => {
-    inputString = inputString.trim().split('\n').map(string => {
-        return string.trim();
+process.stdin.on("end", (_) => {
+  inputString = inputString
+    .trim()
+    .split("\n")
+    .map((string) => {
+      return string.trim();
     });
-    
-    main();    
+
+  main();
 });
 
 function readLine() {
-    return inputString[currentLine++];
+  return inputString[currentLine++];
 }
 
 /**
-*   A line of code that prints "Hello, World!" on a new line is provided in the editor. 
-*   Write a second line of code that prints the contents of 'parameterVariable' on a new line.
-*
-*	Parameter:
-*   parameterVariable - A string of text.
-**/
+ *   A line of code that prints "Hello, World!" on a new line is provided in the editor.
+ *   Write a second line of code that prints the contents of 'parameterVariable' on a new line.
+ *
+ *	Parameter:
+ *   parameterVariable - A string of text.
+ **/
 function greeting(parameterVariable) {
-    // This line prints 'Hello, World!' to the console:
-    console.log('Hello, World!');
-    console.log(parameterVariable);
+  // This line prints 'Hello, World!' to the console:
+  console.log("Hello, World!");
+  console.log(parameterVariable);
 
-    // Write a line of code that prints parameterVariable to stdout using console.log:
-    
+  // Write a line of code that prints parameterVariable to stdout using console.log:
 }
 
-
 function main() {
-    const parameterVariable = readLine();
-    
-    greeting(parameterVariable);
+  const parameterVariable = readLine();
+
+  greeting(parameterVariable);
 }
 
 /*
@@ -77,4 +78,4 @@ We printed two lines of output:
 1. We printed the literal string Hello, World! using the code provided in the editor.
 2. The value of parameterVariable passed to our main function in this Sample Case was Welcome to 10 Days of JavaScript!. 
    We then passed our variable to console.log, which printed the contents of parameterVariable. 
-*/ 
+*/

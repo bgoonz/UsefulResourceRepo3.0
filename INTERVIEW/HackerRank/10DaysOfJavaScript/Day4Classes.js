@@ -4,16 +4,16 @@
  * 2. A 'perimeter' method that returns the sum of the Polygon's side lengths.
  */
 class Polygon {
-    constructor(a) {
-        this.a = a;
+  constructor(a) {
+    this.a = a;
+  }
+  perimeter() {
+    var sum = 0;
+    for (let i = 0; i < this.a.length; i++) {
+      sum = sum + this.a[i];
     }
-    perimeter() {
-        var sum = 0;
-        for (let i = 0; i < this.a.length; i++) {
-            sum = sum + this.a[i];
-        }
-        return sum;
-    }
+    return sum;
+  }
 }
 
 const rectangle = new Polygon([10, 20, 10, 20]);

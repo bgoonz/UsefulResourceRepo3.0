@@ -137,7 +137,8 @@ Remember that actions only describe the fact that something happened, but don't 
 - specify how the application's state changes in response to actions sent to the store.
 - are pure functions that takes the previous state and an action, and return the next state.
   ```javascript
-  (previousState, action) => newState
+  (previousState, action) => newState;
+  ```
 
 ````
 * dictate state shape through reducer design and .combineReducers()
