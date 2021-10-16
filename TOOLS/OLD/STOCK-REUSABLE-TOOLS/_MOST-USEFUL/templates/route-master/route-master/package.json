@@ -14,17 +14,17 @@
     "index.js"
   ],
   "devDependencies": {
-    "istanbul-harmony": "0",
-    "koa": "^2.0.0-alpha.3",
-    "mocha": "^2.2.5",
+    "istanbul-harmony": "0.3.16",
+    "koa": "2.13.3",
+    "mocha": "2.5.3",
     "should": "*",
-    "supertest": "0"
+    "supertest": "0.15.0"
   },
   "license": "MIT",
   "dependencies": {
     "debug": "*",
-    "methods": "~1.1.0",
-    "path-to-regexp": "^1.2.0"
+    "methods": "1.1.2",
+    "path-to-regexp": "1.8.0"
   },
   "scripts": {
     "test": "NODE_ENV=test mocha --harmony --require should --reporter spec",
