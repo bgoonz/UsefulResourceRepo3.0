@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Roman numerals chart</title>
+    <meta name="description" content="List of Roman numerals / numbers. " />
+    <style>
+      #look {
+        border-collapse: collapse;
+        width: 336px;
+        background: #f0f0f0;
+      }
+      #look tr:nth-child(2) td {
+        font-family: "Times New Roman", Times, serif;
+      }
+      #look td {
+        text-align: center;
+        border: 1px #ddd solid;
+      }
+      .dtable th {
+        position: sticky;
+        top: 0;
+        background: #f0f0f0;
+      }
+      .dtable tr:hover {
+        background: #ffffe0;
+      }
+      .dtable td:nth-child(2) {
+        font: large "Times New Roman", Times, serif;
+      }
+      .dtable tr td:nth-child(1) {
+        text-align: center;
+      }
+      @media all and (max-width: 576px) {
+        .dtable {
+          margin: auto 0;
+          width: 100%;
+        }
+        .dtable tr td:nth-child(3) {
+          max-width: 100px;
+          word-wrap: break-word;
+        }
+        .calc2 input[type="number"],
+        .calc2 input[type="text"] {
+          padding: 5px;
+        }
+        .calc2 tr td:last-child {
+          padding-top: 2px;
+        }
+        .calc2 button {
+          padding: 8px 12px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc2 tr td:last-child input[type="reset"] {
+          vertical-align: top;
+        }
+        .calc2 tr td:last-child {
+          padding-top: 3px;
+        }
+        .calc2 tr td:last-child button {
+          vertical-align: top;
+          padding: 4px 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Math symbols</a>&rsaquo; Roman numerals
+        chart
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Roman numerals chart</h1>
+          <p>
+            List of <a href="roman_numerals.html">Roman numerals</a> / numbers.
+          </p>
+
+          <h2><a id="anchorlook"></a>Roman numerals lookup</h2>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="x1">Number:</label></td>
+                <td>
+                  <input
+                    type="number"
+                    min="1"
+                    step="1"
+                    id="x1"
+                    name="x1"
+                    class="intext"
+                    onkeyup="convert()"
+                    onchange="convert()"
+                  />
+                </td>
+                <td>
+                  <button
+                    type="reset"
+                    id="reset"
+                    title="Reset"
+                    class="btn"
+                    onclick="setfocus()"
+                  >
+                    <img
+                      loading="lazy"
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                      alt="Reset"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><label for="x2">Roman numeral:</label></td>
+                <td>
+                  <input
+                    type="text"
+                    id="x2"
+                    name="x2"
+                    class="outtext"
+                    readonly
+                  />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <h2><a id="list"></a>Roman numerals chart</h2>
+          <table id="look">
+            <tr>
+              <td>1</td>
+              <td>5</td>
+              <td>10</td>
+              <td>50</td>
+              <td>100</td>
+              <td>500</td>
+              <td>1000</td>
+            </tr>
+            <tr>
+              <td>I</td>
+              <td>V</td>
+              <td>X</td>
+              <td>L</td>
+              <td>C</td>
+              <td>D</td>
+              <td>M</td>
+            </tr>
+          </table>
+          <br />
+          <table class="dtable">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Roman<br />Numeral</th>
+                <th>Calculation</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>0</td>
+              <td>not<br />defined</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr style="background: #f8f8f0">
+              <td>1</td>
+              <td>I</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>II</td>
+              <td>1+1</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>III</td>
+              <td>1+1+1</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>IV</td>
+              <td>5-1</td>
+            </tr>
+            <tr style="background: #f8f8f0">
+              <td>5</td>
+              <td>V</td>
+              <td>5</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>VI</td>
+              <td>5+1</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>VII</td>
+              <td>5+1+1</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>VIII</td>
+              <td>5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>IX</td>
+              <td>10-1</td>
+            </tr>
+            <tr style="background: #f8f8f0">
+              <td>10</td>
+              <td>X</td>
+              <td>10</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>XI</td>
+              <td>10+1</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>XII</td>
+              <td>10+1+1</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>XIII</td>
+              <td>10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>XIV</td>
+              <td>10-1+5</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>XV</td>
+              <td>10+5</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>XVI</td>
+              <td>10+5+1</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>XVII</td>
+              <td>10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>XVIII</td>
+              <td>10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>XIX</td>
+              <td>10-1+10</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>XX</td>
+              <td>10+10</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>XXI</td>
+              <td>10+10+1</td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td>XXII</td>
+              <td>10+10+1+1</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>XXIII</td>
+              <td>10+10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>XXIV</td>
+              <td>10+10-1+5</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>XXV</td>
+              <td>10+10+5</td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td>XXVI</td>
+              <td>10+10+5+1</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>XXVII</td>
+              <td>10+10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>XXVIII</td>
+              <td>10+10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>29</td>
+              <td>XXIX</td>
+              <td>10+10-1+10</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>XXX</td>
+              <td>10+10+10</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td>XXXI</td>
+              <td>10+10+10+1</td>
+            </tr>
+            <tr>
+              <td>32</td>
+              <td>XXXII</td>
+              <td>10+10+10+1+1</td>
+            </tr>
+            <tr>
+              <td>33</td>
+              <td>XXXIII</td>
+              <td>10+10+10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>34</td>
+              <td>XXXIV</td>
+              <td>10+10+10-1+5</td>
+            </tr>
+            <tr>
+              <td>35</td>
+              <td>XXXV</td>
+              <td>10+10+10+5</td>
+            </tr>
+            <tr>
+              <td>36</td>
+              <td>XXXVI</td>
+              <td>10+10+10+5+1</td>
+            </tr>
+            <tr>
+              <td>37</td>
+              <td>XXXVII</td>
+              <td>10+10+10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>38</td>
+              <td>XXXVIII</td>
+              <td>10+10+10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>39</td>
+              <td>XXXIX</td>
+              <td>10+10+10-1+10</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>XL</td>
+              <td>50-10</td>
+            </tr>
+            <tr>
+              <td>41</td>
+              <td>XLI</td>
+              <td>50-10+1</td>
+            </tr>
+            <tr>
+              <td>42</td>
+              <td>XLII</td>
+              <td>50-10+1+1</td>
+            </tr>
+            <tr>
+              <td>43</td>
+              <td>XLIII</td>
+              <td>50-10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>44</td>
+              <td>XLIV</td>
+              <td>50-10-1+5</td>
+            </tr>
+            <tr>
+              <td>45</td>
+              <td>XLV</td>
+              <td>50-10+5</td>
+            </tr>
+            <tr>
+              <td>46</td>
+              <td>XLVI</td>
+              <td>50-10+5+1</td>
+            </tr>
+            <tr>
+              <td>47</td>
+              <td>XLVII</td>
+              <td>50-10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>48</td>
+              <td>XLVIII</td>
+              <td>50-10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>49</td>
+              <td>XLIX</td>
+              <td>50-10-1+10</td>
+            </tr>
+            <tr style="background: #f8f8f0">
+              <td>50</td>
+              <td>L</td>
+              <td>50</td>
+            </tr>
+            <tr>
+              <td>51</td>
+              <td>LI</td>
+              <td>50+1</td>
+            </tr>
+            <tr>
+              <td>52</td>
+              <td>LII</td>
+              <td>50+1+1</td>
+            </tr>
+            <tr>
+              <td>53</td>
+              <td>LIII</td>
+              <td>50+1+1+1</td>
+            </tr>
+            <tr>
+              <td>54</td>
+              <td>LIV</td>
+              <td>50-1+5</td>
+            </tr>
+            <tr>
+              <td>55</td>
+              <td>LV</td>
+              <td>50+5</td>
+            </tr>
+            <tr>
+              <td>56</td>
+              <td>LVI</td>
+              <td>50+5+1</td>
+            </tr>
+            <tr>
+              <td>57</td>
+              <td>LVII</td>
+              <td>50+5+1+1</td>
+            </tr>
+            <tr>
+              <td>58</td>
+              <td>LVIII</td>
+              <td>50+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>59</td>
+              <td>LIX</td>
+              <td>50-1+10</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td>LX</td>
+              <td>50+10</td>
+            </tr>
+            <tr>
+              <td>61</td>
+              <td>LXI</td>
+              <td>50+10+1</td>
+            </tr>
+            <tr>
+              <td>62</td>
+              <td>LXII</td>
+              <td>50+10+1+1</td>
+            </tr>
+            <tr>
+              <td>63</td>
+              <td>LXIII</td>
+              <td>50+10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>64</td>
+              <td>LXIV</td>
+              <td>50+10-1+5</td>
+            </tr>
+            <tr>
+              <td>65</td>
+              <td>LXV</td>
+              <td>50+10+5</td>
+            </tr>
+            <tr>
+              <td>66</td>
+              <td>LXVI</td>
+              <td>50+10+5+1</td>
+            </tr>
+            <tr>
+              <td>67</td>
+              <td>LXVII</td>
+              <td>50+10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>68</td>
+              <td>LXVIII</td>
+              <td>50+10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>69</td>
+              <td>LXIX</td>
+              <td>50+10-1+10</td>
+            </tr>
+            <tr>
+              <td>70</td>
+              <td>LXX</td>
+              <td>50+10+10</td>
+            </tr>
+            <tr>
+              <td>71</td>
+              <td>LXXI</td>
+              <td>50+10+10+1</td>
+            </tr>
+            <tr>
+              <td>72</td>
+              <td>LXXII</td>
+              <td>50+10+10+1+1</td>
+            </tr>
+            <tr>
+              <td>73</td>
+              <td>LXXIII</td>
+              <td>50+10+10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>74</td>
+              <td>LXXIV</td>
+              <td>50+10+10-1+5</td>
+            </tr>
+            <tr>
+              <td>75</td>
+              <td>LXXV</td>
+              <td>50+10+10+5</td>
+            </tr>
+            <tr>
+              <td>76</td>
+              <td>LXXVI</td>
+              <td>50+10+10+5+1</td>
+            </tr>
+            <tr>
+              <td>77</td>
+              <td>LXXVII</td>
+              <td>50+10+10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>78</td>
+              <td>LXXVIII</td>
+              <td>50+10+10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>79</td>
+              <td>LXXIX</td>
+              <td>50+10+10-1+10</td>
+            </tr>
+            <tr>
+              <td>80</td>
+              <td>LXXX</td>
+              <td>50+10+10+10</td>
+            </tr>
+            <tr>
+              <td>81</td>
+              <td>LXXXI</td>
+              <td>50+10+10+10+1</td>
+            </tr>
+            <tr>
+              <td>82</td>
+              <td>LXXXII</td>
+              <td>50+10+10+10+1+1</td>
+            </tr>
+            <tr>
+              <td>83</td>
+              <td>LXXXIII</td>
+              <td>50+10+10+10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>84</td>
+              <td>LXXXIV</td>
+              <td>50+10+10+10-1+5</td>
+            </tr>
+            <tr>
+              <td>85</td>
+              <td>LXXXV</td>
+              <td>50+10+10+10+5</td>
+            </tr>
+            <tr>
+              <td>86</td>
+              <td>LXXXVI</td>
+              <td>50+10+10+10+5+1</td>
+            </tr>
+            <tr>
+              <td>87</td>
+              <td>LXXXVII</td>
+              <td>50+10+10+10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>88</td>
+              <td>LXXXVIII</td>
+              <td>50+10+10+10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>89</td>
+              <td>LXXXIX</td>
+              <td>50+10+10+10-1+10</td>
+            </tr>
+            <tr>
+              <td>90</td>
+              <td>XC</td>
+              <td>100-10</td>
+            </tr>
+            <tr>
+              <td>91</td>
+              <td>XCI</td>
+              <td>100-10+1</td>
+            </tr>
+            <tr>
+              <td>92</td>
+              <td>XCII</td>
+              <td>100-10+1+1</td>
+            </tr>
+            <tr>
+              <td>93</td>
+              <td>XCIII</td>
+              <td>100-10+1+1+1</td>
+            </tr>
+            <tr>
+              <td>94</td>
+              <td>XCIV</td>
+              <td>100-10-1+5</td>
+            </tr>
+            <tr>
+              <td>95</td>
+              <td>XCV</td>
+              <td>100-10+5</td>
+            </tr>
+            <tr>
+              <td>96</td>
+              <td>XCVI</td>
+              <td>100-10+5+1</td>
+            </tr>
+            <tr>
+              <td>97</td>
+              <td>XCVII</td>
+              <td>100-10+5+1+1</td>
+            </tr>
+            <tr>
+              <td>98</td>
+              <td>XCVIII</td>
+              <td>100-10+5+1+1+1</td>
+            </tr>
+            <tr>
+              <td>99</td>
+              <td>XCIX</td>
+              <td>100-10-1+10</td>
+            </tr>
+            <tr style="background: #f8f8f0">
+              <td>100</td>
+              <td>C</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>200</td>
+              <td>CC</td>
+              <td>100+100</td>
+            </tr>
+            <tr>
+              <td>300</td>
+              <td>CCC</td>
+              <td>100+100+100</td>
+            </tr>
+            <tr>
+              <td>400</td>
+              <td>CD</td>
+              <td>500-100</td>
+            </tr>
+            <tr style="background: #f8f8f0">
+              <td>500</td>
+              <td>D</td>
+              <td>500</td>
+            </tr>
+            <tr>
+              <td>600</td>
+              <td>DC</td>
+              <td>500+100</td>
+            </tr>
+            <tr>
+              <td>700</td>
+              <td>DCC</td>
+              <td>500+100+100</td>
+            </tr>
+            <tr>
+              <td>800</td>
+              <td>DCCC</td>
+              <td>500+100+100+100</td>
+            </tr>
+            <tr>
+              <td>900</td>
+              <td>CM</td>
+              <td>1000-100</td>
+            </tr>
+            <tr style="background: #f8f8f0">
+              <td>1000</td>
+              <td>M</td>
+              <td>1000</td>
+            </tr>
+          </table>
+          <p>
+            <a href="roman-numerals-printable-chart.html"
+              >Roman numerals printable chart &#9658;</a
+            >
+          </p>
+          <h3>Vinculum</h3>
+          <table class="dtable" style="width: 343px">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Roman<br />Numeral</th>
+                <th>Calculation</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>5000</td>
+              <td><span style="text-decoration: overline">V</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>10000</td>
+              <td><span style="text-decoration: overline">X</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>50000</td>
+              <td><span style="text-decoration: overline">L</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>100000</td>
+              <td><span style="text-decoration: overline">C</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>500000</td>
+              <td><span style="text-decoration: overline">D</span></td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>1000000</td>
+              <td><span style="text-decoration: overline">M</span></td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+          <h3>Apostrophus</h3>
+          <table class="dtable" style="width: 343px">
+            <thead>
+              <tr>
+                <th>Number</th>
+                <th>Roman<br />Numeral</th>
+                <th>Calculation</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>500</td>
+              <td>I&#8579;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>1000</td>
+              <td>CI&#8579; or<br />&#8576;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>5000</td>
+              <td>I&#8579;&#8579; or<br />&#8577;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>10000</td>
+              <td>CCI&#8579;&#8579; or<br />&#8578;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>50000</td>
+              <td>I&#8579;&#8579;&#8579; or<br />&#8583;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>100000</td>
+              <td>CCCI&#8579;&#8579;&#8579; or<br />&#8584;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+          <h2><a id="year"></a>Years in roman numerals</h2>
+          <table class="dtable" style="width: 200px">
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Roman numeral</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>1000</td>
+              <td>M</td>
+            </tr>
+            <tr>
+              <td>1100</td>
+              <td>MC</td>
+            </tr>
+            <tr>
+              <td>1200</td>
+              <td>MCC</td>
+            </tr>
+            <tr>
+              <td>1300</td>
+              <td>MCCC</td>
+            </tr>
+            <tr>
+              <td>1400</td>
+              <td>MCD</td>
+            </tr>
+            <tr>
+              <td>1500</td>
+              <td>MD</td>
+            </tr>
+            <tr>
+              <td>1600</td>
+              <td>MDC</td>
+            </tr>
+            <tr>
+              <td>1700</td>
+              <td>MDCC</td>
+            </tr>
+            <tr>
+              <td>1800</td>
+              <td>MDCCC</td>
+            </tr>
+            <tr>
+              <td>1900</td>
+              <td>MCM</td>
+            </tr>
+            <tr>
+              <td>1990</td>
+              <td>MCMXC</td>
+            </tr>
+            <tr>
+              <td>1991</td>
+              <td>MCMXCI</td>
+            </tr>
+            <tr>
+              <td>1992</td>
+              <td>MCMXCII</td>
+            </tr>
+            <tr>
+              <td>1993</td>
+              <td>MCMXCIII</td>
+            </tr>
+            <tr>
+              <td>1994</td>
+              <td>MCMXCIV</td>
+            </tr>
+            <tr>
+              <td>1995</td>
+              <td>MCMXCV</td>
+            </tr>
+            <tr>
+              <td>1996</td>
+              <td>MCMXCVI</td>
+            </tr>
+            <tr>
+              <td>1997</td>
+              <td>MCMXCVII</td>
+            </tr>
+            <tr>
+              <td>1998</td>
+              <td>MCMXCVIII</td>
+            </tr>
+            <tr>
+              <td>1999</td>
+              <td>MCMXCIX</td>
+            </tr>
+            <tr>
+              <td>2000</td>
+              <td>MM</td>
+            </tr>
+            <tr>
+              <td>2001</td>
+              <td>MMI</td>
+            </tr>
+            <tr>
+              <td>2002</td>
+              <td>MMII</td>
+            </tr>
+            <tr>
+              <td>2003</td>
+              <td>MMIII</td>
+            </tr>
+            <tr>
+              <td>2004</td>
+              <td>MMIV</td>
+            </tr>
+            <tr>
+              <td>2005</td>
+              <td>MMV</td>
+            </tr>
+            <tr>
+              <td>2006</td>
+              <td>MMVI</td>
+            </tr>
+            <tr>
+              <td>2007</td>
+              <td>MMVII</td>
+            </tr>
+            <tr>
+              <td>2008</td>
+              <td>MMVIII</td>
+            </tr>
+            <tr>
+              <td>2009</td>
+              <td>MMIX</td>
+            </tr>
+            <tr>
+              <td>2010</td>
+              <td>MMX</td>
+            </tr>
+            <tr>
+              <td>2011</td>
+              <td>MMXI</td>
+            </tr>
+            <tr>
+              <td>2012</td>
+              <td>MMXII</td>
+            </tr>
+            <tr>
+              <td>2013</td>
+              <td>MMXIII</td>
+            </tr>
+            <tr>
+              <td>2014</td>
+              <td>MMXIV</td>
+            </tr>
+            <tr>
+              <td>2015</td>
+              <td>MMXV</td>
+            </tr>
+            <tr>
+              <td>2016</td>
+              <td>MMXVI</td>
+            </tr>
+            <tr>
+              <td>2017</td>
+              <td>MMXVII</td>
+            </tr>
+            <tr>
+              <td>2018</td>
+              <td>MMXVIII</td>
+            </tr>
+            <tr>
+              <td>2019</td>
+              <td>MMXIX</td>
+            </tr>
+            <tr>
+              <td>2020</td>
+              <td>MMXX</td>
+            </tr>
+            <tr>
+              <td>2021</td>
+              <td>MMXXI</td>
+            </tr>
+            <tr>
+              <td>2022</td>
+              <td>MMXXII</td>
+            </tr>
+            <tr>
+              <td>2023</td>
+              <td>MMXXIII</td>
+            </tr>
+            <tr>
+              <td>2024</td>
+              <td>MMXXIV</td>
+            </tr>
+            <tr>
+              <td>2025</td>
+              <td>MMXXV</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../../convert/number/roman-numerals-converter.html"
+              >Roman numerals converter &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="greek_alphabet.html">Greek alphabet symbols</a></li>
+            <li>
+              <a href="../../convert/number/roman-numerals-converter.html"
+                >Roman numerals converter</a
+              >
+            </li>
+            <li>
+              <a href="roman-numerals-printable-chart.html"
+                >Roman numeral printable chart</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/how-number-to-roman-numerals.html"
+                >How to convert number to roman numerals</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/how-roman-numerals-to-number.html"
+                >How to convert roman numerals to number</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/date-to-roman-numerals.html"
+                >Date to roman numerals converter</a
+              >
+            </li>
+            <li>
+              <a href="roman-numerals/roman-numeral-xxxix.html"
+                >XXXIX roman numeral</a
+              >
+            </li>
+            <li>
+              <a href="roman-numerals/roman-numeral-4.html"
+                >What is 4 in roman numerals</a
+              >
+            </li>
+            <li>
+              <a href="roman-numerals/roman-numeral-5.html"
+                >What is 5 in roman numerals</a
+              >
+            </li>
+            <li>
+              <a href="roman-numerals/roman-numeral-6.html"
+                >What is 6 in roman numerals</a
+              >
+            </li>
+            <li>
+              <a href="roman-numerals/roman-numeral-9.html"
+                >What is 9 in roman numerals</a
+              >
+            </li>
+            <li>
+              <a href="roman-numerals-1-100.html">Roman numerals 1-100 chart</a>
+            </li>
+            <li>
+              <a href="roman-numerals-1-20.html">Roman numerals 1-20 chart</a>
+            </li>
+            <li>
+              <a href="roman-numerals-1-10.html">Roman numerals 1-10 chart</a>
+            </li>
+            <li><a href="math_symbols.html">Math symbols</a></li>
+            <li>
+              <a href="../../electric/electrical_symbols.html"
+                >Electrical symbols</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH SYMBOLS</h5>
+        <ul>
+          <li><a href="Basic_Math_Symbols.html">Math symbols</a></li>
+          <li><a href="Algebra_Symbols.html">Algebra symbols</a></li>
+          <li><a href="Geometry_Symbols.html">Geometry symbols</a></li>
+          <li><a href="Statistical_Symbols.html">Statistical symbols</a></li>
+          <li><a href="Logic_Symbols.html">Logic symbols</a></li>
+          <li><a href="Set_Symbols.html">Set symbols</a></li>
+          <li><a href="Calculus_Symbols.html">Calculus symbols</a></li>
+          <li><a href="Number_Symbols.html">Number symbols</a></li>
+          <li><a href="greek_alphabet.html">Greek symbols</a></li>
+          <li><a href="roman_numerals.html">Roman numerals</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="roman_numerals.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script>
+          function convert() {
+            var n = [
+              "i",
+              "iv",
+              "v",
+              "ix",
+              "x",
+              "xl",
+              "l",
+              "xc",
+              "c",
+              "cd",
+              "d",
+              "cm",
+              "m",
+            ];
+            var v = [1, 4, 5, 9, 10, 40, 50, 90, 100, 400, 500, 900, 1000];
+            x = parseInt(document.calcform.x1.value);
+            if (x < 1 || x > 4999) {
+              alert(x + " is not valid");
+              return "";
+            }
+            y = "";
+            for (i = 12; i >= 0; )
+              if (v[i] <= x) {
+                y += n[i];
+                x -= v[i];
+              } else {
+                i--;
+                k = 0;
+              }
+            document.calcform.x2.value = y.toUpperCase();
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

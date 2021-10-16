@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Set symbols of set theory (&Oslash;,U,{},&#8712;,...)</title>
+    <meta
+      name="description"
+      content="Set symbols of set theory and probability with name and definition: set, subset, union, intersection, element, cardinality, empty set, natural/real/complex number set"
+    />
+    <style>
+      .dtable th {
+        position: sticky;
+        top: 0;
+        background: #f0f0f0;
+      }
+      .dtable tr td:first-child {
+        text-align: center;
+      }
+      @media all and (max-width: 576px) {
+        .dtable {
+          width: 100%;
+          word-wrap: break-word;
+          table-layout: fixed;
+        }
+        .dtable tr th:nth-child(1) {
+          width: 65px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .dtable tr td:first-child {
+          width: 85px;
+        }
+        .dtable tr td:nth-child(2) {
+          width: 160px;
+        }
+        .dtable tr td:nth-child(3) {
+          width: 160px;
+        }
+      }
+      img {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Math symbols</a>&rsaquo; Set symbols
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Set Theory Symbols</h1>
+          <p>List of set symbols of set theory and probability.</p>
+          <h2>Table of set theory symbols</h2>
+          <table class="dtable">
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Symbol Name</th>
+                <th>
+                  Meaning /<br />
+                  definition
+                </th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tr>
+              <td class="math">{ }</td>
+              <td>set</td>
+              <td>a collection of elements</td>
+              <td class="mathsymbol">A = {3,7,9,14},<br />B = {9,14,28}</td>
+            </tr>
+            <tr>
+              <td class="math">|</td>
+              <td>such that</td>
+              <td>so that</td>
+              <td class="mathsymbol">
+                A = {<em>x</em> | <em>x</em>&#8712;<img
+                  loading="lazy"
+                  alt="\mathbb{R}"
+                  height="15"
+                  src="set_symbols/R.gif"
+                  width="16"
+                />, <em>x</em>&lt;0}
+              </td>
+            </tr>
+            <tr>
+              <td class="math">A&#8898;B</td>
+              <td>intersection</td>
+              <td>objects that belong to set A and set B</td>
+              <td class="mathsymbol">A &#8898; B = {9,14}</td>
+            </tr>
+            <tr>
+              <td class="math">A&#8899;B</td>
+              <td>union</td>
+              <td>objects that belong to set A or set B</td>
+              <td class="mathsymbol">A &#8899; B = {3,7,9,14,28}</td>
+            </tr>
+            <tr>
+              <td class="math">A&#8838;B</td>
+              <td>subset</td>
+              <td>A is a subset of B. set A is included in set B.</td>
+              <td class="mathsymbol">{9,14,28} &#8838; {9,14,28}</td>
+            </tr>
+            <tr>
+              <td class="math">A&#8834;B</td>
+              <td>proper subset / strict subset</td>
+              <td>A is a subset of B, but A is not equal to B.</td>
+              <td class="mathsymbol">{9,14} &#8834; {9,14,28}</td>
+            </tr>
+            <tr>
+              <td class="math">A&#8836;B</td>
+              <td>not subset</td>
+              <td>set A is not a subset of set B</td>
+              <td class="mathsymbol">{9,66} &#8836; {9,14,28}</td>
+            </tr>
+            <tr>
+              <td class="math">A&#8839;B</td>
+              <td>superset</td>
+              <td>A is a superset of B. set A includes set B</td>
+              <td class="mathsymbol">{9,14,28} &#8839; {9,14,28}</td>
+            </tr>
+            <tr>
+              <td class="math">A&#8835;B</td>
+              <td>proper superset / strict superset</td>
+              <td>A is a superset of B, but B is not equal to A.</td>
+              <td class="mathsymbol">{9,14,28} &#8835; {9,14}</td>
+            </tr>
+            <tr>
+              <td class="math">A&#8837;B</td>
+              <td>not superset</td>
+              <td>set A is not a superset of set B</td>
+              <td class="mathsymbol">{9,14,28} &#8837; {9,66}</td>
+            </tr>
+            <tr>
+              <td class="math">
+                2<sup><span style="font-size: 0.8em">A</span></sup>
+              </td>
+              <td>power set</td>
+              <td>all subsets of A</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">
+                <img
+                  loading="lazy"
+                  alt="\mathcal{P}(A)"
+                  height="23"
+                  src="set_symbols/power_set.gif"
+                  width="47"
+                />
+              </td>
+              <td>power set</td>
+              <td>all subsets of A</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><i>P</i>(<i>A</i>)</td>
+              <td>power set</td>
+              <td>all subsets of A</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><b>&#8473;</b>(<i>A</i>)</td>
+              <td>power set</td>
+              <td>all subsets of A</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">A=B</td>
+              <td>equality</td>
+              <td>both sets have the same members</td>
+              <td class="mathsymbol">A={3,9,14},<br />B={3,9,14},<br />A=B</td>
+            </tr>
+            <tr>
+              <td class="math">A<sup>c</sup></td>
+              <td>complement</td>
+              <td>all the objects that do not belong to set A</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">A'</td>
+              <td>complement</td>
+              <td>all the objects that do not belong to set A</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">A\B</td>
+              <td>relative complement</td>
+              <td>objects that belong to A and not to B</td>
+              <td class="mathsymbol">
+                A = {3,9,14},<br />B = {1,2,3},<br />A \ B = {9,14}
+              </td>
+            </tr>
+            <tr>
+              <td class="math">A-B</td>
+              <td>relative complement</td>
+              <td>objects that belong to A and not to B</td>
+              <td class="mathsymbol">
+                A = {3,9,14},<br />B = {1,2,3},<br />A - B = {9,14}
+              </td>
+            </tr>
+            <tr>
+              <td class="math">A&#8710;B</td>
+              <td>symmetric difference</td>
+              <td>
+                objects that belong to A or B but not to their intersection
+              </td>
+              <td class="mathsymbol">
+                A = {3,9,14},<br />B = {1,2,3},<br />A &#8710; B = {1,2,9,14}
+              </td>
+            </tr>
+            <tr>
+              <td class="math">A&#8854;B</td>
+              <td>symmetric difference</td>
+              <td>
+                objects that belong to A or B but not to their intersection
+              </td>
+              <td class="mathsymbol">
+                A = {3,9,14},<br />B = {1,2,3},<br />A &#8854; B = {1,2,9,14}
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>a</i>&#8712;A</td>
+              <td>element of,<br />belongs to</td>
+              <td>set membership</td>
+              <td class="mathsymbol">A={3,9,14}, 3 &#8712; A</td>
+            </tr>
+            <tr>
+              <td class="math"><i>x</i>&#8713;A</td>
+              <td>not element of</td>
+              <td>no set membership</td>
+              <td class="mathsymbol">A={3,9,14}, 1 &#8713; A</td>
+            </tr>
+            <tr>
+              <td class="math">(<i>a</i>,<i>b</i>)</td>
+              <td>ordered pair</td>
+              <td>collection of 2 elements</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">A&times;B</td>
+              <td>cartesian product</td>
+              <td>set of all ordered pairs from A and B</td>
+              <td class="mathsymbol">
+                A&times;B = {(<i>a</i>,<i>b</i>)|<i>a</i>&#8712;A ,
+                <i>b</i>&#8712;B}
+              </td>
+            </tr>
+            <tr>
+              <td class="math">|A|</td>
+              <td>cardinality</td>
+              <td>the number of elements of set A</td>
+              <td class="mathsymbol">A={3,9,14}, |A|=3</td>
+            </tr>
+            <tr>
+              <td class="math">#A</td>
+              <td>cardinality</td>
+              <td>the number of elements of set A</td>
+              <td class="mathsymbol">A={3,9,14}, #A=3</td>
+            </tr>
+            <tr>
+              <td class="math">|</td>
+              <td>vertical bar</td>
+              <td>such that</td>
+              <td class="mathsymbol">A={x|3&lt;x&lt;14}</td>
+            </tr>
+            <tr>
+              <td class="math">&alefsym;<sub>0</sub></td>
+              <td>aleph-null</td>
+              <td>infinite cardinality of natural numbers set</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">&alefsym;<sub>1</sub></td>
+              <td>aleph-one</td>
+              <td>cardinality of countable ordinal numbers set</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">&Oslash;</td>
+              <td>empty set</td>
+              <td class="mathsymbol">&Oslash; = {}</td>
+              <td class="mathsymbol">A = &Oslash;</td>
+            </tr>
+            <tr>
+              <td class="math">
+                <img
+                  loading="lazy"
+                  alt="\mathbb{U}"
+                  height="16"
+                  src="set_symbols/U.gif"
+                  width="16"
+                />
+              </td>
+              <td>universal set</td>
+              <td>set of all possible values</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><b>&#8469;</b><sub>0</sub></td>
+              <td>natural numbers / whole numbers&nbsp; set (with zero)</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  alt="\mathbb{N}"
+                  height="16"
+                  src="set_symbols/N.gif"
+                  width="16"
+                /><sub>0</sub> = {0,1,2,3,4,...}
+              </td>
+              <td class="mathsymbol">
+                0 &#8712;
+                <img
+                  loading="lazy"
+                  alt="\mathbb{N}"
+                  height="16"
+                  src="set_symbols/N.gif"
+                  width="16"
+                /><sub>0</sub>
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><b>&#8469;</b><sub>1</sub></td>
+              <td>natural numbers / whole numbers&nbsp; set (without zero)</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  alt="\mathbb{N}"
+                  height="16"
+                  src="set_symbols/N.gif"
+                  width="16"
+                /><sub>1</sub> = {1,2,3,4,5,...}
+              </td>
+              <td class="mathsymbol">
+                6 &#8712;
+                <img
+                  loading="lazy"
+                  alt="\mathbb{N}"
+                  height="16"
+                  src="set_symbols/N.gif"
+                  width="16"
+                /><sub>1</sub>
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><b>&#8484;</b></td>
+              <td>integer numbers set</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  alt="\mathbb{Z}"
+                  height="15"
+                  src="set_symbols/Z.gif"
+                  width="14"
+                />
+                = {...-3,-2,-1,0,1,2,3,...}
+              </td>
+              <td class="mathsymbol">
+                -6 &#8712;
+                <img
+                  loading="lazy"
+                  alt="\mathbb{Z}"
+                  height="15"
+                  src="set_symbols/Z.gif"
+                  width="14"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><b>&#8474;</b></td>
+              <td>rational numbers set</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  alt="\mathbb{Q}"
+                  height="21"
+                  src="set_symbols/Q.gif"
+                  width="17"
+                />
+                = {<i>x </i>|<i> x</i>=<i>a</i>/<i>b</i>,
+                <i>a</i>,<i>b</i>&#8712;<img
+                  loading="lazy"
+                  alt="\mathbb{Z}"
+                  height="16"
+                  src="set_symbols/Z.gif"
+                  width="16"
+                />
+                and <i>b</i>&#8800;0}
+              </td>
+              <td class="mathsymbol">
+                2/6 &#8712;
+                <img
+                  loading="lazy"
+                  alt="\mathbb{Q}"
+                  height="21"
+                  src="set_symbols/Q.gif"
+                  width="17"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><b>&#8477;</b></td>
+              <td>real numbers set</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  alt="\mathbb{R}"
+                  height="15"
+                  src="set_symbols/R.gif"
+                  width="16"
+                />
+                = {<i>x</i> | -&#8734; &lt;<i> x </i>&lt;&#8734;}
+              </td>
+              <td class="mathsymbol">
+                6.343434 &#8712;
+                <img
+                  loading="lazy"
+                  alt="\mathbb{R}"
+                  height="15"
+                  src="set_symbols/R.gif"
+                  width="16"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><b>&#8450;</b></td>
+              <td>complex numbers set</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  alt="\mathbb{C}"
+                  height="17"
+                  src="set_symbols/C.gif"
+                  width="15"
+                />
+                = {<i>z </i>|<i> z=a</i>+<i>bi</i>,
+                -&#8734;&lt;<i>a</i>&lt;&#8734;,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                -&#8734;&lt;<i>b</i>&lt;&#8734;}
+              </td>
+              <td class="mathsymbol">
+                6+2<i>i</i> &#8712;
+                <img
+                  loading="lazy"
+                  alt="\mathbb{C}"
+                  height="17"
+                  src="set_symbols/C.gif"
+                  width="15"
+                />
+              </td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="Statistical_Symbols.html">Statistical symbols &#9658;</a>
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="Statistical_Symbols.html"
+                >Probability &amp; statistics symbols</a
+              >
+            </li>
+            <li><a href="Basic_Math_Symbols.html">Math symbols</a></li>
+            <li><a href="Logic_Symbols.html">Logic symbols</a></li>
+            <li>
+              <a href="../probability/Probability.html"
+                >Probability &amp; statistics</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH SYMBOLS</h5>
+        <ul>
+          <li><a href="Basic_Math_Symbols.html">Math symbols</a></li>
+          <li><a href="Algebra_Symbols.html">Algebra symbols</a></li>
+          <li><a href="Geometry_Symbols.html">Geometry symbols</a></li>
+          <li><a href="Statistical_Symbols.html">Statistical symbols</a></li>
+          <li><a href="Logic_Symbols.html">Logic symbols</a></li>
+          <li><a href="Set_Symbols.html">Set symbols</a></li>
+          <li><a href="Calculus_Symbols.html">Calculus symbols</a></li>
+          <li><a href="Number_Symbols.html">Number symbols</a></li>
+          <li><a href="greek_alphabet.html">Greek symbols</a></li>
+          <li><a href="roman_numerals.html">Roman numerals</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Set_Symbols.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

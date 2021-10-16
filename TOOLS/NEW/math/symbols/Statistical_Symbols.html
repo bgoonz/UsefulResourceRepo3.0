@@ -1,0 +1,684 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>
+      Statistical symbols &amp; probability symbols (&#956;,&#963;,...)
+    </title>
+    <meta
+      name="description"
+      content="Probability and statistics symbols table and definitions - expectation, variance, standard deviation, distribution, probability function, conditional probability, covariance, correlation"
+    />
+    <style>
+      .dtable th {
+        position: sticky;
+        top: 0;
+        background: #f0f0f0;
+      }
+      .dtable td:first-child {
+        text-align: center;
+      }
+      @media all and (max-width: 576px) {
+        .dtable {
+          width: 100%;
+          word-wrap: break-word;
+          table-layout: fixed;
+        }
+        .dtable tr th:nth-child(4) {
+          display: none;
+        }
+        .dtable tr td:nth-child(4) {
+          display: none;
+        }
+        #doc img {
+          max-width: 100%;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .dtable {
+          width: 600px;
+        }
+      }
+      img {
+        border: 0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Math symbols</a>&rsaquo; Statistical
+        symbols
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Statistical Symbols</h1>
+          <p>Probability and statistics symbols table and definitions.</p>
+          <h2>Probability and statistics symbols table</h2>
+          <table class="dtable">
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Symbol Name</th>
+                <th>Meaning / definition</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tr>
+              <td class="math"><i>P</i>(<i>A</i>)</td>
+              <td>probability function</td>
+              <td>probability of event A</td>
+              <td class="mathsymbol"><i>P</i>(<i>A</i>) = 0.5</td>
+            </tr>
+            <tr>
+              <td class="math"><i>P</i>(<i>A</i> &#8745; <i>B</i>)</td>
+              <td>probability of events intersection</td>
+              <td>probability that of events A and B</td>
+              <td class="mathsymbol">
+                <i>P</i>(<i>A</i>&#8745;<i>B</i>) = 0.5
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>P</i>(<i>A</i> &#8746; <i>B</i>)</td>
+              <td>probability of events union</td>
+              <td>probability that of events A or B</td>
+              <td class="mathsymbol">
+                <i>P</i>(<i>A</i> &#8746; <i>B</i>) = 0.5
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>P</i>(<i>A</i> | <i>B</i>)</td>
+              <td>conditional probability function</td>
+              <td>probability of event A given event B occured</td>
+              <td class="mathsymbol"><i>P</i>(<i>A | B</i>) = 0.3</td>
+            </tr>
+            <tr>
+              <td class="math"><i>f </i>(<i>x</i>)</td>
+              <td>probability density function (pdf)</td>
+              <td class="mathsymbol">
+                <i>P</i>(<i>a </i>&#8804;<i> x </i>&#8804;<i> b</i>) =
+                <i>&#8747; f </i>(<i>x</i>)<i> dx</i>
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><i>F</i>(<i>x</i>)</td>
+              <td>cumulative distribution function (cdf)</td>
+              <td class="mathsymbol">
+                <i>F</i>(<i>x</i>) = <i>P</i>(<i>X</i>&#8804;<i> x</i>)
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><i>&#956;</i></td>
+              <td>population mean</td>
+              <td>mean of population values</td>
+              <td class="mathsymbol">
+                <i>&#956;</i><span style="font-size: 0.8em"> = 10</span>
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>E</i>(<i>X</i>)</td>
+              <td>
+                <a href="../probability/Expectation.html">expectation value</a>
+              </td>
+              <td>expected value of random variable X</td>
+              <td class="mathsymbol"><i>E</i>(<i>X</i>) = 10</td>
+            </tr>
+            <tr>
+              <td class="math"><i>E</i>(<i>X | Y</i>)</td>
+              <td>conditional expectation</td>
+              <td>expected value of random variable X given Y</td>
+              <td class="mathsymbol"><i>E</i>(<i>X | Y=2</i>) = 5</td>
+            </tr>
+            <tr>
+              <td class="math"><i>var</i>(<i>X</i>)</td>
+              <td><a href="../probability/Variance.html">variance</a></td>
+              <td>variance of random variable X</td>
+              <td class="mathsymbol"><i>var</i>(<i>X</i>) = 4</td>
+            </tr>
+            <tr>
+              <td class="math">
+                &#963;<i
+                  ><span style="font-size: 0.8em"><sup>2</sup></span></i
+                >
+              </td>
+              <td><a href="../probability/Variance.html">variance</a></td>
+              <td>variance of population values</td>
+              <td class="mathsymbol">
+                &#963;<i
+                  ><span style="font-size: 0.8em"><sup>2 </sup></span></i
+                >= 4
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>std</i>(<i>X</i>)</td>
+              <td>
+                <a href="../probability/standard_deviation.html"
+                  >standard deviation</a
+                >
+              </td>
+              <td>standard deviation of random variable X</td>
+              <td class="mathsymbol"><i>std</i>(<i>X</i>) = 2</td>
+            </tr>
+            <tr>
+              <td class="math">
+                &#963;<i
+                  ><sub><span style="font-size: 0.8em">X</span></sub></i
+                >
+              </td>
+              <td>
+                <a href="../probability/standard_deviation.html"
+                  >standard deviation</a
+                >
+              </td>
+              <td>standard deviation value of random variable X</td>
+              <td class="mathsymbol">
+                &#963;<i
+                  ><span style="font-size: 0.8em"><sub>X</sub></span></i
+                >
+                = 2
+              </td>
+            </tr>
+            <tr>
+              <td class="math">
+                <img
+                  loading="lazy"
+                  src="statistical_symbols/median.GIF"
+                  width="15"
+                  height="16"
+                  alt="median symbol"
+                />
+              </td>
+              <td>median</td>
+              <td>middle value of random variable x</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  src="statistical_symbols/median_ex.GIF"
+                  width="51"
+                  height="16"
+                  alt="example"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>cov</i>(<i>X</i>,<i>Y</i>)</td>
+              <td>covariance</td>
+              <td>covariance of random variables X and Y</td>
+              <td class="mathsymbol"><i>cov</i>(<i>X,Y</i>) = 4</td>
+            </tr>
+            <tr>
+              <td class="math"><i>corr</i>(<i>X</i>,<i>Y</i>)</td>
+              <td>correlation</td>
+              <td>correlation of random variables X and Y</td>
+              <td class="mathsymbol"><i>corr</i>(<i>X,Y</i>) = 0.6</td>
+            </tr>
+            <tr>
+              <td class="math">
+                <i>&#961;</i
+                ><sub
+                  ><i><span style="font-size: 0.8em">X</span></i
+                  ><span style="font-size: 0.8em">,</span
+                  ><i><span style="font-size: 0.8em">Y</span></i></sub
+                >
+              </td>
+              <td>correlation</td>
+              <td>correlation of random variables X and Y</td>
+              <td class="mathsymbol">
+                <i>&#961;</i
+                ><sub
+                  ><i><span style="font-size: 0.8em">X</span></i
+                  ><span style="font-size: 0.8em">,</span
+                  ><i><span style="font-size: 0.8em">Y</span></i></sub
+                >
+                = 0.6
+              </td>
+            </tr>
+            <tr>
+              <td class="math">&#8721;</td>
+              <td>summation</td>
+              <td>summation - sum of all values in range of series</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  src="statistical_symbols/sum_ex.gif"
+                  width="176"
+                  height="45"
+                  alt="example"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="math">&#8721;&#8721;</td>
+              <td>double summation</td>
+              <td>double summation</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  src="statistical_symbols/double_sum_ex.gif"
+                  width="207"
+                  height="47"
+                  alt="example"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>Mo</i></td>
+              <td>mode</td>
+              <td>value that occurs most frequently in population</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><i>MR</i></td>
+              <td>mid-range</td>
+              <td class="mathsymbol">
+                <i>MR</i> = (<i>x<sub>max </sub></i>+<i> x<sub>min</sub></i
+                >) / 2
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><i>Md</i></td>
+              <td>sample median</td>
+              <td>half the population is below this value</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">Q<sub>1</sub></td>
+              <td>lower / first quartile</td>
+              <td>25% of population are below this value</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">Q<sub>2</sub></td>
+              <td>median / second quartile</td>
+              <td>
+                50% of population are below this value = median of samples
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">Q<sub>3</sub></td>
+              <td>upper / third quartile</td>
+              <td>75% of population are below this value</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math">
+                <span style="text-decoration: overline"><i>x</i></span>
+              </td>
+              <td>sample mean</td>
+              <td>average / arithmetic mean</td>
+              <td class="mathsymbol">
+                <i><span style="text-decoration: overline">x</span> </i>=
+                (2+5+9) / 3 = 5.333
+              </td>
+            </tr>
+            <tr>
+              <td class="math">
+                <i>s</i> <sup><span style="font-size: 0.8em">2</span></sup>
+              </td>
+              <td>sample variance</td>
+              <td>population samples variance estimator</td>
+              <td class="mathsymbol">
+                <i>s<sup> </sup></i><sup>2</sup> = 4
+              </td>
+            </tr>
+            <tr>
+              <td class="math"><i>s</i></td>
+              <td>sample standard deviation</td>
+              <td>population samples standard deviation estimator</td>
+              <td class="mathsymbol"><i>s</i> = 2</td>
+            </tr>
+            <tr>
+              <td class="math">
+                <i>z<sub>x</sub></i>
+              </td>
+              <td>standard score</td>
+              <td class="mathsymbol">
+                <i>z<sub>x</sub></i> = (<i>x</i>-<span
+                  style="text-decoration: overline; font-style: italic"
+                  >x</span
+                >) /<i> s<sub>x</sub></i>
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="math"><i>X </i>~</td>
+              <td>
+                <a href="../probability/distribution.html">distribution</a> of X
+              </td>
+              <td>distribution of random variable X</td>
+              <td class="mathsymbol"><i>X </i>~<i> N</i>(0,3)</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol">
+                <i> N</i>(<i>&#956;</i>,<i>&#963;</i
+                ><sup><span style="font-size: 0.8em">2</span></sup
+                >)
+              </td>
+              <td>
+                <a href="../probability/normal_distribution.html"
+                  >normal distribution</a
+                >
+              </td>
+              <td>gaussian distribution</td>
+              <td class="mathsymbol"><i>X </i>~<i> N</i>(0,3)</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i> U</i>(<i>a</i>,<i>b</i>)</td>
+              <td>uniform distribution</td>
+              <td>equal probability in range a,b&nbsp;</td>
+              <td class="mathsymbol"><i>X </i>~<i> U</i>(0,3)</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i> exp</i>(&#955;)</td>
+              <td>exponential distribution</td>
+              <td class="mathsymbol">
+                <i>f </i>(<i>x</i>)<i> = &#955;e</i><sup>-<i>&#955;x</i></sup> ,
+                <i>x</i>&#8805;0
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i>gamma</i>(<i>c</i>, &#955;)</td>
+              <td>gamma distribution</td>
+              <td class="mathsymbol">
+                <i>f </i>(<i>x</i>)<i> = &#955; c x</i><sup>c-1</sup><i>e</i
+                ><sup>-<i>&#955;x</i></sup> / &#915;(<i>c</i>), <i>x</i>&#8805;0
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol">
+                &#967;<sup><span style="font-size: 0.8em"> 2</span></sup
+                >(<i>k</i>)
+              </td>
+              <td>chi-square distribution</td>
+              <td class="mathsymbol">
+                <i>f </i>(<i>x</i>)<i> = x<sup>k</sup></i
+                ><sup>/2-1</sup><i>e</i><sup>-<i>x</i>/2</sup> / ( 2<sup
+                  >k/2 </sup
+                >&#915;(<i>k</i>/2) )
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol">
+                <i>F </i>(<i>k</i
+                ><sub><span style="font-size: 0.8em">1</span></sub
+                ><i>, k</i><sub><span style="font-size: 0.8em">2</span></sub
+                >)
+              </td>
+              <td>F distribution</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i> Bin</i>(<i>n</i>,<i>p</i>)</td>
+              <td>binomial distribution</td>
+              <td class="mathsymbol">
+                <i>f </i>(<i>k</i>)<i>
+                  = <sub>n</sub>C<sub>k</sub> p<sup>k</sup></i
+                >(1<i>-p</i>)<i><sup>n-k</sup></i>
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i> Poisson</i>(&#955;)</td>
+              <td>Poisson distribution</td>
+              <td class="mathsymbol">
+                <i>f </i>(<i>k</i>)<i> = &#955;<sup>k</sup>e</i
+                ><sup>-<i>&#955;</i></sup> / <i>k</i>!
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i> Geom</i>(<i>p</i>)</td>
+              <td>geometric distribution</td>
+              <td class="mathsymbol">
+                <i>f </i>(<i>k</i>)<i> =&nbsp; p</i>(1<i>-p</i>)<i
+                  ><sup> k</sup></i
+                >
+              </td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i> HG</i>(<i>N</i>,<i>K</i>,<i>n</i>)</td>
+              <td>hyper-geometric distribution</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td class="mathsymbol"><i>Bern</i>(<i>p</i>)</td>
+              <td>Bernoulli distribution</td>
+              <td>&nbsp;</td>
+              <td>&nbsp;</td>
+            </tr>
+          </table>
+          <h2>Combinatorics Symbols</h2>
+          <table class="dtable">
+            <thead>
+              <tr>
+                <th>Symbol</th>
+                <th>Symbol Name</th>
+                <th>Meaning / definition</th>
+                <th>Example</th>
+              </tr>
+            </thead>
+            <tr>
+              <td class="math"><i>n</i>!</td>
+              <td><a href="../algebra/Factorial.html">factorial</a></td>
+              <td class="mathsymbol">
+                <i>n</i>! = 1&sdot;2&sdot;3&sdot;...&sdot;<i>n</i>
+              </td>
+              <td class="mathsymbol">
+                5! = 1&sdot;2&sdot;3&sdot;4&sdot;5 = 120
+              </td>
+            </tr>
+            <tr>
+              <td class="math">
+                <i><sub>n</sub>P<sub>k</sub></i>
+              </td>
+              <td>permutation</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  src="math_symbols/permutation.GIF"
+                  width="107"
+                  height="38"
+                  alt="_{n}P_{k}=\frac{n!}{(n-k)!}"
+                />
+              </td>
+              <td class="mathsymbol">
+                <sub>5</sub><i>P</i><sub>3</sub><i> = </i>5! / (5-3)! = 60
+              </td>
+            </tr>
+            <tr>
+              <td class="math">
+                <i><sub>n</sub>C<sub>k</sub></i>
+                <p>&nbsp;</p>
+                <p>
+                  <img
+                    loading="lazy"
+                    src="math_symbols/combination.GIF"
+                    width="33"
+                    height="48"
+                    alt="combination"
+                  />
+                </p>
+              </td>
+
+              <td>combination</td>
+              <td class="mathsymbol">
+                <img
+                  loading="lazy"
+                  src="math_symbols/combination2.GIF"
+                  width="176"
+                  height="40"
+                  alt="_{n}C_{k}=\binom{n}{k}=\frac{n!}{k!(n-k)!}"
+                />
+              </td>
+              <td class="mathsymbol">
+                <sub>5</sub><i>C</i><sub>3</sub><i> = </i>5!/[3!(5-3)!]=10
+              </td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="Set_Symbols.html">Set symbols &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="math_symbols.html">Math symbols</a></li>
+            <li><a href="Set_Symbols.html">Set symbols</a></li>
+            <li><a href="Basic_Math_Symbols.html">Basic math symbols</a></li>
+            <li><a href="Logic_Symbols.html">Logic symbols</a></li>
+            <li><a href="greek_alphabet.html">Greek alphabet symbols</a></li>
+            <li>
+              <a href="../probability/distribution.html"
+                >Probability distribution</a
+              >
+            </li>
+            <li>
+              <a href="../probability/Probability.html"
+                >Probability &amp; statistics</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH SYMBOLS</h5>
+        <ul>
+          <li><a href="Basic_Math_Symbols.html">Math symbols</a></li>
+          <li><a href="Algebra_Symbols.html">Algebra symbols</a></li>
+          <li><a href="Geometry_Symbols.html">Geometry symbols</a></li>
+          <li><a href="Statistical_Symbols.html">Statistical symbols</a></li>
+          <li><a href="Logic_Symbols.html">Logic symbols</a></li>
+          <li><a href="Set_Symbols.html">Set symbols</a></li>
+          <li><a href="Calculus_Symbols.html">Calculus&nbsp;symbols</a></li>
+          <li><a href="Number_Symbols.html">Number symbols</a></li>
+          <li><a href="greek_alphabet.html">Greek symbols</a></li>
+          <li><a href="roman_numerals.html">Roman numerals</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Statistical_Symbols.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>
