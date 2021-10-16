@@ -1,0 +1,1710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>ASCII Table - ASCII codes,hex,decimal,binary,html</title>
+    <meta
+      content="ASCII table, ASCII character codes chart, hex/decimal/binary/HTML."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      /*.adslot_2 { display:none; }*/
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      .form-control {
+        padding: 0.375rem 0.3rem;
+      }
+      .table-sm td,
+      .table-sm th {
+        padding: 0.2rem;
+      }
+      #wrapper th {
+        background: #eee8d5;
+      }
+      #tbl1 th span {
+        font: large Arial;
+        font-weight: bold;
+        vertical-align: middle;
+      }
+      @media all and (max-width: 600px) {
+        #viewseldiv {
+          display: none;
+        }
+        #tbl1 tr:first-child th:nth-child(1) {
+          padding-right: 0;
+        }
+        #tbl1 tr:first-child th:nth-child(2) {
+          padding-right: 0;
+        }
+        #tbl1 tr th:nth-child(4) {
+          display: none;
+        }
+        #tbl1 tr td:nth-child(4) {
+          display: none;
+        }
+
+        #tbl2 thead tr:nth-child(1) th:nth-child(6) {
+          width: 90px;
+        }
+      }
+      @media all and (min-width: 601px) {
+        #tbl1,
+        #tbl1 > tbody {
+          height: 421.71px;
+        }
+        #tbl2,
+        #tbl2 > tbody {
+          height: 421.71px;
+        }
+        #tbl1 tr,
+        #tbl2 tr {
+          height: 14.67px;
+        }
+        #viewseldiv span {
+          font-weight: bold;
+        }
+        .table {
+          overflow: unset;
+        }
+        #tbl1 thead tr:nth-child(1) th {
+          top: 0;
+        }
+        #tbl1 thead tr:nth-child(2) th {
+          top: 43px;
+        }
+        #tbl2 thead tr:nth-child(1) th {
+          top: 0;
+        }
+        #tbl1 thead th,
+        #tbl2 thead th {
+          position: -webkit-sticky;
+          position: -moz-sticky;
+          position: -ms-sticky;
+          position: -o-sticky;
+          position: sticky;
+        }
+        .newspaper1 {
+          -webkit-column-count: 5;
+          -moz-column-count: 5;
+          column-count: 5;
+          -webkit-column-gap: 40px;
+          -moz-column-gap: 40px;
+          column-gap: 40px;
+          line-height: 0.7;
+        }
+        .newspaper2 {
+          -webkit-column-count: 5;
+          -moz-column-count: 5;
+          column-count: 5;
+          -webkit-column-gap: 40px;
+          -moz-column-gap: 40px;
+          column-gap: 40px;
+          line-height: 0.7;
+        }
+        .newspaper1 thead,
+        .newspaper2 thead {
+          display: none !important;
+        }
+        .newspaper1 tr,
+        .newspaper2 tr {
+          -webkit-column-break-inside: avoid;
+          page-break-inside: avoid;
+          break-inside: avoid;
+        }
+        #wrapper {
+          max-width: 1100px;
+        }
+        #rcol {
+          margin-left: 50px;
+        }
+        #tbl1 td {
+          font-size: small;
+          font-weight: bold;
+        }
+        #tbl2 td {
+          font-size: small;
+          font-weight: bold;
+        }
+        #tbl1 tr td:nth-child(3) {
+          display: none;
+        }
+        #tbl1 tr td:nth-child(4) {
+          display: none;
+        }
+        #tbl1 tr td:nth-child(6) {
+          display: none;
+        }
+        #tbl2 tr td:nth-child(3) {
+          display: none;
+        }
+        #tbl2 tr td:nth-child(4) {
+          display: none;
+        }
+      }
+      @media print and (min-width: 601px) {
+        #lcol {
+          width: 100%;
+        }
+        #tbl1 td,
+        #tbl2 td {
+          font-size: medium;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Code</a
+        >&rsaquo;<a href="index.html">Text</a>&rsaquo; ASCII table
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>ASCII Table</h1>
+          <p>
+            ASCII (American Standard Code for Information Interchange) character
+            code chart with decimal,hex,binary,HTML and description:
+          </p>
+          <br />
+          <form id="calcform" autocomplete="off">
+            <div class="form-group" id="viewseldiv">
+              <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="viewsel" id="viewsel1" checked />
+                  <span>-</span> Collapse
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="viewsel" id="viewsel2" />
+                  <span>+</span> Expand
+                </label>
+              </div>
+            </div>
+            <table
+              id="tbl1"
+              class="table table-sm table-striped table-responsive newspaper1"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Dec</th>
+                  <th scope="col">Hex</th>
+                  <th scope="col">Binary</th>
+                  <th scope="col">HTML</th>
+                  <th scope="col">Char</th>
+                  <th scope="col">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>0</td>
+                  <td>00</td>
+                  <td>00000000</td>
+                  <td>&amp;#0;</td>
+                  <td>NUL</td>
+                  <td>Null</td>
+                </tr>
+                <tr>
+                  <td>1</td>
+                  <td>01</td>
+                  <td>00000001</td>
+                  <td>&amp;#1;</td>
+                  <td>SOH</td>
+                  <td>Start of Header</td>
+                </tr>
+                <tr>
+                  <td>2</td>
+                  <td>02</td>
+                  <td>00000010</td>
+                  <td>&amp;#2;</td>
+                  <td>STX</td>
+                  <td>Start of Text</td>
+                </tr>
+                <tr>
+                  <td>3</td>
+                  <td>03</td>
+                  <td>00000011</td>
+                  <td>&amp;#3;</td>
+                  <td>ETX</td>
+                  <td>End of Text</td>
+                </tr>
+                <tr>
+                  <td>4</td>
+                  <td>04</td>
+                  <td>00000100</td>
+                  <td>&amp;#4;</td>
+                  <td>EOT</td>
+                  <td>End of Transmission</td>
+                </tr>
+                <tr>
+                  <td>5</td>
+                  <td>05</td>
+                  <td>00000101</td>
+                  <td>&amp;#5;</td>
+                  <td>ENQ</td>
+                  <td>Enquiry</td>
+                </tr>
+                <tr>
+                  <td>6</td>
+                  <td>06</td>
+                  <td>00000110</td>
+                  <td>&amp;#6;</td>
+                  <td>ACK</td>
+                  <td>Acknowledge</td>
+                </tr>
+                <tr>
+                  <td>7</td>
+                  <td>07</td>
+                  <td>00000111</td>
+                  <td>&amp;#7;</td>
+                  <td>BEL</td>
+                  <td>Bell</td>
+                </tr>
+                <tr>
+                  <td>8</td>
+                  <td>08</td>
+                  <td>00001000</td>
+                  <td>&amp;#8;</td>
+                  <td>BS</td>
+                  <td>Backspace</td>
+                </tr>
+                <tr>
+                  <td>9</td>
+                  <td>09</td>
+                  <td>00001001</td>
+                  <td>&amp;#9;</td>
+                  <td>HT</td>
+                  <td>Horizontal Tab</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>0A</td>
+                  <td>00001010</td>
+                  <td>&amp;#10;</td>
+                  <td>LF</td>
+                  <td>Line Feed</td>
+                </tr>
+                <tr>
+                  <td>11</td>
+                  <td>0B</td>
+                  <td>00001011</td>
+                  <td>&amp;#11;</td>
+                  <td>VT</td>
+                  <td>Vertical Tab</td>
+                </tr>
+                <tr>
+                  <td>12</td>
+                  <td>0C</td>
+                  <td>00001100</td>
+                  <td>&amp;#12;</td>
+                  <td>FF</td>
+                  <td>Form Feed</td>
+                </tr>
+                <tr>
+                  <td>13</td>
+                  <td>0D</td>
+                  <td>00001101</td>
+                  <td>&amp;#13;</td>
+                  <td>CR</td>
+                  <td>Carriage Return</td>
+                </tr>
+                <tr>
+                  <td>14</td>
+                  <td>0E</td>
+                  <td>00001110</td>
+                  <td>&amp;#14;</td>
+                  <td>SO</td>
+                  <td>Shift Out</td>
+                </tr>
+                <tr>
+                  <td>15</td>
+                  <td>0F</td>
+                  <td>00001111</td>
+                  <td>&amp;#15;</td>
+                  <td>SI</td>
+                  <td>Shift In</td>
+                </tr>
+                <tr>
+                  <td>16</td>
+                  <td>10</td>
+                  <td>00010000</td>
+                  <td>&amp;#16;</td>
+                  <td>DLE</td>
+                  <td>Data Link Escape</td>
+                </tr>
+                <tr>
+                  <td>17</td>
+                  <td>11</td>
+                  <td>00010001</td>
+                  <td>&amp;#17;</td>
+                  <td>DC1</td>
+                  <td>Device Control 1</td>
+                </tr>
+                <tr>
+                  <td>18</td>
+                  <td>12</td>
+                  <td>00010010</td>
+                  <td>&amp;#18;</td>
+                  <td>DC2</td>
+                  <td>Device Control 2</td>
+                </tr>
+                <tr>
+                  <td>19</td>
+                  <td>13</td>
+                  <td>00010011</td>
+                  <td>&amp;#19;</td>
+                  <td>DC3</td>
+                  <td>Device Control 3</td>
+                </tr>
+                <tr>
+                  <td>20</td>
+                  <td>14</td>
+                  <td>00010100</td>
+                  <td>&amp;#20;</td>
+                  <td>DC4</td>
+                  <td>Device Control 4</td>
+                </tr>
+                <tr>
+                  <td>21</td>
+                  <td>15</td>
+                  <td>00010101</td>
+                  <td>&amp;#21;</td>
+                  <td>NAK</td>
+                  <td>Negative Acknowledge</td>
+                </tr>
+                <tr>
+                  <td>22</td>
+                  <td>16</td>
+                  <td>00010110</td>
+                  <td>&amp;#22;</td>
+                  <td>SYN</td>
+                  <td>Synchronize</td>
+                </tr>
+                <tr>
+                  <td>23</td>
+                  <td>17</td>
+                  <td>00010111</td>
+                  <td>&amp;#23;</td>
+                  <td>ETB</td>
+                  <td>End of Transmission Block</td>
+                </tr>
+                <tr>
+                  <td>24</td>
+                  <td>18</td>
+                  <td>00011000</td>
+                  <td>&amp;#24;</td>
+                  <td>CAN</td>
+                  <td>Cancel</td>
+                </tr>
+                <tr>
+                  <td>25</td>
+                  <td>19</td>
+                  <td>00011001</td>
+                  <td>&amp;#25;</td>
+                  <td>EM</td>
+                  <td>End of Medium</td>
+                </tr>
+                <tr>
+                  <td>26</td>
+                  <td>1A</td>
+                  <td>00011010</td>
+                  <td>&amp;#26;</td>
+                  <td>SUB</td>
+                  <td>Substitute</td>
+                </tr>
+                <tr>
+                  <td>27</td>
+                  <td>1B</td>
+                  <td>00011011</td>
+                  <td>&amp;#27;</td>
+                  <td>ESC</td>
+                  <td>Escape</td>
+                </tr>
+                <tr>
+                  <td>28</td>
+                  <td>1C</td>
+                  <td>00011100</td>
+                  <td>&amp;#28;</td>
+                  <td>FS</td>
+                  <td>File Separator</td>
+                </tr>
+                <tr>
+                  <td>29</td>
+                  <td>1D</td>
+                  <td>00011101</td>
+                  <td>&amp;#29;</td>
+                  <td>GS</td>
+                  <td>Group Separator</td>
+                </tr>
+                <tr>
+                  <td>30</td>
+                  <td>1E</td>
+                  <td>00011110</td>
+                  <td>&amp;#30;</td>
+                  <td>RS</td>
+                  <td>Record Separator</td>
+                </tr>
+                <tr>
+                  <td>31</td>
+                  <td>1F</td>
+                  <td>00011111</td>
+                  <td>&amp;#31;</td>
+                  <td>US</td>
+                  <td>Unit Separator</td>
+                </tr>
+                <tr id="row32">
+                  <td>32</td>
+                  <td>20</td>
+                  <td>00100000</td>
+                  <td>&amp;#32;</td>
+                  <td>space</td>
+                  <td>Space</td>
+                </tr>
+                <tr>
+                  <td>33</td>
+                  <td>21</td>
+                  <td>00100001</td>
+                  <td>&amp;#33;</td>
+                  <td>!</td>
+                  <td>exclamation mark</td>
+                </tr>
+                <tr>
+                  <td>34</td>
+                  <td>22</td>
+                  <td>00100010</td>
+                  <td>&amp;#34;</td>
+                  <td>&quot;</td>
+                  <td>double quote</td>
+                </tr>
+                <tr>
+                  <td>35</td>
+                  <td>23</td>
+                  <td>00100011</td>
+                  <td>&amp;#35;</td>
+                  <td>#</td>
+                  <td>number</td>
+                </tr>
+                <tr>
+                  <td>36</td>
+                  <td>24</td>
+                  <td>00100100</td>
+                  <td>&amp;#36;</td>
+                  <td>$</td>
+                  <td>dollar</td>
+                </tr>
+                <tr>
+                  <td>37</td>
+                  <td>25</td>
+                  <td>00100101</td>
+                  <td>&amp;#37;</td>
+                  <td>%</td>
+                  <td>percent</td>
+                </tr>
+                <tr>
+                  <td>38</td>
+                  <td>26</td>
+                  <td>00100110</td>
+                  <td>&amp;#38;</td>
+                  <td>&amp;</td>
+                  <td>ampersand</td>
+                </tr>
+                <tr>
+                  <td>39</td>
+                  <td>27</td>
+                  <td>00100111</td>
+                  <td>&amp;#39;</td>
+                  <td>'</td>
+                  <td>single quote</td>
+                </tr>
+                <tr>
+                  <td>40</td>
+                  <td>28</td>
+                  <td>00101000</td>
+                  <td>&amp;#40;</td>
+                  <td>(</td>
+                  <td>left parenthesis</td>
+                </tr>
+                <tr>
+                  <td>41</td>
+                  <td>29</td>
+                  <td>00101001</td>
+                  <td>&amp;#41;</td>
+                  <td>)</td>
+                  <td>right parenthesis</td>
+                </tr>
+                <tr>
+                  <td>42</td>
+                  <td>2A</td>
+                  <td>00101010</td>
+                  <td>&amp;#42;</td>
+                  <td>*</td>
+                  <td>asterisk</td>
+                </tr>
+                <tr>
+                  <td>43</td>
+                  <td>2B</td>
+                  <td>00101011</td>
+                  <td>&amp;#43;</td>
+                  <td>+</td>
+                  <td>plus</td>
+                </tr>
+                <tr>
+                  <td>44</td>
+                  <td>2C</td>
+                  <td>00101100</td>
+                  <td>&amp;#44;</td>
+                  <td>,</td>
+                  <td>comma</td>
+                </tr>
+                <tr>
+                  <td>45</td>
+                  <td>2D</td>
+                  <td>00101101</td>
+                  <td>&amp;#45;</td>
+                  <td>-</td>
+                  <td>minus</td>
+                </tr>
+                <tr>
+                  <td>46</td>
+                  <td>2E</td>
+                  <td>00101110</td>
+                  <td>&amp;#46;</td>
+                  <td>.</td>
+                  <td>period</td>
+                </tr>
+                <tr>
+                  <td>47</td>
+                  <td>2F</td>
+                  <td>00101111</td>
+                  <td>&amp;#47;</td>
+                  <td>/</td>
+                  <td>slash</td>
+                </tr>
+                <tr>
+                  <td>48</td>
+                  <td>30</td>
+                  <td>00110000</td>
+                  <td>&amp;#48;</td>
+                  <td>0</td>
+                  <td>zero</td>
+                </tr>
+                <tr>
+                  <td>49</td>
+                  <td>31</td>
+                  <td>00110001</td>
+                  <td>&amp;#49;</td>
+                  <td>1</td>
+                  <td>one</td>
+                </tr>
+                <tr>
+                  <td>50</td>
+                  <td>32</td>
+                  <td>00110010</td>
+                  <td>&amp;#50;</td>
+                  <td>2</td>
+                  <td>two</td>
+                </tr>
+                <tr>
+                  <td>51</td>
+                  <td>33</td>
+                  <td>00110011</td>
+                  <td>&amp;#51;</td>
+                  <td>3</td>
+                  <td>three</td>
+                </tr>
+                <tr>
+                  <td>52</td>
+                  <td>34</td>
+                  <td>00110100</td>
+                  <td>&amp;#52;</td>
+                  <td>4</td>
+                  <td>four</td>
+                </tr>
+                <tr>
+                  <td>53</td>
+                  <td>35</td>
+                  <td>00110101</td>
+                  <td>&amp;#53;</td>
+                  <td>5</td>
+                  <td>five</td>
+                </tr>
+                <tr>
+                  <td>54</td>
+                  <td>36</td>
+                  <td>00110110</td>
+                  <td>&amp;#54;</td>
+                  <td>6</td>
+                  <td>six</td>
+                </tr>
+                <tr>
+                  <td>55</td>
+                  <td>37</td>
+                  <td>00110111</td>
+                  <td>&amp;#55;</td>
+                  <td>7</td>
+                  <td>seven</td>
+                </tr>
+                <tr>
+                  <td>56</td>
+                  <td>38</td>
+                  <td>00111000</td>
+                  <td>&amp;#56;</td>
+                  <td>8</td>
+                  <td>eight</td>
+                </tr>
+                <tr>
+                  <td>57</td>
+                  <td>39</td>
+                  <td>00111001</td>
+                  <td>&amp;#57;</td>
+                  <td>9</td>
+                  <td>nine</td>
+                </tr>
+                <tr>
+                  <td>58</td>
+                  <td>3A</td>
+                  <td>00111010</td>
+                  <td>&amp;#58;</td>
+                  <td>:</td>
+                  <td>colon</td>
+                </tr>
+                <tr>
+                  <td>59</td>
+                  <td>3B</td>
+                  <td>00111011</td>
+                  <td>&amp;#59;</td>
+                  <td>;</td>
+                  <td>semicolon</td>
+                </tr>
+                <tr>
+                  <td>60</td>
+                  <td>3C</td>
+                  <td>00111100</td>
+                  <td>&amp;#60;</td>
+                  <td>&lt;</td>
+                  <td>less than</td>
+                </tr>
+                <tr>
+                  <td>61</td>
+                  <td>3D</td>
+                  <td>00111101</td>
+                  <td>&amp;#61;</td>
+                  <td>=</td>
+                  <td>equality sign</td>
+                </tr>
+                <tr>
+                  <td>62</td>
+                  <td>3E</td>
+                  <td>00111110</td>
+                  <td>&amp;#62;</td>
+                  <td>&gt;</td>
+                  <td>greater than</td>
+                </tr>
+                <tr>
+                  <td>63</td>
+                  <td>3F</td>
+                  <td>00111111</td>
+                  <td>&amp;#63;</td>
+                  <td>?</td>
+                  <td>question mark</td>
+                </tr>
+                <tr>
+                  <td>64</td>
+                  <td>40</td>
+                  <td>01000000</td>
+                  <td>&amp;#64;</td>
+                  <td>@</td>
+                  <td>at sign</td>
+                </tr>
+                <tr>
+                  <td>65</td>
+                  <td>41</td>
+                  <td>01000001</td>
+                  <td>&amp;#65;</td>
+                  <td>A</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>66</td>
+                  <td>42</td>
+                  <td>01000010</td>
+                  <td>&amp;#66;</td>
+                  <td>B</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>67</td>
+                  <td>43</td>
+                  <td>01000011</td>
+                  <td>&amp;#67;</td>
+                  <td>C</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>68</td>
+                  <td>44</td>
+                  <td>01000100</td>
+                  <td>&amp;#68;</td>
+                  <td>D</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>69</td>
+                  <td>45</td>
+                  <td>01000101</td>
+                  <td>&amp;#69;</td>
+                  <td>E</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>70</td>
+                  <td>46</td>
+                  <td>01000110</td>
+                  <td>&amp;#70;</td>
+                  <td>F</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>71</td>
+                  <td>47</td>
+                  <td>01000111</td>
+                  <td>&amp;#71;</td>
+                  <td>G</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>72</td>
+                  <td>48</td>
+                  <td>01001000</td>
+                  <td>&amp;#72;</td>
+                  <td>H</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>73</td>
+                  <td>49</td>
+                  <td>01001001</td>
+                  <td>&amp;#73;</td>
+                  <td>I</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>74</td>
+                  <td>4A</td>
+                  <td>01001010</td>
+                  <td>&amp;#74;</td>
+                  <td>J</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>75</td>
+                  <td>4B</td>
+                  <td>01001011</td>
+                  <td>&amp;#75;</td>
+                  <td>K</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>76</td>
+                  <td>4C</td>
+                  <td>01001100</td>
+                  <td>&amp;#76;</td>
+                  <td>L</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>77</td>
+                  <td>4D</td>
+                  <td>01001101</td>
+                  <td>&amp;#77;</td>
+                  <td>M</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>78</td>
+                  <td>4E</td>
+                  <td>01001110</td>
+                  <td>&amp;#78;</td>
+                  <td>N</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>79</td>
+                  <td>4F</td>
+                  <td>01001111</td>
+                  <td>&amp;#79;</td>
+                  <td>O</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>80</td>
+                  <td>50</td>
+                  <td>01010000</td>
+                  <td>&amp;#80;</td>
+                  <td>P</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>81</td>
+                  <td>51</td>
+                  <td>01010001</td>
+                  <td>&amp;#81;</td>
+                  <td>Q</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>82</td>
+                  <td>52</td>
+                  <td>01010010</td>
+                  <td>&amp;#82;</td>
+                  <td>R</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>83</td>
+                  <td>53</td>
+                  <td>01010011</td>
+                  <td>&amp;#83;</td>
+                  <td>S</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>84</td>
+                  <td>54</td>
+                  <td>01010100</td>
+                  <td>&amp;#84;</td>
+                  <td>T</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>85</td>
+                  <td>55</td>
+                  <td>01010101</td>
+                  <td>&amp;#85;</td>
+                  <td>U</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>86</td>
+                  <td>56</td>
+                  <td>01010110</td>
+                  <td>&amp;#86;</td>
+                  <td>V</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>87</td>
+                  <td>57</td>
+                  <td>01010111</td>
+                  <td>&amp;#87;</td>
+                  <td>W</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>88</td>
+                  <td>58</td>
+                  <td>01011000</td>
+                  <td>&amp;#88;</td>
+                  <td>X</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>89</td>
+                  <td>59</td>
+                  <td>01011001</td>
+                  <td>&amp;#89;</td>
+                  <td>Y</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>90</td>
+                  <td>5A</td>
+                  <td>01011010</td>
+                  <td>&amp;#90;</td>
+                  <td>Z</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>91</td>
+                  <td>5B</td>
+                  <td>01011011</td>
+                  <td>&amp;#91;</td>
+                  <td>[</td>
+                  <td>left square bracket</td>
+                </tr>
+                <tr>
+                  <td>92</td>
+                  <td>5C</td>
+                  <td>01011100</td>
+                  <td>&amp;#92;</td>
+                  <td>\</td>
+                  <td>backslash</td>
+                </tr>
+                <tr>
+                  <td>93</td>
+                  <td>5D</td>
+                  <td>01011101</td>
+                  <td>&amp;#93;</td>
+                  <td>]</td>
+                  <td>right square bracket</td>
+                </tr>
+                <tr>
+                  <td>94</td>
+                  <td>5E</td>
+                  <td>01011110</td>
+                  <td>&amp;#94;</td>
+                  <td>^</td>
+                  <td>caret / circumflex</td>
+                </tr>
+                <tr>
+                  <td>95</td>
+                  <td>5F</td>
+                  <td>01011111</td>
+                  <td>&amp;#95;</td>
+                  <td>_</td>
+                  <td>underscore</td>
+                </tr>
+                <tr>
+                  <td>96</td>
+                  <td>60</td>
+                  <td>01100000</td>
+                  <td>&amp;#96;</td>
+                  <td>`</td>
+                  <td>grave / accent</td>
+                </tr>
+                <tr>
+                  <td>97</td>
+                  <td>61</td>
+                  <td>01100001</td>
+                  <td>&amp;#97;</td>
+                  <td>a</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>98</td>
+                  <td>62</td>
+                  <td>01100010</td>
+                  <td>&amp;#98;</td>
+                  <td>b</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>99</td>
+                  <td>63</td>
+                  <td>01100011</td>
+                  <td>&amp;#99;</td>
+                  <td>c</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>100</td>
+                  <td>64</td>
+                  <td>01100100</td>
+                  <td>&amp;#100;</td>
+                  <td>d</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>101</td>
+                  <td>65</td>
+                  <td>01100101</td>
+                  <td>&amp;#101;</td>
+                  <td>e</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>102</td>
+                  <td>66</td>
+                  <td>01100110</td>
+                  <td>&amp;#102;</td>
+                  <td>f</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>103</td>
+                  <td>67</td>
+                  <td>01100111</td>
+                  <td>&amp;#103;</td>
+                  <td>g</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>104</td>
+                  <td>68</td>
+                  <td>01101000</td>
+                  <td>&amp;#104;</td>
+                  <td>h</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>105</td>
+                  <td>69</td>
+                  <td>01101001</td>
+                  <td>&amp;#105;</td>
+                  <td>i</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>106</td>
+                  <td>6A</td>
+                  <td>01101010</td>
+                  <td>&amp;#106;</td>
+                  <td>j</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>107</td>
+                  <td>6B</td>
+                  <td>01101011</td>
+                  <td>&amp;#107;</td>
+                  <td>k</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>108</td>
+                  <td>6C</td>
+                  <td>01101100</td>
+                  <td>&amp;#108;</td>
+                  <td>l</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>109</td>
+                  <td>6D</td>
+                  <td>01101101</td>
+                  <td>&amp;#109;</td>
+                  <td>m</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>110</td>
+                  <td>6E</td>
+                  <td>01101110</td>
+                  <td>&amp;#110;</td>
+                  <td>n</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>111</td>
+                  <td>6F</td>
+                  <td>01101111</td>
+                  <td>&amp;#111;</td>
+                  <td>o</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>112</td>
+                  <td>70</td>
+                  <td>01110000</td>
+                  <td>&amp;#112</td>
+                  <td>p</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>113</td>
+                  <td>71</td>
+                  <td>01110001</td>
+                  <td>&amp;#113;</td>
+                  <td>q</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>114</td>
+                  <td>72</td>
+                  <td>01110010</td>
+                  <td>&amp;#114;</td>
+                  <td>r</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>115</td>
+                  <td>73</td>
+                  <td>01110011</td>
+                  <td>&amp;#115;</td>
+                  <td>s</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>116</td>
+                  <td>74</td>
+                  <td>01110100</td>
+                  <td>&amp;#116;</td>
+                  <td>t</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>117</td>
+                  <td>75</td>
+                  <td>01110101</td>
+                  <td>&amp;#117;</td>
+                  <td>u</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>118</td>
+                  <td>76</td>
+                  <td>01110110</td>
+                  <td>&amp;#118;</td>
+                  <td>v</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>119</td>
+                  <td>77</td>
+                  <td>01110111</td>
+                  <td>&amp;#119;</td>
+                  <td>w</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>120</td>
+                  <td>78</td>
+                  <td>01111000</td>
+                  <td>&amp;#120;</td>
+                  <td>x</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>121</td>
+                  <td>79</td>
+                  <td>01111001</td>
+                  <td>&amp;#121;</td>
+                  <td>y</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>122</td>
+                  <td>7A</td>
+                  <td>01111010</td>
+                  <td>&amp;#122;</td>
+                  <td>z</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>123</td>
+                  <td>7B</td>
+                  <td>01111011</td>
+                  <td>&amp;#123;</td>
+                  <td>{</td>
+                  <td>left curly bracket</td>
+                </tr>
+                <tr>
+                  <td>124</td>
+                  <td>7C</td>
+                  <td>01111100</td>
+                  <td>&amp;#124;</td>
+                  <td>|</td>
+                  <td>vertical bar</td>
+                </tr>
+                <tr>
+                  <td>125</td>
+                  <td>7D</td>
+                  <td>01111101</td>
+                  <td>&amp;#125;</td>
+                  <td>}</td>
+                  <td>right curly bracket</td>
+                </tr>
+                <tr>
+                  <td>126</td>
+                  <td>7E</td>
+                  <td>01111110</td>
+                  <td>&amp;#126;</td>
+                  <td>~</td>
+                  <td>tilde</td>
+                </tr>
+                <tr>
+                  <td>127</td>
+                  <td>7F</td>
+                  <td>01111111</td>
+                  <td>&amp;#127;</td>
+                  <td>DEL</td>
+                  <td>delete</td>
+                </tr>
+              </tbody>
+            </table>
+            <p>
+              <a href="../../convert/number/ascii-hex-bin-dec-converter.html"
+                >ASCII,Hex,Dec,Bin,Base64 converter &#9658;</a
+              >
+            </p>
+            <h2>Extended ASCII table</h2>
+            <div class="form-group">
+              <label for="charsel">Character encoding</label>
+              <select class="form-control" id="charsel">
+                <option value="utf-8" selected>UTF-8 (Unicode)</option>
+                <option value="cp437">CP437</option>
+                <option value="windows-1252">Windows-1252</option>
+                <option value="big5">Big5 (Chinese)</option>
+                <option value="ibm866">CP866 (Russian)</option>
+                <option value="euc-jp">EUC-JP (Japanese)</option>
+                <option value="euc-kr">EUC-KR (Korean)</option>
+                <option value="gb18030">GB 18030 (Chinese)</option>
+
+                <option value="iso-8859-1">
+                  ISO-8859-1 (Latin1/Western European)
+                </option>
+                <option value="iso-8859-2">
+                  ISO-8859-2 (Latin2/Eastern European)
+                </option>
+                <option value="iso-8859-3">
+                  ISO-8859-3 (Latin3/South European)
+                </option>
+                <option value="iso-8859-4">
+                  ISO-8859-4 (Latin4/North European)
+                </option>
+                <option value="iso-8859-5">ISO-8859-5 (Latin/Cyrillic)</option>
+                <option value="iso-8859-6">ISO-8859-6 (Latin/Arabic)</option>
+                <option value="iso-8859-7">ISO-8859-7 (Latin/Greek)</option>
+                <option value="iso-8859-8">ISO-8859-8 (Latin/Hebrew)</option>
+
+                <option value="iso-8859-10">ISO-8859-10 (Latin6/Nordic)</option>
+                <option value="iso-8859-13">
+                  ISO-8859-13 (Latin7/Baltic Rim)
+                </option>
+                <option value="iso-8859-14">ISO-8859-14 (Latin8/Celtic)</option>
+                <option value="iso-8859-15">
+                  ISO-8859-15 (Latin9/Western European)
+                </option>
+                <option value="iso-8859-16">
+                  ISO-8859-16 (Latin10/South-Eastern European)
+                </option>
+                <option value="koi8-r">KOI8-R (Russian)</option>
+                <option value="koi8-u">KOI8-U (Ukrainian)</option>
+                <option value="macintosh">Macintosh (x-mac-roman)</option>
+                <option value="x-mac-cyrillic">
+                  Mac OS Cyrillic (x-mac-cyrillic)
+                </option>
+                <option value="shift_jis">Shift JIS (Japanese)</option>
+                <option value="windows-874">Windows-874 (Thai)</option>
+                <option value="windows-1250">
+                  Windows-1250 (Eastern European)
+                </option>
+                <option value="windows-1251">Windows-1251 (Cyrillic)</option>
+                <option value="windows-1252">
+                  Windows-1252 (Western European)
+                </option>
+                <option value="windows-1253">Windows-1253 (Greek)</option>
+                <option value="windows-1254">Windows-1254 (Turkish)</option>
+                <option value="windows-1255">Windows-1255 (Hebrew)</option>
+                <option value="windows-1256">Windows-1256 (Arabic)</option>
+                <option value="windows-1257">Windows-1257 (Baltic)</option>
+                <option value="windows-1258">Windows-1258 (Vietnamese)</option>
+              </select>
+            </div>
+
+            <table
+              id="tbl2"
+              class="table table-sm table-striped table-responsive newspaper2"
+            >
+              <thead>
+                <tr>
+                  <th scope="col">Dec</th>
+                  <th scope="col">Hex</th>
+                  <th scope="col">Binary</th>
+                  <th scope="col">HTML</th>
+                  <th scope="col">Char</th>
+                  <th scope="col">&nbsp;</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </form>
+          <h2>ASCII characters code</h2>
+          <p>
+            ASCII code is a 7-bit code, with values from 0 to 127. The ASCII
+            code is a subset of UTF-8 code. The ASCII code includes control
+            characters and printable characters: digits, uppercase letters and
+            lowercase letters.
+          </p>
+          <p>
+            <a href="unicode-characters.html"
+              >Unicode character table &#9658;</a
+            >
+          </p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="../../convert/number/ascii-hex-bin-dec-converter.html"
+                >ASCII,Hex,Dec,Bin,Base64 converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/ascii-to-hex.html"
+                >ASCII to hex converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/ascii-to-binary.html"
+                >ASCII to binary converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/binary-to-ascii.html"
+                >Binary to ASCII converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/hex-to-ascii.html"
+                >Hex to ASCII converter</a
+              >
+            </li>
+            <li>
+              <a href="../../web/html/html-codes.html">HTML char codes</a>
+            </li>
+            <li><a href="unicode-characters.html">Unicode characters</a></li>
+            <li><a href="alt-codes.html">Windows ALT codes</a></li>
+            <li><a href="ascii/ascii-0.html">ASCII of 0</a></li>
+            <li><a href="ascii/ascii-a.html">ASCII of 'A'</a></li>
+            <li><a href="ascii/ascii-enter.html">ASCII of enter</a></li>
+            <li><a href="ascii/ascii-space.html">ASCII of space</a></li>
+            <li>
+              <a href="https://en.wikipedia.org/wiki/ASCII">ASCII code</a>
+            </li>
+            <li>
+              <a href="../../convert/number/hex-dec-bin-converter.html"
+                >Hex,Dec,Bin converter with bit toggle</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CODE TEXT</h5>
+        <ul>
+          <li><a href="alt-codes.html">ALT codes</a></li>
+          <li><a href="ascii-table.html">ASCII table</a></li>
+          <li><a href="editor.html">Text editor</a></li>
+          <li><a href="unicode-characters.html">Unicode characters</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="ascii-table.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../../lib/js-codepage/bits/437.js"></script>
+    <script>
+      var viewseldiv = document.getElementById("viewseldiv");
+      var radios = document.getElementsByName("viewsel");
+      var tbl1 = document.getElementById("tbl1");
+      var tbl2 = document.getElementById("tbl2");
+      var charsel = document.getElementById("charsel");
+      //window.onload = function() {
+      window.addEventListener("DOMContentLoaded", function () {
+        //SetTable();
+        if (window.screen.width >= 800) SetExtTable("utf-8");
+        else window.addEventListener("scroll", scrollHandler2);
+        var isFirefox =
+          navigator.userAgent.toLowerCase().indexOf("firefox") > -1;
+        if (isFirefox) {
+          viewseldiv.style.display = "none";
+          onviewsel(1);
+        }
+        radios[0].addEventListener("click", function () {
+          onviewsel(0);
+        });
+        radios[1].addEventListener("click", function () {
+          onviewsel(1);
+        });
+        charsel.onchange = function () {
+          var encoding = charsel.value;
+          var len = tbl2.rows.length;
+          for (var i = 1; i < len; i++) tbl2.deleteRow(1);
+          SetExtTable(encoding);
+        };
+
+        if (typeof TextDecoder !== "function") {
+          var s0 = document.createElement("script");
+          s0.value = "window.TextEncoder = window.TextDecoder = null;";
+          document.head.appendChild(s0);
+          var s1 = document.createElement("script");
+          //s1.onload=function() {
+          //};
+          s1.type = "text/javascript";
+          //s1.async = true;
+          s1.src = "/lib/text-encoding/encoding-indexes.js";
+          document.head.appendChild(s1);
+          var s2 = document.createElement("script");
+          //s2.onload=function() {
+          //};
+          s2.type = "text/javascript";
+          //s2.async = true;
+          s2.src = "/lib/text-encoding/encoding.js";
+          document.head.appendChild(s2);
+        }
+        //window.addEventListener('scroll', scrollHandler1);
+        //window.addEventListener('scroll', scrollHandler2);
+      });
+      function scrollHandler1() {
+        var rect = document.getElementById("row32").getBoundingClientRect();
+        //var isVisible = (rect.top >= 0) && (rect.bottom <= window.innerHeight);
+        isVisible = rect.top < window.innerHeight && rect.bottom >= 0;
+        if (isVisible) {
+          SetTable();
+          window.removeEventListener("scroll", scrollHandler1);
+        }
+      }
+      function scrollHandler2() {
+        var rect = document.getElementById("tbl2").getBoundingClientRect();
+        var height =
+          window.innerHeight || docElem.clientHeight || body.clientHeight;
+        //isVisible = (rect.top < window.innerHeight) && (rect.bottom >= 0)
+        isVisible = rect.top < height && rect.bottom >= 0;
+        if (isVisible) {
+          SetExtTable("utf-8");
+          window.removeEventListener("scroll", scrollHandler2);
+        }
+      }
+      /*
+   function SetTable()
+   {
+      var hex,oct,bin,html,c,d;
+      var desc=["Exclamation mark","Double quote","Number","Dollar sign","Percent","Ampersand","Single quote","Left parenthesis","Right parenthesis","Asterisk","Plus","Comma","Minus","Period","Slash","Zero","One","Two","Three","Four","Five","Six","Seven","Eight","Nine","Colon","Semicolon","Less than","Equality sign","Greater than","Question mark","At sign","Capital A","Capital B","Capital C","Capital D","Capital E","Capital F","Capital G","Capital H","Capital I","Capital J","Capital K","Capital L","Capital M","Capital N","Capital O","Capital P","Capital Q","Capital R","Capital S","Capital T","Capital U","Capital V","Capital W","Capital X","Capital Y","Capital Z","Left square bracket","Backslash","Right square bracket","Caret / circumflex","Underscore","Grave / accent","Small a","Small b","Small c","Small d","Small e","Small f","Small g","Small h","Small i","Small j","Small k","Small l","Small m","Small n","Small o","Small p","Small q","Small r","Small s","Small t","Small u","Small v","Small w","Small x","Small y","Small z","Left curly bracket","Vertical bar","Right curly bracket","Tilde"];
+      for(var i=33; i<128; i++) {
+         hex=("0"+i.toString(16)).slice(-2).toUpperCase();
+         oct=("00"+i.toString(8)).slice(-3);
+         bin=("0000000"+i.toString(2)).slice(-8);
+         html="&amp;#"+i+";";
+         c=String.fromCharCode(i);
+         d="&nbsp;";
+         if( i<=126 ) d=desc[i-33];
+         if( i==127 ) { c="DEL"; d="Delete"; }
+         $("#tbl1 > tbody").append("<tr>\
+            <td>"+i+"</td>\
+            <td>"+hex+"</td>\
+            <td>"+bin+"</td>\
+            <td>"+html+"</td>\
+            <td>"+c+"</td>\
+            <td>"+d+"</td>\
+         </tr>");
+      }
+   }
+   */
+      function SetExtTable(encoding) {
+        var hex, oct, bin, html, c, d, txt;
+        let arr = [];
+        if (encoding == "cp437") {
+          txt = [];
+          for (var i = 128; i < 256; i++) txt[i - 128] = cptable[437].dec[i];
+        } else if (encoding == "utf-8") {
+          txt = [];
+          for (var i = 128; i < 256; i++) txt[i - 128] = String.fromCharCode(i);
+        } else {
+          for (var i = 0; i < 128; i++) arr[i] = 128 + i;
+          let bytes = new Uint8Array(arr);
+          //txt=new TextDecoder(encoding, { NONSTANDARD_allowLegacyEncoding: true }).decode(bytes);
+          txt = new TextDecoder(encoding).decode(bytes);
+        }
+        for (var i = 128; i < 256; i++) {
+          hex = ("0" + i.toString(16)).slice(-2).toUpperCase();
+          oct = ("00" + i.toString(8)).slice(-3);
+          bin = ("0000000" + i.toString(2)).slice(-8);
+          html = "-";
+          if (i >= 160 && encoding == "utf-8") html = "&amp;#" + i + ";";
+          c = txt[i - 128];
+          if (c == undefined) c = "";
+          d = "&nbsp;";
+          var tbodyElem = tbl2.getElementsByTagName("tbody")[0];
+          var rowElem = tbodyElem.insertRow(i - 128);
+          rowElem.innerHTML =
+            "<tr>\
+            <td>" +
+            i +
+            "</td>\
+            <td>" +
+            hex +
+            "</td>\
+            <td>" +
+            bin +
+            "</td>\
+            <td>" +
+            html +
+            "</td>\
+            <td>" +
+            c +
+            "</td>\
+            <td>" +
+            d +
+            "</td>\
+         </tr>";
+        }
+      }
+      function onviewsel(i) {
+        var el1 = tbl1.querySelectorAll("tr td:nth-child(3)");
+        var el2 = tbl1.querySelectorAll("tr td:nth-child(4)");
+        var el3 = tbl1.querySelectorAll("tr td:nth-child(6)");
+        var el4 = tbl2.querySelectorAll("tr td:nth-child(3)");
+        var el5 = tbl2.querySelectorAll("tr td:nth-child(4)");
+        if (i == 0) {
+          radios[0].checked = true;
+          radios[1].checked = false;
+          radios[0].parentElement.classList.add("active");
+          radios[1].parentElement.classList.remove("active");
+          tbl1.style.height = "421.71px";
+          tbl2.style.height = "421.71px";
+          tbl1.querySelector("#tbl1 thead").display = "none";
+          tbl2.querySelector("#tbl2 thead").display = "none";
+          tbl1.classList.add("newspaper1");
+          tbl2.classList.add("newspaper2");
+          for (var i = 0; i < el1.length; i++) {
+            el1[i].style.display = "none";
+            el2[i].style.display = "none";
+            el3[i].style.display = "none";
+          }
+          for (var i = 0; i < el4.length; i++) {
+            el4[i].style.display = "none";
+            el5[i].style.display = "none";
+          }
+        } else {
+          radios[0].checked = false;
+          radios[1].checked = true;
+          radios[0].parentElement.classList.remove("active");
+          radios[1].parentElement.classList.add("active");
+          tbl1.style.height = "auto";
+          tbl2.style.height = "auto";
+          tbl1.querySelector("#tbl1 thead").style.display =
+            "table-header-group";
+          tbl2.querySelector("#tbl2 thead").style.display =
+            "table-header-group";
+          tbl1.classList.remove("newspaper1");
+          tbl2.classList.remove("newspaper2");
+          for (var i = 0; i < el1.length; i++) {
+            el1[i].style.display = "table-cell";
+            el2[i].style.display = "table-cell";
+            el3[i].style.display = "table-cell";
+          }
+          for (var i = 0; i < el4.length; i++) {
+            el4[i].style.display = "table-cell";
+            el5[i].style.display = "table-cell";
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

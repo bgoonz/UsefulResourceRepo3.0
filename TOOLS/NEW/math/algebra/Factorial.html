@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Factorial (n!) - RapidTables.com</title>
+    <meta
+      name="description"
+      content="The factorial of n is denoted by n! and calculated by the product of integer numbers from 1 to n."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Algebra</a>&rsaquo; Factorial
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Factorial (n!)</h1>
+          <p>
+            The factorial of n is denoted by n! and calculated by the product of
+            integer numbers from 1 to n.
+          </p>
+          <p>For n&gt;0,</p>
+          <p class="math">
+            <i>n</i>! = 1&times;2&times;3&times;4&times;...&times;<i>n</i>
+          </p>
+          <p>For n=0,</p>
+          <p class="math">0! = 1</p>
+          <h3>Factorial definition formula</h3>
+          <p class="math">
+            <img
+              border="0"
+              src="factorial/factorial.GIF"
+              width="186"
+              height="48"
+              alt="n!=\begin{Bmatrix}1 &amp; ,n=0 \\ \prod_{k=1}^{n}k &amp; ,n&gt;0\end{matrix}"
+            />
+          </p>
+          <p>Examples:</p>
+          <p class="mathsymbol">1! = 1</p>
+          <p class="mathsymbol">2! = 1&times;2 = 2</p>
+          <p class="mathsymbol">3! = 1&times;2&times;3 = 6</p>
+          <p class="mathsymbol">4! = 1&times;2&times;3&times;4 = 24</p>
+          <p class="mathsymbol">5! = 1&times;2&times;3&times;4&times;5 = 120</p>
+          <h3>Recursive factorial formula</h3>
+          <p class="math"><i>n</i>! = <i>n</i>&times;(<i>n</i>-1)!</p>
+          <p>Example:</p>
+          <p class="mathsymbol">
+            5! = 5&times;(5-1)! = 5&times;4! = 5&times;24 = 120
+          </p>
+          <h3>Stirling's approximation</h3>
+          <p class="math">
+            <img
+              border="0"
+              src="factorial/sriling.GIF"
+              width="170"
+              height="21"
+              alt="n!\approx \sqrt{2\pi n}\cdot n^n\cdot e^{-n}"
+            />
+          </p>
+          <p>Example:</p>
+          <p class="mathsymbol">
+            5! &#8776; &#8730;<span style="text-decoration: overline"
+              >2&#960;5</span
+            >&sdot;5<sup>5</sup>&sdot;<i>e</i><sup>-5 </sup>= 118.019
+          </p>
+          <h3>Factorial table</h3>
+          <table class="dtable">
+            <tr>
+              <th>
+                Number
+                <p class="mathsymbol"><i>n</i></p>
+              </th>
+              <th>
+                Factorial
+                <p class="mathsymbol"><i>n</i>!</p>
+              </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>2</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>6</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>24</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>720</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>5040</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>40320</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>362880</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>3628800</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>3.991680x10<sup>7</sup></td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>4.790016x10<sup>8</sup></td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>6.227021x10<sup>9</sup></td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>8.717829x10<sup>10</sup></td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>1.307674x10<sup>12</sup></td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>2.092279x10<sup>13</sup></td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>3.556874x10<sup>14</sup></td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>6.402374x10<sup>15</sup></td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>1.216451x10<sup>17</sup></td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>2.432902x10<sup>18</sup></td>
+            </tr>
+          </table>
+          <h2>C program for factorial calculation</h2>
+          <div class="codebg">
+            <p>double factorial(unsigned int n)</p>
+            <p>{</p>
+            <p>&nbsp;&nbsp;&nbsp;double fact=1.0;</p>
+            <p>&nbsp;&nbsp;&nbsp;if( n &gt; 1 )</p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;for(unsigned int k=2; k&lt;=n;
+              k++)
+            </p>
+            <p>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;fact =
+              fact*k;
+            </p>
+            <p>&nbsp;&nbsp;&nbsp;return fact;</p>
+            <p>}</p>
+          </div>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../calc/math/Factorial_Calculator.html"
+                >Factorial calculator</a
+              >
+            </li>
+            <li><a href="Logarithm.html">Logarithm</a></li>
+            <li>
+              <a target="_blank" href="https://en.wikipedia.org/wiki/Factorial"
+                >Factorial - Wikipedia</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ALGEBRA</h5>
+        <ul>
+          <li><a href="Factorial.html">Factorial</a></li>
+          <li><a href="Logarithm.html">Logarithm</a></li>
+          <li><a href="Ln.html">Natural Logarithm</a></li>
+          <li><a href="Quadratic_equation.html">Quadratic equation</a></li>
+          <li><a href="../symbols/Algebra_Symbols.html">Algebra symbols</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Factorial.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

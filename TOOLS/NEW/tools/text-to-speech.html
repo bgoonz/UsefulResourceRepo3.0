@@ -1,0 +1,961 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Text to Speech (TTS) Reader Online</title>
+    <meta
+      name="description"
+      content="Text to speech (TTS) reader. Text to voice generator online app."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      .adslot_2 {
+        height: 0;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      .btn img {
+        filter: invert(1);
+      }
+      #calcform {
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+      }
+      .btn i {
+        vertical-align: middle;
+      }
+      #play {
+        width: 80px;
+      }
+      #area::-moz-selection {
+        background: #f8f800;
+        color: #000;
+      }
+      #area::selection {
+        background: #fcfc00;
+        color: #000;
+        border-style: none;
+      }
+      .btn-light {
+        background: #eee8d5;
+        border-color: unset;
+        border-color: #eee8d5;
+      }
+      .btn-light:hover {
+        background: #ded8c5;
+        border-color: unset;
+        border-color: #eee8d5;
+      }
+      #topbar,
+      #bar,
+      #playslide {
+        width: 100%;
+        background: #6c757d;
+        background: #eee8d5;
+      }
+      #playslide {
+        padding: 0px 1px 15px 1px;
+        margin-top: 0px;
+      }
+      #bar {
+        margin-top: -5px;
+      }
+      #volbtn:hover ~ #volslide {
+        display: block; /*transition: width 2s;*/
+        width: 80px;
+      }
+      #volslide {
+        width: 80px;
+        padding: 20px 5px !important;
+        display: none;
+        -webkit-transition: width 2s;
+        transition: width 2s;
+      }
+      #volslide:hover {
+        display: block;
+      }
+      #volslide::-webkit-slider-thumb {
+        background: black;
+      }
+      #voiceselect {
+        max-width: 608px;
+        max-width: 100%;
+        width: unset;
+      }
+      .fullscreen {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 100vh;
+      }
+      .custom-range::-webkit-slider-thumb {
+        background: red;
+        z-index: 1000;
+        position: relative;
+      }
+      .custom-range::-webkit-slider-thumb:focus {
+        color: red !important;
+      }
+      .custom-range::-moz-range-thumb {
+        background: red;
+      }
+      .custom-range::-ms-thumb {
+        background: red;
+      }
+      .custom-range::-webkit-slider-thumb:active {
+        background-color: red;
+      }
+      .custom-range:focus::-webkit-slider-thumb {
+        box-shadow: 0 0 0 1px #fff, 0 0 0 0.1rem #fff;
+      }
+      .custom-range:focus::-moz-range-thumb {
+        box-shadow: 0 0 0 1px #fff, 0 0 0 0.1rem #fff;
+      }
+      .custom-range:focus::-ms-thumb {
+        box-shadow: 0 0 0 1px #fff, 0 0 0 0.1rem #fff;
+      }
+      #area #area:hover,
+      #area:active,
+      #area:focus {
+        border: 1px solid #ced4da;
+        outline: 0px !important;
+        -webkit-appearance: none;
+        box-shadow: none !important;
+      }
+      @media all and (max-width: 600px) {
+      }
+      @media all and (min-width: 601px) {
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; Text to speech reader (TTS)
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Text to Speech Reader</h1>
+          <form id="calcform">
+            <div id="topbar">
+              <div class="btn-group">
+                <button
+                  type="button"
+                  onclick="SpeechForm.open()"
+                  title="Open"
+                  aria-label="Open File"
+                  class="btn btn-light"
+                >
+                  <img
+                    src="../lib/icons/material/svg/folder_open_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                  Open File
+                </button>
+                <button
+                  type="button"
+                  onclick="SpeechForm.copy()"
+                  title="Copy"
+                  class="btn btn-light"
+                >
+                  <img
+                    src="../lib/icons/material/svg/content_copy_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <button
+                  type="button"
+                  onclick="SpeechForm.selectall()"
+                  title="Select All"
+                  class="btn btn-light"
+                >
+                  <img
+                    src="../lib/icons/material/svg/select_all_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <button
+                  type="button"
+                  onclick="SpeechForm.zoomin()"
+                  title="Zoom In"
+                  class="btn btn-light"
+                >
+                  <img
+                    src="../lib/icons/material/svg/zoom_in_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <button
+                  type="button"
+                  onclick="SpeechForm.zoomout()"
+                  title="Zoom Out"
+                  class="btn btn-light"
+                >
+                  <img
+                    src="../lib/icons/material/svg/zoom_out_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <input
+                  type="file"
+                  id="fileElem"
+                  name="fileElem[]"
+                  multiple
+                  style="visibility: hidden; width: 30px"
+                  onchange="SpeechForm.onfile()"
+                />
+              </div>
+            </div>
+            <textarea rows="10" id="area" class="form-control" autofocus>
+Text to speech reader usage instructions:
+1. Set system volume to comfortable level.
+2. Paste the text in the text box.
+3. Press the Play button.
+	</textarea
+            >
+            <input
+              type="range"
+              min="0"
+              value="0"
+              class="custom-range"
+              id="playslide"
+            />
+            <div id="bar">
+              <div class="btn-group" role="group" aria-label="Basic example">
+                <button
+                  type="button"
+                  onclick="SpeechForm.playbtn()"
+                  class="btn btn-light"
+                  id="play"
+                  title="Play"
+                  disabled
+                >
+                  <img
+                    src="../lib/icons/material/svg/play_arrow_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <button
+                  type="button"
+                  onclick="SpeechForm.playprev()"
+                  class="btn btn-light"
+                  id="prev"
+                  title="Prev"
+                  disabled
+                >
+                  <img
+                    src="../lib/icons/material/svg/skip_previous_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <button
+                  type="button"
+                  onclick="SpeechForm.playnext()"
+                  class="btn btn-light"
+                  id="next"
+                  title="Next"
+                  disabled
+                >
+                  <img
+                    src="../lib/icons/material/svg/skip_next_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <button
+                  type="button"
+                  onclick="SpeechForm.stopbtn()"
+                  class="btn btn-light"
+                  title="Stop"
+                >
+                  <img
+                    src="../lib/icons/material/svg/stop_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <button
+                  type="button"
+                  onclick=""
+                  class="btn btn-light"
+                  id="volbtn"
+                  title="Volume"
+                >
+                  <img
+                    src="../lib/icons/material/svg/volume_up_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  step="any"
+                  id="volslide"
+                  class="custom-range"
+                />
+
+                <button
+                  type="button"
+                  id="full"
+                  title="Fullscreen"
+                  onclick="SpeechForm.fullscreen()"
+                  class="btn btn-light"
+                >
+                  <img
+                    src="../lib/icons/material/svg/fullscreen_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                </button>
+              </div>
+            </div>
+            <select
+              id="voiceselect"
+              onchange="SpeechForm.voicechange()"
+              class="form-control mt-3"
+            ></select>
+          </form>
+          <h2>Text to speech reader usage instructions</h2>
+          <ol>
+            <li>Set system volume to comfortable level.</li>
+            <li>Paste the text in the text box.</li>
+            <li>Press the Play button.</li>
+          </ol>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="speech-to-text.html">Speech to text reader</a></li>
+            <li><a href="voice-recorder.html">Voice recorder</a></li>
+            <li><a href="screenshot.html">Screenshot online</a></li>
+            <li><a href="screen-recorder.html">Screen recorder</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ONLINE TOOLS</h5>
+        <ul>
+          <li><a href="alarm-clock.html">Alarm Clock</a></li>
+          <li><a href="bar-graph.html">Bar graph maker</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="timer.html">Countdown Timer</a></li>
+          <li><a href="current-time.html">Current Time</a></li>
+          <li><a href="line-graph.html">Line graph maker</a></li>
+          <li><a href="../calc/math/calculator.html">Online Calculator</a></li>
+          <li><a href="grocery-list.html">Online grocery list</a></li>
+          <li><a href="notepad.html">Online Notepad</a></li>
+          <li><a href="notes.html">Online Notes</a></li>
+          <li><a href="mirror.html">Online Mirror</a></li>
+          <li><a href="password-generator.html">Password generator</a></li>
+          <li><a href="pie-chart.html">Pie chart maker</a></li>
+          <li><a href="screenshot.html">Online screenshot</a></li>
+          <li><a href="speech-to-text.html">Speech to text</a></li>
+          <li><a href="stopwatch.html">Stopwatch</a></li>
+          <li><a href="text-to-speech.html">Text to speech</a></li>
+          <li><a href="todays-date.html">Today's Date</a></li>
+          <li><a href="todo-list.html">To-Do List</a></li>
+          <li><a href="where-am-i.html">Find my location</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="text-to-speech.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      "use strict";
+      var isfullscreen = false;
+      var area, txt;
+      var fontsize = 18;
+      var s = { INIT: 1, PLAY: 2, PAUSED: 3, END: 4 };
+      var iplay,
+        previplay,
+        playstate = s.INIT;
+      var start, end;
+      var msg = null;
+      var imsg;
+      var voices = [];
+      var voiceindex = 3;
+      var volume;
+      var playslidemax;
+      var firstinit = true;
+      const fullElem = document.getElementById("full");
+      const playElem = document.getElementById("play");
+      const areaElem = document.getElementById("area");
+      $(document).ready(function () {
+        try {
+          eval('"use strict"; class foo {}');
+        } catch (e) {
+          alert(
+            "Speech synthesis is not supported in this browser!\nPlease use Chrome browser."
+          );
+        }
+        SpeechSynth.init();
+        SpeechForm.init();
+      });
+
+      class SpeechForm {
+        static init() {
+          playstate = s.INIT;
+          $("#play").prop("disabled", false);
+          $("#prev").prop("disabled", false);
+          $("#next").prop("disabled", false);
+          txt = areaElem.value;
+          txt = txt.replace(/\t/g, "");
+          areaElem.value = txt;
+          $("#bar").mouseleave(function () {
+            SpeechForm.volhide();
+          });
+          $("#volbtn").hover(function () {
+            SpeechForm.volshow();
+          });
+          $(window).on("unload blur", function () {
+            SpeechForm.localSave();
+          });
+          $("#area").on("paste", function () {
+            setTimeout(function () {
+              SpeechForm.init();
+            }, 500);
+          });
+          $("#playslide").on("change input", function () {
+            SpeechForm.onSlideChange();
+          });
+          $("#volslide").on("change input", function () {
+            SpeechForm.onVolSlideChange();
+          });
+          SpeechForm.populateVoiceList();
+          if (firstinit == true) {
+            firstinit = false;
+            $("#volslide").val(100);
+            SpeechForm.localLoad();
+          }
+          SpeechForm.initText();
+          SpeechForm.setslider(0);
+          SpeechForm.initslider();
+        }
+        static localLoad() {
+          if (typeof Storage !== "undefined") {
+            var txt = localStorage.getItem("texttospeech_text");
+            if (txt != null && txt != "") areaElem.value = txt;
+          }
+        }
+        static localSave() {
+          if (typeof Storage !== "undefined") {
+            var txt = areaElem.value;
+            localStorage.setItem("texttospeech_text", txt);
+          }
+        }
+        static onPlaySlideChange() {
+          var v = $("#playslide").val();
+        }
+        static onVolSlideChange() {
+          var v = $("#volslide").val() / 100.0;
+          volume = v;
+        }
+        static populateVoiceList() {
+          var voices = SpeechSynth.getvoices();
+          if (voices == null) return;
+          if (voices.length > 21) voices.length = 21;
+          for (var i = 0; i < voices.length; i++) {
+            var textContent = voices[i].name + " (" + voices[i].lang + ")";
+            if (textContent.substring(0, 6) == "Google")
+              textContent = textContent.substring(7, textContent.length);
+            if (textContent.substring(0, 9) == "Microsoft")
+              textContent = textContent.substring(10, textContent.length);
+            $("#voiceselect").append("<option>" + textContent + "</option>");
+          }
+          var i = 1;
+          if (voices.length >= 4) i = 4;
+          $("#voiceselect option:nth-child(" + i + ")").prop("selected", true);
+          SpeechSynth.setvoice(i - 1);
+        }
+        static initText() {
+          txt = areaElem.value;
+          txt = txt.replace(/[.?!:,\r\n\]]/g, ".");
+          txt = txt.replace(/\.\.+/g, ".");
+          txt = txt.replace(/\.\s*/g, "|");
+          txt = txt.split("|");
+          txt = txt.filter((n) => n);
+          playslidemax = txt.length - 1;
+        }
+        static initslider() {
+          //playslidemax=$("#area").val().replace(/([.?!:,\r\n])\s*/g, "$1|").split("|").length-1;
+          $("#playslide").prop("max", playslidemax);
+        }
+        static getslider() {
+          return $("#playslide").val();
+        }
+        static setslider(v) {
+          $("#playslide").val(v);
+        }
+        static volshow() {
+          $("#volslide").css("display", "block");
+        }
+        static volhide() {
+          $("#volslide").css("display", "none");
+        }
+
+        static fullscreen() {
+          if (!isfullscreen) {
+            isfullscreen = true;
+            fullElem.children[0].src =
+              "/lib/icons/material/svg/fullscreen_exit_white_24dp.svg";
+            //$("#full i").html("fullscreen_exit");
+            $("#ban-ad").css("display", "none");
+            $("#calcform").addClass("fullscreen");
+            document.body.style.overflow = "hidden";
+          } else {
+            isfullscreen = false;
+            fullElem.children[0].src =
+              "/lib/icons/material/svg/fullscreen_white_24dp.svg";
+            //$("#full i").html("fullscreen");
+            $("#ban-ad").css("display", "block");
+            $("#calcform").removeClass("fullscreen");
+            document.body.style.overflow = "visible";
+          }
+        }
+        static open() {
+          $("#fileElem").click();
+        }
+        static onfile() {
+          var file = document.getElementById("fileElem").files[0];
+          document.getElementById("fileElem").value = "";
+          SpeechForm.fileLoad(file);
+        }
+        static fileLoad(file) {
+          //var file = document.getElementById("fileElem").files[0];
+          //var name = fileElem.name;
+          var reader = new FileReader();
+          reader.onloadend = function (e) {
+            if (e.target.readyState == FileReader.DONE) {
+              var t = e.target.result;
+              //var OSName = GetOS();
+              //if( OSName=="Windows" )
+              //	txt = txt.replace(/\r\n/gm,'\n');
+              //localStorage.notepad_filename = name;
+              //SetDocTitle();
+              areaElem.value = t;
+              areaElem.focus();
+              OnCount();
+              SpeechForm.init();
+            }
+          };
+          reader.readAsText(file, "UTF-8");
+          //SpeechForm.setslider(0);
+          //SpeechForm.initslider();
+        }
+        static copy() {
+          areaElem.select();
+          document.execCommand("copy");
+        }
+        static zoomout() {
+          fontsize /= 1.1;
+          var size = Math.round(fontsize) + "px";
+          $("#area").css("font-size", size);
+        }
+        static zoomin() {
+          fontsize *= 1.1;
+          var size = Math.round(fontsize) + "px";
+          $("#area").css("font-size", size);
+        }
+        static voicechange() {
+          var i = $("#voiceselect")[0].selectedIndex;
+          SpeechSynth.setvoice(i);
+        }
+        //static volumebtn() {
+        //   //SpeechSynth.setvolume(i);
+        //}
+        //static volchange() {
+        //   var v = $("#volumerange").val();
+        //   SpeechSynth.setvolume(v);
+        //}
+        static selectall() {
+          $("#area").focus();
+          $("#area").select();
+        }
+        static resetform() {
+          SpeechSynth.stop();
+          areaElem.value = "";
+          areaElem.focus();
+        }
+        static stopbtn() {
+          SpeechForm.setslider(0);
+          SpeechSynth.stop();
+          if (playstate == s.INIT) {
+            playstate = s.END;
+            SpeechForm.playmng();
+          } else playstate = s.END;
+        }
+        static setselect() {
+          areaElem.selectionStart = start;
+          areaElem.selectionEnd = start;
+          areaElem.blur();
+          areaElem.focus();
+          areaElem.selectionStart = start;
+          areaElem.selectionEnd = end;
+          areaElem.focus();
+        }
+        static playbtn() {
+          //txt=txt.replace(/[!\?:\.]/g,'$& ');
+          //var s=txt.match(/([^ \r\n][^!\?:\.\r\n]+[\w!\?:\.]+)/g); // sentence match
+          //var s=txt.match(/[a-z'\-]+/gi); // word match
+          if (playstate == s.END) playstate = s.INIT;
+
+          if (playstate == s.INIT) {
+            //$("#play").html("<i class='material-icons'>pause</i>");
+            playElem.children[0].src =
+              "/lib/icons/material/svg/pause_white_24dp.svg";
+            SpeechForm.playmng();
+          } else if (playstate == s.PLAY) {
+            //$("#play").html("<i class='material-icons'>play_arrow</i>");
+            playElem.children[0].src =
+              "/lib/icons/material/svg/play_arrow_white_24dp.svg";
+            playstate = s.PAUSED;
+            SpeechSynth.stop();
+            SpeechForm.setselect();
+          } else if (playstate == s.PAUSED) {
+            //$("#play").html("<i class='material-icons'>pause</i>");
+            playElem.children[0].src =
+              "/lib/icons/material/svg/pause_white_24dp.svg";
+            playstate = s.PLAY;
+            iplay--;
+            SpeechForm.playmng();
+            SpeechForm.setselect();
+          }
+        }
+        static playnext() {
+          if (playstate == s.PLAY) {
+            SpeechSynth.stop();
+            //if( ++iplay==txt.length )
+            if (iplay == txt.length) playstate = s.END;
+            previplay = -1;
+            //SpeechForm.playmng();
+          }
+        }
+        static playprev() {
+          if (playstate == s.PLAY) {
+            if (iplay < 1) return;
+            SpeechSynth.stop();
+            if (iplay == 1) iplay = 0;
+            else iplay -= 2;
+            if (iplay < 0) iplay = 0;
+            //playstate = s.INIT;
+            previplay = -1;
+            //SpeechForm.playmng();
+          }
+        }
+        static playmng() {
+          switch (playstate) {
+            case s.INIT:
+              SpeechSynth.stop();
+              area = areaElem.value;
+              if (area == "") {
+                //$("#play").html("<i class='material-icons'>play_arrow</i>");
+                playElem.children[0].src =
+                  "/lib/icons/material/svg/play_arrow_white_24dp.svg";
+                return;
+              }
+              //txt=area.replace(/([.?!:,\r\n])\s*/g, "$1|").split("|");
+              //txt=txt.replace(/[\"\'\’\‘]/gi, "");
+              //console.log(txt);
+              if (txt == null || txt.length == 0) {
+                //$("#play").html("<i class='material-icons'>play_arrow</i>");
+                playElem.children[0].src =
+                  "/lib/icons/material/svg/play_arrow_white_24dp.svg";
+                return;
+              }
+              iplay = start = end = 0;
+              previplay = -1;
+              playstate = s.PLAY;
+            case s.PLAY:
+              //console.log(iplay);
+              var t = txt[iplay].replace(/[\"\'\’\‘]/gi, "");
+              if (t != "") {
+                SpeechSynth.play(t);
+                if (previplay != iplay) {
+                  previplay = iplay;
+                  //start = area.indexOf(txt[iplay],end);
+                  start = area.indexOf(txt[iplay], 0);
+                  end = start + txt[iplay].length;
+                }
+                SpeechForm.setselect();
+                SpeechForm.setslider(iplay);
+              }
+              if (++iplay == txt.length) playstate = s.END;
+              break;
+            case s.PAUSED:
+              //SpeechSynth.resume();
+              //playstate = s.PLAY;
+              break;
+            case s.END:
+              //$("#play").html("<i class='material-icons'>play_arrow</i>");
+              playElem.children[0].src =
+                "/lib/icons/material/svg/play_arrow_white_24dp.svg";
+              areaElem.blur();
+              playstate = s.INIT;
+              break;
+            default:
+              console.log("Bad playstate!!!");
+          }
+        }
+      }
+
+      class SpeechSynth {
+        static init() {
+          if (!("speechSynthesis" in window)) {
+            alert(
+              "Speech synthesis is not supported in this browser!\nPlease use Chrome browser."
+            );
+            return;
+          }
+          SpeechSynth.stop();
+          voices = window.speechSynthesis.getVoices();
+          //voiceindex=3;
+          volume = 1.0;
+          //imsg=0;
+          //msg=[];
+          /*
+         msg[0] = new SpeechSynthesisUtterance();
+         msg[0].onend = function(e) {
+               //console.log('Finished in ' + e.elapsedTime + ' seconds.');
+               SpeechForm.playmng();
+         };
+         msg[0].onerror = function(e) {
+               console.log('Error in ' + e.elapsedTime + ' seconds.');
+               SpeechForm.playmng();
+         };*/
+          if (speechSynthesis.onvoiceschanged !== undefined) {
+            speechSynthesis.onvoiceschanged = function () {
+              //console.log("onvoiceschanged()");
+              if (voices.length > 0) return;
+              voices = window.speechSynthesis.getVoices();
+              SpeechForm.populateVoiceList();
+            };
+          }
+        }
+        static getvoices() {
+          return voices;
+        }
+        static setvoice(i) {
+          voiceindex = i;
+        }
+        //static setvolume(v) {
+        //   msg.volume = v; //0..1
+        //   console.log(v);
+        //}
+        static ispending() {
+          return window.speechSynthesis.pending;
+        }
+        static stop() {
+          window.speechSynthesis.cancel();
+        }
+        static pause() {
+          //if( window.speechSynthesis.speaking )
+          window.speechSynthesis.pause();
+        }
+        static resume() {
+          window.speechSynthesis.resume();
+        }
+        static play(s) {
+          //voices = window.speechSynthesis.getVoices();
+          if (voices.length == 0)
+            alert(
+              "No voices detected. Please restart the browser and try again."
+            );
+          msg = new SpeechSynthesisUtterance();
+          msg.onend = function (e) {
+            //console.log('Finished in ' + e.elapsedTime + ' seconds.');
+            SpeechForm.playmng();
+          };
+          msg.onerror = function (e) {
+            console.log("Error in " + e.elapsedTime + " seconds.");
+            SpeechForm.playmng();
+          };
+          msg.voice = voices[voiceindex];
+          //msg.voiceURI = 'native';
+          msg.volume = volume; // 0 to 1
+          msg.rate = 1.0; // 0.1 to 10
+          msg.pitch = 0; //0 to 2
+          msg.text = s;
+          //msg.lang = '';
+          //msg.lang = 'en-US'; //!!!
+          msg.lang = voices[voiceindex].lang; //!!!
+          //console.log(msg);
+          window.speechSynthesis.speak(msg);
+          //setTimeout(function() { window.speechSynthesis.speak(msg); }, 0);
+          if (++imsg == 2) imsg = 0;
+        }
+      }
+    </script>
+  </body>
+</html>

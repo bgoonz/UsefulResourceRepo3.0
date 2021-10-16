@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script async src="../lib/tagmng4.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../lib/rapidz.css">
+<link rel="apple-touch-icon" sizes="180x180" href="../lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="../lib/favicon/manifest.json">
+<link rel="mask-icon" href="../lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="../lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+
+<title>Electric current (I)</title>
+<meta name="description" content="Electrical current definition and calculations.">
+
+</head>
+<body>
+<div id="header">
+<div>
+<div id="logo" class="box">
+<p>
+<a href="../index.html">RapidTables</a>
+</p>
+</div>
+</div>
+</div>
+<div id="wrapper">
+<div id="nav">
+
+<a href="../index.html">Home</a>&rsaquo;<a href="index.html">Electricity &amp; Electronics</a>&rsaquo;<a href="electrical_basic.html">Electrical terms</a>&rsaquo; Electric current
+
+</div>
+<div id="top-ad">
+
+<ins class="adsbygoogle adslot_1" data-ad-client="ca-pub-7356419691275579" data-ad-slot="1390814895"></ins>
+</div>
+<div id="lcol">
+<div id="doc">
+
+<h1>Electric Current</h1>
+<p>Electric current definition and calculations.</p>
+<ul>
+<li><a href="Current.html#definition">Electric current definition</a></li>
+<li><a href="Current.html#calculation">Electric current calculation</a></li>
+<li><a href="Current.html#ohm_law">Current calculation with Ohm's law</a></li>
+<li><a href="Current.html#series">Current in series circuits</a></li>
+<li><a href="Current.html#parallel">Current in parallel circuits</a></li>
+<li><a href="Current.html#divider">Current divider</a></li>
+<li><a href="Current.html#kcl">Kirchhoff's current law</a></li>
+<li><a href="Current.html#ac">Alternating Current (AC)</a></li>
+<li><a href="Current.html#measurement">Current measurement</a></li>
+</ul>
+<h3><a name="definition"></a>Electric current definition</h3>
+<p>Electrical current is the flow rate of
+<a href="electric_charge.html">electric charge</a> in
+electric field, usually in
+electrical circuit.</p>
+<p>Using water pipe analogy, we can visualize the electrical current
+as water current that flows in a pipe.</p>
+<p>The electrical current is measured in ampere (amp) unit.</p>
+<h3><a name="calculation"></a>Electric current calculation</h3>
+<p>Electrical current is measured by the rate of electric charge
+flow in an electrical circuit:</p>
+<p class="math"><i>i</i>(<i>t</i>) = <i>dQ(t) </i>/<i> dt</i></p>
+<p>The momentary current is given by the derivative of the electric
+charge by time.</p>
+<p>i(t) is the momentary current <i>I</i> at time t in amps (A).</p>
+<p>Q(t) is the momentary electric charge in coulombs (C).</p>
+<p>t is the time in seconds (s).</p>
+<p>&nbsp;</p>
+<p>When the current is constant:</p>
+<p class="math"><i>I</i> = &#916;<i>Q</i> /
+&#916;<i>t</i></font></p>
+<p>I is the current in amps (A).</p>
+<p> &#916;</font>Q is the electric
+charge in coulombs (C), that flows at time duration of &#916;</font>t.</p>
+<p> &#916;</font>t is the time duration
+in seconds (s).</p>
+<p>&nbsp;</p>
+<h5>Example</h5>
+<p>When 5 coulombs flow through a resistor for duration of 10 seconds,</p>
+<p>the current will be calculated by:</p>
+<p class="mathsymbol"><i>I</i> = &#916;<i>Q</i> /
+&#916;<i>t </i>&nbsp;= 5C / 10s = 0.5A</font></p>
+<h3><a name="ohm_law"></a>Current calculation with Ohm's law</h3>
+<p>The current <i>I<sub>R </sub></i>in anps (A) is equal to the
+resistor's voltage <i>V<sub>R </sub></i> in volts (V) divided by the
+resistance <i>R</i> in ohms (&#937;).</p>
+<p class="math"><i>I<sub><span style="font-size: 0.8em">R</span></sub></i> = <i>V<sub><span style="font-size: 0.8em">R</span></sub></i> / <i>R</i></p>
+<h5>Current direction</h5>
+<table border="1" width="300" style="border-collapse: collapse" bordercolor="#C0C0C0">
+<tr>
+<th>current type</th>
+<th>from</th>
+<th width="32">to</th>
+</tr>
+<tr>
+<td>Positive charges</td>
+<td align="center">+</td>
+<td width="32" align="center">-</td>
+</tr>
+<tr>
+<td>Negative charges</td>
+<td align="center">-</td>
+<td width="32" align="center">+</td>
+</tr>
+<tr>
+<td>Conventional direction</td>
+<td align="center">+</td>
+<td width="32" align="center">-</td>
+</tr>
+</table>
+<h3><a name="series"></a>Current in series circuits</h3>
+<p>Current that flows through resistors in series is equal in all
+resistors - just like water flow through a single pipe.</p>
+<p class="math"><i>I<sub><span style="font-size: 0.8em">Total</span></sub> = I</i><sub>1 </sub>=<i>
+I</i><sub>2 </sub>=<i> I</i><sub>3 </sub>=...</p>
+<p><i>I<sub>Total</sub></i> - the equivalent current in amps (A).</p>
+<p><i>I</i><sub>1</sub> - current of load #1 in amps
+(A).</p>
+<p><i>I</i><sub>2</sub> - current of load #2 in amps
+(A).</p>
+<p><i>I</i><sub>3</sub> - current of load #3 in amps
+(A).</p>
+<h3><a name="parallel"></a>Current in parallel circuits</h3>
+<p>Current that flows through loads in parallel -
+just like water flow through parallel pipes.</p>
+<p>The total current <i>I<sub>Total</sub></i> is the sum of the
+parallel currents of each load:</p>
+<p class="math"><i>I<sub>Total</sub> = I</i><sub><i>1</i> </sub>+<i>
+I</i><sub>2 </sub>+<i> I</i><sub>3 </sub>+...</p>
+<p><i>I<sub>Total</sub></i> - the equivalent current in amps (A).</p>
+<p><i>I</i><sub>1</sub> - current of load #1 in amps
+(A).</p>
+<p><i>I</i><sub>2</sub> - current of load #2 in amps
+(A).</p>
+<p><i>I</i><sub>3</sub> - current of load #3 in amps
+(A).</p>
+<h3><a name="divider"></a>Current divider</h3>
+<p>The current division of resistors in parallel is</p>
+<p class="math"><i>R<sub><span style="font-size: 0.8em">T</span></sub></i> = 1 / (1/<i>R</i><sub>2</sub>
++ 1/<i>R</i><sub>3</sub>)</p>
+<p>or</p>
+<p class="math"><i>I</i><sub>1</sub> = <i>I<sub><span style="font-size: 0.8em">T</span> </sub></i>
+&times; <i>
+R<sub><span style="font-size: 0.8em">T</span></sub></i> / (<i>R</i><sub>1</sub>+<i>R<sub><span style="font-size: 0.8em">T</span></sub></i>)</p>
+<h3><a name="kcl"></a>Kirchhoff's current law (KCL)</h3>
+<p>The junction of several electrical components is called a <i>node</i>.</p>
+<p>The algebraic sum of currents entering a node is zero.</p>
+<p class="math">&#8721; <i>I<sub>k</sub></i> = 0</p>
+<h3><a name="ac"></a>Alternating Current (AC)</h3>
+<p>Alternating current is generated by a sinusoidal voltage source.</p>
+<h5>Ohm's law</h5>
+<p class="math"><i>I</i><sub><span style="font-size: 0.8em">Z</span></sub> =
+<i>V</i><sub><span style="font-size: 0.8em">Z</span></sub> / <i>Z</i></p>
+<p style="text-align: left;"><i>I</i><sub><span style="font-size: 0.8em">Z</span></sub>&nbsp; -
+current flow through the load measured in amperes
+(A)</p>
+<p style="text-align: left;"><i>V</i><sub><span style="font-size: 0.8em">Z</span></sub> - voltage
+drop on the load measured in
+volts (V)</p>
+<p style="text-align: left;"><i>Z</i>&nbsp; -
+impedance of the load
+measured in ohms (&#937;)</p>
+<h5>Angular frequency</h5>
+<p class="math"><i>&#969;</i> = 2<i>&#960; f</i></p>
+<p>&#969; - angular velocity measured in radians per second (rad/s)</p>
+<p>f&nbsp; - frequency measured in hertz (Hz).</p>
+<h5 style="text-align: left;">Momentary current</h5>
+<p style="text-align: left;" class="math"><i>i</i>(<i>t</i>) = <i>I<sub>peak</sub></i>
+<i>sin</i>(<i>&#969;t+&#952;</i>) </p>
+<p style="text-align: left;"><i>i</i>(<i>t</i>)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -
+momentary current at time t, measured in amps (A).</p>
+<p style="text-align: left;">Ipeak - maximal current (=amplitude of
+sine), measured in amps (A).</p>
+<p style="text-align: left;"><i>&#969;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- </i>angular frequency measured in radians per second (rad/s).</p>
+<p style="text-align: left;">t&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- time, measured in seconds (s).</p>
+<p style="text-align: left;"><i>&#952;</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+- phase of sine wave in radians (rad).</p>
+<h5 style="text-align: left;">RMS (effective) current</h5>
+<p style="text-align: left;" class="math"><i>I<sub>rms</sub></i> =&nbsp;
+<i>I</i><sub><i>eff</i></sub> =&nbsp; <i>I</i><sub><i>peak</i> </sub>/ &#8730;<span style="text-decoration: overline">2</span> &#8776;
+0.707 <i>I</i><sub><i>peak</i></sub></p>
+<h5 style="text-align: left;">Peak-to-peak current </h5>
+<p style="text-align: left;" class="math"><i>I<sub>p-p</sub></i> =
+2<i>I</i><sub><i>peak</i></sub></p>
+<h3><a name="measurement"></a>Current measurement</h3>
+<p>Current measurement is done by connecting the ammeter in series to the measured object, so
+all the measured&nbsp;current will
+flow through the ammeter.</p>
+<p>The ammeter has very low resistance, so it almost does not affect
+the measured circuit.</p>
+<p>&nbsp;</p>
+<hr>
+<h2>See also</h2>
+<ul>
+<li><a href="ohms-law.html">Ohm's law</a></li>
+<li><a href="Kirchhoff_laws.html">Kirchhoff's laws</a></li>
+<li><a href="electric_charge.html">Electric charge</a></li>
+<li><a href="Voltage.html">Electrical voltage</a></li>
+<li><a href="Resistance.html">Electrical resistance</a></li>
+<li><a href="electric_power.html">Electric power</a></li>
+<li><a href="resistor.html">Resistor</a></li>
+<li><a href="capacitor.html">Capacitor</a></li>
+<li><a href="ampere.html">Ampere (amp)</a></li>
+<li><a href="Electric_units.html">Electrical units</a></li>
+<li><a href="../calc/electric/index.html">
+Electrical calculators</a></li>
+<li><a href="../convert/electric/index.html">
+Electrical calculations</a></li>
+</ul>
+
+<div id="ban-ad">
+<ins class="adsbygoogle adslot_3" data-ad-client="ca-pub-7356419691275579" data-ad-slot="9463417041"></ins>
+</div>
+
+
+</div>
+<div id="fdbk">
+<h2><a id="feedback"></a>Write how to improve this page</h2>
+<form id="fdbkform">
+<textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required class="form-control"></textarea>
+<span id="fdbkmsg"></span>
+<button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+</form>
+</div>
+</div>
+<div id="rcol">
+
+<ins class="adsbygoogle adslot_2" data-ad-client="ca-pub-7356419691275579" data-ad-slot="5385900220"></ins>
+
+<h5>ELECTRICAL TERMS</h5>
+<ul>
+<li><a href="Voltage.html">Voltage</a></li>
+<li><a href="Current.html">Current</a></li>
+<li><a href="Resistance.html">Resistance</a></li>
+<li><a href="electric_power.html">Electric power</a></li>
+<li><a href="electric_charge.html">Electric charge</a></li>
+<li><a href="efficiency.html">Efficiency</a></li>
+<li><a href="Power_Factor.html">Power factor</a></li>
+</ul>
+<h5>RAPID TABLES</h5>
+<ul>
+<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+<li><a href="Current.html#feedback">Send Feedback</a></li>
+<li><a href="../about/about.html">About</a></li>
+</ul>
+<p>&nbsp;</p>
+
+</div>
+</div>
+<div id="footer">
+<a href="../index.html">Home</a> |
+<a href="../web/index.html">Web</a> |
+<a href="../math/index.html">Math</a> |
+<a href="index.html">Electricity</a> |
+<a href="../calc/index.html">Calculators</a> |
+<a href="../convert/index.html">Converters</a> |
+<a href="../tools/index.html">Tools</a>
+<p>&copy;
+<a href="../index.html">RapidTables.com</a> |
+<a href="../about/about.html" rel="nofollow">About</a> |
+<a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+<a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+<a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+</p>
+</div>
+<div id="banner">
+<div>
+This website uses cookies to improve your experience, analyze traffic and display ads.
+<a href="../about/privacy.html">Learn more</a>
+</div>
+<div>
+<a id="banokbtn">OK</a>
+<a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+</div>
+</div>
+
+
+</body>
+
+</html>

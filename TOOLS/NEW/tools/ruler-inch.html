@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>Ruler inches online, actual size &#128207;</title>
+    <meta content="Ruler inches - length meter online" name="description" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0; /*overflow:hidden;*/
+      }
+      #ruler {
+        margin-top: 10px;
+      }
+      #canvas {
+        width: 100vw; /*overflow:hidden;*/
+      }
+      #canvas {
+        position: absolute;
+      }
+      #rulerform {
+        max-width: 500px;
+        margin-left: 100px;
+        margin-top: 40px;
+      }
+      #rulerform .btn i {
+        vertical-align: bottom;
+      }
+      @media only screen and (max-width: 800px) {
+        #rulerform {
+          margin: 0;
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="head">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="../index.html">Home</a></li>
+        <li class="breadcrumb-item"><a href="index.html">Tools</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          Ruler (inches) online
+        </li>
+      </ol>
+    </div>
+    <div>
+      <ul class="nav nav-tabs">
+        <li class="nav-item">
+          <a class="nav-link active" href="ruler-inch.html#">Inches ruler</a>
+        </li>
+        <li class="nav-item">
+          <a id="cmlink" class="nav-link" href="ruler-cm.html">cm/mm ruler</a>
+        </li>
+      </ul>
+    </div>
+    <div
+      id="private_div"
+      class="alert alert-warning alert-dismissible fade show mt-2"
+      role="alert"
+    >
+      Calibration required once! Do calibration with non incognito/private
+      window to save data.
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <p class="ml-4 mt-2">Click ruler to get length:</p>
+    <div id="ruler">
+      <canvas id="canvas"></canvas>
+      <canvas id="mark"></canvas>
+    </div>
+    <form id="rulerform">
+      <div class="form-group mt-3">
+        <label>Length (cm/mm/inch)</label>
+        <div class="input-group">
+          <input
+            type="number"
+            min="0"
+            step="any"
+            id="len"
+            class="form-control"
+            aria-label="cm"
+          />
+          <div class="input-group-append">
+            <select id="lensel" class="form-control">
+              <option>cm</option>
+              <option>mm</option>
+              <option selected>inch</option>
+            </select>
+            <button
+              type="button"
+              id="lensetbtn"
+              class="btn btn-outline-secondary"
+            >
+              Set
+            </button>
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Enter visible screen width to calibrate ruler</label>
+        <div class="input-group">
+          <input
+            type="number"
+            min="0"
+            step="any"
+            id="sw"
+            class="form-control"
+          />
+          <div class="input-group-append">
+            <select id="swsel" class="form-control">
+              <option>cm</option>
+              <option selected>inch</option>
+            </select>
+            <button
+              type="button"
+              id="swsetbtn"
+              class="btn btn-outline-secondary"
+            >
+              Set
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      "use strict";
+      window.onload = function () {
+        var rulerForm = new RulerForm();
+      };
+
+      function RulerForm() {
+        this.lentype = 2;
+        this.localLoad();
+        this.ruler = new Ruler(this.ppi);
+        window.addEventListener("unload", this.localSave.bind(this));
+        document
+          .getElementById("lensel")
+          .addEventListener("change", this.onLenSelChange.bind(this));
+        document
+          .getElementById("lensetbtn")
+          .addEventListener("click", this.onLenSetClick.bind(this));
+        document
+          .getElementById("swsetbtn")
+          .addEventListener("click", this.onWidthSetClick.bind(this));
+        document
+          .getElementById("canvas")
+          .addEventListener("click", this.onMouseClick.bind(this));
+        if (this.ruler.iscalibrate) {
+          var pixelwidth = window.screen.width;
+          document.getElementById("sw").value = (
+            pixelwidth /
+            this.ruler.ppi /
+            25.4
+          ).toFixed(2);
+          $("#private_div").hide();
+        } else $("#private_div").show();
+
+        var params = this.GetURLParams();
+        if (!jQuery.isEmptyObject(params)) {
+          document.getElementById("len").value = params.inch;
+          document.getElementById("lensel").selectedIndex = 2;
+          this.onLenSetClick();
+        }
+      }
+      function Ruler(ppi) {
+        this.ppi = ppi;
+        this.iscalibrate = false;
+        if (this.ppi != null) this.iscalibrate = true;
+        if (this.ppi == null) this.ppi = 94.5;
+        this.ppmm = this.ppi / 25.4;
+        this.height = 100;
+        this.margintop = 100;
+        this.marginside = 0;
+        //this.drawRulerCM();
+        this.drawRulerInch();
+        this.drawMark();
+        this.setMark(0);
+      }
+
+      RulerForm.prototype.localLoad = function () {
+        if (typeof Storage !== "undefined") {
+          this.ppi = localStorage.getItem("ruler_ppi");
+        }
+      };
+      RulerForm.prototype.localSave = function () {
+        if (typeof Storage !== "undefined") {
+          if (
+            this.ruler.iscalibrate &&
+            this.ruler.ppi > 15 &&
+            this.ruler.ppi < 2000
+          )
+            localStorage.setItem("ruler_ppi", this.ruler.ppi);
+        }
+      };
+      RulerForm.prototype.GetURLParams = function () {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      };
+      RulerForm.prototype.onLenSelChange = function () {
+        var len = document.getElementById("len").value;
+        if (len == "") return;
+        var i = document.getElementById("lensel").selectedIndex;
+        if (this.lentype == 0) {
+          if (i == 1) len *= 10;
+          if (i == 2) len /= 2.54;
+        } else if (this.lentype == 1) {
+          if (i == 0) len /= 10;
+          if (i == 2) len /= 25.4;
+        } else if (this.lentype == 2) {
+          if (i == 0) len *= 2.54;
+          if (i == 1) len *= 25.4;
+        }
+        this.lentype = i;
+        document.getElementById("len").value = len.toFixed(2);
+      };
+      RulerForm.prototype.onLenSetClick = function () {
+        var len = document.getElementById("len").value;
+        var i = document.getElementById("lensel").selectedIndex;
+        var lenmm = len;
+        if (i == 0) lenmm *= 10;
+        if (i == 2) lenmm *= 25.4;
+        this.ruler.setMark(lenmm * this.ruler.ppmm);
+      };
+      RulerForm.prototype.onWidthSetClick = function () {
+        var screenwidth = document.getElementById("sw").value;
+        var i = document.getElementById("swsel").selectedIndex;
+        var pixelwidth = window.screen.width;
+        this.ruler.iscalibrate = true;
+        if (i == 0) {
+          //cm
+          this.ruler.ppmm = pixelwidth / screenwidth / 10.0;
+          this.ruler.ppi = 25.4 * this.ruler.ppmm;
+        } else {
+          this.ruler.ppi = pixelwidth / screenwidth;
+          this.ruler.ppmm = this.ruler.ppi / 25.4;
+        }
+        //this.ruler.drawRulerCM();
+        this.ruler.drawRulerInch();
+        this.localSave();
+        $("#private_div").hide();
+      };
+      RulerForm.prototype.onMouseClick = function (e) {
+        var x = e.clientX - this.ruler.marginside;
+        var y = e.clientY;
+        this.ruler.setMark(x);
+        var len = x / this.ruler.ppmm;
+        len = Math.round(len * 2) / 2;
+        var i = document.getElementById("lensel").selectedIndex;
+        if (i == 0) len /= 10;
+        if (i == 2) len /= 25.4;
+        document.getElementById("len").value = len.toFixed(2);
+      };
+
+      Ruler.prototype.setMark = function (lenpix) {
+        var x = this.marginside + lenpix - 1;
+        var d = document.getElementById("mark");
+        d.style.position = "relative";
+        d.style.left = x - 0 + "px";
+        d.style.top = 0 + "px";
+        d.style.display = "block";
+        var cm = (lenpix / this.ppmm / 10).toFixed(2).toString();
+        document.getElementById("cmlink").href = "ruler-cm.html?cm=" + cm;
+      };
+      Ruler.prototype.drawMark = function () {
+        const canvas = document.getElementById("mark");
+        canvas.style.display = "none";
+        canvas.width = 3;
+        canvas.height = this.height;
+        const ctx = canvas.getContext("2d");
+        ctx.strokeStyle = "red";
+        ctx.lineWidth = 3;
+        ctx.moveTo(0, 0);
+        ctx.lineTo(0, this.height);
+        ctx.stroke();
+      };
+      Ruler.prototype.drawRulerCM = function () {
+        var num;
+        const vwidth =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+        //const vheight = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+        const canvas = document.getElementById("canvas");
+        canvas.width = vwidth;
+        canvas.height = this.height;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#f0f0f0";
+        ctx.fillRect(0, 0, vwidth, this.height);
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "#333";
+        for (
+          var i = 0, x = this.marginside;
+          x < vwidth - this.marginside;
+          x += this.ppmm, i++
+        ) {
+          ctx.moveTo(x, 0);
+          if ((i / 10) % 1 === 0) {
+            ctx.lineTo(x, 30);
+            num = (i / 10).toString();
+            if (num.length == 1) ctx.fillText(num, x - 5, 58);
+            else ctx.fillText(num, x - 11, 58);
+            ctx.moveTo(x, this.height);
+            ctx.lineTo(x, this.height - 30);
+          } else if ((i / 5) % 1 === 0) {
+            ctx.lineTo(x, 22);
+            ctx.moveTo(x, this.height);
+            ctx.lineTo(x, this.height - 22);
+          } else {
+            ctx.lineTo(x, 15);
+            ctx.moveTo(x, this.height);
+            ctx.lineTo(x, this.height - 15);
+          }
+        }
+        ctx.moveTo(10, 0);
+        ctx.font = "12px Arial";
+        ctx.fillText("CM", this.marginside + 3 * this.ppmm, 55);
+        ctx.stroke();
+      };
+      Ruler.prototype.drawRulerInch = function () {
+        var num;
+        const vwidth =
+          window.innerWidth ||
+          document.documentElement.clientWidth ||
+          document.body.clientWidth;
+        //const vheight = window.innerHeight|| document.documentElement.clientHeight|| document.body.clientHeight;
+        const canvas = document.getElementById("canvas");
+        canvas.width = vwidth;
+        canvas.height = this.height;
+        const ctx = canvas.getContext("2d");
+        ctx.fillStyle = "#f0f0f0";
+        ctx.fillRect(0, 0, vwidth, this.height);
+        ctx.font = "20px Arial";
+        ctx.fillStyle = "#333";
+        for (
+          var i = 0, x = this.marginside;
+          x < vwidth - this.marginside;
+          x += this.ppi / 10, i++
+        ) {
+          ctx.moveTo(x, 0);
+          if ((i / 10) % 1 === 0) {
+            ctx.lineTo(x, 30);
+            num = (i / 10).toString();
+            if (num.length == 1) ctx.fillText(num, x - 5, 58);
+            else ctx.fillText(num, x - 11, 58);
+          } else if ((i / 5) % 1 === 0) {
+            ctx.lineTo(x, 22);
+          } else {
+            ctx.lineTo(x, 15);
+          }
+        }
+        var len;
+        for (
+          var i = 0, x = this.marginside;
+          x < vwidth - this.marginside;
+          x += this.ppi / 16, i++
+        ) {
+          if ((i / 16) % 1 === 0) len = 30;
+          else if ((i / 8) % 1 === 0) len = 26;
+          else if ((i / 4) % 1 === 0) len = 22;
+          else if ((i / 2) % 1 === 0) len = 18;
+          else len = 14;
+          ctx.moveTo(x, this.height);
+          ctx.lineTo(x, this.height - len);
+        }
+        ctx.moveTo(10, 0);
+        ctx.font = "12px Arial";
+        ctx.fillText("INCH", this.marginside + this.ppi / 5, 55);
+        ctx.stroke();
+      };
+
+      Storage.prototype.setObject = function (key, value) {
+        this.setItem(key, JSON.stringify(value));
+      };
+      Storage.prototype.getObject = function (key) {
+        var value = this.getItem(key);
+        return value && JSON.parse(value);
+      };
+    </script>
+  </body>
+</html>

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>How to calculate GPA</title>
+    <meta content="Grade point average (GPA) calculation." name="description" />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&gt;<a href="../index.html"
+          >Calculators</a
+        >&gt;<a href="index.html">Grade calculators</a>&gt; GPA calculation
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>How to calculate GPA</h1>
+          <p>Grade point average (GPA) calculation.</p>
+          <h2>GPA calculation</h2>
+          <p>
+            The GPA is calculated as a weighted average of the grades, when the
+            number of credit/hours is the weight and the numeric grade is taken
+            from the GPA table.
+          </p>
+          <p>
+            The GPA is equal to the sum of the product of the credit hours
+            weight (w) times the grade (g):
+          </p>
+          <p class="math">
+            <em>GPA</em> = <em>w</em><sub>1</sub>&times;<em>g</em
+            ><sub>1</sub>+<em> w</em><sub>2</sub>&times;<em>g</em
+            ><sub>2</sub>+<em> w</em><sub>3</sub>&times;<em>g</em><sub>3 </sub>+
+            ... + <em> w</em><sub><em>n</em></sub
+            >&times;<em>g</em><sub><em>n</em></sub>
+          </p>
+          <p>
+            The credit hours weight (w<sub><em>i</em></sub
+            >) is equal to the credit hours of the class divided by the sum of
+            the credit hours of all the classes:
+          </p>
+          <p class="math">
+            <em>w</em><sub><em>i</em></sub
+            ><em>= c</em><sub><em>i</em></sub> / (<em>c</em><sub>1</sub
+            ><em>+c</em><sub>2</sub><em>+c</em><sub>3</sub
+            ><em>+...+c<sub>n</sub></em
+            >)
+          </p>
+          <h2>GPA table</h2>
+          <table class="dtable" style="text-align: center">
+            <tr>
+              <th>Grade</th>
+              <th>Percentage<br />Grade</th>
+              <th>&nbsp;&nbsp;&nbsp;GPA&nbsp;&nbsp;&nbsp;</th>
+            </tr>
+            <tr>
+              <td>A</td>
+              <td>94-100</td>
+              <td>4.0</td>
+            </tr>
+            <tr>
+              <td>A-</td>
+              <td>90-93</td>
+              <td>3.7</td>
+            </tr>
+            <tr>
+              <td>B+</td>
+              <td>87-89</td>
+              <td>3.3</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>84-86</td>
+              <td>3.0</td>
+            </tr>
+            <tr>
+              <td>B-</td>
+              <td>80-83</td>
+              <td>2.7</td>
+            </tr>
+            <tr>
+              <td>C+</td>
+              <td>77-79</td>
+              <td>2.3</td>
+            </tr>
+            <tr>
+              <td>C</td>
+              <td>74-76</td>
+              <td>2.0</td>
+            </tr>
+            <tr>
+              <td>C-</td>
+              <td>70-73</td>
+              <td>1.7</td>
+            </tr>
+            <tr>
+              <td>D+</td>
+              <td>67-69</td>
+              <td>1.3</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>64-66</td>
+              <td>1.0</td>
+            </tr>
+            <tr>
+              <td>D-</td>
+              <td>60-63</td>
+              <td>0.7</td>
+            </tr>
+            <tr>
+              <td>F</td>
+              <td>0-65</td>
+              <td>0</td>
+            </tr>
+          </table>
+          <h2>GPA calculation example</h2>
+          <p>2 credits class with A grade.</p>
+          <p>1 credits class with C grade.</p>
+          <p>1 credits class with C grade.</p>
+          <p class="math">credits sum = 2+1+1 = 4</p>
+          <p class="math">w1 = 2/4 = 0.5</p>
+          <p class="math">w2 = 1/4 = 0.25</p>
+          <p class="math">w3 = 1/4 = 0.25</p>
+          <p class="math">g1 = 4</p>
+          <p class="math">g2 = 2</p>
+          <p class="math">g3 = 2</p>
+          <p class="math">
+            <em>GPA</em> = <em>w</em><sub>1</sub>&times;<em>g</em
+            ><sub>1</sub>+<em> w</em><sub>2</sub>&times;<em>g</em
+            ><sub>2</sub>+<em> w</em><sub>3</sub>&times;<em>g</em><sub>3</sub> =
+            0.5&times;4+0.25&times;2+0.25&times;2 = 3
+          </p>
+          <p>&nbsp;</p>
+          <p><a href="gpa-calculator.html">GPA calculator &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="grade-calculation.html">Grade calculation</a></li>
+            <li>
+              <a href="high-school-gpa-calculator.html"
+                >High school GPA calculator</a
+              >
+            </li>
+            <li>
+              <a href="college-gpa-calculator.html">College GPA calculator</a>
+            </li>
+            <li><a href="gpa-calculator.html">GPA calculator</a></li>
+            <li><a href="index.html">Grade calculators</a></li>
+            <li><a href="../math/index.html">Math calculators</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>GRADE CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="college-gpa-calculator.html">College GPA calculator</a>
+          </li>
+          <li>
+            <a href="final-grade-calculator.html">Final grade calculator</a>
+          </li>
+          <li><a href="gpa-calculator.html">GPA calculator</a></li>
+          <li><a href="grade-calculator.html">Grade calculator</a></li>
+          <li><a href="gpa-calculation.html">GPA calculation</a></li>
+          <li><a href="grade-calculation.html">Grade calculation</a></li>
+          <li>
+            <a href="gpa-to-letter-grade-calculator.html"
+              >GPA to letter grade</a
+            >
+          </li>
+          <li>
+            <a href="high-school-gpa-calculator.html"
+              >High school GPA calculator</a
+            >
+          </li>
+          <li>
+            <a href="letter-grade-to-gpa-calculator.html"
+              >Letter grade to GPA</a
+            >
+          </li>
+          <li><a href="test-calculator.html">Test calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="gpa-calculation.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

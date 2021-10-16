@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script>
+   var deskAdsNum=0;
+</script>
+<script async src="../lib/tagmng4.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../lib/rapidz.css">
+<link rel="apple-touch-icon" sizes="180x180" href="../lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="../lib/favicon/manifest.json">
+<link rel="mask-icon" href="../lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="../lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+
+<title>Countdown Timer Online</title>
+<meta content="Countdown timer online." name="description">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<style>
+   .adslot_2 { height:250px; }
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   #gen { max-width:450px; background:#eee8d5; padding:20px; border-radius:.25rem; }
+   #gen .col input[type=text] { font-weight:bold; }
+   #hour,#min,#sec { font-size:6rem; }
+   #clearbtn span { font-size:large; font-weight:bold; }
+   #gen .input-group-append { background:#fff; }
+   #timediv { border:2px inset; padding-left:10px; }
+   #timediv label { font-weight:bold; font-size:1.25rem; }
+   #timediv span { font-size:6rem; }
+   .form-control:disabled { background-color:#eee8d5; border:#eee8d5; }
+   #bar { width:100%; }
+   #bar::-moz-progress-bar { background: green; }
+   #bar::-webkit-progress-value { background: green; }
+   #bar { color: green; }
+   @media all and (max-width: 576px) {
+      #hour,#min,#sec { font-size:4rem; }
+      #timediv span { font-size:4rem; }
+   }
+   @media all and (max-width: 350px) {
+      #hour,#min,#sec { font-size:3rem; }
+      #timediv span { font-size:3rem; }
+   }
+</style>
+
+</head>
+<body>
+<div id="header">
+<div>
+<div id="logo" class="box">
+<p>
+<a href="../index.html">RapidTables</a>
+</p>
+</div>
+</div>
+</div>
+<div id="wrapper">
+<div id="nav">
+
+<a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a>&rsaquo; Countdown timer
+
+</div>
+<div id="top-ad">
+
+<ins class="adsbygoogle adslot_1" data-ad-client="ca-pub-7356419691275579" data-ad-slot="1390814895"></ins>
+</div>
+<div id="lcol">
+<div id="doc">
+
+<h1>Countdown Timer</h1>
+<ul class="nav nav-tabs">
+<li class="nav-item">
+<a class="nav-link active" href="timer.html">Timer</a>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="stopwatch.html">Stopwatch</a>
+</li>
+</ul>
+<br>
+<form id="gen">
+<div class="form-group row">
+<div class="col ml-4">Hours</div>
+<div class="col">Minutes</div>
+<div class="col">Seconds</div>
+</div>
+<div id="timediv" class="form-group text-center">
+<div class="input-group mx-auto">
+<input type="text" inputmode="numeric" value="00" id="hour" class="text-center form-control px-0">
+<span class="pt-3">:</span>
+<input type="text" inputmode="numeric" value="10" id="min" class="text-center form-control px-0">
+<span class="pt-3">:</span>
+<input type="text" inputmode="numeric" value="00" id="sec" class="text-center form-control px-0">
+</div>
+</div>
+<div class="form-group mt-0 mb-4">
+<progress id="bar" value="0" max="100" class="progress">
+</div>
+<div id="btndiv" class="form-group row">
+
+<div class="col">
+<button type="button" id="startbtn" title="Start" class="text-center btn btn-block btn-success"><img src="../lib/icons/material/svg/play_arrow_white_24dp.svg" loading="lazy" width="24" height="24" alt=""></button>
+</div>
+<div class="col">
+<button type="button" id="clearbtn" title="Reset" class="text-center btn btn-block btn-secondary"><img src="../lib/icons/material/svg/clear_white_24dp.svg" loading="lazy" width="24" height="24" alt=""></button>
+</div>
+</div>
+</form>
+<h2>How to use the timer</h2>
+<ul>
+<li>The timer counts back hours,minutes and seconds.</li>
+<li>Click the hours,minutes and seconds textboxs to set the count time duration.</li>
+<li>Press the Start/Pause button to start/pause the timer count.</li>
+<li>Press the &times; Reset button to reset the timer count.</li>
+</ul>
+<br>
+<hr>
+<h2>See also</h2>
+<ul class="seealso">
+<li><a href="stopwatch.html">Online Stopwatch</a></li>
+<li><a href="click-counter.html">Click counter</a></li>
+<li><a href="click-test.html">Click speed test</a></li>
+<li><a href="scoreboard.html">Online scoreboard</a></li>
+</ul>
+
+<div id="ban-ad">
+<ins class="adsbygoogle adslot_3" data-ad-client="ca-pub-7356419691275579" data-ad-slot="9463417041"></ins>
+</div>
+
+
+</div>
+<div id="fdbk">
+<h2><a id="feedback"></a>Write how to improve this page</h2>
+<form id="fdbkform">
+<textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required class="form-control"></textarea>
+<span id="fdbkmsg"></span>
+<button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+</form>
+</div>
+</div>
+<div id="rcol">
+
+<ins class="adsbygoogle adslot_2" data-ad-client="ca-pub-7356419691275579" data-ad-slot="5385900220"></ins>
+
+<h5>ONLINE TOOLS</h5>
+<ul>
+<li><a href="bar-graph.html">Bar graph maker</a></li>
+<li><a href="click-counter.html">Click counter</a></li>
+<li><a href="click-test.html">Click speed test</a></li>
+<li><a href="line-graph.html">Line graph maker</a></li>
+<li><a href="notepad.html">Online Notepad</a></li>
+<li><a href="mirror.html">Online Mirror</a></li>
+<li><a href="password-generator.html">Password generator</a></li>
+<li><a href="pie-chart.html">Pie chart maker</a></li>
+<li><a href="scatter-plot.html">Scatter plot maker</a></li>
+<li><a href="scoreboard.html">Online scoreboard</a></li>
+<li><a href="screenshot.html">Online screenshot</a></li>
+</ul>
+<h5>RAPID TABLES</h5>
+<ul>
+<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+<li><a href="timer.html#feedback">Send Feedback</a></li>
+<li><a href="../about/about.html">About</a></li>
+</ul>
+
+</div>
+</div>
+<div id="footer">
+<a href="../index.html">Home</a> |
+<a href="../web/index.html">Web</a> |
+<a href="../math/index.html">Math</a> |
+<a href="../electric/index.html">Electricity</a> |
+<a href="../calc/index.html">Calculators</a> |
+<a href="../convert/index.html">Converters</a> |
+<a href="index.html">Tools</a>
+<p>&copy;
+<a href="../index.html">RapidTables.com</a> |
+<a href="../about/about.html" rel="nofollow">About</a> |
+<a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+<a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+<a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+</p>
+</div>
+<div id="banner">
+<div>
+This website uses cookies to improve your experience, analyze traffic and display ads.
+<a href="../about/privacy.html">Learn more</a>
+</div>
+<div>
+<a id="banokbtn">OK</a>
+<a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+</div>
+</div>
+
+<script>
+   "use strict"
+   var expand=true;
+   var play=0;
+   var h0="00",m0="10",s0="00";
+   var t,t2=-1,dt,tstart,tpause,tend,timer,duration,audio;
+   var hour=document.getElementById("hour");
+   var min=document.getElementById("min");
+   var sec=document.getElementById("sec");
+   var startbtn=document.getElementById("startbtn");
+   var clearbtn=document.getElementById("clearbtn");
+   var bar=document.getElementById("bar");
+
+   window.onload=function() {
+      hour.onclick = function() { hour.select(); }
+      min.onclick = function() { min.select(); }
+      sec.onclick = function() { sec.select(); }
+      hour.onblur = function() { onhourBlur(); }
+      min.onblur = function() { onminBlur(); }
+      sec.onblur = function() { onsecBlur(); }
+      startbtn.onclick = function() { onStart(); }
+      clearbtn.onclick = function() { onClear(0); }
+   };
+   function onhourBlur()
+   {
+      if( hour.value.length==0 )
+         hour.value='00';
+      if( hour.value.length==1 )
+         hour.value='0'+hour.value;
+   }
+   function onminBlur()
+   {
+      if( min.value.length==0 )
+         min.value='00';
+      if( min.value.length==1 )
+         min.value='0'+min.value;
+   }
+   function onsecBlur()
+   {
+      if( sec.value.length==0 )
+         sec.value='00';
+      if( sec.value.length==1 )
+         sec.value='0'+sec.value;
+   }
+   function onStart()
+   {
+      t = Date.now();
+      if( play==0 ) {
+         h0=hour.value;
+         m0=min.value;
+         s0=sec.value;
+         if( h0==0 && m0==0 && s0==0 ) return;
+         timer=setTimeout(function() { onTime(); }, 1000);
+         play=1;
+         tstart = t;
+         var h=parseInt(h0);
+         var m=parseInt(m0);
+         var s=parseInt(s0);
+         duration = h*3600+m*60+s;
+         startbtn.title="Pause";
+         startbtn.innerHTML="<img src='../lib/icons/material/svg/pause_white_24dp.svg' loading='lazy' width='24' height='24' alt=''>";
+         audio = new Audio('/lib/audio/Digital Notification.mp3');
+      }
+      else if( play==1 ) {
+         clearTimeout(timer);
+         play=2;
+         tpause = t;
+         startbtn.title="Start";
+         startbtn.innerHTML="<img src='../lib/icons/material/svg/play_arrow_white_24dp.svg' loading='lazy' width='24' height='24' alt=''>";
+      }
+      else if( play==2 ) {
+         if( t2==-1 )
+            dt = tpause-tstart;
+         else
+            dt = tpause-t2;
+         timer=setTimeout(function() { onTime(); }, 1000-dt);
+         play=1;
+         tstart+=(t-tpause);
+         startbtn.title="Pause";
+         startbtn.innerHTML="<img src='../lib/icons/material/svg/pause_white_24dp.svg' loading='lazy' width='24' height='24' alt=''>";
+      }
+      else if( play==3 ) {
+         audio.pause();
+         play=0;
+         hour.value=h0;
+         min.value=m0;
+         sec.value=s0;
+         startbtn.title="Start";
+         startbtn.innerHTML="<img src='../lib/icons/material/svg/play_arrow_white_24dp.svg' loading='lazy' width='24' height='24' alt=''>";
+      }
+      hour.disabled=true;
+      min.disabled=true;
+      sec.disabled=true;
+   }
+   function onTime()
+   {
+      t2=Date.now();
+      var h=parseInt(hour.value);
+      var m=parseInt(min.value);
+      var s=parseInt(sec.value);
+      if( s>1 || m>0 || h>0) {
+         dt = (t2-tstart)%1000;
+         timer=setTimeout(function() { onTime(); }, 1000-dt);
+      }
+      dt = Math.round(duration-(t2-tstart)/1000);
+      h=Math.floor(dt/3600);
+      m=Math.floor((dt-3600*h)/60);
+      s=dt%60;
+      var s1=s.toString();
+      var m1=m.toString();
+      var h1=h.toString();
+      hour.value=(h1.length==1)?'0'+h1:h1;
+      min.value=(m1.length==1)?'0'+m1:m1;
+      sec.value=(s1.length==1)?'0'+s1:s1;
+      var p=Math.round((t2-tstart)/(10.0*duration));
+      bar.value = p>100?100:p;
+      document.title=hour.value+":"+min.value+":"+sec.value;
+      if( dt<=0 ) {
+         tend = t2;
+         console.log(tend-tstart);
+         onClear(1);
+         play=3;
+         startbtn.title="Stop";
+         startbtn.innerHTML="<img src='../lib/icons/material/svg/stop_white_24dp.svg' loading='lazy' width='24' height='24' alt=''>";
+         setTimeout(function() { audio.play(); }, 0);
+         setTimeout(function() { audio.play(); }, 2000);
+         setTimeout(function() { audio.play(); }, 4000);
+      }
+   }
+   function onClear(n)
+   {
+      clearTimeout(timer);
+      document.title="Countdown Timer Online";
+      play=false;
+      if( n==0 ) {
+         hour.value=h0;
+         min.value=m0;
+         sec.value=s0;
+         bar.value="0";
+         hour.disabled=false;
+         min.disabled=false;
+         sec.disabled=false;
+         startbtn.title="Start";
+         startbtn.innerHTML="<img src='../lib/icons/material/svg/play_arrow_white_24dp.svg' loading='lazy' width='24' height='24' alt=''>";
+      }
+   }
+</script>
+
+</body>
+
+</html>

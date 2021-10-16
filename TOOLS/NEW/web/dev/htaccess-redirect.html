@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>.htaccess redirect - Apache .htaccess 301 redirect</title>
+    <meta
+      content="Apache .htaccess 301 redirect is a server side redirect and is a permanent redirect."
+      name="description"
+    />
+    <style>
+      .code {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Dev</a>&rsaquo; .htaccess redirect
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>.htaccess redirect</h1>
+          <p>
+            Apache <em>.htaccess</em> 301 redirect is a server side redirect and
+            is a permanent redirect.
+          </p>
+          <p>
+            The <em>.htaccess</em> file is an Apache server configuration file.
+            The <em>.htacces</em>s file is used per directory.
+          </p>
+
+          <p>
+            Using <em>.htaccess</em> file reduce server performance.<em>
+              .htaccess</em
+            >
+            use should be avoided when you have access to the Apache server main
+            configuration file <em> httpd.conf.</em> Shared hosting websites
+            usually don't have access to <em>httpd.conf</em> file and should use
+            <em>.htaccess</em> file.
+          </p>
+
+          <p>
+            This 301 redirect response notifies the search engines that the page
+            has moved permanently from the old URL to the new URL.
+          </p>
+
+          <p>
+            The search engines also transfer the old URL page rank to the new
+            URL.
+          </p>
+          <h2>.htaccess redirect</h2>
+          <p>
+            Add this code or create new <em>.htaccess</em> file in the
+            <em>old-page.html</em> directory.
+          </p>
+          <h4>Single URL redirect</h4>
+          <p>
+            Permanent redirect from <em>old-page.html</em> to
+            <em>new-page.html</em>.
+          </p>
+          <p class="wcode">.htaccess:</p>
+          <p class="code">
+            Redirect 301 /old-page.html http://www.mydomain.com/new-page.html
+          </p>
+          <h4>Entire domain redirect</h4>
+          <p>
+            Permanent redirect from all domain pages to <em>newdomain.com</em>.
+          </p>
+          <p>
+            <em>.htaccess</em> file should be at the old website's root
+            directory.
+          </p>
+          <p class="wcode">.htaccess:</p>
+          <p class="code">Redirect 301 / http://www.newdomain.com/</p>
+          <h2>Enabling .htaccess configuration</h2>
+          <p>
+            If you uploaded <em>.htaccess</em> file to the
+            <em>old-page.html</em> directory and the redirection does not work,
+            it usually means that the <em>.htaccess</em> files are not enabled
+            in the Apache server configuration file <em>httpd.conf.</em>
+          </p>
+          <p>
+            The <em>.htaccess</em> file can be enabled by adding the Apache
+            server's <em>httpd.conf</em> file.
+          </p>
+          <p class="wcode">httpd.conf:</p>
+          <p class="code">
+            &lt;Directory
+            /srv/www/rapidtables.com/public_html/web/dev/redirect&gt;
+            <br />&nbsp;&nbsp;AllowOverride All<br />
+            &lt;/Directory&gt;
+          </p>
+          <p>
+            Important: this setting is not reccomended since it slows down the
+            Apache server.
+          </p>
+          <h2>httpd.conf redirect</h2>
+          <p>
+            If you have permission the change the <em>httpd.conf</em> file, it
+            is better to add the <em>Redirect</em> directive in the
+            <em>httpd.conf</em> instead of the <em>.htaccess</em> file.
+          </p>
+          <p>
+            Check if rewrite module's library <em>mod_rewrite.so</em> is loaded
+            by the apache server:
+          </p>
+          <p class="code">$ apache2ctl -M</p>
+          <p>&nbsp;</p>
+          <p>Add the following code to httpd.conf file.</p>
+          <p>
+            If rewrite module's library <em>mod_rewrite.so</em> is not
+            available, uncomment the first line to load the rewrite module.
+          </p>
+          <p class="wcode">httpd.conf:</p>
+          <p class="code">
+            # LoadModule rewrite_module
+            /usr/lib/apache2/modules/mod_rewrite.so<br />
+            &lt;Directory
+            /srv/www/rapidtables.com/public_html/web/dev/redirect&gt;<br />
+            &nbsp;&nbsp; Redirect 301 /old-page.html
+            http://www.mydomain.com/new-page.html<br />
+            &lt;/Directory&gt;
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Don't forget to restart the Apache server after httpd.conf update:
+          </p>
+          <p class="code">$ sudo /etc/init.d/apache2 restart</p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="url-redirect.html">URL redirection</a></li>
+            <li><a href="php-redirect.html">PHP redirection</a></li>
+            <li>
+              <a href="../tools/redirect-generator.html">Redirect generator</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB DEVELOPMENT</h5>
+        <ul>
+          <li><a href="htaccess-redirect.html">.htaccess redirection</a></li>
+          <li><a href="canonical-url-link.html">Canonical URL link</a></li>
+          <li><a href="html-redirect.html">HTML redirection</a></li>
+          <li><a href="javascript-redirect.html">Javascript redirection</a></li>
+          <li><a href="jquery-redirect.html">jQuery redirection</a></li>
+          <li><a href="php-redirect.html">PHP redirection</a></li>
+          <li>
+            <a href="screen-resolution-statistics.html"
+              >Screen resolution statistics</a
+            >
+          </li>
+          <li><a href="url-redirect.html">URL redirection</a></li>
+          <li><a href="website-traffic-down.html">Website traffic down</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="htaccess-redirect.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

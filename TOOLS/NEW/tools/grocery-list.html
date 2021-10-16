@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Grocery list | Shopping list</title>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../lib/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <style>
+      @media only screen and (min-width: 601px) {
+        body > div > div:nth-child(2) {
+          max-width: 600px;
+          margin: 0 auto;
+        }
+      }
+      #header a {
+        margin: 0px 5px;
+      }
+      #intbl {
+        width: 100%;
+        border-collapse: collapse;
+        padding: 0;
+      }
+      #intbl tr,
+      #intbl td,
+      #intbl tbody {
+        border-collapse: collapse;
+      }
+      #intbl > tbody > tr > td:first-child,
+      #intbl > tbody > tr > td:last-child {
+        width: 4em;
+        padding: 0 !important;
+      }
+      #intbl td:nth-child(2) {
+        padding: 0px 5px;
+      }
+      #intbl td > a {
+        margin: 8px 0px;
+      }
+      #icons_tbl a.ui-btn {
+        margin: 0;
+        padding: 6px 6px !important;
+      }
+
+      #list > li > a {
+        padding: 8px 20px 3px 10px;
+        min-height: 0;
+        font-size: 20px;
+      }
+      #list > li > a > div {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+      }
+      #list > li > a > div > label {
+        border-style: none;
+        padding: 20px;
+      }
+      #list > li > a > div:nth-child(1).ui-checkbox {
+        margin: 5px 10px 0px 0px;
+      }
+      #list > li > a > div:nth-child(2).ui-input-text {
+        width: 50px;
+      }
+      #list > li > a > img {
+        height: 48px;
+        width: 48px;
+        margin: -3px 10px 0px 10px;
+      }
+      #list > li > a > div:nth-child(4) {
+        padding: 10px 0px;
+      }
+      #list > li > a > div:nth-child(4).ui-input-text {
+        width: 100%;
+        margin-right: 8em !important;
+      }
+      #list > li > a > div:nth-child(5) {
+        display: none;
+      }
+
+      /*.ui-btn-left { top: 0.1em; }*/
+      #viewbtn.ui-btn,
+      #addbtn.ui-btn {
+        font-size: 13px !important;
+      }
+      .ui-btn-active-rapid {
+        background: #e0e0e0 !important;
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div data-role="page">
+      <div data-role="header" id="header">
+        <a
+          rel="external"
+          href="index.html"
+          id="homebtn"
+          data-role="button"
+          data-inline="true"
+          data-icon="home"
+          >Home</a
+        >
+        <h1>Grocery List</h1>
+        <a
+          id="shortbtn"
+          href="grocery-list.html#"
+          data-role="button"
+          data-inline="true"
+          data-icon="plus"
+          title="Add to Desktop"
+          >Shortcut</a
+        >
+        <div
+          id="short_div"
+          data-role="popup"
+          data-arrow="true"
+          class="ui-content"
+        ></div>
+      </div>
+      <div role="main" class="ui-content">
+        <table id="intbl">
+          <tr>
+            <td>
+              <a
+                href="grocery-list.html#"
+                id="viewbtn"
+                data-role="button"
+                data-inline="true"
+                data-icon="grid"
+                class="ui-disabled"
+                >Select</a
+              >
+            </td>
+            <td>
+              <input
+                type="text"
+                id="addinp"
+                placeholder="Add new item..."
+                data-clear-btn="true"
+              />
+            </td>
+            <td>
+              <a
+                href="grocery-list.html#"
+                id="addbtn"
+                data-role="button"
+                data-inline="true"
+                data-icon="plus"
+                >Add</a
+              >
+            </td>
+          </tr>
+        </table>
+        <div
+          data-role="popup"
+          id="icons_div"
+          data-theme="a"
+          data-shadow="true"
+          data-tolerance="50,50"
+          class="ui-content"
+        >
+          <a
+            href="grocery-list.html#"
+            data-rel="back"
+            class="
+              ui-btn
+              ui-corner-all
+              ui-shadow
+              ui-btn
+              ui-icon-delete
+              ui-btn-icon-notext
+              ui-btn-right
+            "
+            >Close</a
+          >
+          <table id="icons_tbl" data-theme="a"></table>
+        </div>
+        <ul
+          id="list"
+          data-role="listview"
+          data-inset="true"
+          data-filter="false"
+          data-icon="false"
+          contenteditable="true"
+        ></ul>
+      </div>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+    <script src="../lib/utils/utils.js"></script>
+    <script src="../lib/Blob.js-master/Blob.js"></script>
+    <script src="../lib/FileSaver.js-master/FileSaver.js"></script>
+    <script>
+      var itemsCount=0;
+      var rows=15,cols=6,iempty=85;
+      var listTable = [];
+      var selectTable = [];
+      var iconTable = [
+      	{"file":"Omelet.png",			"name":"Eggs"},
+      	{"file":"Yoghurt.png",			"name":"Yogurt"},
+      	{"file":"Milk.png",				"name":"Milk"},
+      	{"file":"Butter.png",			"name":"Butter"},
+      	{"file":"Cheese.png",			"name":"Cheese"},
+      	{"file":"Pizza.png",			"name":"Pizza"},
+      	{"file":"Bread.png",			"name":"Bread"},
+      	{"file":"Sandwich.png",			"name":"Sandwich"},
+      	{"file":"Porridge.png",			"name":"Porridge"},
+      	{"file":"Chicken.png",			"name":"Chicken"},
+      	{"file":"Chicken leg.png",		"name":"Chicken leg"},
+      	{"file":"Turkey.png",			"name":"Turkey"},
+      	{"file":"Cutlet.png",			"name":"Cutlet"},
+      	{"file":"Salmon.png",			"name":"Salmon"},
+      	{"file":"Lobster.png",			"name":"Lobster"},
+      	{"file":"Crab.png",				"name":"Crab"},
+      	{"file":"Rolls.png",			"name":"Rolls"},
+      	{"file":"Salada maki.png",		"name":"Salada maki"},
+      	{"file":"California roll.png",	"name":"California roll"},
+      	{"file":"Puree.png",			"name":"Puree"},
+      	{"file":"Salad.png",			"name":"Salad"},
+      	{"file":"Apple.png",			"name":"Apple"},
+      	{"file":"Apples.png",			"name":"Apples"},
+      	{"file":"Green apple.png",		"name":"Green apple"},
+      	{"file":"Cherry.png",			"name":"Cherry"},
+      	{"file":"Grapes.png",			"name":"Grapes"},
+      	{"file":"Avocado.png",			"name":"Avocado"},
+      	{"file":"Blackberry.png",		"name":"Blackberry"},
+      	{"file":"Carrot.png",			"name":"Carrot"},
+      	{"file":"Carrots.png",			"name":"Carrots"},
+      	{"file":"Paprika.png",			"name":"Paprika"},
+      	{"file":"Broccoli.png",			"name":"Broccoli"},
+      	{"file":"Cabbage.png",			"name":"Cabbage"},
+      	{"file":"Chinese spinach.png",	"name":"Chinese spinach"},
+      	{"file":"Chili.png",			"name":"Chili"},
+      	{"file":"Gooseberry.png",		"name":"Gooseberry"},
+      	{"file":"Kiwi.png",				"name":"Kiwi"},
+      	{"file":"Lime.png",				"name":"Lime"},
+      	{"file":"Pea.png",				"name":"Pea"},
+      	{"file":"Pineapple.png",		"name":"Pineapple"},
+      	{"file":"Tomato.png",			"name":"Tomato"},
+      	{"file":"Water-melon.png",		"name":"Watermelon"},
+      	{"file":"Water-melon half.png",	"name":"Half watermelon"},
+      	{"file":"Lemon.png",			"name":"Lemon"},
+      	{"file":"Garlic.png",			"name":"Garlic"},
+      	{"file":"Banana.png",			"name":"Banana"},
+      	{"file":"Radish.png",			"name":"Radish"},
+      	{"file":"Pumpkin.png",			"name":"Pumpkin"},
+      	{"file":"Real peach.png",		"name":"Peach"},
+      	{"file":"Real strawberry.png",	"name":"Strawberry"},
+      	{"file":"Real orange.png",		"name":"Orange"},
+      	{"file":"Real lemon.png",		"name":"Lemon"},
+      	{"file":"Lemon half.png",		"name":"Half lemon"},
+      	{"file":"Orange.png",			"name":"Orange"},
+      	{"file":"Peach.png",			"name":"Peach"},
+      	{"file":"Strawberry.png",		"name":"Strawberry"},
+      	{"file":"Wine bottle.png",		"name":"Wine bottle"},
+      	{"file":"Beer.png",				"name":"Beer"},
+      	{"file":"Mineral water.png",	"name":"Mineral water"},
+      	{"file":"Juice.png",			"name":"Juice"},
+      	{"file":"Iced tea.png",			"name":"Iced tea"},
+      	{"file":"Cocktail.png",			"name":"Cocktail"},
+      	{"file":"Tea.png",				"name":"Tea"},
+      	{"file":"Coffee.png",			"name":"Coffee"},
+      	{"file":"Soup.png",				"name":"Soup"},
+      	{"file":"Ham.png",				"name":"Ham"},
+      	{"file":"Burger.png",			"name":"Burger"},
+      	{"file":"Hamburger.png",		"name":"Hamburger"},
+      	{"file":"Hot dog.png",			"name":"Hot dog"},
+      	{"file":"Swiss roll.png",		"name":"Swiss roll"},
+      	{"file":"Cookies.png",			"name":"Cookies"},
+      	{"file":"Cake.png",				"name":"Cake"},
+      	{"file":"Piece of cake.png",	"name":"Piece of cake"},
+      	{"file":"Cherry pie.png",		"name":"Cherry pie"},
+      	{"file":"Chocolate candy.png",	"name":"Chocolate candy"},
+      	{"file":"Eskimo pie.png",		"name":"Eskimo pie"},
+      	{"file":"Ice-cream.png",		"name":"Ice cream"},
+      	{"file":"Ice cream.png",		"name":"Ice cream"},
+      	{"file":"Pepper.png",			"name":"Pepper"},
+      	{"file":"Salt.png",				"name":"Salt"},
+      	{"file":"Poison.png",			"name":"Poison"},
+      	{"file":"Pacifier.png",			"name":"Pacifier"},
+      	{"file":"Food.png",				"name":"Food"},
+      	{"file":"Box.png",				"name":"Box"},
+      	{"file":"Store.png",			"name":"Store"},
+      	{"file":"Empty.png",			"name":"&nbsp;"}
+      ];
+
+      //$(document).ready( function()
+      $(document).on('pagecreate', function()
+      {
+      	var row,col,i;
+      	var w,h,min;
+      	w = $(window).width();
+      	h = $(window).height();
+      	min = w>h ? h : w;
+      	cols = min/85;
+      	cols = cols.toFixed()-1;
+      	if( cols>9 ) cols=9;
+      	rows = Math.ceil((iconTable.length-1)/cols);
+
+      	for(row=0; row<rows; row++)
+      	{
+      		s = "<tr></tr>";
+      		$("#icons_tbl").append(s);
+
+      		for(col=0; col<cols; col++)
+      		{
+      			i = row*cols+col;
+      			if( i==iconTable.length-1 ) break;
+      			selectTable[i]={};
+      			selectTable[i].icon = i;
+      			selectTable[i].selected = false;
+      			s = "<td><a data-role=\"button\"><img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/food_full/png/48x48/&quot;+iconTable[i].file+&quot;\&quot;"></a></td>";
+      			$("#icons_tbl>tbody>tr:last").append(s);
+      		}
+      	}
+      	$("#icons_tbl").trigger("create");
+
+          $("#shortbtn").click(function(e){
+      		var x,y,s;
+      		x = $(window).width()-400;
+      		y = 20;
+      		//$("#short_div").popup("option", "arrow", "l,t,r,b");
+          	$("#short_div").popup("open",{ arrow:true, x:x, y:y });
+      		var browser = get_browser();
+      		var os = GetOS();
+      		if( os=="iOS" )
+      		{
+      			s="Add to home screen:\n";
+      			s+="<ol>";
+      			s+="<li>Click the Share button&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_065_share.png\&quot;">.</li>";
+      			s+="<li>Select <b>Add to Home Screen</b>.</li>";
+      			s+="</ol>";
+      		}
+      		else if( os=="Android" )
+      		{
+      			s="Add to home screen:\n";
+      			s+="<ol>";
+      			s+="<li>Click the Settings button&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_011_3dot.png\&quot;">.</li>";
+      			s+="<li>Click the Star button&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_006_star-empty.png\&quot;">.</li>";
+      			s+="<li>Select <b>Add shortcut to home screen</b>.</li>";
+      			s+="</ol>";
+      		}
+      		else if( browser=='Chrome' )
+      		{
+      			s="Add to desktop:\n";
+      			s+="<ol>";
+      			s+="<li>Click the Chrome menu&nbsp&nbsp<img src="https://www.rapidtables.com/tools/\&quot;//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/images/icons-png/bars-black.png\&quot;">.</li>";
+      			s+="<li>Select <b>Tools</b>.</li>";
+      			s+="<li>Select <b>Create application shortcuts</b>.</li>";
+      			s+="</ol>";
+      		}
+      		else if( browser=='Firefox' )
+      		{
+      			s="Add to desktop:\n";
+      			s+="Drag the address bar icon &nbsp<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_134_globe.png\&quot;"> to the desktop.";
+      		}
+      		$("#short_div").html(s);
+          });
+
+      	setTimeout( function(){
+      		    $("#viewbtn").click(function(e)
+      		    {
+      		    	$("#icons_div").popup("open");
+      		    });
+      			$("#viewbtn").removeClass("ui-disabled");
+      	    }, 3000);
+
+      	$("#icons_tbl a").click(function(e)
+      	{
+          	var col  = $(this).parent().index();
+          	var row = $(this).parent().parent().index();
+          	var i=row*cols+col;
+          	var s = iconTable[i].name;
+          	if( selectTable[i].selected )
+          	{
+          	   	selectTable[i].selected = false;
+          		$(this).removeClass('ui-btn-active-rapid');
+          		//obj = selectTable[i].listObj;
+      			var length = $("#list li").length;
+      			for(var k=1; k<=length; k++)
+      			{
+      				iconIndex = $("#list>li:nth-child("+k+")>a>div:nth-child(5)").text();
+      				if( iconIndex==i )
+      				{
+      					var obj=$("#list li:nth-child("+k+") a:last");
+      		    	   	removeItem(obj);
+      		    	   	break;
+      				}
+      			}
+          	}
+          	else
+          	{
+          	   	selectTable[i].selected = true;
+          		//$(this).css('background-color', '#e0e0e0');
+          		//$(this).addClass('ui-focus');
+          		$(this).addClass('ui-btn-active-rapid');
+      	    	obj = appendItem(i,s);
+          	}
+      	});
+          $("#addinp").keypress(function(e)
+          {
+               if (e.which == 13)
+               {
+               	var s=$("#addinp").val();
+          		appendItem(iempty,s);
+               }
+          });
+          $("#addbtn").click(function(e)
+          {
+          	var s=$("#addinp").val();
+          	appendItem(iempty,s);
+      	});
+          $("#list").keypress(function(e)
+          {
+               if (e.which == 13)
+               {
+               	e.preventDefault();
+          		appendItem(iempty,"&nbsp;");
+               }
+          });
+
+      	if( (localStorage.grocery_list_list !== undefined)&&
+      		(localStorage.grocery_list_list !== "") )
+      	{
+      		listTable = StorageGetObject("grocery_list_list");
+      		if( listTable==null ) return;
+      		var length = listTable.length;
+      		var iconIndex,row,col;
+      		for(var i=1; i<=length; i++)
+      		{
+      			iconIndex = listTable[i-1].iconIndex;
+      			appendItem(iconIndex, listTable[i-1].text);
+      			$("#list>li:nth-child("+i+")>a input[type=\"checkbox\"]").prop("checked", listTable[i-1].checked).checkboxradio("refresh");
+      			$("#list>li:nth-child("+i+")>a input[type=\"text\"]").val( listTable[i-1].num );
+      			if( iconIndex>selectTable.length-1 ) continue;
+      			selectTable[iconIndex].selected = true;
+      			row = Math.floor(iconIndex/cols);
+      			col = iconIndex-row*cols;
+      			row++;
+      			col++;
+      			$("#icons_tbl tr:nth-child("+row+")>td:nth-child("+col+")>a").addClass("ui-btn-active-rapid");
+      		}
+      	}
+
+      	$(window).unload(function()
+      	//$(document).on('pageremove', function()
+      	{
+      		var length = $("#list li").length;
+      		listTable = [];
+      		if( length!=0 )
+      		{
+      			for(var i=1; i<=length; i++)
+      			{
+      				listTable[i-1] = {};
+      				listTable[i-1].checked = $("#list>li:nth-child("+i+")>a input[type=\"checkbox\"]").is(":checked");
+      				listTable[i-1].num = $("#list>li:nth-child("+i+")>a input[type=\"text\"]").val();
+      				listTable[i-1].text = $("#list>li:nth-child("+i+")>a>div:nth-child(4)").text();
+      				listTable[i-1].iconIndex = $("#list>li:nth-child("+i+")>a>div:nth-child(5)").text();
+      			}
+      		}
+      		StorageSetObject("grocery_list_list", listTable);
+      	});
+      });
+
+      function appendItem(i,s)
+      {
+          	if( s=='' ) return;
+
+          	itemsCount++;
+
+      	s =	"<li>"+
+      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"">"+
+      				"<input type=\"checkbox\" id=\"ck"+itemsCount+"\" class=\"item_checkbox\" value=\"false\" />"+
+      				"<label for=\"ck"+itemsCount+"\"></label>"+
+      				"<input type=\"text\" id=\"num"+itemsCount+"\" value=\"1\" />"+
+      				"<img src="https://www.rapidtables.com/tools/\&quot;/lib/icons/food_full/png/48x48/&quot;+iconTable[i].file+&quot;\&quot;/">"+
+      				"<div>"+s+"</div>"+
+      				"<div>"+i+"</div>"+
+      			"</a>"+
+      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"" data-icon=\"delete\"></a>"+
+      		"</li>";
+          	$("#list").append(s).listview("refresh");
+          	$("#ck"+itemsCount).checkboxradio().trigger('create');
+          	$("#num"+itemsCount).textinput();
+          	$("ul li:last a:last").click(function()
+          	{
+      		var iconIndex = $(this).parent().children("a:first").children("div:last").text();
+      		if( iconIndex<iempty )
+      		{
+      			row = Math.floor(iconIndex/cols);
+      			col = iconIndex-row*cols;
+      			row++;
+      			col++;
+      			$("#icons_tbl tr:nth-child("+row+")>td:nth-child("+col+")>a").removeClass("ui-btn-active-rapid");
+      			selectTable[iconIndex].selected = false;
+      		}
+          		removeItem(this);
+          	});
+          	obj = $("ul li:last a:last");
+          	return obj;
+      }
+      function removeItem(obj)
+      {
+      	if( obj==null ) return;
+          	$(obj).parent().remove();
+      }
+
+      function StorageSetObject(key, obj)
+      {
+      	if( (obj.length==0) || (obj===undefined) || (obj===null) || (obj==="") || (obj===[]) )
+      		localStorage.removeItem(key);
+      	else
+      		localStorage.setItem(key, JSON.stringify(obj));
+      }
+      function StorageGetObject(key)
+      {
+      	try
+      	{
+      		var value = localStorage.getItem(key);
+      		if( value=="null" ) return null;
+      		var obj = JSON.parse(value);
+      		return(obj);
+      	}
+      	catch(err)
+      	{
+      		console.log(err);
+      		return null;
+      	}
+      }
+    </script>
+  </body>
+</html>

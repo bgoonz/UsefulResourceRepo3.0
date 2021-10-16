@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>ls command in Linux/Unix | list files/directories</title>
+    <meta
+      name="description"
+      content="ls is a Linux shell command that lists directory contents of files and directories."
+    />
+    <style>
+      .calc {
+        line-height: 1.8;
+      }
+      .calc td input[type="checkbox"] {
+        -ms-transform: scale(1.5);
+        -moz-transform: scale(1.5);
+        -webkit-transform: scale(1.5);
+        transform: scale(1.5);
+        padding: 10px;
+        margin-top: 5px;
+      }
+      .calc input[type="text"] {
+        width: 220px;
+        font-size: medium;
+        padding: 5px 3px;
+      }
+      .calc select {
+        font-size: medium;
+        padding: 5px 0px;
+      }
+      .calc textarea {
+        font-size: medium;
+        padding: 5px;
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          padding: 8px;
+        }
+        .calc textarea {
+          width: 100%;
+        }
+        .calc tr:nth-child(7) td,
+        .calc tr:nth-child(9) td,
+        .calc tr:nth-child(10) td,
+        .calc tr:nth-child(12) td,
+        .calc tr:nth-child(13) td {
+          float: left;
+        }
+        .calc tr:nth-child(7) td:nth-child(3),
+        .calc tr:nth-child(9) td:nth-child(3),
+        .calc tr:nth-child(10) td:nth-child(3),
+        .calc tr:nth-child(12) td:nth-child(3),
+        .calc tr:nth-child(13) td:nth-child(3) {
+          clear: left;
+        }
+        #T3,
+        #T4 {
+          width: 270px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc {
+          padding: 15px;
+        }
+        .calc textarea {
+          width: 550px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Code</a
+        >&rsaquo;<a href="index.html">Linux</a>&rsaquo; ls command
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>ls command in Linux/Unix</h1>
+          <p>
+            <i>ls</i> is a Linux shell command that lists directory contents of
+            files and directories.
+          </p>
+          <ul>
+            <li><a href="ls.html#syntax">ls syntax</a></li>
+            <li><a href="ls.html#options">ls options</a></li>
+            <li><a href="ls.html#examples">ls examples</a></li>
+            <li><a href="ls.html#generator">ls code generator</a></li>
+          </ul>
+          <h2><a name="syntax"></a>ls syntax</h2>
+          <p class="tcode">$ ls [<i>options</i>] [<i>file</i>|<i>dir</i>]</p>
+          <h2><a name="options"></a>ls command options</h2>
+          <p>ls command main options:</p>
+          <table class="dtable">
+            <tr>
+              <th>option</th>
+              <th>description</th>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-a.html">ls -a</a></td>
+              <td>list all files including hidden file starting with '.'</td>
+            </tr>
+            <tr>
+              <td class="code">ls --color</td>
+              <td>colored list [=always/never/auto]</td>
+            </tr>
+            <tr>
+              <td class="code">ls -d</td>
+              <td>list directories - with ' */'</td>
+            </tr>
+            <tr>
+              <td class="code">ls -F</td>
+              <td>add one char of */=&gt;@| to enteries</td>
+            </tr>
+            <tr>
+              <td class="code">ls -i</td>
+              <td>list file's inode index number</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-l.html">ls -l</a></td>
+              <td>list with long format - show permissions</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-l.html">ls -la</a></td>
+              <td>list long format including hidden files</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-l.html">ls -lh</a></td>
+              <td>list long format with readable file size</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-l.html">ls -ls</a></td>
+              <td>list with long format with file size</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-r.html#reverse">ls -r</a></td>
+              <td>list in reverse order</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-r.html#recursive">ls -R</a></td>
+              <td>list recursively directory tree</td>
+            </tr>
+            <tr>
+              <td class="code">
+                <a href="ls/ls-s.html#size">ls -s</a>
+              </td>
+              <td>list file size</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-s.html#sort-size">ls -S</a></td>
+              <td>sort by file size</td>
+            </tr>
+            <tr>
+              <td class="code"><a href="ls/ls-t.html">ls -t</a></td>
+              <td>sort by time &amp; date</td>
+            </tr>
+            <tr>
+              <td class="code">ls -X</td>
+              <td>sort by extension name</td>
+            </tr>
+          </table>
+          <h2><a name="examples"></a>ls command examples</h2>
+          <p>
+            You can press the <i>tab</i> button to auto complete the file or
+            folder names.
+          </p>
+          <p>
+            List directory <i>Documents/Books</i> with <i>relative</i> path:
+          </p>
+          <p class="tcode">$ ls Documents/Books</p>
+          <p>&nbsp;</p>
+          <p>
+            List directory <i>/home/user/Documents/Books</i> with
+            <i>absolute</i> path.
+          </p>
+          <p class="tcode">$ ls /home/user/Documents/Books</p>
+          <p>&nbsp;</p>
+          <p>List root directory:</p>
+          <p class="tcode">$ ls /</p>
+          <p>&nbsp;</p>
+          <p>List parent directory:</p>
+          <p class="tcode">$ ls ..</p>
+          <p>&nbsp;</p>
+          <p>List user's home directory (e.g: /home/user):</p>
+          <p class="tcode">$ ls ~</p>
+          <p>&nbsp;</p>
+          <p>List with long format:</p>
+          <p class="tcode">$ ls -l</p>
+          <p>&nbsp;</p>
+          <p>Show hidden files:</p>
+          <p class="tcode">$ ls -a</p>
+          <p>&nbsp;</p>
+          <p>List with long format and show hidden files:</p>
+          <p class="tcode">$ ls -la</p>
+          <p>&nbsp;</p>
+          <p>Sort by date/time:</p>
+          <p class="tcode">$ ls -t</p>
+          <p>&nbsp;</p>
+          <p>Sort by file size:</p>
+          <p class="tcode">$ ls -S</p>
+          <p>&nbsp;</p>
+          <p>List all subdirectories:</p>
+          <p class="tcode">$ ls *</p>
+          <p>&nbsp;</p>
+          <p>Recursive directory tree list:</p>
+          <p class="tcode">$ ls -R</p>
+          <p>&nbsp;</p>
+          <p>List only text files with wildcard:</p>
+          <p class="tcode">$ ls *.txt</p>
+          <p>&nbsp;</p>
+          <p>ls redirection to output file:</p>
+          <p class="tcode">$ ls &gt; out.txt</p>
+          <p>&nbsp;</p>
+          <p>List directories only:</p>
+          <p class="tcode">$ ls -d */</p>
+          <p>&nbsp;</p>
+          <p>List files and directories with full path:</p>
+          <p class="tcode">$ ls -d $PWD/*</p>
+          <h2><a name="generator"></a>ls code generator</h2>
+          <p>
+            Select <i>ls</i> options and press the <i>Generate Code</i> button:
+          </p>
+          <form name="gen">
+            <table class="calc">
+              <tr>
+                <td colspan="3">
+                  Options&nbsp;
+                  <hr />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input type="checkbox" name="C1" />&nbsp; Long list format
+                  (-l)
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input type="checkbox" name="C2" />&nbsp; List all files /
+                  hidden files (-a)
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input type="checkbox" name="C3" />&nbsp; Recursively list
+                  directory tree (-R)
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input type="checkbox" name="C4" />&nbsp; List in reverse
+                  order (-r)
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input type="checkbox" name="C5" />&nbsp; List with full path
+                  (-d $PWD/*)
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="C10" /></td>
+                <td>Sort by:</td>
+                <td>
+                  <select name="CM1" onchange="OnCm1Change()">
+                    <option selected>File size (-S)</option>
+                    <option>File extension name (-X)</option>
+                    <option>File time &amp; date (-t)</option>
+                    <option>Last access time (-u)</option>
+                    <option>Version (-v)</option>
+                    <option>No sort (-U)</option>
+                    <option>File name (default)</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  Files / folders
+                  <hr />
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="C20" /></td>
+                <td>
+                  Files:
+                  <input
+                    type="file"
+                    multiple
+                    id="fileElem"
+                    name="fileElem[]"
+                    style="visibility: hidden; width: 30px"
+                    onchange="loadFile()"
+                  />
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="T1"
+                    name="T1"
+                    placeholder="file1 file2"
+                  />
+                  <input
+                    type="button"
+                    id="fileSelect"
+                    value=" ... "
+                    onclick="selectFile()"
+                    style="font-weight: bold"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="C21" /></td>
+                <td>Folders:</td>
+                <td>
+                  <input
+                    type="text"
+                    id="T2"
+                    name="T2"
+                    placeholder="dir1 dir2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  Output redirection
+                  <hr />
+                </td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="C30" /></td>
+                <td>
+                  <select name="CM2" onchange="OnCm2Change()">
+                    <option selected>Redirect stdout to file</option>
+                    <option>Redirect &amp; append stdout to file</option>
+                    <option>Redirect stdout &amp; stderr to file</option>
+                  </select>
+                </td>
+                <td><input type="text" id="T3" name="T3" value="out.txt" /></td>
+              </tr>
+              <tr>
+                <td><input type="checkbox" name="C31" /></td>
+                <td>
+                  <select name="CM3" onchange="OnCm3Change()">
+                    <option selected>Redirect stderr to file</option>
+                    <option>Redirect &amp; append stderr to file</option>
+                  </select>
+                </td>
+                <td><input type="text" id="T4" name="T4" value="err.txt" /></td>
+              </tr>
+              <tr>
+                <td colspan="3"><hr /></td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input
+                    type="button"
+                    value="Generate Code"
+                    name="B1"
+                    onclick="GenerateButton()"
+                    class="btn"
+                  />
+                  <input
+                    type="reset"
+                    value="Reset"
+                    name="B2"
+                    onclick="ResetButton()"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <i>Click</i> on textbox to select code, then copy and paste it
+                  into terminal
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <textarea
+                    rows="3"
+                    id="TA1"
+                    name="TA1"
+                    onclick="OnSelectCode()"
+                  ></textarea>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input
+                    type="button"
+                    value="Select Code"
+                    name="B3"
+                    onclick="OnSelectCode()"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="cat.html">cat command</a></li>
+            <li><a href="cd.html">cd command</a></li>
+            <li><a href="cp.html">cp command</a></li>
+            <li><a href="gcc.html">gcc command</a></li>
+            <li><a href="ls.html">ls command</a></li>
+            <li><a href="pwd.html">pwd command</a></li>
+            <li>
+              <a href="linux-current-directory.html">Linux current directory</a>
+            </li>
+            <li><a href="linux-view-file.html">Linux view files</a></li>
+            <li><a href="ls/ls-a.html">ls -a</a></li>
+            <li><a href="ls/ls-l.html">ls -l</a></li>
+            <li><a href="ls/ls-r.html#reverse">ls -r</a></li>
+            <li><a href="ls/ls-r.html#recursive">ls -R</a></li>
+            <li><a href="ls/ls-s.html#size">ls -s</a></li>
+            <li><a href="ls/ls-s.html#sort-size">ls -S</a></li>
+            <li><a href="ls/ls-t.html">ls -t</a></li>
+            <li><a href="ls/ls-full-path.html">ls full path</a></li>
+          </ul>
+          <script>
+            var isIE = false;
+            var T1, T2, T1_val, T2_val;
+
+            window.onload = new (function () {
+              T1 = document.getElementById("T1");
+              T2 = document.getElementById("T2");
+
+              if (navigator.appName == "Microsoft Internet Explorer")
+                isIE = true;
+            })();
+            function selectFile() {
+              var fileElem = document.getElementById("fileElem");
+              fileElem.focus();
+              fileElem.click();
+            }
+            function loadFile() {
+              var fileSelect = document.getElementById("fileSelect");
+              var fileElem = document.getElementById("fileElem");
+              if (!isIE) {
+                T1.value = "";
+                for (var i = 0; i < fileElem.files.length; i++) {
+                  T1.value += fileElem.files[i].name;
+                  if (i < fileElem.files.length - 1) T1.value += " ";
+                }
+              } else {
+                var s = fileElem.value;
+                var i = s.lastIndexOf("\\");
+                T1.value = s.substr(i + 1);
+              }
+              document.gen.C20.checked = true;
+            }
+            function OnCm1Change() {
+              document.gen.C10.checked = true;
+            }
+            function OnCm2Change() {
+              document.gen.C30.checked = true;
+            }
+            function OnCm3Change() {
+              document.gen.C31.checked = true;
+            }
+            function OnSelectCode() {
+              document.gen.TA1.select();
+            }
+            function GenerateButton() {
+              C1 = document.gen.C1.checked;
+              C2 = document.gen.C2.checked;
+              C3 = document.gen.C3.checked;
+              C4 = document.gen.C4.checked;
+              C5 = document.gen.C5.checked;
+              C10 = document.gen.C10.checked;
+              C20 = document.gen.C20.checked;
+              C21 = document.gen.C21.checked;
+              C30 = document.gen.C30.checked;
+              C31 = document.gen.C31.checked;
+              T1_val = T1.value;
+              T2_val = T2.value;
+              if (T1_val == "") T1_val = "file1 file2";
+              if (T2_val == "") T2_val = "dir1 dir2";
+
+              txt = "ls";
+              if (C1 || C2 || C3 || C4 || C5 || C10) txt += " -";
+              if (C1) txt += "l";
+              if (C2) txt += "a";
+              if (C3) txt += "R";
+              if (C4) txt += "r";
+              if (C5) txt += "d";
+              if (C10) {
+                i = document.gen.CM1.selectedIndex;
+                if (i == 0) txt += "S";
+                else if (i == 1) txt += "X";
+                else if (i == 2) txt += "t";
+                else if (i == 3) txt += "u";
+                else if (i == 4) txt += "v";
+                else if (i == 5) txt += "U";
+              }
+              if (C5) txt += " $PWD/*";
+              if (C20) txt += " " + T1_val;
+              if (C21) txt += " " + T2_val;
+              if (C30) {
+                i = document.gen.CM2.selectedIndex;
+                file = document.gen.T3.value;
+                if (i == 0) txt += " > " + file;
+                else if (i == 1) txt += " >> " + file;
+                else txt += " &> " + file;
+              }
+              if (C31) {
+                i = document.gen.CM3.selectedIndex;
+                file = document.gen.T4.value;
+                if (i == 0) txt += " 2> " + file;
+                else txt += " 2>> " + file;
+              }
+
+              document.getElementById("TA1").value = txt;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LINUX</h5>
+        <ul>
+          <li><a href="cat.html">cat command</a></li>
+          <li><a href="cd.html">cd command</a></li>
+          <li><a href="cp.html">cp command</a></li>
+          <li><a href="gcc.html">gcc command</a></li>
+          <li><a href="ls.html">ls command</a></li>
+          <li><a href="mv.html">mv command</a></li>
+          <li><a href="pwd.html">pwd command</a></li>
+          <li>
+            <a href="linux-current-directory.html">Linux current directory</a>
+          </li>
+          <li><a href="linux-move-file.html">Linux move files</a></li>
+          <li><a href="linux-view-file.html">Linux view files</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="ls.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

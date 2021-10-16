@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Random Number Generator</title>
+    <meta
+      content="Random number generator with numbers list, range and step."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      .adslot_2 {
+        height: 0;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      #calcform {
+        padding: 20px;
+        max-width: 560px;
+        background: #eee8d5;
+      }
+      #calcform button i {
+        vertical-align: bottom;
+      }
+      #div6,
+      #div7 {
+        display: none;
+      }
+      #chart_div {
+        width: 100%;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 600px) {
+        #calcform button img {
+          display: none;
+        }
+        /*#calcform button span { display:none; }*/
+        #calcform > div:nth-child(7) > label {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo;
+        <a href="random-number-generator.html">Random number generator</a>
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Random Number Generator</h1>
+          <p>Generate random numbers between min and max with step:</p>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">Range preset</label>
+              <div
+                id="prebtn"
+                class="btn-group col-sm-9"
+                role="group"
+                aria-label="Preset buttons"
+              >
+                <button type="button" class="btn btn-secondary">1-2</button>
+                <button type="button" class="btn btn-secondary">1-3</button>
+                <button type="button" class="btn btn-secondary">1-4</button>
+                <button type="button" class="btn btn-secondary">1-10</button>
+                <button type="button" class="btn btn-secondary">1-100</button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="min" class="col-sm-3 col-form-label">Min</label>
+              <div class="col-sm-9">
+                <input
+                  type="number"
+                  step="any"
+                  id="min"
+                  name="min"
+                  min="step"
+                  value="1"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="max" class="col-sm-3 col-form-label">Max</label>
+              <div class="col-sm-9">
+                <input
+                  type="number"
+                  step="any"
+                  id="max"
+                  name="max"
+                  name="max"
+                  value="10"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="step" class="col-sm-3 col-form-label">Step</label>
+              <div class="col-sm-9">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  id="step"
+                  name="step"
+                  placeholder="1"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="form-group row" id="div6">
+              <label for="len" class="col-sm-3 col-form-label"
+                >List length</label
+              >
+              <div class="col-sm-9">
+                <input
+                  type="number"
+                  min="1"
+                  max="16384"
+                  step="1"
+                  id="len"
+                  name="len"
+                  value="1000"
+                  placeholder="1000"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div class="form-group row" id="div7">
+              <label for="del" class="col-sm-3 col-form-label"
+                >List delimiter</label
+              >
+              <div class="col-sm-9">
+                <select id="del" name="del" class="form-control">
+                  <option value=" " selected>Space</option>
+                  <option value="">New line</option>
+                  <option value=",">Comma</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="col-sm-9">
+                <button
+                  type="submit"
+                  id="calc"
+                  title="Generate random numbers"
+                  class="btn btn-primary"
+                >
+                  <img
+                    src="../lib/icons/material/svg/settings_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                  Generate
+                </button>
+                <button
+                  type="reset"
+                  id="reset"
+                  title="Reset"
+                  class="btn btn-secondary"
+                  onclick="clearform()"
+                >
+                  <span>&times;</span> Reset
+                </button>
+                <button type="button" id="more" class="btn btn-secondary">
+                  <span>+</span> More
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="area">Generated numbers</label>
+              <textarea
+                id="area"
+                rows="3"
+                readonly
+                class="form-control form-control-lg"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="select"
+                title="Copy result"
+                class="btn btn-secondary"
+                onclick="copy()"
+              >
+                <img
+                  src="../lib/icons/material/svg/content_copy_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Copy
+              </button>
+            </div>
+            <div class="form-group" id="div11">
+              <div id="chart_div"></div>
+            </div>
+          </form>
+          <br />
+          <h3>Random number generation</h3>
+          <ul>
+            <li>
+              Random number generator uses
+              <a
+                href="https://en.wikipedia.org/wiki/Cryptographically_secure_pseudorandom_number_generator"
+                >cryptographically secure pseudorandom number generator</a
+              >
+              with all recent browsers, except Opera and for list length of up
+              to 16384.
+            </li>
+            <li>
+              The random numbers are generated locally in the browser and are
+              not sent to the server.
+            </li>
+            <li>The web page is loaded with HTTPS and SSL encryption.</li>
+            <li>
+              The distribution graph shows the number of occurences of each
+              number and is not normalized.
+            </li>
+            <li>
+              You can view close to uniform distribution graph by setting large
+              list length.
+            </li>
+          </ul>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="password-generator.html">Password generator</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>TOOLS</h5>
+        <ul>
+          <li><a href="notepad.html">Notepad</a></li>
+          <li><a href="password-generator.html">Password generator</a></li>
+          <li>
+            <a href="random-number-generator.html">Random number generator</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li><a href="../about.html#link" rel="nofollow">Link to Us</a></li>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a
+              href="random-number-generator.html%3Fmin=1&amp;max=3.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../calc/calc2.js"></script>
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      var dist, xdist;
+      var area = document.getElementById("area");
+      var minElem = document.getElementById("min");
+      var maxElem = document.getElementById("max");
+      var stepElem = document.getElementById("step");
+      var lenElem = document.getElementById("len");
+      var delElem = document.getElementById("del");
+      var div6 = document.getElementById("div6");
+      var div7 = document.getElementById("div7");
+      var div11 = document.getElementById("div11");
+      var more = document.getElementById("more");
+      var optionsstate = false;
+      window.addEventListener("DOMContentLoaded", function () {
+        const btn = document.querySelectorAll("#prebtn button");
+        //$("#prebtn button").click(function() {
+        for (var i = 0; i < btn.length; i++)
+          btn[i].onclick = function () {
+            var index = [...this.parentElement.children].indexOf(this);
+            var max = [2, 3, 4, 10, 100][index];
+            minElem.value = 1;
+            maxElem.value = max;
+            stepElem.value = 1;
+          };
+        more.onclick = function () {
+          if (!optionsstate) {
+            optionsstate = true;
+            more.innerHTML = "<Span>-</span> Less";
+            div6.style.display = "flex";
+            div7.style.display = "flex";
+            div11.style.display = "flex";
+            lenElem.value = "1000";
+          } else {
+            optionsstate = false;
+            more.innerHTML = "<span>+</span> More";
+            div6.style.display = "none";
+            div7.style.display = "none";
+            div11.style.display = "none";
+            lenElem.value = "";
+          }
+        };
+        var params = GetURLParams();
+        if (
+          Object.keys(params).length > 0 &&
+          params.min != "" &&
+          params.max != ""
+        ) {
+          document.title =
+            "Random number generator " + params.min + "-" + params.max;
+          //SetLinks(params);
+          minElem.value = params.min;
+          maxElem.value = params.max;
+          stepElem.value = params.step;
+          lenElem.value = params.len;
+          if (params.len > 1) more.click();
+          var d = decodeURIComponent(params.del);
+          delElem.selectedIndex = d == "+" ? 0 : d == "" ? 1 : 2;
+          calc1();
+        }
+      });
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function calc1() {
+        document.getElementById("doc").style.setProperty("cursor", "progress");
+        var min = minElem.value;
+        var max = maxElem.value;
+        var step = stepElem.value;
+        var len = lenElem.value;
+        var del = delElem.value;
+        if (del == "") del = "\u000d\u000a";
+        if (step == "") step = 1.0;
+        if (step == "0") {
+          step = 1.0;
+          stepElem.value = "1";
+        }
+        if (len == "") len = 1000;
+        if (optionsstate == false) len = 1;
+        min = parseFloat(min);
+        max = parseFloat(max);
+        if (max < min) {
+          minElem.value = max;
+          maxElem.value = min;
+          min = max;
+          max = parseFloat(maxElem.value);
+        }
+        step = parseFloat(step);
+        if (step > max - min) step = max - min;
+        max = max - ((max - min) % step);
+        num = getrandom(min, max, step, len);
+        var txt = "";
+        for (var i = 0; i < len; i++) {
+          txt += num[i];
+          if (i < len - 1) txt += del;
+        }
+        area.value = txt;
+        if (optionsstate == false) return;
+        CalcDist(min, max, step);
+        DrawGraph();
+      }
+      function getrandom(min, max, step, len) {
+        var num = [];
+        var n = Math.round((max - min) / step + 1);
+        var bits = Math.log2(n) + 1;
+        //if(0) {
+        if (
+          len <= 16384 && //byte length up to 65536 bytes
+          (typeof window.crypto.getRandomValues === "function" ||
+            typeof window.msCrypto.getRandomValues === "function")
+        ) {
+          var crypto = window.crypto || window.msCrypto; // for IE 11
+          var array = new Uint32Array(len);
+          //window.crypto.getRandomValues(array);
+          crypto.getRandomValues(array);
+          for (var i = 0; i < len; i++) {
+            num[i] = Math.floor((array[i] / Math.pow(2, 32)) * n) * step + min;
+            num[i] = roundresult(num[i]);
+          }
+        } else {
+          for (var i = 0; i < len; i++) {
+            //num[i] = Math.floor(Math.random() * (max - min + 1)) + min;
+            num[i] = Math.floor(Math.random() * n) * step + min;
+            num[i] = roundresult(num[i]);
+          }
+        }
+        return num;
+      }
+      function copy() {
+        area.select();
+        var v = area.value;
+        if (typeof navigator.clipboard === "object")
+          if (typeof navigator.clipboard.writeText === "function") {
+            navigator.clipboard.writeText(v);
+            v = null;
+          }
+        if (v != null) {
+          area.select();
+          document.execCommand("copy");
+        }
+        document.execCommand("copy");
+      }
+      function DrawGraph() {
+        google.charts.load("current", { packages: ["corechart"] });
+        google.charts.setOnLoadCallback(drawVisualization);
+      }
+      function CalcDist(min, max, step) {
+        dist = [];
+        xdist = [];
+        var n = 1;
+        //if( step>max-min ) step=max-min;
+        if (step > 0) n = (max - min) / step + 1;
+        for (var i = 0; i < n; i++) {
+          dist[i] = 0;
+          xdist[i] = min + i * step;
+        }
+        for (var i = 0; i < num.length; i++) {
+          var k = Math.round((num[i] - min) / step);
+          dist[k]++;
+        }
+      }
+      function drawVisualization() {
+        var d = [["", "", { role: "style" }]];
+        for (var i = 0; i < dist.length; i++)
+          //d.push(['',  dist[i], '']);
+          d.push([xdist[i], dist[i], ""]);
+        //d.push([xdist[i].toString(),  dist[i], '']);
+        var data = google.visualization.arrayToDataTable(d);
+
+        var options = {
+          //width: 408,
+          legend: { position: "none" },
+          title: "Random Numbers Distribution",
+          vAxis: { title: "# of occurrences", viewWindow: { min: 0 } },
+          hAxis: { title: "Number" },
+          seriesType: "bars",
+        };
+        /*
+      var viewportWidth = $(window).width(); //$("body").innerWidth();
+      if( viewportWidth<=320 )
+         options.width=245;
+      if( viewportWidth<=800 )
+         options.width=292;
+      */
+        var chart = new google.visualization.ComboChart(
+          document.getElementById("chart_div")
+        );
+        chart.draw(data, options);
+        //$("#tbl tr:nth-last-child(2)").show();
+        //$("#tbl tr:last-child").show();
+        document.getElementById("chart_div").display = "block";
+        document.getElementById("doc").style.setProperty("cursor", "default");
+      }
+      function clearform() {
+        document.getElementById("chart_div").display = "none";
+      }
+    </script>
+  </body>
+</html>

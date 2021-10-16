@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Amps to Kilowatts (kW) conversion calculator</title>
+    <meta
+      name="description"
+      content="Amps (A) to kilowatts (kW) conversion calculator."
+    />
+    <meta
+      property="og:url"
+      content="https://www.rapidtables.com/calc/electric/Amp_to_kW_Calculator.html"
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Amps to Kilowatts (kW) conversion calculator"
+    />
+    <meta
+      property="og:description"
+      content="Amps (A) to kilowatts (kW) conversion calculator."
+    />
+    <meta
+      property="og:image"
+      content="https://www.rapidtables.com/lib/ogimages/rapidtables.jpg"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        max-width: 414px;
+        padding: 20px;
+        background: #eee8d5;
+        border: 1px solid #e0e0e0;
+        border-radius: 7px;
+      }
+      .btn img {
+        filter: invert(100%);
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Electrical Calculators</a>&rsaquo; Amps to
+        kW calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Amps to Kilowatts Calculator</h1>
+          <p>
+            <a href="../../electric/ampere.html">Amps (A)</a> to
+            <a href="../../electric/kW.html">kilowatts (kW)</a> calculator.
+          </p>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-group">
+              <label for="phase">Select current type</label>
+              <select
+                id="phase"
+                name="phase"
+                onchange="OnPhaseChange()"
+                class="form-control"
+                autofocus
+              >
+                <option>DC</option>
+                <option>AC - Single phase</option>
+                <option>AC - Three phase</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="x1">Enter current in amps</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  id="x1"
+                  name="x1"
+                  min="0"
+                  step="any"
+                  class="form-control"
+                  required
+                />
+                <div class="input-group-append">
+                  <select id="aunitsel" class="form-control">
+                    <option>mA</option>
+                    <option selected>A</option>
+                    <option>kA</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" id="pf0" style="display: none">
+              <label for="volt">Select voltage type</label>
+              <select id="volt" name="volt" class="form-control">
+                <option>Line to line voltage</option>
+                <option>Line to neutral voltage</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="x2">Enter voltage in volts</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  id="x2"
+                  name="x2"
+                  class="form-control"
+                  required
+                />
+                <div class="input-group-append">
+                  <select id="vunitsel" class="form-control">
+                    <option>mV</option>
+                    <option selected>V</option>
+                    <option>kV</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group" id="pf1" style="display: none">
+              <label for="pf">Enter power factor</label>
+              <input
+                type="number"
+                id="pf"
+                name="pf"
+                min="0"
+                max="1"
+                step="any"
+                value="1"
+                class="form-control"
+                disabled
+              />
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Calculate"
+                class="btn btn-secondary"
+                onclick="convert()"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                title="Reset"
+                class="btn btn-secondary"
+                onclick="setfocus()"
+              >
+                <span>&times;</span> Reset
+              </button>
+              <button
+                type="button"
+                title="Swap conversion"
+                class="btn btn-secondary"
+                onclick="location.href='kW_to_Amp_Calculator.html';"
+              >
+                <span></span> Swap
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="y">Power result in kilowatts</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="y"
+                  name="y"
+                  class="form-control"
+                  readonly
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">kW</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="y">Power result in watts</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="y2"
+                  name="y2"
+                  class="form-control"
+                  readonly
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">W</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="y">Power result in milliwatts</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="y3"
+                  name="y3"
+                  class="form-control"
+                  readonly
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">mW</span>
+                </div>
+              </div>
+            </div>
+          </form>
+          <p>
+            <a href="kW_to_Amp_Calculator.html"
+              >kW to amps calculator &#9658;</a
+            >
+          </p>
+          <p>* Use e for scientific notation. E.g: 5e3, 4e-8, 1.45e12</p>
+          <h2>DC amps to kilowatts calculation</h2>
+          <p>
+            The power <em>P</em> in kilowatts (kW) is equal to the current
+            <em>I</em> in amps (A), times the voltage <em>V</em> in volts (V)
+            divided by 1000:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(kW)</sub> = <i>I</i><sub>(A)</sub><i> </i>&times;<i>
+              V</i
+            ><sub>(V)</sub> / 1000
+          </p>
+          <h2>AC single phase amps to kilowatts calculation</h2>
+          <p>
+            The power <em>P</em> in kilowatts (kW) is equal to the
+            <a href="../../electric/Power_Factor.html">power factor</a>
+            <em>PF</em> times the phase current <em>I</em> in amps (A), times
+            the RMS voltage <em>V</em> in volts (V) divided by 1000:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(kW)</sub> = <i> PF </i>&times;<i> I</i><sub>(A)</sub
+            ><i> </i>&times;<i> V</i><sub>(V)</sub> / 1000
+          </p>
+          <h2>AC three phase amps to kilowatts calculation</h2>
+          <h4>Calculation with line to line voltage</h4>
+          <p>
+            The power <em>P</em> in kilowatts (kW) is equal to square root of 3
+            times the
+            <a href="../../electric/Power_Factor.html"> power factor</a>
+            <em>PF</em> times the phase current <em>I</em> in amps (A), times
+            the line to line RMS voltage <em>V</em><sub>L-L</sub> in volts (V)
+            divided by 1000:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(kW)</sub> = <i>&#8730;</i
+            ><span style="text-decoration: overline">3</span> &times;
+            <i> PF </i>&times;<i> I</i><sub>(A)</sub><i> </i>&times;<i> V</i
+            ><sub><span class="auto-style2">L-L</span> (V)</sub> / 1000
+          </p>
+          <h4>Calculation with line to neutral voltage</h4>
+          <p>
+            The power <em>P</em> in kilowatts (kW) is equal to 3 times the
+            <a href="../../electric/Power_Factor.html"> power factor</a>
+            <em>PF</em> times the phase current <em>I</em> in amps (A), times
+            the line to neutral RMS voltage <em>V</em><sub>L-N</sub> in volts
+            (V) divided by 1000:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(kW)</sub> = 3 &times; <i> PF </i>&times;<i> I</i
+            ><sub>(A)</sub><i> </i>&times;<i> V</i
+            ><sub><span class="auto-style2">L-N</span> (V)</sub> / 1000
+          </p>
+          <h2>Typical power factor values</h2>
+          <p>
+            Do not use typical power factor values for accurate calculations.
+          </p>
+          <table class="dtable">
+            <tr>
+              <th>Device</th>
+              <th>Typical power factor</th>
+            </tr>
+            <tr>
+              <td>Resistive load</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Fluorescent lamp</td>
+              <td>0.95</td>
+            </tr>
+            <tr>
+              <td>Incandescent lamp</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Induction motor full load</td>
+              <td>0.85</td>
+            </tr>
+            <tr>
+              <td>Induction motor no load</td>
+              <td>0.35</td>
+            </tr>
+            <tr>
+              <td>Resistive oven</td>
+              <td>1</td>
+            </tr>
+            <tr>
+              <td>Synchronous motor</td>
+              <td>0.9</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../../convert/electric/Amp_to_kW.html"
+              >Amps to kW calculation &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../convert/electric/Amp_to_kW.html"
+                >How to convert amps to kW</a
+              >
+            </li>
+            <li>
+              <a href="kW_to_Amp_Calculator.html">kW to amps calculator</a>
+            </li>
+            <li>
+              <a href="Amp_to_Watt_Calculator.html">Amps to watts calculator</a>
+            </li>
+            <li>
+              <a href="power-factor-calculator.html">Power factor calculator</a>
+            </li>
+            <li><a href="../../electric/ampere.html">Ampere (A)</a></li>
+            <li><a href="../../electric/kW.html">Kilowatts (kW)</a></li>
+            <li><a href="../../electric/volt.html">Volt (V)</a></li>
+            <li><a href="../../electric/watt.html">Watt (W)</a></li>
+            <li><a href="../../electric/Power_Factor.html">Power factor</a></li>
+            <li>
+              <a href="../../convert/electric/index.html"
+                >Electrical calculation</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/power/index.html">Power conversion</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATORS</h5>
+        <ul>
+          <li><a href="Amp_to_kW_Calculator.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA_Calculator.html">Amps to kVA</a></li>
+          <li><a href="amps-to-va-calculator.html">Amps to VA</a></li>
+          <li><a href="Amp_to_Volt_Calculator.html">Amps to volts</a></li>
+          <li><a href="Amp_to_Watt_Calculator.html">Amps to watts</a></li>
+          <li><a href="electricity-calculator.html">Electricity bill</a></li>
+          <li>
+            <a href="energy-consumption-calculator.html">Energy consumption</a>
+          </li>
+          <li><a href="energy-cost-calculator.html">Energy cost</a></li>
+          <li><a href="ev-to-volt-calculator.html">eV to volts</a></li>
+          <li><a href="Joule_to_Watt_Calculator.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt_Calculator.html">Joules to volts</a></li>
+          <li><a href="kVA_to_Amp_Calculator.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt-calculator.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw-calculator.html">kVA to kW</a></li>
+          <li><a href="kva-to-va-calculator.html">kVA to VA</a></li>
+          <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+          <li><a href="kw-to-volt-calculator.html">kW to volts</a></li>
+          <li><a href="kW_to_kWh_Calculator.html">kW to kWh</a></li>
+          <li><a href="kw-to-va-calculator.html">kW to VA</a></li>
+          <li><a href="kw-to-kva-calculator.html">kW to kVA</a></li>
+          <li><a href="kWh_to_kW_Calculator.html">kWh to kW</a></li>
+          <li><a href="kwh-to-watt-calculator.html">kWh to watts</a></li>
+          <li><a href="mah-to-wh-calculator.html">mAh to Wh</a></li>
+          <li><a href="ohms-law-calculator.html">Ohm's Law</a></li>
+          <li><a href="power-calculator.html">Power calculator</a></li>
+          <li><a href="power-factor-calculator.html">Power factor</a></li>
+          <li><a href="va-to-amps-calculator.html">VA to amps</a></li>
+          <li><a href="va-to-watt-calculator.html">VA to watts</a></li>
+          <li><a href="va-to-kw-calculator.html">VA to kW</a></li>
+          <li><a href="va-to-kva-calculator.html">VA to kVA</a></li>
+          <li><a href="Voltage_Divider_Calculator.html">Voltage divider</a></li>
+          <li><a href="Volt_to_Amp_Calculator.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Watt_Calculator.html">Volts to watts</a></li>
+          <li><a href="volt-to-kw-calculator.html">Volts to kW</a></li>
+          <li><a href="Volt_to_Joule_Calculator.html">Volts to joules</a></li>
+          <li><a href="volt-to-ev-calculator.html">Volts to eV</a></li>
+          <li>
+            <a href="watt-volt-amp-calculator.html">Watts-volts-amps-ohms</a>
+          </li>
+          <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule_Calculator.html">Watts to joules</a></li>
+          <li><a href="watt-to-kwh-calculator.html">Watts to kWh</a></li>
+          <li><a href="Watt_to_Volt_Calculator.html">Watts to volts</a></li>
+          <li><a href="watt-to-va-calculator.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva-calculator.html">Watts to kVA</a></li>
+          <li><a href="wh-to-mah-calculator.html">Wh to mAh</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="Amp_to_kW_Calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../../convert/convert.js"></script>
+    <script>
+      window.onload = function () {
+        document.getElementById("calcform").onkeypress = function (e) {
+          if (e.keyCode == 13) convert();
+        };
+      };
+      function OnPhaseChange() {
+        var iphase = document.calcform.phase.selectedIndex;
+        var row0 = document.getElementById("pf0");
+        var row1 = document.getElementById("pf1");
+        if (iphase == 0) {
+          document.calcform.pf.disabled = true;
+          document.calcform.pf.style.backgroundColor = "#f0f0f0";
+          row0.style.display = "none";
+          row1.style.display = "none";
+        } else if (iphase == 1) {
+          document.calcform.pf.disabled = false;
+          document.calcform.pf.style.backgroundColor = "#ffffff";
+          row0.style.display = "none";
+          row1.style.display = "";
+        } else {
+          document.calcform.pf.disabled = false;
+          document.calcform.pf.style.backgroundColor = "#ffffff";
+          row0.style.display = "";
+          row1.style.display = "";
+        }
+      }
+      function convert() {
+        var x1 = document.calcform.x1.value;
+        var x2 = document.calcform.x2.value;
+        var iaunit = document.getElementById("aunitsel").selectedIndex;
+        var ivunit = document.getElementById("vunitsel").selectedIndex;
+        var iphase = document.calcform.phase.selectedIndex;
+        var ivolt = document.calcform.volt.selectedIndex;
+        var pf = document.calcform.pf.value;
+        if (iaunit == 0) x1 /= 1000;
+        if (iaunit == 2) x1 *= 1000;
+        if (ivunit == 0) x2 /= 1000;
+        if (ivunit == 2) x2 *= 1000;
+        var kw = (x1 * x2) / 1000;
+        if (pf < 0 || pf > 1) {
+          alert("Please enter power factor from 0 to 1");
+          document.calcform.pf.focus();
+          return;
+        }
+        if (iphase == 1) kw *= pf;
+        else if (iphase == 2) {
+          if (ivolt == 0) kw *= pf * Math.sqrt(3);
+          else kw *= pf * 3;
+        }
+        document.calcform.y.value = kw;
+        document.calcform.y2.value = roundresult(1000 * kw);
+        document.calcform.y3.value = roundresult(1000000 * kw);
+      }
+    </script>
+  </body>
+</html>

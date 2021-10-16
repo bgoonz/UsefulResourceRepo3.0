@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Girl names - Baby girl names</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link
+      rel="stylesheet"
+      href="https://code.getmdl.io/1.3.0/material.indigo-pink.min.css"
+    />
+    <script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+    <style>
+      h1,
+      h2 {
+        font-size: xx-large;
+        margin-bottom: 0;
+      }
+      #wrapper th {
+        background: transparent;
+      }
+      #wrapper td {
+        padding-left: 18px;
+        padding-right: 18px;
+      }
+      #wrapper td:last-child {
+        padding-left: 18px;
+        padding-right: 24px;
+      }
+      .mdl-switch {
+        margin-bottom: 20px;
+      }
+      .mdl-layout__tab-bar {
+        background: #fff;
+      }
+      .mdl-button {
+        margin-bottom: 7px;
+      }
+      .mdl-data-table {
+        font-size: 14px;
+      }
+      .mdl-data-table th {
+        text-align: center;
+      }
+      #tbl th label:first-child {
+        visibility: hidden;
+      }
+      #tbl thead,
+      #tbl2 thead {
+        position: sticky;
+        top: 0;
+        background: #f0f0f0;
+        z-index: 99;
+      }
+      #tbl tr td:nth-child(2) {
+        text-align: center;
+      }
+      #tab2 {
+        display: none;
+        padding-top: 36px;
+      }
+      @media (max-width: 800px) {
+        .mdl-textfield {
+          width: 100%;
+        }
+        #tbl {
+          width: 100%;
+        }
+      }
+      @media (min-width: 801px) {
+        .mdl-textfield,
+        #tbl {
+          width: 400px;
+        }
+        #datadiv {
+          padding-right: 20px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Baby calculators</a>&rsaquo; Baby girl
+        names
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Baby girl names</h1>
+          <form id="dataform" action="girl-names.html#">
+            <div class="mdl-textfield mdl-js-textfield">
+              <input class="mdl-textfield__input" type="text" id="filter" />
+              <label class="mdl-textfield__label" for="filter">
+                Search...
+              </label>
+            </div>
+            <label
+              class="mdl-switch mdl-js-switch mdl-js-ripple-effect"
+              for="switch1"
+            >
+              <input type="checkbox" id="switch1" class="mdl-switch__input" />
+              <span class="mdl-switch__label">Show selected names</span>
+            </label>
+            <div id="tab1">
+              <button
+                id="start1"
+                class="mdl-button mdl-js-button"
+                title="Start"
+              >
+                <i class="material-icons">first_page</i>
+              </button>
+              <button
+                id="prev1"
+                class="mdl-button mdl-js-button"
+                title="Previous"
+              >
+                <i class="material-icons">keyboard_arrow_left</i>
+              </button>
+              <button id="next1" class="mdl-button mdl-js-button" title="Next">
+                <i class="material-icons">keyboard_arrow_right</i>
+              </button>
+              <button id="end1" class="mdl-button mdl-js-button" title="End">
+                <i class="material-icons">last_page</i>
+              </button>
+              <table
+                id="tbl"
+                class="
+                  mdl-data-table mdl-js-data-table
+                  mdl-data-table--selectable
+                  mdl-shadow--2dp
+                "
+              >
+                <thead>
+                  <tr>
+                    <th>Rank #</th>
+                    <th class="mdl-data-table__cell--non-numeric">Name</th>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+              <button
+                id="start2"
+                class="mdl-button mdl-js-button"
+                title="Start"
+              >
+                <i class="material-icons">first_page</i>
+              </button>
+              <button
+                id="prev2"
+                class="mdl-button mdl-js-button"
+                title="Previous"
+              >
+                <i class="material-icons">navigate_before</i>
+              </button>
+              <button id="next2" class="mdl-button mdl-js-button" title="Next">
+                <i class="material-icons">navigate_next</i>
+              </button>
+              <button id="end2" class="mdl-button mdl-js-button" title="End">
+                <i class="material-icons">last_page</i>
+              </button>
+            </div>
+          </form>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>BABY TOOLS</h5>
+        <ul>
+          <li><a href="baby-names.html">Baby names</a></li>
+          <li><a href="boy-names.html">Boy names</a></li>
+          <li><a href="girl-names.html">Girl names</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="girl-names.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script>
+      var list = [];
+      var selected_list = [];
+      var filtered_list = [];
+      var updated_list = list;
+      var page = 0;
+      var lines_per_page = 100;
+      var max_page;
+      $(document).ready(function () {
+        $.ajax({
+          url: "yob2015.txt",
+        }).done(function (data) {
+          var lines = data.split("\n");
+          var offset = 18994;
+          var ngirls = offset - 1;
+          var nboys = lines.length - ngirls - 1;
+          var line;
+          for (var i = 0; i < ngirls; i++) {
+            line = lines[i].split(",");
+            list[i] = [];
+            //data[i] = {name:line[0], gender:line[1], num:line[2]};
+            //list[i] = [i+1, line[0]];
+            list[i] = {
+              name: line[0],
+              rank: i + 1,
+              num: line[2],
+              checked: false,
+            };
+          }
+          for (var i = 1; i <= lines_per_page; i++) {
+            $("#tbl>tbody").append(
+              "<tr><td>" +
+                i +
+                '</td><td class="mdl-data-table__cell--non-numeric">' +
+                list[i - 1].name +
+                "</td></tr>"
+            );
+          }
+          max_page = Math.floor(list.length / lines_per_page) - 1;
+        });
+        $("#filter")[0].oninput = function () {
+          UpdateList(filtered_list);
+          if ($("#filter").val() !== "") {
+            UpdateFilteredList();
+            UpdateTable(filtered_list, 0);
+          } else {
+            UpdateTable(list, 0);
+          }
+        };
+        $("#switch1").change(function () {
+          if ($(this).is(":checked")) {
+            $("#filter").val("");
+            UpdateSelectedList();
+            UpdateTable(selected_list, 0);
+          } else {
+            UpdateList(selected_list);
+            UpdateTable(list, 0);
+          }
+        });
+        $("#prev1, #prev2").click(function (e) {
+          e.preventDefault();
+          page--;
+          if (page < 0) page = max_page;
+          UpdateTable(updated_list, page);
+        });
+        $("#next1, #next2").click(function (e) {
+          e.preventDefault();
+          page++;
+          if (page > max_page) page = 0;
+          UpdateTable(updated_list, page);
+        });
+        $("#start1, #start2").click(function (e) {
+          e.preventDefault();
+          page = 0;
+          UpdateTable(updated_list, page);
+        });
+        $("#end1, #end2").click(function (e) {
+          e.preventDefault();
+          page = max_page;
+          UpdateTable(updated_list, page);
+        });
+        $(document).on("change", "#tbl input[type='checkbox']", function () {
+          var i =
+            $(this).parent().parent().parent().index("tr") -
+            4 +
+            page * lines_per_page;
+          if ($(this).is(":checked")) updated_list[i].checked = true;
+          else updated_list[i].checked = false;
+        });
+      });
+      function UpdateFilteredList() {
+        var k = 0;
+        var s = $("#filter").val().toLowerCase();
+        filtered_list = [];
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].name.toLowerCase().indexOf(s) !== -1) {
+            filtered_list[k] = {};
+            filtered_list[k].checked = list[i].checked;
+            filtered_list[k].rank = list[i].rank;
+            filtered_list[k].num = list[i].num;
+            filtered_list[k].name = list[i].name;
+            k++;
+          }
+        }
+      }
+      function UpdateSelectedList() {
+        var k = 0;
+        selected_list = [];
+        for (var i = 0; i < list.length; i++) {
+          if (list[i].checked) {
+            selected_list[k] = {};
+            selected_list[k].checked = true;
+            selected_list[k].rank = list[i].rank;
+            selected_list[k].num = list[i].num;
+            selected_list[k].name = list[i].name;
+            k++;
+          }
+        }
+      }
+      function UpdateList(lst) {
+        var k = 0;
+        for (var i = 0; i < lst.length; i++) {
+          while (list[k].rank < lst[i].rank) k++;
+          list[k].checked = lst[i].checked;
+        }
+      }
+      function UpdateTable(lst, n) {
+        updated_list = lst;
+        var k;
+        var len = lst.length > lines_per_page ? lines_per_page : lst.length;
+        if (len > 0)
+          for (var i = 1; i <= len; i++) {
+            k = i + n * lines_per_page;
+            if (lst[k - 1].checked) {
+              $("#tbl>tbody>tr:nth-child(" + i + ")").addClass("is-selected");
+              $(
+                "#tbl>tbody>tr:nth-child(" + i + ")>td:first-child>label"
+              ).addClass("is-checked");
+            } else {
+              $("#tbl>tbody>tr:nth-child(" + i + ")").removeClass(
+                "is-selected"
+              );
+              $(
+                "#tbl>tbody>tr:nth-child(" + i + ")>td:first-child>label"
+              ).removeClass("is-checked");
+            }
+            //$("#tbl>tbody>tr:nth-child("+i+")>td:nth-child(1) input[type=checkbox]").prop("checked", true);
+            //$("#tbl>tbody>tr:nth-child("+i+")>td:nth-child(2)").html(k);
+            $("#tbl>tbody>tr:nth-child(" + i + ")>td:nth-child(2)").html(
+              lst[k - 1].rank
+            );
+            $("#tbl>tbody>tr:nth-child(" + i + ")>td:nth-child(3)").html(
+              lst[k - 1].name
+            );
+            $("#tbl>tbody>tr:nth-child(" + i + ")").show();
+          }
+        if (len < lines_per_page)
+          for (var i = len + 1; i <= lines_per_page; i++) {
+            $("#tbl>tbody>tr:nth-child(" + i + ")").hide();
+          }
+      }
+    </script>
+  </body>
+</html>

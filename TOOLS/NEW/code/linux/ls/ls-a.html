@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>ls -a command in Linux/Unix | show all / hidden files</title>
+    <meta
+      name="description"
+      content="ls -a option flag lists all files including hidden files starting with '.' "
+    />
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../../../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        &nbsp;&nbsp;&nbsp;
+        <a href="../../../index.html">Home</a> &gt;
+        <a href="../../index.html">Code</a> &gt;
+        <a href="../index.html">Linux</a> &gt; <a href="../ls.html">ls</a> &gt;
+        ls -a
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>ls -a command in Linux</h1>
+          <p>
+            ls -a option flag lists all files including hidden files starting
+            with '.'
+          </p>
+          <h3>Syntax</h3>
+          <p class="code">$ ls -a [<i>options</i>] [<i>file</i>|<i>dir</i>]</p>
+          <h3>Examples</h3>
+          <p><i>ls</i>: default list:</p>
+          <p class="tcode">
+            $ ls<br />
+            Desktop&nbsp;&nbsp; Downloads Pictures Templates Videos<br />
+            Documents Music&nbsp;&nbsp;&nbsp;&nbsp; Public&nbsp;&nbsp;
+            todo.txt<br />
+            $
+          </p>
+          <p>&nbsp;</p>
+          <p><i>ls -a</i>: list with hidden files/directories:</p>
+          <p class="tcode">
+            $ ls -a<br />
+            .&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Desktop&nbsp;&nbsp;&nbsp;&nbsp;
+            .gnome2&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Music&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .shotwell<br />
+            ..&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Documents&nbsp;&nbsp; .gstreamer-0.10
+            .nautilus&nbsp;&nbsp;&nbsp;&nbsp; Templates<br />
+            .bash_logout Downloads&nbsp;&nbsp; .gtk-bookmarks&nbsp;
+            Pictures&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .thumbnails<br />
+            .bashrc&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .esd_auth&nbsp;&nbsp;
+            .gvfs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            .profile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; todo.txt<br />
+            .cache&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .fontconfig
+            .ICEauthority&nbsp;&nbsp;
+            Public&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Videos<br />
+            .config&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            .gconf&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .libreoffice&nbsp;&nbsp;&nbsp;
+            .pulse&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; .xsession-errors<br />
+            .dbus&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            .gconfd&nbsp;&nbsp;&nbsp;&nbsp;
+            .local&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            .pulse-cookie<br />
+            $
+          </p>
+          <p>&nbsp;</p>
+          <p><i>ls -la</i>: long listing format with hidden files:</p>
+          <p class="tcode">
+            $ ls -la<br />
+            total 40<br />
+            drwxr-xr-x 25 user user&nbsp; 680 2011-08-17 18:07 .<br />
+            drwxr-xr-x&nbsp; 3 root&nbsp;root&nbsp;&nbsp; 60 2011-08-17 16:19
+            ..<br />
+            -rw-r--r--&nbsp; 1 user user&nbsp; 220 2011-08-17 16:19
+            .bash_logout<br />
+            -rw-r--r--&nbsp; 1 user user 3353 2011-08-17 16:19 .bashrc<br />
+            drwx------&nbsp; 7 user user&nbsp; 220 2011-08-17 17:58 .cache<br />
+            drwx------&nbsp; 9 user user&nbsp; 220 2011-08-17 18:02 .config<br />
+            drwx------&nbsp; 3 user user&nbsp;&nbsp; 60 2011-08-17 16:19
+            .dbus<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 80 2011-08-17 16:52
+            Desktop<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 40 2011-08-17 16:52
+            Documents<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 40 2011-08-17 16:52
+            Downloads<br />
+            -rw-------&nbsp; 1 user user&nbsp;&nbsp; 16 2011-08-17 16:20
+            .esd_auth<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp; 100 2011-08-17 17:56
+            .fontconfig<br />
+            drwx------&nbsp; 4 user user&nbsp;&nbsp; 80 2011-08-17 16:52
+            .gconf<br />
+            drwx------&nbsp; 2 user user&nbsp;&nbsp; 60 2011-08-17 18:14
+            .gconfd<br />
+            drwx------&nbsp; 5 user user&nbsp; 100 2011-08-17 16:52 .gnome2<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 60 2011-08-17 17:58
+            .gstreamer-0.10<br />
+            -rw-r--r--&nbsp; 1 user user&nbsp; 142 2011-08-17 16:52
+            .gtk-bookmarks<br />
+            dr-x------&nbsp; 2 user user&nbsp;&nbsp;&nbsp; 0 2011-08-17 16:52
+            .gvfs<br />
+            -rw-------&nbsp; 1 user user&nbsp; 318 2011-08-17 16:52
+            .ICEauthority<br />
+            drwxr-xr-x&nbsp; 3 user user&nbsp;&nbsp; 60 2011-08-17 17:56
+            .libreoffice<br />
+            drwxr-xr-x&nbsp; 3 user user&nbsp;&nbsp; 60 2011-08-17 16:52
+            .local<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 40 2011-08-17 16:52
+            Music<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 40 2011-08-17 16:52
+            .nautilus<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp; 120 2011-08-17 18:14 Pictures<br />
+            -rw-r--r--&nbsp; 1 user user&nbsp; 675 2011-08-17 16:19 .profile<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 40 2011-08-17 16:52
+            Public<br />
+            drwx------&nbsp; 2 user user&nbsp; 160 2011-08-17 16:20 .pulse<br />
+            -rw-------&nbsp; 1 user user&nbsp; 256 2011-08-17 16:20
+            .pulse-cookie<br />
+            drwxr-xr-x&nbsp; 5 user user&nbsp; 100 2011-08-17 17:58 .shotwell<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 40 2011-08-17 16:52
+            Templates<br />
+            drwx------&nbsp; 3 user user&nbsp;&nbsp; 60 2011-08-17 18:02
+            .thumbnails<br />
+            -rw-r--r--&nbsp; 1 user user&nbsp; 131 2011-08-17 18:07 todo.txt<br />
+            drwxr-xr-x&nbsp; 2 user user&nbsp;&nbsp; 40 2011-08-17 16:52
+            Videos<br />
+            -rw-------&nbsp; 1 user user 8030 2011-08-17 18:16
+            .xsession-errors<br />
+            $
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../ls.html">ls command</a></li>
+            <li><a href="ls-l.html">ls -l</a></li>
+            <li><a href="ls-r.html#reverse">ls -r</a></li>
+            <li><a href="ls-r.html#recursive">ls -R</a></li>
+            <li><a href="ls-s.html#size">ls -s</a></li>
+            <li><a href="ls-s.html#sort-size">ls -S</a></li>
+            <li><a href="ls-t.html">ls -t</a></li>
+            <li><a href="ls-full-path.html">ls full path</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LS COMMAND</h5>
+        <ul>
+          <li><a href="ls-a.html">ls -a</a></li>
+          <li><a href="ls-l.html">ls -l</a></li>
+          <li><a href="ls-r.html#reverse">ls -r</a></li>
+          <li><a href="ls-r.html#recursive">ls -R</a></li>
+          <li><a href="ls-s.html#size">ls -s</a></li>
+          <li><a href="ls-s.html#sort-size">ls -S</a></li>
+          <li><a href="ls-t.html">ls -t</a></li>
+          <li><a href="ls-full-path.html">ls full path</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="ls-a.html#feedback">Send Feedback</a></li>
+          <li><a href="../../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../../index.html">Home</a> |
+      <a href="../../../web/index.html">Web</a> |
+      <a href="../../../math/index.html">Math</a> |
+      <a href="../../../electric/index.html">Electricity</a> |
+      <a href="../../../calc/index.html">Calculators</a> |
+      <a href="../../../convert/index.html">Converters</a> |
+      <a href="../../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../../index.html">RapidTables.com</a> |
+        <a href="../../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../../about/privacy.html" rel="nofollow">Privacy Policy</a>
+        |
+        <a href="../../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

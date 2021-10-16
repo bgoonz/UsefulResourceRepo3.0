@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>To-Do List Online</title>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../lib/favicon.ico" />
+    <meta name="description" content="To-Do list online app." />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <style>
+      @media all and (min-width: 577px) {
+        #main1 {
+          max-width: 50%;
+          margin: 0 auto;
+        }
+      }
+      @media all and (max-width: 449px) {
+        #main2 {
+          padding: 0;
+        }
+      }
+      #footer {
+        text-align: center;
+        margin-top: 250px;
+      }
+
+      #list > li > .ui-checkbox {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+      }
+      #list > li label {
+        width: 19px;
+        height: 18px;
+        padding: 12px 10px;
+      }
+      #list > li > a {
+        display: inline-block;
+        vertical-align: top;
+        margin: 0;
+      }
+      #list > li > a:nth-child(3) {
+        margin-right: 38px;
+        display: none;
+      }
+      /*#list>li>.ui-btn:nth-child(2) { max-width:auto; width:calc(100% - 95px); margin-left:-7px; }*/
+      #list > li > .ui-btn:nth-child(2) {
+        max-width: auto;
+        width: calc(100% - 95px);
+        margin-left: -1px;
+      }
+
+      /*
+	#list>li>.ui-input-text { display:inline-block; vertical-align:top; margin:0; }
+	#list>li>.ui-input-text { max-width:calc(100% - 95px); width:calc(100% - 95px); margin-left:-7px; }
+	*/
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+  </head>
+  <body>
+    <div data-role="page" id="page1">
+      <div data-role="header" id="header1" data-position="fixed">
+        <a
+          id="barsbtn"
+          href="todo-list.html#toc_panel"
+          data-role="button"
+          data-icon="bars"
+          title="Panel"
+          data-iconpos="notext"
+        ></a>
+        <h1>To-Do List</h1>
+        <a
+          id="shortbtn"
+          href="todo-list.html#"
+          data-role="button"
+          data-inline="true"
+          data-icon="plus"
+          title="Add to Desktop"
+          data-iconpos="notext"
+        ></a>
+        <div
+          id="short_div"
+          data-role="popup"
+          data-arrow="true"
+          class="ui-content"
+        ></div>
+      </div>
+      <div role="main" class="ui-content" id="main1">
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a
+            href="todo-list.html#"
+            id="addbtn1"
+            class="ui-btn ui-btn-icon-left ui-corner-all ui-icon-plus"
+            >Add</a
+          >
+        </div>
+
+        <ul data-role="listview" data-inset="true" id="list"></ul>
+      </div>
+      <div data-role="footer" id="footer">
+        <p>
+          <a data-role="button" href="../about/about.html" rel="nofollow"
+            >About</a
+          >
+          <a data-role="button" href="../about/terms.html" rel="nofollow"
+            >Terms of Use</a
+          >
+          <a data-role="button" href="../about/privacy.html" rel="nofollow"
+            >Privacy Policy</a
+          >
+        </p>
+        <p>
+          Copyright &copy;
+          <a data-role="button" href="../index.html">RapidTables.com</a>
+        </p>
+      </div>
+      <div
+        data-role="panel"
+        data-display="overlay"
+        data-theme="a"
+        data-dismissible="true"
+        data-swipe-close="true"
+        id="toc_panel"
+      >
+        <ul data-role="listview">
+          <li data-icon="delete">
+            <a href="todo-list.html#header" data-rel="close">Close panel</a>
+          </li>
+          <li data-icon="home"><a href="index.html" rel="external">Home</a></li>
+          <li data-icon="clock">
+            <a href="alarm-clock.html" data-ajax="false">Alarm Clock</a>
+          </li>
+          <li data-icon="edit">
+            <a href="bar-graph.html" rel="external">Bar graph maker</a>
+          </li>
+          <li data-icon="calendar">
+            <a href="calendar.html" data-ajax="false">Calendar</a>
+          </li>
+          <li data-icon="clock">
+            <a href="timer.html" data-ajax="false">Countdown Timer</a>
+          </li>
+          <li data-icon="clock">
+            <a href="current-time.html" data-ajax="false">Current Time</a>
+          </li>
+          <li data-icon="edit">
+            <a href="line-graph.html" rel="external">Line graph maker</a>
+          </li>
+          <li data-icon="bullets">
+            <a href="grocery-list.html" data-ajax="false"
+              >Online grocery list</a
+            >
+          </li>
+          <li data-icon="edit">
+            <a href="notepad.html" rel="external">Online Notepad</a>
+          </li>
+          <li data-icon="edit">
+            <a href="notes.html" data-ajax="false">Online Notes</a>
+          </li>
+          <li data-icon="edit">
+            <a href="pie-chart.html" rel="external">Pie chart maker</a>
+          </li>
+          <li data-icon="clock">
+            <a href="stopwatch.html" data-ajax="false">Stopwatch</a>
+          </li>
+          <li data-icon="edit">
+            <a href="todo-list.html" data-ajax="false">To-Do List</a>
+          </li>
+          <li data-icon="calendar">
+            <a href="todays-date.html" data-ajax="false">Today's Date</a>
+          </li>
+          <li data-icon="location">
+            <a href="where-am-i.html" rel="external">Find my location</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="../lib/utils/utils.js" defer></script>
+    <script>
+      var list=[];
+      var pos=0;
+      var init=false;
+
+      //$(document).on('pagecreate', '#page1', function()
+      $(document).on("pagecreate", function()
+      {
+      	// to prevent 1 call for page1 and 1 call for page2
+      	if( init ) return;
+      	init=true;
+
+      	$(":jqmData(role='page')").attr("data-title", document.title);
+
+          $("#shortbtn").click(function(e){
+      		ShortBtn();
+          });
+
+      	$(window).on('resize', function() {
+      		SetAreaHeight();
+      	});
+      	SetAreaHeight();
+
+          /*
+          $("#back").click(function(){
+      		UpdateNote(pos);
+      		pos=null;
+          });
+      	$("#undobtn").click(function() {
+      		$("#area").focus();
+      	});
+      	$("#redobtn").click(function() {
+      		$("#area").focus();
+      	});
+      	$("#prevbtn").click(function() {
+      		if( pos!=0 ) {
+      			list[pos].txt = $("#area").val();
+      			var txt=list[--pos].txt;
+      			$("#area").val(txt);
+      		}
+      		$("#area").focus();
+      	});
+      	$("#nextbtn").click(function() {
+      		if( pos!=list.length-1 ) {
+      			list[pos].txt = $("#area").val();
+      			var txt=list[++pos].txt;
+      			$("#area").val(txt);
+      		}
+      		$("#area").focus();
+      	});
+      	*/
+      	$('#addbtn1').click(function() {
+      		list.push({checked:false, name:'...', txt:''});
+      		pos = list.length-1;
+      		AddList(pos);
+      	});
+      	/*
+      	$("#addbtn2").click(function() {
+      		UpdateNote(pos);
+      		list.push({name:'note...', txt:''});
+      		pos = list.length-1;
+      		AddList(pos);
+      		$("#area").val("");
+      		$("#area").focus();
+      	});
+      	$("#delbtn").click(function() {
+      		// !!!add confirm dialog
+      		$("#area").val("");
+      		if( list.length==1 ) return;
+      		list.splice(pos,1);
+      		//???what to do after delete - where to go???
+      		var n=pos+1;
+      		$("#list>li:nth-child("+n+")").remove();
+      		if( pos==list.length-1 ) pos--;
+      		var txt=list[pos].txt;
+      		$("#area").val(txt);
+      		$("#area").focus();
+      	});
+      	*/
+      	list = StorageGetObject("todo_list");
+      	pos = StorageGetObject("todo_pos");
+      	var len=list.length;
+      	if( pos>len-1 || pos<0 ) pos=0;
+      	$("#list").listview().listview("refresh");
+      	if( list.length ) {
+      		for(var i=0; i<list.length; i++)
+      			AddList(i);
+      		//var txt=list[pos].txt;
+      		//$("#area").val(txt);
+      	}
+      	else {
+      		list.push({checked:false, name:'...', txt:''});
+      		//pos = list.length-1;
+      		pos=0;
+      		AddList(pos);
+      	}
+      	/*
+      	if( $.isNumeric(pos) ) {
+      		$("#area").val(list[pos].txt);
+      		$("#area").focus();
+      	}
+      	*/
+      	$(window).unload(function() {
+      		UpdateList();
+      		//if( pos!=null ) list[pos].txt = $("#area").val();
+      		if( (list.length==0) || (list.length==1 && list[0].name=="") ) {
+      			localStorage.removeItem("todo_list");
+      			localStorage.removeItem("todo_pos");
+      			return;
+      		}
+      		StorageSetObject("todo_list", list);
+      		StorageSetObject("todo_pos", pos);
+      	});
+      });
+
+      /*
+      function UpdateNote(i)
+      {
+      	var txt=$("#area").val();
+      	list[i].txt = txt;
+      	txt = txt.split("\n")[0];
+      	if( txt!="" ) {
+      		list[i].name = txt;
+      		i++;
+      		txt="<img src="https://www.rapidtables.com/tools/\&quot;images/note.png\&quot;" width=\"13\" height=\"24\" class=\"ui-li-icon\">"+txt;
+      		$("#list>li:nth-child("+i+")>a:first-child").html(txt);
+      	}
+      }
+      */
+      function UpdateList()
+      {
+      	var i,name;
+      	var size=$("#list>li").size();
+      	console.log(size);
+      	list=[];
+      	for(i=0; i<size; i++) {
+      		j=i+1;
+      		checked = $("#list>li:nth-child("+j+")>div:first-child>input").prop("checked");
+      		name = $("#list>li:nth-child("+j+")>a:nth-child(2)").text();
+      		list.push({checked:false, name:"", txt:""});
+      		list[i].checked = checked;
+      		list[i].name = name;
+      		list[i].txt = "";
+      	}
+      }
+
+      function AddList(i)
+      {
+      	//list.push({checked:false, name:"", txt:""});
+      	//pos = list.length-1;
+      	var s =
+      		"<li>"+
+      			"<label for=\"cb"+i+"\" class=\"ui-btn ui-corner-all ui-btn-inherit ui-btn-icon-left ui-checkbox-off\"></label>"+
+      			"<input type=\"checkbox\" id=\"cb"+i+"\">"+
+      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"" contenteditable=\"true\">"+list[i].name+"</a>"+
+      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"" class=\"ui-btn ui-btn-icon-notext ui-icon-edit\"></a>"+
+      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"" data-icon=\"delete\"></a>"+
+      		"</li>";
+      	$("#list").append(s).listview("refresh");
+      	$("#cb"+i).checkboxradio().trigger("create");
+      	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+      	if( list[i].checked==true )
+      		$("#cb"+i).prop("checked", true).checkboxradio("refresh");
+      	$("#list>li:last-child").click(function() {
+      		pos = $(this).index();
+      		$("#area").val(list[pos].txt);
+      		$("#area").focus();
+      	});
+      	$("#list>li:last-child>a:last-child").click(function() {
+      		// !!!add confirm dialog
+      		$("#area").val("");
+      		//if( list.length==1 ) return;
+      		pos = $(this).parent().index();
+      		list.splice(pos,1);
+      		//???what to do after delete - where to go???
+      	    $(this).parent().remove();
+      	    //$("#list>li:nth-child("+pos+")").remove();
+      	    //$("#list").listview("refresh");
+      	});
+      }
+      function SetAreaHeight()
+      {
+      	$("#area").textinput().textinput("option", "autogrow", false);
+      	//var rows=$(window).height()/31-5;
+      	var rows=$(window).height()/31-4;
+      	$("#area").prop('rows', rows);
+      }
+      function StorageSetObject(key, obj)
+      {
+      	if( (obj.length==0) || (obj===undefined) || (obj===null) || (obj==="") || (obj===[]) )
+      		//localStorage.removeItem(key);
+      		return;
+      	localStorage.setItem(key, JSON.stringify(obj));
+      }
+      function StorageGetObject(key)
+      {
+      	try
+      	{
+      		var value = localStorage.getItem(key);
+      		//if( value=="null" ) return null;
+      		if( value==null ) return [];
+      		var obj = JSON.parse(value);
+      		return(obj);
+      	}
+      	catch(err)
+      	{
+      		console.log(err);
+      		return null;
+      	}
+      }
+    </script>
+  </body>
+</html>

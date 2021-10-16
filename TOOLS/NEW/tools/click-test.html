@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>CPS Test | Check clicks per second</title>
+    <meta
+      content="CPS test. Clicks per second. Click speed test."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link rel="canonical" href="click-test.html" />
+    <style>
+      #curve_div {
+        display: none;
+      }
+      .adslot_2 {
+        display: none;
+        height: 250px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      #gen {
+        max-width: 500px;
+        background: #eee8d5;
+        padding: 20px;
+        border-radius: 0.25rem;
+        touch-action: manipulation;
+      }
+      #gen #addbtn {
+        padding: 1.5rem 1rem;
+      }
+      #addbtn,
+      #resetbtn {
+        font-size: 2rem;
+      }
+      #gen .btn span {
+        vertical-align: bottom;
+      }
+      #gen .input-group-append {
+        background: #fff;
+      }
+      #curve_div {
+        width: 100%;
+        height: 100px;
+        border: 1px solid #aaa; /*background:#f8f8f8;*/
+      }
+      #curve_chart {
+        width: 100%;
+        height: 100px;
+      }
+      .stop-scroll {
+        height: 100%;
+        overflow: hidden;
+      }
+      .btn-secondary {
+        color: #fff !important;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; <a href="click-test.html">Click speed test</a>
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>CPS Test</h1>
+          <p>Click speed test:</p>
+          <form id="gen">
+            <div class="form-group btn-group">
+              <button
+                type="button"
+                onclick="timer.value=1;"
+                class="btn btn-secondary"
+              >
+                1 sec
+              </button>
+              <button
+                type="button"
+                onclick="timer.value=5;"
+                class="btn btn-secondary"
+              >
+                5 sec
+              </button>
+              <button
+                type="button"
+                onclick="timer.value=10;"
+                class="btn btn-secondary"
+              >
+                10 sec
+              </button>
+              <button
+                type="button"
+                onclick="timer.value=15;"
+                class="btn btn-secondary"
+              >
+                15 sec
+              </button>
+              <button
+                type="button"
+                onclick="timer.value=20;"
+                class="btn btn-secondary"
+              >
+                20 sec
+              </button>
+              <button
+                type="button"
+                onclick="timer.value=30;"
+                class="btn btn-secondary"
+              >
+                30 sec
+              </button>
+            </div>
+
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="timer">Test time</label>
+                <div class="input-group">
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    step="1"
+                    value="10"
+                    id="timer"
+                    class="form-control form-control-lg"
+                    autofocus
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">seconds</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col">
+                <label for="count">Clicks</label>
+                <input
+                  type="number"
+                  step="any"
+                  value="0"
+                  id="count"
+                  class="form-control form-control-lg"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="cps">Clicks per second</label>
+                <div class="input-group">
+                  <input
+                    type="number"
+                    step="any"
+                    id="cps"
+                    class="form-control form-control-lg"
+                    readonly
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">cps</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col">
+                <label for="cpm">Clicks per minute</label>
+                <div class="input-group">
+                  <input
+                    type="number"
+                    step="any"
+                    id="cpm"
+                    class="form-control form-control-lg"
+                    readonly
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">cpm</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div id="curve_div" class="form-group">
+              <div id="curve_chart"></div>
+            </div>
+            <div class="form-group">
+              <label>Click the + button to start:</label>
+              <button
+                type="button"
+                id="addbtn"
+                onclick="onAdd()"
+                class="btn btn-lg btn-block btn-success"
+              >
+                +
+              </button>
+            </div>
+            <div class="form-group mt-4">
+              <button
+                type="button"
+                id="resetbtn"
+                title="Reset"
+                onclick="onReset()"
+                class="btn btn-lg btn-block btn-secondary"
+              >
+                &times;
+              </button>
+            </div>
+          </form>
+          <h2>How to use the CPS test:</h2>
+          <ul>
+            <li>Select test time in seconds.</li>
+            <li>Click the + button until the test time reaches zero.</li>
+            <li>
+              View the clicks per second (CPS) and clicks per minute (CPM)
+              result values.
+            </li>
+            <li>Click the &times; button to reset.</li>
+          </ul>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="click-test.html">CPS test</a></li>
+            <li><a href="click-counter.html">Click counter</a></li>
+            <li><a href="scoreboard.html">Online scoreboard</a></li>
+            <li><a href="timer.html">Online timer</a></li>
+            <li><a href="mirror.html">Online mirror</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ONLINE TOOLS</h5>
+        <ul>
+          <li><a href="bar-graph.html">Bar graph maker</a></li>
+          <li><a href="click-counter.html">Click counter</a></li>
+          <li><a href="click-test.html">CPS test</a></li>
+          <li><a href="line-graph.html">Line graph maker</a></li>
+          <li><a href="notepad.html">Online Notepad</a></li>
+          <li><a href="mirror.html">Online Mirror</a></li>
+          <li><a href="password-generator.html">Password generator</a></li>
+          <li><a href="pie-chart.html">Pie chart maker</a></li>
+          <li><a href="scatter-plot.html">Scatter plot maker</a></li>
+          <li><a href="scoreboard.html">Online scoreboard</a></li>
+          <li><a href="screenshot.html">Online screenshot</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="click-test.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="https://www.gstatic.com/charts/loader.js"></script>
+    <script>
+      var num = 0;
+      var iskeyup = true;
+      var duration, timeout, tstart, tend, dt;
+      var body = document.body;
+      var timer = document.getElementById("timer");
+      var count = document.getElementById("count");
+      var cpsElem = document.getElementById("cps");
+      var cpmElem = document.getElementById("cpm");
+      var addbtn = document.getElementById("addbtn");
+      var curve_chart = document.getElementById("curve_chart");
+      var cps = [],
+        t = 0;
+      var xdata = [["Time", "Clicks"]];
+      var params;
+
+      //window.onload=function() {
+      window.addEventListener("DOMContentLoaded", function () {
+        //google.charts.load('current', {'packages':['corechart']});
+        document.onkeydown = function (e) {
+          if (iskeyup == true && (e.code == "Space" || e.keyCode == 32)) {
+            e.preventDefault();
+            iskeyup = false;
+            onAdd();
+          }
+        };
+        document.onkeyup = function (e) {
+          iskeyup = true;
+        };
+        params = GetURLParams();
+        if (Object.keys(params).length > 0) {
+          document.title = "CPS test - " + params.t + " seconds";
+          timer.value = params.t;
+        }
+        for (var i = 0; i < 100; i++) cps[i] = 0;
+      });
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function onAdd() {
+        //console.log("onAdd");
+        if (num == 0) {
+          //console.log(Date.now());
+          tstart = Date.now();
+          timeout = setTimeout(function () {
+            onTime();
+          }, 1000);
+          duration = timer.value;
+          //onTime();
+          timer.disabled = true;
+          if (iskeyup == false) body.classList.add("stop-scroll");
+        }
+
+        if (timer.value > 0) count.value = ++num;
+
+        cps[t]++;
+      }
+      function onReset() {
+        num = 0;
+        t = 0;
+        timer.value = 10;
+        if (Object.keys(params).length > 0) timer.value = params.t;
+        count.value = 0;
+        cpsElem.value = "";
+        cpmElem.value = "";
+        addbtn.disabled = false;
+        clearTimeout(timeout);
+        timer.disabled = false;
+        timer.focus();
+        body.classList.remove("stop-scroll");
+        xdata = [["Time", "Clicks"]];
+        for (var i = 0; i < 100; i++) cps[i] = 0;
+        curve_chart.style.display = "none";
+      }
+      function onTime() {
+        //console.log(Date.now());
+        if (timer.value > 1) {
+          dt = (Date.now() - tstart) % 1000;
+          timeout = setTimeout(function () {
+            onTime();
+          }, 1000 - dt);
+        }
+        timer.value--;
+        t++;
+        //cpsElem.value=(count.value/(duration-timer.value)).toFixed(2);
+        //cpmElem.value=(60*count.value/(duration-timer.value)).toFixed(2);
+        cpsElem.value = (count.value / t).toFixed(2);
+        cpmElem.value = ((60 * count.value) / t).toFixed(2);
+        if (timer.value == 0) {
+          //cpsElem.value=(count.value/duration).toFixed(2);
+          //cpmElem.value=(60*count.value/duration).toFixed(2);
+          addbtn.disabled = true;
+          tend = Date.now();
+          console.log(tend - tstart);
+          body.classList.remove("stop-scroll");
+        }
+        //google.charts.load('current', {'packages':['corechart']});
+        //google.charts.setOnLoadCallback(drawChart);
+
+        //drawChart();
+        //curve_chart.style.display="block";
+      }
+
+      function drawChart() {
+        /*
+      var data = google.visualization.arrayToDataTable([
+         ['Time', 'Clicks'],
+         ['1',  1000],
+         ['2',  1170],
+         ['3',  660],
+         ['4',  1030]
+      ]);
+      */
+        console.log(t + " " + cps[t - 1]);
+        xdata[t] = [t.toString(), cps[t - 1]];
+        var data = google.visualization.arrayToDataTable(xdata);
+
+        var options = {
+          height: 100,
+          curveType: "function",
+          pointSize: 3,
+          //legend: { position: 'none' },
+          legend: "none",
+          hAxis: {
+            minValue: 0,
+            viewWindow: {
+              min: 0,
+              max: duration,
+            },
+          },
+          vAxis: {
+            minValue: 0,
+            maxValue: 10,
+            viewWindow: {
+              min: 0,
+              max: 10,
+            },
+          },
+        };
+
+        var chart = new google.visualization.LineChart(
+          document.getElementById("curve_chart")
+        );
+
+        chart.draw(data, options);
+      }
+    </script>
+  </body>
+</html>

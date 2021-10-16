@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>
+      Laplace transform table ( F(s) = L{ f(t) } ) - RapidTables.com
+    </title>
+    <meta
+      name="description"
+      content="Laplace transform function, table, propertiesand examples. The Laplace transform converts a time domain function to s-domain function by integration from zero to infinity &nbsp;of the time domain function, multiplied by e-st. "
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Calculus</a>&rsaquo; Laplace transform
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Laplace Transform</h1>
+          <ul>
+            <li>
+              <a href="laplace_transform.html#Laplace transform definition"
+                >Laplace transform function</a
+              >
+            </li>
+            <li>
+              <a href="laplace_transform.html#Laplace transform table"
+                >Laplace transform table</a
+              >
+            </li>
+            <li>
+              <a href="laplace_transform.html#Laplace transform properties"
+                >Laplace transform properties</a
+              >
+            </li>
+            <li>
+              <a href="laplace_transform.html#Laplace transform examples"
+                >Laplace transform examples</a
+              >
+            </li>
+          </ul>
+          <p>
+            Laplace transform converts a time domain function to s-domain
+            function by integration from zero to infinity
+          </p>
+          <p>
+            &nbsp;of the time domain function, multiplied by
+            <i>e<sup>-st</sup></i
+            >.
+          </p>
+          <p>
+            The Laplace transform is used to quickly find solutions for
+            differential equations and integrals.
+          </p>
+          <p>
+            Derivation in the time domain is transformed to multiplication by s
+            in the s-domain.
+          </p>
+          <p>
+            Integration in the time domain is transformed to division by s in
+            the s-domain.
+          </p>
+          <h2>
+            <a name="Laplace transform definition"></a>Laplace transform
+            function
+          </h2>
+          <p>The Laplace transform is defined with the <i>L</i>{} operator:</p>
+          <p class="math">
+            <img
+              border="0"
+              src="laplace/laplace.GIF"
+              width="284"
+              height="45"
+              alt="F(s)=\mathcal{L}\left \{ f(t)\right \}=\int_{0}^{\infty }e^{-st}f(t)dt"
+            />
+          </p>
+          <h3>Inverse Laplace transform</h3>
+          <p>The inverse Laplace transform can be calculated directly.</p>
+          <p>
+            Usually the inverse transform is given from the transforms table.
+          </p>
+          <h2><a name="Laplace transform table"></a>Laplace transform table</h2>
+          <table class="dtable" style="width: 450px">
+            <tr>
+              <th rowspan="2">Function name</th>
+              <th>Time domain function</th>
+              <th>Laplace transform</th>
+            </tr>
+            <tr>
+              <th>
+                <p class="math"><i>f </i>(<i>t</i>)</p>
+              </th>
+              <th>
+                <p class="math">
+                  <i>F</i>(<i>s</i>) =<i> L</i>{<i>f </i>(<i>t</i>)}
+                </p>
+              </th>
+            </tr>
+            <tr>
+              <td>Constant</td>
+              <td class="math" align="center">1</td>
+              <td align="center">
+                <img
+                  border="0"
+                  src="laplace/table1.gif"
+                  width="11"
+                  height="45"
+                  alt="\frac{1}{s}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Linear</td>
+              <td class="math" align="center"><i>t</i></td>
+              <td align="center">
+                <img
+                  border="0"
+                  src="laplace/table2.gif"
+                  width="19"
+                  height="45"
+                  alt="\frac{1}{s^2}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>Power</td>
+              <td align="center">
+                <p class="math">
+                  <i>t<sup> n</sup></i>
+                </p>
+              </td>
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table3.gif"
+                    width="40"
+                    height="45"
+                    alt="\frac{n!}{s^{n+1}}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Power</td>
+              <td align="center">
+                <p class="math">
+                  <i>t<sup> a</sup></i>
+                </p>
+              </td>
+              <td>
+                <p class="math">
+                  &#915;(<i>a</i>+1) &sdot; <i>s </i><sup>-(<i>a</i>+1)</sup>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Exponent</td>
+              <td align="center">
+                <p class="math">
+                  <i>e<sup> at</sup></i>
+                </p>
+              </td>
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table4.gif"
+                    width="49"
+                    height="45"
+                    alt="\frac{1}{s-a}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Sine</td>
+              <td align="center">
+                <p class="math">sin<i> at</i></p>
+              </td>
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table5.gif"
+                    width="65"
+                    height="42"
+                    alt="\frac{a}{s^2+a^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Cosine</td>
+              <td align="center">
+                <p class="math">cos<i> at</i></p>
+              </td>
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table6.gif"
+                    width="65"
+                    height="42"
+                    alt="\frac{s}{s^2+a^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="148">Hyperbolic sine</td>
+              <td align="center">
+                <p class="math">sinh<i> at</i></p>
+              </td>
+
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table7.gif"
+                    width="65"
+                    height="40"
+                    alt="\frac{a}{s^2-a^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="148">Hyperbolic cosine</td>
+              <td align="center">
+                <p class="math">cosh<i> at</i></p>
+              </td>
+
+              <td>
+                <p class="math" align="center">
+                  <img
+                    border="0"
+                    src="laplace/table8.gif"
+                    width="65"
+                    height="40"
+                    alt="\frac{s}{s^2-a^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Growing sine</td>
+              <td align="center">
+                <p class="math"><i>t</i> sin<i> at</i></p>
+              </td>
+
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table9.gif"
+                    width="90"
+                    height="51"
+                    alt="\frac{2as}{(s^2+a^2)^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Growing cosine</td>
+              <td align="center">
+                <p class="math"><i>t</i> cos<i> at</i></p>
+              </td>
+
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table10.gif"
+                    width="90"
+                    height="54"
+                    alt="\frac{s^2-a^2}{(s^2+a^2)^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Decaying&nbsp; sine</td>
+              <td align="center">
+                <p class="math">
+                  <i>e<sup> -at </sup></i>sin<i> &#969;t</i>
+                </p>
+              </td>
+
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table11.gif"
+                    width="122"
+                    height="49"
+                    alt="\frac{\omega }{\left ( s+a \right )^2+\omega ^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Decaying cosine</td>
+              <td align="center">
+                <p class="math">
+                  <i>e<sup> -at </sup></i>cos<i> &#969;t</i>
+                </p>
+              </td>
+
+              <td>
+                <p align="center">
+                  <img
+                    border="0"
+                    src="laplace/table12.gif"
+                    width="122"
+                    height="52"
+                    alt="\frac{s+a }{\left ( s+a \right )^2+\omega ^2}"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>Delta function</td>
+              <td align="center">
+                <p class="math">&#948;(<i>t</i>)</p>
+              </td>
+
+              <td align="center">
+                <p class="math">1</p>
+              </td>
+            </tr>
+            <tr>
+              <td>Delayed delta</td>
+              <td align="center">
+                <p class="math">&#948;(<i>t-a</i>)</p>
+              </td>
+
+              <td align="center">
+                <p class="math">
+                  <i>e<sup>-as</sup></i>
+                </p>
+              </td>
+            </tr>
+          </table>
+          <h2>
+            <a name="Laplace transform properties"></a>Laplace transform
+            properties
+          </h2>
+          <table class="dtable" style="width: 600px">
+            <tr>
+              <th>Property name</th>
+              <th style="width: 150px">Time domain function</th>
+              <th>Laplace transform</th>
+              <th>Comment</th>
+            </tr>
+            <tr>
+              <th>&nbsp;</th>
+              <th>
+                <p class="math"><i>f </i>(<i>t</i>)</p>
+              </th>
+              <th>
+                <p class="math"><i>F</i>(<i>s</i>)</p>
+              </th>
+              <th>&nbsp;</th>
+            </tr>
+            <tr>
+              <td>Linearity</td>
+              <td class="math" align="center">
+                <i>a f </i>(<i>t</i>)+<i>bg</i>(<i>t</i>)
+              </td>
+              <td class="math" align="center">
+                <i>aF</i>(<i>s</i>) +<i> bG</i>(<i>s</i>)
+              </td>
+              <td class="mathsymbol"><i>a</i>,<i>b</i> are constant</td>
+            </tr>
+            <tr>
+              <td>Scale change</td>
+              <td class="math" align="center"><i>f </i>(<i>at</i>)</td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop1.GIF"
+                  width="69"
+                  height="42"
+                  alt="\frac{1}{a}F\left ( \frac{s}{a} \right )"
+                />
+              </td>
+              <td class="mathsymbol"><i>a</i>&gt;0</td>
+            </tr>
+            <tr>
+              <td>Shift</td>
+              <td class="math" align="center">
+                <i>e<sup>-at</sup></i> <i>f </i>(<i>t</i>)
+              </td>
+              <td class="math" align="center"><i>F</i>(<i>s </i>+<i> a</i>)</td>
+              <td class="math">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Delay</td>
+              <td class="math" align="center"><i>f </i>(<i>t-a</i>)</td>
+              <td class="math" align="center">
+                <i>e</i><sup>-<i>as</i></sup
+                ><i>F</i>(<i>s</i>)
+              </td>
+              <td class="math">&nbsp;</td>
+            </tr>
+            <tr>
+              <td><a href="derivative.html">Derivation</a></td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop2.GIF"
+                  width="41"
+                  height="43"
+                  alt="\frac{df(t)}{dt}"
+                />
+              </td>
+              <td class="math" align="center">
+                <i>sF</i>(<i>s</i>) - <i>f </i>(0)
+              </td>
+              <td class="math">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>N-th derivation</td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop3.GIF"
+                  width="54"
+                  height="43"
+                  alt="\frac{d^nf(t)}{dt^n}"
+                />
+              </td>
+              <td width="300" class="mathsymbol" align="center">
+                <i>s<sup>n</sup>f </i>(<i>s</i>) -<i> s</i><sup><i>n</i>-1</sup
+                ><i>f </i>(0) -<i> s</i><sup><i>n</i>-2</sup
+                ><i>f </i>'(0)-...-<i>f</i><sup> (<i>n</i>-1)</sup>(0)
+              </td>
+              <td class="mathsymbol">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Power</td>
+              <td class="math" align="center">
+                <i>t<sup> n</sup> f </i>(<i>t</i>)
+              </td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop4.GIF"
+                  width="109"
+                  height="43"
+                  alt="(-1)^n\frac{d^nF(s)}{ds^n}"
+                />
+              </td>
+              <td class="math">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Integration</td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop5.GIF"
+                  width="87"
+                  height="49"
+                  alt="\int_{0}^{t}f(x)dx"
+                />
+              </td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop6.GIF"
+                  width="50"
+                  height="42"
+                  alt="\frac{1}{s}F(s)"
+                />
+              </td>
+              <td class="math">&nbsp;</td>
+            </tr>
+            <tr>
+              <td>Reciprocal</td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop7.GIF"
+                  width="44"
+                  height="42"
+                  alt="\frac{1}{t}f(t)"
+                />
+              </td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop8.GIF"
+                  width="100"
+                  height="45"
+                  alt="\int_{s}^{\infty }F(x)dx"
+                />
+              </td>
+              <td class="math">&nbsp;</td>
+            </tr>
+            <tr>
+              <td><a href="Convolution.html">Convolution</a></td>
+              <td class="math" align="center">
+                <i>f </i>(<i>t</i>) * <i>g </i>(<i>t</i>)
+              </td>
+              <td class="math" align="center">
+                <i>F</i>(<i>s</i>) &sdot;<i> G</i>(<i>s</i>)
+              </td>
+              <td class="mathsymbols">* is the convolution operator</td>
+            </tr>
+            <tr>
+              <td>Periodic function</td>
+              <td class="math" align="center">
+                <i>f </i>(<i>t</i>) = <i>f </i>(<i>t</i>+<i>T</i>)
+              </td>
+              <td class="math" align="center">
+                <img
+                  border="0"
+                  src="laplace/prop9.GIF"
+                  width="205"
+                  height="49"
+                  alt="\frac{1}{1-e^{-sT}}\int_{0}^{T}e^{-sx}f(x)dx"
+                />
+              </td>
+              <td class="math">&nbsp;</td>
+            </tr>
+          </table>
+          <h2>
+            <a name="Laplace transform examples"></a>Laplace transform examples
+          </h2>
+          <h4>Example #1</h4>
+          <p>Find the transform of f(t):</p>
+          <p class="math">
+            <i>f</i> (<i>t</i>) = 3<i>t </i>+ 2<i>t</i><sup>2</sup>
+          </p>
+          <p>Solution:</p>
+          <p class="math">&#8466;{<em>t</em>} = 1/<em>s</em><sup>2</sup></p>
+          <p class="math">
+            &#8466;{<em>t</em><sup>2</sup>} = 2/<em>s</em><sup>3</sup>
+          </p>
+          <p class="math">
+            <i>F</i>(<i>s</i>) = &#8466;{<i>f</i> (<i>t</i>)} = &#8466;{3<i
+              >t </i
+            >+ 2<i>t</i><sup>2</sup>} = 3&#8466;{<i>t</i>}<i> </i>+ 2&#8466;{<em
+              >t</em
+            ><sup>2</sup>} = 3/<i>s</i><sup>2</sup> + 4/<i>s</i><sup>3</sup>
+          </p>
+          <h4>&nbsp;</h4>
+          <h4>Example #2</h4>
+          <p>Find the inverse transform of F(s):</p>
+          <p class="math">
+            <i>F</i>(<i>s</i>) = 3 / (<i>s</i><sup>2</sup> + <i> s</i> - 6)
+          </p>
+          <p>Solution:</p>
+          <p>
+            In order to find the inverse transform, we need to change the s
+            domain function to a simpler form:
+          </p>
+          <p class="math">
+            <i>F</i>(<i>s</i>) = 3 / (<i>s</i><sup>2</sup> + <i> s</i> - 6) = 3
+            / [(<i>s</i>-2)(<i>s</i>+3)] = <i>a</i> / (<i>s</i>-2) + <i>b</i> /
+            (<i>s</i>+3)
+          </p>
+          <p class="math">
+            [<i>a</i>(<i>s</i>+3) + <i>b</i>(<i>s</i>-2)] /
+            [(<i>s</i>-2)(<i>s</i>+3)] = 3 / [(<i>s</i>-2)(<i>s</i>+3)]
+          </p>
+          <p class="math"><i>a</i>(<i>s</i>+3) + <i>b</i>(<i>s</i>-2) = 3</p>
+          <p>
+            To find a and b, we get 2 equations - one of the s coefficients and
+            second of the rest:
+          </p>
+          <p class="math">
+            (<i>a</i>+<i>b</i>)<i>s</i> + 3<i>a</i>-2<i>b</i> = 3
+          </p>
+          <p class="math"><i>a</i>+<i>b</i> = 0 , 3<i>a</i>-2<i>b</i> = 3</p>
+          <p class="math"><i>a</i> = 3/5 , <i>b</i> = -3/5</p>
+          <p class="math">
+            <i>F</i>(<i>s</i>) = 3 / 5(<i>s</i>-2) - 3 / 5(<i>s</i>+3)
+          </p>
+          <p>
+            Now F(s) can be transformed easily by using the transforms table for
+            exponent function:
+          </p>
+          <p class="math">
+            <i>f</i> (<i>t</i>) = (3/5)<i>e</i><sup>2<i>t</i></sup> - (3/5)<i
+              >e</i
+            ><sup>-3<i>t</i></sup>
+          </p>
+          <p class="math">&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="derivative.html">Derivative</a></li>
+            <li>
+              <a href="../symbols/Calculus_Symbols.html">Calculus symbols</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CALCULUS</h5>
+        <ul>
+          <li>Limit</li>
+          <li><a href="derivative.html">Derivative</a></li>
+          <li>Integral</li>
+          <li>Series</li>
+          <li><a href="laplace_transform.html">Laplace transform</a></li>
+          <li><a href="Convolution.html">Convolution</a></li>
+          <li>
+            <a href="../symbols/Calculus_Symbols.html">Calculus symbols</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="laplace_transform.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,1412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Grade Calculator</title>
+    <meta
+      content="Calculate weighted percentage and letter grades."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .adslot_2 {
+        height: 250px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform,
+      #calcform2 {
+        max-width: 414px;
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #e0e0e0;
+        border-radius: 7px;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      #gradecircle {
+        display: none;
+        margin: 0 auto;
+        float: none;
+      }
+      #tbl td {
+        /*padding-left:25px;*/
+        background: #eee8d5;
+      }
+      /*#tbl tr td:first-child { width:60px; }*/
+      #tbl tr:first-child td {
+        height: 45px;
+      }
+      #tbl input[type="number"],
+      #tbl select {
+        width: 100px;
+      }
+      #sum {
+        display: none;
+      }
+      #sum td:first-child {
+        padding-left: 0;
+      }
+      #tbl tr > td:nth-child(2) {
+        display: none;
+      }
+      @media all and (max-width: 600px) {
+        .nav-tabs {
+          display: none;
+        }
+        #tbl input[type="number"],
+        #tbl select {
+          width: 85px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Grade calculators</a>&rsaquo; Grade
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Grade Calculator</h1>
+
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" href="grade-calculator.html#gcalc"
+                >Grade calculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="final-grade-calculator.html"
+                >Final grade calculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gpa-calculator.html">GPA calculator</a>
+            </li>
+          </ul>
+          <br />
+          <p>
+            Grade calculator with percentage grades, letter grades and points
+            grade calculations:
+          </p>
+          <form id="calcform" autocomplete="off">
+            <div id="gradetypediv" class="form-group">
+              <label for="gradetype1" class="row ml-0">Select grade type</label>
+              <div
+                class="btn-group btn-group-toggle row ml-0"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-secondary active">
+                  <input
+                    type="radio"
+                    name="gradetype"
+                    id="gradetype1"
+                    checked
+                  />
+                  Percentage
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="gradetype" id="gradetype2" />
+                  Letters
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="gradetype" id="gradetype3" /> Points
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <table id="tbl">
+                <tbody>
+                  <tr>
+                    <td>Assignment<br />(optional)</td>
+                    <td>Grade (letter)</td>
+                    <td>Grade (%)</td>
+                    <td>Weight (%)</td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="text"
+                        placeholder="e.g Assignment"
+                        class="form-control"
+                        autofocus
+                      />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="text"
+                        placeholder="e.g Homework"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input
+                        type="text"
+                        placeholder="e.g Exam"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" placeholder="" class="form-control" />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" placeholder="" class="form-control" />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" placeholder="" class="form-control" />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" placeholder="" class="form-control" />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <input type="text" placeholder="" class="form-control" />
+                    </td>
+                    <td>
+                      <select name="lgrade[]" class="form-control">
+                        <option selected>--</option>
+                        <option>A+</option>
+                        <option>A</option>
+                        <option>A-</option>
+                        <option>B+</option>
+                        <option>B</option>
+                        <option>B-</option>
+                        <option>C+</option>
+                        <option>C</option>
+                        <option>C-</option>
+                        <option>D+</option>
+                        <option>D</option>
+                        <option>D-</option>
+                        <option>F</option>
+                      </select>
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="grade[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        name="weight[]"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                      />
+                    </td>
+                  </tr>
+                  <tr id="sum">
+                    <td>Total:</td>
+                    <td>&nbsp;</td>
+                    <td>
+                      <input
+                        type="number"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                        readonly
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="number"
+                        min="0"
+                        step="any"
+                        class="form-control"
+                        placeholder="100"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="addrow"
+                title="Add row"
+                onclick="AddRow()"
+                class="btn btn-light btn-sm btn-block"
+              >
+                <span>+</span> Add row
+              </button>
+            </div>
+            <div id="reqdiv" class="form-group form-inline">
+              <span class="mb-2"
+                >Find additional grade needed to get average grade of</span
+              >
+              <div class="input-group mr-1 ml-1" style="width: 30% !important">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  id="rgrade"
+                  class="form-control"
+                  placeholder="80"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </div>
+            <div id="gradefmtdiv" class="form-group mb-4">
+              <label for="gradefmt1" class="row ml-0"
+                >Select decimal places of result</label
+              >
+              <div
+                class="btn-group btn-group-toggle ml-0"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-secondary">
+                  <input type="radio" name="gradefmt" id="gradefmt1" /> 0
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="gradefmt" id="gradefmt2" /> 1
+                </label>
+                <label class="btn btn-secondary active">
+                  <input type="radio" name="gradefmt" id="gradefmt3" checked />
+                  2
+                </label>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="calcbtn"
+                title="Calculate"
+                onclick="Calc()"
+                class="btn btn-success"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                id="resetbtn"
+                title="Reset"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <label id="avglabel" for="avg">Average grade</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="avg"
+                  class="form-control form-control-lg mr-2"
+                  readonly
+                />
+                <input
+                  type="text"
+                  id="avglet"
+                  class="form-control form-control-lg"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <div id="gradecircle" class="red small mb-3"></div>
+            </div>
+            <div id="calcdiv" class="form-group">
+              <label for="area">Grade calculation</label>
+              <textarea id="area" class="form-control" readonly></textarea>
+            </div>
+            <div id="finaldiv" class="form-group">
+              <label for="fg">Additional grade needed</label>
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="fg"
+                  class="form-control form-control-lg mr-2"
+                  readonly
+                />
+                <input
+                  type="text"
+                  id="fglet"
+                  class="form-control form-control-lg"
+                  readonly
+                />
+              </div>
+            </div>
+          </form>
+          <p>
+            <a id="final2" href="final-grade-calculator.html"
+              >Final grade calculator &#9658;</a
+            >
+          </p>
+          <h2>Final grade calculator</h2>
+          <form id="calcform2" autocomplete="off">
+            <div class="form-group">
+              <label for="avg0">Current grade</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  id="avg0"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="total0">Target class grade</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  id="total0"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="weight0">Final exam weight</label>
+              <div class="input-group">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  id="weight0"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="calcbtn0"
+                onclick="Calc0()"
+                title="Calculate"
+                class="btn btn-success"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                id="resetbtn0"
+                title="Reset"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="final0"
+                >Final exam grade needed to get target class grade</label
+              >
+              <div class="input-group">
+                <input
+                  type="number"
+                  min="0"
+                  step="any"
+                  id="final0"
+                  class="form-control"
+                  readonly
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">%</span>
+                </div>
+              </div>
+            </div>
+          </form>
+          <p>
+            <a href="final-grade-calculator.html"
+              >Final grade calculator &#9658;</a
+            >
+          </p>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+
+          <h2>Weighted grade calculation</h2>
+          <p>
+            The weighted grade is equal to the sum of the product of the weights
+            (w) in percent (%) times the grade (g):
+          </p>
+          <p class="math">
+            <em>Weighted grade</em> = <em>w</em><sub>1</sub>&times;<em>g</em
+            ><sub>1</sub>+<em> w</em><sub>2</sub>&times;<em>g</em
+            ><sub>2</sub>+<em> w</em><sub>3</sub>&times;<em>g</em
+            ><sub>3</sub>+...
+          </p>
+          <h4>Example</h4>
+          <p>Math course with grade of 80 and weight of 30%.</p>
+          <p>Biology course with grade of 90 and weight of 50%.</p>
+          <p>History course with grade of 72 and weight of 20%.</p>
+          <p>The weighted average grade is calculated by:</p>
+          <p class="math"><em>Weighted grade =</em></p>
+          <p class="math">
+            &nbsp;= <em>w</em><sub>1</sub>&times;<em>g</em><sub>1</sub>+<em>
+              w</em
+            ><sub>2</sub>&times;<em>g</em><sub>2</sub>+<em> w</em
+            ><sub>3</sub>&times;<em>g</em><sub>3</sub>
+          </p>
+          <p class="math">
+            &nbsp;= 30%&times;80+ 50%&times;90+ 20%&times;72 = 83.4
+          </p>
+          <br />
+          <p>
+            When the weights are not in percent (hours or points...), you should
+            also divided by the sum of the weights:
+          </p>
+          <p class="math">
+            <em>Weighted grade</em> = (<em>w</em><sub>1</sub>&times;<em>g</em
+            ><sub>1</sub>+<em> w</em><sub>2</sub>&times;<em>g</em
+            ><sub>2</sub>+<em> w</em><sub>3</sub>&times;<em>g</em
+            ><sub>3</sub>+...) / (<em>w</em><sub>1</sub>+<em>w</em
+            ><sub>2</sub>+<em>w</em><sub>3</sub>+...)
+          </p>
+          <h4>Example</h4>
+          <p>3 points Math course with grade of 80.</p>
+          <p>5 points Biology course with grade of 90.</p>
+          <p>2 points History course with grade of 72.</p>
+          <p>The weighted average grade is calculated by:</p>
+          <p class="math"><em>Weighted grade =</em></p>
+          <p class="math">
+            &nbsp;= (<em>w</em><sub>1</sub>&times;<em>g</em><sub>1</sub>+<em>
+              w</em
+            ><sub>2</sub>&times;<em>g</em><sub>2</sub>+<em> w</em
+            ><sub>3</sub>&times;<em>g</em><sub>3</sub>) / (<em>w</em
+            ><sub>1</sub>+<em>w</em><sub>2</sub>+<em>w</em><sub>3</sub>)
+          </p>
+          <p class="math">
+            &nbsp;= (3&times;80+ 5&times;90+ 2&times;72) / (3+5+2) = 83.4
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="final-grade-calculator.html"
+              >Final grade calculator &#9658;</a
+            >
+          </p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="grade-calculation.html">Grade calculation</a></li>
+            <li>
+              <a href="final-grade-calculator.html">Final grade calculator</a>
+            </li>
+            <li>
+              <a href="high-school-gpa-calculator.html"
+                >High school GPA calculator</a
+              >
+            </li>
+            <li><a href="gpa-calculator.html">GPA calculator</a></li>
+            <li>
+              <a href="../math/weighted-average-calculator.html"
+                >Weighted average calculator</a
+              >
+            </li>
+            <li>
+              <a href="../math/standard-deviation-calculator.html"
+                >Standard deviation calculator</a
+              >
+            </li>
+            <li>
+              <a href="../math/average-calculator.html">Average calculator</a>
+            </li>
+            <li><a href="../math/index.html">Math Calculators</a></li>
+          </ul>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>GRADE CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="final-grade-calculator.html">Final grade calculator</a>
+          </li>
+          <li><a href="grade-calculator.html">Grade calculator</a></li>
+          <li>
+            <a href="college-gpa-calculator.html">College GPA calculator</a>
+          </li>
+          <li><a href="gpa-calculator.html">GPA calculator</a></li>
+          <li>
+            <a href="final-grade-calculation.html">Final grade calculation</a>
+          </li>
+          <li><a href="gpa-calculation.html">GPA calculation</a></li>
+          <li><a href="grade-calculation.html">Grade calculation</a></li>
+          <li>
+            <a href="gpa-to-letter-grade-calculator.html"
+              >GPA to letter grade</a
+            >
+          </li>
+          <li>
+            <a href="high-school-gpa-calculator.html"
+              >High school GPA calculator</a
+            >
+          </li>
+          <li>
+            <a href="letter-grade-to-gpa-calculator.html"
+              >Letter grade to GPA</a
+            >
+          </li>
+          <li><a href="test-calculator.html">Test calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="grade-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script>
+      var gradetype = document.getElementsByName("gradetype");
+      var gradefmt = document.getElementsByName("gradefmt");
+      var reqdiv = document.getElementById("reqdiv");
+      var calcdiv = document.getElementById("calcdiv");
+      var finaldiv = document.getElementById("finaldiv");
+      var sumElem = document.getElementById("sum");
+      //var gradecircle=document.getElementById("gradecircle");
+      var avglabelElem = document.getElementById("avglabel");
+      var avgElem = document.getElementById("avg");
+      var avgletElem = document.getElementById("avglet");
+      var areaElem = document.getElementById("area");
+      var fgElem = document.getElementById("fg");
+      var fgletElem = document.getElementById("fglet");
+
+      var weight = [];
+      var grade = [];
+      var avg;
+      var rows = 8;
+      var igradetype = 0;
+      window.onload = function () {
+        document.getElementById("calcform").onkeypress = function (e) {
+          if (e.keyCode == 13) Calc();
+        };
+        document.getElementById("calcform2").onkeypress = function (e) {
+          if (e.keyCode == 13) Calc0();
+        };
+        gradetype[0].addEventListener("click", function () {
+          GradeType(0);
+        });
+        gradetype[1].addEventListener("click", function () {
+          GradeType(1);
+        });
+        gradetype[2].addEventListener("click", function () {
+          GradeType(2);
+        });
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0) {
+          document.querySelector(
+            "#tbl>tbody>tr:nth-child(3)>td:nth-child(4)>input"
+          ).value = params.weight1;
+          document.querySelector(
+            "#tbl>tbody>tr:nth-child(3)>td:nth-child(3)>input"
+          ).value = params.grade1;
+          document.querySelector(
+            "#tbl>tbody>tr:nth-child(4)>td:nth-child(4)>input"
+          ).value = 100 - params.weight1;
+          document.querySelector(
+            "#tbl>tbody>tr:nth-child(4)>td:nth-child(3)>input"
+          ).value = params.grade2;
+        }
+      };
+      function Calc0() {
+        var avg = document.getElementById("avg0").value;
+        var total = document.getElementById("total0").value;
+        var weight = document.getElementById("weight0").value;
+        var final =
+          (total - (avg * (100.0 - weight)) / 100.0) / (weight / 100.0);
+        document.getElementById("final0").value = final.toFixed(2);
+      }
+      function GradeType(i) {
+        igradetype = i;
+        if (i == 0) GradePercent();
+        else if (i == 1) GradeLetter();
+        else GradePoints();
+      }
+      function GradePercent() {
+        gradetype[0].setAttribute("checked", true);
+        gradetype[1].setAttribute("checked", false);
+        gradetype[2].setAttribute("checked", false);
+        gradetype[0].parentElement.classList.add("active");
+        gradetype[1].parentElement.classList.remove("active");
+        gradetype[2].parentElement.classList.remove("active");
+        document.querySelector(
+          "#tbl tr:nth-child(1)>td:nth-child(3)"
+        ).innerHTML = "Grade (%)";
+        document.querySelector(
+          "#tbl tr:nth-child(1)>td:nth-child(4)"
+        ).innerHTML = "Weight";
+        var el1 = document.querySelectorAll("#tbl tr>td:nth-child(2)");
+        var el2 = document.querySelectorAll("#tbl tr>td:nth-child(3)");
+        for (var i = 0; i < el1.length; i++) {
+          el1[i].style.display = "none";
+          el2[i].style.display = "table-cell";
+        }
+        reqdiv.style.display = "flex";
+        calcdiv.style.display = "block";
+        finaldiv.style.display = "block";
+        sumElem.style.display = "none";
+        avglabelElem.innerHTML = "Average grade";
+        avgElem.value = "";
+        avgletElem.value = "";
+        areaElem.value = "";
+        fgElem.value = "";
+        fgletElem.value = "";
+        //document.querySelector("#tbl tr:nth-child(2)>td:nth-child(3)>input").focus();
+      }
+      function GradeLetter() {
+        gradetype[0].setAttribute("checked", false);
+        gradetype[1].setAttribute("checked", true);
+        gradetype[2].setAttribute("checked", false);
+        gradetype[0].parentElement.classList.remove("active");
+        gradetype[1].parentElement.classList.add("active");
+        gradetype[2].parentElement.classList.remove("active");
+        document.querySelector(
+          "#tbl tr:nth-child(1)>td:nth-child(3)"
+        ).innerHTML = "Grade (%)";
+        document.querySelector(
+          "#tbl tr:nth-child(1)>td:nth-child(4)"
+        ).innerHTML = "Weight";
+        var el1 = document.querySelectorAll("#tbl tr>td:nth-child(2)");
+        var el2 = document.querySelectorAll("#tbl tr>td:nth-child(3)");
+        for (var i = 0; i < el1.length; i++) {
+          el1[i].style.display = "table-cell";
+          el2[i].style.display = "none";
+        }
+        reqdiv.style.display = "none";
+        calcdiv.style.display = "none";
+        finaldiv.style.display = "none";
+        sumElem.style.display = "none";
+        avglabelElem.innerHTML = "GPA";
+        //SetFinalURL();
+        avgElem.value = "";
+        avgletElem.value = "";
+        //document.querySelector("#tbl tr:nth-child(2)>td:nth-child(2)>select").focus();
+      }
+      function GradePoints() {
+        gradetype[0].setAttribute("checked", false);
+        gradetype[1].setAttribute("checked", false);
+        gradetype[2].setAttribute("checked", true);
+        gradetype[0].parentElement.classList.remove("active");
+        gradetype[1].parentElement.classList.remove("active");
+        gradetype[2].parentElement.classList.add("active");
+        document.querySelector(
+          "#tbl tr:nth-child(1)>td:nth-child(3)"
+        ).innerHTML = "Grade<br>(points)";
+        document.querySelector(
+          "#tbl tr:nth-child(1)>td:nth-child(4)"
+        ).innerHTML = "Max Grade<br>(optional)";
+        var el1 = document.querySelectorAll("#tbl tr>td:nth-child(2)");
+        var el2 = document.querySelectorAll("#tbl tr>td:nth-child(3)");
+        for (var i = 0; i < el1.length; i++) {
+          el1[i].style.display = "none";
+          el2[i].style.display = "table-cell";
+        }
+        reqdiv.style.display = "none";
+        calcdiv.style.display = "none";
+        finaldiv.style.display = "none";
+        sumElem.style.display = "table-row";
+        avglabelElem.innerHTML = "Total grade";
+        //SetFinalURL();
+        avgElem.value = "";
+        avgletElem.value = "";
+        //document.querySelector("#tbl tr:nth-child(2)>td:nth-child(3)>input").focus();
+      }
+      function Calc() {
+        var i, dp;
+        //for(i=0; i<gradetype.length; i++)
+        //   if( gradetype[i].checked ) break;
+        i = igradetype;
+        for (dp = 0; dp < gradefmt.length; dp++)
+          if (gradefmt[dp].checked) break;
+        if (i == 0) CalcPercent(dp);
+        else if (i == 1) CalcLetter(dp);
+        else if (i == 2) CalcPoints(dp);
+      }
+      function CalcPercent(dp) {
+        avg = 0;
+        var sum = 0;
+        var txt = "";
+        var tavg = "";
+        var tsum = "";
+        for (var i = 0; i < rows; i++) {
+          var k = i + 2;
+          grade[i] = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + k + ")>td:nth-child(3)>input"
+          ).value;
+          weight[i] = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + k + ")>td:nth-child(4)>input"
+          ).value;
+          grade[i] = parseFloat(grade[i]);
+          weight[i] = parseFloat(weight[i]);
+          if (weight[i] > 0 && grade[i] >= 0) {
+            avg += weight[i] * grade[i];
+            sum += weight[i];
+            if (i > 0) {
+              tavg += "+";
+              tsum += "+";
+            }
+            tavg += weight[i] + "\u00D7" + grade[i];
+            tsum += weight[i];
+          }
+        }
+        if (avg == 0 || sum == 0) {
+          alert("Please enter grades & weights");
+          return;
+        }
+        var topsum = avg;
+        avg /= sum;
+        avg = avg.toFixed(dp);
+        txt =
+          "(" +
+          tavg +
+          ") / (" +
+          tsum +
+          ") = " +
+          roundresult(topsum) +
+          " / " +
+          roundresult(sum) +
+          " = " +
+          avg;
+        var avglet = GetLetterFromPercent(avg);
+        var rgrade = document.getElementById("rgrade").value;
+        if (rgrade == "") rgrade = 80;
+        var final = (100 * rgrade - sum * avg) / (100 - sum);
+        final = final.toFixed(dp);
+        var finallet = GetLetterFromPercent(final);
+        avgElem.value = avg;
+        avgletElem.value = avglet;
+        areaElem.value = txt;
+        fgElem.value = final;
+        fgletElem.value = finallet;
+        if (avg == Math.floor(avg)) avg = Math.floor(avg);
+        //var url="final-grade-calculator.html?grade="+avg+"&weight="+sum;
+        //if( sum<=0 || sum>=100 ) url=undefined;
+        //SetFinalURL(url);
+        var percent = avg;
+        if (percent > 100) percent = 100;
+      }
+      function CalcLetter(dp) {
+        avg = 0;
+        var sum = 0;
+        var txt = "";
+        var tavg = "";
+        var tsum = "";
+        var glook = [
+          -1, 4.33, 4, 3.67, 3.33, 3, 2.67, 2.33, 2, 1.67, 1.33, 1, 0.67, 0,
+        ];
+        for (var i = 0; i < rows; i++) {
+          var k = i + 2;
+          var index = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + k + ")>td:nth-child(2)>select"
+          ).selectedIndex;
+          grade[i] = glook[index];
+          weight[i] = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + k + ")>td:nth-child(4)>input"
+          ).value;
+          //grade[i] = parseFloat(grade[i]);
+          weight[i] = parseFloat(weight[i]);
+          if (weight[i] > 0 && grade[i] >= 0) {
+            avg += weight[i] * grade[i];
+            sum += weight[i];
+            if (i > 0) {
+              tavg += "+";
+              tsum += "+";
+            }
+            tavg += weight[i] + "\u00D7" + grade[i];
+            tsum += weight[i];
+          }
+        }
+        if (avg == 0 || sum == 0) {
+          alert("Please enter grades & weights");
+          return;
+        }
+        avg /= sum;
+        avg = avg.toFixed(dp);
+        //txt="("+tavg+") / ("+tsum+") = "+roundresult(topsum)+" / "+roundresult(sum)+" = "+avg;
+        var avglet = GetLetterFromGPA(avg);
+        avgElem.value = avg;
+        avgletElem.value = avglet;
+      }
+      function CalcPoints(dp) {
+        var pointsum, maxsum;
+        [pointsum, maxsum] = CalcTotal();
+        if (pointsum == 0 || maxsum == 0) {
+          alert("Please enter grade points");
+          return;
+        }
+        avg = (pointsum / maxsum) * 100;
+        avg = avg.toFixed(dp);
+        var avglet = GetLetterFromPercent(avg);
+        avgElem.value = avg;
+        avgletElem.value = avglet;
+      }
+      function GetLetterFromPercent(percent) {
+        var letter = "";
+        var lettertbl = [
+          "A+",
+          "A",
+          "A-",
+          "B+",
+          "B",
+          "B-",
+          "C+",
+          "C",
+          "C-",
+          "D+",
+          "D",
+          "D-",
+          "F",
+        ];
+        var percenttbl = [97, 93, 90, 87, 83, 80, 77, 73, 70, 67, 63, 60, 0];
+        for (var i = 0; i < percenttbl.length; i++)
+          if (percent >= percenttbl[i]) {
+            letter = lettertbl[i];
+            break;
+          }
+        return letter;
+      }
+      function GetLetterFromGPA(gpa) {
+        var letter = "F";
+        var lettertbl = [
+          "A+",
+          "A",
+          "A-",
+          "B+",
+          "B",
+          "B-",
+          "C+",
+          "C",
+          "C-",
+          "D+",
+          "D",
+          "D-",
+          "F",
+        ];
+        var gpatbl = [
+          4.165, 3.835, 3.5, 3.165, 2.835, 2.5, 2.165, 1.835, 1.5, 1.165, 0.835,
+          0.335,
+        ];
+        for (var i = 0; i < gpatbl.length; i++)
+          if (gpa >= gpatbl[i]) {
+            letter = lettertbl[i];
+            break;
+          }
+        return letter;
+      }
+      function CalcTotal() {
+        var pointsum = 0;
+        var maxsum = 0;
+        for (var i = 0; i < rows; i++) {
+          var k = i + 2;
+          grade[i] = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + k + ")>td:nth-child(3)>input"
+          ).value;
+          weight[i] = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + k + ")>td:nth-child(4)>input"
+          ).value;
+          grade[i] = parseFloat(grade[i]);
+          weight[i] = parseFloat(weight[i]);
+          if (grade[i] >= 0) {
+            pointsum += grade[i];
+            if (weight[i] >= 0) maxsum += weight[i];
+          }
+        }
+        document.querySelector("#sum td:nth-child(3) input").value = pointsum;
+        if (maxsum > 0)
+          document.querySelector("#sum td:nth-child(4) input").value = maxsum;
+        else {
+          maxsum = document.querySelector("#sum td:nth-child(4) input").value;
+          if (maxsum == "") maxsum = 100;
+          else maxsum = parseFloat(maxsum);
+        }
+        return [pointsum, maxsum];
+      }
+      function SetFinalURL(url) {
+        if (url === undefined) url = "final-grade-calculator.html";
+        document.getElementById("final1").href = url;
+        document.getElementById("final2").href = url;
+      }
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function AddRow() {
+        var tableRef = document
+          .getElementById("tbl")
+          .getElementsByTagName("tbody")[0];
+        var newRow = tableRef.insertRow(rows++);
+        newRow.innerHTML =
+          "<tr>\
+         <td><input type='text' class='form-control'></td>\
+         <td><select name='lgrade[]' class='form-control'>\
+            <option selected>--</option>\
+            <option>A+</option>\
+            <option>A</option>\
+            <option>A-</option>\
+            <option>B+</option>\
+            <option>B</option>\
+            <option>B-</option>\
+            <option>C+</option>\
+            <option>C</option>\
+            <option>C-</option>\
+            <option>D+</option>\
+            <option>D</option>\
+            <option>D-</option>\
+            <option>F</option>\
+         </select></td>\
+         <td><input type='number' name='grade[]' min='0' step='any' class='form-control'></td>\
+         <td><input type='number' name='weight[]' min='0' step='any' class='form-control'></td>\
+      </tr>";
+
+        var k = rows;
+        var i, dp;
+        for (i = 0; i < gradetype.length; i++) if (gradetype[i].checked) break;
+        if (i == 1) {
+          document.querySelector(
+            "#tbl tr:nth-child(" + k + ")>td:nth-child(3)"
+          ).style.display = "none";
+          document.querySelector(
+            "#tbl tr:nth-child(" + k + ")>td:nth-child(2)"
+          ).style.display = "table-cell";
+        } else {
+          document.querySelector(
+            "#tbl tr:nth-child(" + k + ")>td:nth-child(2)"
+          ).style.display = "none";
+          document.querySelector(
+            "#tbl tr:nth-child(" + k + ")>td:nth-child(3)"
+          ).style.display = "table-cell";
+        }
+      }
+      function roundresult(x) {
+        y = parseFloat(x);
+        y = roundnum(y, 10);
+        return y;
+      }
+      function roundnum(x, p) {
+        var i;
+        var n = parseFloat(x);
+        var m = n.toPrecision(p + 1);
+        var y = String(m);
+        i = y.indexOf("e");
+        if (i == -1) i = y.length;
+        j = y.indexOf(".");
+        if (i > j && j != -1) {
+          while (i > 0) {
+            if (y.charAt(--i) == "0") y = removeAt(y, i);
+            else break;
+          }
+          if (y.charAt(i) == ".") y = removeAt(y, i);
+        }
+        return y;
+      }
+      function removeAt(s, i) {
+        s = s.substring(0, i) + s.substring(i + 1, s.length);
+        return s;
+      }
+    </script>
+  </body>
+</html>

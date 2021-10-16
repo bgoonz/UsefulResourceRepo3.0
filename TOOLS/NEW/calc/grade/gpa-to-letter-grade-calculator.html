@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>GPA to Letter Grade conversion calculator</title>
+    <meta
+      content="GPA to letter grade conversion calculator and conversion table."
+      name="description"
+    />
+    <style>
+      .calc2 input {
+        font-size: large;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      @media all and (max-width: 576px) {
+        .calc2 {
+          padding: 10px;
+          width: 100%;
+        }
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc2 {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Grade calculators</a>&rsaquo; GPA to
+        letter grade conversion
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>GPA to letter grade conversion</h1>
+          <p>GPA to letter grade conversion calculator and conversion table.</p>
+          <h2>GPA to letter grade conversion calculator</h2>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>GPA:</td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="gpa"
+                    autofocus
+                    class="math"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td>&nbsp;</td>
+
+                <td>
+                  <button
+                    type="button"
+                    id="calc"
+                    title="Calculate"
+                    class="btn"
+                    onclick="OnCalc()"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_018_cog.png"
+                      alt=""
+                    />
+                    Calculate
+                  </button>
+                  <button type="reset" id="reset" title="Reset" class="btn">
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                      alt=""
+                    />
+                    Reset
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Letter grade:</td>
+                <td><input type="text" name="letter" class="math" /></td>
+              </tr>
+            </table>
+          </form>
+          <h2>GPA to letter grade conversion table</h2>
+          <p>How to convert GPA to letter grade.</p>
+          <table class="dtable" style="text-align: center">
+            <tr>
+              <th>GPA</th>
+              <th>Letter<br />Grade</th>
+              <th>Percentage<br />Grade</th>
+            </tr>
+            <tr>
+              <td>4.33</td>
+              <td>A+</td>
+              <td>97%-100%</td>
+            </tr>
+            <tr>
+              <td>4.00</td>
+              <td>A</td>
+              <td>93%-96%</td>
+            </tr>
+            <tr>
+              <td>3.67</td>
+              <td>A-</td>
+              <td>90%-92%</td>
+            </tr>
+            <tr>
+              <td>3.33</td>
+              <td>B+</td>
+              <td>87%-89%</td>
+            </tr>
+            <tr>
+              <td>3.00</td>
+              <td>B</td>
+              <td>83%-86%</td>
+            </tr>
+            <tr>
+              <td>2.67</td>
+              <td>B-</td>
+              <td>80%-82%</td>
+            </tr>
+            <tr>
+              <td>2.33</td>
+              <td>C+</td>
+              <td>77%-79%</td>
+            </tr>
+            <tr>
+              <td>2.00</td>
+              <td>C</td>
+              <td>73%-76%</td>
+            </tr>
+            <tr>
+              <td>1.67</td>
+              <td>C-</td>
+              <td>70%-72%</td>
+            </tr>
+            <tr>
+              <td>1.33</td>
+              <td>D+</td>
+              <td>67%-69%</td>
+            </tr>
+            <tr>
+              <td>1.00</td>
+              <td>D</td>
+              <td>63%-66%</td>
+            </tr>
+            <tr>
+              <td>0.67</td>
+              <td>D-</td>
+              <td>60%-62%</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>F</td>
+              <td>0%-59%</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="gpa-calculator.html">GPA calculator &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="grade-calculation.html">Grade calculation</a></li>
+            <li><a href="gpa-calculator.html">GPA calculator</a></li>
+            <li><a href="index.html">Grade calculators</a></li>
+            <li><a href="../math/index.html">Math Calculators</a></li>
+          </ul>
+          <script>
+            function OnCalc() {
+              var gpa = document.calcform.gpa.value;
+              gpa = parseFloat(gpa);
+              var llook = [
+                "A+",
+                "A",
+                "A-",
+                "B+",
+                "B",
+                "B-",
+                "C+",
+                "C",
+                "C-",
+                "D+",
+                "D",
+                "D-",
+                "F",
+              ];
+              var tlook = [
+                4.165, 3.835, 3.5, 3.165, 2.835, 2.5, 2.165, 1.835, 1.5, 1.165,
+                0.835, 0.335,
+              ];
+              var i;
+              for (i = 0; i < 12; i++) if (gpa >= tlook[i]) break;
+              document.calcform.letter.value = llook[i];
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>GRADE CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="college-gpa-calculator.html">College GPA calculator</a>
+          </li>
+          <li>
+            <a href="final-grade-calculator.html">Final grade calculator</a>
+          </li>
+          <li>
+            <a href="final-grade-calculation.html">Final grade calculation</a>
+          </li>
+          <li><a href="gpa-calculator.html">GPA calculator</a></li>
+          <li><a href="grade-calculator.html">Grade calculator</a></li>
+          <li><a href="gpa-calculation.html">GPA calculation</a></li>
+          <li><a href="grade-calculation.html">Grade calculation</a></li>
+          <li>
+            <a href="gpa-to-letter-grade-calculator.html"
+              >GPA to letter grade</a
+            >
+          </li>
+          <li>
+            <a href="high-school-gpa-calculator.html"
+              >High school GPA calculator</a
+            >
+          </li>
+          <li>
+            <a href="letter-grade-to-gpa-calculator.html"
+              >Letter grade to GPA</a
+            >
+          </li>
+          <li><a href="test-calculator.html">Test calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="gpa-to-letter-grade-calculator.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

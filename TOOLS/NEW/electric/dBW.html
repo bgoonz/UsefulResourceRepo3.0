@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>dBW (Decibel-Watt)</title>
+    <meta
+      name="description"
+      content="Decibel-Watt (dBW) - definition, conversion calculator and how to convert."
+    />
+    <style>
+      @media all and (max-width: 400px) {
+        .calc2 select {
+          padding: 5px;
+          font-size: large;
+        }
+        .calc2 tr td:nth-child(2) input[type="number"] {
+          padding: 5px;
+          width: 120px;
+        }
+        .calc2 tr td:nth-child(3) input {
+          padding: 5px;
+          width: 60px;
+        }
+        .calc2 tr td:nth-child(3) {
+          padding-top: 16px;
+        }
+        .calc2 tr:nth-child(2) td:nth-child(4) input[type="button"] {
+          margin-left: 13px;
+        }
+      }
+      @media all and (min-width: 401px) {
+        .calc2 select {
+          padding: 5px;
+          font-size: large;
+          width: 165px;
+        }
+        .calc2 tr td:nth-child(2) input[type="number"] {
+          padding: 5px;
+          width: 165px;
+        }
+        .calc2 tr td:nth-child(3) input {
+          padding: 5px;
+          width: 80px;
+        }
+        .calc2 tr td:nth-child(3) {
+          padding-top: 16px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html"
+          >Electricity &amp; Electronics</a
+        >&rsaquo;<a href="Electric_units.html">Electrical units</a>&rsaquo; dBW
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Decibel-Watt (dBW)</h1>
+          <ul>
+            <li><a href="dBW.html#definition">dBW definition</a></li>
+            <li>
+              <a href="dBW.html#calculator"
+                >dBW to dBm, Watt, mW conversion calculator</a
+              >
+            </li>
+            <li>
+              <a href="dBW.html#dbw_to_watt">How to convert dBW to Watt</a>
+            </li>
+            <li>
+              <a href="dBW.html#watt_to_dBW">How to convert Watt to dBW</a>
+            </li>
+            <li><a href="dBW.html#dbw_to_dbm">How to convert dBW to dBm</a></li>
+            <li><a href="dBW.html#dBm_to_dBW">How to convert dBm to dBW</a></li>
+            <li>
+              <a href="dBW.html#table">dBW to dBm, Watt, mW conversion table</a>
+            </li>
+          </ul>
+          <h3><a name="definition"></a>dBW definition</h3>
+          <p>
+            dBW or <i>decibel-watt</i> is a unit of power in
+            <a href="decibel.html">decibel</a> scale, referenced to 1 watt (W).
+          </p>
+          <p>
+            The power in decibel-watts (<i>P</i><sub>(dBW)</sub>) is equal to 10
+            times base 10 logarithm of the power in watts (<i>P</i
+            ><sub>(W)</sub>):
+          </p>
+          <p class="math">
+            <i>P</i><sub>(dBW)</sub> = 10 &sdot; log<sub>10</sub>( <i>P</i
+            ><sub>(W)</sub> / 1W)
+          </p>
+          <p>
+            The power in watts (<i>P</i><sub>(W)</sub>) is equal to 10 raised by
+            the power in decibel-watts (<i>P</i><sub>(dBW)</sub>) divided by 10:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(W)</sub> = 1W &sdot; 10<sup>(<i>P</i></sup
+            ><span style="font-size: 0.6em">(dBW)</span><sup>/ 10)</sup>
+          </p>
+          <p>&nbsp;</p>
+          <p>1 watt is equal to 0 dBW:</p>
+          <p class="math">1W = 0dBW</p>
+          <p>1 milliwatt is equal to -30dBW:</p>
+          <p class="math">1mW = 0.001W = -30dBW</p>
+          <h3>
+            <a name="calculator"></a>dBW to dBm, Watt, mW conversion calculator
+          </h3>
+          <p>Convert dBW to dBm, watt, milliwatt.</p>
+          <p>
+            Enter the power in one of the text boxes and press the
+            <i>Convert</i> button:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Enter milliwatts:</td>
+                <td class="math">
+                  <input type="number" min="0" step="any" name="mw" />
+                </td>
+                <td class="mathsymbol">mW</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="Convert_mW()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Enter watts:</td>
+                <td class="math">
+                  <input type="number" min="0" step="any" name="w" />
+                </td>
+                <td class="mathsymbol">W</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="Convert_W()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Enter dBm:</td>
+                <td class="math">
+                  <input type="number" min="0" step="any" name="dbm" />
+                </td>
+                <td class="mathsymbol">dBm</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="Convert_dBm()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Enter dBW:</td>
+                <td class="math">
+                  <input type="number" min="0" step="any" name="dbw" />
+                </td>
+                <td class="mathsymbol">dBW</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="Convert_dBW()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td class="mathsymbol">&nbsp;</td>
+                <td class="mathsymbol">&nbsp;</td>
+                <td class="mathsymbol">
+                  <input type="reset" value="Reset" class="btn" />
+                </td>
+              </tr>
+            </table>
+          </form>
+          <h3><a name="dbw_to_watt"></a>How to convert dBW to Watt</h3>
+          <p>How to convert power in dBW to watts (W).</p>
+          <p>
+            The power in watts (<i>P</i><sub>(W)</sub>) is equal to 10 raised by
+            the power in dBW (<i>P</i><sub>(dBW)</sub>) divided by 10:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(W)</sub> = 1W &sdot; 10<sup>(<i>P</i></sup
+            ><span style="font-size: 0.6em">(dBW)</span><sup>/ 10)</sup>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            For example: what is the power in watts for power consumption of
+            20dBW?
+          </p>
+          <p>Solution:</p>
+          <p class="math">
+            <i>P</i><sub>(W)</sub> = 1W &sdot; 10<sup>(20dBW</sup>
+            <sup>/ 10)</sup> = 100W
+          </p>
+          <h3><a name="watt_to_dBW"></a>How to convert Watt to dBW</h3>
+          <p>How to convert power in watts (W) to dBW.</p>
+          <p>
+            The power in dBW is equal to the base 10 logarithm of the power in
+            watts (W):
+          </p>
+          <p class="math">
+            <i>P</i><sub>(dBW)</sub> = 10 &sdot; log<sub>10</sub>( <i>P</i
+            ><sub>(W)</sub> / 1W)
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            For example: what is the power in dBW for power consumption of 100W?
+          </p>
+          <p>Solution:</p>
+          <p class="math">
+            <i>P</i><sub>(dBW)</sub> = 10 &sdot; log<sub>10</sub>( 100W / 1W) =
+            20dBW
+          </p>
+          <h3><a name="dbw_to_dbm"></a>How to convert dBW to dBm</h3>
+          <p>How to convert power in dBW to dBm.</p>
+          <p>
+            The power in dBm is equal to the base 10 logarithm of the power in
+            watts (W):
+          </p>
+          <p class="math">
+            <i>P</i><sub>(dBm)</sub> = <i>P</i><sub>(dBW)</sub> + 30
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            For example: what is the power in dBm for power consumption of
+            20dBW?
+          </p>
+          <p>Solution:</p>
+          <p class="math"><i>P</i><sub>(dBm)</sub> = 20dBW + 30 = 50dBm</p>
+          <h3><a name="dBm_to_dBW"></a>How to convert dBm to dBW</h3>
+          <p>How to convert power in dBm to dBW.</p>
+          <p>
+            The power in dBW (<i>P</i><sub>(dBW)</sub>) is equal to 10 raised by
+            the power in dBm (<i>P</i><sub>(dBm)</sub>) divided by 10:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(dBW)</sub> = <i>P</i><sub>(dBm)</sub> - 30
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            For example: what is the power in watts for power consumption of
+            40dBm?
+          </p>
+          <p>Solution:</p>
+          <p class="math"><i>P</i><sub>(dBW)</sub> = 40dBm - 30 = 10dBW</p>
+          <h3><a name="table"></a>dBW to dBm, Watt conversion table</h3>
+          <table class="dtable">
+            <tr>
+              <th>Power (dBW)</th>
+              <th>Power (dBm)</th>
+              <th>Power (Watt)</th>
+            </tr>
+            <tr>
+              <td>-130 dBW</td>
+              <td>-100 dBm</td>
+              <td>0.1 pW</td>
+            </tr>
+            <tr>
+              <td>-120 dBW</td>
+              <td>-90 dBm</td>
+              <td>1 pW</td>
+            </tr>
+            <tr>
+              <td>-110 dBW</td>
+              <td>-80 dBm</td>
+              <td>10 pW</td>
+            </tr>
+            <tr>
+              <td>-100 dBW</td>
+              <td>-70 dBm</td>
+              <td>100 pW</td>
+            </tr>
+            <tr>
+              <td>-90 dBW</td>
+              <td>-60 dBm</td>
+              <td>1 nW</td>
+            </tr>
+            <tr>
+              <td>-80 dBW</td>
+              <td>-50 dBm</td>
+              <td>10 nW</td>
+            </tr>
+            <tr>
+              <td>-70 dBW</td>
+              <td>-40 dBm</td>
+              <td>100 nW</td>
+            </tr>
+            <tr>
+              <td>-60 dBW</td>
+              <td>-30 dBm</td>
+              <td>1 &#956;W</td>
+            </tr>
+            <tr>
+              <td>-50 dBW</td>
+              <td>-20 dBm</td>
+              <td>10 &#956;W</td>
+            </tr>
+            <tr>
+              <td>-40 dBW</td>
+              <td>-10 dBm</td>
+              <td>100 &#956;W</td>
+            </tr>
+            <tr>
+              <td>-30 dBW</td>
+              <td>0 dBm</td>
+              <td>1 mW</td>
+            </tr>
+            <tr>
+              <td>-20 dBW</td>
+              <td>10 dBm</td>
+              <td>10 mW</td>
+            </tr>
+            <tr>
+              <td>-10 dBW</td>
+              <td>20 dBm</td>
+              <td>100 mW</td>
+            </tr>
+            <tr>
+              <td>-1 dBW</td>
+              <td>29 dBm</td>
+              <td>0.794328 W</td>
+            </tr>
+            <tr style="background: #f0f0f0">
+              <td>0 dBW</td>
+              <td>30 dBm</td>
+              <td>1.000000 W</td>
+            </tr>
+            <tr>
+              <td>1 dBW</td>
+              <td>31 dBm</td>
+              <td>1.258925 W</td>
+            </tr>
+            <tr>
+              <td>10 dBW</td>
+              <td>40 dBm</td>
+              <td>10 W</td>
+            </tr>
+            <tr>
+              <td>20 dBW</td>
+              <td>50 dBm</td>
+              <td>100 W</td>
+            </tr>
+            <tr>
+              <td>30 dBW</td>
+              <td>60 dBm</td>
+              <td>1 kW</td>
+            </tr>
+            <tr>
+              <td>40 dBW</td>
+              <td>70 dBm</td>
+              <td>10 kW</td>
+            </tr>
+            <tr>
+              <td>50 dBW</td>
+              <td>80 dBm</td>
+              <td>100 kW</td>
+            </tr>
+            <tr>
+              <td>60 dBW</td>
+              <td>90 dBm</td>
+              <td>1 MW</td>
+            </tr>
+            <tr>
+              <td>70 dBW</td>
+              <td>100 dBm</td>
+              <td>10 MW</td>
+            </tr>
+            <tr>
+              <td>80 dBW</td>
+              <td>110 dBm</td>
+              <td>100 MW</td>
+            </tr>
+            <tr>
+              <td>90 dBW</td>
+              <td>120 dBm</td>
+              <td>1 GW</td>
+            </tr>
+            <tr>
+              <td>100 dBW</td>
+              <td>130 dBm</td>
+              <td>10 GW</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="dBm.html">dBm</a></li>
+            <li><a href="decibel.html">Decibel</a></li>
+            <li><a href="watt.html">Watt</a></li>
+            <li>
+              <a href="../convert/power/dBm_to_mW.html"
+                >dBm to mW conversion calculator</a
+              >
+            </li>
+            <li>
+              <a href="../convert/power/mW_to_dBm.html"
+                >mW to dBm conversion calculator</a
+              >
+            </li>
+            <li>
+              <a href="../convert/power/dBm_to_Watt.html"
+                >dBm to watts conversion calculator</a
+              >
+            </li>
+            <li>
+              <a href="../convert/power/Watt_to_dBm.html"
+                >Watts to dBm conversion calculator</a
+              >
+            </li>
+            <li><a href="electric_power.html">Electric power</a></li>
+            <li><a href="Electric_units.html">Electrical units</a></li>
+            <li><a href="../math/algebra/Logarithm.html">Logarithm</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICITY &amp; ELECTRONICS UNITS</h5>
+        <ul>
+          <li><a href="ampere.html">Ampere (A)</a></li>
+          <li><a href="dBm.html">dB-milliwatt (dBm)</a></li>
+          <li><a href="dBW.html">dB-watt (dBW)</a></li>
+          <li><a href="decibel.html">Decibel (dB)</a></li>
+          <li><a href="farad.html">Farad (F)</a></li>
+          <li><a href="kva.html">Kilovolt-amp (kVA)</a></li>
+          <li><a href="kW.html">Kilowatt (kW)</a></li>
+          <li><a href="kWh.html">Kilowatt-hour (kWh)</a></li>
+          <li><a href="ohm.html">Ohm (&#937;)</a></li>
+          <li><a href="volt.html">Volt (V)</a></li>
+          <li><a href="watt.html">Watt (W)</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="dBW.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+        <script>
+          function setfocus() {
+            document.calcform.mw.focus();
+          }
+          function Round(x, res) {
+            y = parseFloat(x);
+            res = Math.pow(10, res);
+            y = Math.round(y * res) / res;
+            return y;
+          }
+          function Convert_mW() {
+            mw = document.calcform.mw.value;
+            if (mw == "") return;
+            mw = parseFloat(mw);
+            document.calcform.w.value = Round(mw / 1000, 6);
+            document.calcform.dbm.value = Round(
+              10 * Math.log(mw) * Math.LOG10E,
+              6
+            );
+            document.calcform.dbw.value = Round(
+              10 * Math.log(mw) * Math.LOG10E - 30,
+              6
+            );
+          }
+          function Convert_W() {
+            w = document.calcform.w.value;
+            if (w == "") return;
+            w = parseFloat(w);
+            document.calcform.mw.value = Round(w * 1000, 6);
+            document.calcform.dbm.value = Round(
+              10 * Math.log(w * 1000) * Math.LOG10E,
+              6
+            );
+            document.calcform.dbw.value = Round(
+              10 * Math.log(w * 1000) * Math.LOG10E - 30,
+              6
+            );
+          }
+          function Convert_dBm() {
+            dbm = document.calcform.dbm.value;
+            if (dbm == "") return;
+            dbm = parseFloat(dbm);
+            document.calcform.mw.value = Round(Math.pow(10, dbm / 10), 6);
+            document.calcform.w.value = Round(Math.pow(10, (dbm - 30) / 10), 6);
+            document.calcform.dbw.value = Round(dbm - 30, 6);
+          }
+          function Convert_dBW() {
+            dbw = document.calcform.dbw.value;
+            if (dbw == "") return;
+            dbw = parseFloat(dbw);
+            document.calcform.mw.value = Round(
+              Math.pow(10, (dbw + 30) / 10),
+              6
+            );
+            document.calcform.w.value = Round(Math.pow(10, dbw / 10), 6);
+            document.calcform.dbm.value = Round(dbw + 30, 6);
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

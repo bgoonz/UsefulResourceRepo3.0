@@ -1,0 +1,849 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>GPA Calculator</title>
+    <meta
+      content="GPA calculator. Calculate your GPA. Grade point average calculator online."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      /*.adslot_2 { display:none; }*/
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      .calc {
+        background: #eee8d5;
+      }
+      .calc button img {
+        filter: invert(1);
+      }
+      #tbl tr:first-child td {
+        height: 45px;
+      }
+      #tbl tbody tr td:nth-child(2) {
+        width: 140px;
+      }
+      #tbl tbody tr td:nth-child(3) {
+        width: 140px;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      .dtable {
+        text-align: center;
+      }
+      .dtable td {
+        width: 100px;
+      }
+      #tbl tbody tr td:first-child input {
+        width: 100%;
+      }
+      #gpacircle,
+      #finalcircle {
+        margin: 0 auto;
+        float: none;
+      }
+      @media all and (max-width: 320px) {
+        .calc button img {
+          display: none;
+        }
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          padding: 10px;
+          width: 100%;
+        }
+        #tbl tbody tr td:nth-child(2) {
+          width: 100px;
+        }
+        #tbl tbody tr td:nth-child(3) {
+          width: 100px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc {
+          padding: 15px;
+          max-width: 450px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Grade calculators</a>&rsaquo; GPA
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>GPA Calculator</h1>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="grade-calculator.html"
+                >Grade calculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="final-grade-calculator.html"
+                >Final grade calculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="gpa-calculator.html"
+                >GPA calculator</a
+              >
+            </li>
+          </ul>
+          <br />
+          <p>
+            GPA calculator - calculates GPA from letter grades and credit
+            points:
+          </p>
+          <form id="calcform" name="calcform" class="calc" autocomplete="off">
+            <table id="tbl">
+              <tr>
+                <td>Course (optional)</td>
+                <td>Grade</td>
+                <td>Credits</td>
+              </tr>
+              <tbody>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="class[]"
+                      class="form-control"
+                      placeholder="Course #1"
+                      autofocus
+                    />
+                  </td>
+                  <td>
+                    <select name="grade[]" class="form-control">
+                      <option selected>--</option>
+                      <option>A+</option>
+                      <option>A</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B</option>
+                      <option>B-</option>
+                      <option>C+</option>
+                      <option>C</option>
+                      <option>C-</option>
+                      <option>D+</option>
+                      <option>D</option>
+                      <option>D-</option>
+                      <option>F</option>
+                      <option>P</option>
+                      <option>NP</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" name="hours[]" class="form-control" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="class[]"
+                      class="form-control"
+                      placeholder="Course #2"
+                    />
+                  </td>
+                  <td>
+                    <select name="grade[]" class="form-control">
+                      <option selected>--</option>
+                      <option>A+</option>
+                      <option>A</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B</option>
+                      <option>B-</option>
+                      <option>C+</option>
+                      <option>C</option>
+                      <option>C-</option>
+                      <option>D+</option>
+                      <option>D</option>
+                      <option>D-</option>
+                      <option>F</option>
+                      <option>P</option>
+                      <option>NP</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" name="hours[]" class="form-control" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="class[]"
+                      class="form-control"
+                      placeholder="Course #3"
+                    />
+                  </td>
+                  <td>
+                    <select name="grade[]" class="form-control">
+                      <option selected>--</option>
+                      <option>A+</option>
+                      <option>A</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B</option>
+                      <option>B-</option>
+                      <option>C+</option>
+                      <option>C</option>
+                      <option>C-</option>
+                      <option>D+</option>
+                      <option>D</option>
+                      <option>D-</option>
+                      <option>F</option>
+                      <option>P</option>
+                      <option>NP</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" name="hours[]" class="form-control" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="class[]"
+                      class="form-control"
+                      placeholder="Course #4"
+                    />
+                  </td>
+                  <td>
+                    <select name="grade[]" class="form-control">
+                      <option selected>--</option>
+                      <option>A+</option>
+                      <option>A</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B</option>
+                      <option>B-</option>
+                      <option>C+</option>
+                      <option>C</option>
+                      <option>C-</option>
+                      <option>D+</option>
+                      <option>D</option>
+                      <option>D-</option>
+                      <option>F</option>
+                      <option>P</option>
+                      <option>NP</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" name="hours[]" class="form-control" />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="text"
+                      name="class[]"
+                      class="form-control"
+                      placeholder="Course #5"
+                    />
+                  </td>
+                  <td>
+                    <select name="grade[]" class="form-control">
+                      <option selected>--</option>
+                      <option>A+</option>
+                      <option>A</option>
+                      <option>A-</option>
+                      <option>B+</option>
+                      <option>B</option>
+                      <option>B-</option>
+                      <option>C+</option>
+                      <option>C</option>
+                      <option>C-</option>
+                      <option>D+</option>
+                      <option>D</option>
+                      <option>D-</option>
+                      <option>F</option>
+                      <option>P</option>
+                      <option>NP</option>
+                    </select>
+                  </td>
+                  <td>
+                    <input type="text" name="hours[]" class="form-control" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="form-group">
+              <button
+                type="button"
+                id="addrow"
+                title="Add row"
+                class="btn btn-light btn-sm btn-block"
+              >
+                <span>+</span> Add row
+              </button>
+            </div>
+            <div id="cumdiv" class="form-group">
+              <label for="gpa"
+                >Add previous cumulative GPA/credits (optional)</label
+              >
+              <div class="row">
+                <div class="col">
+                  <input
+                    type="text"
+                    id="cgpa"
+                    placeholder="cumulative gpa"
+                    class="form-control"
+                  />
+                </div>
+                <div class="col">
+                  <input
+                    type="text"
+                    id="chours"
+                    placeholder="credits"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="calcbtn"
+                title="Calculate"
+                class="btn btn-success"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                id="resetbtn"
+                title="Reset"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="gpa">GPA</label>
+              <input type="text" id="gpa" readonly class="form-control" />
+            </div>
+            <div class="form-group">
+              <div id="gpacircle" class="red small mb-3"></div>
+            </div>
+            <div class="form-group">
+              <label for="total">Total credits/hours</label>
+              <input
+                type="number"
+                step="any"
+                id="total"
+                class="form-control"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label for="area">GPA calculation</label>
+              <textarea
+                rows="3"
+                id="area"
+                class="form-control"
+                readonly
+              ></textarea>
+            </div>
+          </form>
+          <p><a href="grade-calculator.html">Grade calculator &#9658;</a></p>
+          <h2>Final GPA Calculator</h2>
+          <p>Find what grade you need on your final exam to get target GPA:</p>
+          <form id="calcform2" class="calc" autocomplete="off">
+            <div class="form-group">
+              <label for="curgpa">Current GPA</label>
+              <input type="text" id="curgpa" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="tgpa">Target GPA</label>
+              <input type="text" id="tgpa" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="curhours">Current credits/hours</label>
+              <input type="text" id="curhours" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="ahours">Additional credits/hours</label>
+              <input type="text" id="ahours" class="form-control" />
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="calcbtn2"
+                title="Calculate"
+                class="btn btn-success"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                id="resetbtn2"
+                title="Reset"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="fgpa"
+                >Additional GPA/grade needed to get target GPA</label
+              >
+              <div class="input-group">
+                <input
+                  type="text"
+                  id="fgpa"
+                  class="form-control mr-2"
+                  readonly
+                />
+                <input type="text" id="flet" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="form-group">
+              <div id="finalcircle" class="red small mb-3"></div>
+            </div>
+          </form>
+          <p>
+            <a href="final-grade-calculator.html"
+              >Final grade calculator &#9658;</a
+            >
+          </p>
+          <h2>GPA calculation</h2>
+          <p>
+            The GPA is calculated as a weighted average of the grades, when the
+            number of credit/hours is the weight and the numeric grade is taken
+            from the GPA table.
+          </p>
+          <p>
+            The GPA is equal to the sum of the product of the credit hours
+            weight (w) times the grade (g):
+          </p>
+          <p class="math">
+            <em>GPA</em> = <em>w</em><sub>1</sub>&times;<em>g</em
+            ><sub>1</sub>+<em> w</em><sub>2</sub>&times;<em>g</em
+            ><sub>2</sub>+<em> w</em><sub>3</sub>&times;<em>g</em><sub>3 </sub>+
+            ... + <em> w</em><sub><em>n</em></sub
+            >&times;<em>g</em><sub><em>n</em></sub>
+          </p>
+          <p>
+            The credit hours weight (w<sub><em>i</em></sub
+            >) is equal to the credit hours of the class divided by the sum of
+            the credit hours of all the classes:
+          </p>
+          <p class="math">
+            <em>w</em><sub><em>i</em></sub
+            ><em>= c</em><sub><em>i</em></sub> / (<em>c</em><sub>1</sub
+            ><em>+c</em><sub>2</sub><em>+c</em><sub>3</sub
+            ><em>+...+c<sub>n</sub></em
+            >)
+          </p>
+          <h2>GPA table</h2>
+          <table class="dtable">
+            <tr>
+              <th>Grade</th>
+              <th>GPA</th>
+            </tr>
+            <tr>
+              <td>A+</td>
+              <td>4.33</td>
+            </tr>
+            <tr>
+              <td>A</td>
+              <td>4.00</td>
+            </tr>
+            <tr>
+              <td>A-</td>
+              <td>3.67</td>
+            </tr>
+            <tr>
+              <td>B+</td>
+              <td>3.33</td>
+            </tr>
+            <tr>
+              <td>B</td>
+              <td>3.00</td>
+            </tr>
+            <tr>
+              <td>B-</td>
+              <td>2.67</td>
+            </tr>
+            <tr>
+              <td>C+</td>
+              <td>2.33</td>
+            </tr>
+            <tr>
+              <td>C</td>
+              <td>2.00</td>
+            </tr>
+            <tr>
+              <td>C-</td>
+              <td>1.67</td>
+            </tr>
+            <tr>
+              <td>D+</td>
+              <td>1.33</td>
+            </tr>
+            <tr>
+              <td>D</td>
+              <td>1.00</td>
+            </tr>
+            <tr>
+              <td>D-</td>
+              <td>0.67</td>
+            </tr>
+            <tr>
+              <td>F</td>
+              <td>0</td>
+            </tr>
+          </table>
+          <p><a href="gpa-calculation.html">GPA calculation &#9658;</a></p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="gpa-calculation.html">How to calculate GPA</a></li>
+            <li><a href="grade-calculator.html">Grade calculator</a></li>
+            <li>
+              <a href="../math/standard-deviation-calculator.html"
+                >Standard deviation calculator</a
+              >
+            </li>
+            <li>
+              <a href="../math/weighted-average-calculator.html"
+                >Weighted average calculator</a
+              >
+            </li>
+            <li><a href="index.html">Grade calculators</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>GRADE CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="final-grade-calculator.html">Final grade calculator</a>
+          </li>
+          <li><a href="gpa-calculator.html">GPA calculator</a></li>
+          <li><a href="grade-calculator.html">Grade calculator</a></li>
+          <li><a href="gpa-calculation.html">GPA calculation</a></li>
+          <li><a href="grade-calculation.html">Grade calculation</a></li>
+          <li>
+            <a href="gpa-to-letter-grade-calculator.html"
+              >GPA to letter grade</a
+            >
+          </li>
+          <li>
+            <a href="high-school-gpa-calculator.html"
+              >High school GPA calculator</a
+            >
+          </li>
+          <li>
+            <a href="letter-grade-to-gpa-calculator.html"
+              >Letter grade to GPA</a
+            >
+          </li>
+          <li><a href="test-calculator.html">Test calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="gpa-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script>
+      var irow = 0;
+      var calcbtn = document.getElementById("calcbtn");
+      var resetbtn = document.getElementById("resetbtn");
+      var addrowbtn = document.getElementById("addrow");
+      var calcbtn2 = document.getElementById("calcbtn2");
+      var fgpaElem = document.getElementById("fgpa");
+      var fletElem = document.getElementById("flet");
+      var cgpaElem = document.getElementById("cgpa");
+      var choursElem = document.getElementById("chours");
+      var gpaElem = document.getElementById("gpa");
+      var totalElem = document.getElementById("total");
+      var areaElem = document.getElementById("area");
+      window.addEventListener("DOMContentLoaded", function () {
+        document.getElementById("calcform").onkeypress = function (e) {
+          if (e.keyCode == 13) Calc();
+        };
+        document.getElementById("calcform2").onkeypress = function (e) {
+          if (e.keyCode == 13) Calc2();
+        };
+        calcbtn.onclick = function () {
+          Calc();
+        };
+        resetbtn.onclick = function () {
+          OnReset();
+        };
+        addrowbtn.onclick = function () {
+          AddRow();
+        };
+        calcbtn2.onclick = function () {
+          Calc2();
+        };
+        //for(i=0; i<5; i++)
+        //   AddRow();
+        irow = 5;
+      });
+      function OnReset() {
+        //$("#gpacircle").hide();
+      }
+      function Calc() {
+        var glook = [
+          -1, 4.33, 4.0, 3.67, 3.33, 3.0, 2.67, 2.33, 2.0, 1.67, 1.33, 1.0,
+          0.67, 0, -1, -1,
+        ];
+        var gpa = 0;
+        var sum = 0;
+        var txt1 = "";
+        var txt2 = "";
+        var el, hour, igrade, grade;
+        for (var i = 1; i <= irow; i++) {
+          el = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + i + ")>td:nth-child(3)>input"
+          );
+          hours = el.value;
+          hours = parseFloat(hours);
+          el = document.querySelector(
+            "#tbl>tbody>tr:nth-child(" + i + ")>td:nth-child(2)>select"
+          );
+          igrade = el.selectedIndex;
+          grade = glook[igrade];
+          if (hours > 0 && grade >= 0) {
+            gpa += hours * grade;
+            sum += hours;
+            txt1 += hours + "\u00D7" + grade + "+";
+            txt2 += hours + "+";
+          }
+        }
+        cgpa = cgpaElem.value;
+        chours = choursElem.value;
+        cgpa = parseFloat(cgpa);
+        chours = parseFloat(chours);
+        if (cgpa >= 0 && chours > 0) {
+          gpa += chours * cgpa;
+          sum += chours;
+          txt1 += chours + "\u00D7" + cgpa + "+";
+          txt2 += chours + "+";
+        }
+        gpa /= sum;
+        gpa = gpa.toFixed(2);
+        txt1 = txt1.slice(0, -1);
+        txt2 = txt2.slice(0, -1);
+        var txt = "(" + txt1 + ") / (" + txt2 + ") = " + gpa;
+        gpaElem.value = gpa;
+        totalElem.value = sum;
+        areaElem.value = txt;
+        //var percent=25*gpa;
+        //if( percent>100 ) percent=100;
+        //$("#gpacircle").percircle({percent: percent,text: gpa});
+        //$("#gpacircle").show();
+      }
+      function AddRow() {
+        var tableRef = document
+          .getElementById("tbl")
+          .getElementsByTagName("tbody")[1];
+        var newRow = tableRef.insertRow(irow++);
+        newRow.innerHTML =
+          "<tr>\
+         <td><input type='text' name='class[]' class='form-control' placeholder='Course #" +
+          irow +
+          "'></td>\
+         <td><select name='grade[]' class='form-control'>\
+            <option selected>--</option>\
+            <option>A+</option>\
+            <option>A</option>\
+            <option>A-</option>\
+            <option>B+</option>\
+            <option>B</option>\
+            <option>B-</option>\
+            <option>C+</option>\
+            <option>C</option>\
+            <option>C-</option>\
+            <option>D+</option>\
+            <option>D</option>\
+            <option>D-</option>\
+            <option>F</option>\
+            <option>P</option>\
+            <option>NP</option>\
+         </select></td>\
+         <td><input type='text' name='hours[]' class='form-control'></td>\
+      </tr>";
+      }
+      function GetLetterFromGPA(gpa) {
+        var letter = "";
+        var lettertbl = [
+          "A+",
+          "A",
+          "A-",
+          "B+",
+          "B",
+          "B-",
+          "C+",
+          "C",
+          "C-",
+          "D+",
+          "D",
+          "D-",
+          "F",
+        ];
+        var gpatbl = [
+          4.33, 4.0, 3.67, 3.33, 3.0, 2.67, 2.33, 2.0, 1.67, 1.33, 1.0, 0.67, 0,
+        ];
+        for (var i = 0; i < gpatbl.length; i++)
+          if (gpa >= gpatbl[i]) {
+            letter = lettertbl[i];
+            break;
+          }
+        return letter;
+      }
+      function Calc2() {
+        var cgpa = parseFloat(document.getElementById("curgpa").value);
+        var tgpa = parseFloat(document.getElementById("tgpa").value);
+        var chours = parseFloat(document.getElementById("curhours").value);
+        var ahours = parseFloat(document.getElementById("ahours").value);
+        var h = chours + ahours;
+        //tgpa=(cgpa*chours+fgpa*ahours)/h
+        var fgpa = (h * tgpa - chours * cgpa) / ahours;
+        var flet = GetLetterFromGPA(fgpa);
+        fgpaElem.value = fgpa.toFixed(2);
+        fgpaElem.value = flet;
+        //var percent=25*fgpa;
+        //if( percent>100 ) percent=100;
+        //$("#finalcircle").percircle({percent: percent,text: flet});
+        //$("#finalcircle").show();
+      }
+    </script>
+  </body>
+</html>

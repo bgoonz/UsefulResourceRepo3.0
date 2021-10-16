@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Derivative rules | Math calculus</title>
+    <meta
+      name="description"
+      content="Derivative rules and laws. Derivatives of functions table."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Calculus</a>&rsaquo; Derivative
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Derivative rules</h1>
+          <p>Derivative rules and laws. Derivatives of functions table.</p>
+          <ul>
+            <li>
+              <a href="derivative.html#definition">Derivative definition</a>
+            </li>
+            <li><a href="derivative.html#rules">Derivative rules</a></li>
+            <li>
+              <a href="derivative.html#examples"
+                >Derivatives of functions table</a
+              >
+            </li>
+            <li><a href="derivative.html#examples">Derivative examples</a></li>
+          </ul>
+          <h3><a name="definition"></a>Derivative definition</h3>
+          <p>
+            The derivative of a function is the ratio of the difference of
+            function value f(x) at points x+&#916;x and x with &#916;x, when
+            &#916;x is infinitesimally small. The derivative is the function
+            slope or slope of the tangent line at point x.
+          </p>
+          <p>&nbsp;</p>
+          <p class="math">
+            <img
+              border="0"
+              src="derivative/derivative_definition.GIF"
+              width="264"
+              height="43"
+              alt="f'(x)=\lim_{\Delta x\to 0}\frac{f(x+\Delta x)-f(x)}{\Delta x}"
+            />
+          </p>
+          <h3>Second derivative</h3>
+          <p>The second derivative is given by:</p>
+          <p class="math">
+            <img
+              border="0"
+              src="derivative/second_derivative_definition.GIF"
+              width="277"
+              height="43"
+            />
+          </p>
+          <p>Or simply derive the first derivative:</p>
+          <p class="math">
+            <img
+              border="0"
+              src="derivative/second_derivative.GIF"
+              width="134"
+              height="21"
+              alt="f''(x)=(f'(x))'"
+            />
+          </p>
+          <h3>Nth derivative</h3>
+          <p>
+            The <i>n</i>th derivative is calculated by deriving f(x) n times.
+          </p>
+          <p>
+            The <i>n</i>th derivative is equal to the derivative of the (n-1)
+            derivative:
+          </p>
+          <p class="math">
+            <i>f</i><sup> (<i>n</i>)</sup>(<i>x</i>) = [<i>f</i
+            ><sup> (<i>n</i>-1)</sup>(<i>x</i>)]'
+          </p>
+          <h5>Example:</h5>
+          <p>Find the fourth derivative of</p>
+          <p class="mathsymbol"><i>f </i>(<i>x</i>) = 2<i>x</i><sup>5</sup></p>
+          <p class="mathsymbol">
+            <i>f </i><sup>(4)</sup>(<i>x</i>) = [2<i>x</i><sup>5</sup>]'''' =
+            [10<i>x</i><sup>4</sup>]''' = [40<i>x</i><sup>3</sup>]'' = [120<i
+              >x</i
+            ><sup>2</sup>]' = 240<i>x</i>
+          </p>
+          <h3>Derivative on graph of function</h3>
+          <p>
+            The derivative of a function is the slop of the tangential line.
+          </p>
+          <h3><a name="rules"></a>Derivative rules</h3>
+          <table
+            border="1"
+            width="600"
+            style="border-collapse: collapse"
+            bordercolor="#C0C0C0"
+          >
+            <tr>
+              <td>
+                <a href="derivative.html#sum_rule">Derivative sum rule</a>
+              </td>
+              <td>
+                <p class="math">
+                  ( <i>a f </i>(<i>x</i>) + <i>bg</i>(<i>x</i>) ) ' =
+                  <i>a f ' </i>(<i>x</i>) + <i>bg' </i>(<i>x</i>)
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="derivative.html#product_rule"
+                  >Derivative product rule</a
+                >
+              </td>
+              <td>
+                <p class="math">
+                  ( <i>f </i>(<i>x</i>) &#8729; <i>g</i>(<i>x</i>) ) ' =
+                  <i>f ' </i>(<i>x</i>) g(<i>x</i>) + <i>f </i>(<i>x</i>)<i>
+                    g' </i
+                  >(<i>x</i>)
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="derivative.html#quotient_rule"
+                  >Derivative quotient rule</a
+                >
+              </td>
+              <td>
+                <img
+                  border="0"
+                  src="derivative/quotient_rule.GIF"
+                  width="281"
+                  height="51"
+                  alt="\left ( \frac{f(x)}{g(x)} \right )'=\frac{f'(x)g(x)-f(x)g'(x)}{g^2(x)}"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <a href="derivative.html#chain_rule">Derivative chain rule</a>
+              </td>
+              <td>
+                <p class="math">
+                  <i>f </i>(<i> g</i>(<i>x</i>) ) ' = <i>f ' </i>(<i> g</i
+                  >(<i>x</i>) ) &#8729; <i>g' </i>(<i>x</i>)
+                </p>
+              </td>
+            </tr>
+          </table>
+          <h3><a name="sum_rule"></a>Derivative sum rule</h3>
+          <p>When <i>a</i> and <i>b</i> are constants.</p>
+          <p class="math">
+            ( <i>a f </i>(<i>x</i>) + <i>bg</i>(<i>x</i>) ) ' =
+            <i>a f ' </i>(<i>x</i>) + <i>bg' </i>(<i>x</i>)
+          </p>
+          <h5>Example:</h5>
+          <p>Find the derivative of:</p>
+          <p class="mathsymbol">3<i>x</i><sup>2</sup> + 4<i>x.</i></p>
+          <p>According to the sum rule:</p>
+          <p class="mathsymbol"><i>a</i> = 3, <i>b</i> = 4</p>
+          <p class="mathsymbol">
+            <i>f</i>(<i>x</i>) = <i>x</i><sup>2 </sup>, <i> g</i>(<i>x</i>) =
+            <i>x</i>
+          </p>
+          <p class="mathsymbol">
+            <i>f ' </i>(<i>x</i>) = 2<i>x</i><sup> </sup>, <i>g' </i>(<i>x</i>)
+            = 1
+          </p>
+          <p class="mathsymbol">
+            (3<i>x</i><sup>2</sup> + 4<i>x</i>)' = 3&sdot;2<i>x</i>+4&sdot;1 =
+            6<i>x</i> + 4
+          </p>
+          <h3><a name="product_rule"></a>Derivative product rule</h3>
+          <p class="math">
+            ( <i>f </i>(<i>x</i>) &#8729; <i>g</i>(<i>x</i>) ) ' =
+            <i>f ' </i>(<i>x</i>) g(<i>x</i>) + <i>f </i>(<i>x</i>)<i> g' </i
+            >(<i>x</i>)
+          </p>
+          <h3><a name="quotient_rule"></a>Derivative quotient rule</h3>
+          <p class="math">
+            <img
+              border="0"
+              src="derivative/quotient_rule.GIF"
+              width="281"
+              height="51"
+              alt="\left ( \frac{f(x)}{g(x)} \right )'=\frac{f'(x)g(x)-f(x)g'(x)}{g^2(x)}"
+            />
+          </p>
+          <h3><a name="chain_rule"></a>Derivative chain rule</h3>
+          <p class="math">
+            <i>f </i>(<i> g</i>(<i>x</i>) ) ' = <i>f ' </i>(<i> g</i>(<i>x</i>)
+            ) &#8729; <i>g' </i>(<i>x</i>)
+          </p>
+          <p>This rule can be better understood with Lagrange's notation:</p>
+          <p class="math">
+            <img
+              border="0"
+              src="derivative/chain_rule_II.GIF"
+              width="111"
+              height="46"
+              alt="\frac{df}{dx}=\frac{df}{dg}\cdot \frac{dg}{dx}"
+            />
+          </p>
+          <h3>Function linear approximation</h3>
+          <p>
+            For small &#916;x, we can get an approximation to
+            f(x<sub>0</sub>+&#916;x), when we know f(x<sub>0</sub>) and f '
+            (x<sub>0</sub>):
+          </p>
+          <p class="math">
+            <i>f </i>(<i>x</i><sub>0</sub>+&#916;<i>x</i>) &#8776; <i>f </i> (<i
+              >x</i
+            ><sub>0</sub>) + <i>f</i> '(<i>x</i><sub>0</sub>)&sdot;&#916;<i
+              >x</i
+            >
+          </p>
+          <h3><a name="table"></a>Derivatives of functions table</h3>
+          <table class="dtable" style="border-collapse: collapse">
+            <tr>
+              <th width="177" rowspan="2">Function name</th>
+              <th>Function</th>
+              <th>Derivative</th>
+            </tr>
+            <tr>
+              <th>
+                <p class="math">
+                  <span style="font-weight: 400"><i>f </i>(<i>x</i>)</span>
+                </p>
+              </th>
+
+              <th class="math">
+                <span style="font-weight: 400"><i>f </i>'(<i>x</i>)</span>
+              </th>
+            </tr>
+            <tr>
+              <td width="169">Constant</td>
+              <td>
+                <p class="math"><i>const</i></p>
+              </td>
+
+              <td>
+                <p class="math">0</p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Linear</td>
+              <td>
+                <p class="math"><i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">1</p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Power</td>
+              <td>
+                <p class="math">
+                  <i>x<sup> a</sup></i>
+                </p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <i>a x<sup> a-</sup></i
+                  ><sup>1</sup>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Exponential</td>
+              <td>
+                <p class="math">
+                  <i>e<sup> x</sup></i>
+                </p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <i>e<sup> x</sup></i>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Exponential</td>
+              <td>
+                <p class="math">
+                  <i>a<sup> x</sup></i>
+                </p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <i>a<sup> x </sup></i>ln<i> a</i>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Natural logarithm</td>
+              <td>
+                <p class="math">ln(<i>x</i>)</p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/ln_derivative.gif"
+                    width="13"
+                    height="45"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Logarithm</td>
+              <td>
+                <p class="math">
+                  log<i><sub>b</sub></i
+                  >(<i>x</i>)
+                </p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/log_derivative.gif"
+                    width="63"
+                    height="51"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Sine</td>
+              <td>
+                <p class="math">sin<i> x</i></p>
+              </td>
+
+              <td>
+                <p class="math">cos <i>x</i></p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Cosine</td>
+              <td>
+                <p class="math">cos <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">-sin <i>x</i></p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Tangent</td>
+              <td>
+                <p class="math">tan <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/tan_derivative.gif"
+                    width="66"
+                    height="51"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Arcsine</td>
+              <td>
+                <p class="math">arcsin <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/arcsin_derivative.gif"
+                    width="77"
+                    height="50"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Arccosine</td>
+              <td>
+                <p class="math">arccos <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/arccos_derivative.gif"
+                    width="95"
+                    height="50"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Arctangent</td>
+              <td>
+                <p class="math">arctan <i>x</i></p>
+              </td>
+
+              <td>
+                <img
+                  border="0"
+                  src="derivative/arctan_derivative.gif"
+                  width="58"
+                  height="47"
+                />
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Hyperbolic sine</td>
+              <td>
+                <p class="math">sinh <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">cosh <i>x</i></p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Hyperbolic cosine</td>
+              <td>
+                <p class="math">cosh <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">sinh <i>x</i></p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Hyperbolic tangent</td>
+              <td>
+                <p class="math">tanh <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/tanh_derivative.gif"
+                    width="78"
+                    height="52"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Inverse hyperbolic sine</td>
+              <td>
+                <p class="math">sinh<sup>-1</sup> <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/inverse_sinh_derivative.gif"
+                    width="76"
+                    height="50"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Inverse hyperbolic cosine</td>
+              <td>
+                <p class="math">cosh<sup>-1</sup> <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/inverse_cosh_derivative.gif"
+                    width="77"
+                    height="50"
+                  />
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td width="169">Inverse hyperbolic tangent</td>
+              <td>
+                <p class="math">tanh<sup>-1</sup> <i>x</i></p>
+              </td>
+
+              <td>
+                <p class="math">
+                  <img
+                    border="0"
+                    src="derivative/inverse_tanh_derivative.gif"
+                    width="59"
+                    height="45"
+                  />
+                </p>
+              </td>
+            </tr>
+          </table>
+          <h3><a name="examples"></a>Derivative examples</h3>
+          <h4>Example #1</h4>
+          <p class="math">
+            <i>f </i>(<i>x</i>) = <i>x</i><sup>3</sup>+5<i>x</i
+            ><sup>2</sup>+<i>x</i>+8
+          </p>
+          <p class="math">
+            <i>f ' </i>(<i>x</i>) = 3<i>x</i><sup>2</sup>+2&sdot;5<i>x</i>+1+0 =
+            3<i>x</i><sup>2</sup>+10<i>x</i>+1
+          </p>
+          <h4>Example #2</h4>
+          <p class="math"><i>f </i>(<i>x</i>) = sin(3<i>x</i><sup>2</sup>)</p>
+          <p>When applying the chain rule:</p>
+          <p class="math">
+            <i>f ' </i>(<i>x</i>) = cos(3<i>x</i><sup>2</sup>) &sdot; [3<i>x</i
+            ><sup>2</sup>]' = cos(3<i>x</i><sup>2</sup>) &sdot; 6<i>x</i>
+          </p>
+          <h3>Second derivative test</h3>
+          <p>
+            When the first derivative of a function is zero at point
+            x<sub>0</sub>.
+          </p>
+          <p class="math"><i>f</i> '(<i>x</i><sub>0</sub>) = 0</p>
+          <p>
+            Then the second derivative at point x<sub>0</sub> ,
+            f''(x<sub>0</sub>), can indicate the type of that point:
+          </p>
+          <p>&nbsp;</p>
+          <table
+            border="1"
+            width="40%"
+            style="border-collapse: collapse"
+            bordercolor="#C0C0C0"
+          >
+            <tr>
+              <td>
+                <p class="math"><i>f</i> ''(<i>x</i><sub>0</sub>) &gt; 0</p>
+              </td>
+
+              <td>local minimum</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="math"><i>f</i> ''(<i>x</i><sub>0</sub>) &lt; 0</p>
+              </td>
+
+              <td>local maximum</td>
+            </tr>
+            <tr>
+              <td>
+                <p class="math"><i>f</i> ''(<i>x</i><sub>0</sub>) = 0</p>
+              </td>
+
+              <td>undetermined</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="calculus.html">Calculus</a></li>
+            <li>
+              <a href="laplace_transform.html"
+                >Laplace transform (<i
+                  ><span style="font-size: 1.2em"> </span
+                  ><span style="font-size: 1.2em"> &#8466;&nbsp; </span></i
+                >)</a
+              >
+            </li>
+            <li>
+              <a href="../symbols/Calculus_Symbols.html">Calculus symbols</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CALCULUS</h5>
+        <ul>
+          <li>Limit</li>
+          <li><a href="derivative.html">Derivative</a></li>
+          <li>Integral</li>
+          <li>Series</li>
+          <li><a href="laplace_transform.html">Laplace transform</a></li>
+          <li><a href="Convolution.html">Convolution</a></li>
+          <li>
+            <a href="../symbols/Calculus_Symbols.html">Calculus symbols</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="derivative.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

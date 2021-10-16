@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>mailto: HTML email link</title>
+    <meta
+      name="description"
+      content="mailto: HTML email link, what is it, how to create, examples and code generator."
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      .code {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+      #gen button i {
+        vertical-align: middle;
+      }
+      #gen {
+        padding: 15px;
+        background: #f0eedc;
+        border: 1px #ccc solid;
+      }
+      #gen textarea {
+        word-wrap: break-word;
+      }
+      #gen iframe {
+        width: 100%;
+        height: 50px;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        #doc img {
+          max-width: 100%;
+        }
+      }
+      /*
+@media all and (max-width: 576px) {
+	#gen input[type=text] { width:100%; font-size:x-large; padding:5px; }
+	#gen textarea { width:100%; font-size:x-large }
+	#gen iframe { width:100%; height:50px }
+	#doc img { max-width:100% }
+}
+@media all and (min-width: 577px) {
+	#gen input[type=text] { width:300px; font-size:large }
+	#gen textarea { width:500px; font-size:large }
+	#gen iframe { width:500px; height:50px }
+}*/
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">HTML</a>&rsaquo; mailto link
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>HTML mailto link</h1>
+          <p>
+            mailto: HTML email link, what is it, how to create, examples and
+            code generator.
+          </p>
+          <ul>
+            <li><a href="mailto.html#what">What is mailto link?</a></li>
+            <li>
+              <a href="mailto.html#how">How to create mailto link in HTML?</a>
+            </li>
+            <li><a href="mailto.html#examples">mailto examples</a></li>
+            <li>
+              <a href="mailto.html#generator">mailto link code generator</a>
+            </li>
+          </ul>
+          <h2><a id="what"></a>What is mailto link</h2>
+          <p>
+            Mailto link is a type of HTML link that activates the default mail
+            client on the computer for sending an e-mail.
+          </p>
+          <p>
+            The web browser requires a default e-mail client software installed
+            on his computer in order to activate the e-mail client.
+          </p>
+          <p>
+            If you have <i>Microsoft Outlook</i>, for example as your default
+            mail client, pressing a mailto link will open a
+            <i>new mail</i> window.
+          </p>
+          <h2><a id="how"></a>How to create mailto link in HTML</h2>
+          <p>
+            The mailto link is written like regular link with extra parameters
+            inside the href attribute:
+          </p>
+          <p class="code">
+            &lt;a href=&quot;mailto:<i>name@email.com</i>&quot;&gt;<i
+              >Link text</i
+            >&lt;/a&gt;
+          </p>
+          <p>&nbsp;</p>
+          <table class="dtable">
+            <tr>
+              <th>Parameter</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>mailto:<i>name@email.com</i></td>
+              <td>e-mail recipient address</td>
+            </tr>
+            <tr>
+              <td>cc=<i>name@email.com</i></td>
+              <td>carbon copy e-mail address</td>
+            </tr>
+            <tr>
+              <td>bcc=<i>name@email.com</i></td>
+              <td>blind carbon copy e-mail address</td>
+            </tr>
+            <tr>
+              <td>subject=<i>subject text</i></td>
+              <td>subject of e-mail</td>
+            </tr>
+            <tr>
+              <td>body=<i>body text</i></td>
+              <td>body of e-mail</td>
+            </tr>
+            <tr>
+              <td>?</td>
+              <td>first parameter delimiter</td>
+            </tr>
+            <tr>
+              <td>&amp;</td>
+              <td>other parameters delimiter</td>
+            </tr>
+          </table>
+          <h2><a id="examples"></a>mailto examples</h2>
+          <h4>Mail to email address</h4>
+          <p class="code">
+            &lt;a href=&quot;mailto:name@rapidtables.com&quot;&gt;Send
+            mail&lt;/a&gt;
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            The code will generate this link:
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            <a href="mailto:name@rapidtables.com">Send mail</a>
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            Pressing the above link will open a new mail window:
+          </p>
+          <p>
+            <img
+              src="mailto/example1.png"
+              width="513"
+              height="370"
+              alt="Example"
+            />
+          </p>
+          <p>&nbsp;</p>
+          <h4>Mail to email address with subject</h4>
+          <p class="code">
+            &lt;a
+            href=&quot;mailto:name@rapidtables.com?subject=The%20subject%20of%20the%20mail&quot;&gt;Send
+            mail with subject&lt;/a&gt;
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            The %20 represents space character.
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            The code will generate this link:
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            <a
+              href="mailto:name@rapidtables.com?subject=The%20subject%20of%20the%20email"
+              >Send mail with subject</a
+            >
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            Pressing the above link will open a new mail window:
+          </p>
+          <p>
+            <img
+              src="mailto/example2.png"
+              width="513"
+              height="370"
+              alt="Example"
+            />
+          </p>
+          <p>&nbsp;</p>
+          <h4>Mail to email address with cc, bcc, subject and body</h4>
+          <p class="code">
+            &lt;a
+            href=&quot;mailto:name1@rapidtables.com?cc=name2@rapidtables.com&amp;bcc=name3@rapidtables.com<br />&amp;subject=The%20subject%20of%20the%20email<br />&amp;body=The%20body%20of%20the%20email&quot;&gt;<br />Send
+            mail with cc, bcc, subject and body&lt;/a&gt;
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            The %20 represents space character.
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            The code will generate this link:
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            <a
+              href="mailto:name1@rapidtables.com?cc=name2@rapidtables.com&amp;bcc=name3@rapidtables.com&amp;subject=The%20subject%20of%20the%20email&amp;body=The%20body%20of%20the%20email"
+              >Send mail with cc, bcc, subject and body</a
+            >
+          </p>
+          <p style="padding: 5px; font-size: 14px">
+            Pressing the above link will open a new mail window:
+          </p>
+          <p>
+            <img
+              src="mailto/example3.png"
+              width="513"
+              height="370"
+              alt="Example"
+            />
+          </p>
+          <h2>How to add spaces in the mail's subject or body</h2>
+          <p>
+            You can add spaces by writing <span class="code">%20</span> in the
+            text of the subject or body.
+          </p>
+          <p class="code">
+            &lt;a
+            href=&quot;mailto:name@mail.com?subject=The%20subject&amp;body=This%20is%20a%20message%20body&quot;&gt;Send
+            mail&lt;/a&gt;
+          </p>
+          <h2>How to add line break in the mail's body</h2>
+          <p>
+            You can add newline by writing <span class="code">%0D%0A</span> in
+            the text of the body.
+          </p>
+          <p class="code">
+            &lt;a
+            href=&quot;mailto:name@mail.com?body=Line1-text%0D%0ALine2-text&quot;&gt;Send
+            mail&lt;/a&gt;
+          </p>
+          <h2>How to add multiple email recipients</h2>
+          <p>
+            You can add multiple recipients by writing a comma separator (<span
+              class="code"
+              >,</span
+            >) between email addresses.
+          </p>
+          <p class="code">
+            &lt;a href=&quot;mailto:name1@mail.com,name2@mail.com&quot;&gt;Send
+            mail&lt;/a&gt;
+          </p>
+          <h2><a id="generator"></a>Mailto link code generator</h2>
+          <form id="gen">
+            <div class="form-group">
+              <label for="T1">Link text</label>
+              <input
+                type="text"
+                id="T1"
+                name="T1"
+                placeholder="Send mail"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label for="T2">To</label>
+              <input
+                type="email"
+                id="T2"
+                name="T2"
+                placeholder="name1@mail.com,name2@mail.com"
+                class="form-control"
+                multiple
+              />
+            </div>
+            <div class="form-group">
+              <label for="T3">Cc</label>
+              <input
+                type="email"
+                id="T3"
+                name="T3"
+                class="form-control"
+                multiple
+              />
+            </div>
+            <div class="form-group">
+              <label for="T4">Bcc</label>
+              <input
+                type="email"
+                id="T4"
+                name="T4"
+                class="form-control"
+                multiple
+              />
+            </div>
+            <div class="form-group">
+              <label for="T5">Subject</label>
+              <input type="text" id="T5" name="T5" class="form-control" />
+            </div>
+            <div class="form-group">
+              <label for="TA1">Body</label>
+              <textarea
+                rows="2"
+                id="TA1"
+                name="TA1"
+                class="form-control"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                name="B1"
+                onclick="GenerateButton()"
+                class="btn btn-secondary"
+              >
+                <i class="material-icons">settings</i> Generate mailto code
+              </button>
+              <button
+                type="reset"
+                name="B2"
+                onclick="ResetButton()"
+                class="btn btn-secondary"
+              >
+                <i class="material-icons">clear</i> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="TA2">Generated HTML code</label>
+              <textarea
+                rows="3"
+                id="TA2"
+                name="TA2"
+                class="form-control"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="B3"
+                class="btn btn-secondary"
+                onclick="OnUpdateView()"
+              >
+                <i class="material-icons">autorenew</i> Update View
+              </button>
+              <button
+                type="button"
+                id="B4"
+                class="btn btn-secondary"
+                onclick="OnSelectCode()"
+              >
+                <i class="material-icons">select_all</i> Select Code
+              </button>
+            </div>
+            <p>Generated link view</p>
+            <div id="dview"><iframe id="iview" name="iview"></iframe></div>
+          </form>
+          <p>
+            * the mailto link will not work if the user did not define a default
+            mail app in his computer.
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="html-link.html">HTML links</a></li>
+            <li><a href="html-codes.html">HTML codes</a></li>
+            <li>
+              <a href="../tools/url-decoder-encoder.html"
+                >URL decoder/encoder</a
+              >
+            </li>
+          </ul>
+          <script>
+            var text, TA1, TA2;
+            window.onload = function () {
+              TA1 = document.getElementById("TA1");
+              TA2 = document.getElementById("TA2");
+            };
+            function GenerateButton() {
+              //document.getElementById("gen").submit();
+              var txt = '<a href="mailto:';
+              var i = 0;
+              var head, to, cc, bcc, subject, body;
+              T1 = document.getElementById("T1");
+              T2 = document.getElementById("T2");
+              T3 = document.getElementById("T3");
+              T4 = document.getElementById("T4");
+              T5 = document.getElementById("T5");
+              TA1 = document.getElementById("TA1");
+              TA2 = document.getElementById("TA2");
+
+              head = T1.value;
+              to = T2.value;
+              cc = T3.value;
+              bcc = T4.value;
+              subject = T5.value;
+              body = TA1.value;
+              subject = encodeURIComponent(subject);
+              body = encodeURIComponent(body);
+
+              if (to != "") txt += T2.value;
+              else txt += "name1@mail.com,name2@mail.com";
+              if (cc != "") {
+                txt += i++ == 0 ? "?" : "&";
+                txt += "cc=";
+                txt += cc;
+              }
+              if (bcc != "") {
+                txt += i++ == 0 ? "?" : "&";
+                txt += "bcc=";
+                txt += bcc;
+              }
+              if (subject != "") {
+                txt += i++ == 0 ? "?" : "&";
+                txt += "subject=";
+                txt += subject;
+              }
+              if (body != "") {
+                txt += i++ == 0 ? "?" : "&";
+                txt += "body=";
+                txt += body;
+              }
+              txt += '">';
+              if (head != "") txt += head;
+              else txt += "Send mail";
+              txt += "</a>";
+              txt = txt.replace(/%0A/g, "%0D%0A");
+              TA2.value = txt;
+              OnUpdateView();
+            }
+            function OnUpdateView() {
+              window.frames["iview"].document.body.innerHTML = TA2.value;
+            }
+            function ResetButton() {
+              T1.style.color = "#aaa";
+              T2.style.color = "#aaa";
+              TA1.style.color = "#000";
+              TA1.value = text;
+            }
+            function OnSelectCode() {
+              document.getElementById("TA2").select();
+            }
+            /*
+		function Newline()
+		{
+			s = getSelect(TA1);
+			newline = "%0D%0A";
+			text = TA1.value;
+			fillString(text, newline, s.start, s.end);
+			pos = s.start+newline.length;
+			setCaret(pos);
+			TA1.focus();
+		}
+		function getSelect(obj)
+		{
+			TA1 = gen.TA1;
+			var s = obj.selectionStart;
+			var e = obj.selectionEnd;
+			var txt = obj.value.substring(s,e);
+			return { start: s, end: e, text: txt };
+		}
+		function fillString(text, selectText, start, end)
+		{
+			// split textarea value into three pieces: before startPosition,
+		    // startPosition until endPosition, and after endPosition
+			var str1 = text.substring(0,start);
+			var str2 = text.substring(start,end);
+			var str3 = text.substring(end,text.length);
+			// replace str2 with formatted substring (selectedText)
+			str2 = selectText;
+			TA1.value = str1+str2+str3;
+		}
+		function setCaret(pos)
+		{
+			TA1.selectionStart = pos;
+			TA1.selectionEnd   = pos;
+		}*/
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB HTML</h5>
+        <ul>
+          <li><a href="html-codes.html">HTML codes</a></li>
+          <li><a href="html-comment.html">HTML comments</a></li>
+          <li><a href="html-link.html">HTML links</a></li>
+          <li><a href="mailto.html">HTML mailto link</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="mailto.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

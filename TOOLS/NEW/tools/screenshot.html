@@ -1,0 +1,996 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Screenshot | Screen Capture Online</title>
+    <meta name="description" content="Screenshot online free app." />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #myform {
+        max-width: 600px;
+        max-width: 100%;
+        padding: 20px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+      }
+      #myform .btn {
+        color: #fff;
+      }
+      #myform .btn span {
+        vertical-align: middle;
+        color: #fff;
+      }
+      #myform #openfile {
+        display: none;
+      }
+      #myform #recordbtn {
+        height: 64px;
+        padding: 1rem;
+      }
+      #myform #savebtn {
+        height: 58px;
+      }
+      #myform #browserwarndiv {
+        display: none;
+      }
+      #myform #fontcolor {
+        width: 70px;
+      }
+      #myform input[type="color"] {
+        width: 70px;
+      }
+      #viewdiv {
+        width: 100%;
+        height: auto;
+      }
+      #video {
+        max-height: 300px;
+        max-width: 600px;
+        border: 1px solid #999;
+        width: 100%;
+      }
+      #canvas {
+        display: none;
+        border: 1px solid #999;
+        width: 100%;
+        max-width: 860px;
+      }
+      #imgdiv {
+        width: 100%;
+      }
+      #img {
+        display: block;
+        border: 1px solid #999;
+        width: 100%;
+        height: auto;
+        max-width: 860px;
+        max-width: 100%;
+      }
+      .cropper-point.point-se {
+        height: 5px;
+        width: 5px;
+      }
+      .select-icon {
+        border: 2px dashed #fff;
+        margin-right: 8px;
+      }
+      .error {
+        color: red;
+      }
+      .warn {
+        color: orange;
+      }
+      .info {
+        color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; Screenshot online tool
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Screenshot</h1>
+          <form id="myform">
+            <div
+              id="browserwarndiv"
+              class="alert alert-warning alert-dismissible fade show"
+              role="alert"
+            >
+              Your browser does not support screen recording. Open this page
+              with latest version of Chrome, Firefox or Safari desktop browser!
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="recordbtn"
+                title="Record"
+                class="btn btn-block btn-success btn-lg"
+              >
+                <img
+                  src="../lib/icons/material/svg/camera_alt_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Screenshot
+              </button>
+            </div>
+            <video id="video" controls></video>
+            <div id="viewdiv">
+              <canvas id="canvas"></canvas>
+            </div>
+            <div
+              id="opsel"
+              class="btn-group btn-group-toggle mt-3"
+              data-toggle="buttons"
+            >
+              <label class="btn btn-secondary disabled">
+                <input type="radio" name="opsel" /><span class="select-icon"
+                  >&nbsp;&nbsp;&nbsp;&nbsp;</span
+                >
+                Select
+              </label>
+              <label class="btn btn-secondary disabled">
+                <input type="radio" name="opsel" /><img
+                  src="../lib/icons/material/svg/create_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Draw
+              </label>
+              <label class="btn btn-secondary disabled">
+                <input type="radio" name="opsel" /><img
+                  src="../lib/icons/material/svg/title_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Text
+              </label>
+              <label class="btn btn-secondary active disabled">
+                <input type="radio" name="opsel" checked /><img
+                  src="../lib/icons/material/svg/save_alt_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Save
+              </label>
+            </div>
+            <div id="selectdiv" class="mt-4">
+              <button
+                type="button"
+                id="cropbtn"
+                class="btn btn-block btn-secondary"
+                title="Crop"
+              >
+                <img
+                  src="../lib/icons/material/svg/crop_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Crop
+              </button>
+            </div>
+            <div id="drawdiv" class="form-inline mt-4">
+              <div class="form-group">
+                <label for="pencolor" class="sr-only">Pen color</label>
+                <input
+                  type="color"
+                  id="pencolor"
+                  value="#D81B60"
+                  title="Pen color"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-3">
+                <label for="penwidth" class="sr-only">Pen width</label>
+                <input
+                  type="number"
+                  id="penwidth"
+                  min="1"
+                  step="1"
+                  value="4"
+                  title="Pen width"
+                  class="form-control"
+                />
+              </div>
+            </div>
+            <div id="textdiv" class="mt-4">
+              <div class="form-inline">
+                <div class="form-group">
+                  <label for="underlinebtn" class="sr-only">Font style</label>
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      id="underlinebtn"
+                      title="Underlined"
+                      class="btn btn-secondary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                    >
+                      <img
+                        src="https://www.rapidtables.com/lib/icons/material/svg/format_underlined_24dp.svg"
+                        loading="lazy"
+                        width="24"
+                        height="24"
+                        alt=""
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      id="italicbtn"
+                      title="Italic"
+                      class="btn btn-secondary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                    >
+                      <img
+                        src="https://www.rapidtables.com/lib/icons/material/svg/format_italic_24dp.svg"
+                        loading="lazy"
+                        width="24"
+                        height="24"
+                        alt=""
+                      />
+                    </button>
+                    <button
+                      type="button"
+                      id="boldbtn"
+                      title="Bold"
+                      class="btn btn-secondary"
+                      data-toggle="button"
+                      aria-pressed="false"
+                    >
+                      <img
+                        src="https://www.rapidtables.com/lib/icons/material/svg/format_bold_24dp.svg"
+                        loading="lazy"
+                        width="24"
+                        height="24"
+                        alt=""
+                      />
+                    </button>
+                  </div>
+                </div>
+                <div class="form-group ml-3">
+                  <label for="fontcolor" class="sr-only">Font color</label>
+                  <input
+                    type="color"
+                    id="fontcolor"
+                    value="#D81B60"
+                    title="Font color"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="fontsize" class="sr-only">Font size</label>
+                  <input
+                    type="number"
+                    id="fontsize"
+                    min="8"
+                    max="200"
+                    step="1"
+                    value="70"
+                    title="Font size"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group">
+                  <label for="fontfamily" class="sr-only">Font family</label>
+                  <select
+                    id="fontfamily"
+                    title="Font family"
+                    class="form-control"
+                  >
+                    <option>Arial</option>
+                    <option>"Arial Black"</option>
+                    <option>"Comic Sans MS"</option>
+                    <option>Courier</option>
+                    <option>"Courier New"</option>
+                    <option>cursive</option>
+                    <option>Gadget</option>
+                    <option>Geneva</option>
+                    <option>Georgia</option>
+                    <option>Helvetica</option>
+                    <option>Impact</option>
+                    <option>"Lucida Sans Unicode"</option>
+                    <option>monospace</option>
+                    <option>sans-serif</option>
+                    <option>serif</option>
+                    <option>Tahoma</option>
+                    <option>Times</option>
+                    <option>"Times New Roman"</option>
+                    <option>Verdana</option>
+                  </select>
+                </div>
+              </div>
+              <div class="form-group">
+                <button
+                  type="button"
+                  id="clearbtn"
+                  title="Clear selection"
+                  class="btn btn-block btn-secondary mt-4"
+                >
+                  <img
+                    src="../lib/icons/material/svg/clear_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                  Clear selection
+                </button>
+              </div>
+            </div>
+            <div id="savediv" class="mt-4">
+              <div class="form-inline">
+                <div class="form-group">
+                  <label for="filename" class="sr-only">Enter file name</label>
+                  <input
+                    type="text"
+                    id="filename"
+                    placeholder="screenshot"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group ml-3">
+                  <label class="sr-only">Select file type</label>
+                  <div
+                    class="btn-group btn-group-toggle row"
+                    data-toggle="buttons"
+                  >
+                    <label class="btn btn-secondary active">
+                      <input type="radio" name="formats" checked /> WEBP
+                    </label>
+
+                    <label class="btn btn-secondary">
+                      <input type="radio" name="formats" /> PNG
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group mt-3">
+                <a
+                  id="savebtn"
+                  title="Save to Downloads folder"
+                  class="btn btn-block btn-secondary btn-lg disabled"
+                  ><img
+                    src="../lib/icons/material/svg/save_alt_white_24dp.svg"
+                    loading="lazy"
+                    width="24"
+                    height="24"
+                    alt=""
+                  />
+                  Save</a
+                >
+              </div>
+            </div>
+            <div id="sharediv"></div>
+          </form>
+          <p>
+            * If required window can't be selected, scroll down or maximize the
+            required window and retry
+          </p>
+
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="screenshot/screenshot-android.html"
+                >Screenshot on Android</a
+              >
+            </li>
+            <li>
+              <a href="screenshot/screenshot-iphone.html"
+                >Screenshot on iPhone</a
+              >
+            </li>
+            <li>
+              <a href="screenshot/screenshot-mac.html">Screenshot on Mac</a>
+            </li>
+            <li>
+              <a href="screenshot/screenshot-windows.html"
+                >Screenshot on Windows</a
+              >
+            </li>
+            <li><a href="screen-recorder.html">Screen recorder</a></li>
+            <li><a href="voice-recorder.html">Voice recorder</a></li>
+            <li><a href="text-to-speech.html">Text to speech</a></li>
+            <li><a href="mirror.html">Online Mirror</a></li>
+            <li><a href="webcam-test.html">Webcam test</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ONLINE TOOLS</h5>
+        <ul>
+          <li><a href="alarm-clock.html">Alarm Clock</a></li>
+          <li><a href="bar-graph.html">Bar graph maker</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="timer.html">Countdown Timer</a></li>
+          <li><a href="current-time.html">Current Time</a></li>
+          <li><a href="line-graph.html">Line graph maker</a></li>
+          <li><a href="../calc/math/calculator.html">Online Calculator</a></li>
+          <li><a href="grocery-list.html">Online grocery list</a></li>
+          <li><a href="notepad.html">Online Notepad</a></li>
+          <li><a href="notes.html">Online Notes</a></li>
+          <li><a href="mirror.html">Online Mirror</a></li>
+          <li><a href="password-generator.html">Password generator</a></li>
+          <li><a href="pie-chart.html">Pie chart maker</a></li>
+          <li><a href="screenshot.html">Online screenshot</a></li>
+          <li><a href="speech-to-text.html">Speech to text</a></li>
+          <li><a href="stopwatch.html">Stopwatch</a></li>
+          <li><a href="text-to-speech.html">Text to speech</a></li>
+          <li><a href="todays-date.html">Today's Date</a></li>
+          <li><a href="todo-list.html">To-Do List</a></li>
+          <li><a href="voice-recorder.html">Voice recorder</a></li>
+          <li><a href="where-am-i.html">Find my location</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="screenshot.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+      integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/fabric.js/3.6.3/fabric.min.js"
+      integrity="sha512-DwbCgiW/2uFJkC4G3dIZmQuEY4aDajSrKaovVFnbVz5+ziJ7fvlWZ2CVEPommhxV8LNB/8uurTxNTzIkkh8PJQ=="
+      crossorigin="anonymous"
+    ></script>
+    <script src="../lib/utils/utils.js"></script>
+    <script>
+      const recordbtn = document.getElementById("recordbtn");
+      const videoElem = document.getElementById("video");
+      const canvasElem = document.getElementById("canvas");
+      const viewElem = document.getElementById("viewdiv");
+      const imgElem = document.getElementById("img");
+      const startElem = document.getElementById("recordbtn");
+      const saveElem = document.getElementById("savebtn");
+      const opSel = document.getElementsByName("opsel");
+      const cropbtn = document.getElementById("cropbtn");
+      const clearbtn = document.getElementById("clearbtn");
+      const penColor = document.getElementById("pencolor");
+      const penWidth = document.getElementById("penwidth");
+      const fontColor = document.getElementById("fontcolor");
+      const fontSize = document.getElementById("fontsize");
+      const fontFamilySel = document.getElementById("fontfamily");
+      const browserWarnDiv = document.getElementById("browserwarndiv");
+      var mediaRecorder;
+      var recordedChunks = [];
+      var dataAvailableCount = 0;
+      var cropper = null;
+      var isCaptured = false;
+      //var isAddText=false;
+      var cropwidth, cropheight;
+      var fCanvas = null,
+        fText,
+        fImg;
+      var dpr = window.devicePixelRatio || 1;
+      var previ = null;
+      var rect = null;
+      var crect = null;
+      var mouseDown = null;
+      var disabled = false;
+      var rectleft, recttop;
+      var frect = {};
+      //$( document ).ready(function() {
+      window.onload = function () {
+        canvasElem.style.display = "none";
+        cropbtn.disabled = true;
+        $("#selectdiv").hide();
+        $("#drawdiv").hide();
+        $("#textdiv").hide();
+        //$("#savediv").hide();
+        $("#sharediv").hide();
+        startElem.addEventListener("click", startCapture, false);
+        clearbtn.addEventListener("click", onClearBtn, false);
+        cropbtn.addEventListener("click", onCrop, false);
+        penColor.addEventListener("change", onDraw, false);
+        penWidth.addEventListener("change", onDraw, false);
+        saveElem.addEventListener("click", save, false);
+        for (var i = 0; i < opSel.length; i++)
+          opSel[i].onclick = function () {
+            onOpSel();
+          };
+        checkBrowser();
+        setFontStyle();
+        //});
+      };
+      function checkBrowser() {
+        var os = GetOS();
+        if (os == "iOS" || os == "Android")
+          browserWarnDiv.style.display = "block";
+        if (
+          typeof navigator.mediaDevices !== "object" ||
+          typeof navigator.mediaDevices.getDisplayMedia !== "function"
+        )
+          browserWarnDiv.style.display = "block";
+      }
+      function setFontStyle() {
+        for (var i = 0; i < fontFamilySel.length; i++)
+          fontFamilySel.options[i].style.fontFamily =
+            fontFamilySel.options[i].text;
+      }
+      async function startCapture() {
+        //console.log("startCapture()");
+        if (previ == 0) closeCrop();
+        recordbtn.disabled = true;
+        videoElem.style.cursor = "progress";
+        videoElem.style.display = "block";
+        canvasElem.style.display = "none";
+        isCaptured = false;
+        if (fCanvas != null) {
+          fCanvas.clear();
+          fCanvas.dispose();
+        }
+        //!!!???!!!???
+        //var w=window.screen.width*dpr;
+        //var h=window.screen.height*dpr;
+        var w = window.screen.availWidth * dpr;
+        var h = window.screen.availHeight * dpr;
+        const displayMediaOptions = {
+          video: {
+            width: { minWidth: w, ideal: w },
+            height: { minHeight: h, ideal: h },
+          },
+          audio: false,
+        };
+
+        let stream = null;
+        try {
+          //if (navigator.mediaDevices.getDisplayMedia === undefined)
+          //   stream = await navigator.getDisplayMedia({ video:true });
+          stream = await navigator.mediaDevices.getDisplayMedia(
+            displayMediaOptions
+          );
+          stream.getVideoTracks()[0].onended = function () {
+            stopCapture();
+          };
+
+          //stream.getTracks()[0].applyConstraints({resizeMode:"none"});
+          //let {width, height} = stream.getTracks()[0].getSettings();
+          //console.log(`${width}x${height}`); // 640x480
+
+          videoElem.srcObject = stream;
+          videoElem.autoplay = true;
+          videoElem.muted = true;
+
+          recordedChunks = [];
+          //var options = { mimeType: "video/webm; codecs=vp9,vp8,opus" }; //not working in FF
+          var options = { mimeType: "video/webm; codecs=vp8" };
+          dataAvailableCount = 0;
+          mediaRecorder = new MediaRecorder(stream, options);
+          mediaRecorder.ondataavailable = handleDataAvailable;
+          mediaRecorder.start(100);
+        } catch (err) {
+          console.log("Error: " + err);
+          recordbtn.disabled = false;
+        }
+      }
+      function onClearBtn() {
+        var activeObject = fCanvas.getActiveObjects();
+        fCanvas.discardActiveObject();
+        fCanvas.remove(...activeObject);
+      }
+      function handleDataAvailable(event) {
+        if (event.data.size > 0) {
+          recordedChunks.push(event.data);
+          dataAvailableCount++;
+          if (dataAvailableCount == 1) stopCapture();
+          if (dataAvailableCount == 2) {
+            var blob = new Blob(recordedChunks, { type: "video/webm" });
+            //videoElem.addEventListener("canplay", setCanvas, {once:true});
+            videoElem.addEventListener("canplaythrough", onCanPlay, {
+              once: true,
+            });
+            videoElem.src = URL.createObjectURL(blob);
+            videoElem.autoplay = false;
+            videoElem.muted = true;
+          }
+        } else console.log(event.data);
+      }
+      function stopCapture() {
+        if (videoElem.srcObject == null) return;
+        let tracks = videoElem.srcObject.getTracks();
+        tracks.forEach((track) => track.stop());
+        videoElem.srcObject = null;
+        //mediaRecorder.stop();
+      }
+      function onCanPlay() {
+        if (!document.hidden) {
+          setTimeout(function () {
+            setCanvas();
+          }, 500);
+        } else {
+          document.addEventListener(
+            "visibilitychange",
+            function () {
+              if (!document.hidden) {
+                setTimeout(function () {
+                  setCanvas();
+                }, 500);
+              }
+            },
+            { once: true }
+          );
+        }
+        saveElem.className = "btn btn-block btn-secondary btn-lg";
+      }
+      function setCanvas() {
+        canvasElem.width = videoElem.videoWidth;
+        canvasElem.height = videoElem.videoHeight;
+        var ctx = canvasElem.getContext("2d");
+        ctx.drawImage(videoElem, 0, 0);
+
+        isCaptured = true;
+        videoElem.style.display = "none";
+        canvasElem.style.display = "block";
+        initFabric();
+        recordbtn.disabled = false;
+        $("#opsel label").removeClass("disabled");
+        videoElem.style.cursor = "pointer";
+        onOpSel();
+      }
+      function initFabric() {
+        if (crect == null) crect = canvasElem.getBoundingClientRect();
+        var img = canvasElem.toDataURL("image/png");
+        fCanvas = new fabric.Canvas("canvas");
+        fCanvas.setBackgroundImage(img, fCanvas.renderAll.bind(fCanvas));
+        //fCanvas.setWidth(crect.width+"px",{ cssOnly:true });
+        //fCanvas.setHeight(crect.height+"px",{ cssOnly:true });
+        var w = fCanvas.width / dpr;
+        var h = fCanvas.height / dpr;
+        if (w > crect.width) {
+          h = Math.round((h * crect.width) / w);
+          w = Math.round(crect.width);
+        }
+        fCanvas.setWidth(w + "px", { cssOnly: true });
+        fCanvas.setHeight(h + "px", { cssOnly: true });
+      }
+      function onOpSel() {
+        var i;
+        var radios = document.getElementsByName("opsel");
+        for (i = 0; i < radios.length; i++) if (radios[i].checked) break;
+        $("#selectdiv").hide();
+        $("#drawdiv").hide();
+        $("#textdiv").hide();
+        $("#savediv").hide();
+        $("#sharediv").hide();
+        if (i == 0) $("#selectdiv").show();
+        if (i == 1) $("#drawdiv").show();
+        if (i == 2) $("#textdiv").show();
+        if (i == 3) $("#savediv").show();
+        if (i == 4) $("#sharediv").show();
+
+        if (isCaptured == false) {
+          videoElem.style.display = "block";
+        } else {
+          videoElem.style.display = "none";
+        }
+        if (fCanvas != null) {
+          if (i == 2 || i == 3) selectable();
+          else unselectable();
+        }
+
+        if (i == 0) initCrop();
+        else if (i != 0 && previ == 0) closeCrop();
+
+        if (i == 1) onDraw();
+        else if (i != 1 && previ == 1) fCanvas.isDrawingMode = false;
+
+        if (i == 2) fCanvas.on("mouse:up", onAddText);
+        else if (previ == 2) fCanvas.off("mouse:up", onAddText);
+        previ = i;
+      }
+      function selectable() {
+        fCanvas.forEachObject(function (object) {
+          object.selectable = true;
+        });
+      }
+      function unselectable() {
+        //fCanvas.deactivateAll();
+        //fCanvas.renderAll();
+        fCanvas.forEachObject(function (object) {
+          object.selectable = false;
+        });
+      }
+      function initCrop() {
+        //if( rect!=null ) return;
+        rect = new fabric.Rect({
+          fill: "transparent",
+          originX: "left",
+          originY: "top",
+          stroke: "#444",
+          strokeDashArray: [4, 2],
+          strokeWidth: 2,
+          opacity: 1,
+          left: 0,
+          top: 0,
+          width: 1,
+          height: 1,
+          visible: false,
+        });
+        fCanvas.add(rect);
+        fCanvas.on("mouse:down", cropMouseDown);
+        fCanvas.on("mouse:move", cropMouseMove);
+        fCanvas.on("mouse:up", cropMouseUp);
+      }
+      function closeCrop() {
+        fCanvas.remove(rect);
+        fCanvas.off("mouse:down", cropMouseDown);
+        fCanvas.off("mouse:move", cropMouseMove);
+        fCanvas.off("mouse:up", cropMouseUp);
+      }
+      function cropMouseDown(event) {
+        if (disabled) return;
+        var p = fCanvas.getPointer(event.e);
+        //rectleft = p.x;
+        //recttop = p.y;
+        frect.left = p.x;
+        frect.top = p.y;
+        rect.left = p.x;
+        rect.top = p.y;
+        rect.visible = true;
+        mouseDown = event.e;
+        fCanvas.bringToFront(rect);
+      }
+      function cropMouseMove(event) {
+        if (!mouseDown || disabled) return;
+        var p = fCanvas.getPointer(event.e);
+        var w = p.x - frect.left;
+        var h = p.y - frect.top;
+        if (w < 0) {
+          w = -w;
+          rect.left = p.x;
+        } else rect.left = frect.left;
+        if (h < 0) {
+          h = -h;
+          rect.top = p.y;
+        } else rect.top = frect.top;
+        frect.width = w;
+        frect.height = h;
+        rect.width = w;
+        rect.height = h;
+        fCanvas.renderAll();
+      }
+      function cropMouseUp() {
+        mouseDown = null;
+        cropbtn.disabled = false;
+      }
+      function onCrop() {
+        var img = new Image();
+        img.onload = function () {
+          fCanvas.clear();
+          var img2 = new fabric.Image(img);
+          img2.left = 0;
+          img2.top = 0;
+          img2.setCoords();
+          fCanvas.setBackgroundImage(img2, fCanvas.renderAll.bind(fCanvas));
+        };
+        img.src = fCanvas.toDataURL({
+          left: frect.left,
+          top: frect.top,
+          width: frect.width,
+          height: frect.height,
+        });
+      }
+      function onDraw() {
+        fCanvas.isDrawingMode = true;
+        fCanvas.freeDrawingBrush.color = penColor.value;
+        fCanvas.freeDrawingBrush.width = penWidth.value;
+      }
+      function onAddText(e) {
+        if (e.target) return; //when object click
+        var p = fCanvas.getPointer(event.e);
+        var isUnderline = document
+          .getElementById("underlinebtn")
+          .classList.contains("active");
+        var isItalic = document
+          .getElementById("italicbtn")
+          .classList.contains("active")
+          ? "italic"
+          : "normal";
+        var isBold = document
+          .getElementById("boldbtn")
+          .classList.contains("active")
+          ? "bold"
+          : "normal";
+        var textbox = new fabric.IText("xxxxxx", {
+          left: p.x,
+          top: p.y,
+          strokeWidth: 2,
+          fill: fontColor.value,
+          stroke: fontColor.value,
+          fontSize: fontSize.value,
+          fontFamily: fontFamilySel.options[fontFamilySel.selectedIndex].value,
+          underline: isUnderline,
+          fontStyle: isItalic,
+          fontWeight: isBold,
+        });
+        fCanvas.add(textbox);
+      }
+      function save() {
+        var mime, ext;
+        //var mimetbl=["image/webp","image/jpeg","image/png"];
+        //var exttbl=[".webp",".jpg",".png"];
+        var mimetbl = ["image/webp", "image/png"];
+        var exttbl = [".webp", ".png"];
+        var radios = document.getElementsByName("formats");
+        for (var i = 0; i < radios.length; i++)
+          if (radios[i].checked) {
+            mime = mimetbl[i];
+            ext = exttbl[i];
+          }
+        var clipName = document.getElementById("filename").value;
+        if (clipName == "") clipName = "screenshot";
+        var url = canvas.toDataURL(mime, 0.92);
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = url;
+        a.download = clipName + ext;
+        a.click();
+        window.URL.revokeObjectURL(url);
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Voltage divider - RapidTables.com</title>
+    <meta
+      name="description"
+      content="Voltage divider rule finds the voltage on a load in electrical circuit, when the loads are connected in series."
+    />
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html"
+          >Electricity &amp; Electronics</a
+        >&rsaquo; Voltage divider
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Voltage Divider</h1>
+          <p>
+            Voltage divider rule finds the voltage over a load in electrical
+            circuit, when the loads are connected in series.
+          </p>
+          <ul>
+            <li>
+              <a href="Voltage_Divider.html#DC"
+                >Voltage divider rule for DC circuit</a
+              >
+            </li>
+            <li>
+              <a href="Voltage_Divider.html#AC"
+                >Voltage divider rule for AC circuit</a
+              >
+            </li>
+            <li>
+              <a href="../calc/electric/Voltage_Divider_Calculator.html"
+                >Voltage divider calculator</a
+              >
+            </li>
+          </ul>
+          <h2><a name="DC"></a>Voltage divider rule for DC circuit</h2>
+          <p>
+            For a DC circuit with constant voltage source V<sub>T</sub> and
+            resistors in series, the voltage drop V<sub>i</sub> in resistor
+            R<sub>i</sub> is given by the formula:
+          </p>
+          <p class="math">
+            <img
+              border="0"
+              src="voltage/voltage_division.gif"
+              width="252"
+              height="51"
+              alt="V_i=V_T\: \frac{R_i}{R_1+R_2+R_3+...}"
+            />
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <i>V</i><sub>i</sub> - voltage drop in resistor R<sub>i</sub> in
+            volts [V].
+          </p>
+          <p>
+            <i>V<sub>T</sub></i> - the equivalent voltage source or voltage drop
+            in volts [V].
+          </p>
+          <p>
+            <i>R</i><sub>i</sub> - resistance of resistor <i>R</i
+            ><sub>i</sub> in ohms [&#937;].
+          </p>
+          <p>
+            <i>R</i><sub>1</sub> - resistance of resistor <i>R</i
+            ><sub>1</sub> in ohms [&#937;].
+          </p>
+          <p>
+            <i>R</i><sub>2</sub> - resistance of resistor <i>R</i
+            ><sub>2</sub> in ohms [&#937;].
+          </p>
+          <p>
+            <i>R</i><sub>3</sub> - resistance of resistor <i>R</i
+            ><sub>3</sub> in ohms [&#937;].
+          </p>
+          <h4>Example</h4>
+          <p>
+            Voltage source of V<sub>T</sub>=30V is connected to resistors in
+            series, R<sub>1</sub>=30&#937;, R<sub>2</sub>=40&#937;.
+          </p>
+          <p>Find the voltage drop on resistor R<sub>2</sub>.</p>
+          <p class="mathsymbol">
+            <i>V</i><sub>2</sub> = <i>V</i><sub>T</sub> &times; <i>R</i
+            ><sub>2 </sub>/ (<i>R</i><sub>1</sub>+<i>R</i><sub>2</sub>) = 30V
+            &times; 40&#937; / (30&#937;+40&#937;) = 17.14V
+          </p>
+          <h2><a name="AC"></a>Voltage divider for AC circuit</h2>
+          <p>
+            For an AC circuit with voltage source V<sub>T</sub> and loads in
+            series, the voltage drop V<sub>i</sub> in load Z<sub>i</sub> is
+            given by the formula:
+          </p>
+          <p>
+            <img
+              border="0"
+              src="voltage/voltage_division_ac.gif"
+              width="247"
+              height="51"
+              alt="V_i=V_T\: \frac{Z_i}{Z_1+Z_2+Z_3+...}"
+            />
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <i>V</i><sub>i</sub> - voltage drop in load Z<sub>i</sub> in volts
+            [V].
+          </p>
+          <p>
+            <i>V<sub>T</sub></i> - the equivalent voltage source or voltage drop
+            in volts [V].
+          </p>
+          <p>
+            <i>Z</i><sub>i</sub> - impedance of load <i>Z</i><sub>i</sub> in
+            ohms [&#937;].
+          </p>
+          <p>
+            <i>Z</i><sub>1</sub> - impedance of load <i>Z</i><sub>1</sub> in
+            ohms [&#937;].
+          </p>
+          <p>
+            <i>Z</i><sub>2</sub> - impedance of load <i>Z</i><sub>2</sub> in
+            ohms [&#937;].
+          </p>
+          <p>
+            <i>Z</i><sub>3</sub> - impedance of load <i>Z</i><sub>3</sub> in
+            ohms [&#937;].
+          </p>
+          <h4>Example</h4>
+          <p>
+            Voltage source of V<sub>T</sub>=30V&#8735;60&deg; is connected to
+            loads in series, Z<sub>1</sub>=30&#937;&#8735;20&deg;,
+            Z<sub>2</sub>=40&#937;&#8735;-50&deg;.
+          </p>
+          <p>Find the voltage drop in load Z<sub>1</sub>.</p>
+          <p class="mathsymbol">
+            <i>V</i><sub>2</sub> = <i>V</i><sub>T</sub> &times; <i>Z</i
+            ><sub>1 </sub>/ (<i>Z</i><sub>1</sub>+<i>Z</i><sub>2</sub>)
+          </p>
+          <p class="mathsymbol">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 30V&#8735;60&deg; &times;
+            30&#937;&#8735;20&deg; /
+            (30&#937;&#8735;20&deg;+40&#937;&#8735;-50&deg;)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          </p>
+          <p class="mathsymbol">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 30V&#8735;60&deg; &times;
+            30&#937;&#8735;20&deg; /
+            (30cos(20)+j30sin(20)+40cos(-50)+j40sin(-50))
+          </p>
+          <p class="mathsymbol">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 30V&#8735;60&deg; &times;
+            30&#937;&#8735;20&deg; / (28.19+j10.26+25.71-j30.64)
+          </p>
+          <p class="mathsymbol">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 30V&#8735;60&deg; &times;
+            30&#937;&#8735;20&deg; / (53.9-j20.38)
+          </p>
+          <p class="mathsymbol">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 30V&#8735;60&deg; &times;
+            30&#937;&#8735;20&deg; / 57.62&#937;&#8735;-20.71&deg;
+          </p>
+          <p class="mathsymbol">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = (30V&times;30&#937;/57.62&#937;)
+            &#8735; (60&deg;+20&deg;+20.71&deg;)
+          </p>
+          <p class="mathsymbol">
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; = 15.62V&#8735;100.71&deg;
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../calc/electric/Voltage_Divider_Calculator.html"
+              >Voltage divider calculator &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../calc/electric/Voltage_Divider_Calculator.html"
+                >Voltage divider calculator</a
+              >
+            </li>
+            <li><a href="Voltage.html">Electrical voltage</a></li>
+            <li><a href="ohms-law.html">Ohm's law</a></li>
+            <li><a href="Kirchhoff_laws.html">Kirchhoff's laws</a></li>
+            <li><a href="Current.html">Electrical current</a></li>
+            <li><a href="electric_power.html">Electric power</a></li>
+            <li><a href="electric_charge.html">Electric charge</a></li>
+            <li><a href="resistor.html">Resistor</a></li>
+            <li><a href="Electric_units.html">Electrical units</a></li>
+            <li>
+              <a href="../convert/energy/index.html">Energy conversion</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CIRCUIT LAWS</h5>
+        <ul>
+          <li><a href="coulomb-law.html">Coulomb's law</a></li>
+          <li><a href="dc_circuit.html">DC circuit laws</a></li>
+          <li><a href="Kirchhoff_laws.html">Kirchhoff's laws</a></li>
+          <li><a href="ohms-law.html">Ohm's law</a></li>
+          <li><a href="Voltage_Divider.html">Voltage divider rule</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Voltage_Divider.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

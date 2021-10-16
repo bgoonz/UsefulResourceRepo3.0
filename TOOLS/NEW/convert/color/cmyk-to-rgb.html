@@ -1,0 +1,590 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>CMYK to RGB conversion | color conversion</title>
+    <meta
+      name="description"
+      content="CMYK to RGB color code converter and conversion formula."
+    />
+    <script src="../convert.js"></script>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css"
+    />
+    <style>
+      #cyan,
+      #magenta,
+      #yellow,
+      #black {
+        float: left;
+        clear: left;
+        width: 300px;
+        margin: 15px;
+      }
+      #swatch {
+        width: 390px;
+        height: 60px;
+        margin-top: 5px;
+        margin-left: 0px;
+        background-image: none;
+      }
+      #cyan .ui-slider-range {
+        background: #29cfcf;
+      }
+      #cyan .ui-slider-handle {
+        border-color: #29cfcf;
+      }
+      #magenta .ui-slider-range {
+        background: #ef29ef;
+      }
+      #magenta .ui-slider-handle {
+        border-color: #ef29ef;
+      }
+      #yellow .ui-slider-range {
+        background: #efef29;
+      }
+      #yellow .ui-slider-handle {
+        border-color: #efef29;
+      }
+      #black .ui-slider-range {
+        background: #393939;
+      }
+      #black .ui-slider-handle {
+        border-color: #393939;
+      }
+
+      .calc2 input[type="text"] {
+        width: 390px;
+        padding-left: 8px;
+      }
+      .calc2 input[type="number"] {
+        width: 70px;
+        padding-left: 8px;
+      }
+      @media all and (max-width: 576px) {
+        #swatch {
+          width: 258px;
+        }
+        .calc2 button {
+          padding: 7px 4px;
+          margin-bottom: 10px;
+        }
+        .calc2 input[type="number"] {
+          padding: 5px;
+          font-size: x-large;
+          width: calc(100% - 20px);
+        }
+        .calc2 input[type="text"] {
+          padding: 5px;
+          font-size: x-large;
+          width: 100%;
+        }
+        .calc2 {
+          width: 100%;
+          padding: 20px;
+        }
+        .calc2 tr:nth-child(4) td {
+          margin-top: -5px;
+          padding-bottom: 8px;
+        }
+        .calc2 td:nth-child(3) {
+          display: none;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc2 tr:nth-child(5) {
+          line-height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Color conversion</a>&rsaquo; CMYK to RGB
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>CMYK to RGB color conversion</h1>
+
+          <p>Enter CMYK values from 0 to 100%:</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Cyan color (C):</td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    name="c"
+                    id="c"
+                    class="intext"
+                    placeholder="0"
+                    autofocus
+                    oninput="onnumber(this,1)"
+                  />
+                  %
+                </td>
+                <td><div id="cyan"></div></td>
+              </tr>
+              <tr>
+                <td>Magenta color (M):</td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    name="m"
+                    id="m"
+                    class="intext"
+                    placeholder="0"
+                    oninput="onnumber(this,2)"
+                  />
+                  %
+                </td>
+                <td><div id="magenta"></div></td>
+              </tr>
+              <tr>
+                <td>Yellow color (Y):</td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    name="y"
+                    id="y"
+                    class="intext"
+                    placeholder="0"
+                    oninput="onnumber(this,3)"
+                  />
+                  %
+                </td>
+                <td><div id="yellow"></div></td>
+              </tr>
+              <tr>
+                <td>Black key color (K):</td>
+                <td>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="1"
+                    name="k"
+                    id="k"
+                    class="intext"
+                    placeholder="0"
+                    oninput="onnumber(this,4)"
+                  />
+                  %
+                </td>
+                <td><div id="black"></div></td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <button
+                    type="button"
+                    title="Convert"
+                    class="btn"
+                    onclick="calc()"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_030_refresh.png"
+                      alt=""
+                    />
+                    Convert
+                  </button>
+                  <button
+                    type="reset"
+                    title="Reset"
+                    class="btn"
+                    onclick="clr()"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                      alt=""
+                    />
+                    Reset
+                  </button>
+                  <button
+                    type="button"
+                    title="Swap conversion"
+                    class="btn"
+                    onclick="location.href='rgb-to-cmyk.html';"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                      alt=""
+                    />
+                    Swap
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Red color (R):</td>
+                <td colspan="2">
+                  <input type="text" name="r" class="outtext" readonly />
+                </td>
+              </tr>
+              <tr>
+                <td>Green color (G):</td>
+                <td colspan="2">
+                  <input type="text" name="g" class="outtext" readonly />
+                </td>
+              </tr>
+              <tr>
+                <td>Blue color (B):</td>
+                <td colspan="2">
+                  <input type="text" name="b" class="outtext" readonly />
+                </td>
+              </tr>
+              <tr>
+                <td>Hex:</td>
+                <td colspan="2">
+                  <input type="text" name="hex" class="outtext" readonly />
+                </td>
+              </tr>
+              <tr>
+                <td>Color preview:</td>
+                <td colspan="2">
+                  <input id="swatch" name="swatch" readonly />
+                </td>
+              </tr>
+            </table>
+          </form>
+          <h2>CMYK to RGB conversion formula</h2>
+          <p>The <i>R,G,B</i> values are given in the range of 0..255.</p>
+          <p>
+            The red (R) color is calculated from the cyan (C) and black (K)
+            colors:
+          </p>
+          <p class="math">
+            <i>R</i> = 255 &times; (1-<i>C</i>) &times; (1-<i>K</i>)
+          </p>
+          <p>
+            The green color (G) is calculated from the magenta (M) and black (K)
+            colors:
+          </p>
+          <p class="math">
+            <i>G</i> = 255 &times; (1-<i>M</i>) &times; (1-<i>K</i>)
+          </p>
+          <p>
+            The blue color (B) is calculated from the yellow (Y) and black (K)
+            colors:
+          </p>
+          <p class="math">
+            <i>B</i> = 255 &times; (1-<i>Y</i>) &times; (1-<i>K</i>)
+          </p>
+          <h2>CMYK to RGB table</h2>
+          <table class="dtable">
+            <tr>
+              <th>Color</th>
+              <th>
+                Color
+                <p>name</p>
+              </th>
+              <th>(C,M,Y,K)</th>
+              <th>(R,G,B)</th>
+              <th>Hex</th>
+            </tr>
+            <tr>
+              <td style="background-color: #000000">&nbsp;</td>
+              <td>Black</td>
+              <td>(0,0,0,1)</td>
+              <td>(0,0,0)</td>
+              <td>#000000</td>
+            </tr>
+            <tr>
+              <td style="background-color: #ffffff">&nbsp;</td>
+              <td>White</td>
+              <td>(0,0,0,0)</td>
+              <td>(255,255,255)</td>
+              <td>#FFFFFF</td>
+            </tr>
+            <tr>
+              <td style="background-color: #ff0000">&nbsp;</td>
+              <td>Red</td>
+              <td>(0,1,1,0)</td>
+              <td>(255,0,0)</td>
+              <td>#FF0000</td>
+            </tr>
+            <tr>
+              <td style="background-color: #00ff00">&nbsp;</td>
+              <td>Green</td>
+              <td>(1,0,1,0)</td>
+              <td>(0,255,0)</td>
+              <td>#00FF00</td>
+            </tr>
+            <tr>
+              <td style="background-color: #0000ff">&nbsp;</td>
+              <td>Blue</td>
+              <td>(1,1,0,0)</td>
+              <td>(0,0,255)</td>
+              <td>#0000FF</td>
+            </tr>
+            <tr>
+              <td style="background-color: #ffff00">&nbsp;</td>
+              <td>Yellow</td>
+              <td>(0,0,1,0)</td>
+              <td>(255,255,0)</td>
+              <td>#FFFF00</td>
+            </tr>
+            <tr>
+              <td style="background-color: #00ffff">&nbsp;</td>
+              <td>Cyan</td>
+              <td>(1,0,0,0)</td>
+              <td>(0,255,255)</td>
+              <td>#00FFFF</td>
+            </tr>
+            <tr>
+              <td style="background-color: #ff00ff">&nbsp;</td>
+              <td>Magenta</td>
+              <td>(0,1,0,0)</td>
+              <td>(255,0,255)</td>
+              <td>#FF00FF</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="rgb-to-cmyk.html">RGB to CMYK conversion &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="rgb-to-cmyk.html">RGB to CMYK converter</a></li>
+            <li>
+              <a href="../../web/color/RGB_Color.html">RGB color codes</a>
+            </li>
+          </ul>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+          <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+          <script>
+            $(function () {
+              function refreshSwatch() {
+                var c = $("#cyan").slider("value"),
+                  m = $("#magenta").slider("value"),
+                  y = $("#yellow").slider("value"),
+                  k = $("#black").slider("value");
+                //hex = hexFromRGB( red, green, blue );
+                //$( "#swatch" ).css( "background-color", "#" + hex );
+                c = Math.round((c / 255) * 100);
+                m = Math.round((m / 255) * 100);
+                y = Math.round((y / 255) * 100);
+                k = Math.round((k / 255) * 100);
+                $("#c").val(c);
+                $("#m").val(m);
+                $("#y").val(y);
+                $("#k").val(k);
+              }
+
+              $("#cyan, #magenta, #yellow, #black").slider({
+                orientation: "horizontal",
+                range: "min",
+                max: 255,
+                value: 127,
+                slide: refreshSwatch,
+                change: refreshSwatch,
+              });
+              clr();
+            });
+            function hexFromRGB(r, g, b) {
+              var hex = [r.toString(16), g.toString(16), b.toString(16)];
+              $.each(hex, function (nr, val) {
+                if (val.length === 1) {
+                  hex[nr] = "0" + val;
+                }
+              });
+              return hex.join("").toUpperCase();
+            }
+            function onnumber(obj, n) {
+              var c = $("#c").val();
+              var m = $("#m").val();
+              var y = $("#y").val();
+              var k = $("#k").val();
+              if (n == 1)
+                $("#cyan").slider("value", Math.round((c / 100) * 255));
+              else if (n == 2)
+                $("#magenta").slider("value", Math.round((m / 100) * 255));
+              else if (n == 3)
+                $("#yellow").slider("value", Math.round((y / 100) * 255));
+              else $("#black").slider("value", Math.round((k / 100) * 255));
+              //refreshSwatch();
+              //calc();
+            }
+            function clr() {
+              $("#cyan").slider("value", 0);
+              $("#magenta").slider("value", 0);
+              $("#yellow").slider("value", 0);
+              $("#black").slider("value", 0);
+              $("#swatch").css("background-color", "white");
+              document.calcform.reset();
+            }
+            function calc() {
+              c = document.calcform.c.value;
+              m = document.calcform.m.value;
+              y = document.calcform.y.value;
+              k = document.calcform.k.value;
+              if (c == "") c = 0;
+              if (m == "") m = 0;
+              if (y == "") y = 0;
+              if (k == "") k = 0;
+              c = parseFloat(c) / 100;
+              m = parseFloat(m) / 100;
+              y = parseFloat(y) / 100;
+              k = parseFloat(k) / 100;
+              if (c < 0) c = 0;
+              if (m < 0) m = 0;
+              if (y < 0) y = 0;
+              if (k < 0) k = 0;
+              if (c > 1) c = 1;
+              if (m > 1) m = 1;
+              if (y > 1) y = 1;
+              if (k > 1) k = 1;
+              r = Math.round((1 - c) * (1 - k) * 255);
+              g = Math.round((1 - m) * (1 - k) * 255);
+              b = Math.round((1 - y) * (1 - k) * 255);
+              hex = hexFromRGB(r, g, b);
+              document.calcform.r.value = r;
+              document.calcform.g.value = g;
+              document.calcform.b.value = b;
+              document.calcform.hex.value = "#" + hex;
+              document.calcform.swatch.style.backgroundColor =
+                "rgb(" + r + "," + g + "," + b + ")";
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>COLOR CONVERSION</h5>
+        <ul>
+          <li><a href="cmyk-to-rgb.html">CMYK to RGB</a></li>
+          <li><a href="hex-to-rgb.html">Hex to RGB</a></li>
+          <li><a href="hsl-to-rgb.html">HSL to RGB</a></li>
+          <li><a href="hsv-to-rgb.html">HSV to RGB</a></li>
+          <li><a href="rgb-to-cmyk.html">RGB to CMYK</a></li>
+          <li><a href="rgb-to-hex.html">RGB to hex</a></li>
+          <li><a href="rgb-to-hsl.html">RGB to HSL</a></li>
+          <li><a href="rgb-to-hsv.html">RGB to HSV</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="cmyk-to-rgb.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

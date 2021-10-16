@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Power Factor (PF)</title>
+    <meta
+      name="description"
+      content="In AC circuits, the power factor is the ratio of the real power that is used to do work and the apparent power that is supplied to the circuit."
+    />
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html"
+          >Electricity &amp; Electronics</a
+        >&rsaquo;<a href="electrical_basic.html">Electrical terms</a>&rsaquo;
+        Power factor
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Power Factor</h1>
+          <p>
+            In AC circuits, the power factor is the ratio of the
+            <a href="electric_power.html">real power</a>
+            that is used to do work and the
+            <a href="electric_power.html">apparent power</a> that is supplied to
+            the circuit.
+          </p>
+          <p>The power factor can get values in the range from 0 to 1.</p>
+          <p>
+            When all the power is reactive power with no real power (usually
+            inductive load) - the power factor is 0.
+          </p>
+          <p>
+            When all the power is real power with no reactive power (resistive
+            load) - the power factor is 1.
+          </p>
+          <ul>
+            <li>
+              <a href="Power_Factor.html#power factor definition"
+                >Power factor definition</a
+              >
+            </li>
+            <li>
+              <a href="Power_Factor.html#power factor calculation"
+                >Power factor calculation</a
+              >
+            </li>
+            <li>
+              <a href="Power_Factor.html#power factor correction"
+                >Power factor correction</a
+              >
+            </li>
+            <li>
+              <a href="../calc/electric/power-factor-calculator.html"
+                >Power factor calculator</a
+              >
+            </li>
+          </ul>
+          <h3><a name="power factor definition"></a>Power factor definition</h3>
+          <p>
+            The power factor is equal to the real or true power P in watts (W)
+            divided by the apparent power |S| in volt-ampere (VA):
+          </p>
+          <p class="math">
+            <i>PF</i> = <i>P</i><sub>(W)</sub><i> </i>/<i> |S</i
+            ><sub>(VA)</sub>|
+          </p>
+          <p><i>PF </i>- power factor.</p>
+          <p><i>P&nbsp;&nbsp; - </i>real power in watts (W).</p>
+          <p>
+            <i>|S|&nbsp;&nbsp; - </i>apparent power - the magnitude of the
+            complex power in volt&sdot;amps (VA).
+          </p>
+          <h3>
+            <a name="power factor calculation"></a>Power factor calculations
+          </h3>
+          <p>
+            For sinusuidal current, the power factor PF is equal to the absolute
+            value of the cosine of the apparent power phase angle
+            <i>&#966; </i>(which is also is impedance phase angle):
+          </p>
+          <p class="math"><i>PF</i> = |cos<i> &#966;|</i></p>
+          <p><i>PF </i>is the power factor.</p>
+          <p><i>&#966;&nbsp;&nbsp; </i>is the apprent power phase angle.</p>
+          <p>&nbsp;</p>
+          <p>
+            The real power P in watts (W) is equal to the apparent power |S| in
+            volt-ampere (VA) times the power factor PF:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(W)</sub> = <i>|S</i><sub>(VA)</sub>| &times;
+            <i>PF</i> = <i>|S</i><sub>(VA)</sub>| &times; |cos <i>&#966;|</i>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            When the circuit has a resistive impedance load, the real power P is
+            equal to the apparent power |S| and the power factor PF is equal to
+            1:
+          </p>
+          <p class="math">
+            <i>PF</i><sub>(resistive load)</sub> = <i>P</i> / <i>|S|</i> = 1
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The reactive power Q in volt-amps reactive (VAR) is equal to the
+            apparent power |S| in volt-ampere (VA) times the sine of the phase
+            angle <i>&#966;</i>:
+          </p>
+          <p class="math">
+            <em>Q</em><sub>(VAR)</sub> = <i>|S</i><sub>(VA)</sub>| &times; |sin
+            <i>&#966;|</i>
+          </p>
+          <p><a name="power factor correction"></a></p>
+          <p>
+            Single phase circuit calculation from real power meter reading P in
+            kilowatts (kW), voltage V in volts (V) and current I in amps (A):
+          </p>
+          <p class="math">
+            <em>PF</em> = |cos <em>&phi;|</em> = 1000 &times; <em>P</em
+            ><sub>(kW)</sub> / (<em>V</em><sub>(V)</sub> &times; <em>I</em
+            ><sub>(A)</sub>)
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Three phase circuit calculation from real power meter reading P in
+            kilowatts (kW), line to line voltage <em> V</em><sub>L-L</sub> in
+            volts (V) and current I in amps (A):
+          </p>
+          <p class="math">
+            <em>PF</em> = |cos<em> &phi;|</em> = 1000 &times; <em>P</em
+            ><sub>(kW)</sub> / (<em><i>&#8730;</i></em
+            ><span style="text-decoration: overline">3</span><em> &times; V</em
+            ><sub>L-L(V)</sub> &times; <em>I</em><sub>(A)</sub>)
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Three phase circuit calculation from real power meter reading P in
+            kilowatts (kW), line to line neutral <em> V</em><sub>L-N</sub> in
+            volts (V) and current I in amps (A):
+          </p>
+          <p class="math">
+            <em>PF</em> = |cos<em> &phi;|</em> = 1000 &times; <em>P</em
+            ><sub>(kW)</sub> / (3<em> &times; V</em><sub>L-N(V)</sub> &times;
+            <em>I</em><sub>(A)</sub>)
+          </p>
+          <h3>Power factor correction</h3>
+          <p>
+            Power factor correction is an adjustment of the electrical circuit
+            in order to change the power factor near 1.
+          </p>
+          <p>
+            Power factor near 1 will reduce the reactive power in the circuit
+            and most of the power in the circuit will be real power. This will
+            also reduce power lines losses.
+          </p>
+          <p>
+            The power factor correction is usually done by adding capacitors to
+            the load circuit, when the circuit has inductive components, like an
+            electric motor.
+          </p>
+          <h4>Power factor correction calculation</h4>
+          <p>
+            The apparent power |S| in volt-amps (VA) is equal to the voltage V
+            in volts (V) times the current I in amps (A):
+          </p>
+          <p class="math">
+            <em>|S</em><sub>(VA)</sub>| = <em>V</em><sub>(V)</sub> &times;
+            <em>I</em><sub>(A)</sub>
+          </p>
+          <p>
+            The reactive power Q in volt-amps reactive (VAR) is equal to the
+            square root of the square of the apparent power |S| in volt-ampere
+            (VA) minus the square of the real power P in watts (W) (pythagorean
+            theorem):
+          </p>
+          <p class="math">
+            <em>Q</em><sub>(VAR)</sub> = &radic;(<i>|S</i><sub>(VA)</sub>|<sup
+              >2</sup
+            >
+            - <i> <em>P</em></i
+            ><sub>(W)</sub><sup>2</sup>)
+          </p>
+          <br />
+          <p class="math">
+            <em>Q</em><sub>c (kVAR)</sub> = <em>Q</em><sub>(kVAR)</sub> -
+            <em>Q</em><sub>corrected (kVAR)</sub>
+          </p>
+          <p>
+            <a name="power factor correction0"></a>The reactive power Q in
+            volt-amps reactive (VAR) is equal to the square of voltage V in
+            volts (V) divided by the reactance Xc:
+          </p>
+          <p class="math">
+            <em>Q</em><sub>c (VAR)</sub> = <i>V</i><sub>(V)</sub><sup>2</sup> /
+            <em>X</em><sub>c</sub> = <i>V</i><sub>(V)</sub><sup>2</sup> / (1 /
+            (2&pi;<em>f</em><sub>(Hz)</sub><em>&times;C</em><sub>(F)</sub>)) =
+            2&pi;<em>f</em><sub>(Hz)</sub><em>&times;C</em><sub>(F)</sub
+            ><i><em>&times;V</em></i
+            ><sub>(V)</sub><sup>2</sup>
+          </p>
+          <p>
+            <a name="power factor correction1"></a>So the power factor
+            correction capacitor in Farad (F) that should be added to the
+            circuit in parallel is equal to the reactive power Q in volt-amps
+            reactive (VAR) divided by 2&pi; times the frequency f in Hertz (Hz)
+            times the squared voltage V in volts (V):
+          </p>
+          <p class="math">
+            <em>C</em><sub>(F)</sub> = <em>Q</em><sub>c (VAR)</sub> / (2&pi;<em
+              >f</em
+            ><sub>(Hz)</sub><em>&middot;</em><i><em>V</em></i
+            ><sub>(V)</sub><sup>2</sup>)
+          </p>
+          <p>&nbsp;</p>
+          <p><a href="electric_power.html">Electric power &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../calc/electric/power-factor-calculator.html"
+                >Power factor calculator</a
+              >
+            </li>
+            <li>
+              <a href="../calc/electric/power-calculator.html"
+                >Power calculator</a
+              >
+            </li>
+            <li>
+              <a href="../calc/electric/Amp_to_kW_Calculator.html"
+                >Amps to kW calculator</a
+              >
+            </li>
+            <li>
+              <a href="../calc/electric/Amp_to_kVA_Calculator.html"
+                >Amps to kVA calculator</a
+              >
+            </li>
+            <li><a href="electric_power.html">Electric power</a></li>
+            <li><a href="efficiency.html">Efficiency</a></li>
+            <li><a href="Current.html">Electrical voltage</a></li>
+            <li><a href="Current.html">Electrical current</a></li>
+            <li><a href="electric_charge.html">Electric charge</a></li>
+            <li><a href="watt.html">Watt</a></li>
+            <li><a href="../convert/power/index.html">Power conversion</a></li>
+            <li><a href="ohms-law.html">Ohm's law</a></li>
+            <li>
+              <a href="../calc/electric/index.html">Electrical calculators</a>
+            </li>
+            <li>
+              <a href="../convert/electric/index.html"
+                >Electrical calculations</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL TERMS</h5>
+        <ul>
+          <li><a href="Voltage.html">Voltage</a></li>
+          <li><a href="Current.html">Current</a></li>
+          <li><a href="Resistance.html">Resistance</a></li>
+          <li><a href="electric_power.html">Electric power</a></li>
+          <li><a href="electric_charge.html">Electric charge</a></li>
+          <li><a href="efficiency.html">Efficiency</a></li>
+          <li><a href="Power_Factor.html">Power factor</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Power_Factor.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

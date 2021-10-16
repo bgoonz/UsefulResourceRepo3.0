@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>GST Calculator</title>
+    <meta
+      content="Goods and services tax (GST) calculator online."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform,
+      #calcform2 {
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+        max-width: 520px;
+      }
+      #calcform button span {
+        font-size: large;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Finance</a>&rsaquo; GST calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>GST Tax Calculator</h1>
+          <p>Goods and services tax (GST) calculator online.</p>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-group row">
+              <label for="Select1" class="col-sm-3 col-form-label"
+                >Country</label
+              >
+              <div class="col-sm-9">
+                <select
+                  id="Select1"
+                  name="Select1"
+                  class="form-control"
+                  onchange="OnCountryChange()"
+                >
+                  <option selected>Australia</option>
+                  <option>Canada</option>
+                  <option>Hong Kong</option>
+                  <option>India</option>
+                  <option>Malaysia</option>
+                  <option>New Zealand</option>
+                  <option>Singapore</option>
+                  <option>- other country -</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Text1" class="col-sm-3 col-form-label"
+                >Initial amount</label
+              >
+              <div class="input-group col-sm-9">
+                <span class="input-group-text" id="cur1">$</span>
+                <input
+                  id="Text1"
+                  name="Text1"
+                  type="text"
+                  class="form-control"
+                />
+                <button
+                  type="button"
+                  class="btn btn-outline-secondary"
+                  onclick="OnClear()"
+                >
+                  <span>&times;</span>
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Text2" class="col-sm-3 col-form-label"
+                >GST Rate</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  id="Text2"
+                  name="Text2"
+                  type="text"
+                  class="form-control"
+                  value="10"
+                />
+                <span class="input-group-text">%</span>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="" class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="input-group col-sm-9">
+                <button
+                  type="button"
+                  title="Add GST"
+                  class="btn btn-success mr-2"
+                  onclick="OnCalcGST(1)"
+                >
+                  <span>+</span> Add GST
+                </button>
+                <button
+                  type="button"
+                  title="Subtract GST"
+                  class="btn btn-secondary"
+                  onclick="OnCalcGST(0)"
+                >
+                  <span>-</span> Remove GST
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Text5" class="col-sm-3 col-form-label"
+                >Net amount</label
+              >
+              <div class="input-group col-sm-9">
+                <span class="input-group-text" id="cur2">$</span>
+                <input
+                  id="Text5"
+                  name="Text5"
+                  type="text"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Text5" class="col-sm-3 col-form-label"
+                >GST amount</label
+              >
+              <div class="input-group col-sm-9">
+                <span class="input-group-text" id="cur3">$</span>
+                <input
+                  id="Text6"
+                  name="Text6"
+                  type="text"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="Text5" class="col-sm-3 col-form-label"
+                >Gross amount</label
+              >
+              <div class="input-group col-sm-9">
+                <span class="input-group-text" id="cur4">$</span>
+                <input
+                  id="Text7"
+                  name="Text7"
+                  type="text"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+            </div>
+          </form>
+          <br />
+          <h2>GST tax calculation</h2>
+          <p class="mathsymbol">GST amount = GST Rate(%) &times; Net amount</p>
+          <p class="mathsymbol">
+            Gross amount = (100% + GST Rate(%)) &times; Net amount
+          </p>
+          <h4>Example</h4>
+          <p>Net amount = 100$<br />GST Rate = 10%</p>
+          <p>GST amount = 10%&times;100$ = 10$</p>
+          <p></p>
+          <p>Gross amount = (100%+10%)&times;100% = 110$</p>
+          <br />
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>FINANCIAL CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="compound-interest-calculator.html"
+              >Compound interest calculator</a
+            >
+          </li>
+          <li>
+            <a href="effective-interest-rate-calculator.html"
+              >Effective interest rate calculator</a
+            >
+          </li>
+          <li><a href="gst-calculator.html">GST calculator</a></li>
+          <li>
+            <a href="simple-interest-calculator.html"
+              >Simple interest calculator</a
+            >
+          </li>
+          <li><a href="vat-calculator.html">VAT calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="gst-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script>
+      function OnClear() {
+        document.getElementById("Text1").value = "";
+        document.getElementById("Text5").value = "";
+        document.getElementById("Text6").value = "";
+        document.getElementById("Text7").value = "";
+      }
+      function OnCountryChange() {
+        gst_look = [10, 5, 5, 18, 6, 15, 7, ""];
+        c_look = ["$", "$", "$", "\u20B9", "RM", "$", "$", ""];
+        i = document.calcform.Select1.selectedIndex;
+        c = c_look[i];
+        document.getElementById("cur1").innerHTML = c;
+        document.getElementById("cur2").innerHTML = c;
+        document.getElementById("cur3").innerHTML = c;
+        document.getElementById("cur4").innerHTML = c;
+        document.getElementById("Text2").value = gst_look[i];
+      }
+      function OnCalcGST(op) {
+        i = document.calcform.Select1.selectedIndex;
+        amount = document.calcform.Text1.value;
+        if (amount == "") amount = "0";
+        amount = parseFloat(amount);
+        gst = document.calcform.Text2.value;
+        if (gst == "") gst = "0";
+        gst = parseFloat(gst);
+        if (op == 1) {
+          net_amount = amount;
+          gst_amount = (amount * gst) / 100;
+          gross_amount = parseFloat(net_amount) + parseFloat(gst_amount);
+        } else {
+          gross_amount = amount;
+          net_amount = (100 * amount) / (100.0 + parseFloat(gst));
+          gst_amount = parseFloat(gross_amount) - parseFloat(net_amount);
+        }
+        net_amount = net_amount.toFixed(2);
+        gst_amount = gst_amount.toFixed(2);
+        gross_amount = gross_amount.toFixed(2);
+        document.calcform.Text5.value = net_amount;
+        document.calcform.Text6.value = gst_amount;
+        document.calcform.Text7.value = gross_amount;
+      }
+    </script>
+  </body>
+</html>

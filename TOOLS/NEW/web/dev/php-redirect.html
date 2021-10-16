@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>PHP redirect to URL</title>
+    <meta
+      content="PHP redirection from page to URL. PHP 301 redirect."
+      name="description"
+    />
+    <style>
+      .code {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Dev</a>&rsaquo; PHP redirect
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>PHP redirect</h1>
+          <p>PHP redirect from page to URL. PHP 301 redirect.</p>
+          <p>
+            This PHP redirection should return HTTP response status code: 301
+            Moved Permanently.
+          </p>
+          <p>
+            Search engines use the 301 response status code to transfer the page
+            rank from the old URL to the new URL.
+          </p>
+          <h2>PHP header redirect</h2>
+          <p>
+            Replace old-page.php code with redirection code to new-page.php.
+          </p>
+          <p class="wcode">old-page.php:</p>
+          <p class="code">
+            &lt;?php<br />
+            // PHP permanent URL redirection<br />
+            header(&quot;Location: http://www.domain.com/new-page.php&quot;,
+            true, 301);<br />
+            exit();<br />
+            ?&gt;
+          </p>
+          <p>The old page must have .php file extension.</p>
+          <p>The new page can be with any extension.</p>
+          <h2>PHP redirect examples</h2>
+          <h3>Example #1</h3>
+          <p class="wcode">php-redirect-test.php</p>
+          <p class="code">
+            &lt;?php<br />// PHP permanent URL redirection test<br />header(&quot;Location:
+            https://www.rapidtables.com/web/dev/php-redirect.html&quot;, true,
+            301);<br />exit();<br />?&gt;
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Press this link to redirect from <em>php-redirect-test.php</em> back
+            to this page:
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a
+              href="redirect/php-redirect-test.php"
+              style="background: #ffffcc; border: 1px #ccc solid; padding: 5px"
+              >PHP redirect test - PHP file</a
+            >
+          </p>
+          <h3>Example #2</h3>
+          <p class="wcode">php-redirect-test.htm</p>
+          <p class="code">
+            &lt;?php<br />// PHP permanent URL redirection test<br />header(&quot;Location:
+            https://www.rapidtables.com/web/dev/php-redirect.html&quot;, true,
+            301);<br />exit();<br />?&gt;
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            PHP redirection from html file
+            <em>php-redirect-test.htm</em> usually will not work because of the
+            .html file extension, unless it is enabled in the
+            <em> .htaccess</em> or <em>httpd.conf</em> file:
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a
+              href="redirect/php-redirect-test.html"
+              style="background: #ffffcc; border: 1px #ccc solid; padding: 5px"
+              >PHP redirect test - HTML file</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            To enable PHP in HTML files add this code to the
+            <em>.htaccess </em> or <em>httpd.conf</em> file:
+          </p>
+          <p class="code">Addtype application/x-httpd-php .htm .html</p>
+          <p>&nbsp;</p>
+          <p><a href="url-redirect.html">URL redirection &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../tools/redirect-generator.html"
+                >PHP redirect generator</a
+              >
+            </li>
+            <li><a href="htaccess-redirect.html">.htaccess redirection</a></li>
+            <li><a href="url-redirect.html">URL redirection</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB DEVELOPMENT</h5>
+        <ul>
+          <li><a href="htaccess-redirect.html">.htaccess redirection</a></li>
+          <li><a href="canonical-url-link.html">Canonical URL link</a></li>
+          <li><a href="html-redirect.html">HTML redirection</a></li>
+          <li><a href="javascript-redirect.html">Javascript redirection</a></li>
+          <li><a href="jquery-redirect.html">jQuery redirection</a></li>
+          <li><a href="php-redirect.html">PHP redirection</a></li>
+          <li>
+            <a href="screen-resolution-statistics.html"
+              >Screen resolution statistics</a
+            >
+          </li>
+          <li><a href="url-redirect.html">URL redirection</a></li>
+          <li><a href="website-traffic-down.html">Website traffic down</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="php-redirect.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

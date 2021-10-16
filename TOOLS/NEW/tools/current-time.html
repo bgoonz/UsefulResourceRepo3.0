@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Current Time Now &#128337;</title>
+    <meta
+      name="description"
+      content="Today's date. Current date. What is the Date Today?"
+    />
+
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/js-datepicker/dist/datepicker.min.css"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 20px;
+        border: 1px solid #ddd;
+        background: #eee8d5;
+      }
+      #box {
+        margin-top: 30px;
+      }
+      #time,
+      #date,
+      #zone,
+      #gcal {
+        text-align: center;
+        font-size: 30px;
+      }
+      #cal {
+        margin: 20px auto;
+        max-width: 340px;
+      }
+      #gcal {
+        margin-top: 210px;
+      }
+      .qs-datepicker-container {
+        margin-left: 50px;
+      }
+      .qs-datepicker-container,
+      .qs-datepicker {
+        box-shadow: unset;
+        -webkit-box-shadow: unset;
+      }
+      @media all and (max-width: 799px) {
+        #date {
+          font-size: 7vw;
+        }
+        #time {
+          font-size: 15vw;
+        }
+        #zone {
+          font-size: 6vw;
+        }
+      }
+      @media all and (min-width: 800px) {
+        #date {
+          font-size: 3vw;
+        }
+        #time {
+          font-size: 6vw;
+        }
+        #zone {
+          font-size: 2vw;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; Current Date Now
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Current Time Now</h1>
+          <p>Current local time and date now with time zone and date picker:</p>
+          <form id="calcform">
+            <div class="form-group">
+              <label>Select locale</label>
+              <div class="input-group">
+                <div
+                  id="lang"
+                  class="btn-group"
+                  role="group"
+                  aria-label="Basic radio toggle button group"
+                ></div>
+              </div>
+            </div>
+            <div id="box">
+              <div id="time"></div>
+              <div id="zone"></div>
+              <div id="date"></div>
+              <div id="cal"></div>
+              <div id="gcal" style="width: 100%; height: 120px"></div>
+            </div>
+          </form>
+          <p>This page includes the following information:</p>
+          <ul>
+            <li>Current time: hours, minutes, seconds.</li>
+            <li>Today's date: day of week, month, day, year.</li>
+            <li>Time zone with location and GMT offset.</li>
+            <li>Date picker of current date.</li>
+            <li>Calendar chart.</li>
+          </ul>
+          <br />
+          <hr />
+          <ul class="seealso">
+            <li><a href="todays-date.html">Today's Date</a></li>
+            <li><a href="alarm-clock.html">Alarm Clock</a></li>
+            <li><a href="calendar.html">Calendar</a></li>
+            <li><a href="timer.html">Countdown Timer</a></li>
+            <li><a href="stopwatch.html">Stopwatch</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ONLINE TOOLS</h5>
+        <ul>
+          <li><a href="alarm-clock.html">Alarm Clock</a></li>
+          <li><a href="bar-graph.html">Bar graph maker</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="camera.html">Camera online</a></li>
+          <li><a href="click-counter.html">Click counter</a></li>
+          <li><a href="timer.html">Countdown Timer</a></li>
+          <li><a href="current-time.html">Current Time</a></li>
+          <li><a href="line-graph.html">Line graph maker</a></li>
+          <li><a href="grocery-list.html">Online grocery list</a></li>
+          <li><a href="mic-test.html">Microphone test</a></li>
+          <li><a href="mirror.html">Online Mirror</a></li>
+          <li><a href="notepad.html">Online Notepad</a></li>
+          <li><a href="notes.html">Online Notes</a></li>
+          <li><a href="password-generator.html">Password generator</a></li>
+          <li><a href="pie-chart.html">Pie chart maker</a></li>
+          <li><a href="scatter-plot.html">Scatter plot maker</a></li>
+          <li><a href="screen-recorder.html">Screen recorder</a></li>
+          <li><a href="screenshot.html">Online screenshot</a></li>
+          <li><a href="speech-to-text.html">Speech to text</a></li>
+          <li><a href="stopwatch.html">Stopwatch</a></li>
+          <li><a href="text-to-speech.html">Text to speech</a></li>
+          <li><a href="todays-date.html">Today's Date</a></li>
+          <li><a href="todo-list.html">To-Do List</a></li>
+          <li><a href="ruler-cm.html">Ruler (cm/mm) online</a></li>
+          <li><a href="ruler-inch.html">Ruler (inch) online</a></li>
+          <li><a href="voice-recorder.html">Voice recorder</a></li>
+          <li><a href="webcam-test.html">Webcam test</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="current-time.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      type="text/javascript"
+      src="https://www.gstatic.com/charts/loader.js"
+    ></script>
+    <script src="https://unpkg.com/js-datepicker"></script>
+    <script>
+      const langbtns = document.getElementById("lang");
+      const dateElem = document.getElementById("date");
+      const timeElem = document.getElementById("time");
+      const zoneElem = document.getElementById("zone");
+      var langs = navigator.languages;
+      var locale = navigator.language;
+
+      window.onload = function () {
+        var myVar = setInterval(function () {
+          myTimer();
+        }, 1000);
+        setLangBtn();
+        setTime();
+        setZone();
+        setPicker();
+        google.charts.load("current", { packages: ["calendar"] });
+        google.charts.setOnLoadCallback(drawChart);
+      };
+      function setLangBtn() {
+        for (var i = 0; i < langs.length; i++) {
+          langbtns.innerHTML +=
+            "<button type='button' class='btn btn-secondary' onclick='setLocale(" +
+            i +
+            ")'>" +
+            langs[i] +
+            "</button>";
+        }
+      }
+      function setZone() {
+        var hours = -(new Date().getTimezoneOffset() / 60);
+        if (hours > 0) hours = "+" + hours;
+        zone.innerHTML =
+          Intl.DateTimeFormat().resolvedOptions().timeZone +
+          " (GMT" +
+          hours +
+          ")";
+      }
+      function setLocale(i) {
+        locale = langs[i];
+        //console.log(langs[i]);
+      }
+      function setPicker() {
+        const picker = datepicker("#cal", {
+          alwaysShow: true,
+          dateSelected: new Date(),
+          defaultView: "calendar",
+        });
+      }
+      function drawChart() {
+        var dataTable = new google.visualization.DataTable();
+        dataTable.addColumn({ type: "date", id: "Date" });
+        dataTable.addColumn({ type: "number", id: "Won/Loss" });
+        dataTable.addRows([
+          [new Date(), 0],
+          [new Date(), 1],
+        ]);
+
+        var chart = new google.visualization.Calendar(
+          document.getElementById("gcal")
+        );
+
+        var win = window,
+          doc = document,
+          docElem = doc.documentElement,
+          body = doc.getElementsByTagName("body")[0],
+          w = win.innerWidth || docElem.clientWidth || body.clientWidth;
+        var size = w > 700 ? 10 : 5;
+        var options = {
+          height: 130,
+          calendar: { cellSize: size },
+        };
+
+        chart.draw(dataTable, options);
+      }
+      function setTime() {
+        var d = new Date();
+        var options = {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        };
+        var date = d.toLocaleDateString(locale, options);
+        //options = { timeZone: 'GMT', timeZoneName: 'short' };
+        var time = d.toLocaleTimeString(locale);
+        dateElem.innerHTML = date;
+        timeElem.innerHTML = time;
+      }
+      function myTimer() {
+        setTime();
+      }
+    </script>
+  </body>
+</html>

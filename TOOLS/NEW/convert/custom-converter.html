@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Custom Unit Converter</title>
+    <meta name="description" content="Custom units conversion online." />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      .adslot_2 {
+        display: none;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #wrapper td {
+        padding: 0.75rem;
+      }
+      #calcform {
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+        max-width: 500px;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      h1:hover {
+        border: #ccc 1px solid;
+      }
+      div label:hover {
+        border: #aaa 1px solid;
+      }
+      /*div span:hover { border:#aaa 1px solid; }*/
+      .input-group-text i {
+        font-family: "Times New Roman", Times, serif;
+        font-weight: bold;
+      }
+      /*.input-group-text i:hover { font-weight:bold; }*/
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html"
+          >Conversion</a
+        >&rsaquo; <a href="custom-converter.html">Custom unit converter</a>
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1 id="title" contenteditable="true">Custom Converter</h1>
+          <form id="calcform" autocomplete="off">
+            <div class="form-group btn-group">
+              <a
+                onclick="OnEdit()"
+                href="custom-converter.html#"
+                class="btn btn-outline-secondary btn-sm"
+                ><img
+                  src="../lib/icons/material/svg/edit_black_18dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Edit</a
+              >
+              <a
+                onclick="OnRun()"
+                href="custom-converter.html#"
+                class="btn btn-outline-secondary btn-sm"
+                ><img
+                  src="../lib/icons/material/svg/play_arrow_black_18dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Run</a
+              >
+            </div>
+            <div class="form-group">
+              <label id="xlabel" name="xlabel" contenteditable="true"
+                >Input parameter (x)</label
+              >
+              <div class="input-group">
+                <input type="text" id="x" name="x" class="form-control" />
+                <div class="input-group-append">
+                  <span
+                    id="xunit"
+                    contenteditable="true"
+                    class="input-group-text"
+                    >unit</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="f">Conversion formula</label>
+              <input type="text" id="f" class="form-control" />
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="calcbtn"
+                title="Convert"
+                onclick="OnCalc()"
+                class="btn btn-success"
+              >
+                <span>=</span> Convert
+              </button>
+              <button
+                type="reset"
+                id="resetbtn"
+                title="Reset"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <label id="ylabel" contenteditable="true"
+                >Output parameter (y)</label
+              >
+              <div class="input-group">
+                <input type="text" id="y" class="form-control" readonly />
+                <div class="input-group-append">
+                  <span
+                    id="yunit"
+                    contenteditable="true"
+                    class="input-group-text"
+                    >unit</span
+                  >
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="calc">Calculation steps</label>
+              <textarea
+                id="calc"
+                rows="3"
+                class="form-control"
+                readonly
+              ></textarea>
+            </div>
+
+            <div class="form-group">
+              <button
+                type="button"
+                onclick="OnBookmark()"
+                class="btn btn-secondary"
+              >
+                <img
+                  src="../lib/icons/material/svg/star_border_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Bookmark
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="url">Share URL</label>
+              <div class="input-group">
+                <input type="text" id="url" class="form-control" readonly />
+                <div class="input-group-append">
+                  <button
+                    type="button"
+                    onclick="OnCopyURL()"
+                    title="Copy"
+                    class="btn btn-secondary input-group-text"
+                  >
+                    <img
+                      src="../lib/icons/material/svg/content_copy_black_24dp.svg"
+                      loading="lazy"
+                      width="24"
+                      height="24"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="link">Link to this converter</label>
+              <div class="input-group">
+                <input type="text" id="link" class="form-control" readonly />
+                <div class="input-group-append">
+                  <button
+                    type="button"
+                    onclick="OnCopyLink()"
+                    title="Copy"
+                    class="btn btn-secondary input-group-text"
+                  >
+                    <img
+                      src="../lib/icons/material/svg/content_copy_black_24dp.svg"
+                      loading="lazy"
+                      width="24"
+                      height="24"
+                      alt=""
+                    />
+                  </button>
+                </div>
+              </div>
+            </div>
+          </form>
+          <h2>How to use the custom unit converter</h2>
+          <ul>
+            <li>Rename the custom converter title.</li>
+            <li>Rename the input parameter (x) label.</li>
+            <li>Rename the input parameter unit.</li>
+            <li>Enter the conversion formula.</li>
+            <li>Rename the output parameter (y) label.</li>
+            <li>Rename the output parameter unit.</li>
+          </ul>
+          <h2>Converter examples</h2>
+          <ul>
+            <li>
+              <a
+                href="custom-converter.html%3Ftitle=Square&#32;feet&#32;to&#32;square&#32;meters&#32;(ft²&#32;to&#32;m²)&#32;converter&amp;xlabel=Square&#32;feet&amp;xunit=ft²&amp;f=x%252F10.76391042&amp;ylabel=Square&#32;meters&amp;yunit=m².html"
+                >Square feet to square meters (ft² to m²) converter</a
+              >
+            </li>
+            <li>
+              <a
+                href="custom-converter.html%3Ftitle=Square&#32;meters&#32;to&#32;square&#32;feet&#32;(m²&#32;to&#32;ft²)&#32;converter&amp;xlabel=Square&#32;meters&amp;xunit=m²&amp;f=x*10.76391042&amp;ylabel=Square&#32;feet&amp;yunit=ft².html"
+                >Square meters to square feet (m² to ft²) converter</a
+              >
+            </li>
+            <li>
+              <a
+                href="custom-converter.html%3Ftitle=Liters&#32;to&#32;gallons&#32;converter&amp;xlabel=Liters&amp;xunit=L&amp;f=x%252F3.785411784&amp;ylabel=Gallons&amp;yunit=gal.html"
+                >Liters to gallons converter</a
+              >
+            </li>
+            <li>
+              <a
+                href="custom-converter.html%3Ftitle=Gallons&#32;to&#32;liters&#32;converter&amp;xlabel=Gallons&amp;xunit=gal&amp;f=x*3.785411784&amp;ylabel=Liters&amp;yunit=L.html"
+                >Gallons to liters converter</a
+              >
+            </li>
+          </ul>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="length/height-converter.html">Height converter</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CONVERTER EXAMPLES</h5>
+        <ul>
+          <li>
+            <a href="https://www.rapidtables.com/convert/bmi-calculator.html"
+              >BMI calculator</a
+            >
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="custom-converter.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="index.html">Converters</a> |
+      <a href="../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script>
+      "use strict"
+      var title = document.getElementById("title");
+      var xelem = document.getElementById("x");
+      var felem = document.getElementById("f");
+      var yelem = document.getElementById("y");
+      var calcelem = document.getElementById("calc");
+      var xlabel = document.getElementById("xlabel");
+      var ylabel = document.getElementById("ylabel");
+      var xunit = document.getElementById("xunit");
+      var yunit = document.getElementById("yunit");
+      var calcbtn = document.getElementById("calcbtn");
+      var resetbtn = document.getElementById("resetbtn");
+      var url = document.getElementById("url");
+      var linkelem = document.getElementById("link");
+      var addindiv = document.getElementById("addindiv");
+      var addoutdiv = document.getElementById("addoutdiv");
+      window.addEventListener("DOMContentLoaded",function() {
+         document.getElementById("calcform").onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+         var params=GetURLParams();
+         if( Object.keys(params).length>0 ) {
+            document.title = decodeURIComponent(params.title);
+            title.innerHTML = decodeURIComponent(params.title);
+            xlabel.innerHTML = decodeURIComponent(params.xlabel);
+            xunit.innerHTML = decodeURIComponent(params.xunit);
+            f.value = decodeURIComponent(params.f);
+            ylabel.innerHTML = decodeURIComponent(params.ylabel);
+            yunit.innerHTML = decodeURIComponent(params.yunit);
+            url.value = window.location.href;
+            linkelem.value = "<a href="https://www.rapidtables.com/convert/\&quot;&quot;+window.location.href+&quot;\&quot;">"+params.title+"</a>";
+            xelem.readOnly = false;
+            f.readOnly = true;
+            title.setAttribute("contenteditable", false);
+            xlabel.setAttribute("contenteditable", false);
+            xunit.setAttribute("contenteditable", false);
+            ylabel.setAttribute("contenteditable", false);
+            yunit.setAttribute("contenteditable", false);
+         }
+         else
+            OnEdit();
+      });
+      function GetURLParams()
+      {
+         var url=window.location.href;
+         var regex = /[?&]([^=#]+)=([^&#]*)/g,
+            //url = "www.domain.com/?v=123&p=hello",
+            params = {},
+            match;
+         while(match = regex.exec(url)) {
+            params[match[1]] = decodeURIComponent(match[2]);
+         }
+         return params;
+      }
+      function OnEdit() {
+         xelem.readOnly = true;
+         f.readOnly = false;
+         calcbtn.disabled = true;
+         resetbtn.disabled = true;
+         title.setAttribute("contenteditable", true);
+         xlabel.setAttribute("contenteditable", true);
+         xunit.setAttribute("contenteditable", true);
+         ylabel.setAttribute("contenteditable", true);
+         yunit.setAttribute("contenteditable", true);
+      }
+      function OnRun() {
+         //var uri="http://localhost/convert/custom-converter.html";
+         var uri="https://www.rapidtables.com/convert/custom-converter.html";
+         uri+="?title="+encodeURIComponent(title.innerHTML);
+         uri+="&xlabel="+encodeURIComponent(xlabel.innerHTML);
+         uri+="&xunit="+encodeURIComponent(xunit.innerHTML);
+         uri+="&f="+encodeURIComponent(f.value);
+         uri+="&ylabel="+encodeURIComponent(ylabel.innerHTML);
+         uri+="&yunit="+encodeURIComponent(yunit.innerHTML);
+         window.location.href = uri;
+      }
+      function str2num(s){
+         return Function('"use strict"; return ('+s+')')();
+      }
+      function OnCalc() {
+         var x=str2num(xelem.value);
+         var f=(felem.value).replace("x",x);
+         //f=f.replace("x",x);
+         yelem.value = str2num(f);
+         x = "("+xelem.value+" "+xunit.innerHTML+")";
+         calcelem.value = felem.value+"\n= "+(felem.value).replace("x",x)+"\n= "+yelem.value+" "+yunit.innerHTML;
+      }
+      function OnBookmark() {
+         alert("Press " + (navigator.userAgent.toLowerCase().indexOf('mac') != -1 ?  'Command/Cmd' : 'CTRL') + "+D to bookmark page.");
+      }
+      function OnCopyURL() {
+         setClipboard(url.value);
+      }
+      function OnCopyLink() {
+         setClipboard(linkelem.value);
+      }
+      function setClipboard(text) {
+         //if( navigator.userAgent.indexOf('Firefox')!=-1 ) {
+         if (typeof ClipboardItem !== "function") {
+            linkelem.focus();
+            linkelem.select();
+            document.execCommand("copy");
+            return;
+         }
+         var type = "text/plain";
+         var blob = new Blob([text], { type });
+         var data = [new ClipboardItem({ [type]: blob })];
+
+         navigator.clipboard.write(data).then(
+            function () {
+            /* success */
+            },
+            function () {
+            }
+         );
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Screen Recorder | Screen Cast Online</title>
+    <meta
+      name="description"
+      content="Screen recorder. Screen capture. Screencast free online downloader app."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #myform {
+        max-width: 600px;
+        padding: 20px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+      }
+      #myform .btn span {
+        vertical-align: middle;
+      }
+      #myform #openfile {
+        display: none;
+      }
+      #myform #recordbtn {
+        padding: 1rem;
+      }
+      /*#myform #savebtn,#myform #savebtn span { color:white; }*/
+      #myform #browserwarndiv {
+        display: none;
+      }
+      #video {
+        border: 1px solid #999;
+        width: 100%;
+        max-width: 860px;
+      }
+      .error {
+        color: red;
+      }
+      .warn {
+        color: orange;
+      }
+      .info {
+        color: darkgreen;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; Screen recorder
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Screen Recorder</h1>
+          <form id="myform">
+            <div
+              id="browserwarndiv"
+              class="alert alert-warning alert-dismissible fade show"
+              role="alert"
+            >
+              Your browser does not support screen recording. Open this page
+              with latest version of Chrome, Firefox or Safari desktop browser!
+              <button
+                type="button"
+                class="close"
+                data-dismiss="alert"
+                aria-label="Close"
+              >
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+
+            <div class="form-check mb-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="screenvideo"
+                checked
+                disabled
+              />
+              <label class="form-check-label" for="screenvideo">
+                Record video from screen
+              </label>
+            </div>
+            <div class="form-check mb-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="screenaudio"
+                checked
+              />
+              <label class="form-check-label" for="screenaudio">
+                Record audio from screen
+              </label>
+            </div>
+
+            <div class="form-group">
+              <button
+                type="button"
+                id="recordbtn"
+                title="Record"
+                class="btn btn-block btn-success btn-lg"
+              >
+                <img
+                  src="../lib/icons/material/svg/photo_camera_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Record
+              </button>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="stopbtn"
+                title="Stop"
+                class="btn btn-block btn-secondary btn-lg"
+              >
+                <img
+                  src="../lib/icons/material/svg/stop_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Stop
+              </button>
+            </div>
+            <video id="video" controls autoplay></video>
+
+            <div class="form-group mt-3">
+              <label for="filename">Enter file name</label>
+              <input
+                type="text"
+                id="filename"
+                placeholder="screen-record"
+                class="form-control"
+              />
+            </div>
+            <div class="form-group mt-3">
+              <button
+                type="button"
+                id="savebtn"
+                title="Save to Downloads folder"
+                class="btn btn-block btn-secondary btn-lg"
+              >
+                <img
+                  src="../lib/icons/material/svg/save_alt_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Save
+              </button>
+            </div>
+          </form>
+          <p>
+            Terms of use: This tool should be used with non-copyrighted content,
+            for personal use only.
+          </p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="voice-recorder.html">Voice recorder</a></li>
+            <li><a href="screenshot.html">Screenshot online</a></li>
+            <li><a href="text-to-speech.html">Text to speech</a></li>
+            <li><a href="mirror.html">Online Mirror</a></li>
+            <li><a href="webcam-test.html">Webcam test</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ONLINE TOOLS</h5>
+        <ul>
+          <li><a href="alarm-clock.html">Alarm Clock</a></li>
+          <li><a href="bar-graph.html">Bar graph maker</a></li>
+          <li><a href="calendar.html">Calendar</a></li>
+          <li><a href="timer.html">Countdown Timer</a></li>
+          <li><a href="current-time.html">Current Time</a></li>
+          <li><a href="line-graph.html">Line graph maker</a></li>
+          <li><a href="../calc/math/calculator.html">Online Calculator</a></li>
+          <li><a href="grocery-list.html">Online grocery list</a></li>
+          <li><a href="notepad.html">Online Notepad</a></li>
+          <li><a href="notes.html">Online Notes</a></li>
+          <li><a href="mirror.html">Online Mirror</a></li>
+          <li><a href="password-generator.html">Password generator</a></li>
+          <li><a href="pie-chart.html">Pie chart maker</a></li>
+          <li><a href="screenshot.html">Online screenshot</a></li>
+          <li><a href="speech-to-text.html">Speech to text</a></li>
+          <li><a href="stopwatch.html">Stopwatch</a></li>
+          <li><a href="text-to-speech.html">Text to speech</a></li>
+          <li><a href="todays-date.html">Today's Date</a></li>
+          <li><a href="todo-list.html">To-Do List</a></li>
+          <li><a href="voice-recorder.html">Voice recorder</a></li>
+          <li><a href="where-am-i.html">Find my location</a></li>
+          <li><a href="webcam-test.html">Webcam test</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="screen-recorder.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../lib/utils/utils.js"></script>
+
+    <script>
+      //$( document ).ready(function() {
+      //window.onload = function() {
+      //const openElem = document.getElementById("openbtn");
+      const filetype1Elem = document.getElementById("filetype1");
+      const filetype2Elem = document.getElementById("filetype2");
+      const fileElem = document.getElementById("openfile");
+      const videoElem = document.getElementById("video");
+      const startElem = document.getElementById("recordbtn");
+      const stopElem = document.getElementById("stopbtn");
+      const saveElem = document.getElementById("savebtn");
+      const screenVideoCheck = document.getElementById("screenvideo");
+      const screenAudioCheck = document.getElementById("screenaudio");
+      const micAudioCheck = document.getElementById("micaudio");
+      const browserWarnDiv = document.getElementById("browserwarndiv");
+      var recordedChunks = [];
+      // Set event listeners for the start and stop buttons
+      //openElem.addEventListener("click", function(evt) {
+      //   fileElem.click();
+      //}, false);
+      //fileElem.addEventListener("change", function(evt) {
+      //   onOpenFile(this);
+      //}, false);
+      startElem.addEventListener(
+        "click",
+        function (evt) {
+          startCapture();
+        },
+        false
+      );
+      stopElem.addEventListener(
+        "click",
+        function (evt) {
+          stopCapture();
+        },
+        false
+      );
+      saveElem.addEventListener(
+        "click",
+        function (evt) {
+          save();
+        },
+        false
+      );
+      //filetype1Elem.onclick=function() { onfiletype(1); };
+      //filetype2Elem.onclick=function() { onfiletype(2); };
+      checkBrowser();
+      //});
+      //};
+      function checkBrowser() {
+        var os = GetOS();
+        if (os == "iOS" || os == "Android")
+          browserWarnDiv.style.display = "block";
+        if (
+          typeof navigator.mediaDevices !== "object" ||
+          typeof navigator.mediaDevices.getDisplayMedia !== "function"
+        )
+          browserWarnDiv.style.display = "block";
+      }
+      function onfiletype(t) {
+        if (t == 1) {
+          //filetype1Elem.checked=true;
+          //filetype2Elem.checked=false;
+          filetype1Elem.setAttribute("checked", "");
+          filetype2Elem.removeAttribute("checked");
+          filetype1Elem.parentElement.classList.add("active");
+          filetype2Elem.parentElement.classList.remove("active");
+        } else {
+          //filetype1Elem.checked=false;
+          //filetype2Elem.checked=true;
+          filetype1Elem.removeAttribute("checked");
+          filetype2Elem.setAttribute("checked", "");
+          filetype1Elem.parentElement.classList.remove("active");
+          filetype2Elem.parentElement.classList.add("active");
+        }
+      }
+      function onOpenFile(obj) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+          videoElem.src = e.target.result;
+          videoElem.type = "video/webm";
+          videoElem.pause();
+          videoElem.currentTime = 0;
+        };
+        reader.readAsDataURL(obj.files[0]);
+      }
+      async function startCapture() {
+        startElem.classList.remove("btn-success");
+        startElem.classList.add("btn-danger");
+        var isScreenAudio = screenAudioCheck.checked;
+        //var isMicAudio=micAudioCheck.checked;
+        const displayMediaOptions = {
+          video: true,
+          audio: isScreenAudio,
+        };
+        let stream = null;
+        try {
+          //if (navigator.mediaDevices.getDisplayMedia === undefined)
+          //   stream = await navigator.getDisplayMedia({ video:true });
+          stream = await navigator.mediaDevices.getDisplayMedia(
+            displayMediaOptions
+          );
+          stream.getVideoTracks()[0].onended = function () {
+            stopCapture();
+          };
+          //if( isMicAudio ) {
+          //   micAudioStream = await navigator.mediaDevices.getUserMedia({ audio:true });
+          //}
+          videoElem.srcObject = stream;
+          videoElem.autoplay = true;
+          videoElem.muted = true;
+
+          recordedChunks = [];
+          //var options = { mimeType: "video/webm; codecs=vp9,vp8,opus" };
+          var options = { mimeType: "video/webm; codecs=vp8" };
+          mediaRecorder = new MediaRecorder(stream, options);
+          mediaRecorder.ondataavailable = handleDataAvailable;
+          mediaRecorder.start();
+        } catch (err) {
+          console.log("Error: " + err);
+        }
+      }
+      function handleDataAvailable(event) {
+        console.log("data-available");
+        if (event.data.size > 0) {
+          //recordedChunks.push(event.data);
+          recordedChunks = [event.data];
+          //console.log(recordedChunks);
+          //download();
+          var blob = new Blob(recordedChunks, { type: "video/webm" });
+          videoElem.src = URL.createObjectURL(blob);
+          videoElem.autoplay = false;
+          videoElem.muted = false;
+        }
+      }
+      function stopCapture() {
+        startElem.classList.remove("btn-danger");
+        startElem.classList.add("btn-success");
+        if (videoElem.srcObject == null) return;
+        let tracks = videoElem.srcObject.getTracks();
+        tracks.forEach((track) => track.stop());
+        videoElem.srcObject = null;
+      }
+      /*
+   function dumpOptionsInfo() {
+      const videoTrack = videoElem.srcObject.getVideoTracks()[0];
+      console.info("Track settings:");
+      console.info(JSON.stringify(videoTrack.getSettings(), null, 2));
+      console.info("Track constraints:");
+      console.info(JSON.stringify(videoTrack.getConstraints(), null, 2));
+   }
+   */
+      function save() {
+        //var filename=saveFileName.value;
+        //if( filename=="" ) filename="screen_record";
+        //filename+=".webm";
+        if (recordedChunks.length == 0) return;
+        //const clipName = prompt('Enter name for your screen recording:','screenclip');
+        //if( clipName==null ) return;
+        var clipName = document.getElementById("filename").value;
+        if (clipName == "") clipName = "screen-record";
+        var blob = new Blob(recordedChunks, {
+          type: "video/webm",
+        });
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        document.body.appendChild(a);
+        a.style = "display: none";
+        a.href = url;
+        //a.download = "test.webm";
+        a.download = clipName + ".webm";
+        a.click();
+        window.URL.revokeObjectURL(url);
+      }
+      /*
+   function ScreenRecorder()
+   {
+   }
+   ScreenRecorder.prototype.start = function(displayMediaOptions)
+   {
+      let captureStream = null;
+      return navigator.mediaDevices.getDisplayMedia(displayMediaOptions)
+         .catch(err => { console.error("Error:" + err); return null; });
+   };
+   ScreenRecorder.prototype.stop = function()
+   {
+      dumpOptionsInfo();
+      let tracks = videoElem.srcObject.getTracks();
+      tracks.forEach(track => track.stop());
+      videoElem.srcObject = null;
+   };
+   ScreenRecorder.prototype.dumpOptionsInfo = function()
+   {
+      const videoTrack = videoElem.srcObject.getVideoTracks()[0];
+      console.info("Track settings:");
+      console.info(JSON.stringify(videoTrack.getSettings(), null, 2));
+      console.info("Track constraints:");
+      console.info(JSON.stringify(videoTrack.getConstraints(), null, 2));
+   };
+   ScreenRecorder.prototype.start = function()
+   {
+   }
+   ScreenRecorder.prototype.start = function()
+   {
+   }
+   */
+    </script>
+  </body>
+</html>

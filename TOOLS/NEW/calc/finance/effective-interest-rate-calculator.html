@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Effective annual interest rate calculator</title>
+    <meta
+      content="Effective annual interest rate or annual equivalent rate calculator."
+      name="description"
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&gt;<a href="../index.html"
+          >Calculators</a
+        >&gt;<a href="index.html">Finance</a>&gt; Effective interest rate
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Effective interest rate calculator</h1>
+          <p>
+            Effective annual interest rate or annual equivalent rate calculator.
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Nominal annual interest rate:</td>
+                <td class="math">
+                  <input
+                    id="Text1"
+                    name="Text1"
+                    type="number"
+                    min="0"
+                    max="100"
+                    step="0.25"
+                    class="intext"
+                    style="width: 120px"
+                    value="4"
+                  />
+                  %
+                </td>
+                <td colspan="2">per year</td>
+              </tr>
+              <tr>
+                <td>Compounding period:</td>
+                <td>
+                  <select
+                    id="Select1"
+                    name="Select1"
+                    onchange="OnPeriodChange()"
+                  >
+                    <option>Days</option>
+                    <option>Weeks</option>
+                    <option selected="selected">Months</option>
+                    <option>Quarters</option>
+                    <option>Other</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Compounding periods per year:</td>
+                <td class="math">
+                  <input
+                    id="Text2"
+                    name="Text2"
+                    type="number"
+                    min="1"
+                    max="365"
+                    class="intext"
+                    style="width: 120px"
+                    value="12"
+                    onchange="OnPeriodNumChange()"
+                  />
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="3">
+                  <input
+                    type="button"
+                    value="Calculate"
+                    style="font-size: medium; width: 120px; padding: 5px"
+                    onclick="OnCalc()"
+                  />
+                  <input
+                    type="reset"
+                    value="Clear"
+                    style="font-size: medium; width: 120px; padding: 5px"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Effective period interest rate:</td>
+                <td class="math">
+                  <input
+                    id="Text6"
+                    name="Text6"
+                    type="text"
+                    class="outtext"
+                    style="width: 120px"
+                    readonly="readonly"
+                  />%
+                </td>
+                <td colspan="2" id="td1" style="width: 70px">per month</td>
+              </tr>
+              <tr>
+                <td>Effective annual interest rate:</td>
+                <td class="math">
+                  <input
+                    id="Text7"
+                    name="Text7"
+                    type="text"
+                    class="outtext"
+                    style="width: 120px"
+                    readonly="readonly"
+                  />%
+                </td>
+                <td colspan="2">per year</td>
+              </tr>
+            </table>
+          </form>
+          <h2>Effective interest rate calculation</h2>
+          <h4>Effective period interest rate calculation</h4>
+          <p>
+            The <em>effective period interest rate</em> is equal to the
+            <em>nominal annual interest rate</em> divided by the number of
+            periods per year <em>n:</em>
+          </p>
+          <p>
+            <em class="math"
+              ><em>Effective Period Rate</em> = Nominal Annual Rate / n</em
+            >
+          </p>
+          <h4>Effective annual interest rate calculation</h4>
+          <p>
+            The effective interest rate is equal to 1 plus the nominal interest
+            rate in percent divided by the number of compounding persiods per
+            year n, to the power of n, minus 1.
+          </p>
+          <p class="math">
+            <em>Effective Rate</em> = (1 + <em>Nominal Rate</em> /
+            <em>n</em>)<sup><em>n</em></sup> - 1
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="effective-interest-rate-calculation.html"
+              >Effective interest rate calculation &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="effective-interest-rate-calculation.html"
+                >Effective interest rate calculation</a
+              >
+            </li>
+            <li>
+              <a href="compound-interest-calculator.html"
+                >Compound interest calculator</a
+              >
+            </li>
+          </ul>
+          <script>
+            function OnPeriodChange() {
+              i = document.getElementById("Select1").selectedIndex;
+              plook = [365, 52, 12, 4];
+              tlook = ["per day", "per week", "per month", "per quarter", ""];
+              document.getElementById("Text2").value = plook[i];
+              document.getElementById("td1").innerHTML = tlook[i];
+            }
+            function OnPeriodNumChange() {
+              nperiod = document.getElementById("Text2").value;
+              txt = "";
+              i = 4;
+              if (nperiod == "365") {
+                txt = "per day";
+                i = 0;
+              }
+              if (nperiod == "52") {
+                txt = "per week";
+                i = 1;
+              }
+              if (nperiod == "12") {
+                txt = "per month";
+                i = 2;
+              }
+              if (nperiod == "4") {
+                txt = "per quarter";
+                i = 3;
+              }
+              document.getElementById("td1").innerHTML = txt;
+              document.getElementById("Select1").selectedIndex = i;
+            }
+            function OnCalc() {
+              i = document.getElementById("Text1").value;
+              n = document.getElementById("Text2").value;
+              i = parseFloat(i) / 100;
+              imonth = (i / n) * 100;
+              iyear = (Math.pow(1 + i / n, n) - 1) * 100;
+              document.getElementById("Text6").value = imonth.toFixed(3);
+              document.getElementById("Text7").value = iyear.toFixed(3);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>FINANCIAL CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="compound-interest-calculator.html"
+              >Compound interest calculator</a
+            >
+          </li>
+          <li>
+            <a href="effective-interest-rate-calculator.html"
+              >Effective interest rate calculator</a
+            >
+          </li>
+          <li><a href="gst-calculator.html">GST calculator</a></li>
+          <li>
+            <a href="simple-interest-calculator.html"
+              >Simple interest calculator</a
+            >
+          </li>
+          <li><a href="vat-calculator.html">VAT calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="effective-interest-rate-calculator.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

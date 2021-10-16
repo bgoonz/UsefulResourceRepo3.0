@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calendar | 2016 Calendar Online</title>
+    <meta name="description" content="Calendar 2016 online" />
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="../lib/jqm/jquery-mobile-datepicker-wrapper/jquery.mobile.datepicker.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../lib/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <style>
+      #date {
+        margin: 5% auto;
+        max-width: 340px;
+      }
+      /*
+	#time, #date { text-align:center; font-size:30px; }
+	@media all and (max-width: 640px) {
+		#date { font-size:15vw; }
+		#time { font-size:12vw; }
+	}
+	@media all and (min-width: 641px) {
+		#date { font-size:8vw; }
+		#time { font-size:6vw; }
+	}
+*/
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
+    <script src="../lib/jqm/jquery-ui/jquery.ui.datepicker.js"></script>
+    <script
+      id="mobile-datepicker"
+      src="../lib/jqm/jquery-mobile-datepicker-wrapper/jquery.mobile.datepicker.js"
+    ></script>
+  </head>
+  <body>
+    <div data-role="page" class="ui-responsive-panel">
+      <div data-role="header" id="header">
+        <a
+          id="barsbtn"
+          href="calendar.html#toc_panel"
+          data-role="button"
+          data-icon="bars"
+          title="Panel"
+          data-iconpos="notext"
+        ></a>
+        <h1>
+          Calendar
+          <script>
+            document.write(new Date().getFullYear());
+          </script>
+        </h1>
+      </div>
+      <div role="main" class="ui-content" id="main">
+        <div id="date">
+          <input type="text" data-role="date" data-inline="true" />
+        </div>
+      </div>
+      <div
+        data-role="panel"
+        data-display="overlay"
+        data-position="left"
+        data-theme="a"
+        data-dismissible="true"
+        data-swipe-close="true"
+        id="toc_panel"
+      >
+        <ul data-role="listview">
+          <li data-icon="delete">
+            <a href="calendar.html#header" data-rel="close">Close panel</a>
+          </li>
+          <li data-icon="home"><a rel="external" href="index.html">Home</a></li>
+          <li data-icon="clock">
+            <a href="alarm-clock.html" data-ajax="false">Alarm Clock</a>
+          </li>
+          <li data-icon="calendar">
+            <a href="calendar.html" data-ajax="false">Calendar</a>
+          </li>
+          <li data-icon="clock">
+            <a href="timer.html" data-ajax="false">Countdown Timer</a>
+          </li>
+          <li data-icon="clock">
+            <a href="current-time.html" data-ajax="false">Current Time</a>
+          </li>
+          <li data-icon="clock">
+            <a href="stopwatch.html" data-ajax="false">Stopwatch</a>
+          </li>
+          <li data-icon="calendar">
+            <a href="todays-date.html" data-ajax="false">Today's Date</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <script>
+      $(document).on("pagecreate", function () {
+        $(":jqmData(role='page')").attr("data-title", document.title);
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Energy cost calculator</title>
+    <meta
+      content="Electrical energy cost calculator and how to calculate."
+      name="description"
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Electrical Calculators</a>&rsaquo; Energy
+        cost calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Energy cost calculator</h1>
+          <p>Electrical energy cost calculator and how to calculate.</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Select country:</td>
+                <td>
+                  <select name="Select1" onchange="OnCountryChange()" autofocus>
+                    <option>Australia</option>
+                    <option>Canada</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                    <option>India</option>
+                    <option>Phillipine</option>
+                    <option>Singapore</option>
+                    <option>United Kingdom</option>
+                    <option selected="selected">United States</option>
+                    <option>Other country</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Typical appliance:</td>
+                <td colspan="2">
+                  <select name="Select4" onchange="OnSetPower()">
+                    <option>-- select --</option>
+                    <option>Air conditioner</option>
+                    <option>Clothes dryer</option>
+                    <option>Clothes iron</option>
+                    <option>Dishwasher</option>
+                    <option>Electric kettle</option>
+                    <option>Fan</option>
+                    <option>Heater</option>
+                    <option>Microwave oven</option>
+                    <option>Desktop computer</option>
+                    <option>Laptop computer</option>
+                    <option>Refrigerator</option>
+                    <option>Stereo receiver</option>
+                    <option>Television</option>
+                    <option>Toaster oven</option>
+                    <option>Vacuum cleaner</option>
+                    <option>Washing machine</option>
+                    <option>Water heater</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Power consumption:</td>
+                <td class="math">
+                  <input
+                    name="Text1"
+                    type="number"
+                    step="any"
+                    min="0"
+                    class="intext"
+                    style="width: 120px"
+                    onblur="OnEnergyCalc()"
+                  />
+                </td>
+                <td>
+                  <select name="Select2" onchange="OnEnergyCalc()">
+                    <option selected="selected">watts (W)</option>
+                    <option>kilowatts (kW)</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Hours of use per day:</td>
+                <td class="math">
+                  <input
+                    name="Text2"
+                    type="number"
+                    step="any"
+                    min="0"
+                    max="24"
+                    class="intext"
+                    style="width: 120px"
+                    onblur="OnEnergyCalc()"
+                  />
+                </td>
+                <td class="mathsymbol">h/day</td>
+              </tr>
+              <tr>
+                <td>Energy consumed per day:</td>
+                <td class="math">
+                  <input
+                    name="Text8"
+                    type="number"
+                    step="any"
+                    min="0"
+                    class="intext"
+                    style="width: 120px"
+                  />
+                </td>
+                <td class="mathsymbol">kWh/day</td>
+              </tr>
+              <tr>
+                <td>1 kilowatt-hour (kWh) cost:</td>
+                <td class="math">
+                  <input
+                    name="Text3"
+                    type="number"
+                    step="any"
+                    min="0"
+                    class="intext"
+                    value="12"
+                    style="width: 120px"
+                  />
+                </td>
+                <td>
+                  <select name="Select3">
+                    <option selected="selected">cent</option>
+                    <option>pence</option>
+                    <option>rupee</option>
+                    <option>peso</option>
+                    <option></option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <input
+                    onclick="OnCalcCost()"
+                    type="button"
+                    value="Calculate"
+                    class="btn"
+                  />
+                  <input
+                    onclick="OnReset()"
+                    type="reset"
+                    value="Reset"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Energy cost per day:</td>
+                <td class="math">
+                  <input
+                    name="Text5"
+                    type="text"
+                    class="outtext"
+                    style="width: 120px"
+                    readonly="readonly"
+                  />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Energy cost per month:</td>
+                <td class="math">
+                  <input
+                    name="Text6"
+                    type="text"
+                    class="outtext"
+                    style="width: 120px"
+                    readonly="readonly"
+                  />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Energy cost per year:</td>
+                <td class="math">
+                  <input
+                    name="Text7"
+                    type="text"
+                    class="outtext"
+                    style="width: 120px"
+                    readonly="readonly"
+                  />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <h2>Energy cost calculation</h2>
+          <h4>Energy consumption calculation</h4>
+          <p>
+            The energy E in kilowatt-hours (kWh) per day is equal to the power P
+            in watts (W) times number of usage hours per day t divided by 1000
+            watts per kilowatt:
+          </p>
+          <p class="math">
+            <em>E</em><sub>(kWh/day)</sub> = <em>P</em><sub>(W)</sub> &times;
+            <em>t</em><sub>(h/day)</sub> / 1000<sub>(W/kW)</sub>
+          </p>
+          <h4>Energy cost calculation</h4>
+          <p>
+            The energy cost per day in dollars is equal to the energy
+            consumption E in kWh per day times the energy cost of 1 kWh in
+            cents/kWh divided by 100 cents per dollar:
+          </p>
+          <p class="math">
+            Cost<sub>($/day)</sub> = <em>E</em><sub>(kWh/day)</sub> &times;
+            Cost<sub>(cent/kWh)</sub> / 100<sub>(cent/$)</sub>
+          </p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="energy-consumption-calculator.html"
+                >Energy consumption calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../electric/how-to-save-energy.html"
+                >How to save energy</a
+              >
+            </li>
+          </ul>
+          <script src="../calc2.js"></script>
+          <script>
+            var c = "$";
+            function OnCountryChange() {
+              i = document.calcform.Select1.selectedIndex;
+              clook = [
+                "$",
+                "$",
+                "\u20AC",
+                "\u20AC",
+                "R",
+                "P",
+                "$",
+                "\u00A3",
+                "$",
+                " ",
+              ];
+              dlook = [0, 0, 0, 0, 2, 3, 0, 1, 0, 4];
+              c = clook[i];
+              document.calcform.Select3.selectedIndex = dlook[i];
+            }
+            function OnSetPower() {
+              look = [
+                600, 3000, 2400, 1600, 2000, 70, 2000, 800, 100, 50, 200, 200,
+                70, 1000, 1600, 2000, 4000,
+              ];
+              i = document.calcform.Select4.selectedIndex;
+              if (i == 0) return;
+              document.calcform.Text1.value = look[i - 1];
+              document.calcform.Select2.selectedIndex = 0;
+            }
+            function OnEnergyCalc() {
+              i2 = document.calcform.Select2.selectedIndex;
+              p = document.calcform.Text1.value;
+              h = document.calcform.Text2.value;
+              if (p == "" || h == "") return;
+              if (i2 == 0) p /= 1000;
+              kwh = p * h;
+              kwh = roundnum(kwh, 5);
+              document.calcform.Text8.value = kwh;
+            }
+            function OnCalcCost() {
+              i3 = document.calcform.Select3.selectedIndex;
+              kwh_cost = document.calcform.Text3.value;
+              kwh = document.calcform.Text8.value;
+              if (kwh == "") OnEnergyCalc();
+              kwh = document.calcform.Text8.value;
+              if (i3 > 1) kwh_cost *= 100;
+              day_cost = (kwh * kwh_cost) / 100;
+              month_cost = day_cost * 30;
+              year_cost = day_cost * 365;
+              day_cost = roundnum(day_cost, 5);
+              month_cost = roundnum(month_cost, 5);
+              year_cost = roundnum(year_cost, 5);
+              document.calcform.Text5.value = c + day_cost;
+              document.calcform.Text6.value = c + month_cost;
+              document.calcform.Text7.value = c + year_cost;
+            }
+            function OnReset() {
+              c = "$";
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATORS</h5>
+        <ul>
+          <li><a href="Amp_to_kW_Calculator.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA_Calculator.html">Amps to kVA</a></li>
+          <li><a href="amps-to-va-calculator.html">Amps to VA</a></li>
+          <li><a href="Amp_to_Volt_Calculator.html">Amps to volts</a></li>
+          <li><a href="Amp_to_Watt_Calculator.html">Amps to watts</a></li>
+          <li><a href="electricity-calculator.html">Electricity bill</a></li>
+          <li>
+            <a href="energy-consumption-calculator.html">Energy consumption</a>
+          </li>
+          <li><a href="energy-cost-calculator.html">Energy cost</a></li>
+          <li><a href="ev-to-volt-calculator.html">eV to volts</a></li>
+          <li><a href="Joule_to_Watt_Calculator.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt_Calculator.html">Joules to volts</a></li>
+          <li><a href="kVA_to_Amp_Calculator.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt-calculator.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw-calculator.html">kVA to kW</a></li>
+          <li><a href="kva-to-va-calculator.html">kVA to VA</a></li>
+          <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+          <li><a href="kw-to-volt-calculator.html">kW to volts</a></li>
+          <li><a href="kW_to_kWh_Calculator.html">kW to kWh</a></li>
+          <li><a href="kw-to-va-calculator.html">kW to VA</a></li>
+          <li><a href="kw-to-kva-calculator.html">kW to kVA</a></li>
+          <li><a href="kWh_to_kW_Calculator.html">kWh to kW</a></li>
+          <li><a href="kwh-to-watt-calculator.html">kWh to watts</a></li>
+          <li><a href="mah-to-wh-calculator.html">mAh to Wh</a></li>
+          <li><a href="ohms-law-calculator.html">Ohm's Law</a></li>
+          <li><a href="power-calculator.html">Power calculator</a></li>
+          <li><a href="power-factor-calculator.html">Power factor</a></li>
+          <li><a href="va-to-amps-calculator.html">VA to amps</a></li>
+          <li><a href="va-to-watt-calculator.html">VA to watts</a></li>
+          <li><a href="va-to-kw-calculator.html">VA to kW</a></li>
+          <li><a href="va-to-kva-calculator.html">VA to kVA</a></li>
+          <li><a href="Voltage_Divider_Calculator.html">Voltage divider</a></li>
+          <li><a href="Volt_to_Amp_Calculator.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Watt_Calculator.html">Volts to watts</a></li>
+          <li><a href="volt-to-kw-calculator.html">Volts to kW</a></li>
+          <li><a href="Volt_to_Joule_Calculator.html">Volts to joules</a></li>
+          <li><a href="volt-to-ev-calculator.html">Volts to eV</a></li>
+          <li>
+            <a href="watt-volt-amp-calculator.html">Watts-volts-amps-ohms</a>
+          </li>
+          <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule_Calculator.html">Watts to joules</a></li>
+          <li><a href="watt-to-kwh-calculator.html">Watts to kWh</a></li>
+          <li><a href="Watt_to_Volt_Calculator.html">Watts to volts</a></li>
+          <li><a href="watt-to-va-calculator.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva-calculator.html">Watts to kVA</a></li>
+          <li><a href="wh-to-mah-calculator.html">Wh to mAh</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="energy-cost-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Log rules | logarithm rules</title>
+    <meta name="description" content="Logarithm rules and properties" />
+    <style>
+      @media all and (max-width: 576px) {
+        .dtable tr th:nth-child(3),
+        .dtable tr td:nth-child(3) {
+          display: none;
+        }
+        #doc p img {
+          max-width: 100%;
+          border: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Algebra</a>&rsaquo; Logarithm
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Logarithm Rules</h1>
+          <p>
+            The <i>base</i> b <i>logarithm</i> of a number is the
+            <i>exponent</i> that we need to raise the <i>base</i> in order to
+            get the number.
+          </p>
+          <ul>
+            <li>
+              <a href="Logarithm.html#log-definition">Logarithm definition</a>
+            </li>
+            <li><a href="Logarithm.html#log-rules">Logarithm rules</a></li>
+            <li><a href="Logarithm.html#problems">Logarithm problems</a></li>
+            <li><a href="Logarithm.html#complex-ln">Complex logarithm</a></li>
+            <li><a href="Logarithm.html#log-graph">Graph of log(x)</a></li>
+            <li><a href="Logarithm.html#log-table">Logarithm table</a></li>
+            <li>
+              <a href="../../calc/math/Log_Calculator.html"
+                >Logarithm calculator</a
+              >
+            </li>
+          </ul>
+          <h2><a id="log-definition"></a>Logarithm definition</h2>
+          <p>When b is raised to the power of y is equal x:</p>
+          <p class="math">
+            <i>b<sup> y</sup></i> = <i>x</i>
+          </p>
+          <p>Then the base b logarithm of x is equal to y:</p>
+          <p class="math">
+            log<i><sub>b</sub></i
+            >(<i>x</i>)<i> = y</i>
+          </p>
+          <p>For example when:</p>
+          <p class="math">2<sup>4</sup> = 16</p>
+          <p>Then</p>
+          <p class="math">log<sub>2</sub>(16) = 4</p>
+          <h2>Logarithm as inverse function of exponential function</h2>
+          <p>The logarithmic function,</p>
+          <p class="math">
+            <i>y </i>= log<i><sub>b</sub></i
+            >(<i>x</i>)
+          </p>
+          <p>is the inverse function of the exponential function,</p>
+          <p class="math">
+            <i>x </i>=<i> b<sup>y</sup></i>
+          </p>
+          <p>
+            So if we calculate the exponential function of the logarithm of x
+            (x&gt;0),
+          </p>
+          <p class="math">
+            <i>f </i>(<i>f </i><sup>-1</sup>(<i>x</i>)) = <i>b</i><sup>log</sup
+            ><i>b</i><sup>(<i>x</i>)</sup> = <i>x</i>
+          </p>
+          <p>
+            Or if we calculate the logarithm of the exponential function of x,
+          </p>
+          <p class="math">
+            <i>f </i><sup>-1</sup>(<i>f </i>(<i>x</i>)) = log<sub><i>b</i></sub
+            >(<i>b<sup>x</sup></i
+            >) = <i>x</i>
+          </p>
+          <h2>Natural logarithm (ln)</h2>
+          <p>
+            <a href="Ln.html">Natural logarithm</a> is a logarithm to the base
+            e:
+          </p>
+          <p class="math">
+            ln(<i>x</i>) = log<i><sub>e</sub></i
+            >(<i>x</i>)
+          </p>
+          <p>
+            When <a href="../number/e_constant.html">e constant</a> is the
+            number:
+          </p>
+          <p>
+            <img
+              src="../number/e_constant/e_definition.gif"
+              width="369"
+              height="54"
+              alt="e=\lim_{x\rightarrow \infty }\left ( 1+\frac{1}{x} \right )^x = 2.718281828459..."
+            />
+          </p>
+          <p>or</p>
+          <p>
+            <img
+              src="../number/e_constant/e_definition2.gif"
+              width="145"
+              height="36"
+              alt="e=\lim_{x\rightarrow 0 }\left ( 1+ \right x)^\frac{1}{x}"
+            />
+          </p>
+          <p>&nbsp;</p>
+          <p>See: <a href="Ln.html">Natural logarithm</a></p>
+          <h2>Inverse logarithm calculation</h2>
+          <p>
+            The inverse logarithm (or anti logarithm) is calculated by raising
+            the base b to the logarithm y:
+          </p>
+          <p class="math">
+            <i>x</i> = log<sup>-1</sup>(<i>y</i>) = <i>b<sup> y</sup></i>
+          </p>
+          <h3>Logarithmic function</h3>
+          <p>The logarithmic function has the basic form of:</p>
+          <p class="math">
+            <i>f </i>(<i>x</i>) = log<i><sub>b</sub></i
+            >(<i>x</i>)
+          </p>
+          <h2><a id="log-rules"></a>Logarithm rules</h2>
+          <table class="dtable">
+            <tr>
+              <th>Rule name</th>
+              <th>Rule</th>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#product-rule"
+                    >Logarithm product rule</a
+                  >
+                </h5>
+              </td>
+              <td class="math">
+                log<i><sub>b</sub></i
+                >(<i>x &#8729; y</i>) = log<i><sub>b</sub></i
+                >(<i>x</i>)<i> + </i>log<i><sub>b</sub></i
+                >(<i>y</i>)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#quotient-rule"
+                    >Logarithm quotient rule</a
+                  >
+                </h5>
+              </td>
+              <td class="math">
+                log<i><sub>b</sub></i
+                >(<i>x / y</i>) = log<i><sub>b</sub></i
+                >(<i>x</i>)<i> - </i>log<i><sub>b</sub></i
+                >(<i>y</i>)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#power-rule">Logarithm power rule</a>
+                </h5>
+              </td>
+              <td class="math">
+                log<i><sub>b</sub></i
+                >(<i>x <sup>y</sup></i
+                >) = <i>y &#8729; </i>log<i><sub>b</sub></i
+                >(<i>x</i>)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#base-switch"
+                    >Logarithm base switch rule</a
+                  >
+                </h5>
+              </td>
+              <td class="math">
+                log<i><sub>b</sub></i
+                >(<i>c</i>) = 1 / log<i><sub>c</sub></i
+                >(<i>b</i>)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="logarithm/Logarithm_Base_Change.html"
+                    >Logarithm base change rule</a
+                  >
+                </h5>
+              </td>
+              <td class="math">
+                log<i><sub>b</sub></i
+                >(<i>x</i>) = log<i><sub>c</sub></i
+                >(<i>x</i>) / log<i><sub>c</sub></i
+                >(<i>b</i>)
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#log-derivative"
+                    >Derivative of logarithm</a
+                  >
+                </h5>
+              </td>
+              <td class="math">
+                <i>f </i>(<i>x</i>) = log<sub><i>b</i></sub
+                >(<i>x</i>)<i> </i>&#8658; <i>f ' </i>(<i>x</i>) = 1 / (<i>
+                  x</i
+                >
+                ln(<i>b</i>) )
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#log-integral"
+                    >Integral of logarithm</a
+                  >
+                </h5>
+              </td>
+              <td class="math">
+                &#8747;<i> </i>log<i><sub>b</sub></i
+                >(<i>x</i>) <i>dx</i> = <i>x &#8729; </i>( log<i><sub>b</sub></i
+                >(<i>x</i>)<i> </i>- 1 / ln(<i>b</i>)<i> </i>) + <i>C</i>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#log-negative"
+                    >Logarithm of negative number</a
+                  >
+                </h5>
+              </td>
+              <td class="math">
+                log<sub><i>b</i></sub
+                >(<i>x</i>)<span style="font-size: 0.8em">
+                  is undefined when</span
+                >
+                <i>x</i>&#8804; 0
+              </td>
+            </tr>
+            <tr>
+              <td rowspan="2">
+                <h5><a href="Logarithm.html#log-0">Logarithm of 0</a></h5>
+              </td>
+              <td class="math">
+                log<sub><i>b</i></sub
+                >(0) <span style="font-size: 0.8em">is undefined</span>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <img
+                  src="logarithm/lim_log_0.gif"
+                  width="176"
+                  height="32"
+                  alt="\lim_{x\to 0^+}\textup{log}_b(x)=-\infty "
+                />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5><a href="Logarithm.html#log-1">Logarithm of 1</a></h5>
+              </td>
+              <td class="math">
+                log<sub><i>b</i></sub
+                >(1) = 0
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#log-b">Logarithm of the base</a>
+                </h5>
+              </td>
+              <td class="math">
+                log<sub><i>b</i></sub
+                >(<i>b</i>) = 1
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <h5>
+                  <a href="Logarithm.html#log-b">Logarithm of infinity</a>
+                </h5>
+              </td>
+              <td class="math">
+                lim log<sub><i>b</i></sub
+                >(<em>x</em>) = <i>&#8734;,</i
+                ><span style="font-size: 0.8em">when</span
+                ><i> x</i>&#8594;&#8734;
+              </td>
+            </tr>
+          </table>
+          <p>
+            See: <a href="logarithm/Logarithm_Rules.html">Logarithm rules</a>
+          </p>
+          <p>&nbsp;</p>
+          <h4><a id="product-rule"></a>Logarithm product rule</h4>
+          <p>
+            The logarithm of the multiplication of x and y is the sum of
+            logarithm of x and logarithm of y.
+          </p>
+          <p class="math">
+            log<i><sub>b</sub></i
+            >(<i>x &#8729; y</i>) = log<i><sub>b</sub></i
+            >(<i>x</i>)<i> + </i>log<i><sub>b</sub></i
+            >(<i>y</i>)
+          </p>
+          <p>For example:</p>
+          <p class="math">
+            log<sub>10</sub>(3<i> &#8729; </i>7) = log<sub>10</sub>(3)<i> + </i
+            >log<sub>10</sub>(7)
+          </p>
+          <h4><a id="quotient-rule"></a>Logarithm quotient rule</h4>
+          <p>
+            The logarithm of the division of x and y is the difference of
+            logarithm of x and logarithm of y.
+          </p>
+          <p class="math">
+            log<i><sub>b</sub></i
+            >(<i>x / y</i>) = log<i><sub>b</sub></i
+            >(<i>x</i>)<i> - </i>log<i><sub>b</sub></i
+            >(<i>y</i>)
+          </p>
+          <p>For example:</p>
+          <p class="math">
+            log<sub>10</sub>(3<i> / </i>7) = log<sub>10</sub>(3)<i> - </i
+            >log<sub>10</sub>(7)
+          </p>
+          <h4><a id="power-rule"></a>Logarithm power rule</h4>
+          <p>
+            The logarithm of x raised to the power of y is y times the logarithm
+            of x.
+          </p>
+          <p class="math">
+            log<i><sub>b</sub></i
+            >(<i>x <sup>y</sup></i
+            >) = <i>y &#8729; </i>log<i><sub>b</sub></i
+            >(<i>x</i>)
+          </p>
+          <p>For example:</p>
+          <p class="math">
+            log<sub>10</sub>(2<sup><span style="font-size: 0.9em">8</span></sup
+            >) = 8<i>&#8729; </i>log<sub>10</sub>(2)
+          </p>
+          <h4><a id="base-switch"></a>Logarithm base switch rule</h4>
+          <p>
+            The base b logarithm of c is 1 divided by the base c logarithm of b.
+          </p>
+          <p class="math">
+            log<i><sub>b</sub></i
+            >(<i>c</i>) = 1 / log<i><sub>c</sub></i
+            >(<i>b</i>)
+          </p>
+          <p>For example:</p>
+          <p class="math">log<sub>2</sub>(8) = 1 / log<sub>8</sub>(2)</p>
+          <h4><a id="base-change"></a>Logarithm base change rule</h4>
+          <p>
+            The base b logarithm of x is base c logarithm of x divided by the
+            base c logarithm of b.
+          </p>
+          <p class="math">
+            log<i><sub>b</sub></i
+            >(<i>x</i>) = log<i><sub>c</sub></i
+            >(<i>x</i>) / log<i><sub>c</sub></i
+            >(<i>b</i>)
+          </p>
+          <p>
+            For example, in order to calculate log<sub>2</sub>(8) in calculator,
+            we need to change the base to 10:
+          </p>
+          <p class="math">
+            log<sub>2</sub>(8) = log<sub>10</sub>(8) / log<sub>10</sub>(2)
+          </p>
+          <p>
+            See:
+            <a href="logarithm/Logarithm_Base_Change.html"
+              >log base change rule</a
+            >
+          </p>
+          <h4><a id="log-negative"></a>Logarithm of negative number</h4>
+          <p>
+            The base b real logarithm of x when x&lt;=0 is undefined when x is
+            negative or equal to zero:
+          </p>
+          <p class="math">
+            log<sub><i>b</i></sub
+            >(<i>x</i>) <span style="font-size: 0.8em">is undefined when</span>
+            <i>x</i> &#8804; 0
+          </p>
+          <p>
+            See:
+            <a href="logarithm/Logarithm_of_Negative_Number.html"
+              >log of negative number</a
+            >
+          </p>
+          <h4><a id="log-2"></a>Logarithm of 0</h4>
+          <p>The base b logarithm of zero is undefined:</p>
+          <p class="math">
+            log<sub><i>b</i></sub
+            >(0) <span style="font-size: 0.8em">is undefined</span>
+          </p>
+          <p>
+            The limit of the base b logarithm of x, when x approaches zero, is
+            minus infinity:
+          </p>
+          <p>
+            <img
+              src="logarithm/lim_log_0.gif"
+              width="176"
+              height="32"
+              alt="\lim_{x\to 0^+}\textup{log}_b(x)=-\infty "
+            />
+          </p>
+          <p>See: <a href="logarithm/Logarithm_of_0.html">log of zero</a></p>
+          <h4><a id="log-1"></a>Logarithm of 1</h4>
+          <p>The base b logarithm of one is zero:</p>
+          <p class="math">
+            log<sub><i>b</i></sub
+            >(1) = 0
+          </p>
+          <p>For example, teh base two logarithm of one is zero:</p>
+          <p class="math">log<sub>2</sub>(1) = 0</p>
+          <p>See: <a href="logarithm/Logarithm_of_1.html">log of one</a></p>
+          <h4><a id="log-infinity"></a>Logarithm of infinity</h4>
+          <p>
+            The limit of the base b logarithm of x, when x approaches infinity,
+            is equal to infinity:
+          </p>
+          <p class="math">
+            lim log<sub><i>b</i></sub
+            >(<i>x</i>) = &#8734;, <span style="font-size: 0.8em">when</span>
+            <i> x</i>&#8594;&#8734;
+          </p>
+          <p>
+            See:
+            <a href="logarithm/Logarithm_of_Infinity.html">log of infinity</a>
+          </p>
+          <h4><a id="log-b"></a>Logarithm of the base</h4>
+          <p>The base b logarithm of b is one:</p>
+          <p class="math">
+            log<sub><i>b</i></sub
+            >(<i>b</i>) = 1
+          </p>
+          <p>For example, the base two logarithm of two is one:</p>
+          <p class="math">log<sub>2</sub>(2) = 1</p>
+          <h4><a id="log-derivative"></a>Logarithm derivative</h4>
+          <p>When</p>
+          <p class="math">
+            <i>f </i>(<i>x</i>) = log<i><sub>b</sub></i
+            >(<i>x</i>)
+          </p>
+          <p>Then the derivative of f(x):</p>
+          <p class="math">
+            <i>f ' </i>(<i>x</i>) = 1 / (<i> x</i> ln(<i>b</i>) )
+          </p>
+          <p>
+            See:
+            <a href="logarithm/Logarithm_Derivative.html">log derivative</a>
+          </p>
+          <h4><a id="log-integral"></a>Logarithm integral</h4>
+          <p>The integral of logarithm of x:</p>
+          <p class="math">
+            &#8747;<i> </i>log<i><sub>b</sub></i
+            >(<i>x</i>) <i>dx</i> = <i>x &#8729; </i>( log<i><sub>b</sub></i
+            >(<i>x</i>)<i> </i>- 1 / ln(<i>b</i>)<i> </i>) + <i>C</i>
+          </p>
+          <p>For example:</p>
+          <p class="math">
+            &#8747;<i> </i>log<sub>2</sub>(<i>x</i>) <i>dx</i> =
+            <i>x &#8729; </i>( log<sub>2</sub>(<i>x</i>)<i> </i>- 1 / ln(2)<i
+            > </i>) + <i>C</i>
+          </p>
+          <h2>Logarithm approximation</h2>
+          <p class="math">
+            log<sub>2</sub>(<i>x</i>) &#8776; <i>n</i> + (<i>x</i>/2<sup
+              ><i>n</i></sup
+            >
+            - 1) ,
+          </p>
+          <h2><a id="complex-ln"></a>Complex logarithm</h2>
+          <p>For complex number z:</p>
+          <p class="math">
+            <i>z = re<sup>i&theta;</sup> = x + iy</i>
+          </p>
+          <p>The complex logarithm will be (n = ...-2,-1,0,1,2,...):</p>
+          <p class="math">
+            Log <i>z = </i>ln(<i>r</i>) + <em>i</em>(<i>&#952;+2n&#960;</i>)<i>
+              = </i
+            >ln(&radic;(<i>x</i><sup>2</sup>+<i>y</i><sup>2</sup>)) +
+            <em>i</em>&middot;arctan(<i>y/x</i>))
+          </p>
+          <h2><a id="problems"></a>Logarithm problems and answers</h2>
+          <h4>Problem #1</h4>
+          <p>Find x for</p>
+          <p class="math">
+            log<sub>2</sub>(<i>x</i>) + log<sub>2</sub>(<i>x</i>-3) = 2
+          </p>
+          <h5>Solution:</h5>
+          <p>Using the product rule:</p>
+          <p class="math">log<sub>2</sub>(<i>x&#8729;</i>(<i>x</i>-3)) = 2</p>
+          <p>
+            Changing the logarithm form according to the logarithm definition:
+          </p>
+          <p class="math"><i>x&#8729;</i>(<i>x</i>-3) = 2<sup>2</sup></p>
+          <p>Or</p>
+          <p class="math"><i>x</i><sup>2</sup>-3<i>x</i>-4 = 0</p>
+          <p>Solving the quadratic equation:</p>
+          <p class="math">
+            <i>x</i><sub>1,2</sub> = [3&plusmn;&#8730;(9+16) ] / 2 =
+            [3&plusmn;5] / 2 = 4,-1
+          </p>
+          <p>
+            Since the logarithm is not defined for negative numbers, the answer
+            is:
+          </p>
+          <p class="math"><i>x</i> = 4</p>
+          <h4>Problem #2</h4>
+          <p>Find x for</p>
+          <p class="math">
+            log<sub>3</sub>(<i>x</i>+2) - log<sub>3</sub>(<i>x</i>) = 2
+          </p>
+          <h5>Solution:</h5>
+          <p>Using the quotient rule:</p>
+          <p class="math">log<sub>3</sub>((<i>x</i>+2) /<i> x</i>) = 2</p>
+          <p>
+            Changing the logarithm form according to the logarithm definition:
+          </p>
+          <p class="math">(<i>x</i>+2)/<i>x</i> = 3<sup>2</sup></p>
+          <p>Or</p>
+          <p class="math"><i>x</i>+2 = 9<i>x</i></p>
+          <p>Or</p>
+          <p class="math">8<i>x</i> = 2</p>
+          <p>Or</p>
+          <p class="math"><i>x</i> = 0.25</p>
+          <h2>Graph of log(x)</h2>
+          <p>log(x) is not defined for real non positive values of x:</p>
+          <p>
+            <a id="log-graph">
+              <img
+                src="logarithm/log-graph.png"
+                width="460"
+                height="371"
+                id="graph"
+                alt=""
+            /></a>
+          </p>
+          <h2><a id="log-table"></a>Logarithms table</h2>
+          <table class="ntable">
+            <tr>
+              <th class="mathsymbol"><i>x</i></th>
+              <th class="mathsymbol">
+                log<sub><span style="font-size: 0.8em">10</span></sub
+                ><i>x</i>
+              </th>
+              <th class="mathsymbol">
+                log<sub><span style="font-size: 0.8em">2</span></sub
+                ><i>x</i>
+              </th>
+              <th class="mathsymbol">
+                log<sub
+                  ><span style="font-size: 0.8em"><i>e</i></span></sub
+                ><i>x</i>
+              </th>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>undefined</td>
+              <td>undefined</td>
+              <td>undefined</td>
+            </tr>
+            <tr>
+              <td>0<sup>+</sup></td>
+              <td class="mathsymbol">- &#8734;</td>
+              <td class="mathsymbol">- &#8734;</td>
+              <td class="mathsymbol">- &#8734;</td>
+            </tr>
+            <tr>
+              <td>0.0001</td>
+              <td>-4</td>
+              <td>-13.287712</td>
+              <td>-9.210340</td>
+            </tr>
+            <tr>
+              <td>0.001</td>
+              <td>-3</td>
+              <td>-9.965784</td>
+              <td>-6.907755</td>
+            </tr>
+            <tr>
+              <td>0.01</td>
+              <td>-2</td>
+              <td>-6.643856</td>
+              <td>-4.605170</td>
+            </tr>
+            <tr>
+              <td>0.1</td>
+              <td>-1</td>
+              <td>-3.321928</td>
+              <td>-2.302585</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>0</td>
+              <td>0</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>0.301030</td>
+              <td>1</td>
+              <td>0.693147</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>0.477121</td>
+              <td>1.584963</td>
+              <td>1.098612</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>0.602060</td>
+              <td>2</td>
+              <td>1.386294</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>0.698970</td>
+              <td>2.321928</td>
+              <td>1.609438</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>0.778151</td>
+              <td>2.584963</td>
+              <td>1.791759</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>0.845098</td>
+              <td>2.807355</td>
+              <td>1.945910</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>0.903090</td>
+              <td>3</td>
+              <td>2.079442</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>0.954243</td>
+              <td>3.169925</td>
+              <td>2.197225</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>1</td>
+              <td>3.321928</td>
+              <td>2.302585</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>1.301030</td>
+              <td>4.321928</td>
+              <td>2.995732</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>1.477121</td>
+              <td>4.906891</td>
+              <td>3.401197</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>1.602060</td>
+              <td>5.321928</td>
+              <td>3.688879</td>
+            </tr>
+            <tr>
+              <td>50</td>
+              <td>1.698970</td>
+              <td>5.643856</td>
+              <td>3.912023</td>
+            </tr>
+            <tr>
+              <td>60</td>
+              <td>1.778151</td>
+              <td>5.906991</td>
+              <td>4.094345</td>
+            </tr>
+            <tr>
+              <td>70</td>
+              <td>1.845098</td>
+              <td>6.129283</td>
+              <td>4.248495</td>
+            </tr>
+            <tr>
+              <td>80</td>
+              <td>1.903090</td>
+              <td>6.321928</td>
+              <td>4.382027</td>
+            </tr>
+            <tr>
+              <td>90</td>
+              <td>1.954243</td>
+              <td>6.491853</td>
+              <td>4.499810</td>
+            </tr>
+            <tr>
+              <td>100</td>
+              <td>2</td>
+              <td>6.643856</td>
+              <td>4.605170</td>
+            </tr>
+            <tr>
+              <td>200</td>
+              <td>2.301030</td>
+              <td>7.643856</td>
+              <td>5.298317</td>
+            </tr>
+            <tr>
+              <td>300</td>
+              <td>2.477121</td>
+              <td>8.228819</td>
+              <td>5.703782</td>
+            </tr>
+            <tr>
+              <td>400</td>
+              <td>2.602060</td>
+              <td>8.643856</td>
+              <td>5.991465</td>
+            </tr>
+            <tr>
+              <td>500</td>
+              <td>2.698970</td>
+              <td>8.965784</td>
+              <td>6.214608</td>
+            </tr>
+            <tr>
+              <td>600</td>
+              <td>2.778151</td>
+              <td>9.228819</td>
+              <td>6.396930</td>
+            </tr>
+            <tr>
+              <td>700</td>
+              <td>2.845098</td>
+              <td>9.451211</td>
+              <td>6.551080</td>
+            </tr>
+            <tr>
+              <td>800</td>
+              <td>2.903090</td>
+              <td>9.643856</td>
+              <td>6.684612</td>
+            </tr>
+            <tr>
+              <td>900</td>
+              <td>2.954243</td>
+              <td>9.813781</td>
+              <td>6.802395</td>
+            </tr>
+            <tr>
+              <td>1000</td>
+              <td>3</td>
+              <td>9.965784</td>
+              <td>6.907755</td>
+            </tr>
+            <tr>
+              <td>10000</td>
+              <td>4</td>
+              <td>13.287712</td>
+              <td>9.210340</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../../calc/math/Log_Calculator.html"
+              >Logarithm calculator &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="logarithm/Logarithm_Rules.html">Logarithm rules</a>
+            </li>
+            <li>
+              <a href="logarithm/Logarithm_Base_Change.html"
+                >Logarithm change of base</a
+              >
+            </li>
+            <li>
+              <a href="logarithm/Logarithm_of_0.html">Logarithm of zero</a>
+            </li>
+            <li>
+              <a href="logarithm/Logarithm_of_1.html">Logarithm of one</a>
+            </li>
+            <li>
+              <a href="logarithm/Logarithm_of_Infinity.html"
+                >Logarithm of infinity</a
+              >
+            </li>
+            <li>
+              <a href="logarithm/Logarithm_of_Negative_Number.html"
+                >Logarithm of negative number</a
+              >
+            </li>
+            <li>
+              <a href="../../calc/math/Log_Calculator.html"
+                >Logarithm calculator</a
+              >
+            </li>
+            <li>
+              <a href="logarithm/logarithm-graph.html">Logarithm graph</a>
+            </li>
+            <li>
+              <a href="logarithm/Logarithm_Table.html">Logarithm table</a>
+            </li>
+            <li>
+              <a href="../../calc/math/Ln_Calc.html"
+                >Natural logarithm calculator</a
+              >
+            </li>
+            <li><a href="Ln.html">Natural logarithm - ln x</a></li>
+            <li><a href="../number/e_constant.html">e constant</a></li>
+            <li><a href="../../electric/decibel.html">Decibel (dB)</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ALGEBRA</h5>
+        <ul>
+          <li><a href="Factorial.html">Factorial</a></li>
+          <li><a href="Logarithm.html">Logarithm</a></li>
+          <li><a href="Ln.html">Natural Logarithm</a></li>
+          <li><a href="Quadratic_equation.html">Quadratic equation</a></li>
+          <li><a href="../symbols/Algebra_Symbols.html">Algebra symbols</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Logarithm.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Volt-amps (VA) to amps (A) conversion calculator</title>
+    <meta
+      name="description"
+      content="Volt-amps (VA) to amps (A) conversion calculator and how to calculate."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&gt;<a href="../index.html"
+          >Calculators</a
+        >&gt;<a href="index.html">Electrical Calculators</a>&gt; VA to amps
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>VA to amps calculator</h1>
+          <p>
+            Volt-amps (VA) to
+            <a href="../../electric/ampere.html">amps (A)</a> calculator and how
+            to calculate.
+          </p>
+          <p>
+            Enter phase number, the apparent power in volt-amps,
+            <a href="../../electric/Voltage.html">voltage</a> in
+            <a href="../../electric/volt.html">volts</a> and press the
+            <i>Calculate</i> button,
+          </p>
+          <p>
+            to get the <a href="../../electric/Current.html">current</a> in
+            amps:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td>Enter phase #:</td>
+                  <td>
+                    <select name="phase" autofocus>
+                      <option>Single phase</option>
+                      <option>Three phase</option>
+                    </select>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Enter volt-amps:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x1"
+                      class="intext"
+                    />
+                  </td>
+                  <td class="mathsymbol">VA</td>
+                </tr>
+                <tr>
+                  <td>Enter line to line volts:</td>
+                  <td class="math">
+                    <input type="number" step="any" name="x2" class="intext" />
+                  </td>
+                  <td class="mathsymbol">V</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <input
+                      onclick="calc3()"
+                      type="button"
+                      value="Calculate"
+                      class="btn"
+                    />
+                    <input
+                      onclick="setfocus()"
+                      type="reset"
+                      value="Reset"
+                      class="btn"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Result in amps:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="y"
+                      class="outtext"
+                      readonly="readonly"
+                    />
+                  </td>
+                  <td class="mathsymbol">A</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>
+            <a href="amps-to-va-calculator.html"
+              >Amps to VA calculator &#9658;</a
+            >
+          </p>
+          <h2>Single phase VA to amps calculation formula</h2>
+          <p>
+            The current I in amps is equal to the apparent power S in volt-amps,
+            divided by the voltage V in volts:
+          </p>
+          <p class="math">
+            <i>I</i><sub>(A)</sub> = <i>S</i><sub>(VA)</sub><i> </i>/ <i>V</i
+            ><sub>(V)</sub>
+          </p>
+          <h2>3 phase kVA to amps calculation formula</h2>
+          <p>
+            The current I in amps is equal to 1000 times the apparent power S in
+            volt-amps, divided by the square root of 3 times the line to line
+            voltage V<sub><span style="font-size: 0.8em">L-L</span></sub> in
+            volts:
+          </p>
+          <p class="math">
+            <i>I</i><sub>(A)</sub> = <i>S</i><sub>(VA)</sub><i> </i>/ (<i
+              >&#8730;</i
+            ><span style="text-decoration: overline">3</span> &times; <i>V</i
+            ><sub><span style="font-size: 0.8em">L-L</span>(V)</sub><i> </i>) =
+            <i>S</i><sub>(VA)</sub><i> </i>/ (3 &times; <i>V</i
+            ><sub><span style="font-size: 0.8em">L-N</span>(V)</sub><i> </i>)
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../../convert/electric/va-to-amp.html"
+              >VA to amps calculation &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../convert/electric/va-to-amp.html"
+                >How to convert VA to amps</a
+              >
+            </li>
+            <li>
+              <a href="amps-to-va-calculator.html">Amps to VA calculator</a>
+            </li>
+            <li>
+              <a href="Amp_to_kVA_Calculator.html">Amps to kVA calculator</a>
+            </li>
+            <li><a href="../../electric/ampere.html">Amp</a></li>
+            <li><a href="../../electric/volt.html">Volt</a></li>
+            <li><a href="../../electric/watt.html">Watt</a></li>
+            <li><a href="index.html">Electrical Calculators</a></li>
+            <li>
+              <a href="../../convert/electric/index.html"
+                >Electrical calculations</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/power/index.html">Power conversion</a>
+            </li>
+          </ul>
+          <script src="../../convert/convert.js"></script>
+          <script>
+            function convert(x1, x2) {
+              var iphase = document.calcform.phase.selectedIndex;
+              var amps = x1 / x2;
+              if (iphase == 1) amps /= Math.sqrt(3);
+              return amps;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATORS</h5>
+        <ul>
+          <li><a href="Amp_to_kW_Calculator.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA_Calculator.html">Amps to kVA</a></li>
+          <li><a href="amps-to-va-calculator.html">Amps to VA</a></li>
+          <li><a href="Amp_to_Volt_Calculator.html">Amps to volts</a></li>
+          <li><a href="Amp_to_Watt_Calculator.html">Amps to watts</a></li>
+          <li><a href="electricity-calculator.html">Electricity bill</a></li>
+          <li>
+            <a href="energy-consumption-calculator.html">Energy consumption</a>
+          </li>
+          <li><a href="energy-cost-calculator.html">Energy cost</a></li>
+          <li><a href="ev-to-volt-calculator.html">eV to volts</a></li>
+          <li><a href="Joule_to_Watt_Calculator.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt_Calculator.html">Joules to volts</a></li>
+          <li><a href="kVA_to_Amp_Calculator.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt-calculator.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw-calculator.html">kVA to kW</a></li>
+          <li><a href="kva-to-va-calculator.html">kVA to VA</a></li>
+          <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+          <li><a href="kw-to-volt-calculator.html">kW to volts</a></li>
+          <li><a href="kW_to_kWh_Calculator.html">kW to kWh</a></li>
+          <li><a href="kw-to-va-calculator.html">kW to VA</a></li>
+          <li><a href="kw-to-kva-calculator.html">kW to kVA</a></li>
+          <li><a href="kWh_to_kW_Calculator.html">kWh to kW</a></li>
+          <li><a href="kwh-to-watt-calculator.html">kWh to watts</a></li>
+          <li><a href="ohms-law-calculator.html">Ohm's Law</a></li>
+          <li><a href="power-calculator.html">Power calculator</a></li>
+          <li><a href="power-factor-calculator.html">Power factor</a></li>
+          <li><a href="va-to-amps-calculator.html">VA to amps</a></li>
+          <li><a href="va-to-watt-calculator.html">VA to watts</a></li>
+          <li><a href="va-to-kw-calculator.html">VA to kW</a></li>
+          <li><a href="va-to-kva-calculator.html">VA to kVA</a></li>
+          <li><a href="Voltage_Divider_Calculator.html">Voltage divider</a></li>
+          <li><a href="Volt_to_Amp_Calculator.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Watt_Calculator.html">Volts to watts</a></li>
+          <li><a href="volt-to-kw-calculator.html">Volts to kW</a></li>
+          <li><a href="Volt_to_Joule_Calculator.html">Volts to joules</a></li>
+          <li><a href="volt-to-ev-calculator.html">Volts to eV</a></li>
+          <li>
+            <a href="watt-volt-amp-calculator.html">Watts-volts-amps-ohms</a>
+          </li>
+          <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule_Calculator.html">Watts to joules</a></li>
+          <li><a href="watt-to-kwh-calculator.html">Watts to kWh</a></li>
+          <li><a href="Watt_to_Volt_Calculator.html">Watts to volts</a></li>
+          <li><a href="watt-to-va-calculator.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva-calculator.html">Watts to kVA</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="va-to-amps-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

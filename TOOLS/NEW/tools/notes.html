@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Notes Taking App Online</title>
+    <link
+      rel="stylesheet"
+      href="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../lib/favicon.ico" />
+    <meta
+      name="description"
+      content="Notes taking app online. Free no login required."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <style>
+      #area {
+        border: 0 none;
+      }
+      .notes {
+        background-image: -webkit-linear-gradient(
+          #fdf8c8,
+          #fdf8c8 30px,
+          #ccc 30px,
+          #ccc 31px,
+          #fdf8c8 31px
+        );
+        background-image: -moz-linear-gradient(
+          #fdf8c8,
+          #fdf8c8 30px,
+          #ccc 30px,
+          #ccc 31px,
+          #fdf8c8 31px
+        );
+        background-image: -ms-linear-gradient(
+          #fdf8c8,
+          #fdf8c8 30px,
+          #ccc 30px,
+          #ccc 31px,
+          #fdf8c8 31px
+        );
+        background-image: -o-linear-gradient(
+          #fdf8c8,
+          #fdf8c8 30px,
+          #ccc 30px,
+          #ccc 31px,
+          #fdf8c8 31px
+        );
+        background-image: linear-gradient(
+          #fdf8c8,
+          #fdf8c8 30px,
+          #ccc 30px,
+          #ccc 31px,
+          #fdf8c8 31px
+        );
+        background-size: 100% 31px;
+        border: 1px solid #ccc;
+        border-radius: 8px;
+        box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+        line-height: 31px !important;
+        font-family: Arial, Helvetica, Sans-serif;
+        padding: 8px;
+        width: 100%;
+      }
+      #page2 {
+        background: #eee !important;
+      }
+      #header1,
+      #header2 {
+        background: #633c00;
+      }
+      #header1,
+      #header2 h1 {
+        color: #fff;
+      }
+      #main1 ul a {
+        background: #fdf8c8;
+      }
+      #main1 ul a:hover {
+        background: #f4efbf;
+      }
+      @media all and (min-width: 577px) {
+        #main1 {
+          max-width: 50%;
+          margin: 0 auto;
+        }
+      }
+      @media all and (max-width: 449px) {
+        #main2 {
+          padding: 0;
+        }
+      }
+      .ui-focus {
+        -moz-box-shadow: none !important;
+        -webkit-box-shadow: none !important;
+        box-shadow: none !important;
+      }
+      #footer {
+        text-align: center;
+        position: absolute;
+        bottom: -120px;
+        left: 0;
+        width: 100%;
+      }
+
+      /*body { overflow:hidden; }*/
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquerymobile/1.4.5/jquery.mobile.min.js"></script>
+  </head>
+  <body>
+    <div data-role="page" id="page1">
+      <div data-role="header" id="header1" data-position="fixed">
+        <a
+          id="barsbtn"
+          href="notes.html#toc_panel"
+          data-role="button"
+          data-icon="bars"
+          title="Panel"
+          data-iconpos="notext"
+        ></a>
+        <h1>Notes</h1>
+        <a
+          id="shortbtn"
+          href="notes.html#"
+          data-role="button"
+          data-inline="true"
+          data-icon="plus"
+          title="Add to Desktop"
+          data-iconpos="notext"
+        ></a>
+        <div
+          id="short_div"
+          data-role="popup"
+          data-arrow="true"
+          class="ui-content"
+        ></div>
+      </div>
+      <div role="main" class="ui-content" id="main1">
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a
+            href="notes.html#"
+            id="addbtn1"
+            class="ui-btn ui-btn-icon-left ui-corner-all ui-icon-plus"
+            >Add</a
+          >
+        </div>
+
+        <ul data-role="listview" data-inset="true" id="list"></ul>
+      </div>
+      <div data-role="footer" id="footer">
+        <p>
+          <a data-role="button" href="../about/about.html" rel="nofollow"
+            >About</a
+          >
+          <a data-role="button" href="../about/terms.html" rel="nofollow"
+            >Terms of Use</a
+          >
+          <a data-role="button" href="../about/privacy.html" rel="nofollow"
+            >Privacy Policy</a
+          >
+        </p>
+        <p>
+          Copyright &copy;
+          <a data-role="button" href="../index.html">RapidTables.com</a>
+        </p>
+      </div>
+      <div
+        data-role="panel"
+        data-display="overlay"
+        data-theme="a"
+        data-dismissible="true"
+        data-swipe-close="true"
+        id="toc_panel"
+      >
+        <ul data-role="listview">
+          <li data-icon="delete">
+            <a href="notes.html#header" data-rel="close">Close panel</a>
+          </li>
+          <li data-icon="home"><a href="index.html" rel="external">Home</a></li>
+          <li data-icon="clock">
+            <a href="alarm-clock.html" data-ajax="false">Alarm Clock</a>
+          </li>
+          <li data-icon="edit">
+            <a href="bar-graph.html" rel="external">Bar graph maker</a>
+          </li>
+          <li data-icon="calendar">
+            <a href="calendar.html" data-ajax="false">Calendar</a>
+          </li>
+          <li data-icon="clock">
+            <a href="timer.html" data-ajax="false">Countdown Timer</a>
+          </li>
+          <li data-icon="clock">
+            <a href="current-time.html" data-ajax="false">Current Time</a>
+          </li>
+          <li data-icon="edit">
+            <a href="line-graph.html" rel="external">Line graph maker</a>
+          </li>
+          <li data-icon="bullets">
+            <a href="grocery-list.html" data-ajax="false"
+              >Online grocery list</a
+            >
+          </li>
+          <li data-icon="edit">
+            <a href="notepad.html" rel="external">Online Notepad</a>
+          </li>
+          <li data-icon="edit">
+            <a href="pie-chart.html" rel="external">Pie chart maker</a>
+          </li>
+          <li data-icon="clock">
+            <a href="stopwatch.html" data-ajax="false">Stopwatch</a>
+          </li>
+          <li data-icon="edit">
+            <a href="todo-list.html" data-ajax="false">To-Do List</a>
+          </li>
+          <li data-icon="calendar">
+            <a href="todays-date.html" data-ajax="false">Today's Date</a>
+          </li>
+          <li data-icon="location">
+            <a href="where-am-i.html" rel="external">Find my location</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="page" id="page2">
+      <div data-role="header" id="header2" data-position="fixed">
+        <a
+          id="back"
+          href="notes.html#page1"
+          title="Notes list"
+          data-icon="carat-l"
+          data-iconpos="notext"
+          data-transition="slide"
+          data-direction="reverse"
+        ></a>
+        <h1>Notes</h1>
+
+        <div
+          id="short_div"
+          data-role="popup"
+          data-arrow="true"
+          class="ui-content"
+        ></div>
+      </div>
+      <div role="main" class="ui-content" id="main2">
+        <textarea id="area" autofocus class="notes"></textarea>
+
+        <div data-role="controlgroup" data-type="horizontal" data-mini="true">
+          <a
+            href="notes.html#"
+            id="prevbtn"
+            class="ui-btn ui-btn-icon-left ui-corner-all ui-icon-carat-l"
+            >Prev</a
+          >
+          <a
+            href="notes.html#"
+            id="addbtn2"
+            class="ui-btn ui-btn-icon-left ui-corner-all ui-icon-plus"
+            >Add</a
+          >
+          <a
+            href="notes.html#"
+            id="delbtn"
+            class="ui-btn ui-btn-icon-left ui-corner-all ui-icon-delete"
+            >Delete</a
+          >
+          <a
+            href="notes.html#"
+            id="nextbtn"
+            class="ui-btn ui-btn-icon-right ui-corner-all ui-icon-carat-r"
+            >Next</a
+          >
+        </div>
+      </div>
+    </div>
+    <script src="../lib/utils/utils.js" defer></script>
+    <script>
+      var notes=[];
+      var pos=0;
+      var init=false;
+
+      //$(document).on('pagecreate', '#page1', function()
+      $(document).on("pagecreate", function()
+      {
+      	// to prevent 1 call for page1 and 1 call for page2
+      	if( init ) return;
+      	init=true;
+
+      	$(":jqmData(role='page')").attr("data-title", document.title);
+
+          $("#shortbtn").click(function(e){
+      		ShortBtn();
+          });
+
+          /*
+          $("#area").textinput( "option", "autogrow", false );
+      	$("#area").change(function() {
+      		var h=$(window).height();
+      		//alert(h);
+      		//$("#main2").height(h-50);
+      		//$("#area").height(h-50);
+      		$("#main2").css({'height':h+"px"});
+      		$("#area").css({'height':h+"px"});
+      	});
+      	*/
+      	$(window).on('resize', function() {
+      		SetAreaHeight();
+      	});
+      	SetAreaHeight();
+
+      	/*
+      	var Note = function(name, txt) {
+      		var name;
+      		var txt;
+
+      		//public api
+      		this.name = name;
+      		this.txt = txt;
+      	};
+      	*/
+          $("#back").click(function(){
+      		UpdateNote(pos);
+      		pos=null;
+          });
+      	$("#undobtn").click(function() {
+      		$("#area").focus();
+      	});
+      	$("#redobtn").click(function() {
+      		$("#area").focus();
+      	});
+      	$("#prevbtn").click(function() {
+      		if( pos!=0 ) {
+      			UpdateNote(pos);
+      			notes[pos].txt = $("#area").val();
+      			var txt=notes[--pos].txt;
+      			$("#area").val(txt);
+      		}
+      		$("#area").focus();
+      	});
+      	$("#nextbtn").click(function() {
+      		if( pos!=notes.length-1 ) {
+      			UpdateNote(pos);
+      			notes[pos].txt = $("#area").val();
+      			var txt=notes[++pos].txt;
+      			$("#area").val(txt);
+      		}
+      		$("#area").focus();
+      	});
+      	$('#addbtn1').click(function() {
+      		notes.push({name:'note...', txt:''});
+      		pos = notes.length-1;
+      		AddNote(pos);
+      	});
+      	$("#addbtn2").click(function() {
+      		UpdateNote(pos);
+      		notes.push({name:'note...', txt:''});
+      		pos = notes.length-1;
+      		AddNote(pos);
+      		$("#area").val("");
+      		$("#area").focus();
+      	});
+      	$("#delbtn").click(function() {
+      		var c = confirm("Are you sure?");
+      		if( c==false ) return;
+      		$("#area").val("");
+      		if( notes.length==1 ) return;
+      		notes.splice(pos,1);
+      		var n=pos+1;
+      		$("#list>li:nth-child("+n+")").remove();
+      		if( pos==notes.length ) pos--;
+      		var txt=notes[pos].txt;
+      		$("#area").val(txt);
+      		$("#area").focus();
+      	});
+      	notes = StorageGetObject("notes_notestbl");
+      	pos = StorageGetObject("notes_pos");
+      	var len=notes.length;
+      	if( pos>len-1 || pos<0 ) pos=0;
+      	$("#list").listview().listview("refresh");
+      	if( notes.length ) {
+      		for(var i=0; i<notes.length; i++)
+      			AddNote(i);
+      		//var txt=notes[pos].txt;
+      		//$("#area").val(txt);
+      	}
+      	else {
+      		notes.push({name:'note...', txt:''});
+      		pos = notes.length-1;
+      		AddNote(pos);
+      	}
+      	if( $.isNumeric(pos) ) {
+      		$("#area").val(notes[pos].txt);
+      		$("#area").focus();
+      	}
+
+      	$(window).unload(function() {
+      		if( pos!=null ) notes[pos].txt = $("#area").val();
+      		if( (notes.length==0) || (notes.length==1 && notes[0].txt=="") ) {
+      		//if( (notes.length==1 && notes[0].txt=="") ) {
+      			localStorage.removeItem("notes_notestbl");
+      			localStorage.removeItem("notes_pos");
+      			return;
+      		}
+      		//pos = notes.length;
+      		StorageSetObject("notes_notestbl", notes);
+      		StorageSetObject("notes_pos", pos);
+      	});
+      	/*
+      	$('#testbtn').click(function() {
+      		if( pos!=null ) notes[pos].txt = $("#area").val();
+      		if( (notes.length==0) || (notes.length==1 && notes[0].txt=="") ) {
+      		//if( (notes.length==1 && notes[0].txt=="") ) {
+      			localStorage.removeItem("notes_notestbl");
+      			localStorage.removeItem("notes_pos");
+      			return;
+      		}
+      		//pos = notes.length;
+      		StorageSetObject("notes_notestbl", notes);
+      		StorageSetObject("notes_pos", pos);
+      	});
+      	*/
+
+      	if( notes.length==1 ) {
+      		location.hash = "#" + "page2";
+      		pos=0;
+      		$("#area").val(notes[pos].txt);
+      		$("#area").focus();
+      	}
+      });
+
+      function UpdateNote(i)
+      {
+      	var txt=$("#area").val();
+      	notes[i].txt = txt;
+      	txt = txt.split("\n")[0];
+      	if( txt!="" ) {
+      		notes[i].name = txt;
+      		i++;
+      		txt="<img src="https://www.rapidtables.com/tools/\&quot;images/note.png\&quot;" width=\"13\" height=\"24\" class=\"ui-li-icon\">"+txt;
+      		$("#list>li:nth-child("+i+")>a:first-child").html(txt);
+      	}
+      }
+      function AddNote(i)
+      {
+      	//notes.push({name:'note', txt:''}); //!!!
+      	//notes.push({name:name, txt:txt}); //!!!
+      	//pos = notes.length-1;
+
+      	//$("#area").val(notes[i].txt);
+      	//$("#area").focus();
+      	var s =
+      		"<li>"+
+      			//"<a href="https://www.rapidtables.com/tools/\&quot;#page2\"" data-transition=\"slide\">"+notes[pos].name+pos+"...</a>"+
+      			"<a href="https://www.rapidtables.com/tools/\&quot;#page2\"" data-transition=\"slide\">"+
+      				"<img src="https://www.rapidtables.com/tools/\&quot;images/note.png\&quot;" width=\"13\" height=\"24\" class=\"ui-li-icon\">"+notes[i].name+
+      			"</a>"+
+      			"<a href="https://www.rapidtables.com/tools/\&quot;#\"" data-icon=\"delete\"></a>"+
+      		"</li>";
+      	$("#list").append(s).listview("refresh");
+      	$("#list>li:last-child").click(function() {
+      		pos = $(this).index();
+      		$("#area").val(notes[pos].txt);
+      		$("#area").focus();
+      	});
+      	$("#list>li:last-child>a:last-child").click(function() {
+      		// !!!add confirm dialog
+      		$("#area").val("");
+      		if( notes.length==1 ) return;
+      		pos = $(this).parent().index();
+      		notes.splice(pos,1);
+      		pos=null;
+      		//???what to do after delete - where to go???
+      	    $(this).parent().remove();
+      	    //$("#list>li:nth-child("+pos+")").remove();
+      	    //$("#list").listview("refresh");
+      	});
+      }
+      function SetAreaHeight()
+      {
+      	$("#area").textinput().textinput("option", "autogrow", false);
+      	//var rows=$(window).height()/31-5;
+      	var rows=$(window).height()/31-4;
+      	$("#area").prop('rows', rows);
+      }
+      function StorageSetObject(key, obj)
+      {
+      	if( obj===null )
+      		return;
+      	if( (obj.length==0) || (obj===undefined) || (obj==="") || (obj===[]) )
+      		//localStorage.removeItem(key);
+      		return;
+      	localStorage.setItem(key, JSON.stringify(obj));
+      }
+      function StorageGetObject(key)
+      {
+      	try
+      	{
+      		var value = localStorage.getItem(key);
+      		//if( value=="null" ) return null;
+      		if( value==null ) return [];
+      		var obj = JSON.parse(value);
+      		return(obj);
+      	}
+      	catch(err)
+      	{
+      		console.log(err);
+      		return null;
+      	}
+      }
+    </script>
+  </body>
+</html>

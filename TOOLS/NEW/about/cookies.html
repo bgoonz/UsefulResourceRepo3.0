@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 0;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Manage Cookies</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      .adslot_2 {
+        display: none;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      #doc a {
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="about.html">About</a
+        >&rsaquo; Manage cookies
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Manage Cookies</h1>
+          <h2>About Cookies</h2>
+          <p>
+            An HTTP cookie is a small piece of data sent from a website and
+            stored on the user's computer by the user's web browser while the
+            user is browsing. See more:
+            <a href="https://en.wikipedia.org/wiki/HTTP_cookie"
+              >HTTP Cookie from Wikipedia</a
+            >
+          </p>
+          <button
+            type="button"
+            onclick="OnAllow()"
+            class="btn btn-lg btn-success mt-4"
+          >
+            Allow All Cookies
+          </button>
+          <h2>Cookies Settings</h2>
+          <form>
+            <div class="custom-control custom-switch mt-4">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                checked
+                disabled
+                id="cookieSwitch1"
+              />
+              <label class="custom-control-label" for="cookieSwitch1"
+                >Necessary cookies</label
+              >
+            </div>
+            <p>Necessary cookies are necessary for proper website operation.</p>
+            <div class="custom-control custom-switch mt-4">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                checked
+                id="cookieSwitch2"
+              />
+              <label class="custom-control-label" for="cookieSwitch2"
+                >Analytical cookies</label
+              >
+            </div>
+            <p>
+              Analytical cookies are used to improve user experience and analyze
+              traffic statistics. If you disable analytical cookies, it will
+              reduce our ability to improve your website experience.
+            </p>
+            <div class="custom-control custom-switch mt-4">
+              <input
+                type="checkbox"
+                class="custom-control-input"
+                checked
+                id="cookieSwitch3"
+              />
+              <label class="custom-control-label" for="cookieSwitch3"
+                >Targeting cookies</label
+              >
+            </div>
+            <p>
+              Targeting cookies are used to display personalized advertising,
+              based on your previous visits. If you disable targeting cookies,
+              you will see less relevant ads and it will reduce our funding and
+              our ability to develop this website.
+            </p>
+            <button
+              type="button"
+              onclick="OnSave()"
+              class="btn btn-lg btn-success mt-4"
+            >
+              Save Settings
+            </button>
+          </form>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ABOUT</h5>
+        <ul>
+          <li><a href="about.html">About</a></li>
+          <li><a href="faq.html">FAQ</a></li>
+          <li><a href="privacy.html">Privacy policy</a></li>
+          <li><a href="terms.html">Terms of use</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="cookies.html#feedback">Send Feedback</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="about.html" rel="nofollow">About</a> |
+        <a href="terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script>
+      window.onload = function () {
+        //var bar = document.getElementsByClassName("cc-banner");
+        //bar[0].style.visibility="hidden";
+        var val = getCookie("RTConsent");
+        if (val == null) val = "1111";
+        else {
+          if (val[0] === "1")
+            document.getElementById("cookieSwitch2").checked = true;
+          else document.getElementById("cookieSwitch2").checked = false;
+          if (val[1] === "1")
+            document.getElementById("cookieSwitch3").checked = true;
+          else document.getElementById("cookieSwitch3").checked = false;
+        }
+      };
+      function OnAllow() {
+        var val = "1111";
+        setCookie("RTConsent", val, 30); //!!! change to 365 days
+        window.history.go(-1);
+        return false;
+      }
+      function OnSave() {
+        var c2 = document.getElementById("cookieSwitch2").checked;
+        var c3 = document.getElementById("cookieSwitch3").checked;
+        var val = "";
+        if (c2) val += "1";
+        else val += "0";
+        if (c3) val += "1";
+        else val += "0";
+        val += "11";
+        setCookie("RTConsent", val, 30); //!!! change to 365 days
+        window.history.go(-1);
+        return false;
+      }
+    </script>
+  </body>
+</html>

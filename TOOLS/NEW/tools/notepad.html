@@ -1,0 +1,1619 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script>
+      var deskAdsNum = 1;
+    </script>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Notepad | Write your notes online</title>
+    <meta
+      name="description"
+      content="Notepad online for text editing. Free notepad app, no login required."
+    />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:image"
+      content="https://www.rapidtables.com/lib/ogimages/notepad.jpg"
+    />
+    <meta
+      property="og:url"
+      content="https://www.rapidtables.com/tools/notepad.html"
+    />
+    <meta property="og:title" content="Notepad online" />
+    <meta property="og:description" content="Notepad online free app." />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/notepad/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../lib/favicon/notepad/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../lib/favicon/notepad/favicon-16x16.png"
+    />
+    <link rel="manifest" href="../lib/favicon/notepad/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/notepad/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/notepad/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/notepad/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined"
+    />
+    <style>
+      .alert {
+        display: none;
+      }
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #header {
+        background: #444;
+        height: 67px;
+      }
+      .sdiv {
+        margin-top: 15px;
+        display: inline-block;
+        vertical-align: top;
+        margin-left: 30px;
+        margin-right: 0px;
+      }
+      /*#share { margin-top:15px; }*/
+      #share > a > img {
+        width: 40px;
+        height: 40px;
+      }
+      #share > a:nth-child(1) > img {
+        color: #4867aa;
+      }
+      .social-twitter {
+        color: #1da1f2;
+      }
+      .social-whatsapp {
+        color: #2db742;
+      }
+      .social-e-mail-envelope {
+        color: #468a7f;
+      }
+      .adslot {
+        display: inline-block;
+        height: 60px;
+        max-height: 60px;
+        width: 468px;
+      }
+      @media (max-width: 949px) {
+        /*.sdiv { margin-top:10px; margin-bottom:10px; }*/
+        #share {
+          margin-top: 0;
+          display: none;
+        }
+        #ad_div {
+          display: none;
+          padding-top: 0px;
+          padding-bottom: 20px;
+        }
+        .adslot {
+          max-width: 320px;
+          width: 320px;
+          max-height: 50px;
+          height: 50px;
+        }
+      }
+      @media (min-width: 950px) {
+        #ad_div {
+          margin-left: 50px;
+          margin-top: 5px;
+        }
+      }
+      #bread {
+        margin-top: 20px;
+        color: #ddd;
+        font-size: medium;
+      }
+      #bread a {
+        color: #ddd;
+        text-decoration: none;
+        padding: 20px 5px;
+      }
+      #bread a:hover {
+        color: #fff;
+        background: #23272b;
+      }
+      #main {
+        margin: 0;
+        height: 90%;
+        height: calc(100% - 186px);
+      }
+      @media (max-width: 670px) {
+        #toolbar .btn:nth-child(n + 8) {
+          display: none;
+        }
+      }
+      textarea {
+        height: 100%;
+        /*height:calc(100% - 35px);*/
+        width: 100%;
+        margin: 0;
+        padding-top: 3px;
+        padding-left: 50px;
+        background: #fdf8c8;
+        font-family: verdana;
+        font-family: Arial, Helvetica, Sans-serif;
+        font-size: large;
+        outline: none;
+        border: 0;
+        resize: none;
+      }
+      .notes {
+        color: black;
+        background-image: -webkit-linear-gradient(
+            90deg,
+            #d0a090 1px,
+            #d0a090 1px
+          ),
+          linear-gradient(
+            #fdf8c8,
+            #fdf8c8 23px,
+            #ccd 23px,
+            #ccd 24px,
+            #fdf8c8 24px
+          );
+        background-image: -moz-linear-linear-gradient(
+            90deg,
+            #d0a090 1px,
+            #d0a090 1px
+          ),
+          linear-gradient(
+            #fdf8c8,
+            #fdf8c8 23px,
+            #ccd 23px,
+            #ccd 24px,
+            #fdf8c8 24px
+          );
+        background-image: -ms-linear-gradient(90deg, #d0a090 1px, #d0a090 1px),
+          linear-gradient(
+            #fdf8c8,
+            #fdf8c8 23px,
+            #ccd 23px,
+            #ccd 24px,
+            #fdf8c8 24px
+          );
+        background-image: -o-linear-gradient(90deg, #d0a090 1px, #d0a090 1px),
+          linear-gradient(
+            #fdf8c8,
+            #fdf8c8 23px,
+            #ccd 23px,
+            #ccd 24px,
+            #fdf8c8 24px
+          );
+        background-image: linear-gradient(90deg, #d0a090 1px, #d0a090 1px),
+          linear-gradient(
+            #fdf8c8,
+            #fdf8c8 23px,
+            #ccd 23px,
+            #ccd 24px,
+            #fdf8c8 24px
+          );
+        background-size: 2px 100%, 100% 24px;
+        background-position: 40px top, left 0px;
+        background-repeat: no-repeat, repeat;
+        line-height: 24px !important;
+        background-attachment: local;
+      }
+      .notes-dark {
+        color: #ffffcc;
+        color: #eeeecc;
+        background-image: -webkit-linear-gradient(90deg, #642 1px, #642 1px),
+          linear-gradient(
+            #343a40,
+            #343a40 23px,
+            #554 23px,
+            #554 24px,
+            #343a40 24px
+          );
+        background-image: -moz-linear-linear-gradient(90deg, #642 1px, #642 1px),
+          linear-gradient(
+            #343a40,
+            #343a40 23px,
+            #554 23px,
+            #554 24px,
+            #343a40 24px
+          );
+        background-image: -ms-linear-gradient(90deg, #642 1px, #642 1px),
+          linear-gradient(
+            #343a40,
+            #343a40 23px,
+            #554 23px,
+            #554 24px,
+            #343a40 24px
+          );
+        background-image: -o-linear-gradient(90deg, #642 1px, #642 1px),
+          linear-gradient(
+            #343a40,
+            #343a40 23px,
+            #554 23px,
+            #554 24px,
+            #343a40 24px
+          );
+        background-image: linear-gradient(90deg, #642 1px, #642 1px),
+          linear-gradient(
+            #343a40,
+            #343a40 23px,
+            #554 23px,
+            #554 24px,
+            #343a40 24px
+          );
+        background-size: 2px 100%, 100% 24px;
+        background-position: 40px top, left 0px;
+        background-repeat: no-repeat, repeat;
+        line-height: 24px !important;
+        background-attachment: local;
+      }
+      #bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 35px;
+        padding: 5px 40px;
+        border-top: #ccc 1px solid;
+        background: #f8f9fa;
+        z-index: 1000;
+      }
+
+      table,
+      th,
+      td,
+      tr {
+        border-width: 0px;
+        border-collapse: collapse;
+        padding: 0px;
+        margin: 0px;
+      }
+      #menu2 {
+        height: 38px;
+        width: 100%;
+        padding-left: 30px;
+        background: #6c757d;
+        background: #f8f9fa;
+      }
+      #menu2 .dropdown {
+        display: inline-block;
+        margin-left: 0;
+        margin-right: 0;
+      }
+      #menu2 .dropdown button i {
+        vertical-align: middle;
+      }
+      #menu2 .dropdown a i {
+        vertical-align: middle;
+      }
+      #tlines {
+        visibility: hidden;
+      }
+      #toolbar {
+        height: 46px;
+        border-bottom: #ccc 1px solid;
+        padding-left: 30px;
+        background: #f8f9fa;
+        width: 100%;
+        display: inline-block;
+      }
+      #getFilename {
+        max-width: 700px;
+        padding-left: 40px;
+        display: none;
+      }
+
+      #banner {
+        display: none;
+        border-top: 1px #eee solid;
+        font-size: 14px;
+        position: fixed;
+        z-index: 9999;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 1em 1.8em;
+        color: #333333;
+        background: #f8f8f8;
+      }
+      #banner div {
+        vertical-align: middle;
+        display: inline-block;
+        min-width: 300px;
+      }
+      #banner div:last-child {
+        min-width: 320px;
+        line-height: 40px;
+      }
+      #banner a {
+        cursor: pointer;
+        text-decoration: none;
+        color: #333;
+      }
+      #bansetbtn {
+        padding: 12px 10px;
+        margin-left: 20px;
+        color: #333333;
+        border: 1px #ccc solid;
+        white-space: nowrap;
+      }
+      #banokbtn {
+        padding: 12px 50px;
+        margin-left: 20px;
+        background: #8ec760;
+        color: #fff !important;
+        font-weight: bold;
+      }
+      #bansetbtn:hover {
+        background: #e8e8e8;
+      }
+      #banokbtn:hover {
+        background: #7eb750;
+      }
+
+      @media (max-width: 670px) {
+        #toolbar .btn {
+          padding: 0.375rem 0.5rem;
+        }
+        #menu2,
+        #toolbar {
+          padding-left: 10px;
+        }
+        #bar {
+          padding: 5px 20px;
+        }
+        body {
+          transform: scale(1);
+        }
+      }
+      @media all and (max-width: 1000px) {
+        #banner div:last-child {
+          margin-top: 10px;
+        }
+        #banokbtn {
+          margin-left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header" class="text-light bg-dark">
+      <div id="bread" class="sdiv">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; Notepad
+      </div>
+      <div class="sdiv" id="share">
+        <a id="sharefb" href="notepad.html" title="Facebook" target="_blank"
+          ><img
+            alt="Facebook"
+            src="../lib/icons/glyphicons_all/social/png/glyphicons-social-31-facebook@2xb.png"
+        /></a>
+        <a id="sharetw" href="notepad.html" title="Twitter" target="_blank"
+          ><img
+            alt="Twitter"
+            src="../lib/icons/glyphicons_all/social/png/glyphicons-social-32-twitter@2xb.png"
+        /></a>
+        <a id="sharewa" href="notepad.html" title="WhatsApp" target="_blank"
+          ><img
+            alt="WhatsApp"
+            src="../lib/icons/glyphicons_all/social/png/glyphicons-social-62-whatsapp@2xb.png"
+        /></a>
+        <a id="shareml" href="notepad.html" title="Email"
+          ><img
+            alt="Mail"
+            src="../lib/icons/glyphicons_all/social/png/glyphicons-social-14-e-mail-envelope@2xb.png"
+        /></a>
+      </div>
+      <script>
+        document.getElementById("sharefb").href =
+          "https://facebook.com/sharer/sharer.php?u=" +
+          encodeURIComponent(window.location.href) +
+          "&title=" +
+          encodeURIComponent(document.title);
+        document.getElementById("sharetw").href =
+          "https://twitter.com/intent/tweet?text=" +
+          encodeURIComponent(document.title) +
+          "&url=" +
+          encodeURIComponent(window.location.href);
+        document.getElementById("sharewa").href =
+          "https://api.whatsapp.com/send?text=" +
+          encodeURIComponent(document.title) +
+          " " +
+          encodeURIComponent(window.location.href);
+        document.getElementById("shareml").href =
+          "mailto:?to=&subject=" +
+          encodeURIComponent(document.title) +
+          "&body=" +
+          encodeURIComponent(window.location.href);
+      </script>
+      <div class="sdiv" id="ad_div">
+        <ins
+          class="adsbygoogle adslot"
+          style="display: block"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+    </div>
+    <div id="menu2">
+      <div class="dropdown">
+        <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          id="fileMenu"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          File
+        </button>
+        <div
+          class="dropdown-menu dropdown-menu-dark"
+          aria-labelledby="fileMenu"
+        >
+          <button class="dropdown-item" type="button" onclick="New()">
+            <i class="material-icons-outlined">insert_drive_file</i> New
+          </button>
+          <button class="dropdown-item" type="button" onclick="Open()">
+            <i class="material-icons-outlined">folder_open</i> Open
+          </button>
+          <button class="dropdown-item" type="button" onclick="Save()">
+            <i class="material-icons-outlined">save_alt</i> Save
+          </button>
+          <button class="dropdown-item" type="button" onclick="Save_As()">
+            <i class="material-icons-outlined">save_alt</i> Save As...
+          </button>
+          <button class="dropdown-item" type="button" onclick="Print()">
+            <i class="material-icons-outlined">print</i> Print
+          </button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          id="editMenu"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Edit
+        </button>
+        <div class="dropdown-menu" aria-labelledby="editMenu">
+          <button class="dropdown-item" type="button" onclick="Undo()">
+            <i class="material-icons-outlined">undo</i> Undo
+          </button>
+          <button class="dropdown-item" type="button" onclick="Redo()">
+            <i class="material-icons-outlined">redo</i> Redo
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button" onclick="Cut(0)">
+            <i class="material-icons-outlined">content_cut</i> Cut
+          </button>
+          <button class="dropdown-item" type="button" onclick="Copy()">
+            <i class="material-icons-outlined">content_copy</i> Copy
+          </button>
+          <button class="dropdown-item" type="button" onclick="Paste()">
+            <i class="material-icons-outlined">content_paste</i> Paste
+          </button>
+          <div class="dropdown-divider"></div>
+          <button class="dropdown-item" type="button" onclick="Del()">
+            <i class="material-icons-outlined">clear</i> Delete
+          </button>
+          <button class="dropdown-item" type="button" onclick="SelectAll()">
+            <i class="material-icons-outlined">select_all</i> Select All
+          </button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          id="viewMenu"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          View
+        </button>
+        <div class="dropdown-menu" aria-labelledby="viewMenu">
+          <button class="dropdown-item" type="button" onclick="IncSize()">
+            <i class="material-icons-outlined">zoom_in</i> Zoom In
+          </button>
+          <button class="dropdown-item" type="button" onclick="DecSize()">
+            <i class="material-icons-outlined">zoom_out</i> Zoom Out
+          </button>
+          <div class="dropdown-divider"></div>
+
+          <button class="dropdown-item" type="button" onclick="showPrefModal()">
+            <i class="material-icons-outlined">settings</i> Preferences
+          </button>
+        </div>
+      </div>
+      <div class="dropdown">
+        <button
+          class="btn btn-light dropdown-toggle"
+          type="button"
+          id="helpMenu"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Help
+        </button>
+        <div class="dropdown-menu" aria-labelledby="helpMenu">
+          <button
+            type="button"
+            class="dropdown-item"
+            onclick="window.open('notepad_help.html','_blank')"
+          >
+            <i class="material-icons-outlined">help</i> Help
+          </button>
+          <button
+            type="button"
+            class="dropdown-item"
+            onclick="window.open('notepad_help.html#feedback','_blank')"
+          >
+            <i class="material-icons-outlined">feedback</i> Send feedback
+          </button>
+        </div>
+      </div>
+    </div>
+    <div id="toolbar" class="btn-group" role="group" aria-label="Toolbar">
+      <button type="button" title="Open" onClick="Open()" class="btn btn-light">
+        <i class="material-icons-outlined">folder_open</i>
+      </button>
+      <button
+        type="button"
+        title="Save to Downloads folder"
+        onClick="Save()"
+        class="btn btn-light"
+      >
+        <i class="material-icons-outlined">save_alt</i>
+      </button>
+      <button type="button" title="Cut" onClick="Cut(0)" class="btn btn-light">
+        <i class="material-icons-outlined">content_cut</i>
+      </button>
+      <button type="button" title="Copy" onClick="Copy()" class="btn btn-light">
+        <i class="material-icons-outlined">content_copy</i>
+      </button>
+      <button
+        type="button"
+        title="Paste"
+        onClick="Paste()"
+        class="btn btn-light"
+      >
+        <i class="material-icons-outlined">content_paste</i>
+      </button>
+      <button type="button" title="Undo" onClick="Undo()" class="btn btn-light">
+        <i class="material-icons-outlined">undo</i>
+      </button>
+      <button type="button" title="Redo" onClick="Redo()" class="btn btn-light">
+        <i class="material-icons-outlined">redo</i>
+      </button>
+      <button
+        type="button"
+        title="Zoom Out"
+        onClick="DecSize()"
+        class="btn btn-light"
+      >
+        <i class="material-icons-outlined">zoom_out</i>
+      </button>
+      <button
+        type="button"
+        title="Zoom In"
+        onClick="IncSize()"
+        class="btn btn-light"
+      >
+        <i class="material-icons-outlined">zoom_in</i>
+      </button>
+      <a
+        href="notepad_help.html"
+        target="_blank"
+        title="Help"
+        class="btn btn-light"
+        ><i class="material-icons-outlined">help_outline</i></a
+      >
+      <input
+        type="file"
+        multiple
+        id="fileElem"
+        name="fileElem[]"
+        style="visibility: hidden; width: 30px"
+        onchange="loadFile()"
+      />
+    </div>
+    <div
+      id="private-alert"
+      class="alert alert-warning alert-dismissible fade show shadow-sm mb-0"
+      role="alert"
+    >
+      Avoid using Notepad with Incognito/Private window, or your notes will not
+      be saved to the browser's cache!
+      <button
+        type="button"
+        class="btn btn-sm btn-outline-secondary ml-3"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        Close
+      </button>
+      <button
+        type="button"
+        class="close"
+        data-dismiss="alert"
+        aria-label="Close"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div id="getFilename" class="row">
+      <label class="col-sm-3 col-form-label">Enter file name</label>
+      <div class="input-group col-sm-9">
+        <input
+          type="text"
+          id="filename"
+          name="filename"
+          placeholder="filename.txt"
+          class="form-control"
+        />
+        <div class="input-group-append">
+          <input
+            type="button"
+            id="save"
+            name="save"
+            value="Save"
+            onclick="saveFile()"
+            class="btn btn-light"
+          />
+        </div>
+        <div class="input-group-append">
+          <input
+            type="button"
+            id="cancel"
+            name="cancel"
+            value="Cancel"
+            onclick="cancelSaveFile()"
+            class="btn btn-light"
+          />
+        </div>
+      </div>
+    </div>
+    <div id="main">
+      <textarea id="area" name="S1" autofocus></textarea>
+    </div>
+    <div id="bar" class="text-dark bg-light"></div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="prefModal"
+      tabindex="-1"
+      aria-labelledby="prefModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog modal-dialog-scrollable">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="prefModalLabel">Preferences</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <button
+                type="button"
+                id="resetParamsBtn"
+                class="btn btn-secondary"
+              >
+                Reset preferences
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="autoSaveSwitch"
+                >Auto save to <i>Downloads</i> folder</label
+              >
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <div class="custom-control custom-switch mr-1">
+                    <input
+                      type="checkbox"
+                      id="autoSaveSwitch"
+                      class="custom-control-input"
+                      checked
+                    />
+                    <label
+                      class="custom-control-label"
+                      for="autoSaveSwitch"
+                    ></label>
+                  </div>
+                </div>
+                <input
+                  type="number"
+                  min="1"
+                  step="1"
+                  id="autoSaveNum"
+                  placeholder="1"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <select id="autoSaveSel" class="form-control">
+                    <option>Hours</option>
+                    <option selected>Days</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="textLinesSwitch"
+                >Text lines (supported in Chrome)</label
+              >
+              <div class="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  id="textLinesSwitch"
+                  class="custom-control-input"
+                />
+                <label class="custom-control-label" for="textLinesSwitch"
+                  >Text lines</label
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="darkmodeSwitch">Dark mode</label>
+              <div class="custom-control custom-switch">
+                <input
+                  type="checkbox"
+                  id="darkmodeSwitch"
+                  class="custom-control-input"
+                />
+                <label class="custom-control-label" for="darkmodeSwitch"
+                  >Dark mode</label
+                >
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Font size</label>
+              <div class="input-group">
+                <input type="number" id="fontSizeNum" class="form-control" />
+                <div class="input-group-append">
+                  <span class="input-group-text">px</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Font family</label>
+              <select id="fontFamilySel" class="form-control">
+                <option>Arial</option>
+                <option>Courier</option>
+                <option>cursive</option>
+                <option>emoji</option>
+                <option>fantasy</option>
+                <option>Georgia</option>
+                <option>Helvetica</option>
+                <option>'Lucida Console'</option>
+                <option>math</option>
+                <option>monospace</option>
+                <option>sans-serif</option>
+                <option>serif</option>
+                <option>Times</option>
+                <option>'Times New Roman'</option>
+                <option>Verdana</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Font weight</label>
+              <div class="input-group">
+                <select id="fontWeightSel" class="form-control">
+                  <option>Normal</option>
+                  <option style="font-weight: bold">Bold</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      class="modal fade"
+      id="autoSaveModal"
+      tabindex="-1"
+      aria-labelledby="autoSaveModalLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="autoSaveModalLabel">Auto save</h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <div class="form-group">
+              <label
+                >Press the button to save your text to the
+                <i>Downloads</i> folder. The browser will notify file download
+                operation. Check the <i>Downloads</i> folder after the download
+                operation.</label
+              >
+              <button
+                type="button"
+                id="autoSaveDownBtn"
+                class="btn btn-success btn-block"
+              >
+                <i class="material-icons-outlined align-bottom">save_alt</i>
+                Save
+              </button>
+            </div>
+            <div class="form-group">
+              <label>Open auto save preferences</label>
+              <button
+                type="button"
+                id="autoSavePrefBtn"
+                class="btn btn-secondary btn-block"
+              >
+                Open preferences
+              </button>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="../lib/utils/utils.js"></script>
+    <script src="../lib/Blob.js-master/Blob.js"></script>
+    <script src="../lib/FileSaver.js-master/FileSaver.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      var menu2 = document.getElementById("menu2");
+      var toolbar = document.getElementById("toolbar");
+      var getFilename = document.getElementById("getFilename");
+      var bar = document.getElementById("bar");
+      var area = document.getElementById("area");
+      var fileElem = document.getElementById("fileElem");
+      var resetParamsBtn = document.getElementById("resetParamsBtn");
+      var autoSaveSwitch = document.getElementById("autoSaveSwitch");
+      var autoSaveNum = document.getElementById("autoSaveNum");
+      var autoSaveSel = document.getElementById("autoSaveSel");
+      var textLinesSwitch = document.getElementById("textLinesSwitch");
+      var darkmodeSwitch = document.getElementById("darkmodeSwitch");
+      var fontSizeNum = document.getElementById("fontSizeNum");
+      var fontFamilySel = document.getElementById("fontFamilySel");
+      var fontWeightSel = document.getElementById("fontWeightSel");
+      var autoSaveDownBtn = document.getElementById("autoSaveDownBtn");
+      var autoSavePrefBtn = document.getElementById("autoSavePrefBtn");
+      var autoSaveModal = document.getElementById("autoSaveModal");
+      var prefModal = document.getElementById("prefModal");
+      var filename = document.getElementById("filename");
+
+      var resetParamsFlag = false;
+      var browser;
+      var chars, words;
+      var selectedText = "";
+      var selectionStart, selectionEnd;
+      var browser;
+      var txt_hist, pos_hist, ihist, nhist, Nhist;
+      var ctrlDown = false;
+      var key = {
+        tabKey: 9,
+        enterKey: 13,
+        shiftKey: 16,
+        ctrlKey: 17,
+        altKey: 18,
+        capsKey: 20,
+        pageupKey: 33,
+        pagedownKey: 34,
+        leftKey: 37,
+        upKey: 38,
+        rightKey: 39,
+        downKey: 40,
+        delKey: 46,
+        aKey: 65,
+        cKey: 67,
+        sKey: 83,
+        vKey: 86,
+        xKey: 88,
+        yKey: 89,
+        zKey: 90,
+      };
+      var autoSaveTimeout = null;
+      var params;
+      var paramsInit = {
+        filename: "",
+        autoSaveDelay: 86400000, //ms
+        autoSaveLast: 0, //ms
+        textLines: true,
+        theme: 0, //0-normal 1-dark
+        fontSize: 14,
+        fontFamilySel: 0, //Arial
+        fontWeightSel: 0, //Normal
+      };
+
+      $(window).blur(function () {
+        selectedText = "";
+        if (area.value != "") LocalSave();
+      });
+
+      $(window).on("unload", function (e) {
+        LocalSave();
+        if (resetParamsFlag == true) localStorage.removeItem("notepad_params");
+      });
+      $(document).ready(function () {
+        txt_hist = new Array();
+        pos_hist = new Array();
+        Nhist = 10;
+        nhist = 0;
+        ihist = 0;
+
+        browser = get_browser();
+        if (browser == "Firefox") paramsInit.textLines = false;
+
+        LocalLoad();
+
+        $("#area").keydown(function (e) {
+          onkeydown(e);
+        });
+        $("#area").keyup(function (e) {
+          var noCharKeys = [
+            key.shiftKey,
+            key.ctrlKey,
+            key.altKey,
+            key.capsKey,
+            key.pageupKey,
+            key.pagedownKey,
+            key.leftKey,
+            key.upKey,
+            key.rightKey,
+            key.downKey,
+          ];
+          if (noCharKeys.indexOf(e.which) == -1) SetBar(1);
+          else SetBar(0);
+        });
+        $("#area").click(function () {
+          pos = getCaret();
+          if (pos != pos_hist[ihist]) Snapshot();
+          SetBar(0);
+          $(".dropdown-menu").dropdown("hide");
+          return false;
+        });
+
+        resetParamsBtn.onclick = function () {
+          resetParams();
+        };
+        autoSaveSwitch.onchange = function () {
+          setAutoSave();
+        };
+        autoSaveNum.onchange = function () {
+          setAutoSave();
+        };
+        autoSaveSel.onchange = function () {
+          setAutoSave();
+        };
+        textLinesSwitch.onchange = function () {
+          setTextLines();
+        };
+        darkmodeSwitch.onchange = function () {
+          darkModeToggle();
+        };
+        fontSizeNum.onchange = function () {
+          setFont();
+        };
+        fontFamilySel.onchange = function () {
+          setFont();
+        };
+        fontWeightSel.onchange = function () {
+          setFont();
+        };
+        autoSaveDownBtn.onclick = function () {
+          Save();
+        };
+        autoSavePrefBtn.onclick = function () {
+          showPrefModal();
+        }; //!!!!!!!!!!!!!!!!!!!!<<<???
+
+        //if( browser=="Chrome" )
+        //	TextLinesToggle();
+        setCaret(0);
+        SetBar(1);
+        Snapshot();
+        initFontSel();
+        //alert("Please press the Save button to backup your notes. Rapidtables.com will upgrade to secured http in several days.");
+      });
+      function initFontSel() {
+        // Init font family select
+        for (var i = 0; i < fontFamilySel.options.length; i++) {
+          var ff = fontFamilySel.options[i];
+          ff.style.fontFamily = ff.value;
+        }
+      }
+      function onkeydown(e) {
+        var evtobj = window.event ? event : e;
+        var ctrlKey = evtobj.ctrlKey;
+        var keyCode = evtobj.keyCode;
+        if (ctrlKey) {
+          if (keyCode == key.aKey) {
+            e.preventDefault();
+            SelectAll();
+          }
+          if (keyCode == key.sKey) {
+            e.preventDefault();
+            Save();
+            return false;
+          }
+          // Ctrl+Z
+          if (keyCode == key.zKey) {
+            e.preventDefault();
+            Undo();
+          }
+          // Ctrl+Y
+          if (keyCode == key.yKey) {
+            e.preventDefault();
+            Redo();
+          }
+          // Ctrl+C
+          if (keyCode == key.cKey) {
+            //e.preventDefault();
+            Copy();
+          }
+          // Ctrl+V
+          if (keyCode == key.vKey) {
+            if (selectedText.length != 0) e.preventDefault();
+            Paste();
+          }
+          // Ctrl+X
+          if (keyCode == key.xKey) {
+            //e.preventDefault();
+            Cut(1);
+          }
+        }
+        // page up/down
+        if (keyCode == key.upKey || keyCode == key.downKey) {
+          area.focus();
+        }
+        // tab
+        if (keyCode == key.tabKey) {
+          e.preventDefault();
+          Snapshot();
+          s = getSelect(area);
+          var text = area.value;
+          fillString(text, "\u0009", s.start, s.end);
+          pos = s.start + 1;
+          setCaret(pos);
+        }
+        // delete
+        if (keyCode == key.delKey) {
+          Del2();
+        }
+        // enter: chrome bugfix of text jump when enter in textarea
+        if (keyCode == key.enterKey) {
+          e.preventDefault();
+          //Snapshot();
+          var text = area.value;
+          s = getSelect(area);
+          fillString(text, "\n", s.start, s.end);
+          var pos = s.start;
+          setCaret(pos + 1);
+          Snapshot();
+        }
+      }
+      function LocalLoad() {
+        area.value = localStorage.getItem("notepad_text");
+        params = localStorage.getObject("notepad_params");
+        if (area.value == "") setWarning();
+        // Set default values
+        if (params == null) params = paramsInit;
+        if (typeof Object != "undefined")
+          if (typeof Object.keys != "undefined") {
+            var keyNames = Object.keys(paramsInit);
+            var prop, name;
+            for (prop in keyNames) {
+              name = keyNames[prop];
+              if (typeof params[name] === "undefined")
+                params[name] = paramsInit[name];
+            }
+          }
+
+        getParams();
+        setAutoSave();
+        //autoSaveHandle();
+        setTextLines();
+        //setDarkMode();
+        darkModeToggle();
+        setFont();
+        SetDocTitle();
+      }
+      function LocalSave() {
+        localStorage.setItem("notepad_text", area.value);
+        localStorage.setObject("notepad_params", params);
+        //area.focus();
+      }
+      function showPrefModal() {
+        $("#prefModal").modal("show");
+        $("#autoSaveModal").modal("hide");
+      }
+      function showAutoSaveModal() {
+        $("#prefModal").modal("hide");
+        $("#autoSaveModal").modal("show");
+      }
+      function setWarning() {
+        var p = document.getElementById("private-alert");
+        p.style.display = "block";
+      }
+      function getParams() {
+        filename.value = params.filename;
+        //if( params.autoSave==0 ) {
+        autoSaveSwitch.checked = params.autoSaveDelay > 0 ? true : false;
+        autoSaveNum.value =
+          params.autoSaveDelay >= 86400000
+            ? Math.round(params.autoSaveDelay / 86400000)
+            : Math.round(params.autoSave / 3600000);
+        autoSaveSel.selectedIndex = params.autoSaveDelay < 86400000 ? "0" : "1";
+        textLinesSwitch.checked = params.textLines;
+        darkmodeSwitch.checked = params.theme == 0 ? false : true;
+        fontSizeNum.value = params.fontSize;
+        fontFamilySel.selectedIndex = params.fontFamilySel;
+        fontWeightSel.selectedIndex = params.fontWeightSel;
+      }
+      function resetParams() {
+        resetParamsFlag = true;
+        alert("Please reload page to finish reset");
+      }
+      function setAutoSave() {
+        if (autoSaveTimeout != null) {
+          clearTimeout(autoSaveTimeout);
+          autoSaveTimeout = null;
+        }
+
+        if (autoSaveSwitch.checked) {
+          autoSaveNum.disabled = false;
+          autoSaveSel.disabled = false;
+          var i = autoSaveSel.selectedIndex;
+          var dt = [3600000, 86400000]; //1h,1day
+          var num = autoSaveNum.value;
+          if (num == "") num = 1;
+          var delay = dt[i] * num;
+          if (delay < 600000) return;
+          params.autoSaveDelay = delay;
+          //autoSaveTimeout = setTimeout(autoSaveHandle, delay);
+          var now = Date.now();
+          if (params.autoSaveLast == 0) params.autoSaveLast = now;
+          var dt = params.autoSaveLast + params.autoSaveDelay - now;
+          if (dt > 0) autoSaveTimeout = setTimeout(autoSaveHandle, dt);
+          else {
+            dt = dt % params.autoSaveDelay;
+            params.autoSaveLast = now - dt;
+            autoSaveHandle();
+          }
+        } else {
+          autoSaveNum.disabled = true;
+          autoSaveSel.disabled = true;
+          params.autoSaveDelay = 0;
+          params.autoSaveLast = 0;
+        }
+      }
+      function autoSaveHandle() {
+        var now = Date.now();
+        params.autoSaveLast += params.autoSaveDelay;
+        var dt = params.autoSaveLast + params.autoSaveDelay - now;
+        autoSaveTimeout = setTimeout(autoSaveHandle, dt);
+        showAutoSaveModal();
+        console.log(new Date().toLocaleString());
+      }
+      function setTextLines() {
+        //if( params.textLines==true )
+        if (textLinesSwitch.checked) {
+          $("#area").addClass("notes");
+          params.textLines = true;
+        } else {
+          $("#area").removeClass("notes");
+          params.textLines = false;
+        }
+      }
+      function darkModeToggle() {
+        if (!darkmodeSwitch.checked && params.theme == 0) return;
+        if (darkmodeSwitch.checked) {
+          $(".btn-light").toggleClass("btn-light").toggleClass("btn-dark");
+          params.theme = 1;
+        } else {
+          $(".btn-dark").toggleClass("btn-light").toggleClass("btn-dark");
+          params.theme = 0;
+        }
+        $("#area").toggleClass("notes").toggleClass("notes-dark");
+        $("body,#menu2,#toolbar,#bar")
+          .toggleClass("bg-light")
+          .toggleClass("bg-dark");
+        $("#bar").toggleClass("text-light").toggleClass("text-dark");
+        $(".dropdown-menu").toggleClass("bg-dark").toggleClass("p-2");
+        $(".dropdown-item")
+          .toggleClass("text-light")
+          .toggleClass("bg-dark")
+          .toggleClass("border-0");
+        $(".modal-content").toggleClass("text-light").toggleClass("bg-dark");
+        $(".modal .close").toggleClass("text-light");
+        //$('.modal .btn-dark').toggleClass('btn-dark').toggleClass('btn-secondary');
+      }
+      function setFont() {
+        area.style.fontSize = fontSizeNum.value + "px";
+        area.style.fontFamily =
+          fontFamilySel.options[fontFamilySel.selectedIndex].text;
+        area.style.fontWeight =
+          fontWeightSel.selectedIndex == 0 ? "normal" : "bold";
+        params.fontSize = fontSizeNum.value;
+        params.fontFamilySel = fontFamilySel.selectedIndex;
+        params.fontWeightSel = fontWeightSel.selectedIndex;
+      }
+      function Print() {
+        win = window.open();
+        //if(!win || win.closed || typeof win.closed=='undefined')
+        //   alert("Can't open print tab. Please allow pop-ups in Settings>Privacy>Pop-ups menu");
+        //win.document.open();
+        win.document.write(
+          '<html lang="en"><head></head><body style="font-size:' +
+            params.fontSize +
+            'px">'
+        );
+        var txt = area.value;
+        txt = txt.replace(/\t/gi, "&emsp;");
+        txt = txt.replace(/\n/gi, "<br>");
+        win.document.write(txt);
+        win.document.write("</body></html>");
+        win.alert(
+          "Press browser Menu button and select Print...\nTo save paper & trees: print to PDF file or set 2-sided printing."
+        );
+        win.print();
+        //win.document.close();
+        //win.close();
+      }
+      function Help() {
+        window.location.href = "notepad_help.html";
+      }
+      // works with chrome, not in FF
+      function Exit() {
+        window.open("", "_self", "");
+        window.close();
+      }
+      function New() {
+        cancelSaveFile();
+        Snapshot();
+        if (area.value != "") {
+          var r = confirm("All old text will be deleted. Are you sure?");
+          if (r == true) {
+            area.value = "";
+            //localStorage.notepad_filename = '';
+            params.filename = "";
+            SetDocTitle();
+            //Snapshot();
+          }
+        }
+        area.focus();
+      }
+      function Open() {
+        cancelSaveFile();
+        fileElem.focus();
+        fileElem.click();
+      }
+      function Save_As() {
+        if (area.value == "") return;
+        getFilename.style.display = "flex";
+        //return false;
+      }
+      function Save() {
+        if (area.value == "") {
+          $("#autoSaveModal").modal("hide");
+          alert("Save canceled - there is no text to save...");
+          return;
+        }
+
+        //if( localStorage.notepad_filename=='' )
+        if (params.filename == "") {
+          $("#autoSaveModal").modal("hide");
+          getFilename.style.display = "flex";
+          filename.focus();
+        } else saveFile();
+
+        return false;
+      }
+      function SelectAll() {
+        area.select();
+      }
+      function Del() {
+        s = getSelect(area);
+        if (s.text.length != 0) {
+          Snapshot();
+          var text = area.value;
+          fillString(text, "", s.start, s.end);
+        }
+        pos = s.start;
+        setCaret(pos);
+      }
+      function Del2() {
+        s = getSelect(area);
+        if (s.text.length != 0) {
+          Snapshot();
+          var text = area.value;
+          fillString(text, "", s.start, s.end - 1);
+        }
+        pos = s.start;
+        setCaret(pos);
+      }
+      function Cut(isKey) {
+        s = getSelect(area);
+        if (s.text.length != 0) {
+          Snapshot();
+          selectedText = s.text;
+          if (!isKey) fillString(area.value, "", s.start, s.end);
+        } else selectedText = "";
+        if (!isKey) {
+          pos = s.start;
+          setCaret(pos);
+        }
+        area.focus();
+      }
+      function Copy() {
+        //document.execCommand('copy');
+        s = getSelect(area);
+        if (s.text.length != 0) selectedText = s.text;
+        else selectedText = "";
+        setSelect(area, s.start, s.end);
+        area.focus();
+      }
+      function Paste() {
+        s = getSelect(area);
+        Snapshot();
+        if (selectedText.length != 0) {
+          //Snapshot();
+          var text = area.value;
+          fillString(text, selectedText, s.start, s.end);
+          pos = s.start + selectedText.length;
+          setCaret(pos);
+        }
+        area.focus();
+      }
+      function cancelSaveFile() {
+        getFilename.style.display = "none";
+      }
+      function saveFile() {
+        getFilename.style.display = "none";
+        var name = filename.value;
+        if (name == "") name = "filename.txt";
+        //localStorage.notepad_filename = name;
+        params.filename = name;
+        SetDocTitle();
+        LocalSave();
+
+        s = area.value;
+        OSName = GetOS();
+        if (OSName == "Windows") s = s.replace(/\n/g, "\r\n");
+        var blob = new Blob([s], { type: "text/plain;charset=utf-8" });
+        //saveAs(blob, localStorage.notepad_filename);
+        saveAs(blob, params.filename);
+      }
+      function loadFile() {
+        var name = fileElem.files[0].name;
+        var reader = new FileReader();
+        reader.onloadend = function (evt) {
+          if (evt.target.readyState == FileReader.DONE) {
+            //localStorage.notepad_filename = name;
+            params.filename = name;
+            SetDocTitle();
+            //area.value = evt.target.result;
+            s = evt.target.result;
+            OSName = GetOS();
+            if (OSName == "Windows") s = s.replace(/\r\n/g, "\n");
+            area.value = s;
+            area.focus();
+          }
+        };
+        reader.readAsText(fileElem.files[0]);
+      }
+      function getSelect(obj) {
+        var s = obj.selectionStart;
+        var e = obj.selectionEnd;
+        var txt = obj.value.substring(s, e);
+        return { start: s, end: e, text: txt };
+      }
+      function setSelect(obj, start, end) {
+        obj.focus();
+        obj.selectionStart = start;
+        obj.selectionEnd = end;
+      }
+      function fillString(text, selectText, start, end) {
+        // split textarea value into three pieces: before startPosition,
+        // startPosition until endPosition, and after endPosition
+        var str1 = text.substring(0, start);
+        var str2 = text.substring(start, end);
+        var str3 = text.substring(end, text.length);
+        // replace str2 with formatted substring (selectedText)
+        str2 = selectText;
+        area.value = str1 + str2 + str3;
+      }
+      function getCaret() {
+        return area.selectionStart;
+      }
+      function setCaret(pos) {
+        area.selectionStart = pos;
+        area.selectionEnd = pos;
+        area.focus();
+      }
+      function Snapshot() {
+        var pos = getCaret();
+        var txt = area.value;
+        if (ihist > 0 && txt_hist[ihist - 1] == txt) return;
+        if (ihist == nhist) {
+          pos_hist.push(pos);
+          txt_hist.push(txt);
+          ihist++;
+          if (pos_hist.length > Nhist) {
+            pos_hist.shift();
+            txt_hist.shift();
+            ihist--;
+          }
+        } else {
+          ihist++;
+          pos_hist[ihist] = pos;
+          txt_hist[ihist] = txt;
+          for (i = ihist + 1; i < nhist; i++) {
+            pos_hist.pop();
+            txt_hist.pop();
+          }
+          ihist++;
+        }
+        nhist = ihist;
+        //console.log("snap: i="+ihist+" n="+nhist);
+        //console.log(txt_hist);
+      }
+      function Undo() {
+        if (nhist == 0) return;
+        if (ihist == nhist && txt_hist[ihist - 1] != area.value) Snapshot();
+        if (txt_hist[ihist - 1] == area.value) ihist--;
+        if (ihist < 1) ihist = 1;
+        var pos = pos_hist[ihist - 1];
+        var txt = txt_hist[ihist - 1];
+        area.value = txt;
+        setCaret(pos);
+        ihist--;
+        if (ihist < 1) ihist = 1;
+        //console.log("undo: i="+ihist+" n="+nhist);
+        //console.log(txt_hist);
+      }
+      function Redo() {
+        if (nhist == 0) return;
+        if (ihist == nhist) return;
+        var pos = pos_hist[ihist];
+        var txt = txt_hist[ihist];
+        ihist++;
+        area.value = txt;
+        setCaret(pos);
+        //console.log("redo: i="+ihist+" n="+nhist);
+        //console.log(txt_hist);
+      }
+      function DecSize() {
+        if (params.fontSize > 8) {
+          params.fontSize--;
+          if (params.fontSize >= 15) params.fontSize--;
+          SetFontSize();
+        }
+      }
+      function IncSize() {
+        if (params.fontSize < 50) {
+          params.fontSize++;
+          if (params.fontSize >= 15) params.fontSize++;
+          SetFontSize();
+        }
+      }
+      function SetFontSize() {
+        area.style.fontSize = params.fontSize + "px";
+      }
+      function SetDocTitle() {
+        var name = params.filename;
+        if (name == "")
+          document.title = "Notepad | Online Notes free, no login required";
+        else document.title = "Notepad - " + name;
+      }
+      function SetBar(isNewChar) {
+        var pos = area.selectionEnd;
+        var txt = area.value;
+        if (isNewChar) {
+          chars = txt.length;
+          words = txt.countWords();
+        }
+        txt = txt.substring(0, pos);
+        var lines = txt.split("\n");
+        var line = lines.length;
+        var col = lines[line - 1].length + 1;
+        $("#bar").html(
+          "Line " +
+            line +
+            ", Column " +
+            col +
+            "&emsp;&emsp;&emsp; Chars " +
+            chars +
+            ", Words " +
+            words
+        );
+      }
+      Storage.prototype.setObject = function (key, value) {
+        this.setItem(key, JSON.stringify(value));
+      };
+
+      Storage.prototype.getObject = function (key) {
+        var value = this.getItem(key);
+        return value && JSON.parse(value);
+      };
+      String.prototype.countWords = function () {
+        return this.trim().split(/\s+\b/).length;
+      };
+    </script>
+  </body>
+</html>

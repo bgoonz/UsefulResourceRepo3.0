@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Editor | Text editor online</title>
+    <meta name="description" content="Text editor online free." />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+    />
+    <link rel="stylesheet" href="../lib/codemirror/lib/codemirror.css" />
+    <style>
+      html,
+      body {
+        margin: 0;
+        height: 100%;
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+        background: #ccc;
+        overflow-y: hidden;
+      }
+      #header {
+        margin: 0;
+        width: 100%;
+        height: 50px;
+        background: #444;
+      }
+      #header div {
+        font-weight: bold;
+        color: #ddd;
+        font-size: medium;
+        vertical-align: middle;
+        margin: 0 auto;
+        margin-left: 30px;
+        padding: 15px 5px 11px 5px;
+      }
+      #header div a {
+        color: #ddd;
+        text-decoration: none;
+        padding: 20px 5px;
+      }
+      #header div a:hover {
+        color: #eee;
+        background: #222;
+      }
+      /*
+    	.edit {
+    		width:100%;
+    		height:100%;
+    		background:#eee;
+    		overflow-x:hidden;
+    		overflow-y:scroll;
+    	}
+    	#code {
+			margin:0px;
+			width:100%;
+			height:600px;
+		}*/
+      .CodeMirror {
+        height: 100%;
+        font-size: large;
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="bread">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; Text Editor
+      </div>
+    </div>
+    <div id="toolbar">
+      <table>
+        <tr>
+          <td>
+            <button type="button" name="B1" title="New" onClick="New()">
+              <i class="material-icons">insert_drive_file</i>
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B2" title="Open" onClick="Open()">
+              <i class="material-icons">folder_open</i>
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B3" title="Save" onClick="Save()">
+              <i class="material-icons">save</i>
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B4" title="Cut" onClick="Cut()">
+              <i class="material-icons">content_cut</i>
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B5" title="Copy" onClick="Copy()">
+              <i class="material-icons">content_copy</i>
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B6" title="Paste" onClick="Paste()">
+              <i class="material-icons">content_paste</i>
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B7" title="Undo" onClick="Undo()">
+              <i class="material-icons">undo</i>
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B8" title="Redo" onClick="Redo()">
+              <i class="material-icons">redo</i>
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              name="B9"
+              title="Zoom Out"
+              onClick="DecSize()"
+            >
+              <i class="material-icons">zoom_out</i>
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              name="B10"
+              title="Zoom In"
+              onClick="IncSize()"
+            >
+              <i class="material-icons">zoom_in</i>
+            </button>
+          </td>
+          <td>
+            <input
+              type="file"
+              multiple
+              id="fileElem"
+              name="fileElem[]"
+              style="visibility: hidden; width: 30px"
+              onchange="loadFile()"
+            />
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="../lib/codemirror/lib/codemirror.js"></script>
+    <script src="../lib/codemirror/mode/javascript/javascript.js"></script>
+    <script src="../lib/codemirror/addon/selection/active-line.js"></script>
+    <script src="../lib/codemirror/addon/edit/matchbrackets.js"></script>
+    <script>
+      /*
+  var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
+    lineNumbers: true,
+    styleActiveLine: true,
+    matchBrackets: true
+  });
+*/
+      $(document).ready(function () {
+        //$(".edit").append();
+        var myCodeMirror = CodeMirror(document.body, {
+          autofocus: true,
+          lineNumbers: true,
+          styleActiveLine: true,
+          matchBrackets: true,
+          //value: "function myScript(){return 100;}\n",
+          //mode:  "javascript"
+        });
+      });
+    </script>
+  </body>
+</html>

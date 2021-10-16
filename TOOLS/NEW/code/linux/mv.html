@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>mv command in Unix/Linux | move files/directories</title>
+    <meta content="mv command in Linux/Unix" name="description" />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Code</a
+        >&rsaquo;<a href="index.html">Linux</a>&rsaquo; mv command
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>mv command in Linux/Unix</h1>
+          <p>Linux mv command.</p>
+          <p><em>mv </em>command is used to move files and directories.</p>
+          <h2>mv command syntax</h2>
+          <p class="tcode">$ mv [<i>options</i>] <i>source</i> <i>dest</i></p>
+          <h2><a name="options"></a>mv command options</h2>
+          <p>mv command main options:</p>
+          <table class="dtable">
+            <tr>
+              <th>option</th>
+              <th>description</th>
+            </tr>
+            <tr>
+              <td class="code">mv -f</td>
+              <td>force move by overwriting destination file without prompt</td>
+            </tr>
+            <tr>
+              <td class="code">mv -i</td>
+              <td>interactive prompt before overwrite</td>
+            </tr>
+            <tr>
+              <td class="code">mv -u</td>
+              <td>update - move when source is newer than destination</td>
+            </tr>
+            <tr>
+              <td class="code">mv -v</td>
+              <td>verbose - print source and destination files</td>
+            </tr>
+            <tr>
+              <td class="code">man mv</td>
+              <td>help manual</td>
+            </tr>
+          </table>
+          <h2><a name="examples"></a>mv command examples</h2>
+          <p>
+            Move <em>main.c def.h</em> files to
+            <em>/home/usr/rapid/</em> directory:
+          </p>
+          <p class="tcode">$ mv main.c def.h /home/usr/rapid/</p>
+          <p>&nbsp;</p>
+          <p>
+            Move all C files in current directory to subdirectory<em> bak </em>:
+          </p>
+          <p class="code">$ mv *.c bak</p>
+          <p>&nbsp;</p>
+          <p>
+            Move all files in subdirectory<em> bak </em>to current directory<em
+            > </em>:
+          </p>
+          <p class="code">$ mv bak/* .</p>
+          <p>&nbsp;</p>
+          <p>Rename file <em>main.c</em> to <em>main.bak</em>:</p>
+          <p class="tcode">$ mv main.c main.bak</p>
+          <p>&nbsp;</p>
+          <p>Rename directory <em>bak</em> to <em>bak2</em>:</p>
+          <p class="tcode">$ mv bak bak2</p>
+          <p>&nbsp;</p>
+          <p>Update - move when <em>main.c</em> is newer:</p>
+          <p class="tcode">$ mv -u main.c bak<br />$</p>
+          <p>&nbsp;</p>
+          <p>
+            Move <em>main.c</em> and prompt before overwrite
+            <em>bak/main.c</em>:
+          </p>
+          <p class="tcode">
+            $ mv -v main.c bak<br />'bak/main.c' -&gt; 'bak/main.c'<br />$
+          </p>
+          <p>&nbsp;</p>
+          <p><a href="linux-move-file.html">Linux move files &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="cd.html">cd command</a></li>
+            <li><a href="cp.html">cp command</a></li>
+            <li><a href="gcc.html">gcc command</a></li>
+            <li><a href="ls.html">ls command</a></li>
+            <li><a href="pwd.html">pwd command</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LINUX</h5>
+        <ul>
+          <li><a href="cat.html">cat command</a></li>
+          <li><a href="cd.html">cd command</a></li>
+          <li><a href="cp.html">cp command</a></li>
+          <li><a href="gcc.html">gcc command</a></li>
+          <li><a href="ls.html">ls command</a></li>
+          <li><a href="mv.html">mv command</a></li>
+          <li><a href="pwd.html">pwd command</a></li>
+          <li>
+            <a href="linux-current-directory.html">Linux current directory</a>
+          </li>
+          <li><a href="linux-move-file.html">Linux move files</a></li>
+          <li><a href="linux-view-file.html">Linux view files</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="mv.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

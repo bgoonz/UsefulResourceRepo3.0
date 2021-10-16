@@ -1,0 +1,1789 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Color Wheel Tool Online</title>
+    <meta
+      content="Interactive color wheel generator & chart online."
+      name="description"
+    />
+
+    <script src="https://yui-s.yahooapis.com/3.18.1/build/yui/yui-min.js"></script>
+    <style>
+      .picker {
+        padding: 15px;
+        background: #efefef;
+        border: 1px solid #ddd;
+        width: 538px;
+      }
+
+      #hue-dial,
+      .sliders,
+      .color {
+        display: inline-block;
+        zoom: 1;
+        *display: inline;
+        vertical-align: middle;
+      }
+
+      #hue-dial .yui3-dial-ring {
+        background: url(../../lib/yui/3.9.0/colorwheel.png) -25px -25px
+          no-repeat;
+      }
+
+      #hue-dial .yui3-dial-label {
+        color: black;
+        font-weight: normal;
+        font-size: 0.9em;
+      }
+
+      .sliders {
+        margin: 0 30px;
+      }
+
+      .sliders strong {
+        font-weight: 600;
+        display: block;
+      }
+      .sliders strong span {
+        font-weight: 300;
+      }
+      .sliders div + div {
+        margin-top: 1em;
+      }
+
+      .color {
+        width: 100px;
+        height: 100px;
+        border: 1px solid rgba(0, 0, 0, 0.5);
+        -webkit-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+        -moz-box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+        box-shadow: 1px 1px 2px 0px rgba(0, 0, 0, 0.3);
+      }
+
+      #tout {
+        background: #efefef;
+        border: 1px solid #ddd;
+        margin-bottom: 0px;
+        border-top: none;
+        width: 538px;
+      }
+      .picker-output1 {
+        padding: 10px 8px 5px 8px;
+        background: #efefef;
+      }
+
+      .picker-output1 strong {
+        font-weight: bold;
+        display: block;
+      }
+
+      .picker-output1 input[type="text"] {
+        font-size: 16px;
+        width: 160px;
+      }
+
+      .picker-output2 {
+        padding: 10px 23px 10px 25px;
+        background: #efefef;
+      }
+
+      .picker-output2 ul {
+        margin: 0;
+        padding: 0;
+      }
+      .picker-output2 li {
+        list-style: none;
+        line-height: 1.8em;
+      }
+
+      .picker-output2 .swatch {
+        width: 1em;
+        height: 1em;
+        margin-left: 0.5em;
+        vertical-align: middle;
+        position: relative;
+      }
+      .picker-output3 {
+        padding: 10px 23px 10px 15px;
+        background: #efefef;
+        border: 1px solid #ddd;
+        border-top: none;
+        width: 538px;
+      }
+      .tooltip {
+        position: absolute;
+        top: 1.3em;
+        left: 0;
+        background: #ffefc2;
+        border: 1px solid #f5b400;
+        padding: 0px 10px 0px 20px;
+        z-index: 10;
+      }
+      .tooltip li {
+        white-space: nowrap;
+      }
+
+      table.ctable {
+        border: 5px #aaa none;
+        margin: 0px;
+        visibility: hidden;
+      }
+
+      table.ctable td {
+        width: 60px;
+        height: 60px;
+        border: 10px #aaa solid;
+        margin: 0px;
+      }
+
+      table.htable {
+        margin: 0px 0px 0px 0px;
+        border-style: none;
+        padding: 0px;
+        visibility: hidden;
+      }
+
+      table.htable td {
+        width: 60px !important;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      table.htable input {
+        width: 60px !important;
+        margin: 0px;
+        padding: 0px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Color</a>&rsaquo; Color wheel chart
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Color Wheel Tool</h1>
+          <p>Interactive color wheel generator &amp; chart online.</p>
+          <p>Get color codes and color schemes:</p>
+          <form name="gen">
+            <div class="picker">
+              <div id="hue-dial"></div>
+              <div class="sliders">
+                <div id="sat-slider">
+                  <strong>Saturation: <span></span></strong>
+                </div>
+                <div id="lum-slider">
+                  <strong>Luminance: <span></span></strong>
+                </div>
+              </div>
+              <div class="color"></div>
+            </div>
+
+            <table id="tout">
+              <tr style="vertical-align: top">
+                <td>
+                  <div class="yui3-g picker-output1">
+                    <table>
+                      <tr>
+                        <td><strong>Hex:</strong></td>
+                        <td><input type="text" id="hex-output" /></td>
+                      </tr>
+                      <tr>
+                        <td><strong>RGB:</strong></td>
+                        <td><input type="text" id="rgb-output" /></td>
+                      </tr>
+                      <tr>
+                        <td><strong>HSL:</strong></td>
+                        <td><input type="text" id="hsl-output" /></td>
+                      </tr>
+                    </table>
+                  </div>
+                </td>
+                <td>
+                  <div class="harmonies picker-output2">
+                    <ul>
+                      <li>
+                        <strong>Complementary:</strong>
+                        <span id="h-complementary"></span>
+                      </li>
+                      <li>
+                        <strong>Split Complementary:</strong>
+                        <span id="h-split-complementary"></span>
+                      </li>
+                      <li>
+                        <strong>Analogous:</strong>
+                        <span id="h-analogous"></span>
+                      </li>
+                      <li>
+                        <strong>Triad:</strong> <span id="h-triad"></span>
+                      </li>
+                      <li>
+                        <strong>Square:</strong> <span id="h-square"></span>
+                      </li>
+                      <li>
+                        <strong>Tetrad:</strong> <span id="h-tetrad"></span>
+                      </li>
+                      <li>
+                        <strong>Monochromatic:</strong>
+                        <span id="h-monochromatic"></span>
+                      </li>
+                      <li>
+                        <strong>Similar:</strong> <span id="h-similar"></span>
+                      </li>
+                    </ul>
+                  </div>
+                </td>
+              </tr>
+            </table>
+            <div class="picker-output3">
+              <p>
+                <input
+                  type="button"
+                  value="&#10010; Add color"
+                  title="Add color"
+                  onclick="OnAddColor()"
+                  style="padding: 6px; font-size: 16px"
+                />
+                <input
+                  type="button"
+                  value="&#10008; Clear"
+                  title="Clear colors"
+                  onclick="OnClear()"
+                  style="margin-left: 12px; font-size: 16px"
+                />
+              </p>
+              <table id="clist" class="ctable">
+                <tr>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                  <td onclick="OnGetColor(this)">&nbsp;</td>
+                </tr>
+              </table>
+              <table id="hlist" class="htable">
+                <tr>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                  <td><input type="text" onclick="OnCopy(this)" readonly /></td>
+                </tr>
+              </table>
+            </div>
+          </form>
+          <h2>Color codes chart</h2>
+          <table class="dtable" style="width: 410px">
+            <tr>
+              <th>Color</th>
+              <th>
+                Color
+                <p>name</p>
+              </th>
+              <th>Hex</th>
+              <th>(R,G,B)</th>
+              <th>(H,S,L)</th>
+            </tr>
+            <tr>
+              <td style="background: #000000">&nbsp;</td>
+              <td>Black</td>
+              <td>#000000</td>
+              <td>(0,0,0)</td>
+              <td>(0&ordm;,0%,0%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ffffff">&nbsp;</td>
+              <td>White</td>
+              <td>#FFFFFF</td>
+              <td>(255,255,255)</td>
+              <td>(0&ordm;,0%,100%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ff0000">&nbsp;</td>
+              <td>Red</td>
+              <td>#FF0000</td>
+              <td>(255,0,0)</td>
+              <td>(0&ordm;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #00ff00">&nbsp;</td>
+              <td>Lime</td>
+              <td>#00FF00</td>
+              <td>(0,255,0)</td>
+              <td>(120&ordm;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #0000ff">&nbsp;</td>
+              <td>Blue</td>
+              <td>#0000FF</td>
+              <td>(0,0,255)</td>
+              <td>(240&ordm;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ffff00">&nbsp;</td>
+              <td>Yellow</td>
+              <td>#FFFF00</td>
+              <td>(255,255,0)</td>
+              <td>(60&ordm;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #00ffff">&nbsp;</td>
+              <td>Cyan</td>
+              <td>#00FFFF</td>
+              <td>(0,255,255)</td>
+              <td>(180&ordm;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ff00ff">&nbsp;</td>
+              <td>Magenta</td>
+              <td>#FF00FF</td>
+              <td>(255,0,255)</td>
+              <td>(300&ordm;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #c0c0c0">&nbsp;</td>
+              <td>Silver</td>
+              <td>#C0C0C0</td>
+              <td>(192,192,192)</td>
+              <td>(0&ordm;,0%,75%)</td>
+            </tr>
+            <tr>
+              <td style="background: #808080">&nbsp;</td>
+              <td>Gray</td>
+              <td>#808080</td>
+              <td>(128,128,128)</td>
+              <td>(0&ordm;,0%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #800000">&nbsp;</td>
+              <td>Maroon</td>
+              <td>#800000</td>
+              <td>(128,0,0)</td>
+              <td>(0&ordm;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #808000">&nbsp;</td>
+              <td>Olive</td>
+              <td>#808000</td>
+              <td>(128,128,0)</td>
+              <td>(60&ordm;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #008000">&nbsp;</td>
+              <td>Green</td>
+              <td>#008000</td>
+              <td>(0,128,0)</td>
+              <td>(120&ordm;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #800080">&nbsp;</td>
+              <td>Purple</td>
+              <td>#800080</td>
+              <td>(128,0,128)</td>
+              <td>(300&ordm;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #008080">&nbsp;</td>
+              <td>Teal</td>
+              <td>#008080</td>
+              <td>(0,128,128)</td>
+              <td>(180&ordm;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #000080">&nbsp;</td>
+              <td>Navy</td>
+              <td>#000080</td>
+              <td>(0,0,128)</td>
+              <td>(240&ordm;,100%,25%)</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <table class="dtable" style="width: 410px">
+            <tr>
+              <th>Color</th>
+              <th>HTML / CSS<br />Color Name</th>
+              <th>Hex Code<br />#RRGGBB</th>
+              <th>Decimal Code<br />(R,G,B)</th>
+            </tr>
+            <tr>
+              <td style="background: lightsalmon">&nbsp;</td>
+              <td>lightsalmon</td>
+              <td>#FFA07A</td>
+              <td>rgb(255,160,122)</td>
+            </tr>
+            <tr>
+              <td style="background: salmon">&nbsp;</td>
+              <td>salmon</td>
+              <td>#FA8072</td>
+              <td>rgb(250,128,114)</td>
+            </tr>
+            <tr>
+              <td style="background: darksalmon">&nbsp;</td>
+              <td>darksalmon</td>
+              <td>#E9967A</td>
+              <td>rgb(233,150,122)</td>
+            </tr>
+            <tr>
+              <td style="background: lightcoral">&nbsp;</td>
+              <td>lightcoral</td>
+              <td>#F08080</td>
+              <td>rgb(240,128,128)</td>
+            </tr>
+            <tr>
+              <td style="background: indianred">&nbsp;</td>
+              <td>indianred</td>
+              <td>#CD5C5C</td>
+              <td>rgb(205,92,92)</td>
+            </tr>
+            <tr>
+              <td style="background: crimson">&nbsp;</td>
+              <td>crimson</td>
+              <td>#DC143C</td>
+              <td>rgb(220,20,60)</td>
+            </tr>
+            <tr>
+              <td style="background: firebrick">&nbsp;</td>
+              <td>firebrick</td>
+              <td>#B22222</td>
+              <td>rgb(178,34,34)</td>
+            </tr>
+            <tr>
+              <td style="background: red">&nbsp;</td>
+              <td>red</td>
+              <td>#FF0000</td>
+              <td>rgb(255,0,0)</td>
+            </tr>
+            <tr>
+              <td style="background: darkred">&nbsp;</td>
+              <td>darkred</td>
+              <td>#8B0000</td>
+              <td>rgb(139,0,0)</td>
+            </tr>
+            <tr>
+              <td style="background: coral">&nbsp;</td>
+              <td>coral</td>
+              <td>#FF7F50</td>
+              <td>rgb(255,127,80)</td>
+            </tr>
+            <tr>
+              <td style="background: tomato">&nbsp;</td>
+              <td>tomato</td>
+              <td>#FF6347</td>
+              <td>rgb(255,99,71)</td>
+            </tr>
+            <tr>
+              <td style="background: orangered">&nbsp;</td>
+              <td>orangered</td>
+              <td>#FF4500</td>
+              <td>rgb(255,69,0)</td>
+            </tr>
+            <tr>
+              <td style="background: gold">&nbsp;</td>
+              <td>gold</td>
+              <td>#FFD700</td>
+              <td>rgb(255,215,0)</td>
+            </tr>
+            <tr>
+              <td style="background: orange">&nbsp;</td>
+              <td>orange</td>
+              <td>#FFA500</td>
+              <td>rgb(255,165,0)</td>
+            </tr>
+            <tr>
+              <td style="background: darkorange">&nbsp;</td>
+              <td>darkorange</td>
+              <td>#FF8C00</td>
+              <td>rgb(255,140,0)</td>
+            </tr>
+            <tr>
+              <td style="background: lightyellow">&nbsp;</td>
+              <td>lightyellow</td>
+              <td>#FFFFE0</td>
+              <td>rgb(255,255,224)</td>
+            </tr>
+            <tr>
+              <td style="background: lemonchiffon">&nbsp;</td>
+              <td>lemonchiffon</td>
+              <td>#FFFACD</td>
+              <td>rgb(255,250,205)</td>
+            </tr>
+            <tr>
+              <td style="background: lightgoldenrodyellow">&nbsp;</td>
+              <td>lightgoldenrodyellow</td>
+              <td>#FAFAD2</td>
+              <td>rgb(250,250,210)</td>
+            </tr>
+            <tr>
+              <td style="background: papayawhip">&nbsp;</td>
+              <td>papayawhip</td>
+              <td>#FFEFD5</td>
+              <td>rgb(255,239,213)</td>
+            </tr>
+            <tr>
+              <td style="background: moccasin">&nbsp;</td>
+              <td>moccasin</td>
+              <td>#FFE4B5</td>
+              <td>rgb(255,228,181)</td>
+            </tr>
+            <tr>
+              <td style="background: peachpuff">&nbsp;</td>
+              <td>peachpuff</td>
+              <td>#FFDAB9</td>
+              <td>rgb(255,218,185)</td>
+            </tr>
+            <tr>
+              <td style="background: palegoldenrod">&nbsp;</td>
+              <td>palegoldenrod</td>
+              <td>#EEE8AA</td>
+              <td>rgb(238,232,170)</td>
+            </tr>
+            <tr>
+              <td style="background: khaki">&nbsp;</td>
+              <td>khaki</td>
+              <td>#F0E68C</td>
+              <td>rgb(240,230,140)</td>
+            </tr>
+            <tr>
+              <td style="background: darkkhaki">&nbsp;</td>
+              <td>darkkhaki</td>
+              <td>#BDB76B</td>
+              <td>rgb(189,183,107)</td>
+            </tr>
+            <tr>
+              <td style="background: yellow">&nbsp;</td>
+              <td>yellow</td>
+              <td>#FFFF00</td>
+              <td>rgb(255,255,0)</td>
+            </tr>
+            <tr>
+              <td style="background: lawngreen">&nbsp;</td>
+              <td>lawngreen</td>
+              <td>#7CFC00</td>
+              <td>rgb(124,252,0)</td>
+            </tr>
+            <tr>
+              <td style="background: chartreuse">&nbsp;</td>
+              <td>chartreuse</td>
+              <td>#7FFF00</td>
+              <td>rgb(127,255,0)</td>
+            </tr>
+            <tr>
+              <td style="background: limegreen">&nbsp;</td>
+              <td>limegreen</td>
+              <td>#32CD32</td>
+              <td>rgb(50,205,50)</td>
+            </tr>
+            <tr>
+              <td style="background: lime">&nbsp;</td>
+              <td>lime</td>
+              <td>#00FF00</td>
+              <td>rgb(0.255.0)</td>
+            </tr>
+            <tr>
+              <td style="background: forestgreen">&nbsp;</td>
+              <td>forestgreen</td>
+              <td>#228B22</td>
+              <td>rgb(34,139,34)</td>
+            </tr>
+            <tr>
+              <td style="background: green">&nbsp;</td>
+              <td>green</td>
+              <td>#008000</td>
+              <td>rgb(0,128,0)</td>
+            </tr>
+            <tr>
+              <td style="background: darkgreen">&nbsp;</td>
+              <td>darkgreen</td>
+              <td>#006400</td>
+              <td>rgb(0,100,0)</td>
+            </tr>
+            <tr>
+              <td style="background: greenyellow">&nbsp;</td>
+              <td>greenyellow</td>
+              <td>#ADFF2F</td>
+              <td>rgb(173,255,47)</td>
+            </tr>
+            <tr>
+              <td style="background: yellowgreen">&nbsp;</td>
+              <td>yellowgreen</td>
+              <td>#9ACD32</td>
+              <td>rgb(154,205,50)</td>
+            </tr>
+            <tr>
+              <td style="background: springgreen">&nbsp;</td>
+              <td>springgreen</td>
+              <td>#00FF7F</td>
+              <td>rgb(0,255,127)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumspringgreen">&nbsp;</td>
+              <td>mediumspringgreen</td>
+              <td>#00FA9A</td>
+              <td>rgb(0,250,154)</td>
+            </tr>
+            <tr>
+              <td style="background: lightgreen">&nbsp;</td>
+              <td>lightgreen</td>
+              <td>#90EE90</td>
+              <td>rgb(144,238,144)</td>
+            </tr>
+            <tr>
+              <td style="background: palegreen">&nbsp;</td>
+              <td>palegreen</td>
+              <td>#98FB98</td>
+              <td>rgb(152,251,152)</td>
+            </tr>
+            <tr>
+              <td style="background: darkseagreen">&nbsp;</td>
+              <td>darkseagreen</td>
+              <td>#8FBC8F</td>
+              <td>rgb(143,188,143)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumseagreen">&nbsp;</td>
+              <td>mediumseagreen</td>
+              <td>#3CB371</td>
+              <td>rgb(60,179,113)</td>
+            </tr>
+            <tr>
+              <td style="background: seagreen">&nbsp;</td>
+              <td>seagreen</td>
+              <td>#2E8B57</td>
+              <td>rgb(46,139,87)</td>
+            </tr>
+            <tr>
+              <td style="background: olive">&nbsp;</td>
+              <td>olive</td>
+              <td>#808000</td>
+              <td>rgb(128,128,0)</td>
+            </tr>
+            <tr>
+              <td style="background: darkolivegreen">&nbsp;</td>
+              <td>darkolivegreen</td>
+              <td>#556B2F</td>
+              <td>rgb(85,107,47)</td>
+            </tr>
+            <tr>
+              <td style="background: olivedrab">&nbsp;</td>
+              <td>olivedrab</td>
+              <td>#6B8E23</td>
+              <td>rgb(107,142,35)</td>
+            </tr>
+            <tr>
+              <td style="background: lightcyan">&nbsp;</td>
+              <td>lightcyan</td>
+              <td>#E0FFFF</td>
+              <td>rgb(224,255,255)</td>
+            </tr>
+            <tr>
+              <td style="background: cyan">&nbsp;</td>
+              <td>cyan</td>
+              <td>#00FFFF</td>
+              <td>rgb(0,255,255)</td>
+            </tr>
+            <tr>
+              <td style="background: aqua">&nbsp;</td>
+              <td>aqua</td>
+              <td>#00FFFF</td>
+              <td>rgb(0,255,255)</td>
+            </tr>
+            <tr>
+              <td style="background: aquamarine">&nbsp;</td>
+              <td>aquamarine</td>
+              <td>#7FFFD4</td>
+              <td>rgb(127,255,212)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumaquamarine">&nbsp;</td>
+              <td>mediumaquamarine</td>
+              <td>#66CDAA</td>
+              <td>rgb(102,205,170)</td>
+            </tr>
+            <tr>
+              <td style="background: paleturquoise">&nbsp;</td>
+              <td>paleturquoise</td>
+              <td>#AFEEEE</td>
+              <td>rgb(175,238,238)</td>
+            </tr>
+            <tr>
+              <td style="background: turquoise">&nbsp;</td>
+              <td>turquoise</td>
+              <td>#40E0D0</td>
+              <td>rgb(64,224,208)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumturquoise">&nbsp;</td>
+              <td>mediumturquoise</td>
+              <td>#48D1CC</td>
+              <td>rgb(72,209,204)</td>
+            </tr>
+            <tr>
+              <td style="background: darkturquoise">&nbsp;</td>
+              <td>darkturquoise</td>
+              <td>#00CED1</td>
+              <td>rgb(0,206,209)</td>
+            </tr>
+            <tr>
+              <td style="background: lightseagreen">&nbsp;</td>
+              <td>lightseagreen</td>
+              <td>#20B2AA</td>
+              <td>rgb(32,178,170)</td>
+            </tr>
+            <tr>
+              <td style="background: cadetblue">&nbsp;</td>
+              <td>cadetblue</td>
+              <td>#5F9EA0</td>
+              <td>rgb(95,158,160)</td>
+            </tr>
+            <tr>
+              <td style="background: darkcyan">&nbsp;</td>
+              <td>darkcyan</td>
+              <td>#008B8B</td>
+              <td>rgb(0,139,139)</td>
+            </tr>
+            <tr>
+              <td style="background: teal">&nbsp;</td>
+              <td>teal</td>
+              <td>#008080</td>
+              <td>rgb(0,128,128)</td>
+            </tr>
+            <tr>
+              <td style="background: powderblue">&nbsp;</td>
+              <td>powderblue</td>
+              <td>#B0E0E6</td>
+              <td>rgb(176,224,230)</td>
+            </tr>
+            <tr>
+              <td style="background: lightblue">&nbsp;</td>
+              <td>lightblue</td>
+              <td>#ADD8E6</td>
+              <td>rgb(173,216,230)</td>
+            </tr>
+            <tr>
+              <td style="background: lightskyblue">&nbsp;</td>
+              <td>lightskyblue</td>
+              <td>#87CEFA</td>
+              <td>rgb(135,206,250)</td>
+            </tr>
+            <tr>
+              <td style="background: skyblue">&nbsp;</td>
+              <td>skyblue</td>
+              <td>#87CEEB</td>
+              <td>rgb(135,206,235)</td>
+            </tr>
+            <tr>
+              <td style="background: deepskyblue">&nbsp;</td>
+              <td>deepskyblue</td>
+              <td>#00BFFF</td>
+              <td>rgb(0,191,255)</td>
+            </tr>
+            <tr>
+              <td style="background: lightsteelblue">&nbsp;</td>
+              <td>lightsteelblue</td>
+              <td>#B0C4DE</td>
+              <td>rgb(176,196,222)</td>
+            </tr>
+            <tr>
+              <td style="background: dodgerblue">&nbsp;</td>
+              <td>dodgerblue</td>
+              <td>#1E90FF</td>
+              <td>rgb(30,144,255)</td>
+            </tr>
+            <tr>
+              <td style="background: cornflowerblue">&nbsp;</td>
+              <td>cornflowerblue</td>
+              <td>#6495ED</td>
+              <td>rgb(100,149,237)</td>
+            </tr>
+            <tr>
+              <td style="background: steelblue">&nbsp;</td>
+              <td>steelblue</td>
+              <td>#4682B4</td>
+              <td>rgb(70,130,180)</td>
+            </tr>
+            <tr>
+              <td style="background: royalblue">&nbsp;</td>
+              <td>royalblue</td>
+              <td>#4169E1</td>
+              <td>rgb(65,105,225)</td>
+            </tr>
+            <tr>
+              <td style="background: blue">&nbsp;</td>
+              <td>blue</td>
+              <td>#0000FF</td>
+              <td>rgb(0,0,255)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumblue">&nbsp;</td>
+              <td>mediumblue</td>
+              <td>#0000CD</td>
+              <td>rgb(0,0,205)</td>
+            </tr>
+            <tr>
+              <td style="background: darkblue">&nbsp;</td>
+              <td>darkblue</td>
+              <td>#00008B</td>
+              <td>rgb(0,0,139)</td>
+            </tr>
+            <tr>
+              <td style="background: navy">&nbsp;</td>
+              <td>navy</td>
+              <td>#000080</td>
+              <td>rgb(0,0,128)</td>
+            </tr>
+            <tr>
+              <td style="background: midnightblue">&nbsp;</td>
+              <td>midnightblue</td>
+              <td>#191970</td>
+              <td>rgb(25,25,112)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumslateblue">&nbsp;</td>
+              <td>mediumslateblue</td>
+              <td>#7B68EE</td>
+              <td>rgb(123,104,238)</td>
+            </tr>
+            <tr>
+              <td style="background: slateblue">&nbsp;</td>
+              <td>slateblue</td>
+              <td>#6A5ACD</td>
+              <td>rgb(106,90,205)</td>
+            </tr>
+            <tr>
+              <td style="background: darkslateblue">&nbsp;</td>
+              <td>darkslateblue</td>
+              <td>#483D8B</td>
+              <td>rgb(72,61,139)</td>
+            </tr>
+            <tr>
+              <td style="background: lavender">&nbsp;</td>
+              <td>lavender</td>
+              <td>#E6E6FA</td>
+              <td>rgb(230,230,250)</td>
+            </tr>
+            <tr>
+              <td style="background: thistle">&nbsp;</td>
+              <td>thistle</td>
+              <td>#D8BFD8</td>
+              <td>rgb(216,191,216)</td>
+            </tr>
+            <tr>
+              <td style="background: plum">&nbsp;</td>
+              <td>plum</td>
+              <td>#DDA0DD</td>
+              <td>rgb(221,160,221)</td>
+            </tr>
+            <tr>
+              <td style="background: violet">&nbsp;</td>
+              <td>violet</td>
+              <td>#EE82EE</td>
+              <td>rgb(238,130,238)</td>
+            </tr>
+            <tr>
+              <td style="background: orchid">&nbsp;</td>
+              <td>orchid</td>
+              <td>#DA70D6</td>
+              <td>rgb(218,112,214)</td>
+            </tr>
+            <tr>
+              <td style="background: fuchsia">&nbsp;</td>
+              <td>fuchsia</td>
+              <td>#FF00FF</td>
+              <td>rgb(255,0,255)</td>
+            </tr>
+            <tr>
+              <td style="background: magenta">&nbsp;</td>
+              <td>magenta</td>
+              <td>#FF00FF</td>
+              <td>rgb(255,0,255)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumorchid">&nbsp;</td>
+              <td>mediumorchid</td>
+              <td>#BA55D3</td>
+              <td>rgb(186,85,211)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumpurple">&nbsp;</td>
+              <td>mediumpurple</td>
+              <td>#9370DB</td>
+              <td>rgb(147,112,219)</td>
+            </tr>
+            <tr>
+              <td style="background: blueviolet">&nbsp;</td>
+              <td>blueviolet</td>
+              <td>#8A2BE2</td>
+              <td>rgb(138,43,226)</td>
+            </tr>
+            <tr>
+              <td style="background: darkviolet">&nbsp;</td>
+              <td>darkviolet</td>
+              <td>#9400D3</td>
+              <td>rgb(148,0,211)</td>
+            </tr>
+            <tr>
+              <td style="background: darkorchid">&nbsp;</td>
+              <td>darkorchid</td>
+              <td>#9932CC</td>
+              <td>rgb(153,50,204)</td>
+            </tr>
+            <tr>
+              <td style="background: darkmagenta">&nbsp;</td>
+              <td>darkmagenta</td>
+              <td>#8B008B</td>
+              <td>rgb(139,0,139)</td>
+            </tr>
+            <tr>
+              <td style="background: purple">&nbsp;</td>
+              <td>purple</td>
+              <td>#800080</td>
+              <td>rgb(128,0,128)</td>
+            </tr>
+            <tr>
+              <td style="background: indigo">&nbsp;</td>
+              <td>indigo</td>
+              <td>#4B0082</td>
+              <td>rgb(75,0,130)</td>
+            </tr>
+            <tr>
+              <td style="background: pink">&nbsp;</td>
+              <td>pink</td>
+              <td>#FFC0CB</td>
+              <td>rgb(255,192,203)</td>
+            </tr>
+            <tr>
+              <td style="background: lightpink">&nbsp;</td>
+              <td>lightpink</td>
+              <td>#FFB6C1</td>
+              <td>rgb(255,182,193)</td>
+            </tr>
+            <tr>
+              <td style="background: hotpink">&nbsp;</td>
+              <td>hotpink</td>
+              <td>#FF69B4</td>
+              <td>rgb(255,105,180)</td>
+            </tr>
+            <tr>
+              <td style="background: deeppink">&nbsp;</td>
+              <td>deeppink</td>
+              <td>#FF1493</td>
+              <td>rgb(255,20,147)</td>
+            </tr>
+            <tr>
+              <td style="background: palevioletred">&nbsp;</td>
+              <td>palevioletred</td>
+              <td>#DB7093</td>
+              <td>rgb(219,112,147)</td>
+            </tr>
+            <tr>
+              <td style="background: mediumvioletred">&nbsp;</td>
+              <td>mediumvioletred</td>
+              <td>#C71585</td>
+              <td>rgb(199,21,133)</td>
+            </tr>
+            <tr>
+              <td style="background: white">&nbsp;</td>
+              <td>white</td>
+              <td>#FFFFFF</td>
+              <td>rgb(255,255,255)</td>
+            </tr>
+            <tr>
+              <td style="background: snow">&nbsp;</td>
+              <td>snow</td>
+              <td>#FFFAFA</td>
+              <td>rgb(255,250,250)</td>
+            </tr>
+            <tr>
+              <td style="background: honeydew">&nbsp;</td>
+              <td>honeydew</td>
+              <td>#F0FFF0</td>
+              <td>rgb(240,255,240)</td>
+            </tr>
+            <tr>
+              <td style="background: mintcream">&nbsp;</td>
+              <td>mintcream</td>
+              <td>#F5FFFA</td>
+              <td>rgb(245,255,250)</td>
+            </tr>
+            <tr>
+              <td style="background: azure">&nbsp;</td>
+              <td>azure</td>
+              <td>#F0FFFF</td>
+              <td>rgb(240,255,255)</td>
+            </tr>
+            <tr>
+              <td style="background: aliceblue">&nbsp;</td>
+              <td>aliceblue</td>
+              <td>#F0F8FF</td>
+              <td>rgb(240,248,255)</td>
+            </tr>
+            <tr>
+              <td style="background: ghostwhite">&nbsp;</td>
+              <td>ghostwhite</td>
+              <td>#F8F8FF</td>
+              <td>rgb(248,248,255)</td>
+            </tr>
+            <tr>
+              <td style="background: whitesmoke">&nbsp;</td>
+              <td>whitesmoke</td>
+              <td>#F5F5F5</td>
+              <td>rgb(245,245,245)</td>
+            </tr>
+            <tr>
+              <td style="background: seashell">&nbsp;</td>
+              <td>seashell</td>
+              <td>#FFF5EE</td>
+              <td>rgb(255,245,238)</td>
+            </tr>
+            <tr>
+              <td style="background: beige">&nbsp;</td>
+              <td>beige</td>
+              <td>#F5F5DC</td>
+              <td>rgb(245,245,220)</td>
+            </tr>
+            <tr>
+              <td style="background: oldlace">&nbsp;</td>
+              <td>oldlace</td>
+              <td>#FDF5E6</td>
+              <td>rgb(253,245,230)</td>
+            </tr>
+            <tr>
+              <td style="background: floralwhite">&nbsp;</td>
+              <td>floralwhite</td>
+              <td>#FFFAF0</td>
+              <td>rgb(255,250,240)</td>
+            </tr>
+            <tr>
+              <td style="background: ivory">&nbsp;</td>
+              <td>ivory</td>
+              <td>#FFFFF0</td>
+              <td>rgb(255,255,240)</td>
+            </tr>
+            <tr>
+              <td style="background: antiquewhite">&nbsp;</td>
+              <td>antiquewhite</td>
+              <td>#FAEBD7</td>
+              <td>rgb(250,235,215)</td>
+            </tr>
+            <tr>
+              <td style="background: linen">&nbsp;</td>
+              <td>linen</td>
+              <td>#FAF0E6</td>
+              <td>rgb(250,240,230)</td>
+            </tr>
+            <tr>
+              <td style="background: lavenderblush">&nbsp;</td>
+              <td>lavenderblush</td>
+              <td>#FFF0F5</td>
+              <td>rgb(255,240,245)</td>
+            </tr>
+            <tr>
+              <td style="background: mistyrose">&nbsp;</td>
+              <td>mistyrose</td>
+              <td>#FFE4E1</td>
+              <td>rgb(255,228,225)</td>
+            </tr>
+            <tr>
+              <td style="background: gainsboro">&nbsp;</td>
+              <td>gainsboro</td>
+              <td>#DCDCDC</td>
+              <td>rgb(220,220,220)</td>
+            </tr>
+            <tr>
+              <td style="background: lightgray">&nbsp;</td>
+              <td>lightgray</td>
+              <td>#D3D3D3</td>
+              <td>rgb(211,211,211)</td>
+            </tr>
+            <tr>
+              <td style="background: silver">&nbsp;</td>
+              <td>silver</td>
+              <td>#C0C0C0</td>
+              <td>rgb(192,192,192)</td>
+            </tr>
+            <tr>
+              <td style="background: darkgray">&nbsp;</td>
+              <td>darkgray</td>
+              <td>#A9A9A9</td>
+              <td>rgb(169,169,169)</td>
+            </tr>
+            <tr>
+              <td style="background: gray">&nbsp;</td>
+              <td>gray</td>
+              <td>#808080</td>
+              <td>rgb(128,128,128)</td>
+            </tr>
+            <tr>
+              <td style="background: dimgray">&nbsp;</td>
+              <td>dimgray</td>
+              <td>#696969</td>
+              <td>rgb(105,105,105)</td>
+            </tr>
+            <tr>
+              <td style="background: lightslategray">&nbsp;</td>
+              <td>lightslategray</td>
+              <td>#778899</td>
+              <td>rgb(119,136,153)</td>
+            </tr>
+            <tr>
+              <td style="background: slategray">&nbsp;</td>
+              <td>slategray</td>
+              <td>#708090</td>
+              <td>rgb(112,128,144)</td>
+            </tr>
+            <tr>
+              <td style="background: darkslategray">&nbsp;</td>
+              <td>darkslategray</td>
+              <td>#2F4F4F</td>
+              <td>rgb(47,79,79)</td>
+            </tr>
+            <tr>
+              <td style="background: black">&nbsp;</td>
+              <td>black</td>
+              <td>#000000</td>
+              <td>rgb(0,0,0)</td>
+            </tr>
+            <tr>
+              <td style="background: cornsilk">&nbsp;</td>
+              <td>cornsilk</td>
+              <td>#FFF8DC</td>
+              <td>rgb(255,248,220)</td>
+            </tr>
+            <tr>
+              <td style="background: blanchedalmond">&nbsp;</td>
+              <td>blanchedalmond</td>
+              <td>#FFEBCD</td>
+              <td>rgb(255,235,205)</td>
+            </tr>
+            <tr>
+              <td style="background: bisque">&nbsp;</td>
+              <td>bisque</td>
+              <td>#FFE4C4</td>
+              <td>rgb(255,228,196)</td>
+            </tr>
+            <tr>
+              <td style="background: navajowhite">&nbsp;</td>
+              <td>navajowhite</td>
+              <td>#FFDEAD</td>
+              <td>rgb(255,222,173)</td>
+            </tr>
+            <tr>
+              <td style="background: wheat">&nbsp;</td>
+              <td>wheat</td>
+              <td>#F5DEB3</td>
+              <td>rgb(245,222,179)</td>
+            </tr>
+            <tr>
+              <td style="background: burlywood">&nbsp;</td>
+              <td>burlywood</td>
+              <td>#DEB887</td>
+              <td>rgb(222,184,135)</td>
+            </tr>
+            <tr>
+              <td style="background: tan">&nbsp;</td>
+              <td>tan</td>
+              <td>#D2B48C</td>
+              <td>rgb(210,180,140)</td>
+            </tr>
+            <tr>
+              <td style="background: rosybrown">&nbsp;</td>
+              <td>rosybrown</td>
+              <td>#BC8F8F</td>
+              <td>rgb(188,143,143)</td>
+            </tr>
+            <tr>
+              <td style="background: sandybrown">&nbsp;</td>
+              <td>sandybrown</td>
+              <td>#F4A460</td>
+              <td>rgb(244,164,96)</td>
+            </tr>
+            <tr>
+              <td style="background: goldenrod">&nbsp;</td>
+              <td>goldenrod</td>
+              <td>#DAA520</td>
+              <td>rgb(218,165,32)</td>
+            </tr>
+            <tr>
+              <td style="background: peru">&nbsp;</td>
+              <td>peru</td>
+              <td>#CD853F</td>
+              <td>rgb(205,133,63)</td>
+            </tr>
+            <tr>
+              <td style="background: chocolate">&nbsp;</td>
+              <td>chocolate</td>
+              <td>#D2691E</td>
+              <td>rgb(210,105,30)</td>
+            </tr>
+            <tr>
+              <td style="background: saddlebrown">&nbsp;</td>
+              <td>saddlebrown</td>
+              <td>#8B4513</td>
+              <td>rgb(139,69,19)</td>
+            </tr>
+            <tr>
+              <td style="background: sienna">&nbsp;</td>
+              <td>sienna</td>
+              <td>#A0522D</td>
+              <td>rgb(160,82,45)</td>
+            </tr>
+            <tr>
+              <td style="background: brown">&nbsp;</td>
+              <td>brown</td>
+              <td>#A52A2A</td>
+              <td>rgb(165,42,42)</td>
+            </tr>
+            <tr>
+              <td style="background: maroon">&nbsp;</td>
+              <td>maroon</td>
+              <td>#800000</td>
+              <td>rgb(128,0,0)</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="RGB_Color.html">RGB color codes</a></li>
+            <li>
+              <a href="../../convert/color/index.html">Color code converter</a>
+            </li>
+          </ul>
+          <script>
+            var iout = 0;
+            var ifoc;
+
+            YUI().use(
+              "dial",
+              "slider",
+              "event-valuechange",
+              "color",
+              function (Y) {
+                Y.one(".picker").addClass("yui3-skin-sam");
+
+                var hue = new Y.Dial({
+                    min: 0,
+                    max: 360,
+                    stepsPerRevolution: 360,
+                    continuous: true,
+                    centerButtonDiameter: 0.4,
+                    render: "#hue-dial",
+                    strings: {
+                      label: "Hue:",
+                      resetStr: "Reset",
+                      tooltipHandle: "Drag to set",
+                    },
+                  }),
+                  sat = new Y.Slider({
+                    min: 0,
+                    max: 100,
+                    value: 100,
+                    render: "#sat-slider",
+                  }),
+                  lum = new Y.Slider({
+                    min: 0,
+                    max: 100,
+                    value: 50,
+                    render: "#lum-slider",
+                  }),
+                  satValue = Y.one("#sat-slider span"),
+                  lumValue = Y.one("#lum-slider span"),
+                  color = Y.one(".color");
+
+                hue.after("valueChange", function (e) {
+                  updatePickerUI();
+                });
+
+                sat.after("thumbMove", function (e) {
+                  updatePickerUI();
+                });
+
+                lum.after("thumbMove", function (e) {
+                  lumValue.set("text", lum.get("value") + "%");
+                  updatePickerUI();
+                });
+
+                function setPickerUI(hsl) {
+                  if (typeof hsl.h !== "undefined") {
+                    hue.set("value", +hsl.h);
+                  }
+
+                  if (typeof hsl.s !== "undefined") {
+                    sat.set("value", +hsl.s);
+                  }
+
+                  if (typeof hsl.l !== "undefined") {
+                    lum.set("value", +hsl.l);
+                  }
+                }
+
+                function updatePickerUI() {
+                  var h = hue.get("value"),
+                    s = sat.get("value"),
+                    l = lum.get("value"),
+                    hslString = Y.Color.fromArray([h, s, l], Y.Color.TYPES.HSL);
+
+                  satValue.set("text", s + "%");
+                  lumValue.set("text", l + "%");
+
+                  color.setStyle("backgroundColor", hslString);
+
+                  updateOutput(hslString);
+                }
+
+                var hexOutput = Y.one("#hex-output"),
+                  rgbOutput = Y.one("#rgb-output"),
+                  hslOutput = Y.one("#hsl-output"),
+                  focused = null,
+                  complementary = Y.one("#h-complementary"),
+                  split = Y.one("#h-split-complementary"),
+                  analogous = Y.one("#h-analogous"),
+                  triad = Y.one("#h-triad"),
+                  square = Y.one("#h-square"),
+                  tetrad = Y.one("#h-tetrad"),
+                  mono = Y.one("#h-monochromatic"),
+                  similar = Y.one("#h-similar"),
+                  swatchTip = Y.Node.create('<div class="tooltip"></div>');
+
+                hexOutput.on("focus", setFocused);
+                hexOutput.on("blur", unsetFocused);
+                hexOutput.on("valueChange", updatePickerFromValue);
+
+                rgbOutput.on("focus", setFocused);
+                rgbOutput.on("blur", unsetFocused);
+                rgbOutput.on("valueChange", updatePickerFromValue);
+
+                hslOutput.on("focus", setFocused);
+                hslOutput.on("blur", unsetFocused);
+                hslOutput.on("valueChange", updatePickerFromValue);
+
+                function updateOutput(hslString) {
+                  if (hexOutput !== focused) {
+                    hexOutput.set(
+                      "value",
+                      Y.Color.toHex(hslString).toUpperCase()
+                    );
+                  }
+                  if (rgbOutput !== focused) {
+                    rgbOutput.set("value", Y.Color.toRGB(hslString));
+                  }
+                  if (hslOutput !== focused) {
+                    hslOutput.set("value", hslString);
+                  }
+
+                  swatchTip.remove();
+                  clearColorSwatches();
+                  makeColorSwatches(hslString);
+                }
+
+                function updatePickerFromValue(e) {
+                  var val = e.newVal,
+                    hsl = [];
+
+                  if (Y.Color.toArray(val)) {
+                    hsl = Y.Color.toArray(Y.Color.toHSL(val));
+                    setPickerUI({
+                      h: hsl[0],
+                      s: hsl[1],
+                      l: hsl[2],
+                    });
+                  }
+                }
+
+                function setFocused(e) {
+                  focused = e.currentTarget;
+                }
+
+                function unsetFocused(e) {
+                  if (focused === e.currentTarget) {
+                    focused = null;
+                  }
+                }
+
+                function clearColorSwatches() {
+                  complementary.empty();
+                  split.empty();
+                  analogous.empty();
+                  triad.empty();
+                  square.empty();
+                  tetrad.empty();
+                  mono.empty();
+                  similar.empty();
+                }
+
+                function makeColorSwatches(hslString) {
+                  // complementary swatches
+                  Y.Array.each(
+                    Y.Color.getComplementary(hslString),
+                    function (color) {
+                      complementary.append(getColorSwatch(color));
+                    }
+                  );
+
+                  // split complementary swatches
+                  Y.Array.each(Y.Color.getSplit(hslString), function (color) {
+                    split.append(getColorSwatch(color));
+                  });
+
+                  // analogous swatches
+                  Y.Array.each(
+                    Y.Color.getAnalogous(hslString),
+                    function (color) {
+                      analogous.append(getColorSwatch(color));
+                    }
+                  );
+
+                  // triad swatches
+                  Y.Array.each(Y.Color.getTriad(hslString), function (color) {
+                    triad.append(getColorSwatch(color));
+                  });
+
+                  // square swatches
+                  Y.Array.each(Y.Color.getSquare(hslString), function (color) {
+                    square.append(getColorSwatch(color));
+                  });
+
+                  // tetrad swatches
+                  Y.Array.each(Y.Color.getTetrad(hslString), function (color) {
+                    tetrad.append(getColorSwatch(color));
+                  });
+
+                  // monochrome swatches
+                  Y.Array.each(
+                    Y.Color.getMonochrome(hslString),
+                    function (color) {
+                      mono.append(getColorSwatch(color));
+                    }
+                  );
+
+                  // similar swatches
+                  Y.Array.each(Y.Color.getSimilar(hslString), function (color) {
+                    similar.append(getColorSwatch(color));
+                  });
+                }
+
+                function getColorSwatch(color) {
+                  return (
+                    '<span class="color swatch" style="background-color:' +
+                    color +
+                    '" title="' +
+                    color +
+                    '"></span>'
+                  );
+                }
+
+                Y.one(".picker-output2").delegate(
+                  "click",
+                  function (e) {
+                    swatchTip.empty();
+                    var str = "<ul>",
+                      swatch = e.currentTarget,
+                      color = swatch.get("title");
+
+                    if (swatch.contains(swatchTip)) {
+                      swatchTip.remove();
+                    } else {
+                      str +=
+                        "<li><strong>Hex: </strong> " +
+                        Y.Color.toHex(color).toUpperCase() +
+                        "</li>";
+                      str +=
+                        "<li><strong>RGB: </strong> " +
+                        Y.Color.toRGB(color) +
+                        "</li>";
+                      str +=
+                        "<li><strong>HSL: </strong> " +
+                        Y.Color.toHSL(color) +
+                        "</li>";
+
+                      str += "</ul>";
+
+                      swatch.append(swatchTip);
+                      swatchTip.setHTML(str);
+                    }
+                  },
+                  ".swatch"
+                );
+
+                updatePickerUI();
+              }
+            );
+
+            function OnAddColor() {
+              var color = document.getElementById("hex-output").value;
+              var ccell = document
+                .getElementById("clist")
+                .getElementsByTagName("td");
+              ccell[iout].style.backgroundColor = color;
+              var hcell = document
+                .getElementById("hlist")
+                .getElementsByTagName("input");
+              //hcell[iout].focus();
+              hcell[iout].value = color.toUpperCase();
+              hcell[iout].select();
+              ccell[iout].style.visibility = "visible";
+              hcell[iout].style.visibility = "visible";
+              if (++iout > 7) iout = 0;
+            }
+            function OnGetColor(obj) {
+              //color = obj.style.backgroundColor;
+              var ccell = document
+                .getElementById("clist")
+                .getElementsByTagName("td");
+              var hcell = document
+                .getElementById("hlist")
+                .getElementsByTagName("input");
+              i = 0;
+              color = "";
+              for (i = 0; i < 8; i++)
+                if (ccell[i] == obj) {
+                  color = hcell[i].value;
+                  break;
+                }
+              if (color == "") return;
+              hex = document.getElementById("hex-output");
+              hex.focus();
+              hex.value = color;
+              ifoc = i;
+              setTimeout(function () {
+                hex.blur();
+                hcell[ifoc].focus();
+              }, 500);
+            }
+            function OnClear() {
+              var ccell = document
+                .getElementById("clist")
+                .getElementsByTagName("td");
+              var hcell = document
+                .getElementById("hlist")
+                .getElementsByTagName("input");
+              for (i = 0; i < 8; i++) {
+                ccell[i].style.backgroundColor = "inherit";
+                hcell[i].value = "";
+                ccell[i].style.visibility = "hidden";
+                hcell[i].style.visibility = "hidden";
+              }
+              iout = 0;
+            }
+            function OnCopy(obj) {
+              obj.select();
+            }
+
+            //InitList();
+            GetStorage();
+            window.onbeforeunload = function () {
+              SetStorage();
+            };
+            /*
+	    function InitList()
+	    {
+	    	var hcell = document.getElementById('hlist').getElementsByTagName('input');
+	    	for(i=0; i<8; i++) 
+	    		hcell[i].select();
+	    }
+	    */
+            function GetStorage() {
+              var ccell = document
+                .getElementById("clist")
+                .getElementsByTagName("td");
+              var hcell = document
+                .getElementById("hlist")
+                .getElementsByTagName("input");
+
+              if (localStorage) {
+                if (localStorage.color_wheel) {
+                  iout = localStorage.color_wheel_iout;
+                  hcell[0].value = ccell[0].style.backgroundColor =
+                    localStorage.color_wheel_color0;
+                  hcell[1].value = ccell[1].style.backgroundColor =
+                    localStorage.color_wheel_color1;
+                  hcell[2].value = ccell[2].style.backgroundColor =
+                    localStorage.color_wheel_color2;
+                  hcell[3].value = ccell[3].style.backgroundColor =
+                    localStorage.color_wheel_color3;
+                  hcell[4].value = ccell[4].style.backgroundColor =
+                    localStorage.color_wheel_color4;
+                  hcell[5].value = ccell[5].style.backgroundColor =
+                    localStorage.color_wheel_color5;
+                  hcell[6].value = ccell[6].style.backgroundColor =
+                    localStorage.color_wheel_color6;
+                  hcell[7].value = ccell[7].style.backgroundColor =
+                    localStorage.color_wheel_color7;
+                  for (i = 0; i < 8; i++) {
+                    if (hcell[i].value == "") v = "hidden";
+                    else v = "visible";
+                    ccell[i].style.visibility = v;
+                    hcell[i].style.visibility = v;
+                  }
+                }
+              }
+            }
+            function SetStorage() {
+              //var ccell = document.getElementById('clist').getElementsByTagName('td');
+              var hcell = document
+                .getElementById("hlist")
+                .getElementsByTagName("input");
+
+              localStorage.color_wheel = "on";
+              localStorage.color_wheel_iout = iout;
+              localStorage.color_wheel_color0 = hcell[0].value;
+              localStorage.color_wheel_color1 = hcell[1].value;
+              localStorage.color_wheel_color2 = hcell[2].value;
+              localStorage.color_wheel_color3 = hcell[3].value;
+              localStorage.color_wheel_color4 = hcell[4].value;
+              localStorage.color_wheel_color5 = hcell[5].value;
+              localStorage.color_wheel_color6 = hcell[6].value;
+              localStorage.color_wheel_color7 = hcell[7].value;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <p>&nbsp;</p>
+        <p>&nbsp;</p>
+        <h5>WEB COLORS</h5>
+        <ul>
+          <li><a href="RGB_Color.html">RGB color</a></li>
+          <li><a href="color-picker.html">Color picker</a></li>
+          <li><a href="color-wheel.html">Color wheel</a></li>
+          <li><a href="Web_Safe.html">Web safe colors</a></li>
+          <li><a href="blue-color.html">Blue color</a></li>
+          <li><a href="Gold_Color.html">Gold color</a></li>
+          <li><a href="red-color.html">Red color</a></li>
+          <li><a href="Yellow_Color.html">Yellow color</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="javascript:window.external.AddFavorite('https://www.rapidtables.com','Rapid%20Tables');"
+              >Add to Favorites</a
+            >
+          </li>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="color-wheel.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

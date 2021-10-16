@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Convolution - RapidTables.com</title>
+    <meta
+      name="description"
+      content="Convolution is the correlation function of f(&#964;) with the reversed function g(t-&#964;)."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Calculus</a>&rsaquo; Convolution
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Convolution</h1>
+          <p>
+            Convolution is the correlation function of f(&#964;) with the
+            reversed function g(t-&#964;).
+          </p>
+          <p>
+            The convolution operator is the asterisk symbol
+            <b> <span style="font-size: 1.6em">*</span> .</b>
+          </p>
+          <ul>
+            <li>
+              <a href="Convolution.html#continuous convolution"
+                >Continuous convolution</a
+              >
+            </li>
+            <li>
+              <a href="Convolution.html#discrete convolution"
+                >Discrete convolution</a
+              >
+            </li>
+            <li>
+              <a href="Convolution.html#2D discrete convolution"
+                >2D discrete convolution</a
+              >
+            </li>
+            <li>
+              <a href="Convolution.html#convolution filter implementation"
+                >Filter implementation with convolution</a
+              >
+            </li>
+            <li>
+              <a href="Convolution.html#convolution theorem"
+                >Convolution theorem</a
+              >
+            </li>
+          </ul>
+          <h3><a name="continuous convolution"></a>Continuous convolution</h3>
+          <p>
+            The convolution of f(t) and g(t) is equal to the integral of
+            f(&#964;) times f(t-&#964;):
+          </p>
+          <p>
+            <img
+              border="0"
+              src="convolution/cont_conv_def.gif"
+              width="302"
+              height="51"
+              alt="f(t)*g(t)=\int_{-\infty }^{\infty }f(\tau )g(t-\tau )d\tau "
+            />
+          </p>
+          <h3><a name="discrete convolution"></a>Discrete convolution</h3>
+          <p>Convolution of 2 discrete functions is defined as:</p>
+          <p>
+            <img
+              border="0"
+              src="convolution/disc_conv_def.gif"
+              width="326"
+              height="59"
+              alt="f(n)*g(n)=\sum_{k=-\infty }^{\infty }f(k)\: g(n-k)"
+            />
+          </p>
+          <h3><a name="2D discrete convolution"></a>2D discrete convolution</h3>
+          <p>
+            2 dimensional discrete convolution is usually used for image
+            processing.
+          </p>
+          <p>
+            <img
+              border="0"
+              src="convolution/2d_disc_conv_def.gif"
+              width="472"
+              height="63"
+              alt="f(n,m)*g(n,m)=\sum_{j=-\infty }^{\infty }\sum_{k=-\infty }^{\infty }f(j,k)\: g(n-j,m-k)"
+            />
+          </p>
+          <h3>
+            <a name="convolution filter implementation"></a>Filter
+            implementation with convolution
+          </h3>
+          <p>
+            We can filter the discrete input signal x(n) by convolution with the
+            impulse response h(n) to get the output signal y(n).
+          </p>
+          <p class="math">
+            <i>y</i>(<i>n</i>) = <i>x</i>(<i>n</i>) * <i>h</i>(<i>n</i>)
+          </p>
+          <h3><a name="convolution theorem"></a>Convolution theorem</h3>
+          <p>
+            The Fourier transform of a multiplication of 2 functions is equal to
+            the convolution of the Fourier transforms of each function:
+          </p>
+          <p class="math">
+            &#8497;{<i>f </i>&nbsp;&sdot;<i> g</i>} = &#8497;{<i>f </i>} *
+            &#8497;{<i>g</i>}
+          </p>
+          <p>
+            The Fourier transform of a convolution of 2 functions is equal to
+            the multiplication of the Fourier transforms of each function:
+          </p>
+          <p class="math">
+            &#8497;{<i>f </i>&nbsp;*<i> g</i>} = &#8497;{<i>f </i>} &sdot;
+            &#8497;{<i>g</i>}
+          </p>
+          <h5>&nbsp;</h5>
+          <h5>Convolution theorem for continuous Fourier transform</h5>
+          <p class="math">
+            &#8497;{<i>f </i>(<i>t</i>) &sdot;<i> g</i>(<i>t</i>)} = &#8497;{<i
+              >f </i
+            >(<i>t</i>)} * &#8497;{<i>g</i>(<i>t</i>)} = <i>F</i>(<i>&#969;</i>)
+            * <i>G</i>(<i>&#969;</i>)
+          </p>
+          <p class="math">
+            &#8497;{<i>f </i>(<i>t</i>) *<i> g</i>(<i>t</i>)} = &#8497;{<i>f </i
+            >(<i>t</i>)} &sdot; &#8497;{<i>g</i>(<i>t</i>)} =
+            <i>F</i>(<i>&#969;</i>) &sdot; <i>G</i>(<i>&#969;</i>)
+          </p>
+          <h5>Convolution theorem for discrete Fourier transform</h5>
+          <p class="math">
+            &#8497;{<i>f </i>(<i>n</i>) &sdot;<i> g</i>(<i>n</i>)} = &#8497;{<i
+              >f </i
+            >(<i>n</i>)} * &#8497;{<i>g</i>(<i>n</i>)} = <i>F</i>(<i>k</i>) *
+            <i>G</i>(<i>k</i>)
+          </p>
+          <p class="math">
+            &#8497;{<i>f </i>(<i>n</i>) *<i> g</i>(<i>n</i>)} = &#8497;{<i>f </i
+            >(<i>n</i>)} &sdot; &#8497;{<i>g</i>(<i>n</i>)} = <i>F</i>(<i>k</i>)
+            &sdot; <i>G</i>(<i>k</i>)
+          </p>
+          <h5>Convolution theorem for Laplace transform</h5>
+          <p class="math">
+            &#8466;{<i>f </i>(<i>t</i>) *<i> g</i>(<i>t</i>)} = &#8466;{<i>f </i
+            >(<i>t</i>)} &sdot; &#8466;{<i>g</i>(<i>t</i>)} = <i>F</i>(<i>s</i>)
+            &sdot; <i>G</i>(<i>s</i>)
+          </p>
+          <p class="math">&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../calc/math/convolution-calculator.html">
+                Convolution calculator</a
+              >
+            </li>
+            <li>
+              <a href="laplace_transform.html"
+                >Laplace transform (<i
+                  ><span style="font-size: 1.2em"> </span
+                  ><span style="font-size: 1.2em"> &#8466;&nbsp; </span></i
+                >)</a
+              >
+            </li>
+            <li>
+              <a href="../symbols/Calculus_Symbols.html">Calculus symbols</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CALCULUS</h5>
+        <ul>
+          <li>Limit</li>
+          <li><a href="derivative.html">Derivative</a></li>
+          <li>Integral</li>
+          <li>Series</li>
+          <li><a href="laplace_transform.html">Laplace transform</a></li>
+          <li><a href="Convolution.html">Convolution</a></li>
+          <li>
+            <a href="../symbols/Calculus_Symbols.html">Calculus symbols</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Convolution.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

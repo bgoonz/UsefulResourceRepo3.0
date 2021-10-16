@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>VAT Calculator</title>
+    <meta
+      content="Value added tax (VAT) calculator online."
+      name="description"
+    />
+    <style>
+      .calc2 input[type="text"] {
+        width: 130px;
+      }
+      .calc2 button img {
+        vertical-align: middle;
+      }
+      .calc2 tr:nth-child(2) button img {
+        vertical-align: top;
+        margin-top: 5px;
+      }
+      @media all and (max-width: 576px) {
+        .calc2 {
+          width: 100%;
+        }
+        .calc2 select {
+          padding: 7px;
+        }
+        .calc2 input[type="text"] {
+          width: 200px;
+          padding: 7px;
+        }
+        .calc2 tr:nth-child(2) button {
+          width: 40px;
+          height: 40px;
+          vertical-align: top;
+          margin-top: 3px;
+        }
+        .calc2 tr:nth-child(4) td {
+          padding-top: 10px;
+          padding-bottom: 10px;
+        }
+        .calc2 td:nth-child(2) {
+          padding-top: 20px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc2 tr:nth-child(2) button {
+          width: 30px;
+          height: 30px;
+          vertical-align: top;
+          margin-top: 3px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Finance</a>&rsaquo; VAT calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>VAT Calculator</h1>
+          <p>Value added tax (VAT) calculator online.</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Country:</td>
+                <td>&nbsp;</td>
+                <td>
+                  <select name="Select1" onchange="OnCountryChange()">
+                    <option>Australia</option>
+                    <option>Belgium</option>
+                    <option>Denmark</option>
+                    <option>France</option>
+                    <option>Germany</option>
+                    <option>Greece</option>
+                    <option>India</option>
+                    <option>Ireland</option>
+                    <option>Israel</option>
+                    <option>Italy</option>
+                    <option>Malaysia</option>
+                    <option>Mexico</option>
+                    <option>Netherlands</option>
+                    <option>New Zealand</option>
+                    <option>Norway</option>
+                    <option>Pakistan</option>
+                    <option>Phillipine</option>
+                    <option>Poland</option>
+                    <option>Romania</option>
+                    <option>Singapore</option>
+                    <option>South Africa</option>
+                    <option>Spain</option>
+                    <option>Sweden</option>
+                    <option>Turkey</option>
+                    <option selected="selected">United Kingdom</option>
+                    <option>Other country</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Initial amount:</td>
+                <td class="math" id="cur1">&pound;</td>
+                <td class="math">
+                  <input
+                    id="Text1"
+                    name="Text1"
+                    type="text"
+                    class="intext"
+                    autofocus
+                  />
+
+                  <button type="button" class="btn" onclick="OnClear()">
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Rate of VAT:</td>
+                <td class="math">&nbsp;</td>
+                <td class="math">
+                  <input
+                    id="Text2"
+                    name="Text2"
+                    type="text"
+                    class="intext"
+                    value="20"
+                  />
+                  %
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <button
+                    type="button"
+                    title="Add VAT"
+                    class="btn"
+                    onclick="OnCalcVAT(1)"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_097_plus.png"
+                    />
+                    Add VAT
+                  </button>
+                  <button
+                    type="button"
+                    title="Subtract VAT"
+                    class="btn"
+                    onclick="OnCalcVAT(0)"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_098_minus.png"
+                    />
+                    Subtract VAT
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Net amount:</td>
+                <td class="math" id="cur2">&pound;</td>
+                <td class="math">
+                  <input
+                    id="Text5"
+                    name="Text5"
+                    type="text"
+                    class="outtext"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>VAT amount:</td>
+                <td class="math" id="cur3">&pound;</td>
+                <td class="math">
+                  <input
+                    id="Text6"
+                    name="Text6"
+                    type="text"
+                    class="outtext"
+                    readonly
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Gross amount:</td>
+                <td class="math" id="cur4">&pound;</td>
+                <td class="math">
+                  <input
+                    id="Text7"
+                    name="Text7"
+                    type="text"
+                    class="outtext"
+                    readonly
+                  />
+                </td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp;</p>
+          <p>
+            <a href="simple-interest-calculation.html"
+              >Simple interest calculation &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="compound-interest-calculator.html"
+                >Compound interest calculator</a
+              >
+            </li>
+            <li>
+              <a href="simple-interest-calculation.html"
+                >Simple interest calculation</a
+              >
+            </li>
+          </ul>
+          <script>
+            function OnClear() {
+              document.getElementById("Text1").value = "";
+              document.getElementById("Text5").value = "";
+              document.getElementById("Text6").value = "";
+              document.getElementById("Text7").value = "";
+            }
+            function OnCountryChange() {
+              vat_look = [
+                10,
+                21,
+                25,
+                19.6,
+                19,
+                23,
+                13.5,
+                23,
+                18,
+                22,
+                10,
+                16,
+                21,
+                15,
+                25,
+                16,
+                12,
+                23,
+                24,
+                7,
+                14,
+                21,
+                25,
+                18,
+                20,
+                "",
+              ];
+              c_look = [
+                "$",
+                "&euro;",
+                "kr",
+                "&euro;",
+                "&euro;",
+                "&euro;",
+                "R",
+                "&euro;",
+                "&#8362;",
+                "&euro;",
+                "RM",
+                "$",
+                "&euro;",
+                "$",
+                "kr",
+                "Rs",
+                "P",
+                "zl",
+                "L",
+                "$",
+                "R",
+                "&euro;",
+                "kr",
+                "t",
+                "&pound;",
+                "",
+              ];
+              i = document.calcform.Select1.selectedIndex;
+              c = c_look[i];
+              document.getElementById("cur1").innerHTML = c;
+              document.getElementById("cur2").innerHTML = c;
+              document.getElementById("cur3").innerHTML = c;
+              document.getElementById("cur4").innerHTML = c;
+              document.getElementById("Text2").value = vat_look[i];
+            }
+            function OnCalcVAT(op) {
+              i = document.calcform.Select1.selectedIndex;
+              amount = document.calcform.Text1.value;
+              if (amount == "") amount = "0";
+              amount = parseFloat(amount);
+              vat = document.calcform.Text2.value;
+              if (vat == "") vat = "0";
+              vat = parseFloat(vat);
+              if (op == 1) {
+                net_amount = amount;
+                vat_amount = (amount * vat) / 100;
+                gross_amount = parseFloat(net_amount) + parseFloat(vat_amount);
+              } else {
+                gross_amount = amount;
+                net_amount = (100 * amount) / (100.0 + parseFloat(vat));
+                vat_amount = parseFloat(gross_amount) - parseFloat(net_amount);
+              }
+              net_amount = net_amount.toFixed(2);
+              vat_amount = vat_amount.toFixed(2);
+              gross_amount = gross_amount.toFixed(2);
+              document.calcform.Text5.value = net_amount;
+              document.calcform.Text6.value = vat_amount;
+              document.calcform.Text7.value = gross_amount;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>FINANCIAL CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="compound-interest-calculator.html"
+              >Compound interest calculator</a
+            >
+          </li>
+          <li>
+            <a href="effective-interest-rate-calculator.html"
+              >Effective interest rate calculator</a
+            >
+          </li>
+          <li><a href="gst-calculator.html">GST calculator</a></li>
+          <li>
+            <a href="simple-interest-calculator.html"
+              >Simple interest calculator</a
+            >
+          </li>
+          <li><a href="vat-calculator.html">VAT calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="vat-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>HTML redirect - HTML meta refresh redirect</title>
+    <meta
+      content="HTML redirect. HTML meta refresh redirection code."
+      name="description"
+    />
+    <style>
+      .code {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Dev</a>&rsaquo; HTML redirect
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>HTML redirection</h1>
+          <p>HTML redirect. HTML meta refresh redirection code.</p>
+          <p>
+            HTML meta refresh redirect is a client side redirect and is not 301
+            permanent redirect.
+          </p>
+          <p>
+            The HTML meta refresh with 0 seconds time interval, is considered by
+            Google as a hint for 301 redirect for pagerank transfer.
+          </p>
+          <p>
+            If you want to do real 301 permanent redirect, you can do it with
+            <a href="php-redirect.html">PHP redirect</a> after enabling PHP code
+            in HTML files.
+          </p>
+
+          <h2>HTML meta refresh redirect</h2>
+          <p>
+            The redirection is done with the meta refresh in the head section.
+          </p>
+          <p>The link in the body section for fallback purposes.</p>
+          <p>
+            Replace old page with redirection code with the URL of the page you
+            want to redirect to.
+          </p>
+          <p class="wcode">old-page.html:</p>
+          <p class="code">
+            &lt;!DOCTYPE html&gt;<br />
+            &lt;html&gt;<br />
+            &lt;head&gt;<br />
+            &nbsp;&nbsp;&nbsp;&lt;!-- HTML meta refresh URL redirection
+            --&gt;<br />
+            &nbsp;&nbsp;&nbsp;&lt;meta http-equiv=&quot;refresh&quot;<br />
+            &nbsp;&nbsp;&nbsp;content=&quot;0;
+            url=http://www.mydomain.com/new-page.html&quot;&gt;<br />
+            &lt;/head&gt;<br />
+            &lt;body&gt;<br />
+            &nbsp;&nbsp; &lt;p&gt;The page has moved to:<br />
+            &nbsp;&nbsp;&nbsp;&lt;a
+            href=&quot;http://www.mydomain.com/new-page.html&quot;&gt;this
+            page&lt;/a&gt;&lt;/p&gt;<br />
+            &lt;/body&gt;<br />
+            &lt;/html&gt;
+          </p>
+          <h2>HTML meta refresh redirect example</h2>
+          <p class="wcode">html-redirect-test.htm:</p>
+          <p class="code">
+            &lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;head&gt;<br />&nbsp;&nbsp;&nbsp;&lt;!--
+            HTML meta refresh URL redirection --&gt;<br />&nbsp;&nbsp;&nbsp;&lt;meta
+            http-equiv=&quot;refresh&quot; <br />
+            &nbsp;&nbsp; content=&quot;0;
+            url=https://www.rapidtables.com/web/dev/html-redirect.htm&quot;&gt;<br />&lt;/head&gt;<br />
+            &lt;body&gt;<br />&nbsp;&nbsp; &lt;p&gt;The page has moved to:
+            <br />
+            &nbsp;&nbsp; &lt;a
+            href=&quot;https://www.rapidtables.com/web/dev/html-redirect.htm&quot;&gt;this
+            page&lt;/a&gt;&lt;/p&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            Press this link to redirect from
+            <em>html-redirect-test.htm</em> back to this page:
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a
+              href="redirect/html-redirect-test.html"
+              style="background: #ffffcc; border: 1px #ccc solid; padding: 5px"
+              >HTML meta refresh redirect test</a
+            >
+          </p>
+          <h3>HTML canonical link tag redirect</h3>
+          <p>
+            The canonical link does not redirect to the preferred URL, but it
+            can be an alternative to URL redirection for websites that most of
+            the traffic arrives from search engines.
+          </p>
+          <p>
+            HTML canonical link tag can be used when there are several pages
+            with similar content and you want to tell the search engines which
+            page you prefer to use in the search results.
+          </p>
+          <p>
+            Canonical link tag can link to the same domain and also
+            cross-domain.
+          </p>
+          <p>
+            Add the canonical link tag to the old page to link to the new page.
+          </p>
+          <p>
+            Add the canonical link tag to the pages that you prefer not to get
+            search engines traffic to link to the preferred page.
+          </p>
+          <p>
+            The canonical link tag should be added in the &lt;head&gt; section.
+          </p>
+          <p class="wcode">old-page.html:</p>
+          <p class="code">
+            &lt;link rel=&quot;canonical&quot;
+            href=&quot;http://www.mydomain.com/new-page.html&quot;&gt;
+          </p>
+          <p>&nbsp;</p>
+          <p><a href="url-redirect.html">URL redirection &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="canonical-url-link.html">Canonical URL link</a></li>
+            <li><a href="url-redirect.html">URL redirection</a></li>
+            <li>
+              <a href="../tools/redirect-generator.html">Redirect generator</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB DEVELOPMENT</h5>
+        <ul>
+          <li><a href="htaccess-redirect.html">.htaccess redirection</a></li>
+          <li><a href="canonical-url-link.html">Canonical URL link</a></li>
+          <li><a href="html-redirect.html">HTML redirection</a></li>
+          <li><a href="javascript-redirect.html">Javascript redirection</a></li>
+          <li><a href="jquery-redirect.html">jQuery redirection</a></li>
+          <li><a href="php-redirect.html">PHP redirection</a></li>
+          <li>
+            <a href="screen-resolution-statistics.html"
+              >Screen resolution statistics</a
+            >
+          </li>
+          <li><a href="url-redirect.html">URL redirection</a></li>
+          <li><a href="website-traffic-down.html">Website traffic down</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="html-redirect.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

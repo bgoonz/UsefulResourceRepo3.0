@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>HTML Color Picker</title>
+
+    <script src="../../lib/yui/2.9.0/utilities.js"></script>
+    <script src="../../lib/yui/2.9.0/slider-min.js"></script>
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../lib/yui/2.9.0/colorpicker.css"
+    />
+    <script src="../../lib/yui/2.9.0/colorpicker-min.js"></script>
+    <style>
+      *html .yui-picker-bg {
+        background-image: none;
+        filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(src='/lib/yui/2.9.0/picker_mask.png', sizingMethod='scale');
+      }
+      #container {
+        position: relative;
+        padding: 6px;
+        background-color: #eeeeee;
+        width: 380px;
+        height: 210px;
+        font-size: 1.2em;
+      }
+      .yui-picker-bg {
+        -moz-outline: none;
+        outline: 0px none;
+        position: absolute;
+        top: 4px;
+        left: 4px;
+        height: 182px;
+        width: 182px;
+        background-color: #f00;
+        background-image: url(../../lib/yui/2.9.0/picker_mask.png);
+      }
+    </style>
+    <meta
+      name="description"
+      content="Select the color and get RGB hex color code and HSV color code."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Color</a>&rsaquo; Color picker
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>HTML Color Picker</h1>
+          <p>Online RGB/HSV/HTML color picker.</p>
+          <p>Select color and get RGB hex color code and HSV color code.</p>
+          <p>&nbsp;</p>
+          <div id="container"></div>
+          <script>
+            var picker = new YAHOO.widget.ColorPicker("container", {
+              showhsvcontrols: true,
+              showhexcontrols: true,
+              showwebsafe: true,
+              images: {
+                PICKER_THUMB: "/lib/yui/2.9.0/picker_thumb.png",
+                HUE_THUMB: "/lib/yui/2.9.0/hue_thumb.png",
+              },
+              txt: {
+                ILLEGAL_HEX: "Illegal hex value entered",
+                SHOW_CONTROLS: "",
+                HIDE_CONTROLS: "",
+                CURRENT_COLOR: "Currently selected color: {rgb}",
+                CLOSEST_WEBSAFE:
+                  "Closest websafe color: {rgb}. Click to select.",
+                R: "R",
+                G: "G",
+                B: "B",
+                H: "H",
+                S: "S",
+                V: "V",
+                HEX: "#",
+                DEG: "\u00B0",
+                PERCENT: "%",
+              },
+            });
+          </script>
+          <p>&nbsp;</p>
+          <p>
+            <a href="RGB_Color.html">RGB color</a
+            ><a href="RGB_Color_Chart.html"> &#9658;</a>
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="RGB_Color.html">RGB color</a></li>
+            <li><a href="Web_Safe.html">Web safe colors</a></li>
+            <li><a href="Yellow_Color.html">Yellow color</a></li>
+            <li><a href="Gold_Color.html">Gold color</a></li>
+            <li>
+              <a href="../../convert/color/index.html">Color code converter</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB COLORS</h5>
+        <ul>
+          <li><a href="RGB_Color.html">RGB color</a></li>
+          <li><a href="color-picker.html">Color picker</a></li>
+          <li><a href="color-scheme.html">Color scheme</a></li>
+          <li><a href="color-tester.html">Color tester</a></li>
+          <li><a href="color-wheel.html">Color wheel</a></li>
+          <li><a href="Web_Safe.html">Web safe colors</a></li>
+          <li><a href="blue-color.html">Blue color</a></li>
+          <li><a href="Gold_Color.html">Gold color</a></li>
+          <li><a href="red-color.html">Red color</a></li>
+          <li><a href="Yellow_Color.html">Yellow color</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="color-picker.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

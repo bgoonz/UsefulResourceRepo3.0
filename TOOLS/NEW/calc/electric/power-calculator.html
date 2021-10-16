@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Power Calculator</title>
+    <meta
+      name="description"
+      content="Power calculator. Power consumption calculator."
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      .calc {
+        padding: 15px;
+        width: 100%;
+        max-width: 500px;
+      }
+      #calc-dc tr td:nth-child(2) {
+        width: 200px;
+      }
+      #calc-ac tr td:nth-child(2) {
+        width: 90px;
+      }
+      #calc-ac tr td:nth-child(4) {
+        width: 100px;
+      }
+      .calc input[type="button"] {
+        margin-top: 10px;
+      }
+      .calc input[type="reset"] {
+        margin-top: 10px;
+      }
+      .btn img {
+        filter: invert(1);
+      }
+      #wrapper td {
+        padding-left: unset;
+        padding-right: unset;
+      }
+      @media all and (max-width: 576px) {
+        #calc-dc tr td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-dc tr td:nth-child(2) {
+          width: 100px;
+        }
+        #calc-ac tr td {
+          float: left;
+        }
+        #calc-ac tr:nth-child(2) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(4) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(6) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(8) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(2) td:nth-child(6) {
+          clear: left;
+        }
+        #calc-ac tr:nth-child(8) td:nth-child(6) {
+          clear: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Electrical Calculators</a>&rsaquo; Power
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Power Calculator</h1>
+          <p>
+            Power consumption calculator: calculates
+            <a href="../../electric/electric_power.html">electric power</a> /
+            <a href="../../electric/Voltage.html">voltage</a> /
+            <a href="../../electric/Current.html">current</a> /
+            <a href="../../electric/Resistance.html">resistance</a>.
+          </p>
+          <ul>
+            <li><a href="power-calculator.html#dc">DC power calculator</a></li>
+            <li><a href="power-calculator.html#ac">AC power calculator</a></li>
+            <li>
+              <a href="power-calculator.html#energy"
+                >Energy &amp; power calculator</a
+              >
+            </li>
+          </ul>
+          <h2><a id="dc"></a>DC power calculator</h2>
+          <p>
+            Enter <b>2 <i>values</i></b> to get the other values and press the
+            <i>Calculate </i>button:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc" id="calc-dc">
+              <tbody>
+                <tr>
+                  <td>Resistance (<i>R</i>):</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="r"
+                      name="r"
+                      onclick="ondata(this)"
+                      onkeyup="ondata(this)"
+                      autofocus
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="cr"
+                      class="form-control"
+                      onchange="onselchange(this, 0);"
+                    >
+                      <option selected>ohms (&Omega;)</option>
+                      <option>kilo-ohms (k&Omega;)</option>
+                      <option>mega-ohms (M&Omega;)</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Current (<i>I</i>):</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      step="any"
+                      id="i"
+                      name="i"
+                      onclick="ondata(this)"
+                      onkeyup="ondata(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="ci"
+                      class="form-control"
+                      onchange="onselchange(this, 1);"
+                    >
+                      <option>micro-amps (&mu;A)</option>
+                      <option>milli-amps (mA)</option>
+                      <option selected>amps (A)</option>
+                      <option>kilo-amps (kA)</option>
+                      <option>mega-amps (MA)</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Voltage (<i>V</i>):</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      step="any"
+                      id="v"
+                      name="v"
+                      onclick="ondata(this)"
+                      onkeyup="ondata(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="cv"
+                      class="form-control"
+                      onchange="onselchange(this, 2);"
+                    >
+                      <option>micro-volts (&mu;V)</option>
+                      <option>milli-volts (mV)</option>
+                      <option selected>volts (V)</option>
+                      <option>kilo-volts (kV)</option>
+                      <option>mega-volts (MV)</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Power (<i>P</i>):</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="p"
+                      name="p"
+                      onclick="ondata(this)"
+                      onkeyup="ondata(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="cp"
+                      class="form-control"
+                      onchange="onselchange(this, 3);"
+                    >
+                      <option>micro-watts (&mu;W)</option>
+                      <option>milli-watts (mW)</option>
+                      <option selected>watts (W)</option>
+                      <option>kilo-watts (kW)</option>
+                      <option>mega-watts (MW)</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr colspan="2">
+                  <td>
+                    <input
+                      name="bcalc"
+                      onclick="oncalc()"
+                      type="button"
+                      value="Calculate"
+                      disabled="disabled"
+                      class="btn btn-secondary"
+                    />
+                    <input
+                      type="reset"
+                      value="Reset"
+                      class="btn btn-secondary"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <h4>DC power calculation</h4>
+          <p>
+            <img
+              loading="lazy"
+              src="../../electric/ohm's&#32;law/basic&#32;circuit.PNG"
+              width="214"
+              height="144"
+              alt=""
+            />
+          </p>
+          <p>Voltage (V) calculation from current (I) and resistance (R):</p>
+          <p class="math">
+            <em>V</em><sub>(V)</sub> = <em>I</em
+            ><sub>(A)</sub>&nbsp;&times;&nbsp;<em>R</em><sub>(&Omega;)</sub>
+          </p>
+          <p>Complex power (S) calculation from voltage (V) and current (I):</p>
+          <p class="math">
+            <em>P</em><sub>(W)</sub> = <em>V</em
+            ><sub>(V)</sub>&nbsp;&times;&nbsp;<em>I</em><sub>(A)</sub> =
+            <em>V</em><sup> 2</sup><sub>(V)</sub> / <em>R</em
+            ><sub>(&Omega;)</sub> = <em>I</em> <sup>2</sup
+            ><sub>(A)</sub>&nbsp;&times;&nbsp;<em>R</em><sub>(&Omega;)</sub>
+          </p>
+          <h2><a id="ac"></a>AC power calculator</h2>
+          <p>
+            Enter <b>2 magnitudes + 2 phase angles</b> to get the other values
+            and press the <i>Calculate</i> button:
+          </p>
+          <form name="calcform2">
+            <table class="calc" id="calc-ac">
+              <tbody>
+                <tr>
+                  <td colspan="5">Impedance (<i>Z</i>):</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      name="z"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      onblur="oncalccart(0)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="cz"
+                      class="form-control"
+                      onchange="onselchange2(this, 0);"
+                    >
+                      <option selected>&Omega;</option>
+                      <option>k&Omega;</option>
+                      <option>M&Omega;</option>
+                    </select>
+                  </td>
+                  <td class="math">&ang;</td>
+                  <td>
+                    <input
+                      name="zdeg"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      onblur="oncalccart(0)"
+                      placeholder="&phi;"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="math">&deg;</td>
+                  <td class="math">&nbsp;=&nbsp;</td>
+                  <td>
+                    <input
+                      name="z_car"
+                      onclick="ondata2(this)"
+                      onblur="oncalcpolar(0)"
+                      placeholder="R + jX"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="5">Current (<i>I</i>):</td>
+                </tr>
+
+                <tr>
+                  <td>
+                    <input
+                      name="i2"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="ci2"
+                      class="form-control"
+                      onchange="onselchange2(this, 1);"
+                    >
+                      <option>&mu;A</option>
+                      <option>mA</option>
+                      <option selected>A</option>
+                      <option>kA</option>
+                      <option>MA</option>
+                    </select>
+                  </td>
+                  <td class="math">&ang;</td>
+                  <td>
+                    <input
+                      name="ideg"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="math">&deg;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td colspan="5">Voltage (<i>V</i>):</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      name="v2"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="cv2"
+                      class="form-control"
+                      onchange="onselchange2(this, 2);"
+                    >
+                      <option selected>V</option>
+                      <option>kV</option>
+                      <option>MV</option>
+                    </select>
+                  </td>
+                  <td class="math">&ang;</td>
+                  <td>
+                    <input
+                      name="vdeg"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="math">&deg;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td colspan="5">Power <i>S</i>:</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      name="s"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      onblur="oncalccart(1)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>
+                    <select
+                      name="cs"
+                      class="form-control"
+                      onchange="onselchange2(this, 3);"
+                    >
+                      <option selected>VA</option>
+                      <option>kVA</option>
+                      <option>MVA</option>
+                    </select>
+                  </td>
+                  <td class="math">&ang;</td>
+                  <td>
+                    <input
+                      name="sdeg"
+                      onclick="ondata2(this)"
+                      onkeyup="ondata2(this)"
+                      onblur="oncalccart(1)"
+                      placeholder="&phi;"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="math">&deg;</td>
+                  <td class="math">&nbsp;=&nbsp;</td>
+                  <td>
+                    <input
+                      name="s_car"
+                      onclick="ondata2(this)"
+                      onblur="oncalcpolar(1)"
+                      placeholder="P + jQ"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <input
+                      name="bcalc2"
+                      onclick="oncalc2()"
+                      type="button"
+                      value="Calculate"
+                      disabled="disabled"
+                      class="btn btn-secondary"
+                    />
+                    <input
+                      type="reset"
+                      value="Reset"
+                      class="btn btn-secondary"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <h4>AC power calculation</h4>
+          <p>
+            The voltage V in volts (V) is eqaul to the current I in amps (A)
+            times the impedance Z in ohms (&#937;):
+          </p>
+          <p class="math">
+            <em>V</em><sub>(V)</sub> = <em>I</em><sub>(A)</sub> &times;
+            <em>Z</em><sub>(&Omega;)</sub> = <em>(|</em><em>I</em
+            ><em>|</em>&times;<em>|</em><em>Z</em>|) &ang; (<em
+              >&theta;<sub>I</sub></em
+            >
+            + <em>&theta;<sub>Z</sub></em
+            >)
+          </p>
+          <p>
+            The complex power S in volt-amps (VA) is equal to the voltage V in
+            volts (V) times the current I in amps (A):
+          </p>
+          <p class="math">
+            <em>S</em><sub>(VA)</sub> = <em>V</em><sub>(V)</sub> &times;
+            <em>I</em><sub>(A)</sub> = <em>(|</em><em>V</em><em>|</em>&times;<em
+              >|</em
+            ><em>I</em>|) &ang; (<em>&theta;<sub>V</sub></em> -
+            <em>&theta;<sub>I</sub></em
+            >)
+          </p>
+          <p>
+            The real power P in watts (W) is equal to the voltage V in volts (V)
+            times current I in amps (A) times the power factor (cos
+            <em>&phi;</em>):
+          </p>
+          <p class="math">
+            <em>P</em><sub>(W)</sub> = <em>V</em
+            ><sub>(V)</sub>&nbsp;&times;&nbsp;<em>I</em
+            ><sub>(A)</sub> &times;&nbsp;cos<em> &phi;</em>
+          </p>
+          <p>
+            The reactive power Q in volt-amps reactive (VAR) is equal to the
+            voltage V in volts (V) times the current I in amps (A) time the sine
+            of the complex power phase angle (<em>&phi;</em>):
+          </p>
+          <p class="math">
+            <em>Q</em><sub>(VAR)</sub> = <em>V</em
+            ><sub>(V)</sub>&nbsp;&times;&nbsp;<em>I</em
+            ><sub>(A)</sub> &times;&nbsp;sin<em> &phi;</em>
+          </p>
+          <p>
+            The power factor (FP) is equal to the absolute value of the cosine
+            of the complex power phase angle (<em>&phi;</em>):
+          </p>
+          <p class="math"><em>PF</em> = |cos <em>&phi;</em>|</p>
+          <h2><a id="energy"></a>Energy &amp; power calculator</h2>
+          <p>
+            Enter <b>2 values</b> to get the other values and press the
+            <i>Calculate</i>button:
+          </p>
+          <form name="calcform3">
+            <table class="calc" id="calcform3">
+              <tbody>
+                <tr>
+                  <td>Energy:</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="e"
+                      onclick="ondata3(this)"
+                      onkeyup="ondata3(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="mathsymbol">J</td>
+                </tr>
+                <tr>
+                  <td>Time period</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="t"
+                      onclick="ondata3(this)"
+                      onkeyup="ondata3(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="mathsymbol">s</td>
+                </tr>
+                <tr>
+                  <td>Average power:</td>
+                </tr>
+                <tr>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="p"
+                      onclick="ondata3(this)"
+                      onkeyup="ondata3(this)"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="mathsymbol">W</td>
+                </tr>
+                <tr>
+                  <td colspan="2">
+                    <input
+                      name="bcalc3"
+                      onclick="oncalc3()"
+                      type="button"
+                      value="Calculate"
+                      disabled
+                      class="btn btn-secondary"
+                    />
+                    <input
+                      type="reset"
+                      value="Reset"
+                      class="btn btn-secondary"
+                    />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <h4>Energy &amp; power calculation</h4>
+          <p>
+            The average power <em>P</em> in watts (W) is equal to the energy
+            consumed <em>E</em> in joules (J) divided by time period &#916;<em
+              >t </em
+            >in seconds (s):
+          </p>
+          <p class="math">
+            <em>P</em><sub>(W)</sub> = <em>E</em><sub>(J)</sub> / &Delta;<em
+              >t</em
+            ><sub>(s)</sub>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../../electric/electric_power.html"
+              >Electric power &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../../electric/ohms-law.html">Ohm's law</a></li>
+            <li>
+              <a href="power-factor-calculator.html">Power factor calculator</a>
+            </li>
+            <li>
+              <a href="Amp_to_Volt_Calculator.html">Amps to Volts calculator</a>
+            </li>
+            <li>
+              <a href="../math/Exponent_Calculator.html"
+                >Exponents calculator</a
+              >
+            </li>
+            <li><a href="index.html">Electrical calculators</a></li>
+            <li><a href="../../electric/Resistance.html">Resistance</a></li>
+            <li><a href="../../electric/Current.html">Electric current</a></li>
+            <li><a href="../../electric/Voltage.html">Electric voltage</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATORS</h5>
+        <ul>
+          <li><a href="Amp_to_kW_Calculator.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA_Calculator.html">Amps to kVA</a></li>
+          <li><a href="amps-to-va-calculator.html">Amps to VA</a></li>
+          <li><a href="Amp_to_Volt_Calculator.html">Amps to volts</a></li>
+          <li><a href="Amp_to_Watt_Calculator.html">Amps to watts</a></li>
+          <li><a href="electricity-calculator.html">Electricity bill</a></li>
+          <li>
+            <a href="energy-consumption-calculator.html">Energy consumption</a>
+          </li>
+          <li><a href="energy-cost-calculator.html">Energy cost</a></li>
+          <li><a href="ev-to-volt-calculator.html">eV to volts</a></li>
+          <li><a href="Joule_to_Watt_Calculator.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt_Calculator.html">Joules to volts</a></li>
+          <li><a href="kVA_to_Amp_Calculator.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt-calculator.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw-calculator.html">kVA to kW</a></li>
+          <li><a href="kva-to-va-calculator.html">kVA to VA</a></li>
+          <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+          <li><a href="kw-to-volt-calculator.html">kW to volts</a></li>
+          <li><a href="kW_to_kWh_Calculator.html">kW to kWh</a></li>
+          <li><a href="kw-to-va-calculator.html">kW to VA</a></li>
+          <li><a href="kw-to-kva-calculator.html">kW to kVA</a></li>
+          <li><a href="kWh_to_kW_Calculator.html">kWh to kW</a></li>
+          <li><a href="kwh-to-watt-calculator.html">kWh to watts</a></li>
+          <li><a href="ohms-law-calculator.html">Ohm's Law</a></li>
+          <li><a href="power-calculator.html">Power calculator</a></li>
+          <li><a href="power-factor-calculator.html">Power factor</a></li>
+          <li><a href="va-to-amps-calculator.html">VA to amps</a></li>
+          <li><a href="va-to-watt-calculator.html">VA to watts</a></li>
+          <li><a href="va-to-kw-calculator.html">VA to kW</a></li>
+          <li><a href="va-to-kva-calculator.html">VA to kVA</a></li>
+          <li><a href="Voltage_Divider_Calculator.html">Voltage divider</a></li>
+          <li><a href="Volt_to_Amp_Calculator.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Watt_Calculator.html">Volts to watts</a></li>
+          <li><a href="volt-to-kw-calculator.html">Volts to kW</a></li>
+          <li><a href="Volt_to_Joule_Calculator.html">Volts to joules</a></li>
+          <li><a href="volt-to-ev-calculator.html">Volts to eV</a></li>
+          <li>
+            <a href="watt-volt-amp-calculator.html">Watts-volts-amps-ohms</a>
+          </li>
+          <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule_Calculator.html">Watts to joules</a></li>
+          <li><a href="watt-to-kwh-calculator.html">Watts to kWh</a></li>
+          <li><a href="Watt_to_Volt_Calculator.html">Watts to volts</a></li>
+          <li><a href="watt-to-va-calculator.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva-calculator.html">Watts to kVA</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="power-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script src="../calc2.js"></script>
+        <script>
+          var prevIndex = ["0", "2", "2", "2"];
+          var prevIndex2 = ["0", "2", "0", "0"];
+
+          //window.onload = new function()
+          //{
+          //	setfocus();
+          //}
+          function setfocus() {
+            document.calcform3.e.focus();
+          }
+          function ondata3(obj) {
+            e = document.calcform3.e.value;
+            t = document.calcform3.t.value;
+            p = document.calcform3.p.value;
+            count = 0;
+            if (e != "") count++;
+            if (t != "") count++;
+            if (p != "") count++;
+            if (count < 2) document.calcform3.bcalc3.disabled = true;
+            else document.calcform3.bcalc3.disabled = false;
+          }
+          function oncalc3() {
+            e = document.calcform3.e.value;
+            t = document.calcform3.t.value;
+            p = document.calcform3.p.value;
+            if (e != "" && t != "") p = e / t;
+            else if (e != "" && p != "") t = e / p;
+            else if (p != "" && t != "") e = p * t;
+            document.calcform3.e.value = roundnum(e, 8);
+            document.calcform3.t.value = roundnum(t, 8);
+            document.calcform3.p.value = roundnum(p, 8);
+          }
+          function ondata(obj) {
+            r = document.calcform.r.value;
+            i = document.calcform.i.value;
+            v = document.calcform.v.value;
+            p = document.calcform.p.value;
+            count = 0;
+            if (r != "") count++;
+            if (i != "") count++;
+            if (v != "") count++;
+            if (p != "") count++;
+            if (count < 2) document.calcform.bcalc.disabled = true;
+            else document.calcform.bcalc.disabled = false;
+          }
+          function onselchange(sel, i) {
+            if (i == 0) txt = document.calcform.r;
+            else if (i == 1) txt = document.calcform.i;
+            else if (i == 2) txt = document.calcform.v;
+            else if (i == 3) txt = document.calcform.p;
+            if (txt.value == "") return;
+            di = sel.selectedIndex - prevIndex[i];
+            txt.value = roundnum(txt.value / Math.pow(1000, di), 8);
+            prevIndex[i] = sel.selectedIndex;
+          }
+          function oncalc() {
+            fr = Math.pow(10, 3 * document.calcform.cr.selectedIndex);
+            fi = Math.pow(10, 3 * document.calcform.ci.selectedIndex - 6);
+            fv = Math.pow(10, 3 * document.calcform.cv.selectedIndex - 6);
+            fp = Math.pow(10, 3 * document.calcform.cp.selectedIndex - 6);
+            r = fr * document.calcform.r.value;
+            i = fi * document.calcform.i.value;
+            v = fv * document.calcform.v.value;
+            p = fp * document.calcform.p.value;
+            if (r != "" && v != "") {
+              i = v / r;
+              p = v * i;
+            } else if (r != "" && i != "") {
+              v = i * r;
+              p = v * i;
+            } else if (r != "" && p != "") {
+              v = Math.sqrt(p * r);
+              i = p / v;
+            } else if (i != "" && v != "") {
+              r = v / i;
+              p = v * i;
+            } else if (i != "" && p != "") {
+              v = p / i;
+              r = v / i;
+            } else if (v != "" && p != "") {
+              i = p / v;
+              r = v / i;
+            }
+            r /= fr;
+            i /= fi;
+            v /= fv;
+            p /= fp;
+            document.calcform.r.value = roundnum(r, 8);
+            document.calcform.i.value = roundnum(i, 8);
+            document.calcform.v.value = roundnum(v, 8);
+            document.calcform.p.value = roundnum(p, 8);
+          }
+          function ondata2(obj) {
+            z = document.calcform2.z.value;
+            i = document.calcform2.i2.value;
+            v = document.calcform2.v2.value;
+            s = document.calcform2.s.value;
+            zdeg = document.calcform2.zdeg.value;
+            ideg = document.calcform2.ideg.value;
+            vdeg = document.calcform2.vdeg.value;
+            sdeg = document.calcform2.sdeg.value;
+            zcar = document.calcform2.z_car.value;
+            scar = document.calcform2.s_car.value;
+            count = 0;
+            if ((z != "" && zdeg != "") || zcar != "") count++;
+            if (i != "" && ideg != "") count++;
+            if (v != "" && vdeg != "") count++;
+            if ((s != "" && sdeg != "") || sdeg != "") count++;
+            if (count < 2) document.calcform2.bcalc2.disabled = true;
+            else document.calcform2.bcalc2.disabled = false;
+          }
+          function onselchange2(sel, i) {
+            if (i == 0) txt = document.calcform2.z;
+            else if (i == 1) txt = document.calcform2.i2;
+            else if (i == 2) txt = document.calcform2.v2;
+            else if (i == 3) txt = document.calcform2.s;
+            if (txt.value == "") return;
+            di = sel.selectedIndex - prevIndex2[i];
+            txt.value = roundnum(txt.value / Math.pow(1000, di), 8);
+            prevIndex2[i] = sel.selectedIndex;
+          }
+          function oncalc2() {
+            fz = Math.pow(10, 3 * document.calcform2.cz.selectedIndex);
+            fi = Math.pow(10, 3 * document.calcform2.ci2.selectedIndex - 6);
+            fv = Math.pow(10, 3 * document.calcform2.cv2.selectedIndex);
+            fs = Math.pow(10, 3 * document.calcform2.cs.selectedIndex);
+            z = fz * document.calcform2.z.value;
+            i = fi * document.calcform2.i2.value;
+            v = fv * document.calcform2.v2.value;
+            s = fs * document.calcform2.s.value;
+            zdeg = document.calcform2.zdeg.value;
+            ideg = document.calcform2.ideg.value;
+            vdeg = document.calcform2.vdeg.value;
+            sdeg = document.calcform2.sdeg.value;
+            _zdeg = parseFloat(zdeg);
+            _ideg = parseFloat(ideg);
+            _vdeg = parseFloat(vdeg);
+            _sdeg = parseFloat(sdeg);
+            if (z != "" && v != "" && zdeg != "" && vdeg != "") {
+              i = v / z;
+              s = v * i;
+              ideg = _vdeg - _zdeg;
+              sdeg = _zdeg;
+            } else if (z != "" && i != "" && zdeg != "" && ideg != "") {
+              v = i * z;
+              s = v * i;
+              vdeg = _zdeg + _ideg;
+              sdeg = _zdeg;
+            } else if (z != "" && s != "" && zdeg != "" && sdeg != "") {
+              v = Math.sqrt(s * z);
+              i = s / v;
+              vdeg = (_sdeg + _zdeg) / 2;
+              ideg = _sdeg - vdeg;
+            } else if (i != "" && v != "" && ideg != "" && vdeg != "") {
+              z = v / i;
+              s = v * i;
+              zdeg = _vdeg - _ideg;
+              sdeg = zdeg;
+            } else if (i != "" && s != "" && ideg != "" && sdeg != "") {
+              v = s / i;
+              z = v / i;
+              zdeg = _sdeg;
+              vdeg = zdeg + _ideg;
+            } else if (v != "" && s != "" && vdeg != "" && sdeg != "") {
+              i = s / v;
+              z = v / i;
+              zdeg = _sdeg;
+              ideg = _vdeg - zdeg;
+            }
+            z /= fz;
+            i /= fi;
+            v /= fv;
+            s /= fs;
+            document.calcform2.z.value = roundnum(z, 8);
+            document.calcform2.i2.value = roundnum(i, 8);
+            document.calcform2.v2.value = roundnum(v, 8);
+            document.calcform2.s.value = roundnum(s, 8);
+            document.calcform2.zdeg.value = roundnum(zdeg, 5);
+            document.calcform2.ideg.value = roundnum(ideg, 5);
+            document.calcform2.vdeg.value = roundnum(vdeg, 5);
+            document.calcform2.sdeg.value = roundnum(sdeg, 5);
+
+            if (document.calcform2.z_car.value == "") oncalccart(0);
+            if (document.calcform2.s_car.value == "") oncalccart(1);
+          }
+          function oncalccart(ix) {
+            if (ix == 0) {
+              r = document.calcform2.z.value;
+              ang = document.calcform2.zdeg.value;
+            } else {
+              r = document.calcform2.s.value;
+              ang = document.calcform2.sdeg.value;
+            }
+
+            if (r == "" || ang == "") return;
+
+            ang = (ang / 180) * Math.PI;
+            x = r * Math.cos(ang);
+            y = r * Math.sin(ang);
+            if (y < 0) {
+              y = -y;
+              sign = "-";
+            } else sign = "+";
+            x = x.toFixed(2);
+            y = y.toFixed(2);
+            p = x + sign + "j" + y;
+
+            if (ix == 0) document.calcform2.z_car.value = p;
+            else document.calcform2.s_car.value = p;
+          }
+          function oncalcpolar(ix) {
+            if (ix == 0) {
+              car = document.calcform2.z_car.value;
+              c = document.calcform2.cz.selectedIndex;
+            } else {
+              car = document.calcform2.s_car.value;
+              c = document.calcform2.cs.selectedIndex;
+            }
+
+            if (car == "") return;
+            i = car.indexOf("j");
+            if (i == -1) car += "+j0";
+            if (i == 0) car = "0+" + car;
+            if (i == 1) car = "0" + car;
+
+            len = car.length;
+            i1 = car.indexOf("+");
+            i2 = car.indexOf("-");
+            i3 = car.indexOf(" ");
+            if (i2 == 0) sign1 = -1;
+            else sign1 = 1;
+            if (i1 < 1) i1 = 100;
+            if (i2 < 1) i2 = 100;
+            if (i3 < 1) i3 = 100;
+            i = Math.min(i1, i2, i3);
+            if (i == i2) sign2 = -1;
+            else sign2 = 1;
+            x = car.substring(0, i);
+            //alert(i+' '+x);
+            x = parseFloat(x);
+            //alert(x);
+            i = car.indexOf("j");
+            y = car.substring(i + 1, len);
+            y = parseFloat(y);
+            //alert(y);
+            y *= sign2;
+            mag = Math.sqrt(x * x + y * y);
+            if (x != 0) ang = (Math.atan(y / x) * 180) / Math.PI;
+            else ang = y > 0 ? 90 : y < 0 ? -90 : 0;
+            if (sign1 == -1 && ang != 0) {
+              if (ang > 0) ang -= 180;
+              else ang += 180;
+            }
+
+            mag /= Math.pow(10, c * 3);
+
+            mag = mag.toFixed(2);
+            ang = ang.toFixed(0);
+
+            if (ix == 0) {
+              document.calcform2.z.value = mag;
+              document.calcform2.zdeg.value = ang;
+            } else {
+              document.calcform2.s.value = mag;
+              document.calcform2.sdeg.value = ang;
+            }
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

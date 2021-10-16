@@ -1,0 +1,870 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Image to PDF - Convert images to PDF files</title>
+    <meta
+      content="Image to PDF - combine multiple files to pdf"
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 20px;
+        background: #eee8d5;
+        border: 1px solid #e0e0e0;
+        border-radius: 7px;
+      }
+      .btn i {
+        vertical-align: bottom;
+      }
+      #is-fitwidth + i,
+      #is-orig + i {
+        transform: rotate(90deg);
+      }
+      #videodiv {
+        position: relative;
+        width: 100%;
+      }
+      #videodiv > button {
+        display: none;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+      }
+      #video {
+        width: 100%;
+        height: auto;
+      }
+      #videodiv {
+        background: #444;
+      }
+      #imgdiv {
+        border: 10px dashed #aaa;
+        padding: 5px;
+        background: #f0f0f0;
+        width: 100%;
+        min-height: 160px;
+        text-align: center;
+      }
+      #imgdiv i {
+        margin-top: 30px;
+        color: #ccc;
+        font-size: xx-large;
+      }
+      #imgdiv img {
+        background: #ffffff;
+        border: 5px solid #ffffff;
+        margin: 5px;
+        display: inline-block;
+        /*user-drag:none;*/ /*ok*/
+        -webkit-user-drag: none;
+        user-select: none;
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+      #imgdiv.draghover {
+        border: 10px dashed #888;
+      }
+      #isdiv {
+        display: none;
+      }
+      #imgsize {
+        width: calc(100% - 20px);
+      }
+      #calcform button i {
+        vertical-align: middle;
+      }
+      #outframe {
+        width: 100%;
+        height: 300px;
+        margin: 0;
+        padding: 0;
+        display: none;
+      }
+      #fileElem {
+        visibility: hidden;
+        width: 30px;
+      }
+      #canvas {
+        display: none;
+      }
+      @media all and (max-width: 800px) {
+        #dragLabel {
+          display: none;
+        }
+        #calcform {
+          padding: 10px;
+        }
+        #camerabtn {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">PDF</a
+        >&rsaquo; Image to PDF
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Image to PDF Converter</h1>
+          <form id="calcform" autocomplete="off">
+            <div class="form-group">
+              <button
+                type="button"
+                title="Open Image Files"
+                aria-label="Open File"
+                onclick="OnOpen()"
+                class="btn btn-secondary"
+              >
+                <i class="material-icons">folder_open</i> Open Images
+              </button>
+              <button
+                type="button"
+                id="camerabtn"
+                onclick="OnCamera()"
+                title="Take a photo"
+                class="btn btn-secondary"
+                data-toggle="collapse"
+                data-target="#collapseVideo"
+                aria-expanded="false"
+                aria-controls="collapseVideo"
+              >
+                <i class="material-icons">photo_camera</i>
+              </button>
+
+              <button
+                type="button"
+                title="Clear"
+                aria-label="Clear"
+                onclick="OnClear()"
+                class="btn btn-secondary"
+              >
+                <i class="material-icons">delete</i>
+              </button>
+              <input
+                type="file"
+                id="fileElem"
+                name="fileElem[]"
+                accept="image/*"
+                multiple
+                onchange="OnFile()"
+              />
+            </div>
+            <div class="collapse" id="collapseVideo">
+              <div class="card card-body">
+                <div
+                  id="msg_div"
+                  class="alert alert-warning alert-dismissible fade show"
+                  role="alert"
+                >
+                  No camera detected or camera access blocked. If blocked,
+                  enable camera by clicking camera icon in the address bar.
+                </div>
+                <div class="" id="videodiv">
+                  <video id="video"></video>
+                  <button
+                    type="button"
+                    onclick="OnTake()"
+                    id="photobtn"
+                    class="btn btn-secondary"
+                  >
+                    <i class="material-icons">photo_camera</i>
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="dragLabel">Drag & drop image files here</label>
+              <div id="imgdiv"><i class="material-icons">photo</i></div>
+            </div>
+            <div class="form-group grid">
+              <label class="row ml-0">Page orientation</label>
+              <div
+                class="btn-group btn-group-toggle row ml-0"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-secondary active">
+                  <input
+                    type="radio"
+                    name="po"
+                    id="po-portrait"
+                    value="p"
+                    checked
+                  /><i class="material-icons">crop_portrait</i> Portrait
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="po" id="po-landscape" value="l" /><i
+                    class="material-icons"
+                    >crop_landscape</i
+                  >
+                  Landscape
+                </label>
+              </div>
+            </div>
+            <div class="form-group grid" id="psizediv">
+              <label class="row ml-0">Page size</label>
+              <div
+                class="btn-group btn-group-toggle row ml-0"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-secondary active">
+                  <input
+                    type="radio"
+                    name="ps"
+                    id="ps-letter"
+                    value="letter"
+                    checked
+                  />
+                  Letter
+                </label>
+                <label class="btn btn-secondary">
+                  <input
+                    type="radio"
+                    name="ps"
+                    id="ps-legal"
+                    value="legal"
+                    checked
+                  />
+                  Legal
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="ps" id="ps-a4" value="a4" /> - A4 -
+                </label>
+                <select
+                  id="ps-select"
+                  class="form-control col-4 btn-secondary"
+                  style="border-radius: unset"
+                >
+                  <option selected>More ...</option>
+                  <option value="letter">Letter</option>
+                  <option value="government-letter">Government Letter</option>
+                  <option value="legal">Legal</option>
+                  <option value="junior-legal">Junior Legal</option>
+                  <option value="ledger">Ledger</option>
+                  <option value="tabloid">Tabloid</option>
+                  <option value="credit-card">Credit Card</option>
+                  <option value="a1">- A1 -</option>
+                  <option value="a2">- A2 -</option>
+                  <option value="a3">- A3 -</option>
+                  <option value="a4">- A4 -</option>
+                  <option value="a5">- A5 -</option>
+                  <option value="a6">- A6 -</option>
+                  <option value="a7">- A7 -</option>
+                  <option value="b4">- B4 -</option>
+                  <option value="b5">- B5 -</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group grid" id="margindiv">
+              <label class="row ml-0">Page margin</label>
+              <div
+                class="btn-group btn-group-toggle row ml-0"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-secondary">
+                  <input type="radio" name="pm" id="pm-no" value="none" /> None
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="pm" id="pm-small" value="small" />
+                  Small
+                </label>
+                <label class="btn btn-secondary active">
+                  <input
+                    type="radio"
+                    name="pm"
+                    id="pm-normal"
+                    value="normal"
+                    checked
+                  />
+                  Normal
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="pm" id="pm-big" value="big" /> Big
+                </label>
+              </div>
+            </div>
+            <div class="form-group grid" id="sizediv">
+              <label class="row ml-0">Image size</label>
+              <div
+                class="btn-group btn-group-toggle row ml-0"
+                data-toggle="buttons"
+              >
+                <label class="btn btn-secondary active">
+                  <input
+                    type="radio"
+                    name="is"
+                    id="is-orig"
+                    value="p"
+                    checked
+                  /><i class="material-icons">unfold_less</i> Original
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="is" id="is-fitwidth" value="l" /><i
+                    class="material-icons"
+                    >unfold_more</i
+                  >
+                  Fit Width
+                </label>
+                <label class="btn btn-secondary">
+                  <input type="radio" name="is" id="is-setheight" value="l" /><i
+                    class="material-icons"
+                    >unfold_more</i
+                  >
+                  Fit Height
+                </label>
+              </div>
+              <div id="isdiv">
+                <input
+                  type="number"
+                  id="imgsize"
+                  placeholder="100"
+                  class="form-control mt-2 d-inline-block"
+                /><span> %</span>
+              </div>
+            </div>
+            <div class="form-group mb-4">
+              <label for="title">Page title</label>
+              <input
+                type="text"
+                class="form-control"
+                id="title"
+                placeholder="My Images"
+              />
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="createbtn"
+                title="Create PDF"
+                aria-label="Generate PDF"
+                onclick="OnPDF()"
+                class="btn btn-secondary"
+              >
+                <i class="material-icons">settings</i> Create PDF
+              </button>
+              <button
+                type="button"
+                id="savebtn"
+                title="Save to PDF"
+                aria-label="Save File"
+                onclick="OnSave()"
+                class="btn btn-secondary"
+                disabled
+              >
+                <i class="material-icons">save_alt</i> Save PDF
+              </button>
+            </div>
+            <div class="form-group">
+              <div id="outframe"></div>
+            </div>
+            <canvas id="canvas"></canvas>
+          </form>
+          <p>* Prefer to email or print double sided to save paper.</p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../text/word-counter.html">Word counter</a></li>
+            <li>
+              <a href="../text/character-counter.html">Character counter</a>
+            </li>
+            <li><a href="../text/line-counter.html">Line counter</a></li>
+            <li><a href="../text/word-frequency.html">Word frequency</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>PDF TOOLS</h5>
+        <ul>
+          <li><a href="image-to-pdf.html">Image to PDF</a></li>
+          <li><a href="jpg-to-pdf.html">JPG to PDF</a></li>
+          <li><a href="pdf-reader.html">PDF viewer</a></li>
+          <li><a href="png-to-pdf.html">PNG to PDF</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="image-to-pdf.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="../electric/index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../lib/utils/utils.js"></script>
+    <script src="../lib/jsPDF/pdfobject.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.debug.js"
+      integrity="sha384-NaWTHo/8YCBYJ59830LTz/P4aQZK1sS0SneOgAvhsIl3zBu8r9RevNg5lHCHAuQ/"
+      crossorigin="anonymous"
+      defer
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      "use strict";
+      var imgh,
+        imgw,
+        iimg,
+        nimg = 0;
+      var doc;
+      var image = [];
+      var filename = [];
+      var videoStream = null;
+      var x, y, width, height;
+      //var isVideoDivOpen=false;
+      var videoSem = false;
+      $(document).ready(function () {
+        $("#msg_div").hide();
+        $("#imgdiv").on("dragover", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          $(this).addClass("draghover");
+          return false;
+        });
+        $("#imgdiv").on("dragleave dragend", function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          $(this).removeClass("draghover");
+          return false;
+        });
+        $("#imgdiv").on("drop", function (event) {
+          event.preventDefault();
+          //event.stopPropagation();
+          $(this).removeClass("draghover");
+          var file = event.originalEvent.dataTransfer.files;
+          for (var i = 0; i < file.length; i++) fileLoad(file[i]);
+        });
+        $("input[name=is]").change(function () {
+          var radioButtons = $("#sizediv input:radio[name='is']");
+          var i = radioButtons.index(radioButtons.filter(":checked"));
+          if (i == 0) $("#isdiv").hide();
+          else $("#isdiv").show();
+        });
+        $("input[name=ps]").change(function () {
+          //var radioButtons = $("#sizediv input:radio[name='ps']");
+          //var i = radioButtons.index(radioButtons.filter(':checked'));
+          $("#ps-select")[0].selectedIndex = 0;
+        });
+        $("#ps-select").on("change", function () {
+          var i = $("#ps-select")[0].selectedIndex;
+          if (i == 0) {
+            $("#psizediv>div>label:first-child").addClass("active");
+            $("#ps-select").removeClass("active");
+          } else {
+            $("#psizediv>div>label>input").prop("checked", false);
+            $("#psizediv>div>label").removeClass("active");
+            $("#ps-select").addClass("active");
+          }
+        });
+      });
+      function OnCamera() {
+        if (!$("#collapseVideo").hasClass("show")) {
+          //if( !isVideoDivOpen )
+          //isVideoDivOpen = true;
+          if (videoSem == false) startStream();
+          else
+            setTimeout(function () {
+              startStream();
+            }, 1000);
+        } else {
+          //isVideoDivOpen = false;
+          $("#photobtn").hide();
+          if (videoSem == false) stopStream();
+          else
+            setTimeout(function () {
+              stopStream();
+            }, 1000);
+        }
+      }
+      function startStream() {
+        var constraints = { audio: false, video: { width: 1280, height: 720 } };
+        //var constraints = { audio: false, video: true };
+        videoSem = true;
+        navigator.mediaDevices
+          .getUserMedia(constraints)
+          .then(function (stream) {
+            var video = document.querySelector("video");
+            video.srcObject = stream;
+            video.onloadedmetadata = function (e) {
+              video.play();
+              $("#photobtn").show();
+              videoSem = false;
+              $("#msg_div").hide();
+            };
+            videoStream = stream;
+          })
+          .catch(function (err) {
+            console.log(err.name + ": " + err.message);
+            videoSem = false;
+            $("#msg_div").show();
+          });
+      }
+      function stopStream() {
+        if (videoStream == null) return;
+        videoStream.getTracks().forEach(function (track) {
+          track.stop();
+          videoStream.removeTrack(track);
+        });
+        videoStream = null;
+      }
+      function OnTake() {
+        //var canvas = document.createElement("canvas");
+        var canvas = document.getElementById("canvas");
+        canvas.width = 640;
+        canvas.height = 480;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+        var data = canvas.toDataURL("image/jpeg", 1.0);
+        //var imageQuality=$("#quality").val()/100.0;
+        //var data = canvas.toDataURL("image/jpeg", imageQuality);
+        addImage(data);
+      }
+      function ImageResize(imgsrc) {
+        var width_pt = Math.round((width * 595.28) / 210);
+        var height_pt = Math.round((height * 595.28) / 210);
+        var img = new Image();
+        img.src = imgsrc;
+        var canvas = document.getElementById("canvas");
+        canvas.height = height_pt;
+        canvas.width = width_pt;
+        var ctx = canvas.getContext("2d");
+        ctx.drawImage(img, 0, 0, width_pt, height_pt);
+        var imgData = canvas.toDataURL("image/png", 1.0);
+        return imgData;
+      }
+      function DocAddImage(imgData, i) {
+        var ext = "JPEG";
+        if (filename[i] != undefined)
+          ext = filename[i].substring(filename[i].lastIndexOf(".") + 1);
+        //doc.addImage(base64, 'PNG', x, y, width, height, null, 'FAST');
+        //doc.addImage(base64, 'JPEG', x, y, width, height);
+        //doc.addImage(base64, ext, x, y, width, height, null, 'SLOW');
+        //doc.addImage(base64, ext, Math.round(x), Math.round(y), width, height);
+        doc.addImage(imgData, ext, x, y, width, height, null, "FAST");
+        if (filename[i] != undefined) doc.text(x, y + height + 6, filename[i]);
+        y += height + 20;
+      }
+      function UpdatePDF() {
+        var os = GetOS();
+        if (
+          navigator.appVersion.indexOf("MSIE") !== -1 ||
+          navigator.appVersion.indexOf("Edge") !== -1 ||
+          navigator.appVersion.indexOf("Trident") !== -1 ||
+          os == "Android"
+        ) {
+          var options = {
+            pdfOpenParams: {
+              navpanes: 0,
+              toolbar: 0,
+              statusbar: 0,
+              view: "FitV",
+            },
+            forcePDFJS: true,
+            //PDFJS_URL: 'examples/PDF.js/web/viewer.html'
+            PDFJS_URL: "pdf-reader.html",
+          };
+          PDFObject.embed(doc.output("bloburl"), "#outframe", options);
+        } else {
+          PDFObject.embed(doc.output("datauristring"), "#outframe");
+        }
+
+        $("#outframe").show();
+        //doc.save('image.pdf');
+        $("#savebtn").prop("disabled", false);
+        $("#calcform").css("cursor", "default");
+      }
+      function OnPDF() {
+        var img, base64, margin;
+        $("#calcform").css("cursor", "wait");
+        var title = $("#title").val();
+        if (title == "") title = "My Images";
+        var orient = $("input[name=po]:checked").val();
+        var formt = $("input[name=ps]:checked").val();
+        if (formt == undefined) formt = $("#ps-select option:selected").val();
+        var marginButtons = $("#margindiv input:radio[name='pm']");
+        var imargin = marginButtons.index(marginButtons.filter(":checked"));
+        var sizeButtons = $("#sizediv input:radio[name='is']");
+        var iimgsize = sizeButtons.index(sizeButtons.filter(":checked"));
+        var mlook = [0, 12.7, 25.4, 50.8];
+        margin = mlook[imargin];
+        doc = new jsPDF({
+          orientation: orient,
+          unit: "mm",
+          format: formt,
+          compress: true,
+        });
+        doc.setFont("Helvetica", "");
+        doc.setFontSize(30);
+        doc.text(margin, margin + 10, title);
+        doc.setFontSize(12);
+        var len = $("#imgdiv>img").length;
+        x = margin;
+        y = margin + 20;
+        var pagewidth = doc.internal.pageSize.getWidth() - 2 * margin; //in mm
+        var pageheight = doc.internal.pageSize.getHeight() - 2 * margin;
+        var ymax;
+        var percent = $("#imgsize").val();
+        if (percent == "") percent = 100;
+        for (var i = 0; i < len; i++) {
+          var n = i + 2;
+          img = $("#imgdiv>img:nth-child(" + n + ")");
+          base64 = img.attr("src");
+          //var imgwidth=img.prop("width");
+          //var imgheight=img.prop("height");
+          if (iimgsize == 0) {
+            width = Math.round((image[i].width * 210) / 595.28); //in mm
+            height = Math.round((image[i].height * 210) / 595.28);
+          } else if (iimgsize == 1) {
+            width = Math.round((percent * pagewidth) / 100);
+            height = Math.round((imgheight * width) / imgwidth);
+          } else if (iimgsize == 2) {
+            height = Math.round((percent * pageheight) / 100);
+            width = Math.round((imgwidth * height) / imgheight);
+          }
+          if (height > pageheight) {
+            width = Math.round((pageheight * width) / height);
+            height = pageheight;
+          }
+          if (width > pagewidth) {
+            height = Math.round((pagewidth * height) / width);
+            width = pagewidth;
+          }
+          ymax = pageheight - height;
+          if (y > ymax) {
+            y = margin;
+            doc.addPage();
+          }
+          if (base64 != undefined) {
+            var imgData = ImageResize(base64);
+            DocAddImage(imgData, i);
+          }
+        }
+        UpdatePDF();
+      }
+      function OnOpen() {
+        $("#fileElem").click();
+      }
+      function OnFile() {
+        var file = document.getElementById("fileElem").files;
+        for (var i = 0; i < file.length; i++) fileLoad(file[i], i);
+        document.getElementById("fileElem").value = "";
+      }
+      function OnSave() {
+        var file = $("#title").val() + ".pdf";
+        if (file == ".pdf") file = "my_image.pdf";
+        //fileSave(file);
+        doc.save(file);
+      }
+      function fileLoad(file, i) {
+        iimg = i;
+        filename.push(file.name);
+        var reader = new FileReader();
+        //$("#imgdiv>img:nth-child("+i+")").prop("title",file.name);
+        reader.onloadend = function (e) {
+          //if( e.target.readyState==FileReader.DONE ) {
+          var data = e.target.result;
+          addImage(data, i);
+        };
+        reader.readAsDataURL(file);
+      }
+      function addImage(data, i) {
+        var img = $(
+          "<img src='https://www.rapidtables.com/pdf/&quot;+data+&quot;' style='display:none'>"
+        ).on("load", function (event) {
+          nimg++;
+          var n = nimg + 1;
+          var s = "#imgdiv>img:nth-child(" + n + ")";
+          $(s).hide();
+          $("#imgdiv i").hide();
+          //var divheight=($("#imgdiv").prop("clientHeight")-30)/2;
+          var divheight = 55;
+          var imgheight = Math.round(this.height);
+          var imgwidth = Math.round(this.width);
+          //var imgheight=Math.round(this.naturalHeight);
+          //var imgwidth=Math.round(this.naturalWidth);
+          image[n - 2] = [];
+          image[n - 2].height = imgheight;
+          image[n - 2].width = imgwidth;
+          imgwidth = Math.round((imgwidth * divheight) / imgheight);
+          $("#imgdiv").css("text-align", "left");
+          $(s).css("width", imgwidth);
+          $(s).css("height", divheight);
+          $(s).show();
+        });
+        $("#imgdiv").append(img);
+        $("#createbtn").removeClass("btn-secondary");
+        $("#createbtn").addClass("btn-primary");
+      }
+      function OnClear() {
+        $("#createbtn").removeClass("btn-primary");
+        $("#createbtn").addClass("btn-secondary");
+        //$("#imgdiv").empty();
+        $("#imgdiv>img").remove();
+        $("#title").val("");
+        $("#outframe").prop("src", "");
+        filename = [];
+        image = [];
+        nimg = 0;
+      }
+      function rotateBase64Image90deg(base64Image, isClockwise) {
+        var offScreenCanvas = document.createElement("canvas");
+        offScreenCanvasCtx = offScreenCanvas.getContext("2d");
+        var img = new Image();
+        img.src = base64Image;
+        offScreenCanvas.height = img.width;
+        offScreenCanvas.width = img.height;
+        if (isClockwise) {
+          offScreenCanvasCtx.rotate(Math.PI / 2);
+          offScreenCanvasCtx.translate(0, -offScreenCanvas.width);
+        } else {
+          offScreenCanvasCtx.rotate(-Math.PI / 2);
+          offScreenCanvasCtx.translate(-offScreenCanvas.height, 0);
+        }
+        offScreenCanvasCtx.drawImage(img, 0, 0);
+        return offScreenCanvas.toDataURL("image/jpeg"); //, 100);
+      }
+    </script>
+  </body>
+</html>

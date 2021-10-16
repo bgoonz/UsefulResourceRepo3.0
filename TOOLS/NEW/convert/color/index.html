@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Color code converter | color conversion</title>
+    <meta
+      name="description"
+      content="Color code converter. Color codes chart. Color conversions."
+    />
+    <style>
+      @media all and (max-width: 576px) {
+        .dtable tr th:nth-child(2),
+        .dtable tr td:nth-child(2),
+        .dtable tr th:nth-child(3),
+        .dtable tr td:nth-child(3),
+        .dtable tr th:nth-child(6),
+        .dtable tr td:nth-child(6) {
+          display: none;
+        }
+        #doc p img {
+          max-width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo; Color conversion
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Color conversion</h1>
+          <p>Color code converter. Color codes chart. Color conversions.</p>
+          <h3>Color code converter</h3>
+          <p>HEX value is 6 digits (rrggbb).</p>
+          <p>RGB values are in range of 0..255.</p>
+          <p>
+            HSV values are in range of Hue:0..359&deg;, Saturation:0..100%,
+            Value:0..100%.
+          </p>
+          <p>
+            HSL values are in range of Hue:0..359&deg;, Saturation:0..100%,
+            Lightness:0..100%.
+          </p>
+          <p>Enter one color code and press the <i>Convert</i> button:</p>
+          <form name="calcform" class="yui3-skin-sam">
+            <table class="calc2">
+              <tr>
+                <td>Hex (#):</td>
+                <td class="math">
+                  <input
+                    name="hex"
+                    id="hex"
+                    class="intext"
+                    style="width: 110px"
+                    placeholder="000000"
+                    autofocus
+                  />
+                </td>
+                <td style="padding-left: 10px">
+                  <input
+                    onclick="calc_hex()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>RGB (R,G,B):</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    max="255"
+                    step="1"
+                    value="0"
+                    name="r"
+                    class="intext"
+                    style="width: 70px; background: #ffd0d0"
+                    placeholder="0"
+                    oninput="calc_rgb()"
+                  />
+                  ,
+                  <input
+                    type="number"
+                    min="0"
+                    max="255"
+                    step="1"
+                    value="0"
+                    name="g"
+                    class="intext"
+                    style="width: 70px; background: #d0ffd0"
+                    placeholder="0"
+                    oninput="calc_rgb()"
+                  />&nbsp;&nbsp;&nbsp; ,
+                  <input
+                    type="number"
+                    min="0"
+                    max="255"
+                    step="1"
+                    value="0"
+                    name="b"
+                    class="intext"
+                    style="width: 70px; background: #d0d0ff"
+                    placeholder="0"
+                    oninput="calc_rgb()"
+                  />
+                </td>
+                <td style="padding-left: 10px">
+                  <input
+                    onclick="calc_rgb()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>HSV (H,S,V):</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    name="h"
+                    min="0"
+                    step="any"
+                    max="359"
+                    value="0"
+                    class="intext"
+                    style="width: 70px"
+                    oninput="calc_hsv()"
+                  />&deg;,
+                  <input
+                    type="number"
+                    name="s"
+                    min="0"
+                    step="any"
+                    max="100"
+                    value="0"
+                    class="intext"
+                    style="width: 70px"
+                    oninput="calc_hsv()"
+                  />%,
+                  <input
+                    type="number"
+                    name="v"
+                    min="0"
+                    step="any"
+                    max="100"
+                    value="0"
+                    class="intext"
+                    style="width: 70px"
+                    oninput="calc_hsv()"
+                  />%
+                </td>
+                <td style="padding-left: 10px">
+                  <input
+                    onclick="calc_hsv()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>HSL (H,S,L):</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    name="h2"
+                    min="0"
+                    step="any"
+                    max="359"
+                    value="0"
+                    class="intext"
+                    style="width: 70px"
+                    oninput="calc_hsl()"
+                  />&deg;,
+                  <input
+                    type="number"
+                    name="s2"
+                    min="0"
+                    step="any"
+                    max="100"
+                    value="0"
+                    class="intext"
+                    style="width: 70px"
+                    oninput="calc_hsl()"
+                  />%,
+                  <input
+                    type="number"
+                    name="l"
+                    min="0"
+                    step="any"
+                    max="100"
+                    value="0"
+                    class="intext"
+                    style="width: 70px"
+                    oninput="calc_hsl()"
+                  />%
+                </td>
+                <td style="padding-left: 10px">
+                  <input
+                    onclick="calc_hsl()"
+                    type="button"
+                    value="Convert"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Color preview:</td>
+                <td class="math">
+                  <input
+                    name="color"
+                    style="height: 50px; width: 260px; border: 1px solid black"
+                    readonly="readonly"
+                  />
+                </td>
+                <td style="padding-left: 10px">
+                  <input type="reset" value="Reset" class="btn" />
+                </td>
+              </tr>
+            </table>
+          </form>
+          <h2>Color codes chart</h2>
+          <p>Hex / RGB / HSV / HSL:</p>
+          <table class="dtable">
+            <tr>
+              <th>Color</th>
+              <th>
+                Color
+                <p>name</p>
+              </th>
+              <th>Hex</th>
+              <th>(R,G,B)</th>
+              <th>(H,S,V)</th>
+              <th>(H,S,L)</th>
+            </tr>
+            <tr>
+              <td style="background: #000000">&nbsp;</td>
+              <td>Black</td>
+              <td>#000000</td>
+              <td>(0,0,0)</td>
+              <td>(0&deg;,0%,0%)</td>
+              <td>(0&deg;,0%,0%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ffffff">&nbsp;</td>
+              <td>White</td>
+              <td>#FFFFFF</td>
+              <td>(255,255,255)</td>
+              <td>(0&deg;,0%,100%)</td>
+              <td>(0&deg;,0%,100%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ff0000">&nbsp;</td>
+              <td>Red</td>
+              <td>#FF0000</td>
+              <td>(255,0,0)</td>
+              <td>(0&deg;,100%,100%)</td>
+              <td>(0&deg;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #00ff00">&nbsp;</td>
+              <td>Lime</td>
+              <td>#00FF00</td>
+              <td>(0,255,0)</td>
+              <td>(120&deg;,100%,100%)</td>
+              <td>(120&deg;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #0000ff">&nbsp;</td>
+              <td>Blue</td>
+              <td>#0000FF</td>
+              <td>(0,0,255)</td>
+              <td>(240&deg;,100%,100%)</td>
+              <td>(240&deg;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ffff00">&nbsp;</td>
+              <td>Yellow</td>
+              <td>#FFFF00</td>
+              <td>(255,255,0)</td>
+              <td>(60&deg;,100%,100%)</td>
+              <td>(60&deg;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #00ffff">&nbsp;</td>
+              <td>Cyan</td>
+              <td>#00FFFF</td>
+              <td>(0,255,255)</td>
+              <td>(180&deg;,100%,100%)</td>
+              <td>(180&deg;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #ff00ff">&nbsp;</td>
+              <td>Magenta</td>
+              <td>#FF00FF</td>
+              <td>(255,0,255)</td>
+              <td>(300&deg;,100%,100%)</td>
+              <td>(300&deg;,100%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #c0c0c0">&nbsp;</td>
+              <td>Silver</td>
+              <td>#C0C0C0</td>
+              <td>(192,192,192)</td>
+              <td>(0&deg;,0%,75%)</td>
+              <td>(0&deg;,0%,75%)</td>
+            </tr>
+            <tr>
+              <td style="background: #808080">&nbsp;</td>
+              <td>Gray</td>
+              <td>#808080</td>
+              <td>(128,128,128)</td>
+              <td>(0&deg;,0%,50%)</td>
+              <td>(0&deg;,0%,50%)</td>
+            </tr>
+            <tr>
+              <td style="background: #800000">&nbsp;</td>
+              <td>Maroon</td>
+              <td>#800000</td>
+              <td>(128,0,0)</td>
+              <td>(0&deg;,100%,50%)</td>
+              <td>(0&deg;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #808000">&nbsp;</td>
+              <td>Olive</td>
+              <td>#808000</td>
+              <td>(128,128,0)</td>
+              <td>(60&deg;,100%,50%)</td>
+              <td>(60&deg;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #008000">&nbsp;</td>
+              <td>Green</td>
+              <td>#008000</td>
+              <td>(0,128,0)</td>
+              <td>(120&deg;,100%,50%)</td>
+              <td>(120&deg;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #800080">&nbsp;</td>
+              <td>Purple</td>
+              <td>#800080</td>
+              <td>(128,0,128)</td>
+              <td>(300&deg;,100%,50%)</td>
+              <td>(300&deg;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #008080">&nbsp;</td>
+              <td>Teal</td>
+              <td>#008080</td>
+              <td>(0,128,128)</td>
+              <td>(180&deg;,100%,50%)</td>
+              <td>(180&deg;,100%,25%)</td>
+            </tr>
+            <tr>
+              <td style="background: #000080">&nbsp;</td>
+              <td>Navy</td>
+              <td>#000080</td>
+              <td>(0,0,128)</td>
+              <td>(240&deg;,100%,50%)</td>
+              <td>(240&deg;,100%,25%)</td>
+            </tr>
+          </table>
+          <h3>Color code conversions</h3>
+          <ul>
+            <li><a href="cmyk-to-rgb.html">CMYK to RGB conversion</a></li>
+            <li><a href="hex-to-rgb.html">Hex to RGB conversion</a></li>
+            <li><a href="hsl-to-rgb.html">HSL to RGB conversion</a></li>
+            <li><a href="hsv-to-rgb.html">HSV to RGB conversion</a></li>
+            <li><a href="rgb-to-cmyk.html">RGB to CMYK conversion</a></li>
+            <li><a href="rgb-to-hex.html">RGB to hex conversion</a></li>
+            <li><a href="rgb-to-hsl.html">RGB to HSL conversion</a></li>
+            <li><a href="rgb-to-hsv.html">RGB to HSV conversion</a></li>
+            <li><a href="how-rgb-to-hex.html">How to convert RGB to hex</a></li>
+            <li><a href="how-hex-to-rgb.html">How to convert hex to RGB</a></li>
+          </ul>
+          <p>&nbsp;</p>
+          <hr />
+          <h3>See also:</h3>
+          <ul>
+            <li>
+              <a href="../../web/color/RGB_Color.html">RGB color codes</a>
+            </li>
+            <li><a href="../image/index.html">Image conversion</a></li>
+            <li>
+              <a href="../../web/color/color-wheel.html">Color wheel chart</a>
+            </li>
+            <li>
+              <a href="../../web/color/color-picker.html"
+                >Online color picker</a
+              >
+            </li>
+            <li>
+              <a href="../image/rgb-to-grayscale.html">RGB to grayscale</a>
+            </li>
+          </ul>
+          <script src="color.js"></script>
+          <script>
+            function calc_hex() {
+              hex = document.calcform.hex.value;
+              rgb = hex2rgb(hex);
+              r = rgb[0];
+              g = rgb[1];
+              b = rgb[2];
+              hsv = rgb2hsv(r, g, b);
+              hsl = rgb2hsl(r, g, b);
+              document.calcform.r.value = r;
+              document.calcform.g.value = g;
+              document.calcform.b.value = b;
+              document.calcform.h.value = hsv[0];
+              document.calcform.s.value = hsv[1];
+              document.calcform.v.value = hsv[2];
+              document.calcform.h2.value = hsl[0];
+              document.calcform.s2.value = hsl[1];
+              document.calcform.l.value = hsl[2];
+              set_color(hex);
+            }
+            function calc_rgb() {
+              r = document.calcform.r.value;
+              g = document.calcform.g.value;
+              b = document.calcform.b.value;
+              hex = rgb2hex(r, g, b);
+              hsv = rgb2hsv(r, g, b);
+              hsl = rgb2hsl(r, g, b);
+              document.calcform.hex.value = hex;
+              document.calcform.h.value = hsv[0];
+              document.calcform.s.value = hsv[1];
+              document.calcform.v.value = hsv[2];
+              document.calcform.h2.value = hsl[0];
+              document.calcform.s2.value = hsl[1];
+              document.calcform.l.value = hsl[2];
+              set_color(hex);
+            }
+            function calc_hsv() {
+              h = document.calcform.h.value;
+              s = document.calcform.s.value;
+              v = document.calcform.v.value;
+              rgb = hsv2rgb(h, s, v);
+              r = rgb[0];
+              g = rgb[1];
+              b = rgb[2];
+              hex = rgb2hex(r, g, b);
+              hsl = rgb2hsl(r, g, b);
+              document.calcform.hex.value = hex;
+              document.calcform.r.value = r;
+              document.calcform.g.value = g;
+              document.calcform.b.value = b;
+              document.calcform.h2.value = hsl[0];
+              document.calcform.s2.value = hsl[1];
+              document.calcform.l.value = hsl[2];
+              set_color(hex);
+            }
+            function calc_hsl() {
+              h = document.calcform.h2.value;
+              s = document.calcform.s2.value;
+              l = document.calcform.l.value;
+              rgb = hsl2rgb(h, s, l);
+              r = rgb[0];
+              g = rgb[1];
+              b = rgb[2];
+              hex = rgb2hex(r, g, b);
+              hsv = rgb2hsv(r, g, b);
+              document.calcform.hex.value = hex;
+              document.calcform.r.value = r;
+              document.calcform.g.value = g;
+              document.calcform.b.value = b;
+              document.calcform.h.value = hsv[0];
+              document.calcform.s.value = hsv[1];
+              document.calcform.v.value = hsv[2];
+              set_color(hex);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CONVERSION</h5>
+        <ul>
+          <li><a href="index.html">Color conversion</a></li>
+          <li><a href="../charge/index.html">Electric charge conversion</a></li>
+          <li><a href="../energy/index.html">Energy conversion</a></li>
+          <li><a href="../frequency/index.html">Frequency conversion</a></li>
+          <li><a href="../image/index.html">Image conversion</a></li>
+          <li><a href="../length/index.html">Length conversion</a></li>
+          <li><a href="../number/index.html">Number conversion</a></li>
+          <li><a href="../power/index.html">Power conversion</a></li>
+          <li>
+            <a href="../temperature/index.html">Temperature conversion</a>
+          </li>
+          <li><a href="../voltage/index.html">Voltage conversion</a></li>
+          <li><a href="../weight/index.html">Weight conversion</a></li>
+          <li><a href="../electric/index.html">Electrical calculation</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="index.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

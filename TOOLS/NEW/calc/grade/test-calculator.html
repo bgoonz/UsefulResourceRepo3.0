@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Test Calculator | Score Calculator</title>
+    <meta
+      content="Test grade calculator. Teachers grader."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+        max-width: 500px;
+      }
+      .btn span {
+        font-weight: bold;
+      }
+      #tbl td {
+        padding-left: 8px;
+        padding-right: 8px;
+        background: #f8f8f8;
+      }
+      #frac,
+      #percent,
+      #letter {
+        background: #f0f0f0;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Grade calculators</a>&rsaquo; Test
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Test Calculator</h1>
+          <form id="calcform">
+            <div class="form-group">
+              <label for="qnum">Number of questions</label>
+              <input
+                type="number"
+                min="1"
+                step="1"
+                id="qnum"
+                placeholder="10"
+                class="form-control form-control-lg"
+                required
+                autofocus
+              />
+            </div>
+            <div class="form-group">
+              <label for="qnum">Number of wrong answers</label>
+              <input
+                type="number"
+                min="0"
+                step="any"
+                id="wnum"
+                value="0"
+                class="form-control form-control-lg"
+              />
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <button
+                  type="button"
+                  class="btn btn-primary btn-lg btn-block"
+                  onclick="OnWrong()"
+                >
+                  <span>+</span> Wrong
+                </button>
+              </div>
+              <div class="col">
+                <button
+                  type="button"
+                  class="btn btn-secondary btn-lg btn-block"
+                  onclick="OnReset()"
+                >
+                  <span>&times;</span> Reset
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <div class="col">
+                <label for="percent">Percentage grade</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="percent"
+                    class="form-control form-control-lg"
+                    readonly
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">%</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col">
+                <label for="letter">Letter grade</label>
+                <input
+                  type="text"
+                  id="letter"
+                  class="form-control form-control-lg"
+                  readonly
+                />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="frac">Fraction grade</label>
+              <input
+                type="text"
+                id="frac"
+                class="form-control form-control-lg"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label>Grade options table</label>
+              <table id="tbl" class="table">
+                <tr>
+                  <td>Number of<br />Questions</td>
+                  <td>Number of<br />Wrong Answers</td>
+                  <td>Grade (%)</td>
+                  <td>Grade<br />(letter)</td>
+                </tr>
+              </table>
+            </div>
+          </form>
+          <p>&nbsp;</p>
+          <p><a href="grade-calculator.html">Grade calculator &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="college-gpa-calculator.html">College GPA calculator</a>
+            </li>
+            <li><a href="gpa-calculation.html">How to calculate GPA</a></li>
+            <li><a href="grade-calculator.html">Grade calculator</a></li>
+            <li>
+              <a href="../math/standard-deviation-calculator.html"
+                >Standard deviation calculator</a
+              >
+            </li>
+            <li>
+              <a href="../math/weighted-average-calculator.html"
+                >Weighted average calculator</a
+              >
+            </li>
+            <li><a href="../../tools/click-counter.html">Click counter</a></li>
+            <li><a href="index.html">Grade calculators</a></li>
+            <li><a href="../math/index.html">Math Calculators</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>GRADE CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="college-gpa-calculator.html">College GPA calculator</a>
+          </li>
+          <li>
+            <a href="final-grade-calculator.html">Final grade calculator</a>
+          </li>
+          <li><a href="grade-calculator.html">Grade calculator</a></li>
+          <li><a href="gpa-calculator.html">GPA calculator</a></li>
+          <li>
+            <a href="final-grade-calculation.html">Final grade calculation</a>
+          </li>
+          <li><a href="gpa-calculation.html">GPA calculation</a></li>
+          <li><a href="grade-calculation.html">Grade calculation</a></li>
+          <li>
+            <a href="gpa-to-letter-grade-calculator.html"
+              >GPA to letter grade</a
+            >
+          </li>
+          <li>
+            <a href="high-school-gpa-calculator.html"
+              >High school GPA calculator</a
+            >
+          </li>
+          <li>
+            <a href="letter-grade-to-gpa-calculator.html"
+              >Letter grade to GPA</a
+            >
+          </li>
+          <li><a href="test-calculator.html">Test calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="test-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script>
+      var irow = 0;
+      $(document).ready(function () {
+        $("#qnum").on("blur", function () {
+          OnCalc();
+        });
+        $("#wnum").on("input", function () {
+          OnCalc();
+        });
+        OnCalc();
+      });
+
+      function OnReset() {
+        document.getElementById("wnum").value = "0";
+        OnCalc();
+      }
+      function OnWrong() {
+        var qnum = document.getElementById("qnum").value;
+        if (qnum == "") qnum = 10;
+        var wnum = document.getElementById("wnum").value;
+        qnum = parseInt(qnum);
+        wnum = parseFloat(wnum);
+        if (wnum >= qnum) return;
+        wnum++;
+        document.getElementById("wnum").value = wnum;
+        OnCalc();
+      }
+      function OnCalc() {
+        var qnum = document.getElementById("qnum").value;
+        if (qnum == "") qnum = 10;
+        var wnum = document.getElementById("wnum").value;
+        qnum = parseInt(qnum);
+        wnum = parseFloat(wnum);
+        var rnum = qnum - wnum;
+        document.getElementById("frac").value = rnum + "/" + qnum;
+        var per = ((100 * rnum) / qnum).toString();
+        if (per.indexOf(".") !== -1) {
+          per = parseFloat(per);
+          per = per.toFixed(2);
+        }
+        document.getElementById("percent").value = per;
+        var letter;
+        if (per >= 90) letter = "A";
+        else if (per >= 80) letter = "B";
+        else if (per >= 70) letter = "C";
+        else if (per >= 60) letter = "D";
+        else letter = "F";
+        document.getElementById("letter").value = letter;
+        DrawTable(qnum);
+      }
+      function DrawTable(qnum) {
+        var grade, letter;
+        $("#tbl").find("tr:gt(0)").remove();
+        //for(var i=qnum; i>=0; i--) {
+        for (var i = 0; i <= qnum; i++) {
+          grade = (100 * (qnum - i)) / qnum;
+          grade = grade.toFixed(0);
+          if (grade >= 90) letter = "A";
+          else if (grade >= 80) letter = "B";
+          else if (grade >= 70) letter = "C";
+          else if (grade >= 60) letter = "D";
+          else letter = "F";
+          $("#tbl tr")
+            .eq(i)
+            .after(
+              "<tr>\
+            <td>" +
+                qnum +
+                "</td>\
+            <td>" +
+                i +
+                "</td>\
+            <td>" +
+                grade +
+                "</td>\
+            <td>" +
+                letter +
+                "</td>\
+         </tr>"
+            );
+        }
+        $("#tbl").show();
+      }
+    </script>
+  </body>
+</html>

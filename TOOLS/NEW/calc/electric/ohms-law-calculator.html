@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Ohms Law Calculator</title>
+    <meta
+      name="description"
+      content="Ohm's law calculator with solution: calculates voltage / current / resistance / power."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      .adslot_1 {
+        display: none;
+      }
+      .adslot_2 {
+        height: 250px;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      table.calc td,
+      .calc2 td {
+        background: #eee8d5;
+      }
+      #calcform {
+        padding: 15px;
+        width: 100%;
+        max-width: 550px;
+        background: #eee8d5;
+        border-radius: 7px;
+      }
+      #calcform div label i {
+        font-family: "Times New Roman", Times, serif;
+      }
+      .btn {
+        line-height: 1.5 !important;
+        color: #fff !important;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        #calcform div:nth-child(5) label {
+          display: none;
+        }
+        #calcform div:nth-child(5) button {
+          margin-left: 15px;
+        }
+      }
+      #cal {
+        background: #e9ecef;
+        height: auto;
+        font-family: "Times New Roman", Times, serif;
+      }
+      #caldiv {
+        display: none;
+      }
+
+      .calc {
+        padding: 15px;
+        width: 100%;
+        max-width: 500px;
+        background: #eee8d5;
+      }
+      #calc-dc tr td:nth-child(2) {
+        width: 200px;
+      }
+      #calc-ac tr td:nth-child(2) {
+        width: 90px;
+      }
+      #calc-ac tr td:nth-child(4) {
+        width: 100px;
+      }
+      .calc button {
+        margin-top: 10px;
+      }
+      #wrapper td {
+        padding-left: unset;
+        padding-right: unset;
+      }
+      @media all and (max-width: 576px) {
+        #calc-dc tr td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-dc tr td:nth-child(2) {
+          width: 100px;
+        }
+        #calc-ac tr td {
+          float: left;
+        }
+        #calc-ac tr td:nth-child(2) {
+          width: 80px;
+        }
+        #calc-ac tr:nth-child(2) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(4) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(6) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(8) td:nth-child(1) {
+          width: 100px;
+        }
+        #calc-ac tr:nth-child(2) td:nth-child(6) {
+          clear: left;
+        }
+        #calc-ac tr:nth-child(8) td:nth-child(6) {
+          clear: left;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Electrical Calculators</a>&rsaquo; Ohm's
+        law calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Ohm's Law Calculator</h1>
+          <p>Calculate voltage/current/resistance/power.</p>
+          <p>
+            Enter <b>2 <i>values</i></b> to get the other values and press the
+            <i>Calculate</i> button:
+          </p>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-group row">
+              <label for="r" class="col-sm-3 col-form-label"
+                >Resistance (<i>R</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="r"
+                  name="r"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  autofocus
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <select id="cr" name="cr" class="form-control">
+                    <option selected>ohms (&Omega;)</option>
+                    <option>kiloohms (k&Omega;)</option>
+                    <option>megaohms (M&Omega;)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="i" class="col-sm-3 col-form-label"
+                >Current (<i>I</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="i"
+                  name="i"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <select id="ci" name="ci" class="form-control">
+                    <option>microamps (&mu;A)</option>
+                    <option>milliamps (mA)</option>
+                    <option selected>amps (A)</option>
+                    <option>kiloamps (kA)</option>
+                    <option>megaamps (MA)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="v" class="col-sm-3 col-form-label"
+                >Voltage (<i>V</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="v"
+                  name="v"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <select id="cv" name="cv" class="form-control">
+                    <option>microvolts (&mu;V)</option>
+                    <option>millivolts (mV)</option>
+                    <option selected>volts (V)</option>
+                    <option>kilovolts (kV)</option>
+                    <option>megavolts (MV)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="p" class="col-sm-3 col-form-label"
+                >Power (<i>P</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="p"
+                  name="p"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  class="form-control"
+                />
+                <div class="input-group-append">
+                  <select id="cp" name="cp" class="form-control">
+                    <option>microwatts (&mu;W)</option>
+                    <option>milliwatts (mW)</option>
+                    <option selected>watts (W)</option>
+                    <option>kilowatts (kW)</option>
+                    <option>megawatts (MW)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label ml-3">&nbsp;</label>
+              <button
+                type="button"
+                name="bcalc"
+                title="Calculate"
+                class="btn btn-primary"
+                onclick="oncalc()"
+                disabled="disabled"
+              >
+                <span>=</span> Calculate
+              </button>
+
+              <a
+                href="ohms-law-calculator.html"
+                title="Reset"
+                class="btn btn-secondary ml-1"
+                ><span>&times;</span> Reset</a
+              >
+            </div>
+            <div id="caldiv" class="form-group row">
+              <label class="col-sm-3 col-form-label">Calculation</label>
+              <div id="calwrap" class="col-sm-9">
+                <div id="cal" class="form-control"></div>
+              </div>
+            </div>
+          </form>
+          <p>
+            <a href="voltage-divider-calculator.html"
+              >Voltage divider calculator &#9658;</a
+            >
+          </p>
+          <br />
+          <h2>Ohm's law calculation formula</h2>
+          <p>
+            The voltage V in volts (V) is equal to the current I in amps (A)
+            times the resistance R in ohms (&Omega;):
+          </p>
+          <p class="math">
+            <em>V</em><sub>(V)</sub> = <em>I</em
+            ><sub>(A)</sub>&nbsp;&times;&nbsp;<em>R</em><sub>(&Omega;)</sub>
+          </p>
+          <p>
+            The power P in watts (W) is equal to the voltage V in volts (V)
+            times the current I in amps (A):
+          </p>
+          <p class="math">
+            <em>P</em><sub>(W)</sub> = <em>V</em
+            ><sub>(V)</sub>&nbsp;&times;&nbsp;<em>I</em><sub>(A)</sub>
+          </p>
+          <p>
+            <img
+              loading="lazy"
+              src="../../electric/ohm's&#32;law/basic&#32;circuit.PNG"
+              width="214"
+              height="144"
+              alt=""
+            />
+          </p>
+          <h2 id="accalc">AC Ohm's law calculator</h2>
+          <p>
+            Enter <b>2 values of magnitude+phase angle</b> to get the other
+            values and press the <i>Calculate</i> button:
+          </p>
+          <form id="calcform2" name="calcform2">
+            <table class="calc" id="calc-ac">
+              <tr>
+                <td colspan="7">Impedance (<i>Z</i>):</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="z"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    onblur="oncalccart(0)"
+                    class="form-control"
+                  />
+                </td>
+                <td>
+                  <select
+                    name="cz"
+                    onchange="onselchange2(this, 0);"
+                    class="form-control"
+                  >
+                    <option selected>&Omega;</option>
+                    <option>k&Omega;</option>
+                    <option>M&Omega;</option>
+                  </select>
+                </td>
+                <td class="math">&ang;</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    name="zdeg"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    onblur="oncalccart(0)"
+                    placeholder="&phi;"
+                    class="form-control"
+                  />
+                </td>
+                <td class="math">&deg;</td>
+                <td class="math">&nbsp;=&nbsp;</td>
+                <td>
+                  <input
+                    type="text"
+                    name="z_car"
+                    onclick="ondata2(this)"
+                    onblur="oncalcpolar(0)"
+                    placeholder="R + jX"
+                    class="form-control"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="7">Current (<i>I</i>):</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="i2"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    class="form-control"
+                  />
+                </td>
+                <td>
+                  <select
+                    name="ci2"
+                    onchange="onselchange2(this, 1);"
+                    class="form-control"
+                  >
+                    <option>&mu;A</option>
+                    <option>mA</option>
+                    <option selected>A</option>
+                    <option>kA</option>
+                    <option>MA</option>
+                  </select>
+                </td>
+                <td class="math">&ang;</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    name="ideg"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    class="form-control"
+                  />
+                </td>
+                <td class="math">&deg;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="7">Voltage (<i>V</i>):</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="v2"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    class="form-control"
+                  />
+                </td>
+                <td>
+                  <select
+                    name="cv2"
+                    onchange="onselchange2(this, 2);"
+                    class="form-control"
+                  >
+                    <option selected>V</option>
+                    <option>kV</option>
+                    <option>MV</option>
+                  </select>
+                </td>
+                <td class="math">&ang;</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    name="vdeg"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    class="form-control"
+                  />
+                </td>
+                <td class="math">&deg;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="7">Power (<i>S</i>):</td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="text"
+                    name="s"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    onblur="oncalccart(1)"
+                    class="form-control"
+                  />
+                </td>
+                <td>
+                  <select
+                    name="cs"
+                    onchange="onselchange2(this, 3);"
+                    class="form-control"
+                  >
+                    <option selected>VA</option>
+                    <option>kVA</option>
+                    <option>MVA</option>
+                  </select>
+                </td>
+                <td class="math">&ang;</td>
+                <td>
+                  <input
+                    type="number"
+                    step="any"
+                    name="sdeg"
+                    onclick="ondata2(this)"
+                    onkeyup="ondata2(this)"
+                    onblur="oncalccart(1)"
+                    placeholder="&phi;"
+                    class="form-control"
+                  />
+                </td>
+                <td class="math">&deg;</td>
+                <td class="math">&nbsp;=&nbsp;</td>
+                <td>
+                  <input
+                    type="text"
+                    name="s_car"
+                    onclick="ondata2(this)"
+                    onblur="oncalcpolar(1)"
+                    placeholder="P + jQ"
+                    class="form-control"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="7">
+                  <button
+                    type="button"
+                    name="bcalc2"
+                    title="Calculate"
+                    class="btn btn-primary"
+                    onclick="oncalc2()"
+                    disabled="disabled"
+                  >
+                    <span>=</span> Calculate
+                  </button>
+                  <button
+                    type="reset"
+                    title="Reset"
+                    class="btn btn-secondary"
+                    onclick="onbtnreset2()"
+                  >
+                    <span>&times;</span> Reset
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <h2>AC Ohm's law calculation formula</h2>
+          <p>
+            The voltage V in volts (V) is eqaul to the current I in amps (A)
+            times the impedance Z in ohms (&#937;):
+          </p>
+          <p class="math">
+            <em>V</em><sub>(V)</sub> = <em>I</em><sub>(A)</sub> &times;
+            <em>Z</em><sub>(&Omega;)</sub> = <em>(|</em><em>I</em
+            ><em>|</em>&times;<em>|</em><em>Z</em>|) &ang; (<em
+              >&theta;<sub>I</sub></em
+            >
+            + <em>&theta;<sub>Z</sub></em
+            >)
+          </p>
+          <p>
+            The complex power S in volt-amps (VA) is equal to the voltage V in
+            volts (V) times the current I in amps (A):
+          </p>
+          <p class="math">
+            <em>S</em><sub>(VA)</sub> = <em>V</em><sub>(V)</sub> &times;
+            <em>I</em><sub>(A)</sub> = <em>(|</em><em>V</em><em>|</em>&times;<em
+              >|</em
+            ><em>I</em>|) &ang; (<em>&theta;<sub>V</sub></em> -
+            <em>&theta;<sub>I</sub></em
+            >)
+          </p>
+          <p>&nbsp;</p>
+          <p><a href="../../electric/ohms-law.html">Ohm's law &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../../electric/ohms-law.html">Ohm's law</a></li>
+            <li>
+              <a href="voltage-divider-calculator.html">Voltage divider</a>
+            </li>
+            <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+            <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+            <li><a href="../../electric/Resistance.html">Resistance</a></li>
+            <li><a href="../../electric/Current.html">Electric current</a></li>
+            <li><a href="../../electric/Voltage.html">Electric voltage</a></li>
+            <li>
+              <a href="../math/complex-calculator.html"
+                >Complex numbers calculator</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATORS</h5>
+        <ul>
+          <li><a href="Amp_to_kW_Calculator.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA_Calculator.html">Amps to kVA</a></li>
+          <li><a href="amps-to-va-calculator.html">Amps to VA</a></li>
+          <li><a href="Amp_to_Volt_Calculator.html">Amps to volts</a></li>
+          <li><a href="Amp_to_Watt_Calculator.html">Amps to watts</a></li>
+          <li><a href="electricity-calculator.html">Electricity bill</a></li>
+          <li>
+            <a href="energy-consumption-calculator.html">Energy consumption</a>
+          </li>
+          <li><a href="energy-cost-calculator.html">Energy cost</a></li>
+          <li><a href="ev-to-volt-calculator.html">eV to volts</a></li>
+          <li><a href="Joule_to_Watt_Calculator.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt_Calculator.html">Joules to volts</a></li>
+          <li><a href="kVA_to_Amp_Calculator.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt-calculator.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw-calculator.html">kVA to kW</a></li>
+          <li><a href="kva-to-va-calculator.html">kVA to VA</a></li>
+          <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+          <li><a href="kw-to-volt-calculator.html">kW to volts</a></li>
+          <li><a href="kW_to_kWh_Calculator.html">kW to kWh</a></li>
+          <li><a href="kw-to-va-calculator.html">kW to VA</a></li>
+          <li><a href="kw-to-kva-calculator.html">kW to kVA</a></li>
+          <li><a href="kWh_to_kW_Calculator.html">kWh to kW</a></li>
+          <li><a href="kwh-to-watt-calculator.html">kWh to watts</a></li>
+          <li><a href="ohms-law-calculator.html">Ohm's Law</a></li>
+          <li><a href="power-calculator.html">Power calculator</a></li>
+          <li><a href="power-factor-calculator.html">Power factor</a></li>
+          <li><a href="va-to-amps-calculator.html">VA to amps</a></li>
+          <li><a href="va-to-watt-calculator.html">VA to watts</a></li>
+          <li><a href="va-to-kw-calculator.html">VA to kW</a></li>
+          <li><a href="va-to-kva-calculator.html">VA to kVA</a></li>
+          <li><a href="voltage-divider-calculator.html">Voltage divider</a></li>
+          <li><a href="Volt_to_Amp_Calculator.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Watt_Calculator.html">Volts to watts</a></li>
+          <li><a href="volt-to-kw-calculator.html">Volts to kW</a></li>
+          <li><a href="Volt_to_Joule_Calculator.html">Volts to joules</a></li>
+          <li><a href="volt-to-ev-calculator.html">Volts to eV</a></li>
+          <li>
+            <a href="watt-volt-amp-calculator.html">Watts-volts-amps-ohms</a>
+          </li>
+          <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule_Calculator.html">Watts to joules</a></li>
+          <li><a href="watt-to-kwh-calculator.html">Watts to kWh</a></li>
+          <li><a href="Watt_to_Volt_Calculator.html">Watts to volts</a></li>
+          <li><a href="watt-to-va-calculator.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva-calculator.html">Watts to kVA</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="ohms-law-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../calc2.js"></script>
+    <script>
+      var prevIndex = ["0", "2", "2", "2"];
+      var prevIndex2 = ["0", "2", "0", "0"];
+      window.onload = function () {
+        document.getElementById("calcform").onkeypress = function (e) {
+          if (e.keyCode == 13) oncalc();
+        };
+        document.getElementById("calcform2").onkeypress = function (e) {
+          if (e.keyCode == 13) oncalc2();
+        };
+      };
+      function onbtnreset() {
+        document.calcform.r.focus();
+        document.calcform.bcalc.disabled = true;
+        var caldivctl = document.getElementById("caldiv");
+        caldivctl.style.display = "none";
+      }
+      function onbtnreset2() {
+        //document.calcform2.z.focus();
+        document.calcform2.bcalc2.disabled = true;
+      }
+      function ondata(obj) {
+        var r = document.calcform.r.value;
+        var i = document.calcform.i.value;
+        var v = document.calcform.v.value;
+        var p = document.calcform.p.value;
+        count = 0;
+        if (r != "") count++;
+        if (i != "") count++;
+        if (v != "") count++;
+        if (p != "") count++;
+        if (count != 2) document.calcform.bcalc.disabled = true;
+        else document.calcform.bcalc.disabled = false;
+      }
+      function onselchange(sel, i) {
+        if (i == 0) txt = document.calcform.r;
+        else if (i == 1) txt = document.calcform.i;
+        else if (i == 2) txt = document.calcform.v;
+        else if (i == 3) txt = document.calcform.p;
+        if (txt.value == "") return;
+        di = sel.selectedIndex - prevIndex[i];
+        txt.value = roundnum(txt.value / Math.pow(1000, di), 8);
+        prevIndex[i] = sel.selectedIndex;
+      }
+      function oncalc() {
+        var txt;
+        var rctl = document.getElementById("r");
+        var ictl = document.getElementById("i");
+        var vctl = document.getElementById("v");
+        var pctl = document.getElementById("p");
+        var crctl = document.getElementById("cr");
+        var cictl = document.getElementById("ci");
+        var cvctl = document.getElementById("cv");
+        var cpctl = document.getElementById("cp");
+        var calctl = document.getElementById("cal");
+        var caldivctl = document.getElementById("caldiv");
+        var fr = Math.pow(10, 3 * crctl.selectedIndex);
+        var fi = Math.pow(10, 3 * cictl.selectedIndex - 6);
+        var fv = Math.pow(10, 3 * cvctl.selectedIndex - 6);
+        var fp = Math.pow(10, 3 * cpctl.selectedIndex - 6);
+        var r0 = str2num(rctl.value);
+        var i0 = str2num(ictl.value);
+        var v0 = str2num(vctl.value);
+        var p0 = str2num(pctl.value);
+        var r = r0 * fr;
+        var i = i0 * fi;
+        var v = v0 * fv;
+        var p = p0 * fp;
+        if (r < 0) {
+          alert("Please enter positive resistance value!");
+          return;
+        }
+        if (p < 0) {
+          alert("Please enter positive power value!");
+          return;
+        }
+        var cr, ci, cv, cp;
+        var cr = (ci = cv = cp = "");
+        //if( r!="" && v!="" ) {
+        if (r != 0 && v != 0) {
+          i = v / r;
+          p = v * i;
+          if (crctl.selectedIndex != 0)
+            cr = "&times;10<sup>" + 3 * crctl.selectedIndex + "</sup>";
+          if (cvctl.selectedIndex != 2)
+            cv = "&times;10<sup>" + 3 * (cvctl.selectedIndex - 2) + "</sup>";
+          txt =
+            "<i>I = V / R</i> = " +
+            v0 +
+            cv +
+            "V / " +
+            r0 +
+            cr +
+            "&Omega; = " +
+            roundnum(i, 8) +
+            "A<br>";
+          txt +=
+            "<i>P = V&times;I</i> = " +
+            v0 +
+            cv +
+            "V&times;" +
+            i +
+            "A = " +
+            roundnum(p, 8) +
+            "W<br>";
+        }
+        //else if( r!="" && i!="" ) {
+        else if (r != 0 && i != 0) {
+          v = i * r;
+          p = v * i;
+          if (crctl.selectedIndex != 0)
+            cr = "&times;10<sup>" + 3 * crctl.selectedIndex + "</sup>";
+          if (cictl.selectedIndex != 2)
+            ci = "&times;10<sup>" + 3 * (cictl.selectedIndex - 2) + "</sup>";
+          txt =
+            "<i>V = I&times;R</i> = " +
+            i0 +
+            ci +
+            "A&times;" +
+            r0 +
+            cr +
+            "&Omega; = " +
+            roundnum(v, 8) +
+            "V<br>";
+          txt +=
+            "<i>P = V&times;I</i> = " +
+            v +
+            "V&times;" +
+            i0 +
+            ci +
+            "A = " +
+            roundnum(p, 8) +
+            "W<br>";
+        }
+        //else if( r!="" && p!="" ) {
+        else if (r != 0 && p != 0) {
+          v = Math.sqrt(p * r);
+          i = p / v;
+          if (crctl.selectedIndex != 0)
+            cr = "&times;10<sup>" + 3 * crctl.selectedIndex + "</sup>";
+          if (cpctl.selectedIndex != 2)
+            cp = "&times;10<sup>" + 3 * (cpctl.selectedIndex - 2) + "</sup>";
+          txt =
+            "<i>V</i> = sqrt(<i>P&times;R</i>) = sqrt(" +
+            p0 +
+            cp +
+            "W&times;" +
+            r0 +
+            cr +
+            "&Omega;) = " +
+            roundnum(v, 8) +
+            "V<br>";
+          txt +=
+            "<i>I = P / V</i> = " +
+            p0 +
+            cp +
+            "W / " +
+            v +
+            "V = " +
+            roundnum(i, 8) +
+            "A<br>";
+        }
+        //else if( i!="" && v!="" ) {
+        else if (i != 0 && v != 0) {
+          r = v / i;
+          p = v * i;
+          if (cictl.selectedIndex != 2)
+            ci = "&times;10<sup>" + 3 * (cictl.selectedIndex - 2) + "</sup>";
+          if (cvctl.selectedIndex != 2)
+            cv = "&times;10<sup>" + 3 * (cvctl.selectedIndex - 2) + "</sup>";
+          txt =
+            "<i>R = V / I</i> = " +
+            v0 +
+            cv +
+            "V / " +
+            i0 +
+            ci +
+            "A = " +
+            roundnum(r, 8) +
+            "&Omega;<br>";
+          txt +=
+            "<i>P = V&times;I</i> = " +
+            v0 +
+            cv +
+            "V&times;" +
+            i0 +
+            ci +
+            "A = " +
+            roundnum(p, 8) +
+            "W<br>";
+        }
+        //else if( i!="" && p!="" ) {
+        else if (i != 0 && p != 0) {
+          v = p / i;
+          r = v / i;
+          if (cictl.selectedIndex != 2)
+            ci = "&times;10<sup>" + 3 * (cictl.selectedIndex - 2) + "</sup>";
+          if (cpctl.selectedIndex != 2)
+            cp = "&times;10<sup>" + 3 * (cpctl.selectedIndex - 2) + "</sup>";
+          txt =
+            "<i>V = P / I</i> = " +
+            p0 +
+            cp +
+            "W / " +
+            i0 +
+            ci +
+            "A = " +
+            roundnum(v, 8) +
+            "V<br>";
+          txt +=
+            "<i>R = V / I</i> = " +
+            v +
+            "V/" +
+            i0 +
+            ci +
+            "A = " +
+            roundnum(r, 8) +
+            "&Omega;<br>";
+        }
+        //else if( v!="" && p!="" ) {
+        else if (v != 0 && p != 0) {
+          i = p / v;
+          r = v / i;
+          if (cvctl.selectedIndex != 2)
+            cv = "&times;10<sup>" + 3 * (cvctl.selectedIndex - 2) + "</sup>";
+          if (cpctl.selectedIndex != 2)
+            cp = "&times;10<sup>" + 3 * (cpctl.selectedIndex - 2) + "</sup>";
+          txt =
+            "<i>I = P / V</i> = " +
+            p0 +
+            cp +
+            "W / " +
+            v0 +
+            cv +
+            "V = " +
+            roundnum(i, 8) +
+            "A<br>";
+          txt +=
+            "<i>R = V / I</i> = " +
+            v0 +
+            cv +
+            "V / " +
+            i +
+            "A = " +
+            roundnum(r, 8) +
+            "&Omega;<br>";
+        }
+        r /= fr;
+        i /= fi;
+        v /= fv;
+        p /= fp;
+        rctl.value = roundnum(r, 8);
+        ictl.value = roundnum(i, 8);
+        vctl.value = roundnum(v, 8);
+        pctl.value = roundnum(p, 8);
+        calctl.innerHTML = txt;
+        caldivctl.style.display = "flex";
+      }
+      function ondata2(obj) {
+        z = document.calcform2.z.value;
+        i = document.calcform2.i2.value;
+        v = document.calcform2.v2.value;
+        s = document.calcform2.s.value;
+        zdeg = document.calcform2.zdeg.value;
+        ideg = document.calcform2.ideg.value;
+        vdeg = document.calcform2.vdeg.value;
+        sdeg = document.calcform2.sdeg.value;
+        zcar = document.calcform2.z_car.value;
+        scar = document.calcform2.s_car.value;
+        count = 0;
+        if ((z != "" && zdeg != "") || zcar != "") count++;
+        if (i != "" && ideg != "") count++;
+        if (v != "" && vdeg != "") count++;
+        if ((s != "" && sdeg != "") || sdeg != "") count++;
+        if (count < 2) document.calcform2.bcalc2.disabled = true;
+        else document.calcform2.bcalc2.disabled = false;
+      }
+      function onselchange2(sel, i) {
+        if (i == 0) txt = document.calcform2.z;
+        else if (i == 1) txt = document.calcform2.i2;
+        else if (i == 2) txt = document.calcform2.v2;
+        else if (i == 3) txt = document.calcform2.s;
+        if (txt.value == "") return;
+        di = sel.selectedIndex - prevIndex2[i];
+        txt.value = roundnum(txt.value / Math.pow(1000, di), 8);
+        prevIndex2[i] = sel.selectedIndex;
+      }
+      function oncalc2() {
+        fz = Math.pow(10, 3 * document.calcform2.cz.selectedIndex);
+        fi = Math.pow(10, 3 * document.calcform2.ci2.selectedIndex - 6);
+        fv = Math.pow(10, 3 * document.calcform2.cv2.selectedIndex);
+        fs = Math.pow(10, 3 * document.calcform2.cs.selectedIndex);
+        z = fz * document.calcform2.z.value;
+        i = fi * document.calcform2.i2.value;
+        v = fv * document.calcform2.v2.value;
+        s = fs * document.calcform2.s.value;
+        zdeg = document.calcform2.zdeg.value;
+        ideg = document.calcform2.ideg.value;
+        vdeg = document.calcform2.vdeg.value;
+        sdeg = document.calcform2.sdeg.value;
+        _zdeg = parseFloat(zdeg);
+        _ideg = parseFloat(ideg);
+        _vdeg = parseFloat(vdeg);
+        _sdeg = parseFloat(sdeg);
+        if (z != "" && v != "" && zdeg != "" && vdeg != "") {
+          i = v / z;
+          s = v * i;
+          ideg = _vdeg - _zdeg;
+          sdeg = _zdeg;
+        } else if (z != "" && i != "" && zdeg != "" && ideg != "") {
+          v = i * z;
+          s = v * i;
+          vdeg = _zdeg + _ideg;
+          sdeg = _zdeg;
+        } else if (z != "" && s != "" && zdeg != "" && sdeg != "") {
+          v = Math.sqrt(s * z);
+          i = s / v;
+          vdeg = (_sdeg + _zdeg) / 2;
+          ideg = _sdeg - vdeg;
+        } else if (i != "" && v != "" && ideg != "" && vdeg != "") {
+          z = v / i;
+          s = v * i;
+          zdeg = _vdeg - _ideg;
+          sdeg = zdeg;
+        } else if (i != "" && s != "" && ideg != "" && sdeg != "") {
+          v = s / i;
+          z = v / i;
+          zdeg = _sdeg;
+          vdeg = zdeg + _ideg;
+        } else if (v != "" && s != "" && vdeg != "" && sdeg != "") {
+          i = s / v;
+          z = v / i;
+          zdeg = _sdeg;
+          ideg = _vdeg - zdeg;
+        }
+        z /= fz;
+        i /= fi;
+        v /= fv;
+        s /= fs;
+        document.calcform2.z.value = roundnum(z, 8);
+        document.calcform2.i2.value = roundnum(i, 8);
+        document.calcform2.v2.value = roundnum(v, 8);
+        document.calcform2.s.value = roundnum(s, 8);
+        document.calcform2.zdeg.value = roundnum(zdeg, 5);
+        document.calcform2.ideg.value = roundnum(ideg, 5);
+        document.calcform2.vdeg.value = roundnum(vdeg, 5);
+        document.calcform2.sdeg.value = roundnum(sdeg, 5);
+
+        if (document.calcform2.z_car.value == "") oncalccart(0);
+        if (document.calcform2.s_car.value == "") oncalccart(1);
+      }
+      function oncalccart(ix) {
+        if (ix == 0) {
+          r = document.calcform2.z.value;
+          ang = document.calcform2.zdeg.value;
+        } else {
+          r = document.calcform2.s.value;
+          ang = document.calcform2.sdeg.value;
+        }
+
+        if (r == "" || ang == "") return;
+
+        ang = (ang / 180) * Math.PI;
+        x = r * Math.cos(ang);
+        y = r * Math.sin(ang);
+        if (y < 0) {
+          y = -y;
+          sign = "-";
+        } else sign = "+";
+        x = x.toFixed(2);
+        y = y.toFixed(2);
+        p = x + sign + "j" + y;
+
+        if (ix == 0) document.calcform2.z_car.value = p;
+        else document.calcform2.s_car.value = p;
+      }
+      function oncalcpolar(ix) {
+        if (ix == 0) {
+          car = document.calcform2.z_car.value;
+          c = document.calcform2.cz.selectedIndex;
+        } else {
+          car = document.calcform2.s_car.value;
+          c = document.calcform2.cs.selectedIndex;
+        }
+
+        if (car == "") return;
+        i = car.indexOf("j");
+        if (i == -1) car += "+j0";
+        if (i == 0) car = "0+" + car;
+        if (i == 1) car = "0" + car;
+
+        len = car.length;
+        i1 = car.indexOf("+");
+        i2 = car.indexOf("-");
+        i3 = car.indexOf(" ");
+        if (i2 == 0) sign1 = -1;
+        else sign1 = 1;
+        if (i1 < 1) i1 = 100;
+        if (i2 < 1) i2 = 100;
+        if (i3 < 1) i3 = 100;
+        i = Math.min(i1, i2, i3);
+        if (i == i2) sign2 = -1;
+        else sign2 = 1;
+        x = car.substring(0, i);
+        x = parseFloat(x);
+        i = car.indexOf("j");
+        y = car.substring(i + 1, len);
+        y = parseFloat(y);
+        y *= sign2;
+        mag = Math.sqrt(x * x + y * y);
+        if (x != 0) ang = (Math.atan(y / x) * 180) / Math.PI;
+        else ang = y > 0 ? 90 : y < 0 ? -90 : 0;
+        if (sign1 == -1 && ang != 0) {
+          if (ang > 0) ang -= 180;
+          else ang += 180;
+        }
+
+        mag /= Math.pow(10, c * 3);
+
+        mag = mag.toFixed(2);
+        ang = ang.toFixed(0);
+
+        if (ix == 0) {
+          document.calcform2.z.value = mag;
+          document.calcform2.zdeg.value = ang;
+        } else {
+          document.calcform2.s.value = mag;
+          document.calcform2.sdeg.value = ang;
+        }
+      }
+    </script>
+  </body>
+</html>

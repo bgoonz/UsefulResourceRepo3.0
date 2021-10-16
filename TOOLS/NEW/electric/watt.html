@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Watt (W) electrical unit</title>
+    <meta
+      name="description"
+      content="Watt is the unit of electric power. One watt is defined as energy consumption rate of one joule per second. "
+    />
+    <style>
+      @media all and (max-width: 576px) {
+        .calc2 input[type="number"] {
+          width: 155px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div id="header">
+      <div>
+        <div id="logo" class="box">
+          <p>
+            <a href="../index.html">RapidTables</a>
+          </p>
+        </div>
+      </div>
+    </div>
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html"
+          >Electricity &amp; Electronics</a
+        >&rsaquo;<a href="Electric_units.html">Electrical units</a>&rsaquo; Watt
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Watt (W)</h1>
+          <ul>
+            <li><a href="watt.html#definition">Watt definition</a></li>
+            <li>
+              <a href="watt.html#conversion_calculator"
+                >Watt to mW, kW, MW, GW, dBm, dBW conversion calculator</a
+              >
+            </li>
+            <li>
+              <a href="watt.html#units_table">Table of unit prefixes of watt</a>
+            </li>
+            <li>
+              <a href="watt.html#w to kw">How to convert watts to kilowatts</a>
+            </li>
+            <li>
+              <a href="watt.html#w to mw">How to convert watts to milliwatts</a>
+            </li>
+            <li>
+              <a href="watt.html#w to dbm">How to convert watts to dBm</a>
+            </li>
+            <li><a href="watt.html#w to a">How to convert watts to amps</a></li>
+            <li>
+              <a href="watt.html#w to v">How to convert watts to volts</a>
+            </li>
+            <li><a href="watt.html#w to o">How to convert watts to ohms</a></li>
+            <li>
+              <a href="watt.html#w to btu">How to convert watts to btu</a>
+            </li>
+            <li>
+              <a href="watt.html#w to j">How to convert watts to joules</a>
+            </li>
+            <li>
+              <a href="watt.html#w to hp">How to convert watts to horsepower</a>
+            </li>
+            <li>
+              <a href="watt.html#w to kva">How to convert watts to kVA</a>
+            </li>
+            <li><a href="watt.html#w to va">How to convert watts to VA</a></li>
+            <li>
+              <a href="watt.html#power_consumption">Power consumption table</a>
+            </li>
+          </ul>
+          <h2><a name="definition"></a>Watt definition</h2>
+          <p>
+            Watt is the unit of <a href="electric_power.html">power</a> (symbol:
+            W).
+          </p>
+          <p>
+            The watt unit is named after James Watt, the inventor of the steam
+            engine.
+          </p>
+          <p>
+            One watt is defined as the energy consumption rate of one joule per
+            second.
+          </p>
+          <p class="math">1W = 1J / 1s</p>
+          <p>
+            One watt is also defined as the current flow of one ampere with
+            voltage of one volt.
+          </p>
+          <p class="math">1W = 1V &times; 1A</p>
+          <h2>
+            <a name="conversion_calculator"></a>Watt to mW, kW, MW, GW, dBm, dBW
+            conversion calculator
+          </h2>
+          <p>
+            Convert watt to milliwatt, kilowatt, megawatt, gigawatt, dBm, dBW.
+          </p>
+          <p>
+            Enter the power in one of the text boxes and press the
+            <i>Convert</i> button:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td>Enter milliwatts:</td>
+                  <td class="math">
+                    <input type="number" min="0" step="any" name="mw" />
+                  </td>
+                  <td class="mathsymbol">mW</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_mW()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Enter watts:</td>
+                  <td class="math">
+                    <input type="number" min="0" step="any" name="w" />
+                  </td>
+                  <td class="mathsymbol">W</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_W()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Enter kilowatts:</td>
+                  <td class="math">
+                    <input type="number" min="0" step="any" name="kw" />
+                  </td>
+                  <td class="mathsymbol">kW</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_kW()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Enter megawatts:</td>
+                  <td class="math">
+                    <input type="number" min="0" step="any" name="mew" />
+                  </td>
+                  <td class="mathsymbol">MW</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_MW()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Enter gigawatts:</td>
+                  <td class="math">
+                    <input type="number" min="0" step="any" name="gw" />
+                  </td>
+                  <td class="mathsymbol">GW</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_GW()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Enter dBm:</td>
+                  <td class="math">
+                    <input type="number" min="0" step="any" name="dbm" />
+                  </td>
+                  <td class="mathsymbol">dBm</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_dBm()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Enter dBW:</td>
+                  <td class="math">
+                    <input type="number" min="0" step="any" name="dbw" />
+                  </td>
+                  <td class="mathsymbol">dBW</td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="Convert_dBW()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td class="mathsymbol">&nbsp;</td>
+                  <td class="mathsymbol">&nbsp;</td>
+                  <td class="mathsymbol">
+                    <input type="reset" value="Reset" />
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <h2><a name="units_table"></a>Table of unit prefixes of watt</h2>
+          <table class="dtable">
+            <tr>
+              <th>name</th>
+              <th>symbol</th>
+              <th>conversion</th>
+              <th>example</th>
+            </tr>
+            <tr>
+              <td>picowatt</td>
+              <td>pW</td>
+              <td>1pW = 10<sup>-12 </sup>W</td>
+              <td>P<sub> </sub>= 10 pW</td>
+            </tr>
+            <tr>
+              <td>nanowatt</td>
+              <td>nW</td>
+              <td>1nW = 10<sup>-9 </sup>W</td>
+              <td>P<sub> </sub>= 10 nW</td>
+            </tr>
+            <tr>
+              <td>microwatt</td>
+              <td>&#956;W</td>
+              <td>1&#956;W = 10<sup>-6 </sup>W</td>
+              <td>P<sub> </sub>= 10 &#956;W</td>
+            </tr>
+            <tr>
+              <td>milliwatt</td>
+              <td>mW</td>
+              <td>1mW = 10<sup>-3 </sup>W</td>
+              <td>P = 10 mW</td>
+            </tr>
+            <tr>
+              <td>watt</td>
+              <td>W</td>
+              <td>-</td>
+              <td>P = 10 W</td>
+            </tr>
+            <tr>
+              <td><a href="kW.html">kilowatt</a></td>
+              <td><a href="kW.html">kW</a></td>
+              <td>1kW = 10<sup>3 </sup>W</td>
+              <td>P<sub> </sub>= 2 kW</td>
+            </tr>
+            <tr>
+              <td>megawatt</td>
+              <td>MW</td>
+              <td>1MW = 10<sup>6 </sup>W</td>
+              <td>P<sub> </sub>= 5 MW</td>
+            </tr>
+            <tr>
+              <td>gigawatt</td>
+              <td>GW</td>
+              <td>1GW = 10<sup>9 </sup>W</td>
+              <td>P<sub> </sub>= 5 GW</td>
+            </tr>
+          </table>
+          <h3><a name="w to kw"></a>How to convert watts to kilowatts</h3>
+          <p>
+            The power P in kilowatts (kW) is equal to the power P in watts (W)
+            divided by 1000:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(kW)</sub> = <i>P</i><sub>(W)</sub> / 1000
+          </p>
+          <h3><a name="w to mw"></a>How to convert watts to milliwatts</h3>
+          <p>
+            The power P in milliwatts (mW) is equal to the power P in watts (W)
+            times 1000:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(mW)</sub> = <i>P</i><sub>(W)</sub> &sdot; 1000
+          </p>
+          <h3><a name="w to dbm"></a>How to convert watts to dBm</h3>
+          <p>
+            The power P in decibel-milliwatts (dBm) is equal to 10 times base 10
+            logarithm of the power P in milliwatts (mW) divided by 1 milliwatt:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(dBm)</sub> = 10 &sdot; log<sub>10</sub>( <i>P</i
+            ><sub>(mW)</sub> / 1mW)
+          </p>
+          <h3><a name="w to a"></a>How to convert watts to amps</h3>
+          <p>
+            The current I in ampers (A) is equal to the power P in watts (W)
+            divided by the voltage V in volts (V):
+          </p>
+          <p class="math">
+            <i>I</i><sub>(A)</sub> = <i>P</i><sub>(W)</sub> / <i>V</i
+            ><sub>(V)</sub>
+          </p>
+          <h3><a name="w to v"></a>How to convert watts to volts</h3>
+          <p>
+            The voltage V in volts (V) is equal to the power P in watts (W)
+            divided by the current I in ampers (A):
+          </p>
+          <p class="math">
+            <i>V</i><sub>(V)</sub> = <i>P</i><sub>(W)</sub> / <i>I</i
+            ><sub>(A)</sub>
+          </p>
+          <h3><a name="w to o"></a>How to convert watts to ohms</h3>
+          <p class="math">
+            <i>R</i><sub>(&#937;)</sub> = <i>P</i><sub>(W) </sub><i>/ I</i
+            ><sub>(A)</sub><sup>2</sup>
+          </p>
+          <p class="math">
+            <i>R</i><sub>(&#937;)</sub> = <i>V</i><sub>(V)</sub><sup>2</sup>/<i>
+              P</i
+            ><sub>(W)</sub>
+          </p>
+          <h3><a name="w to btu"></a>How to convert watts to btu/hr</h3>
+          <p class="math">
+            <i>P</i><sub>(BTU/hr)</sub> = 3.412142 &sdot; <i>P</i><sub>(W)</sub>
+          </p>
+          <h3><a name="w to j"></a>How to convert watts to joules</h3>
+          <p class="math">
+            <i>E</i><sub>(J)</sub> = <i>P</i><sub>(W)</sub> &sdot; <i>t</i
+            ><sub>(s)</sub>
+          </p>
+          <h3><a name="w to hp"></a>How to convert watts to horsepower</h3>
+          <p class="math">
+            <i>P</i><sub>(HP)</sub> = <i>P</i><sub>(W) </sub>/ 746
+          </p>
+          <h3><a name="w to kva"></a>How to convert watts to kVA</h3>
+          <p>
+            The real power P in watts (W) is equal to 1000 times the apparent
+            power S in kilo-volt-amperes (kVA) times the power factor (PF) or
+            cosine of the phase angle &#966;:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(W)</sub> = 1000 &sdot; S<sub>(kVA)</sub> &sdot;
+            <i>PF</i> = 1000 &sdot; <i>S</i><sub>(kVA)</sub> &sdot; cos
+            <i>&#966;</i>
+          </p>
+          <h3><a name="w to va"></a>How to convert watts to VA</h3>
+          <p>
+            The real power P in watts (W) is equal to the apparent power S in
+            volt-amperes (VA) times the power factor (PF) or cosine of the phase
+            angle &#966;:
+          </p>
+          <p class="math">
+            <i>P</i><sub>(W)</sub> = <i>S</i><sub>(VA)</sub> &sdot; <i>PF</i> =
+            <i>S</i><sub>(VA)</sub> &sdot; cos <i>&#966;</i>
+          </p>
+          <h2>
+            <a name="power_consumption"></a>Power consumption of some electrical
+            components
+          </h2>
+          <p>
+            How many watts does a house use? How many watts does a TV use? How
+            many watts does a refrigerator use?
+          </p>
+          <table class="dtable">
+            <tr>
+              <th>Electric component</th>
+              <th>Typical power consumption in watts</th>
+            </tr>
+            <tr>
+              <td>LCD TV</td>
+              <td>30..300 W</td>
+            </tr>
+            <tr>
+              <td>LCD monitor</td>
+              <td>30..45 W</td>
+            </tr>
+            <tr>
+              <td>PC desktop computer</td>
+              <td>300..400 W</td>
+            </tr>
+            <tr>
+              <td>Laptop computer</td>
+              <td>40..60 W</td>
+            </tr>
+            <tr>
+              <td>Refrigerator</td>
+              <td>150..300 W (when active)</td>
+            </tr>
+            <tr>
+              <td>Light bulb</td>
+              <td>25..100 W</td>
+            </tr>
+            <tr>
+              <td>Fluorescent light</td>
+              <td>15..60 W</td>
+            </tr>
+            <tr>
+              <td>Halogen light</td>
+              <td>30..80 W</td>
+            </tr>
+            <tr>
+              <td>Speaker</td>
+              <td>10..300 W</td>
+            </tr>
+            <tr>
+              <td>Microwave</td>
+              <td>100..1000 W</td>
+            </tr>
+            <tr>
+              <td>Air conditioner</td>
+              <td>1..2 kW</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="kW.html">Kilowatt (kW) &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="electric_power.html">Electric power</a></li>
+            <li><a href="dBm.html">Decibel-milliwatt (dBm)</a></li>
+            <li><a href="dBW.html">Decibel-watt (dBW)</a></li>
+            <li><a href="kW.html">Kilowatt (kW)</a></li>
+            <li><a href="kWh.html">Kilowatt-hour (kWh)</a></li>
+            <li><a href="volt.html">Volt (V)</a></li>
+            <li><a href="ampere.html">Ampere (amps)</a></li>
+            <li><a href="ohm.html">Ohm</a></li>
+            <li><a href="ohms-law.html">Ohm's law</a></li>
+            <li><a href="../convert/power/index.html">Power conversion</a></li>
+            <li>
+              <a href="../convert/power/Watt_to_kW.html"
+                >Watts to kW conversion</a
+              >
+            </li>
+            <li>
+              <a href="../convert/power/Watt_to_mW.html"
+                >Watts to mW conversion</a
+              >
+            </li>
+            <li>
+              <a href="../convert/power/Watt_to_dBm.html"
+                >Watts to dBm conversion</a
+              >
+            </li>
+            <li>
+              <a href="../convert/power/watt-to-hp.html"
+                >Watts to Horsepower conversion</a
+              >
+            </li>
+            <li>
+              <a href="../convert/power/Watt_to_BTU.html"
+                >Watts to BTU/hr conversion</a
+              >
+            </li>
+            <li>
+              <a href="../convert/energy/index.html">Energy conversion</a>
+            </li>
+            <li>
+              <a href="../convert/electric/Watt_to_Amp.html"
+                >Watts to Amps calculation</a
+              >
+            </li>
+            <li>
+              <a href="../convert/electric/Watt_to_Joule.html"
+                >Watts to Joules calculation</a
+              >
+            </li>
+            <li>
+              <a href="../convert/electric/Watt_to_Volt.html"
+                >Watts to Volts calculation</a
+              >
+            </li>
+            <li><a href="Electric_units.html">Electrical units</a></li>
+          </ul>
+          <script>
+            function setfocus() {
+              document.calcform.mw.focus();
+            }
+            function Round(x, res) {
+              y = parseFloat(x);
+              res = Math.pow(10, res);
+              y = Math.round(y * res) / res;
+              return y;
+            }
+            function Convert_mW() {
+              mw = document.calcform.mw.value;
+              if (mw == "") return;
+              mw = parseFloat(mw);
+              document.calcform.w.value = Round(mw / 1e3, 12);
+              document.calcform.kw.value = Round(mw / 1e6, 12);
+              document.calcform.mew.value = Round(mw / 1e9, 12);
+              document.calcform.gw.value = Round(mw / 1e12, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(mw) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(mw) * Math.LOG10E - 30,
+                12
+              );
+            }
+            function Convert_W() {
+              w = document.calcform.w.value;
+              if (w == "") return;
+              w = parseFloat(w);
+              document.calcform.mw.value = Round(w * 1e3, 12);
+              document.calcform.kw.value = Round(w / 1e3, 12);
+              document.calcform.mew.value = Round(w / 1e6, 12);
+              document.calcform.gw.value = Round(w / 1e9, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(w * 1000) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(w) * Math.LOG10E,
+                12
+              );
+            }
+            function Convert_kW() {
+              kw = document.calcform.kw.value;
+              if (kw == "") return;
+              kw = parseFloat(kw);
+              document.calcform.mw.value = Round(kw * 1e6, 12);
+              document.calcform.w.value = Round(kw * 1e3, 12);
+              document.calcform.mew.value = Round(kw / 1e3, 12);
+              document.calcform.gw.value = Round(kw / 1e6, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(kw * 1e6) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(kw * 1e3) * Math.LOG10E,
+                12
+              );
+            }
+            function Convert_MW() {
+              mw = document.calcform.mew.value;
+              if (mw == "") return;
+              mw = parseFloat(mw);
+              document.calcform.mw.value = Round(mw * 1e9, 12);
+              document.calcform.w.value = Round(mw * 1e6, 12);
+              document.calcform.kw.value = Round(mw * 1e3, 12);
+              document.calcform.gw.value = Round(mw / 1e3, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(mw * 1e9) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(mw * 1e6) * Math.LOG10E,
+                12
+              );
+            }
+            function Convert_GW() {
+              gw = document.calcform.gw.value;
+              if (gw == "") return;
+              gw = parseFloat(gw);
+              document.calcform.mw.value = Round(gw * 1e12, 12);
+              document.calcform.w.value = Round(gw * 1e9, 12);
+              document.calcform.kw.value = Round(gw * 1e6, 12);
+              document.calcform.mew.value = Round(gw * 1e3, 12);
+              document.calcform.dbm.value = Round(
+                10 * Math.log(gw * 1e12) * Math.LOG10E,
+                12
+              );
+              document.calcform.dbw.value = Round(
+                10 * Math.log(gw * 1e9) * Math.LOG10E,
+                12
+              );
+            }
+            function Convert_dBm() {
+              dbm = document.calcform.dbm.value;
+              if (dbm == "") return;
+              dbm = parseFloat(dbm);
+              mw = Math.pow(10, dbm / 10);
+              document.calcform.mw.value = Round(mw, 12);
+              document.calcform.w.value = Round(mw / 1e3, 12);
+              document.calcform.kw.value = Round(mw / 1e6, 12);
+              document.calcform.mew.value = Round(mw / 1e9, 12);
+              document.calcform.gw.value = Round(mw / 1e12, 12);
+              document.calcform.dbw.value = Round(dbm - 30, 12);
+            }
+            function Convert_dBW() {
+              dbw = document.calcform.dbw.value;
+              if (dbw == "") return;
+              dbw = parseFloat(dbw);
+              w = Math.pow(10, dbw / 10);
+              document.calcform.mw.value = Round(w * 1e3, 12);
+              document.calcform.w.value = Round(w, 12);
+              document.calcform.kw.value = Round(w / 1e3, 12);
+              document.calcform.mew.value = Round(w / 1e6, 12);
+              document.calcform.gw.value = Round(w / 1e9, 12);
+              document.calcform.dbm.value = Round(dbw + 30, 12);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICITY &amp; ELECTRONICS UNITS</h5>
+        <ul>
+          <li><a href="ampere.html">Ampere (A)</a></li>
+          <li><a href="dBm.html">dB-milliwatt (dBm)</a></li>
+          <li><a href="dBW.html">dB-watt (dBW)</a></li>
+          <li><a href="decibel.html">Decibel (dB)</a></li>
+          <li><a href="farad.html">Farad (F)</a></li>
+          <li><a href="kva.html">Kilovolt-amp (kVA)</a></li>
+          <li><a href="kW.html">Kilowatt (kW)</a></li>
+          <li><a href="kWh.html">Kilowatt-hour (kWh)</a></li>
+          <li><a href="ohm.html">Ohm (&#937;)</a></li>
+          <li><a href="volt.html">Volt (V)</a></li>
+          <li><a href="watt.html">Watt (W)</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="watt.html#feedback">Send Feedback</a></li>
+          <li><a href="../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../index.html">Home</a> | <a href="../web/index.html">Web</a> |
+      <a href="../math/index.html">Math</a> |
+      <a href="index.html">Electricity</a> |
+      <a href="../calc/index.html">Calculators</a> |
+      <a href="../convert/index.html">Converters</a> |
+      <a href="../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../index.html">RapidTables.com</a> |
+        <a href="../about/about.html" rel="nofollow">About</a> |
+        <a href="../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Watts/Volts/Amps/Ohms Calculator</title>
+    <meta
+      name="description"
+      content="Watts (W) / volts (V) / amps (A) / ohms (&#937;) calculator."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 20px;
+        background: #eee8d5;
+        max-width: 550px;
+        border-radius: 7px;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Electrical Calculators</a>&rsaquo;
+        Watts-volts-amps-ohms calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Watts / Volts / Amps / Ohms calculator</h1>
+          <p>
+            <a href="../../electric/watt.html">Watts (W)</a> -
+            <a href="../../electric/volt.html">volts (V)</a> -
+            <a href="../../electric/ampere.html">amps (A)</a> -
+            <a href="../../electric/ohm.html">ohms (&#937;)</a> calculator.
+          </p>
+          <p>
+            Calculates dc
+            <a href="../../electric/electric_power.html">power</a> /
+            <a href="../../electric/Voltage.html">voltage</a> /
+            <a href="../../electric/Current.html">current</a> /
+            <a href="../../electric/Resistance.html">resistance</a>.
+          </p>
+          <p>
+            Enter <b>2 <i>values</i></b> to get the other values and press the
+            <i>Calculate </i>button:
+          </p>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-group row">
+              <label for="r" class="col-sm-3 col-form-label"
+                >Resistance (<i>R</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="r"
+                  name="r"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  autofocus
+                  class="form-control"
+                />
+
+                <select id="cr" name="cr" class="form-control">
+                  <option selected>ohms (&Omega;)</option>
+                  <option>kiloohms (k&Omega;)</option>
+                  <option>megaohms (M&Omega;)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="i" class="col-sm-3 col-form-label"
+                >Current (<i>I</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="i"
+                  name="i"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  class="form-control"
+                />
+                <select id="ci" name="ci" class="form-control">
+                  <option>microamps (&mu;A)</option>
+                  <option>milliamps (mA)</option>
+                  <option selected>amps (A)</option>
+                  <option>kiloamps (kA)</option>
+                  <option>megaamps (MA)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="v" class="col-sm-3 col-form-label"
+                >Voltage (<i>V</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="v"
+                  name="v"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  class="form-control"
+                />
+                <select id="cv" name="cv" class="form-control">
+                  <option>microvolts (&mu;V)</option>
+                  <option>millivolts (mV)</option>
+                  <option selected>volts (V)</option>
+                  <option>kilovolts (kV)</option>
+                  <option>megavolts (MV)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="p" class="col-sm-3 col-form-label"
+                >Power (<i>P</i>)</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="p"
+                  name="p"
+                  onclick="ondata(this)"
+                  onkeyup="ondata(this)"
+                  class="form-control"
+                />
+                <select id="cp" name="cp" class="form-control">
+                  <option>microwatts (&mu;W)</option>
+                  <option>milliwatts (mW)</option>
+                  <option selected>watts (W)</option>
+                  <option>kilowatts (kW)</option>
+                  <option>megawatts (MW)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="col-sm-9">
+                <button
+                  type="button"
+                  id="calcbtn"
+                  title="Calculate"
+                  class="btn btn-primary"
+                  onclick="oncalc()"
+                  disabled="disabled"
+                >
+                  <span>=</span> Calculate
+                </button>
+                <button
+                  type="reset"
+                  title="Reset"
+                  class="btn btn-secondary"
+                  onclick="onbtnreset()"
+                >
+                  <span>&times;</span> Reset
+                </button>
+              </div>
+            </div>
+          </form>
+          <p>
+            <a href="ohms-law-calculator.html">Ohm's law calculator &#9658;</a>
+          </p>
+          <h3>Ohms calculations</h3>
+          <p>
+            The resistance R in ohms (&#937;) is equal to the voltage V in volts
+            (V) divided by the current I in amps (A):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/rvi.gif"
+              width="64"
+              height="45"
+            />
+          </p>
+          <p>
+            The resistance R in ohms (&#937;) is equal to the squared voltage V
+            in volts (V) divided by the power P in watts (W):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/rvp.gif"
+              width="72"
+              height="48"
+            />
+          </p>
+          <p>
+            The resistance R in ohms (&#937;) is equal to the power P in watts
+            (W) divided by the squared current I in amps (A):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/rpi.gif"
+              width="66"
+              height="45"
+            />
+          </p>
+          <h3>Amps calculations</h3>
+          <p>
+            The current I in amps (A) is equal to the voltage V in volts (V)
+            divided by the resistance R in ohms (&#937;):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/ivr.gif"
+              width="59"
+              height="46"
+            />
+          </p>
+          <p>
+            The current I in amps (A) is equal to the power P in watts (W)
+            divided by the voltage V in volts (V):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/ipv.gif"
+              width="59"
+              height="46"
+            />
+          </p>
+          <p>
+            The current I in amps (A) is equal to the square root of the power P
+            in watts (W) divided by the resistance R in ohms (&#937;):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/ipr.gif"
+              width="82"
+              height="53"
+            />
+          </p>
+          <h3>Volts calculations</h3>
+          <p>
+            The voltage V in volts (V) is equal to the current I in amps (A)
+            times the resistance R in ohms (&#937;):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/vir.gif"
+              width="99"
+              height="16"
+            />
+          </p>
+          <p>
+            The voltage V in volts (V) is equal to the power P in watts (W)
+            divided by the current I in amps (A):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/vpi.gif"
+              width="64"
+              height="45"
+            />
+          </p>
+          <p>
+            The voltage V in volts (V) is equal to the square root of the power
+            P in watts (W) times the resistance R in ohms (&#937;):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/vpr.gif"
+              width="125"
+              height="22"
+            />
+          </p>
+          <h3>Watts calculation</h3>
+          <p>
+            The power P in watts (W) is equal to the voltage V in volts (V)
+            times the current I in amps (A):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/pvi.gif"
+              width="100"
+              height="16"
+            />
+          </p>
+          <p>
+            The power P in watts (W) is equal to the squared voltage V in volts
+            (V) divided by the resistance R in ohms (&#937;):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/pvr.gif"
+              width="73"
+              height="49"
+            />
+          </p>
+          <p>
+            The power P in watts (W) is equal to the squared current I in amps
+            (A) times the resistance R in ohms (&#937;):
+          </p>
+          <p class="math">
+            <img
+              loading="lazy"
+              border="0"
+              src="../../electric/ohm's&#32;law/pir.gif"
+              width="107"
+              height="20"
+            />
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="ohms-law-calculator.html">Ohm's law calculator &#9658;</a>
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../../electric/ohms-law.html">Ohm's law</a></li>
+            <li><a href="ohms-law-calculator.html">Ohm's Law calculator</a></li>
+            <li>
+              <a href="Amp_to_Volt_Calculator.html">Amps to Volts calculator</a>
+            </li>
+            <li><a href="index.html">Electrical calculators</a></li>
+            <li><a href="../../electric/Resistance.html">Resistance</a></li>
+            <li><a href="../../electric/Current.html">Electric current</a></li>
+            <li><a href="../../electric/Voltage.html">Electric voltage</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATORS</h5>
+        <ul>
+          <li><a href="Amp_to_kW_Calculator.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA_Calculator.html">Amps to kVA</a></li>
+          <li><a href="amps-to-va-calculator.html">Amps to VA</a></li>
+          <li><a href="Amp_to_Volt_Calculator.html">Amps to volts</a></li>
+          <li><a href="Amp_to_Watt_Calculator.html">Amps to watts</a></li>
+          <li><a href="electricity-calculator.html">Electricity bill</a></li>
+          <li>
+            <a href="energy-consumption-calculator.html">Energy consumption</a>
+          </li>
+          <li><a href="energy-cost-calculator.html">Energy cost</a></li>
+          <li><a href="ev-to-volt-calculator.html">eV to volts</a></li>
+          <li><a href="Joule_to_Watt_Calculator.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt_Calculator.html">Joules to volts</a></li>
+          <li><a href="kVA_to_Amp_Calculator.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt-calculator.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw-calculator.html">kVA to kW</a></li>
+          <li><a href="kva-to-va-calculator.html">kVA to VA</a></li>
+          <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+          <li><a href="kw-to-volt-calculator.html">kW to volts</a></li>
+          <li><a href="kW_to_kWh_Calculator.html">kW to kWh</a></li>
+          <li><a href="kw-to-va-calculator.html">kW to VA</a></li>
+          <li><a href="kw-to-kva-calculator.html">kW to kVA</a></li>
+          <li><a href="kWh_to_kW_Calculator.html">kWh to kW</a></li>
+          <li><a href="kwh-to-watt-calculator.html">kWh to watts</a></li>
+          <li><a href="mah-to-wh-calculator.html">mAh to Wh</a></li>
+          <li><a href="ohms-law-calculator.html">Ohm's Law</a></li>
+          <li><a href="power-calculator.html">Power calculator</a></li>
+          <li><a href="power-factor-calculator.html">Power factor</a></li>
+          <li><a href="va-to-amps-calculator.html">VA to amps</a></li>
+          <li><a href="va-to-watt-calculator.html">VA to watts</a></li>
+          <li><a href="va-to-kw-calculator.html">VA to kW</a></li>
+          <li><a href="va-to-kva-calculator.html">VA to kVA</a></li>
+          <li><a href="Voltage_Divider_Calculator.html">Voltage divider</a></li>
+          <li><a href="Volt_to_Amp_Calculator.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Watt_Calculator.html">Volts to watts</a></li>
+          <li><a href="volt-to-kw-calculator.html">Volts to kW</a></li>
+          <li><a href="Volt_to_Joule_Calculator.html">Volts to joules</a></li>
+          <li><a href="volt-to-ev-calculator.html">Volts to eV</a></li>
+          <li>
+            <a href="watt-volt-amp-calculator.html">Watts-volts-amps-ohms</a>
+          </li>
+          <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule_Calculator.html">Watts to joules</a></li>
+          <li><a href="watt-to-kwh-calculator.html">Watts to kWh</a></li>
+          <li><a href="Watt_to_Volt_Calculator.html">Watts to volts</a></li>
+          <li><a href="watt-to-va-calculator.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva-calculator.html">Watts to kVA</a></li>
+          <li><a href="wh-to-mah-calculator.html">Wh to mAh</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="watt-volt-amp-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../calc2.js"></script>
+    <script>
+      var prevIndex = ["0", "2", "2", "2"];
+      var relem = document.getElementById("r");
+      var ielem = document.getElementById("i");
+      var velem = document.getElementById("v");
+      var pelem = document.getElementById("p");
+      var calcbtn = document.getElementById("calcbtn");
+      window.onload = function () {
+        relem.onkeypress = function (e) {
+          if (e.keyCode == 13 && calcbtn.disabled == false) oncalc();
+        };
+        ielem.onkeypress = function (e) {
+          if (e.keyCode == 13 && calcbtn.disabled == false) oncalc();
+        };
+        velem.onkeypress = function (e) {
+          if (e.keyCode == 13 && calcbtn.disabled == false) oncalc();
+        };
+        pelem.onkeypress = function (e) {
+          if (e.keyCode == 13 && calcbtn.disabled == false) oncalc();
+        };
+      };
+
+      function oninit() {
+        setfocus();
+      }
+      function setfocus() {
+        relem.focus();
+      }
+      function ondata(obj) {
+        r = relem.value;
+        i = ielem.value;
+        v = velem.value;
+        p = pelem.value;
+        count = 0;
+        if (r != "") count++;
+        if (i != "") count++;
+        if (v != "") count++;
+        if (p != "") count++;
+        if (count < 2) calcbtn.disabled = true;
+        else calcbtn.disabled = false;
+        //if( obj.value!="" ) return;
+        //if( count>=2 ) oncalc();
+      }
+      function onselchange(sel, i) {
+        if (i == 0) txt = relem;
+        else if (i == 1) txt = ielem;
+        else if (i == 2) txt = velem;
+        else if (i == 3) txt = pelem;
+        if (txt.value == "") return;
+        di = sel.selectedIndex - prevIndex[i];
+        txt.value = roundnum(txt.value / Math.pow(1000, di), 8);
+        prevIndex[i] = sel.selectedIndex;
+      }
+      function oncalc() {
+        var fr = Math.pow(10, 3 * document.calcform.cr.selectedIndex);
+        var fi = Math.pow(10, 3 * document.calcform.ci.selectedIndex - 6);
+        var fv = Math.pow(10, 3 * document.calcform.cv.selectedIndex - 6);
+        var fp = Math.pow(10, 3 * document.calcform.cp.selectedIndex - 6);
+        var r = fr * str2num(relem.value);
+        var i = fi * str2num(ielem.value);
+        var v = fv * str2num(velem.value);
+        var p = fp * str2num(pelem.value);
+        if (r != 0 && v != 0) {
+          i = v / r;
+          p = v * i;
+        } else if (r != 0 && i != 0) {
+          v = i * r;
+          p = v * i;
+        } else if (r != 0 && p != 0) {
+          v = Math.sqrt(p * r);
+          i = p / v;
+        } else if (i != 0 && v != 0) {
+          r = v / i;
+          p = v * i;
+        } else if (i != 0 && p != 0) {
+          v = p / i;
+          r = v / i;
+        } else if (v != 0 && p != 0) {
+          i = p / v;
+          r = v / i;
+        }
+        r /= fr;
+        i /= fi;
+        v /= fv;
+        p /= fp;
+        relem.value = roundnum(r, 8);
+        ielem.value = roundnum(i, 8);
+        velem.value = roundnum(v, 8);
+        pelem.value = roundnum(p, 8);
+      }
+      function onbtnreset() {
+        relem.focus();
+        calcbtn.disabled = true;
+        var img = document.getElementById("cog");
+        img.style.opacity = "0.5";
+        img.style.filter = "alpha(opacity=50)"; // IE fallback
+      }
+    </script>
+  </body>
+</html>

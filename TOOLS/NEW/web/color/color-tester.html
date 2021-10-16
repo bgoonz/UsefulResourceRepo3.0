@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Image color picker: get codes &amp; names</title>
+    <meta
+      name="description"
+      content="Get image color code & name (also for color blind)."
+    />
+    <style>
+      body {
+        margin: 0;
+      }
+      header {
+        color: #eee;
+        background: #333;
+        margin: 0;
+        padding: 10px 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        padding-left: 45px;
+      }
+      table {
+        margin-left: -5px;
+      }
+      #bread {
+        margin-left: -5px;
+      }
+      #bread a {
+        color: #ddd;
+        text-decoration: none;
+        padding: 5px;
+      }
+      #bread a:hover {
+        color: #fff;
+        background: #222;
+      }
+      .sdiv {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 40px;
+      }
+      #share {
+        padding: 6px 0px 0px 20px;
+      }
+      button {
+        font-size: 24px;
+        width: 50px;
+        height: 46px;
+        padding-top: 4px;
+      }
+      #imgdiv1 {
+        z-index: 1;
+        position: absolute;
+        top: 260px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        background: url("paste_here.png") white no-repeat fixed center center;
+      }
+      #can,
+      #can2 {
+        display: block;
+        margin: 0px auto 20px auto;
+        -webkit-box-shadow: 1px 1px 10px 5px rgba(100, 100, 100, 0.56);
+        -moz-box-shadow: 1px 1px 10px 5px rgba(100, 100, 100, 0.56);
+        box-shadow: 1px 1px 10px 5px rgba(100, 100, 100, 0.56);
+      }
+      #imgdiv2 {
+        z-index: 1;
+        position: absolute;
+        top: 270px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+        background: url("paste_here.png") white no-repeat fixed center center;
+      }
+      .key {
+        color: #eee;
+        background: #666;
+        padding: 4px 6px;
+        margin-left: 3px;
+        margin-right: 3px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+      .inst {
+        display: none;
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div class="sdiv">
+        <p id="bread">
+          <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+            >Web</a
+          >&rsaquo;<a href="index.html">Color</a>&rsaquo; Image color picker -
+          get codes &amp; names
+        </p>
+      </div>
+      <div id="inst1" class="inst">
+        <p>
+          Step 1: Capture screen or window by pressing
+          <span class="key">PrtScn</span> or <span class="key">Alt</span>+<span
+            class="key"
+            >PrtScn</span
+          >
+        </p>
+        <p>
+          Step 2: Paste in this page by pressing
+          <span class="key">Ctrl</span>+<span class="key">V</span>
+        </p>
+        <p>Step 3: Click on image to get pixel color code</p>
+      </div>
+      <div id="inst2" class="inst">
+        <p>
+          Step 1: Capture screen or window by pressing
+          <span class="key">&#8984; Command</span>+<span class="key"
+            >&#8679; Shift</span
+          >+<span class="key">3</span> or
+          <span class="key">&#8984; Command</span>+<span class="key"
+            >&#8679; Shift</span
+          >+<span class="key">4</span>
+        </p>
+        <p>
+          Step 2: Paste in this page by pressing
+          <span class="key">&#8984; Command</span>+<span class="key">V</span>
+        </p>
+        <p>Step 3: Click on image to get pixel color code</p>
+      </div>
+      <div id="inst3" class="inst">
+        <p>
+          Step 1: Capture screen by pressing <i>Home</i>
+          <span class="key">&#9634;</span>+<i>Hold / Power</i> buttons
+        </p>
+        <p>
+          Step 2: Paste in this page by long tap and pressing
+          <em>Paste</em> button.
+        </p>
+        <p>Step 3: Click on image to get pixel color code</p>
+      </div>
+      <div id="inst4" class="inst">
+        <p>
+          Step 1: Capture screen by pressing <i>Volume up</i> +
+          <i>Power</i> buttons
+        </p>
+        <p>Step 2: Paste in this page by pressing <em>Paste</em> button.</p>
+        <p>Step 3: Click on image to get pixel color code</p>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <button
+              type="button"
+              name="B1"
+              title="Paste image"
+              onClick="Paste()"
+            >
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/paste.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              name="B2"
+              title="Zoom out"
+              onClick="ZoomOut()"
+            >
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/magnifier_minus_blue.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B3" title="Zoom in" onClick="ZoomIn()">
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/magnifier_plus_blue.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B4" title="Save image" onClick="Save()">
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/floppy_35inch_blue.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              name="B5"
+              title="Delete image"
+              onClick="Delete()"
+            >
+              &#10007;
+            </button>
+          </td>
+          <td>
+            <input
+              type="text"
+              id="preview"
+              readonly="readonly"
+              style="
+                font-size: 20px;
+                width: 60px;
+                padding: 8px;
+                margin-left: 50px;
+                border: 2px #ccc solid;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              id="code"
+              readonly
+              style="
+                font-size: 20px;
+                width: 95px;
+                padding: 8px;
+                margin-left: 0px;
+              "
+              placeholder="#HEX"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              id="rgb"
+              readonly
+              style="
+                font-size: 20px;
+                width: 130px;
+                padding: 8px;
+                margin-left: 0px;
+              "
+              placeholder="(R,G,B)"
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              id="cname"
+              readonly
+              style="
+                font-size: 20px;
+                width: 130px;
+                padding: 8px;
+                margin-left: 0px;
+              "
+              placeholder="Color name"
+            />
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr id="getFilename" style="display: none">
+          <td>Enter file name:&nbsp;</td>
+          <td>
+            <input
+              type="text"
+              id="filename"
+              name="filename"
+              placeholder="filename.png"
+              style="width: 150px; padding: 5px"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              id="save"
+              name="save"
+              value="Save"
+              onclick="saveFile()"
+              style="padding: 5px 10px 5px 10px; margin: 0px"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              id="cancel"
+              name="cancel"
+              value="Cancel"
+              onclick="cancelSaveFile()"
+              style="padding: 5px; margin: 0px"
+            />
+          </td>
+        </tr>
+      </table>
+    </header>
+    <div id="imgdiv1">
+      <img id="pastedImage" src="sample_image.png" style="visibility: hidden" />
+      <canvas id="can" width="0" height="0"></canvas>
+    </div>
+    <div id="imgdiv2" contenteditable="true">
+      <canvas id="can2" width="0" height="0" style="background: #ccc"></canvas>
+    </div>
+  </body>
+  <script src="../../lib/Blob.js-master/Blob.js"></script>
+  <script src="../../lib/canvas-toBlob.js-master/canvas-toBlob.js"></script>
+  <script src="../../lib/FileSaver.js-master/FileSaver.js"></script>
+  <script src="../../lib/utils/utils.js"></script>
+  <script>
+    var img, canvas;
+    var xcan, ycan, xcan0, ycan0;
+    var os, browser;
+
+    window.onload = function () {
+      os = GetOS();
+      var obj;
+      if (os == "MacOS") obj = document.getElementById("inst2");
+      else if (os == "iOS") obj = document.getElementById("inst3");
+      else if (os == "Android") obj = document.getElementById("inst4");
+      else obj = document.getElementById("inst1");
+      obj.style.display = "inline";
+
+      var imgdiv1 = document.getElementById("imgdiv1");
+      var imgdiv2 = document.getElementById("imgdiv2");
+
+      browser = get_browser();
+      if (browser == "Chrome") {
+        imgdiv2.style.display = "none";
+        imgdiv1.style.display = "";
+      } else if (browser == "Firefox") {
+        imgdiv1.style.display = "none";
+        imgdiv2.style.display = "";
+        imgdiv2.focus();
+      } else {
+        imgdiv2.style.display = "none";
+        imgdiv1.style.display = "";
+        alert(
+          "Color tester may not be supported with this browser\nPlease try with Chrome or Firefox"
+        );
+      }
+
+      if (browser == "Firefox") {
+        document.onpaste = function (event) {
+          var Draw2 = function () {
+            img = GetImage();
+            if (!img) img = this;
+            var canvas = GetCanvas();
+            canvas.width = img.width;
+            canvas.height = img.height;
+            canvas.style.width = img.width + "px";
+            canvas.style.height = img.height + "px";
+            canvas.getContext("2d").drawImage(img, 0, 0);
+            canvas.style.cursor = "crosshair"; //"default"
+            xcan0 = xcan = img.width;
+            ycan0 = ycan = img.height;
+            img.style.display = "none";
+            canvas.style.display = "";
+          };
+          //img = GetImage();
+          //if(img.complete)
+          //	Draw2();
+          //else
+          //	img.onload = Draw2;
+          setTimeout(Draw2, 300);
+        };
+      } else {
+        document.onpaste = function (event) {
+          // use event.originalEvent.clipboard for newer chrome versions
+          var clipboardData =
+            event.clipboardData || event.originalEvent.clipboardData;
+          var items = clipboardData.items;
+          console.log(JSON.stringify(items)); // will give you the mime types
+          // find pasted image among pasted items
+          var blob;
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf("image") === 0) {
+              blob = items[i].getAsFile();
+            }
+          }
+          // load image if there is a pasted image
+          if (blob !== null) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+              //console.log(event.target.result); // data url!
+              img = document.getElementById("pastedImage");
+              img.src = event.target.result;
+              if (img.complete) DrawCanvas();
+              else
+                img.onload = function () {
+                  DrawCanvas();
+                };
+            };
+
+            reader.readAsDataURL(blob);
+          }
+        };
+      }
+
+      canvas = GetCanvas();
+      canvas.style.display = "none";
+      canvas.onclick = function (event) {
+        canvas = GetCanvas();
+        p = GetPos(canvas, event);
+        x = (p.x * xcan0) / xcan;
+        y = (p.y * ycan0) / ycan;
+        var pixelData = canvas.getContext("2d").getImageData(x, y, 1, 1).data;
+        var code = document.getElementById("code");
+        var rgb = document.getElementById("rgb");
+        var name = document.getElementById("cname");
+        var preview = document.getElementById("preview");
+        var num = pixelData[0] * 65536 + pixelData[1] * 256 + pixelData[2];
+        var hex = num.toString(16).toUpperCase();
+        var len = hex.length;
+        if (len < 6) for (i = 0; i < 6 - len; i++) hex = "0" + hex;
+        code.value = "#" + hex;
+        rgb.value =
+          "(" + pixelData[0] + "," + pixelData[1] + "," + pixelData[2] + ")";
+        name.value = GetColorName(pixelData[0], pixelData[1], pixelData[2]);
+        preview.style.background = code.value;
+      };
+
+      DrawCanvas();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+    };
+    function GetPos(obj, e) {
+      var totalOffsetX = 0;
+      var totalOffsetY = 0;
+      var currentElement = obj;
+
+      if (browser == "Chrome") {
+        x = event.offsetX;
+        y = event.offsetY;
+      } else {
+        do {
+          totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+          totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+        } while ((currentElement = currentElement.offsetParent));
+
+        x = e.pageX - totalOffsetX;
+        y = e.pageY - totalOffsetY;
+      }
+
+      return { x: x, y: y };
+    }
+    function DrawCanvas() {
+      img = document.getElementById("pastedImage");
+      browser = get_browser();
+      if (browser == "Firefox") {
+        canvas = document.getElementById("can2");
+        canvas.style.cursor = "crosshair";
+      } else canvas = document.getElementById("can");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.style.width = img.width + "px";
+      canvas.style.height = img.height + "px";
+      xcan0 = xcan = img.width;
+      ycan0 = ycan = img.height;
+      canvas.getContext("2d").drawImage(img, 0, 0);
+      canvas.style.display = "";
+      img.style.display = "none";
+      ZoomOut();
+      ZoomOut();
+    }
+
+    function ZoomOut() {
+      canvas = GetCanvas();
+      xcan *= 0.9;
+      ycan *= 0.9;
+      x = Math.round(xcan);
+      y = Math.round(ycan);
+      canvas.style.width = x + "px";
+      canvas.style.height = y + "px";
+    }
+    function ZoomIn() {
+      canvas = GetCanvas();
+      xcan /= 0.9;
+      ycan /= 0.9;
+      x = Math.round(xcan);
+      y = Math.round(ycan);
+      canvas.style.width = x + "px";
+      canvas.style.height = y + "px";
+    }
+    function GetImage() {
+      var img;
+      if (browser == "Firefox") {
+        //img = document.getElementsByTagName("img")[5];
+        arr = document.getElementsByTagName("img");
+        len = arr.length;
+        img = arr[len - 1];
+      } else img = document.getElementById("pastedImage");
+      return img;
+    }
+    function GetCanvas() {
+      var can;
+      if (browser == "Firefox") can = document.getElementById("can2");
+      else can = document.getElementById("can");
+      return can;
+    }
+    function Paste() {
+      os = GetOS();
+      if (os == "UNIX") alert("Press Ctrl+Shift+V to paste image");
+      else if (os == "MacOS") alert("Press Command+V to paste image");
+      else if (os == "iOS")
+        alert("Tap on entry field and press the paste button to paste image");
+      else if (os == "Android")
+        alert(
+          "Press Menu+V or long tap on entry field and press the paste button to paste image"
+        );
+      else alert("Press Ctrl+V to paste image");
+    }
+    function Save() {
+      var img = GetImage();
+      canvas = GetCanvas();
+      if (canvas.style.display == "none") return;
+
+      document.getElementById("getFilename").style.display = "";
+
+      return false;
+    }
+    function Delete() {
+      canvas = GetCanvas();
+      canvas.style.display = "none";
+      if (browser == "Firefox") {
+        var img = GetImage();
+        img.parentNode.removeChild(img);
+        var imgdiv2 = document.getElementById("imgdiv2");
+        imgdiv2.focus();
+      }
+    }
+    function cancelSaveFile() {
+      document.getElementById("getFilename").style.display = "none";
+    }
+    function saveFile() {
+      cancelSaveFile();
+      var name = document.getElementById("filename").value;
+      if (name == "") name = "filename.png";
+
+      var img = GetImage();
+      var canvas = document.createElement("canvas");
+      //canvas.style.display = 'none';
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.getContext("2d").drawImage(img, 0, 0);
+
+      canvas.toBlob(function (blob) {
+        saveAs(blob, name);
+      });
+    }
+    function GetColorName(R, G, B) {
+      tbl = [
+        { R: 0, G: 0, B: 0, Name: "black" },
+        { R: 192, G: 192, B: 192, Name: "silver" },
+        { R: 128, G: 128, B: 128, Name: "gray" },
+        { R: 255, G: 255, B: 255, Name: "white" },
+        { R: 128, G: 0, B: 0, Name: "maroon" },
+        { R: 255, G: 0, B: 0, Name: "red" },
+        { R: 128, G: 0, B: 128, Name: "purple" },
+        { R: 255, G: 0, B: 255, Name: "fuchsia" },
+        { R: 0, G: 128, B: 0, Name: "green" },
+        { R: 0, G: 255, B: 0, Name: "lime" },
+        { R: 128, G: 128, B: 0, Name: "olive" },
+        { R: 255, G: 255, B: 0, Name: "yellow" },
+        { R: 0, G: 0, B: 128, Name: "navy" },
+        { R: 0, G: 0, B: 255, Name: "blue" },
+        { R: 0, G: 128, B: 128, Name: "teal" },
+        { R: 0, G: 255, B: 255, Name: "aqua" },
+        { R: 255, G: 165, B: 0, Name: "orange" },
+      ];
+      var d = 0,
+        dmin = 255,
+        imin = 0;
+      for (var i = 0; i < tbl.length; i++) {
+        d += Math.pow(tbl[i].R - R, 2);
+        d += Math.pow(tbl[i].G - G, 2);
+        d += Math.pow(tbl[i].B - B, 2);
+        d = Math.round(Math.sqrt(d));
+        if (d < dmin) {
+          dmin = d;
+          imin = i;
+        }
+      }
+      return tbl[imin].Name;
+    }
+  </script>
+</html>

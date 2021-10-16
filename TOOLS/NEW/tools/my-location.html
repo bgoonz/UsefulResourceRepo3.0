@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>My current location | Find where am I located now</title>
+    <meta
+      name="description"
+      content="My location. Where am I located now. Show current location/position in map."
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <meta charset="utf-8" />
+    <link
+      href="https://google-developers.appspot.com/maps/documentation/javascript/examples/default.css"
+      rel="stylesheet"
+    />
+    <style>
+      header {
+        background: #444;
+      }
+      #bread {
+        color: #eee;
+        padding: 20px;
+        margin: 0;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        display: inline-block;
+        vertical-align: top;
+      }
+      #bread a {
+        color: #eee;
+        padding: 20px 5px;
+        text-decoration: none;
+      }
+      #bread a:hover {
+        color: #fff;
+        background: black;
+      }
+      #share {
+        margin: 10px 20px;
+        display: inline-block;
+      }
+      @media all and (max-width: 576px) {
+        #bread {
+          padding-bottom: 10px;
+        }
+      }
+      #map-canvas {
+        width: 100%;
+        height: calc(100% - 64px);
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <div id="bread">
+        <a href="../index.html">Home</a>&rsaquo;<a href="index.html">Tools</a
+        >&rsaquo; My Current Location
+      </div>
+    </header>
+    <div id="map-canvas"></div>
+
+    <script
+      src="https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyDt5ILXqw31W0IfkWGnajtXYFcvogSZ79E"
+      type="text/javascript"
+    ></script>
+    <script>
+      var map;
+
+      function initialize() {
+        var mapOptions = {
+          zoom: 15,
+          mapTypeId: google.maps.MapTypeId.ROADMAP,
+        };
+        map = new google.maps.Map(
+          document.getElementById("map-canvas"),
+          mapOptions
+        );
+
+        // Try HTML5 geolocation
+        if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(
+            function (position) {
+              var pos = new google.maps.LatLng(
+                position.coords.latitude,
+                position.coords.longitude
+              );
+
+              /*var infowindow = new google.maps.InfoWindow({
+				map: map,
+				position: pos
+				content: 'Location found using HTML5.'
+			});*/
+
+              var marker = new google.maps.Marker({
+                position: pos,
+                map: map,
+                title: "You are here!",
+              });
+
+              map.setCenter(pos);
+            },
+            function () {
+              handleNoGeolocation(true);
+            }
+          );
+        } else {
+          // Browser doesn't support Geolocation
+          handleNoGeolocation(false);
+        }
+      }
+
+      function handleNoGeolocation(errorFlag) {
+        if (errorFlag) {
+          var content = "Error: The Geolocation service failed.";
+        } else {
+          var content = "Error: Your browser doesn't support geolocation.";
+        }
+
+        var options = {
+          map: map,
+          position: new google.maps.LatLng(60, 105),
+          //content: content
+        };
+
+        var infowindow = new google.maps.InfoWindow(options);
+        map.setCenter(options.position);
+      }
+
+      google.maps.event.addDomListener(window, "load", initialize);
+    </script>
+  </body>
+</html>

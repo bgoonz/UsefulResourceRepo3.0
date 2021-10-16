@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>301 redirect - URL http redirection</title>
+    <meta
+      name="description"
+      content="301 URL page redirection is an automatic URL change operation from one URL to another URL. 301 redirect is a permanet redirection."
+    />
+    <style>
+      .code {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+      .codebg {
+        max-width: 100%;
+        word-wrap: break-word;
+      }
+      @media all and (max-width: 576px) {
+        #options tr th:nth-child(n + 5) {
+          display: none;
+        }
+        #options tr td:nth-child(n + 5) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Dev</a>&rsaquo; URL redirection
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>URL HTTP Redirection</h1>
+          <p>
+            <i>URL http redirection</i> is an automatic URL change operation
+            from one URL to another URL.
+          </p>
+          <ul>
+            <li>
+              <a href="url-redirect.html#url-redirect">URL redirect</a>
+              <ul>
+                <li>
+                  <a href="url-redirect.html#server-side"
+                    >Server side redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#client-side"
+                    >Client side redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#http-status-codes"
+                    >HTTP status codes</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#301-redirect">HTTP 301 redirect</a>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a href="url-redirect.html#redirect-options">Redirect options</a>
+              <ul>
+                <li>
+                  <a href="url-redirect.html#php-redirect">PHP redirect</a>
+                </li>
+                <li>
+                  <a href="url-redirect.html#htaccess-redirect"
+                    >Apache .htaccess redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#asp-redirect">ASP redirect</a>
+                </li>
+                <li>
+                  <a href="url-redirect.html#asp.net-redirect"
+                    >ASP.NET redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#html-redirect"
+                    >Meta refresh redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#javascript-redirect"
+                    >Javascript redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#jquery-redirect"
+                    >jQuery redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#canonical-link-redirect"
+                    >Canonical link redirect</a
+                  >
+                </li>
+                <li>
+                  <a href="url-redirect.html#frame-redirect">Frame redirect</a>
+                </li>
+              </ul>
+              <a href="../tools/redirect-generator.html"
+                >Redirect code generator</a
+              >
+            </li>
+          </ul>
+
+          <h2><a name="url-redirect"></a>URL redirection</h2>
+          <p>
+            <i>URL page redirection</i> is an automatic URL change operation
+            from one URL to another URL.
+          </p>
+          <p>This redirection is done for the following reasons:</p>
+          <ol>
+            <li>Redirect from old obsolete URL to a new updated URL.</li>
+            <li>Redirect from old obsolete domain to a new domain.</li>
+            <li>Redirect from non www domain name to a www domain name.</li>
+            <li>
+              Redirect from short URL name to a long URL name - URL shortening
+              service.
+            </li>
+            <li>
+              URL shortening service will allow the user to insert a short URL
+              and be redirected the the long URL that has the real page
+              contents.
+            </li>
+          </ol>
+          <p>
+            The user may reach the old URL from an old external links or a
+            bookmark.
+          </p>
+          <p>by the site's webmaster who adds a script.</p>
+          <h3><a name="server-side"></a>Server side redirect</h3>
+          <p>
+            Server side redirection is done in the server, by configuring the
+            Apache / IIS server software or by using PHP / ASP / ASP.NET script.
+          </p>
+          <p>
+            This is the preferred way to redirect URLs, since you can return
+            HTTP 301 Moved Permanently status code.
+          </p>
+          <p>
+            Search engines use the 301 status to transfer the page rank from the
+            old URL to the new URL.
+          </p>
+          <h3><a name="client-side"></a>Client side redirect</h3>
+          <p>
+            Client side redirection is done in the web browser of the user, by
+            using HTML meta refresh tag or by Javascript code.
+          </p>
+          <p>
+            Client redirect is less preferred, since it does not return HTTP 301
+            status code.
+          </p>
+          <h2>Where to put redirect code</h2>
+          <table class="dtable">
+            <tr>
+              <th>Domain<br />name</th>
+              <th>Hosting<br />server</th>
+              <th>Redirect code<br />placement</th>
+            </tr>
+            <tr>
+              <td>not changed</td>
+              <td>not changed</td>
+              <td>old page on same server</td>
+            </tr>
+            <tr>
+              <td>not changed</td>
+              <td>changed</td>
+              <td>old page on new server</td>
+            </tr>
+            <tr>
+              <td>changed</td>
+              <td>not changed</td>
+              <td>old page on same server</td>
+            </tr>
+            <tr>
+              <td>changed</td>
+              <td>changed</td>
+              <td>old page on old server</td>
+            </tr>
+          </table>
+          <p>
+            * Only with <em>.htaccess</em> redirect: add redirect code to
+            <em>httpd.conf</em> file or to <em>.htaccess</em> file.
+          </p>
+          <h2><a name="http-status-codes"></a>HTTP status codes</h2>
+          <table class="dtable">
+            <tr>
+              <th>Status code</th>
+              <th>Status code name</th>
+              <th>Description</th>
+            </tr>
+            <tr>
+              <td>200</td>
+              <td>OK</td>
+              <td>successful HTTP request</td>
+            </tr>
+            <tr>
+              <td>300</td>
+              <td>Multiple Choices</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>301</td>
+              <td>Moved Permanently</td>
+              <td>permanent URL redirection</td>
+            </tr>
+            <tr>
+              <td>302</td>
+              <td>Found</td>
+              <td>temporary URL redirection</td>
+            </tr>
+            <tr>
+              <td>303</td>
+              <td>See Other</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>304</td>
+              <td>Not Modified</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>305</td>
+              <td>Use Proxy</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>307</td>
+              <td>Temporary Redirect</td>
+              <td>&nbsp;</td>
+            </tr>
+            <tr>
+              <td>404</td>
+              <td>Not Found</td>
+              <td>URL not found</td>
+            </tr>
+          </table>
+          <h2><a name="301-redirect"></a>HTTP 301 redirect</h2>
+          <p>
+            <i>HTTP 301 Moved Permanently</i> status code means a permanent URL
+            redirection.
+          </p>
+          <p>
+            The 301 redirect is the preferred way to redirect URLs, since it
+            informs search engines that the URL has moved for good, and search
+            engines should put the new URL page in the search results instead of
+            the old URL page and transfer the new URL page, the page rank of the
+            old URL page.
+          </p>
+          <p>
+            The 301 redirect can be done across domains or on the same domain.
+          </p>
+          <p>
+            Google
+            <a
+              href="https://www.google.com/support/webmasters/bin/answer.py?hl=en&answer=93633"
+              >recommends</a
+            >
+            to use 301 redirect.
+          </p>
+          <h2><a name="redirect-options"></a>Redirect options</h2>
+          <table id="options" class="dtable">
+            <tr>
+              <th>Redirect script</th>
+              <th>Redirect side</th>
+              <th>Old page file type</th>
+              <th>Redirect URL or domain</th>
+              <th>Old URL server type</th>
+              <th>301 redirect support</th>
+            </tr>
+            <tr>
+              <td>PHP</td>
+              <td>Server-side</td>
+              <td>.php</td>
+              <td>URL</td>
+              <td>Apache / Linux</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>ASP</td>
+              <td>Server-side</td>
+              <td>.asp</td>
+              <td>URL</td>
+              <td>IIS / Windows</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>ASP.NET</td>
+              <td>Server-side</td>
+              <td>.aspx</td>
+              <td>URL</td>
+              <td>IIS / Windows</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>.htaccess</td>
+              <td>Server-side</td>
+              <td>all</td>
+              <td>URL / Domain</td>
+              <td>Apache / Linux</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>IIS</td>
+              <td>Server-side</td>
+              <td>all</td>
+              <td>URL / Domain</td>
+              <td>IIS / Windows</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>HTML canonical link tag</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>URL</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>HTML meta refresh</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>URL</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>HTML frame</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>URL</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>Javascript</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>URL</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>jQuery</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>URL</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <p>
+            <i>redirect script</i> - the scripting language that is used for the
+            redirection.
+          </p>
+          <p>
+            <i>redirect side</i> - where the redirection takes place -
+            <i>server-side</i> or <i>client-side</i>.
+          </p>
+          <p>
+            <i>old page file type</i> - the type of the old URL page that can
+            can contain the scripting language of the redirect code.
+          </p>
+          <p>
+            <i>redirect URL or domain</i> - does support <i>URL</i> redirection
+            of a single web page or <i>domain</i> redirection of a whole
+            website.
+          </p>
+          <p>
+            <i>typical old URL server type</i> - the typical software and
+            operating system of the server.
+          </p>
+          <p>
+            <i>301 redirect support</i> - indicates whether permanent 301
+            redirect status response can be returned.
+          </p>
+          <h2><a name="php-redirect"></a>PHP redirect</h2>
+          <p>
+            Replace old-page.php code with redirection code to new-page.php.
+          </p>
+          <p class="wcode">old_page.php:</p>
+          <p class="code">
+            &lt;?php<br />
+            // PHP permanent URL redirection<br />
+            header(&quot;Location: http://www.mydomain.com/new-page.php&quot;,
+            true, 301);<br />
+            exit();<br />
+            ?&gt;
+          </p>
+          <p>The old page must have .php file extension.</p>
+          <p>The new page can be with any extension.</p>
+          <p>See: <a href="php-redirect.html">PHP redirect</a></p>
+          <h2>Apache .htaccess redirect</h2>
+          <p>
+            <i>.htaccess</i> file is a local configuration file of the Apache
+            server.
+          </p>
+          <p>
+            If you have permission the change the <em>httpd.conf</em> file, it
+            is better to add the <em>Redirect</em> directive in the
+            <em>httpd.conf</em> instead of the <em>.htaccess</em> file.
+          </p>
+          <h4>Single URL redirect</h4>
+          <p>
+            Permanent redirect from <em>old-page.html</em> to
+            <em> new-page.html</em>.
+          </p>
+          <p class="wcode">.htaccess:</p>
+          <p class="code">
+            Redirect 301 /old-page.html http://www.mydomain.com/new-page.html
+          </p>
+          <h4>Entire domain redirect</h4>
+          <p>
+            Permanent redirect from all domain pages to <em>newdomain.com</em>.
+          </p>
+          <p>
+            <em>&nbsp;.htaccess</em> file should be at the old website's root
+            directory.
+          </p>
+          <p class="wcode">.htaccess:</p>
+          <p class="code">Redirect 301 / http://www.newdomain.com/</p>
+          <p>See: <a href="htaccess-redirect.html">.htaccess redirection</a></p>
+          <h2><a name="asp-redirect"></a>ASP redirect</h2>
+          <p class="wcode">old-page.asp:</p>
+          <p class="code">
+            &lt;%@ Language=&quot;VBScript&quot; %&gt;<br />
+            &lt;%<br />
+            ' ASP permanent URL redirection<br />
+            Response.Status=&quot;301 Moved Permanently&quot;<br />
+            Response.AddHeader &quot;Location&quot;,
+            &quot;http://www.mydomain.com/new-page.html&quot;<br />
+            Response.End<br />
+            %&gt;
+          </p>
+          <h2><a name="asp.net-redirect"></a>ASP.NET redirect</h2>
+          <p class="wcode">old-page.aspx:</p>
+          <p class="code">
+            &lt;script language=&quot;C#&quot; runat=&quot;server&quot;&gt;<br />
+            // ASP.net permanent URL redirection<br />
+            private void Page_Load(object sender, EventArgs e)<br />
+            {<br />
+            &nbsp;&nbsp; Response.Status = &quot;301 Moved Permanently&quot;;<br />
+            &nbsp;&nbsp;
+            Response.AddHeader(&quot;Location&quot;,&quot;http://www.mydomain.com/new-page.html&quot;);<br />
+            &nbsp;&nbsp; Response.End();<br />
+            }<br />
+            &lt;/script&gt;
+          </p>
+          <h2><a name="html-redirect"></a>HTML meta refresh redirect</h2>
+          <p>
+            HTML meta refresh tag redirection does not return 301 permanent
+            redirect status code, but considered by Google as a 301 redirect.
+          </p>
+          <p>
+            Replace old page with redirection code with the URL of the page you
+            want to redirect to.
+          </p>
+          <p class="wcode">old-page.html:</p>
+          <p class="code">
+            &lt;!-- HTML meta refresh URL redirection --&gt;<br />
+            &lt;html&gt;<br />
+            &lt;head&gt;<br />
+            &nbsp;&nbsp;&nbsp;&lt;meta http-equiv=&quot;refresh&quot;
+            <br />&nbsp;&nbsp; content=&quot;0;
+            url=http://www.mydomain.com/new-page.html&quot;&gt;<br />
+            &lt;/head&gt;<br />
+            &lt;body&gt;<br />
+            &nbsp;&nbsp; &lt;p&gt;The page has moved to:<br />
+            &nbsp;&nbsp;&nbsp;&lt;a
+            href=&quot;http://www.mydomain.com/new-page.html&quot;&gt;this
+            page&lt;/a&gt;&lt;/p&gt;<br />
+            &lt;/body&gt;<br />
+            &lt;/html&gt;
+          </p>
+          <p>See: <a href="html-redirect.html">HTML redirection</a></p>
+          <h2>Javascript redirect</h2>
+          <p>
+            Javascript redirect does not return 301 permanent redirect status
+            code.
+          </p>
+          <p>
+            Replace old page with redirection code with the URL of the page you
+            want to redirect to.
+          </p>
+          <p class="wcode">old-page.html:</p>
+          <p class="code">
+            &lt;html&gt;<br />
+            &lt;body&gt;<br />
+            &lt;script type=&quot;text/javascript&quot;&gt;<br />
+            &nbsp;&nbsp;&nbsp; // Javascript URL redirection<br />
+            &nbsp;&nbsp;&nbsp;
+            window.location.replace(&quot;http://www.mydomain.com/new-page.html&quot;);<br />
+            &lt;/script&gt;<br />
+            &lt;/body&gt;<br />
+            &lt;/html&gt;
+          </p>
+          <p>
+            See: <a href="javascript-redirect.html">Javascript redirection</a>
+          </p>
+          <h2><a name="jquery-redirect"></a>jQuery redirect</h2>
+          <p>
+            jQuery redirect is actually another type of Javascript redirect.
+          </p>
+          <p>
+            jQuery redirect does not return 301 permanent redirect status code.
+          </p>
+          <p>
+            Replace old page with redirection code with the URL of the page you
+            want to redirect to.
+          </p>
+          <p class="wcode">old-page.html:</p>
+          <p class="codebg" style="border: 1px #ddd solid">
+            &lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />&lt;body&gt;<br />&lt;script
+            src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js&quot;&gt;&lt;/script&gt;<br />
+            &lt;script type=&quot;text/javascript&quot;&gt;<br />&nbsp;&nbsp;&nbsp;//
+            jQuery URL redirection<br />
+            &nbsp;&nbsp; $(document).ready( function() {<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;url
+            = &quot;http://www.mydomain.com/new-page.html&quot;;<br />&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            $( location ).attr(&quot;href&quot;, url);<br />
+            &nbsp;&nbsp;});<br />&lt;/script&gt;<br />&lt;/body&gt;<br />&lt;/html&gt;<br />
+          </p>
+
+          <p>See: <a href="jquery-redirect.html">jQuery redirection</a></p>
+          <h2>
+            <a name="canonical-link-redirect"></a>HTML canonical link tag
+            redirect
+          </h2>
+          <p>
+            The canonical link does not redirect to the preffred URL, but it can
+            be an alternative to URL redirection for websites that most of the
+            traffic arrives from search engines.
+          </p>
+          <p>
+            HTML canonical link tag can be used when there are several pages
+            with similar content and you want to tell the search engines which
+            page you preffer to use in the search results.
+          </p>
+          <p>
+            Canonical link tag can link to the same domain and also
+            cross-domain.
+          </p>
+          <p>
+            Add the canonical link tag to the old page to link to the new page.
+          </p>
+          <p>
+            Add the canonical link tag to the pages that you preffer not to get
+            search engines traffic to link to the preffered page.
+          </p>
+          <p>
+            The canonical link tag should be added in the &lt;head&gt; section.
+          </p>
+          <p class="wcode">old-page.html:</p>
+          <p class="code">
+            &lt;link rel=&quot;canonical&quot;
+            href=&quot;http://www.mydomain.com/new-page.html&quot;&gt;
+          </p>
+          <p>See: <a href="canonical-url-link.html">Canonical URL link</a></p>
+          <h2><a name="frame-redirect"></a>HTML frame redirect</h2>
+          <p>
+            In frame redirection the <em>new-page.html</em> file is viewed by an
+            html frame.
+          </p>
+          <p>This is not a real URL redirection.</p>
+          <p>
+            Frame redirection is not search engines friendly and is not
+            recommended.
+          </p>
+          <p class="wcode">old-page.html:</p>
+          <p class="code">
+            &lt;!-- HTML frame redirection --&gt;<br />
+            &lt;html&gt;<br />
+            &lt;head&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;title&gt;Title of new page&lt;/title&gt;<br />
+            &lt;/head&gt;<br />
+            &lt;frameset cols=&quot;100%&quot;&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;frame
+            src=&quot;http://www.mydomain.com/new-page.html&quot;&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;noframes&gt;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp; &lt;a
+            href=&quot;http://www.mydomain.com/new-page.html&quot;&gt;Link to
+            new page&lt;/a&gt;<br />
+            &nbsp;&nbsp;&nbsp; &lt;/noframes&gt;<br />
+            &lt;/frameset&gt;<br />
+            &lt;/html&gt;
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../tools/redirect-generator.html"
+              >301 Redirect generator &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../tools/redirect-generator.html"
+                >301 Redirect generator</a
+              >
+              - URL redirection code generator
+            </li>
+            <li><a href="htaccess-redirect.html">.htaccess redirection</a></li>
+            <li><a href="html-redirect.html">HTML redirection</a></li>
+            <li>
+              <a href="javascript-redirect.html">Javascript redirection</a>
+            </li>
+            <li><a href="jquery-redirect.html">jQuery redirection</a></li>
+            <li><a href="php-redirect.html">PHP redirection</a></li>
+            <li><a href="canonical-url-link.html">Canonical URL link</a></li>
+            <li>
+              <a href="../tools/http-header-checker.html"
+                >HTTP header checker</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://www.google.com/support/webmasters/bin/answer.py?answer=139394"
+                >Canonical links</a
+              >
+              - from Google webmaster blog
+            </li>
+            <li>
+              <a
+                href="https://www.google.com/support/webmasters/bin/answer.py?hl=en&answer=93633"
+                >301 redirect</a
+              >
+              - from Google webmaster central
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB DEVELOPMENT</h5>
+        <ul>
+          <li><a href="htaccess-redirect.html">.htaccess redirection</a></li>
+          <li><a href="canonical-url-link.html">Canonical URL link</a></li>
+          <li><a href="html-redirect.html">HTML redirection</a></li>
+          <li><a href="javascript-redirect.html">Javascript redirection</a></li>
+          <li><a href="jquery-redirect.html">jQuery redirection</a></li>
+          <li><a href="php-redirect.html">PHP redirection</a></li>
+          <li>
+            <a href="screen-resolution-statistics.html"
+              >Screen resolution statistics</a
+            >
+          </li>
+          <li><a href="url-redirect.html">URL redirection</a></li>
+          <li><a href="website-traffic-down.html">Website traffic down</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="url-redirect.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Power factor calculator</title>
+    <meta
+      content="Power factor with correction calculator."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+      integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <style>
+      .calc2 .mathsymbol {
+        text-align: left;
+      }
+      .calc2 button {
+        margin: 5px auto;
+      }
+      .calc2 button i {
+        vertical-align: bottom;
+      }
+      .calc2 input[type="text"],
+      .calc2 input[type="number"] {
+        width: 100%;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      @media all and (max-width: 599px) {
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 240px;
+          width: calc(100% - 60px);
+        }
+        .calc2 tr:nth-child(8) td:nth-child(2) {
+          width: 100%;
+        }
+      }
+      @media all and (min-width: 600px) {
+        .calc2 {
+          width: 590px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Electrical Calculators</a>&rsaquo; Power
+        factor calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Power factor calculator</h1>
+          <p>
+            <a href="../../electric/Power_Factor.html">Power factor</a>
+            calculator. Calaculate power factor, apparent power, reactive power
+            and correction capacitor's capacitance.
+          </p>
+          <p>This calculator is for educational purposes.</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td>Phase #:</td>
+                  <td>
+                    <select
+                      name="phase"
+                      onchange="OnPhaseChange()"
+                      autofocus
+                      class="form-control"
+                    >
+                      <option>Single phase</option>
+                      <option>Three phase</option>
+                    </select>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Real power in kilowatts:</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="kw"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="mathsymbol">kW</td>
+                </tr>
+                <tr>
+                  <td>Current in amps:</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="amp"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="mathsymbol">A</td>
+                </tr>
+                <tr id="row1" style="display: none">
+                  <td>Voltage type:</td>
+                  <td>
+                    <select name="volt_type" class="form-control">
+                      <option>Line to line voltage</option>
+                      <option>Line to neutral voltage</option>
+                    </select>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Voltage in volts:</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="volt"
+                      placeholder="120"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="mathsymbol">V</td>
+                </tr>
+                <tr>
+                  <td>Frequency in hertz:</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="hz"
+                      placeholder="60"
+                      class="form-control"
+                    />
+                  </td>
+                  <td class="mathsymbol">Hz</td>
+                </tr>
+                <tr>
+                  <td>Corrected power factor:</td>
+                  <td>
+                    <input
+                      type="number"
+                      min="0"
+                      step="0.01"
+                      name="pfc"
+                      value="0.95"
+                      class="form-control"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td colspan="2">
+                    <button
+                      onclick="OnCalc()"
+                      type="button"
+                      class="btn btn-secondary"
+                    >
+                      <i class="material-icons">settings</i> Calculate
+                    </button>
+                    <button
+                      onclick="setfocus()"
+                      type="reset"
+                      class="btn btn-secondary"
+                    >
+                      <i class="material-icons">clear</i> Reset
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Power factor result:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="pf"
+                      class="form-control"
+                      readonly
+                    />
+                  </td>
+                  <td class="mathsymbol">&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Apparent power:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="kva"
+                      class="form-control"
+                      readonly
+                    />
+                  </td>
+                  <td class="mathsymbol">kVA</td>
+                </tr>
+                <tr>
+                  <td>Reactive power:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="kvar"
+                      class="form-control"
+                      readonly
+                    />
+                  </td>
+                  <td class="mathsymbol">kVAR</td>
+                </tr>
+                <tr>
+                  <td>Correction capacitor:</td>
+                  <td class="math">
+                    <input type="text" name="c" class="form-control" readonly />
+                  </td>
+                  <td class="mathsymbol">&micro;F</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>
+            The power factor correction capacitor should be connected in
+            parallel to each phase load.
+          </p>
+          <p>
+            The power factor calculation does not distinguish between leading
+            and lagging power factors.
+          </p>
+          <p>The power factor correction calculation assumes inductive load.</p>
+          <h2>Single phase circuit calculation</h2>
+          <p>Power factor calculation:</p>
+          <p class="math">
+            <em>PF</em> = |cos <em>&phi;|</em> = 1000 &times; <em>P</em
+            ><sub>(kW)</sub> / (<em>V</em><sub>(V)</sub> &times; <em>I</em
+            ><sub>(A)</sub>)
+          </p>
+          <p>Apparent power calculation:</p>
+          <p class="math">
+            <em>|S</em><sub>(kVA)</sub>| = <em>V</em><sub>(V)</sub> &times;
+            <em>I</em><sub>(A)</sub> / 1000
+          </p>
+          <p>Reactive power calculation:</p>
+          <p class="math">
+            <em>Q</em><sub>(kVAR)</sub> = &radic;(<i>|S</i><sub>(kVA)</sub>|<sup
+              >2</sup
+            >
+            - <i> <em>P</em></i
+            ><sub>(kW)</sub><sup>2</sup>)
+          </p>
+          <p>Power factor correction capacitor's capacitance calculation:</p>
+          <p class="math">
+            <em>S</em><sub>corrected (kVA)</sub> = <em>P</em><sub>(kW)</sub> /
+            <em>PF</em><sub>corrected</sub>
+          </p>
+          <p class="math">
+            <em>Q</em><sub>corrected (kVAR)</sub> = &radic;(<em>S</em
+            ><sub>corrected (kVA)</sub><sup>2</sup> - <em>P</em><sub>(kW)</sub
+            ><sup>2</sup>)
+          </p>
+          <p class="math">
+            <em>Q</em><sub>c (kVAR)</sub> = <em>Q</em><sub>(kVAR)</sub> -
+            <em>Q</em><sub>corrected (kVAR)</sub>
+          </p>
+          <p class="math">
+            <em>C</em><sub>(F)</sub> = 1000 &times; <em>Q</em
+            ><sub>c (kVAR)</sub> / (2&pi;<em>f</em><sub>(Hz)</sub>&times;<i
+              ><em>V</em></i
+            ><sub>(V)</sub><sup>2</sup>)
+          </p>
+          <h2>Three phase circuit calculation</h2>
+          <p>For three phase with balanced loads:</p>
+          <h4>Calculation with line to line voltage</h4>
+          <p>Power factor calculation:</p>
+          <p class="math">
+            <em>PF</em> = |cos<em> &phi;|</em> = 1000 &times; <em>P</em
+            ><sub>(kW)</sub> / (<em><i>&#8730;</i></em
+            ><span style="text-decoration: overline">3</span> &times; <em> V</em
+            ><sub>L-L(V)</sub> &times; <em>I</em><sub>(A)</sub>)
+          </p>
+          <p>Apparent power calculation:</p>
+          <p class="math">
+            <em>|S</em><sub>(kVA)</sub>| = <em><i>&#8730;</i></em
+            ><span style="text-decoration: overline">3</span> &times; <em>V</em
+            ><sub>L-L(V)</sub> &times; <em>I</em><sub>(A)</sub> / 1000
+          </p>
+          <p>Reactive power calculation:</p>
+          <p class="math">
+            <em>Q</em><sub>(kVAR)</sub> = &radic;(<i>|S</i><sub>(kVA)</sub>|<sup
+              >2</sup
+            >
+            - <i> <em>P</em></i
+            ><sub>(kW)</sub><sup>2</sup>)
+          </p>
+          <p>Power factor correction capacitor's capacitance calculation:</p>
+          <p class="math">
+            <em>Q</em><sub>c (kVAR)</sub> = <em>Q</em><sub>(kVAR)</sub> -
+            <em>Q</em><sub>corrected (kVAR)</sub>
+          </p>
+          <p class="math">
+            <em>C</em><sub>(F)</sub> = 1000 &times; <em>Q</em
+            ><sub>c (kVAR)</sub> / (2&pi;<em>f</em><sub>(Hz)</sub>&times;<i
+              ><em>V</em></i
+            ><sub>L-L(V)</sub><sup>2</sup>)
+          </p>
+          <h4>Calculation with line to neutral voltage</h4>
+          <p>Power factor calculation:</p>
+          <p class="math">
+            <em>PF</em> = |cos<em> &phi;|</em> = 1000 &times; <em>P</em
+            ><sub>(kW)</sub> / (3 &times; <em>V</em><sub>L-N(V)</sub> &times;
+            <em>I</em><sub>(A)</sub>)
+          </p>
+          <p>Apparent power calculation:</p>
+          <p class="math">
+            <em>|S</em><sub>(kVA)</sub>| = 3 &times; <em>V</em
+            ><sub>L-N(V)</sub> &times; <em>I</em><sub>(A)</sub> / 1000
+          </p>
+          <p>Reactive power calculation:</p>
+          <p class="math">
+            <em>Q</em><sub>(kVAR)</sub> = &radic;(<i>|S</i><sub>(kVA)</sub>|<sup
+              >2</sup
+            >
+            - <i> <em>P</em></i
+            ><sub>(kW)</sub><sup>2</sup>)
+          </p>
+          <p>Power factor correction capacitor's capacitance calculation:</p>
+          <p class="math">
+            <em>Q</em><sub>c (kVAR)</sub> = <em>Q</em><sub>(kVAR)</sub> -
+            <em>Q</em><sub>corrected (kVAR)</sub>
+          </p>
+          <p class="math">
+            <em>C</em><sub>(F)</sub> = 1000 &times; <em>Q</em
+            ><sub>c (kVAR)</sub> / (3&times;2&pi;<em>f</em
+            ><sub>(Hz)</sub>&times;<i><em>V</em></i
+            ><sub>L-N(V)</sub><sup>2</sup>)
+          </p>
+          <p>&nbsp;</p>
+          <p><a href="power-calculator.html">Power calculator &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr style="height: 1" />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../../electric/Power_Factor.html">Power factor</a></li>
+            <li>
+              <a href="../../electric/electric_power.html">Electric power</a>
+            </li>
+            <li><a href="power-calculator.html">Power calculator</a></li>
+            <li>
+              <a href="Amp_to_kW_Calculator.html">Amps to kW calculator</a>
+            </li>
+            <li>
+              <a href="Amp_to_kVA_Calculator.html">Amps to kVA calculator</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATORS</h5>
+        <ul>
+          <li><a href="Amp_to_kW_Calculator.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA_Calculator.html">Amps to kVA</a></li>
+          <li><a href="amps-to-va-calculator.html">Amps to VA</a></li>
+          <li><a href="Amp_to_Volt_Calculator.html">Amps to volts</a></li>
+          <li><a href="Amp_to_Watt_Calculator.html">Amps to watts</a></li>
+          <li><a href="electricity-calculator.html">Electricity bill</a></li>
+          <li>
+            <a href="energy-consumption-calculator.html">Energy consumption</a>
+          </li>
+          <li><a href="energy-cost-calculator.html">Energy cost</a></li>
+          <li><a href="ev-to-volt-calculator.html">eV to volts</a></li>
+          <li><a href="Joule_to_Watt_Calculator.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt_Calculator.html">Joules to volts</a></li>
+          <li><a href="kVA_to_Amp_Calculator.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt-calculator.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw-calculator.html">kVA to kW</a></li>
+          <li><a href="kva-to-va-calculator.html">kVA to VA</a></li>
+          <li><a href="kW_to_Amp_Calculator.html">kW to amps</a></li>
+          <li><a href="kw-to-volt-calculator.html">kW to volts</a></li>
+          <li><a href="kW_to_kWh_Calculator.html">kW to kWh</a></li>
+          <li><a href="kw-to-va-calculator.html">kW to VA</a></li>
+          <li><a href="kw-to-kva-calculator.html">kW to kVA</a></li>
+          <li><a href="kWh_to_kW_Calculator.html">kWh to kW</a></li>
+          <li><a href="kwh-to-watt-calculator.html">kWh to watts</a></li>
+          <li><a href="mah-to-wh-calculator.html">mAh to Wh</a></li>
+          <li><a href="ohms-law-calculator.html">Ohm's Law</a></li>
+          <li><a href="power-calculator.html">Power calculator</a></li>
+          <li><a href="power-factor-calculator.html">Power factor</a></li>
+          <li><a href="va-to-amps-calculator.html">VA to amps</a></li>
+          <li><a href="va-to-watt-calculator.html">VA to watts</a></li>
+          <li><a href="va-to-kw-calculator.html">VA to kW</a></li>
+          <li><a href="va-to-kva-calculator.html">VA to kVA</a></li>
+          <li><a href="Voltage_Divider_Calculator.html">Voltage divider</a></li>
+          <li><a href="Volt_to_Amp_Calculator.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Watt_Calculator.html">Volts to watts</a></li>
+          <li><a href="volt-to-kw-calculator.html">Volts to kW</a></li>
+          <li><a href="Volt_to_Joule_Calculator.html">Volts to joules</a></li>
+          <li><a href="volt-to-ev-calculator.html">Volts to eV</a></li>
+          <li>
+            <a href="watt-volt-amp-calculator.html">Watts-volts-amps-ohms</a>
+          </li>
+          <li><a href="Watt_to_Amp_Calculator.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule_Calculator.html">Watts to joules</a></li>
+          <li><a href="watt-to-kwh-calculator.html">Watts to kWh</a></li>
+          <li><a href="Watt_to_Volt_Calculator.html">Watts to volts</a></li>
+          <li><a href="watt-to-va-calculator.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva-calculator.html">Watts to kVA</a></li>
+          <li><a href="wh-to-mah-calculator.html">Wh to mAh</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="power-factor-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script src="../../convert/convert.js"></script>
+        <script>
+          function OnPhaseChange() {
+            var iphase = document.calcform.phase.selectedIndex;
+            var row1 = document.getElementById("row1");
+            //var row2 = document.getElementById("row2");
+            if (iphase == 0) {
+              row1.style.display = "none";
+              //row2.style.display = 'none';
+            } else {
+              row1.style.display = "";
+              //row2.style.display = '';
+            }
+          }
+          function OnCalc() {
+            var iphase = document.calcform.phase.selectedIndex;
+            var ivolt = document.calcform.volt_type.selectedIndex;
+            var kw = document.calcform.kw.value;
+            var amp = document.calcform.amp.value;
+            var volt = document.calcform.volt.value;
+            var hz = document.calcform.hz.value;
+            var pf_cor = document.calcform.pfc.value;
+            if (volt == "") volt = 120;
+            if (hz == "") hz = 60;
+            var kva = (volt * amp) / 1000;
+            if (iphase == 1) {
+              if (ivolt == 0) {
+                kva *= Math.sqrt(3);
+                volt /= Math.sqrt(3);
+              } else kva *= 3;
+            }
+            pf = kw / kva;
+            kvar = Math.sqrt(kva * kva - kw * kw);
+            //var kvar2 = kvar;
+            //if( iphase==1 )	kvar2/=3;
+            if (pf > 1) {
+              alert(
+                "Error: power factor > 1\n1000\u00D7" +
+                  kw +
+                  "kW > " +
+                  amp +
+                  "A\u00D7" +
+                  volt +
+                  "V"
+              );
+              return;
+            }
+            var kva_cor = kw / pf_cor;
+            var kvar_cor = Math.sqrt(kva_cor * kva_cor - kw * kw);
+            var kvar_c = kvar - kvar_cor;
+            if (iphase == 1) kvar_c /= 3;
+            c = (1000000000 * kvar_c) / (2 * Math.PI * hz * volt * volt);
+            pf = pf.toFixed(3);
+            kva = kva.toFixed(6);
+            kvar = kvar.toFixed(6);
+            c = c.toFixed(6);
+            document.calcform.pf.value = pf;
+            document.calcform.kva.value = kva;
+            document.calcform.kvar.value = kvar;
+            document.calcform.c.value = c;
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>
