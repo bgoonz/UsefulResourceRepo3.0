@@ -1,0 +1,2130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <title>Date Calculator</title>
+    <meta
+      name="description"
+      content="Add/subtract from dates and calculate duration between 2 dates."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .qs-datepicker-container {
+        font-size: 1rem;
+        font-family: sans-serif;
+        color: #000;
+        position: absolute;
+        width: 15.625em;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        z-index: 9001;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        border: 1px solid grey;
+        border-radius: 0.263921875em;
+        overflow: hidden;
+        background: #fff;
+        -webkit-box-shadow: 0 1.25em 1.25em -0.9375em rgba(0, 0, 0, 0.3);
+        box-shadow: 0 1.25em 1.25em -0.9375em rgba(0, 0, 0, 0.3);
+      }
+      .qs-datepicker-container * {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+      }
+      .qs-centered {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+      }
+      .qs-hidden {
+        display: none;
+      }
+      .qs-overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.75);
+        color: #fff;
+        width: 100%;
+        height: 100%;
+        padding: 0.5em;
+        z-index: 1;
+        opacity: 1;
+        -webkit-transition: opacity 0.3s;
+        transition: opacity 0.3s;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+        flex-direction: column;
+      }
+      .qs-overlay.qs-hidden {
+        opacity: 0;
+        z-index: -1;
+      }
+      .qs-overlay .qs-overlay-year {
+        background: rgba(0, 0, 0, 0);
+        border: none;
+        border-bottom: 1px solid #fff;
+        border-radius: 0;
+        color: #fff;
+        font-size: 0.875em;
+        padding: 0.25em 0;
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        display: block;
+      }
+      .qs-overlay .qs-overlay-year::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
+      .qs-overlay .qs-close {
+        padding: 0.5em;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      .qs-overlay .qs-submit {
+        border: 1px solid #fff;
+        border-radius: 0.263921875em;
+        padding: 0.5em;
+        margin: 0 auto auto;
+        cursor: pointer;
+        background: hsla(0, 0%, 50.2%, 0.4);
+      }
+      .qs-overlay .qs-submit.qs-disabled {
+        color: grey;
+        border-color: grey;
+        cursor: not-allowed;
+      }
+      .qs-overlay .qs-overlay-month-container {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+      }
+      .qs-overlay .qs-overlay-month {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        width: calc(100% / 3);
+        cursor: pointer;
+        opacity: 0.5;
+        -webkit-transition: opacity 0.15s;
+        transition: opacity 0.15s;
+      }
+      .qs-overlay .qs-overlay-month.active,
+      .qs-overlay .qs-overlay-month:hover {
+        opacity: 1;
+      }
+      .qs-controls {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-flex: 1;
+        -ms-flex-positive: 1;
+        flex-grow: 1;
+        -ms-flex-negative: 0;
+        flex-shrink: 0;
+        background: #d3d3d3;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        -webkit-transition: -webkit-filter 0.3s;
+        transition: -webkit-filter 0.3s;
+        transition: filter 0.3s;
+        transition: filter 0.3s, -webkit-filter 0.3s;
+      }
+      .qs-controls.qs-blur {
+        -webkit-filter: blur(5px);
+        filter: blur(5px);
+      }
+      .qs-arrow {
+        height: 1.5625em;
+        width: 1.5625em;
+        position: relative;
+        cursor: pointer;
+        border-radius: 0.263921875em;
+        -webkit-transition: background 0.15s;
+        transition: background 0.15s;
+      }
+      .qs-arrow:hover {
+        background: rgba(0, 0, 0, 0.1);
+      }
+      .qs-arrow:hover.qs-left:after {
+        border-right-color: #000;
+      }
+      .qs-arrow:hover.qs-right:after {
+        border-left-color: #000;
+      }
+      .qs-arrow:after {
+        content: "";
+        border: 0.390625em solid rgba(0, 0, 0, 0);
+        position: absolute;
+        top: 50%;
+        -webkit-transition: border 0.2s;
+        transition: border 0.2s;
+      }
+      .qs-arrow.qs-left:after {
+        border-right-color: grey;
+        right: 50%;
+        -webkit-transform: translate(25%, -50%);
+        -ms-transform: translate(25%, -50%);
+        transform: translate(25%, -50%);
+      }
+      .qs-arrow.qs-right:after {
+        border-left-color: grey;
+        left: 50%;
+        -webkit-transform: translate(-25%, -50%);
+        -ms-transform: translate(-25%, -50%);
+        transform: translate(-25%, -50%);
+      }
+      .qs-month-year {
+        font-weight: 700;
+        -webkit-transition: border 0.2s;
+        transition: border 0.2s;
+        border-bottom: 1px solid rgba(0, 0, 0, 0);
+        cursor: pointer;
+      }
+      .qs-month-year:hover {
+        border-bottom: 1px solid grey;
+      }
+      .qs-month-year:active:focus,
+      .qs-month-year:focus {
+        outline: none;
+      }
+      .qs-month {
+        padding-right: 0.5ex;
+      }
+      .qs-year {
+        padding-left: 0.5ex;
+      }
+      .qs-squares {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+        padding: 0.3125em;
+        -webkit-filter: blur(0);
+        filter: blur(0);
+        -webkit-transition: -webkit-filter 0.3s;
+        transition: -webkit-filter 0.3s;
+        transition: filter 0.3s;
+        transition: filter 0.3s, -webkit-filter 0.3s;
+      }
+      .qs-squares.qs-blur {
+        -webkit-filter: blur(5px);
+        filter: blur(5px);
+      }
+      .qs-square {
+        width: calc(100% / 7);
+        height: 1.5625em;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        cursor: pointer;
+        -webkit-transition: background 0.1s;
+        transition: background 0.1s;
+        border-radius: 0.263921875em;
+      }
+      .qs-square:not(.qs-empty):not(.qs-disabled):not(.qs-day):not(.qs-active):hover {
+        background: orange;
+      }
+      .qs-current {
+        font-weight: 700;
+        text-decoration: underline;
+      }
+      .qs-active,
+      .qs-range-end,
+      .qs-range-start {
+        background: #add8e6;
+      }
+      .qs-range-start:not(.qs-range-6) {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .qs-range-middle {
+        background: #d4ebf2;
+      }
+      .qs-range-middle:not(.qs-range-0):not(.qs-range-6) {
+        border-radius: 0;
+      }
+      .qs-range-middle.qs-range-0 {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      .qs-range-end:not(.qs-range-0),
+      .qs-range-middle.qs-range-6 {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+      .qs-disabled,
+      .qs-outside-current-month {
+        opacity: 0.2;
+      }
+      .qs-disabled {
+        cursor: not-allowed;
+      }
+      .qs-day,
+      .qs-empty {
+        cursor: default;
+      }
+      .qs-day {
+        font-weight: 700;
+        color: grey;
+      }
+      .qs-event {
+        position: relative;
+      }
+      .qs-event:after {
+        content: "";
+        position: absolute;
+        width: 0.46875em;
+        height: 0.46875em;
+        border-radius: 50%;
+        background: #07f;
+        bottom: 0;
+        right: 0;
+      }
+
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform,
+      #calcform2 {
+        padding: 20px;
+        max-width: 600px;
+        background: #eee8d5;
+        border-radius: 7px;
+      }
+      #picker1btn img,
+      #picker3btn img,
+      #picker4btn img {
+        opacity: 0.7;
+      }
+      #picker1txt,
+      #picker3txt,
+      #picker4txt {
+        display: none;
+      }
+      #wrapper TD {
+        padding-left: unset;
+        padding-right: unset;
+      }
+      .qs-datepicker-container {
+        top: 40px !important;
+        left: -225px !important;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 800px) {
+        #calcform,
+        #calcform2 {
+          padding: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Time calculators</a>&rsaquo; Date
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Date Calculator</h1>
+          <h4>Add days to a date</h4>
+          <p>Add/subtract duration from a date</p>
+          <form id="calcform" autocomplete="off">
+            <div id="datediv1" class="form-group">
+              <label>Date</label>
+              <div class="form-row">
+                <div class="col-4 order-1">
+                  <select id="m1" class="form-control">
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                </div>
+
+                <div id="daysdiv1" class="col-3 order-2">
+                  <select id="d1" class="form-control">
+                    <option>day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </div>
+                <div class="col-3 order-3">
+                  <input
+                    type="number"
+                    id="y1"
+                    placeholder="year"
+                    class="form-control"
+                  />
+                </div>
+                <div id="picker1div" class="col order-4">
+                  <input type="text" id="picker1txt" />
+                  <a href="javascript:void(0)" id="picker1btn"
+                    ><img
+                      loading="lazy"
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons-halflings-109-calendar@2x.png"
+                  /></a>
+                </div>
+              </div>
+              <div class="col order-5 pl-0">
+                <button
+                  type="button"
+                  id="now1"
+                  class="btn btn-sm btn-light mt-1"
+                >
+                  Today
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <select id="opsel" class="form-control">
+                <option>+ Add</option>
+                <option>- Subtract</option>
+              </select>
+            </div>
+            <div id="timediv1" class="form-group">
+              <label>Time duration</label>
+              <div class="form-row">
+                <div class="form-group col">
+                  <label>Years</label>
+                  <input
+                    type="number"
+                    min="0"
+                    id="yt1"
+                    placeholder="years"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group col">
+                  <label>Months</label>
+                  <input
+                    type="number"
+                    min="0"
+                    id="mt1"
+                    placeholder="months"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group col">
+                  <label>Weeks</label>
+                  <input
+                    type="number"
+                    min="0"
+                    id="wt1"
+                    placeholder="weeks"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group col">
+                  <label>Days</label>
+                  <input
+                    type="number"
+                    min="0"
+                    id="dt1"
+                    placeholder="days"
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                onclick="calcdate()"
+                class="btn btn-primary"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                onclick="OnReset()"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div id="datediv2" class="form-group">
+              <label>Date result</label>
+              <div class="form-row">
+                <div class="col-3 order-1">
+                  <select id="wd2" readonly class="form-control">
+                    <option>day of week</option>
+                    <option>Sun</option>
+                    <option>Mon</option>
+                    <option>Tue</option>
+                    <option>Wed</option>
+                    <option>Thu</option>
+                    <option>Fri</option>
+                    <option>Sat</option>
+                  </select>
+                </div>
+                <div class="col-3 order-2">
+                  <select id="m2" readonly class="form-control">
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                </div>
+                <div id="daysdiv2" class="col-3 order-3">
+                  <input
+                    type="number"
+                    id="d2"
+                    placeholder="day"
+                    readonly
+                    class="form-control"
+                  />
+                </div>
+                <div class="col-3 order-4">
+                  <input
+                    type="number"
+                    id="y2"
+                    placeholder="year"
+                    readonly
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+          </form>
+          <p><a href="time-calculator.html">Time calculator &#9658;</a></p>
+          <h4>Calculate days between 2 dates</h4>
+          <p>Get duration between 2 dates</p>
+          <form id="calcform2" autocomplete="off">
+            <div id="datediv3" class="form-group">
+              <label>First date</label>
+              <div class="form-row">
+                <div class="col-4 order-1">
+                  <select id="m3" class="form-control">
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                </div>
+                <div id="daysdiv3" class="col-3 order-2">
+                  <select id="d3" class="form-control">
+                    <option>day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </div>
+                <div class="col-3 order-3">
+                  <input
+                    type="number"
+                    id="y3"
+                    placeholder="year"
+                    class="form-control"
+                  />
+                </div>
+                <div id="picker3div" class="col order-4">
+                  <input type="text" id="picker3txt" />
+                  <a href="javascript:void(0)" id="picker3btn"
+                    ><img
+                      loading="lazy"
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons-halflings-109-calendar@2x.png"
+                  /></a>
+                </div>
+              </div>
+              <div class="col order-5 pl-0">
+                <button
+                  type="button"
+                  id="now3"
+                  class="btn btn-sm btn-light mt-1"
+                >
+                  Today
+                </button>
+              </div>
+            </div>
+            <div id="datediv4" class="form-group">
+              <label>Second date</label>
+              <div class="form-row">
+                <div class="col-4 order-1">
+                  <select id="m4" class="form-control">
+                    <option>month</option>
+                    <option>January</option>
+                    <option>February</option>
+                    <option>March</option>
+                    <option>April</option>
+                    <option>May</option>
+                    <option>June</option>
+                    <option>July</option>
+                    <option>August</option>
+                    <option>September</option>
+                    <option>October</option>
+                    <option>November</option>
+                    <option>December</option>
+                  </select>
+                </div>
+                <div id="daysdiv4" class="col-3 order-2">
+                  <select id="d4" class="form-control">
+                    <option>day</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                  </select>
+                </div>
+                <div class="col-3 order-3">
+                  <input
+                    type="number"
+                    id="y4"
+                    placeholder="year"
+                    class="form-control"
+                  />
+                </div>
+                <div id="picker4div" class="col order-4">
+                  <input type="text" id="picker4txt" />
+                  <a href="javascript:void(0)" id="picker4btn"
+                    ><img
+                      loading="lazy"
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons-halflings-109-calendar@2x.png"
+                  /></a>
+                </div>
+              </div>
+              <div class="col order-5 pl-0">
+                <button
+                  type="button"
+                  id="now4"
+                  class="btn btn-sm btn-light mt-1"
+                >
+                  Today
+                </button>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                onclick="calcduration()"
+                class="btn btn-primary"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                onclick="OnReset()"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div id="timediv2" class="form-group">
+              <label>Time duration result</label>
+              <div class="form-row">
+                <div class="form-group col mb-0">
+                  <label>Years</label>
+                  <input
+                    type="text"
+                    id="yt2"
+                    placeholder="years"
+                    readonly
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group col mb-0">
+                  <label>Months</label>
+                  <input
+                    type="text"
+                    id="mt2"
+                    placeholder="months"
+                    readonly
+                    class="form-control"
+                  />
+                </div>
+
+                <div class="form-group col mb-0">
+                  <label>Days only</label>
+                  <input
+                    type="text"
+                    id="dt2"
+                    placeholder="days"
+                    readonly
+                    class="form-control"
+                  />
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Days only</label>
+              <input
+                type="text"
+                id="days"
+                placeholder="days"
+                readonly
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label>Hours only</label>
+              <input
+                type="text"
+                id="hours"
+                placeholder="hours"
+                readonly
+                class="form-control"
+              />
+            </div>
+            <div class="form-group">
+              <label>Seconds only</label>
+              <input
+                type="text"
+                id="seconds"
+                placeholder="seconds"
+                readonly
+                class="form-control"
+              />
+            </div>
+          </form>
+          <p><a href="time-calculator.html">Time calculator &#9658;</a></p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="time-calculator.html">Time calculator</a></li>
+            <li><a href="age-calculator.html">Age calculator</a></li>
+            <li><a href="birthday-calculator.html">Birthday calculator</a></li>
+            <li>
+              <a href="../../convert/number/date-to-roman-numerals.html"
+                >Date to roman numerals</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>TIME CALCULATORS</h5>
+        <ul>
+          <li><a href="age-calculator.html">Age calculator</a></li>
+          <li><a href="birthday-calculator.html">Birthday calculator</a></li>
+          <li><a href="date-calculator.html">Date calculator</a></li>
+          <li><a href="time-calculator.html">Time calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="date-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script
+      defer
+      src="https://cdn.jsdelivr.net/npm/moment@2.29.1/moment.min.js"
+    ></script>
+
+    <script>
+      !(function (e, t) {
+        "object" == typeof exports && "object" == typeof module
+          ? (module.exports = t())
+          : "function" == typeof define && define.amd
+          ? define([], t)
+          : "object" == typeof exports
+          ? (exports.datepicker = t())
+          : (e.datepicker = t());
+      })(window, function () {
+        return (function (e) {
+          var t = {};
+          function n(a) {
+            if (t[a]) return t[a].exports;
+            var r = (t[a] = { i: a, l: !1, exports: {} });
+            return e[a].call(r.exports, r, r.exports, n), (r.l = !0), r.exports;
+          }
+          return (
+            (n.m = e),
+            (n.c = t),
+            (n.d = function (e, t, a) {
+              n.o(e, t) ||
+                Object.defineProperty(e, t, { enumerable: !0, get: a });
+            }),
+            (n.r = function (e) {
+              "undefined" != typeof Symbol &&
+                Symbol.toStringTag &&
+                Object.defineProperty(e, Symbol.toStringTag, {
+                  value: "Module",
+                }),
+                Object.defineProperty(e, "__esModule", { value: !0 });
+            }),
+            (n.t = function (e, t) {
+              if ((1 & t && (e = n(e)), 8 & t)) return e;
+              if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+              var a = Object.create(null);
+              if (
+                (n.r(a),
+                Object.defineProperty(a, "default", {
+                  enumerable: !0,
+                  value: e,
+                }),
+                2 & t && "string" != typeof e)
+              )
+                for (var r in e)
+                  n.d(
+                    a,
+                    r,
+                    function (t) {
+                      return e[t];
+                    }.bind(null, r)
+                  );
+              return a;
+            }),
+            (n.n = function (e) {
+              var t =
+                e && e.__esModule
+                  ? function () {
+                      return e.default;
+                    }
+                  : function () {
+                      return e;
+                    };
+              return n.d(t, "a", t), t;
+            }),
+            (n.o = function (e, t) {
+              return Object.prototype.hasOwnProperty.call(e, t);
+            }),
+            (n.p = ""),
+            n((n.s = 0))
+          );
+        })([
+          function (e, t, n) {
+            "use strict";
+            n.r(t);
+            var a = [],
+              r = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+              i = [
+                "January",
+                "February",
+                "March",
+                "April",
+                "May",
+                "June",
+                "July",
+                "August",
+                "September",
+                "October",
+                "November",
+                "December",
+              ],
+              o = {
+                t: "top",
+                r: "right",
+                b: "bottom",
+                l: "left",
+                c: "centered",
+              };
+            function s() {}
+            var l = ["click", "focusin", "keydown", "input"];
+            function d(e) {
+              l.forEach(function (t) {
+                e.addEventListener(t, e === document ? L : Y);
+              });
+            }
+            function c(e) {
+              return Array.isArray(e)
+                ? e.map(c)
+                : "[object Object]" === x(e)
+                ? Object.keys(e).reduce(function (t, n) {
+                    return (t[n] = c(e[n])), t;
+                  }, {})
+                : e;
+            }
+            function u(e, t) {
+              var n = e.calendar.querySelector(".qs-overlay"),
+                a = n && !n.classList.contains("qs-hidden");
+              (t = t || new Date(e.currentYear, e.currentMonth)),
+                (e.calendar.innerHTML = [h(t, e, a), f(t, e, a), v(e, a)].join(
+                  ""
+                )),
+                a &&
+                  window.requestAnimationFrame(function () {
+                    M(!0, e);
+                  });
+            }
+            function h(e, t, n) {
+              return [
+                '<div class="qs-controls' + (n ? " qs-blur" : "") + '">',
+                '<div class="qs-arrow qs-left"></div>',
+                '<div class="qs-month-year">',
+                '<span class="qs-month">' + t.months[e.getMonth()] + "</span>",
+                '<span class="qs-year">' + e.getFullYear() + "</span>",
+                "</div>",
+                '<div class="qs-arrow qs-right"></div>',
+                "</div>",
+              ].join("");
+            }
+            function f(e, t, n) {
+              var a = t.currentMonth,
+                r = t.currentYear,
+                i = t.dateSelected,
+                o = t.maxDate,
+                s = t.minDate,
+                l = t.showAllDates,
+                d = t.days,
+                c = t.disabledDates,
+                u = t.startDay,
+                h = t.weekendIndices,
+                f = t.events,
+                v = t.getRange ? t.getRange() : {},
+                m = +v.start,
+                y = +v.end,
+                p = g(new Date(e).setDate(1)),
+                w = p.getDay() - u,
+                D = w < 0 ? 7 : 0;
+              p.setMonth(p.getMonth() + 1), p.setDate(0);
+              var b = p.getDate(),
+                q = [],
+                S = D + 7 * (((w + b) / 7) | 0);
+              S += (w + b) % 7 ? 7 : 0;
+              for (var M = 1; M <= S; M++) {
+                var E = (M - 1) % 7,
+                  x = d[E],
+                  C = M - (w >= 0 ? w : 7 + w),
+                  L = new Date(r, a, C),
+                  Y = f[+L],
+                  j = C < 1 || C > b,
+                  P = j ? (C < 1 ? -1 : 1) : 0,
+                  k = j && !l,
+                  O = k ? "" : L.getDate(),
+                  N = +L == +i,
+                  _ = E === h[0] || E === h[1],
+                  I = m !== y,
+                  A = "qs-square " + x;
+                Y && !k && (A += " qs-event"),
+                  j && (A += " qs-outside-current-month"),
+                  (!l && j) || (A += " qs-num"),
+                  N && (A += " qs-active"),
+                  (c[+L] ||
+                    t.disabler(L) ||
+                    (_ && t.noWeekends) ||
+                    (s && +L < +s) ||
+                    (o && +L > +o)) &&
+                    !k &&
+                    (A += " qs-disabled"),
+                  +g(new Date()) == +L && (A += " qs-current"),
+                  +L === m && y && I && (A += " qs-range-start"),
+                  +L > m && +L < y && (A += " qs-range-middle"),
+                  +L === y && m && I && (A += " qs-range-end"),
+                  k && ((A += " qs-empty"), (O = "")),
+                  q.push(
+                    '<div class="' +
+                      A +
+                      '" data-direction="' +
+                      P +
+                      '">' +
+                      O +
+                      "</div>"
+                  );
+              }
+              var R = d
+                .map(function (e) {
+                  return '<div class="qs-square qs-day">' + e + "</div>";
+                })
+                .concat(q);
+              return (
+                R.unshift(
+                  '<div class="qs-squares' + (n ? " qs-blur" : "") + '">'
+                ),
+                R.push("</div>"),
+                R.join("")
+              );
+            }
+            function v(e, t) {
+              var n = e.overlayPlaceholder,
+                a = e.overlayButton;
+              return [
+                '<div class="qs-overlay' + (t ? "" : " qs-hidden") + '">',
+                "<div>",
+                '<input class="qs-overlay-year" placeholder="' +
+                  n +
+                  '" inputmode="numeric" />',
+                '<div class="qs-close">&#10005;</div>',
+                "</div>",
+                '<div class="qs-overlay-month-container">' +
+                  e.overlayMonths
+                    .map(function (e, t) {
+                      return (
+                        '<div class="qs-overlay-month" data-month-num="' +
+                        t +
+                        '">' +
+                        e +
+                        "</div>"
+                      );
+                    })
+                    .join("") +
+                  "</div>",
+                '<div class="qs-submit qs-disabled">' + a + "</div>",
+                "</div>",
+              ].join("");
+            }
+            function m(e, t, n) {
+              var a = t.el,
+                r = t.calendar.querySelector(".qs-active"),
+                i = e.textContent,
+                o = t.sibling;
+              ((a.disabled || a.readOnly) && t.respectDisabledReadOnly) ||
+                ((t.dateSelected = n
+                  ? void 0
+                  : new Date(t.currentYear, t.currentMonth, i)),
+                r && r.classList.remove("qs-active"),
+                n || e.classList.add("qs-active"),
+                p(a, t, n),
+                n || q(t),
+                o &&
+                  (y({ instance: t, deselect: n }),
+                  t.first &&
+                    !o.dateSelected &&
+                    ((o.currentYear = t.currentYear),
+                    (o.currentMonth = t.currentMonth),
+                    (o.currentMonthName = t.currentMonthName)),
+                  u(t),
+                  u(o)),
+                t.onSelect(t, n ? void 0 : new Date(t.dateSelected)));
+            }
+            function y(e) {
+              var t = e.instance.first ? e.instance : e.instance.sibling,
+                n = t.sibling;
+              t === e.instance
+                ? e.deselect
+                  ? ((t.minDate = t.originalMinDate),
+                    (n.minDate = n.originalMinDate))
+                  : (n.minDate = t.dateSelected)
+                : e.deselect
+                ? ((n.maxDate = n.originalMaxDate),
+                  (t.maxDate = t.originalMaxDate))
+                : (t.maxDate = n.dateSelected);
+            }
+            function p(e, t, n) {
+              if (!t.nonInput)
+                return n
+                  ? (e.value = "")
+                  : t.formatter !== s
+                  ? t.formatter(e, t.dateSelected, t)
+                  : void (e.value = t.dateSelected.toDateString());
+            }
+            function w(e, t, n, a) {
+              n || a
+                ? (n && (t.currentYear = +n), a && (t.currentMonth = +a))
+                : ((t.currentMonth += e.contains("qs-right") ? 1 : -1),
+                  12 === t.currentMonth
+                    ? ((t.currentMonth = 0), t.currentYear++)
+                    : -1 === t.currentMonth &&
+                      ((t.currentMonth = 11), t.currentYear--)),
+                (t.currentMonthName = t.months[t.currentMonth]),
+                u(t),
+                t.onMonthChange(t);
+            }
+            function D(e) {
+              if (!e.noPosition) {
+                var t = e.position.top,
+                  n = e.position.right;
+                if (e.position.centered)
+                  return e.calendarContainer.classList.add("qs-centered");
+                var a = e.positionedEl.getBoundingClientRect(),
+                  r = e.el.getBoundingClientRect(),
+                  i = e.calendarContainer.getBoundingClientRect(),
+                  o = r.top - a.top + (t ? -1 * i.height : r.height) + "px",
+                  s = r.left - a.left + (n ? r.width - i.width : 0) + "px";
+                e.calendarContainer.style.setProperty("top", o),
+                  e.calendarContainer.style.setProperty("left", s);
+              }
+            }
+            function b(e) {
+              return (
+                "[object Date]" === x(e) && "Invalid Date" !== e.toString()
+              );
+            }
+            function g(e) {
+              if (b(e) || ("number" == typeof e && !isNaN(e))) {
+                var t = new Date(+e);
+                return new Date(t.getFullYear(), t.getMonth(), t.getDate());
+              }
+            }
+            function q(e) {
+              e.disabled ||
+                (!e.calendarContainer.classList.contains("qs-hidden") &&
+                  !e.alwaysShow &&
+                  ("overlay" !== e.defaultView && M(!0, e),
+                  e.calendarContainer.classList.add("qs-hidden"),
+                  e.onHide(e)));
+            }
+            function S(e) {
+              e.disabled ||
+                (e.calendarContainer.classList.remove("qs-hidden"),
+                "overlay" === e.defaultView && M(!1, e),
+                D(e),
+                e.onShow(e));
+            }
+            function M(e, t) {
+              var n = t.calendar,
+                a = n.querySelector(".qs-overlay"),
+                r = a.querySelector(".qs-overlay-year"),
+                i = n.querySelector(".qs-controls"),
+                o = n.querySelector(".qs-squares");
+              e
+                ? (a.classList.add("qs-hidden"),
+                  i.classList.remove("qs-blur"),
+                  o.classList.remove("qs-blur"),
+                  (r.value = ""))
+                : (a.classList.remove("qs-hidden"),
+                  i.classList.add("qs-blur"),
+                  o.classList.add("qs-blur"),
+                  r.focus());
+            }
+            function E(e, t, n, a) {
+              var r = isNaN(+new Date().setFullYear(t.value || void 0)),
+                i = r ? null : t.value;
+              if (13 === e.which || 13 === e.keyCode || "click" === e.type)
+                a
+                  ? w(null, n, i, a)
+                  : r || t.classList.contains("qs-disabled") || w(null, n, i);
+              else if (n.calendar.contains(t)) {
+                n.calendar
+                  .querySelector(".qs-submit")
+                  .classList[r ? "add" : "remove"]("qs-disabled");
+              }
+            }
+            function x(e) {
+              return {}.toString.call(e);
+            }
+            function C(e) {
+              a.forEach(function (t) {
+                t !== e && q(t);
+              });
+            }
+            function L(e) {
+              if (!e.__qs_shadow_dom) {
+                var t = e.which || e.keyCode,
+                  n = e.type,
+                  r = e.target,
+                  o = r.classList,
+                  s = a.filter(function (e) {
+                    return e.calendar.contains(r) || e.el === r;
+                  })[0],
+                  l = s && s.calendar.contains(r);
+                if (!(s && s.isMobile && s.disableMobile))
+                  if ("click" === n) {
+                    if (!s) return a.forEach(q);
+                    if (s.disabled) return;
+                    var d = s.calendar,
+                      c = s.calendarContainer,
+                      h = s.disableYearOverlay,
+                      f = s.nonInput,
+                      v = d.querySelector(".qs-overlay-year"),
+                      y = !!d.querySelector(".qs-hidden"),
+                      p = d.querySelector(".qs-month-year").contains(r),
+                      D = r.dataset.monthNum;
+                    if (s.noPosition && !l)
+                      (c.classList.contains("qs-hidden") ? S : q)(s);
+                    else if (o.contains("qs-arrow")) w(o, s);
+                    else if (p || o.contains("qs-close")) h || M(!y, s);
+                    else if (D) E(e, v, s, D);
+                    else {
+                      if (o.contains("qs-disabled")) return;
+                      if (o.contains("qs-num")) {
+                        var b = r.textContent,
+                          g = +r.dataset.direction,
+                          x = new Date(s.currentYear, s.currentMonth + g, b);
+                        if (g) {
+                          (s.currentYear = x.getFullYear()),
+                            (s.currentMonth = x.getMonth()),
+                            (s.currentMonthName = i[s.currentMonth]),
+                            u(s);
+                          for (
+                            var L,
+                              Y = s.calendar.querySelectorAll(
+                                '[data-direction="0"]'
+                              ),
+                              j = 0;
+                            !L;
+
+                          ) {
+                            var P = Y[j];
+                            P.textContent === b && (L = P), j++;
+                          }
+                          r = L;
+                        }
+                        return void (+x == +s.dateSelected
+                          ? m(r, s, !0)
+                          : r.classList.contains("qs-disabled") || m(r, s));
+                      }
+                      o.contains("qs-submit")
+                        ? E(e, v, s)
+                        : f && r === s.el && (S(s), C(s));
+                    }
+                  } else if ("focusin" === n && s) S(s), C(s);
+                  else if ("keydown" === n && 9 === t && s) q(s);
+                  else if ("keydown" === n && s && !s.disabled) {
+                    var k = !s.calendar
+                      .querySelector(".qs-overlay")
+                      .classList.contains("qs-hidden");
+                    13 === t && k && l
+                      ? E(e, r, s)
+                      : 27 === t && k && l && M(!0, s);
+                  } else if ("input" === n) {
+                    if (!s || !s.calendar.contains(r)) return;
+                    var O = s.calendar.querySelector(".qs-submit"),
+                      N = r.value
+                        .split("")
+                        .reduce(function (e, t) {
+                          return e || "0" !== t
+                            ? e + (t.match(/[0-9]/) ? t : "")
+                            : "";
+                        }, "")
+                        .slice(0, 4);
+                    (r.value = N),
+                      O.classList[4 === N.length ? "remove" : "add"](
+                        "qs-disabled"
+                      );
+                  }
+              }
+            }
+            function Y(e) {
+              L(e), (e.__qs_shadow_dom = !0);
+            }
+            function j(e, t) {
+              l.forEach(function (n) {
+                e.removeEventListener(n, t);
+              });
+            }
+            function P() {
+              S(this);
+            }
+            function k() {
+              q(this);
+            }
+            function O(e, t) {
+              var n = g(e),
+                a = this.currentYear,
+                r = this.currentMonth,
+                i = this.sibling;
+              if (null == e)
+                return (
+                  (this.dateSelected = void 0),
+                  p(this.el, this, !0),
+                  i && (y({ instance: this, deselect: !0 }), u(i)),
+                  u(this),
+                  this
+                );
+              if (!b(e))
+                throw new Error("`setDate` needs a JavaScript Date object.");
+              if (
+                this.disabledDates[+n] ||
+                n < this.minDate ||
+                n > this.maxDate
+              )
+                throw new Error(
+                  "You can't manually set a date that's disabled."
+                );
+              (this.dateSelected = n),
+                t &&
+                  ((this.currentYear = n.getFullYear()),
+                  (this.currentMonth = n.getMonth()),
+                  (this.currentMonthName = this.months[n.getMonth()])),
+                p(this.el, this),
+                i && (y({ instance: this }), u(i));
+              var o = a === n.getFullYear() && r === n.getMonth();
+              return (
+                o || t ? u(this, n) : o || u(this, new Date(a, r, 1)), this
+              );
+            }
+            function N(e) {
+              return I(this, e, !0);
+            }
+            function _(e) {
+              return I(this, e);
+            }
+            function I(e, t, n) {
+              var a = e.dateSelected,
+                r = e.first,
+                i = e.sibling,
+                o = e.minDate,
+                s = e.maxDate,
+                l = g(t),
+                d = n ? "Min" : "Max";
+              function c() {
+                return "original" + d + "Date";
+              }
+              function h() {
+                return d.toLowerCase() + "Date";
+              }
+              function f() {
+                return "set" + d;
+              }
+              function v() {
+                throw new Error("Out-of-range date passed to " + f());
+              }
+              if (null == t)
+                (e[c()] = void 0),
+                  i
+                    ? ((i[c()] = void 0),
+                      n
+                        ? ((r && !a) || (!r && !i.dateSelected)) &&
+                          ((e.minDate = void 0), (i.minDate = void 0))
+                        : ((r && !i.dateSelected) || (!r && !a)) &&
+                          ((e.maxDate = void 0), (i.maxDate = void 0)))
+                    : (e[h()] = void 0);
+              else {
+                if (!b(t)) throw new Error("Invalid date passed to " + f());
+                i
+                  ? (((r && n && l > (a || s)) ||
+                      (r && !n && l < (i.dateSelected || o)) ||
+                      (!r && n && l > (i.dateSelected || s)) ||
+                      (!r && !n && l < (a || o))) &&
+                      v(),
+                    (e[c()] = l),
+                    (i[c()] = l),
+                    ((n && ((r && !a) || (!r && !i.dateSelected))) ||
+                      (!n && ((r && !i.dateSelected) || (!r && !a)))) &&
+                      ((e[h()] = l), (i[h()] = l)))
+                  : (((n && l > (a || s)) || (!n && l < (a || o))) && v(),
+                    (e[h()] = l));
+              }
+              return i && u(i), u(e), e;
+            }
+            function A() {
+              var e = this.first ? this : this.sibling,
+                t = e.sibling;
+              return { start: e.dateSelected, end: t.dateSelected };
+            }
+            function R() {
+              var e = this.shadowDom,
+                t = this.positionedEl,
+                n = this.calendarContainer,
+                r = this.sibling,
+                i = this;
+              this.inlinePosition &&
+                (a.some(function (e) {
+                  return e !== i && e.positionedEl === t;
+                }) ||
+                  t.style.setProperty("position", null));
+              n.remove(),
+                (a = a.filter(function (e) {
+                  return e !== i;
+                })),
+                r && delete r.sibling,
+                a.length || j(document, L);
+              var o = a.some(function (t) {
+                return t.shadowDom === e;
+              });
+              for (var s in (e && !o && j(e, Y), this)) delete this[s];
+              a.length ||
+                l.forEach(function (e) {
+                  document.removeEventListener(e, L);
+                });
+            }
+            function F(e, t) {
+              var n = new Date(e);
+              if (!b(n)) throw new Error("Invalid date passed to `navigate`");
+              (this.currentYear = n.getFullYear()),
+                (this.currentMonth = n.getMonth()),
+                u(this),
+                t && this.onMonthChange(this);
+            }
+            function B() {
+              var e = !this.calendarContainer.classList.contains("qs-hidden"),
+                t = !this.calendarContainer
+                  .querySelector(".qs-overlay")
+                  .classList.contains("qs-hidden");
+              e && M(t, this);
+            }
+            t.default = function (e, t) {
+              var n = (function (e, t) {
+                var n,
+                  l,
+                  d = (function (e) {
+                    var t = c(e);
+                    t.events &&
+                      (t.events = t.events.reduce(function (e, t) {
+                        if (!b(t))
+                          throw new Error(
+                            '"options.events" must only contain valid JavaScript Date objects.'
+                          );
+                        return (e[+g(t)] = !0), e;
+                      }, {}));
+                    ["startDate", "dateSelected", "minDate", "maxDate"].forEach(
+                      function (e) {
+                        var n = t[e];
+                        if (n && !b(n))
+                          throw new Error(
+                            '"options.' +
+                              e +
+                              '" needs to be a valid JavaScript Date object.'
+                          );
+                        t[e] = g(n);
+                      }
+                    );
+                    var n = t.position,
+                      i = t.maxDate,
+                      l = t.minDate,
+                      d = t.dateSelected,
+                      u = t.overlayPlaceholder,
+                      h = t.overlayButton,
+                      f = t.startDay,
+                      v = t.id;
+                    if (
+                      ((t.startDate = g(t.startDate || d || new Date())),
+                      (t.disabledDates = (t.disabledDates || []).reduce(
+                        function (e, t) {
+                          var n = +g(t);
+                          if (!b(t))
+                            throw new Error(
+                              'You supplied an invalid date to "options.disabledDates".'
+                            );
+                          if (n === +g(d))
+                            throw new Error(
+                              '"disabledDates" cannot contain the same date as "dateSelected".'
+                            );
+                          return (e[n] = 1), e;
+                        },
+                        {}
+                      )),
+                      t.hasOwnProperty("id") && null == v)
+                    )
+                      throw new Error("`id` cannot be `null` or `undefined`");
+                    if (null != v) {
+                      var m = a.filter(function (e) {
+                        return e.id === v;
+                      });
+                      if (m.length > 1)
+                        throw new Error(
+                          "Only two datepickers can share an id."
+                        );
+                      m.length
+                        ? ((t.second = !0), (t.sibling = m[0]))
+                        : (t.first = !0);
+                    }
+                    var y = ["tr", "tl", "br", "bl", "c"].some(function (e) {
+                      return n === e;
+                    });
+                    if (n && !y)
+                      throw new Error(
+                        '"options.position" must be one of the following: tl, tr, bl, br, or c.'
+                      );
+                    function p(e) {
+                      throw new Error(
+                        '"dateSelected" in options is ' +
+                          (e ? "less" : "greater") +
+                          ' than "' +
+                          (e || "max") +
+                          'Date".'
+                      );
+                    }
+                    if (
+                      ((t.position = (function (e) {
+                        var t = e[0],
+                          n = e[1],
+                          a = {};
+                        (a[o[t]] = 1), n && (a[o[n]] = 1);
+                        return a;
+                      })(n || "bl")),
+                      i < l)
+                    )
+                      throw new Error(
+                        '"maxDate" in options is less than "minDate".'
+                      );
+                    d && (l > d && p("min"), i < d && p());
+                    if (
+                      ([
+                        "onSelect",
+                        "onShow",
+                        "onHide",
+                        "onMonthChange",
+                        "formatter",
+                        "disabler",
+                      ].forEach(function (e) {
+                        "function" != typeof t[e] && (t[e] = s);
+                      }),
+                      [
+                        "customDays",
+                        "customMonths",
+                        "customOverlayMonths",
+                      ].forEach(function (e, n) {
+                        var a = t[e],
+                          r = n ? 12 : 7;
+                        if (a) {
+                          if (
+                            !Array.isArray(a) ||
+                            a.length !== r ||
+                            a.some(function (e) {
+                              return "string" != typeof e;
+                            })
+                          )
+                            throw new Error(
+                              '"' +
+                                e +
+                                '" must be an array with ' +
+                                r +
+                                " strings."
+                            );
+                          t[n ? (n < 2 ? "months" : "overlayMonths") : "days"] =
+                            a;
+                        }
+                      }),
+                      f && f > 0 && f < 7)
+                    ) {
+                      var w = (t.customDays || r).slice(),
+                        D = w.splice(0, f);
+                      (t.customDays = w.concat(D)),
+                        (t.startDay = +f),
+                        (t.weekendIndices = [w.length - 1, w.length]);
+                    } else (t.startDay = 0), (t.weekendIndices = [6, 0]);
+                    "string" != typeof u && delete t.overlayPlaceholder;
+                    "string" != typeof h && delete t.overlayButton;
+                    var q = t.defaultView;
+                    if (q && "calendar" !== q && "overlay" !== q)
+                      throw new Error(
+                        'options.defaultView must either be "calendar" or "overlay".'
+                      );
+                    return (t.defaultView = q || "calendar"), t;
+                  })(
+                    t || {
+                      startDate: g(new Date()),
+                      position: "bl",
+                      defaultView: "calendar",
+                    }
+                  ),
+                  u = e;
+                if ("string" == typeof u)
+                  u =
+                    "#" === u[0]
+                      ? document.getElementById(u.slice(1))
+                      : document.querySelector(u);
+                else {
+                  if ("[object ShadowRoot]" === x(u))
+                    throw new Error(
+                      "Using a shadow DOM as your selector is not supported."
+                    );
+                  for (var h, f = u.parentNode; !h; ) {
+                    var v = x(f);
+                    "[object HTMLDocument]" === v
+                      ? (h = !0)
+                      : "[object ShadowRoot]" === v
+                      ? ((h = !0), (n = f), (l = f.host))
+                      : (f = f.parentNode);
+                  }
+                }
+                if (!u) throw new Error("No selector / element found.");
+                if (
+                  a.some(function (e) {
+                    return e.el === u;
+                  })
+                )
+                  throw new Error(
+                    "A datepicker already exists on that element."
+                  );
+                var m = u === document.body,
+                  y = n
+                    ? u.parentElement || n
+                    : m
+                    ? document.body
+                    : u.parentElement,
+                  w = n ? u.parentElement || l : y,
+                  D = document.createElement("div"),
+                  q = document.createElement("div");
+                (D.className = "qs-datepicker-container qs-hidden"),
+                  (q.className = "qs-datepicker");
+                var M = {
+                  shadowDom: n,
+                  customElement: l,
+                  positionedEl: w,
+                  el: u,
+                  parent: y,
+                  nonInput: "INPUT" !== u.nodeName,
+                  noPosition: m,
+                  position: !m && d.position,
+                  startDate: d.startDate,
+                  dateSelected: d.dateSelected,
+                  disabledDates: d.disabledDates,
+                  minDate: d.minDate,
+                  maxDate: d.maxDate,
+                  noWeekends: !!d.noWeekends,
+                  weekendIndices: d.weekendIndices,
+                  calendarContainer: D,
+                  calendar: q,
+                  currentMonth: (d.startDate || d.dateSelected).getMonth(),
+                  currentMonthName: (d.months || i)[
+                    (d.startDate || d.dateSelected).getMonth()
+                  ],
+                  currentYear: (d.startDate || d.dateSelected).getFullYear(),
+                  events: d.events || {},
+                  defaultView: d.defaultView,
+                  setDate: O,
+                  remove: R,
+                  setMin: N,
+                  setMax: _,
+                  show: P,
+                  hide: k,
+                  navigate: F,
+                  toggleOverlay: B,
+                  onSelect: d.onSelect,
+                  onShow: d.onShow,
+                  onHide: d.onHide,
+                  onMonthChange: d.onMonthChange,
+                  formatter: d.formatter,
+                  disabler: d.disabler,
+                  months: d.months || i,
+                  days: d.customDays || r,
+                  startDay: d.startDay,
+                  overlayMonths:
+                    d.overlayMonths ||
+                    (d.months || i).map(function (e) {
+                      return e.slice(0, 3);
+                    }),
+                  overlayPlaceholder: d.overlayPlaceholder || "4-digit year",
+                  overlayButton: d.overlayButton || "Submit",
+                  disableYearOverlay: !!d.disableYearOverlay,
+                  disableMobile: !!d.disableMobile,
+                  isMobile: "ontouchstart" in window,
+                  alwaysShow: !!d.alwaysShow,
+                  id: d.id,
+                  showAllDates: !!d.showAllDates,
+                  respectDisabledReadOnly: !!d.respectDisabledReadOnly,
+                  first: d.first,
+                  second: d.second,
+                };
+                if (d.sibling) {
+                  var E = d.sibling,
+                    C = M,
+                    L = E.minDate || C.minDate,
+                    Y = E.maxDate || C.maxDate;
+                  (C.sibling = E),
+                    (E.sibling = C),
+                    (E.minDate = L),
+                    (E.maxDate = Y),
+                    (C.minDate = L),
+                    (C.maxDate = Y),
+                    (E.originalMinDate = L),
+                    (E.originalMaxDate = Y),
+                    (C.originalMinDate = L),
+                    (C.originalMaxDate = Y),
+                    (E.getRange = A),
+                    (C.getRange = A);
+                }
+                d.dateSelected && p(u, M);
+                var j = getComputedStyle(w).position;
+                m ||
+                  (j && "static" !== j) ||
+                  ((M.inlinePosition = !0),
+                  w.style.setProperty("position", "relative"));
+                var I = a.filter(function (e) {
+                  return e.positionedEl === M.positionedEl;
+                });
+                I.some(function (e) {
+                  return e.inlinePosition;
+                }) &&
+                  ((M.inlinePosition = !0),
+                  I.forEach(function (e) {
+                    e.inlinePosition = !0;
+                  }));
+                D.appendChild(q), y.appendChild(D), M.alwaysShow && S(M);
+                return M;
+              })(e, t);
+              if (
+                (a.length || d(document),
+                n.shadowDom &&
+                  (a.some(function (e) {
+                    return e.shadowDom === n.shadowDom;
+                  }) ||
+                    d(n.shadowDom)),
+                a.push(n),
+                n.second)
+              ) {
+                var l = n.sibling;
+                y({ instance: n, deselect: !n.dateSelected }),
+                  y({ instance: l, deselect: !l.dateSelected }),
+                  u(l);
+              }
+              return (
+                u(n, n.startDate || n.dateSelected), n.alwaysShow && D(n), n
+              );
+            };
+          },
+        ]).default;
+      });
+    </script>
+    <script>
+      var calcform = document.getElementById("calcform");
+      var calcform2 = document.getElementById("calcform2");
+      var daysdiv1 = document.getElementById("daysdiv1");
+      var daysdiv3 = document.getElementById("daysdiv3");
+      var daysdiv4 = document.getElementById("daysdiv4");
+      var opselelem = document.getElementById("opsel");
+      var y1elem = document.getElementById("y1");
+      var m1elem = document.getElementById("m1");
+      var d1elem = document.getElementById("d1");
+      var y2elem = document.getElementById("y2");
+      var m2elem = document.getElementById("m2");
+      var d2elem = document.getElementById("d2");
+      var wd2elem = document.getElementById("wd2");
+      var yt1elem = document.getElementById("yt1");
+      var mt1elem = document.getElementById("mt1");
+      var wt1elem = document.getElementById("wt1");
+      var dt1elem = document.getElementById("dt1");
+      var y3elem = document.getElementById("y3");
+      var m3elem = document.getElementById("m3");
+      var d3elem = document.getElementById("d3");
+      var y4elem = document.getElementById("y4");
+      var m4elem = document.getElementById("m4");
+      var d4elem = document.getElementById("d4");
+      var yt2elem = document.getElementById("yt2");
+      var mt2elem = document.getElementById("mt2");
+      var dt2elem = document.getElementById("dt2");
+      var dayselem = document.getElementById("days");
+      var hourselem = document.getElementById("hours");
+      var secondselem = document.getElementById("seconds");
+      var picker1btnelem = document.getElementById("picker1btn");
+      var picker3btnelem = document.getElementById("picker3btn");
+      var picker4btnelem = document.getElementById("picker4btn");
+      var now1elem = document.getElementById("now1");
+      var now3elem = document.getElementById("now3");
+      var now4elem = document.getElementById("now4");
+      var pick1, pick3, pick4;
+      window.onload = function () {
+        calcform.onkeypress = function (e) {
+          if (e.keyCode == 13) calcdate();
+        };
+        calcform2.onkeypress = function (e) {
+          if (e.keyCode == 13) calcduration();
+        };
+        now1elem.onclick = function () {
+          onnow(1);
+        };
+        now3elem.onclick = function () {
+          onnow(3);
+        };
+        now4elem.onclick = function () {
+          onnow(4);
+        };
+        picker1btnelem.onclick = function (e) {
+          e.stopPropagation();
+          var isHidden = document
+            .querySelector("#picker1div .qs-datepicker-container")
+            .classList.contains("qs-hidden");
+          if (isHidden) onpicker(1);
+          pick1[isHidden ? "show" : "hide"]();
+        };
+        picker3btnelem.onclick = function (e) {
+          e.stopPropagation();
+          var isHidden = document
+            .querySelector("#picker3div .qs-datepicker-container")
+            .classList.contains("qs-hidden");
+          if (isHidden) onpicker(3);
+          pick3[isHidden ? "show" : "hide"]();
+        };
+        picker4btnelem.onclick = function (e) {
+          e.stopPropagation();
+          var isHidden = document
+            .querySelector("#picker4div .qs-datepicker-container")
+            .classList.contains("qs-hidden");
+          if (isHidden) onpicker(4);
+          pick4[isHidden ? "show" : "hide"]();
+        };
+
+        //$("#calcform input[name=fmt]").on("change", function() { onformatselchange(); } );
+        //$("#calcform2 input[name=fmt2]").on("change", function() { onformatselchange2(); } );
+        pick1 = datepicker("#picker1txt", {
+          onSelect: function (instance) {
+            var date = instance.dateSelected;
+            m1elem.selectedIndex = date.getMonth() + 1;
+            d1elem.selectedIndex = date.getDate();
+            y1elem.value = date.getFullYear();
+          },
+        });
+        pick3 = datepicker("#picker3txt", {
+          onSelect: function (instance) {
+            var date = instance.dateSelected;
+            m3elem.selectedIndex = date.getMonth() + 1;
+            d3elem.selectedIndex = date.getDate();
+            y3elem.value = date.getFullYear();
+          },
+        });
+        pick4 = datepicker("#picker4txt", {
+          onSelect: function (instance) {
+            var date = instance.dateSelected;
+            m4elem.selectedIndex = date.getMonth() + 1;
+            d4elem.selectedIndex = date.getDate();
+            y4elem.value = date.getFullYear();
+          },
+        });
+      };
+      function OnReset() {
+        //$("#calcform .btn-group label").removeClass("active");
+        //$("#calcform .btn-group label:first-child").addClass("active");
+        //$("#calcform2 .btn-group label").removeClass("active");
+        //$("#calcform2 .btn-group label:first-child").addClass("active");
+      }
+      function onnow(n) {
+        var now = moment();
+        var y = now.year();
+        var m = now.month() + 1;
+        var d = now.date();
+        if (n == 1) {
+          m1elem.selectedIndex = m;
+          d1elem.selectedIndex = d;
+          y1elem.value = y;
+        } else if (n == 3) {
+          m3elem.selectedIndex = m;
+          d3elem.selectedIndex = d;
+          y3elem.value = y;
+        } else if (n == 4) {
+          m4elem.selectedIndex = m;
+          d4elem.selectedIndex = d;
+          y4elem.value = y;
+        }
+      }
+      function onpicker(n) {
+        if (n == 1) {
+          var y = y1elem.value;
+          var m = m1elem.selectedIndex - 1;
+          var d = d1elem.selectedIndex;
+          if (y == "" || m <= 0 || d == 0) return;
+          pick1.setDate(new Date(y, m, d), true);
+        } else if (n == 3) {
+          var y = y3elem.value;
+          var m = m3elem.selectedIndex - 1;
+          var d = d3elem.selectedIndex;
+          if (y == "" || m <= 0 || d == 0) return;
+          pick3.setDate(new Date(y, m, d), true);
+        } else if (n == 4) {
+          var y = y4elem.value;
+          var m = m4elem.selectedIndex - 1;
+          var d = d4elem.selectedIndex;
+          if (y == "" || m <= 0 || d == 0) return;
+          pick4.setDate(new Date(y, m, d), true);
+        }
+      }
+      function onformatselchange() {
+        var e = document.querySelector("#calcform input[name=fmt]:checked");
+        if (e.id == "fmt1") daysdiv1.classList.add("order-2");
+        else daysdiv1.classList.remove("order-2");
+      }
+      function onformatselchange2() {
+        var e = document.querySelector("#calcform2 input[name=fmt2]:checked");
+        if (e.id == "fmt3") {
+          daysdiv3.classList.add("order-2");
+          daysdiv4.classList.add("order-2");
+        } else {
+          daysdiv3.classList.remove("order-2");
+          daysdiv4.classList.remove("order-2");
+        }
+      }
+      function calcdate() {
+        var y1 = y1elem.value;
+        var m1 = m1elem.selectedIndex - 1;
+        var d1 = d1elem.value;
+        var t = moment().year(y1).month(m1).date(d1);
+        var y2 = yt1elem.value;
+        var m2 = mt1elem.value;
+        var w2 = wt1elem.value;
+        var d2 = dt1elem.value;
+        var i = opselelem.selectedIndex;
+        if (i == 0)
+          t.add(y2, "years").add(m2, "months").add(w2, "weeks").add(d2, "days");
+        else
+          t.subtract(y2, "years")
+            .subtract(m2, "months")
+            .subtract(w2, "weeks")
+            .subtract(d2, "days");
+        y2elem.value = t.year();
+        m2elem.selectedIndex = t.month() + 1;
+        d2elem.value = t.date();
+        wd2elem.selectedIndex = t.day() + 1;
+      }
+      function calcduration() {
+        var y3 = y3elem.value;
+        var m3 = m3elem.selectedIndex - 1;
+        var d3 = d3elem.value;
+        var y4 = y4elem.value;
+        var m4 = m4elem.selectedIndex - 1;
+        var d4 = d4elem.value;
+        var time1 = moment().year(y3).month(m3).date(d3);
+        var time2 = moment().year(y4).month(m4).date(d4);
+        var duration = moment.duration(Math.abs(time1.diff(time2)) + 1);
+        yt2elem.value = duration.years();
+        mt2elem.value = duration.months();
+        dt2elem.value = duration.days();
+        dayselem.value = Math.round(duration.asDays());
+        hourselem.value = Math.round(duration.asHours());
+        secondselem.value = Math.round(duration.asSeconds());
+      }
+    </script>
+  </body>
+</html>

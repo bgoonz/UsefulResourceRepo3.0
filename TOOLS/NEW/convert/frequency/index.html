@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Frequency conversions</title>
+    <meta
+      name="description"
+      content="Frequency conversions of hertz (Hz), kilohertz (kHz), megahertz (MHz), gigahertz (GHz) and terahertz (THz)."
+    />
+    <style>
+      @media all and (max-width: 576px) {
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+          padding: 5px;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 160px;
+          width: calc(100% - 140px);
+        }
+        .calc2 tr td:nth-child(3) {
+          width: 45px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo; Frequency conversion
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Frequency conversion</h1>
+          <p>
+            Frequency conversions of hertz (Hz), kilohertz (kHz), megahertz
+            (MHz), gigahertz (GHz) and terahertz (THz).
+          </p>
+          <h2>Frequency converter</h2>
+          <p>
+            Enter the frequency in one of the text boxes and press the
+            <i>Convert</i> button in the same line:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="hz">Enter hertz:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="hz"
+                    name="hz"
+                    autofocus
+                    tabindex="1"
+                  />
+                </td>
+                <td class="mathsymbol">Hz</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="ConvertHz()"
+                    type="button"
+                    value="Convert"
+                    tabindex="2"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="khz">Enter kilohertz:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="khz"
+                    name="khz"
+                    tabindex="3"
+                  />
+                </td>
+                <td class="mathsymbol">kHz</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="ConvertkHz()"
+                    type="button"
+                    value="Convert"
+                    tabindex="4"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="mhz">Enter megahertz:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="mhz"
+                    name="mhz"
+                    tabindex="5"
+                  />
+                </td>
+                <td class="mathsymbol">MHz</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="ConvertMHz()"
+                    type="button"
+                    value="Convert"
+                    tabindex="6"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="ghz">Enter gigahertz:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="ghz"
+                    name="ghz"
+                    tabindex="7"
+                  />
+                </td>
+                <td class="mathsymbol">GHz</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="ConvertGHz()"
+                    type="button"
+                    value="Convert"
+                    tabindex="8"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><label for="thz">Enter terahertz:</label></td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    id="thz"
+                    name="thz"
+                    tabindex="9"
+                  />
+                </td>
+                <td class="mathsymbol">THz</td>
+                <td class="mathsymbol">
+                  <input
+                    onclick="ConvertTHz()"
+                    type="button"
+                    value="Convert"
+                    tabindex="10"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td class="mathsymbol">
+                  <input type="reset" value="Reset" tabindex="11" class="btn" />
+                </td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <h2>Frequency conversions</h2>
+          <ul>
+            <li><a href="hz-to-khz.html">Hz to kHz</a></li>
+            <li><a href="hz-to-mhz.html">Hz to MHz</a></li>
+            <li><a href="hz-to-ghz.html">Hz to GHz</a></li>
+            <li><a href="hz-to-thz.html">Hz to THz</a></li>
+            <li><a href="hz-to-rad-s.html">Hz to rad/s</a></li>
+            <li><a href="khz-to-hz.html">kHz to Hz</a></li>
+            <li><a href="khz-to-mhz.html">kHz to MHz</a></li>
+            <li><a href="khz-to-ghz.html">kHz to GHz</a></li>
+            <li><a href="mhz-to-hz.html">MHz to Hz</a></li>
+            <li><a href="mhz-to-khz.html">MHz to kHz</a></li>
+            <li><a href="mhz-to-ghz.html">MHz to GHz</a></li>
+            <li><a href="ghz-to-hz.html">GHz to Hz</a></li>
+            <li><a href="ghz-to-khz.html">GHz to kHz</a></li>
+            <li><a href="ghz-to-mhz.html">GHz to MHz</a></li>
+            <li><a href="thz-to-hz.html">THz to Hz</a></li>
+            <li><a href="rad-s-to-hz.html">Rad/s to Hz</a></li>
+            <li><a href="1-khz-to-hz.html">1 kHz to Hz</a></li>
+            <li><a href="1-mhz-to-hz.html">1 MHz to Hz</a></li>
+            <li><a href="1-mhz-to-khz.html">1 MHz to kHz</a></li>
+            <li><a href="100-mhz-to-hz.html">100 MHz to Hz</a></li>
+            <li><a href="1-ghz-to-hz.html">1 GHz to Hz</a></li>
+            <li><a href="1-ghz-to-mhz.html">1 GHz to MHz</a></li>
+          </ul>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../calc/electric/index.html"
+                >Electrical calculators</a
+              >
+            </li>
+            <li><a href="../power/index.html">Power conversion</a></li>
+            <li><a href="../energy/index.html">Energy conversion</a></li>
+            <li><a href="../charge/index.html">Charge conversion</a></li>
+            <li><a href="../number/index.html">Number conversion</a></li>
+            <li>
+              <a href="../temperature/index.html">Temperature conversion</a>
+            </li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script>
+            function setfocus() {
+              document.calcform.f.focus();
+            }
+            function ConvertHz() {
+              f = document.calcform.hz.value;
+              if (f == "") return;
+              f = parseFloat(f);
+              document.calcform.hz.value = roundnum(f, 12);
+              document.calcform.khz.value = roundnum(f / 1e3, 12);
+              document.calcform.mhz.value = roundnum(f / 1e6, 12);
+              document.calcform.ghz.value = roundnum(f / 1e9, 12);
+              document.calcform.thz.value = roundnum(f / 1e12, 12);
+            }
+            function ConvertkHz() {
+              f = document.calcform.khz.value;
+              if (f == "") return;
+              f = parseFloat(f);
+              document.calcform.hz.value = roundnum(f * 1e3, 12);
+              document.calcform.khz.value = roundnum(f, 12);
+              document.calcform.mhz.value = roundnum(f / 1e3, 12);
+              document.calcform.ghz.value = roundnum(f / 1e6, 12);
+              document.calcform.thz.value = roundnum(f / 1e9, 12);
+            }
+            function ConvertMHz() {
+              f = document.calcform.mhz.value;
+              if (f == "") return;
+              f = parseFloat(f);
+              document.calcform.hz.value = roundnum(f * 1e6, 12);
+              document.calcform.khz.value = roundnum(f * 1e3, 12);
+              document.calcform.mhz.value = roundnum(f, 12);
+              document.calcform.ghz.value = roundnum(f / 1e3, 12);
+              document.calcform.thz.value = roundnum(f / 1e6, 12);
+            }
+            function ConvertGHz() {
+              f = document.calcform.ghz.value;
+              if (f == "") return;
+              f = parseFloat(f);
+              document.calcform.hz.value = roundnum(f * 1e9, 12);
+              document.calcform.khz.value = roundnum(f * 1e6, 12);
+              document.calcform.mhz.value = roundnum(f * 1e3, 12);
+              document.calcform.ghz.value = roundnum(f, 12);
+              document.calcform.thz.value = roundnum(f / 1e3, 12);
+            }
+            function ConvertTHz() {
+              f = document.calcform.thz.value;
+              if (f == "") return;
+              f = parseFloat(f);
+              document.calcform.hz.value = roundnum(f * 1e12, 12);
+              document.calcform.khz.value = roundnum(f * 1e9, 12);
+              document.calcform.mhz.value = roundnum(f * 1e6, 12);
+              document.calcform.ghz.value = roundnum(f * 1e3, 12);
+              document.calcform.thz.value = roundnum(f, 12);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>CONVERSION</h5>
+        <ul>
+          <li><a href="../color/index.html">Color conversion</a></li>
+          <li><a href="../charge/index.html">Electric charge conversion</a></li>
+          <li><a href="../energy/index.html">Energy conversion</a></li>
+          <li><a href="index.html">Frequency conversion</a></li>
+          <li><a href="../image/index.html">Image conversion</a></li>
+          <li><a href="../length/index.html">Length conversion</a></li>
+          <li><a href="../number/index.html">Number conversion</a></li>
+          <li><a href="../power/index.html">Power conversion</a></li>
+          <li>
+            <a href="../temperature/index.html">Temperature conversion</a>
+          </li>
+          <li><a href="../voltage/index.html">Voltage conversion</a></li>
+          <li><a href="../weight/index.html">Weight conversion</a></li>
+          <li><a href="../electric/index.html">Electrical calculation</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="index.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

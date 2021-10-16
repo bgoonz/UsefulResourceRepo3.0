@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Weighted Average Calculator</title>
+    <meta
+      content="Weighted average calculator online and calculation."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        background: #eee8d5;
+        padding: 20px;
+        max-width: 400px;
+      }
+      #calcform button span {
+        font-size: large;
+        font-weight: bold;
+      }
+      #tbl tr td:nth-child(1) {
+        width: 35%;
+      }
+      #tbl tr td:nth-child(2) {
+        width: 65%;
+      }
+      #doc img {
+        max-width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo; Weighted
+        average calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Weighted Average Calculator</h1>
+          <form id="calcform" autocomplete="off">
+            <div class="form-group">
+              <table id="tbl" class="">
+                <tr>
+                  <td class="pb-2">Weight</td>
+                  <td class="pb-2">Data value</td>
+                </tr>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input
+                        type="number"
+                        min="0"
+                        step="any"
+                        name="weight[]"
+                        class="form-control mb-1"
+                        autofocus
+                      />
+                    </td>
+                    <td>
+                      <input
+                        type="text"
+                        name="data[]"
+                        class="form-control mb-1"
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                id="calc"
+                title="Calculate"
+                class="btn btn-primary"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                id="reset"
+                title="Reset"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+              <button
+                type="button"
+                id="addrow"
+                title="Add row"
+                class="btn btn-secondary"
+              >
+                <span>+</span> Add Row
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="avg">Weighted average</label>
+              <input
+                type="text"
+                id="avg"
+                class="form-control form-control-lg"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label for="sum">Sum of weights</label>
+              <input
+                type="text"
+                id="sum"
+                class="form-control form-control-lg"
+                readonly
+              />
+            </div>
+            <div class="form-group">
+              <label for="TA1">Calculation</label>
+              <textarea
+                rows="3"
+                id="TA1"
+                class="form-control"
+                readonly
+              ></textarea>
+            </div>
+          </form>
+          <p>
+            <a href="average-calculator.html">Average calculator &#9658;</a>
+          </p>
+          <h2>Weighted average calculation</h2>
+          <p>
+            The weighted average (<em>x</em>) is equal to the sum of the product
+            of the weight (w<sub>i</sub>) times the data number (x<sub>i</sub>)
+            divided by the sum of the weights:
+          </p>
+          <p>
+            <img
+              alt="weighted average"
+              height="54"
+              src="lib/weighted-average.png"
+              width="417"
+            />
+          </p>
+          <br />
+          <h4>Example</h4>
+          <p>
+            Find the weighted average of class grades (with equal weight)
+            70,70,80,80,80,90:
+          </p>
+          <p>
+            Since the weight of all grades are equal, we can calculate these
+            grades with simple average or we can cound how many times each grade
+            apear and use weighted average.
+          </p>
+          <p class="mathsymbol">2&times;70,3&times;80,1&times;90</p>
+          <p class="mathsymbol">
+            <span class="auto-style1"><em>x</em></span> =
+            (2&times;70+3&times;80+1&times;90) / (2+3+1) = 470 / 6 = 78.33333
+          </p>
+          <br />
+          <p>
+            <a href="average-calculator.html">Average calculator &#9658;</a>
+          </p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="standard-deviation-calculator.html"
+                >Standard deviation calculator</a
+              >
+            </li>
+            <li><a href="variance-calculator.html">Variance calculator</a></li>
+            <li>
+              <a href="../grade/grade-calculator.html">Grade calculator</a>
+            </li>
+            <li><a href="../grade/gpa-calculator.html">GPA calculator</a></li>
+            <li><a href="index.html">Math Calculators</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH CALCULATORS</h5>
+        <ul>
+          <li><a href="calculator.html">Online math calculator</a></li>
+          <li>
+            <a href="adding-fractions-calculator.html"
+              >Adding fractions calculator</a
+            >
+          </li>
+          <li><a href="Add_Calculator.html">Addition calculator</a></li>
+          <li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+          <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+          <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+          <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+          <li><a href="average-calculator.html">Average calculator</a></li>
+          <li>
+            <a href="convolution-calculator.html">Convolution calculator</a>
+          </li>
+          <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+          <li>
+            <a href="dividing-fractions-calculator.html"
+              >Dividing fractions calculator</a
+            >
+          </li>
+          <li><a href="division-calculator.html">Division calculator</a></li>
+          <li>
+            <a href="exponential-growth-calculator.html"
+              >Exponential growth calculator</a
+            >
+          </li>
+          <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+          <li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+          <li><a href="fractions-calculator.html">Fractions calculator</a></li>
+          <li><a href="gcf-calculator.html">GCF calculator</a></li>
+          <li><a href="lcm-calculator.html">LCM calculator</a></li>
+          <li><a href="Ln_Calc.html">Ln calculator</a></li>
+          <li><a href="Log_Calculator.html">Log calculator</a></li>
+          <li>
+            <a href="multiplication-calculator.html"
+              >Multiplication calculator</a
+            >
+          </li>
+          <li>
+            <a href="multiplying-fractions-calculator.html"
+              >Multiplying fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="Percentage_Calculator.html">Percentage calculator</a>
+          </li>
+          <li>
+            <a href="percentage-change-calculator.html"
+              >Percentage change calculator</a
+            >
+          </li>
+          <li>
+            <a href="percent-error-calculator.html">Percent error calculator</a>
+          </li>
+          <li>
+            <a href="percentage-increase-calculator.html"
+              >Precentage increase calculator</a
+            >
+          </li>
+          <li>
+            <a href="pythagorean-calculator.html"
+              >Pythagorean theorem calculator</a
+            >
+          </li>
+          <li>
+            <a href="Quadratic_Calculator.html">Quadratic equation solver</a>
+          </li>
+          <li><a href="ratio-calculator.html">Ratio calculator</a></li>
+          <li><a href="root-calculator.html">Root calculator</a></li>
+          <li>
+            <a href="scientific-notation-calculator.html"
+              >Scientific notation calculator</a
+            >
+          </li>
+          <li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+          <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+          <li>
+            <a href="square-root-calculator.html">Square root calculator</a>
+          </li>
+          <li>
+            <a href="standard-deviation-calculator.html"
+              >Standard deviation calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtracting-fractions-calculator.html"
+              >Subtracting fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtraction-calculator.html">Subtraction calculator</a>
+          </li>
+          <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+          <li>
+            <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+          </li>
+          <li>
+            <a href="weighted-average-calculator.html"
+              >Weighted average calculator</a
+            >
+          </li>
+          <li><a href="variance-calculator.html">Variance calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="weighted-average-calculator.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="../calc2.js"></script>
+    <script>
+      var irow = 0;
+      $(document).ready(function () {
+        $("#calc").click(Calc);
+        $("#addrow").click(AddRow);
+        for (i = 0; i < 5; i++) AddRow();
+      });
+
+      function Calc() {
+        var avg = 0;
+        var sum = 0;
+        var txt = (txt1 = txt2 = "");
+        for (var i = 1; i <= irow + 1; i++) {
+          weight = $(
+            "#tbl > tbody > tr:nth-child(" + i + ") > td:nth-child(1) > input"
+          ).val();
+          weight = parseFloat(weight);
+          data = $(
+            "#tbl > tbody > tr:nth-child(" + i + ") > td:nth-child(2) > input"
+          ).val();
+          if (weight >= 0) {
+            avg += weight * data;
+            sum += weight;
+            txt1 += weight + "\u00D7" + data + "+";
+            txt2 += weight + "+";
+          }
+        }
+        avg /= sum;
+        avg = roundnum2(avg, 8);
+        txt = "(" + txt1 + ") / (" + txt2 + ") = " + avg;
+        txt = txt.replace("+)", ")");
+        txt = txt.replace("+)", ")");
+        $("#avg").val(avg);
+        $("#sum").val(sum);
+        $("#TA1").val(txt);
+        $("#row1").show();
+        $("#row2").show();
+      }
+      function AddRow() {
+        $("#tbl > tbody > tr")
+          .eq(++irow)
+          .after(
+            "<tr>\
+         <td><input type='number' min='0' step='any' name='weight[]' class='form-control mb-1'></td>\
+         <td><input type='text' name='data[]' class='form-control mb-1'></td>\
+      </tr>"
+          );
+      }
+    </script>
+  </body>
+</html>

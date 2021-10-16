@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Meters to Inches (m to in) conversion calculator</title>
+    <meta
+      name="description"
+      content="Meters to inches (m to in) conversion calculator and how to convert."
+    />
+    <style>
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 240px;
+          width: calc(100% - 30px);
+        }
+      }
+      .calc2 td textarea {
+        font-size: large;
+        width: 100%;
+      }
+      .ntable td:nth-child(1),
+      .ntable td:nth-child(2) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Length conversion</a>&rsaquo; Meters to
+        inches
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Meters to Inches conversion</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="x">Enter meters:</label></td>
+                <td class="math">
+                  <input type="text" id="x" name="x" class="intext" autofocus />
+                </td>
+                <td class="mathsymbol">m</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <button type="submit" id="calc" title="Convert" class="btn">
+                    <span>=</span> Convert
+                  </button>
+                  <button type="reset" id="reset" title="Reset" class="btn">
+                    <span>&times;</span> Reset
+                  </button>
+                  <button
+                    type="button"
+                    title="Swap conversion"
+                    class="btn"
+                    onclick="location.href='inch-to-meter.html';"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                      alt=""
+                    />
+                    Swap
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Inches result:</td>
+                <td class="math">
+                  <input type="text" id="y" class="outtext" readonly />
+                </td>
+                <td class="mathsymbol">&Prime;</td>
+              </tr>
+              <tr>
+                <td>Feet+inches result:</td>
+                <td class="math">
+                  <input type="text" id="y2" class="outtext" readonly />
+                </td>
+                <td class="mathsymbol">&Prime;</td>
+              </tr>
+              <tr id="pf1">
+                <td>Calculation:</td>
+                <td>
+                  <textarea
+                    id="TA"
+                    rows="3"
+                    class="outtext"
+                    readonly
+                  ></textarea>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <p><a href="inch-to-meter.html">Inches to meters &#9658;</a></p>
+          <h2><a name="how"></a>How to convert meters to inches</h2>
+          <p>1 meter is equal to 39.37007874 inches:</p>
+          <p class="math">1m = (1/0.0254)&Prime; = 39.37007874&Prime;</p>
+          <p>
+            The distance <em>d</em> in inches (&Prime;) is equal to the distance
+            <i>d</i> in meters (m) divided by 0.0254:
+          </p>
+          <p class="math">
+            <em>d</em><sub>(&Prime;)</sub> = <em>d</em><sub>(m)</sub> / 0.0254
+          </p>
+          <h4>Example</h4>
+          <p>Convert 0.2 meters to inches:</p>
+          <p class="math">
+            <em>d</em><sub>(&Prime;)</sub> = 0.2m / 0.0254 = 7.874&Prime;
+          </p>
+          <h2><a name="table"></a>Meters to inches conversion table</h2>
+          <table class="ntable">
+            <thead>
+              <tr>
+                <th>Meters (m)</th>
+                <th>Inches (")</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.01 m</td>
+                <td>0.39 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.1 m</td>
+                <td>3.94 &Prime;</td>
+              </tr>
+              <tr>
+                <td>1 m</td>
+                <td>39.37 &Prime;</td>
+              </tr>
+              <tr>
+                <td>2 m</td>
+                <td>78.74 &Prime;</td>
+              </tr>
+              <tr>
+                <td>3 m</td>
+                <td>118.11 &Prime;</td>
+              </tr>
+              <tr>
+                <td>4 m</td>
+                <td>157.48 &Prime;</td>
+              </tr>
+              <tr>
+                <td>5 m</td>
+                <td>196.85 &Prime;</td>
+              </tr>
+              <tr>
+                <td>6 m</td>
+                <td>236.22 &Prime;</td>
+              </tr>
+              <tr>
+                <td>7 m</td>
+                <td>275.59 &Prime;</td>
+              </tr>
+              <tr>
+                <td>8 m</td>
+                <td>314.96 &Prime;</td>
+              </tr>
+              <tr>
+                <td>9 m</td>
+                <td>354.33 &Prime;</td>
+              </tr>
+              <tr>
+                <td>10 m</td>
+                <td>393.70 &Prime;</td>
+              </tr>
+              <tr>
+                <td>20 m</td>
+                <td>787.40 &Prime;</td>
+              </tr>
+              <tr>
+                <td>30 m</td>
+                <td>1181.10 &Prime;</td>
+              </tr>
+              <tr>
+                <td>40 m</td>
+                <td>1578.40 &Prime;</td>
+              </tr>
+              <tr>
+                <td>50 m</td>
+                <td>1968.50 &Prime;</td>
+              </tr>
+              <tr>
+                <td>60 m</td>
+                <td>2362.20 &Prime;</td>
+              </tr>
+              <tr>
+                <td>70 m</td>
+                <td>2755.91 &Prime;</td>
+              </tr>
+              <tr>
+                <td>80 m</td>
+                <td>3149.61 &Prime;</td>
+              </tr>
+              <tr>
+                <td>90 m</td>
+                <td>3543.31 &Prime;</td>
+              </tr>
+              <tr>
+                <td>100 m</td>
+                <td>3937.01 &Prime;</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="inch-to-meter.html">Inches to meters &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="inch-to-meter.html">Inches to meters conversion</a>
+            </li>
+            <li><a href="meter-to-feet.html">Meters to feet conversion</a></li>
+            <li><a href="mm-to-inch.html">mm to inches conversion</a></li>
+            <li><a href="cm-to-inch.html">cm to inches conversion</a></li>
+            <li><a href="feet-to-inch.html">Feet to inches conversion</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LENGTH CONVERSION</h5>
+        <ul>
+          <li><a href="cm-to-feet.html">cm to feet</a></li>
+          <li><a href="cm-to-inch.html">cm to inches</a></li>
+          <li><a href="cm-to-mm.html">cm to mm</a></li>
+          <li><a href="feet-to-cm.html">Feet to cm</a></li>
+          <li><a href="feet-to-mm.html">Feet to mm</a></li>
+          <li><a href="feet-to-inch.html">Feet to inches</a></li>
+          <li><a href="feet-to-meter.html">Feet to meters</a></li>
+          <li><a href="height-converter.html">Height converter</a></li>
+          <li><a href="inch-to-cm.html">Inches to cm</a></li>
+          <li><a href="inch-to-feet.html">Inches to feet</a></li>
+          <li><a href="inch-to-meter.html">Inches to meters</a></li>
+          <li><a href="inch-to-mm.html">Inches to mm</a></li>
+          <li><a href="km-to-mile.html">km to miles</a></li>
+          <li><a href="meter-to-feet.html">Meters to feet</a></li>
+          <li><a href="meter-to-inch.html">Meters to inches</a></li>
+          <li><a href="mile-to-km.html">Miles to km</a></li>
+          <li><a href="mm-to-cm.html">mm to cm</a></li>
+          <li><a href="mm-to-feet.html">mm to feet</a></li>
+          <li><a href="mm-to-inch.html">mm to inches</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href='meter-to-inch.html%3Fx="+x2+".html#feedback'
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../convert.js"></script>
+    <script>
+      var xelem = document.getElementById("x");
+      window.onload = function () {
+        //xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0 && params.x != "") {
+          document.title = params.x + " meters to inches conversion";
+          //SetLinks(params);
+          xelem.value = decodeURIComponent(params.x);
+          OnCalc();
+        }
+      };
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function OnCalc() {
+        var x = str2num(xelem.value);
+        var y = x / 0.0254;
+        var y = roundresult(y);
+        var y2 = Math.floor(y / 12);
+        var y3 = roundresult(y - y2 * 12);
+        var txt = x + "m / 0.0254\n";
+        txt += "= " + y + '"';
+        document.getElementById("y").value = y;
+        document.getElementById("y2").value = y2 + "ft " + y3;
+        document.getElementById("TA").value = txt;
+      }
+    </script>
+  </body>
+</html>

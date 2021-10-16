@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>dB converter | decibles conversion calculator</title>
+    <meta name="description" content="Decibels (dB) conversion calculator." />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Electrical calculation</a>&rsaquo; dB
+        converter
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>dB Converter</h1>
+          <p>Decibels (dB) conversion calculator.</p>
+          <h2>
+            Decibels to watts, volts, hertz, pascal&nbsp;conversion calculator
+          </h2>
+          <p>
+            Convert dB, dBm, dBW, dBV, dBmV, dB&#956;V, dBu, dB&#956;A, dBHz,
+            dBSPL, dBA to watts, volts, ampers, hertz, sound pressure.
+          </p>
+          <ol>
+            <li>Set the quantity type and decibel unit.</li>
+            <li>
+              Enter the values in one or two of the text boxes and press the
+              corresponding <i>Convert</i> button:
+            </li>
+          </ol>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td>Quantity type:</td>
+                  <td>
+                    <select
+                      name="select1"
+                      class="math"
+                      onchange="OnQuantitySelect()"
+                      autofocus
+                      tabindex="1"
+                    >
+                      <option selected>Power</option>
+                      <option>Voltage</option>
+                      <option>Current</option>
+                      <option>Frequency</option>
+                      <option>Sound pressure</option>
+                    </select>
+                  </td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Decibel unit:</td>
+                  <td>
+                    <select
+                      name="select2"
+                      class="math"
+                      onchange="OnUnitSelect()"
+                      tabindex="2"
+                    >
+                      <option selected>dBm</option>
+                      <option>dBW</option>
+                      <option>dB</option>
+                    </select>
+                  </td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><label for="level0">Reference level:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      step="any"
+                      id="level0"
+                      name="level0"
+                      value="1"
+                      style="background-color: #f0f0f0"
+                      readonly
+                      tabindex="3"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      size="4"
+                      name="unit0"
+                      value="mW"
+                      class="math"
+                      style="background-color: #f0f0f0"
+                      readonly="readonly"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td><label for="level1">Level:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      step="any"
+                      id="level1"
+                      name="level1"
+                      tabindex="4"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      size="4"
+                      name="unit1"
+                      value="mW"
+                      class="math"
+                      style="background-color: #f0f0f0"
+                      readonly
+                    />
+                  </td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="OnConvertLevel()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td><label for="db">Decibels:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      step="any"
+                      id="db"
+                      name="db"
+                      tabindex="5"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      size="4"
+                      name="dbunit"
+                      value="dBm"
+                      class="math"
+                      style="background-color: #f0f0f0"
+                      readonly
+                    />
+                  </td>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="OnConvertDecibel()"
+                      type="button"
+                      value="Convert"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td class="mathsymbol">
+                    <input
+                      onclick="OnUnitSelect()"
+                      type="button"
+                      value="Reset"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                  <td>&nbsp;</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../power/dbm-converter.html">dBm converter</a> -
+              dB-milliwatts to W, mW, dBW
+            </li>
+            <li><a href="../../electric/decibel.html">Decibel (dB)</a></li>
+            <li><a href="../../electric/dBm.html">dBm</a></li>
+            <li><a href="../../electric/dBW.html">dBW</a></li>
+            <li><a href="../../electric/watt.html">Watt</a></li>
+            <li><a href="index.html">Electrical calculation</a></li>
+            <li><a href="../power/index.html">Power conversion</a></li>
+            <li><a href="../energy/index.html">Energy conversion</a></li>
+          </ul>
+          <script>
+            function setfocus() {
+              document.calcform.level1.focus();
+            }
+            function Round(x, res) {
+              y = parseFloat(x);
+              res = Math.pow(10, res);
+              y = Math.round(y * res) / res;
+              return y;
+            }
+            function OnQuantitySelect() {
+              var select1 = document.calcform.select1;
+              var select2 = document.calcform.select2;
+              selIndex = select1.selectedIndex;
+              //selValue = select1.options[selIndex].value;
+              select2.options.length = 0;
+              switch (selIndex) {
+                case 0:
+                  select2.options[0] = new Option("dBm", "dbm", true, false);
+                  select2.options[1] = new Option("dBW", "dbw", false, false);
+                  select2.options[2] = new Option("dB", "db", false, false);
+                  SetFields(1, "mW", "dBm");
+                  break;
+                case 1:
+                  select2.options[0] = new Option("dBV", "dbv", true, false);
+                  select2.options[1] = new Option("dBmV", "dbmv", false, false);
+                  select2.options[2] = new Option("dBuV", "dbuv", false, false);
+                  select2.options[3] = new Option("dBu", "dbu", false, false);
+                  select2.options[4] = new Option("dB", "db", false, false);
+                  SetFields(1, "V", "dBV");
+                  break;
+                case 2:
+                  select2.options[0] = new Option("dBuA", "dbua", true, false);
+                  select2.options[1] = new Option("dB", "db", false, false);
+                  SetFields(1, "uA", "dBuA");
+                  break;
+                case 3:
+                  select2.options[0] = new Option("dBHz", "dbhz", true, false);
+                  SetFields(1, "Hz", "dBHz");
+                  break;
+                case 4:
+                  select2.options[0] = new Option(
+                    "dBSPL",
+                    "dbspl",
+                    true,
+                    false
+                  );
+                  //select2.options[1] = new Option("dBA",   "dba",   false, false);
+                  select2.options[1] = new Option("dB", "db", false, false);
+                  SetFields(20, "uPa", "dBSPL");
+                  break;
+              }
+            }
+            function OnUnitSelect() {
+              var select1 = document.calcform.select1;
+              var select2 = document.calcform.select2;
+              selIndex1 = select1.selectedIndex;
+              selIndex2 = select2.selectedIndex;
+              switch (selIndex1) {
+                case 0:
+                  switch (selIndex2) {
+                    case 0:
+                      SetFields(1, "mW", "dBm");
+                      break;
+                    case 1:
+                      SetFields(1, "W", "dBW");
+                      break;
+                    case 2:
+                      SetFields("", "W", "dB");
+                      break;
+                  }
+                  break;
+                case 1:
+                  switch (selIndex2) {
+                    case 0:
+                      SetFields(1, "V", "dBV");
+                      break;
+                    case 1:
+                      SetFields(1, "mV", "dBmV");
+                      break;
+                    case 2:
+                      SetFields(1, "uV", "dBuV");
+                      break;
+                    case 3:
+                      SetFields(0.775, "V", "dBu");
+                      break;
+                    case 4:
+                      SetFields("", "V", "dB");
+                      break;
+                  }
+                  break;
+                case 2:
+                  switch (selIndex2) {
+                    case 0:
+                      SetFields(1, "uA", "dBuA");
+                      break;
+                    case 1:
+                      SetFields("", "uA", "dB");
+                      break;
+                  }
+                  break;
+                case 3:
+                  switch (selIndex2) {
+                    case 0:
+                      SetFields(1, "Hz", "dBHz");
+                      break;
+                  }
+                  break;
+                case 4:
+                  switch (selIndex2) {
+                    case 0:
+                      SetFields(20, "uPa", "dBSPL");
+                      break;
+                    //case 1:
+                    //SetFields(20, "uPa", "dBA");
+                    //break;
+                    case 1:
+                      SetFields("", "uPa", "dB");
+                      break;
+                  }
+                  break;
+              }
+            }
+            function OnConvertLevel() {
+              selIndex = document.calcform.select1.selectedIndex;
+              level0 = document.calcform.level0.value;
+              level1 = document.calcform.level1.value;
+              if (level0 == "" || level1 == "") return;
+              ratio = level1 / level0;
+              k = 20;
+              if (selIndex == 0 || selIndex == 3) k = 10;
+              document.calcform.db.value = Round(
+                k * Math.log(ratio) * Math.LOG10E,
+                6
+              );
+            }
+            function OnConvertDecibel() {
+              selIndex = document.calcform.select1.selectedIndex;
+              level0 = document.calcform.level0.value;
+              db = document.calcform.db.value;
+              if (level0 == "" || db == "") return;
+              k = 20;
+              if (selIndex == 0 || selIndex == 3) k = 10;
+              ratio = Math.pow(10, db / k);
+              document.calcform.level1.value = Round(ratio * level0, 6);
+            }
+            function OnReset() {}
+            function SetFields(reflevel, levelunit, dbunit) {
+              document.calcform.level0.value = reflevel;
+              document.calcform.unit0.value = levelunit;
+              document.calcform.level1.value = "";
+              document.calcform.unit1.value = levelunit;
+              document.calcform.db.value = "";
+              document.calcform.dbunit.value = dbunit;
+              if (dbunit == "dB") {
+                document.calcform.level0.style.backgroundColor = "#ffffff";
+                document.calcform.level0.readOnly = false;
+                document.calcform.level0.focus();
+              } else {
+                document.calcform.level0.style.backgroundColor = "#f0f0f0";
+                document.calcform.level0.readOnly = true;
+                document.calcform.level1.focus();
+              }
+            }
+            //-->
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>ELECTRICAL CALCULATIONS</h5>
+        <ul>
+          <li><a href="Amp_to_Watt.html">Amps to watts</a></li>
+          <li><a href="Amp_to_kW.html">Amps to kW</a></li>
+          <li><a href="Amp_to_kVA.html">Amps to kVA</a></li>
+          <li><a href="Amp_to_Volt.html">Amps to volts</a></li>
+          <li><a href="amp-to-ma.html">Amps to mA</a></li>
+          <li><a href="ma-to-amp.html">mA to amps</a></li>
+          <li><a href="Watt_to_Amp.html">Watts to amps</a></li>
+          <li><a href="Watt_to_Joule.html">Watts to joules</a></li>
+          <li><a href="Watt_to_Volt.html">Watts to volts</a></li>
+          <li><a href="watt-to-va.html">Watts to VA</a></li>
+          <li><a href="watt-to-kva.html">Watts to kVA</a></li>
+          <li><a href="watt-to-lumen.html">Watts to lumens</a></li>
+          <li><a href="lumen-to-watt.html">Lumens to watts</a></li>
+          <li><a href="kW_to_Amp.html">kW to amps</a></li>
+          <li><a href="kW_to_kWh.html">kW to kWh</a></li>
+          <li><a href="kw-to-va.html">kW to VA</a></li>
+          <li><a href="kw-to-kva.html">kW to kVA</a></li>
+          <li><a href="Volt_to_Amp.html">Volts to amps</a></li>
+          <li><a href="Volt_to_Joule.html">Volts to joules</a></li>
+          <li><a href="Volt_to_Watt.html">Volts to watts</a></li>
+          <li><a href="volt-to-ohm.html">Volts to ohms</a></li>
+          <li><a href="ohm-to-volt.html">Ohms to volts</a></li>
+          <li><a href="Joule_to_Watt.html">Joules to watts</a></li>
+          <li><a href="Joule_to_Volt.html">Joules to volts</a></li>
+          <li><a href="kWh_to_kW.html">kWh to kW</a></li>
+          <li><a href="va-to-watt.html">VA to watts</a></li>
+          <li><a href="va-to-kw.html">VA to kW</a></li>
+          <li><a href="va-to-kva.html">VA to kVA</a></li>
+          <li><a href="kVA_to_Amp.html">kVA to amps</a></li>
+          <li><a href="kva-to-watt.html">kVA to watts</a></li>
+          <li><a href="kva-to-kw.html">kVA to kW</a></li>
+          <li><a href="kva-to-va.html">kVA to VA</a></li>
+          <li><a href="db-converter.html">dB converter</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="db-converter.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

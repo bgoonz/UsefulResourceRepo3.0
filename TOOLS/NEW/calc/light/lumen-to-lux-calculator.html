@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Lumens to lux (lx) conversion calculator</title>
+    <meta
+      name="description"
+      content="Lumens (lm) to lux (lx) conversion calculator and how to calculate."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Lighting calculators</a>&rsaquo; Lumens to
+        lux
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Lumens to lux calculator</h1>
+          <p>
+            Luminous flux in lumens (lm) to illuminance in lux (lx) calculator
+            and how to calculate.
+          </p>
+          <p>
+            Enter the luminous flux in lumens, select area unit type, enter
+            radius in meters for spherical light source or surface area
+          </p>
+          <p>
+            in square meters for any light source and press the
+            <i>Calculate</i> button to get the illuminance in lux:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td>Enter luminous flux in lumens:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x1"
+                      class="intext"
+                      style="width: 200px"
+                      autofocus
+                    />
+                  </td>
+                  <td class="mathsymbol">lm</td>
+                </tr>
+                <tr>
+                  <td>Select area unit type:</td>
+                  <td>
+                    <select
+                      name="cb1"
+                      class="mathsymbol"
+                      style="width: 200px"
+                      onchange="OnChange0()"
+                    >
+                      <option>Area in square feet</option>
+                      <option>Area in square meters</option>
+                    </select>
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Enter spherical radius:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x3"
+                      class="intext"
+                      style="width: 200px"
+                      onchange="OnChange1()"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="td1"
+                      name="td1"
+                      class="mathsymbol"
+                      style="
+                        padding-left: 3px;
+                        width: 35px;
+                        background-color: #e0f0e0;
+                      "
+                      value="ft"
+                      readonly="readonly"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>Or enter surface area:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x2"
+                      class="intext"
+                      style="width: 200px"
+                      onchange="OnChange2()"
+                    />
+                  </td>
+                  <td>
+                    <input
+                      type="text"
+                      id="td2"
+                      name="td2"
+                      class="mathsymbol"
+                      style="
+                        padding-left: 3px;
+                        width: 35px;
+                        background-color: #e0f0e0;
+                      "
+                      value="ft&sup2;"
+                      readonly="readonly"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <input
+                      onclick="calc3()"
+                      type="button"
+                      value="Calculate"
+                      class="btn"
+                    />
+                    <input
+                      onclick="setfocus()"
+                      type="reset"
+                      value="Reset"
+                      class="btn"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Illuminance result in lux:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="y"
+                      class="outtext"
+                      readonly="readonly"
+                      style="width: 200px"
+                    />
+                  </td>
+                  <td class="mathsymbol">lx</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>
+            <a href="lux-to-lumen-calculator.html"
+              >Lux to lumens calculator &#9658;</a
+            >
+          </p>
+          <h2>Lumens to lux calculation formula</h2>
+          <h4>Calculation with area in square feet</h4>
+          <p>
+            The illuminance <i>E</i><sub>v</sub> in lux (lx) is equal to
+            10.76391 times the luminous flux <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span></sub> in lumens (lm)
+            divided by the surface area <i>A</i> in square feet
+            (ft<sup>2</sup>):
+          </p>
+          <p class="math">
+            <i>E</i><sub>v(lx)</sub> = 10.76391 &times;<i> &#934;</i
+            ><sub><span style="font-size: 0.6em">V</span>(lm)</sub> / <i>A</i
+            ><sub>(ft</sub>2<sub>)</sub>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The illuminance <i>E</i><sub>v</sub> in lux (lx) is equal to
+            10.76391 times the luminous flux <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span></sub> in lumens (lm)
+            divided by 4 times pi times the squared sphere radius r in feet
+            (ft):
+          </p>
+          <p class="math">
+            <i>E</i><sub>v(lx)</sub> = 10.76391 &times;<i> &#934;</i
+            ><sub><span style="font-size: 0.6em">V</span>(lm)</sub><i> </i> /<i
+            > </i>(4&sdot;&#960;&sdot;<i>r</i><sub>(ft)</sub><sup>2</sup>)
+          </p>
+          <h4>&nbsp;</h4>
+          <h4>Calculation with area in square meters</h4>
+          <p>
+            The illuminance <i>E</i><sub>v</sub> in lux (lx) is equal to the
+            luminous flux <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span></sub> in lumens (lm)
+            divided by the surface area <i>A</i> in square meters
+            (m<sup>2</sup>):
+          </p>
+          <p class="math">
+            <i>E</i><sub>v(lx)</sub> = <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span>(lm)</sub><i> </i> /<i>
+              A</i
+            ><sub>(m</sub>2<sub>)</sub>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The illuminance <i>E</i><sub>v</sub> in lux (lx) is equal to the
+            luminous flux <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span></sub> in lumens (lm)
+            divided by 4 times pi times the squared sphere radius r in meters
+            (m):
+          </p>
+          <p class="math">
+            <i>E</i><sub>v(lx)</sub> = <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span>(lm)</sub><i> </i> /<i
+            > </i>(4&sdot;&#960;&sdot;<i>r </i><sup>2</sup
+            ><sub>(m</sub>2<sub>)</sub>)
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="how-lumen-to-lux.html"
+              >Lumens to lux calculation &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="lux-to-lumen-calculator.html"
+                >Lux to lumens calculator</a
+              >
+            </li>
+            <li>
+              <a href="watt-to-lumen-calculator.html"
+                >Watts to lumens calculator</a
+              >
+            </li>
+            <li>
+              <a href="how-lumen-to-watt.html">Lumens to watts calculation</a>
+            </li>
+            <li><a href="../../electric/watt.html">Watt</a></li>
+            <li><a href="index.html">Lighting calculators</a></li>
+            <li>
+              <a href="../../convert/electric/index.html"
+                >Electrical calculation</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/power/index.html">Power conversion</a>
+            </li>
+          </ul>
+          <script src="../../convert/convert.js"></script>
+          <script>
+            function OnChange0() {
+              i = document.calcform.cb1.selectedIndex;
+              if (i == 0) {
+                document.calcform.td1.value = "ft";
+                document.calcform.td2.value = "ft\u00B2";
+              } else {
+                document.calcform.td1.value = "m";
+                document.calcform.td2.value = "m\u00B2";
+              }
+            }
+            function OnChange1() {
+              x3 = document.calcform.x3.value;
+              x2 = 4 * Math.PI * x3 * x3;
+              document.calcform.x2.value = roundresult(x2);
+            }
+            function OnChange2() {
+              x2 = document.calcform.x2.value;
+              x3 = Math.sqrt(x2 / (4 * Math.PI));
+              document.calcform.x3.value = roundresult(x3);
+            }
+            function convert(x1, x2) {
+              i = document.calcform.cb1.selectedIndex;
+              y = x1 / x2;
+              if (i == 0) y *= 10.76391;
+              return y;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LIGHTING CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="candela-to-lumen-calculator.html">Candela to lumens</a>
+          </li>
+          <li><a href="candela-to-lux-calculator.html">Candela to lux</a></li>
+          <li><a href="fc-to-lux-calculator.html">Footcandles to lux</a></li>
+          <li>
+            <a href="lumen-to-candela-calculator.html">Lumens to candela</a>
+          </li>
+          <li><a href="lumen-to-lux-calculator.html">Lumens to lux</a></li>
+          <li>
+            <a href="lumen-to-mcd-calculator.html">Lumens to millicandela</a>
+          </li>
+          <li><a href="lumen-to-watt-calculator.html">Lumens to watts</a></li>
+          <li><a href="lux-to-candela-calculator.html">Lux to candela</a></li>
+          <li><a href="lux-to-fc-calculator.html">Lux to footcandles</a></li>
+          <li><a href="lux-to-lumen-calculator.html">Lux to lumens</a></li>
+          <li><a href="lux-to-watt-calculator.html">Lux to watts</a></li>
+          <li>
+            <a href="mcd-to-lumen-calculator.html">Millicandela to lumens</a>
+          </li>
+          <li><a href="watt-to-lumen-calculator.html">Watts to lumens</a></li>
+          <li><a href="watt-to-lux-calculator.html">Watts to lux</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="lumen-to-lux-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

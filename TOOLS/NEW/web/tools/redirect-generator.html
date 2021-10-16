@@ -1,0 +1,493 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>301 redirect code generator - permanent URL redirection</title>
+    <meta
+      name="description"
+      content="301 permanent redirect with PHP,ASP,ASP.NET, HTML,.htaccess code generation."
+    />
+    <style>
+      #calc {
+        background: #f0f0f0;
+        padding: 10px;
+        border: 1px #ccc solid;
+        border-radius: 7px;
+        -moz-border-radius: 7px;
+        -webkit-border-radius: 7px;
+      }
+      select {
+        font-size: large;
+        padding: 5px;
+      }
+      input[type="text"] {
+        font-size: large;
+        padding: 5px;
+        width: 100%;
+      }
+      @media all and (max-width: 576px) {
+        .dtable tr th:nth-child(5) {
+          display: none;
+        }
+        .dtable tr td:nth-child(5) {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Tools</a>&rsaquo; 301 redirect generator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>301 Redirect Code Generator</h1>
+          <p>Use permanent 301 redirect to preserve search engines rank.</p>
+          <p>
+            The code generator supports web pages redirection of html, php, asp,
+            aspx files and .htaccess redirect.
+          </p>
+          <h2>Redirect geneartor</h2>
+          <form name="gen" id="calc">
+            <p>Enter URL of old page:</p>
+            <input
+              type="text"
+              id="T1"
+              name="T1"
+              placeholder="http://www.mydomain.com/old-page.html"
+              required
+              autofocus
+            />
+            <p>Enter URL of new page:</p>
+            <input
+              type="text"
+              id="T2"
+              name="T2"
+              placeholder="http://www.mydomain.com/new-page.html"
+              required
+            />
+            <p>Select redirect type:</p>
+            <p>
+              <select id="C1" name="C1">
+                <option selected>PHP redirect</option>
+                <option>ASP redirect</option>
+                <option>ASP.NET redirect</option>
+                <option>Apache .htaccess redirect</option>
+                <option>HTML meta tag redirect</option>
+                <option>Javascript redirect</option>
+              </select>
+            </p>
+            <p>&nbsp;</p>
+            <p>
+              <input
+                type="button"
+                value="Generate Code"
+                name="B1"
+                onclick="GenerateButton()"
+                class="btn"
+              />
+              <input
+                type="button"
+                value="Reset"
+                name="B2"
+                onclick="OnReset()"
+                class="btn"
+              />
+            </p>
+            <p>Generated redirect code to replace old page code:</p>
+            <p>
+              <i>Click</i> on code to copy text to replace old URL page file
+              with redirection code.
+            </p>
+            <p>
+              <textarea
+                rows="9"
+                id="TA1"
+                name="TA1"
+                onclick="OnSelectCode()"
+                style="
+                  font-size: 1.1em;
+                  width: 100%;
+                  background: #e0e0e0;
+                  border: 1px #c0c0c0 solid;
+                "
+              ></textarea>
+            </p>
+            <p>
+              <input
+                type="button"
+                value="Select Code"
+                name="B3"
+                onclick="OnSelectCode()"
+                class="btn"
+              />
+            </p>
+          </form>
+          <h2>Where to put redirect code</h2>
+          <table class="dtable">
+            <tr>
+              <th>Domain<br />name</th>
+              <th>Hosting<br />server</th>
+              <th>Redirect code<br />placement</th>
+            </tr>
+            <tr>
+              <td>not changed</td>
+              <td>not changed</td>
+              <td>old page on same server</td>
+            </tr>
+            <tr>
+              <td>not changed</td>
+              <td>changed</td>
+              <td>old page on new server</td>
+            </tr>
+            <tr>
+              <td>changed</td>
+              <td>not changed</td>
+              <td>old page on same server</td>
+            </tr>
+            <tr>
+              <td>changed</td>
+              <td>changed</td>
+              <td>old page on old server</td>
+            </tr>
+          </table>
+          <p>
+            * Only with <em>.htaccess</em> redirect: add redirect code to
+            <em>httpd.conf</em> file or to <em>.htaccess</em> file.
+          </p>
+          <h2>Redirect options</h2>
+          <table class="dtable">
+            <tr>
+              <th>Redirect type</th>
+              <th>Redirect side</th>
+              <th>Old page<br />file type</th>
+              <th>Old URL server type</th>
+              <th>Is permanent<br />301 redirect?</th>
+            </tr>
+            <tr>
+              <td>PHP</td>
+              <td>Server-side</td>
+              <td>.php</td>
+              <td>Apache / Linux</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>ASP</td>
+              <td>Server-side</td>
+              <td>.asp</td>
+              <td>IIS / Windows</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>ASP.NET</td>
+              <td>Server-side</td>
+              <td>.aspx</td>
+              <td>IIS / Windows</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>Apache .htaccess</td>
+              <td>Server-side</td>
+              <td>all</td>
+              <td>Apache / Linux</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>IIS web.config</td>
+              <td>Server-side</td>
+              <td>all</td>
+              <td>IIS / Windows</td>
+              <td>yes</td>
+            </tr>
+            <tr>
+              <td>HTML meta tag</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>Javascript</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+            <tr>
+              <td>jQuery</td>
+              <td>Client-side</td>
+              <td>.html</td>
+              <td>all</td>
+              <td>no</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="../dev/url-redirect.html">URL redirection &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../dev/url-redirect.html">URL redirection</a></li>
+            <li><a href="../dev/php-redirect.html">PHP redirection</a></li>
+            <li>
+              <a href="../dev/htaccess-redirect.html">.htaccess redirection</a>
+            </li>
+            <li><a href="../dev/html-redirect.html">HTML redirection</a></li>
+            <li>
+              <a href="../dev/javascript-redirect.html"
+                >Javascript redirection</a
+              >
+            </li>
+            <li>
+              <a href="html-table-generator.html">HTML table generator</a>
+            </li>
+            <li><a href="pixel-ruler.html">Online pixel ruler</a></li>
+            <li><a href="../color/color-tester.html">Color tester</a></li>
+            <li><a href="base64-decode.html">Base64 decoder</a></li>
+            <li><a href="base64-encode.html">Base64 encoder</a></li>
+          </ul>
+          <script>
+            var old_url,new_url,T1,T2,TA1;
+            window.onload = function()
+            {
+            	old_url = "http://www.mydomain.com/old-page.html";
+            	new_url = "http://www.mydomain.com/new-page.html";
+            	T1 = document.getElementById('T1');
+            	T2 = document.getElementById('T2');
+            	TA1 = document.getElementById('TA1');
+            };
+            function OnSelectCode()
+            {
+            	document.gen.TA1.select();
+            }
+            function OnReset()
+            {
+            	T1.value="";
+            	T2.value="";
+            	TA1.value="";
+            }
+            function GenerateButton()
+            {
+            	src  = T1.value;
+            	dest = T2.value;
+            	if( src=="" )  src = old_url;
+            	if( dest=="" ) dest= new_url;
+            	src.replace("%20"," ");
+            	dest.replace("%20"," ");
+            	type = document.getElementById('C1').selectedIndex;
+            	if( type == 0 ) // php
+            	{
+            		txt = '<?php\n';
+            		txt+= '// PHP permanent URL redirect - generated by www.rapidtables.com\n';
+            		//txt+= 'header("HTTP/1.1 301 Moved Permanently");\n';
+            		txt+= 'header("Location: '+dest+'", true, 301);\n';
+            		txt+= 'exit();\n';
+            		txt+= '?>';
+            	}
+            	else if( type == 1 ) // asp
+            	{
+            		txt = '<%@ Language="VBScript" %>\n';
+            		txt+= '<%\n';
+            		txt+= '\' ASP permanent URL redirect - generated by www.rapidtables.com\n';
+            		txt+= 'Response.Status="301 Moved Permanently"\n';
+            		txt+= 'Response.AddHeader "Location", "'+dest+'"\n';
+            		txt+= 'Response.End\n';
+            		txt+= '%>';
+            		// asp
+            		//txt = '<%\n';
+            		//txt+= 'Response.Redirect("'+dest+'")\n';
+            		//txt+= '%>';
+            	}
+            	else if( type == 2 ) // asp.net
+            	{
+            		txt = '<script language="C#" runat="server">\n';
+            		txt+= '// ASP.net permanent URL redirect - generated by www.rapidtables.com\n';
+            		txt+= 'private void Page_Load(object sender, System.EventArgs e)\n';
+            		txt+= '{\n';
+            		txt+= '   Response.Status = "301 Moved Permanently";\n';
+            		txt+= '   Response.AddHeader("Location","'+dest+'");\n';
+            		txt+= '   Response.End();\n';
+            		txt+= '}\n';
+            		txt+= '</scrip';
+            		txt+= 't>';
+            	}
+            	else if( type == 3 ) // .htaccess
+            	{
+            		txt  = '# Permanent URL redirect - generated by www.rapidtables.com\n';
+            		//txt += 'RewriteEngine On';
+            		txt += 'Redirect 301 ';
+            		url = src;
+            		i = url.indexOf("//");
+            		if(i>0)
+            			url = url.substring(i+2);
+            		i = url.indexOf("/");
+            		if(i>=0)
+            			url = url.substring(i);
+            		else
+            			url = '/';
+            		if( url.indexOf(' ')!=-1 )
+            			url = '\u0022'+url+'\u0022';
+            		if( dest.indexOf(' ')!=-1 )
+            			dest = '\u0022'+dest+'\u0022';
+            		txt+= url;
+            		txt+= ' ';
+            		txt+= dest;
+            		txt+= '\n';
+            	}
+            	else if( type == 4 ) // html meta tag
+            	{
+            		txt = '<!DOCTYPE html>\n<html>\n<head>\n';
+            		txt+= '<!-- HTML meta URL redirect - generated by www.rapidtables.com -->\n';
+            		txt+= '<meta http-equiv="refresh" content="0; URL=https://www.rapidtables.com/web/tools/';				txt+=&#32;dest;				txt+=&#32;'">\n</head>\n<body>\n</body>\n</html>';
+            	}
+            	else
+            	{
+            		txt = '<!DOCTYPE html>\n<html>\n<body>\n<script>\n';
+            		txt+= '    // Javascript URL redirection - generated by www.rapidtables.com\n';
+            		txt+= '    window.location.replace(\"'+dest+'\");\n';
+            		txt+= '</'+'script>\n</'+'body>\n</'+'html>';
+            	}
+            	TA1.value = txt;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB TOOLS</h5>
+        <ul>
+          <li><a href="redirect-generator.html">301 redirect generator</a></li>
+          <li><a href="base64-decode.html">Base64 decoder</a></li>
+          <li><a href="base64-encode.html">Base64 encoder</a></li>
+          <li><a href="html-editor.html">HTML editor</a></li>
+          <li><a href="html-link-code.html">HTML link generator</a></li>
+          <li><a href="html-table-generator.html">HTML table generator</a></li>
+          <li><a href="http-header-checker.html">HTTP header checker</a></li>
+          <li><a href="http-status-checker.html">HTTP status checker</a></li>
+          <li><a href="pixel-ruler.html">Online pixel ruler</a></li>
+          <li><a href="screen-resolution.html">Screen resolution</a></li>
+          <li>
+            <a href="screen-resolution-tester.html">Screen resolution tester</a>
+          </li>
+          <li><a href="svg-viewer-editor.html">SVG viewer/editor</a></li>
+          <li><a href="url-encoder.html">URL encoder</a></li>
+          <li><a href="url-decoder.html">URL decoder</a></li>
+          <li><a href="window-size.html">Window size</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="redirect-generator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

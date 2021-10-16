@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Millicandela (mcd) to lumens (lm) conversion calculator</title>
+    <meta
+      name="description"
+      content="Millicandela (mcd) to lumens (lm) conversion calculator and how to convert."
+    />
+    <script src="../../convert/convert.js"></script>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Lighting calculators</a>&rsaquo;
+        Millicandela to lumens
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Millicandela to lumens calculator</h1>
+          <p>
+            Millicandela (mcd) to lumens (lm) calculator and how to calculate.
+          </p>
+          <h3>Millicandela to lumens calculator</h3>
+          <p>
+            Enter the luminous flux in lumens, apex angle in degrees and press
+            the <i>Calculate</i> button
+          </p>
+          <p>to get the luminous intensity in millicandela:</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td>Enter Luminous intensity result in millicandela:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x1"
+                      class="intext"
+                      style="width: 220px"
+                      autofocus
+                    />
+                  </td>
+                  <td class="mathsymbol">mcd</td>
+                </tr>
+                <tr>
+                  <td>Enter apex angle in degrees:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x2"
+                      class="intext"
+                      style="width: 220px"
+                    />
+                  </td>
+                  <td class="mathsymbol">&deg;</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <input
+                      onclick="calc3()"
+                      type="button"
+                      value="Calculate"
+                      class="btn"
+                    />
+                    <input
+                      onclick="setfocus()"
+                      type="reset"
+                      value="Reset"
+                      class="btn"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>luminous flux result in lumens:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="y"
+                      class="outtext"
+                      readonly="readonly"
+                      style="width: 220px"
+                    />
+                  </td>
+                  <td class="mathsymbol">lm</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>
+            <a href="lumen-to-mcd-calculator.html"
+              >Lumens to millicandela calculator &#9658;</a
+            >
+          </p>
+          <h3>Millicandela to lumens calculation</h3>
+          <p>
+            For uniform, isotropic light source, the luminous flux &#934;<sub
+              >v
+            </sub>
+            in lumens (lm) is equal to the luminous intensity <i>I</i
+            ><sub>v</sub> in millicandela (mcd),
+          </p>
+          <p>
+            times the solid angle <i>&#937;</i> in steradians (sr) divided by
+            1000:
+          </p>
+          <p class="math">
+            <i>&#934;</i><sub>v(lm)</sub> = <i>I</i><sub>v(mcd)</sub> &times;
+            <i>&#937;</i><sub>(sr)</sub> / 1000
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The solid angle <i>&#937;</i> in steradians (sr) is equal to 2 times
+            pi times 1 minus cosine of half the apex angle <i>&#952;</i> in
+            degrees (&deg;):
+          </p>
+          <p class="math">
+            <i>&#937;</i><sub>(sr)</sub> = 2&#960;(1 - cos(<i>&#952;</i>/2))
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            The luminous flux &#934;<sub>v </sub> in lumens (lm) is equal to the
+            luminous intensity <i>I</i><sub>v</sub> in millicandela (mcd),
+          </p>
+          <p>
+            times 2 times pi times 1 minus cosine of half the apex angle
+            <i>&#952;</i> in degrees (&deg;) divided by 1000:
+          </p>
+          <p class="math">
+            <i>&#934;</i><sub>v(lm)</sub> = <i>I</i><sub>v(mcd)</sub> &times; (
+            2&#960;(1 - cos(<i>&#952;</i>/2)) ) / 1000
+          </p>
+          <p>So</p>
+          <p class="math">
+            lumens = millicandela &times; ( 2&#960;(1 - cos(degrees/2)) ) / 1000
+          </p>
+          <p>Or</p>
+          <p class="math">
+            lm = mcd &times; ( 2&#960;(1 - cos(&deg;/2)) ) / 1000
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="lumen-to-mcd-calculator.html"
+                >Lumens to millicandela calculator</a
+              >
+            </li>
+            <li>
+              <a href="lumen-to-candela-calculator.html"
+                >Lumens to candela calculator</a
+              >
+            </li>
+            <li>
+              <a href="watt-to-lumen-calculator.html"
+                >Watts to lumens calculator</a
+              >
+            </li>
+            <li>
+              <a href="how-lumen-to-watt.html">Lumens to watts calculation</a>
+            </li>
+            <li><a href="../../electric/watt.html">Watt (W)</a></li>
+            <li>
+              <a href="../../convert/electric/index.html"
+                >Electrical calculation</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/power/index.html">Power conversion</a>
+            </li>
+          </ul>
+          <script>
+            function convert(x1, x2) {
+              var mcd = parseFloat(x1);
+              var deg = parseFloat(x2);
+              deg *= Math.PI / 180;
+              return (mcd * (2 * Math.PI * (1 - Math.cos(deg / 2)))) / 1000;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LIGHTING CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="candela-to-lumen-calculator.html">Candela to lumens</a>
+          </li>
+          <li><a href="candela-to-lux-calculator.html">Candela to lux</a></li>
+          <li><a href="fc-to-lux-calculator.html">Footcandles to lux</a></li>
+          <li>
+            <a href="lumen-to-candela-calculator.html">Lumens to candela</a>
+          </li>
+          <li><a href="lumen-to-lux-calculator.html">Lumens to lux</a></li>
+          <li>
+            <a href="lumen-to-mcd-calculator.html">Lumens to millicandela</a>
+          </li>
+          <li><a href="lumen-to-watt-calculator.html">Lumens to watts</a></li>
+          <li><a href="lux-to-candela-calculator.html">Lux to candela</a></li>
+          <li><a href="lux-to-fc-calculator.html">Lux to footcandles</a></li>
+          <li><a href="lux-to-lumen-calculator.html">Lux to lumens</a></li>
+          <li><a href="lux-to-watt-calculator.html">Lux to watts</a></li>
+          <li>
+            <a href="mcd-to-lumen-calculator.html">Millicandela to lumens</a>
+          </li>
+          <li><a href="watt-to-lumen-calculator.html">Watts to lumens</a></li>
+          <li><a href="watt-to-lux-calculator.html">Watts to lux</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="mcd-to-lumen-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

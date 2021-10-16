@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com" />
+    <title>Time Calculator</title>
+    <meta
+      name="description"
+      content="Time calculator. Adding and subtracting time."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform,
+      #calcform2,
+      #calcform3 {
+        padding: 20px;
+        max-width: 630px;
+        background: #eee8d5;
+      }
+      #calcform input[type="number"] {
+        max-width: 85px;
+      }
+      .btn span {
+        font-size: large;
+        font-weight: bold;
+      }
+      #wrapper td {
+        padding-left: 1px;
+        padding-right: 1px;
+      }
+      .calc {
+        padding: 10px;
+        background: #eee8d5;
+      }
+      .calc button img {
+        filter: brightness(0) invert(1);
+      }
+      .calc tr td {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        background: #eee8d5 !important;
+      }
+      .calc tr td input[type="number"] {
+        width: 83px;
+      }
+      .calc tr td:first-child input[type="number"] {
+        width: 95px;
+      }
+      .calc select {
+        width: 100%;
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          width: 100%;
+        }
+        .calc td {
+          float: left;
+        }
+        .calc td:nth-child(7) {
+          clear: left;
+        }
+        .calc
+          tr:nth-child(n + 1):nth-child(even):nth-child(-n + 6)
+          td:nth-child(n + 1):nth-child(even):nth-child(-n + 10) {
+          padding-top: 12px;
+        }
+        .calc select {
+          width: 300px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Time calculators</a>&rsaquo; Time
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Time Calculator</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-row">
+              <div class="form-group ml-1">
+                <label for="y1">Years</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="y1"
+                  name="y1"
+                  class="form-control"
+                  autofocus
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="mon1">Months</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="mon1"
+                  name="mon1"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="d1">Days</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="d1"
+                  name="d1"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="h1">Hours</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="h1"
+                  name="h1"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="m1">Minutes</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="m1"
+                  name="m1"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="s1">Seconds</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="s1"
+                  name="s1"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label>&nbsp;</label>
+                <div class="input-group">
+                  <button
+                    type="button"
+                    id="now1"
+                    class="btn btn-sm btn-light mt-1"
+                  >
+                    Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <select id="op" class="form-control">
+                <option>+ Add</option>
+                <option>- Subtract</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group ml-1">
+                <label for="y2">Years</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="y2"
+                  name="y2"
+                  class="form-control"
+                  autofocus
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="mon2">Months</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="mon2"
+                  name="mon2"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="d2">Days</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="d2"
+                  name="d2"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="h2">Hours</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="h2"
+                  name="h2"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="m2">Minutes</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="m2"
+                  name="m2"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="s2">Seconds</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="s2"
+                  name="s2"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label>&nbsp;</label>
+                <div class="input-group">
+                  <button
+                    type="button"
+                    id="now2"
+                    class="btn btn-sm btn-light mt-1"
+                  >
+                    Now
+                  </button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Calculate"
+                class="btn btn-primary"
+                onclick="calc()"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button type="reset" title="Reset" class="btn btn-secondary">
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-row">
+              <div class="form-group ml-1">
+                <label for="y">Years</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="y"
+                  name="y"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="mon">Months</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="mon"
+                  name="mon"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="d">Days</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="d"
+                  name="d"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="h">Hours</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="h"
+                  name="h"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="m">Minutes</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="m"
+                  name="m"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+              <div class="form-group ml-1">
+                <label for="s">Seconds</label>
+                <input
+                  type="number"
+                  min="0"
+                  id="s"
+                  name="s"
+                  class="form-control"
+                  readonly
+                />
+              </div>
+            </div>
+          </form>
+          <p><a href="date-calculator.html">Date calculator &#9658;</a></p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="date-calculator.html">Date calculator</a></li>
+            <li><a href="age-calculator.html">Age calculator</a></li>
+            <li><a href="birthday-calculator.html">Birthday calculator</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>TIME CALCULATORS</h5>
+        <ul>
+          <li><a href="age-calculator.html">Age calculator</a></li>
+          <li><a href="birthday-calculator.html">Birthday calculator</a></li>
+          <li><a href="date-calculator.html">Date calculator</a></li>
+          <li><a href="time-calculator.html">Time calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="time-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"
+      integrity="sha256-4iQZ6BVL4qNKlQ27TExEhBN1HFPvAvAMbFavKKosSWQ="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+      var calcform = document.getElementById("calcform");
+      var now1 = document.getElementById("now1");
+      var now2 = document.getElementById("now2");
+      //$( document ).ready(function() {
+      window.onload = function () {
+        calcform.onkeypress = function (e) {
+          if (e.keyCode == 13) calc();
+        };
+        //$("#now1").click( function() { onnow(1);} );
+        //$("#now2").click( function() { onnow(2);} );
+        now1.onclick = function () {
+          onnow(1);
+        };
+        now2.onclick = function () {
+          onnow(2);
+        };
+      };
+      function onnow(n) {
+        var now = moment();
+        var y = now.year();
+        var mon = now.month() + 1;
+        var d = now.date();
+        var h = now.hour();
+        var m = now.minute();
+        var s = now.second();
+        if (n == 1) {
+          $("#y1").val(y);
+          $("#mon1").val(mon);
+          $("#d1").val(d);
+          $("#h1").val(h);
+          $("#m1").val(m);
+          $("#s1").val(s);
+        } else {
+          $("#y2").val(y);
+          $("#mon2").val(mon);
+          $("#d2").val(d);
+          $("#h2").val(h);
+          $("#m2").val(m);
+          $("#s2").val(s);
+        }
+      }
+      function calc() {
+        var y1 = $("#y1").val();
+        var mon1 = $("#mon1").val();
+        var d1 = $("#d1").val();
+        var h1 = $("#h1").val();
+        var m1 = $("#m1").val();
+        var s1 = $("#s1").val();
+        var y2 = $("#y2").val();
+        var mon2 = $("#mon2").val();
+        var d2 = $("#d2").val();
+        var h2 = $("#h2").val();
+        var m2 = $("#m2").val();
+        var s2 = $("#s2").val();
+        if (y1 == "") y1 = "0";
+        if (mon1 == "") mon1 = "0";
+        if (d1 == "") d1 = "0";
+        if (h1 == "") h1 = "0";
+        if (m1 == "") m1 = "0";
+        if (s1 == "") s1 = "0";
+        if (y2 == "") y2 = "0";
+        if (mon2 == "") mon2 = "0";
+        if (d2 == "") d2 = "0";
+        if (h2 == "") h2 = "0";
+        if (m2 == "") m2 = "0";
+        if (s2 == "") s2 = "0";
+        y1 = parseFloat(y1);
+        mon1 = parseFloat(mon1);
+        d1 = parseFloat(d1);
+        h1 = parseFloat(h1);
+        m1 = parseFloat(m1);
+        s1 = parseFloat(s1);
+        y2 = parseFloat(y2);
+        mon2 = parseFloat(mon2);
+        d2 = parseFloat(d2);
+        h2 = parseFloat(h2);
+        m2 = parseFloat(m2);
+        s2 = parseFloat(s2);
+        var d1 = moment.duration({
+          seconds: s1,
+          minutes: m1,
+          hours: h1,
+          days: d1,
+          months: mon1,
+          years: y1,
+        });
+        var d2 = moment.duration({
+          seconds: s2,
+          minutes: m2,
+          hours: h2,
+          days: d2,
+          months: mon2,
+          years: y2,
+        });
+        var dur;
+        if ($("#op")[0].selectedIndex == 0) dur = d1.add(d2);
+        else dur = d1.subtract(d2);
+        var y = dur.years();
+        var mon = dur.months();
+        var d = dur.days();
+        var h = dur.hours();
+        var m = dur.minutes();
+        var s = dur.seconds();
+        $("#y").val(y);
+        $("#mon").val(mon);
+        $("#d").val(d);
+        $("#h").val(h);
+        $("#m").val(m);
+        $("#s").val(s);
+      }
+    </script>
+  </body>
+</html>

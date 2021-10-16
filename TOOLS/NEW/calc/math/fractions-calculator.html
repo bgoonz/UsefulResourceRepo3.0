@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Fractions Calculator</title>
+    <meta
+      name="description"
+      content="Fractions calculator with mixed numbers and steps"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      .adslot_1 {
+        display: none;
+      }
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 20px;
+        max-width: 500px;
+        background: #eee8d5;
+      }
+      #calcform td input[type="number"] {
+        width: 80px;
+        text-align: center;
+        margin: 4px auto;
+      }
+      #calcform td input[type="text"] {
+        width: 80px;
+        text-align: center;
+        margin: 4px auto;
+      }
+      #calcform .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      #calcform .btn img {
+        filter: invert(1);
+      }
+      #op {
+        font-weight: bold;
+      }
+      #td11,
+      #td14 {
+        display: none;
+      }
+      #td12,
+      #td31,
+      #td34 {
+        padding-bottom: 0px;
+      }
+      #td21,
+      #td22,
+      #td41,
+      #td42 {
+        border-top: #666 3px solid;
+        padding-top: 1px;
+      }
+      #fracdiv {
+        margin-right: 0;
+        padding: 10px;
+        border: 1px #ccc solid;
+        background: #e9ecef;
+      }
+      #frac {
+        height: 42px;
+      }
+      #wrapper td {
+        padding-left: unset;
+        padding-right: unset;
+      }
+      @media all and (max-width: 800px) {
+        .adslot_1,
+        .adslot_2,
+        .adslot_3 {
+          display: none;
+        }
+        #calcform {
+          padding: 10px;
+        }
+        #calcform td input[type="number"] {
+          width: 60px;
+        }
+        #calcform td input[type="text"] {
+          width: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo; Fractions
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Fractions Calculator</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+              <label class="btn btn-secondary active">
+                <input type="radio" name="fractype" id="sf" checked /> Simple
+                Fractions
+              </label>
+              <label class="btn btn-secondary">
+                <input type="radio" name="fractype" id="mf" /> Mixed Fractions
+              </label>
+            </div>
+            <div class="form-group mt-3">
+              <table>
+                <tr>
+                  <td id="td11" rowspan="2">
+                    <input
+                      type="number"
+                      step="1"
+                      id="x1"
+                      class="form-control form-control-lg"
+                    />
+                  </td>
+                  <td id="td12">
+                    <input
+                      type="number"
+                      step="1"
+                      id="n1"
+                      class="form-control"
+                      autofocus
+                    />
+                  </td>
+                  <td id="td13" rowspan="2" class="pl-2 pr-2">
+                    <select id="op" class="form-control form-control-lg">
+                      <option selected>+</option>
+                      <option>-</option>
+                      <option>&times;</option>
+                      <option>&divide;</option>
+                    </select>
+                  </td>
+                  <td id="td14" rowspan="2">
+                    <input
+                      type="number"
+                      step="1"
+                      id="x2"
+                      class="form-control form-control-lg"
+                    />
+                  </td>
+                  <td id="td15">
+                    <input
+                      type="number"
+                      step="1"
+                      id="n2"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td id="td21">
+                    <input
+                      type="number"
+                      step="1"
+                      id="d1"
+                      class="form-control"
+                    />
+                  </td>
+                  <td id="td22">
+                    <input
+                      type="number"
+                      step="1"
+                      id="d2"
+                      class="form-control"
+                    />
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Calculate"
+                class="btn btn-secondary"
+                onclick="fcalc()"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                title="Reset"
+                class="btn btn-secondary"
+                onclick="freset()"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <label>Result</label>
+              <table>
+                <tr>
+                  <td id="td31">
+                    <input type="text" id="n3" class="form-control" readonly />
+                  </td>
+                  <td id="td32" rowspan="2" class="pl-2 pr-2">=</td>
+                  <td id="td33" rowspan="2">
+                    <input type="text" id="x3" class="form-control" readonly />
+                  </td>
+                  <td id="td34">
+                    <input type="text" id="n4" class="form-control" readonly />
+                  </td>
+                </tr>
+                <tr>
+                  <td id="td41">
+                    <input type="text" id="d3" class="form-control" readonly />
+                  </td>
+                  <td id="td42">
+                    <input type="text" id="d4" class="form-control" readonly />
+                  </td>
+                </tr>
+              </table>
+            </div>
+            <div class="form-group ml-3">
+              <label class="row">View</label>
+              <div id="fracdiv" class="row">
+                <canvas id="frac"></canvas>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="area">Calculation steps</label>
+              <textarea
+                rows="7"
+                id="area"
+                class="form-control"
+                readonly
+              ></textarea>
+            </div>
+          </form>
+          <p>
+            <a href="fraction-simplifier.html">Fraction simplifier &#9658;</a>
+          </p>
+          <h4>Adding fractions example</h4>
+          <p class="math">
+            1/2 + 1/3 = (1&times;3+1&times;2) / (2&times;3) = 5/6
+          </p>
+          <h4>Subtracting fractions example</h4>
+          <p class="math">
+            1/2 - 1/3 = (1&times;3 - 1&times;2) / (2&times;3) = 1/6
+          </p>
+          <h4>Multiplying fractions example</h4>
+          <p class="math">1/2 &times; 1/3 = (1&times;1) / (2&times;3) = 1/6</p>
+          <h4>Dividing fractions example</h4>
+          <p class="math">
+            1/2 &divide; 1/3 = 1/2 &times; 3/1 = (1&times;3) / (2&times;1) = 3 /
+            2 = 1 1/2
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+            <li>
+              <a href="../../convert/number/Fraction_to_Decimal.html"
+                >Fraction to decimal</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/fraction-to-percent.html"
+                >Fraction to percent</a
+              >
+            </li>
+            <li>
+              <a href="adding-fractions-calculator.html"
+                >Adding fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="subtracting-fractions-calculator.html"
+                >Subtracting fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="multiplying-fractions-calculator.html"
+                >Multiplying fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="dividing-fractions-calculator.html"
+                >Dividing fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/Decimal_to_Fraction.html"
+                >Decimal to fraction</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/percent-to-fraction.html"
+                >Percent to fraction
+              </a>
+            </li>
+            <li><a href="gcf-calculator.html">GCF calculator</a></li>
+            <li><a href="lcm-calculator.html">LCM calculator</a></li>
+            <li>
+              <a href="Percentage_Calculator.html">Percentage calculator</a>
+            </li>
+          </ul>
+          <script src="../calc2.js" defer></script>
+          <script src="../../convert/number.js" defer></script>
+          <script src="../../lib/utils/mathview.js"></script>
+          <script
+            src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+            integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+            integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+            crossorigin="anonymous"
+          ></script>
+          <script>
+            $(document).ready(function () {
+              $("#td11").hide();
+              $("#td14").hide();
+              $("#td32").hide();
+              $("#td33").hide();
+              $("#td34").hide();
+              $("#td42").hide();
+              $("#mf").toggleClass("active");
+              $("#sf").click(function () {
+                $("#td11").hide();
+                $("#td14").hide();
+                $("#x1").val("");
+                $("#x2").val("");
+                $("#n1").focus();
+              });
+              $("#mf").click(function () {
+                $("#td11").show();
+                $("#td14").show();
+                $("#x1").focus();
+              });
+            });
+            function freset() {
+              var obj = document.getElementById("frac");
+              ClearView(obj);
+            }
+            function fcalc() {
+              var out1 = (out2 = "");
+              var s1 = (s2 = s3 = 1);
+              var w1 = $("#x1").val();
+              var n1 = $("#n1").val();
+              var d1 = $("#d1").val();
+              var w2 = $("#x2").val();
+              var n2 = $("#n2").val();
+              var d2 = $("#d2").val();
+              var op = $("#op").prop("selectedIndex");
+              if (n1 == "" || d1 == "" || n2 == "" || d2 == "") {
+                alert("Please enter 2 fractions");
+                return;
+              }
+              if (w1 == "-") {
+                s1 = -1;
+                w1 = "0";
+              }
+              if (w2 == "-") {
+                s2 = -1;
+                w2 = "0";
+              }
+              if (w1 == "") w1 = "0";
+              if (w2 == "") w2 = "0";
+              w1 = parseInt(w1);
+              n1 = parseInt(n1);
+              d1 = parseInt(d1);
+              w2 = parseInt(w2);
+              n2 = parseInt(n2);
+              d2 = parseInt(d2);
+              op = parseInt(op);
+
+              if (w1 == 0 && n1 / d1 < 0) s1 = -1;
+              if (w2 == 0 && n2 / d2 < 0) s2 = -1;
+              n1 = Math.abs(n1);
+              d1 = Math.abs(d1);
+              n2 = Math.abs(n2);
+              d2 = Math.abs(d2);
+              if (w1 != 0 || w2 != 0) {
+                $("#n1").val(n1);
+                $("#d1").val(d1);
+                $("#n2").val(n2);
+                $("#d2").val(d2);
+              }
+              if (w1 < 0) {
+                s1 = -1;
+                w1 = -w1;
+              }
+              if (w2 < 0) {
+                s2 = -1;
+                w2 = -w2;
+              }
+
+              _n1 = s1 * (n1 + w1 * d1);
+              _n2 = s2 * (n2 + w2 * d2);
+
+              if (op == 0) {
+                // +
+                n3 = _n1 * d2 + _n2 * d1;
+                d3 = d1 * d2;
+              } else if (op == 1) {
+                // -
+                n3 = _n1 * d2 - _n2 * d1;
+                d3 = d1 * d2;
+              } else if (op == 2) {
+                // x
+                n3 = _n1 * _n2;
+                d3 = d1 * d2;
+              } else {
+                n3 = _n1 * d2;
+                d3 = d1 * _n2;
+              }
+              if (n3 / d3 < 0) s3 = -1;
+              n3 = Math.abs(n3);
+              d3 = Math.abs(d3);
+              g = gcd(n3, d3);
+              n3 /= g;
+              d3 /= g;
+              var sn3 = s3 * n3;
+              var sd3 = d3;
+              //out1 = sn3+'/'+sd3;
+              var sign = "";
+              if (n3 > d3) {
+                i = Math.floor(n3 / d3);
+                j = n3 - i * d3;
+                if (j > 0) {
+                  if (s3 == -1) sign = "-";
+                }
+              }
+              $("#n3").val(sn3);
+              $("#d3").val(sd3);
+              if (n3 > d3) {
+                $("#x3").val(sign + i);
+                $("#n4").val(j);
+                $("#d4").val(d3);
+                $("#td32").show();
+                $("#td33").show();
+                $("#td34").show();
+                $("#td42").show();
+              } else {
+                $("#td32").hide();
+                $("#td33").hide();
+                $("#td34").hide();
+                $("#td42").hide();
+              }
+
+              ops = [" + ", " - ", " \u00D7 ", " / "][op];
+              out = "";
+              if (w1 != "") out += w1 + " ";
+              out += s1 * n1 + "/" + d1;
+              out += ops;
+              if (w2 != "") out += w2 + " ";
+              out += s2 * n2 + "/" + d2;
+              if (w1 != 0 || w2 != 0) {
+                out += "\n= ";
+                out += n1 + d1 * w1 + "/" + d1;
+                out += ops;
+                out += n2 + d2 * w2 + "/" + d2;
+              }
+              d4 = (d1 * d2) / gcd(d1, d2);
+              out += "\n= ";
+              if (op == 0 || op == 1) {
+                out +=
+                  (_n1 * d4) / d1 + "/" + d4 + ops + (_n2 * d4) / d2 + "/" + d4;
+                if (op == 0) {
+                  a = (_n1 * d4) / d1 + (_n2 * d4) / d2;
+                  b = d4;
+                } else {
+                  a = (_n1 * d4) / d1 - (_n2 * d4) / d2;
+                  b = d4;
+                }
+              } else if (op == 2) {
+                out +=
+                  "(" +
+                  _n1 +
+                  "\u00D7" +
+                  _n2 +
+                  ") / (" +
+                  d1 +
+                  "\u00D7" +
+                  d2 +
+                  ")";
+                a = _n1 * _n2;
+                b = d1 * d2;
+              } else {
+                out +=
+                  "(" +
+                  _n1 +
+                  "\u00D7" +
+                  d2 +
+                  ") / (" +
+                  d1 +
+                  "\u00D7" +
+                  _n2 +
+                  ")";
+                a = _n1 * d2;
+                b = d1 * _n2;
+              }
+              out += "\n= ";
+              out += a + "/" + b;
+              g = gcd(a, b);
+              if (g > 1) {
+                a /= g;
+                b /= g;
+                out += "\n= ";
+                out += a + "/" + b;
+              }
+              out += "\n= ";
+              out += roundresult(a / b);
+
+              $("#area").val(out);
+
+              var w3 = 0;
+              if (n3 > d3) {
+                w3 = Math.floor(n3 / d3);
+                n3 -= w3 * d3;
+              }
+              var obj = document.getElementById("frac");
+              CircNumber(obj, {
+                n: w3,
+                num: n3,
+                den: d3,
+                radius: 20,
+                fillColor: "rgb(80,192,0)",
+                lineWidth: 1,
+              });
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH CALCULATORS</h5>
+        <ul>
+          <li><a href="calculator.html">Online math calculator</a></li>
+          <li>
+            <a href="adding-fractions-calculator.html"
+              >Adding fractions calculator</a
+            >
+          </li>
+          <li><a href="Add_Calculator.html">Addition calculator</a></li>
+          <li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+          <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+          <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+          <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+          <li>
+            <a href="convolution-calculator.html">Convolution calculator</a>
+          </li>
+          <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+          <li>
+            <a href="dividing-fractions-calculator.html"
+              >Dividing fractions calculator</a
+            >
+          </li>
+          <li><a href="division-calculator.html">Division calculator</a></li>
+          <li>
+            <a href="exponential-growth-calculator.html"
+              >Exponential growth calculator</a
+            >
+          </li>
+          <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+          <li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+          <li><a href="fractions-calculator.html">Fractions calculator</a></li>
+          <li><a href="gcf-calculator.html">GCF calculator</a></li>
+          <li><a href="lcm-calculator.html">LCM calculator</a></li>
+          <li><a href="Ln_Calc.html">Ln calculator</a></li>
+          <li><a href="Log_Calculator.html">Log calculator</a></li>
+          <li>
+            <a href="multiplication-calculator.html"
+              >Multiplication calculator</a
+            >
+          </li>
+          <li>
+            <a href="multiplying-fractions-calculator.html"
+              >Multiplying fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="Percentage_Calculator.html">Percentage calculator</a>
+          </li>
+          <li>
+            <a href="percentage-change-calculator.html"
+              >Percentage change calculator</a
+            >
+          </li>
+          <li>
+            <a href="percent-error-calculator.html">Percent error calculator</a>
+          </li>
+          <li>
+            <a href="percentage-increase-calculator.html"
+              >Precentage increase calculator</a
+            >
+          </li>
+          <li>
+            <a href="pythagorean-calculator.html"
+              >Pythagorean theorem calculator</a
+            >
+          </li>
+          <li>
+            <a href="Quadratic_Calculator.html">Quadratic equation solver</a>
+          </li>
+          <li><a href="ratio-calculator.html">Ratio calculator</a></li>
+          <li><a href="root-calculator.html">Root calculator</a></li>
+          <li>
+            <a href="scientific-notation-calculator.html"
+              >Scientific notation calculator</a
+            >
+          </li>
+          <li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+          <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+          <li>
+            <a href="square-root-calculator.html">Square root calculator</a>
+          </li>
+          <li>
+            <a href="standard-deviation-calculator.html"
+              >Standard deviation calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtracting-fractions-calculator.html"
+              >Subtracting fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtraction-calculator.html">Subtraction calculator</a>
+          </li>
+          <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+          <li>
+            <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+          </li>
+          <li>
+            <a href="weighted-average-calculator.html"
+              >Weighted average calculator</a
+            >
+          </li>
+          <li><a href="variance-calculator.html">Variance calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="fractions-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

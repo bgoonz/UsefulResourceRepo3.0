@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Base64 to Image Decode (jpg,png,gif)</title>
+    <meta content="Base64 to image converter tool." name="description" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 20px;
+        background: #eee8d5;
+        border: 1px solid #e0e0e0;
+        border-radius: 7px;
+      }
+      #calcform button i {
+        vertical-align: middle;
+      }
+      #imgdiv {
+        border: 4px solid #ccc;
+        min-height: 120px;
+      }
+      @media all and (max-width: 576px) {
+        #calcform {
+          padding: 8px;
+        }
+      }
+      @media all and (min-width: 577px) {
+      }
+      .codebg {
+        padding: 5px;
+        border: 1px #e0e0e0 solid;
+      }
+      #fileElem {
+        padding: 5px;
+      }
+      #msg {
+        color: red;
+      }
+      .cursor {
+        cursor: progress !important;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Tools</a>&rsaquo; Base 64 to image
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Base64 to Image Decode</h1>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a class="nav-link" href="base64-decode.html">Base64 Decode</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="base64-encode.html">Base64 Encode</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="image-to-base64.html"
+                >Image to Base64</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="base64-to-image.html#"
+                >Base64 to Image</a
+              >
+            </li>
+          </ul>
+          <br />
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-group">
+              <label for="ta1">Base64 string <span id="msg"></span></label>
+              <textarea
+                id="txt"
+                name="txt"
+                rows="5"
+                cols="60"
+                class="form-control"
+                placeholder="Base64 input ..."
+                spellcheck="false"
+                autofocus
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="typesel">Image type</label>
+              <select id="typesel" class="form-control">
+                <option>GIF image</option>
+
+                <option selected>PNG image</option>
+                <option>WEBP image</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="imgname">Image name</label>
+              <input
+                type="text"
+                id="imgname"
+                class="form-control"
+                placeholder="image"
+              />
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Decode"
+                class="btn btn-secondary"
+                onclick="OnDecode()"
+              >
+                <img
+                  src="../../lib/icons/material/svg/settings_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Decode
+              </button>
+              <button type="reset" title="Reset" class="btn btn-secondary">
+                <img
+                  src="../../lib/icons/material/svg/clear_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Reset
+              </button>
+              <button
+                type="button"
+                title="Swap"
+                class="btn btn-secondary"
+                onclick="location.href='image-to-base64.html';"
+              >
+                <img
+                  src="../../lib/icons/material/svg/swap_vert_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Swap
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="out">Image preview</label>
+              <div id="imgdiv">
+                <img id="image1" src="base64-to-image.html" />
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                onclick="OnImageSave()"
+                class="btn btn-secondary"
+                title="Save Image"
+              >
+                <img
+                  src="../../lib/icons/material/svg/save_alt_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Save
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="out1">Image HTML code</label>
+              <textarea
+                id="out1"
+                name="out1"
+                rows="4"
+                cols="60"
+                readonly
+                class="form-control"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                onclick="OnSelect(1)"
+                class="btn btn-secondary"
+              >
+                <img
+                  src="../../lib/icons/material/svg/select_all_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Select
+              </button>
+              <button
+                type="button"
+                onclick="OnSave(1)"
+                class="btn btn-secondary"
+                title="Save to File"
+              >
+                <img
+                  src="../../lib/icons/material/svg/save_alt_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Save
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="out2">Image CSS background code</label>
+              <textarea
+                id="out2"
+                name="out2"
+                rows="4"
+                cols="60"
+                readonly
+                class="form-control"
+              ></textarea>
+            </div>
+            <div>
+              <button
+                type="button"
+                onclick="OnSelect(2)"
+                class="btn btn-secondary"
+              >
+                <img
+                  src="../../lib/icons/material/svg/select_all_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Select
+              </button>
+              <button
+                type="button"
+                onclick="OnSave(2)"
+                class="btn btn-secondary"
+                title="Save to File"
+              >
+                <img
+                  src="../../lib/icons/material/svg/save_alt_white_24dp.svg"
+                  loading="lazy"
+                  width="24"
+                  height="24"
+                  alt=""
+                />
+                Save
+              </button>
+            </div>
+          </form>
+          <p><a href="image-to-base64.html">Image to Base64 &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="base64-decode.html">Base64 decoder</a></li>
+            <li><a href="base64-encode.html">Base64 encoder</a></li>
+            <li><a href="url-encoder.html">URL encoder</a></li>
+            <li><a href="url-decoder.html">URL decoder</a></li>
+            <li>
+              <a href="../../convert/number/ascii-to-binary.html"
+                >ASCII to binary converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/ascii-to-hex.html"
+                >ASCII to hex converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/binary-to-ascii.html"
+                >Binary to ASCII converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/hex-to-ascii.html"
+                >Hex to ASCII converter</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/index.html">Number conversion</a>
+            </li>
+            <li>
+              <a href="../../convert/image/index.html">Image conversion</a>
+            </li>
+            <li><a href="../../code/text/ascii-table.html">ASCII table</a></li>
+            <li>
+              <a href="../../code/text/unicode-characters.html"
+                >Unicode characters</a
+              >
+            </li>
+            <li><a href="http-header-checker.html">HTTP header checker</a></li>
+            <li><a href="http-status-checker.html">HTTP status checker</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB TOOLS</h5>
+        <ul>
+          <li><a href="redirect-generator.html">301 redirect generator</a></li>
+          <li><a href="base64-decode.html">Base64 decoder</a></li>
+          <li><a href="base64-encode.html">Base64 encoder</a></li>
+          <li><a href="base64-to-image.html">Base64 to image</a></li>
+          <li><a href="html-editor.html">HTML editor</a></li>
+          <li><a href="html-link-code.html">HTML link code generator</a></li>
+          <li><a href="html-table-generator.html">HTML table generator</a></li>
+          <li><a href="http-header-checker.html">HTTP header checker</a></li>
+          <li><a href="http-status-checker.html">HTTP status checker</a></li>
+          <li><a href="image-to-base64.html">Image to Base64 converter</a></li>
+          <li><a href="pixel-ruler.html">Online pixel ruler</a></li>
+          <li><a href="screen-resolution.html">Screen resolution</a></li>
+          <li>
+            <a href="screen-resolution-tester.html">Screen resolution tester</a>
+          </li>
+          <li><a href="svg-viewer-editor.html">SVG viewer/editor</a></li>
+          <li><a href="url-encoder.html">URL encoder</a></li>
+          <li><a href="url-decoder.html">URL decoder</a></li>
+          <li><a href="window-size.html">Window size</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="base64-to-image.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script src="../../lib/utils/utils.js"></script>
+        <script src="../../lib/Blob.js-master/Blob.js"></script>
+        <script src="../../lib/FileSaver.js-master/FileSaver.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script>
+              var width,height;
+          function OnChange()
+          {
+          	var file = document.getElementById("fileElem").files[0];
+                 document.getElementById("fileElem").value="";
+          	var filename = file.name;
+          	if( filename )
+          	{
+          		var reader = new FileReader();
+          		var ext = GetFileExt(filename);
+          		ext = ext.toLowerCase();
+          		if( ext==".jpg" || ext==".jpeg" || ext==".png" || ext==".gif" || ext==".bmp" )
+          		{
+          			$("#msg").html("Please wait while reading file ...");
+          			setInterval(function(){ document.body.style.cursor="progress"; }, 1000);
+          			reader.onloadend = function(event) {
+          				$("#msg").html("");
+          				document.calcform.style.cursor='auto';
+          				img = document.getElementById("image1");
+          				img.src = event.target.result;
+          				txt = img.src;
+          				txt = txt.substring(txt.lastIndexOf(";base64,")+8);
+          				document.calcform.txt.value = "";
+          				document.calcform.out.value = img.src;
+          				img.onload = function(event) {
+          					if( img.width>50 )
+          						img.width=50;
+          					document.getElementById("tr1").style.display = "";
+          				};
+          			};
+          			reader.readAsDataURL(file);
+          		}
+          		else
+          		{
+          			document.getElementById("tr1").style.display = "none";
+          			reader.onloadend = function(event) {
+          				txt = event.target.result;
+          				document.calcform.txt.value = txt;
+          				document.calcform.out.value = "";
+          			};
+          			reader.readAsText(file);
+          		}
+          	}
+          }
+          function OnDecode()
+          {
+          	txt = $("#txt").val();
+          	if( txt!="" )
+          	{
+                    var prefix="data:image/";
+                    if( txt.substring(0,11)!=prefix )
+                    {
+                       var i=$("#typesel")[0].selectedIndex;
+                       if( i==0 ) txt="data:image/gif;base64,"+txt;
+                       /*else if( i==1 ) txt="data:image/jpeg;base64,"+txt;*/
+                       else if( i==1 ) txt="data:image/png;base64,"+txt;
+                       else if( i==2 ) txt="data:image/webp;base64,"+txt;
+                    }
+                    $("#image1").on("load", function() {
+                       width=$("#image1")[0].naturalWidth;
+                       height=$("#image1")[0].naturalHeight;
+                       $("#image1").prop("width", Math.round(120.0/height*width));
+                       $("#image1").prop("height", 120);
+                       var w=width.toString();
+                       var h=height.toString();
+                       $("#out1").val("<img width=\""+w+"\" height=\""+h+"\" alt=\"\" src="https://www.rapidtables.com/web/tools/\&quot;&quot;+txt+&quot;\&quot;">");
+                       $("#out2").val("background-image: url(\""+txt+"\");");
+                    });
+                    $("#image1").attr("src", txt);
+          	}
+          }
+          function OnSelect(n)
+          {
+                 if( n==1 )
+          	   $("#out1").select();
+                 if( n==2 )
+          	   $("#out2").select();
+          }
+              function OnImageSave()
+              {
+                 var mimetype;
+                 var i=$("#typesel")[0].selectedIndex;
+                 var name=$("#imgname").val();
+                 if( name=="" ) name="image";
+                 if( i==0 ) { name+=".gif"; mimetype="image/gif"; }
+                 if( i==1 ) { name+=".jpg"; mimetype="image/jpeg"; }
+                 if( i==2 ) { name+=".png"; mimetype="image/png"; }
+                 if( i==3 ) { name+=".webp"; mimetype="image/webp"; }
+                 var image=document.getElementById("image1");
+                 var canvas = document.createElement('canvas');
+                 canvas.id = "canvas1";
+                 canvas.width = image.naturalWidth;
+                 canvas.height = image.naturalHeight;
+                 var body = document.getElementsByTagName("body")[0];
+                 body.appendChild(canvas);
+                 var ctx = canvas.getContext('2d');
+                 ctx.drawImage(image, 0,0);
+                 canvas.toBlob(function(blob) {
+                    saveAs(blob, name);
+                    canvas.remove();
+                 }, mimetype);
+              }
+          function OnSave(n)
+          {
+          	var file = "";
+                 if( n==1 ) s=$("#out1").val();
+                 if( n==2 ) s=$("#out2").val();
+          	//var OSName = GetOS();
+          	//if( OSName=="Windows" )
+          	//	s = s.replace(/\n/g,'\r\n');
+          	if( file=="" ) file="out.txt";
+          	var blob = new Blob([s], {type: "text/plain;charset=utf-8"});
+          	name = GetFileName(file);
+          	if( n==1 ) name += '_html.txt';
+          	if( n==2 ) name += '_css.txt';
+          	saveAs(blob, name);
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

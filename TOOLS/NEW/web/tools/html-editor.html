@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>HTML Editor - Online HTML Editor</title>
+    <meta
+      content="HTML Editor - Free website builder online."
+      name="description"
+    />
+    <style>
+      #bread {
+        color: white;
+        margin: 0;
+        height: 50px;
+      }
+      #bread a {
+        color: #ddd;
+        text-decoration: none;
+        padding: 15px 5px;
+      }
+      #bread a:hover {
+        color: #fff;
+        background: #222;
+      }
+      #share {
+        padding: 6px 0px 0px 20px;
+      }
+      table,
+      th,
+      td,
+      tr {
+        border-width: 0px;
+        border-collapse: collapse;
+        padding: 0px;
+        margin: 0 0 0 2%;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      button {
+        margin: 0;
+        height: 40px;
+        width: 42px;
+      }
+      button img {
+        filter: invert(0.3);
+      }
+      p {
+        margin: 0 0 0 2%;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
+      }
+      body {
+        display: table;
+        background: #f0f0f0;
+      }
+      header,
+      #toolbar,
+      #codeDiv,
+      #viewDiv {
+        display: table-row;
+        width: 100%;
+      }
+      header {
+        background: #404040;
+      }
+      #toolbar {
+        background: #ccc;
+      }
+      #toolbar tr td:first-child {
+        padding-left: 25px;
+      }
+      #codeDiv {
+        height: 40%;
+        margin: 0;
+        /*background: red;*/
+      }
+      #viewDiv {
+        height: 40%;
+        margin: 0;
+        /*background: green;*/
+        /*-webkit-user-select: auto !important;*/
+      }
+      #codeArea {
+        height: 94%;
+        width: 95%;
+        margin: 0% 2%;
+        padding: 5px;
+      }
+      #iview {
+        height: 88%;
+        width: 95%;
+        margin: 0% 2%;
+        padding: 5px;
+        background: white;
+        border: 1px #a9a9a9 solid;
+      }
+      @media all and (max-width: 576px) {
+        #share {
+          display: none;
+        }
+        #codeArea {
+          width: calc(100% - 25px);
+        }
+        #iview {
+          width: calc(100% - 25px);
+        }
+      }
+      @media all and (min-width: 577px) {
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <header>
+      <table>
+        <tr>
+          <td id="bread">
+            <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+              >Web</a
+            >&rsaquo;<a href="index.html">Tools</a>&rsaquo; HTML editor
+          </td>
+        </tr>
+      </table>
+    </header>
+    <table id="toolbar">
+      <tr>
+        <td>
+          <button type="button" title="New" onclick="OnNew()">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_036_file.png"
+              alt="new"
+            />
+          </button>
+        </td>
+        <td>
+          <button type="button" title="Open HTML file" onclick="OnOpen()">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_144_folder_open.png"
+              alt="open"
+            />
+          </button>
+        </td>
+
+        <td>
+          <button type="button" title="Update View" onclick="OnDraw()">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_027_search.png"
+              alt="view"
+            />
+          </button>
+        </td>
+        <td>
+          <button type="button" title="Save HTML file" onclick="OnSave()">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_414_disk_save.png"
+              alt="save"
+            />
+          </button>
+        </td>
+        <td>
+          <input
+            type="file"
+            multiple
+            id="fileElem"
+            name="fileElem[]"
+            accept="text/html"
+            style="visibility: hidden; width: 30px"
+            onchange="loadFile()"
+          />
+        </td>
+      </tr>
+    </table>
+    <table>
+      <tr id="getFilename" style="display: none">
+        <td>Enter file name:</td>
+        <td>
+          <input
+            type="text"
+            id="filename"
+            placeholder="filename.html"
+            style="width: 150px; padding: 5px; margin-left: 10px"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            id="save"
+            value="Save"
+            onclick="saveFile()"
+            style="padding: 5px 10px 5px 10px; margin: 0px"
+          />
+        </td>
+        <td>
+          <input
+            type="button"
+            id="cancel"
+            value="Cancel"
+            onclick="cancelSaveFile()"
+            style="padding: 5px; margin: 0px"
+          />
+        </td>
+      </tr>
+    </table>
+    <p style="margin-top: 10px">Code:</p>
+    <div id="codeDiv">
+      <textarea id="codeArea"></textarea>
+    </div>
+    <p>View:</p>
+    <div id="viewDiv">
+      <iframe id="iview"></iframe>
+    </div>
+  </body>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script src="../../lib/utils/utils.js"></script>
+  <script src="../../lib/Blob.js-master/Blob.js"></script>
+  <script src="../../lib/FileSaver.js-master/FileSaver.js"></script>
+  <script>
+    $(document).ready(function () {
+      var s =
+        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
+      if (localStorage.html_editor_text != "undefined")
+        s = localStorage.html_editor_text;
+      $("#codeArea").val(s);
+
+      OnDraw();
+
+      window.onkeydown = keydown;
+    });
+    $(window).unload(function () {
+      localSave();
+    });
+    function keydown(e) {
+      if (e.keyCode == 9) {
+        //tab
+        e.preventDefault();
+        return;
+        //Snapshot();
+        s = getSelect(area);
+        var text = $("#codeArea").val();
+        fillString(text, "\u0009", s.start, s.end);
+        pos = s.start + 1;
+        setCaret(pos);
+      }
+    }
+    function OnNew() {
+      cancelSaveFile();
+      var s =
+        '<!DOCTYPE html>\n<html>\n<head>\n   <meta charset="utf-8">\n   <title>Sample page</title>\n</head>\n<body>\n   <p>Sample page</p>\n</body>\n</html>';
+      $("#codeArea").val(s);
+      $("#iview").attr("srcdoc", s);
+      $("#codeArea").focus();
+    }
+    function OnOpen() {
+      $("#fileElem").focus();
+      $("#fileElem").click();
+    }
+    function OnSave() {
+      $("#getFilename").css("display", "inline");
+    }
+    function OnDraw() {
+      var s = $("#codeArea").val();
+      $("#iview").attr("srcdoc", s);
+      $("#codeArea").focus();
+    }
+    function localSave() {
+      localStorage.html_editor_text = $("#codeArea").val();
+    }
+    function loadFile() {
+      var fileElem = document.getElementById("fileElem").files[0];
+      //var name = fileElem.name;
+      var reader = new FileReader();
+
+      reader.onloadend = function (evt) {
+        if (evt.target.readyState == FileReader.DONE) {
+          //localStorage.notepad_filename = name;
+          //document.title = 'Notepad - '+name;
+          //area.value = evt.target.result;
+          s = evt.target.result;
+          OSName = GetOS();
+          if (OSName == "Windows") s = s.replace(/\r\n/g, "\n");
+          $("#codeArea").val(s);
+          OnDraw();
+          $("#codeArea").focus();
+        }
+      };
+      reader.readAsText(fileElem);
+    }
+    function cancelSaveFile() {
+      $("#getFilename").css("display", "none");
+    }
+    function saveFile() {
+      $("#getFilename").css("display", "none");
+      var name = $("#filename").val();
+      if (name == "") name = "filename.html";
+      //localStorage.svg_filename = name;
+      //document.title = "SVG - "+name;
+      localSave();
+
+      //var blob = new Blob([area.value], {type: "text/plain;charset=utf-8"});
+      var s = $("#codeArea").val();
+      OSName = GetOS();
+      if (OSName == "Windows") s = s.replace(/\n/g, "\r\n");
+      var blob = new Blob([s], { type: "text/plain;charset=utf-8" });
+      saveAs(blob, name);
+    }
+  </script>
+</html>

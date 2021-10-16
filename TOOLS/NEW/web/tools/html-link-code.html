@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>HTML Link Code Generator</title>
+    <meta
+      name="keywords"
+      content="html,link,code,generator,maker,creator,a,picture,image,email,url,tag,css,underline,tab,window"
+    />
+    <meta name="description" content="HTML link code generator and viewer." />
+    <style>
+      .calc {
+        padding: 10px;
+      }
+      .calc select {
+        width: 130px;
+        font-size: large;
+        padding: 5px;
+      }
+      .calc input[type="text"] {
+        padding: 6px;
+        width: 100%;
+      }
+      .calc tr td:first-child input[type="text"] {
+        width: 100%;
+      }
+      .calc tr td:nth-child(3) input[type="text"] {
+        width: 100px;
+      }
+      .calc textarea {
+        background: #f0f0f0;
+        font-size: medium;
+        height: 200px;
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          width: 100%;
+        }
+        .calc select {
+          font-size: large;
+        }
+        .calc input[type="text"] {
+          font-size: large;
+        }
+        .calc textarea {
+          width: 100%;
+        }
+        .calc iframe {
+          width: 100%;
+          height: 60px;
+        }
+        .calc
+          tr:nth-child(n + 7):nth-child(-n + 10)
+          td:nth-child(n + 1):nth-child(-n + 2) {
+          float: left;
+        }
+        .calc
+          tr:nth-child(n + 12):nth-child(-n + 15)
+          td:nth-child(n + 1):nth-child(-n + 2) {
+          float: left;
+        }
+        .calc tr:nth-child(n + 7):nth-child(-n + 10) td:nth-child(2) {
+          clear: left;
+        }
+        .calc tr:nth-child(n + 12):nth-child(-n + 15) td:nth-child(2) {
+          clear: left;
+        }
+        .calc tr:nth-child(n + 7):nth-child(-n + 10) td:nth-child(3) {
+          padding-top: 22px;
+        }
+        .calc tr:nth-child(n + 12):nth-child(-n + 15) td:nth-child(3) {
+          padding-top: 22px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc {
+          width: 500px;
+        }
+        .calc select {
+          font-size: medium;
+        }
+        .calc input[type="text"] {
+          font-size: medium;
+        }
+        .calc tr td:first-child {
+          width: 200px;
+        }
+        .calc textarea {
+          width: 500px;
+        }
+        .calc iframe {
+          width: 500px;
+          height: 60px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Tools</a>&rsaquo; HTML link code generator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>HTML Link Code Generator</h1>
+          <p>Use this tool to generate HTML link code.</p>
+          <form name="gen">
+            <h3 style="display: none">Select link type:</h3>
+            <p style="display: none">
+              <select size="1" id="C1" name="C1">
+                <option selected>Text link</option>
+                <option>Image link</option>
+                <option>Email link</option>
+                <option>Named anchor link</option>
+              </select>
+            </p>
+            <table class="calc">
+              <tr>
+                <td colspan="3">Enter link text:</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input
+                    type="text"
+                    id="T1"
+                    onclick="ResetText(this,0)"
+                    onblur="ResetText(this,1)"
+                    value="The Link Text"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">Enter URL to link to:</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input
+                    type="text"
+                    id="T2"
+                    onclick="ResetText(this,0)"
+                    onblur="ResetText(this,1)"
+                    value="https://www.rapidtables.com/web/tools/linked-page.html"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td colspan="3">Set CSS link style:</td>
+              </tr>
+              <tr>
+                <td colspan="3"><u>Normal link:</u></td>
+              </tr>
+              <tr>
+                <td>color:</td>
+                <td>
+                  <select id="C_Color1">
+                    <option selected>- hex code -</option>
+                    <option>Aqua</option>
+                    <option>Black</option>
+                    <option>Blue</option>
+                    <option>Fuchsia</option>
+                    <option>Gray</option>
+                    <option>Green</option>
+                    <option>Lime</option>
+                    <option>Magenta</option>
+                    <option>Maroon</option>
+                    <option>Navy</option>
+                    <option>Olive</option>
+                    <option>Purple</option>
+                    <option>Red</option>
+                    <option>Silver</option>
+                    <option>Teal</option>
+                    <option>White</option>
+                    <option>Yellow</option>
+                  </select>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="T_HexCode1"
+                    onclick="ResetText(this,0)"
+                    onblur="ResetText(this,1)"
+                    value="#0000A0"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>background-color:</td>
+                <td>
+                  <select id="C_Color2">
+                    <option selected>- hex code -</option>
+                    <option>Aqua</option>
+                    <option>Black</option>
+                    <option>Blue</option>
+                    <option>Fuchsia</option>
+                    <option>Gray</option>
+                    <option>Green</option>
+                    <option>Lime</option>
+                    <option>Magenta</option>
+                    <option>Maroon</option>
+                    <option>Navy</option>
+                    <option>Olive</option>
+                    <option>Purple</option>
+                    <option>Red</option>
+                    <option>Silver</option>
+                    <option>Teal</option>
+                    <option>White</option>
+                    <option>Yellow</option>
+                  </select>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="T_HexCode2"
+                    onclick="ResetText(this,0)"
+                    onblur="ResetText(this,1)"
+                    value="#FFFFFF"
+                    name="T1"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>text-decoration:</td>
+                <td>
+                  <select id="C_Dec1">
+                    <option>underline</option>
+                    <option selected>none</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>target-new:</td>
+                <td>
+                  <select id="C_Target1">
+                    <option selected>none</option>
+                    <option>tab</option>
+                    <option>window</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td><u>Hovered link:</u></td>
+                <td>&nbsp;</td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>color:</td>
+                <td>
+                  <select id="C_Color3">
+                    <option selected>- hex code -</option>
+                    <option>Aqua</option>
+                    <option>Black</option>
+                    <option>Blue</option>
+                    <option>Fuchsia</option>
+                    <option>Gray</option>
+                    <option>Green</option>
+                    <option>Lime</option>
+                    <option>Magenta</option>
+                    <option>Maroon</option>
+                    <option>Navy</option>
+                    <option>Olive</option>
+                    <option>Purple</option>
+                    <option>Red</option>
+                    <option>Silver</option>
+                    <option>Teal</option>
+                    <option>White</option>
+                    <option>Yellow</option>
+                  </select>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="T_HexCode3"
+                    onclick="ResetText(this,0)"
+                    onblur="ResetText(this,1)"
+                    value="#0000FF"
+                    name="T2"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>background-color:</td>
+                <td>
+                  <select id="C_Color4">
+                    <option selected>- hex code -</option>
+                    <option>Aqua</option>
+                    <option>Black</option>
+                    <option>Blue</option>
+                    <option>Fuchsia</option>
+                    <option>Gray</option>
+                    <option>Green</option>
+                    <option>Lime</option>
+                    <option>Magenta</option>
+                    <option>Maroon</option>
+                    <option>Navy</option>
+                    <option>Olive</option>
+                    <option>Purple</option>
+                    <option>Red</option>
+                    <option>Silver</option>
+                    <option>Teal</option>
+                    <option>White</option>
+                    <option>Yellow</option>
+                  </select>
+                </td>
+                <td>
+                  <input
+                    type="text"
+                    id="T_HexCode4"
+                    onclick="ResetText(this,0)"
+                    onblur="ResetText(this,1)"
+                    value="#FFFFC0"
+                    name="T3"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>text-decoration:</td>
+                <td>
+                  <select id="C_Dec2">
+                    <option selected>underline</option>
+                    <option>none</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>target-new:</td>
+                <td>
+                  <select id="C_Target2">
+                    <option selected>none</option>
+                    <option>tab</option>
+                    <option>window</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <input
+                    type="button"
+                    value="Generate Link"
+                    name="B1"
+                    onclick="GenerateButton()"
+                    class="btn"
+                  />
+                  <input
+                    type="reset"
+                    value="Reset"
+                    name="B2"
+                    onclick="ResetButton()"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Generated link view:</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <div id="dview">
+                    <iframe id="iview" name="iview"></iframe>
+                  </div>
+                </td>
+              </tr>
+              <tr>
+                <td>Generated link code:</td>
+              </tr>
+              <tr>
+                <td colspan="3">
+                  <textarea rows="16" id="TA1" name="TA1"></textarea>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="html-table-generator.html">HTML table generator</a>
+            </li>
+            <li><a href="../html/html-link.html">HTML links</a></li>
+            <li><a href="../html/mailto.html">HTML mailto link</a></li>
+          </ul>
+          <script>
+            var url, text, T1, T2, ftxt;
+            window.onload = new (function () {
+              url = "https://www.rapidtables.com/web/tools/linked-page.html";
+              text = "The Link Text";
+              T1 = document.getElementById("T1");
+              T2 = document.getElementById("T2");
+              TA1 = document.getElementById("TA1");
+              ResetButton();
+            })();
+            function OnUpdateView() {
+              window.frames["iview"].document.body.innerHTML = TA1.value;
+            }
+            function OnSelectCode() {
+              document.gen.TA1.select();
+            }
+            function GenerateButton() {
+              text = T1.value;
+              url = T2.value;
+              //type = document.getElementById('C1').selectedIndex;
+              //if( type == 0 ) // Text link
+              if (1) {
+                // Text link
+                i = document.getElementById("C_Color1").selectedIndex;
+                if (i == 0)
+                  color1 = document.getElementById("T_HexCode1").value;
+                else
+                  color1 = document.getElementById("C_Color1").options[i].text;
+                i = document.getElementById("C_Color2").selectedIndex;
+                if (i == 0)
+                  bgcolor1 = document.getElementById("T_HexCode2").value;
+                else
+                  bgcolor1 =
+                    document.getElementById("C_Color2").options[i].text;
+                i = document.getElementById("C_Dec1").selectedIndex;
+                txtdec1 = document.getElementById("C_Dec1").options[i].text;
+                i = document.getElementById("C_Target1").selectedIndex;
+                target1 = document.getElementById("C_Target1").options[i].text;
+                txt = "<!DOCTYPE HTML>\n";
+                txt += '<html lang="en">\n<head>\n';
+                txt += " <style>\n";
+                txt += "  a:link,a:visited {\n";
+                txt += "   color: " + color1 + ";\n";
+                txt += "   background-color: " + bgcolor1 + ";\n";
+                txt += "   text-decoration: " + txtdec1 + ";\n";
+                txt += "   target-new: " + target1 + ";\n";
+                txt += "  }\n";
+                i = document.getElementById("C_Color3").selectedIndex;
+                if (i == 0)
+                  color2 = document.getElementById("T_HexCode3").value;
+                else
+                  color2 = document.getElementById("C_Color3").options[i].text;
+                i = document.getElementById("C_Color4").selectedIndex;
+                if (i == 0)
+                  bgcolor2 = document.getElementById("T_HexCode4").value;
+                else
+                  bgcolor2 =
+                    document.getElementById("C_Color4").options[i].text;
+                i = document.getElementById("C_Dec2").selectedIndex;
+                txtdec2 = document.getElementById("C_Dec2").options[i].text;
+                i = document.getElementById("C_Target2").selectedIndex;
+                target2 = document.getElementById("C_Target2").options[i].text;
+                txt += "  a:hover {\n";
+                txt += "   color: " + color2 + ";\n";
+                txt += "   background-color: " + bgcolor2 + ";\n";
+                txt += "   text-decoration: " + txtdec2 + ";\n";
+                txt += "   target-new: " + target2 + ";\n";
+                txt += "  }\n";
+                txt += " </style>\n";
+                txt += "</head>\n";
+                txt += "<body>\n";
+                txt += " <!-- Text link tag - by www.rapidtables.com -->\n";
+                txt +=
+                  ' <a href="https://www.rapidtables.com/web/tools/' +
+                  url +
+                  '">' +
+                  text +
+                  "</a>\n";
+                txt += "</body>\n</html>";
+
+                //ftxt = '<a href="https://www.rapidtables.com/web/tools/'+url+'"'+' style="';
+                //ftxt+= ':link {color: '+color1+'; background-color: '+bgcolor1+'; text-decoration: '+txtdec1+';} ';
+                //ftxt+= ':hover {color: '+color2+'; background-color: '+bgcolor2+'; text-decoration: '+txtdec2+';}';
+                //ftxt+= '">'+text+'</a>\n';
+              }
+              TA1.value = txt;
+              OnUpdateView();
+            }
+            function ResetButton() {
+              T1.style.color = "#aaa";
+              T2.style.color = "#aaa";
+              GenerateButton();
+            }
+            function ResetText(obj, op) {
+              if (op == 0) {
+                // onclick
+                if (
+                  (obj == T1 && obj.value == text) ||
+                  (obj == T2 && obj.value == url)
+                ) {
+                  obj.value = "";
+                  obj.style.color = "#000";
+                }
+              } // onblur
+              else {
+                if (obj.value == "") {
+                  if (obj == T1) obj.value = text;
+                  else obj.value = url;
+                  obj.style.color = "#aaa";
+                }
+              }
+            }
+            function SetFocus() {
+              calc.input.focus();
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB TOOLS</h5>
+        <ul>
+          <li><a href="redirect-generator.html">301 redirect generator</a></li>
+          <li>
+            <a href="base64-decoder-encoder.html">Base64 decoder/encoder</a>
+          </li>
+          <li><a href="html-editor.html">HTML editor</a></li>
+          <li><a href="html-link-code.html">HTML link code generator</a></li>
+          <li><a href="html-table-generator.html">HTML table generator</a></li>
+          <li><a href="http-header-checker.html">HTTP header checker</a></li>
+          <li><a href="http-status-checker.html">HTTP status checker</a></li>
+          <li><a href="pixel-ruler.html">Online pixel ruler</a></li>
+          <li><a href="screen-resolution.html">Screen resolution</a></li>
+          <li>
+            <a href="screen-resolution-tester.html">Screen resolution tester</a>
+          </li>
+          <li><a href="svg-viewer-editor.html">SVG viewer/editor</a></li>
+          <li><a href="url-decoder-encoder.html">URL decoder/encoder</a></li>
+          <li><a href="window-size.html">Window size</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="html-link-code.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

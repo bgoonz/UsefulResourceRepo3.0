@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Multiplication Table - Times Table (&times;)</title>
+    <meta
+      name="description"
+      content="Multiplication table chart. Times table"
+    />
+    <style>
+      .outcell {
+        background: #ccc;
+        padding: 3px;
+        border: 0px #ccc solid;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+      }
+      .incell {
+        background: #fff;
+        padding: 3px;
+        border: 1px #ccc solid;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+      }
+      .hovcell {
+        background: #ddffdd;
+        padding: 3px;
+        border: 1px #ccc solid;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 1.2em;
+      }
+      .rescell {
+        background: #aaffaa;
+        padding: 3px;
+        border: 1px #ccc solid;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        font-size: 1.2em;
+      }
+      .outcell2 {
+        background: #f8ecd6;
+        padding: 3px;
+        border: 1px #ccc solid;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.7em;
+      }
+      .incell2 {
+        background: #fff;
+        padding: 3px;
+        border: 1px #ccc solid;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.7em;
+      }
+      #table2 td button {
+        font-size: 1em;
+        font-family: Arial;
+        background: #eee;
+      }
+      #table3 input[type="text"] {
+        font-family: Arial;
+        width: 60px;
+        background: #eeffee;
+        text-align: center;
+      }
+      .up {
+        border-style: outset;
+      }
+      .dn {
+        border-style: inset;
+        background: #ddd;
+        font-weight: bold;
+      }
+      @media all and (max-width: 576px) {
+        #table2 {
+          width: 100%;
+        }
+        #table2 th {
+          padding: 0;
+        }
+        #table2 td {
+          padding: 2px 0px;
+        }
+        #table2 td button {
+          margin: 0;
+          padding: 5px 0px;
+          width: 100%;
+        }
+        #table3 td {
+          float: left;
+        }
+        #table3 td:last-child {
+          clear: left;
+          padding-top: 20px;
+        }
+        #table2 tr:nth-child(n + 12) {
+          display: none;
+        }
+        #table2 tr td:nth-child(n + 12) {
+          display: none;
+        }
+      }
+      @media all and (min-width: 577px) {
+        #table2 {
+          table-layout: fixed;
+        }
+        #table2 td button {
+          width: 36px;
+          height: 26px;
+        }
+      }
+      #quizform {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      #quizform select {
+        font-size: large;
+        padding: 7px;
+      }
+      #quizform button {
+        padding: 10px;
+        height: 40px;
+      }
+      #quizform p {
+        font-size: x-large;
+      }
+      #quiz {
+        font-size: x-large;
+      }
+      #quiz tr td:nth-child(1) {
+        text-align: right;
+      }
+      #quiz tr td:nth-child(3) {
+        text-align: left;
+      }
+      #quiz input[type="number"] {
+        width: 70px;
+        padding: 4px 5px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Math</a
+        >&rsaquo;<a href="index.html">Numbers</a>&rsaquo; Multiplication table
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Multiplication Table</h1>
+          <p>
+            Use the interactive multiplication table chart to quickly multiply
+            two numbers.
+          </p>
+          <p>
+            Press on a <i>column button</i> and a <em>row button</em> below to
+            get multiplication result:
+          </p>
+          <table
+            id="table2"
+            class="table2"
+            style="border: 1px #ccc solid; border-collapse: collapse"
+          >
+            <tr>
+              <td class="outcell"><b>&times;</b></td>
+              <td class="outcell">
+                <button value="1" onclick="OnButton(this,2)">1</button>
+              </td>
+              <td class="outcell">
+                <button value="2" onclick="OnButton(this,2)">2</button>
+              </td>
+              <td class="outcell">
+                <button value="3" onclick="OnButton(this,2)">3</button>
+              </td>
+              <td class="outcell">
+                <button value="4" onclick="OnButton(this,2)">4</button>
+              </td>
+              <td class="outcell">
+                <button value="5" onclick="OnButton(this,2)">5</button>
+              </td>
+              <td class="outcell">
+                <button value="6" onclick="OnButton(this,2)">6</button>
+              </td>
+              <td class="outcell">
+                <button value="7" onclick="OnButton(this,2)">7</button>
+              </td>
+              <td class="outcell">
+                <button value="8" onclick="OnButton(this,2)">8</button>
+              </td>
+              <td class="outcell">
+                <button value="9" onclick="OnButton(this,2)">9</button>
+              </td>
+              <td class="outcell">
+                <button value="10" onclick="OnButton(this,2)">10</button>
+              </td>
+              <td class="outcell">
+                <button value="11" onclick="OnButton(this,2)">11</button>
+              </td>
+              <td class="outcell">
+                <button value="12" onclick="OnButton(this,2)">12</button>
+              </td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="1" onclick="OnButton(this,1)">1</button>
+              </td>
+              <td class="incell">1</td>
+              <td class="incell">2</td>
+              <td class="incell">3</td>
+              <td class="incell">4</td>
+              <td class="incell">5</td>
+              <td class="incell">6</td>
+              <td class="incell">7</td>
+              <td class="incell">8</td>
+              <td class="incell">9</td>
+              <td class="incell">10</td>
+              <td class="incell">11</td>
+              <td class="incell">12</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="2" onclick="OnButton(this,1)">2</button>
+              </td>
+              <td class="incell">2</td>
+              <td class="incell">4</td>
+              <td class="incell">6</td>
+              <td class="incell">8</td>
+              <td class="incell">10</td>
+              <td class="incell">12</td>
+              <td class="incell">14</td>
+              <td class="incell">16</td>
+              <td class="incell">18</td>
+              <td class="incell">20</td>
+              <td class="incell">22</td>
+              <td class="incell">24</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="3" onclick="OnButton(this,1)">3</button>
+              </td>
+              <td class="incell">3</td>
+              <td class="incell">6</td>
+              <td class="incell">9</td>
+              <td class="incell">12</td>
+              <td class="incell">15</td>
+              <td class="incell">18</td>
+              <td class="incell">21</td>
+              <td class="incell">24</td>
+              <td class="incell">27</td>
+              <td class="incell">30</td>
+              <td class="incell">33</td>
+              <td class="incell">36</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="4" onclick="OnButton(this,1)">4</button>
+              </td>
+              <td class="incell">4</td>
+              <td class="incell">8</td>
+              <td class="incell">12</td>
+              <td class="incell">16</td>
+              <td class="incell">20</td>
+              <td class="incell">24</td>
+              <td class="incell">28</td>
+              <td class="incell">32</td>
+              <td class="incell">36</td>
+              <td class="incell">40</td>
+              <td class="incell">44</td>
+              <td class="incell">48</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="5" onclick="OnButton(this,1)">5</button>
+              </td>
+              <td class="incell">5</td>
+              <td class="incell">10</td>
+              <td class="incell">15</td>
+              <td class="incell">20</td>
+              <td class="incell">25</td>
+              <td class="incell">30</td>
+              <td class="incell">35</td>
+              <td class="incell">40</td>
+              <td class="incell">45</td>
+              <td class="incell">50</td>
+              <td class="incell">55</td>
+              <td class="incell">60</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="6" onclick="OnButton(this,1)">6</button>
+              </td>
+              <td class="incell">6</td>
+              <td class="incell">12</td>
+              <td class="incell">18</td>
+              <td class="incell">24</td>
+              <td class="incell">30</td>
+              <td class="incell">36</td>
+              <td class="incell">42</td>
+              <td class="incell">48</td>
+              <td class="incell">54</td>
+              <td class="incell">60</td>
+              <td class="incell">66</td>
+              <td class="incell">72</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="7" onclick="OnButton(this,1)">7</button>
+              </td>
+              <td class="incell">7</td>
+              <td class="incell">14</td>
+              <td class="incell">21</td>
+              <td class="incell">28</td>
+              <td class="incell">35</td>
+              <td class="incell">42</td>
+              <td class="incell">49</td>
+              <td class="incell">56</td>
+              <td class="incell">63</td>
+              <td class="incell">70</td>
+              <td class="incell">77</td>
+              <td class="incell">84</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="8" onclick="OnButton(this,1)">8</button>
+              </td>
+              <td class="incell">8</td>
+              <td class="incell">16</td>
+              <td class="incell">24</td>
+              <td class="incell">32</td>
+              <td class="incell">40</td>
+              <td class="incell">48</td>
+              <td class="incell">56</td>
+              <td class="incell">64</td>
+              <td class="incell">72</td>
+              <td class="incell">80</td>
+              <td class="incell">88</td>
+              <td class="incell">96</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="9" onclick="OnButton(this,1)">9</button>
+              </td>
+              <td class="incell">9</td>
+              <td class="incell">18</td>
+              <td class="incell">27</td>
+              <td class="incell">36</td>
+              <td class="incell">45</td>
+              <td class="incell">54</td>
+              <td class="incell">63</td>
+              <td class="incell">72</td>
+              <td class="incell">81</td>
+              <td class="incell">90</td>
+              <td class="incell">99</td>
+              <td class="incell">108</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="10" onclick="OnButton(this,1)">10</button>
+              </td>
+              <td class="incell">10</td>
+              <td class="incell">20</td>
+              <td class="incell">30</td>
+              <td class="incell">40</td>
+              <td class="incell">50</td>
+              <td class="incell">60</td>
+              <td class="incell">70</td>
+              <td class="incell">80</td>
+              <td class="incell">90</td>
+              <td class="incell">100</td>
+              <td class="incell">110</td>
+              <td class="incell">120</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="11" onclick="OnButton(this,1)">11</button>
+              </td>
+              <td class="incell">11</td>
+              <td class="incell">22</td>
+              <td class="incell">33</td>
+              <td class="incell">44</td>
+              <td class="incell">55</td>
+              <td class="incell">66</td>
+              <td class="incell">77</td>
+              <td class="incell">88</td>
+              <td class="incell">99</td>
+              <td class="incell">110</td>
+              <td class="incell">121</td>
+              <td class="incell">132</td>
+            </tr>
+            <tr>
+              <td class="outcell">
+                <button value="12" onclick="OnButton(this,1)">12</button>
+              </td>
+              <td class="incell">12</td>
+              <td class="incell">24</td>
+              <td class="incell">36</td>
+              <td class="incell">48</td>
+              <td class="incell">60</td>
+              <td class="incell">72</td>
+              <td class="incell">84</td>
+              <td class="incell">96</td>
+              <td class="incell">108</td>
+              <td class="incell">120</td>
+              <td class="incell">132</td>
+              <td class="incell">144</td>
+            </tr>
+          </table>
+          <form name="calcform" autocomplete="off">
+            <table id="table3" style="margin: 0 auto; border-style: none">
+              <tr>
+                <td class="mathsymbol">
+                  <input
+                    type="text"
+                    name="num1"
+                    size="2"
+                    class="math"
+                    readonly
+                  />
+                </td>
+                <td class="math"><b>&times;</b></td>
+                <td class="mathsymbol">
+                  <input
+                    type="text"
+                    name="num2"
+                    id="num2"
+                    size="2"
+                    class="math"
+                    readonly
+                  />
+                </td>
+                <td class="math">=</td>
+                <td class="mathsymbol">
+                  <input
+                    type="text"
+                    name="result"
+                    size="2"
+                    class="math"
+                    style="width: 80px"
+                    readonly
+                  />
+                </td>
+                <td>
+                  <input
+                    type="reset"
+                    value="Clear"
+                    onclick="OnReset()"
+                    class="btn"
+                  />
+                </td>
+              </tr>
+            </table>
+          </form>
+          <h2>Multiplication quiz</h2>
+          <p>
+            Use the multiplication table to solve this quiz or solve it on your
+            own:
+          </p>
+          <form id="quizform">
+            <label for="level">Select level: </label>
+            <select id="level" onchange="InitQuiz()">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+            </select>
+            <br />
+            <br />
+            <table id="quiz">
+              <tbody>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+                <tr>
+                  <td>_</td>
+                  <td>&times;</td>
+                  <td>_</td>
+                  <td>=</td>
+                  <td><input type="number" min="0" step="1" /></td>
+                </tr>
+              </tbody>
+            </table>
+            <button type="button" onclick="CheckQuiz()">
+              <img
+                src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_002_search.png"
+                alt=""
+              />
+              Check results
+            </button>
+            <button type="button" onclick="InitQuiz()">
+              <img
+                src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_021_file.png"
+                alt=""
+              />
+              New quiz
+            </button>
+            <p id="score"></p>
+          </form>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../calc/math/multiplication-calculator.html"
+                >Multiplication calculator</a
+              >
+            </li>
+            <li>
+              <a href="mult-table/multiplication-table-printable-12x12.html"
+                >Printable multiplication table of 12x12</a
+              >
+            </li>
+            <li>
+              <a
+                href="mult-table/multiplication-table-printable-blank-12x12.html"
+                >Blank printable multiplication table of 12x12</a
+              >
+            </li>
+            <li>
+              <a href="mult-table/multiplication-table-printable-10x10.html"
+                >Printable multiplication table of 10x10</a
+              >
+            </li>
+            <li>
+              <a
+                href="mult-table/multiplication-table-printable-blank-10x10.html"
+                >Blank printable multiplication table of 10x10</a
+              >
+            </li>
+            <li>
+              <a href="mult-table/multiplication-table-12x12.html"
+                >Multiplication table of 12x12</a
+              >
+            </li>
+            <li>
+              <a href="mult-table/multiplication-table-10x10.html"
+                >Multiplication table of 10x10</a
+              >
+            </li>
+            <li><a href="addition-table.html">Addition table</a></li>
+          </ul>
+          <script>
+            var on1 = 0,
+              on2 = 0,
+              res = 0,
+              xres = 0,
+              yres = 0;
+            window.onload = function () {
+              var table = document.getElementsByTagName("table")[0];
+              var cells = table.getElementsByTagName("td"); //
+
+              for (var i = 1; i < cells.length; i++) {
+                // Cell Object
+                var cell = cells[i];
+                // Track with onclick
+                cell.onclick = function () {
+                  var cellIndex = this.cellIndex;
+                  var rowIndex = this.parentNode.rowIndex;
+                  if (cellIndex == 0 || rowIndex == 0) return;
+                  xres = cellIndex;
+                  yres = rowIndex;
+                  for (k = 1; k <= 12; k++)
+                    for (j = 1; j <= 12; j++) {
+                      res = document.getElementById("table2").rows[k].cells[j];
+                      res.className = "incell";
+                    }
+                  for (k = 1; k <= rowIndex; k++)
+                    for (j = 1; j <= cellIndex; j++) {
+                      res = document.getElementById("table2").rows[k].cells[j];
+                      if (k == rowIndex && j == cellIndex)
+                        res.className = "rescell";
+                      else res.className = "hovcell";
+                    }
+                  res =
+                    document.getElementById("table2").rows[rowIndex].cells[0];
+                  res = res.getElementsByTagName("button")[0];
+                  res.className = "dn";
+                  if (res != on1) {
+                    on1.className = "up";
+                    on1 = res;
+                  }
+                  res =
+                    document.getElementById("table2").rows[0].cells[cellIndex];
+                  res = res.getElementsByTagName("button")[0];
+                  res.className = "dn";
+                  if (res != on2) {
+                    on2.className = "up";
+                    on2 = res;
+                  }
+                  res = this;
+                  document.calcform.num1.value = rowIndex;
+                  document.calcform.num2.value = cellIndex;
+                  document.calcform.result.value = rowIndex * cellIndex;
+                };
+                cell.onmouseover = function () {
+                  var cellIndex = this.cellIndex;
+                  var rowIndex = this.parentNode.rowIndex;
+                  if (cellIndex == 0 || rowIndex == 0) return;
+                  this.className = "rescell";
+                };
+                cell.onmouseout = function () {
+                  var cellIndex = this.cellIndex;
+                  var rowIndex = this.parentNode.rowIndex;
+                  if (cellIndex == 0 || rowIndex == 0) return;
+                  //if( this==res ) return;
+                  if (cellIndex == xres && rowIndex == yres)
+                    this.className = "rescell";
+                  else if (cellIndex <= xres && rowIndex <= yres)
+                    this.className = "hovcell";
+                  else this.className = "incell";
+                };
+              }
+
+              InitQuiz();
+            };
+            function OnButton(obj, num) {
+              obj.blur();
+              //setState(obj);
+              if (num == 1) {
+                document.calcform.num1.value = obj.value;
+                if (obj != on1) {
+                  if (on1) on1.className = "up";
+                  obj.className = "dn";
+                  on1 = obj;
+                }
+              } else {
+                document.calcform.num2.value = obj.value;
+                if (obj != on2) {
+                  if (on2) on2.className = "up";
+                  obj.className = "dn";
+                  on2 = obj;
+                }
+              }
+
+              if (on1 != 0 && on2 != 0) {
+                num1 = parseInt(document.calcform.num1.value);
+                num2 = parseInt(document.calcform.num2.value);
+                if (res != 0) res.className = "incell";
+                res = document.getElementById("table2").rows[num1].cells[num2];
+                res.className = "rescell";
+                document.calcform.result.value = num1 * num2;
+
+                xres = num2;
+                yres = num1;
+                for (k = 1; k <= 12; k++)
+                  for (j = 1; j <= 12; j++) {
+                    res = document.getElementById("table2").rows[k].cells[j];
+                    res.className = "incell";
+                  }
+                for (k = 1; k <= yres; k++)
+                  for (j = 1; j <= xres; j++) {
+                    res = document.getElementById("table2").rows[k].cells[j];
+                    if (k == yres && j == xres) res.className = "rescell";
+                    else res.className = "hovcell";
+                  }
+              }
+            }
+            function OnReset() {
+              if (res != 0) res.className = "incell";
+              if (on1 != 0) on1.className = "up";
+              if (on2 != 0) on2.className = "up";
+              res = on1 = on2 = 0;
+              xres = yres = 0;
+              for (k = 1; k <= 12; k++)
+                for (j = 1; j <= 12; j++) {
+                  res = document.getElementById("table2").rows[k].cells[j];
+                  res.className = "incell";
+                }
+            }
+            function setState(el) {
+              if (el != on) {
+                if (on) on.className = "up";
+                el.className = "dn";
+                on = el;
+              }
+            }
+            function InitQuiz() {
+              var tbl = document.getElementById("quiz");
+              var row = tbl.getElementsByTagName("tr");
+              var cell, a, b, preva, prevb;
+              var level = document.getElementById("level").selectedIndex;
+              var nmax = [4, 6, 10, 12];
+              document.getElementById("score").innerHTML = "";
+              for (var i = 0; i < 10; i++) {
+                cell = row[i].getElementsByTagName("td");
+                a = Math.floor(Math.random() * nmax[level] + 1);
+                b = Math.floor(Math.random() * nmax[level] + 1);
+                if (preva == a && prevb == b) {
+                  i--;
+                  continue;
+                }
+                cell[0].innerText = a;
+                cell[2].innerText = b;
+                cell[4].children[0].value = "";
+                cell[4].children[0].style.backgroundColor = "white";
+                preva = a;
+                prevb = b;
+              }
+            }
+            function CheckQuiz() {
+              var tbl = document.getElementById("quiz");
+              var row = tbl.getElementsByTagName("tr");
+              var cell,
+                a,
+                b,
+                c,
+                count = 0;
+              for (var i = 0; i < 10; i++) {
+                cell = row[i].getElementsByTagName("td");
+                a = parseFloat(cell[0].innerText);
+                b = parseFloat(cell[2].innerText);
+                c = parseFloat(cell[4].children[0].value);
+                if (Math.abs(a * b - c) < 0.01) {
+                  cell[4].children[0].style.backgroundColor = "#ddffdd";
+                  count++;
+                } else {
+                  cell[4].children[0].style.backgroundColor = "#ffdddd";
+                }
+              }
+
+              document.getElementById("score").innerHTML =
+                "Your score is " + count + "/10";
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>NUMBERS</h5>
+        <ul>
+          <li><a href="addition-table.html">Addition table</a></li>
+          <li><a href="e_constant.html">e constant</a></li>
+          <li><a href="exponent.html">Exponents</a></li>
+          <li><a href="fibonacci.html">Fibonacci numbers</a></li>
+          <li><a href="multiplication-table.html">Multiplication table</a></li>
+          <li><a href="Numeral_system.html">Numeral systems</a></li>
+          <li><a href="PPM.html">Parts-per million (ppm)</a></li>
+          <li><a href="Per_mille.html">Per-mille (&permil;)</a></li>
+          <li><a href="Percentage.html">Percentage (%)</a></li>
+          <li><a href="prime_numbers.html">Prime number</a></li>
+          <li><a href="zero-number.html">Zero number</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="multiplication-table.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

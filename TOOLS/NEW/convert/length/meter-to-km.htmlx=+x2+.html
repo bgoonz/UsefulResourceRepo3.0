@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Meters to km converter</title>
+    <meta
+      name="description"
+      content="Meters to km converter and how to convert."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+        max-width: 520px;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      #keyboarddiv {
+        display: none;
+      }
+      @media all and (min-width: 800px) {
+        #keyboarddiv {
+          display: none;
+        }
+      }
+      @media all and (max-width: 575px) {
+        #calcform > div:nth-child(1) > label {
+          display: none;
+        }
+        #calcform > div:nth-child(4) > label {
+          display: none;
+        }
+      }
+      @media all and (max-width: 375px) {
+        .btn {
+          padding: 8px;
+        }
+      }
+      @media all and (max-width: 320px) {
+        .btn {
+          padding: 8px 16px;
+        }
+        .btn i {
+          display: none;
+        }
+      }
+      @media all and (max-width: 576px) {
+        .btn {
+          padding: 8px 6px;
+        }
+      }
+      @media all and (max-width: 320px) {
+        .calc button img {
+          display: none;
+        }
+      }
+      .ntable td:nth-child(1),
+      .ntable td:nth-child(2) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Length conversion</a>&rsaquo; Meters to km
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Meters to Kilometers Converter</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div id="unitnav" class="form-row">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="form-group col">
+                <label for="unit1">From</label>
+                <select id="unit1" class="form-control">
+                  <option value="mm">Millimeter (mm)</option>
+                  <option value="cm">Centimeter (cm)</option>
+                  <option value="meter" selected>Meter (m)</option>
+                  <option value="km">Kilometer (km)</option>
+                  <option value="inch">Inch (in)</option>
+                  <option value="feet">Foot (ft)</option>
+                  <option value="yard">Yard (yd)</option>
+                  <option value="mile">Mile (mi)</option>
+                </select>
+              </div>
+              <div class="form-group col">
+                <label for="unit2">To</label>
+                <select id="unit2" class="form-control">
+                  <option value="mm">Millimeter (mm)</option>
+                  <option value="cm">Centimeter (cm)</option>
+                  <option value="meter">Meter (m)</option>
+                  <option value="km" selected>Kilometer (km)</option>
+                  <option value="inch">Inch (in)</option>
+                  <option value="feet">Foot (ft)</option>
+                  <option value="yard">Yard (yd)</option>
+                  <option value="mile">Mile (mi)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="x" class="col-sm-3 col-form-label">Meters</label>
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="x"
+                  name="x"
+                  class="form-control"
+                  required
+                  autofocus
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">m</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row" id="keyboarddiv">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="col-sm-9">
+                <button
+                  type="button"
+                  title="Convert"
+                  onclick="OnKeyboard()"
+                  class="btn btn-secondary"
+                >
+                  <i class="material-icons">keyboard</i>
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="col-sm-9">
+                <button
+                  type="button"
+                  title="Convert"
+                  onclick="OnCalc()"
+                  class="btn btn-success"
+                >
+                  <span>=</span> Convert
+                </button>
+                <button type="reset" title="Reset" class="btn btn-secondary">
+                  <span>&times;</span> Reset
+                </button>
+                <button
+                  type="button"
+                  title="Swap conversion"
+                  class="btn btn-secondary"
+                  onclick="location.href='km-to-meter.html';"
+                >
+                  <span></span> Swap
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="y" class="col-sm-3 col-form-label">Kilometers</label>
+              <div class="input-group col-sm-9">
+                <input type="text" id="y" readonly class="form-control" />
+                <div class="input-group-append">
+                  <span class="input-group-text">km</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="TA" class="col-sm-3 col-form-label"
+                >Calculation</label
+              >
+              <div class="col-sm-9">
+                <textarea
+                  id="TA"
+                  rows="3"
+                  class="form-control"
+                  readonly
+                ></textarea>
+              </div>
+            </div>
+          </form>
+          <p id="p1"><a href="km-to-meter.html">km to meters &#9658;</a></p>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+
+          <h2><a id="how"></a>How to convert meters to kilometers</h2>
+          <p>1 kilometer is equal to 1000 meters:</p>
+          <p class="math">1km = 1000m</p>
+          <p>
+            The distance <em>d</em> in kilometers (km) is equal to the distance
+            <i>d</i> in meters (m) divided by 1000:
+          </p>
+          <p class="math">
+            <em>d</em><sub>(km)</sub> = <em>d</em><sub>(m)</sub> / 1000
+          </p>
+          <h4>Example</h4>
+          <p>Convert 20 meters to kilometers:</p>
+          <p class="math"><em>d</em><sub>(km)</sub> = 20m / 1000 = 0.02km</p>
+          <h3>How many meters in a kilometer</h3>
+          <p>One kilometer is equal to 1000 meter:</p>
+          <p>1km = 1km&times;1000 = 1000m</p>
+          <h3>How many kilometers in a meter</h3>
+          <p>One meter is equal to 0.001 kilometers:</p>
+          <p>1m = 1m/1000 = 0.001km</p>
+          <h3>How to convert 8 meters to kilometers</h3>
+          <p>Divide 8 meters by 1000 to get kilometers:</p>
+          <p>8m = 8m/1000 = 0.008km</p>
+          <h2><a id="table"></a>Meters to kilometers conversion table</h2>
+          <table class="ntable">
+            <thead>
+              <tr>
+                <th>Meters (m)</th>
+                <th>Kilometers (km)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1 m</td>
+                <td>0.001 km</td>
+              </tr>
+              <tr>
+                <td>2 m</td>
+                <td>0.002 km</td>
+              </tr>
+              <tr>
+                <td>3 m</td>
+                <td>0.003 km</td>
+              </tr>
+              <tr>
+                <td>4 m</td>
+                <td>0.004 km</td>
+              </tr>
+              <tr>
+                <td>5 m</td>
+                <td>0.005 km</td>
+              </tr>
+              <tr>
+                <td>6 m</td>
+                <td>0.006 km</td>
+              </tr>
+              <tr>
+                <td>7 m</td>
+                <td>0.007 km</td>
+              </tr>
+              <tr>
+                <td>8 m</td>
+                <td>0.008 km</td>
+              </tr>
+              <tr>
+                <td>9 m</td>
+                <td>0.009 km</td>
+              </tr>
+              <tr>
+                <td>10 m</td>
+                <td>0.01 km</td>
+              </tr>
+              <tr>
+                <td>20 m</td>
+                <td>0.02 km</td>
+              </tr>
+              <tr>
+                <td>30 m</td>
+                <td>0.03 km</td>
+              </tr>
+              <tr>
+                <td>40 m</td>
+                <td>0.04 km</td>
+              </tr>
+              <tr>
+                <td>50 m</td>
+                <td>0.05 km</td>
+              </tr>
+              <tr>
+                <td>60 m</td>
+                <td>0.06 km</td>
+              </tr>
+              <tr>
+                <td>70 m</td>
+                <td>0.07 km</td>
+              </tr>
+              <tr>
+                <td>80 m</td>
+                <td>0.08 km</td>
+              </tr>
+              <tr>
+                <td>90 m</td>
+                <td>0.09 km</td>
+              </tr>
+              <tr>
+                <td>100 m</td>
+                <td>0.1 km</td>
+              </tr>
+              <tr>
+                <td>1000 m</td>
+                <td>1 km</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="km-to-meter.html">km to meters &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="km-to-meter.html">km to meters conversion</a></li>
+            <li><a href="inch-to-cm.html">inches to cm</a></li>
+            <li><a href="cm-to-inch.html">cm to inches</a></li>
+          </ul>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LENGTH CONVERSION</h5>
+        <ul>
+          <li><a href="cm-to-feet.html">cm to feet</a></li>
+          <li><a href="cm-to-feet-inch.html">cm to feet+inches</a></li>
+          <li><a href="cm-to-inch.html">cm to inches</a></li>
+          <li><a href="cm-to-meter.html">cm to meters</a></li>
+          <li><a href="cm-to-mm.html">cm to mm</a></li>
+          <li><a href="feet-inch-to-cm.html">Feet+inches to cm</a></li>
+          <li><a href="feet-to-cm.html">Feet to cm</a></li>
+          <li><a href="feet-to-mm.html">Feet to mm</a></li>
+          <li><a href="feet-to-inch.html">Feet to inches</a></li>
+          <li><a href="feet-to-meter.html">Feet to meters</a></li>
+          <li><a href="height-converter.html">Height converter</a></li>
+          <li><a href="inch-to-cm.html">Inches to cm</a></li>
+          <li><a href="inch-to-feet.html">Inches to feet</a></li>
+          <li><a href="inch-to-meter.html">Inches to meters</a></li>
+          <li><a href="inch-to-mm.html">Inches to mm</a></li>
+          <li><a href="km-to-mile.html">km to miles</a></li>
+          <li><a href="meter-to-cm.html">Meters to cm</a></li>
+          <li><a href="meter-to-feet.html">Meters to feet</a></li>
+          <li><a href="meter-to-inch.html">Meters to inches</a></li>
+          <li><a href="mile-to-km.html">Miles to km</a></li>
+          <li><a href="mm-to-cm.html">mm to cm</a></li>
+          <li><a href="mm-to-feet.html">mm to feet</a></li>
+          <li><a href="mm-to-inch.html">mm to inches</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href='meter-to-km.html%3Fx="+x2+".html#feedback'
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../convert.js"></script>
+    <script async src="unitnav.js"></script>
+    <script>
+      var xelem = document.getElementById("x");
+      var isTextKeyboard = false;
+      window.onload = function () {
+        xelem.onkeypress = function (e) {
+          if (e.keyCode == 13) OnCalc();
+        };
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0) {
+          if (params.x != "") {
+            document.title = params.x + " meters to km conversion";
+            document.getElementById("x").value = decodeURIComponent(params.x);
+            OnCalc();
+          }
+          SetLinks(params);
+          convert();
+        }
+      };
+      function SetLinks(params) {
+        var p1 = document.getElementById("p1");
+        var p2 = document.createElement("p");
+        var p3 = document.createElement("p");
+        var x = parseInt(params.x);
+        var x1 = x - 1;
+        var x2 = x + 1;
+        if (x1 >= 0)
+          p2.innerHTML =
+            "<a href='meter-to-km.html%3Fx=&quot;+x1+&quot;.html'>" +
+            x1 +
+            " meters to km &#9658;</a>";
+        p3.innerHTML =
+          "<a href='meter-to-km.html%3Fx=&quot;+x2+&quot;.html'>" +
+          x2 +
+          " meters to km &#9658;</a>";
+        p1.parentNode.insertBefore(p2, p1);
+        p1.parentNode.insertBefore(p3, p1);
+      }
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function OnKeyboard() {
+        var xelem = document.getElementById("x");
+        if (isTextKeyboard == false) {
+          isTextKeyboard = true;
+          xelem.type = "text";
+        } else {
+          isTextKeyboard = false;
+          xelem.type = "number";
+        }
+        xelem.focus();
+      }
+      function OnCalc() {
+        var x = str2num(xelem.value);
+        var y = roundresult(x / 1000);
+        var txt = x + "m / 1000\n";
+        txt += "= " + y + "km";
+        document.getElementById("y").value = y;
+        document.getElementById("TA").value = txt;
+      }
+    </script>
+  </body>
+</html>

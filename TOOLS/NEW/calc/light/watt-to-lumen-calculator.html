@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Watts to lumens (lm) conversion calculator</title>
+    <meta
+      name="description"
+      content="Electric power in watts (W) to luminous flux in lumens (lm) calculator and how to calculate."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Lighting calculators</a>&rsaquo; Watts to
+        lumens calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Watts to lumens calculator</h1>
+          <p>
+            <a href="../../electric/electric_power.html">Electric power</a> in
+            <a href="../../electric/watt.html">watts (W)</a> to luminous flux in
+            lumens (lm) calculator and how to calculate.
+          </p>
+          <p>
+            Enter the <a href="../../electric/electric_power.html">power</a> in
+            watts, luminous efficacy in lumens per watt and press the
+            <i>Calculate</i> button to get the luminous flux in lumens:
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Enter power in watts:</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="x1"
+                    class="intext"
+                    style="width: 220px"
+                    autofocus
+                  />
+                </td>
+                <td class="mathsymbol">W</td>
+              </tr>
+              <tr>
+                <td>Enter light source:</td>
+                <td colspan="2">
+                  <select
+                    name="type"
+                    style="font-size: medium"
+                    onchange="OnTypeChange()"
+                  >
+                    <option>-- select light source --</option>
+                    <option>Tungsten incandescent light bulb</option>
+                    <option>Halogen lamp</option>
+                    <option>Fluorescent lamp</option>
+                    <option>LED lamp</option>
+                    <option>Metal halide lamp</option>
+                    <option>High pressure sodium vapor lamp</option>
+                    <option>Low pressure sodium vapor lamp</option>
+                    <option>Mercury vapor lamp</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Or enter luminous efficacy in lumens per watt:</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    name="x2"
+                    class="intext"
+                    style="width: 220px"
+                  />
+                </td>
+                <td class="mathsymbol">lm/W</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td>
+                  <input
+                    onclick="calc3()"
+                    type="button"
+                    value="Calculate"
+                    class="btn"
+                  />
+                  <input
+                    onclick="setfocus()"
+                    type="reset"
+                    value="Reset"
+                    class="btn"
+                  />
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Luminous flux result in lumens:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    name="y"
+                    class="outtext"
+                    readonly="readonly"
+                    style="width: 220px"
+                  />
+                </td>
+                <td class="mathsymbol">lm</td>
+              </tr>
+            </table>
+          </form>
+          <p>
+            * the predefined luminous efficacy values are typical / average
+            values.
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="lumen-to-watt-calculator.html"
+              >Lumens to watts calculator &#9658;</a
+            >
+          </p>
+          <h2>Watts to lumens calculation</h2>
+          <p>
+            Energy saving lamps have high luminous efficacy (more lumens per
+            watt).
+          </p>
+          <p>
+            The luminous flux <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span></sub> in lumens (lm)
+            is equal to the power P in watts (W), times the luminous efficacy
+            <i> &#951;</i> in lumens per watt (lm/W):
+          </p>
+          <p class="math">
+            <i>&#934;</i
+            ><sub><span style="font-size: 0.6em">V</span>(lm)</sub> = <i>P</i
+            ><sub>(W)</sub> &times; <i>&#951;</i><sub>(lm/W)</sub>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="how-watt-to-lumen.html"
+              >Watts to lumens calculation &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="lumen-to-watt-calculator.html"
+                >Lumens to watts calculator</a
+              >
+            </li>
+            <li>
+              <a href="how-watt-to-lumen.html">Watts to lumens calculation</a>
+            </li>
+            <li>
+              <a href="lux-to-lumen-calculator.html"
+                >Lux to lumens calculator</a
+              >
+            </li>
+            <li>
+              <a href="../electric/Watt_to_Amp_Calculator.html"
+                >Watts to amps calculator</a
+              >
+            </li>
+            <li><a href="../../electric/watt.html">Watt</a></li>
+            <li><a href="index.html">Lighting calculators</a></li>
+            <li>
+              <a href="../../convert/electric/index.html"
+                >Electrical calculation</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/power/index.html">Power conversion</a>
+            </li>
+          </ul>
+          <script src="../../convert/convert.js"></script>
+          <script>
+            function OnTypeChange() {
+              var type = document.calcform.type.selectedIndex;
+              switch (type) {
+                case 0:
+                  document.calcform.x2.value = "";
+                  break;
+                case 1:
+                  document.calcform.x2.value = 15;
+                  break;
+                case 2:
+                  document.calcform.x2.value = 20;
+                  break;
+                case 3:
+                  document.calcform.x2.value = 60;
+                  break;
+                case 4:
+                  document.calcform.x2.value = 90;
+                  break;
+                case 5:
+                  document.calcform.x2.value = 87;
+                  break;
+                case 6:
+                  document.calcform.x2.value = 117;
+                  break;
+                case 7:
+                  document.calcform.x2.value = 150;
+                  break;
+                case 8:
+                  document.calcform.x2.value = 50;
+                  break;
+              }
+            }
+            function convert(x1, x2) {
+              return x1 * x2;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LIGHTING CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="candela-to-lumen-calculator.html">Candela to lumens</a>
+          </li>
+          <li><a href="candela-to-lux-calculator.html">Candela to lux</a></li>
+          <li><a href="fc-to-lux-calculator.html">Footcandles to lux</a></li>
+          <li>
+            <a href="lumen-to-candela-calculator.html">Lumens to candela</a>
+          </li>
+          <li><a href="lumen-to-lux-calculator.html">Lumens to lux</a></li>
+          <li>
+            <a href="lumen-to-mcd-calculator.html">Lumens to millicandela</a>
+          </li>
+          <li><a href="lumen-to-watt-calculator.html">Lumens to watts</a></li>
+          <li><a href="lux-to-candela-calculator.html">Lux to candela</a></li>
+          <li><a href="lux-to-fc-calculator.html">Lux to footcandles</a></li>
+          <li><a href="lux-to-lumen-calculator.html">Lux to lumens</a></li>
+          <li><a href="lux-to-watt-calculator.html">Lux to watts</a></li>
+          <li>
+            <a href="mcd-to-lumen-calculator.html">Millicandela to lumens</a>
+          </li>
+          <li><a href="watt-to-lumen-calculator.html">Watts to lumens</a></li>
+          <li><a href="watt-to-lux-calculator.html">Watts to lux</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="watt-to-lumen-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

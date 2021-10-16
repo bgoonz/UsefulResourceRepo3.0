@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Simple Math Calculator Online</title>
+    <meta
+      name="description"
+      content="Simple math calculator online. Basic calculator online."
+    />
+    <link rel="canonical" href="simple-calculator.html" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        background: #eee8d5;
+        padding: 20px;
+      }
+      #txt {
+        background: #f8f8f8;
+        font-size: x-large;
+      }
+      #calctxt {
+        font-size: x-large;
+        background: #fff;
+      }
+      #calcbtn {
+        font-weight: bolder;
+      }
+      #keyboard {
+        border-collapse: collapse;
+      }
+      #keyboard td {
+        padding: 1px;
+      }
+      #keyboard button {
+        font-size: x-large;
+        height: 44px;
+        min-width: 55px;
+        padding: 2px 16px;
+        border-radius: 2px;
+      }
+      #keyboard .btn {
+        border: 2px solid transparent;
+      }
+      #backbtn,
+      #ansbtn {
+        font-size: medium !important;
+        padding: 2px 8px !important;
+      }
+      #plusbtn {
+        height: 90px !important;
+      }
+      .btn-dark {
+        background-color: #515559;
+      }
+      @media all and (min-width: 801px) {
+        #keyboard button {
+          width: 70px;
+        }
+      }
+      @media all and (max-width: 800px) {
+        #calcform {
+          padding: 10px;
+        }
+        #keyboard button {
+          height: 50px;
+          font-size: large;
+        }
+        #plusbtn {
+          height: 102px !important;
+        }
+        #pwrbtn {
+          padding: 2px 8px !important;
+        }
+      }
+      @media all and (max-width: 360px) {
+        #calcform {
+          padding: 5px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo;<a
+          href="simple-calculator.html"
+          >Simple math calculator online</a
+        >
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Simple Math Calculator</h1>
+          <form
+            id="calcform"
+            name="calcform"
+            autocomplete="off"
+            class="rounded"
+          >
+            <div class="form-group">
+              <textarea
+                rows="4"
+                id="txt"
+                class="form-control"
+                readonly
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <div class="input-group mt-2">
+                <input
+                  type="text"
+                  id="calctxt"
+                  name="c"
+                  class="form-control"
+                  spellcheck="false"
+                  autofocus
+                />
+                <button
+                  type="button"
+                  onclick="OnCalc()"
+                  class="btn btn-success btn-lg"
+                >
+                  <img
+                    src="../../lib/icons/material/svg/subdirectory_arrow_left_white_24dp.svg"
+                  />
+                </button>
+              </div>
+            </div>
+            <table id="keyboard" class="mt-2">
+              <tr>
+                <td>
+                  <button
+                    type="button"
+                    id="backbtn"
+                    class="btn btn-lg btn-secondary"
+                    onclick="Back()"
+                  >
+                    <img
+                      src="../../lib/icons/material/svg/backspace_white_24dp.svg"
+                    />
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('7')"
+                  >
+                    7
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('8')"
+                  >
+                    8
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('9')"
+                  >
+                    9
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt('(')"
+                  >
+                    (
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt(')')"
+                  >
+                    )
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt('%')"
+                  >
+                    %
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('4')"
+                  >
+                    4
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('5')"
+                  >
+                    5
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('6')"
+                  >
+                    6
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt('&times;')"
+                  >
+                    &times;
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt('&divide;')"
+                  >
+                    &divide;
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    type="button"
+                    id="pwrbtn"
+                    class="btn btn-secondary btn-lg math"
+                    onclick="AddTxt('^')"
+                  >
+                    <i>x <sup>y</sup></i>
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('1')"
+                  >
+                    1
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('2')"
+                  >
+                    2
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('3')"
+                  >
+                    3
+                  </button>
+                </td>
+                <td rowspan="2">
+                  <button
+                    type="button"
+                    id="plusbtn"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt('+')"
+                  >
+                    +
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt('-')"
+                  >
+                    -
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <button
+                    type="button"
+                    onclick="AddTxt('sqrt(')"
+                    class="btn btn-secondary btn-lg math"
+                  >
+                    &radic;<span style="border-top: 1px solid"
+                      >&nbsp;&nbsp;</span
+                    >
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    id="ansbtn"
+                    title="Answer"
+                    class="btn btn-sm btn-secondary"
+                    onclick="AddTxt('ans')"
+                  >
+                    Ans
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-dark"
+                    onclick="AddTxt('0')"
+                  >
+                    0
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-secondary"
+                    onclick="AddTxt('.')"
+                  >
+                    .
+                  </button>
+                </td>
+                <td>
+                  <button
+                    type="button"
+                    class="btn btn-lg btn-success font-weight-bold"
+                    onclick="OnCalc()"
+                  >
+                    =
+                  </button>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <br />
+          <h2>Calculation examples</h2>
+          <p>
+            <a href="simple-calculator.html%3Fc=5+3+12.5.html"
+              >Addition: 5 + 3 + 12.5</a
+            >
+          </p>
+          <p>
+            <a href="simple-calculator.html%3Fc=12.5-5-3.html"
+              >Subtraction: 12.5 - 5 -3</a
+            >
+          </p>
+          <p>
+            <a href="simple-calculator.html%3Fc=5*3.html"
+              >Multiplication: 5 &times; 3</a
+            >
+          </p>
+          <p>
+            <a href="simple-calculator.html%3Fc=5%252F3.html"
+              >Division: 5 &divide; 3</a
+            >
+          </p>
+          <p>
+            <a href="simple-calculator.html%3Fc=30%25*200.html"
+              >Percentage: 30% &times; 200</a
+            >
+          </p>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="Percentage_Calculator.html">Percentage calculator</a>
+            </li>
+            <li><a href="fractions-calculator.html">Fraction calculator</a></li>
+            <li>
+              <a href="complex-calculator.html">Complex numbers calculator</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH CALCULATORS</h5>
+        <ul>
+          <li><a href="calculator.html">Online math calculator</a></li>
+          <li>
+            <a href="adding-fractions-calculator.html"
+              >Adding fractions calculator</a
+            >
+          </li>
+          <li><a href="Add_Calculator.html">Addition calculator</a></li>
+          <li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+          <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+          <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+          <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+          <li>
+            <a href="complex-calculator.html">Complex numbers calculator</a>
+          </li>
+          <li>
+            <a href="convolution-calculator.html">Convolution calculator</a>
+          </li>
+          <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+          <li>
+            <a href="dividing-fractions-calculator.html"
+              >Dividing fractions calculator</a
+            >
+          </li>
+          <li><a href="division-calculator.html">Division calculator</a></li>
+          <li>
+            <a href="exponential-growth-calculator.html"
+              >Exponential growth calculator</a
+            >
+          </li>
+          <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+          <li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+          <li><a href="fractions-calculator.html">Fractions calculator</a></li>
+          <li><a href="gcf-calculator.html">GCF calculator</a></li>
+          <li><a href="lcm-calculator.html">LCM calculator</a></li>
+          <li><a href="Ln_Calc.html">Ln calculator</a></li>
+          <li><a href="Log_Calculator.html">Log calculator</a></li>
+          <li>
+            <a href="multiplication-calculator.html"
+              >Multiplication calculator</a
+            >
+          </li>
+          <li>
+            <a href="multiplying-fractions-calculator.html"
+              >Multiplying fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="Percentage_Calculator.html">Percentage calculator</a>
+          </li>
+          <li>
+            <a href="percentage-change-calculator.html"
+              >Percentage change calculator</a
+            >
+          </li>
+          <li>
+            <a href="percent-error-calculator.html">Percent error calculator</a>
+          </li>
+          <li>
+            <a href="percentage-increase-calculator.html"
+              >Precentage increase calculator</a
+            >
+          </li>
+          <li>
+            <a href="pythagorean-calculator.html"
+              >Pythagorean theorem calculator</a
+            >
+          </li>
+          <li>
+            <a href="Quadratic_Calculator.html">Quadratic equation solver</a>
+          </li>
+          <li>
+            <a href="random-number-generator.html">Random number generator</a>
+          </li>
+          <li><a href="ratio-calculator.html">Ratio calculator</a></li>
+          <li><a href="root-calculator.html">Root calculator</a></li>
+          <li>
+            <a href="scientific-notation-calculator.html"
+              >Scientific notation calculator</a
+            >
+          </li>
+          <li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+          <li><a href="simple-calculator.html">Simple calculator</a></li>
+          <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+          <li>
+            <a href="square-root-calculator.html">Square root calculator</a>
+          </li>
+          <li>
+            <a href="standard-deviation-calculator.html"
+              >Standard deviation calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtracting-fractions-calculator.html"
+              >Subtracting fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtraction-calculator.html">Subtraction calculator</a>
+          </li>
+          <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+          <li>
+            <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+          </li>
+          <li>
+            <a href="weighted-average-calculator.html"
+              >Weighted average calculator</a
+            >
+          </li>
+          <li><a href="variance-calculator.html">Variance calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="simple-calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/9.4.4/math.min.js"
+      integrity="sha512-OZ6CXzl5JrSc9OM1lxp1OC+zt5gCTVAqy7nWwbdSUE98akAvGl/20WaIqsRUnSpBG+QBkcMkiJVfFvybZ6PtKQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      "use strict";
+      var calcformElem = document.getElementById("calcform");
+      var txtElem = document.getElementById("txt");
+      var calctxtElem = document.getElementById("calctxt");
+      var calcbtnElem = document.getElementById("calcbtn");
+      var prec = 16;
+      var ans = "";
+      window.addEventListener("DOMContentLoaded", function () {
+        calcformElem.onkeypress = function (e) {
+          if (e.keyCode == 13) {
+            event.preventDefault();
+            OnCalc();
+          }
+        };
+        //calcbtn.onclick=function() { OnCalc(); }
+        math.config({
+          number: "BigNumber",
+          precision: prec,
+        });
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0) {
+          calctxt.value = decodeURIComponent(params.c);
+          OnCalc();
+        }
+        if (typeof window.orientation !== "undefined")
+          calctxtElem.setAttribute("readonly", true);
+      });
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function GetPercent(s) {
+        var n, p;
+        var m = s.match(/[.0-9]+%/g);
+        if (m != null)
+          for (var i = 0; i < m.length; i++) {
+            n = m[i].replace("%", "/100");
+            p = "(" + n + ")";
+            s = s.replace(m[i], p);
+          }
+        return s;
+      }
+      function OnCalc() {
+        var s = calctxt.value;
+        s = s.replace(/ans/g, ans);
+        var s1 = GetPercent(s);
+        var s2 = s1.replace(/\u00D7/g, "*").replace(/\u00F7/g, "/"); //.replace(/%/g,"/100");
+        var z = math.evaluate(s2);
+        if (txt.value != "") txt.value += "\n";
+        if (typeof z.im !== "undefined") {
+          ans = "(" + z.re + "+" + z.im + "i)";
+          txt.value +=
+            s + "\n= " + num2str(z.re) + " + " + num2str(z.im) + "i\n";
+          var zp = math.complex(z).toPolar();
+          var phi = (zp.phi * 180.0) / Math.PI;
+          txt.value += "= " + zp.r + " \u2220" + phi + "\u00B0"; //\n";
+        } else {
+          ans = z;
+          txt.value += s + "\n= " + num2str(z); //+"\n";
+        }
+        calctxt.value = "";
+        calctxt.focus();
+        txt.scrollTop = txt.scrollHeight;
+      }
+      function num2str(x) {
+        return parseFloat(x.toFixed(prec - 2));
+      }
+      function Back() {
+        var s = calctxt.value;
+        var pos = calctxt.selectionStart;
+        var len = s.length;
+        var s2 = "";
+        if (pos >= 2) s2 += s.substring(0, pos - 1);
+        if (pos <= len) s2 += s.substring(pos, len);
+        calctxt.value = s2;
+        pos--;
+        if (pos < 0) pos = 0;
+        calctxt.selectionStart = pos;
+        calctxt.selectionEnd = pos;
+        calctxt.focus();
+      }
+      function AddTxt(s) {
+        calctxt.value += s;
+        calctxt.focus();
+      }
+    </script>
+  </body>
+</html>

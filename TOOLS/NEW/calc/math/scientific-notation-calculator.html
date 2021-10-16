@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Scientific Notation Calculator</title>
+    <meta
+      content="Scientific notation calculator: add,subtract,multiply,divide."
+      name="description"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      .adslot_1 {
+        display: none;
+      }
+      h1,
+      h2 {
+        font-size: 1.6rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      #calcform {
+        padding: 20px;
+        background: #eee8d5;
+        max-width: 600px;
+      }
+      #calcform .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      #calcform .input-group input[type="number"]:first-child {
+        margin-top: 20px;
+      }
+      #calcform .input-group input[type="text"]:first-child {
+        margin-top: 20px;
+      }
+      #calcform .input-group span {
+        margin-top: 25px;
+      }
+      #calcform select {
+        font-weight: bold;
+      }
+      #calcform .btn img {
+        filter: invert(1);
+      }
+      @media all and (max-width: 576px) {
+        #calcform .form-group {
+          margin-bottom: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo; Scientific
+        notation calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Scientific Notation Calculator</h1>
+          <ul class="nav nav-tabs">
+            <li class="nav-item">
+              <a
+                href="scientific-notation-calculator.html"
+                class="nav-link active"
+                >Scientific notation calculator</a
+              >
+            </li>
+            <li class="nav-item">
+              <a
+                href="../../convert/number/scientific-notation-converter.html"
+                class="nav-link"
+                >Scientific notation converter</a
+              >
+            </li>
+          </ul>
+          <br />
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div id="ntypediv" class="form-group row">
+              <label for="scintype" class="col-sm-3 col-form-label"
+                >Notation type</label
+              >
+              <div class="input-group col-sm-9">
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                  <label class="btn btn-secondary active">
+                    <input type="radio" name="ntype" id="scintype" checked />
+                    Scientific
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="ntype" /> E notation
+                  </label>
+                  <label class="btn btn-secondary">
+                    <input type="radio" name="ntype" /> Decimal
+                  </label>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="n1" class="col-sm-3 col-form-label mt-3"
+                >First number</label
+              >
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  class="form-control"
+                  id="n1"
+                  name="n1"
+                  autofocus
+                />
+                <span class="math">&times;10&nbsp;</span>
+                <input type="text" class="form-control" id="e1" name="e1" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="op" class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="input-group col-sm-9">
+                <select class="form-control" id="op" name="op">
+                  <option>+</option>
+                  <option>-</option>
+                  <option>&times;</option>
+                  <option>&divide;</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="n2" class="col-sm-3 col-form-label mt-3"
+                >Second number</label
+              >
+              <div class="input-group col-sm-9">
+                <input type="text" class="form-control" id="n2" name="n2" />
+                <span class="math">&times;10&nbsp;</span>
+                <input type="text" class="form-control" id="e2" name="e2" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="col-sm-9">
+                <button
+                  type="button"
+                  title="Calculate"
+                  class="btn btn-secondary"
+                  onclick="OnCalc()"
+                >
+                  <span>=</span> Calculate
+                </button>
+
+                <button
+                  type="reset"
+                  title="Reset"
+                  class="btn btn-secondary"
+                  onclick="setfocus()"
+                >
+                  <span>&times;</span> Reset
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="sci" class="col-sm-3 col-form-label mt-3"
+                >Scientific notation result</label
+              >
+              <div class="input-group col-sm-9">
+                <input type="text" id="sci" class="form-control" readonly />
+                <span class="math">&times;10&nbsp;</span>
+                <input type="text" id="sci2" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="e" class="col-sm-3 col-form-label mt-3"
+                >E notation result</label
+              >
+              <div class="input-group col-sm-9">
+                <input type="text" id="e" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="dec" class="col-sm-3 col-form-label mt-3"
+                >Decimal notation result</label
+              >
+              <div class="input-group col-sm-9">
+                <input type="text" id="dec" class="form-control" readonly />
+              </div>
+            </div>
+          </form>
+          <p>
+            <a href="../../convert/number/scientific-notation-converter.html"
+              >Scientific notation converter &#9658;</a
+            >
+          </p>
+          <h2>Scientific notation calculations</h2>
+          <p>For 2 number x1 and x2:</p>
+          <p class="math">
+            <em>x</em><sub>1</sub> = <em>a</em><sub>1</sub> &times; 10<sup
+              ><em>b</em>1</sup
+            >
+          </p>
+          <p class="math">
+            <em>x</em><sub>2</sub> = <em>a</em><sub>2</sub> &times; 10<sup
+              ><em>b</em>2</sup
+            >
+          </p>
+          <h4>Scientific notations addition</h4>
+          <p class="math">
+            <em>x</em><sub>1</sub> + <em>x</em><sub>2</sub> = <em>a</em
+            ><sub>1</sub> &times; 10<sup><em>b</em>1</sup> + <em>a</em
+            ><sub>2</sub> &times; 10<sup><em>b</em>2</sup>
+          </p>
+          <h4>Scientific notations subtraction</h4>
+          <p class="math">
+            <em>x</em><sub>1</sub> - <em>x</em><sub>2</sub> = <em>a</em
+            ><sub>1</sub> &times; 10<sup><em>b</em>1</sup> - <em>a</em
+            ><sub>2</sub> &times; 10<sup><em>b</em>2</sup>
+          </p>
+          <h4>Scientific notations multiplication</h4>
+          <p class="math">
+            <em>x</em><sub>1</sub> &times; <em>x</em><sub>2</sub> = <em>a</em
+            ><sub>1</sub><em>a</em><sub>2</sub> &times; 10<sup
+              ><em>b</em>1+<em>b</em>2</sup
+            >
+          </p>
+          <h4>Scientific notations division</h4>
+          <p class="math">
+            <em>x</em><sub>1</sub> / <em>x</em><sub>2</sub> = (<em>a</em
+            ><sub>1</sub>/<em>a</em><sub>2</sub>) &times; 10<sup
+              ><em>b</em>1-<em>b</em>2</sup
+            >
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="../../convert/number/scientific-notation-converter.html"
+              >Scientific notation converter &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li>
+              <a href="../../convert/number/scientific-notation-converter.html"
+                >Scientific notation converter</a
+              >
+            </li>
+            <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+            <li>
+              <a href="../../math/number/exponent.html">Exponents rules</a>
+            </li>
+            <li><a href="Log_Calculator.html">Log calculator</a></li>
+            <li>
+              <a href="Percentage_Calculator.html">Percentage calculator</a>
+            </li>
+            <li><a href="index.html">Math calculators</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH CALCULATORS</h5>
+        <ul>
+          <li><a href="calculator.html">Online math calculator</a></li>
+          <li>
+            <a href="adding-fractions-calculator.html"
+              >Adding fractions calculator</a
+            >
+          </li>
+          <li><a href="Add_Calculator.html">Addition calculator</a></li>
+          <li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+          <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+          <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+          <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+          <li>
+            <a href="convolution-calculator.html">Convolution calculator</a>
+          </li>
+          <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+          <li>
+            <a href="dividing-fractions-calculator.html"
+              >Dividing fractions calculator</a
+            >
+          </li>
+          <li><a href="division-calculator.html">Division calculator</a></li>
+          <li>
+            <a href="exponential-growth-calculator.html"
+              >Exponential growth calculator</a
+            >
+          </li>
+          <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+          <li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+          <li><a href="fractions-calculator.html">Fractions calculator</a></li>
+          <li><a href="gcf-calculator.html">GCF calculator</a></li>
+          <li><a href="lcm-calculator.html">LCM calculator</a></li>
+          <li><a href="Ln_Calc.html">Ln calculator</a></li>
+          <li><a href="Log_Calculator.html">Log calculator</a></li>
+          <li>
+            <a href="multiplication-calculator.html"
+              >Multiplication calculator</a
+            >
+          </li>
+          <li>
+            <a href="multiplying-fractions-calculator.html"
+              >Multiplying fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="Percentage_Calculator.html">Percentage calculator</a>
+          </li>
+          <li>
+            <a href="percentage-change-calculator.html"
+              >Percentage change calculator</a
+            >
+          </li>
+          <li>
+            <a href="percent-error-calculator.html">Percent error calculator</a>
+          </li>
+          <li>
+            <a href="percentage-increase-calculator.html"
+              >Precentage increase calculator</a
+            >
+          </li>
+          <li>
+            <a href="pythagorean-calculator.html"
+              >Pythagorean theorem calculator</a
+            >
+          </li>
+          <li>
+            <a href="Quadratic_Calculator.html">Quadratic equation solver</a>
+          </li>
+          <li><a href="ratio-calculator.html">Ratio calculator</a></li>
+          <li><a href="root-calculator.html">Root calculator</a></li>
+          <li>
+            <a href="scientific-notation-calculator.html"
+              >Scientific notation calculator</a
+            >
+          </li>
+          <li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+          <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+          <li>
+            <a href="square-root-calculator.html">Square root calculator</a>
+          </li>
+          <li>
+            <a href="standard-deviation-calculator.html"
+              >Standard deviation calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtracting-fractions-calculator.html"
+              >Subtracting fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtraction-calculator.html">Subtraction calculator</a>
+          </li>
+          <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+          <li>
+            <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+          </li>
+          <li>
+            <a href="weighted-average-calculator.html"
+              >Weighted average calculator</a
+            >
+          </li>
+          <li><a href="variance-calculator.html">Variance calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="scientific-notation-calculator.html#feedback"
+              >Send Feedback</a
+            >
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../calc2.js"></script>
+    <script>
+      var radios = document.getElementsByName("ntype");
+      var n1_input = document.getElementById("n1");
+      var e1_input = document.getElementById("e1");
+      var n2_input = document.getElementById("n2");
+      var e2_input = document.getElementById("e2");
+      var op_input = document.getElementById("op");
+      var sci_input = document.getElementById("sci");
+      var sci2_input = document.getElementById("sci2");
+      var dec_input = document.getElementById("dec");
+      var e_input = document.getElementById("e");
+      window.onload = function () {
+        n1_input.onkeypress = function (e) {
+          if (e.keyCode == 13) OnCalc();
+        };
+        e1_input.onkeypress = function (e) {
+          if (e.keyCode == 13) OnCalc();
+        };
+        n2_input.onkeypress = function (e) {
+          if (e.keyCode == 13) OnCalc();
+        };
+        e2_input.onkeypress = function (e) {
+          if (e.keyCode == 13) OnCalc();
+        };
+
+        radios[0].addEventListener("click", function () {
+          onntype(0);
+        });
+        radios[1].addEventListener("click", function () {
+          onntype(1);
+        });
+        radios[2].addEventListener("click", function () {
+          onntype(2);
+        });
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0) {
+          if (
+            params.n1 != "" &&
+            params.e1 != "" &&
+            params.n2 != "" &&
+            params.e2 != "" &&
+            params.op != ""
+          ) {
+            n1_input.value = decodeURIComponent(params.n1);
+            e1_input.value = decodeURIComponent(params.e1);
+            n2_input.value = decodeURIComponent(params.n2);
+            e2_input.value = decodeURIComponent(params.e2);
+            //if( strCompare(params.op,"%2B") ) op_input.value = "+";
+            //if( strCompare(params.op,"-") ) op_input.value = "-";
+            //if( strCompare(params.op,"%C3%97") ) op_input.value = "×";
+            //if( strCompare(params.op,"%C3%B7") ) op_input.value = "÷";
+            op_input.value = decodeURIComponent(params.op);
+            OnCalc();
+          }
+        }
+      };
+      function onntype(i) {
+        var sel = document.querySelectorAll(
+          "#calcform .form-group .input-group span"
+        );
+        if (i == 0) {
+          n1_input.style.marginTop = "20px";
+          n2_input.style.marginTop = "20px";
+          sel[0].style.display = "block";
+          sel[1].style.display = "block";
+          e1_input.style.display = "block";
+          e2_input.style.display = "block";
+        } else {
+          n1_input.style.marginTop = "0";
+          n2_input.style.marginTop = "0";
+          sel[0].style.display = "none";
+          sel[1].style.display = "none";
+          e1_input.style.display = "none";
+          e2_input.style.display = "none";
+          e1_input.value = "";
+          e2_input.value = "";
+        }
+        if (i == 0) {
+          radios[0].checked = true;
+          radios[1].checked = false;
+          radios[2].checked = false;
+          radios[0].parentElement.classList.add("active");
+          radios[1].parentElement.classList.remove("active");
+          radios[2].parentElement.classList.remove("active");
+        } else if (i == 1) {
+          radios[0].checked = false;
+          radios[1].checked = true;
+          radios[2].checked = false;
+          radios[0].parentElement.classList.remove("active");
+          radios[1].parentElement.classList.add("active");
+          radios[2].parentElement.classList.remove("active");
+        } else if (i == 2) {
+          radios[0].checked = false;
+          radios[1].checked = false;
+          radios[2].checked = true;
+          radios[0].parentElement.classList.remove("active");
+          radios[1].parentElement.classList.remove("active");
+          radios[2].parentElement.classList.add("active");
+        }
+      }
+      function strCompare(s1, s2) {
+        if (s1.length != s2.length) return false;
+        for (var i = 0; i < s1.length; i++) if (s1[i] != s2[i]) return false;
+        return true;
+      }
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function OnCalc() {
+        n1 = str2num(n1_input.value);
+        e1 = str2num(e1_input.value);
+        n2 = str2num(n2_input.value);
+        e2 = str2num(e2_input.value);
+        i = op_input.selectedIndex;
+        //if( e1=="" ) e1="0";
+        //if( e2=="" ) e2="0";
+        e1 = parseInt(e1);
+        e2 = parseInt(e2);
+
+        dec1 = n1 * Math.pow(10, e1);
+        dec2 = n2 * Math.pow(10, e2);
+        if (i == 0) {
+          dec = dec1 + dec2;
+          en = dec.toExponential();
+          n = en;
+          e = 0;
+          i = en.indexOf("e");
+          if (i != -1) {
+            n = en.substring(0, i);
+            e = en.substring(i + 1, en.length);
+          }
+          e = parseInt(e);
+        } else if (i == 1) {
+          dec = dec1 - dec2;
+          en = dec.toExponential();
+          n = en;
+          e = 0;
+          i = en.indexOf("e");
+          if (i != -1) {
+            n = en.substring(0, i);
+            e = en.substring(i + 1, en.length);
+          }
+          e = parseInt(e);
+        } else if (i == 2) {
+          n = n1 * n2;
+          e = e1 + e2;
+          dec = n * Math.pow(10, e);
+        } else {
+          n = n1 / n2;
+          e = e1 - e2;
+          dec = n * Math.pow(10, e);
+        }
+        if (n == 0) f = 0;
+        else f = Math.floor(Math.log(Math.abs(n)) * Math.LOG10E);
+        norm = n / Math.pow(10, f);
+        norm = roundnum(norm, 10);
+        norm2 = parseInt(e) + f;
+        sign = "";
+        if (norm2 >= 0) sign = "+";
+        en = norm + "e" + sign + norm2;
+
+        dec_input.value = dec;
+        e_input.value = en;
+        sci_input.value = norm;
+        sci2_input.value = norm2;
+      }
+    </script>
+  </body>
+</html>

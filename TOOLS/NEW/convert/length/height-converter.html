@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<script async src="../../lib/tagmng4.js"></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="../../lib/rapidz.css">
+<link rel="apple-touch-icon" sizes="180x180" href="../../lib/favicon/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="../../lib/favicon/favicon-32x32.png" sizes="32x32">
+<link rel="icon" type="image/png" href="../../lib/favicon/favicon-16x16.png" sizes="16x16">
+<link rel="manifest" href="../../lib/favicon/manifest.json">
+<link rel="mask-icon" href="../../lib/favicon/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="shortcut icon" href="../../lib/favicon/favicon.ico">
+<meta name="msapplication-config" content="/lib/favicon/browserconfig.xml">
+<meta name="theme-color" content="#ffffff">
+<meta name="format-detection" content="telephone=no">
+
+<title>Height Converter | Convert cm, feet & inches</title>
+<meta content="Height converter - feet/inches/meters/cm." name="description">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+<style>
+   h1 { font-size:1.6rem; }
+   h2 { font-size:1.4rem; }
+   h3 { font-size:1.4rem; }
+   h4 { font-size:1.2rem; }
+   #calcform {
+      padding:15px;
+      background:#eee8d5;
+      border:1px solid #eee;
+      border-radius:7px;
+      max-width:500px;
+   }
+   .btn span { font-weight:bold; font-size:large; }
+   #calcform td { background:#eee8d5; }
+   #calcform label { margin-bottom:0; }
+   #calcform button img { filter: invert(100%); }
+   .calc { padding:10px; }
+</style>
+
+</head>
+<body>
+<div id="header">
+<div>
+<div id="logo" class="box">
+<p>
+<a href="../../index.html">RapidTables</a>
+</p>
+</div>
+</div>
+</div>
+<div id="wrapper">
+<div id="nav">
+
+<a href="../../index.html">Home</a>&rsaquo;<a href="../index.html">Conversion</a>&rsaquo;<a href="index.html">Length conversion</a>&rsaquo; Height converter
+
+</div>
+<div id="top-ad">
+
+<ins class="adsbygoogle adslot_1" data-ad-client="ca-pub-7356419691275579" data-ad-slot="1390814895"></ins>
+</div>
+<div id="lcol">
+<div id="doc">
+
+<h1>Height Converter</h1>
+<form id="calcform" name="calcform" autocomplete="off">
+<table>
+<tr>
+<td><label for="ftin1">Feet+Inches:</label></td>
+</tr>
+<tr>
+<td class="form-group">
+<div class="form-row">
+<div class="col">
+<input type="text" id="ftin1" name="ftin1" class="form-control" oninput="ConvertFtin()" autofocus>
+</div>
+<span class="mt-2">ft</span>
+<div class="col">
+<input type="text" id="ftin2" name="ftin2" class="form-control" oninput="ConvertFtin()">
+</div>
+</td>
+<td>in</td>
+</tr>
+<tr>
+<td><label for="ft">Feet:</label></td>
+</tr>
+<tr>
+<td><input type="text" id="ft" name="ft" class="form-control" oninput="ConvertFt()"></td>
+<td>ft</td>
+</tr>
+<tr>
+<td><label for="in">Inches:</label></td>
+</tr>
+<tr>
+<td><input type="text" id="in" name="in" class="form-control" oninput="ConvertIn()"></td>
+<td>in</td>
+</tr>
+<tr>
+<td><label for="mcm1">Meters+Centimeters:</label></td>
+</tr>
+<tr>
+<td>
+<div class="form-row">
+<div class="col">
+<input type="text" id="mcm1" name="mcm1" class="form-control" oninput="ConvertMcm()">
+</div>
+<span class="mt-2">m</span>
+<div class="col">
+<input type="text" id="mcm2" name="mcm2" class="form-control" oninput="ConvertMcm()">
+</div>
+</td>
+<td>cm</td>
+</tr>
+<tr>
+<td><label for="m">Meters:</label></td>
+</tr>
+<tr>
+<td><input type="text" id="m" name="m" class="form-control" oninput="ConvertM()"></td>
+<td>m</td>
+</tr>
+<tr>
+<td><label for="cm">Centimeters:</label></td>
+</tr>
+<tr>
+<td><input type="text" id="cm" name="cm" class="form-control" oninput="ConvertCm()"></td>
+<td>cm</td>
+</tr>
+<tr>
+<td><button type="reset" title="Reset" class="btn btn-secondary mt-2"><span>&times;</span> Reset</button></td>
+</tr>
+</table>
+</form>
+<h2>Height conversion</h2>
+<h3>Feet to Inches conversion</h3>
+<p>One feet is equal to 12 inches:</p>
+<p class="math">1ft = 12&Prime;</p>
+<h3>Inches to centimeters conversion</h3>
+<p>One inch is equal to 2.54 centimeters:</p>
+<p class="math">1&Prime; = 2.54cm</p>
+<h3>Centimeters to meters conversion</h3>
+<p>One centimeter is equal to 0.01 meter:</p>
+<p class="math">1cm = 0.01m</p>
+<p>One meter is equal to 100 centimeters:</p>
+<p class="math">1m = 100cm</p>
+<h2>Height conversion table</h2>
+<table class="table" id="tbl">
+<thead>
+<th scope="col">Cm</th>
+<th scope="col">Feet</th>
+<th scope="col">Feet+Inches</th>
+</thead>
+<tbody>
+</tbody>
+</table>
+<p>&nbsp;</p>
+<hr>
+<h2>See also</h2>
+<ul>
+<li><a href="cm-to-feet.html">cm to feet conversion</a></li>
+<li><a href="cm-to-inch.html">cm to inches conversion</a></li>
+<li><a href="feet-to-cm.html">Feet to cm conversion</a></li>
+<li><a href="feet-to-inch.html">Feet to inches conversion</a></li>
+<li><a href="feet-to-meter.html">Feet to meters conversion</a></li>
+<li><a href="inch-to-cm.html">Inches to cm conversion</a></li>
+<li><a href="inch-to-feet.html">Inches to feet conversion</a></li>
+<li><a href="inch-to-meter.html">Inches to meters conversion</a></li>
+<li><a href="meter-to-feet.html">Meters to feet conversion</a></li>
+<li><a href="meter-to-inch.html">Meters to inches conversion</a></li>
+<li><a href="../../calc/wire/wire-gauge-chart.html">Wire gauge calculator</a></li>
+</ul>
+
+<div id="ban-ad">
+<ins class="adsbygoogle adslot_3" data-ad-client="ca-pub-7356419691275579" data-ad-slot="9463417041"></ins>
+</div>
+
+
+</div>
+<div id="fdbk">
+<h2><a id="feedback"></a>Write how to improve this page</h2>
+<form id="fdbkform">
+<textarea id="fdbkarea" rows="4" minlength="30" maxlength="1000" placeholder="Your message ..." required class="form-control"></textarea>
+<span id="fdbkmsg"></span>
+<button type="submit" class="btn btn-secondary" onclick="OnSubFb()">Submit Feedback</button>
+</form>
+</div>
+</div>
+<div id="rcol">
+
+<ins class="adsbygoogle adslot_2" data-ad-client="ca-pub-7356419691275579" data-ad-slot="5385900220"></ins>
+
+<h5>LENGTH CONVERSION</h5>
+<ul>
+<li><a href="cm-to-feet.html">cm to feet</a></li>
+<li><a href="cm-to-inch.html">cm to inches</a></li>
+<li><a href="cm-to-mm.html">cm to mm</a></li>
+<li><a href="feet-to-cm.html">Feet to cm</a></li>
+<li><a href="feet-to-mm.html">Feet to mm</a></li>
+<li><a href="feet-to-inch.html">Feet to inches</a></li>
+<li><a href="feet-to-meter.html">Feet to meters</a></li>
+<li><a href="height-converter.html">Height converter</a></li>
+<li><a href="inch-to-cm.html">Inches to cm</a></li>
+<li><a href="inch-to-feet.html">Inches to feet</a></li>
+<li><a href="inch-to-meter.html">Inches to meters</a></li>
+<li><a href="inch-to-mm.html">Inches to mm</a></li>
+<li><a href="km-to-mile.html">km to miles</a></li>
+<li><a href="meter-to-feet.html">Meters to feet</a></li>
+<li><a href="meter-to-inch.html">Meters to inches</a></li>
+<li><a href="mile-to-km.html">Miles to km</a></li>
+<li><a href="mm-to-cm.html">mm to cm</a></li>
+<li><a href="mm-to-feet.html">mm to feet</a></li>
+<li><a href="mm-to-inch.html">mm to inches</a></li>
+</ul>
+<h5>RAPID TABLES</h5>
+<ul>
+<li><a href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com">Recommend Site</a></li>
+<li><a href="height-converter.html#feedback">Send Feedback</a></li>
+<li><a href="../../about/about.html">About</a></li>
+</ul>
+
+</div>
+</div>
+<div id="footer">
+<a href="../../index.html">Home</a> |
+<a href="../../web/index.html">Web</a> |
+<a href="../../math/index.html">Math</a> |
+<a href="../../electric/index.html">Electricity</a> |
+<a href="../../calc/index.html">Calculators</a> |
+<a href="../index.html">Converters</a> |
+<a href="../../tools/index.html">Tools</a>
+<p>&copy;
+<a href="../../index.html">RapidTables.com</a> |
+<a href="../../about/about.html" rel="nofollow">About</a> |
+<a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+<a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+<a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+</p>
+</div>
+<div id="banner">
+<div>
+This website uses cookies to improve your experience, analyze traffic and display ads.
+<a href="../../about/privacy.html">Learn more</a>
+</div>
+<div>
+<a id="banokbtn">OK</a>
+<a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+</div>
+</div>
+
+<script src="../convert.js"></script>
+<script>
+   window.onload=function() {
+      var tableRef = document.getElementById('tbl').getElementsByTagName('tbody')[0];
+      var row,cell,txt,ft,inch;
+      var rows=tableRef.rows.length;
+      for(var cm=100; cm<=200; cm++) {
+         row = tableRef.insertRow(tableRef.rows.length);
+         cell  = row.insertCell(0);
+         txt  = document.createTextNode(cm+"cm");
+         cell.appendChild(txt);
+         cell  = row.insertCell(1);
+         ft=cm/30.48;
+         txt  = document.createTextNode(ft.toFixed(2)+"ft");
+         cell.appendChild(txt);
+         cell  = row.insertCell(2);
+         inch=((ft-Math.floor(ft))*12).toFixed(2);
+         ft=Math.floor(ft);
+         txt  = document.createTextNode(ft+"ft + "+inch+"in");
+         cell.appendChild(txt);
+      }
+   };
+   function ConvertCm()
+   {
+      d = document.calcform.cm.value;
+      if( d=='' ) return;
+      d = str2num(d);
+      mcm1 = Math.floor(d/100);
+      d2 = d/2.54;
+      ftin1 = Math.floor(d2/12);
+      //document.calcform.cm.value		= roundnum(d,		6);
+      document.calcform.m.value		= roundnum(d/100,		6);
+      document.calcform.in.value		= roundnum(d/2.54,	6);
+      document.calcform.ft.value		= roundnum(d/2.54/12,6);
+      document.calcform.mcm1.value	= roundnum(mcm1,		6);
+      document.calcform.mcm2.value	= roundnum(d-mcm1*100,6);
+      document.calcform.ftin1.value	= roundnum(ftin1,		6);
+      document.calcform.ftin2.value	= roundnum(d2-ftin1*12,6);
+   }
+   
+   function ConvertM()
+   {
+      d = document.calcform.m.value;
+      if( d=='' ) return;
+      d = str2num(d);
+      cm = d*100;
+      d1 = Math.floor(cm/100);
+      d2 = d/0.0254;
+      ftin1 = Math.floor(d2/12);
+      document.calcform.cm.value		= roundnum(d*100,		6);
+      //document.calcform.m.value		= roundnum(d,			6);
+      document.calcform.in.value		= roundnum(d/0.0254,	6);
+      document.calcform.ft.value		= roundnum(d/0.0254/12,	6);
+      document.calcform.mcm1.value	= roundnum(d1,			6);
+      document.calcform.mcm2.value	= roundnum(cm-d1*100,	6);
+      document.calcform.ftin1.value	= roundnum(ftin1,		6);
+      document.calcform.ftin2.value	= roundnum(d2-ftin1*12,	6);
+   }
+   
+   function ConvertMcm()
+   {
+      d1 = document.calcform.mcm1.value;
+      d2 = document.calcform.mcm2.value;
+      if( d1=='' && d2=='' ) return;
+      if( d1=='' ) d1='0';
+      if( d2=='' ) d2='0';
+      d1 = str2num(d1);
+      d2 = str2num(d2);
+      cm = d1*100+d2;
+      d3 = cm/2.54;
+      ftin1 = Math.floor(d3/12);
+      document.calcform.cm.value		= roundnum(d1*100+d2,	6);
+      document.calcform.m.value		= roundnum(d1+d2/100,	6);
+      document.calcform.in.value		= roundnum(cm/2.54,		6);
+      document.calcform.ft.value		= roundnum(cm/2.54/12,	6);
+      //document.calcform.mcm1.value	= roundnum(d1,			6);
+      //document.calcform.mcm2.value	= roundnum(d2,			6);
+      document.calcform.ftin1.value	= roundnum(ftin1,		6);
+      document.calcform.ftin2.value	= roundnum(d3-ftin1*12,	6);
+   }
+
+   function ConvertIn()
+   {
+      d = document.calcform.in.value;
+      if( d=='' ) return;
+      d = str2num(d);
+      d1 = Math.floor(d/12);
+      cm = d*2.54;
+      d2 =  Math.floor(cm/100);
+      document.calcform.cm.value		= roundnum(d*2.54,		6);
+      document.calcform.m.value		= roundnum(d*0.0254,	6);
+      //document.calcform.in.value		= roundnum(d,			6);
+      document.calcform.ft.value		= roundnum(d/12,		6);
+      document.calcform.mcm1.value	= roundnum(d2,			6);
+      document.calcform.mcm2.value	= roundnum(cm-d2*100,	6);
+      document.calcform.ftin1.value	= roundnum(d1,			6);
+      document.calcform.ftin2.value	= roundnum(d-d1*12,		6);
+   }
+   function ConvertFt()
+   {
+      d = document.calcform.ft.value;
+      if( d=='' ) return;
+      d = str2num(d);
+      d1 = Math.floor(d);
+      cm = d*30.48;
+      d2 =  Math.floor(cm/100);
+      document.calcform.cm.value		= roundnum(d*30.48,		6);
+      document.calcform.m.value		= roundnum(d*0.3048,	6);
+      document.calcform.in.value		= roundnum(d*12,		6);
+      //document.calcform.ft.value		= roundnum(d,			6);
+      document.calcform.mcm1.value	= roundnum(d2,			6);
+      document.calcform.mcm2.value	= roundnum(cm-d2*100,	6);
+      document.calcform.ftin1.value	= roundnum(d1,			6);
+      document.calcform.ftin2.value	= roundnum((d-d1)*12,	6);
+   }
+   function ConvertFtin()
+   {
+      d1 = document.calcform.ftin1.value;
+      d2 = document.calcform.ftin2.value;
+      if( d1=='' && d2=='' ) return;
+      if( d1=='' ) d1='0';
+      if( d2=='' ) d2='0';
+      d1 = str2num(d1);
+      d2 = str2num(d2);
+      cm = d1*30.48+d2*2.54;
+      d3 = Math.floor(cm/100);
+      document.calcform.cm.value		= roundnum(cm,			6);
+      document.calcform.m.value		= roundnum(cm/100,	6);
+      document.calcform.in.value		= roundnum(d1*12+d2,	6);
+      document.calcform.ft.value		= roundnum(d1+d2/12,	6);
+      document.calcform.mcm1.value	= roundnum(d3,			6);
+      document.calcform.mcm2.value	= roundnum(cm-d3*100,6);
+   }
+</script>
+
+</body>
+
+</html>

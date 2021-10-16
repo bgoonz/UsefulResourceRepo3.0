@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>HTTP Status Codes | HTTP Response Codes Checker</title>
+    <meta
+      content="HTTP status codes, HTTP response codes."
+      name="description"
+    />
+    <style>
+      .calc input[type="url"] {
+        width: 100%;
+        font-size: x-large;
+      }
+      .calc input[type="text"] {
+        width: 100%;
+        font-size: x-large;
+      }
+      .calc textarea {
+        width: 100%;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          padding: 0px 15px 15px 15px;
+          width: 100%;
+        }
+        #doc > p > textarea {
+          width: 100%;
+        }
+        #doc > p {
+          width: 100%;
+          word-wrap: break-word;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc {
+          padding: 20px;
+          width: 500px;
+        }
+      }
+      .dtable tr td:first-child {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Web</a
+        >&rsaquo;<a href="index.html">Tools</a>&rsaquo; HTTP status codes
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>HTTP Status Codes Checker</h1>
+          <p>Get HTTP response codes.</p>
+          <form name="gen">
+            <table id="tbl" class="calc">
+              <tr>
+                <td>
+                  <p>Enter URL to check:</p>
+                  <input
+                    type="url"
+                    id="T1"
+                    placeholder="http://www.google.com"
+                  />
+                  <p>&nbsp;</p>
+                  <input
+                    type="button"
+                    value="Get HTTP status code"
+                    id="btn1"
+                    class="btn"
+                  />
+                  <input type="reset" value="Reset" name="B2" class="btn" />
+                  <p>HTTP status code:</p>
+                  <input type="text" id="T2" />
+                  <p>HTTP response header:</p>
+                  <textarea
+                    rows="12"
+                    id="TA1"
+                    onclick="OnSelectCode()"
+                  ></textarea>
+                </td>
+              </tr>
+            </table>
+          </form>
+          <h2>HTTP status codes</h2>
+          <table class="dtable">
+            <tr>
+              <th>HTTP<br />Status<br />Code</th>
+              <th>HTTP Status</th>
+            </tr>
+            <tr>
+              <td>200</td>
+              <td>OK</td>
+            </tr>
+            <tr>
+              <td>201</td>
+              <td>Created</td>
+            </tr>
+            <tr>
+              <td>202</td>
+              <td>Accepted</td>
+            </tr>
+            <tr>
+              <td>203</td>
+              <td>Non-Authoritative Information</td>
+            </tr>
+            <tr>
+              <td>204</td>
+              <td>No Content</td>
+            </tr>
+            <tr>
+              <td>205</td>
+              <td>Reset Content</td>
+            </tr>
+            <tr>
+              <td>206</td>
+              <td>Partial Content</td>
+            </tr>
+            <tr>
+              <td>300</td>
+              <td>Multiple Choices</td>
+            </tr>
+            <tr>
+              <td>301</td>
+              <td>Moved Permanently</td>
+            </tr>
+            <tr>
+              <td>302</td>
+              <td>Found</td>
+            </tr>
+            <tr>
+              <td>303</td>
+              <td>See Other</td>
+            </tr>
+            <tr>
+              <td>304</td>
+              <td>Not Modified</td>
+            </tr>
+            <tr>
+              <td>305</td>
+              <td>Use Proxy</td>
+            </tr>
+            <tr>
+              <td>307</td>
+              <td>Temporary Redirect</td>
+            </tr>
+            <tr>
+              <td>400</td>
+              <td>Bad Request</td>
+            </tr>
+            <tr>
+              <td>401</td>
+              <td>Unauthorized</td>
+            </tr>
+            <tr>
+              <td>403</td>
+              <td>Forbidden</td>
+            </tr>
+            <tr>
+              <td>404</td>
+              <td>Not Found</td>
+            </tr>
+            <tr>
+              <td>405</td>
+              <td>Method Not Allowed</td>
+            </tr>
+            <tr>
+              <td>406</td>
+              <td>Not Acceptable</td>
+            </tr>
+            <tr>
+              <td>407</td>
+              <td>Proxy Authentication Required</td>
+            </tr>
+            <tr>
+              <td>408</td>
+              <td>Request Timeout</td>
+            </tr>
+            <tr>
+              <td>409</td>
+              <td>Conflict</td>
+            </tr>
+            <tr>
+              <td>410</td>
+              <td>Gone</td>
+            </tr>
+            <tr>
+              <td>411</td>
+              <td>Length Required</td>
+            </tr>
+            <tr>
+              <td>412</td>
+              <td>Precondition Failed</td>
+            </tr>
+            <tr>
+              <td>413</td>
+              <td>Request Entity Too Large</td>
+            </tr>
+            <tr>
+              <td>414</td>
+              <td>Request-URI Too Long</td>
+            </tr>
+            <tr>
+              <td>415</td>
+              <td>Unsupported Media Type</td>
+            </tr>
+            <tr>
+              <td>416</td>
+              <td>Requested Range Not Staisfiable</td>
+            </tr>
+            <tr>
+              <td>417</td>
+              <td>Expectation Failed</td>
+            </tr>
+            <tr>
+              <td>500</td>
+              <td>Internal Server Error</td>
+            </tr>
+            <tr>
+              <td>501</td>
+              <td>Not Implemented</td>
+            </tr>
+            <tr>
+              <td>502</td>
+              <td>Bad Gateway</td>
+            </tr>
+            <tr>
+              <td>503</td>
+              <td>Service Unavailable</td>
+            </tr>
+            <tr>
+              <td>504</td>
+              <td>Gateway Timeout</td>
+            </tr>
+            <tr>
+              <td>505</td>
+              <td>HTTP Version Not Supported</td>
+            </tr>
+          </table>
+          <br />
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="http-header-checker.html">HTTP header checker</a></li>
+            <li>
+              <a href="base64-decoder-encoder.html">Base64 decoder/encoder</a>
+            </li>
+            <li><a href="url-decoder-encoder.html">URL decoder/encoder</a></li>
+            <li><a href="../dev/url-redirect.html">URL redirection</a></li>
+            <li><a href="../../code/text/ascii-table.html">ASCII table</a></li>
+            <li><a href="../html/html-codes.html">HTML character codes</a></li>
+          </ul>
+          <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+          <script>
+            var url, durl, T1;
+            //$(document).ready( function() {
+            window.onload = function () {
+              $("#btn1").click(function () {
+                url = $("#T1").val();
+                if (url == "") url = "http://www.google.com";
+                $.post(
+                  "get-http-header.php",
+                  { data: url },
+                  function (data, status) {
+                    var code = data.split("\n")[0];
+                    code = code.substring(9);
+                    $("#T2").val(code);
+                    $("#TA1").val(data);
+                  }
+                );
+              });
+            };
+            function OnSelectCode() {
+              document.gen.TA1.select();
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WEB TOOLS</h5>
+        <ul>
+          <li><a href="redirect-generator.html">301 redirect generator</a></li>
+          <li>
+            <a href="base64-decoder-encoder.html">Base64 decoder/encoder</a>
+          </li>
+          <li><a href="html-editor.html">HTML editor</a></li>
+          <li><a href="html-link-code.html">HTML link code generator</a></li>
+          <li><a href="html-table-generator.html">HTML table generator</a></li>
+          <li><a href="http-header-checker.html">HTTP header checker</a></li>
+          <li><a href="http-status-checker.html">HTTP status checker</a></li>
+          <li><a href="pixel-ruler.html">Online pixel ruler</a></li>
+          <li><a href="screen-resolution.html">Screen resolution</a></li>
+          <li>
+            <a href="screen-resolution-tester.html">Screen resolution tester</a>
+          </li>
+          <li><a href="svg-viewer-editor.html">SVG viewer/editor</a></li>
+          <li><a href="url-decoder-encoder.html">URL decoder/encoder</a></li>
+          <li><a href="window-size.html">Window size</a></li>
+        </ul>
+        <h5>PID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="http-status-checker.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> | <a href="../index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

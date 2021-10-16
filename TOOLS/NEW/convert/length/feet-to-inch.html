@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Feet to Inches (ft to in) conversion calculator</title>
+    <meta
+      name="description"
+      content="Feet to inches (ft to in) conversion calculator and how to convert."
+    />
+    <style>
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        h1 {
+          font-size: 20px;
+        }
+        .calc2 button {
+          padding: 7px 5px;
+        }
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 240px;
+          width: calc(100% - 50px);
+        }
+      }
+      .calc2 td textarea {
+        font-size: large;
+        width: 100%;
+      }
+      .ntable td:nth-child(1),
+      .ntable td:nth-child(2) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Length conversion</a>&rsaquo; Feet to
+        inches
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Feet to Inches conversion</h1>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="x">Enter feet:</label></td>
+                <td class="math">
+                  <input type="text" id="x" name="x" class="intext" autofocus />
+                </td>
+                <td class="mathsymbol">ft</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <button type="submit" id="calc" title="Convert" class="btn">
+                    <span>=</span> Convert
+                  </button>
+                  <button type="reset" id="reset" title="Reset" class="btn">
+                    <span>&times;</span> Reset
+                  </button>
+                  <button
+                    type="button"
+                    title="Swap conversion"
+                    class="btn"
+                    onclick="location.href='inch-to-feet.html';"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                      alt=""
+                    />
+                    Swap
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Inches result:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    id="y"
+                    class="outtext"
+                    readonly
+                    tabindex="5"
+                  />
+                </td>
+                <td class="mathsymbol">&Prime;</td>
+              </tr>
+              <tr>
+                <td>Feet+inches result:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    id="y2"
+                    class="outtext"
+                    readonly
+                    tabindex="6"
+                  />
+                </td>
+                <td class="mathsymbol">&Prime;</td>
+              </tr>
+              <tr id="pf1">
+                <td>Calculation:</td>
+                <td>
+                  <textarea
+                    id="TA"
+                    rows="3"
+                    class="outtext"
+                    readonly
+                    tabindex="7"
+                  ></textarea>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <p><a href="inch-to-feet.html">Inches to feet &#9658;</a></p>
+          <h2><a id="how"></a>How to convert feet to inches</h2>
+          <p>1 foot is equal to 12 inches:</p>
+          <p class="math">1ft = 12&#8243;</p>
+          <p>
+            The distance <em>d</em> in inches (&Prime;) is equal to the distance
+            <i>d</i> in feet (ft) times 12:
+          </p>
+          <p class="math">
+            <em>d</em><sub>(&Prime;)</sub> = <em>d</em><sub>(ft)</sub> &times;
+            12
+          </p>
+          <h4>Example</h4>
+          <p>Convert 2 feet to inches:</p>
+          <p class="math">
+            <em>d</em><sub>(&Prime;)</sub> = 2ft &times; 12 = 24&#8243;
+          </p>
+          <h2><a id="table"></a>Feet to inches conversion table</h2>
+          <table class="ntable">
+            <thead>
+              <tr>
+                <th>Feet (ft)</th>
+                <th>Inches (")</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.01 ft</td>
+                <td>0.12 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.1 ft</td>
+                <td>1.2 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.2 ft</td>
+                <td>2.4 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.3 ft</td>
+                <td>3.6 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.4 ft</td>
+                <td>4.8 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.5 ft</td>
+                <td>6.0 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.6 ft</td>
+                <td>7.2 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.7 ft</td>
+                <td>8.4 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.8 ft</td>
+                <td>9.6 &Prime;</td>
+              </tr>
+              <tr>
+                <td>0.9 ft</td>
+                <td>10.8 &Prime;</td>
+              </tr>
+              <tr>
+                <td>1 ft</td>
+                <td>12 &Prime;</td>
+              </tr>
+              <tr>
+                <td>2 ft</td>
+                <td>24 &Prime;</td>
+              </tr>
+              <tr>
+                <td>3 ft</td>
+                <td>36 &Prime;</td>
+              </tr>
+              <tr>
+                <td>4 ft</td>
+                <td>48 &Prime;</td>
+              </tr>
+              <tr>
+                <td>5 ft</td>
+                <td>60 &Prime;</td>
+              </tr>
+              <tr>
+                <td>6 ft</td>
+                <td>72 &Prime;</td>
+              </tr>
+              <tr>
+                <td>7 ft</td>
+                <td>84 &Prime;</td>
+              </tr>
+              <tr>
+                <td>8 ft</td>
+                <td>96 &Prime;</td>
+              </tr>
+              <tr>
+                <td>9 ft</td>
+                <td>108 &Prime;</td>
+              </tr>
+              <tr>
+                <td>10 ft</td>
+                <td>120 &Prime;</td>
+              </tr>
+              <tr>
+                <td>100 ft</td>
+                <td>1200 &Prime;</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="inch-to-feet.html">Inches to feet &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="inch-to-feet.html">Inches to feet conversion</a></li>
+            <li><a href="feet-to-cm.html">Feet to cm conversion</a></li>
+            <li><a href="feet-to-mm.html">Feet to mm conversion</a></li>
+            <li><a href="feet-to-meter.html">Feet to meters conversion</a></li>
+            <li><a href="mm-to-inch.html">mm to inches conversion</a></li>
+            <li><a href="cm-to-inch.html">cm to inches conversion</a></li>
+            <li>
+              <a href="meter-to-inch.html">Meters to inches conversion</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LENGTH CONVERSION</h5>
+        <ul>
+          <li><a href="cm-to-feet.html">cm to feet</a></li>
+          <li><a href="cm-to-inch.html">cm to inches</a></li>
+          <li><a href="cm-to-mm.html">cm to mm</a></li>
+          <li><a href="feet-to-cm.html">Feet to cm</a></li>
+          <li><a href="feet-to-mm.html">Feet to mm</a></li>
+          <li><a href="feet-to-inch.html">Feet to inches</a></li>
+          <li><a href="feet-to-meter.html">Feet to meters</a></li>
+          <li><a href="height-converter.html">Height converter</a></li>
+          <li><a href="inch-to-cm.html">Inches to cm</a></li>
+          <li><a href="inch-to-feet.html">Inches to feet</a></li>
+          <li><a href="inch-to-meter.html">Inches to meters</a></li>
+          <li><a href="inch-to-mm.html">Inches to mm</a></li>
+          <li><a href="km-to-mile.html">km to miles</a></li>
+          <li><a href="meter-to-feet.html">Meters to feet</a></li>
+          <li><a href="meter-to-inch.html">Meters to inches</a></li>
+          <li><a href="mile-to-km.html">Miles to km</a></li>
+          <li><a href="mm-to-cm.html">mm to cm</a></li>
+          <li><a href="mm-to-feet.html">mm to feet</a></li>
+          <li><a href="mm-to-inch.html">mm to inches</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="feet-to-inch.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../convert.js"></script>
+    <script>
+      var xelem = document.getElementById("x");
+      window.onload = function () {
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0 && params.x != "") {
+          document.title = params.x + " feet to inches conversion";
+          //SetLinks(params);
+          xelem.value = decodeURIComponent(params.x);
+          OnCalc();
+        }
+      };
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function OnCalc() {
+        var x = str2num(xelem.value);
+        var y = x * 12;
+        var y = roundresult(y);
+        var y2 = Math.floor(y / 12);
+        var y3 = roundresult(y - y2 * 12);
+        var txt = x + "ft \u00D7 12\n";
+        txt += "= " + y + '"';
+        document.getElementById("y").value = y;
+        document.getElementById("y2").value = y2 + "ft " + y3;
+        document.getElementById("TA").value = txt;
+      }
+    </script>
+  </body>
+</html>

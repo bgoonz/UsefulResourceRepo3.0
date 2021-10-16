@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Lux to candela (cd) conversion calculator</title>
+    <meta
+      name="description"
+      content="Illuminance in lux (lx) to luminous intensity in candela (cd) calculator and how to calculate."
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&gt;<a href="../index.html"
+          >Calculators</a
+        >&gt;<a href="index.html">Lighting calculators</a>&gt; Lux to candela
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Lux to candela calculator</h1>
+          <p>
+            Illuminance in lux (lx) to luminous intensity in candela (cd)
+            calculator and how to calculate.
+          </p>
+          <h2>Lux to candela calculator</h2>
+          <p>
+            Enter the illuminance in lux, distance from light source, select
+            feet or meters and press the <i>Calculate</i> button
+          </p>
+          <p>to get the luminous intensity in candela:</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td>Enter illuminance in lux:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x1"
+                      class="intext"
+                      style="width: 220px"
+                      autofocus
+                    />
+                  </td>
+                  <td class="mathsymbol">lx</td>
+                </tr>
+                <tr>
+                  <td>Enter distance and select feet or meters:</td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      name="x2"
+                      class="intext"
+                      style="width: 220px"
+                    />
+                  </td>
+                  <td class="mathsymbol">
+                    <select
+                      name="cb1"
+                      class="mathsymbol"
+                      style="width: 50px"
+                      onchange="OnChange0()"
+                    >
+                      <option>ft</option>
+                      <option>m</option>
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <input
+                      onclick="calc3()"
+                      type="button"
+                      value="Calculate"
+                      class="btn"
+                    />
+                    <input
+                      onclick="setfocus()"
+                      type="reset"
+                      value="Reset"
+                      class="btn"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Luminous intensity result in candela:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="y"
+                      class="outtext"
+                      readonly="readonly"
+                      style="width: 220px"
+                    />
+                  </td>
+                  <td class="mathsymbol">cd</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>
+            <a href="candela-to-lux-calculator.html"
+              >Candela to lux calculator &#9658;</a
+            >
+          </p>
+          <h2>Lux to candela calculation</h2>
+          <h4>Lux to candela calculation with distance in feet</h4>
+          <p>
+            The luminous intensity <i>I</i><sub>v</sub> in candela (cd) is equal
+            to 0.09290304<i> </i>times the illuminance <i>E</i><sub>v</sub> in
+            lux (lx),
+          </p>
+          <p>
+            times the square distance from the light source <i>d</i
+            ><sup>2</sup> in square feet (ft<sup>2</sup>):
+          </p>
+          <p class="math">
+            <i>I</i><sub>v(cd)</sub> = 0.09290304<i> </i>&times;<i> E</i
+            ><sub>v(lx)</sub> &times; (<i>d</i><sub>(ft)</sub>)<sup>2</sup>
+          </p>
+          <h4>&nbsp;</h4>
+          <h4>Lux to candela calculation with distance in meters</h4>
+          <p>
+            The luminous intensity <i>I</i><sub>v</sub> in candela (cd) is equal
+            to the illuminance <i>E</i><sub>v</sub> in lux (lx),
+          </p>
+          <p>
+            times the square distance from the light source <i>d</i
+            ><sup>2</sup> in square meters (m<sup>2</sup>):
+          </p>
+          <p class="math">
+            <i>I</i><sub>v(cd)</sub> = <i>E</i><sub>v(lx)</sub> &times; (<i>d</i
+            ><sub>(m)</sub>)<sup>2</sup>
+          </p>
+          <p>&nbsp;</p>
+          <p>
+            <a href="how-lux-to-candela.html"
+              >Lux to candela calculation &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="candela-to-lumen-calculator.html"
+                >Candela to lumens calculator</a
+              >
+            </li>
+            <li>
+              <a href="watt-to-lumen-calculator.html"
+                >Watts to lumens calculator</a
+              >
+            </li>
+            <li>
+              <a href="how-lumen-to-watt.html">Lumens to watts calculation</a>
+            </li>
+            <li><a href="../../electric/watt.html">Watt (W)</a></li>
+            <li>
+              <a href="../../convert/electric/index.html"
+                >Electrical calculation</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/power/index.html">Power conversion</a>
+            </li>
+          </ul>
+          <script src="../../convert/convert.js"></script>
+          <script>
+            function convert(x1, x2) {
+              i = document.calcform.cb1.selectedIndex;
+              var lx = parseFloat(x1);
+              var d = parseFloat(x2);
+              cd = lx * d * d;
+              if (i == 0) cd *= 0.09290304;
+              return cd;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LIGHTING CALCULATORS</h5>
+        <ul>
+          <li>
+            <a href="candela-to-lumen-calculator.html">Candela to lumens</a>
+          </li>
+          <li><a href="candela-to-lux-calculator.html">Candela to lux</a></li>
+          <li><a href="fc-to-lux-calculator.html">Footcandles to lux</a></li>
+          <li>
+            <a href="lumen-to-candela-calculator.html">Lumens to candela</a>
+          </li>
+          <li><a href="lumen-to-lux-calculator.html">Lumens to lux</a></li>
+          <li>
+            <a href="lumen-to-mcd-calculator.html">Lumens to millicandela</a>
+          </li>
+          <li><a href="lumen-to-watt-calculator.html">Lumens to watts</a></li>
+          <li><a href="lux-to-candela-calculator.html">Lux to candela</a></li>
+          <li><a href="lux-to-fc-calculator.html">Lux to footcandles</a></li>
+          <li><a href="lux-to-lumen-calculator.html">Lux to lumens</a></li>
+          <li><a href="lux-to-watt-calculator.html">Lux to watts</a></li>
+          <li>
+            <a href="mcd-to-lumen-calculator.html">Millicandela to lumens</a>
+          </li>
+          <li><a href="watt-to-lumen-calculator.html">Watts to lumens</a></li>
+          <li><a href="watt-to-lux-calculator.html">Watts to lux</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="lux-to-candela-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <p>&nbsp;</p>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

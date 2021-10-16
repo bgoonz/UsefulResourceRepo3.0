@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Calculator | Online Math Calculator</title>
+    <meta name="description" content="Online math calculator." />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../../lib/mathquill-0.10.0/mathquill.css"
+    />
+    <link rel="icon" type="image/x-icon" href="../../lib/favicon.ico" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="mobile-web-app-capable" content="yes" />
+    <style>
+      body {
+        margin: 0;
+      }
+      #header {
+        background: #333;
+      }
+      #bread {
+        color: #eee;
+        padding: 15px 50px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        vertical-align: top;
+        display: inline-block;
+      }
+      #bread > a {
+        color: #eee;
+        padding: 10px 5px;
+        text-decoration: none;
+      }
+      #bread > a:hover {
+        color: #fff;
+        background: #555;
+        padding: 10px 5px;
+      }
+      #list {
+        margin: 0px 50px;
+        width: calc(100% - 100px);
+        border: thin gray dotted;
+        padding-right: 10px;
+        overflow: auto;
+        height: calc(100vh - 276px);
+        max-height: calc(100vh - 276px);
+      }
+      #list > div {
+        border-bottom: thin gray dotted;
+      }
+      /*#list>div:nth-child(odd) { background:#f8f8f8; }*/
+      #list > div:last-child > span:first-child {
+        background: #f8f8f8;
+      }
+      .calc,
+      .result {
+        width: 100%;
+        display: inline-block;
+        border: none;
+        padding: 5px;
+        font-size: 24px;
+        font-family: "Times New Roman";
+      }
+      .result {
+        padding-left: 10px;
+        height: 28px;
+        width: calc(100% - 12px);
+      }
+      #keys {
+        background: #ccc;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        margin: auto 0;
+        padding: 0px 50px;
+      }
+      @media all and (max-width: 599px) and (orientation: portrait) {
+        #list {
+          margin: auto;
+          margin-top: 0px;
+          width: 100%;
+          width: calc(100% - 12px);
+        }
+        #keys {
+          padding: 0px;
+          bottom: 30px;
+        }
+        table {
+          margin: 0px auto;
+        }
+        #header {
+          display: none;
+        }
+      }
+      @media all and (max-width: 599px) and (orientation: landscape) {
+        #list {
+          margin: auto;
+          margin-top: 0px;
+          width: 100%;
+          width: calc(100% - 12px);
+        }
+        #keys {
+          padding: 0px;
+          bottom: 10px;
+        }
+        table {
+          margin: 0px auto;
+        }
+        #header {
+          display: none;
+        }
+      }
+      @media all and (min-width: 600px) {
+      }
+      table.key,
+      table.key td {
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+      table.key {
+        border-width: 1px;
+        border-spacing: 2px;
+        border: solid #c0c0c0 1px;
+        background: #f8f8f8;
+      }
+      table.key td {
+        border-width: 1px;
+        padding: 5px;
+        border: outset #f0f0f0 1px;
+        background: #e8e8e8;
+        text-align: center;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        width: 50px;
+        height: 20px;
+      }
+      table.key td:hover {
+        border: outset #f0f0f0 1px;
+        background: #f0f8f0;
+      }
+      table.key td:active {
+        border: inset #f0f0f0 1px;
+        background: #e0e0e0;
+      }
+      table.key td sup {
+        margin-left: 3px;
+        font-size: 14px;
+      }
+      table.key tr td img {
+        -webkit-filter: invert(30%);
+        filter: invert(30%);
+      }
+      .mq-editable-field.mq-focused {
+        box-shadow: none;
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <div id="header">
+      <div id="bread">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo; Online
+        Calculator
+      </div>
+    </div>
+    <div id="list"></div>
+    <div id="keys">
+      <table id="tbl" class="key">
+        <tr>
+          <td onclick="hist.undo()" title="Undo">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_435_undo.png"
+            />
+          </td>
+          <td onclick="hist.redo()" title="Redo">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_434_redo.png"
+            />
+          </td>
+          <td onclick="CLeft()" title="Left">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_210_left_arrow.png"
+            />
+          </td>
+          <td onclick="CRight()" title="Right">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_211_right_arrow.png"
+            />
+          </td>
+          <td onclick="Delete()" title="Delete">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_256_delete.png"
+            />
+          </td>
+          <td onclick="Help()" title="Help">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_194_circle_question_mark.png"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td onclick="AddTxt('(')">(</td>
+          <td onclick="AddTxt(')')">)</td>
+          <td onclick="AddTxt('%')">%</td>
+          <td
+            onclick="AddTxt('^'); AddTxt('-1');"
+            style="font-family: 'Times New Roman', Times, serif"
+          >
+            <i>x</i><sup>-1</sup>
+          </td>
+
+          <td onclick="Clear()" title="Clear all">
+            <img
+              src="../../lib/icons/glyphicons_all/glyphicons/png/glyphicons_016_bin.png"
+            />
+          </td>
+        </tr>
+        <tr>
+          <td onclick="AddTxt('7')">7</td>
+          <td onclick="AddTxt('8')">8</td>
+          <td onclick="AddTxt('9')">9</td>
+          <td onclick="AddTxt('\\sqrt')">
+            <span>&radic;</span
+            ><span style="border-top: 1px solid">&nbsp;&nbsp;</span>
+          </td>
+          <td
+            onclick="AddTxt('^')"
+            style="font-family: 'Times New Roman', Times, serif"
+          >
+            <i>x<sup>y</sup></i>
+          </td>
+        </tr>
+        <tr>
+          <td onclick="AddTxt('4')">4</td>
+          <td onclick="AddTxt('5')">5</td>
+          <td onclick="AddTxt('6')">6</td>
+          <td onclick="AddTxt('\u00D7')" style="font-family: Verdana">
+            &times;
+          </td>
+
+          <td onclick="AddTxt('/')" style="font-family: Verdana">&divide;</td>
+        </tr>
+        <tr>
+          <td onclick="AddTxt('1')">1</td>
+          <td onclick="AddTxt('2')">2</td>
+          <td onclick="AddTxt('3')">3</td>
+          <td onclick="AddTxt('+')" style="font-family: Verdana">+</td>
+          <td onclick="AddTxt('-')" style="font-family: Verdana">-</td>
+        </tr>
+        <tr>
+          <td onclick="AddTxt('0')">0</td>
+          <td
+            onclick="AddTxt('.')"
+            style="font-family: Verdana; font-weight: bold"
+          >
+            .
+          </td>
+          <td onclick="AddTxt('e')">E</td>
+          <td onclick="AddTxt('Ans')">Ans</td>
+          <td onclick="Calc(true)" style="font-family: Verdana">=</td>
+        </tr>
+      </table>
+    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <script src="../../lib/mathquill-0.10.0/mathquill.min.js"></script>
+    <script src="../../lib/pegjs/parser-nobn.js"></script>
+    <script src="../../lib/utils/utils.js"></script>
+    <script>
+      var Ans = 0;
+      var list = [];
+      var hist;
+      var key = {
+        tabKey: 9,
+        ctrlKey: 17,
+        upKey: 33,
+        downKey: 34,
+        delKey: 46,
+        aKey: 65,
+        cKey: 67,
+        sKey: 83,
+        vKey: 86,
+        xKey: 88,
+        yKey: 89,
+        zKey: 90,
+      };
+      var MQ = MathQuill.getInterface(2);
+      //!!! loop through all lines
+      //var calc = MQ.MathField($('.calc')[0]);
+      var calc;
+      var is_mobile;
+      $(window).unload(function () {
+        addlist();
+        StorageSetObject("calculator_txt", list);
+      });
+      $(document).ready(function () {
+        //list[0] = [];
+        is_mobile = false;
+        if (
+          /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+            navigator.userAgent
+          )
+        )
+          is_mobile = true;
+
+        //var latex = StorageGetObject("calculator_txt");
+        //if( latex.length ) {
+        //	calc.latex(latex);
+        //}
+        //calc = MQ.MathField($('.calc')[0]);
+        /*
+		list = StorageGetObject("calculator_txt");
+		var n = list.length;
+		if( n ) {
+			for(var i=0; i<n; i++) {
+				addline();
+				calc.latex(list[i]);
+			}
+		}
+		else
+			addline();
+		calc.moveToRightEnd();
+		focus();
+		*/
+        list = StorageGetObject("calculator_txt");
+        addline();
+        var n = list.length;
+        if (n) {
+          for (var i = 0; i < n; i++) {
+            calc.latex(list[i]);
+            Calc(false);
+          }
+        }
+        calc.moveToRightEnd();
+        focus();
+
+        $(".calc").keyup(function (e) {
+          hist.save();
+        });
+
+        /*
+		$(window).keydown(function(e) {
+			OSName = GetOS();
+			if( OSName=="MacOS" )
+			{
+				if( browser=='Firefox' && e.keyCode==224 )
+					ctrlDown=true;
+				else if( browser=='Chrome' && (e.keyCode==91 || e.keyCode==93))
+					ctrlDown=true;
+				else if( browser=='Opera' && e.keyCode==key.ctrlKey )
+					ctrlDown=true;
+			}
+			else if( e.keyCode==key.ctrlKey )
+			{
+				ctrlDown=true;
+			}
+			if( ctrlDown )
+			{
+				//if( e.keyCode==key.sKey )
+				//{
+				//	e.preventDefault();
+				//	Save();
+				//}
+				// Ctrl+Z
+				if( e.keyCode==key.zKey )
+				{
+					e.preventDefault();
+					hist.undo();
+				}
+				// Ctrl+Y
+				if( e.keyCode==key.yKey )
+				{
+					e.preventDefault();
+					hist.redo();
+				}
+			}
+		});
+		*/
+        $(window).keypress(function (e) {
+          var s = String.fromCharCode(e.which);
+          e.preventDefault();
+          if (s == "=" || s == "\u000D") Calc(true);
+          else if (s == "*") {
+            AddTxt("\u00D7");
+          } else {
+            AddTxt(s);
+          }
+        });
+
+        hist = {
+          //pos: [],
+          latex: [],
+          i: -1,
+          n: 0,
+          clear: function () {
+            this.latex = [];
+            this.i = -1;
+            this.n = 0;
+          },
+          save: function () {
+            this.i++;
+            if (this.n < this.i) {
+              this.n = this.i;
+              this.latex.push(calc.latex());
+            } else this.latex[this.i] = calc.latex();
+            //console.log(this.i+" "+this.latex);
+          },
+          undo: function () {
+            //console.log(this.i+" "+this.latex);
+            focus();
+            if (this.i == 0) return;
+            calc.latex(this.latex[this.i - 1]);
+            this.i--;
+            calc.moveToRightEnd();
+          },
+          redo: function () {
+            focus();
+            if (this.i + 1 > this.n) return;
+            calc.latex(this.latex[this.i + 1]);
+            this.i++;
+            calc.moveToRightEnd();
+          },
+        };
+
+        hist.save();
+
+        /*
+		hist = {
+			var buffer;
+			function save() {
+			}
+			function undo() {
+			}
+			function redo() {
+			}
+			
+			// public api
+			this.save = save;
+			this.undo = undo;
+			this.redo = redo;
+		};
+		*/
+      });
+
+      function Help() {
+        document.location.href = "/calc/math/calculator-help.html";
+      }
+      function Clear() {
+        //calc.select();
+        //calc.clearSelection();
+        //calc.keystroke('Backspace');
+        var c = confirm("Are you sure?");
+        if (c) {
+          list = [];
+          $("#list").empty();
+          addline();
+          focus();
+          location.reload();
+        }
+      }
+      function CLeft() {
+        calc.keystroke("Left");
+      }
+      function CRight() {
+        calc.keystroke("Right");
+      }
+      function Delete() {
+        hist.save();
+        calc.keystroke("Backspace");
+      }
+      function Save() {
+        window.location.reload();
+      }
+      function AddTxt(t) {
+        calc.cmd(t);
+        focus();
+        hist.save();
+      }
+      function Calc(alist) {
+        var latex = calc.latex();
+        console.log(latex);
+        if (latex == "") return;
+
+        latex = latex.replace(/\u00D7/g, "\\cdot");
+        latex = latex.replace(/Ans/g, Ans);
+        latex = latex.replace(/\\ /g, "");
+        try {
+          var num = parser.parse(latex);
+        } catch (err) {
+          console.log(err);
+          $("#list>div:last-child>span:last-child").text("Syntax Error ...");
+          return;
+        }
+        num = roundnum(num, 10);
+        console.log("= " + num);
+        $("#list>div:last-child>span:last-child").text("= " + num);
+        Ans = num;
+        if (alist) addlist();
+        $("#list>div:last-child>span:first-child").removeClass(
+          "mq-editable-field"
+        );
+        addline();
+        focus();
+      }
+      function focus() {
+        calc.focus();
+        $("#list").scrollTop($("#list")[0].scrollHeight);
+        if (is_mobile) calc.blur();
+      }
+      function addlist() {
+        var n = list.length;
+        var latex = calc.latex();
+        if (list[n - 1] == "") list[n - 1] = latex;
+        else list[n] = latex;
+      }
+      function addline() {
+        var s =
+          '<div class="line">' +
+          '<span class="calc"></span>' +
+          '<span class="result"></span>' +
+          "</div>";
+        $("#list").append(s);
+        calc = MQ.MathField($("#list>div:last-child>span:first-child")[0]);
+      }
+      function roundnum(x, p) {
+        var i;
+        var n = parseFloat(x);
+        var m = n.toPrecision(p + 1);
+        var y = String(m);
+        i = y.indexOf("e");
+        if (i == -1) i = y.length;
+        j = y.indexOf(".");
+        if (i > j && j != -1) {
+          while (i > 0) {
+            if (y.charAt(--i) == "0") y = removeAt(y, i);
+            else break;
+          }
+          if (y.charAt(i) == ".") y = removeAt(y, i);
+        }
+        return y;
+      }
+      function removeAt(s, i) {
+        s = s.substring(0, i) + s.substring(i + 1, s.length);
+        return s;
+      }
+      function StorageSetObject(key, obj) {
+        if (
+          obj.length == 0 ||
+          obj === undefined ||
+          obj === null ||
+          obj === "" ||
+          obj === []
+        )
+          localStorage.removeItem(key);
+        //return;
+        else localStorage.setItem(key, JSON.stringify(obj));
+      }
+      function StorageGetObject(key) {
+        try {
+          var value = localStorage.getItem(key);
+          if (value == null) return [];
+          var obj = JSON.parse(value);
+          return obj;
+        } catch (err) {
+          console.log(err);
+          return null;
+        }
+      }
+    </script>
+  </body>
+</html>

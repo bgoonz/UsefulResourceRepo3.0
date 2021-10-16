@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>JPG to PNG image converter</title>
+    <meta content="JPG to PNG image conversion online." name="description" />
+    <style>
+      .calc {
+        width: 350px;
+        padding: 15px;
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          width: 100%;
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Image conversion</a>&rsaquo; JPG to PNG
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>JPG to PNG image converter</h1>
+          <ol>
+            <li>
+              Press <em>Open JPG image</em> button to load image from local
+              disk.
+            </li>
+            <li>
+              Press <em>Save to PNG</em> button to save image to local disk.
+            </li>
+          </ol>
+          <form name="gen">
+            <table class="calc">
+              <tr>
+                <td>
+                  <button
+                    type="button"
+                    name="B1"
+                    title="Open JPG image"
+                    onClick="Open()"
+                  >
+                    <img
+                      src="../../lib/icons/Toolbar&#32;Icons/32/directory_open.png"
+                      alt="open"
+                    />
+                  </button>
+                  <button
+                    type="button"
+                    name="B2"
+                    title="Save as PNG"
+                    onClick="Save()"
+                  >
+                    <img
+                      src="../../lib/icons/Toolbar&#32;Icons/32/floppy_35inch_blue.png"
+                      alt="save"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <input
+                    type="file"
+                    id="fileElem"
+                    name="fileElem[]"
+                    accept="image/jpeg"
+                    onchange="OnFileSelect()"
+                    style="visibility: hidden"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td><img id="image1" src="flower.jpg" title="flower.jpg" /></td>
+              </tr>
+            </table>
+          </form>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../../tools/screenshot.html">Online screenshot</a></li>
+            <li><a href="png-to-jpg.html">PNG to JPG converter</a></li>
+            <li><a href="jpg-to-gif.html">JPG to GIF converter</a></li>
+            <li><a href="jpg-to-pdf.html">JPG to PDF converter</a></li>
+            <li><a href="../color/index.html">Color conversion</a></li>
+            <li><a href="index.html">Image conversion</a></li>
+          </ul>
+          <script src="../../lib/utils/utils.js"></script>
+          <script src="../../lib/Blob.js-master/Blob.js"></script>
+          <script src="../../lib/canvas-toBlob.js-master/canvas-toBlob.js"></script>
+          <script src="../../lib/FileSaver.js-master/FileSaver.js"></script>
+          <script>
+            var img, width, height;
+
+            window.onload = function () {
+              img = document.getElementById("image1");
+              width = img.width;
+              height = img.height;
+            };
+            function Open() {
+              var fileElem = document.getElementById("fileElem");
+              fileElem.focus();
+              fileElem.click();
+            }
+            function Save() {
+              var canvas = document.createElement("canvas");
+              canvas.width = width;
+              canvas.height = height;
+              canvas.getContext("2d").drawImage(img, 0, 0);
+
+              var name = GetFileName(img.title) + ".png";
+              canvas.toBlob(function (blob) {
+                saveAs(blob, name);
+              });
+            }
+            function OnFileSelect(event) {
+              var fileElem = document.getElementById("fileElem").files[0];
+              var reader = new FileReader();
+              img.title = fileElem.name;
+              reader.onload = function (event) {
+                img.src = event.target.result;
+                img.onload = function (event) {
+                  width = img.width;
+                  height = img.height;
+                  if (img.width > 200) img.width = 200;
+                };
+              };
+              reader.readAsDataURL(fileElem);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>IMAGE CONVERSION</h5>
+        <ul>
+          <li><a href="bmp-to-jpg.html">BMP to JPG</a></li>
+          <li><a href="gif-to-jpg.html">GIF to JPG</a></li>
+          <li><a href="gif-to-png.html">GIF to PNG</a></li>
+          <li><a href="jpg-to-bmp.html">JPG to BMP</a></li>
+          <li><a href="jpg-to-gif.html">JPG to GIF</a></li>
+          <li><a href="jpg-to-pdf.html">JPG to PDF</a></li>
+          <li><a href="jpg-to-png.html">JPG to PNG</a></li>
+          <li><a href="png-to-gif.html">PNG to GIF</a></li>
+          <li><a href="png-to-jpg.html">PNG to JPG</a></li>
+          <li><a href="png-to-pdf.html">PNG to PDF</a></li>
+          <li><a href="rgb-to-grayscale.html">RGB to Grayscale</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="jpg-to-png.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

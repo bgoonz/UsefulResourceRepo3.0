@@ -1,0 +1,696 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="dns-prefetch" href="https://cdn.jsdelivr.net" />
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>CM to Inches (cm to in) Converter</title>
+    <meta
+      name="description"
+      content="Centimeters to inches (cm to in) converter and how to convert."
+    />
+    <link rel="canonical" href="cm-to-inch.html" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+        max-width: 520px;
+      }
+      .btn i {
+        vertical-align: middle;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 575px) {
+        #calcform > div:nth-child(1) > label {
+          display: none;
+        }
+        #calcform > div:nth-child(3) > label {
+          display: none;
+        }
+      }
+      @media all and (max-width: 375px) {
+        .btn {
+          padding: 8px;
+        }
+      }
+      @media all and (max-width: 320px) {
+        .btn {
+          padding: 8px 16px;
+        }
+        .btn i {
+          display: none;
+        }
+      }
+      @media all and (max-width: 576px) {
+        .btn {
+          padding: 8px 6px;
+        }
+      }
+      .ntable td:nth-child(1),
+      .ntable td:nth-child(2) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Length conversion</a>&rsaquo; cm to inches
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Centimeters to Inches Converter</h1>
+          <form name="calcform" id="calcform" autocomplete="off">
+            <div id="unitnav" class="form-row">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="form-group col">
+                <label for="unit1">From</label>
+                <select id="unit1" class="form-control">
+                  <option value="mm">Millimeter (mm)</option>
+                  <option value="cm" selected>Centimeter (cm)</option>
+                  <option value="meter">Meter (m)</option>
+                  <option value="km">Kilometer (km)</option>
+                  <option value="inch">Inch (in)</option>
+                  <option value="feet">Foot (ft)</option>
+                  <option value="yard">Yard (yd)</option>
+                  <option value="mile">Mile (mi)</option>
+                </select>
+              </div>
+              <div class="form-group col">
+                <label for="unit2">To</label>
+                <select id="unit2" class="form-control">
+                  <option value="mm">Millimeter (mm)</option>
+                  <option value="cm">Centimeter (cm)</option>
+                  <option value="meter">Meter (m)</option>
+                  <option value="km">Kilometer (km)</option>
+                  <option value="inch" selected>Inch (in)</option>
+                  <option value="feet">Foot (ft)</option>
+                  <option value="yard">Yard (yd)</option>
+                  <option value="mile">Mile (mi)</option>
+                </select>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="x" class="col-sm-3 col-form-label">Centimeters</label>
+              <div class="input-group col-sm-9">
+                <input
+                  type="text"
+                  id="x"
+                  name="x"
+                  class="form-control"
+                  required
+                  autofocus
+                />
+                <div class="input-group-append">
+                  <span class="input-group-text">cm</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-3 col-form-label">&nbsp;</label>
+              <div class="col-sm-9">
+                <button type="submit" title="Convert" class="btn btn-success">
+                  <span>=</span> Convert
+                </button>
+                <button type="reset" title="Reset" class="btn btn-secondary">
+                  <span>&times;</span> Reset
+                </button>
+                <button
+                  type="button"
+                  title="Swap conversion"
+                  class="btn btn-secondary"
+                  onclick="location.href='inch-to-cm.html';"
+                >
+                  <span></span> Swap
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="y" class="col-sm-3 col-form-label"
+                >Inches (dec)</label
+              >
+              <div class="input-group col-sm-9">
+                <input type="text" id="y" readonly class="form-control" />
+                <div class="input-group-append">
+                  <span class="input-group-text">in</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="y1" class="col-sm-3 col-form-label"
+                >Inches (frac)</label
+              >
+              <div class="input-group col-sm-9">
+                <input type="text" id="y1" readonly class="form-control" />
+                <div class="input-group-append">
+                  <span class="input-group-text">in</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="y2" class="col-sm-3 col-form-label"
+                >Feet+Inches</label
+              >
+              <div class="input-group col-sm-9">
+                <input type="text" id="y2" readonly class="form-control" />
+                <div class="input-group-append mr-2">
+                  <span class="input-group-text">ft</span>
+                </div>
+                <input type="text" id="y3" readonly class="form-control" />
+                <div class="input-group-append">
+                  <span class="input-group-text">in</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="TA" class="col-sm-3 col-form-label"
+                >Calculation</label
+              >
+              <div class="col-sm-9">
+                <textarea
+                  id="TA"
+                  rows="3"
+                  class="form-control"
+                  readonly
+                ></textarea>
+              </div>
+            </div>
+          </form>
+          <p id="p1"><a href="inch-to-cm.html">Inches to cm &#9658;</a></p>
+          <p>
+            * The inches fraction result is rounded to the nearest 1/64
+            fraction.
+          </p>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+
+          <h2><a id="how"></a>How to convert centimeters to inches</h2>
+          <p>1 centimeter is equal to 0.3937007874 inches:</p>
+          <p class="math">1cm = (1/2.54)&Prime; = 0.3937007874&Prime;</p>
+          <p>
+            The distance <em>d</em> in inches (&Prime;) is equal to the distance
+            <i>d</i> in centimeters (cm) divided by 2.54:
+          </p>
+          <p class="math">
+            <em>d</em><sub>(&Prime;)</sub> = <em>d</em><sub>(cm)</sub> / 2.54
+          </p>
+          <h4>Example</h4>
+          <p>Convert 20 cm to inches:</p>
+          <p class="math">
+            <em>d</em><sub>(&Prime;)</sub> = 20cm / 2.54 = 7.874&Prime;
+          </p>
+          <h3>How many inches in a centimeter</h3>
+          <p>One centimeter is equal to 0.3937 inches:</p>
+          <p>1cm = 1cm / 2.54cm/in = 0.3937in</p>
+          <h3>How many centimeters in an inch</h3>
+          <p>One inch is equal to 2.54 centimeters:</p>
+          <p>1in = 2.54&times;1in = 2.54cm</p>
+          <h3>How to convert 10cm to inches</h3>
+          <p>Divide 10 centimeters by 2.54 to get inches:</p>
+          <p>10cm = 10cm / 2.54cm/in = 3.937in</p>
+          <h2><a id="table"></a>Centimeters to inches conversion table</h2>
+          <p>The fraction inches are rounded to 1/64 resolution.</p>
+          <table class="ntable">
+            <thead>
+              <tr>
+                <th>Centimeters (cm)</th>
+                <th>Inches (")<br />(decimal)</th>
+                <th>Inches (")<br />(fraction)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.01 cm</td>
+                <td>0.0039 in</td>
+                <td>0 in</td>
+              </tr>
+              <tr>
+                <td>0.1 cm</td>
+                <td>0.0394 in</td>
+                <td>3/64 in</td>
+              </tr>
+              <tr>
+                <td>1 cm</td>
+                <td>0.3937 in</td>
+                <td>25/64 in</td>
+              </tr>
+              <tr>
+                <td>2 cm</td>
+                <td>0.7874 in</td>
+                <td>25/32 in</td>
+              </tr>
+              <tr>
+                <td>3 cm</td>
+                <td>1.1811 in</td>
+                <td>1 3/16 in</td>
+              </tr>
+              <tr>
+                <td>4 cm</td>
+                <td>1.5748 in</td>
+                <td>1 37/64 in</td>
+              </tr>
+              <tr>
+                <td>5 cm</td>
+                <td>1.9685 in</td>
+                <td>1 31/32 in</td>
+              </tr>
+              <tr>
+                <td>6 cm</td>
+                <td>2.3622 in</td>
+                <td>2 23/64 in</td>
+              </tr>
+              <tr>
+                <td>7 cm</td>
+                <td>2.7559 in</td>
+                <td>2 3/4 in</td>
+              </tr>
+              <tr>
+                <td>8 cm</td>
+                <td>3.1496 in</td>
+                <td>3 5/32 in</td>
+              </tr>
+              <tr>
+                <td>9 cm</td>
+                <td>3.5433 in</td>
+                <td>3 35/64 in</td>
+              </tr>
+              <tr>
+                <td>10 cm</td>
+                <td>3.9370 in</td>
+                <td>3 15/16 in</td>
+              </tr>
+              <tr>
+                <td>20 cm</td>
+                <td>7.8740 in</td>
+                <td>7 7/8 in</td>
+              </tr>
+              <tr>
+                <td>30 cm</td>
+                <td>11.8110 in</td>
+                <td>11 13/16 in</td>
+              </tr>
+              <tr>
+                <td>40 cm</td>
+                <td>15.7840 in</td>
+                <td>15 3/4 in</td>
+              </tr>
+              <tr>
+                <td>50 cm</td>
+                <td>19.6850 in</td>
+                <td>19 11/16 in</td>
+              </tr>
+              <tr>
+                <td>60 cm</td>
+                <td>23.6220 in</td>
+                <td>23 5/8 in</td>
+              </tr>
+              <tr>
+                <td>70 cm</td>
+                <td>27.5591 in</td>
+                <td>27 9/16 in</td>
+              </tr>
+              <tr>
+                <td>80 cm</td>
+                <td>31.4961 in</td>
+                <td>31 1/2 in</td>
+              </tr>
+              <tr>
+                <td>90 cm</td>
+                <td>35.4331 in</td>
+                <td>35 7/16 in</td>
+              </tr>
+              <tr>
+                <td>100 cm</td>
+                <td>39.3701 in</td>
+                <td>39 3/8 in</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="inch-to-cm.html">Inches to cm &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul class="seealso">
+            <li><a href="inch-to-cm.html">Inches to cm conversion</a></li>
+            <li><a href="cm-to-feet-inch.html">cm to feet+inches</a></li>
+            <li><a href="cm-to-feet.html">cm to feet conversion</a></li>
+            <li><a href="cm-to-mm.html">cm to mm conversion</a></li>
+            <li>
+              <a href="meter-to-inch.html">Meters to inches conversion</a>
+            </li>
+            <li><a href="mm-to-inch.html">mm to inches conversion</a></li>
+            <li><a href="feet-to-inch.html">Feet to inches conversion</a></li>
+            <li>
+              <a href="cm-to-inch.html%3Fx=1.html">1 cm to inches conversion</a>
+            </li>
+            <li>
+              <a href="cm-to-inch.html%3Fx=2.html">2 cm to inches conversion</a>
+            </li>
+            <li>
+              <a href="cm-to-inch.html%3Fx=3.html">3 cm to inches conversion</a>
+            </li>
+            <li>
+              <a href="cm-to-inch.html%3Fx=10.html"
+                >10 cm to inches conversion</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LENGTH CONVERSION</h5>
+        <ul>
+          <li><a href="cm-to-feet.html">cm to feet</a></li>
+          <li><a href="cm-to-feet-inch.html">cm to feet+inches</a></li>
+          <li><a href="cm-to-inch.html">cm to inches</a></li>
+          <li><a href="cm-to-mm.html">cm to mm</a></li>
+          <li><a href="feet-inch-to-cm.html">Feet+inches to cm</a></li>
+          <li><a href="feet-to-cm.html">Feet to cm</a></li>
+          <li><a href="feet-to-mm.html">Feet to mm</a></li>
+          <li><a href="feet-to-inch.html">Feet to inches</a></li>
+          <li><a href="feet-to-meter.html">Feet to meters</a></li>
+          <li><a href="height-converter.html">Height converter</a></li>
+          <li><a href="inch-to-cm.html">Inches to cm</a></li>
+          <li><a href="inch-to-feet.html">Inches to feet</a></li>
+          <li><a href="inch-to-meter.html">Inches to meters</a></li>
+          <li><a href="inch-to-mm.html">Inches to mm</a></li>
+          <li><a href="km-to-mile.html">km to miles</a></li>
+          <li><a href="meter-to-feet.html">Meters to feet</a></li>
+          <li><a href="meter-to-inch.html">Meters to inches</a></li>
+          <li><a href="mile-to-km.html">Miles to km</a></li>
+          <li><a href="mm-to-cm.html">mm to cm</a></li>
+          <li><a href="mm-to-feet.html">mm to feet</a></li>
+          <li><a href="mm-to-inch.html">mm to inches</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href='cm-to-inch.html%3Fx="+x2+".html#feedback'>Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../convert.js"></script>
+    <script src="../number.js"></script>
+    <script async src="unitnav.js"></script>
+    <script>
+      var xelem = document.getElementById("x");
+      //window.onload = function() {
+      window.addEventListener("DOMContentLoaded", function () {
+        //xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0 && params.x != "") {
+          document.title = params.x + " cm to inches conversion";
+          SetLinks(params);
+          xelem.value = decodeURIComponent(params.x);
+          OnCalc();
+        }
+      });
+      function SetLinks(params) {
+        var p1 = document.getElementById("p1");
+        var p2 = document.createElement("p");
+        var p3 = document.createElement("p");
+        var x = parseInt(params.x);
+        var x1 = x - 1;
+        var x2 = x + 1;
+        if (x1 >= 0)
+          p2.innerHTML =
+            "<a href='cm-to-inch.html%3Fx=&quot;+x1+&quot;.html'>" +
+            x1 +
+            " cm to inches &#9658;</a>";
+        p3.innerHTML =
+          "<a href='cm-to-inch.html%3Fx=&quot;+x2+&quot;.html'>" +
+          x2 +
+          " cm to inches &#9658;</a>";
+        p1.parentNode.insertBefore(p2, p1);
+        p1.parentNode.insertBefore(p3, p1);
+      }
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function getFracString(num, den) {
+        var s = "";
+        num = num.toString();
+        den = den.toString();
+        ulook = [
+          "\u2070",
+          "\u00B9",
+          "\u00B2",
+          "\u00B3",
+          "\u2074",
+          "\u2075",
+          "\u2076",
+          "\u2077",
+          "\u2078",
+          "\u2079",
+        ];
+        dlook = [
+          "\u2080",
+          "\u2081",
+          "\u2082",
+          "\u2083",
+          "\u2084",
+          "\u2085",
+          "\u2086",
+          "\u2087",
+          "\u2088",
+          "\u2089",
+        ];
+        for (var i = 0; i < num.length; i++) s += ulook[num[i]];
+        s += "/";
+        for (var i = 0; i < den.length; i++) s += dlook[den[i]];
+        return s;
+      }
+      function dec2frac(x) {
+        var y = parseFloat(x);
+        y = Math.round(y * 64) / 64;
+        var absy = Math.abs(y);
+        var yy = Math.floor(absy);
+        var frac = roundresult(absy - yy);
+        //if( x2<0 ) sign = sign2 = '-';
+        d = digits_after_period(absy);
+        den = Math.round(Math.pow(10, d));
+        num = Math.round(frac * den);
+        var len = num.toString().length;
+        var f = false;
+        if (len > 8) f = true;
+        g = gcd2(num, den, f);
+        num2 = Math.round(num / g);
+        den2 = Math.round(den / g);
+        y = yy;
+        //if( num2!=0 ) y+=" "+num2+"/"+den2;
+        if (num2 != 0) y += " " + getFracString(num2, den2);
+        return y;
+      }
+      function OnCalc() {
+        var x = xelem.value;
+        if (x == "") return;
+        //var y = (parseFloat(x)/2.54);
+        x = str2num(x);
+        var y = x / 2.54;
+        var y = roundresult(y);
+        if (y < 0) {
+          x = -x;
+          y = -y;
+        }
+        var y1 = dec2frac(y);
+        var y2 = Math.floor(y / 12);
+        var y3 = roundresult(y - y2 * 12);
+        var txt = x + "cm / 2.54cm/in\n";
+        txt += "= " + y + "in";
+        document.getElementById("y").value = y;
+        document.getElementById("y1").value = y1;
+        document.getElementById("y2").value = y2;
+        document.getElementById("y3").value = y3;
+        document.getElementById("TA").value = txt;
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": ["WebPage","FAQPage"],
+        "name": "CM to Inches Converter",
+        "mainEntity": [{
+          "@type": "Question",
+          "name": "How to convert centimeters to inches?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<ol>
+            <li>Get length in centimeters</li>
+            <li>Divide by 2.54</li>
+            <li>Example: 5cm = 5cm/2.54 = 1.968in</li>
+         </ol>
+         <p><a href='cm-to-inch.html'>Read more</a></p>"
+          }
+         }, {
+          "@type": "Question",
+          "name": "How many inches in a centimeter?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<ol><li>Convert 1 centimeter to inches.</li>
+            <li>1cm = 1cm/2.54 = 0.3937in</li>
+            <p><a href='cm-to-inch.html'>Read more</a></p>"
+          }
+         }, {
+          "@type": "Question",
+          "name": "How many centimeters in an inch?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<ol><li>Convert 1 inch to centimeter.</li>
+            <li>1in = 2.54*1in = 2.54cm</li>
+            <p><a href='cm-to-inch.html'>Read more</a></p>"
+          }
+         }, {
+          "@type": "Question",
+          "name": "How to convert 10cm to inches?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "<p>Convert 10 centimeters to inches:<br>10cm = 10cm/2.54 = 3.937in</p>
+            <p><a href='cm-to-inch.html'>Read more</a></p>"
+          }
+        }]
+      }
+    </script>
+  </body>
+</html>

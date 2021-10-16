@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Hertz (Hz) to rad/sec conversion calculator</title>
+    <meta
+      content="Frequency in hertz (Hz) to angular velocity in radian per second (rad/s) calculator and how to convert."
+      name="description"
+    />
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Frequency conversion</a>&rsaquo; Hz to
+        rad/s
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Hertz to radian/sec conversion</h1>
+
+          <h2>Hertz to rad/sec calculator</h2>
+          <p>Enter the frequency in hertz and press the <i>Calc</i> button:</p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tbody>
+                <tr>
+                  <td><label for="x">Enter frequency in hertz:</label></td>
+                  <td class="math">
+                    <input
+                      type="number"
+                      min="0"
+                      step="any"
+                      id="x"
+                      name="x"
+                      class="intext"
+                      autofocus
+                      tabindex="1"
+                    />
+                  </td>
+                  <td class="mathsymbol">Hz</td>
+                </tr>
+                <tr>
+                  <td>&nbsp;</td>
+                  <td>
+                    <input
+                      onclick="calc()"
+                      type="button"
+                      value="Calculate"
+                      class="btn"
+                      tabindex="2"
+                    />
+                    <input
+                      onclick="setfocus()"
+                      type="reset"
+                      value="Reset"
+                      class="btn"
+                      tabindex="3"
+                    />
+                  </td>
+                  <td>&nbsp;</td>
+                </tr>
+                <tr>
+                  <td>Result in radian per second:</td>
+                  <td class="math">
+                    <input
+                      type="text"
+                      name="y"
+                      class="outtext"
+                      readonly
+                      tabindex="4"
+                    />
+                  </td>
+                  <td class="mathsymbol">rad/s</td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p>
+            <a href="rad-s-to-hz.html"
+              >Rad/s to Hz conversion calculator &#9658;</a
+            >
+          </p>
+          <h2><a name="how"></a>How to calculate rad/sec from hertz</h2>
+          <p class="math">1 Hz = 2&pi; rad/s = 6.2831853 rad/s</p>
+          <p>or</p>
+          <p class="math">1 rad/s = 1/2&pi; Hz = 0.1591549 Hz</p>
+          <h4>Hertz to rad/s formula</h4>
+          <p>
+            The angular frequency or angular velocity &omega; in radian per
+            second (rad/s) is equal to 2&#960; times the frequency <i>f</i> in
+            hertz (Hz):
+          </p>
+          <p class="math">
+            <em>&omega;</em><sub>(rad/s)</sub> = 2&pi;<i>&times;f</i
+            ><sub>(Hz)</sub>
+          </p>
+          <h4>Example</h4>
+          <p>
+            Calculate angular velocity in rad/s from frequency of 300 hertz:
+          </p>
+          <p class="math">
+            <em>&omega;</em><sub>(rad/s)</sub> = 2&pi;<i>&times;</i>300Hz =
+            1884.956 rad/s
+          </p>
+          <h2><a name="table"></a>Hertz to rad/sec conversion table</h2>
+          <table class="ntable">
+            <tr>
+              <th>Hertz<br />(Hz)</th>
+              <th>Radian per second<br />(rad/s)</th>
+            </tr>
+            <tr>
+              <td>0 Hz</td>
+              <td>0 rad/s</td>
+            </tr>
+            <tr>
+              <td>1 Hz</td>
+              <td>6.28 rad/s</td>
+            </tr>
+            <tr>
+              <td style="height: 25px">2 Hz</td>
+              <td style="height: 25px">12.57 rad/s</td>
+            </tr>
+            <tr>
+              <td>3 Hz</td>
+              <td>18.85 rad/s</td>
+            </tr>
+            <tr>
+              <td>4 Hz</td>
+              <td>25.13 rad/s</td>
+            </tr>
+            <tr>
+              <td>5 Hz</td>
+              <td>31.42 rad/s</td>
+            </tr>
+            <tr>
+              <td>6 Hz</td>
+              <td>37.70 rad/s</td>
+            </tr>
+            <tr>
+              <td>7 Hz</td>
+              <td>43.98 rad/s</td>
+            </tr>
+            <tr>
+              <td>8 Hz</td>
+              <td>50.27 rad/s</td>
+            </tr>
+            <tr>
+              <td>9 Hz</td>
+              <td>56.55 rad/s</td>
+            </tr>
+            <tr>
+              <td>10 Hz</td>
+              <td>62.83 rad/s</td>
+            </tr>
+            <tr>
+              <td>20 Hz</td>
+              <td>125.66 rad/s</td>
+            </tr>
+            <tr>
+              <td>30 Hz</td>
+              <td>188.50 rad/s</td>
+            </tr>
+            <tr>
+              <td>40 Hz</td>
+              <td>251.33 rad/s</td>
+            </tr>
+            <tr>
+              <td>50 Hz</td>
+              <td>314.16 rad/s</td>
+            </tr>
+            <tr>
+              <td>60 Hz</td>
+              <td>376.99rad/s</td>
+            </tr>
+            <tr>
+              <td>70 Hz</td>
+              <td>439.82rad/s</td>
+            </tr>
+            <tr>
+              <td>80 Hz</td>
+              <td>502.65rad/s</td>
+            </tr>
+            <tr>
+              <td>90 Hz</td>
+              <td>565.49rad/s</td>
+            </tr>
+            <tr>
+              <td>100 Hz</td>
+              <td>628.32rad/s</td>
+            </tr>
+            <tr>
+              <td>200 Hz</td>
+              <td>1256.64rad/s</td>
+            </tr>
+            <tr>
+              <td>300 Hz</td>
+              <td>1884.96rad/s</td>
+            </tr>
+            <tr>
+              <td>400 Hz</td>
+              <td>2513.27rad/s</td>
+            </tr>
+            <tr>
+              <td>500 Hz</td>
+              <td>3141.59rad/s</td>
+            </tr>
+            <tr>
+              <td>600 Hz</td>
+              <td>3769.91rad/s</td>
+            </tr>
+            <tr>
+              <td>700 Hz</td>
+              <td>4398.23rad/s</td>
+            </tr>
+            <tr>
+              <td>800 Hz</td>
+              <td>5026.55rad/s</td>
+            </tr>
+            <tr>
+              <td>900 Hz</td>
+              <td>5654.87rad/s</td>
+            </tr>
+            <tr>
+              <td>1000 Hz</td>
+              <td>6283.19rad/s</td>
+            </tr>
+            <tr>
+              <td>2000 Hz</td>
+              <td>12566.37rad/s</td>
+            </tr>
+            <tr>
+              <td>3000 Hz</td>
+              <td>18849.56rad/s</td>
+            </tr>
+            <tr>
+              <td>4000 Hz</td>
+              <td>25132.74rad/s</td>
+            </tr>
+            <tr>
+              <td>5000 Hz</td>
+              <td>31415.93rad/s</td>
+            </tr>
+            <tr>
+              <td>6000 Hz</td>
+              <td>37699.11rad/s</td>
+            </tr>
+            <tr>
+              <td>7000 Hz</td>
+              <td>43982.30rad/s</td>
+            </tr>
+            <tr>
+              <td>8000 Hz</td>
+              <td>50265.48rad/s</td>
+            </tr>
+            <tr>
+              <td>9000 Hz</td>
+              <td>56548.67rad/s</td>
+            </tr>
+            <tr>
+              <td>10000 Hz</td>
+              <td>62831.85rad/s</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <p>
+            <a href="rad-s-to-hz.html"
+              >Rad/s to Hz conversion calculator &#9658;</a
+            >
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="rad-s-to-hz.html">Rad/s to Hz</a></li>
+            <li><a href="khz-to-hz.html">kHz to Hz</a></li>
+            <li><a href="hz-to-mhz.html">Hz to MHz</a></li>
+            <li><a href="hz-to-ghz.html">Hz to GHz</a></li>
+            <li><a href="hz-to-thz.html">Hz to THz</a></li>
+            <li><a href="index.html">Frequency conversion</a></li>
+            <li><a href="../electric/index.html">Electric conversion</a></li>
+            <li><a href="../power/index.html">Power conversion</a></li>
+          </ul>
+          <script src="../convert.js"></script>
+          <script>
+            function convert(x) {
+              return x * 6.2831853;
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>FREQUENCY CONVERSION</h5>
+        <ul>
+          <li><a href="hz-to-khz.html">Hz to kHz</a></li>
+          <li><a href="hz-to-mhz.html">Hz to MHz</a></li>
+          <li><a href="hz-to-ghz.html">Hz to GHz</a></li>
+          <li><a href="hz-to-thz.html">Hz to THz</a></li>
+          <li><a href="hz-to-rad-s.html">Hz to rad/s</a></li>
+          <li><a href="khz-to-hz.html">kHz to Hz</a></li>
+          <li><a href="khz-to-mhz.html">kHz to MHz</a></li>
+          <li><a href="khz-to-ghz.html">kHz to GHz</a></li>
+          <li><a href="mhz-to-hz.html">MHz to Hz</a></li>
+          <li><a href="mhz-to-khz.html">MHz to kHz</a></li>
+          <li><a href="mhz-to-ghz.html">MHz to GHz</a></li>
+          <li><a href="ghz-to-hz.html">GHz to Hz</a></li>
+          <li><a href="ghz-to-khz.html">GHz to kHz</a></li>
+          <li><a href="ghz-to-mhz.html">GHz to MHz</a></li>
+          <li><a href="thz-to-hz.html">THz to Hz</a></li>
+          <li><a href="rad-s-to-hz.html">Rad/s to Hz</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="hz-to-rad-s.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

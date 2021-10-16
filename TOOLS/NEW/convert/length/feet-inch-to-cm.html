@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Feet+inches to cm (ft+in to cm) converter</title>
+    <meta
+      name="description"
+      content="Feet+inches (ft+in) to centimeters (cm) conversion calculator and how to convert."
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      #calcform {
+        padding: 15px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+        max-width: 500px;
+      }
+      .col {
+        padding-left: 0;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      .btn i {
+        vertical-align: middle;
+      }
+      .btn img {
+        filter: invert(1);
+      }
+      .ntable td:nth-child(1),
+      .ntable td:nth-child(2) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Length conversion</a>&rsaquo; Feet+inches
+        to cm
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Feet+Inches to Centimeters Conversion</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="ft">Feet</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="ft"
+                    name="ft"
+                    class="form-control"
+                    autofocus
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">ft</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col">
+                <label for="inch">Inches</label>
+                <div class="input-group">
+                  <input
+                    type="text"
+                    id="inch"
+                    name="inch"
+                    class="form-control"
+                  />
+                  <div class="input-group-append">
+                    <span class="input-group-text">in</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <button
+                type="submit"
+                id="calc"
+                title="Convert"
+                class="btn btn-secondary"
+              >
+                <span>=</span> Convert
+              </button>
+              <button
+                type="reset"
+                id="reset"
+                title="Reset"
+                class="btn btn-secondary"
+              >
+                <span>&times;</span> Reset
+              </button>
+              <button
+                type="button"
+                title="Swap conversion"
+                class="btn btn-secondary"
+                onclick="location.href='cm-to-feet-inch.html';"
+              >
+                <img
+                  src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                  alt=""
+                />
+                Swap
+              </button>
+            </div>
+            <div class="form-group">
+              <label for="cm1">Centimeters</label>
+              <div class="input-group">
+                <input type="number" id="cm1" class="form-control" readonly />
+                <div class="input-group-append">
+                  <span class="input-group-text">cm</span>
+                </div>
+              </div>
+            </div>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="m2">Meters</label>
+                <div class="input-group">
+                  <input type="number" id="m2" class="form-control" readonly />
+                  <div class="input-group-append">
+                    <span class="input-group-text">m</span>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group col">
+                <label for="cm2">Centimeters</label>
+                <div class="input-group">
+                  <input type="number" id="cm2" class="form-control" readonly />
+                  <div class="input-group-append">
+                    <span class="input-group-text">cm</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="TA">Calculation</label>
+              <textarea
+                id="TA"
+                rows="2"
+                class="form-control"
+                readonly
+              ></textarea>
+            </div>
+          </form>
+          <p><a href="cm-to-feet-inch.html">cm to feet+inches &#9658;</a></p>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+
+          <h2><a id="how"></a>How to convert feet+inches to centimeters</h2>
+          <p>1 foot is equal to 30.48 centimeters:</p>
+          <p class="math">1 ft = 30.48 cm</p>
+          <p>1 inch is equal to 2.54 centimeters:</p>
+          <p class="math">1 in = 2.54 cm</p>
+          <p>
+            The distance <em>d</em> in centimeters (cm) is equal to the distance
+            <i>d</i> in feet (ft) times 30.48 plus the distance <i>d</i> in
+            inches (in) times 2.54:
+          </p>
+          <p class="math">
+            <em>d</em><sub>(cm)</sub> = <em>d</em><sub>(ft)</sub> &times; 30.48
+            + <em>d</em><sub>(in)</sub> &times; 2.54
+          </p>
+          <h4>Example</h4>
+          <p>Convert 2 feet + 3 inches to centimeters:</p>
+          <p class="math">
+            <em>d</em><sub>(cm)</sub> = 2ft &times; 30.48 + 3in &times; 2.54 =
+            68.58cm
+          </p>
+          <h2><a id="table"></a>Feet+inches to centimeters conversion table</h2>
+          <table class="ntable">
+            <thead>
+              <tr>
+                <th colspan="2">Feet (ft) + Inches (in)</th>
+                <th>Centimeters (cm)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0 ft</td>
+                <td>0 in</td>
+                <td>0 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>1 in</td>
+                <td>2.54 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>2 in</td>
+                <td>5.08 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>3 in</td>
+                <td>7.62 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>4 in</td>
+                <td>10.16 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>5 in</td>
+                <td>12.70 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>6 in</td>
+                <td>15.24 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>7 in</td>
+                <td>17.78 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>8 in</td>
+                <td>20.32 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>9 in</td>
+                <td>22.86 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>10 in</td>
+                <td>25.40 cm</td>
+              </tr>
+              <tr>
+                <td>0 ft</td>
+                <td>11 in</td>
+                <td>27.94 cm</td>
+              </tr>
+              <tr>
+                <td>1 ft</td>
+                <td>0 in</td>
+                <td>30.48 cm</td>
+              </tr>
+              <tr>
+                <td>2 ft</td>
+                <td>0 in</td>
+                <td>60.96 cm</td>
+              </tr>
+              <tr>
+                <td>3 ft</td>
+                <td>0 in</td>
+                <td>91.44 cm</td>
+              </tr>
+              <tr>
+                <td>4 ft</td>
+                <td>0 in</td>
+                <td>121.92 cm</td>
+              </tr>
+              <tr>
+                <td>5 ft</td>
+                <td>0 in</td>
+                <td>152.40 cm</td>
+              </tr>
+              <tr>
+                <td>6 ft</td>
+                <td>0 in</td>
+                <td>182.88 cm</td>
+              </tr>
+              <tr>
+                <td>7 ft</td>
+                <td>0 in</td>
+                <td>213.36 cm</td>
+              </tr>
+              <tr>
+                <td>8 ft</td>
+                <td>0 in</td>
+                <td>243.84 cm</td>
+              </tr>
+              <tr>
+                <td>9 ft</td>
+                <td>0 in</td>
+                <td>274.32 cm</td>
+              </tr>
+              <tr>
+                <td>10 ft</td>
+                <td>0 in</td>
+                <td>304.80 cm</td>
+              </tr>
+              <tr>
+                <td>20 ft</td>
+                <td>0 in</td>
+                <td>609.60 cm</td>
+              </tr>
+              <tr>
+                <td>30 ft</td>
+                <td>0 in</td>
+                <td>914.40 cm</td>
+              </tr>
+              <tr>
+                <td>40 ft</td>
+                <td>0 in</td>
+                <td>1219.20 cm</td>
+              </tr>
+              <tr>
+                <td>50 ft</td>
+                <td>0 in</td>
+                <td>1524.00 cm</td>
+              </tr>
+              <tr>
+                <td>60 ft</td>
+                <td>0 in</td>
+                <td>1828.80 cm</td>
+              </tr>
+              <tr>
+                <td>70 ft</td>
+                <td>0 in</td>
+                <td>2133.60 cm</td>
+              </tr>
+              <tr>
+                <td>80 ft</td>
+                <td>0 in</td>
+                <td>2438.40 cm</td>
+              </tr>
+              <tr>
+                <td>90 ft</td>
+                <td>0 in</td>
+                <td>2743.20 cm</td>
+              </tr>
+              <tr>
+                <td>100 ft</td>
+                <td>0 in</td>
+                <td>3048.00 cm</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="cm-to-feet-inch.html">cm to feet+inches &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="cm-to-feet-inch.html">cm to feet+inches</a></li>
+            <li><a href="feet-inch-to-mm.html">Feet+inches to mm</a></li>
+            <li><a href="feet-inch-to-meter.html">Feet+inches to meters</a></li>
+            <li>
+              <a href="../../calc/body/bmi-calculator.html">BMI calculator</a>
+            </li>
+          </ul>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LENGTH CONVERSION</h5>
+        <ul>
+          <li><a href="cm-to-feet.html">cm to feet</a></li>
+          <li><a href="cm-to-feet-inch.html">cm to feet+inches</a></li>
+          <li><a href="cm-to-inch.html">cm to inches</a></li>
+          <li><a href="cm-to-mm.html">cm to mm</a></li>
+          <li><a href="feet-to-cm.html">Feet to cm</a></li>
+          <li><a href="feet-to-mm.html">Feet to mm</a></li>
+          <li><a href="feet-to-inch.html">Feet to inches</a></li>
+          <li><a href="feet-to-meter.html">Feet to meters</a></li>
+          <li><a href="feet-inch-to-cm.html">Feet+inches to cm</a></li>
+          <li><a href="feet-inch-to-meter.html">Feet+inches to meters</a></li>
+          <li><a href="feet-inch-to-mm.html">Feet+inches to mm</a></li>
+          <li><a href="height-converter.html">Height converter</a></li>
+          <li><a href="inch-to-cm.html">Inches to cm</a></li>
+          <li><a href="inch-to-feet.html">Inches to feet</a></li>
+          <li><a href="inch-to-meter.html">Inches to meters</a></li>
+          <li><a href="inch-to-mm.html">Inches to mm</a></li>
+          <li><a href="km-to-mile.html">km to miles</a></li>
+          <li><a href="meter-to-feet.html">Meters to feet</a></li>
+          <li><a href="meter-to-feet-inch.html">Meters to feet+inches</a></li>
+          <li><a href="meter-to-inch.html">Meters to inches</a></li>
+          <li><a href="mile-to-km.html">Miles to km</a></li>
+          <li><a href="mm-to-cm.html">mm to cm</a></li>
+          <li><a href="mm-to-feet.html">mm to feet</a></li>
+          <li><a href="mm-to-feet-inch.html">mm to feet+inches</a></li>
+          <li><a href="mm-to-inch.html">mm to inches</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="feet-inch-to-cm.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../convert.js"></script>
+
+    <script>
+      var ftelem = document.getElementById("ft");
+      var inchelem = document.getElementById("inch");
+      window.onload = function () {
+        //calcform.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+        var params = GetURLParams();
+        if (
+          Object.keys(params).length > 0 &&
+          (params.ft != "" || params.inch != "")
+        ) {
+          document.title =
+            params.ft + "feet+" + params.inch + "inches to cm conversion";
+          //SetLinks(params);
+          ftelem.value = decodeURIComponent(params.ft);
+          inchelem.value = decodeURIComponent(params.inch);
+          OnCalc();
+        }
+      };
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      /*
+   function OnIN() {
+      $("#calcform div:nth-child(2) div:nth-child(1)").hide();
+      $("#ft").val("");
+   }
+   function OnFTIN() {
+      $("#calcform div:nth-child(2) div:nth-child(1)").show();
+   }
+   */
+      function OnCalc() {
+        var ft = str2num(document.getElementById("ft").value);
+        var inch = str2num(document.getElementById("inch").value);
+        //if( ft=="" ) ft="0";
+        //if( inch=="" ) inch="0";
+        //ft = parseFloat(ft);
+        //inch = parseFloat(inch);
+        var inch2 = 12 * ft + inch;
+        var cm = roundresult(2.54 * inch2);
+        var m2 = Math.floor(cm / 100);
+        var cm2 = roundresult(cm - m2 * 100);
+        var txt = ft + "ft \u00D7 30.48 + " + inch + "in \u00D7 2.54\n";
+        txt += "= " + cm + "cm";
+        document.getElementById("cm1").value = cm;
+        document.getElementById("m2").value = m2;
+        document.getElementById("cm2").value = cm2;
+        document.getElementById("TA").value = txt;
+      }
+    </script>
+  </body>
+</html>

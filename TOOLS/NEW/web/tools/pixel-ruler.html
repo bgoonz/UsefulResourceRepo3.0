@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Online Ruler | On screen pixel ruler</title>
+    <meta content="Online on screen pixel ruler." name="description" />
+    <style>
+      body {
+        margin: 0;
+        background: url("../color/paste_here.png") white no-repeat fixed center
+          center;
+      }
+      header {
+        color: #eee;
+        background: #333;
+        margin: 0;
+        padding: 10px 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 14px;
+        width: 100%;
+        position: fixed;
+        top: 0;
+        z-index: 2;
+        padding-left: 45px;
+      }
+      table {
+        margin-left: -5px;
+      }
+      #bread {
+        margin-left: -5px;
+      }
+      #bread a {
+        color: #ddd;
+        text-decoration: none;
+        padding: 5px;
+      }
+      #bread a:hover {
+        color: #fff;
+        background: #222;
+      }
+      .sdiv {
+        display: inline-block;
+        vertical-align: top;
+        margin-right: 40px;
+      }
+      #share {
+        padding: 12px 0px 0px 20px;
+      }
+      button {
+        font-size: 24px;
+        width: 50px;
+        height: 46px;
+        padding-top: 4px;
+      }
+      #imgdiv1 {
+        z-index: 1;
+        position: absolute;
+        top: 260px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+      }
+      #can,
+      #can2 {
+        display: block;
+        margin: 0px auto 20px auto;
+        -webkit-box-shadow: 1px 1px 10px 5px rgba(100, 100, 100, 0.56);
+        -moz-box-shadow: 1px 1px 10px 5px rgba(100, 100, 100, 0.56);
+        box-shadow: 1px 1px 10px 5px rgba(100, 100, 100, 0.56);
+      }
+      #imgdiv2 {
+        z-index: 1;
+        position: absolute;
+        top: 270px;
+        left: 20px;
+        right: 20px;
+        bottom: 20px;
+      }
+      .key {
+        color: #eee;
+        background: #666;
+        padding: 4px 6px;
+        margin-left: 3px;
+        margin-right: 3px;
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+      .inst {
+        display: none;
+      }
+    </style>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-2665076-2"
+    ></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "UA-2665076-2");
+    </script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cookieconsent2/3.0.3/cookieconsent.min.js"></script>
+    <script>
+      window.addEventListener("load", function () {
+        window.cookieconsent.initialise({
+          palette: {
+            popup: {
+              background: "#f0f0d0",
+              text: "#333333",
+            },
+            button: {
+              background: "#b0b080",
+              text: "#333",
+            },
+          },
+          content: {
+            dismiss: "OK",
+            message:
+              "This website uses cookies to improve your experience, analyze traffic and display ads.",
+            href: "https://www.rapidtables.com/about/privacy.html",
+          },
+        });
+      });
+    </script>
+    <script src="../../lib/Blob.js-master/Blob.js"></script>
+    <script src="../../lib/canvas-toBlob.js-master/canvas-toBlob.js"></script>
+    <script src="../../lib/FileSaver.js-master/FileSaver.js"></script>
+    <script src="../../lib/utils/utils.js"></script>
+  </head>
+  <body>
+    <header>
+      <div class="sdiv">
+        <p id="bread">
+          <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+            >Web</a
+          >&rsaquo;<a href="index.html">Tools</a>&rsaquo; Online pixel ruler
+        </p>
+      </div>
+      <div id="inst1" class="inst">
+        <p>
+          Step 1: Capture screen or window by pressing
+          <span class="key">PrtScn</span> or <span class="key">Alt</span>+<span
+            class="key"
+            >PrtScn</span
+          >
+        </p>
+        <p>
+          Step 2: Paste in this page by pressing
+          <span class="key">Ctrl</span>+<span class="key">V</span>
+        </p>
+        <p>Step 3: Click on 2 pixels to get length</p>
+      </div>
+      <div id="inst2" class="inst">
+        <p>
+          Step 1: Capture screen or window by pressing
+          <span class="key">&#8984; Command</span>+<span class="key"
+            >&#8679; Shift</span
+          >+<span class="key">3</span> or
+          <span class="key">&#8984; Command</span>+<span class="key"
+            >&#8679; Shift</span
+          >+<span class="key">4</span>
+        </p>
+        <p>
+          Step 2: Paste in this page by pressing
+          <span class="key">&#8984; Command</span>+<span class="key">V</span>
+        </p>
+        <p>Step 3: Click on 2 pixels to get length</p>
+      </div>
+      <div id="inst3" class="inst">
+        <p>
+          Step 1: Capture screen by pressing <i>Home</i>
+          <span class="key">&#9634;</span>+<i>Hold / Power</i> buttons
+        </p>
+        <p>
+          Step 2: Paste in this page by long tap and pressing
+          <em>Paste</em> button.
+        </p>
+        <p>Step 3: Click on 2 pixels to get length</p>
+      </div>
+      <div id="inst4" class="inst">
+        <p>
+          Step 1: Capture screen by pressing <i>Volume up</i> +
+          <i>Power</i> buttons
+        </p>
+        <p>Step 2: Paste in this page by pressing <em>Paste</em> button.</p>
+        <p>Step 3: Click on 2 pixels to get length</p>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <button
+              type="button"
+              name="B1"
+              title="Paste image"
+              onClick="Paste()"
+            >
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/paste.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              name="B2"
+              title="Zoom out"
+              onClick="ZoomOut()"
+            >
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/magnifier_minus_blue.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B3" title="Zoom in" onClick="ZoomIn()">
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/magnifier_plus_blue.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button type="button" name="B4" title="Save image" onClick="Save()">
+              <img
+                src="../../lib/icons/Toolbar&#32;Icons/32/floppy_35inch_blue.png"
+                alt=""
+              />
+            </button>
+          </td>
+          <td>
+            <button
+              type="button"
+              name="B5"
+              title="Delete image"
+              onClick="Delete()"
+            >
+              &#10007;
+            </button>
+          </td>
+          <td>
+            <input
+              type="text"
+              id="len"
+              readonly="readonly"
+              placeholder="length"
+              style="
+                text-align: center;
+                font-size: 20px;
+                width: 60px;
+                padding: 8px;
+                margin-left: 50px;
+              "
+            />
+          </td>
+          <td>
+            <input
+              type="text"
+              id="size"
+              readonly="readonly"
+              placeholder="&Delta;x &times; &Delta;y"
+              style="
+                text-align: center;
+                font-size: 20px;
+                width: 120px;
+                padding: 8px;
+                margin-left: 0px;
+              "
+            />
+          </td>
+          <td id="isize" style="font-size: 20px; padding-left: 70px">
+            image size
+          </td>
+        </tr>
+      </table>
+      <table>
+        <tr id="getFilename" style="display: none">
+          <td>Enter file name:&nbsp;</td>
+          <td>
+            <input
+              type="text"
+              id="filename"
+              name="filename"
+              placeholder="filename.png"
+              style="width: 150px; padding: 5px"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              id="save"
+              name="save"
+              value="Save"
+              onclick="saveFile()"
+              style="padding: 5px 10px 5px 10px; margin: 0px"
+            />
+          </td>
+          <td>
+            <input
+              type="button"
+              id="cancel"
+              name="cancel"
+              value="Cancel"
+              onclick="cancelSaveFile()"
+              style="padding: 5px; margin: 0px"
+            />
+          </td>
+        </tr>
+      </table>
+    </header>
+    <div id="imgdiv1">
+      <img
+        id="pastedImage"
+        src="../color/sample_image.png"
+        style="visibility: hidden"
+      />
+      <canvas id="can" width="0" height="0"></canvas>
+    </div>
+    <div id="imgdiv2" contenteditable="true">
+      <canvas id="can2" width="0" height="0" style="background: #ccc"></canvas>
+    </div>
+  </body>
+  <script>
+    var img, canvas;
+    var xcan, ycan, xcan0, ycan0;
+    var click_count = 0,
+      x1,
+      y1,
+      x2,
+      y2;
+    var os, browser;
+
+    window.onload = function () {
+      var os = GetOS();
+      var obj;
+      if (os == "MacOS") obj = document.getElementById("inst2");
+      else if (os == "iOS") obj = document.getElementById("inst3");
+      else if (os == "Android") obj = document.getElementById("inst4");
+      else obj = document.getElementById("inst1");
+      obj.style.display = "inline";
+
+      var imgdiv1 = document.getElementById("imgdiv1");
+      var imgdiv2 = document.getElementById("imgdiv2");
+
+      canvas = GetCanvas();
+      canvas.style.display = "none";
+
+      browser = get_browser();
+      if (browser == "Chrome") {
+        imgdiv2.style.display = "none";
+        imgdiv1.style.display = "";
+      } else if (browser == "Firefox") {
+        imgdiv1.style.display = "none";
+        imgdiv2.style.display = "";
+        imgdiv2.focus();
+      } else {
+        imgdiv2.style.display = "none";
+        imgdiv1.style.display = "";
+        alert(
+          "Pixel ruler may not be supported with this browser\nPlease try with Chrome or Firefox"
+        );
+      }
+
+      if (browser == "Firefox") {
+        document.onpaste = function (event) {
+          var Draw2 = function () {
+            img = GetImage();
+            if (!img) img = this;
+            var canvas = GetCanvas();
+            canvas.width = img.width;
+            canvas.height = img.height;
+            canvas.style.width = img.width + "px";
+            canvas.style.height = img.height + "px";
+            canvas.getContext("2d").drawImage(img, 0, 0);
+            canvas.style.cursor = "crosshair"; //"default"
+            xcan0 = xcan = img.width;
+            ycan0 = ycan = img.height;
+            img.style.display = "none";
+            canvas.style.display = "";
+            document.getElementById("isize").innerHTML =
+              xcan + " &times " + ycan;
+          };
+          //img = GetImage();
+          //if(img.complete)
+          //	Draw2();
+          //else
+          //	img.onload = Draw2;
+          setTimeout(Draw2, 300);
+        };
+      } else {
+        document.onpaste = function (event) {
+          // use event.originalEvent.clipboard for newer chrome versions
+          var clipboardData =
+            event.clipboardData || event.originalEvent.clipboardData;
+          var items = clipboardData.items;
+          console.log(JSON.stringify(items)); // will give you the mime types
+          // find pasted image among pasted items
+          var blob;
+          for (var i = 0; i < items.length; i++) {
+            if (items[i].type.indexOf("image") === 0) {
+              blob = items[i].getAsFile();
+            }
+          }
+          // load image if there is a pasted image
+          if (blob !== null) {
+            var reader = new FileReader();
+            reader.onload = function (event) {
+              //console.log(event.target.result); // data url!
+              img = document.getElementById("pastedImage");
+              img.src = event.target.result;
+              if (img.complete) DrawCanvas(0);
+              else
+                img.onload = function () {
+                  DrawCanvas(0);
+                };
+            };
+
+            reader.readAsDataURL(blob);
+          }
+        };
+      }
+
+      canvas.onmousedown = function (event) {
+        if (click_count == 0) {
+          click_count++;
+          canvas = GetCanvas();
+          p = GetPos(canvas, event);
+          ctx = canvas.getContext("2d");
+          ctx.drawImage(img, 0, 0);
+          x1 = (p.x * xcan0) / xcan;
+          y1 = (p.y * ycan0) / ycan;
+        }
+      };
+
+      canvas.onmouseup = function (event) {
+        if (click_count == 1) {
+          canvas = GetCanvas();
+          p = GetPos(canvas, event);
+          x = (p.x * xcan0) / xcan;
+          y = (p.y * ycan0) / ycan;
+          if (x != x1 && y != y1) {
+            click_count++;
+            click_count = 0;
+          }
+        }
+      };
+
+      canvas.onmousemove = function (event) {
+        if (click_count == 1) {
+          canvas = GetCanvas();
+          p = GetPos(canvas, event);
+          x2 = (p.x * xcan0) / xcan;
+          y2 = (p.y * ycan0) / ycan;
+          if (x2 > x1) {
+            x1 = Math.floor(x1);
+            x2 = Math.ceil(x2);
+          } else if (x2 < x1) {
+            x2 = Math.floor(x2);
+            x1 = Math.ceil(x1);
+          } else {
+            x1 = Math.round(x1);
+            x2 = Math.round(x2);
+          }
+          if (y2 > y1) {
+            y1 = Math.floor(y1);
+            y2 = Math.ceil(y2);
+          } else if (y2 < y1) {
+            y2 = Math.floor(y2);
+            y1 = Math.ceil(y1);
+          } else {
+            y1 = Math.round(y1);
+            y2 = Math.round(y2);
+          }
+          img = GetImage();
+          DrawCanvas(1);
+          ctx = canvas.getContext("2d");
+          //ctx.setLineDash([5]);
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = "#000000";
+          ctx.beginPath();
+          ctx.moveTo(x1, y1);
+          ctx.lineTo(x2, y2);
+          ctx.stroke();
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = "#808080";
+          //ctx.setLineDash([5]);
+          ctx.beginPath();
+          ctx.rect(x1, y1, x2 - x1, y2 - y1);
+          ctx.stroke();
+          dx = Math.abs(x2 - x1);
+          dy = Math.abs(y2 - y1);
+          document.getElementById("len").value =
+            Math.round(Math.sqrt(dx * dx + dy * dy)) + "";
+          document.getElementById("size").value = dx + " \u00D7 " + dy;
+        }
+      };
+
+      DrawCanvas(0);
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+      ZoomOut();
+    };
+    function GetPos(obj, e) {
+      var totalOffsetX = 0;
+      var totalOffsetY = 0;
+      var currentElement = obj;
+
+      if (browser == "Chrome") {
+        x = event.offsetX;
+        y = event.offsetY;
+      } else {
+        do {
+          totalOffsetX += currentElement.offsetLeft - currentElement.scrollLeft;
+          totalOffsetY += currentElement.offsetTop - currentElement.scrollTop;
+        } while ((currentElement = currentElement.offsetParent));
+
+        x = e.pageX - totalOffsetX;
+        y = e.pageY - totalOffsetY;
+      }
+
+      return { x: x, y: y };
+    }
+    function DrawCanvas(f) {
+      img = GetImage();
+      canvas = GetCanvas();
+
+      canvas.style.cursor = "crosshair"; //"default"
+      if (f == 0) {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        canvas.style.width = img.width + "px";
+        canvas.style.height = img.height + "px";
+        xcan0 = xcan = img.width;
+        ycan0 = ycan = img.height;
+        document.getElementById("isize").innerHTML = xcan + " &times " + ycan;
+      } else {
+        x = Math.round(xcan);
+        y = Math.round(ycan);
+        canvas.style.width = x + "px";
+        canvas.style.height = y + "px";
+      }
+
+      canvas.getContext("2d").drawImage(img, 0, 0);
+      canvas.style.display = "";
+      img.style.display = "none";
+      //canvas.getContext("2d").save();
+    }
+
+    function ZoomOut() {
+      canvas = GetCanvas();
+      xcan *= 0.9;
+      ycan *= 0.9;
+      x = Math.round(xcan);
+      y = Math.round(ycan);
+      canvas.style.width = x + "px";
+      canvas.style.height = y + "px";
+    }
+    function ZoomIn() {
+      canvas = GetCanvas();
+      xcan /= 0.9;
+      ycan /= 0.9;
+      x = Math.round(xcan);
+      y = Math.round(ycan);
+      canvas.style.width = x + "px";
+      canvas.style.height = y + "px";
+    }
+    function GetImage() {
+      var img;
+      if (browser == "Firefox") {
+        //img = document.getElementsByTagName("img")[5];
+        arr = document.getElementsByTagName("img");
+        len = arr.length;
+        img = arr[len - 1];
+      } else img = document.getElementById("pastedImage");
+      return img;
+    }
+    function GetCanvas() {
+      var can;
+      if (browser == "Firefox") can = document.getElementById("can2");
+      else can = document.getElementById("can");
+      return can;
+    }
+    function Paste() {
+      os = GetOS();
+      if (os == "UNIX") alert("Press Ctrl+Shift+V to paste image");
+      else if (os == "MacOS") alert("Press Command+V to paste image");
+      else if (os == "iOS")
+        alert("Tap on entry field and press the paste button to paste image");
+      else if (os == "Android")
+        alert(
+          "Press Menu+V or long tap on entry field and press the paste button to paste image"
+        );
+      else alert("Press Ctrl+V to paste image");
+    }
+    function Save() {
+      var img = GetImage();
+      canvas = GetCanvas();
+      if (canvas.style.display == "none") return;
+
+      document.getElementById("getFilename").style.display = "";
+
+      return false;
+    }
+    function Delete() {
+      canvas = GetCanvas();
+      canvas.style.display = "none";
+      if (browser == "Firefox") {
+        var img = GetImage();
+        img.parentNode.removeChild(img);
+        var imgdiv2 = document.getElementById("imgdiv2");
+        imgdiv2.focus();
+      }
+      document.getElementById("len").value = "";
+      document.getElementById("size").value = "";
+      click_count = 0;
+    }
+    function cancelSaveFile() {
+      document.getElementById("getFilename").style.display = "none";
+    }
+    function saveFile() {
+      cancelSaveFile();
+      var name = document.getElementById("filename").value;
+      if (name == "") name = "filename.png";
+
+      var img = GetImage();
+      var canvas = document.createElement("canvas");
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.getContext("2d").drawImage(img, 0, 0);
+
+      canvas.toBlob(function (blob) {
+        saveAs(blob, name);
+      });
+    }
+  </script>
+</html>

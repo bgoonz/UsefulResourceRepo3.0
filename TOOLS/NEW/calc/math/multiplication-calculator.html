@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Multiplication calculator online (&times;) | Times calculator</title>
+    <meta name="description" content="Online multiplication calculator." />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      #calcform {
+        padding: 20px;
+        background: #eee8d5;
+        border: 1px solid #eee;
+        border-radius: 7px;
+        max-width: 500px;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 800px) {
+        #calcform div:nth-child(2) label {
+          display: none;
+        }
+        #calcform div:nth-child(4) label {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo;
+        Multiplication calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Multiplication Calculator</h1>
+          <p>
+            Enter the 2 factors to multiply and press the
+            <i>Calculate</i> button:
+          </p>
+          <form id="calcform" autocomplete="off">
+            <div class="form-group row" style="margin-bottom: 0">
+              <label for="x" class="col-sm-4 col-form-label"
+                >First factor</label
+              >
+              <div class="col-sm-8">
+                <input
+                  type="number"
+                  step="any"
+                  id="x"
+                  class="form-control"
+                  autofocus
+                />
+              </div>
+            </div>
+            <div class="form-group row" style="margin-bottom: 0">
+              <label class="col-sm-4 col-form-label">&nbsp;</label>
+              <div class="col-sm-8 h2">&times;</div>
+            </div>
+            <div class="form-group row">
+              <label for="x2" class="col-sm-4 col-form-label"
+                >Second factor</label
+              >
+              <div class="col-sm-8">
+                <input type="number" step="any" id="x2" class="form-control" />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label class="col-sm-4 col-form-label">&nbsp;</label>
+              <div class="col-sm-8">
+                <button
+                  type="button"
+                  onclick="calcmul()"
+                  class="btn btn-primary"
+                >
+                  <span>=</span> Calculate
+                </button>
+                <button
+                  type="reset"
+                  onclick="setfocus()"
+                  class="btn btn-secondary"
+                >
+                  <span>&times;</span> Reset
+                </button>
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="y" class="col-sm-4 col-form-label">Product</label>
+              <div class="col-sm-8">
+                <input type="text" id="y" class="form-control" readonly />
+              </div>
+            </div>
+            <div class="form-group row">
+              <label for="y2" class="col-sm-4 col-form-label"
+                >Calculation</label
+              >
+              <div class="col-sm-8">
+                <textarea id="txt" class="form-control" readonly></textarea>
+              </div>
+            </div>
+          </form>
+          <p>
+            <a href="division-calculator.html">Division calculator &#9658;</a>
+          </p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../math/number/multiplication-table.html"
+                >Multiplication table</a
+              >
+            </li>
+            <li><a href="Add_Calculator.html">Addition calculator</a></li>
+            <li>
+              <a href="subtraction-calculator.html">Subtraction calculator</a>
+            </li>
+            <li><a href="division-calculator.html">Division calculator</a></li>
+            <li>
+              <a href="remainder-calculator.html">Remainder calculator</a>
+            </li>
+            <li>
+              <a href="multiplying-fractions-calculator.html"
+                >Multiplying fractions calculator</a
+              >
+            </li>
+            <li>
+              <a href="Percentage_Calculator.html">Percentage calculator</a>
+            </li>
+            <li><a href="Log_Calculator.html">Logarithm calculator</a></li>
+            <li><a href="../../math/algebra/Logarithm.html">Logarithm</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH CALCULATORS</h5>
+        <ul>
+          <li><a href="calculator.html">Math calculator</a></li>
+          <li>
+            <a href="adding-fractions-calculator.html"
+              >Adding fractions calculator</a
+            >
+          </li>
+          <li><a href="Add_Calculator.html">Addition calculator</a></li>
+          <li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+          <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+          <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+          <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+          <li>
+            <a href="convolution-calculator.html">Convolution calculator</a>
+          </li>
+          <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+          <li>
+            <a href="dividing-fractions-calculator.html"
+              >Dividing fractions calculator</a
+            >
+          </li>
+          <li><a href="division-calculator.html">Division calculator</a></li>
+          <li>
+            <a href="exponential-growth-calculator.html"
+              >Exponential growth calculator</a
+            >
+          </li>
+          <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+          <li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+          <li><a href="fractions-calculator.html">Fractions calculator</a></li>
+          <li><a href="gcf-calculator.html">GCF calculator</a></li>
+          <li><a href="lcm-calculator.html">LCM calculator</a></li>
+          <li><a href="Ln_Calc.html">Ln calculator</a></li>
+          <li><a href="Log_Calculator.html">Log calculator</a></li>
+          <li>
+            <a href="multiplication-calculator.html"
+              >Multiplication calculator</a
+            >
+          </li>
+          <li>
+            <a href="multiplying-fractions-calculator.html"
+              >Multiplying fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="Percentage_Calculator.html">Percentage calculator</a>
+          </li>
+          <li>
+            <a href="percentage-change-calculator.html"
+              >Percentage change calculator</a
+            >
+          </li>
+          <li>
+            <a href="percentage-increase-calculator.html"
+              >Precentage increase calculator</a
+            >
+          </li>
+          <li>
+            <a href="Quadratic_Calculator.html">Quadratic equation solver</a>
+          </li>
+          <li><a href="remainder-calculator.html">Remainder calculator</a></li>
+          <li><a href="root-calculator.html">Root calculator</a></li>
+          <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+          <li>
+            <a href="square-root-calculator.html">Square root calculator</a>
+          </li>
+          <li>
+            <a href="standard-deviation-calculator.html"
+              >Standard deviation calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtracting-fractions-calculator.html"
+              >Subtracting fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtraction-calculator.html">Subtraction calculator</a>
+          </li>
+          <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+          <li>
+            <a href="weighted-average-calculator.html"
+              >Weighted average calculator</a
+            >
+          </li>
+          <li><a href="variance-calculator.html">Variance calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="multiplication-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../../lib/bignumber/bignumber9.0.0.min.js"></script>
+    <script>
+      function setfocus() {
+        document.getElementById("x").focus();
+      }
+      function calcmul() {
+        var x1val = document.getElementById("x").value;
+        var x2val = document.getElementById("x2").value;
+        var x1 = new BigNumber(x1val);
+        var x2 = new BigNumber(x2val);
+        var y = x1.times(x2).toString();
+        var txt = x1val + "\u00D7" + x2val + " = ";
+        if (x1val.length <= 2 && x2val.length <= 8) {
+          if (x1val > 0) {
+            for (var i = 0; i < x1val - 1; i++) txt += x2val + "+";
+            txt += x2val;
+            txt += " = " + y;
+          } else txt = "N/A";
+        } else txt = "N/A";
+        document.getElementById("y").value = y;
+        document.getElementById("txt").value = txt;
+      }
+    </script>
+  </body>
+</html>

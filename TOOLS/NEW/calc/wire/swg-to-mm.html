@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>SWG to mm | Standard gauge to mm conversion</title>
+    <meta
+      content="Standard wire gauge (SWG) to mm and mm2 conversion calculator, chart and how to convert. "
+      name="description"
+    />
+    <style>
+      .auto-style1 {
+        font-family: Arial;
+      }
+      .auto-style2 {
+        font-size: 0.8em;
+      }
+      .auto-style3 {
+        text-align: center;
+      }
+      .auto-style4 {
+        text-align: right;
+      }
+      .calc2 select {
+        padding: 4px 2px;
+      }
+      .btn {
+        padding: 6px !important;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Wire</a>&rsaquo; SWG to mm
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>SWG to mm conversion</h1>
+          <p>
+            Standard wire gauge (SWG) to mm and mm<sup
+              ><span class="auto-style1">2</span></sup
+            >
+            converison calculator, chart and how to convert.
+          </p>
+          <ul>
+            <li>
+              <a href="swg-to-mm.html#calculator"
+                >SWG to mm conversion calculator</a
+              >
+            </li>
+            <li><a href="swg-to-mm.html#how">SWG calculation</a></li>
+            <li>
+              <a href="swg-to-mm.html#chart">SWG to mm conversion chart</a>
+            </li>
+          </ul>
+          <h2><a name="calculator"></a>SWG to mm conversion calculator</h2>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Select gauge #:</td>
+                <td>
+                  <select
+                    name="swgsel"
+                    onchange="OnSelChange()"
+                    style="width: 150px"
+                    autofocus
+                  >
+                    <option>-- select SWG --</option>
+                    <option>7/0</option>
+                    <option>6/0</option>
+                    <option>5/0</option>
+                    <option>4/0</option>
+                    <option>3/0</option>
+                    <option>2/0</option>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                    <option>21</option>
+                    <option>22</option>
+                    <option>23</option>
+                    <option>24</option>
+                    <option>25</option>
+                    <option>26</option>
+                    <option>27</option>
+                    <option>28</option>
+                    <option>29</option>
+                    <option>30</option>
+                    <option>31</option>
+                    <option>32</option>
+                    <option>33</option>
+                    <option>34</option>
+                    <option>35</option>
+                    <option>36</option>
+                    <option>37</option>
+                    <option>38</option>
+                    <option>39</option>
+                    <option>40</option>
+                    <option>41</option>
+                    <option>42</option>
+                    <option>43</option>
+                    <option>44</option>
+                    <option>45</option>
+                    <option>46</option>
+                    <option>47</option>
+                    <option>48</option>
+                    <option>49</option>
+                    <option>50</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <input
+                    onclick="OnCalc()"
+                    type="button"
+                    value="Calculate"
+                    class="btn"
+                  />
+                  <input type="reset" value="Reset" class="btn" />
+                </td>
+              </tr>
+              <tr>
+                <td>Diameter in millimeters:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    name="d"
+                    class="outtext"
+                    readonly="readonly"
+                    style="width: 150px"
+                  />
+                </td>
+                <td class="mathsymbol">mm</td>
+              </tr>
+              <tr>
+                <td>Diameter in inches:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    name="din"
+                    class="outtext"
+                    readonly="readonly"
+                    style="width: 150px"
+                  />
+                </td>
+                <td class="mathsymbol">in</td>
+              </tr>
+              <tr>
+                <td>Cross sectional area in square millimeters:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    name="a"
+                    class="outtext"
+                    readonly="readonly"
+                    style="width: 150px"
+                  />
+                </td>
+                <td class="mathsymbol">mm<sup>2</sup></td>
+              </tr>
+            </table>
+          </form>
+          <h2>Wire cross sectional area calculation</h2>
+          <p>
+            The n gauge wire's cross sercional area A<sub
+              ><span class="auto-style1">n</span></sub
+            >
+            in square millimeters (mm<sup
+              ><span class="auto-style1">2</span></sup
+            >) is equal to pi divided by 4 times the square wire diameter d in
+            millimeters (mm):
+          </p>
+          <p class="math">
+            <em>A<sub>n</sub></em
+            ><sub> (mm</sub><span class="auto-style2">2</span><sub>)</sub> =
+            (&pi;/4)&times;<em>d</em><sub><em>n</em></sub
+            ><sup>2</sup>
+          </p>
+          <h2><a name="chart"></a>SWG to mm conversion chart</h2>
+          <table class="dtable" style="width: 300px">
+            <tr>
+              <th>SWG #</th>
+              <th>Diameter<br />(mm)</th>
+              <th>
+                Area<br />(mm<sup><span class="auto-style1">2</span></sup
+                >)
+              </th>
+            </tr>
+            <tr>
+              <td class="auto-style3">7/0</td>
+              <td class="auto-style4">12.700</td>
+              <td class="auto-style4">126.6769</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">6/0</td>
+              <td class="auto-style4">11.786</td>
+              <td class="auto-style4">109.0921</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">5/0</td>
+              <td class="auto-style4">10.973</td>
+              <td class="auto-style4">94.5638</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">4/0</td>
+              <td class="auto-style4">10.160</td>
+              <td class="auto-style4">81.0732</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">3/0</td>
+              <td class="auto-style4">9.449</td>
+              <td class="auto-style4">70.1202</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">2/0</td>
+              <td class="auto-style4">8.839</td>
+              <td class="auto-style4">61.3643</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">0</td>
+              <td class="auto-style4">8.230</td>
+              <td class="auto-style4">53.1921</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">1</td>
+              <td class="auto-style4">7.620</td>
+              <td class="auto-style4">45.6037</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">2</td>
+              <td class="auto-style4">7.010</td>
+              <td class="auto-style4">38.5989</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">3</td>
+              <td class="auto-style4">6.401</td>
+              <td class="auto-style4">32.1780</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">4</td>
+              <td class="auto-style4">5.893</td>
+              <td class="auto-style4">27.2730</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">5</td>
+              <td class="auto-style4">5.385</td>
+              <td class="auto-style4">22.7735</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">6</td>
+              <td class="auto-style4">4.877</td>
+              <td class="auto-style4">18.6793</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">7</td>
+              <td class="auto-style4">4.470</td>
+              <td class="auto-style4">15.6958</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">8</td>
+              <td class="auto-style4">4.064</td>
+              <td class="auto-style4">12.9717</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">9</td>
+              <td class="auto-style4">3.658</td>
+              <td class="auto-style4">10.5071</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">10</td>
+              <td class="auto-style4">3.251</td>
+              <td class="auto-style4">8.3019</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">11</td>
+              <td class="auto-style4">2.946</td>
+              <td class="auto-style4">6.8183</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">12</td>
+              <td class="auto-style4">2.642</td>
+              <td class="auto-style4">5.4805</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">13</td>
+              <td class="auto-style4">2.337</td>
+              <td class="auto-style4">4.2888</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">14</td>
+              <td class="auto-style4">2.032</td>
+              <td class="auto-style4">3.2429</td>
+            </tr>
+            <tr>
+              <td class="auto-style3" style="height: 29px">15</td>
+              <td class="auto-style4" style="height: 29px">1.829</td>
+              <td class="auto-style4" style="height: 29px">2.6268</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">16</td>
+              <td class="auto-style4">1.626</td>
+              <td class="auto-style4">2.0755</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">17</td>
+              <td class="auto-style4">1.422</td>
+              <td class="auto-style4">1.5890</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">18</td>
+              <td class="auto-style4">1.219</td>
+              <td class="auto-style4">1.1675</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">19</td>
+              <td class="auto-style4">1.016</td>
+              <td class="auto-style4">0.8107</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">20</td>
+              <td class="auto-style4">0.914</td>
+              <td class="auto-style4">0.6567</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">21</td>
+              <td class="auto-style4">0.813</td>
+              <td class="auto-style4">0.5189</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">22</td>
+              <td class="auto-style4">0.711</td>
+              <td class="auto-style4">0.3973</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">23</td>
+              <td class="auto-style4">0.610</td>
+              <td class="auto-style4">0.2919</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">24</td>
+              <td class="auto-style4">0.559</td>
+              <td class="auto-style4">0.2452</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">25</td>
+              <td class="auto-style4">0.5080</td>
+              <td class="auto-style4">0.2027</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">26</td>
+              <td class="auto-style4">0.4572</td>
+              <td class="auto-style4">0.1642</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">27</td>
+              <td class="auto-style4">0.4166</td>
+              <td class="auto-style4">0.1363</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">28</td>
+              <td class="auto-style4">0.3759</td>
+              <td class="auto-style4">0.1110</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">29</td>
+              <td class="auto-style4">0.3454</td>
+              <td class="auto-style4">0.0937</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">30</td>
+              <td class="auto-style4">0.3150</td>
+              <td class="auto-style4">0.0779</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">31</td>
+              <td class="auto-style4">0.2946</td>
+              <td class="auto-style4">0.0682</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">32</td>
+              <td class="auto-style4">0.2743</td>
+              <td class="auto-style4">0.0591</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">33</td>
+              <td class="auto-style4">0.2540</td>
+              <td class="auto-style4">0.0507</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">34</td>
+              <td class="auto-style4">0.2337</td>
+              <td class="auto-style4">0.0429</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">35</td>
+              <td class="auto-style4">0.2134</td>
+              <td class="auto-style4">0.0358</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">36</td>
+              <td class="auto-style4">0.1930</td>
+              <td class="auto-style4">0.0293</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">37</td>
+              <td class="auto-style4">0.1727</td>
+              <td class="auto-style4">0.0234</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">38</td>
+              <td class="auto-style4">0.1524</td>
+              <td class="auto-style4">0.0182</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">39</td>
+              <td class="auto-style4">0.1321</td>
+              <td class="auto-style4">0.0137</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">40</td>
+              <td class="auto-style4">0.1219</td>
+              <td class="auto-style4">0.0117</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">41</td>
+              <td class="auto-style4">0.1118</td>
+              <td class="auto-style4">0.0098</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">42</td>
+              <td class="auto-style4">0.1016</td>
+              <td class="auto-style4">0.0081</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">43</td>
+              <td class="auto-style4">0.0914</td>
+              <td class="auto-style4">0.0066</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">44</td>
+              <td class="auto-style4">0.0813</td>
+              <td class="auto-style4">0.0052</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">45</td>
+              <td class="auto-style4">0.0711</td>
+              <td class="auto-style4">0.0040</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">46</td>
+              <td class="auto-style4">0.0610</td>
+              <td class="auto-style4">0.0029</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">47</td>
+              <td class="auto-style4">0.0508</td>
+              <td class="auto-style4">0.0020</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">48</td>
+              <td class="auto-style4">0.0406</td>
+              <td class="auto-style4">0.0013</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">49</td>
+              <td class="auto-style4">0.0305</td>
+              <td class="auto-style4">0.0007</td>
+            </tr>
+            <tr>
+              <td class="auto-style3">50</td>
+              <td class="auto-style4">0.0254</td>
+              <td class="auto-style4">0.0005</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="awg-to-mm.html">AWG to mm</a></li>
+            <li><a href="wire-gauge-chart.html">Wire gauge chart</a></li>
+          </ul>
+          <script>
+            function OnCalc() {
+              var i = document.calcform.swgsel.selectedIndex;
+              var dlook = [
+                0.5, 0.464, 0.432, 0.4, 0.372, 0.348, 0.324, 0.3, 0.276, 0.252,
+                0.232, 0.212, 0.192, 0.176, 0.16, 0.144, 0.128, 0.116, 0.104,
+                0.092, 0.08, 0.072, 0.064, 0.056, 0.048, 0.04, 0.036, 0.032,
+                0.028, 0.024, 0.022, 0.02, 0.018, 0.0164, 0.0148, 0.0136,
+                0.0124, 0.0116, 0.0108, 0.01, 0.0092, 0.0084, 0.0076, 0.0068,
+                0.006, 0.0052, 0.0048, 0.0044, 0.004, 0.0036, 0.0032, 0.0028,
+                0.0024, 0.002, 0.0016, 0.0012, 0.001,
+              ];
+              din = dlook[i - 1];
+              d = 25.4 * din;
+              a = (Math.PI / 4) * d * d;
+              document.calcform.d.value = d.toFixed(3);
+              document.calcform.din.value = din.toFixed(3);
+              document.calcform.a.value = a.toFixed(4);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WIRE GAUGE</h5>
+        <ul>
+          <li><a href="wire-gauge-chart.html">Wire gauge chart</a></li>
+          <li><a href="awg-to-mm.html">AWG to mm</a></li>
+          <li><a href="swg-to-mm.html">SWG to mm</a></li>
+          <li><a href="voltage-drop-calculator.html">Voltage drop</a></li>
+          <li><a href="2-gauge.html">#2 gauge wire</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="swg-to-mm.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

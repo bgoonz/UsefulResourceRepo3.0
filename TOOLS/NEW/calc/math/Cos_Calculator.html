@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Cosine Calculator | cos(x) calculator</title>
+    <meta
+      name="description"
+      content="Cosine calculator online. cos(x) calculator."
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
+      integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2"
+      crossorigin="anonymous"
+    />
+    <style>
+      h1 {
+        font-size: 1.6rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      h3 {
+        font-size: 1.4rem;
+      }
+      h4 {
+        font-size: 1.2rem;
+      }
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      #calcform,
+      #calcform2 {
+        padding: 20px;
+        background: #eee8d5;
+        max-width: 500px;
+        border-radius: 7px;
+      }
+      .dtable {
+        font-family: math;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        #x {
+          max-width: 130px;
+        }
+        #degtype {
+          max-width: 69px;
+        }
+        #x2 {
+          max-width: 180px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo; Cosine
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Cosine Calculator</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <div class="form-inline">
+              <span class="h1 math">cos</span>
+              <input
+                type="text"
+                id="x"
+                name="x"
+                class="form-control col-sm-7 ml-2"
+                autofocus
+              />
+              <select id="degtype" class="form-control math h1 ml-1 mb-0">
+                <option selected="selected">&deg;</option>
+                <option>rad</option>
+              </select>
+              <button
+                type="button"
+                onclick="onPIbtn()"
+                class="btn btn-light ml-1 math"
+              >
+                &pi;
+              </button>
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Calculate"
+                class="btn btn-secondary"
+                onclick="OnCalc()"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button
+                type="reset"
+                title="Reset"
+                class="btn btn-secondary"
+                onclick="setfocus()"
+              >
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <div class="form-group">
+              <input type="text" id="y" class="form-control" readonly />
+            </div>
+          </form>
+          <p><a href="Sin_Calculator.html">Sine calculator &#9658;</a></p>
+          <h3>Inverse cosine calculator</h3>
+          <form id="calcform2" name="calcform2">
+            <div class="form-inline">
+              <span class="h1 math">cos<sup class="h4">-1</sup></span>
+              <input
+                type="text"
+                id="x2"
+                name="x2"
+                class="form-control col-sm-9 ml-2"
+                required
+              />
+            </div>
+            <div class="form-group">
+              <button
+                type="button"
+                title="Calculate"
+                class="btn btn-secondary"
+                onclick="OnCalc2()"
+              >
+                <span>=</span> Calculate
+              </button>
+              <button type="reset" title="Reset" class="btn btn-secondary">
+                <span>&times;</span> Reset
+              </button>
+            </div>
+            <label>Degrees</label>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="ydeg1">First result</label>
+                <input type="text" id="ydeg1" class="form-control" />
+              </div>
+              <div class="form-group col">
+                <label for="ydeg2">Second result</label>
+                <input type="text" id="ydeg2" class="form-control" />
+              </div>
+            </div>
+            <label>Radians</label>
+            <div class="form-row">
+              <div class="form-group col">
+                <label for="yrad1">First result</label>
+                <input type="text" id="yrad1" class="form-control" />
+              </div>
+              <div class="form-group col">
+                <label for="yrad2">Second result</label>
+                <input type="text" id="yrad2" class="form-control" />
+              </div>
+            </div>
+            <p>k = ...,-2,-1,0,1,2,...</p>
+          </form>
+          <p><a href="Arccos_Calculator.html">Arccos calculator &#9658;</a></p>
+          <h3><a id="table"></a>Cosine table</h3>
+          <table class="dtable">
+            <tr>
+              <th>
+                x
+                <p>(deg)</p>
+              </th>
+              <th>
+                x
+                <p>(rad)</p>
+              </th>
+              <th>cos x</th>
+            </tr>
+            <tr>
+              <td>180&deg;</td>
+              <td>&#960;</td>
+              <td>-1</td>
+            </tr>
+            <tr>
+              <td>150&deg;</td>
+              <td>5&#960;/6</td>
+              <td>
+                -&#8730;<span style="text-decoration: overline">3</span>/2
+              </td>
+            </tr>
+            <tr>
+              <td>135&deg;</td>
+              <td>3&#960;/4</td>
+              <td>
+                -&#8730;<span style="text-decoration: overline">2</span>/2
+              </td>
+            </tr>
+            <tr>
+              <td>120&deg;</td>
+              <td>2&#960;/3</td>
+              <td>-1/2</td>
+            </tr>
+            <tr>
+              <td>90&deg;</td>
+              <td>&#960;/2</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>60&deg;</td>
+              <td>&#960;/3</td>
+              <td>1/2</td>
+            </tr>
+            <tr>
+              <td>45&deg;</td>
+              <td>&#960;/4</td>
+              <td>&#8730;<span style="text-decoration: overline">2</span>/2</td>
+            </tr>
+            <tr>
+              <td>30&deg;</td>
+              <td>&#960;/6</td>
+              <td>&#8730;<span style="text-decoration: overline">3</span>/2</td>
+            </tr>
+            <tr>
+              <td>0&deg;</td>
+              <td>0</td>
+              <td>1</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../math/trigonometry/cos.html">Cosine function</a>
+            </li>
+            <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+            <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+            <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+            <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+            <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+            <li>
+              <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+            </li>
+            <li>
+              <a href="../../convert/number/degrees-to-radians.html"
+                >Degrees to radians conversion</a
+              >
+            </li>
+            <li>
+              <a href="../../convert/number/radians-to-degrees.html"
+                >Radians to degrees conversion</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../convert/number/degrees-to-degrees-minutes-seconds.html"
+                >Degrees to degrees,minutes,seconds</a
+              >
+            </li>
+            <li>
+              <a
+                href="../../convert/number/degrees-minutes-seconds-to-degrees.html"
+                >Degrees,minutes, seconds to degrees</a
+              >
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH CALCULATORS</h5>
+        <ul>
+          <li><a href="calculator.html">Online math calculator</a></li>
+          <li>
+            <a href="adding-fractions-calculator.html"
+              >Adding fractions calculator</a
+            >
+          </li>
+          <li><a href="Add_Calculator.html">Addition calculator</a></li>
+          <li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+          <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+          <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+          <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+          <li>
+            <a href="convolution-calculator.html">Convolution calculator</a>
+          </li>
+          <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+          <li>
+            <a href="dividing-fractions-calculator.html"
+              >Dividing fractions calculator</a
+            >
+          </li>
+          <li><a href="division-calculator.html">Division calculator</a></li>
+          <li>
+            <a href="exponential-growth-calculator.html"
+              >Exponential growth calculator</a
+            >
+          </li>
+          <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+          <li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+          <li><a href="fractions-calculator.html">Fractions calculator</a></li>
+          <li><a href="gcf-calculator.html">GCF calculator</a></li>
+          <li><a href="lcm-calculator.html">LCM calculator</a></li>
+          <li><a href="Ln_Calc.html">Ln calculator</a></li>
+          <li><a href="Log_Calculator.html">Log calculator</a></li>
+          <li>
+            <a href="multiplication-calculator.html"
+              >Multiplication calculator</a
+            >
+          </li>
+          <li>
+            <a href="multiplying-fractions-calculator.html"
+              >Multiplying fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="Percentage_Calculator.html">Percentage calculator</a>
+          </li>
+          <li>
+            <a href="percentage-change-calculator.html"
+              >Percentage change calculator</a
+            >
+          </li>
+          <li>
+            <a href="percent-error-calculator.html">Percent error calculator</a>
+          </li>
+          <li>
+            <a href="percentage-increase-calculator.html"
+              >Precentage increase calculator</a
+            >
+          </li>
+          <li>
+            <a href="pythagorean-calculator.html"
+              >Pythagorean theorem calculator</a
+            >
+          </li>
+          <li>
+            <a href="Quadratic_Calculator.html">Quadratic equation solver</a>
+          </li>
+          <li>
+            <a href="random-number-generator.html">Random number generator</a>
+          </li>
+          <li><a href="ratio-calculator.html">Ratio calculator</a></li>
+          <li><a href="root-calculator.html">Root calculator</a></li>
+          <li>
+            <a href="scientific-notation-calculator.html"
+              >Scientific notation calculator</a
+            >
+          </li>
+          <li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+          <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+          <li>
+            <a href="square-root-calculator.html">Square root calculator</a>
+          </li>
+          <li>
+            <a href="standard-deviation-calculator.html"
+              >Standard deviation calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtracting-fractions-calculator.html"
+              >Subtracting fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtraction-calculator.html">Subtraction calculator</a>
+          </li>
+          <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+          <li>
+            <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+          </li>
+          <li>
+            <a href="weighted-average-calculator.html"
+              >Weighted average calculator</a
+            >
+          </li>
+          <li><a href="variance-calculator.html">Variance calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Cos_Calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../calc2.js"></script>
+    <script>
+      var xelem = document.getElementById("x");
+      var x2elem = document.getElementById("x2");
+      window.onload = function () {
+        xelem.onkeypress = function (e) {
+          if (e.keyCode == 13) OnCalc();
+        };
+        x2elem.onkeypress = function (e) {
+          if (e.keyCode == 13) OnCalc2();
+        };
+        var params = GetURLParams();
+        if (Object.keys(params).length > 0 && params.x != "") {
+          document.title = "cos " + params.x + " calculation";
+          //SetLinks(params);
+          xelem.value = decodeURIComponent(params.x);
+          OnCalc();
+        }
+      };
+      function GetURLParams() {
+        var url = window.location.href;
+        var regex = /[?&]([^=#]+)=([^&#]*)/g,
+          //url = "www.domain.com/?v=123&p=hello",
+          params = {},
+          match;
+        while ((match = regex.exec(url))) {
+          params[match[1]] = match[2];
+        }
+        return params;
+      }
+      function onPIbtn() {
+        xelem.value += "\u03C0";
+        xelem.focus();
+      }
+      function OnCalc() {
+        var x = xelem.value;
+        x = x.replace(/(\d)(\u03C0)/gm, "$1*\u03C0");
+        x = x.replace(/\u03C0/g, "3.141592653589793");
+        x = str2num(x);
+        var degtype = document.getElementById("degtype");
+        var i = degtype.selectedIndex;
+        if (i == 0) x *= Math.PI / 180;
+        y = Math.cos(x);
+        y = roundnum2(y, 8);
+        document.getElementById("y").value = y;
+      }
+      function OnCalc2() {
+        var x = str2num(document.getElementById("x2").value);
+        if (x > 1 || x < -1) {
+          alert("Please enter values between -1 and 1");
+          return;
+        }
+        var yrad1 = Math.acos(x);
+        var ydeg1 = (yrad1 * 180) / Math.PI;
+        var yrad2 = -yrad1;
+        var ydeg2 = -ydeg1;
+        yrad1 = roundnum2(yrad1, 6);
+        ydeg1 = roundnum2(ydeg1, 6);
+        yrad2 = roundnum2(yrad2, 6);
+        ydeg2 = roundnum2(ydeg2, 6);
+        document.getElementById("ydeg1").value = ydeg1 + "\u00B0+360k";
+        document.getElementById("yrad1").value = yrad1 + "rad+2\u03C0k";
+        if (x != 1 && x != -1) {
+          document.getElementById("ydeg2").value = ydeg2 + "\u00B0+360k";
+          document.getElementById("yrad2").value = yrad2 + "rad+2\u03C0k";
+        }
+      }
+    </script>
+  </body>
+</html>

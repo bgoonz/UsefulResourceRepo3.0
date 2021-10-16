@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Arctan(x) Calculator | Inverse tangent calculator</title>
+    <meta
+      name="description"
+      content="Online arctan(x) calculator. Inverse tangent calculator.Enter the tangent value, select degrees (&deg;) or radians (rad) and press the &nbsp;=  button."
+    />
+    <style>
+      .calc td {
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      .calc span {
+        font-size: xx-large;
+        font-family: "Times New Roman", Times, serif;
+      }
+      .calc input[type="text"] {
+        font-size: x-large;
+        padding: 5px;
+      }
+      .calc button {
+        padding: 7px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        font-size: large;
+      }
+      .calc textarea {
+        width: 100%;
+        font-size: large;
+      }
+      .calc tr:nth-child(4) td {
+        font-size: x-large;
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          width: 100%;
+          padding: 10px;
+        }
+        .calc input[type="text"] {
+          width: calc(100% - 40px);
+        }
+        .calc tr:first-child input[type="text"] {
+          width: 140px;
+        }
+      }
+      @media all and (min-width: 577px) {
+        .calc {
+          padding: 20px;
+        }
+        .calc input[type="text"] {
+          width: 330px;
+        }
+        .calc tr:first-child input[type="text"] {
+          width: 220px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Math Calculators</a>&rsaquo; Arctan
+        calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Arctan Calculator</h1>
+          <p>
+            Online
+            <a href="../../math/trigonometry/arctan.html">arctan(x)</a>
+            calculator. Inverse tangent calculator.
+          </p>
+          <form name="calcform" autocomplete="off">
+            <table class="calc">
+              <tbody>
+                <tr>
+                  <td>
+                    <span>arctan</span>
+                    <input
+                      type="text"
+                      name="x"
+                      class="intext"
+                      autofocus
+                      tabindex="1"
+                    />
+                    <input
+                      onclick="calc()"
+                      type="button"
+                      value=" = "
+                      class="btn"
+                    />
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <button
+                      type="button"
+                      title="Calculate"
+                      class="btn"
+                      tabindex="2"
+                      onclick="calcfunc()"
+                    >
+                      <img
+                        src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_018_cog.png"
+                        alt=""
+                      />
+                      Calculate
+                    </button>
+                    <button
+                      type="reset"
+                      title="Reset"
+                      class="btn"
+                      tabindex="3"
+                      onclick="setfocus()"
+                    >
+                      <img
+                        src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_013_remove.png"
+                        alt=""
+                      />
+                      Reset
+                    </button>
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">Angle in degrees:</td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <input
+                      type="text"
+                      id="y1"
+                      name="y1"
+                      tabindex="4"
+                      class="outtext"
+                      readonly
+                    />
+                    &deg;
+                  </td>
+                </tr>
+                <tr>
+                  <td colspan="3">Angle in radians:</td>
+                </tr>
+                <tr>
+                  <td colspan="3">
+                    <input
+                      type="text"
+                      id="y2"
+                      name="y2"
+                      tabindex="5"
+                      class="outtext"
+                      readonly
+                    />
+                    rad
+                  </td>
+                </tr>
+                <tr>
+                  <td>Calculation:</td>
+                </tr>
+                <tr>
+                  <td colspan="8">
+                    <textarea
+                      rows="9"
+                      name="TA1"
+                      class="outtext"
+                      readonly
+                      tabindex="6"
+                    ></textarea>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </form>
+          <p><a href="Tan_Calculator.html">Tangent calculator &#9658;</a></p>
+          <h2><a name="definition"></a>Arctangent definition</h2>
+          <p>The arctangent function is the inverse function of y = tan(x).</p>
+          <p class="math">
+            arctan(<i>y</i>) = tan<sup>-1</sup>(<i>y</i>) = <i>x</i>+
+            <i>k&#960;</i>
+          </p>
+          <p>For every</p>
+          <p class="math"><i>k </i>= {...,-2,-1,0,1,2,...}</p>
+          <p>&nbsp;</p>
+          <p>For example, If the tangent of 45&deg; is 1:</p>
+          <p class="mathsymbol">tan(45&deg;) = 1</p>
+          <p>Then the arctangent of 1 is 45&deg;:</p>
+          <p class="mathsymbol">arctan(1) = tan<sup>-1</sup>(1) = 45&deg;</p>
+          <h2><a name="table"></a>Arctangent table</h2>
+          <table class="dtable">
+            <tr>
+              <th rowspan="2">y</th>
+              <th colspan="2">x = arctan(y)</th>
+            </tr>
+            <tr>
+              <th>degrees</th>
+              <th>radians</th>
+            </tr>
+            <tr>
+              <td>-1.732050808</td>
+              <td>-60&deg;</td>
+              <td>-&#960;/3</td>
+            </tr>
+            <tr>
+              <td>-1</td>
+              <td>-45&deg;</td>
+              <td>-&#960;/4</td>
+            </tr>
+            <tr>
+              <td>-0.577350269</td>
+              <td>-30&deg;</td>
+              <td>-&#960;/6</td>
+            </tr>
+            <tr>
+              <td>0</td>
+              <td>0&deg;</td>
+              <td>0</td>
+            </tr>
+            <tr>
+              <td>0.577350269</td>
+              <td>30&deg;</td>
+              <td>&#960;/6</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>45&deg;</td>
+              <td>&#960;/4</td>
+            </tr>
+            <tr>
+              <td>1.732050808</td>
+              <td>60&deg;</td>
+              <td>&#960;/3</td>
+            </tr>
+          </table>
+          <h2><a name="on"></a>Arctan on calculator</h2>
+          <p>In order to calculate arctan(y) on a calculator:</p>
+          <ol>
+            <li>Press shift+tan buttons.</li>
+            <li>Enter the angle.</li>
+            <li>Press the = button.</li>
+          </ol>
+          <p><a href="Tan_Calculator.html">Tangent calculator &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li>
+              <a href="../../math/trigonometry/arctan.html">Arctan function</a>
+            </li>
+            <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+            <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+            <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+            <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+            <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+            <li>
+              <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+            </li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>MATH CALCULATORS</h5>
+        <ul>
+          <li><a href="calculator.html">Online math calculator</a></li>
+          <li>
+            <a href="adding-fractions-calculator.html"
+              >Adding fractions calculator</a
+            >
+          </li>
+          <li><a href="Add_Calculator.html">Addition calculator</a></li>
+          <li><a href="anti-log-calculator.html">Antilog calculator</a></li>
+          <li><a href="Arccos_Calculator.html">Arccos calculator</a></li>
+          <li><a href="Arcsin_Calculator.html">Arcsin calculator</a></li>
+          <li><a href="Arctan_Calculator.html">Arctan calculator</a></li>
+          <li>
+            <a href="convolution-calculator.html">Convolution calculator</a>
+          </li>
+          <li><a href="Cos_Calculator.html">Cosine calculator</a></li>
+          <li>
+            <a href="dividing-fractions-calculator.html"
+              >Dividing fractions calculator</a
+            >
+          </li>
+          <li><a href="division-calculator.html">Division calculator</a></li>
+          <li>
+            <a href="exponential-growth-calculator.html"
+              >Exponential growth calculator</a
+            >
+          </li>
+          <li><a href="Exponent_Calculator.html">Exponents calculator</a></li>
+          <li><a href="Factorial_Calculator.html">Factorial calculator</a></li>
+          <li><a href="fractions-calculator.html">Fractions calculator</a></li>
+          <li><a href="gcf-calculator.html">GCF calculator</a></li>
+          <li><a href="lcm-calculator.html">LCM calculator</a></li>
+          <li><a href="Ln_Calc.html">Ln calculator</a></li>
+          <li><a href="Log_Calculator.html">Log calculator</a></li>
+          <li>
+            <a href="multiplication-calculator.html"
+              >Multiplication calculator</a
+            >
+          </li>
+          <li>
+            <a href="multiplying-fractions-calculator.html"
+              >Multiplying fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="Percentage_Calculator.html">Percentage calculator</a>
+          </li>
+          <li>
+            <a href="percentage-change-calculator.html"
+              >Percentage change calculator</a
+            >
+          </li>
+          <li>
+            <a href="percent-error-calculator.html">Percent error calculator</a>
+          </li>
+          <li>
+            <a href="percentage-increase-calculator.html"
+              >Precentage increase calculator</a
+            >
+          </li>
+          <li>
+            <a href="pythagorean-calculator.html"
+              >Pythagorean theorem calculator</a
+            >
+          </li>
+          <li>
+            <a href="Quadratic_Calculator.html">Quadratic equation solver</a>
+          </li>
+          <li>
+            <a href="random-number-generator.html">Random number generator</a>
+          </li>
+          <li><a href="ratio-calculator.html">Ratio calculator</a></li>
+          <li><a href="root-calculator.html">Root calculator</a></li>
+          <li>
+            <a href="scientific-notation-calculator.html"
+              >Scientific notation calculator</a
+            >
+          </li>
+          <li><a href="fraction-simplifier.html">Fraction simplifier</a></li>
+          <li><a href="Sin_Calculator.html">Sine calculator</a></li>
+          <li>
+            <a href="square-root-calculator.html">Square root calculator</a>
+          </li>
+          <li>
+            <a href="standard-deviation-calculator.html"
+              >Standard deviation calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtracting-fractions-calculator.html"
+              >Subtracting fractions calculator</a
+            >
+          </li>
+          <li>
+            <a href="subtraction-calculator.html">Subtraction calculator</a>
+          </li>
+          <li><a href="Tan_Calculator.html">Tangent calculator</a></li>
+          <li>
+            <a href="trigonometry-calculator.html">Trigonometry calculator</a>
+          </li>
+          <li>
+            <a href="weighted-average-calculator.html"
+              >Weighted average calculator</a
+            >
+          </li>
+          <li><a href="variance-calculator.html">Variance calculator</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="Arctan_Calculator.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+
+    <script src="../calc2.js"></script>
+    <script>
+      function calcfunc(x) {
+        var y1, y2, y;
+        var x = document.calcform.x.value;
+        x = str2num(x);
+        y2 = Math.atan(x);
+        y1 = (y2 * 180) / Math.PI;
+        y1 = roundnum2(y1, 8);
+        y2 = roundnum2(y2, 8);
+        var txt = "arctan " + x + " = tan\u207B\u00B9 " + x;
+        a = (Math.atan(x) * 180) / Math.PI;
+        deg = a > 0 ? Math.floor(a) : Math.ceil(a);
+        min = a > 0 ? Math.floor((a - deg) * 60) : Math.ceil((a - deg) * 60);
+        sec = (a - deg - min / 60) * 3600;
+        sec = roundnum2(sec, 3);
+        txt += " = " + deg + "\u00B0 " + min + "' " + sec + '"';
+        txt += "\n= " + y1 + "\u00B0+k\u00D7180\u00B0 (k=..-1,0,1,..)\n= ";
+        for (k = -1; k <= 1; k++) {
+          a = parseFloat(y1) + k * 180;
+          txt += a.toString() + "\u00B0";
+          txt += ", ";
+        }
+        txt += "..";
+        txt += "\n= " + y2 + "rad+k\u00D7\u03C0 (k=..-1,0,1,..)\n= ";
+        y2pi = parseFloat(y2) / Math.PI;
+        for (k = -1; k <= 1; k++) {
+          a = y2pi + k;
+          a = roundnum2(a, 8);
+          txt += a.toString() + "\u03C0";
+          txt += ", ";
+        }
+        txt += "..";
+        document.calcform.y1.value = y1;
+        document.calcform.y2.value = y2;
+        document.calcform.TA1.value = txt;
+      }
+    </script>
+  </body>
+</html>

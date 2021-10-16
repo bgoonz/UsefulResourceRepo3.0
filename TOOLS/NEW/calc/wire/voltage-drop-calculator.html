@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Voltage Drop Calculator</title>
+    <meta
+      content="Wire / cable voltage drop calculator and how to calculate."
+      name="description"
+    />
+    <style>
+      .auto-style1 {
+        text-align: center;
+      }
+      .auto-style2 {
+        text-align: right;
+      }
+      .auto-style3 {
+        font-family: arial;
+      }
+      .auto-style4 {
+        font-family: "Times New Roman";
+        font-size: 1.6em;
+        padding-left: 6px;
+        font-weight: normal;
+        margin-left: 80px;
+      }
+      .auto-style5 {
+        font-family: "Times New Roman";
+        font-size: 1.6em;
+        padding-left: 6px;
+        font-weight: normal;
+        margin-left: 40px;
+      }
+      .auto-style6 {
+        text-decoration: overline;
+      }
+      .calc2 select {
+        font-size: large;
+        padding: 4px;
+      }
+      .btn {
+        padding: 6px !important;
+      }
+      .calc2 input[type="text"],
+      .calc2 input[type="number"] {
+        width: 180px;
+      }
+      @media all and (max-width: 576px) {
+        .calc2 {
+          width: 100%;
+        }
+        .calc2 tr td:nth-child(3) {
+          padding-top: 10px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Calculators</a
+        >&rsaquo;<a href="index.html">Wire</a>&rsaquo; Voltage drop calculator
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Voltage Drop Calculator</h1>
+          <p>Wire / cable voltage drop calculator and how to calculate.</p>
+          <ul>
+            <li>
+              <a href="voltage-drop-calculator.html#calculator"
+                >Voltage drop calculator</a
+              >
+            </li>
+            <li>
+              <a href="voltage-drop-calculator.html#calculations"
+                >Voltage drop calculations</a
+              >
+            </li>
+          </ul>
+          <h2><a name="calculator"></a>Voltage drop calculator</h2>
+          <form name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td>Wire type:</td>
+                <td>
+                  <select
+                    name="type"
+                    onchange="OnIResChange()"
+                    style="width: 180px"
+                    autofocus
+                  >
+                    <option>-- select --</option>
+                    <option selected>Copper</option>
+                    <option>Aluminum</option>
+                    <option>Carbon steel</option>
+                    <option>Electrical steel</option>
+                    <option>Gold</option>
+                    <option>Nichrome</option>
+                    <option>Nickel</option>
+                    <option>Silver</option>
+                  </select>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+              <tr>
+                <td>Resistivity:</td>
+                <td class="math">
+                  <input
+                    type="text"
+                    name="res"
+                    value="1.72e-8"
+                    class="intext"
+                    onchange="OnResChange()"
+                  />
+                </td>
+                <td class="mathsymbol">&#937;&middot;m</td>
+              </tr>
+              <tr>
+                <td>Wire diameter size:</td>
+                <td class="math">
+                  <input type="number" min="0 step=" any" name="s" value="18"
+                  class="intext">
+                </td>
+                <td>
+                  <select name="ssel">
+                    <option>AWG</option>
+                    <option>inch</option>
+                    <option>mm</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Wire/cable length (one way):</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    min="0"
+                    step="any"
+                    name="l"
+                    value="10"
+                    class="intext"
+                  />
+                </td>
+                <td>
+                  <select name="lsel">
+                    <option>feet</option>
+                    <option>meters</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Current type:</td>
+                <td colspan="2">
+                  <select name="phase" style="width: 180px">
+                    <option>DC</option>
+                    <option selected>AC - Single phase</option>
+                    <option>AC - Three phase</option>
+                  </select>
+                </td>
+              </tr>
+              <tr>
+                <td>Voltage in volts:</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    step="any"
+                    name="v"
+                    value="120"
+                    class="intext"
+                  />
+                </td>
+                <td class="mathsymbol">V</td>
+              </tr>
+              <tr>
+                <td>Current in amps:</td>
+                <td class="math">
+                  <input
+                    type="number"
+                    step="any"
+                    name="i"
+                    value="1"
+                    class="intext"
+                  />
+                </td>
+                <td class="mathsymbol">A</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <input
+                    onclick="OnCalc()"
+                    type="button"
+                    value="Calculate"
+                    class="btn"
+                  />
+                  <input type="reset" value="Reset" class="btn" />
+                </td>
+              </tr>
+              <tr>
+                <td>Voltage drop in volts:</td>
+                <td class="math">
+                  <input type="text" name="vd" class="outtext" readonly />
+                </td>
+                <td class="mathsymbol">V</td>
+              </tr>
+              <tr>
+                <td>Percentage of voltage drop:</td>
+                <td class="math">
+                  <input type="text" name="vdp" class="outtext" readonly />
+                </td>
+                <td class="mathsymbol">%</td>
+              </tr>
+              <tr>
+                <td>Wire resistance:</td>
+                <td class="math">
+                  <input type="text" name="r" class="outtext" readonly />
+                </td>
+                <td class="mathsymbol">&#937;</td>
+              </tr>
+            </table>
+          </form>
+          <p>* @ 68&deg;F or 20&deg;C</p>
+          <p>
+            ** Results may change with real wires: different resistivity of
+            material and number of strands in wire.
+          </p>
+          <p>*** For wire length of 2x10ft, wire length should be 10ft.</p>
+          <p>
+            <a href="wire-gauge-chart.html">Wire gauge calculator &#9658;</a>
+          </p>
+          <h2><a name="calculations"></a>Voltage drop calculations</h2>
+          <h3>DC / single phase calculation</h3>
+          <p>
+            The voltage drop V in volts (V) is equal to the wire current I in
+            amps (A) times 2 times one way wire length L in feet (ft) times the
+            wire resistance per 1000 feet R in ohms (&Omega;/kft) divided by
+            1000:
+          </p>
+          <p class="math">
+            <em>V</em><sub><em>drop</em> (V)</sub> = <em>I</em
+            ><sub><em>wire</em> (A)</sub> &times; <em>R</em
+            ><sub><em>wire</em>(&Omega;)</sub>
+          </p>
+          <p class="auto-style4">
+            = <em>I</em><sub><em>wire</em> (A)</sub> &times; (2 &times;
+            <em>L</em><sub>(ft)</sub> &times; <em>R</em
+            ><sub><em>wire</em>(&Omega;/kft)</sub> / 1000<sub>(ft/kft)</sub>)
+          </p>
+          <p>
+            The voltage drop V in volts (V) is equal to the wire current I in
+            amps (A) times 2 times one way wire length L in meters (m) times the
+            wire resistance per 1000 meters R in ohms (&Omega;/km) divided by
+            1000:
+          </p>
+          <p class="math">
+            <em>V</em><sub><em>drop</em> (V)</sub> = <em>I</em
+            ><sub><em>wire</em> (A)</sub> &times; <em>R</em
+            ><sub><em>wire</em>(&Omega;)</sub>
+          </p>
+          <p class="auto-style4">
+            = <em>I</em><sub><em>wire</em> (A)</sub> &times; (2 &times;
+            <em>L</em><sub>(m)</sub> &times; <em>R</em
+            ><sub><em>wire </em>(&Omega;/km)</sub> / 1000<sub>(m/km)</sub>)
+          </p>
+          <h3>3 phase calculation</h3>
+          <p>
+            The line to line voltage drop V in volts (V) is equal to square root
+            of 3 times the wire current I in amps (A) times one way wire length
+            L in feet (ft) times the wire resistance per 1000 feet R in ohms
+            (&Omega;/kft) divided by 1000:
+          </p>
+          <p class="math">
+            <em>V</em><sub><em>drop</em> (V)</sub> = &radic;<span
+              class="auto-style6"
+              >3</span
+            >
+            &times; <em>I</em><sub><em>wire</em> (A)</sub> &times; <em>R</em
+            ><sub><em>wire </em>(&Omega;)</sub>
+          </p>
+          <p class="auto-style5">
+            = 1.732 &times; <em>I</em><sub><em>wire</em> (A)</sub> &times; (<em
+              >L</em
+            ><sub>(ft)</sub> &times; <em>R</em
+            ><sub><em>wire </em>(&Omega;/kft)</sub> / 1000<sub>(ft/kft)</sub>)
+          </p>
+          <p>
+            The line to line voltage drop V in volts (V) is equal to square root
+            of 3 times the wire current I in amps (A) times one way wire length
+            L in meters (m) times the wire resistance per 1000 meters R in ohms
+            (&Omega;/km) divided by 1000:
+          </p>
+          <p class="math">
+            <em>V</em><sub><em>drop</em> (V)</sub> = &radic;<span
+              class="auto-style6"
+              >3</span
+            >
+            &times; <em>I</em><sub><em>wire</em> (A)</sub> &times; <em>R</em
+            ><sub><em>wire </em>(&Omega;)</sub>
+          </p>
+          <p class="auto-style5">
+            = 1.732 &times; <em>I</em><sub><em>wire</em> (A)</sub> &times; (<em
+              >L</em
+            ><sub>(m)</sub> &times; <em>R</em
+            ><sub><em>wire </em>(&Omega;/km)</sub> / 1000<sub>(m/km)</sub>)
+          </p>
+          <h3>Wire diameter calculations</h3>
+          <p>
+            The n gauge wire diameter d<sub
+              ><span class="auto-style1">n</span></sub
+            >
+            in inches (in) is equal to 0.005in times 92 raised to the power of
+            36 minus gauge number n, divided by 39:
+          </p>
+          <p class="math">
+            <em>d<sub>n</sub></em
+            ><sub> (in)</sub> = 0.005 in &times; 92<sup>(36-<em>n</em>)/39</sup>
+          </p>
+          <p>
+            The n gauge wire diameter d<sub
+              ><span class="auto-style1">n</span></sub
+            >
+            in millimeters (mm) is equal to 0.127mm times 92 raised to the power
+            of 36 minus gauge number n, divided by 39:
+          </p>
+          <p class="math">
+            <em>d<sub>n</sub></em
+            ><sub> (mm)</sub> = 0.127 mm &times; 92<sup>(36-<em>n</em>)/39</sup>
+          </p>
+          <h3>Wire cross sectional area calculations</h3>
+          <p>
+            The n gauge wire's cross sercional area A<sub
+              ><span class="auto-style1">n</span></sub
+            >
+            in kilo-circular mils (kcmil) is equal to 1000 times the square wire
+            diameter d in inches (in):
+          </p>
+          <p class="math">
+            <em>A<sub>n</sub></em
+            ><sub> (kcmil)</sub> = 1000&times;<em>d</em><sub><em>n</em></sub
+            ><sup>2</sup> = 0.025 in<sup>2</sup> &times; 92<sup
+              >(36-<em>n</em>)/19.5</sup
+            >
+          </p>
+          <p>
+            The n gauge wire's cross sercional area A<sub
+              ><span class="auto-style1">n</span></sub
+            >
+            in square inches (in<sup><span class="auto-style1">2</span></sup
+            >) is equal to pi divided by 4 times the square wire diameter d in
+            inches (in):
+          </p>
+          <p class="math">
+            <em>A<sub>n</sub></em
+            ><sub> (in</sub><span class="auto-style2">2</span><sub>)</sub> =
+            (&pi;/4)&times;<em>d</em><sub><em>n</em></sub
+            ><sup>2</sup> = 0.000019635 in<sup>2</sup> &times; 92<sup
+              >(36-<em>n</em>)/19.5</sup
+            >
+          </p>
+          <p>
+            The n gauge wire's cross sercional area A<sub
+              ><span class="auto-style1">n</span></sub
+            >
+            in square millimeters (mm<sup
+              ><span class="auto-style1">2</span></sup
+            >) is equal to pi divided by 4 times the square wire diameter d in
+            millimeters (mm):
+          </p>
+          <p class="math">
+            <em>A<sub>n</sub></em
+            ><sub> (mm</sub><span class="auto-style2">2</span><sub>)</sub> =
+            (&pi;/4)&times;<em>d</em><sub><em>n</em></sub
+            ><sup>2</sup> = 0.012668 mm<sup>2</sup> &times; 92<sup
+              >(36-<em>n</em>)/19.5</sup
+            >
+          </p>
+          <h3>Wire resistance calculations</h3>
+          <p>
+            The n gauge wire resistance R in ohms per kilofeet (&Omega;/kft) is
+            equal to 0.3048&times;1000000000 times the wire's resistivity
+            <em>&rho;</em> in ohm-meters<span class="auto-style3">
+              (&Omega;&middot;m) divided by 25.4<sup>2</sup> times the cross
+              sectional area <em>A<sub>n</sub></em> in square inches
+              (in<sup>2</sup>):</span
+            >
+          </p>
+          <p class="math">
+            <em>R</em><sub><em>n </em>(&Omega;/kft)</sub> = 0.3048 &times;
+            10<sup>9</sup> &times; <em>&rho;</em><sub>(&Omega;&middot;m)</sub> /
+            (25.4<sup>2</sup> &times; <em>A<sub>n</sub></em
+            ><sub> (in</sub><span class="auto-style2">2</span><sub>)</sub>)
+          </p>
+          <p>
+            The n gauge wire resistance R in ohms per kilometer (&Omega;/km) is
+            equal to 1000000000 times the wire's resistivity <em>&rho;</em> in
+            ohm-meters<span class="auto-style3">
+              (&Omega;&middot;m) divided by the cross sectional area
+              <em>A<sub>n</sub></em> in square millimeters
+              (mm<sup>2</sup>):</span
+            >
+          </p>
+          <p class="math">
+            <em>R</em><sub><em>n </em>(&Omega;/km)</sub> = 10<sup>9</sup>
+            &times; <em>&rho;</em><sub>(&Omega;&middot;m)</sub> /
+            <em>A<sub>n</sub></em
+            ><sub> (mm</sub><span class="auto-style2">2</span><sub>)</sub>
+          </p>
+          <h2><a name="chart"></a>AWG chart</h2>
+          <table class="ntable">
+            <tr>
+              <th>AWG #</th>
+              <th>Diameter<br />(inch)</th>
+              <th>Diameter<br />(mm)</th>
+              <th>Area<br />(kcmil)</th>
+              <th>
+                Area<br />(mm<sup><span>2</span></sup
+                >)
+              </th>
+            </tr>
+            <tr>
+              <td>0000 (4/0)</td>
+              <td>0.4600</td>
+              <td>11.6840</td>
+              <td>211.6000</td>
+              <td>107.2193</td>
+            </tr>
+            <tr>
+              <td>000 (3/0)</td>
+              <td>0.4096</td>
+              <td>10.4049</td>
+              <td>167.8064</td>
+              <td>85.0288</td>
+            </tr>
+            <tr>
+              <td>00 (2/0)</td>
+              <td>0.3648</td>
+              <td>9.2658</td>
+              <td>133.0765</td>
+              <td>67.4309</td>
+            </tr>
+            <tr>
+              <td>0 (1/0)</td>
+              <td>0.3249</td>
+              <td>8.2515</td>
+              <td>105.5345</td>
+              <td>53.4751</td>
+            </tr>
+            <tr>
+              <td>1</td>
+              <td>0.2893</td>
+              <td>7.3481</td>
+              <td>83.6927</td>
+              <td>42.4077</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>0.2576</td>
+              <td>6.5437</td>
+              <td>66.3713</td>
+              <td>33.6308</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>0.2294</td>
+              <td>5.8273</td>
+              <td>52.6348</td>
+              <td>26.6705</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>0.2043</td>
+              <td>5.1894</td>
+              <td>41.7413</td>
+              <td>21.1506</td>
+            </tr>
+            <tr>
+              <td>5</td>
+              <td>0.1819</td>
+              <td>4.6213</td>
+              <td>33.1024</td>
+              <td>16.7732</td>
+            </tr>
+            <tr>
+              <td>6</td>
+              <td>0.1620</td>
+              <td>4.1154</td>
+              <td>26.2514</td>
+              <td>13.3018</td>
+            </tr>
+            <tr>
+              <td>7</td>
+              <td>0.1443</td>
+              <td>3.6649</td>
+              <td>20.8183</td>
+              <td>10.5488</td>
+            </tr>
+            <tr>
+              <td>8</td>
+              <td>0.1285</td>
+              <td>3.2636</td>
+              <td>16.5097</td>
+              <td>8.3656</td>
+            </tr>
+            <tr>
+              <td>9</td>
+              <td>0.1144</td>
+              <td>2.9064</td>
+              <td>13.0927</td>
+              <td>6.6342</td>
+            </tr>
+            <tr>
+              <td>10</td>
+              <td>0.1019</td>
+              <td>2.5882</td>
+              <td>10.3830</td>
+              <td>5.2612</td>
+            </tr>
+            <tr>
+              <td>11</td>
+              <td>0.0907</td>
+              <td>2.3048</td>
+              <td>8.2341</td>
+              <td>4.1723</td>
+            </tr>
+            <tr>
+              <td>12</td>
+              <td>0.0808</td>
+              <td>2.0525</td>
+              <td>6.5299</td>
+              <td>3.3088</td>
+            </tr>
+            <tr>
+              <td>13</td>
+              <td>0.0720</td>
+              <td>1.8278</td>
+              <td>5.1785</td>
+              <td>2.6240</td>
+            </tr>
+            <tr>
+              <td>14</td>
+              <td>0.0641</td>
+              <td>1.6277</td>
+              <td>4.1067</td>
+              <td>2.0809</td>
+            </tr>
+            <tr>
+              <td>15</td>
+              <td>0.0571</td>
+              <td>1.4495</td>
+              <td>3.2568</td>
+              <td>1.6502</td>
+            </tr>
+            <tr>
+              <td>16</td>
+              <td>0.0508</td>
+              <td>1.2908</td>
+              <td>2.5827</td>
+              <td>1.3087</td>
+            </tr>
+            <tr>
+              <td>17</td>
+              <td>0.0453</td>
+              <td>1.1495</td>
+              <td>2.0482</td>
+              <td>1.0378</td>
+            </tr>
+            <tr>
+              <td>18</td>
+              <td>0.0403</td>
+              <td>1.0237</td>
+              <td>1.6243</td>
+              <td>0.8230</td>
+            </tr>
+            <tr>
+              <td>19</td>
+              <td>0.0359</td>
+              <td>0.9116</td>
+              <td>1.2881</td>
+              <td>0.6527</td>
+            </tr>
+            <tr>
+              <td>20</td>
+              <td>0.0320</td>
+              <td>0.8118</td>
+              <td>1.0215</td>
+              <td>0.5176</td>
+            </tr>
+            <tr>
+              <td>21</td>
+              <td>0.0285</td>
+              <td>0.7229</td>
+              <td>0.8101</td>
+              <td>0.4105</td>
+            </tr>
+            <tr>
+              <td>22</td>
+              <td>0.0253</td>
+              <td>0.6438</td>
+              <td>0.6424</td>
+              <td>0.3255</td>
+            </tr>
+            <tr>
+              <td>23</td>
+              <td>0.0226</td>
+              <td>0.5733</td>
+              <td>0.5095</td>
+              <td>0.2582</td>
+            </tr>
+            <tr>
+              <td>24</td>
+              <td>0.0201</td>
+              <td>0.5106</td>
+              <td>0.4040</td>
+              <td>0.2047</td>
+            </tr>
+            <tr>
+              <td>25</td>
+              <td>0.0179</td>
+              <td>0.4547</td>
+              <td>0.3204</td>
+              <td>0.1624</td>
+            </tr>
+            <tr>
+              <td>26</td>
+              <td>0.0159</td>
+              <td>0.4049</td>
+              <td>0.2541</td>
+              <td>0.1288</td>
+            </tr>
+            <tr>
+              <td>27</td>
+              <td>0.0142</td>
+              <td>0.3606</td>
+              <td>0.2015</td>
+              <td>0.1021</td>
+            </tr>
+            <tr>
+              <td>28</td>
+              <td>0.0126</td>
+              <td>0.3211</td>
+              <td>0.1598</td>
+              <td>0.0810</td>
+            </tr>
+            <tr>
+              <td>29</td>
+              <td>0.0113</td>
+              <td>0.2859</td>
+              <td>0.1267</td>
+              <td>0.0642</td>
+            </tr>
+            <tr>
+              <td>30</td>
+              <td>0.0100</td>
+              <td>0.2546</td>
+              <td>0.1005</td>
+              <td>0.0509</td>
+            </tr>
+            <tr>
+              <td>31</td>
+              <td>0.0089</td>
+              <td>0.2268</td>
+              <td>0.0797</td>
+              <td>0.0404</td>
+            </tr>
+            <tr>
+              <td>32</td>
+              <td>0.0080</td>
+              <td>0.2019</td>
+              <td>0.0632</td>
+              <td>0.0320</td>
+            </tr>
+            <tr>
+              <td>33</td>
+              <td>0.0071</td>
+              <td>0.1798</td>
+              <td>0.0501</td>
+              <td>0.0254</td>
+            </tr>
+            <tr>
+              <td>34</td>
+              <td>0.0063</td>
+              <td>0.1601</td>
+              <td>0.0398</td>
+              <td>0.0201</td>
+            </tr>
+            <tr>
+              <td>35</td>
+              <td>0.0056</td>
+              <td>0.1426</td>
+              <td>0.0315</td>
+              <td>0.0160</td>
+            </tr>
+            <tr>
+              <td>36</td>
+              <td>0.0050</td>
+              <td>0.1270</td>
+              <td>0.0250</td>
+              <td>0.0127</td>
+            </tr>
+            <tr>
+              <td>37</td>
+              <td>0.0045</td>
+              <td>0.1131</td>
+              <td>0.0198</td>
+              <td>0.0100</td>
+            </tr>
+            <tr>
+              <td>38</td>
+              <td>0.0040</td>
+              <td>0.1007</td>
+              <td>0.0157</td>
+              <td>0.0080</td>
+            </tr>
+            <tr>
+              <td>39</td>
+              <td>0.0035</td>
+              <td>0.0897</td>
+              <td>0.0125</td>
+              <td>0.0063</td>
+            </tr>
+            <tr>
+              <td>40</td>
+              <td>0.0031</td>
+              <td>0.0799</td>
+              <td>0.0099</td>
+              <td>0.0050</td>
+            </tr>
+          </table>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="awg-to-mm.html">AWG to mm</a></li>
+            <li><a href="swg-to-mm.html">SWG to mm</a></li>
+            <li><a href="wire-gauge-chart.html">Wire gauge chart</a></li>
+            <li><a href="../electric/index.html">Electrical calculators</a></li>
+          </ul>
+          <script>
+            function OnIResChange() {
+              var itype = document.calcform.type.selectedIndex;
+              var ilook = [
+                1.72e-8, 2.82e-8, 1.43e-7, 4.6e-7, 2.44e-8, 1.1e-6, 6.99e-8,
+                1.59e-8,
+              ];
+              var res = "";
+              if (itype > 0) {
+                res = ilook[itype - 1];
+                res = res.toExponential();
+              }
+              document.calcform.res.value = res;
+            }
+            function OnResChange() {
+              document.calcform.type.selectedIndex = 0;
+            }
+            function OnCalc() {
+              //var itype = document.calcform.type.selectedIndex;
+              var issel = document.calcform.ssel.selectedIndex;
+              var ilsel = document.calcform.lsel.selectedIndex;
+              var iphase = document.calcform.phase.selectedIndex;
+
+              n = document.calcform.s.value;
+              len = document.calcform.l.value;
+              v = document.calcform.v.value;
+              i = document.calcform.i.value;
+
+              //var ilook=[1.72e-8, 2.82e-8, 1.43e-7, 4.6e-7, 2.44e-8, 1.1e-6, 6.99e-8, 1.59e-8];
+              //var res = ilook[itype];
+              var res = document.calcform.res.value;
+              var d;
+              if (issel == 0) {
+                if (n == "000000" || n == "6/0") n = -5;
+                if (n == "00000" || n == "5/0") n = -4;
+                if (n == "0000" || n == "4/0") n = -3;
+                if (n == "000" || n == "3/0") n = -2;
+                if (n == "00" || n == "2/0") n = -1;
+                if (n > 40) {
+                  alert("AWG>40 is not valid");
+                  document.calcform.s.focus();
+                  document.calcform.s.select();
+                  return;
+                }
+                d = 0.127e-3 * Math.pow(92, (36 - n) / 39);
+              } else if (issel == 1) {
+                d = (25.4 * n) / 1000;
+              } else {
+                d = n / 1000;
+              }
+              if (ilsel == 0) len *= 0.3048;
+              a = (Math.PI * d * d) / 4.0;
+              r = (2 * res * len) / a;
+              vd = i * r;
+              if (iphase == 2) vd *= 1.732 / 2;
+              vdp = (vd / v) * 100;
+              document.calcform.vd.value = vd.toPrecision(6);
+              document.calcform.vdp.value = vdp.toPrecision(6);
+              document.calcform.r.value = r.toPrecision(6);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>WIRE GAUGE</h5>
+        <ul>
+          <li><a href="wire-gauge-chart.html">Wire gauge chart</a></li>
+          <li><a href="awg-to-mm.html">AWG to mm</a></li>
+          <li><a href="swg-to-mm.html">SWG to mm</a></li>
+          <li><a href="voltage-drop-calculator.html">Voltage drop</a></li>
+          <li><a href="2-gauge.html">#2 gauge wire</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li>
+            <a href="voltage-drop-calculator.html#feedback">Send Feedback</a>
+          </li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../index.html">Calculators</a> |
+      <a href="../../convert/index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

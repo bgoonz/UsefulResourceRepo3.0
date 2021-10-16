@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>cm to mm - centimeters to millimeters conversion</title>
+    <meta
+      name="description"
+      content="Centimeters to millimeters (cm to mm) conversion calculator and how to convert."
+    />
+    <style>
+      .btn span {
+        font-weight: bold;
+        font-size: large;
+      }
+      @media all and (max-width: 576px) {
+        .calc2 input[type="text"],
+        .calc2 input[type="number"] {
+          width: 100%;
+        }
+        .calc2 tr td:nth-child(2) {
+          width: 240px;
+          width: calc(100% - 40px);
+        }
+      }
+      .calc2 td textarea {
+        font-size: large;
+        width: 100%;
+      }
+      .ntable td:nth-child(1),
+      .ntable td:nth-child(2) {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Length conversion</a>&rsaquo; cm to mm
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Centimeters to Millimeters conversion</h1>
+          <form id="calcform" name="calcform" autocomplete="off">
+            <table class="calc2">
+              <tr>
+                <td><label for="x">Enter centimeters:</label></td>
+                <td class="math">
+                  <input type="text" id="x" name="x" class="intext" autofocus />
+                </td>
+                <td class="mathsymbol">cm</td>
+              </tr>
+              <tr>
+                <td>&nbsp;</td>
+                <td colspan="2">
+                  <button type="submit" id="calc" title="Convert" class="btn">
+                    <span>=</span> Convert
+                  </button>
+                  <button type="reset" id="reset" title="Reset" class="btn">
+                    <span>&times;</span> Reset
+                  </button>
+                  <button
+                    type="button"
+                    title="Swap conversion"
+                    class="btn"
+                    onclick="location.href='mm-to-cm.html';"
+                  >
+                    <img
+                      src="../../lib/icons/glyphicons_all/glyphicons_halflings/glyphicons_halflings_114_retweet.png"
+                      alt=""
+                    />
+                    Swap
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td>Millimeters result:</td>
+                <td class="math">
+                  <input type="text" id="y" class="outtext" readonly />
+                </td>
+                <td class="mathsymbol">mm</td>
+              </tr>
+              <tr>
+                <td>Meters+millimeters result:</td>
+                <td class="math">
+                  <input type="text" id="y2" class="outtext" readonly />
+                </td>
+                <td class="mathsymbol">mm</td>
+              </tr>
+              <tr id="pf1">
+                <td>Calculation:</td>
+                <td>
+                  <textarea
+                    id="TA"
+                    rows="3"
+                    class="outtext"
+                    readonly
+                  ></textarea>
+                </td>
+                <td>&nbsp;</td>
+              </tr>
+            </table>
+          </form>
+          <p><a href="mm-to-cm.html">mm to cm conversion &#9658;</a></p>
+          <h2><a id="how"></a>How to convert centimetes to millimeters</h2>
+          <p>1 centimeter is equal to 10 millimeters:</p>
+          <p class="math">1 cm = 10 mm</p>
+          <p>
+            The distance <em>d</em> in millimeters (mm) is equal to the distance
+            <i>d</i> in centimeters (cm) times 10:
+          </p>
+          <p class="math">
+            <em>d</em><sub>(mm)</sub> = <em>d</em><sub>(cm)</sub> &times; 10
+          </p>
+          <h4>Example</h4>
+          <p>Convert 20 cm to millimeters:</p>
+          <p class="math">
+            <em>d</em><sub>(mm)</sub> = 20cm &times; 10 = 200mm
+          </p>
+          <h2><a id="table"></a>Centimeters to millimeters conversion table</h2>
+          <table class="ntable">
+            <thead>
+              <tr>
+                <th>Centimeters (cm)</th>
+                <th>Millimeters (")</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>0.01 cm</td>
+                <td>0.1 mm</td>
+              </tr>
+              <tr>
+                <td>0.1 cm</td>
+                <td>1 mm</td>
+              </tr>
+              <tr>
+                <td>1 cm</td>
+                <td>10 mm&nbsp;</td>
+              </tr>
+              <tr>
+                <td>2 cm</td>
+                <td>20 mm</td>
+              </tr>
+              <tr>
+                <td>3 cm</td>
+                <td>30 mm</td>
+              </tr>
+              <tr>
+                <td>4 cm</td>
+                <td>40 mm</td>
+              </tr>
+              <tr>
+                <td>5 cm</td>
+                <td>50 mm</td>
+              </tr>
+              <tr>
+                <td>6 cm</td>
+                <td>60 mm</td>
+              </tr>
+              <tr>
+                <td>7 cm</td>
+                <td>70 mm</td>
+              </tr>
+              <tr>
+                <td>8 cm</td>
+                <td>80 mm</td>
+              </tr>
+              <tr>
+                <td>9 cm</td>
+                <td>90 mm</td>
+              </tr>
+              <tr>
+                <td>10 cm</td>
+                <td>100 mm</td>
+              </tr>
+              <tr>
+                <td>20 cm</td>
+                <td>200 mm</td>
+              </tr>
+              <tr>
+                <td>30 cm</td>
+                <td>300 mm</td>
+              </tr>
+              <tr>
+                <td>40 cm</td>
+                <td>400 mm</td>
+              </tr>
+              <tr>
+                <td>50 cm</td>
+                <td>500 mm</td>
+              </tr>
+              <tr>
+                <td>60 cm</td>
+                <td>600 mm</td>
+              </tr>
+              <tr>
+                <td>70 cm</td>
+                <td>700 mm</td>
+              </tr>
+              <tr>
+                <td>80 cm</td>
+                <td>800 mm</td>
+              </tr>
+              <tr>
+                <td>90 cm</td>
+                <td>900 mm</td>
+              </tr>
+              <tr>
+                <td>100 cm</td>
+                <td>1000 mm</td>
+              </tr>
+            </tbody>
+          </table>
+          <p>&nbsp;</p>
+          <p><a href="mm-to-cm.html">mm to cm conversion &#9658;</a></p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="mm-to-cm.html">mm to cm conversion</a></li>
+            <li><a href="cm-to-feet.html">cm to feet conversion</a></li>
+            <li><a href="cm-to-inch.html">cm to inches conversion</a></li>
+            <li>
+              <a href="meter-to-inch.html">Meters to inches conversion</a>
+            </li>
+            <li><a href="mm-to-inch.html">mm to inches conversion</a></li>
+            <li><a href="feet-to-inch.html">Feet to inches conversion</a></li>
+          </ul>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>LENGTH CONVERSION</h5>
+        <ul>
+          <li><a href="cm-to-feet.html">cm to feet</a></li>
+          <li><a href="cm-to-inch.html">cm to inches</a></li>
+          <li><a href="cm-to-mm.html">cm to mm</a></li>
+          <li><a href="feet-to-cm.html">Feet to cm</a></li>
+          <li><a href="feet-to-mm.html">Feet to mm</a></li>
+          <li><a href="feet-to-inch.html">Feet to inches</a></li>
+          <li><a href="feet-to-meter.html">Feet to meters</a></li>
+          <li><a href="height-converter.html">Height converter</a></li>
+          <li><a href="inch-to-cm.html">Inches to cm</a></li>
+          <li><a href="inch-to-feet.html">Inches to feet</a></li>
+          <li><a href="inch-to-meter.html">Inches to meters</a></li>
+          <li><a href="inch-to-mm.html">Inches to mm</a></li>
+          <li><a href="km-to-mile.html">km to miles</a></li>
+          <li><a href="meter-to-feet.html">Meters to feet</a></li>
+          <li><a href="meter-to-inch.html">Meters to inches</a></li>
+          <li><a href="mile-to-km.html">Miles to km</a></li>
+          <li><a href="mm-to-cm.html">mm to cm</a></li>
+          <li><a href="mm-to-feet.html">mm to feet</a></li>
+          <li><a href="mm-to-inch.html">mm to inches</a></li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="cm-to-mm.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+        <script src="../convert.js"></script>
+        <script>
+          var xelem = document.getElementById("x");
+          window.onload = function () {
+            //xelem.onkeypress = function(e) { if( e.keyCode==13 ) OnCalc(); };
+            var params = GetURLParams();
+            if (Object.keys(params).length > 0 && params.x != "") {
+              document.title = params.x + "cm to mm conversion";
+              //SetLinks(params);
+              xelem.value = decodeURIComponent(params.x);
+              OnCalc();
+            }
+          };
+          function GetURLParams() {
+            var url = window.location.href;
+            var regex = /[?&]([^=#]+)=([^&#]*)/g,
+              //url = "www.domain.com/?v=123&p=hello",
+              params = {},
+              match;
+            while ((match = regex.exec(url))) {
+              params[match[1]] = match[2];
+            }
+            return params;
+          }
+          function OnCalc() {
+            var x = str2num(xelem.value);
+            var y = x * 10;
+            var y = roundresult(y);
+            var y2 = Math.floor(y / 1000);
+            var y3 = roundresult(y - y2 * 1000);
+            var txt = x + "cm \u00D7 10\n";
+            txt += "= " + y + "mm";
+            document.getElementById("y").value = y;
+            document.getElementById("y2").value = y2 + "m " + y3;
+            document.getElementById("TA").value = txt;
+          }
+        </script>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>

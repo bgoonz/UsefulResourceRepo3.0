@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script async src="../../lib/tagmng4.js"></script>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" type="text/css" href="../../lib/rapidz.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../../lib/favicon/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-32x32.png"
+      sizes="32x32"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      href="../../lib/favicon/favicon-16x16.png"
+      sizes="16x16"
+    />
+    <link rel="manifest" href="../../lib/favicon/manifest.json" />
+    <link
+      rel="mask-icon"
+      href="../../lib/favicon/safari-pinned-tab.svg"
+      color="#5bbad5"
+    />
+    <link rel="shortcut icon" href="../../lib/favicon/favicon.ico" />
+    <meta
+      name="msapplication-config"
+      content="/lib/favicon/browserconfig.xml"
+    />
+    <meta name="theme-color" content="#ffffff" />
+    <meta name="format-detection" content="telephone=no" />
+
+    <title>Color image to black and white converter</title>
+    <meta content="RGB to grayscale image converter" name="description" />
+    <style>
+      .grayscale {
+        filter: grayscale(100%);
+        -webkit-filter: grayscale(100%);
+        -moz-filter: grayscale(100%);
+        -ms-filter: grayscale(100%);
+        -o-filter: grayscale(100%);
+        filter: url("grayscale.svg"); /* Firefox 4+ */
+        filter: gray; /* IE 6-9 */
+        -webkit-filter: grayscale(1);
+      }
+      .calc {
+        width: 350px;
+        padding: 15px;
+      }
+      @media all and (max-width: 576px) {
+        .calc {
+          width: 100%;
+          padding: 8px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+
+    <div id="wrapper">
+      <div id="nav">
+        <a href="../../index.html">Home</a>&rsaquo;<a href="../index.html"
+          >Conversion</a
+        >&rsaquo;<a href="index.html">Image conversion</a>&rsaquo; RGB to
+        Grayscale photo
+      </div>
+      <div id="top-ad">
+        <ins
+          class="adsbygoogle adslot_1"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="1390814895"
+        ></ins>
+      </div>
+      <div id="lcol">
+        <div id="doc">
+          <h1>Color image to black and white converter</h1>
+          <p>
+            <a href="../../web/color/RGB_Color.html">RGB</a> to grayscale image
+            conversion online:
+          </p>
+          <form name="gen">
+            <table class="calc">
+              <tr>
+                <td colspan="1">
+                  <button
+                    type="button"
+                    name="B1"
+                    title="Open image"
+                    onClick="Open()"
+                  >
+                    <img
+                      src="../../lib/icons/Toolbar&#32;Icons/32/directory_open.png"
+                      alt="open"
+                    />
+                  </button>
+                  <button
+                    type="button"
+                    name="B2"
+                    title="Save image"
+                    onClick="Save()"
+                  >
+                    <img
+                      src="../../lib/icons/Toolbar&#32;Icons/32/floppy_35inch_blue.png"
+                      alt="save"
+                    />
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="1">
+                  <input
+                    type="file"
+                    id="fileElem"
+                    name="fileElem[]"
+                    onchange="OnFileSelect()"
+                    style="visibility: hidden"
+                  />
+                </td>
+              </tr>
+              <tr>
+                <td>Original image:</td>
+              </tr>
+              <tr>
+                <td><img id="image1" src="flower.jpg" title="flower.jpg" /></td>
+              </tr>
+              <tr>
+                <td>Converted image:</td>
+              </tr>
+              <tr>
+                <td><canvas id="can" width="0" height="0"></canvas></td>
+              </tr>
+            </table>
+          </form>
+          <h2>How to convert RGB to grayscale</h2>
+          <p>Gray RGB color code has equal red,green and blue values:</p>
+          <p class="math">&nbsp;<em>R</em> = <em>G</em> = <em>B</em></p>
+          <p>
+            For each image pixel with red, green and blue values of (R,G,B):
+          </p>
+          <p class="math">
+            <em>R' = G' = B'</em> = (<em>R+G+B</em>) / 3 = 0.333<em>R</em> +
+            0.333<em>G</em> + 0.333<em>B</em>
+          </p>
+          <p>
+            This formula can be changed with different weights for each R/G/B
+            value.
+          </p>
+          <p class="math">
+            <em>R' = G' = B'</em> = 0.2126<em>R</em> + 0.7152<em>G</em> +
+            0.0722<em>B</em>
+          </p>
+          <p>Or</p>
+          <p class="math">
+            <em>R' = G' = B'</em>&nbsp; = 0.299<em>R</em> + 0.587<em>G</em> +
+            0.114<em>B</em>
+          </p>
+          <p>&nbsp;</p>
+          <h4>Example</h4>
+          <p>Pixel with RGB values of (30,128,255)</p>
+          <p>The red level R=30.</p>
+          <p>The green level G=128.</p>
+          <p>The blue level B=255.</p>
+          <p class="math">
+            <em>R' = G' = B'</em> = (<em>R+G+B</em>) / 3 = (30+128+255) / 3 =
+            138
+          </p>
+          <p>so the pixel will get RGB values of:</p>
+          <p class="math">(138,138,138)</p>
+          <p>&nbsp;</p>
+          <hr />
+          <h2>See also</h2>
+          <ul>
+            <li><a href="../../tools/screenshot.html">Online screenshot</a></li>
+            <li><a href="../color/index.html">Color conversion</a></li>
+            <li><a href="index.html">Image conversion</a></li>
+          </ul>
+          <script src="../../lib/utils/utils.js"></script>
+          <script src="../../lib/Blob.js-master/Blob.js"></script>
+          <script src="../../lib/canvas-toBlob.js-master/canvas-toBlob.js"></script>
+          <script src="../../lib/FileSaver.js-master/FileSaver.js"></script>
+          <script>
+            var width, height, img, canvas, canvas2;
+
+            window.onload = function () {
+              img = document.getElementById("image1");
+              canvas = document.getElementById("can");
+              width = img.width;
+              height = img.height;
+              DrawCanvas(canvas, img.width, img.height);
+              canvas2 = document.createElement("canvas");
+            };
+            function Open() {
+              //cancelSaveFile();
+              var fileElem = document.getElementById("fileElem");
+              fileElem.focus();
+              fileElem.click();
+            }
+            function Save() {
+              var name =
+                GetFileName(img.title) + "-grayscale" + GetFileExt(img.title);
+              canvas2.toBlob(function (blob) {
+                saveAs(blob, name);
+              });
+            }
+            function OnImageLoaded() {
+              width = img.naturalWidth;
+              height = img.naturalHeight;
+              if (img.width > 200) img.width = 200;
+              DrawCanvas(canvas, img.width, img.height);
+              DrawCanvas(canvas2, width, height);
+            }
+            function OnFileSelect(event) {
+              var fileElem = document.getElementById("fileElem").files[0];
+              document.getElementById("fileElem").value = "";
+              var reader = new FileReader();
+              img.title = fileElem.name;
+              reader.onload = function (e) {
+                img.onload = function () {
+                  OnImageLoaded();
+                };
+                img.src = e.target.result;
+              };
+
+              reader.readAsDataURL(fileElem);
+            }
+            function DrawCanvas(obj, w, h) {
+              obj.width = w;
+              obj.height = h;
+              obj.style.width = w + "px";
+              obj.style.height = h + "px";
+              obj.getContext("2d").drawImage(img, 0, 0, w, h);
+              Grayscale(obj, w, h);
+            }
+            function Grayscale(obj, w, h) {
+              var ctx = obj.getContext("2d");
+              var canvasData = ctx.getImageData(0, 0, width, height);
+              var x, y, i;
+              for (y = 0; y < height; y++)
+                for (x = 0; x < width; x++) {
+                  k = (x + y * width) * 4;
+                  i =
+                    0.2126 * canvasData.data[k + 0] +
+                    0.7152 * canvasData.data[k + 1] +
+                    0.0722 * canvasData.data[k + 2];
+                  i = Math.round(i);
+                  canvasData.data[k + 0] = i;
+                  canvasData.data[k + 1] = i;
+                  canvasData.data[k + 2] = i;
+                  //canvasData.data[i+3] = 255;
+                }
+              ctx.putImageData(canvasData, 0, 0);
+            }
+          </script>
+
+          <div id="ban-ad">
+            <ins
+              class="adsbygoogle adslot_3"
+              data-ad-client="ca-pub-7356419691275579"
+              data-ad-slot="9463417041"
+            ></ins>
+          </div>
+        </div>
+        <div id="fdbk">
+          <h2><a id="feedback"></a>Write how to improve this page</h2>
+          <form id="fdbkform">
+            <textarea
+              id="fdbkarea"
+              rows="4"
+              minlength="30"
+              maxlength="1000"
+              placeholder="Your message ..."
+              required
+              class="form-control"
+            ></textarea>
+            <span id="fdbkmsg"></span>
+            <button type="submit" class="btn btn-secondary" onclick="OnSubFb()">
+              Submit Feedback
+            </button>
+          </form>
+        </div>
+      </div>
+      <div id="rcol">
+        <ins
+          class="adsbygoogle adslot_2"
+          data-ad-client="ca-pub-7356419691275579"
+          data-ad-slot="5385900220"
+        ></ins>
+
+        <h5>IMAGE CONVERSION</h5>
+        <ul>
+          <li><a href="bmp-to-jpg.html">BMP to JPG</a></li>
+          <li><a href="gif-to-jpg.html">GIF to JPG</a></li>
+          <li><a href="gif-to-png.html">GIF to PNG</a></li>
+          <li><a href="jpg-to-bmp.html">JPG to BMP</a></li>
+          <li><a href="jpg-to-gif.html">JPG to GIF</a></li>
+          <li><a href="jpg-to-pdf.html">JPG to PDF</a></li>
+          <li><a href="jpg-to-png.html">JPG to PNG</a></li>
+          <li><a href="png-to-gif.html">PNG to GIF</a></li>
+          <li><a href="png-to-jpg.html">PNG to JPG</a></li>
+          <li><a href="png-to-pdf.html">PNG to PDF</a></li>
+          <li>
+            <a href="rgb-to-grayscale.html">Image to black &amp; white</a>
+          </li>
+        </ul>
+        <h5>RAPID TABLES</h5>
+        <ul>
+          <li>
+            <a
+              href="mailto:?subject=RapidTables%20website&amp;body=Please%20checkout%20this%20site:%20https://www.rapidtables.com"
+              >Recommend Site</a
+            >
+          </li>
+          <li><a href="rgb-to-grayscale.html#feedback">Send Feedback</a></li>
+          <li><a href="../../about/about.html">About</a></li>
+        </ul>
+      </div>
+    </div>
+    <div id="footer">
+      <a href="../../index.html">Home</a> |
+      <a href="../../web/index.html">Web</a> |
+      <a href="../../math/index.html">Math</a> |
+      <a href="../../electric/index.html">Electricity</a> |
+      <a href="../../calc/index.html">Calculators</a> |
+      <a href="../index.html">Converters</a> |
+      <a href="../../tools/index.html">Tools</a>
+      <p>
+        &copy; <a href="../../index.html">RapidTables.com</a> |
+        <a href="../../about/about.html" rel="nofollow">About</a> |
+        <a href="../../about/terms.html" rel="nofollow">Terms of Use</a> |
+        <a href="../../about/privacy.html" rel="nofollow">Privacy Policy</a> |
+        <a href="../../about/cookies.html" rel="nofollow">Manage Cookies</a>
+      </p>
+    </div>
+    <div id="banner">
+      <div>
+        This website uses cookies to improve your experience, analyze traffic
+        and display ads.
+        <a href="../../about/privacy.html">Learn more</a>
+      </div>
+      <div>
+        <a id="banokbtn">OK</a>
+        <a id="bansetbtn" href="../../about/cookies.html">Manage Settings</a>
+      </div>
+    </div>
+  </body>
+</html>
