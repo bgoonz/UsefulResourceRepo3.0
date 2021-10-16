@@ -13,6 +13,6 @@
     "each-component": "segmentio/each#0.1.x"
   },
   "devDependencies": {
-    "mocha": "~1.17.1"
+    "mocha": "1.17.1"
   }
 }

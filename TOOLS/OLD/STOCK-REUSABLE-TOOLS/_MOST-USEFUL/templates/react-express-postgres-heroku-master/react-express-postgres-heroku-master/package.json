@@ -16,7 +16,7 @@
   "author": "Ari Autio <ari.autio@iki.fi>",
   "license": "MIT",
   "devDependencies": {
-    "concurrently": "^3.5.0"
+    "concurrently": "3.5.0"
   },
   "cacheDirectories": [
     "node_modules",

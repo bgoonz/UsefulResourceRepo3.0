@@ -23,7 +23,7 @@
     "aria"
   ],
   "devDependencies": {
-    "handlebars": "^4.0.5",
-    "onchange": "^3.0.2"
+    "handlebars": "4.7.3",
+    "onchange": "3.3.0"
   }
 }
