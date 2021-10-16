@@ -1,0 +1,3 @@
+[console_scripts]
+dtw = dtw.__main__:main
+

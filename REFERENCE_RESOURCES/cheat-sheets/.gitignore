@@ -1,0 +1,8 @@
+# Miscelleaneous
+.DS_Store
+
+# Editors
+.vscode/
+
+# Vim
+*.swp

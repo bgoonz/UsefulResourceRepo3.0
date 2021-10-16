@@ -1,0 +1,117 @@
+The [dtw-python](https://pypi.org/project/dtw-python/) module is a faithful Python equivalent of the R package; it provides the same algorithms and options.
+
+Warning
+
+The (pip) package name is `dtw-python`; the import statement is just `import dtw`.
+
+## Installation
+
+To install the stable version of the package, issue the following command:
+
+```
+pip install dtw-python
+```
+
+## Getting started
+
+Begin from the installed documentation:
+
+```
+> from dtw import *
+> ?dtw
+> help(DTW)
+```
+
+Note
+
+Note: the documentation for the Python module is auto-generated from the R version. It may contain minor inconsistencies.
+
+## Online documentation
+
+The package documentation can also be [browsed online](https://dynamictimewarping.github.io/py-api/html/).
+
+## Quickstart
+
+```
+import numpy as np
+
+
+idx = np.linspace(0,6.28,num=100)
+query = np.sin(idx) + np.random.uniform(size=100)/10.0
+
+
+template = np.cos(idx)
+
+
+from dtw import *
+alignment = dtw(query, template, keep_internals=True)
+
+
+alignment.plot(type="threeway")
+
+
+dtw(query, template, keep_internals=True, 
+    step_pattern=rabinerJuangStepPattern(6, "c"))\
+    .plot(type="twoway",offset=-2)
+
+
+print(rabinerJuangStepPattern(6,"c"))
+rabinerJuangStepPattern(6,"c").plot()
+
+
+```
+
+[![](https://dynamictimewarping.github.io/py-images/thumbs/Figure_1.png)](https://dynamictimewarping.github.io/py-images/Figure_1.png) [![](https://dynamictimewarping.github.io/py-images/thumbs/Figure_2.png)](https://dynamictimewarping.github.io/py-images/Figure_2.png) [![](https://dynamictimewarping.github.io/py-images/thumbs/Figure_3.png)](https://dynamictimewarping.github.io/py-images/Figure_3.png)    [Try online!](https://colab.research.google.com/drive/1-fbhBlKRrEG8jkqoBAWOAzWaOarDQcDp)
+
+## Differences with R
+
+### Indices are 0-based
+
+R uses 1-based indexing, whereas Python uses 0-based arrays. Wherever indices are returned (most importantly in the `.index1`, `.index2`, `.index1s` and `.index2s` attributes of alignments), these must be assumed to be 0-based in Python. Hence, indices can be used as subscripts in both environments as natural.
+
+### Object-oriented methods
+
+Python OO method calls use the postfix "dot" notation. This mostly affects the `plot()` methods. Note that non-overloaded functional style such as `dtwPlotThreeWay` are unaffected. Hence:
+
+```
+
+plot(alignment, type="threeway")
+
+
+alignment.plot(type="threeway")
+
+dtwPlotThreeWay(alignment)
+```
+
+### The alignment class
+
+The class name of alignment objects in `DTW` (all capitals) in Python. Its attributes are accessed with the usual "dot" notation (R uses `$` as for lists).
+
+### Dots vs underscores
+
+R commonly uses the dot (`.`) separator for function argument names, while Python uses the underscore (`_`) for the same purpose. The function prototypes reflect this difference. Also, Python does not accept abbreviated argument names. Therefore:
+
+```
+
+alignment = dtw(query, template, keep.int=TRUE)
+
+
+alignment = dtw(query, template, keep_internals=True)
+```
+
+### Plots
+
+The graphing functions have been re-implemented within the `matplotlib` framework. They return `axes` objects, which can be used to customize the plot appearance.
+
+## Installation notes
+
+Pre-installing the `scipy` and `numpy` packages (e.g. with `conda`) will speed up installation.
+
+The errors `undefined symbol: alloca` (at runtime), or about C99 mode (if compiling from source), are likely due to old system or compiler. If using `conda`, the following may help:
+
+```
+conda install gcc_linux-64
+pip install dtw-python
+```
+
+Note that you may have to delete cached `.whl` files.

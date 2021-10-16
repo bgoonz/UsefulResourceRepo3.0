@@ -1,0 +1,73 @@
+[![Latest Version on npm](https://img.shields.io/npm/v/dynamic-time-warping.svg?style=flat-square)](https://www.npmjs.com/package/dynamic-time-warping) [![Software License](https://img.shields.io/github/license/GordonLesti/dynamic-time-warping.svg?style=flat-square)](https://github.com/GordonLesti/dynamic-time-warping/blob/HEAD/LICENSE.md) [![Build Status](https://img.shields.io/travis/GordonLesti/dynamic-time-warping/master.svg?style=flat-square)](https://travis-ci.org/GordonLesti/dynamic-time-warping) [![Coverage Status](https://img.shields.io/coveralls/GordonLesti/dynamic-time-warping/master.svg?style=flat-square)](https://coveralls.io/r/GordonLesti/dynamic-time-warping) [![Total Downloads](https://img.shields.io/npm/dt/dynamic-time-warping.svg?style=flat-square)](https://www.npmjs.com/package/dynamic-time-warping)
+
+[Dynamic time warping](https://en.wikipedia.org/wiki/Dynamic_time_warping) for Javascript. As simple usecase would be [Touch signature identification with Javascript](https://gordonlesti.com/touch-signature-identification-with-javascript/) for example.
+
+## Install
+
+Several quick start options are available:
+
+-   [Download the latest release](https://github.com/GordonLesti/dynamic-time-warping/releases/latest).
+-   Clone the repo: `git clone https://github.com/GordonLesti/dynamic-time-warping.git`.
+-   Install with [npm](https://www.npmjs.com/): `npm install dynamic-time-warping`.
+-   Install with [Bower](http://bower.io/): `bower install dynamic-time-warping`.
+
+Include script (unless you are packaging scripts somehow else):
+
+<script src\="/path/to/dynamic-time-warping.js"\></script\>
+
+The plugin can also be loaded as AMD or Node module.
+
+## Usage
+
+### Initialization
+
+`DynamicTimeWarping` needs two arrays containing objects of the the same type and function that calculates the distance between two objects and returns a float.
+
+var ser1 \= \[ 9, 93, 15, 19, 24 \];
+
+var ser2 \= \[ 31, 97, 81, 82, 39 \];
+
+var distFunc \= function( a, b ) {
+
+ return Math.abs( a \- b );
+
+};
+
+var dtw \= new DynamicTimeWarping(ser1, ser2, distFunc);
+
+### getDistance
+
+Will return the distance of the dynamic time warping as float.
+
+var dist \= dtw.getDistance();
+
+### getPath
+
+Will return the path of the dynamic time warping as array of arrays with two integers.
+
+var dist \= dtw.getPath();
+
+## Change log
+
+Please see [CHANGELOG](https://github.com/GordonLesti/dynamic-time-warping/blob/HEAD/CHANGELOG.md) for more information what has changed recently.
+
+## Testing
+
+$ grunt
+
+## Contributing
+
+Please see [CONTRIBUTING](https://github.com/GordonLesti/dynamic-time-warping/blob/HEAD/CONTRIBUTING.md) and [CONDUCT](https://github.com/GordonLesti/dynamic-time-warping/blob/HEAD/CONDUCT.md) for details.
+
+## Security
+
+If you discover any security related issues, please email [info@gordonlesti.com](mailto:info@gordonlesti.com) instead of using the issue tracker.
+
+## Credits
+
+-   [Gordon Lesti](https://gordonlesti.com/)
+-   [All Contributors](https://github.com/GordonLesti/dynamic-time-warping/contributors)
+
+## License
+
+The MIT License (MIT). Please see [License File](https://github.com/GordonLesti/dynamic-time-warping/blob/HEAD/LICENSE.md) for more information.

@@ -1,0 +1,153 @@
+Let’s assume we have two sequences like the following:
+
+_𝑋=𝑥\[1\], 𝑥\[2\], …, x\[i\], …, x\[n\]_
+
+_Y=y\[1\], y\[2\], …, y\[j\], …, y\[m\]_
+
+The sequences 𝑋 and 𝑌 can be arranged to form an 𝑛-by-𝑚 grid, where each point (𝑖, j) is the alignment between 𝑥\[𝑖\] and 𝑦\[𝑗\].
+
+A warping path 𝑊 maps the elements of 𝑋 and 𝑌 to minimize the _distance_ between them. 𝑊 is a sequence of grid points (𝑖, 𝑗). We will see an example of the warping path later.
+
+## Warping Path and DTW distance
+
+The Optimal path to (𝑖\_𝑘, 𝑗\_𝑘) can be computed by:
+
+![](https://miro.medium.com/max/60/1*8hJEJWuxrccwCMuUG_aPbQ.png?q=20)
+
+![](https://miro.medium.com/max/1400/1*8hJEJWuxrccwCMuUG_aPbQ.png)
+
+where 𝑑 is the Euclidean distance. Then, the overall path cost can be calculated as
+
+![](https://miro.medium.com/max/60/1*2OGDOJ-a0zTO_9T1FIGejQ.png?q=20)
+
+![](https://miro.medium.com/max/604/1*2OGDOJ-a0zTO_9T1FIGejQ.png)
+
+The warping path is found using a dynamic programming approach to align two sequences. Going through all possible paths is “combinatorically explosive” \[1\]. Therefore, for efficiency purposes, it’s important to limit the number of possible warping paths, and hence the following constraints are outlined:
+
+-   **Boundary Condition**: This constraint ensures that the warping path begins with the start points of both signals and terminates with their endpoints.
+
+![](https://miro.medium.com/max/60/1*SHsmQu2TqpaDyIArn2snzg.png?q=20)
+
+![](https://miro.medium.com/max/1004/1*SHsmQu2TqpaDyIArn2snzg.png)
+
+-   **Monotonicity condition**: This constraint preserves the time-order of points (not going back in time).
+
+![](https://miro.medium.com/max/60/1*RNg2VENGaWoyvGrvyeg61A.png?q=20)
+
+![](https://miro.medium.com/max/692/1*RNg2VENGaWoyvGrvyeg61A.png)
+
+-   **Continuity (step size) condition**: This constraint limits the path transitions to adjacent points in time (not jumping in time).
+
+![](https://miro.medium.com/max/60/1*lU99pFyomdPeaHuR26bDyA.png?q=20)
+
+![](https://miro.medium.com/max/928/1*lU99pFyomdPeaHuR26bDyA.png)
+
+In addition to the above three constraints, there are other less frequent conditions for an allowable warping path:
+
+-   **Warping window condition**: Allowable points can be restricted to fall within a given warping window of width 𝜔 (a positive integer).
+
+![](https://miro.medium.com/max/60/1*9apgwkXeU3gOHLudFsIosA.png?q=20)
+
+![](https://miro.medium.com/max/374/1*9apgwkXeU3gOHLudFsIosA.png)
+
+-   **Slope condition**: The warping path can be constrained by restricting the slope, and consequently avoiding extreme movements in one direction.
+
+An acceptable warping path has combinations of **chess king** moves that are:
+
+-   Horizontal moves: (𝑖, 𝑗) → (𝑖, 𝑗+1)
+-   Vertical moves: (𝑖, 𝑗) → (𝑖+1, 𝑗)
+-   Diagonal moves: (𝑖, 𝑗) → (𝑖+1, 𝑗+1)
+
+Let’s import all python packages we need.
+
+import pandas as pd  
+import numpy as np\# Plotting Packages  
+import matplotlib.pyplot as plt  
+import seaborn as sbn\# Configuring Matplotlib  
+import matplotlib as mpl  
+mpl.rcParams\['figure.dpi'\] = 300  
+savefig\_options = dict(format="png", dpi=300, bbox\_inches="tight")\# Computation packages  
+from scipy.spatial.distance import euclidean  
+from fastdtw import fastdtw
+
+Let’s define a method to compute the accumulated cost matrix _D_ for the warp path. The cost matrix uses the Euclidean distance to calculate the distance between every two points. The methods to compute the Euclidean distance matrix and accumulated cost matrix are defined below:
+
+In this example, we have two sequences _x_ and _y_ with different lengths.
+
+\# Create two sequences  
+x = \[3, 1, 2, 2, 1\]  
+y = \[2, 0, 0, 3, 3, 1, 0\]
+
+We cannot calculate the Euclidean distance between _x_ and _y_ since they don’t have equal lengths.
+
+![](https://miro.medium.com/max/60/1*ADzLGLGGq13onO72EO_ZpQ.png?q=20)
+
+![](https://miro.medium.com/max/1400/1*ADzLGLGGq13onO72EO_ZpQ.png)
+
+Example 1: Euclidean distance between _x_ and y (is it possible? 🤔) (Image by Author)
+
+Many Python packages calculate the DTW by just providing the sequences and the type of distance (usually Euclidean). Here, we use a popular Python implementation of DTW that is [FastDTW](https://github.com/slaypni/fastdtw) which is an approximate DTW algorithm with lower time and memory complexities \[2\].
+
+dtw\_distance, warp\_path = fastdtw(x, y, dist=euclidean)
+
+Note that we are using [SciPy](https://pypi.org/project/scipy/)’s distance function _Euclidean_ that we imported earlier. For a better understanding of the warp path, let’s first compute the accumulated cost matrix and then visualize the path on a grid. The following code will plot a heatmap of the accumulated cost matrix.
+
+cost\_matrix = compute\_accumulated\_cost\_matrix(x, y)
+
+Example 1: Python code to plot (and save) the heatmap of the accumulated cost matrix
+
+![](https://miro.medium.com/max/54/1*PIKZAwsV15NBvqkh9N1KMg.png?q=20)
+
+![](https://miro.medium.com/max/834/1*PIKZAwsV15NBvqkh9N1KMg.png)
+
+Example 1: Accumulated cost matrix and warping path (Image by Author)
+
+The color bar shows the cost of each point in the grid. As can be seen, the warp path (blue line) is going through the lowest cost on the grid. Let’s see the DTW distance and the warping path by printing these two variables.
+
+\>>> DTW distance:  6.0  
+\>>> Warp path: \[(0, 0), (1, 1), (1, 2), (2, 3), (3, 4), (4, 5), (4, 6)\]
+
+The warping path starts at point (0, 0) and ends at (4, 6) by 6 moves. Let’s also calculate the accumulated cost most using the functions we defined earlier and compare the values with the heatmap.
+
+cost\_matrix = compute\_accumulated\_cost\_matrix(x, y)  
+print(np.flipud(cost\_matrix)) # Flipping the cost matrix for easier comparison with heatmap values!\>>> \[\[32. 12. 10. 10.  6.\]    
+     \[23. 11.  6.  6.  5.\]     
+     \[19. 11.  5.  5.  9.\]    
+     \[19.  7.  4.  5.  8.\]    
+     \[19.  3.  6. 10.  4.\]    
+     \[10.  2.  6.  6.  3.\]    
+     \[ 1.  2.  2.  2.  3.\]\]
+
+The cost matrix is printed above has similar values to the heatmap.
+
+Now let’s plot the two sequences and connect the mapping points. The code to plot the DTW distance between _x_ and _y_ is given below.
+
+Example 1: Python code to plot (and save) the DTW distance between x and y
+
+![](https://miro.medium.com/max/60/1*bF9I-49iVW9b2MvDbRBZxA.png?q=20)
+
+![](https://miro.medium.com/max/1400/1*bF9I-49iVW9b2MvDbRBZxA.png)
+
+Example 1: DTW distance between _x_ and y (Image by Author)
+
+In this example, we will use two sinusoidal signals and see how they will be matched by calculating the DTW distance between them.
+
+Example 2: Generate two sinusoidal signals (x1 and x2) with different lengths
+
+Just like Example 1, let’s calculate the DTW distance and the warp path for _x1_ and _x2_ signals using FastDTW package.
+
+distance, warp\_path = fastdtw(x1, x2, dist=euclidean)
+
+Example 2: Python code to plot (and save) the DTW distance between x1 and x2
+
+![](https://miro.medium.com/max/60/1*Bzubc5uGFXd_-Sj7W_QFjg.png?q=20)
+
+![](https://miro.medium.com/max/1400/1*Bzubc5uGFXd_-Sj7W_QFjg.png)
+
+Example 2: DTW distance between _x1_ and x2 (Image by Author)
+
+As can be seen in above figure, the DTW distance between the two signals is particularly powerful when the signals have similar patterns. The extrema (maximum and minimum points) between the two signals are correctly mapped. Moreover, unlike Euclidean distance, we may see many-to-one mapping when DTW distance is used, particularly if the two signals have different lengths.
+
+You may spot an issue with dynamic time warping from the figure above. Can you guess what it is?
+
+The issue is around the head and tail of time-series that do not properly match. This is because the DTW algorithm cannot afford the warping invariance for at the endpoints. In short, the effect of this is that a small difference at the sequence endpoints will tend to contribute disproportionately to the estimated similarity\[3\].

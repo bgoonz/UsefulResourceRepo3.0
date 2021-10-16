@@ -1,0 +1,121 @@
+[
+
+![](https://miro.medium.com/max/1400/0*TSjK7D8GyASgmfMQ)
+
+](http://www.track.datadriveninvestor.com/1B9E)
+
+## Algorithm for Time Series Analysis
+
+[![Chathurangi Shyalika](https://miro.medium.com/fit/c/96/96/1*OJ941oqMWA7uyZntP38fmg.png)](https://medium.com/@chathurangijks?source=post_page-----d51d1a1e4afc--------------------------------)
+
+A **Time Series** is a series of data points indexed in time order. Commonly, a time series is a sequence taken at successive equally spaced points in time.
+
+![](https://miro.medium.com/max/738/1*DGJWFit8SKQljb4QTj0DfQ.png)
+
+Figure: Example Time Series A & B
+
+**Dynamic Time Warping** (**DTW**) is one of the algorithms for measuring the similarity between two temporal time series sequences, which may vary in speed.
+
+The objective of time series comparison methods is to produce a distance metric between two input time series. The similarity or dissimilarity of two-time series is typically calculated by converting the data into vectors and calculating the Euclidean distance between those points in vector space.
+
+In general, DTW is a method that calculates an optimal match between two given sequences with certain restrictions. Simply, it is used to measure the distance between two-time series.
+
+![](https://miro.medium.com/max/714/1*tTb-AWg4ZkgKS3nQvtniTw.png)
+
+Compare Time Series using Euclidean/Manhattan Distance
+
+Any distance (Euclidean, Manhattan, …) between the two-time series can be used for the comparison. Here the i-th point on one time series is aligned with the i-th point on the other. This will produce a **poor similarity score**.
+
+![](https://miro.medium.com/max/698/1*2mIKu3qZYY_e1FYBhKD8Tw.png)
+
+Compare Time Series using DTW
+
+DTW gives a non-linear (elastic) alignment between two-time series. Simply, it looks for the best alignment between the two-time series. This produces a **more intuitive similarity measure**, allowing similar shapes to match even if they are out of phase in the time axis.
+
+Let’s take the two-time series above, time series A, which is in blue and B, which is in green.
+
+The basis of DTW is found on the computations of **distance /confusion matrix** between two-time series. It can be shown in the below figure (a).
+
+In figure (a), values of time series A has been plotted in the x axis and values of time series B has been plotted in the y axis.
+
+The best alignment is shown by the green lines in (b). The red lines in (b) stand for the red points in the confusion matrix.
+
+![](https://miro.medium.com/max/1400/1*xC66E1ENK6HO2Z_FRFv25A.png)
+
+(a) Distance / Confusion matrix (b) DTW
+
+![](https://miro.medium.com/max/882/1*2KNMT_Oezrcxbonc_QDrUg.png)
+
+Calculation of Warping function
+
+To find the best alignment between **_A_** and **_B_**, we need to find the path through the grid.
+
+**P = p1,…,ps,…,pk  
+ps = (is,js)  
+**which minimizes the total distance between them.
+
+Here **P** is called a **Warping Function.**
+
+Time-normalized distance between A and B is given by:
+
+![](https://miro.medium.com/max/754/1*-_s3AWfIf43aFfNGAC7xUQ.png)
+
+where**;  
+d(ps)**: distance between is and js   
+**ws > 0**:weighting coefficientBest alignment path between A and B: **Po=arg(p)min(D(A,B))**.
+
+This defines the alignment path starts at the bottom left and ends at the top right.
+
+ **_i1= 1, ik =n and j1 = 1, jk = m_**
+
+![](https://miro.medium.com/max/592/1*5QBh25kkPIh23UA5trN9IA.png)
+
+Boundary Conditions of a DTW (Source:[link](http://www.mathcs.emory.edu/~lxiong/cs730_s13/share/slides/searching_sigkdd2012_DTW.pdf))
+
+Boundary guarantees that the alignment does not consider partially one of the sequences.
+
+A good alignment path is one that wanders too far from the diagonal.
+
+**_|is–js|≤ r, where r > 0_** is the window length.
+
+![](https://miro.medium.com/max/670/1*RCKFYyqNWWxLcDYtg-rjEg.png)
+
+Warping Window of a DTW (Source:[link](http://www.mathcs.emory.edu/~lxiong/cs730_s13/share/slides/searching_sigkdd2012_DTW.pdf))
+
+Warping window guarantees that the alignment does not try to skip different features and gets stuck at similar features.
+
+Following steps elaborate on the function of DTW Algorithm.
+
+![](https://miro.medium.com/max/898/1*4ha-BBI5oKK-y3WHakePmg.png)
+
+Illustration on How DTW Works
+
+> Start with the calculation of g(1,1) = d(1,1).
+> 
+> Calculate the first row g(i, 1) =g(i–1, 1) + d(i, 1).
+> 
+> Calculate the first column g(1, j) =g(1, j) + d(1, j).
+> 
+> Move to the second row g(i, 2) = min(g(i, 1), g(i–1, 1), g(i –1, 2)) + d(i, 2). Book keep for each cell the index of this neighboring cell, which contributes the minimum score (red arrows).
+> 
+> Carry on from left to right and from bottom to top with the rest of the grid g(i,j) = min(g(i, j–1), g(i–1, j–1), g(i –1, j)) + d(i, j).
+> 
+> Trace back the best path through the grid starting from g(n, m)and moving towards g(1,1) by following the red arrows.
+
+The complexity of computing DTW is **O(m \* n)** where **m** and **n** represent the length of each sequence.
+
+Faster techniques for computing DTW include **PrunedDTW**, **SparseDTW** and **FastDTW**.
+
+1.  To detect similarities in walking. If one person was walking faster than the other, or if there were accelerations and decelerations during the course of an observation.
+2.  Spoken word recognition applications. Used to match a sample voice command with others command even if the person talks faster or slower than the prerecorded sample voice.
+3.  Correlation power analysis
+
+\[1\] [http://web.science.mq.edu.au/~cassidy/comp449/html/ch11s02.html](http://web.science.mq.edu.au/~cassidy/comp449/html/ch11s02.html)
+
+\[2\] [https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html](https://databricks.com/blog/2019/04/30/understanding-dynamic-time-warping.html)
+
+\[3\] [http://www.mathcs.emory.edu/~lxiong/cs730\_s13/share/slides/searching\_sigkdd2012\_DTW.pdf](http://www.mathcs.emory.edu/~lxiong/cs730_s13/share/slides/searching_sigkdd2012_DTW.pdf)
+
+\[4\] [https://riptutorial.com/algorithm/example/24981/introduction-to-dynamic-time-warping](https://riptutorial.com/algorithm/example/24981/introduction-to-dynamic-time-warping)
+
+\[5\] [http://www.speech.zone/exercises/dtw-in-python/the-final-dtw-code/](http://www.speech.zone/exercises/dtw-in-python/the-final-dtw-code/)
