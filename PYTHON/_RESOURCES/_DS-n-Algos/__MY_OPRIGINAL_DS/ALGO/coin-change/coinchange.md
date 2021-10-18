@@ -1,23 +1,14 @@
-There are only two ways to make change for 6 cents, but f(6) = 3. f gives the number of ways of making 5 cents and
-adding a penny, plus the number of ways of making 1 cent and adding a nickel. When changing money, we would like
-"1 penny, l nickel" and "l nickel, l penny" to be considered as just one way of making change for 6 cents.
-We can fix this by adding each type of coin in turn; we will not be able to count different orderings twice if there are
-no different orderings.
-By increasing the dimension of the recurrence relation. we keep track of enough information to actually solve the
-problem.
+There are only two ways to make change for 6 cents, but f(6) = 3. f gives the number of ways of making 5 cents and adding a penny, plus the number of ways of making 1 cent and adding a nickel. When changing money, we would like "1 penny, l nickel" and "l nickel, l penny" to be considered as just one way of making change for 6 cents. We can fix this by adding each type of coin in turn; we will not be able to count different orderings twice if there are no different orderings. By increasing the dimension of the recurrence relation. we keep track of enough information to actually solve the problem.
 
 ---
 
-> The boundary cases assert that there is exactly one way to make change for 0 cents using a positive number of coins.
-> but there are no ways to make change for negative amounts, or using no coins.
+> The boundary cases assert that there is exactly one way to make change for 0 cents using a positive number of coins. but there are no ways to make change for negative amounts, or using no coins.
 
 ---
 
-In the non-boundary case. the number of ways of making change using the first k types of coin is the number of ways
-that don't use that coin, together with the number of ways that do.
+In the non-boundary case. the number of ways of making change using the first k types of coin is the number of ways that don't use that coin, together with the number of ways that do.
 
-First. the number of ways of making change using only the first type of coin. (which is always assumed to be I in this
-sort of problem so that change can be made for any integral amount). is always exactly 1.
+First. the number of ways of making change using only the first type of coin. (which is always assumed to be I in this sort of problem so that change can be made for any integral amount). is always exactly 1.
 
 ---
 
@@ -61,14 +52,14 @@ function waysToReturnMemoize(amount, denominations) {
 }
 var denominations = [1, 2, 3];
 var amount = 4;
-console.time("answer time");
+console.time('answer time');
 console.log(
   waysToReturnChange(denominations, denominations.length - 1, amount)
 );
-console.timeEnd("answer time");
-console.time("answer time1");
+console.timeEnd('answer time');
+console.time('answer time1');
 console.log(waysToReturnMemoize(amount, denominations));
-console.timeEnd("answer time1");
+console.timeEnd('answer time1');
 /*
 node memo-coin-change.js
 checking ways to make 4 with 3

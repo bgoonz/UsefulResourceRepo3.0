@@ -35,24 +35,24 @@ D> The process will be repeated until the number becomes zero. */
 
 const intToRoman = (num) => {
   const romanNumeral = [
-    "M",
-    "CM",
-    "D",
-    "CD",
-    "C",
-    "XC",
-    "L",
-    "XL",
-    "X",
-    "IX",
-    "V",
-    "IV",
-    "I",
+    'M',
+    'CM',
+    'D',
+    'CD',
+    'C',
+    'XC',
+    'L',
+    'XL',
+    'X',
+    'IX',
+    'V',
+    'IV',
+    'I',
   ];
 
   const decimalValue = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
 
-  let result = "";
+  let result = '';
 
   decimalValue.forEach((dValue, i) => {
     if (num >= dValue) {
@@ -102,17 +102,17 @@ Output obtained MMMDXLIX.*/
 const intToRomanAlt = (num) => {
   // First creat 4 arrays for each of roman numberals equivalent for decimal's 1-digit, 2-digit, 3-digit, 4-digit numbers.
 
-  const M = ["", "M", "MM", "MMM"];
-  const C = ["", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"];
-  const X = ["", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"];
-  const I = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX"];
+  const M = ['', 'M', 'MM', 'MMM'];
+  const C = ['', 'C', 'CC', 'CCC', 'CD', 'D', 'DC', 'DCC', 'DCCC', 'CM'];
+  const X = ['', 'X', 'XX', 'XXX', 'XL', 'L', 'LX', 'LXX', 'LXXX', 'XC'];
+  const I = ['', 'I', 'II', 'III', 'IV', 'V', 'VI', 'VII', 'VIII', 'IX'];
 
   return [
     M[parseInt(num / 1000)],
     C[parseInt((num % 1000) / 100)],
     X[parseInt((num % 100) / 10)],
     I[num % 10],
-  ].join("");
+  ].join('');
 };
 
 // console.log(intToRomanAlt(3549));

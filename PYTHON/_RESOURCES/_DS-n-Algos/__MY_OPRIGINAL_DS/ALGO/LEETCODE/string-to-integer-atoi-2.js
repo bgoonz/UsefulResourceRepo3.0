@@ -12,8 +12,8 @@ B> JavaScript's highest integer value that a number can go to without losing pre
 
 myAtoi = (str) => {
   let i = 0,
-    numSign = "+",
-    number = "",
+    numSign = '+',
+    number = '',
     finalOutputNum = 0,
     base10Multiplier = 1;
 
@@ -21,10 +21,10 @@ myAtoi = (str) => {
 
   // First move i forward and update sign to take up '-' if '-' is found
   // And if a '+' is found just treat it, as if there was nothing before the number and check-out the next number to start building the number with the next loop
-  if (str[0] === "+") {
+  if (str[0] === '+') {
     i++;
-  } else if (str[0] === "-") {
-    numSign = "-";
+  } else if (str[0] === '-') {
+    numSign = '-';
     i++;
   }
 
@@ -35,7 +35,7 @@ myAtoi = (str) => {
     if (str[i].charCodeAt(0) >= 48 && str[i].charCodeAt(0) <= 57) {
       number += str[i];
     } else {
-      if (number === "") {
+      if (number === '') {
         return 0;
       } else {
         break;
@@ -48,14 +48,14 @@ myAtoi = (str) => {
     finalOutputNum += base10Multiplier * number[i];
     base10Multiplier *= 10;
 
-    if (finalOutputNum > 2147483647 && numSign === "+") {
+    if (finalOutputNum > 2147483647 && numSign === '+') {
       return 2147483647;
-    } else if (finalOutputNum > 2147483648 && numSign === "-") {
+    } else if (finalOutputNum > 2147483648 && numSign === '-') {
       return -2147483648;
     }
   }
 
-  return numSign === "-" ? -1 * finalOutputNum : finalOutputNum;
+  return numSign === '-' ? -1 * finalOutputNum : finalOutputNum;
 };
 
-console.log(myAtoi("+1")); // => 1
+console.log(myAtoi('+1')); // => 1

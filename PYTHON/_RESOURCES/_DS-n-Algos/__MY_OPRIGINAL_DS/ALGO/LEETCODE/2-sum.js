@@ -75,7 +75,7 @@ We reduce the look up time from O(n)O(n) to O(1)O(1) by trading space for speed.
 function twoSum_O_n_time(arr, target) {
   let numObject = {};
   for (var i = 0; i < arr.length; i++) {
-    let thisNum = "" + arr[i];
+    let thisNum = '' + arr[i];
     numObject[thisNum] = i;
   }
   for (var i = 0; i < arr.length; i++) {
@@ -130,24 +130,24 @@ const arr = Array.from(
   () => Math.floor(Math.random() * 3000)
 );
 
-console.time("Solution-1-Brute Force");
+console.time('Solution-1-Brute Force');
 twoSum(arr, arr[668] + arr[1669]);
-console.timeEnd("Solution-1-Brute Force");
+console.timeEnd('Solution-1-Brute Force');
 
-console.log("*******************************");
+console.log('*******************************');
 
-console.time("Solution-2-Slightly Improved");
+console.time('Solution-2-Slightly Improved');
 twoSumAlt(arr, arr[668] + arr[1669]);
-console.timeEnd("Solution-2-Slightly Improved");
+console.timeEnd('Solution-2-Slightly Improved');
 
-console.log("*******************************");
+console.log('*******************************');
 
-console.time("Solution-3-O(n) time with HashMap");
+console.time('Solution-3-O(n) time with HashMap');
 twoSum_O_n_time(arr, arr[668] + arr[1669]);
-console.timeEnd("Solution-3-O(n) time with HashMap");
+console.timeEnd('Solution-3-O(n) time with HashMap');
 
-console.log("*******************************");
+console.log('*******************************');
 
-console.time("Solution-4-Even more efficient solution");
+console.time('Solution-4-Even more efficient solution');
 twoSumBest(arr, arr[668] + arr[1669]);
-console.timeEnd("Solution-4-Even more efficient solution");
+console.timeEnd('Solution-4-Even more efficient solution');

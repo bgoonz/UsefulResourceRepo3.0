@@ -54,7 +54,7 @@ C> Now I only have to find the minimum numerical difference of all other element
 
 */
 var shortestToChar = (S, C) => {
-  let all_CIndexPositions = S.split("").reduce(
+  let all_CIndexPositions = S.split('').reduce(
     (accumulator, element, index) => {
       if (element === C) {
         accumulator.push(index);
@@ -64,7 +64,7 @@ var shortestToChar = (S, C) => {
     []
   );
   // console.log(all_CIndexPositions);
-  let resultElementDistance = S.split("").reduce(
+  let resultElementDistance = S.split('').reduce(
     (accumulator, element, index) => {
       let thisElemIndex = index;
 
@@ -82,4 +82,4 @@ var shortestToChar = (S, C) => {
   return resultElementDistance;
 };
 
-console.log(shortestToChar("loveleetcode", "e"));
+console.log(shortestToChar('loveleetcode', 'e'));

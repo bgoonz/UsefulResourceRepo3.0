@@ -1,5 +1,5 @@
 module.exports = (string) => {
-  let output = "";
+  let output = '';
   const hash = {};
 
   for (let i = 0; i < string.length; i++) {

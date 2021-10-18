@@ -14,13 +14,13 @@ C> And I can bring up reduce() method to access the successive strings of the gi
 // My solution
 const longestCommonPrefix = (strs) => {
   if (strs.length === 0) {
-    return "";
+    return '';
   }
 
   return strs.reduce((accm, next) => {
-    const tmp = accm.split("");
+    const tmp = accm.split('');
     // This tmp variable remains constant throughout the program, which is the first string element of the array split by ''
-    let result = "";
+    let result = '';
 
     for (let i = 0; i < tmp.length; i++) {
       if (tmp[i] !== next[i]) {
@@ -42,15 +42,15 @@ const longestCommonPrefixAlt = (strs) => {
   });
 };
 
-let myStr = ["geeks", "geek", "geezer", "geeksforgeeks"];
+let myStr = ['geeks', 'geek', 'geezer', 'geeksforgeeks'];
 // console.log(longestCommonPrefix(myStr));
 
-console.time("MySolution");
+console.time('MySolution');
 longestCommonPrefix(myStr);
-console.timeEnd("MySolution");
+console.timeEnd('MySolution');
 
-console.log("*******************************");
+console.log('*******************************');
 
-console.time("Alternative-1");
+console.time('Alternative-1');
 longestCommonPrefixAlt(myStr);
-console.timeEnd("Alternative-1");
+console.timeEnd('Alternative-1');

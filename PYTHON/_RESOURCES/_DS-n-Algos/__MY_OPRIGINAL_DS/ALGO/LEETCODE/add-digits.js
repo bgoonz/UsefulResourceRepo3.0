@@ -15,7 +15,7 @@ const addDigits = (num) => {
   if (num < 10) {
     return num;
   } else {
-    const str = num.toString().split("");
+    const str = num.toString().split('');
     const repeatSum = str.reduce((prev, curr) => {
       return parseInt(prev, 10) + parseInt(curr, 10);
     });
@@ -28,7 +28,7 @@ const addDigits = (num) => {
 // Alternative - 2 - Same as above, but more compact
 
 addDigits4 = (num) => {
-  let sum = (num + "").split("").reduce((a, b) => parseInt(a) + parseInt(b), 0);
+  let sum = (num + '').split('').reduce((a, b) => parseInt(a) + parseInt(b), 0);
   return sum >= 10 ? addDigits4(sum) : sum;
 };
 
@@ -69,7 +69,7 @@ addDigits2 = (num) => 1 + ((num - 1) % 9);
 //Alternative-3 without Recursion
 
 addDigits3 = (num) => {
-  num += ""; // This is just converting the number to string, should be equivalent to num.toString()
+  num += ''; // This is just converting the number to string, should be equivalent to num.toString()
 
   while (num.length !== 1) {
     let sum = 0;
@@ -80,7 +80,7 @@ addDigits3 = (num) => {
 
     // Now once the first sum is calculate for the first set of digits, now reset the original num to be equal to sum. So for the next while loop, that number's digits can be summed up
 
-    num = "" + sum;
+    num = '' + sum;
   }
   return parseInt(num);
 };

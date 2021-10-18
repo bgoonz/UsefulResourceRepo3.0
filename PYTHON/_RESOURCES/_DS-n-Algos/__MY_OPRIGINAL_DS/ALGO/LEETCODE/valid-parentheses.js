@@ -17,12 +17,12 @@ C > and all matched parenthesis are popped.*/
 
 const isValid = (s) => {
   const tempArray = [];
-  s.split("").forEach((currentParenthesis) => {
+  s.split('').forEach((currentParenthesis) => {
     const lastUnmatchedParenthesis = tempArray[tempArray.length - 1];
     if (
-      (lastUnmatchedParenthesis === "(" && currentParenthesis === ")") ||
-      (lastUnmatchedParenthesis === "{" && currentParenthesis === "}") ||
-      (lastUnmatchedParenthesis === "[" && currentParenthesis === "]")
+      (lastUnmatchedParenthesis === '(' && currentParenthesis === ')') ||
+      (lastUnmatchedParenthesis === '{' && currentParenthesis === '}') ||
+      (lastUnmatchedParenthesis === '[' && currentParenthesis === ']')
     ) {
       return tempArray.pop();
     } else {
@@ -33,6 +33,6 @@ const isValid = (s) => {
   return tempArray.length === 0;
 };
 
-const str = "(){}[][";
+const str = '(){}[][';
 
 console.log(isValid(str));

@@ -62,6 +62,6 @@ lengthOfLongestSubstring_2 = (s) => {
   return max;
 };
 
-console.log(lengthOfLongestSubstring_2("abcabcbb")); // => 3
-console.log(lengthOfLongestSubstring_2("bbbbb")); // => 1
-console.log(lengthOfLongestSubstring_2("pwwkew")); // => 3
+console.log(lengthOfLongestSubstring_2('abcabcbb')); // => 3
+console.log(lengthOfLongestSubstring_2('bbbbb')); // => 1
+console.log(lengthOfLongestSubstring_2('pwwkew')); // => 3

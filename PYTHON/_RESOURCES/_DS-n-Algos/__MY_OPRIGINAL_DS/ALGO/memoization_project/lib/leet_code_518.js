@@ -24,7 +24,7 @@ Output: 1
 */
 
 let change = (amount, coins, memo = {}) => {
-  let key = amount + "-" + coins;
+  let key = amount + '-' + coins;
   if (key in memo) return memo[key];
   if (amount === 0) return 1;
 

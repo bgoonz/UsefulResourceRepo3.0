@@ -1,7 +1,7 @@
 module.exports = (number) => {
-  const numberString = "" + number;
+  const numberString = '' + number;
   let length = numberString.length - 1;
-  let string = "";
+  let string = '';
   let sorter;
 
   // Loop in reverse comparing all the digits to the one beside it.
@@ -11,7 +11,7 @@ module.exports = (number) => {
       // Start the string using the numbers up until the pivot point.
       string = numberString.substr(0, length);
       // Sort all the numbers after the pivot.
-      sorter = numberString.substr(length).split("").sort();
+      sorter = numberString.substr(length).split('').sort();
 
       // Loop through all the numbers and if the next largest number than the
       // pivot.
@@ -25,7 +25,7 @@ module.exports = (number) => {
       }
 
       // Append the rest of the numbers already in ascending order.
-      string += sorter.join("");
+      string += sorter.join('');
       // Return the string typecast back to a number.
       return +string;
     }

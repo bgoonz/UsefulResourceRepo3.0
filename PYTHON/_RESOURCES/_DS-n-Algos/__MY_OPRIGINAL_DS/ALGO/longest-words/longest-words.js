@@ -5,7 +5,7 @@ module.exports = (string) => {
   let hash = {};
 
   // Simplistic splitting on spaces, could improve to trim punctuation as well.
-  string.split(" ").forEach((word) => {
+  string.split(' ').forEach((word) => {
     // If the word's length is longer than the previous longest, we want to
     // update the length and reset the hash back to be empty.
     if (word.length > length) {

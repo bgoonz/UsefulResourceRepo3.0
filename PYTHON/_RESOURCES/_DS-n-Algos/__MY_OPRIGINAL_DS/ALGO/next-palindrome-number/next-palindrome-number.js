@@ -1,5 +1,5 @@
 module.exports = function nextPalindrome(number) {
-  const numberString = "" + number;
+  const numberString = '' + number;
   const numberLength = numberString.length;
   const oddDigits = numberLength & 1;
   const leftHalf = numberString.substr(0, ~~(numberLength / 2));
@@ -9,7 +9,7 @@ module.exports = function nextPalindrome(number) {
   let reverseString;
 
   reverseString = (string) => {
-    return string.length > 1 ? string.split("").reverse().join("") : string;
+    return string.length > 1 ? string.split('').reverse().join('') : string;
   };
 
   if (oddDigits) {
@@ -24,7 +24,7 @@ module.exports = function nextPalindrome(number) {
     return newNumber;
   }
 
-  if (middleNumber === "9") {
+  if (middleNumber === '9') {
     return nextPalindrome(+numberString[0] * Math.pow(10, numberLength));
   } else {
     return newNumber + increment;
