@@ -1,39 +1,18 @@
-Implementing MapReduce
-======================
+# Implementing MapReduce
 
-The `Pool` class can be used to create a simple single-server MapReduce
-implementation. Although it does not give the full benefits of
-distributed processing, it does illustrate how easy it is to break some
-problems down into distributable units of work.
+The `Pool` class can be used to create a simple single-server MapReduce implementation. Although it does not give the full benefits of distributed processing, it does illustrate how easy it is to break some problems down into distributable units of work.
 
-In a MapReduce-based system, input data is broken down into chunks for
-processing by different worker instances. Each chunk of input data is
-*mapped* to an intermediate state using a simple transformation. The
-intermediate data is then collected together and partitioned based on a
-key value so that all of the related values are together. Finally, the
-partitioned data is *reduced* to a result set.
+In a MapReduce-based system, input data is broken down into chunks for processing by different worker instances. Each chunk of input data is _mapped_ to an intermediate state using a simple transformation. The intermediate data is then collected together and partitioned based on a key value so that all of the related values are together. Finally, the partitioned data is _reduced_ to a result set.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_mapreduce.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_mapreduce.py :::
 
-The following example script uses SimpleMapReduce to counts the
-\"words\" in the reStructuredText source for this article, ignoring some
-of the markup.
+The following example script uses SimpleMapReduce to counts the \"words\" in the reStructuredText source for this article, ignoring some of the markup.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_wordcount.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_wordcount.py :::
 
-The `file_to_words()` function converts each input file to a sequence of
-tuples containing the word and the number `1` (representing a single
-occurrence). The data is divided up by `partition()` using the word as
-the key, so the resulting structure consists of a key and a sequence of
-`1` values representing each occurrence of the word. The partitioned
-data is converted to a set of tuples containing a word and the count for
-that word by `count_words()` during the reduction phase.
+The `file_to_words()` function converts each input file to a sequence of tuples containing the word and the number `1` (representing a single occurrence). The data is divided up by `partition()` using the word as the key, so the resulting structure consists of a key and a sequence of `1` values representing each occurrence of the word. The partitioned data is converted to a set of tuples containing a word and the count for that word by `count_words()` during the reduction phase.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u multiprocessing_wordcount.py
 
 ForkPoolWorker-1 reading basics.rst

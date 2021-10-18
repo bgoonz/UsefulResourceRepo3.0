@@ -1,50 +1,28 @@
-imaplib \-\-- IMAP4 Client Library
-==================================
+# imaplib \-\-- IMAP4 Client Library
 
-::: {.module synopsis="IMAP4 client library"}
-imaplib
-:::
+::: {.module synopsis="IMAP4 client library"} imaplib :::
 
 Purpose
 
-:   Client library for IMAP4 communication.
+: Client library for IMAP4 communication.
 
-`imaplib` implements a client for communicating with Internet Message
-Access Protocol (IMAP) version 4 servers. The IMAP protocol defines a
-set of commands sent to the server and the responses delivered back to
-the client. Most of the commands are available as methods of the `IMAP4`
-object used to communicate with the server.
+`imaplib` implements a client for communicating with Internet Message Access Protocol (IMAP) version 4 servers. The IMAP protocol defines a set of commands sent to the server and the responses delivered back to the client. Most of the commands are available as methods of the `IMAP4` object used to communicate with the server.
 
-These examples discuss part of the IMAP protocol, but are by no means
-complete. Refer to RFC 3501 for complete details.
+These examples discuss part of the IMAP protocol, but are by no means complete. Refer to RFC 3501 for complete details.
 
-Variations
-----------
+## Variations
 
-There are three client classes for communicating with servers using
-various mechanisms. The first, `IMAP4`, uses clear text sockets;
-`IMAP4_SSL` uses encrypted communication over SSL sockets; and
-`IMAP4_stream` uses the standard input and standard output of an
-external command. All of the examples here will use `IMAP4_SSL`, but the
-APIs for the other classes are similar.
+There are three client classes for communicating with servers using various mechanisms. The first, `IMAP4`, uses clear text sockets; `IMAP4_SSL` uses encrypted communication over SSL sockets; and `IMAP4_stream` uses the standard input and standard output of an external command. All of the examples here will use `IMAP4_SSL`, but the APIs for the other classes are similar.
 
-Connecting to a Server
-----------------------
+## Connecting to a Server
 
-There are two steps for establishing a connection with an IMAP server.
-First, set up the socket connection itself. Second, authenticate as a
-user with an account on the server. The following example code will read
-server and user information from a configuration file.
+There are two steps for establishing a connection with an IMAP server. First, set up the socket connection itself. Second, authenticate as a user with an account on the server. The following example code will read server and user information from a configuration file.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_connect.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_connect.py :::
 
-When run, `open_connection()` reads the configuration information from a
-file in the user\'s home directory, then opens the `IMAP4_SSL`
-connection and authenticates.
+When run, `open_connection()` reads the configuration information from a file in the user\'s home directory, then opens the `IMAP4_SSL` connection and authenticates.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_connect.py
 
 Connecting to pymotw.hellfly.net
@@ -52,22 +30,17 @@ Logging in as example
 <imaplib.IMAP4_SSL object at 0x10421e320>
 ```
 
-The other examples in this section reuse this module, to avoid
-duplicating the code.
+The other examples in this section reuse this module, to avoid duplicating the code.
 
 ### Authentication Failure
 
-If the connection is established but authentication fails, an exception
-is raised.
+If the connection is established but authentication fails, an exception is raised.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_connect\_fail.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_connect_fail.py :::
 
-This example uses the wrong password on purpose to trigger the
-exception.
+This example uses the wrong password on purpose to trigger the exception.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_connect_fail.py
 
 Connecting to pymotw.hellfly.net
@@ -75,36 +48,27 @@ Logging in as example
 ERROR: b'[AUTHENTICATIONFAILED] Authentication failed.'
 ```
 
-Example Configuration
----------------------
+## Example Configuration
 
 The example account has several mailboxes in a hierarchy:
 
--   INBOX
--   Deleted Messages
--   Archive
--   Example
-    -   2016
+- INBOX
+- Deleted Messages
+- Archive
+- Example
+  - 2016
 
-There is one unread message in the `INBOX` folder, and one read message
-in `Example/2016`.
+There is one unread message in the `INBOX` folder, and one read message in `Example/2016`.
 
-Listing Mailboxes
------------------
+## Listing Mailboxes
 
-To retrieve the mailboxes available for an account, use the `list()`
-method.
+To retrieve the mailboxes available for an account, use the `list()` method.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_list.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_list.py :::
 
-The return value is a `tuple` containing a response code and the data
-returned by the server. The response code is `OK`, unless there has been
-an error. The data for `list()` is a sequence of strings containing
-*flags*, the *hierarchy delimiter*, and *mailbox name* for each mailbox.
+The return value is a `tuple` containing a response code and the data returned by the server. The response code is `OK`, unless there has been an error. The data for `list()` is a sequence of strings containing _flags_, the _hierarchy delimiter_, and _mailbox name_ for each mailbox.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_list.py
 
 Response code: OK
@@ -116,20 +80,13 @@ Response:
  b'(\\HasNoChildren) "." INBOX']
 ```
 
-Each response string can be split into three parts using
-`re`{.interpreted-text role="mod"} or `csv`{.interpreted-text
-role="mod"} (see *IMAP Backup Script* in the references at the end of
-this section for an example using `csv`).
+Each response string can be split into three parts using `re`{.interpreted-text role="mod"} or `csv`{.interpreted-text role="mod"} (see _IMAP Backup Script_ in the references at the end of this section for an example using `csv`).
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_list\_parse.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_list_parse.py :::
 
-The server quotes the mailbox name if it includes spaces, but those
-quotes need to be stripped out to use the mailbox name in other calls
-back to the server later.
+The server quotes the mailbox name if it includes spaces, but those quotes need to be stripped out to use the mailbox name in other calls back to the server later.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_list_parse.py
 
 Response code: OK
@@ -145,17 +102,13 @@ Server response: b'(\\HasNoChildren) "." INBOX'
 Parsed response: ('\\HasNoChildren', '.', 'INBOX')
 ```
 
-`list()` takes arguments to specify mailboxes in part of the hierarchy.
-For example, to list sub-folders of `Example`, pass `"Example"` as the
-`directory` argument.
+`list()` takes arguments to specify mailboxes in part of the hierarchy. For example, to list sub-folders of `Example`, pass `"Example"` as the `directory` argument.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_list\_subfolders.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_list_subfolders.py :::
 
 The parent and subfolder are returned.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_list_subfolders.py
 
 Response code: OK
@@ -163,17 +116,13 @@ Server response: b'(\\HasChildren) "." Example'
 Server response: b'(\\HasNoChildren) "." Example.2016'
 ```
 
-Alternately, to list folders matching a pattern pass the `pattern`
-argument.
+Alternately, to list folders matching a pattern pass the `pattern` argument.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_list\_pattern.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_list_pattern.py :::
 
-In this case, both `Example` and `Example.2016` are included in the
-response.
+In this case, both `Example` and `Example.2016` are included in the response.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_list_pattern.py
 
 Response code: OK
@@ -181,38 +130,25 @@ Server response: b'(\\HasChildren) "." Example'
 Server response: b'(\\HasNoChildren) "." Example.2016'
 ```
 
-Mailbox Status
---------------
+## Mailbox Status
 
-Use `status()` to ask for aggregated information about the contents.
-`IMAP 4 Mailbox Status Conditions`{.interpreted-text role="table"} lists
-the status conditions defined by the standard.
+Use `status()` to ask for aggregated information about the contents. `IMAP 4 Mailbox Status Conditions`{.interpreted-text role="table"} lists the status conditions defined by the standard.
 
-  Condition     Meaning
-  ------------- ----------------------------------------------------------------
-  MESSAGES      The number of messages in the mailbox.
-  RECENT        The number of messages with the `\Recent` flag set.
-  UIDNEXT       The next unique identifier value of the mailbox.
-  UIDVALIDITY   The unique identifier validity value of the mailbox.
-  UNSEEN        The number of messages which do not have the `\Seen` flag set.
+Condition Meaning
 
-  : IMAP 4 Mailbox Status Conditions
+---
 
-The status conditions must be formatted as a space separated string
-enclosed in parentheses, the encoding for a \"list\" in the IMAP4
-specification. The mailbox name is wrapped in `"` in case any of the
-names include spaces or other characters that would throw of the parser.
+MESSAGES The number of messages in the mailbox. RECENT The number of messages with the `\Recent` flag set. UIDNEXT The next unique identifier value of the mailbox. UIDVALIDITY The unique identifier validity value of the mailbox. UNSEEN The number of messages which do not have the `\Seen` flag set.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_status.py
-:::
+: IMAP 4 Mailbox Status Conditions
 
-The return value is the usual `tuple` containing a response code and a
-list of information from the server. In this case, the list contains a
-single string formatted with the name of the mailbox in quotes, then the
-status conditions and values in parentheses.
+The status conditions must be formatted as a space separated string enclosed in parentheses, the encoding for a \"list\" in the IMAP4 specification. The mailbox name is wrapped in `"` in case any of the names include spaces or other characters that would throw of the parser.
 
-``` {.sourceCode .none}
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_status.py :::
+
+The return value is the usual `tuple` containing a response code and a list of information from the server. In this case, the list contains a single string formatted with the name of the mailbox in quotes, then the status conditions and values in parentheses.
+
+```{.sourceCode .none}
 $ python3 imaplib_status.py
 
 Response code: OK
@@ -243,22 +179,15 @@ Mailbox: INBOX
 97769 UNSEEN 1)'])
 ```
 
-Selecting a Mailbox
--------------------
+## Selecting a Mailbox
 
-The basic mode of operation, once the client is authenticated, is to
-select a mailbox, then interrogate the server regarding messages in the
-mailbox. The connection is stateful, so after a mailbox is selected all
-commands operate on messages in that mailbox until a new mailbox is
-selected.
+The basic mode of operation, once the client is authenticated, is to select a mailbox, then interrogate the server regarding messages in the mailbox. The connection is stateful, so after a mailbox is selected all commands operate on messages in that mailbox until a new mailbox is selected.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_select.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_select.py :::
 
 The response data contains the total number of messages in the mailbox.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_select.py
 
 OK [b'1']
@@ -267,34 +196,25 @@ There are 1 messages in INBOX
 
 If an invalid mailbox is specified, the response code is `NO`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_select\_invalid.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_select_invalid.py :::
 
 The data contains an error message describing the problem.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_select_invalid.py
 
 NO [b"Mailbox doesn't exist: Does-Not-Exist"]
 ```
 
-Searching for Messages
-----------------------
+## Searching for Messages
 
-After selecting the mailbox, use `search()` to retrieve the IDs of
-messages in the mailbox.
+After selecting the mailbox, use `search()` to retrieve the IDs of messages in the mailbox.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_search\_all.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_search_all.py :::
 
-Message IDs are assigned by the server, and are implementation
-dependent. The IMAP4 protocol makes a distinction between sequential IDs
-for messages at a given point in time during a transaction and UID
-identifiers for messages, but not all servers implement both.
+Message IDs are assigned by the server, and are implementation dependent. The IMAP4 protocol makes a distinction between sequential IDs for messages at a given point in time during a transaction and UID identifiers for messages, but not all servers implement both.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_search_all.py
 
 Response code: OK
@@ -315,31 +235,23 @@ Deleted Messages OK [b'']
 INBOX OK [b'1']
 ```
 
-In this case, `INBOX` and `Example.2016` each have a different message
-with id `1`. The other mailboxes are empty.
+In this case, `INBOX` and `Example.2016` each have a different message with id `1`. The other mailboxes are empty.
 
-Search Criteria
----------------
+## Search Criteria
 
-A variety of other search criteria can be used, including looking at
-dates for the message, flags, and other headers. Refer to section 6.4.4.
-of RFC 3501 for complete details.
+A variety of other search criteria can be used, including looking at dates for the message, flags, and other headers. Refer to section 6.4.4. of RFC 3501 for complete details.
 
-To look for messages with `'Example message 2'` in the subject, the
-search criteria should be constructed as:
+To look for messages with `'Example message 2'` in the subject, the search criteria should be constructed as:
 
     (SUBJECT "Example message 2")
 
-This example finds all messages with the title \"Example message 2\" in
-all mailboxes:
+This example finds all messages with the title \"Example message 2\" in all mailboxes:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_search\_subject.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_search_subject.py :::
 
 There is only one such message in the account, and it is in the `INBOX`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_search_subject.py
 
 Response code: OK
@@ -362,13 +274,11 @@ INBOX OK [b'1']
 
 Search criteria can also be combined.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_search\_from.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_search_from.py :::
 
 The criteria are combined with a logical `and` operation.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_search_from.py
 
 Response code: OK
@@ -389,42 +299,21 @@ Deleted Messages OK [b'']
 INBOX OK [b'1']
 ```
 
-Fetching Messages
------------------
+## Fetching Messages
 
-The identifiers returned by `search()` are used to retrieve the
-contents, or partial contents, of messages for further processing using
-the `fetch()` method. It takes two arguments, the message IDs to fetch
-and the portion(s) of the message to retrieve.
+The identifiers returned by `search()` are used to retrieve the contents, or partial contents, of messages for further processing using the `fetch()` method. It takes two arguments, the message IDs to fetch and the portion(s) of the message to retrieve.
 
-The `message_ids` argument is a comma separated list of ids (e.g.,
-`"1"`, `"1,2"`) or ID ranges (e.g., `1:2`). The `message_parts` argument
-is an IMAP list of message segment names. As with search criteria for
-`search()`, the IMAP protocol specifies named message segments so
-clients can efficiently retrieve only the parts of the message they
-actually need. For example, to retrieve the headers of the messages in a
-mailbox, use `fetch()` with the argument `BODY.PEEK[HEADER]`.
+The `message_ids` argument is a comma separated list of ids (e.g., `"1"`, `"1,2"`) or ID ranges (e.g., `1:2`). The `message_parts` argument is an IMAP list of message segment names. As with search criteria for `search()`, the IMAP protocol specifies named message segments so clients can efficiently retrieve only the parts of the message they actually need. For example, to retrieve the headers of the messages in a mailbox, use `fetch()` with the argument `BODY.PEEK[HEADER]`.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-Another way to fetch the headers is `BODY[HEADERS]`, but that form has a
-side-effect of implicitly marking the message as read, which is
-undesirable in many cases.
-:::
+Another way to fetch the headers is `BODY[HEADERS]`, but that form has a side-effect of implicitly marking the message as read, which is undesirable in many cases. :::
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_fetch\_raw.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_fetch_raw.py :::
 
-The return value of `fetch()` has been partially parsed so it is
-somewhat harder to work with than the return value of `list()`. Turning
-on debugging shows the complete interaction between the client and
-server to understand why this is so.
+The return value of `fetch()` has been partially parsed so it is somewhat harder to work with than the return value of `list()`. Turning on debugging shows the complete interaction between the client and server to understand why this is so.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_fetch_raw.py
 
   19:40.68 imaplib version 2.58
@@ -477,7 +366,7 @@ rus 3.0.0-beta1'
 f2-dc3a-4984-a0'
   b'8b-02cef3cf1221="doug",\r\n  ea349ad0-9299-47b5-b632-6ff1e39
 4cc7d="both he'
-  b'llfly"\r\nX-Spam-score: 0.0\r\nX-Spam-hits: ALL_TRUSTED -1, 
+  b'llfly"\r\nX-Spam-score: 0.0\r\nX-Spam-hits: ALL_TRUSTED -1,
 BAYES_00 -1.'
   b'9, LANGUAGES unknown, BAYES_USED global,\r\n  SA_VERSION 3.3
 .2\r\nX-Spam'
@@ -501,7 +390,7 @@ yi.internal (l'
 tion Milter) w'
   b'ith ESMTP\r\n    id A717886846E.30BA4280D81;\r\n    Sun, 6 M
 ar 2016 16:1'
-  b'6:03 -0500\r\nAuthentication-Results: mx5.nyi.internal;\r\n 
+  b'6:03 -0500\r\nAuthentication-Results: mx5.nyi.internal;\r\n
    dkim=pass'
   b' (1024-bit rsa key) header.d=messagingengine.com header.i=@m
 essagingengi'
@@ -511,7 +400,7 @@ essagingengi'
 (using TLSv1.2 '
   b'with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))\r\n\
 t(No client cer'
-  b'tificate requested)\r\n\tby mx5.nyi.internal (Postfix) with 
+  b'tificate requested)\r\n\tby mx5.nyi.internal (Postfix) with
 ESMTPS id 30BA4'
   b'280D81\r\n\tfor <doug@doughellmann.com>; Sun,  6 Mar 2016 16
 :16:03 -0500 (E'
@@ -519,7 +408,7 @@ ESMTPS id 30BA4'
 al [10.202.2.4'
   b'2])\r\n\tby mailout.nyi.internal (Postfix) with ESMTP id 174
 0420D0A\r\n\tf'
-  b'or <doug@doughellmann.com>; Sun,  6 Mar 2016 16:16:03 -0500 
+  b'or <doug@doughellmann.com>; Sun,  6 Mar 2016 16:16:03 -0500
 (EST)\r\nRecei'
   b'ved: from frontend2 ([10.202.2.161])\r\n  by compute2.intern
 al (MEProxy); '
@@ -537,7 +426,7 @@ N3JA\r\n\t7KSPq'
 r\n\tYwv/QM/oDH'
   b'bXiLSUlB3Qrg+9wsE/0jU/EOisiU=\r\nX-Sasl-enc: 8ZJ+4ZRE8AGPzdL
 RWQFivGymJb8pa'
-  b'4G9JGcb7k4xKn+I 1457298962\r\nReceived: from [192.168.1.14] 
+  b'4G9JGcb7k4xKn+I 1457298962\r\nReceived: from [192.168.1.14]
 (75-137-1-34.d'
   b'hcp.nwnn.ga.charter.com [75.137.1.34])\r\n\tby mail.messagin
 gengine.com (Po'
@@ -559,22 +448,13 @@ ail (2.3112)'
  b')']
 ```
 
-The response from the `FETCH` command starts with the flags, then
-indicates that there are 595 bytes of header data. The client constructs
-a tuple with the response for the message, and then closes the sequence
-with a single string containing the right parenthesis (\"`)`\") the
-server sends at the end of the fetch response. Because of this
-formatting, it may be easier to fetch different pieces of information
-separately, or to recombine the response and parse it in the client.
+The response from the `FETCH` command starts with the flags, then indicates that there are 595 bytes of header data. The client constructs a tuple with the response for the message, and then closes the sequence with a single string containing the right parenthesis (\"`)`\") the server sends at the end of the fetch response. Because of this formatting, it may be easier to fetch different pieces of information separately, or to recombine the response and parse it in the client.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_fetch\_separately.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_fetch_separately.py :::
 
-Fetching values separately has the added benefit of making it easy to
-use `ParseFlags()` to parse the flags from the response.
+Fetching values separately has the added benefit of making it easy to use `ParseFlags()` to parse the flags from the response.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_fetch_separately.py
 
 HEADER:
@@ -638,23 +518,15 @@ b'1 (FLAGS ())'
 ()
 ```
 
-Whole Messages
---------------
+## Whole Messages
 
-As illustrated earlier, the client can ask the server for individual
-parts of the message separately. It is also possible to retrieve the
-entire message as an RFC 822 formatted mail message and parse it with
-classes from the `email`{.interpreted-text role="mod"} module.
+As illustrated earlier, the client can ask the server for individual parts of the message separately. It is also possible to retrieve the entire message as an RFC 822 formatted mail message and parse it with classes from the `email`{.interpreted-text role="mod"} module.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_fetch\_rfc822.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_fetch_rfc822.py :::
 
-The parser in the `email`{.interpreted-text role="mod"} module make it
-very easy to access and manipulate messages. This example prints just a
-few of the headers for each message.
+The parser in the `email`{.interpreted-text role="mod"} module make it very easy to access and manipulate messages. This example prints just a few of the headers for each message.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_fetch_rfc822.py
 
 SUBJECT : PyMOTW Example message 2
@@ -662,21 +534,15 @@ SUBJECT : PyMOTW Example message 2
   FROM  : Doug Hellmann <doug@doughellmann.com>
 ```
 
-Uploading Messages
-------------------
+## Uploading Messages
 
-To add a new message to a mailbox, construct a `Message` instance and
-pass it to the `append()` method, along with the timestamp for the
-message.
+To add a new message to a mailbox, construct a `Message` instance and pass it to the `append()` method, along with the timestamp for the message.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_append.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_append.py :::
 
-The `payload` used in this example is a simple plaintext email body.
-`Message` also supports MIME-encoded multi-part messages.
+The `payload` used in this example is a simple plaintext email body. `Message` also supports MIME-encoded multi-part messages.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_append.py
 
 Subject: subject goes here
@@ -740,25 +606,19 @@ ellmann <doug@doughellmann.com>\r\nMime-Version: 1.0 (Mac OS X M
 ail 9.2 \\(3112\\))\r\nX-Mailer: Apple Mail (2.3112)\r\n\r\n'
 
 b'2':
-b'Subject: subject goes here\r\nFrom: pymotw@example.com\r\nTo: 
+b'Subject: subject goes here\r\nFrom: pymotw@example.com\r\nTo:
 example@example.com\r\n\r\n'
 ```
 
-Moving and Copying Messages
----------------------------
+## Moving and Copying Messages
 
-Once a message is on the server, it can be moved or copied without
-downloading it using `move()` or `copy()`. These methods operate on
-message id ranges, just as `fetch()` does.
+Once a message is on the server, it can be moved or copied without downloading it using `move()` or `copy()`. These methods operate on message id ranges, just as `fetch()` does.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_archive\_read.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_archive_read.py :::
 
-This example script creates a new mailbox under `Example` and copies the
-read messages from `INBOX` into it.
+This example script creates a new mailbox under `Example` and copies the read messages from `INBOX` into it.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_archive_read.py
 
 CREATED Example.Today: [b'Completed']
@@ -766,11 +626,9 @@ COPYING: 2
 COPIED: b'1'
 ```
 
-Running the same script again shows the importance to checking return
-codes. Instead of raising an exception, the call to `create()` to make
-the new mailbox reports that the mailbox already exists.
+Running the same script again shows the importance to checking return codes. Instead of raising an exception, the call to `create()` to make the new mailbox reports that the mailbox already exists.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_archive_read.py
 
 CREATED Example.Today: [b'[ALREADYEXISTS] Mailbox already exists
@@ -779,27 +637,15 @@ COPYING: 2
 COPIED: b'1 2'
 ```
 
-Deleting Messages
------------------
+## Deleting Messages
 
-Although many modern mail clients use a \"Trash folder\" model for
-working with deleted messages, the messages are not usually moved into
-an actual folder. Instead, their flags are updated to add `\Deleted`.
-The operation for \"emptying\" the trash is implemented through the
-`EXPUNGE` command. This example script finds the archived messages with
-\"Lorem ipsum\" in the subject, sets the deleted flag, then shows that
-the messages are still present in the folder by querying the server
-again.
+Although many modern mail clients use a \"Trash folder\" model for working with deleted messages, the messages are not usually moved into an actual folder. Instead, their flags are updated to add `\Deleted`. The operation for \"emptying\" the trash is implemented through the `EXPUNGE` command. This example script finds the archived messages with \"Lorem ipsum\" in the subject, sets the deleted flag, then shows that the messages are still present in the folder by querying the server again.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-imaplib\_delete\_messages.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} imaplib_delete_messages.py :::
 
-Explicitly calling `expunge()` removes the messages, but calling
-`close()` has the same effect. The difference is the client is not
-notified about the deletions when `close()` is called.
+Explicitly calling `expunge()` removes the messages, but calling `close()` has the same effect. The difference is the client is not notified about the deletions when `close()` is called.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 imaplib_delete_messages.py
 
 Response code: OK
@@ -825,27 +671,16 @@ Remaining messages: b''
 ```
 
 ::: {.seealso}
--   `imaplib`{.interpreted-text role="pydoc"}
--   `rfc822`{.interpreted-text role="mod"} \-- The `rfc822` module
-    includes an RFC 822 / RFC 5322 parser.
--   `email`{.interpreted-text role="mod"} \-- The `email` module for
-    parsing email messages.
--   `mailbox`{.interpreted-text role="mod"} \-- Local mailbox parser.
--   `ConfigParser`{.interpreted-text role="mod"} \-- Read and write
-    configuration files.
--   [University of Washington IMAP Information
-    Center](http://www.washington.edu/imap/) \-- Good resource for IMAP
-    information, along with source code.
--   `3501`{.interpreted-text role="rfc"} \-- Internet Message Access
-    Protocol
--   `5322`{.interpreted-text role="rfc"} \-- Internet Message Format
--   [IMAP Backup
-    Script](http://snipplr.com/view/7955/imap-backup-script/) \-- A
-    script to backup email from an IMAP server.
--   [IMAPClient](http://imapclient.freshfoo.com/) \-- A higher-level
-    client for talking to IMAP servers, written by Menno Smits.
--   [offlineimap](http://www.offlineimap.org) \-- A Python application
-    for keeping a local set of mailboxes in sync with an IMAP server.
--   `Python 2 to 3 porting notes for imaplib <porting-imaplib>`{.interpreted-text
-    role="ref"}
-:::
+
+- `imaplib`{.interpreted-text role="pydoc"}
+- `rfc822`{.interpreted-text role="mod"} \-- The `rfc822` module includes an RFC 822 / RFC 5322 parser.
+- `email`{.interpreted-text role="mod"} \-- The `email` module for parsing email messages.
+- `mailbox`{.interpreted-text role="mod"} \-- Local mailbox parser.
+- `ConfigParser`{.interpreted-text role="mod"} \-- Read and write configuration files.
+- [University of Washington IMAP Information Center](http://www.washington.edu/imap/) \-- Good resource for IMAP information, along with source code.
+- `3501`{.interpreted-text role="rfc"} \-- Internet Message Access Protocol
+- `5322`{.interpreted-text role="rfc"} \-- Internet Message Format
+- [IMAP Backup Script](http://snipplr.com/view/7955/imap-backup-script/) \-- A script to backup email from an IMAP server.
+- [IMAPClient](http://imapclient.freshfoo.com/) \-- A higher-level client for talking to IMAP servers, written by Menno Smits.
+- [offlineimap](http://www.offlineimap.org) \-- A Python application for keeping a local set of mailboxes in sync with an IMAP server.
+- `Python 2 to 3 porting notes for imaplib <porting-imaplib>`{.interpreted-text role="ref"} :::

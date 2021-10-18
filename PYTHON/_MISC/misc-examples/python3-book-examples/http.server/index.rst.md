@@ -1,60 +1,36 @@
-http.server \-\-- Base Classes for Implementing Web Servers
-===========================================================
+# http.server \-\-- Base Classes for Implementing Web Servers
 
-::: {.module synopsis="Base classes for implementing web servers."}
-http.server
-:::
+::: {.module synopsis="Base classes for implementing web servers."} http.server :::
 
 Purpose
 
-:   http.server includes classes that can form the basis of a web
-    server.
+: http.server includes classes that can form the basis of a web server.
 
-`http.server` uses classes from `socketserver`{.interpreted-text
-role="mod"} to create base classes for making HTTP servers. `HTTPServer`
-can be used directly, but the `BaseHTTPRequestHandler` is intended to be
-extended to handle each protocol method (GET, POST, etc.).
+`http.server` uses classes from `socketserver`{.interpreted-text role="mod"} to create base classes for making HTTP servers. `HTTPServer` can be used directly, but the `BaseHTTPRequestHandler` is intended to be extended to handle each protocol method (GET, POST, etc.).
 
-HTTP GET
---------
+## HTTP GET
 
-To add support for an HTTP method in a request handler class, implement
-the method `do_METHOD()`, replacing `METHOD` with the name of the HTTP
-method (e.g., `do_GET()`, `do_POST()`, etc.). For consistency, the
-request handler methods take no arguments. All of the parameters for the
-request are parsed by `BaseHTTPRequestHandler` and stored as instance
-attributes of the request instance.
+To add support for an HTTP method in a request handler class, implement the method `do_METHOD()`, replacing `METHOD` with the name of the HTTP method (e.g., `do_GET()`, `do_POST()`, etc.). For consistency, the request handler methods take no arguments. All of the parameters for the request are parsed by `BaseHTTPRequestHandler` and stored as instance attributes of the request instance.
 
-This example request handler illustrates how to return a response to the
-client, and some of the local attributes that can be useful in building
-the response.
+This example request handler illustrates how to return a response to the client, and some of the local attributes that can be useful in building the response.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-http\_server\_GET.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} http_server_GET.py :::
 
-The message text is assembled and then written to
-`wfile`{.interpreted-text role="attr"}, the file handle wrapping the
-response socket. Each response needs a response code, set via
-`send_response()`. If an error code is used (404, 501, etc.), an
-appropriate default error message is included in the header, or a
-message can be passed with the error code.
+The message text is assembled and then written to `wfile`{.interpreted-text role="attr"}, the file handle wrapping the response socket. Each response needs a response code, set via `send_response()`. If an error code is used (404, 501, etc.), an appropriate default error message is included in the header, or a message can be passed with the error code.
 
-To run the request handler in a server, pass it to the constructor of
-`HTTPServer`, as in the `__main__` processing portion of the sample
-script.
+To run the request handler in a server, pass it to the constructor of `HTTPServer`, as in the `__main__` processing portion of the sample script.
 
 Then start the server:
 
-``` {.sourceCode .none}
-$ python3 http_server_GET.py 
+```{.sourceCode .none}
+$ python3 http_server_GET.py
 
 Starting server, use <Ctrl-C> to stop
 ```
 
 In a separate terminal, use `curl` to access it:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ curl -v -i http://127.0.0.1:8080/?foo=bar
 
 *   Trying 127.0.0.1...
@@ -89,42 +65,27 @@ User-Agent=curl/7.43.0
 * Connection #0 to host 127.0.0.1 left intact
 ```
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-The output produced by different versions of `curl` may vary. If running
-the examples produces different output, check the version number
-reported by `curl`.
-:::
+The output produced by different versions of `curl` may vary. If running the examples produces different output, check the version number reported by `curl`. :::
 
-HTTP POST {#http_server_post}
----------
+## HTTP POST {#http_server_post}
 
-Supporting POST requests is a little more work, because the base class
-does not parse the form data automatically. The `cgi`{.interpreted-text
-role="mod"} module provides the `FieldStorage` class which knows how to
-parse the form, if it is given the correct inputs.
+Supporting POST requests is a little more work, because the base class does not parse the form data automatically. The `cgi`{.interpreted-text role="mod"} module provides the `FieldStorage` class which knows how to parse the form, if it is given the correct inputs.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-http\_server\_POST.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} http_server_POST.py :::
 
 Run the server in one window:
 
-``` {.sourceCode .none}
-$ python3 http_server_POST.py 
+```{.sourceCode .none}
+$ python3 http_server_POST.py
 
 Starting server, use <Ctrl-C> to stop
 ```
 
-The arguments to `curl` can include form data to be posted to the server
-by using the `-F` option. The last argument,
-`-F datafile=@http_server_GET.py`, posts the contents of the file
-`http_server_GET.py` to illustrate reading file data from the form.
+The arguments to `curl` can include form data to be posted to the server by using the `-F` option. The last argument, `-F datafile=@http_server_GET.py`, posts the contents of the file `http_server_GET.py` to illustrate reading file data from the form.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ curl -v http://127.0.0.1:8080/ -F name=dhellmann -F foo=bar \
 -F datafile=@http_server_GET.py
 
@@ -136,7 +97,7 @@ $ curl -v http://127.0.0.1:8080/ -F name=dhellmann -F foo=bar \
 > Accept: */*
 > Content-Length: 1974
 > Expect: 100-continue
-> Content-Type: multipart/form-data; 
+> Content-Type: multipart/form-data;
 boundary=------------------------a2b3c7485cf8def2
 >
 * Done waiting for 100-continue
@@ -155,30 +116,23 @@ Form data:
 * Connection #0 to host 127.0.0.1 left intact
 ```
 
-Threading and Forking
----------------------
+## Threading and Forking
 
-`HTTPServer` is a simple subclass of `socketserver.TCPServer`, and does
-not use multiple threads or processes to handle requests. To add
-threading or forking, create a new class using the appropriate mix-in
-from `socketserver`{.interpreted-text role="mod"}.
+`HTTPServer` is a simple subclass of `socketserver.TCPServer`, and does not use multiple threads or processes to handle requests. To add threading or forking, create a new class using the appropriate mix-in from `socketserver`{.interpreted-text role="mod"}.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-http\_server\_threads.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} http_server_threads.py :::
 
 Run the server in the same way as the other examples.
 
-``` {.sourceCode .none}
-$ python3 http_server_threads.py 
+```{.sourceCode .none}
+$ python3 http_server_threads.py
 
 Starting server, use <Ctrl-C> to stop
 ```
 
-Each time the server receives a request, it starts a new thread or
-process to handle it:
+Each time the server receives a request, it starts a new thread or process to handle it:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ curl http://127.0.0.1:8080/
 
 Thread-1
@@ -192,33 +146,25 @@ $ curl http://127.0.0.1:8080/
 Thread-3
 ```
 
-Swapping `ForkingMixIn` for `ThreadingMixIn` would achieve similar
-results, using separate processes instead of threads.
+Swapping `ForkingMixIn` for `ThreadingMixIn` would achieve similar results, using separate processes instead of threads.
 
-Handling Errors
----------------
+## Handling Errors
 
-Handle errors by calling `send_error`{.interpreted-text role="meth"},
-passing the appropriate error code and an optional error message. The
-entire response (with headers, status code, and body) is generated
-automatically.
+Handle errors by calling `send_error`{.interpreted-text role="meth"}, passing the appropriate error code and an optional error message. The entire response (with headers, status code, and body) is generated automatically.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-http\_server\_errors.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} http_server_errors.py :::
 
 In this case, a 404 error is always returned.
 
-``` {.sourceCode .none}
-$ python3 http_server_errors.py 
+```{.sourceCode .none}
+$ python3 http_server_errors.py
 
 Starting server, use <Ctrl-C> to stop
 ```
 
-The error message is reported to the client using an HTML document as
-well as the header to indicate an error code.
+The error message is reported to the client using an HTML document as well as the header to indicate an error code.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ curl -i http://127.0.0.1:8080/
 
 HTTP/1.0 404 Not Found
@@ -240,27 +186,21 @@ Content-Length: 447
         <h1>Error response</h1>
         <p>Error code: 404</p>
         <p>Message: Not Found.</p>
-        <p>Error code explanation: 404 - Nothing matches the 
+        <p>Error code explanation: 404 - Nothing matches the
         given URI.</p>
     </body>
 </html>
 ```
 
-Setting Headers
----------------
+## Setting Headers
 
-The `send_header`{.interpreted-text role="mod"} method adds header data
-to the HTTP response. It takes two arguments: the name of the header and
-the value.
+The `send_header`{.interpreted-text role="mod"} method adds header data to the HTTP response. It takes two arguments: the name of the header and the value.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-http\_server\_send\_header.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} http_server_send_header.py :::
 
-This example sets the `Last-Modified` header to the current timestamp,
-formatted according to RFC 7231.
+This example sets the `Last-Modified` header to the current timestamp, formatted according to RFC 7231.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ curl -i http://127.0.0.1:8080/
 
 HTTP/1.0 200 OK
@@ -274,31 +214,27 @@ Response body
 
 The server logs the request to the terminal, like in the other examples.
 
-``` {.sourceCode .none}
-$ python3 http_server_send_header.py 
+```{.sourceCode .none}
+$ python3 http_server_send_header.py
 
 Starting server, use <Ctrl-C> to stop
 127.0.0.1 - - [06/Oct/2016 17:00:54] "GET / HTTP/1.1" 200 -
 ```
 
-Command Line Use
-----------------
+## Command Line Use
 
-`http.server` includes a built-in server for serving files from the
-local file system. Start it from the command line using the `-m` option
-for the Python interpreter.
+`http.server` includes a built-in server for serving files from the local file system. Start it from the command line using the `-m` option for the Python interpreter.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m http.server 8080
 
 Serving HTTP on 0.0.0.0 port 8080 ...
 127.0.0.1 - - [06/Oct/2016 17:12:48] "HEAD /index.rst HTTP/1.1" 200 -
 ```
 
-The root directory of the server is the working directory where the
-server is started.
+The root directory of the server is the working directory where the server is started.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ curl -I http://127.0.0.1:8080/index.rst
 
 HTTP/1.0 200 OK
@@ -310,11 +246,7 @@ Last-Modified: Thu, 06 Oct 2016 21:12:10 GMT
 ```
 
 ::: {.seealso}
--   `http.server`{.interpreted-text role="pydoc"}
--   `socketserver`{.interpreted-text role="mod"} \-- The `socketserver`
-    module provides the base class that handles the raw socket
-    connection.
--   `7231`{.interpreted-text role="rfc"} \-- \"Hypertext Transfer
-    Protocol (HTTP/1.1): Semantics and Content\" includes a
-    specification for the format of HTTP headers and dates.
-:::
+
+- `http.server`{.interpreted-text role="pydoc"}
+- `socketserver`{.interpreted-text role="mod"} \-- The `socketserver` module provides the base class that handles the raw socket connection.
+- `7231`{.interpreted-text role="rfc"} \-- \"Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content\" includes a specification for the format of HTTP headers and dates. :::

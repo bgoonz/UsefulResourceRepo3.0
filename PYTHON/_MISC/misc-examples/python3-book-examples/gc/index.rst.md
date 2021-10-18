@@ -1,41 +1,24 @@
-gc \-\-- Garbage Collector
-==========================
+# gc \-\-- Garbage Collector
 
-::: {.module synopsis="Garbage Collector"}
-gc
-:::
+::: {.module synopsis="Garbage Collector"} gc :::
 
 Purpose
 
-:   Manages memory used by Python objects
+: Manages memory used by Python objects
 
-`gc` exposes the underlying memory management mechanism of Python, the
-automatic garbage collector. The module includes functions for
-controlling how the collector operates and to examine the objects known
-to the system, either pending collection or stuck in reference cycles
-and unable to be freed.
+`gc` exposes the underlying memory management mechanism of Python, the automatic garbage collector. The module includes functions for controlling how the collector operates and to examine the objects known to the system, either pending collection or stuck in reference cycles and unable to be freed.
 
-Tracing References
-------------------
+## Tracing References
 
-With `gc` the incoming and outgoing references between objects can be
-used to find cycles in complex data structures. If a data structure is
-known to have a cycle, custom code can be used to examine its
-properties. If the cycle is in unknown code, the `get_referents()` and
-`get_referrers()` functions can be used to build generic debugging
-tools.
+With `gc` the incoming and outgoing references between objects can be used to find cycles in complex data structures. If a data structure is known to have a cycle, custom code can be used to examine its properties. If the cycle is in unknown code, the `get_referents()` and `get_referrers()` functions can be used to build generic debugging tools.
 
-For example, `get_referents()` shows the objects *referred to* by the
-input arguments.
+For example, `get_referents()` shows the objects _referred to_ by the input arguments.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_get\_referents.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_get_referents.py :::
 
-In this case, the `Graph` instance `three` holds references to its
-instance dictionary (in the `__dict__` attribute) and its class.
+In this case, the `Graph` instance `three` holds references to its instance dictionary (in the `__dict__` attribute) and its class.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 gc_get_referents.py
 
 Linking nodes Graph(one).next = Graph(two)
@@ -47,24 +30,13 @@ three refers to:
 <class '__main__.Graph'>
 ```
 
-The next example uses a `Queue`{.interpreted-text role="mod"} to perform
-a breadth-first traversal of all of the object references looking for
-cycles. The items inserted into the queue are tuples containing the
-reference chain so far and the next object to examine. It starts with
-`three`, and looks at everything it refers to. Skipping classes avoids
-looking at methods, modules, etc.
+The next example uses a `Queue`{.interpreted-text role="mod"} to perform a breadth-first traversal of all of the object references looking for cycles. The items inserted into the queue are tuples containing the reference chain so far and the next object to examine. It starts with `three`, and looks at everything it refers to. Skipping classes avoids looking at methods, modules, etc.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_get\_referents\_cycles.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_get_referents_cycles.py :::
 
-The cycle in the nodes is easily found by watching for objects that have
-already been processed. To avoid holding references to those objects,
-their `id()` values are cached in a set. The dictionary objects found in
-the cycle are the `__dict__` values for the `Graph` instances, and hold
-their instance attributes.
+The cycle in the nodes is easily found by watching for objects that have already been processed. To avoid holding references to those objects, their `id()` values are cached in a set. The dictionary objects found in the cycle are the `__dict__` values for the `Graph` instances, and hold their instance attributes.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 gc_get_referents_cycles.py
 
 Linking nodes Graph(one).next = Graph(two)
@@ -87,26 +59,15 @@ Found a cycle to Graph(three):
   5:  {'name': 'two', 'next': Graph(three)}
 ```
 
-Forcing Garbage Collection
---------------------------
+## Forcing Garbage Collection
 
-Although the garbage collector runs automatically as the interpreter
-executes a program, it can be triggered to run at a specific time when
-there are a lot of objects to free or there is not much work happening
-and the collector will not hurt application performance. Trigger
-collection using `collect()`.
+Although the garbage collector runs automatically as the interpreter executes a program, it can be triggered to run at a specific time when there are a lot of objects to free or there is not much work happening and the collector will not hurt application performance. Trigger collection using `collect()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_collect.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_collect.py :::
 
-In this example, the cycle is cleared as soon as collection runs the
-first time, since nothing refers to the `Graph` nodes except themselves.
-`collect()` returns the number of \"unreachable\" objects it found. In
-this case, the value is `6` because there are three objects with their
-instance attribute dictionaries.
+In this example, the cycle is cleared as soon as collection runs the first time, since nothing refers to the `Graph` nodes except themselves. `collect()` returns the number of \"unreachable\" objects it found. In this case, the value is `6` because there are three objects with their instance attribute dictionaries.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 gc_collect.py
 
 Linking nodes Graph(one).next = Graph(two)
@@ -122,25 +83,15 @@ Unreachable objects: 0
 Remaining Garbage: []
 ```
 
-Finding References to Objects that Cannot be Collected
-------------------------------------------------------
+## Finding References to Objects that Cannot be Collected
 
-Looking for the object holding a reference to another object is a little
-trickier than seeing what an object references. Because the code asking
-about the reference needs to hold a reference itself, some of the
-referrers need to be ignored. This example creates a graph cycle, then
-works through the `Graph` instances and removes the reference in the
-\"parent\" node.
+Looking for the object holding a reference to another object is a little trickier than seeing what an object references. Because the code asking about the reference needs to hold a reference itself, some of the referrers need to be ignored. This example creates a graph cycle, then works through the `Graph` instances and removes the reference in the \"parent\" node.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_get\_referrers.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_get_referrers.py :::
 
-This sort of logic is overkill if the cycles are understood, but for an
-unexplained cycle in data using `get_referrers()` can expose the
-unexpected relationship.
+This sort of logic is overkill if the cycles are understood, but for an unexplained cycle in data using `get_referrers()` can expose the unexpected relationship.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 gc_get_referrers.py
 
 Linking nodes Graph(one).next = Graph(two)
@@ -175,46 +126,29 @@ Graph(two).__del__()
 Graph(three).__del__()
 ```
 
-Collection Thresholds and Generations
--------------------------------------
+## Collection Thresholds and Generations
 
-The garbage collector maintains three lists of objects it sees as it
-runs, one for each \"generation\" tracked by the collector. As objects
-are examined in each generation, they are either collected or they age
-into subsequent generations until they finally reach the stage where
-they are kept permanently.
+The garbage collector maintains three lists of objects it sees as it runs, one for each \"generation\" tracked by the collector. As objects are examined in each generation, they are either collected or they age into subsequent generations until they finally reach the stage where they are kept permanently.
 
-The collector routines can be tuned to occur at different frequencies
-based on the difference between the number of object allocations and
-deallocations between runs. When the number of allocations minus the
-number of deallocations is greater than the threshold for the
-generation, the garbage collector is run. The current thresholds can be
-examined with `get_threshold()`.
+The collector routines can be tuned to occur at different frequencies based on the difference between the number of object allocations and deallocations between runs. When the number of allocations minus the number of deallocations is greater than the threshold for the generation, the garbage collector is run. The current thresholds can be examined with `get_threshold()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_get\_threshold.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_get_threshold.py :::
 
 The return value is a tuple with the threshold for each generation.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 gc_get_threshold.py
 
 (700, 10, 10)
 ```
 
-The thresholds can be changed with `set_threshold()`. This example
-program uses a command line argument to set the threshold for generation
-`0` then allocates a series of objects.
+The thresholds can be changed with `set_threshold()`. This example program uses a command line argument to set the threshold for generation `0` then allocates a series of objects.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_threshold.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_threshold.py :::
 
-Different threshold values introduce the garbage collection sweeps at
-different times, shown here because debugging is enabled.
+Different threshold values introduce the garbage collection sweeps at different times, shown here because debugging is enabled.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u gc_threshold.py 5
 
 Thresholds: (5, 1, 1)
@@ -256,7 +190,7 @@ Exiting
 
 A smaller threshold causes the sweeps to run more frequently.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u gc_threshold.py 2
 
 Thresholds: (2, 1, 1)
@@ -312,29 +246,17 @@ Created 9
 Exiting
 ```
 
-Debugging
----------
+## Debugging
 
-Debugging memory leaks can be challenging. `gc` includes several options
-to expose the inner workings to make the job easier. The options are
-bit-flags meant to be combined and passed to `set_debug()` to configure
-the garbage collector while the program is running. Debugging
-information is printed to `sys.stderr`.
+Debugging memory leaks can be challenging. `gc` includes several options to expose the inner workings to make the job easier. The options are bit-flags meant to be combined and passed to `set_debug()` to configure the garbage collector while the program is running. Debugging information is printed to `sys.stderr`.
 
-The `DEBUG_STATS` flag turns on statistics reporting, causing the
-garbage collector to report when it is running, the number of objects
-tracked for each generation, and the amount of time it took to perform
-the sweep.
+The `DEBUG_STATS` flag turns on statistics reporting, causing the garbage collector to report when it is running, the number of objects tracked for each generation, and the amount of time it took to perform the sweep.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_debug\_stats.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_debug_stats.py :::
 
-This example output shows two separate runs of the collector because it
-runs once when it is invoked explicitly, and a second time when the
-interpreter exits.
+This example output shows two separate runs of the collector because it runs once when it is invoked explicitly, and a second time when the interpreter exits.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 gc_debug_stats.py
 
 gc: collecting generation 2...
@@ -356,22 +278,13 @@ gc: objects in permanent generation: 0
 gc: done, 151 unreachable, 0 uncollectable, 0.0002s elapsed
 ```
 
-Enabling `DEBUG_COLLECTABLE` and `DEBUG_UNCOLLECTABLE` causes the
-collector to report on whether each object it examines can or cannot be
-collected. If seeing the objects that cannot be collected is not enough
-information to understand where data is being retained, enable
-`DEBUG_SAVEALL` to cause `gc` to preserve all objects it finds without
-any references in the `garbage`{.interpreted-text role="obj"} list.
+Enabling `DEBUG_COLLECTABLE` and `DEBUG_UNCOLLECTABLE` causes the collector to report on whether each object it examines can or cannot be collected. If seeing the objects that cannot be collected is not enough information to understand where data is being retained, enable `DEBUG_SAVEALL` to cause `gc` to preserve all objects it finds without any references in the `garbage`{.interpreted-text role="obj"} list.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_debug\_saveall.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_debug_saveall.py :::
 
-This allows the objects to be examined after garbage collection, which
-is helpful if, for example, the constructor cannot be changed to print
-the object id when each object is created.
+This allows the objects to be examined after garbage collection, which is helpful if, for example, the constructor cannot be changed to print the object id when each object is created.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u gc_debug_saveall.py
 
 CleanupGraph(three).__del__()
@@ -417,18 +330,13 @@ Retained: CleanupGraph(four) 0x1097af4e0
 Retained: CleanupGraph(five) 0x10983eb70
 ```
 
-For simplicity, `DEBUG_LEAK` is defined as a combination of all of the
-other options.
+For simplicity, `DEBUG_LEAK` is defined as a combination of all of the other options.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-gc\_debug\_leak.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} gc_debug_leak.py :::
 
-Keep in mind that because `DEBUG_SAVEALL` is enabled by `DEBUG_LEAK`,
-even the unreferenced objects that would normally have been collected
-and deleted are retained.
+Keep in mind that because `DEBUG_SAVEALL` is enabled by `DEBUG_LEAK`, even the unreferenced objects that would normally have been collected and deleted are retained.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u gc_debug_leak.py
 
 CleanupGraph(three).__del__()
@@ -475,16 +383,9 @@ Retained: CleanupGraph(five) 0x10beddb70
 ```
 
 ::: {.seealso}
--   `gc`{.interpreted-text role="pydoc"}
--   `Python 2 to 3 porting notes for gc <porting-gc>`{.interpreted-text
-    role="ref"}
--   `weakref`{.interpreted-text role="mod"} \-- The `weakref` module
-    provides a way to create references to objects without increasing
-    their reference count, so they can still be garbage collected.
--   [Supporting Cyclic Garbage
-    Collection](https://docs.python.org/3/c-api/gcsupport.html) \--
-    Background material from Python\'s C API documentation.
--   [How does Python manage
-    memory?](http://effbot.org/pyfaq/how-does-python-manage-memory.htm)
-    \--An article on Python memory management by Fredrik Lundh.
-:::
+
+- `gc`{.interpreted-text role="pydoc"}
+- `Python 2 to 3 porting notes for gc <porting-gc>`{.interpreted-text role="ref"}
+- `weakref`{.interpreted-text role="mod"} \-- The `weakref` module provides a way to create references to objects without increasing their reference count, so they can still be garbage collected.
+- [Supporting Cyclic Garbage Collection](https://docs.python.org/3/c-api/gcsupport.html) \-- Background material from Python\'s C API documentation.
+- [How does Python manage memory?](http://effbot.org/pyfaq/how-does-python-manage-memory.htm) \--An article on Python memory management by Fredrik Lundh. :::

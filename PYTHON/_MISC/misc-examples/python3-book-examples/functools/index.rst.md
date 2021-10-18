@@ -1,45 +1,26 @@
-functools \-\-- Tools for Manipulating Functions
-================================================
+# functools \-\-- Tools for Manipulating Functions
 
-::: {.module synopsis="Tools for working with functions."}
-functools
-:::
+::: {.module synopsis="Tools for working with functions."} functools :::
 
 Purpose
 
-:   Functions that operate on other functions.
+: Functions that operate on other functions.
 
-The `functools` module provides tools for adapting or extending
-functions and other callable objects, without completely rewriting them.
+The `functools` module provides tools for adapting or extending functions and other callable objects, without completely rewriting them.
 
-Decorators
-----------
+## Decorators
 
-The primary tool supplied by the `functools` module is the class
-`partial`, which can be used to \"wrap\" a callable object with default
-arguments. The resulting object is itself callable and can be treated as
-though it is the original function. It takes all of the same arguments
-as the original, and can be invoked with extra positional or named
-arguments as well. A `partial` can be used instead of a `lambda` to
-provide default arguments to a function, while leaving some arguments
-unspecified.
+The primary tool supplied by the `functools` module is the class `partial`, which can be used to \"wrap\" a callable object with default arguments. The resulting object is itself callable and can be treated as though it is the original function. It takes all of the same arguments as the original, and can be invoked with extra positional or named arguments as well. A `partial` can be used instead of a `lambda` to provide default arguments to a function, while leaving some arguments unspecified.
 
 ### Partial Objects
 
-This example shows two simple `partial` objects for the function
-`myfunc()`. The output of `show_details()` includes the
-`func`{.interpreted-text role="attr"}, `args`{.interpreted-text
-role="attr"}, and `keywords`{.interpreted-text role="attr"} attributes
-of the partial object.
+This example shows two simple `partial` objects for the function `myfunc()`. The output of `show_details()` includes the `func`{.interpreted-text role="attr"}, `args`{.interpreted-text role="attr"}, and `keywords`{.interpreted-text role="attr"} attributes of the partial object.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_partial.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_partial.py :::
 
-At the end of the example, the first `partial` created is invoked
-without passing a value for `a`, causing an exception.
+At the end of the example, the first `partial` created is invoked without passing a value for `a`, causing an exception.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_partial.py
 
 myfunc:
@@ -74,21 +55,13 @@ TypeError: myfunc() missing 1 required positional argument: 'a'
 
 ### Acquiring Function Properties
 
-The `partial` object does not have `__name__`{.interpreted-text
-role="attr"} or `__doc__`{.interpreted-text role="attr"} attributes by
-default, and without those attributes, decorated functions are more
-difficult to debug. Using `update_wrapper()`, copies or adds attributes
-from the original function to the `partial` object.
+The `partial` object does not have `__name__`{.interpreted-text role="attr"} or `__doc__`{.interpreted-text role="attr"} attributes by default, and without those attributes, decorated functions are more difficult to debug. Using `update_wrapper()`, copies or adds attributes from the original function to the `partial` object.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_update\_wrapper.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_update_wrapper.py :::
 
-The attributes added to the wrapper are defined in
-`WRAPPER_ASSIGNMENTS`, while `WRAPPER_UPDATES` lists values to be
-modified.
+The attributes added to the wrapper are defined in `WRAPPER_ASSIGNMENTS`, while `WRAPPER_UPDATES` lists values to be modified.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_update_wrapper.py
 
 myfunc:
@@ -117,17 +90,13 @@ b=4)
 
 ### Other Callables
 
-Partials work with any callable object, not just with standalone
-functions.
+Partials work with any callable object, not just with standalone functions.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_callable.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_callable.py :::
 
-This example creates partials from an instance of a class with a
-`__call__()` method.
+This example creates partials from an instance of a class with a `__call__()` method.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_callable.py
 
 instance:
@@ -148,24 +117,13 @@ instance wrapper:
 
 ### Methods and Functions
 
-While `partial()` returns a callable ready to be used directly,
-`partialmethod()` returns a callable ready to be used as an unbound
-method of an object. In the following example, the same standalone
-function is added as an attribute of `MyClass` twice, once using
-`partialmethod()` as `method1()` and again using `partial()` as
-`method2()`.
+While `partial()` returns a callable ready to be used directly, `partialmethod()` returns a callable ready to be used as an unbound method of an object. In the following example, the same standalone function is added as an attribute of `MyClass` twice, once using `partialmethod()` as `method1()` and again using `partial()` as `method2()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_partialmethod.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_partialmethod.py :::
 
-`method1()` can be called from an instance of `MyClass`, and the
-instance is passed as the first argument just as with methods defined
-normally. `method2()` is not set up as a bound method, and so the `self`
-argument must be passed explicitly, or the call will result in a
-`TypeError`.
+`method1()` can be called from an instance of `MyClass`, and the instance is passed as the first argument just as with methods defined normally. `method2()` is not set up as a bound method, and so the `self` argument must be passed explicitly, or the call will result in a `TypeError`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_partialmethod.py
 
 standalone
@@ -183,18 +141,13 @@ ERROR: standalone() missing 1 required positional argument:
 
 ### Acquiring Function Properties for Decorators
 
-Updating the properties of a wrapped callable is especially useful when
-used in a decorator, since the transformed function ends up with
-properties of the original \"bare\" function.
+Updating the properties of a wrapped callable is especially useful when used in a decorator, since the transformed function ends up with properties of the original \"bare\" function.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_wraps.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_wraps.py :::
 
-`functools` provides a decorator, `wraps()`, that applies
-`update_wrapper()` to the decorated function.
+`functools` provides a decorator, `wraps()`, that applies `update_wrapper()` to the decorated function.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_wraps.py
 
 myfunc:
@@ -226,40 +179,19 @@ decorated_myfunc:
      myfunc: ('args to decorated', 4)
 ```
 
-Comparison
-----------
+## Comparison
 
-Under Python 2, classes could define a `__cmp__()` method that returns
-`-1`, `0`, or `1` based on whether the object is less than, equal to, or
-greater than the item being compared. Python 2.1 introduced the *rich
-comparison* methods API (`__lt__()`, `__le__()`, `__eq__()`, `__ne__()`,
-`__gt__()`, and `__ge__()`), which perform a single comparison operation
-and return a boolean value. Python 3 deprecated `__cmp__()` in favor of
-these new methods and `functools` provides tools to make it easier to
-write classes that comply with the new comparison requirements in Python
-3.
+Under Python 2, classes could define a `__cmp__()` method that returns `-1`, `0`, or `1` based on whether the object is less than, equal to, or greater than the item being compared. Python 2.1 introduced the _rich comparison_ methods API (`__lt__()`, `__le__()`, `__eq__()`, `__ne__()`, `__gt__()`, and `__ge__()`), which perform a single comparison operation and return a boolean value. Python 3 deprecated `__cmp__()` in favor of these new methods and `functools` provides tools to make it easier to write classes that comply with the new comparison requirements in Python 3.
 
 ### Rich Comparison
 
-The rich comparison API is designed to allow classes with complex
-comparisons to implement each test in the most efficient way possible.
-However, for classes where comparison is relatively simple, there is no
-point in manually creating each of the rich comparison methods. The
-`total_ordering()` class decorator takes a class that provides some of
-the methods, and adds the rest of them.
+The rich comparison API is designed to allow classes with complex comparisons to implement each test in the most efficient way possible. However, for classes where comparison is relatively simple, there is no point in manually creating each of the rich comparison methods. The `total_ordering()` class decorator takes a class that provides some of the methods, and adds the rest of them.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_total\_ordering.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_total_ordering.py :::
 
-The class must provide implementation of `__eq__()` and one other rich
-comparison method. The decorator adds implementations of the rest of the
-methods that work by using the comparisons provided. If a comparison
-cannot be made, the method should return `NotImplemented` so the
-comparison can be tried using the reverse comparison operators on the
-other object, before failing entirely.
+The class must provide implementation of `__eq__()` and one other rich comparison method. The decorator adds implementations of the rest of the methods that work by using the comparisons provided. If a comparison cannot be made, the method should return `NotImplemented` so the comparison can be tried using the reverse comparison operators on the other object, before failing entirely.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_total_ordering.py
 
 Methods:
@@ -298,28 +230,15 @@ a > b :
 
 ### Collation Order
 
-Since old-style comparison functions are deprecated in Python 3, the
-`cmp` argument to functions like `sort()` are also no longer supported.
-Older programs that use comparison functions can use `cmp_to_key()` to
-convert them to a function that returns a *collation key*, which is used
-to determine the position in the final sequence.
+Since old-style comparison functions are deprecated in Python 3, the `cmp` argument to functions like `sort()` are also no longer supported. Older programs that use comparison functions can use `cmp_to_key()` to convert them to a function that returns a _collation key_, which is used to determine the position in the final sequence.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_cmp\_to\_key.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_cmp_to_key.py :::
 
-Normally `cmp_to_key()` would be used directly, but in this example an
-extra wrapper function is introduced to print out more information as
-the key function is being called.
+Normally `cmp_to_key()` would be used directly, but in this example an extra wrapper function is introduced to print out more information as the key function is being called.
 
-The output shows that `sorted()` starts by calling `get_key_wrapper()`
-for each item in the sequence to produce a key. The keys returned by
-`cmp_to_key()` are instances of a class defined in `functools` that
-implements the rich comparison API using the old-style comparison
-function passed in. After all of the keys are created, the sequence is
-sorted by comparing the keys.
+The output shows that `sorted()` starts by calling `get_key_wrapper()` for each item in the sequence to produce a key. The keys returned by `cmp_to_key()` are instances of a class defined in `functools` that implements the rich comparison API using the old-style comparison function passed in. After all of the keys are created, the sequence is sorted by comparing the keys.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_cmp_to_key.py
 
 key_wrapper(MyObject(5)) -> <functools.KeyWrapper object at
@@ -343,26 +262,15 @@ MyObject(4)
 MyObject(5)
 ```
 
-Caching {#functools-lru_cache}
--------
+## Caching {#functools-lru_cache}
 
-The `lru_cache()` decorator wraps a function in a least-recently-used
-cache. Arguments to the function are used to build a hash key, which is
-then mapped to the result. Subsequent calls with the same arguments will
-fetch the value from the cache instead of calling the function. The
-decorator also adds methods to the function to examine the state of the
-cache (`cache_info()`) and empty the cache (`cache_clear()`).
+The `lru_cache()` decorator wraps a function in a least-recently-used cache. Arguments to the function are used to build a hash key, which is then mapped to the result. Subsequent calls with the same arguments will fetch the value from the cache instead of calling the function. The decorator also adds methods to the function to examine the state of the cache (`cache_info()`) and empty the cache (`cache_clear()`).
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_lru\_cache.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_lru_cache.py :::
 
-This example makes several calls to `expensive()` in a set of nested
-loops. The second time those calls are made with the same values the
-results appear in the cache. When the cache is cleared and the loops are
-run again the values must be recomputed.
+This example makes several calls to `expensive()` in a set of nested loops. The second time those calls are made with the same values the results appear in the cache. When the cache is cleared and the loops are run again the values must be recomputed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_lru_cache.py
 
 First set of calls:
@@ -391,19 +299,13 @@ expensive(1, 1)
 CacheInfo(hits=0, misses=4, maxsize=128, currsize=4)
 ```
 
-To prevent the cache from growing without bounds in a long-running
-process, it is given a maximum size. The default is 128 entries, but
-that can be changed for each cache using the `maxsize` argument.
+To prevent the cache from growing without bounds in a long-running process, it is given a maximum size. The default is 128 entries, but that can be changed for each cache using the `maxsize` argument.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_lru\_cache\_expire.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_lru_cache_expire.py :::
 
-In this example the cache size is set to 2 entries. When the third set
-of unique arguments (`3, 4`) is used the oldest item in the cache is
-dropped and replaced with the new result.
+In this example the cache size is set to 2 entries. When the third set of unique arguments (`3, 4`) is used the oldest item in the cache is dropped and replaced with the new result.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_lru_cache_expire.py
 
 Establish the cache
@@ -424,18 +326,13 @@ Oldest item needs to be recomputed
 (1, 2) called expensive(1, 2)
 ```
 
-The keys for the cache managed by `lru_cache()` must be hashable, so all
-of the arguments to the function wrapped with the cache lookup must be
-hashable.
+The keys for the cache managed by `lru_cache()` must be hashable, so all of the arguments to the function wrapped with the cache lookup must be hashable.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_lru\_cache\_arguments.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_lru_cache_arguments.py :::
 
-If any object that can\'t be hashed is passed in to the function, a
-`TypeError` is raised.
+If any object that can\'t be hashed is passed in to the function, a `TypeError` is raised.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_lru_cache_arguments.py
 
 (1, 2) called expensive(1, 2)
@@ -443,20 +340,15 @@ $ python3 functools_lru_cache_arguments.py
 (1, {'2': 'two'}) ERROR: unhashable type: 'dict'
 ```
 
-Reducing a Data Set
--------------------
+## Reducing a Data Set
 
-The `reduce()` function takes a callable and a sequence of data as input
-and produces a single value as output based on invoking the callable
-with the values from the sequence and accumulating the resulting output.
+The `reduce()` function takes a callable and a sequence of data as input and produces a single value as output based on invoking the callable with the values from the sequence and accumulating the resulting output.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_reduce.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_reduce.py :::
 
 This example adds up the numbers in the input sequence.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_reduce.py
 
 range(1, 5)
@@ -466,18 +358,13 @@ do_reduce(6, 4)
 result: 10
 ```
 
-The optional `initializer` argument is placed at the front of the
-sequence and processed along with the other items. This can be used to
-update a previously computed value with new inputs.
+The optional `initializer` argument is placed at the front of the sequence and processed along with the other items. This can be used to update a previously computed value with new inputs.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_reduce\_initializer.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_reduce_initializer.py :::
 
-In this example a previous sum of `99` is used to initialize the value
-computed by `reduce()`.
+In this example a previous sum of `99` is used to initialize the value computed by `reduce()`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_reduce_initializer.py
 
 range(1, 5)
@@ -488,21 +375,13 @@ do_reduce(105, 4)
 result: 109
 ```
 
-Sequences with a single item automatically reduce to that value when no
-initializer is present. Empty lists generate an error, unless an
-initializer is provided.
+Sequences with a single item automatically reduce to that value when no initializer is present. Empty lists generate an error, unless an initializer is provided.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_reduce\_short\_sequences.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_reduce_short_sequences.py :::
 
-Because the initializer argument serves as a default, but is also
-combined with the new values if the input sequence is not empty, it is
-important to consider carefully whether to use it. When it does not make
-sense to combine the default with new values, it is better to catch the
-`TypeError` rather than passing an initializer.
+Because the initializer argument serves as a default, but is also combined with the new values if the input sequence is not empty, it is important to consider carefully whether to use it. When it does not make sense to combine the default with new values, it is better to catch the `TypeError` rather than passing an initializer.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_reduce_short_sequences.py
 
 Single item in sequence: 1
@@ -512,29 +391,15 @@ Empty sequence with initializer: 99
 ERROR: reduce() of empty sequence with no initial value
 ```
 
-Generic Functions
------------------
+## Generic Functions
 
-In a dynamically typed language like Python it is common to need to
-perform slightly different operation based on the type of an argument,
-especially when dealing with the difference between a list of items and
-a single item. It is simple enough to check the type of an argument
-directly, but in cases where the behavioral difference can be isolated
-into separate functions `functools` provides the `singledispatch()`
-decorator to register a set of *generic functions* for automatic
-switching based on the type of the first argument to a function.
+In a dynamically typed language like Python it is common to need to perform slightly different operation based on the type of an argument, especially when dealing with the difference between a list of items and a single item. It is simple enough to check the type of an argument directly, but in cases where the behavioral difference can be isolated into separate functions `functools` provides the `singledispatch()` decorator to register a set of _generic functions_ for automatic switching based on the type of the first argument to a function.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_singledispatch.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_singledispatch.py :::
 
-The `register()` attribute of the new function serves as another
-decorator for registering alternative implementations. The first
-function wrapped with `singledispatch()` is the default implementation
-if no other type-specific function is found, as with the `float` case in
-this example.
+The `register()` attribute of the new function serves as another decorator for registering alternative implementations. The first function wrapped with `singledispatch()` is the default implementation if no other type-specific function is found, as with the `float` case in this example.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_singledispatch.py
 
 default myfunc('string argument')
@@ -546,18 +411,13 @@ myfunc_list()
   c
 ```
 
-When no exact match is found for the type, the inheritance order is
-evaluated and the closest matching type is used.
+When no exact match is found for the type, the inheritance order is evaluated and the closest matching type is used.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-functools\_singledispatch\_mro.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} functools_singledispatch_mro.py :::
 
-In this example, classes `D` and `E` do not match exactly with any
-registered generic functions, and the function selected depends on the
-class hierarchy.
+In this example, classes `D` and `E` do not match exactly with any registered generic functions, and the function selected depends on the class hierarchy.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 functools_singledispatch_mro.py
 
 myfunc_A(A)
@@ -568,15 +428,9 @@ myfunc_C(E)
 ```
 
 ::: {.seealso}
--   `functools`{.interpreted-text role="pydoc"}
--   [Rich comparison methods]() \-- Description of the rich comparison
-    methods from the Python Reference Guide.
--   [Isolated
-    \@memoize](http://nedbatchelder.com/blog/201601/isolated_memoize.html)
-    \-- Article on creating memoizing decorators that work well with
-    unit tests, by Ned Batchelder.
--   `443`{.interpreted-text role="pep"} \-- \"Single-dispatch generic
-    functions\"
--   `inspect`{.interpreted-text role="mod"} \-- Introspection API for
-    live objects.
-:::
+
+- `functools`{.interpreted-text role="pydoc"}
+- [Rich comparison methods]() \-- Description of the rich comparison methods from the Python Reference Guide.
+- [Isolated \@memoize](http://nedbatchelder.com/blog/201601/isolated_memoize.html) \-- Article on creating memoizing decorators that work well with unit tests, by Ned Batchelder.
+- `443`{.interpreted-text role="pep"} \-- \"Single-dispatch generic functions\"
+- `inspect`{.interpreted-text role="mod"} \-- Introspection API for live objects. :::

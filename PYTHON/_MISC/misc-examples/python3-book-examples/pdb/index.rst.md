@@ -1,72 +1,44 @@
-pdb \-\-- Interactive Debugger
-==============================
+# pdb \-\-- Interactive Debugger
 
-::: {.module synopsis="Interactive Debugger"}
-pdb
-:::
+::: {.module synopsis="Interactive Debugger"} pdb :::
 
 Purpose
 
-:   Python\'s Interactive Debugger
+: Python\'s Interactive Debugger
 
-`pdb` implements an interactive debugging environment for Python
-programs. It includes features to pause a program, look at the values of
-variables, and watch program execution step-by-step, so you can
-understand what the program actually does and find bugs in the logic.
+`pdb` implements an interactive debugging environment for Python programs. It includes features to pause a program, look at the values of variables, and watch program execution step-by-step, so you can understand what the program actually does and find bugs in the logic.
 
-Starting the Debugger
----------------------
+## Starting the Debugger
 
-The first step to using `pdb` is causing the interpreter to enter the
-debugger at the right time. There are a few different ways to do that,
-depending on the starting conditions and what is being debugged.
+The first step to using `pdb` is causing the interpreter to enter the debugger at the right time. There are a few different ways to do that, depending on the starting conditions and what is being debugged.
 
 ### From the Command Line
 
-The most straightforward way to use the debugger is to run it from the
-command line, giving it the program as input so it knows what to run.
+The most straightforward way to use the debugger is to run it from the command line, giving it the program as input so it knows what to run.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_script.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_script.py ::: :::
 
-Running the debugger from the command line causes it to load the source
-file and stop execution on the first statement it finds. In this case,
-it stops before evaluating the definition of the class `MyObj` on line
-8.
+Running the debugger from the command line causes it to load the source file and stop execution on the first statement it finds. In this case, it stops before evaluating the definition of the class `MyObj` on line 8.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_script.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_script.py
 
 > .../pdb_script.py(8)<module>()
 -> class MyObj(object):
-(Pdb) 
+(Pdb)
 ```
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-Normally `pdb` includes the full path to each module in the output when
-printing a filename. In order to maintain clear examples, the path in
-the sample output in this section has been replaced with ellipsis
-(`...`).
-:::
+Normally `pdb` includes the full path to each module in the output when printing a filename. In order to maintain clear examples, the path in the sample output in this section has been replaced with ellipsis (`...`). :::
 
 ### Within the Interpreter
 
-Many Python developers work with the interactive interpreter while
-developing early versions of modules because it lets them experiment
-more iteratively without the save/run/repeat cycle needed when creating
-standalone scripts. To run the debugger from within an interactive
-interpreter, use `run()` or `runeval()`.
+Many Python developers work with the interactive interpreter while developing early versions of modules because it lets them experiment more iteratively without the save/run/repeat cycle needed when creating standalone scripts. To run the debugger from within an interactive interpreter, use `run()` or `runeval()`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3
 
 Python 3.5.1 (v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44)
@@ -79,62 +51,39 @@ Type "help", "copyright", "credits" or "license" for more information.
 (Pdb)
 ```
 
-The argument to `run()` is a string expression that can be evaluated by
-the Python interpreter. The debugger will parse it, then pause execution
-just before the first expression evaluates. The debugger commands
-described here can be used to navigate and control the execution.
+The argument to `run()` is a string expression that can be evaluated by the Python interpreter. The debugger will parse it, then pause execution just before the first expression evaluates. The debugger commands described here can be used to navigate and control the execution.
 
 ### From Within a Program
 
-Both of the previous examples start the debugger at the beginning of a
-program. For a long-running process where the problem appears much later
-in the program execution, it will be more convenient to start the
-debugger from inside the program using `set_trace()`.
+Both of the previous examples start the debugger at the beginning of a program. For a long-running process where the problem appears much later in the program execution, it will be more convenient to start the debugger from inside the program using `set_trace()`.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_set\_trace.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_set_trace.py ::: :::
 
-Line 17 of the sample script triggers the debugger at that point in
-execution, pausing it on line 18.
+Line 17 of the sample script triggers the debugger at that point in execution, pausing it on line 18.
 
-``` {.sourceCode .none}
-$ python3 ./pdb_set_trace.py 
+```{.sourceCode .none}
+$ python3 ./pdb_set_trace.py
 
 > .../pdb_set_trace.py(18)go()
 -> print(i)
 (Pdb)
 ```
 
-`set_trace()` is just a Python function, so it can be called at any
-point in a program. This makes it possible to enter the debugger based
-on conditions inside the program, including from an exception handler or
-via a specific branch of a control statement.
+`set_trace()` is just a Python function, so it can be called at any point in a program. This makes it possible to enter the debugger based on conditions inside the program, including from an exception handler or via a specific branch of a control statement.
 
 ### After a Failure
 
-Debugging a failure after a program terminates is called *post-mortem*
-debugging. `pdb` supports post-mortem debugging through the `pm()` and
-`post_mortem()` functions.
+Debugging a failure after a program terminates is called _post-mortem_ debugging. `pdb` supports post-mortem debugging through the `pm()` and `post_mortem()` functions.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_post\_mortem.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_post_mortem.py ::: :::
 
-Here the incorrect attribute name on line 14 triggers an
-`AttributeError` exception, causing execution to stop. `pm()` looks for
-the active traceback and starts the debugger at the point in the call
-stack where the exception occurred.
+Here the incorrect attribute name on line 14 triggers an `AttributeError` exception, causing execution to stop. `pm()` looks for the active traceback and starts the debugger at the point in the call stack where the exception occurred.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3
 Python 3.5.1 (v3.5.1:37a07cee5969, Dec  5 2015, 21:12:44)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
@@ -153,25 +102,15 @@ AttributeError: 'MyObj' object has no attribute 'num_loops'
 (Pdb)
 ```
 
-Controlling the Debugger
-------------------------
+## Controlling the Debugger
 
-The interface for the debugger is a small command language that lets you
-move around the call stack, examine and change the values of variables,
-and control how the debugger executes the program. The interactive
-debugger uses `readline`{.interpreted-text role="mod"} to accept
-commands, and supports tab completion for commands, filenames, and
-function names. Entering a blank line re-runs the previous command
-again, unless it was a `list` operation.
+The interface for the debugger is a small command language that lets you move around the call stack, examine and change the values of variables, and control how the debugger executes the program. The interactive debugger uses `readline`{.interpreted-text role="mod"} to accept commands, and supports tab completion for commands, filenames, and function names. Entering a blank line re-runs the previous command again, unless it was a `list` operation.
 
 ### Navigating the Execution Stack
 
-At any point while the debugger is running use `where` (abbreviated `w`)
-to find out exactly what line is being executed and where on the call
-stack the program is. In this case, the module `pdb_set_trace.py` line
-18 in the `go()` method.
+At any point while the debugger is running use `where` (abbreviated `w`) to find out exactly what line is being executed and where on the call stack the program is. In this case, the module `pdb_set_trace.py` line 18 in the `go()` method.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pdb_set_trace.py
 > .../pdb_set_trace.py(18)go()
 -> print(i)
@@ -185,7 +124,7 @@ $ python3 pdb_set_trace.py
 
 To add more context around the current location, use `list` (`l`).
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) l
  13          self.count = num_loops
  14
@@ -201,11 +140,9 @@ To add more context around the current location, use `list` (`l`).
 (Pdb)
 ```
 
-The default is to list 11 lines around the current line (five before and
-five after). Using `list` with a single numerical argument lists 11
-lines around that line instead of the current line.
+The default is to list 11 lines around the current line (five before and five after). Using `list` with a single numerical argument lists 11 lines around that line instead of the current line.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) list 14
   9
  10  class MyObj(object):
@@ -220,10 +157,9 @@ lines around that line instead of the current line.
  19          return
 ```
 
-If `list` receives two arguments, it interprets them as the first and
-last lines to include in its output.
+If `list` receives two arguments, it interprets them as the first and last lines to include in its output.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) list 7, 19
   7  import pdb
   8
@@ -240,12 +176,9 @@ last lines to include in its output.
  19          return
 ```
 
-The `longlist` (`ll`) command prints the source for the current function
-or frame, without having to determine the line numbers in advance. The
-command is \"longlist\" because for long functions it may produce
-considerably more output than the default for `list`.
+The `longlist` (`ll`) command prints the source for the current function or frame, without having to determine the line numbers in advance. The command is \"longlist\" because for long functions it may produce considerably more output than the default for `list`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) longlist
  15      def go(self):
  16          for i in range(self.count):
@@ -254,10 +187,9 @@ considerably more output than the default for `list`.
  19          return
 ```
 
-The `source` command loads and prints the full source for an arbitrary
-class, function, or module.
+The `source` command loads and prints the full source for an arbitrary class, function, or module.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) source MyObj
  10  class MyObj:
  11
@@ -271,13 +203,9 @@ class, function, or module.
  19          return
 ```
 
-Move between frames within the current call stack using `up` and `down`.
-`up` (abbreviated `u`) moves towards older frames on the stack. `down`
-(`d`) moves towards newer frames. Each time you move up or down the
-stack, the debugger prints the current location in the same format as
-produced by `where`.
+Move between frames within the current call stack using `up` and `down`. `up` (abbreviated `u`) moves towards older frames on the stack. `down` (`d`) moves towards newer frames. Each time you move up or down the stack, the debugger prints the current location in the same format as produced by `where`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) up
 > .../pdb_set_trace.py(22)<module>()
 -> MyObj(5).go()
@@ -287,28 +215,19 @@ produced by `where`.
 -> print(i)
 ```
 
-Pass a numerical argument to either `up` or `down` to move that many
-steps up or down the stack at one time.
+Pass a numerical argument to either `up` or `down` to move that many steps up or down the stack at one time.
 
 ### Examining Variables on the Stack
 
-Each frame on the stack maintains a set of variables, including values
-local to the function being executed and global state information. `pdb`
-provides several ways to examine the contents of those variables.
+Each frame on the stack maintains a set of variables, including values local to the function being executed and global state information. `pdb` provides several ways to examine the contents of those variables.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_function\_arguments.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_function_arguments.py ::: :::
 
-The `args` command (abbreviated `a`) prints all of the arguments to the
-function active in the current frame. This example also uses a recursive
-function to show what a deeper stack looks like when printed by `where`.
+The `args` command (abbreviated `a`) prints all of the arguments to the function active in the current frame. This example also uses a recursive function to show what a deeper stack looks like when printed by `where`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pdb_function_arguments.py
 > .../pdb_function_arguments.py(15)recursive_function()
 -> print(output)
@@ -341,12 +260,9 @@ n = 1
 output = to be printed
 ```
 
-The `p` command evaluates an expression given as argument and prints the
-result. Python\'s `print()` function is also available, but it is passed
-through to the interpreter to be executed rather than running as a
-command in the debugger.
+The `p` command evaluates an expression given as argument and prints the result. Python\'s `print()` function is also available, but it is passed through to the interpreter to be executed rather than running as a command in the debugger.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) p n
 1
 
@@ -354,15 +270,10 @@ command in the debugger.
 1
 ```
 
-Similarly, prefixing an expression with `!` passes it to the Python
-interpreter to be evaluated. This feature can be used to execute
-arbitrary Python statements, including modifying variables. This example
-changes the value of `output` before letting the debugger continue
-running the program. The next statement after the call to `set_trace()`
-prints the value of `output`, showing the modified value.
+Similarly, prefixing an expression with `!` passes it to the Python interpreter to be evaluated. This feature can be used to execute arbitrary Python statements, including modifying variables. This example changes the value of `output` before letting the debugger continue running the program. The next statement after the call to `set_trace()` prints the value of `output`, showing the modified value.
 
-``` {.sourceCode .none}
-$ python3 pdb_function_arguments.py 
+```{.sourceCode .none}
+$ python3 pdb_function_arguments.py
 
 > .../pdb_function_arguments.py(14)recursive_function()
 -> print(output)
@@ -376,30 +287,21 @@ $ python3 pdb_function_arguments.py
 changed value
 ```
 
-For more complicated values such as nested or large data structures, use
-`pp` to \"pretty print\" them. This program reads several lines of text
-from a file.
+For more complicated values such as nested or large data structures, use `pp` to \"pretty print\" them. This program reads several lines of text from a file.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_pp.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_pp.py ::: :::
 
-Printing the variable `lines` with `p` results in output that is
-difficult to read because it may wrap awkwardly. `pp` uses
-`pprint`{.interpreted-text role="mod"} to format the value for clean
-printing.
+Printing the variable `lines` with `p` results in output that is difficult to read because it may wrap awkwardly. `pp` uses `pprint`{.interpreted-text role="mod"} to format the value for clean printing.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pdb_pp.py
 
 > .../pdb_pp.py(12)<module>()->None
 -> pdb.set_trace()
 (Pdb) p lines
-['Lorem ipsum dolor sit amet, consectetuer adipiscing elit. 
+['Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 \n', 'Donec egestas, enim et consecte tuer ullamcorper, lect
 us \n', 'ligula rutrum leo, a elementum el it tortor eu quam
 .\n']
@@ -412,11 +314,9 @@ us \n', 'ligula rutrum leo, a elementum el it tortor eu quam
 (Pdb)
 ```
 
-For interactive exploration and experimentation it is possible to drop
-from the debugger into a standard Python interactive prompt with the
-globals and locals from the current frame already populated.
+For interactive exploration and experimentation it is possible to drop from the debugger into a standard Python interactive prompt with the globals and locals from the current frame already populated.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_interact.py
 > .../pdb_interact.py(7)<module>()
 -> import pdb
@@ -449,11 +349,9 @@ Breakpoint 1 at .../pdb_interact.py:14
 5
 ```
 
-Mutable objects such as lists can be changed from the interactive
-interpreter. Immutable objects cannot, and names cannot be rebound to
-new values.
+Mutable objects such as lists can be changed from the interactive interpreter. Immutable objects cannot, and names cannot be rebound to new values.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 >>> l.append('c')
 >>> m += 7
 >>> n = 3
@@ -468,11 +366,9 @@ new values.
 3
 ```
 
-Use the end-of-file sequence Ctrl-D to exit the interactive prompt and
-return to the debugger. In this example, the list `l` has been changed
-but the values of `m` and `n` are not.
+Use the end-of-file sequence Ctrl-D to exit the interactive prompt and return to the debugger. In this example, the list `l` has been changed but the values of `m` and `n` are not.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 >>> ^D
 
 (Pdb) p l
@@ -489,52 +385,41 @@ but the values of `m` and `n` are not.
 
 ### Stepping Through a Program
 
-In addition to navigating up and down the call stack when the program is
-paused, it is also possible to step through execution of the program
-past the point where it enters the debugger.
+In addition to navigating up and down the call stack when the program is paused, it is also possible to step through execution of the program past the point where it enters the debugger.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_step.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_step.py ::: :::
 
-Use `step` (abbreviated `s`) to execute the current line and then stop
-at the next execution point \-- either the first statement inside a
-function being called or the next line of the current function.
+Use `step` (abbreviated `s`) to execute the current line and then stop at the next execution point \-- either the first statement inside a function being called or the next line of the current function.
 
-``` {.sourceCode .none}
-$ python3 pdb_step.py 
+```{.sourceCode .none}
+$ python3 pdb_step.py
 
 > .../pdb_step.py(18)<module>()
 -> f(5)
 ```
 
-The interpreter pauses after the call to `set_trace()` and gives control
-to the debugger. The first `step` causes the execution to enter `f()`.
+The interpreter pauses after the call to `set_trace()` and gives control to the debugger. The first `step` causes the execution to enter `f()`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) step
 --Call--
 > .../pdb_step.py(10)f()
 -> def f(n):
 ```
 
-One more `step` moves execution to the first line of `f()` and starts
-the loop.
+One more `step` moves execution to the first line of `f()` and starts the loop.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) step
 > .../pdb_step.py(11)f()
 -> for i in range(n):
 ```
 
-Stepping again moves to the first line inside the loop where `j` is
-defined.
+Stepping again moves to the first line inside the loop where `j` is defined.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) step
 > .../pdb_step.py(12)f()
 -> j = i * n
@@ -543,10 +428,9 @@ defined.
 0
 ```
 
-The value of `i` is `0`, so after one more step the value of `j` should
-also be `0`.
+The value of `i` is `0`, so after one more step the value of `j` should also be `0`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) step
 > .../pdb_step.py(13)f()
 -> print(i, j)
@@ -557,25 +441,16 @@ also be `0`.
 (Pdb)
 ```
 
-Stepping one line at a time in this way can become tedious if there is a
-lot of code to cover before the point where the error occurs, or if the
-same function is called repeatedly.
+Stepping one line at a time in this way can become tedious if there is a lot of code to cover before the point where the error occurs, or if the same function is called repeatedly.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_next.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_next.py ::: :::
 
-In this example, there is nothing wrong with `calc()`, so stepping
-through it each time it is called in the loop in `f()` obscures the
-useful output by showing all of the lines of `calc()` as they are
-executed.
+In this example, there is nothing wrong with `calc()`, so stepping through it each time it is called in the loop in `f()` obscures the useful output by showing all of the lines of `calc()` as they are executed.
 
-``` {.sourceCode .none}
-$ python3 pdb_next.py 
+```{.sourceCode .none}
+$ python3 pdb_next.py
 
 > .../pdb_next.py(23)<module>()
 -> f(5)
@@ -622,12 +497,9 @@ $ python3 pdb_next.py
 (Pdb)
 ```
 
-The `next` command (abbreviated `n`) is like `step`, but does not enter
-functions called from the statement being executed. In effect, it steps
-all the way through the function call to the next statement in the
-current function in a single operation.
+The `next` command (abbreviated `n`) is like `step`, but does not enter functions called from the statement being executed. In effect, it steps all the way through the function call to the next statement in the current function in a single operation.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 > .../pdb_next.py(16)f()
 -> for i in range(n):
 (Pdb) step
@@ -638,15 +510,12 @@ current function in a single operation.
 > .../pdb_next.py(18)f()
 -> print(i, j)
 
-(Pdb) 
+(Pdb)
 ```
 
-The `until` command is like `next`, except it explicitly continues until
-execution reaches a line in the same function with a line number higher
-than the current value. That means, for example, that `until` can be
-used to step past the end of a loop.
+The `until` command is like `next`, except it explicitly continues until execution reaches a line in the same function with a line number higher than the current value. That means, for example, that `until` can be used to step past the end of a loop.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pdb_next.py
 
 > .../pdb_next.py(23)<module>()
@@ -680,17 +549,11 @@ $ python3 pdb_next.py
 (Pdb)
 ```
 
-Before the `until` command was run, the current line was 18, the last
-line of the loop. After `until` ran, execution was on line 19, and the
-loop had been exhausted.
+Before the `until` command was run, the current line was 18, the last line of the loop. After `until` ran, execution was on line 19, and the loop had been exhausted.
 
-To let execution run until a specific line, pass the line number to the
-`until` command. Unlike when setting a breakpoint, the line number
-passed to `until` must be higher than the current line number, so it is
-most useful for navigating within a function for skipping over long
-blocks.
+To let execution run until a specific line, pass the line number to the `until` command. Unlike when setting a breakpoint, the line number passed to `until` must be higher than the current line number, so it is most useful for navigating within a function for skipping over long blocks.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pdb_next.py
 > .../pdb_next.py(23)<module>()
 -> f(5)
@@ -740,13 +603,10 @@ $ python3 pdb_next.py
 (Pdb)
 ```
 
-The `return` command is another short-cut for bypassing parts of a
-function. It continues executing until the function is about to execute
-a `return` statement, and then it pauses, providing time to look at the
-return value before the function returns.
+The `return` command is another short-cut for bypassing parts of a function. It continues executing until the function is about to execute a `return` statement, and then it pauses, providing time to look at the return value before the function returns.
 
-``` {.sourceCode .none}
-$ python3 pdb_next.py 
+```{.sourceCode .none}
+$ python3 pdb_next.py
 
 > .../pdb_next.py(23)<module>()
 -> f(5)
@@ -772,34 +632,17 @@ $ python3 pdb_next.py
 (Pdb)
 ```
 
-Breakpoints
------------
+## Breakpoints
 
-As programs grow longer, even using `next` and `until` will become slow
-and cumbersome. Instead of stepping through the program by hand, a
-better solution is to let it run normally until it reaches a point where
-the debugger should interrupt it. `set_trace()` can start the debugger,
-but that only works if there is a single point in the program where it
-should pause. It is more convenient to run the program through the
-debugger, but tell the debugger where to stop in advance using
-*breakpoints*. The debugger monitors the program, and when it reaches
-the location described by a breakpoint the program is paused before the
-line is executed.
+As programs grow longer, even using `next` and `until` will become slow and cumbersome. Instead of stepping through the program by hand, a better solution is to let it run normally until it reaches a point where the debugger should interrupt it. `set_trace()` can start the debugger, but that only works if there is a single point in the program where it should pause. It is more convenient to run the program through the debugger, but tell the debugger where to stop in advance using _breakpoints_. The debugger monitors the program, and when it reaches the location described by a breakpoint the program is paused before the line is executed.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_break.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_break.py ::: :::
 
-There are several options to the `break` command (abbreviated `b`) used
-for setting break points, including the line number, file, and function
-where processing should pause. To set a breakpoint on a specific line of
-the current file, use `break lineno`.
+There are several options to the `break` command (abbreviated `b`) used for setting break points, including the line number, file, and function where processing should pause. To set a breakpoint on a specific line of the current file, use `break lineno`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -815,20 +658,15 @@ j = 5
 > .../pdb_break.py(12)calc()
 -> print('Positive!')
 
-(Pdb) 
+(Pdb)
 ```
 
-The command `continue` (abbreviated `c`) tells the debugger to keep
-running the program until the next breakpoint. In this case, it runs
-through the first iteration of the `for` loop in `f()` and stops inside
-`calc()` during the second iteration.
+The command `continue` (abbreviated `c`) tells the debugger to keep running the program until the next breakpoint. In this case, it runs through the first iteration of the `for` loop in `f()` and stops inside `calc()` during the second iteration.
 
-Breakpoints can also be set to the first line of a function by
-specifying the function name instead of a line number. This example
-shows what happens if a breakpoint is added for the `calc()` function.
+Breakpoints can also be set to the first line of a function by specifying the function name instead of a line number. This example shows what happens if a breakpoint is added for the `calc()` function.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_break.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
 -> def calc(i, n):
@@ -851,21 +689,15 @@ i = 0
 (Pdb)
 ```
 
-To specify a breakpoint in another file, prefix the line or function
-argument with a filename.
+To specify a breakpoint in another file, prefix the line or function argument with a filename.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_break\_remote.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_break_remote.py ::: :::
 
-Here a breakpoint is set for line 12 of `pdb_break.py` after starting
-the main program `pdb_break_remote.py`.
+Here a breakpoint is set for line 12 of `pdb_break.py` after starting the main program `pdb_break_remote.py`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break_remote.py
 
 > .../pdb_break_remote.py(4)<module>()
@@ -884,15 +716,11 @@ j = 5
 (Pdb)
 ```
 
-The filename can be a full path to the source file, or a relative path
-to a file available on `sys.path`.
+The filename can be a full path to the source file, or a relative path to a file available on `sys.path`.
 
-To list the breakpoints currently set, use `break` without any
-arguments. The output includes the file and line number of each break
-point, as well as information about how many times it has been
-encountered.
+To list the breakpoints currently set, use `break` without any arguments. The output includes the file and line number of each break point, as well as information about how many times it has been encountered.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -924,18 +752,14 @@ Num Type         Disp Enb   Where
 1   breakpoint   keep yes   at .../pdb_break.py:12
         breakpoint already hit 2 times
 
-(Pdb) 
+(Pdb)
 ```
 
 ### Managing Breakpoints
 
-As each new breakpoint is added, it is assigned a numerical identifier.
-These ID numbers are used to enable, disable, and remove the breakpoints
-interactively. Turning off a breakpoint with `disable` tells the
-debugger not to stop when that line is reached. The breakpoint is
-remembered, but ignored.
+As each new breakpoint is added, it is assigned a numerical identifier. These ID numbers are used to enable, disable, and remove the breakpoints interactively. Turning off a breakpoint with `disable` tells the debugger not to stop when that line is reached. The breakpoint is remembered, but ignored.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -966,15 +790,12 @@ j = 5
 > .../pdb_break.py(12)calc()
 -> print('Positive!')
 
-(Pdb) 
+(Pdb)
 ```
 
-The next debugging session sets two breakpoints in the program, then
-disables one. The program is run until the remaining breakpoint is
-encountered, and then the other breakpoint is turned back on with
-`enable` before execution continues.
+The next debugging session sets two breakpoints in the program, then disables one. The program is run until the remaining breakpoint is encountered, and then the other breakpoint is turned back on with `enable` before execution continues.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1050,12 +871,11 @@ i = 1
 (Pdb)
 ```
 
-The lines prefixed with `B` in the output from `list` show where the
-breakpoints are set in the program (lines 8 and 18).
+The lines prefixed with `B` in the output from `list` show where the breakpoints are set in the program (lines 8 and 18).
 
 Use `clear` to delete a breakpoint entirely.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1083,21 +903,16 @@ Num Type         Disp Enb   Where
 1   breakpoint   keep yes   at .../pdb_break.py:8
 3   breakpoint   keep yes   at .../pdb_break.py:18
 
-(Pdb) 
+(Pdb)
 ```
 
-The other breakpoints retain their original identifiers and are not
-renumbered.
+The other breakpoints retain their original identifiers and are not renumbered.
 
 ### Temporary Breakpoints
 
-A temporary breakpoint is automatically cleared the first time program
-execution hits it. Using a temporary breakpoint makes it easy to reach a
-particular spot in the program flow quickly, just as with a regular
-breakpoint, but since it is cleared immediately it does not interfere
-with subsequent progress if that part of the program is run repeatedly.
+A temporary breakpoint is automatically cleared the first time program execution hits it. Using a temporary breakpoint makes it easy to reach a particular spot in the program flow quickly, just as with a regular breakpoint, but since it is cleared immediately it does not interfere with subsequent progress if that part of the program is run repeatedly.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1131,22 +946,16 @@ The program finished and will be restarted
 > .../pdb_break.py(8)<module>()
 -> def calc(i, n):
 
-(Pdb) 
+(Pdb)
 ```
 
-After the program reaches line 12 the first time, the breakpoint is
-removed and execution does not stop again until the program finishes.
+After the program reaches line 12 the first time, the breakpoint is removed and execution does not stop again until the program finishes.
 
 ### Conditional Breakpoints
 
-Rules can be applied to breakpoints so that execution only stops when
-the conditions are met. Using conditional breakpoints gives finer
-control over how the debugger pauses the program than enabling and
-disabling breakpoints by hand. Conditional breakpoints can be set in two
-ways. The first is to specify the condition when the breakpoint is set
-using `break`.
+Rules can be applied to breakpoints so that execution only stops when the conditions are met. Using conditional breakpoints gives finer control over how the debugger pauses the program than enabling and disabling breakpoints by hand. Conditional breakpoints can be set in two ways. The first is to specify the condition when the breakpoint is set using `break`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1166,18 +975,14 @@ i = 1
 > .../pdb_break.py(10)calc()
 -> print('j =', j)
 
-(Pdb) 
+(Pdb)
 ```
 
-The condition argument must be an expression using values visible in the
-stack frame where the breakpoint is defined. If the expression evaluates
-as true, execution stops at the breakpoint.
+The condition argument must be an expression using values visible in the stack frame where the breakpoint is defined. If the expression evaluates as true, execution stops at the breakpoint.
 
-A condition can also be applied to an existing breakpoint using the
-`condition` command. The arguments are the breakpoint id and the
-expression.
+A condition can also be applied to an existing breakpoint using the `condition` command. The arguments are the breakpoint id and the expression.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1196,19 +1001,14 @@ Num Type         Disp Enb   Where
 1   breakpoint   keep yes   at .../pdb_break.py:10
         stop only if j>0
 
-(Pdb) 
+(Pdb)
 ```
 
 ### Ignoring Breakpoints
 
-Programs that loop or use a large number of recursive calls to the same
-function are often easier to debug by skipping ahead in the execution,
-instead of watching every call or breakpoint. The `ignore` command tells
-the debugger to pass over a breakpoint without stopping. Each time
-processing encounters the breakpoint, it decrements the ignore counter.
-When the counter is zero, the breakpoint is re-activated.
+Programs that loop or use a large number of recursive calls to the same function are often easier to debug by skipping ahead in the execution, instead of watching every call or breakpoint. The `ignore` command tells the debugger to pass over a breakpoint without stopping. Each time processing encounters the breakpoint, it decrements the ignore counter. When the counter is zero, the breakpoint is re-activated.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1252,10 +1052,9 @@ Num Type         Disp Enb   Where
         breakpoint already hit 4 times
 ```
 
-Explicitly resetting the ignore count to zero re-enables the breakpoint
-immediately.
+Explicitly resetting the ignore count to zero re-enables the breakpoint immediately.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1281,15 +1080,9 @@ Num Type         Disp Enb   Where
 
 ### Triggering Actions on a Breakpoint
 
-In addition to the purely interactive mode, `pdb` supports basic
-scripting. Using `commands`, a series of interpreter commands, including
-Python statements, can be executed when a specific breakpoint is
-encountered. After running `commands` with the breakpoint number as
-argument, the debugger prompt changes to `(com)`. Enter commands one a
-time, and finish the list with `end` to save the script and return to
-the main debugger prompt.
+In addition to the purely interactive mode, `pdb` supports basic scripting. Using `commands`, a series of interpreter commands, including Python statements, can be executed when a specific breakpoint is encountered. After running `commands` with the breakpoint number as argument, the debugger prompt changes to `(com)`. Enter commands one a time, and finish the list with `end` to save the script and return to the main debugger prompt.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 
 > .../pdb_break.py(8)<module>()
@@ -1323,18 +1116,13 @@ debug n = 5
 (Pdb)
 ```
 
-This feature is especially useful for debugging code that uses a lot of
-data structures or variables, since the debugger can be made to print
-out all of the values automatically, instead of doing it manually each
-time the breakpoint is encountered.
+This feature is especially useful for debugging code that uses a lot of data structures or variables, since the debugger can be made to print out all of the values automatically, instead of doing it manually each time the breakpoint is encountered.
 
 ### Watching Data Change
 
-It is also possible to watch as values change during the course of
-program execution without scripting explicit `print` commands by using
-the `display` command.
+It is also possible to watch as values change during the course of program execution without scripting explicit `print` commands by using the `display` command.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m pdb pdb_break.py
 > .../pdb_break.py(8)<module>()
 -> def calc(i, n):
@@ -1362,12 +1150,9 @@ display j: 0  [old: ** raised NameError: name 'j' is not defined **]
 (Pdb)
 ```
 
-Each time execution stops in the frame, the expression is evaluated and
-if it changes then the result is printed along with the old value. The
-`display` command with no argument prints a list of the displays active
-for the current frame.
+Each time execution stops in the frame, the expression is evaluated and if it changes then the result is printed along with the old value. The `display` command with no argument prints a list of the displays active for the current frame.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) display
 Currently displaying:
 j: 0
@@ -1384,7 +1169,7 @@ Currently displaying:
 
 Remove a display expression with `undisplay`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) display
 Currently displaying:
 j: 0
@@ -1397,26 +1182,17 @@ Currently displaying:
 (Pdb)
 ```
 
-Changing Execution Flow
------------------------
+## Changing Execution Flow
 
-The `jump` command alters the flow of the program at runtime, without
-modifying the code. It can skip forward to avoid running some code, or
-backward to run it again. This sample program generates a list of
-numbers.
+The `jump` command alters the flow of the program at runtime, without modifying the code. It can skip forward to avoid running some code, or backward to run it again. This sample program generates a list of numbers.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_jump.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_jump.py ::: :::
 
-When run without interference the output is a sequence of increasing
-numbers divisible by `5`.
+When run without interference the output is a sequence of increasing numbers divisible by `5`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pdb_jump.py
 
 [5, 15, 30, 50, 75]
@@ -1424,13 +1200,10 @@ $ python3 pdb_jump.py
 
 ### Jump Ahead
 
-Jumping ahead moves the point of execution past the current location
-without evaluating any of the statements in between. By skipping over
-line 13 in the example, the value of `j` is not incremented and all of
-the subsequent values that depend on it are a little smaller.
+Jumping ahead moves the point of execution past the current location without evaluating any of the statements in between. By skipping over line 13 in the example, the value of `j` is not incremented and all of the subsequent values that depend on it are a little smaller.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_jump.py  
+```{.sourceCode .none}
+$ python3 -m pdb pdb_jump.py
 
 > .../pdb_jump.py(8)<module>()
 -> def f(n):
@@ -1475,13 +1248,10 @@ The program finished and will be restarted
 
 ### Jump Back
 
-Jumps can also move the program execution to a statement that has
-already been executed, to run it again. Here, the value of `j` is
-incremented an extra time, so the numbers in the result sequence are all
-larger than they would otherwise be.
+Jumps can also move the program execution to a statement that has already been executed, to run it again. Here, the value of `j` is incremented an extra time, so the numbers in the result sequence are all larger than they would otherwise be.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_jump.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_jump.py
 
 > .../pdb_jump.py(8)<module>()
 -> def f(n):
@@ -1514,27 +1284,21 @@ Breakpoint 1 at .../pdb_jump.py:14
 The program finished and will be restarted
 > .../pdb_jump.py(8)<module>()
 -> def f(n):
-(Pdb) 
+(Pdb)
 ```
 
 ### Illegal Jumps
 
-Jumping in and out of certain flow control statements is dangerous or
-undefined and therefore not allowed by the debugger.
+Jumping in and out of certain flow control statements is dangerous or undefined and therefore not allowed by the debugger.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_no\_jump.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_no_jump.py ::: :::
 
-`jump` can be used to enter a function, but the arguments are not
-defined and the code is unlikely to work.
+`jump` can be used to enter a function, but the arguments are not defined and the code is unlikely to work.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_no_jump.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_no_jump.py
 
 > .../pdb_no_jump.py(8)<module>()
 -> def f(n):
@@ -1550,14 +1314,13 @@ Breakpoint 1 at .../pdb_no_jump.py:22
 
 (Pdb) args
 
-(Pdb) 
+(Pdb)
 ```
 
-`jump` will not enter the middle of a block such as a `for` loop or
-`try:except` statement.
+`jump` will not enter the middle of a block such as a `for` loop or `try:except` statement.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_no_jump.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_no_jump.py
 
 > .../pdb_no_jump.py(8)<module>()
 -> def f(n):
@@ -1571,14 +1334,13 @@ Breakpoint 1 at .../pdb_no_jump.py:22
 (Pdb) jump 27
 *** Jump failed: can't jump into the middle of a block
 
-(Pdb) 
+(Pdb)
 ```
 
-The code in a `finally` block must all be executed, so `jump` will not
-leave the block.
+The code in a `finally` block must all be executed, so `jump` will not leave the block.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_no_jump.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_no_jump.py
 
 > .../pdb_no_jump.py(8)<module>()
 -> def f(n):
@@ -1593,15 +1355,13 @@ Breakpoint 1 at .../pdb_no_jump.py:24
 (Pdb) jump 26
 *** Jump failed: can't jump into or out of a 'finally' block
 
-(Pdb) 
+(Pdb)
 ```
 
-And the most basic restriction is that jumping is constrained to the
-bottom frame on the call stack. After moving up the stack to examine
-variables, the execution flow cannot be changed at that point.
+And the most basic restriction is that jumping is constrained to the bottom frame on the call stack. After moving up the stack to examine variables, the execution flow cannot be changed at that point.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_no_jump.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_no_jump.py
 
 > .../pdb_no_jump.py(8)<module>()
 -> def f(n):
@@ -1629,29 +1389,21 @@ Breakpoint 1 at .../pdb_no_jump.py:12
 (Pdb) jump 25
 *** You can only jump within the bottom frame
 
-(Pdb) 
+(Pdb)
 ```
 
 ### Restarting a Program
 
-When the debugger reaches the end of the program, it automatically
-starts it over, but it can also be restarted explicitly without leaving
-the debugger and losing the current breakpoints or other settings.
+When the debugger reaches the end of the program, it automatically starts it over, but it can also be restarted explicitly without leaving the debugger and losing the current breakpoints or other settings.
 
-::: {.cssclass}
-with-linenos
+::: {.cssclass} with-linenos
 
-::: {.literalinclude linenos="" caption=""}
-pdb\_run.py
-:::
-:::
+::: {.literalinclude linenos="" caption=""} pdb_run.py ::: :::
 
-Running this program to completion within the debugger prints the name
-of the script file, since no other arguments were given on the command
-line.
+Running this program to completion within the debugger prints the name of the script file, since no other arguments were given on the command line.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_run.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_run.py
 
 > .../pdb_run.py(7)<module>()
 -> import sys
@@ -1665,12 +1417,9 @@ The program finished and will be restarted
 (Pdb)
 ```
 
-The program can be restarted using `run`. Arguments passed to `run` are
-parsed with `shlex`{.interpreted-text role="mod"} and passed to the
-program as though they were command line arguments, so the program can
-be restarted with different settings.
+The program can be restarted using `run`. Arguments passed to `run` are parsed with `shlex`{.interpreted-text role="mod"} and passed to the program as though they were command line arguments, so the program can be restarted with different settings.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) run a b c "this is a long value"
 Restarting pdb_run.py with arguments:
         a b c this is a long value
@@ -1684,14 +1433,13 @@ The program finished and will be restarted
 > .../pdb_run.py(7)<module>()
 -> import sys
 
-(Pdb) 
+(Pdb)
 ```
 
-`run` can also be used at any other point in processing to restart the
-program.
+`run` can also be used at any other point in processing to restart the program.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_run.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_run.py
 
 > .../pdb_run.py(7)<module>()
 -> import sys
@@ -1708,21 +1456,15 @@ Restarting pdb_run.py with arguments:
 > .../pdb_run.py(7)<module>()
 -> import sys
 
-(Pdb) 
+(Pdb)
 ```
 
-Customizing the Debugger with Aliases
--------------------------------------
+## Customizing the Debugger with Aliases
 
-Avoid typing complex commands repeatedly by using `alias` to define a
-shortcut. Alias expansion is applied to the first word of each command.
-The body of the alias can consist of any command that is legal to type
-at the debugger prompt, including other debugger commands and pure
-Python expressions. Recursion is allowed in alias definitions, so one
-alias can even invoke another.
+Avoid typing complex commands repeatedly by using `alias` to define a shortcut. Alias expansion is applied to the first word of each command. The body of the alias can consist of any command that is legal to type at the debugger prompt, including other debugger commands and pure Python expressions. Recursion is allowed in alias definitions, so one alias can even invoke another.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_function_arguments.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_function_arguments.py
 
 > .../pdb_function_arguments.py(7)<module>()
 -> import pdb
@@ -1742,11 +1484,9 @@ dict_keys(['output', 'n'])
 dict_keys(['output', 'n'])
 ```
 
-Running `alias` without any arguments shows the list of defined aliases.
-A single argument is assumed to be the name of an alias, and its
-definition is printed.
+Running `alias` without any arguments shows the list of defined aliases. A single argument is assumed to be the name of an alias, and its definition is printed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) alias
 pl = pp locals().keys()
 
@@ -1756,12 +1496,10 @@ pl = pp locals().keys()
 (Pdb)
 ```
 
-Arguments to the alias are referenced using `%n` where `n` is replaced
-with a number indicating the position of the argument, starting with
-`1`. To consume all of the arguments, use `%*`.
+Arguments to the alias are referenced using `%n` where `n` is replaced with a number indicating the position of the argument, starting with `1`. To consume all of the arguments, use `%*`.
 
-``` {.sourceCode .none}
-$ python3 -m pdb pdb_function_arguments.py 
+```{.sourceCode .none}
+$ python3 -m pdb pdb_function_arguments.py
 
 > .../pdb_function_arguments.py(7)<module>()
 -> import pdb
@@ -1782,31 +1520,22 @@ locals()
 
 Clear the definition of an alias with `unalias`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 (Pdb) unalias ph
 
 (Pdb) ph locals
 *** SyntaxError: invalid syntax (<stdin>, line 1)
 
-(Pdb) 
+(Pdb)
 ```
 
-Saving Configuration Settings
------------------------------
+## Saving Configuration Settings
 
-Debugging a program involves a lot of repetition: running the code,
-observing the output, adjusting the code or inputs, and running it
-again. `pdb` attempts to cut down on the amount of repetition needed to
-control the debugging experience, to let you concentrate on the code
-instead of the debugger. To help reduce the number of times you issue
-the same commands to the debugger, `pdb` can read a saved configuration
-from text files interpreted as it starts.
+Debugging a program involves a lot of repetition: running the code, observing the output, adjusting the code or inputs, and running it again. `pdb` attempts to cut down on the amount of repetition needed to control the debugging experience, to let you concentrate on the code instead of the debugger. To help reduce the number of times you issue the same commands to the debugger, `pdb` can read a saved configuration from text files interpreted as it starts.
 
-The file `~/.pdbrc` is read first, allowing global personal preferences
-for all debugging sessions. Then `./.pdbrc` is read from the current
-working directory, to set local preferences for a particular project.
+The file `~/.pdbrc` is read first, allowing global personal preferences for all debugging sessions. Then `./.pdbrc` is read from the current working directory, to set local preferences for a particular project.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ cat ~/.pdbrc
 
 # Show python help
@@ -1837,11 +1566,9 @@ Num Type         Disp Enb   Where
 (Pdb)
 ```
 
-Any configuration commands that can be typed at the debugger prompt can
-be saved in one of the start-up files. Some commands that control the
-execution (`continue`, `next`, etc.) can as well.
+Any configuration commands that can be typed at the debugger prompt can be saved in one of the start-up files. Some commands that control the execution (`continue`, `next`, etc.) can as well.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ cat .pdbrc
 break 11
 continue
@@ -1865,11 +1592,9 @@ Breakpoint 1 at .../pdb_function_arguments.py:11
 (Pdb)
 ```
 
-Especially useful is `run`, which means the command line arguments for a
-debugging session can be set in `./.pdbrc` so they are consistent across
-several runs.
+Especially useful is `run`, which means the command line arguments for a debugging session can be set in `./.pdbrc` so they are consistent across several runs.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ cat .pdbrc
 run a b c "long argument"
 
@@ -1880,7 +1605,7 @@ Restarting pdb_run.py with arguments:
 -> import sys
 
 (Pdb) continue
-Command-line args: ['pdb_run.py', 'a', 'b', 'c', 
+Command-line args: ['pdb_run.py', 'a', 'b', 'c',
 'long argument']
 The program finished and will be restarted
 > .../pdb_run.py(7)<module>()
@@ -1890,13 +1615,9 @@ The program finished and will be restarted
 ```
 
 ::: {.seealso}
--   `pdb`{.interpreted-text role="pydoc"}
--   `readline`{.interpreted-text role="mod"} \-- Interactive prompt
-    editing library.
--   `cmd`{.interpreted-text role="mod"} \-- Build interactive programs.
--   `shlex`{.interpreted-text role="mod"} \-- Shell command line
-    parsing.
--   `26053`{.interpreted-text role="pyissue"} \-- If the output of `run`
-    does not match the values presented here, refer to this bug for
-    details about a regression in pdb output between 2.7 and 3.5.
-:::
+
+- `pdb`{.interpreted-text role="pydoc"}
+- `readline`{.interpreted-text role="mod"} \-- Interactive prompt editing library.
+- `cmd`{.interpreted-text role="mod"} \-- Build interactive programs.
+- `shlex`{.interpreted-text role="mod"} \-- Shell command line parsing.
+- `26053`{.interpreted-text role="pyissue"} \-- If the output of `run` does not match the values presented here, refer to this bug for details about a regression in pdb output between 2.7 and 3.5. :::

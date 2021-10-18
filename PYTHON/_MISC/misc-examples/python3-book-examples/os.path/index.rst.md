@@ -1,52 +1,31 @@
-os.path \-\-- Platform-independent Manipulation of Filenames
-============================================================
+# os.path \-\-- Platform-independent Manipulation of Filenames
 
-::: {.module synopsis="Platform-independent manipulation of filenames."}
-os.path
-:::
+::: {.module synopsis="Platform-independent manipulation of filenames."} os.path :::
 
 Purpose
 
-:   Parse, build, test, and otherwise work on filenames and paths.
+: Parse, build, test, and otherwise work on filenames and paths.
 
-Writing code to work with files on multiple platforms is easy using the
-functions included in the `os.path` module. Even programs not intended
-to be ported between platforms should use `os.path` for reliable
-filename parsing.
+Writing code to work with files on multiple platforms is easy using the functions included in the `os.path` module. Even programs not intended to be ported between platforms should use `os.path` for reliable filename parsing.
 
-Parsing Paths
--------------
+## Parsing Paths
 
-The first set of functions in `os.path` can be used to parse strings
-representing filenames into their component parts. It is important to
-realize that these functions do not depend on the paths actually
-existing; they operate solely on the strings.
+The first set of functions in `os.path` can be used to parse strings representing filenames into their component parts. It is important to realize that these functions do not depend on the paths actually existing; they operate solely on the strings.
 
-Path parsing depends on a few variable defined in `os`{.interpreted-text
-role="mod"}:
+Path parsing depends on a few variable defined in `os`{.interpreted-text role="mod"}:
 
--   `os.sep` - The separator between portions of the path (e.g., \"`/`\"
-    or \"`\`\").
--   `os.extsep` - The separator between a filename and the file
-    \"extension\" (e.g., \"`.`\").
--   `os.pardir` - The path component that means traverse the directory
-    tree up one level (e.g., \"`..`\").
--   `os.curdir` - The path component that refers to the current
-    directory (e.g., \"`.`\").
+- `os.sep` - The separator between portions of the path (e.g., \"`/`\" or \"`\`\").
+- `os.extsep` - The separator between a filename and the file \"extension\" (e.g., \"`.`\").
+- `os.pardir` - The path component that means traverse the directory tree up one level (e.g., \"`..`\").
+- `os.curdir` - The path component that refers to the current directory (e.g., \"`.`\").
 
-The `split()` function breaks the path into two separate parts and
-returns a `tuple` with the results. The second element of the `tuple` is
-the last component of the path, and the first element is everything that
-comes before it.
+The `split()` function breaks the path into two separate parts and returns a `tuple` with the results. The second element of the `tuple` is the last component of the path, and the first element is everything that comes before it.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_split.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_split.py :::
 
-When the input argument ends in `os.sep`, the last element of the path
-is an empty string.
+When the input argument ends in `os.sep`, the last element of the path is an empty string.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_split.py
 
  '/one/two/three' : ('/one/two', 'three')
@@ -56,18 +35,13 @@ $ python3 ospath_split.py
                '' : ('', '')
 ```
 
-The `basename()` function returns a value equivalent to the second part
-of the `split()` value.
+The `basename()` function returns a value equivalent to the second part of the `split()` value.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_basename.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_basename.py :::
 
-The full path is stripped down to the last element, whether that refers
-to a file or directory. If the path ends in the directory separator
-(`os.sep`), the base portion is considered to be empty.
+The full path is stripped down to the last element, whether that refers to a file or directory. If the path ends in the directory separator (`os.sep`), the base portion is considered to be empty.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_basename.py
 
  '/one/two/three' : 'three'
@@ -79,14 +53,11 @@ $ python3 ospath_basename.py
 
 The `dirname()` function returns the first part of the split path:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_dirname.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_dirname.py :::
 
-Combining the results of `basename()` with `dirname()` gives the
-original path.
+Combining the results of `basename()` with `dirname()` gives the original path.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_dirname.py
 
  '/one/two/three' : '/one/two'
@@ -96,18 +67,13 @@ $ python3 ospath_dirname.py
                '' : ''
 ```
 
-`splitext()` works like `split()`, but divides the path on the extension
-separator, rather than the directory separator.
+`splitext()` works like `split()`, but divides the path on the extension separator, rather than the directory separator.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_splitext.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_splitext.py :::
 
-Only the last occurrence of `os.extsep` is used when looking for the
-extension, so if a filename has multiple extensions the results of
-splitting it leaves part of the extension on the prefix.
+Only the last occurrence of `os.extsep` is used when looking for the extension, so if a filename has multiple extensions the results of splitting it leaves part of the extension on the prefix.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_splitext.py
 
        'filename.txt' : ('filename', '.txt')
@@ -119,20 +85,13 @@ $ python3 ospath_splitext.py
       'no-extension.' : ('no-extension', '.')
 ```
 
-`commonprefix()` takes a list of paths as an argument and returns a
-single string that represents a common prefix present in all of the
-paths. The value may represent a path that does not actually exist, and
-the path separator is not included in the consideration, so the prefix
-might not stop on a separator boundary.
+`commonprefix()` takes a list of paths as an argument and returns a single string that represents a common prefix present in all of the paths. The value may represent a path that does not actually exist, and the path separator is not included in the consideration, so the prefix might not stop on a separator boundary.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_commonprefix.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_commonprefix.py :::
 
-In this example, the common prefix string is `/one/two/three`, even
-though one path does not include a directory named `three`.
+In this example, the common prefix string is `/one/two/three`, even though one path does not include a directory named `three`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_commonprefix.py
 
 PATH: /one/two/three/four
@@ -142,17 +101,13 @@ PATH: /one/two/three/
 PREFIX: /one/two/three
 ```
 
-`commonpath()` does honor path separators, and returns a prefix that
-does not include partial path values.
+`commonpath()` does honor path separators, and returns a prefix that does not include partial path values.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_commonpath.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_commonpath.py :::
 
-Because `"threefold"` does not have a path separator after `"three"` the
-common prefix is `/one/two`.
+Because `"threefold"` does not have a path separator after `"three"` the common prefix is `/one/two`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_commonpath.py
 
 PATH: /one/two/three/four
@@ -162,22 +117,15 @@ PATH: /one/two/three/
 PREFIX: /one/two
 ```
 
-Building Paths
---------------
+## Building Paths
 
-Besides taking existing paths apart, it is frequently necessary to build
-paths from other strings. To combine several path components into a
-single value, use `join()`:
+Besides taking existing paths apart, it is frequently necessary to build paths from other strings. To combine several path components into a single value, use `join()`:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_join.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_join.py :::
 
-If any argument to join begins with `os.sep`, all of the previous
-arguments are discarded and the new one becomes the beginning of the
-return value.
+If any argument to join begins with `os.sep`, all of the previous arguments are discarded and the new one becomes the beginning of the return value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_join.py
 
 ('one', 'two', 'three') : 'one/two/three'
@@ -185,19 +133,13 @@ $ python3 ospath_join.py
 ('/one', '/two', '/three') : '/three'
 ```
 
-It is also possible to work with paths that include \"variable\"
-components that can be expanded automatically. For example,
-`expanduser()` converts the tilde (`~`) character to the name of a
-user\'s home directory.
+It is also possible to work with paths that include \"variable\" components that can be expanded automatically. For example, `expanduser()` converts the tilde (`~`) character to the name of a user\'s home directory.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_expanduser.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_expanduser.py :::
 
-If the user\'s home directory cannot be found, the string is returned
-unchanged, as with `~nosuchuser` in this example.
+If the user\'s home directory cannot be found, the string is returned unchanged, as with `~nosuchuser` in this example.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_expanduser.py
 
             '~' : '/Users/dhellmann'
@@ -205,37 +147,27 @@ $ python3 ospath_expanduser.py
   '~nosuchuser' : '~nosuchuser'
 ```
 
-`expandvars()` is more general, and expands any shell environment
-variables present in the path.
+`expandvars()` is more general, and expands any shell environment variables present in the path.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_expandvars.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_expandvars.py :::
 
-No validation is performed to ensure that the variable value results in
-the name of a file that already exists.
+No validation is performed to ensure that the variable value results in the name of a file that already exists.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_expandvars.py
 
 /path/to/VALUE
 ```
 
-Normalizing Paths
------------------
+## Normalizing Paths
 
-Paths assembled from separate strings using `join()` or with embedded
-variables might end up with extra separators or relative path
-components. Use `normpath()` to clean them up:
+Paths assembled from separate strings using `join()` or with embedded variables might end up with extra separators or relative path components. Use `normpath()` to clean them up:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_normpath.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_normpath.py :::
 
-Path segments made up of `os.curdir` and `os.pardir` are evaluated and
-collapsed.
+Path segments made up of `os.curdir` and `os.pardir` are evaluated and collapsed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_normpath.py
 
      'one//two//three' : 'one/two/three'
@@ -245,14 +177,11 @@ $ python3 ospath_normpath.py
 
 To convert a relative path to an absolute filename, use `abspath()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_abspath.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_abspath.py :::
 
-The result is a complete path, starting at the top of the file system
-tree.
+The result is a complete path, starting at the top of the file system tree.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_abspath.py
 
                   '.' : '/usr'
@@ -261,22 +190,15 @@ $ python3 ospath_abspath.py
    '../one/two/three' : '/one/two/three'
 ```
 
-File Times
-----------
+## File Times
 
-Besides working with paths, `os.path` includes functions for retrieving
-file properties, similar to the ones returned by `os.stat()`:
+Besides working with paths, `os.path` includes functions for retrieving file properties, similar to the ones returned by `os.stat()`:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_properties.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_properties.py :::
 
-`os.path.getatime()` returns the access time, `os.path.getmtime()`
-returns the modification time, and `os.path.getctime()` returns the
-creation time. `os.path.getsize()` returns the amount of data in the
-file, represented in bytes.
+`os.path.getatime()` returns the access time, `os.path.getmtime()` returns the modification time, and `os.path.getctime()` returns the creation time. `os.path.getsize()` returns the amount of data in the file, represented in bytes.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 ospath_properties.py
 
 File         : ospath_properties.py
@@ -286,20 +208,15 @@ Change time  : Fri Nov 11 17:18:44 2016
 Size         : 481
 ```
 
-Testing Files
--------------
+## Testing Files
 
-When a program encounters a path name, it often needs to know whether
-the path refers to a file, directory, or symlink and whether it exists.
-`os.path` includes functions for testing all of these conditions.
+When a program encounters a path name, it often needs to know whether the path refers to a file, directory, or symlink and whether it exists. `os.path` includes functions for testing all of these conditions.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-ospath\_tests.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} ospath_tests.py :::
 
 All of the test functions return boolean values.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ ln -s /does/not/exist broken_link
 $ python3 ospath_tests.py
 
@@ -341,13 +258,9 @@ Link Exists?: True
 ```
 
 ::: {.seealso}
--   `os.path`{.interpreted-text role="pydoc"}
--   `Python 2 to 3 porting notes for os.path <porting-os.path>`{.interpreted-text
-    role="ref"}
--   `pathlib`{.interpreted-text role="mod"} \-- Paths as objects.
--   `os`{.interpreted-text role="mod"} \-- The `os` module is a parent
-    of `os.path`.
--   `time`{.interpreted-text role="mod"} \-- The time module includes
-    functions to convert between the representation used by the time
-    property functions in `os.path` and easy-to-read strings.
-:::
+
+- `os.path`{.interpreted-text role="pydoc"}
+- `Python 2 to 3 porting notes for os.path <porting-os.path>`{.interpreted-text role="ref"}
+- `pathlib`{.interpreted-text role="mod"} \-- Paths as objects.
+- `os`{.interpreted-text role="mod"} \-- The `os` module is a parent of `os.path`.
+- `time`{.interpreted-text role="mod"} \-- The time module includes functions to convert between the representation used by the time property functions in `os.path` and easy-to-read strings. :::

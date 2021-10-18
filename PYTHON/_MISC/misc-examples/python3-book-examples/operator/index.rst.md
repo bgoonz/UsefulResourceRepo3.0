@@ -1,39 +1,22 @@
-operator \-\-- Functional Interface to Built-in Operators
-=========================================================
+# operator \-\-- Functional Interface to Built-in Operators
 
-::: {.module synopsis="Functional interface to built-in operators"}
-operator
-:::
+::: {.module synopsis="Functional interface to built-in operators"} operator :::
 
 Purpose
 
-:   Functional interface to built-in operators.
+: Functional interface to built-in operators.
 
-Programming using iterators occasionally requires creating small
-functions for simple expressions. Sometimes, these can be implemented as
-`lambda` functions, but for some operations new functions are not needed
-at all. The `operator` module defines functions that correspond to
-built-in operations for arithmetic, comparison, and other operations
-corresponding to standard object APIs.
+Programming using iterators occasionally requires creating small functions for simple expressions. Sometimes, these can be implemented as `lambda` functions, but for some operations new functions are not needed at all. The `operator` module defines functions that correspond to built-in operations for arithmetic, comparison, and other operations corresponding to standard object APIs.
 
-Logical Operations
-------------------
+## Logical Operations
 
-There are functions for determining the boolean equivalent for a value,
-negating it to create the opposite boolean value, and comparing objects
-to see if they are identical.
+There are functions for determining the boolean equivalent for a value, negating it to create the opposite boolean value, and comparing objects to see if they are identical.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_boolean.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_boolean.py :::
 
-`not_()` includes the trailing underscore because `not` is a Python
-keyword. `truth()` applies the same logic used when testing an
-expression in an `if` statement or converting an expression to a `bool`.
-`is_()` implements the same check used by the `is` keyword, and
-`is_not()` does the same test and returns the opposite answer.
+`not_()` includes the trailing underscore because `not` is a Python keyword. `truth()` applies the same logic used when testing an expression in an `if` statement or converting an expression to a `bool`. `is_()` implements the same check used by the `is` keyword, and `is_not()` does the same test and returns the opposite answer.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_boolean.py
 
 a = -1
@@ -45,19 +28,15 @@ is_(a, b)   : False
 is_not(a, b): True
 ```
 
-Comparison Operators
---------------------
+## Comparison Operators
 
 All of the rich comparison operators are supported.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_comparisons.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_comparisons.py :::
 
-The functions are equivalent to the expression syntax using `<`, `<=`,
-`==`, `>=`, and `>`.
+The functions are equivalent to the expression syntax using `<`, `<=`, `==`, `>=`, and `>`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_comparisons.py
 
 a = 1
@@ -70,21 +49,15 @@ ge(a, b): False
 gt(a, b): False
 ```
 
-Arithmetic Operators
---------------------
+## Arithmetic Operators
 
-The arithmetic operators for manipulating numerical values are also
-supported.
+The arithmetic operators for manipulating numerical values are also supported.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_math.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_math.py :::
 
-There are two separate division operators: `floordiv()` (integer
-division as implemented in Python before version 3.0) and `truediv()`
-(floating point division).
+There are two separate division operators: `floordiv()` (integer division as implemented in Python before version 3.0) and `truediv()` (floating point division).
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_math.py
 
 a = -1
@@ -119,21 +92,15 @@ rshift(d, c): 1
 xor(c, d)   : 4
 ```
 
-Sequence Operators
-------------------
+## Sequence Operators
 
-The operators for working with sequences can be divided into four
-groups: building up sequences, searching for items, accessing contents,
-and removing items from sequences.
+The operators for working with sequences can be divided into four groups: building up sequences, searching for items, accessing contents, and removing items from sequences.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_sequences.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_sequences.py :::
 
-Some of these operations, such as `setitem()` and `delitem()`, modify
-the sequence in place and do not return a value.
+Some of these operations, such as `setitem()` and `delitem()`, modify the sequence in place and do not return a value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_sequences.py
 
 a = [1, 2, 3]
@@ -160,21 +127,15 @@ Destructive:
   delitem(a, slice(1, 3)): [1]
 ```
 
-In-place Operators
-------------------
+## In-place Operators
 
-In addition to the standard operators, many types of objects support
-\"in-place\" modification through special operators such as `+=`. There
-are equivalent functions for in-place modifications, too:
+In addition to the standard operators, many types of objects support \"in-place\" modification through special operators such as `+=`. There are equivalent functions for in-place modifications, too:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_inplace.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_inplace.py :::
 
-These examples only demonstrate a few of the functions. Refer to the
-standard library documentation for complete details.
+These examples only demonstrate a few of the functions. Refer to the standard library documentation for complete details.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_inplace.py
 
 a = -1
@@ -187,23 +148,15 @@ a = iadd(a, b) => 4.0
 c = iconcat(c, d) => [1, 2, 3, 'a', 'b', 'c']
 ```
 
-Attribute and Item \"Getters\"
-------------------------------
+## Attribute and Item \"Getters\"
 
-One of the most unusual features of the `operator` module is the concept
-of *getters*. These are callable objects constructed at runtime to
-retrieve attributes of objects or contents from sequences. Getters are
-especially useful when working with iterators or generator sequences,
-where they are intended to incur less overhead than a `lambda` or Python
-function.
+One of the most unusual features of the `operator` module is the concept of _getters_. These are callable objects constructed at runtime to retrieve attributes of objects or contents from sequences. Getters are especially useful when working with iterators or generator sequences, where they are intended to incur less overhead than a `lambda` or Python function.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_attrgetter.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_attrgetter.py :::
 
 Attribute getters work like `lambda x, n='attrname': getattr(x, n)`:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_attrgetter.py
 
 objects   : [MyObj(0), MyObj(1), MyObj(2), MyObj(3), MyObj(4)]
@@ -214,13 +167,11 @@ sorted    : [MyObj(0), MyObj(1), MyObj(2), MyObj(3), MyObj(4)]
 
 Item getters work like `lambda x, y=5: x[y]`:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_itemgetter.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_itemgetter.py :::
 
 Item getters work with mappings as well as sequences.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_itemgetter.py
 
 Dictionaries:
@@ -235,21 +186,15 @@ Tuples:
    sorted: [(3, -6), (2, -4), (1, -2), (0, 0)]
 ```
 
-Combining Operators and Custom Classes
---------------------------------------
+## Combining Operators and Custom Classes
 
-The functions in the `operator` module work via the standard Python
-interfaces for their operations, so they work with user-defined classes
-as well as the built-in types.
+The functions in the `operator` module work via the standard Python interfaces for their operations, so they work with user-defined classes as well as the built-in types.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-operator\_classes.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} operator_classes.py :::
 
-Refer to the Python reference guide for a complete list of the special
-methods used by each operator.
+Refer to the Python reference guide for a complete list of the special methods used by each operator.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 operator_classes.py
 
 Comparison:
@@ -262,14 +207,11 @@ MyObj(3)
 ```
 
 ::: {.seealso}
--   `operator`{.interpreted-text role="pydoc"}
--   `functools`{.interpreted-text role="mod"} \-- Functional programming
-    tools, including the `total_ordering()` decorator for adding rich
-    comparison methods to a class.
--   `itertools`{.interpreted-text role="mod"} \-- Iterator operations.
--   `collections`{.interpreted-text role="mod"} \-- Abstract types for
-    collections.
--   `numbers`{.interpreted-text role="mod"} \-- Abstract types for
-    numerical values.
+
+- `operator`{.interpreted-text role="pydoc"}
+- `functools`{.interpreted-text role="mod"} \-- Functional programming tools, including the `total_ordering()` decorator for adding rich comparison methods to a class.
+- `itertools`{.interpreted-text role="mod"} \-- Iterator operations.
+- `collections`{.interpreted-text role="mod"} \-- Abstract types for collections.
+- `numbers`{.interpreted-text role="mod"} \-- Abstract types for numerical values.
 
 :::

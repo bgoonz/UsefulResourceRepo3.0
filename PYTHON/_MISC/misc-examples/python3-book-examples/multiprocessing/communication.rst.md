@@ -1,46 +1,24 @@
-Passing Messages to Processes {#multiprocessing-queues}
-=============================
+# Passing Messages to Processes {#multiprocessing-queues}
 
-As with threads, a common use pattern for multiple processes is to
-divide a job up among several workers to run in parallel. Effective use
-of multiple processes usually requires some communication between them,
-so that work can be divided and results can be aggregated. A simple way
-to communicate between processes with `multiprocessing` is to use a
-`Queue` to pass messages back and forth. Any object that can be
-serialized with `pickle`{.interpreted-text role="mod"} can pass through
-a `Queue`.
+As with threads, a common use pattern for multiple processes is to divide a job up among several workers to run in parallel. Effective use of multiple processes usually requires some communication between them, so that work can be divided and results can be aggregated. A simple way to communicate between processes with `multiprocessing` is to use a `Queue` to pass messages back and forth. Any object that can be serialized with `pickle`{.interpreted-text role="mod"} can pass through a `Queue`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_queue.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_queue.py :::
 
-This short example only passes a single message to a single worker, then
-the main process waits for the worker to finish.
+This short example only passes a single message to a single worker, then the main process waits for the worker to finish.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 multiprocessing_queue.py
 
 Doing something fancy in Process-1 for Fancy Dan!
 ```
 
-A more complex example shows how to manage several workers consuming
-data from a `JoinableQueue` and passing results back to the parent
-process. The *poison pill* technique is used to stop the workers. After
-setting up the real tasks, the main program adds one \"stop\" value per
-worker to the job queue. When a worker encounters the special value, it
-breaks out of its processing loop. The main process uses the task
-queue\'s `join()` method to wait for all of the tasks to finish before
-processing the results.
+A more complex example shows how to manage several workers consuming data from a `JoinableQueue` and passing results back to the parent process. The _poison pill_ technique is used to stop the workers. After setting up the real tasks, the main program adds one \"stop\" value per worker to the job queue. When a worker encounters the special value, it breaks out of its processing loop. The main process uses the task queue\'s `join()` method to wait for all of the tasks to finish before processing the results.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_producer\_consumer.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_producer_consumer.py :::
 
-Although the jobs enter the queue in order, their execution is
-parallelized so there is no guarantee about the order they will be
-completed.
+Although the jobs enter the queue in order, their execution is parallelized so there is no guarantee about the order they will be completed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u multiprocessing_producer_consumer.py
 
 Creating 8 consumers
@@ -74,22 +52,15 @@ Result: 8 * 8 = 64
 Result: 9 * 9 = 81
 ```
 
-Signaling between Processes
-===========================
+# Signaling between Processes
 
-The `Event` class provides a simple way to communicate state information
-between processes. An event can be toggled between set and unset states.
-Users of the event object can wait for it to change from unset to set,
-using an optional timeout value.
+The `Event` class provides a simple way to communicate state information between processes. An event can be toggled between set and unset states. Users of the event object can wait for it to change from unset to set, using an optional timeout value.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_event.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_event.py :::
 
-When `wait()` times out it returns without an error. The caller is
-responsible for checking the state of the event using `is_set()`.
+When `wait()` times out it returns without an error. The caller is responsible for checking the state of the event using `is_set()`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u multiprocessing_event.py
 
 main: waiting before calling Event.set()
@@ -100,42 +71,30 @@ main: event is set
 wait_for_event: e.is_set()-> True
 ```
 
-Controlling Access to Resources
-===============================
+# Controlling Access to Resources
 
-In situations when a single resource needs to be shared between multiple
-processes, a `Lock` can be used to avoid conflicting accesses.
+In situations when a single resource needs to be shared between multiple processes, a `Lock` can be used to avoid conflicting accesses.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_lock.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_lock.py :::
 
-In this example, the messages printed to the console may be jumbled
-together if the two processes do not synchronize their access of the
-output stream with the lock.
+In this example, the messages printed to the console may be jumbled together if the two processes do not synchronize their access of the output stream with the lock.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 multiprocessing_lock.py
 
 Lock acquired via with
 Lock acquired directly
 ```
 
-Synchronizing Operations
-========================
+# Synchronizing Operations
 
-`Condition` objects can be used to synchronize parts of a workflow so
-that some run in parallel but others run sequentially, even if they are
-in separate processes.
+`Condition` objects can be used to synchronize parts of a workflow so that some run in parallel but others run sequentially, even if they are in separate processes.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_condition.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_condition.py :::
 
-In this example, two process run the second stage of a job in parallel,
-but only after the first stage is done.
+In this example, two process run the second stage of a job in parallel, but only after the first stage is done.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u multiprocessing_condition.py
 
 Starting stage_2[1]
@@ -146,28 +105,15 @@ stage_2[1] running
 stage_2[2] running
 ```
 
-Controlling Concurrent Access to Resources
-==========================================
+# Controlling Concurrent Access to Resources
 
-Sometimes it is useful to allow more than one worker access to a
-resource at a time, while still limiting the overall number. For
-example, a connection pool might support a fixed number of simultaneous
-connections, or a network application might support a fixed number of
-concurrent downloads. A `Semaphore` is one way to manage those
-connections.
+Sometimes it is useful to allow more than one worker access to a resource at a time, while still limiting the overall number. For example, a connection pool might support a fixed number of simultaneous connections, or a network application might support a fixed number of concurrent downloads. A `Semaphore` is one way to manage those connections.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_semaphore.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_semaphore.py :::
 
-In this example, the `ActivePool` class simply serves as a convenient
-way to track which processes are running at a given moment. A real
-resource pool would probably allocate a connection or some other value
-to the newly active process, and reclaim the value when the task is
-done. Here, the pool is just used to hold the names of the active
-processes to show that only three are running concurrently.
+In this example, the `ActivePool` class simply serves as a convenient way to track which processes are running at a given moment. A real resource pool would probably allocate a connection or some other value to the newly active process, and reclaim the value when the task is done. Here, the pool is just used to hold the names of the active processes to show that only three are running concurrently.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u multiprocessing_semaphore.py
 
 Activating 0 now running ['0', '1', '2']
@@ -205,85 +151,58 @@ Now running ['9']
 Now running []
 ```
 
-Managing Shared State
-=====================
+# Managing Shared State
 
-In the previous example, the list of active processes is maintained
-centrally in the `ActivePool` instance via a special type of list object
-created by a `Manager`. The `Manager` is responsible for coordinating
-shared information state between all of its users.
+In the previous example, the list of active processes is maintained centrally in the `ActivePool` instance via a special type of list object created by a `Manager`. The `Manager` is responsible for coordinating shared information state between all of its users.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_manager\_dict.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_manager_dict.py :::
 
-By creating the list through the manager, it is shared and updates are
-seen in all processes. Dictionaries are also supported.
+By creating the list through the manager, it is shared and updates are seen in all processes. Dictionaries are also supported.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 multiprocessing_manager_dict.py
 
-Results: {0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10, 6: 12, 7: 14, 
+Results: {0: 0, 1: 2, 2: 4, 3: 6, 4: 8, 5: 10, 6: 12, 7: 14,
 8: 16, 9: 18}
 ```
 
-Shared Namespaces
-=================
+# Shared Namespaces
 
-In addition to dictionaries and lists, a `Manager` can create a shared
-`Namespace`.
+In addition to dictionaries and lists, a `Manager` can create a shared `Namespace`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_namespaces.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_namespaces.py :::
 
-Any named value added to the `Namespace` is visible to all of the
-clients that receive the `Namespace` instance.
+Any named value added to the `Namespace` is visible to all of the clients that receive the `Namespace` instance.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 multiprocessing_namespaces.py
 
 Before event, error: 'Namespace' object has no attribute 'value'
 After event: This is the value
 ```
 
-It is important to know that updates to the contents of mutable values
-in the namespace are not propagated automatically.
+It is important to know that updates to the contents of mutable values in the namespace are not propagated automatically.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_namespaces\_mutable.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_namespaces_mutable.py :::
 
 To update the list, attach it to the namespace object again.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 multiprocessing_namespaces_mutable.py
 
 Before event: []
 After event : []
 ```
 
-Process Pools
-=============
+# Process Pools
 
-The `Pool` class can be used to manage a fixed number of workers for
-simple cases where the work to be done can be broken up and distributed
-between workers independently. The return values from the jobs are
-collected and returned as a list. The pool arguments include the number
-of processes and a function to run when starting the task process
-(invoked once per child).
+The `Pool` class can be used to manage a fixed number of workers for simple cases where the work to be done can be broken up and distributed between workers independently. The return values from the jobs are collected and returned as a list. The pool arguments include the number of processes and a function to run when starting the task process (invoked once per child).
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_pool.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_pool.py :::
 
-The result of the `map()` method is functionally equivalent to the
-built-in `map()`, except that individual tasks run in parallel. Since
-the pool is processing its inputs in parallel, `close()` and `join()`
-can be used to synchronize the main process with the task processes to
-ensure proper cleanup.
+The result of the `map()` method is functionally equivalent to the built-in `map()`, except that individual tasks run in parallel. Since the pool is processing its inputs in parallel, `close()` and `join()` can be used to synchronize the main process with the task processes to ensure proper cleanup.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 multiprocessing_pool.py
 
 Input   : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
@@ -299,22 +218,13 @@ Starting ForkPoolWorker-8
 Pool    : [0, 2, 4, 6, 8, 10, 12, 14, 16, 18]
 ```
 
-By default, `Pool` creates a fixed number of worker processes and passes
-jobs to them until there are no more jobs. Setting the
-`maxtasksperchild` parameter tells the pool to restart a worker process
-after it has finished a few tasks, preventing long-running workers from
-consuming ever more system resources.
+By default, `Pool` creates a fixed number of worker processes and passes jobs to them until there are no more jobs. Setting the `maxtasksperchild` parameter tells the pool to restart a worker process after it has finished a few tasks, preventing long-running workers from consuming ever more system resources.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-multiprocessing\_pool\_maxtasksperchild.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} multiprocessing_pool_maxtasksperchild.py :::
 
-The pool restarts the workers when they have completed their allotted
-tasks, even if there is no more work. In this output, eight workers are
-created, even though there are only 10 tasks, and each worker can
-complete two of them at a time.
+The pool restarts the workers when they have completed their allotted tasks, even if there is no more work. In this output, eight workers are created, even though there are only 10 tasks, and each worker can complete two of them at a time.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 multiprocessing_pool_maxtasksperchild.py
 
 Input   : [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]

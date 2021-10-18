@@ -1,66 +1,40 @@
-fileinput \-\-- Command-Line Filter Framework
-=============================================
+# fileinput \-\-- Command-Line Filter Framework
 
-::: {.module synopsis="Process lines from input streams."}
-fileinput
-:::
+::: {.module synopsis="Process lines from input streams."} fileinput :::
 
 Purpose
 
-:   Create command-line filter programs to process lines from input
-    streams.
+: Create command-line filter programs to process lines from input streams.
 
-The `fileinput` module is a framework for creating command-line programs
-for processing text files as a filter.
+The `fileinput` module is a framework for creating command-line programs for processing text files as a filter.
 
-Converting M3U files to RSS
----------------------------
+## Converting M3U files to RSS
 
-An example of a filter is
-[m3utorss](https://pypi.python.org/pypi/m3utorss), a program to convert
-a set of MP3 files into an RSS feed that can be shared as a podcast. The
-inputs to the program are one or more m3u files listing the MP3 files to
-be distributed. The output is an RSS feed printed to the console. To
-process the input, the program needs to iterate over the list of
-filenames and
+An example of a filter is [m3utorss](https://pypi.python.org/pypi/m3utorss), a program to convert a set of MP3 files into an RSS feed that can be shared as a podcast. The inputs to the program are one or more m3u files listing the MP3 files to be distributed. The output is an RSS feed printed to the console. To process the input, the program needs to iterate over the list of filenames and
 
--   Open each file.
--   Read each line of the file.
--   Figure out if the line refers to an mp3 file.
--   If it does, add a new item to the RSS feed.
--   Print the output.
+- Open each file.
+- Read each line of the file.
+- Figure out if the line refers to an mp3 file.
+- If it does, add a new item to the RSS feed.
+- Print the output.
 
-All of this file handling could have been coded by hand. It is not that
-complicated and, with some testing, even the error handling would be
-right. But `fileinput` handles all of the details, so the program is
-simplified.
+All of this file handling could have been coded by hand. It is not that complicated and, with some testing, even the error handling would be right. But `fileinput` handles all of the details, so the program is simplified.
 
-::: {.literalinclude lines="30-39"}
-fileinput\_example.py
-:::
+::: {.literalinclude lines="30-39"} fileinput_example.py :::
 
-The `input()` function takes as argument a list of filenames to examine.
-If the list is empty, the module reads data from standard input. The
-function returns an iterator that produces individual lines from the
-text files being processed. The caller just needs to loop over each
-line, skipping blanks and comments, to find the references to MP3 files.
+The `input()` function takes as argument a list of filenames to examine. If the list is empty, the module reads data from standard input. The function returns an iterator that produces individual lines from the text files being processed. The caller just needs to loop over each line, skipping blanks and comments, to find the references to MP3 files.
 
 Here is the complete program.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fileinput\_example.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fileinput_example.py :::
 
 This sample input file contains the names of several MP3 files.
 
-::: {.literalinclude caption=""}
-sample\_data.m3u
-:::
+::: {.literalinclude caption=""} sample_data.m3u :::
 
-Running `fileinput_example.py` with the sample input produces XML data
-using the RSS format.
+Running `fileinput_example.py` with the sample input produces XML data using the RSS format.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fileinput_example.py sample_data.m3u
 
 <?xml version="1.0" ?>
@@ -82,23 +56,15 @@ $ python3 fileinput_example.py sample_data.m3u
 </rss>
 ```
 
-Progress Metadata
------------------
+## Progress Metadata
 
-In the previous example, the filename and line number being processed
-were not important. Other tools, such as grep-like searching, might need
-that information. `fileinput` includes functions for accessing all of
-the metadata about the current line (`filename()`, `filelineno()`, and
-`lineno()`).
+In the previous example, the filename and line number being processed were not important. Other tools, such as grep-like searching, might need that information. `fileinput` includes functions for accessing all of the metadata about the current line (`filename()`, `filelineno()`, and `lineno()`).
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fileinput\_grep.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fileinput_grep.py :::
 
-A basic pattern matching loop can be used to find the occurrences of the
-string `"fileinput"` in the source for these examples.
+A basic pattern matching loop can be used to find the occurrences of the string `"fileinput"` in the source for these examples.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fileinput_grep.py fileinput *.py
 
 fileinput_change_subnet.py:10:import fileinput
@@ -126,7 +92,7 @@ ilelineno(),
 
 Text can also be read from standard input.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ cat *.py | python fileinput_grep.py fileinput
 
 10:import fileinput
@@ -145,49 +111,33 @@ $ cat *.py | python fileinput_grep.py fileinput
 114:                         lineno=fileinput.filelineno(),
 ```
 
-In-place Filtering
-------------------
+## In-place Filtering
 
-Another common file-processing operation is to modify the contents of a
-file where it is, rather than making a new file. For example, a Unix
-hosts file might need to be updated if a subnet range changes.
+Another common file-processing operation is to modify the contents of a file where it is, rather than making a new file. For example, a Unix hosts file might need to be updated if a subnet range changes.
 
-::: {.literalinclude caption="etc_hosts.txt before modifications"}
-etc\_hosts
-:::
+::: {.literalinclude caption="etc_hosts.txt before modifications"} etc_hosts :::
 
-The safe way to make the change automatically is to create a new file
-based on the input and then replace the original with the edited copy.
-`fileinput` supports this automatically using the `inplace` option.
+The safe way to make the change automatically is to create a new file based on the input and then replace the original with the edited copy. `fileinput` supports this automatically using the `inplace` option.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fileinput\_change\_subnet.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fileinput_change_subnet.py :::
 
-Although the script uses `print()`, no output is produced because
-`fileinput` redirects standard output to the file being overwritten.
+Although the script uses `print()`, no output is produced because `fileinput` redirects standard output to the file being overwritten.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fileinput_change_subnet.py 10.16 10.17 etc_hosts.txt
 ```
 
-The updated file has the changed IP addresses of all of the servers on
-the `10.16.0.0/16` network.
+The updated file has the changed IP addresses of all of the servers on the `10.16.0.0/16` network.
 
-::: {.literalinclude caption="etc_hosts.txt after modifications"}
-etc\_hosts.txt
-:::
+::: {.literalinclude caption="etc_hosts.txt after modifications"} etc_hosts.txt :::
 
-Before processing begins, a backup file is created using the original
-name plus `.bak`.
+Before processing begins, a backup file is created using the original name plus `.bak`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fileinput\_change\_subnet\_noisy.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fileinput_change_subnet_noisy.py :::
 
 The backup file is removed when the input is closed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fileinput_change_subnet_noisy.py 10.16. 10.17. etc_h\
 osts.txt
 
@@ -198,10 +148,7 @@ Directory contains: ['etc_hosts.txt']
 ```
 
 ::: {.seealso}
--   `fileinput`{.interpreted-text role="pydoc"}
--   [m3utorss](https://pypi.python.org/pypi/m3utorss) \-- Script to
-    convert m3u files listing MP3s to an RSS file suitable for use as a
-    podcast feed.
--   `xml.etree`{.interpreted-text role="mod"} \-- More details of using
-    ElementTree to produce XML.
-:::
+
+- `fileinput`{.interpreted-text role="pydoc"}
+- [m3utorss](https://pypi.python.org/pypi/m3utorss) \-- Script to convert m3u files listing MP3s to an RSS file suitable for use as a podcast feed.
+- `xml.etree`{.interpreted-text role="mod"} \-- More details of using ElementTree to produce XML. :::

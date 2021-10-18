@@ -1,81 +1,40 @@
-mmap \-\-- Memory-map Files
-===========================
+# mmap \-\-- Memory-map Files
 
-::: {.module synopsis="Memory-map files"}
-mmap
-:::
+::: {.module synopsis="Memory-map files"} mmap :::
 
 Purpose
 
-:   Memory-map files instead of reading the contents directly.
+: Memory-map files instead of reading the contents directly.
 
-Memory-mapping a file uses the operating system virtual memory system to
-access the data on the file system directly, instead of using normal I/O
-functions. Memory-mapping typically improves I/O performance because it
-does not involve a separate system call for each access and it does not
-require copying data between buffers \-- the memory is accessed directly
-by both the kernel and the user application.
+Memory-mapping a file uses the operating system virtual memory system to access the data on the file system directly, instead of using normal I/O functions. Memory-mapping typically improves I/O performance because it does not involve a separate system call for each access and it does not require copying data between buffers \-- the memory is accessed directly by both the kernel and the user application.
 
-Memory-mapped files can be treated as mutable strings or file-like
-objects, depending on the need. A mapped file supports the expected file
-API methods, such as `close()`, `flush()`, `read()`, `readline()`,
-`seek()`, `tell()`, and `write()`. It also supports the string API, with
-features such as slicing and methods like `find()`.
+Memory-mapped files can be treated as mutable strings or file-like objects, depending on the need. A mapped file supports the expected file API methods, such as `close()`, `flush()`, `read()`, `readline()`, `seek()`, `tell()`, and `write()`. It also supports the string API, with features such as slicing and methods like `find()`.
 
-All of the examples use the text file `lorem.txt`, containing a bit of
-Lorem Ipsum. For reference, the text of the file is
+All of the examples use the text file `lorem.txt`, containing a bit of Lorem Ipsum. For reference, the text of the file is
 
-::: {.literalinclude caption=""}
-lorem.txt
-:::
+::: {.literalinclude caption=""} lorem.txt :::
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-There are differences in the arguments and behaviors for `mmap()`
-between Unix and Windows, which are not fully discussed here. For more
-details, refer to the standard library documentation.
-:::
+There are differences in the arguments and behaviors for `mmap()` between Unix and Windows, which are not fully discussed here. For more details, refer to the standard library documentation. :::
 
-Reading
--------
+## Reading
 
-Use the `mmap()` function to create a memory-mapped file. The first
-argument is a file descriptor, either from the `fileno()` method of a
-`file` object or from `os.open()`. The caller is responsible for opening
-the file before invoking `mmap()`, and closing it after it is no longer
-needed.
+Use the `mmap()` function to create a memory-mapped file. The first argument is a file descriptor, either from the `fileno()` method of a `file` object or from `os.open()`. The caller is responsible for opening the file before invoking `mmap()`, and closing it after it is no longer needed.
 
-The second argument to `mmap()` is a size in bytes for the portion of
-the file to map. If the value is `0`, the entire file is mapped. If the
-size is larger than the current size of the file, the file is extended.
+The second argument to `mmap()` is a size in bytes for the portion of the file to map. If the value is `0`, the entire file is mapped. If the size is larger than the current size of the file, the file is extended.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-Windows does not support creating a zero-length mapping.
-:::
+Windows does not support creating a zero-length mapping. :::
 
-An optional keyword argument, `access`, is supported by both platforms.
-Use `ACCESS_READ` for read-only access, `ACCESS_WRITE` for write-through
-(assignments to the memory go directly to the file), or `ACCESS_COPY`
-for copy-on-write (assignments to memory are not written to the file).
+An optional keyword argument, `access`, is supported by both platforms. Use `ACCESS_READ` for read-only access, `ACCESS_WRITE` for write-through (assignments to the memory go directly to the file), or `ACCESS_COPY` for copy-on-write (assignments to memory are not written to the file).
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-mmap\_read.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} mmap_read.py :::
 
-The file pointer tracks the last byte accessed through a slice
-operation. In this example, the pointer moves ahead 10 bytes after the
-first read. It is then reset to the beginning of the file by the slice
-operation, and moved ahead 10 bytes again by the slice. After the slice
-operation, calling `read()` again gives the bytes 11-20 in the file.
+The file pointer tracks the last byte accessed through a slice operation. In this example, the pointer moves ahead 10 bytes after the first read. It is then reset to the beginning of the file by the slice operation, and moved ahead 10 bytes again by the slice. After the slice operation, calling `read()` again gives the bytes 11-20 in the file.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 mmap_read.py
 
 First 10 bytes via read : b'Lorem ipsu'
@@ -83,25 +42,17 @@ First 10 bytes via slice: b'Lorem ipsu'
 2nd   10 bytes via read : b'm dolor si'
 ```
 
-Writing
--------
+## Writing
 
-To set up the memory mapped file to receive updates, start by opening it
-for appending with mode `'r+'` (not `'w'`) before mapping it. Then use
-any of the API methods that change the data (`write()`, assignment to a
-slice, etc.).
+To set up the memory mapped file to receive updates, start by opening it for appending with mode `'r+'` (not `'w'`) before mapping it. Then use any of the API methods that change the data (`write()`, assignment to a slice, etc.).
 
-The next example uses the default access mode of `ACCESS_WRITE` and
-assigning to a slice to modify part of a line in place.
+The next example uses the default access mode of `ACCESS_WRITE` and assigning to a slice to modify part of a line in place.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-mmap\_write\_slice.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} mmap_write_slice.py :::
 
-The word \"`consectetuer`\" is replaced in the middle of the first line
-in memory and in the file.
+The word \"`consectetuer`\" is replaced in the middle of the first line in memory and in the file.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 mmap_write_slice.py
 
 Looking for    : b'consectetuer'
@@ -116,18 +67,13 @@ Lorem ipsum dolor sit amet, reutetcesnoc adipiscing elit.
 
 ### Copy Mode
 
-Using the access setting `ACCESS_COPY` does not write changes to the
-file on disk.
+Using the access setting `ACCESS_COPY` does not write changes to the file on disk.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-mmap\_write\_copy.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} mmap_write_copy.py :::
 
-It is necessary to rewind the file handle in this example separately
-from the `mmap` handle, because the internal state of the two objects is
-maintained separately.
+It is necessary to rewind the file handle in this example separately from the `mmap` handle, because the internal state of the two objects is maintained separately.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 mmap_write_copy.py
 
 Memory Before:
@@ -141,23 +87,15 @@ File After   :
 Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
 ```
 
-Regular Expressions
--------------------
+## Regular Expressions
 
-Since a memory mapped file can act like a string, it can be used with
-other modules that operate on strings, such as regular expressions. This
-example finds all of the sentences with \"`nulla`\" in them.
+Since a memory mapped file can act like a string, it can be used with other modules that operate on strings, such as regular expressions. This example finds all of the sentences with \"`nulla`\" in them.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-mmap\_regex.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} mmap_regex.py :::
 
-Because the pattern includes two groups, the return value from
-`findall()` is a sequence of tuples. The `print` statement pulls out the
-matching sentence and replaces newlines with spaces so each result
-prints on a single line.
+Because the pattern includes two groups, the return value from `findall()` is a sequence of tuples. The `print` statement pulls out the matching sentence and replaces newlines with spaces so each result prints on a single line.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 mmap_regex.py
 
 b'Nulla facilisi.'
@@ -165,9 +103,8 @@ b'Nulla feugiat augue eleifend nulla.'
 ```
 
 ::: {.seealso}
--   `mmap`{.interpreted-text role="pydoc"}
--   `Python 2 to 3 porting notes for mmap <porting-mmap>`{.interpreted-text
-    role="ref"}
--   `os`{.interpreted-text role="mod"} \-- The `os` module.
--   `re`{.interpreted-text role="mod"} \-- Regular expressions.
-:::
+
+- `mmap`{.interpreted-text role="pydoc"}
+- `Python 2 to 3 porting notes for mmap <porting-mmap>`{.interpreted-text role="ref"}
+- `os`{.interpreted-text role="mod"} \-- The `os` module.
+- `re`{.interpreted-text role="mod"} \-- Regular expressions. :::

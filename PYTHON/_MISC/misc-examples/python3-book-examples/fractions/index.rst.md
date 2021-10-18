@@ -1,32 +1,22 @@
-fractions \-\-- Rational Numbers
-================================
+# fractions \-\-- Rational Numbers
 
-::: {.module synopsis="Implements a class for working with rational numbers."}
-fractions
-:::
+::: {.module synopsis="Implements a class for working with rational numbers."} fractions :::
 
 Purpose
 
-:   Implements a class for working with rational numbers.
+: Implements a class for working with rational numbers.
 
-The `Fraction` class implements numerical operations for rational
-numbers based on the API defined by `Rational` in the
-`numbers`{.interpreted-text role="mod"} module.
+The `Fraction` class implements numerical operations for rational numbers based on the API defined by `Rational` in the `numbers`{.interpreted-text role="mod"} module.
 
-Creating Fraction Instances
----------------------------
+## Creating Fraction Instances
 
-As with the `decimal`{.interpreted-text role="mod"} module, new values
-can be created in several ways. One easy way is to create them from
-separate numerator and denominator values:
+As with the `decimal`{.interpreted-text role="mod"} module, new values can be created in several ways. One easy way is to create them from separate numerator and denominator values:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fractions\_create\_integers.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fractions_create_integers.py :::
 
 The lowest common denominator is maintained as new values are computed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fractions_create_integers.py
 
 1/2 = 1/2
@@ -34,16 +24,13 @@ $ python3 fractions_create_integers.py
 3/6 = 1/2
 ```
 
-Another way to create a `Fraction` is using a string representation of
-`<numerator> / <denominator>`:
+Another way to create a `Fraction` is using a string representation of `<numerator> / <denominator>`:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fractions\_create\_strings.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fractions_create_strings.py :::
 
 The string is parsed to find the numerator and denominator values.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fractions_create_strings.py
 
 1/2 = 1/2
@@ -51,19 +38,13 @@ $ python3 fractions_create_strings.py
 3/6 = 1/2
 ```
 
-Strings can also use the more usual decimal or floating point notation
-of series of digits separated by a period. Any string that can be parsed
-by `float()` and that does not represent \"not a number\" (`NaN`) or an
-infinite value is supported.
+Strings can also use the more usual decimal or floating point notation of series of digits separated by a period. Any string that can be parsed by `float()` and that does not represent \"not a number\" (`NaN`) or an infinite value is supported.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fractions\_create\_strings\_floats.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fractions_create_strings_floats.py :::
 
-The numerator and denominator values represented by the floating point
-value is computed automatically.
+The numerator and denominator values represented by the floating point value is computed automatically.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fractions_create_strings_floats.py
 
  0.5 = 1/2
@@ -72,17 +53,13 @@ $ python3 fractions_create_strings_floats.py
 5e-1 = 1/2
 ```
 
-It is also possible to create `Fraction` instances directly from other
-representations of rational values, such as `float` or `Decimal`.
+It is also possible to create `Fraction` instances directly from other representations of rational values, such as `float` or `Decimal`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fractions\_from\_float.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fractions_from_float.py :::
 
-Floating point values that cannot be expressed exactly may yield
-unexpected results.
+Floating point values that cannot be expressed exactly may yield unexpected results.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fractions_from_float.py
 
 0.1 = 3602879701896397/36028797018963968
@@ -91,17 +68,13 @@ $ python3 fractions_from_float.py
 2.0 = 2
 ```
 
-Using `Decimal` representations of the values gives the expected
-results.
+Using `Decimal` representations of the values gives the expected results.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fractions\_from\_decimal.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fractions_from_decimal.py :::
 
-The internal implementation of `Decimal` does not suffer from the
-precision errors of the standard floating point representation.
+The internal implementation of `Decimal` does not suffer from the precision errors of the standard floating point representation.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fractions_from_decimal.py
 
 0.1 = 1/10
@@ -110,19 +83,15 @@ $ python3 fractions_from_decimal.py
 2.0 = 2
 ```
 
-Arithmetic
-----------
+## Arithmetic
 
-Once the fractions are instantiated, they can be used in mathematical
-expressions.
+Once the fractions are instantiated, they can be used in mathematical expressions.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fractions\_arithmetic.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fractions_arithmetic.py :::
 
 All of the standard operators are supported.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fractions_arithmetic.py
 
 1/2 + 3/4 = 5/4
@@ -131,20 +100,15 @@ $ python3 fractions_arithmetic.py
 1/2 / 3/4 = 2/3
 ```
 
-Approximating Values
---------------------
+## Approximating Values
 
-A useful feature of `Fraction` is the ability to convert a floating
-point number to an approximate rational value.
+A useful feature of `Fraction` is the ability to convert a floating point number to an approximate rational value.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-fractions\_limit\_denominator.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} fractions_limit_denominator.py :::
 
-The value of the fraction can be controlled by limiting the size of the
-denominator.
+The value of the fraction can be controlled by limiting the size of the denominator.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 fractions_limit_denominator.py
 
 PI       = 3.141592653589793
@@ -159,11 +123,8 @@ No limit = 3141592653589793/1000000000000000
 ```
 
 ::: {.seealso}
--   `fractions`{.interpreted-text role="pydoc"}
--   `decimal`{.interpreted-text role="mod"} \-- The `decimal` module
-    provides an API for fixed and floating point math.
--   `numbers`{.interpreted-text role="mod"} \-- Numeric abstract base
-    classes.
--   `Python 2 to 3 porting notes for fractions <porting-fractions>`{.interpreted-text
-    role="ref"}
-:::
+
+- `fractions`{.interpreted-text role="pydoc"}
+- `decimal`{.interpreted-text role="mod"} \-- The `decimal` module provides an API for fixed and floating point math.
+- `numbers`{.interpreted-text role="mod"} \-- Numeric abstract base classes.
+- `Python 2 to 3 porting notes for fractions <porting-fractions>`{.interpreted-text role="ref"} :::

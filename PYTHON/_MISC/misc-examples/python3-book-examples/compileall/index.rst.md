@@ -1,32 +1,22 @@
-compileall \-\-- Byte-compile Source Files
-==========================================
+# compileall \-\-- Byte-compile Source Files
 
-::: {.module synopsis="Byte-compile Source Files"}
-compileall
-:::
+::: {.module synopsis="Byte-compile Source Files"} compileall :::
 
 Purpose
 
-:   Convert source files to byte-compiled version.
+: Convert source files to byte-compiled version.
 
-The `compileall` module finds Python source files and compiles them to
-the byte-code representation, saving the results in `.pyc`.
+The `compileall` module finds Python source files and compiles them to the byte-code representation, saving the results in `.pyc`.
 
-Compiling One Directory
------------------------
+## Compiling One Directory
 
-`compile_dir()` is used to recursively scan a directory and byte-compile
-the files within it.
+`compile_dir()` is used to recursively scan a directory and byte-compile the files within it.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-compileall\_compile\_dir.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} compileall_compile_dir.py :::
 
-By default, all of the subdirectories are scanned to a depth of 10. The
-output files are written to a `__pycache__` directory and named based on
-the Python interpreter version.
+By default, all of the subdirectories are scanned to a depth of 10. The output files are written to a `__pycache__` directory and named based on the Python interpreter version.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 compileall_compile_dir.py
 
 Before
@@ -53,19 +43,15 @@ After
   examples/__pycache__/a.cpython-37.pyc
 ```
 
-Ignoring Files
---------------
+## Ignoring Files
 
-To filter directories out, use the `rx` argument to provide a regular
-expression to match the names to exclude.
+To filter directories out, use the `rx` argument to provide a regular expression to match the names to exclude.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-compileall\_exclude\_dirs.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} compileall_exclude_dirs.py :::
 
 This version excludes files in the `subdir` subdirectory.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 compileall_exclude_dirs.py
 
 Listing 'examples'...
@@ -73,37 +59,28 @@ Compiling 'examples/a.py'...
 Listing 'examples/subdir'...
 ```
 
-The `maxlevels` argument controls the depth of recursion. For example,
-to avoid recursion entirely pass `0`.
+The `maxlevels` argument controls the depth of recursion. For example, to avoid recursion entirely pass `0`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-compileall\_recursion\_depth.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} compileall_recursion_depth.py :::
 
 Only files within the directory passed to `compile_dir()` are compiled.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 compileall_recursion_depth.py
 
 Listing 'examples'...
 Compiling 'examples/a.py'...
 ```
 
-Compiling sys.path
-------------------
+## Compiling sys.path
 
-All of the Python source files found in sys.path can be compiled with a
-single call to `compile_path()`.
+All of the Python source files found in sys.path can be compiled with a single call to `compile_path()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-compileall\_path.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} compileall_path.py :::
 
-This example replaces the default contents of `sys.path` to avoid
-permission errors while running the script, but still illustrates the
-default behavior. Note that the `maxlevels` value defaults to `0`.
+This example replaces the default contents of `sys.path` to avoid permission errors while running the script, but still illustrates the default behavior. Note that the `maxlevels` value defaults to `0`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 compileall_path.py
 
 sys.path = ['examples', 'notthere']
@@ -113,20 +90,15 @@ Listing 'notthere'...
 Can't list 'notthere'
 ```
 
-Compiling Individual Files
---------------------------
+## Compiling Individual Files
 
-To compile a single file, rather than an entire directory of files, use
-`compile_file()`.
+To compile a single file, rather than an entire directory of files, use `compile_file()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-compileall\_compile\_file.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} compileall_compile_file.py :::
 
-The first argument should be the name to the file, either a full path or
-a relative path.
+The first argument should be the name to the file, either a full path or a relative path.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 compileall_compile_file.py
 
 Before
@@ -148,13 +120,11 @@ After
   examples/__pycache__/a.cpython-37.pyc
 ```
 
-From the Command Line
----------------------
+## From the Command Line
 
-It is also possible to invoke `compileall` from the command line, so it
-can be integrated with a build system via a Makefile. For example:
+It is also possible to invoke `compileall` from the command line, so it can be integrated with a build system via a Makefile. For example:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m compileall -h
 
 usage: compileall.py [-h] [-l] [-r RECURSION] [-f] [-q] [-b] [-d
@@ -211,7 +181,7 @@ runtime
 
 To recreate the earlier example, skipping the `subdir` directory, run:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m compileall -x '/subdir' examples
 
 Listing 'examples'...
@@ -220,5 +190,5 @@ Listing 'examples/subdir'...
 ```
 
 ::: {.seealso}
--   `compileall`{.interpreted-text role="pydoc"}
-:::
+
+- `compileall`{.interpreted-text role="pydoc"} :::
