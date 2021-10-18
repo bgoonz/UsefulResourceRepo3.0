@@ -1,0 +1,1277 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Design Thinking &#8211; BrainStation® Blog</title>
+	<atom:link href="https://brainstation.io/blog/category/design-thinking/feed" rel="self" type="application/rss+xml" />
+	<link>https://brainstation.io/blog</link>
+	<description>The Digital Learning Company</description>
+	<lastBuildDate>Mon, 31 May 2021 19:17:51 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.9</generator>
+	<item>
+		<title>Inclusive Design for Digital Experiences</title>
+		<link>https://brainstation.io/blog/inclusive-design-for-digital-experiences</link>
+				<pubDate>Mon, 15 Mar 2021 20:24:18 +0000</pubDate>
+		<dc:creator><![CDATA[Emily Peck]]></dc:creator>
+				<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[Events]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[design]]></category>
+		<category><![CDATA[events]]></category>
+		<category><![CDATA[leadership]]></category>
+		<category><![CDATA[user experience design]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=12756</guid>
+				<description><![CDATA[<p>Check out BrainStation's latest Digital Leadership Event Series panel about inclusive design in digital experiences.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/inclusive-design-for-digital-experiences">Inclusive Design for Digital Experiences</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p><strong>Designing Inclusive Digital Experiences</strong> – the latest in <a href="https://brainstation.io/events/online">BrainStation’s Digital Leadership Event Series</a> – took place on March 11, and featured four inclusive design and user experience experts from Headspace, Capital One, and Google.</p>
+
+
+
+<p>You can watch the full panel discussion here:</p>
+
+
+
+<p class="has-text-align-center"><iframe src="https://player.vimeo.com/video/522939888" width="640" height="360" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen=""></iframe></p>
+
+
+
+<p>Inclusivity is fundamental to making digital experiences and products accessible to the largest possible group of users. It plays out in all the ways users interact with digital products – which means technology is a key factor in making a user journey successful.</p>
+
+
+
+<p>Today, as technology improves and the interface between user and product becomes ever more seamless, the definition of inclusivity is growing to encompass not just a product’s functionality for all users, but also its ability to satisfy all users at an emotional level – an ambition that comprises an even wider range of considerations.</p>
+
+
+
+<p>Our panel lineup included four people working at the forefront of designing inclusive digital experiences – from Google and Google Assistant, meditation app Headspace, and banking company Capital One. Together, they shared their insights on how the umbrella of inclusivity is expanding, the centrality of the user and their journey to the design process, and how to successfully build more inclusivity into digital experiences. <br></p>
+
+
+
+<h2><strong>Inclusivity Is More Than Accessibility</strong></h2>
+
+
+
+<p>Ensuring that digital products are physically accessible to nearly all users is increasingly seen as the bare minimum. Features like closed captioning for the hearing impaired, descriptive text for the visually impaired, and multiple ways of navigating for people with impaired motor skills not only mean that more users can access the product – they also send a powerful message about the importance of inclusivity to all users. While not feasible in every circumstance, universal accessibility can now be considered a baseline, at least in terms of ambition.</p>
+
+
+
+<p>As <strong>Eunjoo Kim</strong>, UX Design Lead at Google Assistant, explains, “If you don’t apply inclusive design in your products, or in emerging technologies which have physical interactions, your design is not just bad, but is unusable.” </p>
+
+
+
+<p>Inclusivity, in other words, is not an add-on; it’s a core design principle.</p>
+
+
+
+<p>But inclusivity doesn’t end with a user’s ability to physically use the technology; it also speaks to multiple social dimensions, including language and nationality, race and ethnicity, sexuality, age, and socioeconomic status, as well as more fine-grained distinctions like one’s level of educational, financial situation or geographical location – even the way ideas like “family” means different things to different people.</p>
+
+
+
+<p>As <strong>J.R. Miller</strong>, UX Writer and Product Designer at Google, says, “They need not all be lumped together like that. And indeed, it’s impossible to lump them all together.” There’s no one-size-fits-all template for making a product inclusive to everyone; each of these considerations must be weighed individually.</p>
+
+
+
+<p>For <strong>Klaus Heesch</strong>, Director of Experience Design at banking group Capital One, inclusivity takes on a financial dimension, and includes topics like “the democratization of trading, for example, and access to the trading markets, which used to be just for wealthy white Wall Streeters,” he notes.</p>
+
+
+
+<p></p>
+
+
+
+<h2><strong>Input Determines Output</strong></h2>
+
+
+
+<p>Heesch, summarizing a lesson from Antionette Carroll of Creative Reaction Lab, advises “Design <em>with</em> your customers, not <em>for</em> your customers.” But while letting your users shape your inclusivity design process can yield crucial insights, this advice comes with a caveat. To combat bias, input must be as inclusive as possible at every stage, from hiring to research and user testing to, finally, the data generated by end users.</p>
+
+
+
+<p>When it comes to hiring, explains <strong>Frank Bach</strong>, Lead Product Designer at Headspace, inclusivity leads to better products. “If you can make [your design teams] as inclusive as possible – hearing from as many different people as you can, from different backgrounds, different life journeys, different languages, making sure that there’s not a lot of sameness in the types of people that you’re inviting to these groups – then you should have better outcomes. Not just business outcomes, but [also along] the more human metrics of, are people enjoying this product? Do they feel like it understands them? Do they feel some type of connection and community to the service or product that you’re building?” Today’s work-from-home climate has made achieving diversity in hiring much easier, Bach says, especially when it comes to hiring people whose experience includes a different set of circumstances than are found in Silicon Valley.</p>
+
+
+
+<p>Diversity is just as crucial to inclusivity at the research and testing stage, Kim says. “When we say ‘machine learning,’ sometimes you’d think it’s a magic box – it will magically happen. Well, it’s not true. The machine starts based on data that’s input from humans. Then the machine builds a solution – an output which inherits human bias….If you don’t have inclusive input, you won’t have inclusive output.” </p>
+
+
+
+<p>“For user research and testing,” Kim says, “recruiting a diverse set of participants is important. We try to include people with different accents and different family types.</p>
+
+
+
+<p>Miller agrees. “The most important tool we’ve been using, especially on my team, is listening: listening to users, listening to each other, and listening deeply before we even make a design decision that will impact inclusivity.”</p>
+
+
+
+<p>“Users are the designers,” Kim explains. “They are content creators, they are content reviewers, and they are product sellers,” she says. “So users are a part of this ecosystem.”<br></p>
+
+
+
+<h2><strong>Fight For The User</strong></h2>
+
+
+
+<p>This emphasis on being responsive to all users is at the heart of designing inclusivity; the UX Designer’s mandate is, in a sense, to fight for the user. In any product design, there are always competing interests, but as Bach explains, championing the user is a priority from both a user case and a business case.</p>
+
+
+
+<p>“We’re not singling out that this is a product experience for this type of person or that type of person,” Bach says. “And on the product side or the user experience side, we’re making sure that when we’re setting things up – for example, our design system components – we’re working on buttons, states, or typography to make sure that we’re covering our bases for things like proper color contrasts, or using haptic feedback in a way that is meaningful for people….And as a designer, I think I’m getting smarter at building the business case for getting these things done. You know what is the right thing to do, but in a company of a few hundred people, it can sometimes be a challenge to fight for the user and only the user.”</p>
+
+
+
+<p>Miller agrees, emphasizing that keeping the user foremost in mind isn’t just about design – it’s also about content. “You have to think about the user, and speak like the user, and write in ways so that as many users as possible will understand you, as well as your product.” In fact, Miller emphasizes, voice is one of the most meaningful ways to build inclusivity; the wrong language can leave people feeling excluded.</p>
+
+
+
+<p></p>
+
+
+
+<h2><strong>Inclusivity Is About a Sense of Belonging</strong></h2>
+
+
+
+<p>In fact, building that sense of belonging is the overarching goal of inclusivity measures. Usability and accessibility both signal to a user that a product was made for them, but inclusivity goes beyond user interface; language and content are also important. “When a user feels ‘It’s made for me, made for my family, made for my gender, made for my country,’ it just creates emotional satisfaction,” Kim says. “To me, design is not just a matter of usability or utility, but of feeling and happiness.”</p>
+
+
+
+<p>For Miller, this begins with the word. “[It’s] important to think about language and voice and tone as a part of the design system of the product.” Miller warns against the use of idioms, which not only don’t translate well, but are also interpreted differently even between cultures that speak the same language: “Especially when you’re building a global product, you need to make sure that you’re writing language that can be understood by a global audience….And you want to make sure you’re writing at no more than an eighth grade reading level. I know it’s a hard thing to measure, but there are tools online that can help you figure that out….You don’t get any brownie points for sounding smart.”</p>
+
+
+
+<p>Like all UX design, inclusive design ultimately comes down to empathy – taking care to speak like the user. </p>
+
+
+
+<p>While personas have long been used to develop empathy, Heesch sees the way they define and limit understanding of the user as detrimental to building belonging, and predicts personas are on their way out. “[Our understanding of audience is] moving away from simplistic or generic personas,” Heesch says. “That idea that everyone’s going to fit into some sort of average is not appropriate, and it’s not inclusive, and it leaves a lot of people, in fact, excluded. Historically, a lot of designers have worked around the idea of a persona….The problem with that is, every individual isn’t locked into one mode, and doesn’t fit into one standard.”</p>
+
+
+
+<p>In place of personas, Heesch looks to archetypes, which emphasize not the supposedly universal characteristics of a certain type of person, but rather where a given person is on their own personal path. “We have to understand that anyone, in any group, travels through their own journey, and our hurdles and the challenges that we face are many and different. Our experiences, socio-economic backgrounds, education, and many more factors shape our attitudes and our views,” he says. “We as designers have to take that into consideration….Our obligation as designers is to realize that we’re designing for the long haul, and these experiences that we’re making should evolve and adapt to our users’ place in life, meeting them where they are.”</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p><em>Interested in learning more? <a href="https://brainstation.io/book-call">Book a call</a> with one of BrainStation&#8217;s Learning Advisors.</em></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/inclusive-design-for-digital-experiences">Inclusive Design for Digital Experiences</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Creating a Design-First Culture</title>
+		<link>https://brainstation.io/blog/creating-a-design-first-culture</link>
+				<pubDate>Thu, 28 Jan 2021 20:19:58 +0000</pubDate>
+		<dc:creator><![CDATA[Emily Peck]]></dc:creator>
+				<category><![CDATA[Alumni Experience]]></category>
+		<category><![CDATA[Community]]></category>
+		<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[Entrepreneurship]]></category>
+		<category><![CDATA[User Experience]]></category>
+		<category><![CDATA[alumni stories]]></category>
+		<category><![CDATA[entrepreneurship]]></category>
+		<category><![CDATA[user experience design]]></category>
+		<category><![CDATA[UX Bootcamp]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=12387</guid>
+				<description><![CDATA[<p>Founder of Rally, Matthew Mayers, shares how his BrainStation experience bolstered his design-first entrepreneurial spirit and boosted his career in tech.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/creating-a-design-first-culture">Creating a Design-First Culture</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Despite earning a Bachelor&#8217;s degree in Mechanical Engineering, Matthew Mayers knew he wanted to be in the tech industry. So after a few years of side-hustles and working as an Engineer, he applied for the UX Design Diploma Program BrainStation.</p>
+
+
+
+<p>We spoke with Mayers about his foray into tech, how the BrainStation experience bolstered his entrepreneurial spirit, and what it’s like to be a Co-Founder of <a href="http://rallylegal.com">Rally</a>.&nbsp;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter"><img src="https://lh3.googleusercontent.com/QBmeKrma43aIW_iTtUtPkkL_2NvVDnz3yNw6dJSMvRR8VSFIWeRpBrZbOdySXc31vLk26x22C0AC6RglTFMYzulWoRzDD6qFEOwTxd6JVrTn97sjsEQvDctRCYlFz_m0O4drLV99" alt="Picture of founder, Matthew Mayers."/></figure></div>
+
+
+
+<h2><strong>What does a typical day look like for you as a Co-Founder of Rally?</strong></h2>
+
+
+
+<p>Every day is different and that&#8217;s why I love my job. As a Co-Founder, my responsibilities range from product design, to customer success, to accounting, to recruitment, to development. Some days are filled with meetings, others are quiet and focused. I start every day by asking myself, &#8220;What set of actions can I take today to add the most value for my company and team?&#8221; Sometimes that means weighing in on a high-stakes product discussion, other times it means running to the post office to buy stamps.</p>
+
+
+
+<h2><strong>How did the idea for Rally first come about? What problem does it aim to solve?</strong></h2>
+
+
+
+<p>Shortly after completing my <a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp">program at BrainStation</a>, I was approached by my co-founder Daniel Di Maria (a fellow BrainStation graduate) with an idea. Based on his previous experience as a lawyer, he believed that there were many opportunities to drive improvement within the legal industry. He envisioned a world in which entrepreneurs could affordably manage the legal state of their companies in a streamlined, digital fashion. Automation could be used to help their lawyers and paralegals get work done faster, more accurately, and more enjoyably.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/v40S_ioFWgO9MZfphotq3mkZEChMuDDdwVB3iUJm3JfVTap6D1JSD0pUJGYIsmPW56cl8DqIlYjXdrh8wx8HtcfA-F8Ze9xbP_X36-7gpcfWsIYOn9X89MqQxBdP5wQhuU0wegmN" alt="Graphic showing the interface of Rally."/></figure>
+
+
+
+<p>Having already experienced my first shot at entrepreneurship, the idea immediately resonated as I had struggled to find affordable legal services. I ended up doing much of my legal work myself and incorrectly.</p>
+
+
+
+<p>We soon met our other Co-Founder, Scott Stevenson, who was serendipitously developing a similar concept. Now, three years in, our ideas have grown and evolved but we still aim to solve the same problems – legal services remain too expensive, inefficient, and inaccessible.</p>
+
+
+
+<h2><strong>What has been the response you’ve received for Rally?&nbsp;</strong></h2>
+
+
+
+<p>The response has been overwhelmingly positive. Legal service providers are feeling a tremendous amount of pressure (especially in a post-COVID world) to adopt technology which enables legal work to be done better and more affordably. Purchasers of legal services are fed up with the antiquated ways of operating and are pleading with their providers to catch up with the modern, digital world. <br><br>More and more forward-thinking service providers are approaching us with a desire to provide a better client-experience and it&#8217;s highly rewarding to be equipping these drivers of positive change. We sincerely believe that this is just the beginning for the legal industry. Massive transformations will be demonstrated in the coming years and we look forward to doing our small part to help.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/hrqDeEeVqEgSaOI6czqkfTA0vT6wrdnyghoE3T8btZmHsxK5sLvPc5t36R8rcbxn5a9UHm-W6hPxVcBpIl2aE9H8zq01bOCIgY6iir2AuBSqMxU0ZLs-zrrG0HeEdeOpidvgSLIO" alt="Graphic showing the interface of Rally."/></figure>
+
+
+
+<h2><strong>What made you decide to apply to the User Experience Diploma Program?</strong></h2>
+
+
+
+<p>I have always been deeply fascinated by the intersection of human behavior and technology. User experience design is so much more than the selection of fonts and colours. Digital design has the power to alter how people see themselves, interact with each other, and engage with the world around them. Through BrainStation, I aimed to achieve a deeper understanding of how to harness this power. I wanted to develop both my creativity and technical acumen to improve people&#8217;s lives through innovation.&nbsp;</p>
+
+
+
+<h2><strong>How did the skills you learned at BrainStation contribute to how you designed your product?</strong></h2>
+
+
+
+<p>At BrainStation, I learned how to take a step back and ask the right questions before starting to build. Who are we building for? What are their biggest pain-points? Where are the greatest opportunities to improve people&#8217;s workflows? What do they want, not just from products but from their lives? What do they need?</p>
+
+
+
+<p>We spent several months speaking with potential customers, asking these questions and iterating on mockups before writing a single line of code. We have since developed a design-first culture and answering the &#8216;why&#8217; always comes before the &#8216;what&#8217; and &#8216;how.&#8217; We&#8217;re proud that even our talented development team is involved in the process from the very early stages of design to help ensure we&#8217;re building the right tools for our customers.</p>
+
+
+
+<h2><strong>What challenges have you faced in creating a seamless user experience?&nbsp;</strong></h2>
+
+
+
+<p>One of the most challenging aspects of designing Rally is accounting for multiple, distinct user types, each with their own unique goals and behavior. While our customers are legal service providers, they use Rally as their client-facing interface. It&#8217;s a two-sided product – similar to a marketplace with buyers and sellers. Accommodating the various “jobs-to-be-done” of each persona while providing a frictionless, unified experience necessitates working relentlessly with our customers and their clients to continuously gather insights. <br><br>Every Designer learns about the value of customer feedback but sorting, filtering, and prioritizing insights is a highly nuanced and ever-evolving process.</p>
+
+
+
+<h2><strong>What was a highlight of your BrainStation learning experience?&nbsp;</strong></h2>
+
+
+
+<p>While learning the core executional skills of UX Design was one of the best educational experiences of my life, I particularly enjoyed the group discussions focused on the philosophy and ethics of design. Thanks to my instructors, Alex Chong and Brad MacDonald, there were many opportunities to dive into the rich, existential questions of what it means to design. These conversations forever changed my understanding of how the application of science through technology impacts humanity.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh5.googleusercontent.com/_U60H4P8p6Y9Gj-CfoFxbMwMtfUoutUUXwzI27cjaNDTHGqEtWzhbH8A1ufmZR8vDTtTH6qZkdKbZ-XVImw4SawX6-yqJ5EcnjHEuIC-8NMEhmoS23FBchrCFLGNquQNrMgiLvha" alt="Group of young students gathered around a computer in class."/></figure>
+
+
+
+<h2><strong>You hired Tiffany Chan, a fellow BrainStation graduate. How did you connect?</strong></h2>
+
+
+
+<p>We did! We recently had the opportunity to recruit for an entry-level position and couldn&#8217;t think of a better place to look than the bootcamp ecosystem. We got in touch with Michael Bennett, BrainStation&#8217;s Career Success Manager, who connected us with Tiffany. With her experience both as a student in the <a href="https://brainstation.io/course/online/remote-web-development-bootcamp">Web Development program</a> and then as a TA, she was able to hit the ground running at Rally from her first day. Our team is now almost half BrainStation graduates!&nbsp;</p>
+
+
+
+<h2><strong>What would you say are some essential digital skills needed to succeed in business?&nbsp;</strong></h2>
+
+
+
+<p>The single most essential digital skill I would suggest for anyone in the tech industry is developing a foundational understanding of how code works. You don&#8217;t need to become a certified Software Engineer or even gain true proficiency – but you will have a massive advantage knowing a bit about what&#8217;s under the hood to confidently assess feasibility and effort requirements for new functionality. This applies to Designers, Marketers, Product Managers – everyone. Learning the basics of code has made me a much more effective team member even though most of my job doesn&#8217;t require any coding at all.&nbsp;&nbsp;&nbsp;</p>
+
+
+
+<h2><strong>What advice would you give to aspiring UX Designers?</strong></h2>
+
+
+
+<p>Designing for an idealistic world with rigid processes will only get you so far. In the real world there are technological constraints, market sizing concerns, budgets, and timelines that all need to be considered. Learning to understand everyone else&#8217;s role within a team (such as marketing, finance, development, etc.) and their requirements is as important as designing for the end-user. This is how you move beyond pipe dreams and toward product designs that actually get built and used in real life. By gaining a sense of the big picture and approaching your process with an appropriate level of flexibility, you will find yourself integrating business and technical requirements into your designs at earlier stages.&nbsp;<br></p>
+
+
+
+<p class="has-text-align-center"><strong>Want to design your future in tech?</strong><br><a href="https://brainstation.io/book-call"><em>Book a call with a Learning Advisor</em></a></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/creating-a-design-first-culture">Creating a Design-First Culture</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Alumni Stories: Teamwork Triumphs at IBM Design Sprint</title>
+		<link>https://brainstation.io/blog/alumni-stories-teamwork-triumphs-at-ibm-design-sprint</link>
+				<pubDate>Thu, 26 Nov 2020 19:42:02 +0000</pubDate>
+		<dc:creator><![CDATA[Emily Peck]]></dc:creator>
+				<category><![CDATA[Alumni Experience]]></category>
+		<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[User Experience]]></category>
+		<category><![CDATA[alumni stories]]></category>
+		<category><![CDATA[Bootcamp]]></category>
+		<category><![CDATA[user experience design]]></category>
+		<category><![CDATA[UX Bootcamp]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=12225</guid>
+				<description><![CDATA[<p>Read a recap of the IBM Design Sprint with insights from the winning team about UX Design and BrainStation's bootcamp experience.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/alumni-stories-teamwork-triumphs-at-ibm-design-sprint">Alumni Stories: Teamwork Triumphs at IBM Design Sprint</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>This month, current BrainStation students had the opportunity to participate in a Design Sprint, in partnership with IBM.</p>
+
+
+
+<p>Each team had five days to design a solution for an identified problem inspired by one of three sample user personas. IBM&#8217;s Senior Design Lead David Burdreau and Senior UX Designer Dan Silveira judged the event, and were impressed by what they saw from the student teams. “You guys are blowing me away… it’s absolutely incredible what you can accomplish in five days. It makes me think that we at IBM should do more in five-day sprints,” Burdreau said.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners-1024x536.jpg" alt="" class="wp-image-12228" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners-1024x536.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners-300x157.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners-768x402.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners-1536x804.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners-2048x1072.jpg 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners-960x502.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25130753/IBM-UX-Design-Sprint-Winners.jpg 2400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>We spoke with the winning team: Hope Liang, Jose-Carlos (Joey) Laguio, Matthew Ahn, Nina Paramonov, Rachel Fuhrer, and Renee Yang. Together, these students designed Task Circle, a remote collaboration app to help improve inclusive interactions between international students and their project teammates.</p>
+
+
+
+<h2>The Challenge</h2>
+
+
+
+<p>Currently enrolled in the <a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp">full-time User Experience Design bootcamp</a> at BrainStation, the students were eager to put their learnings to the test and work with a larger team of Designers with a panel from a design thinking pioneer like IBM.</p>
+
+
+
+<p>“The main benefit of participating in the design sprint was having the opportunity to work within a larger group of Designers. In class, we typically worked with around two or three other Designers at a time, but in this case, we had the opportunity of working within a team of six,” said Laguio.</p>
+
+
+
+<p>“It was an opportunity to solve big problems in a very short amount of time. It challenged me and gave me a chance to think deeply about important issues,” said Fuhrer.</p>
+
+
+
+<p>For their winning project, the team was inspired by the pivot many post-secondary students have had to make while pursuing remote education from all over the world.</p>
+
+
+
+<p>“We came up with Task Circle, a digital solution to address the online learning and student collaboration that was designed with international students in mind. We wanted to create something that allowed students to feel valued and included by their peers in order for them to effectively contribute to projects,” said Yang.</p>
+
+
+
+<p>Task Circle:</p>
+
+
+
+<ol><li>Allows students to communicate and empathize with their classmates</li><li>Tracks project progress, successes, and challenges</li><li>Supports inclusion by creating space for international students to reach out for help</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25171956/image2-3-1024x336.jpg" alt="" class="wp-image-12250" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25171956/image2-3-1024x336.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25171956/image2-3-300x98.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25171956/image2-3-768x252.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25171956/image2-3-1536x504.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25171956/image2-3-960x315.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25171956/image2-3.jpg 1999w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Working Together While Apart</h2>
+
+
+
+<p>While trying to solve remote collaboration for other students, the team first had to figure out how they were going to master it for themselves.</p>
+
+
+
+<p>“One of the reasons why I think our group worked so well together was because every single one of us did a fantastic job of accommodating each others’ schedules,” said Laguio. With students collaborating from around the world, time zones were another factor to consider in their design process.</p>
+
+
+
+<p>Paramonov credits the outstanding professionalism of her teammates for their success. “It was a mix of very humble, curious and hardworking people. All of us put the team interest before personal interests. All decision-making we made together based on logic, time frame and learned material.”</p>
+
+
+
+<p>But the design sprint wasn’t without challenges.</p>
+
+
+
+<p>Delivering a high-fidelity prototype in just five days to be presented to design leaders from IBM is no small feat.</p>
+
+
+
+<p>“We were posed with a daunting challenge and it was difficult figuring out how to get started. We had lots of questions, confusion about what to focus on and lots of uncertainty in general. I learned that getting started, making assumptions, and asking questions is the hardest, but most important part,” said Fuhrer.&nbsp;</p>
+
+
+
+<p><a href="https://brainstation.io/course/design-thinking">Design thinking</a> requires conducting user research to test assumptions and learn more about user needs. When the team’s initial assumptions and hypothesis didn’t align with what they uncovered through their research, they had to reevaluate their project’s purpose.</p>
+
+
+
+<p>“It was a chance for us to pivot from our original idea, we had to kind of let go of our attachment to previous plans, but we all had an understanding that we needed to focus on what would bring the best solution,” said Yang.</p>
+
+
+
+<p>Communication around what would bring the best solution and keep the project moving forward also proved to be a bit of a challenge.&nbsp;</p>
+
+
+
+<p>Much like design teams in the workplace, communication proved to be essential. As the team of six ideated, different opinions and visions emerged, but this did not stall the project&#8217;s progress.</p>
+
+
+
+<p>“Even if we didn’t fully agree, it didn’t mean the conversation had to stop,” said Laguio. “We created a space where it was okay to respectfully challenge others’ ideas, and where it was even better to riff off of them to spur even more creative ideas.”</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25172111/image3-1-1024x591.jpg" alt="" class="wp-image-12252" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25172111/image3-1-1024x591.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25172111/image3-1-300x173.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25172111/image3-1-768x443.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25172111/image3-1-1536x887.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25172111/image3-1-960x554.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/11/25172111/image3-1.jpg 1999w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>When presentation day arrived, Liang recalls the excitement her team felt as they prepared. “All team members were helping each other to practice their speech, time the parts, adjust the [slide] deck, and do whatever it takes to make the final pitch flawless.”&nbsp;</p>
+
+
+
+<p>“There’s always a desire to push further and if you had more time you feel as if you could do more, do better. It’s important to manage expectations,” notes Ahn.“It was satisfying to see our presentation come together. To see all of our hard work come together in the end, we felt proud of each other.”</p>
+
+
+
+<h2>Taking the Next Step</h2>
+
+
+
+<p>Fuhrer credits BrainStation’s extensive curriculum with her ability to tackle the sprint, “The 12-week bootcamp is taught by passionate educators that come from different industry backgrounds and experiences. They have taught me so much&#8230; design concepts, skills, career guidance, and I’ve been supported from day one to fully launch myself into a UX career,” she said, adding that the program also gave her hands-on experience with essential design tools.&nbsp;</p>
+
+
+
+<p>“I went from never touching design software prior to BrainStation, to presenting our project in week seven with ease and confidence,”&nbsp; she said.&nbsp;</p>
+
+
+
+<p>The team encourages those considering a career change to take their first step into the unknown. “Embrace ambiguity. Accept that you might not know where that next step might take you, and that this is okay.” said Laguio. “I took the leap and threw myself into [BrainStation’s] intensive UX Design bootcamp. And now, it’s really surreal thinking about how we’ve just won our first design sprint with IBM and comparing that to the fear-filled me from a few months ago!”</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/alumni-stories-teamwork-triumphs-at-ibm-design-sprint">Alumni Stories: Teamwork Triumphs at IBM Design Sprint</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Designing Great Experiences in a Digital-First World</title>
+		<link>https://brainstation.io/blog/designing-great-experiences-in-a-digital-first-world</link>
+				<pubDate>Fri, 10 Jul 2020 15:26:56 +0000</pubDate>
+		<dc:creator><![CDATA[Salvatore Ciolfi]]></dc:creator>
+				<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[Thought Leadership Series]]></category>
+		<category><![CDATA[User Experience]]></category>
+		<category><![CDATA[online events]]></category>
+		<category><![CDATA[Panel]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11985</guid>
+				<description><![CDATA[<p>See a recap of the Designing Great Experiences in a Digital-First World panel, with speakers from Google, Capital One, the NYT, and Shutterstock.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/designing-great-experiences-in-a-digital-first-world">Designing Great Experiences in a Digital-First World</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>The <strong>Designing Great Experiences in a Digital-First World </strong>panel discussion, the latest in <a href="https://brainstation.io/events/online">BrainStation’s Digital Leadership Event Series</a>, took place on July 9th, and professionals around the world tuned in to discuss the way brands have adjusted their design strategies in 2020.&nbsp;&nbsp;</p>
+
+
+
+<p>You can watch the full panel discussion here:</p>
+
+
+<p style="text-align: center;"><iframe src="https://player.vimeo.com/video/436946085" width="640" height="360" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+
+
+<p>The pace of digitization has sped up over the last few months, forcing entire industries to adopt new digital strategies. How have the world’s best brands, Designers, and digital product owners adjusted to an increasingly online-only world?&nbsp;</p>
+
+
+
+<p>Here are a few ways leading brands are designing great experiences in a digital-first world.&nbsp;</p>
+
+
+
+<h3><strong>Embrace Design Thinking </strong></h3>
+
+
+
+<p>Even before the COVID-19 outbreak, some of the largest organizations in the United States saw the potential design had to spur innovation and drive growth. Capital One, for example, acquired Adaptive Path, a San Francisco-based design and user experience consultancy, in 2014. Since then, Capital One’s design team has grown to more than 500 Designers across the US, which changed the company’s approach and prepared it for the challenges of the last few months.</p>
+
+
+
+<p>“Capital One’s commitment to design thinking, and how we approach a problem, benefits everyone – We all should be approaching problem-solving with open arms,” said Klaus Heesch, Director, Experience Design at Capital One, explaining that he and his team follow three key design principles, which have influenced the company as a whole.&nbsp;<br></p>
+
+
+
+<p>“Be helpful and human – listen to your users and lead with empathy. Be harmless – do no harm. How safe are we keeping them? We have to be fair and just, we can’t just be fair. And finally, have contextual awareness. We need to understand and articulate the thing we’re solving for, to the systems and people who support it,” he said.&nbsp;&nbsp;</p>
+
+
+
+<p>Shutterstock, a leading provider of stock photography, stock footage, stock music, is another example of a company that has doubled down on design as it grew, creating a culture of experimentation and innovation that is led by its Designers.</p>
+
+
+
+<p>“We have an amazing UX team and they really just drive the conversation, from the tiniest spark of an idea to a full-fledged product that it ends up becoming. They’re curious, they’re talented, and great communicators, which from a director-level, makes it easy to support their ideas,”&nbsp; said Erin Essex, Shutterstock’s Director of UX and Product Design.</p>
+
+
+
+<p>“Shutterstock helps foster this culture of creating a safe space where we can really spitball ideas and ideate quickly. We really do that from the lens of what is helpful to the customers, what is achievable, and how can we push those boundaries,” she said.</p>
+
+
+
+<h3><strong>Be Agile and Adaptable</strong></h3>
+
+
+
+<p>Harvard Business Review studied large organizations during a downturn and found that 14 percent actually accelerated growth and increased profitability. The most successful companies shared a few common traits:&nbsp;</p>
+
+
+
+<ul><li>They all looked for new opportunities, understanding that their core products and services may have changed</li><li>They developed strategies that could better serve their customers, knowing that their customers (and their behavior) may have changed</li><li>They invested in products and services that helped their best customers when they needed help</li></ul>
+
+
+
+<p>The New York Times, for example, recently pivoted its design roadmap to accelerate new features and projects, including expanding free access to high school students.</p>
+
+
+
+<p>“We have an existing program with Verizon where students at Title 1 schools have free access to The Times and we thought, what if we could expand access? We had two weeks to completely launch something, so we reprioritized; We had more than 100 people come together across functions to work to double access to 14 million people,” said Tracie Lee, Product Design Director at The New York Times, adding that despite the urgency, a long-term lens is always required.&nbsp;</p>
+
+
+
+<p>“There was an immediate user need but it was also an opportunity to think about that relationship. Through user research we hear that people are exposed to The Times in school, so it&#8217;s a much longer game. It&#8217;s about that whole entire journey; a lifetime journey,” she said.&nbsp;</p>
+
+
+
+<p>Jason Mante, Founder and GM at Google’s Area 120, believes that to establish agility and adaptability, organizations need to cultivate an environment where change is not feared.</p>
+
+
+
+<p>“[An essential skill set is] the ability to just change your mind and be okay and open with that. Be able to say ‘hey I&#8217;m changing my mind because I believe this new approach is going to better align with what we&#8217;re trying to do,’ Whether it&#8217;s the vision or the values that we&#8217;re trying to offer or not,” he said, adding that organizations can further facilitate adaptability by implementing structure and conventions.&nbsp;</p>
+
+
+
+<p>“Define and build out a shared language amongst you and the team. Spending time upfront to make sure that you’re not constantly having to clarify language can help with decision-making.”    </p>
+
+
+
+<h3><strong>Listen to Your Users (and Follow the Data)</strong></h3>
+
+
+
+<p>The brands that have best adapted to the “new normal” are those that have adopted a data-driven approach to design and product development. Shutterstock is a case in point. </p>
+
+
+
+<p>“We saw customer behavior shifting to the pandemic, at first they were searching for the virus itself, and in a couple of weeks we saw it shift to zoom backgrounds and things like that, and now the topics have shifted to homeschooling, education, and remote learning.  In looking at these trends … we were able to quickly ramp up groups of images that were related to these keyword searches,” said Essex, adding that Shutterstock has also used data to optimize web pages.</p>
+
+
+
+<p>“Sometimes there&#8217;s those legacy things on the site and you think, ‘I don&#8217;t know if I want to fight for that right now,’ but it&#8217;s worth it. On native apps alone when we changed [the save] icon we saw an 86 percent increase in engagement,” she said, explaining that it’s always important to look outside the “standard” data channels.</p>
+
+
+
+<p>“Consider data that might be overlooked, [&#8230;] go after things that you otherwise might be scared to go after and look outside the norm.”</p>
+
+
+
+<p>Mante urges caution, though, arguing that the relative ease of new digital products can sometimes muddy the waters. </p>
+
+
+
+<p>“I think the biggest challenge with these digital products is [that] because they&#8217;re so easily buildable there can be less care and and less commitment to clarity in it because it&#8217;s like ‘well we can fix it later,’” he said, adding that the key is always remembering who your products are for and why you’re creating them.&nbsp;</p>
+
+
+
+<p>“Focus on the value that you&#8217;re offering. If you are opening a product or a feature and that primary value offering that you guys care about as a company is not screaming at the customer, you messed up – somebody didn&#8217;t say no somewhere.”</p>
+
+
+
+<p></p>
+
+
+
+<p><em><a href="https://brainstation.io/events/online">Register now for the next BrainStation Digital Leadership Event.</a></em></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/designing-great-experiences-in-a-digital-first-world">Designing Great Experiences in a Digital-First World</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>How 5 CEOs Used Design Thinking to Transform Their Companies</title>
+		<link>https://brainstation.io/blog/how-5-ceos-used-design-thinking-to-transform-their-companies</link>
+				<pubDate>Wed, 27 May 2020 15:30:00 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[CEOs]]></category>
+		<category><![CDATA[ford]]></category>
+		<category><![CDATA[leadership]]></category>
+		<category><![CDATA[management]]></category>
+		<category><![CDATA[pepsico]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=7585</guid>
+				<description><![CDATA[<p>These five influential CEOs are leveraging design thinking to encourage innovation and creativity. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-5-ceos-used-design-thinking-to-transform-their-companies">How 5 CEOs Used Design Thinking to Transform Their Companies</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p><span style="font-weight: 400;">We’ve written about how </span><a href="https://brainstation.io/blog/how-design-thinking-makes-you-a-better-leader" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">design thinking can make you a better leader</span></a><span style="font-weight: 400;">, but what does that look like in the real-world? To find out, we took a closer look at how five influential CEOs have used design thinking to transform their companies. </span></p>
+
+
+
+<p><span style="font-weight: 400;">For those unfamiliar with design thinking, it’s a concept that revolves around creative problem-solving. As influential IDEO founder and CEO Tim Brown defined it, design thinking is a “human-centered approach” to innovation that uses a designer’s approach to consider the needs of consumers, the potential of technology, and the realities of business.</span></p>
+
+
+
+<p><span style="font-weight: 400;">Here’s how top CEOs are leveraging design thinking. </span></p>
+
+
+
+<h2><b>PepsiCo Refines Its Customer Experience</b></h2>
+
+
+
+<p><span style="font-weight: 400;">PepsiCo CEO Indra Nooyi faced skepticism when she originally ascended to the head of an organization whose top brands were losing market share. Ultimately, however, during the 12 years she served as CEO – seven years longer than the average CEO – the company’s sales </span><a href="https://money.cnn.com/2018/08/06/news/companies/indra-nooyi-pepsico/index.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">grew 80 percent</span></a><span style="font-weight: 400;">.</span></p>
+
+
+
+<p><span style="font-weight: 400;">Design thinking was at the core of Nooyi’s tremendously successful run. She </span><a href="https://hbr.org/2015/09/how-indra-nooyi-turned-design-thinking-into-strategy" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">has said</span></a><span style="font-weight: 400;"> design had a voice in almost every crucial decision the company made. </span></p>
+
+
+
+<p><span style="font-weight: 400;">When she originally decided the company needed to rethink its innovation process and design experience, she started out by giving each of her direct reports an empty photo album and a camera, and asked them to take pictures of anything that represented good design.</span></p>
+
+
+
+<p><span style="font-weight: 400;">When she saw the uninspiring results – and when she realized that every time she tried to talk to her employees about design, they would want to talk only about packaging – she realized it was time to hire a designer.</span></p>
+
+
+
+<p><span style="font-weight: 400;">“It’s much more than packaging,” Nooyi </span><a href="https://hbr.org/2015/09/how-indra-nooyi-turned-design-thinking-into-strategy" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">told</span></a><span style="font-weight: 400;"> the Harvard Business Review. “We had to rethink the entire experience, from conception to what’s on the self to the postproduct experience.”</span></p>
+
+
+
+<p><span style="font-weight: 400;">As an example, she pointed to the Pepsi Spire, a touch screen fountain machine the company developed. Other companies focused on adding a few new flavors or buttons, she noted, but “our design guys essentially said that we’re talking about a fundamentally different interaction between consumer and machine.”</span></p>
+
+
+
+<p><span style="font-weight: 400;">“Now, our teams are pushing design through the entire system, from product creation, to packaging and labelling, to how a product looks on the shelf, to how consumers interact with it,” she said.</span></p>
+
+
+
+<h2><b>The Global Humanitarian Lab Creates the Family Tent</b></h2>
+
+
+
+<p><span style="font-weight: 400;">Olivier Delarue, CEO and co-founder of the Global Humanitarian Lab, has </span><a href="http://www.unhcr.org/innovation/7-powers-for-solving-wicked-humanitarian-problems/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">laid out a case</span></a><span style="font-weight: 400;"> for the potential power of human-centered design thinking to help philanthropic organizations meet their goals.</span></p>
+
+
+
+<p><span style="font-weight: 400;">As just one example, Delarue points to the family tent. Family tents have long been considered the best shelter solution during humanitarian disasters, but they tend to last only six months to a year before needing to be replaced. Refugees are displaced on average for 17 years, creating a costly issue.</span></p>
+
+
+
+<p><span style="font-weight: 400;">To come up with a solution to that problem, Delarue explains, they looked to design. With an investment from the IKEA Foundation, a team of Swedish designers and UNHCR staff began collaboration on what would become the </span><a href="http://www.bettershelter.org/about/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Better Shelter Unit</span></a><span style="font-weight: 400;">.</span></p>
+
+
+
+<p><span style="font-weight: 400;">The innovative units are now acting as temporary homes, medical facilities, and food distribution points across Africa, Asia, and Europe.</span></p>
+
+
+
+<h2><b>Nike Pushes Creativity&nbsp;</b></h2>
+
+
+
+<p><span style="font-weight: 400;">Mark Parker joined Nike in 1979 as a footwear designer and product tester. Twenty-seven years later, he was named CEO. In the 12 years since, the company’s revenue has </span><a href="http://fortune.com/2015/11/12/nike-ceo-mark-parker/"><span style="font-weight: 400;">more than doubled</span></a><span style="font-weight: 400;">.</span></p>
+
+
+
+<p><span style="font-weight: 400;">He’s remained famously meticulous about product design, even continuing to work as a member of Nike’s HTM team to create limited-edition footwear runs.</span></p>
+
+
+
+<p><span style="font-weight: 400;">He’s also passionate about innovation in design. The </span><a href="https://news.nike.com/news/nike-investor-day-2015"><span style="font-weight: 400;">company partnered with DreamWorks</span></a><span style="font-weight: 400;"> to build a 3D digital design system to improve the product creation process.</span></p>
+
+
+
+<p><span style="font-weight: 400;">“When I started at Nike as a designer I was always asked, ‘What more can you do with shoes that hasn’t already been done?’” Parker </span><a href="http://www.anothermag.com/fashion-beauty/9171/nikes-mark-parker-on-imagination-innovation-and-art"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;">. “That was over 30 years ago, and I see more potential for change and innovation … today than I did then.”</span></p>
+
+
+
+<p><span style="font-weight: 400;">Tapping that potential simply requires the creativity and research of the design thinking approach.</span></p>
+
+
+
+<p><span style="font-weight: 400;">“We’re lifting up rocks to find new solutions to problems, and we’re looking in places that maybe many people aren’t looking,” Parker added.</span></p>
+
+
+
+<p><span style="font-weight: 400;">“Working with artists and designers, you get different points of view, and that cross-pollination of creativity to me is really rich. It creates a fertile place for new ideas to start.”</span></p>
+
+
+
+<h2><b>Eco World Inspires Its Employees</b></h2>
+
+
+
+<p><span style="font-weight: 400;">The CEO of rapidly growing Asian developer Eco World sent a group of 30 employees to a two-day design-thinking course in Malaysia because he wanted them to rid them of a “working in silo” mentality and become more collaborative and open-minded.</span></p>
+
+
+
+<p><span style="font-weight: 400;">Needless to say, he was happy with the result.</span></p>
+
+
+
+<p><span style="font-weight: 400;">“I have worked with some of them for years and while they are good at what they do, some can still appear timid or do not know how to incorporate empathy into their daily lives,” </span><a href="https://www.malaymail.com/s/1573167/design-thinking-vital-in-boosting-staffs-confidence-says-eco-world-ceo"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;"> Datuk Chang Khim Wah, Eco World president and CEO. “Although we only sent them here for two days, I can already see the difference.”</span></p>
+
+
+
+<h2><b>Ford Rejuvenates Its Approach (and Michigan Central Station)</b></h2>
+
+
+
+<p><span style="font-weight: 400;">When designer Jim Hackett became CEO of Ford, he was tasked with trying to keep the 100-plus-year-old carmaker relevant in a crowded marketplace. He said he planned to use a “</span><a href="https://www.businessinsider.com/how-ford-ceo-jim-hackett-is-changing-company-2018-6"><span style="font-weight: 400;">design thinking</span></a><span style="font-weight: 400;">” innovation and management approach, and roughly a year after he took the post, that method was already paying off.</span></p>
+
+
+
+<p><span style="font-weight: 400;">As one example, the company announced a billion-dollar-plus transformation of Ford’s facilities in Michigan. As part of the project, Ford took control of the run-down Michigan Central Station, disused since the 1980s, with the ambitious plan to convert it into the crown jewel of a local revitalization that would also create a new-mobility ecosystem in the area.</span></p>
+
+
+
+<p><span style="font-weight: 400;">“Design thinking is about addressing a number of layers in a problem,” Hackett told Business Insider, adding that the connection of smart vehicles with a shifting urban environment was a “rare historic opportunity.”</span></p>
+
+
+
+<p><span style="font-weight: 400;">“We can improve the environment and get vehicles to orchestrate and harmonize.”</span></p>
+
+
+
+<p><em>Find out more about BrainStation&#8217;s <a href="https://brainstation.io/course/design-thinking?utm_source=BSTNblog&amp;utm_campaign=course_designThinking">Design Thinking courses</a>.&nbsp;</em></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-5-ceos-used-design-thinking-to-transform-their-companies">How 5 CEOs Used Design Thinking to Transform Their Companies</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>What is Design Thinking?</title>
+		<link>https://brainstation.io/blog/what-is-design-thinking</link>
+				<pubDate>Wed, 20 Nov 2019 22:07:14 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[Digital 101]]></category>
+		<category><![CDATA[design]]></category>
+		<category><![CDATA[ux design]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=10084</guid>
+				<description><![CDATA[<p>Over the last decade, UX Designers have developed an approach to conceptualizing and building products that solve problems.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/what-is-design-thinking">What is Design Thinking?</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">All UX Designers are problem-solvers. It’s a role that puts a research-backed, creative spin on figuring out how to make life a little better and easier for customers using a company’s digital offerings.</span></p>
+<p><span style="font-weight: 400;">With that goal in mind comes the need for a framework to actually make it happen. Enter UX design thinking (and <a href="https://brainstation.io/course/design-thinking?utm_source=BSTNblog&amp;utm_medium=blog&amp;utm_campaign=Blog_whatisDesignThinking" target="_blank" rel="noopener noreferrer">design thinking courses</a> at BrainStation).</span></p>
+<p><span style="font-weight: 400;">As far back as the 1960s, various types of Designers — the more traditional kind working in advertising and marketing — started looking for a more scientific approach to their craft. The notion of “design thinking,” as a universal workflow for Designers to follow, started gaining traction.</span></p>
+<p><span style="font-weight: 400;">Over the last decade, UX Designers have zeroed in on a process of their own — an approach to conceptualizing and building products that solve problems while creating positive experiences for end-users.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Design3.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a UX Designer in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">User Experience Diploma Program</a> is a full-time, 12-week program that equips professionals with the skills and experience to start a new career in design.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/user-experience-immersive?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p><span style="font-weight: 400;">As </span><a href="https://interactions.acm.org/archive/view/september-october-2015/design-thinking-and-ux" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Social Futurist Dirk Knemeyer puts it</span></a><span style="font-weight: 400;">, design thinking “caught fire.”</span></p>
+<p><span style="font-weight: 400;">“Progressive and heady Designers joined together with the new breed of liberal arts problem solvers, particularly ethnographers and anthropologists, to help design thinking spread like wildfire,” he writes in Interactions magazine.&nbsp;</span></p>
+<p><span style="font-weight: 400;">“Whereas UX developed systematically in the bubble of Silicon Valley, design thinking rode the trend of innovation and Web 2.0 to make its way into boardroom conversations straightaway.”</span></p>
+<p><span style="font-weight: 400;">So how exactly does design thinking work?</span></p>
+<p><span style="font-weight: 400;">“From the UX side of design, you can create a tool that helps people live their lives to the fullest, with as little stress as possible,” writes </span><a href="https://www.justinmind.com/blog/design-thinking-process-ux-design/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Rebeca Costa for Justinmind’s blog</span></a><span style="font-weight: 400;">. “The design thinking methodology is a means to that end.”</span></p>
+<p><span style="font-weight: 400;">The process involves five phases — empathize, define, ideate, prototype, and test — which Designers move through, though often not in that exact order.</span></p>
+<p><span style="font-weight: 400;">In short, it’s “a non-linear, iterative process which seeks to understand users, challenge assumptions, redefine problems and create innovative solutions to prototype and test,” explains the </span><span style="font-weight: 400;">Interaction Design Foundation</span><span style="font-weight: 400;">.</span></p>
+<p><span style="font-weight: 400;">Costa says it’s all about understanding people and problems. And while you might move from one phase to another, it’s okay — and often a good thing — to go back and revisit earlier phases in the process to test new and better ideas.</span></p>
+<p><span style="font-weight: 400;">“This back and forth is good because it encourages constant reiteration, which tends to help Designers spot issues and potential downfalls of their product while still in the development phase,” she adds.</span></p>
+<p><span style="font-weight: 400;">So here’s what it looks like to go through the phases:</span></p>
+<h2><span style="font-weight: 400;">Phase 1: Empathize</span></h2>
+<p><span style="font-weight: 400;">This phase is all about researching your end-users’ needs through an empathetic lens. You want to put yourself in a client or customer’s shoes — looking at the problem at hand through their worldview, not your own.&nbsp;</span></p>
+<p><span style="font-weight: 400;">“Who are the future users of a digital product you are creating, what makes the target audience distinctive, what are their habits, what is their online behavior like, where are the pain-points, what are the users’ needs that have to be fulfilled? Answering these questions may help you make a good start,” recommends </span><a href="https://www.popwebdesign.net/popart_blog/en/author/nadja_b/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Nađa Božović</span></a><span style="font-weight: 400;"> a Community Manager for PopArt Studio.</span></p>
+<p><span style="font-weight: 400;">Done right, this phase helps set the foundation for a product offering that hits the mark when it comes to what users are looking for.</span></p>
+<h2><span style="font-weight: 400;">Phase 2: Define</span></h2>
+<p><span style="font-weight: 400;">Once you’ve dug into what your target users need, it’s time to compile and analyze those observations to figure out the real problem you’re trying to solve.&nbsp;</span></p>
+<p><span style="font-weight: 400;">As Božović notes, this is the time to start thinking about the steps users need to make to successfully use your digital product, whether it’s a website, app, or online store.</span></p>
+<p><span style="font-weight: 400;">“That could include mapping your users’ journey and defining all the problems they may stumble upon along the way of interacting with your site,” she adds.</span></p>
+<h2><span style="font-weight: 400;">Phase 3: Ideate</span></h2>
+<p><span style="font-weight: 400;">With lots of insight into user needs analyzed and ready to go, it’s a good time to start brainstorming concepts and challenging your own assumptions.</span></p>
+<p><span style="font-weight: 400;">“At this point, you’ve done your research and have a clear understanding of who the product is for, what it’s meant to do for its users and why that matters to the users,” writes Costa. “Now, you and your team can start dreaming up ways that your design could check all the right boxes.”</span></p>
+<p><span style="font-weight: 400;">And don’t be afraid to think outside the box: The sky’s the limit in this phase, so don’t shy away from innovating, atypical ideas. Get those creative juices flowing.</span></p>
+<h2><span style="font-weight: 400;">Phase 4: Prototype</span></h2>
+<p><span style="font-weight: 400;">This is the phase where you want to zero in on some solutions that could actually be feasible and produce the best result — then get building them.</span></p>
+<p><span style="font-weight: 400;">That means sketching out ideas for, say, your app offering, and building digital wireframe prototypes.</span></p>
+<p><span style="font-weight: 400;">“Prototyping is crucial because they make sure that there are no doubts over the main characteristics of the design,” Costa writes.&nbsp;</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Design3.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn design skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in UX design, UI design, and design thinking. Attend live classes and interact with peers and expert Instructors from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<h2><span style="font-weight: 400;">Phase 5: Test</span></h2>
+<p><span style="font-weight: 400;">This isn’t exactly the final phase since you’ll likely wind up jumping back and forth to earlier steps in the process — but it’s certainly a crucial, unavoidable one.</span></p>
+<p><span style="font-weight: 400;">This stage is all about thoroughly testing your product in order to refine the design and ensure it really meets user needs and creates an ideal experience. You’re assessing the basics — does the website or app work properly, or does it have any bugs or glitches — and the deeper experiential aspect of how people feel while using it.</span></p>
+<p><span style="font-weight: 400;">“If you are fortunate (and skillful) enough, you might create a flawless design out of the first try,” writes Božović. “More likely, though, there will be some errors to fix. And that is completely fine, as one of the core principles of design thinking process might also be – to tolerate failure.”</span></p>
+<p><span style="font-weight: 400;">In other words, you’ll likely have to pick yourself up, dust your design off, and start the process all over again until you develop a product that hits the mark.</span></p>
+<p><em>Find out more with BrainStation&#8217;s <a href="https://brainstation.io/course/design-thinking?utm_source=BSTNblog&amp;utm_medium=blog&amp;utm_campaign=Blog_whatisDesignThinking" target="_blank" rel="noopener noreferrer">Design Thinking Courses</a>.&nbsp;</em></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/what-is-design-thinking">What is Design Thinking?</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Five Industries That Have Been Lifted by Design Thinking</title>
+		<link>https://brainstation.io/blog/five-industries-that-have-been-lifted-by-design-thinking</link>
+				<pubDate>Mon, 29 Jul 2019 20:14:29 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[Thought Leadership]]></category>
+		<category><![CDATA[banking]]></category>
+		<category><![CDATA[design]]></category>
+		<category><![CDATA[industries]]></category>
+		<category><![CDATA[retail]]></category>
+		<category><![CDATA[technology]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=9432</guid>
+				<description><![CDATA[<p>From banking to retail and everything in between, here are some examples of how design thinking has lifted companies across a diverse array of industries.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/five-industries-that-have-been-lifted-by-design-thinking">Five Industries That Have Been Lifted by Design Thinking</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">In the 45-plus-years since IBM CEO Thomas John Watson Jr. presciently said “good design is good business,” design thinking has become a pillar principle of most successful companies around the world.</span></p>
+<p><span style="font-weight: 400;">According to the Design Management Institute’s Design Value Index, design-driven companies have maintained a significant stock-market advantage, outperforming the S&amp;P 500 by 211 percent between 2005 and 2015.</span></p>
+<p><span style="font-weight: 400;">We’ve covered </span><a href="https://brainstation.io/blog/3-ways-design-thinking-can-become-part-of-your-business" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">how to incorporate design thinking into your business</span></a><span style="font-weight: 400;">. Here are some examples of how design thinking has lifted companies across a diverse array of industries.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Design3.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a UX Designer in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/user-experience-design?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">User Experience Diploma Program</a> is a full-time, 12-week program that equips professionals with the skills and experience to start a new career in design.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/user-experience-immersive?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<h2><b>The Hospitality Industry</b></h2>
+<p><span style="font-weight: 400;">You could travel the globe and still be hard-pressed to find a company with a deeper commitment to design thinking than Airbnb.</span></p>
+<p><span style="font-weight: 400;">Two of the startup’s three Co-Founders are Rhode Island School of Design alumni, and the company’s experimental product development team, Samara, has even seen Airbnb branch beyond hospitality into the realm of urban planning.</span></p>
+<p><span style="font-weight: 400;">The company empowers its employees to get creative by testing out small new changes that can sometimes lead to the development of major new features. In fact, during the onboarding process, Airbnb suggests new employees ship new features on their very first day to encourage creativity.</span></p>
+<p><span style="font-weight: 400;">The results can be surprisingly profound; once, a new designer was asked to reevaluate the “star” function that allowed users to earmark properties on a wishlist. The designer suggested changing the star to a heart – and that simple switch </span><a href="https://firstround.com/review/How-design-thinking-transformed-Airbnb-from-failing-startup-to-billion-dollar-business/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">increased engagement by over 30 percent</span></a><span style="font-weight: 400;">.</span></p>
+<p><span style="font-weight: 400;">In fact, Co-Founder Joe Gebbia – who serves as Head of Samara – says that it was design thinking that helped the company grow from a struggling startup to a $38 billion company (that is also one of the most-anticipated IPOs on the horizon).&nbsp;</span></p>
+<p><span style="font-weight: 400;">“The good news is that there has been an incredible shift in investors’ mindset on the value of design,” he </span><a href="https://fortune.com/2017/12/22/airbnb-joe-gebbia/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;">. “And so even the people that leaders are sometimes beholden to, they are now getting it in a way that 10 years ago, trust me, they didn’t. Because we met with them and they rejected us, because they didn’t understand the value of design.</span></p>
+<p><span style="font-weight: 400;">“But I feel like we, along with many of our contemporaries, have proven that design is a differentiator, that design can help you expand your business, that design is a critical component.”</span></p>
+<p><span style="font-weight: 400;">Airbnb’s more traditional rivals in the hospitality industry might not have been quite as fast to incorporate design thinking into their core philosophies, but they’re making progress now.</span></p>
+<p><span style="font-weight: 400;">In 2011, Hyatt Hotels connected with the Design School at Stanford University to explore how human-centered innovation concepts could improve the organization. They sent senior company leadership to Stanford’s three-day course, “Human Centered Design,” and, as the company’s vice-president of global innovation Jonathan Frolich </span><a href="https://www.greatplacetowork.com/resources/blog/design-thinking-and-the-transformation-of-hyatt-s-culture" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">explained</span></a><span style="font-weight: 400;">, out of that came a new focus on creating caring experiences for guests and employees alike. They also turned 10 of their properties into innovation labs, where they experimented with lighting, furniture, and rooms.&nbsp;</span></p>
+<p><span style="font-weight: 400;">And Crowne Plaza teamed with the design firm IDEO to improve the experience of its business travelers. The outcome? Ignition, a free-to-use new meeting and working experience housed in Crowne Plaza lobbies that includes meeting spaces, food, and beverage options, full service, and digital features. Also included are single-person “Pods,” “Nooks,” and “Huddles” that seat four, or a 10-person “Apartment” bookable by the hour. The spaces even offer food that is specifically intended to be eaten in meetings – in other words, non-messy meals that can be eaten with one hand that arrive on square plates meant to fit neatly next to laptops.</span></p>
+<p><span style="font-weight: 400;">Meanwhile, NH Hotel Group – which operates more than 350 hotels in 28 countries – recently conducted a 24-hour “design thinking hackathon” as part of its management development program, another example of a company ensuring that all levels of leaders can learn the importance of design thinking.</span></p>
+<h2><b>The Automotive Industry</b></h2>
+<p><span style="font-weight: 400;">When it comes to an openness and flair for big, bold, and even sometimes bizarre ideas, few can match the audacity of Elon Musk and Tesla Motors.</span></p>
+<p><span style="font-weight: 400;">So it’s not surprising that the company that made electric cars cool has been a longtime champion of the importance of design. Its industry-shifting innovations are many: showrooms in malls that resemble Apple stores rather than traditional dealerships; cars that function almost like software, with system updates beamed aloud for drivers; and, of course, sleekly designed vehicles that look like they were dropped from the future.</span></p>
+<p><span style="font-weight: 400;">Much of that magic owes to Franz von Holzhausen, a graduate of the Art Center College of Design’s transportation design program. When he joined Tesla in 2008, the company’s future didn’t look particularly promising. His mission was to create a “</span><a href="https://www.businessinsider.com/how-tesla-designs-cars-to-look-so-good-2017-11" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">world-class design competency</span></a><span style="font-weight: 400;">” for Tesla, starting from scratch to replace the single vehicle the company sold at the time – the Roadster – with an all-new design.</span></p>
+<p><span style="font-weight: 400;">The sleek and luxurious-looking Model S was revealed in 2011 and went on sale the following year. Since then, its design has barely changed. Meanwhile, the Model 3 was widely hailed upon its 2017 unveiling as another triumph, with its minimalist interior – featuring only an LCD touchscreen – gorgeous exterior, and high safety scores. In February 2019, the Model 3 passed the Chevrolet Volt to become the all-time best-selling electric car in the U.S.</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span><span style="font-weight: 400;">And to von Holzhausen, the car’s design is crucial to its appeal.</span></p>
+<p><span style="font-weight: 400;">“(The car had to be) beautiful and alluring, like a moth attracted to a flame,” he </span><a href="https://www.latimes.com/business/autos/la-fi-hy-tesla-design-chief-20180502-story.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;">. “You’re drawn to it although you don’t know anything about it.”</span></p>
+<p><span style="font-weight: 400;">Even so-called “traditional” car companies are prioritizing design thinking.</span></p>
+<p><span style="font-weight: 400;">Look no further than Ford, which hired Designer Jim Hackett as CEO. He made headlines by </span><a href="https://www.businessinsider.com/how-ford-ceo-jim-hackett-is-changing-company-2018-6" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">announcing</span></a><span style="font-weight: 400;"> his intention to use design thinking to keep the 100-plus-year-old automaker relevant. Among their plans, the company announced a billion-dollar-plus project to transform the dilapidated Michigan Central Station and make it the centerpiece of a local revitalization.</span></p>
+<p><span style="font-weight: 400;">“Design thinking is about addressing a number of layers in a problem,” he said. “We can improve the environment and get vehicles to orchestrate and harmonize.”</span></p>
+<p><span style="font-weight: 400;">Meanwhile, Audi and Hyundai are among the automakers to recently open spiffy new design studios.</span></p>
+<h2><b>The World of Retail&nbsp;</b></h2>
+<p><span style="font-weight: 400;">At Swedish furniture giant Ikea, design is obviously integral to the appeal of the company’s products and stores – but it’s also deeply intertwined with their ethical and environmental mission statement.</span></p>
+<p><span style="font-weight: 400;">As outlined in their annual </span><a href="https://preview.thenewsmarket.com/Previews/IKEA/DocumentAssets/535135.pdf" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">sustainability report</span></a><span style="font-weight: 400;">, all of Ikea’s products are designed according to the five dimensions of their “Democratic Design” principle: form, function, quality, sustainability, and affordability. The company even defines its nine principles of “circular design,” where goals include designing for an emotional connection, designing for an expected lifespan, and designing for adaptability.</span></p>
+<p><span style="font-weight: 400;">Further, the company clearly understands a core feature of design thinking: storytelling.</span></p>
+<p><span style="font-weight: 400;">“It’s like with people, the more you know each other the more attached you are. It’s the same with design,” </span><a href="https://ikea.today/maria-on-weaving-stories-with-design/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;"> creative leader Maria O’Brian. “The story behind a product can be fundamental in the decision in keeping something or letting go.”</span></p>
+<p><span style="font-weight: 400;">Design thinking is also assuming a more prominent role in fashion. Take Nike, whose CEO Mark Parker began with the company in 1979 as a footwear designer and product tester.</span></p>
+<p><span style="font-weight: 400;">Now, the company has a team of more than 1,000 Designers. They also remain innovative and experimental with design. The company partnered with DreamWorks to build a 3D digital design system and its </span><a href="https://www.nike.com/nike-by-you" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Nike By You Studio</span></a><span style="font-weight: 400;">, which uses augmented reality, object tracking, and projection systems to allow users to make custom shoes they can then pick up just an hour later, has won over customers with its “live-design experience.”</span></p>
+<p><span style="font-weight: 400;">“The intention of the project is to bring to life the collaborative design experience that we offer our athletes,” </span><a href="https://news.nike.com/news/nike-makers-studio" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;"> Mark Smith, VP of Innovation Special Projects. “They love products that tell their story, so we wanted to combine that idea with a new process of live design and manufacturing that allows our guests to come into the space, work collaboratively with us, and leave with a special product in less time than ever before.”</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Design3.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn design skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in UX design, UI design, and design thinking. Attend live classes and interact with peers and expert Instructors from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<h2><b>The Banking Industry</b></h2>
+<p><span style="font-weight: 400;">The financial sector isn’t always associated with free-thinking problem-solving, but in fact several of the world’s biggest banks have come to understand that design thinking makes sense.</span></p>
+<p><span style="font-weight: 400;">In 2004, Bank of America asked IDEO to look at how to inspire people to open bank accounts, and after their research, IDEO’s team came up with a project that would meet the needs of people who were having trouble taking control of their finances.</span></p>
+<p><span style="font-weight: 400;">The result was the Keep the Change Savings Program. Essentially, the program allows customers to round every purchase up to the nearest dollar and deposit the difference in a savings account.</span></p>
+<p><span style="font-weight: 400;">The project was a hit – in fact, of all new customers, 60 percent enroll in the program.</span></p>
+<p><span style="font-weight: 400;">“There was an almost unexpected and very emotional effect from this new service… people who previously never had savings suddenly did,” </span><a href="https://www.designbetter.co/design-thinking/empathize" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;"> Faith Tucker, Senior Vice-President and Product Developer at Bank of America during the project.</span></p>
+<p><span style="font-weight: 400;">“It wasn’t the account that mattered; even a small amount of money in their savings account gave them a sense of power and control over their finances.”</span></p>
+<p><span style="font-weight: 400;">Others in the industry are similarly shifting their emphasis to design. Capital One acquired design firms Adaptive Path and Monsoon, then rolled out a series of new digital features, including an emoji-enabled chatbot and GPS-tracked transaction histories, and in 2018 the company launched a 42,000-square-foot Innovation Center complete with an experience design research lab. And JPMorgan Chase hired former Yahoo design executive Tim Parsey then soon afterward updated its app with features meant to improve the mobile banking experience by weaving in local imagery.</span></p>
+<p><span style="font-weight: 400;">“(We) wanted to create an experience that starts (with) emotion,” Chase’s Digital Chief Gavin Michael </span><a href="https://www.americanbanker.com/news/first-look-chase-app-adds-features-to-humanize-mobile-banking" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;">. “We’re humanizing the user experience.”</span></p>
+<h2><b>The Food and Beverage Industry</b></h2>
+<p><span style="font-weight: 400;">When Indra Nooyi took over the role of PepsiCo’s CEO, she saw a need to shake up the sagging soda company – whose top brands were losing market share – and she </span><a href="https://hbr.org/2015/09/how-indra-nooyi-turned-design-thinking-into-strategy" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;"> design thinking was at the core of her strategy.</span></p>
+<p><span style="font-weight: 400;">One unorthodox method she employed was to give her direct reports a camera and an empty photo album she wanted them to fill with anything that represented good design. She was unimpressed by the results, and found that any time she tried to talk about design, her employees thought she was talking about packaging.</span></p>
+<p><span style="font-weight: 400;">It was time to hire a Designer.</span></p>
+<p><span style="font-weight: 400;">“It’s much more than packaging,” she </span><a href="https://hbr.org/2015/09/how-indra-nooyi-turned-design-thinking-into-strategy" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;">. “We had to rethink the entire experience, from conception to what’s on the shelf to the postproduct experience.”</span></p>
+<p><span style="font-weight: 400;">“Now,” she added, “our teams are pushing design through the entire system, from product creation, to packaging and labelling, to how a product looks on the shelf, to how customers interact with it.”&nbsp;</span></p>
+<p><span style="font-weight: 400;">The company’s sales grew 80 percent during the 12 years she served as CEO. And PepsiCo continues to prioritize design. Consider the award-winning rollout of its LIFEWTR premium bottled water brand, which launches a new series every few months featuring the work of new artists. In just over a year, the brand was </span><a href="https://www.pepsico.com/news/stories/lifewtr-is-truly-a-work-of-art" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">valued</span></a><span style="font-weight: 400;"> at $200 million.</span></p>
+<p><span style="font-weight: 400;">Design has always been an essential part of Starbucks’ success as well.</span></p>
+<p><span style="font-weight: 400;">Although many of us probably think of the company’s growth as being continuously upward, Starbucks had to close around 600 shops in 2008 after the economy dipped and the company changed senior leadership.</span></p>
+<p><span style="font-weight: 400;">After polling their customers, they discovered that many now viewed the chain as being ubiquitous in a less-than-flattering way. The company realized they needed their stores to better reflect their local environments, which posed a problem considering their Designers were all based at their Seattle headquarters.</span></p>
+<p><span style="font-weight: 400;">“We couldn’t design locally relevant stores, stores that would resonate with our customers, from Seattle,” </span><a href="https://www.wired.com/2014/01/starbucks-big-plan-to-be-your-cozy-neighborhood-coffee-shop/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">said</span></a><span style="font-weight: 400;"> Bill Sleeth, the company’s Vice-President of Design for the Americas.</span></p>
+<p><span style="font-weight: 400;">The company now has Designers stationed around the world. They’ve also launched a series of impressive </span><a href="https://www.starbucks.com.cn/design-studio/en/stores/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">design studios</span></a><span style="font-weight: 400;"> to further show their commitment to design innovation.</span></p>
+<p><span style="font-weight: 400;">“The push for innovation and design is just starting,” Sleeth said. “This is the tip of the iceberg.”</span></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/five-industries-that-have-been-lifted-by-design-thinking">Five Industries That Have Been Lifted by Design Thinking</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>How One Entrepreneur is Training for the Future</title>
+		<link>https://brainstation.io/blog/how-one-entrepreneur-is-training-for-the-future</link>
+				<pubDate>Wed, 17 Jul 2019 18:15:24 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Agile]]></category>
+		<category><![CDATA[Alumni Experience]]></category>
+		<category><![CDATA[Data Analytics]]></category>
+		<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[Digital Marketing]]></category>
+		<category><![CDATA[brainstation]]></category>
+		<category><![CDATA[Digital Skills]]></category>
+		<category><![CDATA[entrepreneur]]></category>
+		<category><![CDATA[professional development]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=9361</guid>
+				<description><![CDATA[<p>Meet Marie-France Cardin, the Founder of The Winning Partnership and a BrainStation professional development student.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-one-entrepreneur-is-training-for-the-future">How One Entrepreneur is Training for the Future</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">Meet Marie-France Cardin, the Founder of The Winning Partnership and a BrainStation professional development student. After 35 years of experience working for global organizations like PwC and KPMG, Marie-France is taking on her first major entrepreneurial endeavor. Looking to advance her skillset and better prepare for a competitive digital landscape, Marie-France decided to pursue digital skills training, and has recently completed her fourth Certificate Course at BrainStation. </span></p>
+<p><span style="font-weight: 400;"><img class=" wp-image-9364 alignleft" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/07/MF_photo-1.jpg" alt="Entrepreneur" width="221" height="332" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/07/MF_photo-1.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/07/MF_photo-1-200x300.jpg 200w" sizes="(max-width: 221px) 100vw, 221px" />We chatted with Marie-France about her experience at BrainStation, why she decided to invest in her education, and how she’s using her newly developed skills.</span></p>
+<p><b>Can you tell us a bit about your career and education background prior to BrainStation?</b></p>
+<p><span style="font-weight: 400;">Many years ago I studied Public Relations at McGill University in Montréal, and then went on to do a certificate in Broadcast Journalism. Throughout my career, I’ve had the opportunity to work with some large organizations – Molson Breweries of Canada, the Montréal Chamber of Commerce, Steinberg/Ivanhoe Cambridge, PwC, the Montréal Exchange. </span></p>
+<p><span style="font-weight: 400;">For the past 18 years my career has been dedicated to partnering with professionals at KPMG as the National Director, Pursuits and Proposals, to win new business as part of a targeted pursuit effort. After my first five years in Montréal as a bid manager, I moved to Toronto to deploy sales enablement support. I led a team of 35 people operating from Canada and India. Working shoulder-to-shoulder with the practitioners and sales and marketing resources, we submitted proposals to both private and publicly-held organizations and government. I had to focus on ensuring that the end-to-end pursuit process was scalable and agile in order to meet the needs of clients, procurement, and technology. </span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Product.jpg" alt="Icon" /></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn product management skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in data, design, development, marketing, and product management. Attend live classes and interact with Instructors and peers from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p><b>You’re in the midst of starting your own business, can you tell us about it?</b></p>
+<p><span style="font-weight: 400;">My new venture is called The Winning Partnership, and with it I’m embracing the opportunity to join forces with emerging industries, professional services, and not-for-profits to frame and deliver solutions that speak to the needs of their clients. Using agile, iterative principles we will work to co-design imaginative and original approaches to help compete, grow and succeed in fierce environments through sales enablement expertise.</span></p>
+<p><b>In your opinion, what is the value of developing your technical skills before diving into an entrepreneurial endeavour?</b></p>
+<p><span style="font-weight: 400;">Clients are very sophisticated and well informed, and as an entrepreneur in client services you have to solve for a problem. So if you want to be in a true partnership with your clients and collaborate efficiently with your associates, you need to have the technical skills to back up your claims. No one can excel at everything or work solo, but I think it’s crucial to surround yourself with the right people and skill sets to be able to handle diverse challenges. </span></p>
+<p><b>You recently completed your fourth course at BrainStation, what has been your motivation behind taking each of these courses?</b></p>
+<p><span style="font-weight: 400;">I’ve been speaking the same lingo for the past 18 years, and I needed to look at things from a different – and fresh – perspective. I enjoy taking courses, but I am not an academic and prefer instructor-led training to learning something on my own. So the idea of frequenting a technology school in my neighborhood that has campuses across North America was quite appealing. Also, being surrounded by intelligent, technologically capable individuals is quite fun and really helps push your boundaries.</span></p>
+<p><b>Do you feel like the courses have complemented each other? </b></p>
+<p><span style="font-weight: 400;">I’ve taken Design Thinking, Agile, Digital Marketing, and Data Analytics. </span><a href="https://brainstation.io/course/design-thinking" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Design Thinking</span></a><span style="font-weight: 400;"> and </span><a href="https://brainstation.io/course/online/agile" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Agile</span></a><span style="font-weight: 400;"> were definitely complementary as they both deal with the process of building digital products and developing processes for solving business problems. I have no doubt that these two courses will be very helpful as I partner with clients in the future.</span></p>
+<p><span style="font-weight: 400;">I took </span><a href="https://brainstation.io/course/online/digital-marketing" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Digital Marketing</span></a><span style="font-weight: 400;"> and </span><a href="https://brainstation.io/course/online/data-analytics" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Data Analytics</span></a><span style="font-weight: 400;"> so that I could develop a better understanding of the two subjects. In today’s world, I need to be in a position to discuss and integrate with my clients when necessary, and want to make sure that my skills and knowledge are up to speed. </span></p>
+<p><b>What are the most valuable lessons you have learned in your BrainStation courses?</b></p>
+<p><span style="font-weight: 400;">Look for the problem to solve, keep on being curious, don’t be afraid to ask questions, and collaboration is the key to success. Be sure to push your boundaries outside of your comfort zone. </span></p>
+<p><b>How are you using the skills you’ve learned to further your business?</b></p>
+<p><span style="font-weight: 400;">In addition to completing four BrainStation courses this year, I’ve invested my time learning more about the Cannabis Industry. For our final project in the Data Analytics class, my workgroup volunteered to look at data on recreational consumption. The outcome of our analysis was to determine the number of cannabis retail outlets required to satisfy demand in Toronto and eliminate the black market. Now, my plan isn’t to open a retail cannabis store, but the analysis we completed shows that there is definitely room for the Ontario government to grant more licences – over 100 of them in Toronto alone – to meet the demand.</span></p>
+<p><b>Can you describe the learning experience at BrainStation? What has been your favourite part?</b></p>
+<p><span style="font-weight: 400;">From the first time I walked into BrainStation to enquire about Design Thinking, I&#8217;ve loved every minute. The ambiance is conducive to learning in an agile, collaborative manner and I cannot praise the experience, expertise and knowledge of the instructors enough. I appreciated that the instructors bring a consultant approach to the curriculum and aren&#8217;t tied to one specific organization. Their wide industry experience and network are a big plus in the learning environment, and I’ve been very impressed with their ability to adjust to the students in class and tailor their instruction when needed to meet the needs of the broader group.</span></p>
+<p><i><span style="font-weight: 400;">If you’re interested in professional development, BrainStation offers <a href="https://brainstation.io/courses#part-time" target="_blank" rel="noopener noreferrer">courses</a> in Data, Design, Product, Marketing, and Development. Simply connect with a Learning Advisor to find the best option for your goals. </span></i></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-one-entrepreneur-is-training-for-the-future">How One Entrepreneur is Training for the Future</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>How One BrainStation Design Instructor Landed a Role at Shopify</title>
+		<link>https://brainstation.io/blog/how-one-brainstation-design-instructor-landed-a-role-at-shopify</link>
+				<pubDate>Wed, 29 May 2019 15:00:20 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[Instructor]]></category>
+		<category><![CDATA[UI Design]]></category>
+		<category><![CDATA[User Experience]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[design]]></category>
+		<category><![CDATA[ux design]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=8993</guid>
+				<description><![CDATA[<p>Find out how BrainStation Design Instructor Sarah McVean made the career move from Product Designer at KPMG to UX Manager at Shopify.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-one-brainstation-design-instructor-landed-a-role-at-shopify">How One BrainStation Design Instructor Landed a Role at Shopify</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p><span style="font-weight: 400;">Meet Sarah McVean, a Senior Product Designer and BrainStation Design Instructor. Having taught multiple courses at BrainStation including </span><a href="https://brainstation.io/course/design-thinking" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Design Thinking</span></a><span style="font-weight: 400;"> and </span><a href="https://brainstation.io/course/online/user-experience-design" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">User Experience Design</span></a><span style="font-weight: 400;">, Sarah has helped empower professionals with the skills they need – and in the process, she developed the skills she needed to take the next step in her career. </span></p>
+
+
+
+<p><span style="font-weight: 400;">We spoke to Sarah about the design process, landing a new role at Shopify, and what it’s like to be a BrainStation Instructor.</span></p>
+
+
+
+<h3><b>BrainStation: Can you tell us a bit about your career background, and what you do currently?</b></h3>
+
+
+
+<div class="wp-block-image"><figure class="alignleft"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2.jpg" alt="Design Instructor" class="wp-image-8994" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2.jpg 2372w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Sarah-Short-Hair-2-960x960.jpg 960w" sizes="(max-width: 2372px) 100vw, 2372px" /></figure></div>
+
+
+
+<p><span style="font-weight: 400;">McVean: I’ve been a designer for 18 years, starting my career out in Multimedia with a focus on web design. I’ve done a bit of everything over the years, which has been the benefit of being a strong generalist, but my focus has typically been in the area of UX/UI for website and product design. </span></p>
+
+
+
+<p><span style="font-weight: 400;">My most recent role was as a Senior Product Designer at KPMG’s Ignition Centre, where I led strategy, design, and Design Thinking for KPMG’s teams, partners and clients. I’m moving into a role as a UX Manager at Shopify, which I will be starting next month and am very excited about because, well, it’s Shopify and I’ll have the opportunity to grow a lot there.</span></p>
+
+
+
+<h3><b>What drew you to the field of Product and UX Design?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">About ten years ago, I began working at a software company where I worked not only on the marketing materials and website, but also on a product for food safety. The product was really interesting, and it was a natural transition for me from doing web over the years, but I had to learn how to work with complexity and UI patterns that I didn’t typically use in web. </span></p>
+
+
+
+<p><span style="font-weight: 400;">I primarily performed UI design until I started to learn more about user research, usability testing, and UX deliverables and workflow. Once I began learning about including users in the design process, I was super excited, because otherwise design can be very subjective. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Incorporating research and data gave me the confidence to make decisions and speak to stakeholders from the needs of the users. This was a dramatic shift from the previous way I had been doing design work.</span></p>
+
+
+
+<h3><b>In your opinion what’s the most critical aspect of a user-centric design process?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">I think the most crucial aspect is for the designer to be able to adapt the process to meet the context of the work she is doing and fit user research in – even if it’s less than she’d like – making it measurable in some way. This will help show the value of user-centric design to the stakeholders, and get buy-in for more time and resources to perform user research. Being able to adjust your process and expectations to meet the needs of the company is key to helping to transition and implement a robust user-centred methodology. </span></p>
+
+
+
+<p><span style="font-weight: 400;">The second is for the designer not to bring bias to the interview or testing process. We shouldn’t be looking for validation of our ideas but to disprove our assumptions. Designers can get attached to solutions, and designing for the user requires us to take a step back and design for their best interests, even though it may not align with what we want to create.</span></p>
+
+
+
+<h3><b>Can you describe your experience as a BrainStation Instructor?</b> <b>What is your favourite part of teaching at BrainStation?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">The team here at BrainStation has always been very welcoming and supportive, and I’ve had the opportunity to make connections with students from various backgrounds and provide meaningful support and direction to new designers. Watching them grow has been very rewarding.</span></p>
+
+
+
+<h3><b>Did working as an Instructor at BrainStation help you in your personal professional development? </b></h3>
+
+
+
+<p><span style="font-weight: 400;">Yes, most definitely. I originally taught a Design Thinking workshop at BrainStation, which led me to my previous role at KPMG where I was a Senior Product Designer and Design Thinking Facilitator. I gained a lot of skills leading and facilitating sessions during the day at KPMG and in the evening at BrainStation. </span></p>
+
+
+
+<p><span style="font-weight: 400;">In terms of public speaking, teaching, and facilitation, I have grown exponentially. I also think that teaching at BrainStation helped me get my new role at Shopify.</span></p>
+
+
+
+<p><span style="font-weight: 400;">I’m very grateful for the growth I’ve experienced while working at BrainStation.</span></p>
+
+
+
+<h3><b>What is a teaching moment or student success story that you’re most proud of?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">Well I think there are a few moments, but one is a Product Manager who came to learn UX because he thought his lack of wireframing and UX skills were hindering his job opportunities in the market. A few months after the course he got a new job as a Director of Product and said that the UX course was key for him getting that new role! </span></p>
+
+
+
+<p><span style="font-weight: 400;">Another student came in with virtually no design experience and turned out a final project that was so amazing, it was on par with many experienced designers work. It was very gratifying to see someone do so well in such a short amount of time.</span></p>
+
+
+
+<h3><b>In your experience, what do students find most challenging about the user experience design process?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">I think listening to feedback from usability testing and not trying to ‘explain’ designs to the user. This can be difficult sometimes, especially from designers who may have experience delivering work without any user feedback. It can be challenging to watch someone struggle with your design, so it’s a learned skill to step back and accept the feedback without getting defensive.</span></p>
+
+
+
+<h3><b>Based on your experience working in UX, how relevant and applicable is the BrainStation approach to skills training?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">I think the BrainStation course material and projects are a fantastic real-world introduction into current methodologies, concepts and tools. </span></p>
+
+
+
+<p><span style="font-weight: 400;">The course material is continuously being updated and worked on which is necessary since our industry is always evolving at a rapid-fire pace. And the projects themselves that students create are tangible assets that can be used towards portfolio pieces or simply for practice, and they follow the same steps that hiring managers look for when reviewing portfolios of past work. </span></p>
+
+
+
+<p><span style="font-weight: 400;">If you are serious about becoming a UX designer, BrainStation is a great start, and I also encourage designers to continuously learn new skills and do design work, as the UX profession is a journey where the learning never ends.</span></p>
+
+
+
+<h3><b>In your opinion, what are the most valuable skills a professional working in UX can develop?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">Communication skills. This is very nuanced, and is a skill I’m always working on myself, but the ability to present your work, discuss ideas on a team, defend your designs and listen to feedback is so important. </span></p>
+
+
+
+<p><span style="font-weight: 400;">There is so much more to design than the pixels, and there is a balance between listening to others opinions and leading the process. Communication is a key factor in what makes a successful designer. Especially now that more teams work remotely, communication skills are really key. </span></p>
+
+
+
+<p><span style="font-weight: 400;">I encourage everyone to put themselves into situations where they may feel uncomfortable so that there are opportunities for growth. And listen to understand, not just waiting for the opportunity to reply.</span></p>
+
+
+
+<p><i><span style="font-weight: 400;">If you’re interested in learning from experienced professionals like Sarah, check out </span></i><a href="https://brainstation.io/courses#design,on-campus"><i><span style="font-weight: 400;">BrainStation’s Design Courses.</span></i></a></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-one-brainstation-design-instructor-landed-a-role-at-shopify">How One BrainStation Design Instructor Landed a Role at Shopify</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Finding Success as an Artist in Technology</title>
+		<link>https://brainstation.io/blog/finding-success-as-an-artist-in-technology</link>
+				<pubDate>Thu, 23 May 2019 19:41:04 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Design Thinking]]></category>
+		<category><![CDATA[User Experience]]></category>
+		<category><![CDATA[Visual Design]]></category>
+		<category><![CDATA[ART]]></category>
+		<category><![CDATA[creative]]></category>
+		<category><![CDATA[design]]></category>
+		<category><![CDATA[technology]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=8957</guid>
+				<description><![CDATA[<p>Are you an artist wondering how to make things work in a tech-dominated world? You're not alone. Find out how this creative found her place in tech. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/finding-success-as-an-artist-in-technology">Finding Success as an Artist in Technology</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p><span style="font-weight: 400;">Are you an artist or creative wondering how to make things work in a fast-changing, tech-dominated world? &nbsp;You’re not alone. The good news is that the increasing importance of design means there is more room for great artists in the tech world than ever before. </span></p>
+
+
+
+<div class="wp-block-image size-full wp-image-8959"><figure class="alignright"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Lauralee-Sheehan.jpeg" alt="Lauralee Sheehan" class="wp-image-8959" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Lauralee-Sheehan.jpeg 200w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Lauralee-Sheehan-150x150.jpeg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Lauralee-Sheehan-109x109.jpeg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Lauralee-Sheehan-100x100.jpeg 100w" sizes="(max-width: 200px) 100vw, 200px" /><figcaption>Lauralee Sheehan</figcaption></figure></div>
+
+
+
+<p><span style="font-weight: 400;">One such example is Lauralee Sheehan, the Founder and CEO of Digital 55, a creative collective that builds digital interactive products and learning experiences. A natural-born artist in a range of disciplines, she got her start in film and music before eventually transitioning into the digital space. </span></p>
+
+
+
+<p><span style="font-weight: 400;">We sat down with Sheehan to learn more about her career journey. </span></p>
+
+
+
+<h3>BrainStation: Can you tell us more about your background leading up to the launch of your business?</h3>
+
+
+
+<p><span style="font-weight: 400;">Sheehan: I took my undergrad in English and began working in the tech space before ever having any formal training in the industry. I had worked in film for a couple of years (my father is in the film industry), thinking film was the only real option to be in both creative and tech, which at the time, it kind of was. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Then, I moved to the music industry. I worked at HMV and for SOCAN, and started my own record label and played in a band. I got into the digital space because, at the time, everything was evolving into digital. I taught myself video editing and digital design by creating different band assets (posters, banners, branding) and motion graphic videos, and I started learning about experience design to go with our live shows.</span></p>
+
+
+
+<p><span style="font-weight: 400;">During those days, I started working for a non-profit doing digital design and began building digital learning products using </span><a href="https://brainstation.io/training/design-thinking"><span style="font-weight: 400;">design thinking</span></a><span style="font-weight: 400;"> before I even knew what it was. This was a huge moment for me in terms of working in tech but also being able to be incredibly creative and essentially carving out a new career path.</span><span style="font-weight: 400;"><br>
+</span></p>
+
+
+
+<h3><b>How did you start your own company? </b></h3>
+
+
+
+<p><span style="font-weight: 400;">I had always been that person that started small businesses on the side even when I had a “day job.” I had my own record label, started a lifestyle brand, and eventually founded my digital agency, building up my client roster through smaller freelance projects. I always had this inkling that I wanted to be an entrepreneur. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Eventually, I had been working at a digital learning agency, but I didn’t feel that the amount of thought and creativity that went into the products was being valued by leadership, and the importance of the intersection between creative and tech was understood. </span></p>
+
+
+
+<p><span style="font-weight: 400;">They ended up going bankrupt and during that process, I knew it was my moment. I knew that I was onto something. I got pushed off the cliff, in a sense, but I had built up so much confidence in my work and my creative approach to digital and how valuable it was. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Many clients followed me as I moved Digital 55 into full-time operations, so it was kind of a launching pad for me to jump 100 percent into entrepreneurship.&nbsp;</span><span style="font-weight: 400;">It’s been one year now of full-time operations and I have worked with about 15 clients from major companies, including government agencies, not-for-profits, and private companies. </span></p>
+
+
+
+<h3><b>How has your art background helped you in your career?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">It has been critical. When I was going to school, art was a weird thing to be in, but it has truly defined my whole digital career.</span></p>
+
+
+
+<div class="wp-block-image size-medium wp-image-8961"><figure class="alignleft"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/IMG_1447-300x300.jpg" alt="Lauralee Sheehan" class="wp-image-8961" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/IMG_1447-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/IMG_1447-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/IMG_1447-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/IMG_1447-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/IMG_1447.jpg 760w" sizes="(max-width: 300px) 100vw, 300px" /><figcaption>Lauralee Sheehan</figcaption></figure></div>
+
+
+
+<p><span style="font-weight: 400;">I’m able to think about things differently. I am more exploratory; it’s a part of my whole mindset. I’m a bit of a rebel and having an artistic background helps you stand out from the crowd. Technical skills can often be learned but not everybody has that creative lens. You can take that unique perspective and run with it. </span></p>
+
+
+
+<p><span style="font-weight: 400;">There are creative ways to think about digital that differentiates you from others and it can make the difference between you and someone else who can do the same thing, but not at that sophisticated and conceptual level. You can give clients something special that sets you apart from the crowd.</span></p>
+
+
+
+<p><span style="font-weight: 400;">More and more, people are turning to artistic approaches in business. It’s becoming more and more valuable: more collaboration, more iteration, and more agile, which is new and super important from a strategic level. </span></p>
+
+
+
+<p><span style="font-weight: 400;">So when your parents tell you not to get an art degree: it’s not true anymore! </span></p>
+
+
+
+<h3><b>What is the difference between art and design?</b></h3>
+
+
+
+<p><span style="font-weight: 400;">Historically, design was always at the end of projects to make things look cool, but there is so much thinking that goes into the concept, product, or experience. How can you tie those together?</span></p>
+
+
+
+<p><span style="font-weight: 400;">It’s not just a color palette, not just about making things look “pretty”, but visualizing and designing a whole experience. To be able to put together concepts, design content, and think about things creatively — that’s where design is going now. There used to be a static way that people thought about design and creative. Now, there is so much depth when you talk about designing something.</span></p>
+
+
+
+<p><a href="https://brainstation.io/training/design-thinking"><span style="font-weight: 400;">Design thinking</span></a><span style="font-weight: 400;">, for instance, is an approach that helps create depth of experience. It is human-centered and involves solving problems and thinking about how someone is going to feel and interact with content in a meaningful way. You have to remove yourself from it. It means doing research, discovery, concepting, iterating, beta, etc. and thinking about collaboration, strategy, and deployment. So, an artist may be stronger and more comfortable working within that model and integrating new thinking into a project, be it design, tech, or business.</span></p>
+
+
+
+<h3><b>What roles are available to artists now? </b></h3>
+
+
+
+<p><span style="font-weight: 400;">There are so many cool and interesting roles now, like designing for sustainability, content design, service design, immersive reality. There is creative direction or art direction across the board. Design has changed how technical you have to be. There are so many different ways to get involved in the concept or the product depending on what interests you. </span></p>
+
+
+
+<p><span style="font-weight: 400;">A big one is graphic and visual design, which is always a part of every project. The skills you gain from graphic design can be transferred to work in motion graphics, interactive design, and </span><a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead"><span style="font-weight: 400;">user experience</span></a><span style="font-weight: 400;">, which is a highly in-demand field that includes all aspects of a user’s interaction with a company, product, or digital experience. </span></p>
+
+
+
+<h3><b>What advice would you give to young artists in terms of breaking into the field and finding work in tech? </b></h3>
+
+
+
+<p><span style="font-weight: 400;">Network. This can be hard and doesn’t always seem helpful in the moment, but is really, really important. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Iterate on your portfolio and online presence constantly. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Advocate for yourself in a meaningful way (especially women!). If you think you should get a raise or title change or want to secure that new client, make sure to highlight the value you are bringing to the table. Do some research on the industry and pull stats, data, and qualitative stories that speak to the valuation you bring.</span></p>
+
+
+
+<p><span style="font-weight: 400;">And most importantly:</span></p>
+
+
+
+<p><span style="font-weight: 400;">Learn as much as you can. Invest in your learning, your expertise, and perspective. Try to think of everything as a learning experience. Even if you see a film for fun, that is a learning experience when thinking about design, how to tell stories, or how to create an experience.</span></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/finding-success-as-an-artist-in-technology">Finding Success as an Artist in Technology</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+	</channel>
+</rss>

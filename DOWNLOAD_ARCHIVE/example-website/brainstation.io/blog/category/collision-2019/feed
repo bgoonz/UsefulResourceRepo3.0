@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Collision 2019 &#8211; BrainStation® Blog</title>
+	<atom:link href="https://brainstation.io/blog/category/collision-2019/feed" rel="self" type="application/rss+xml" />
+	<link>https://brainstation.io/blog</link>
+	<description>The Digital Learning Company</description>
+	<lastBuildDate>Thu, 07 May 2020 17:00:21 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.9</generator>
+	<item>
+		<title>6 Things We Learned at Collision 2019</title>
+		<link>https://brainstation.io/blog/6-things-we-learned-at-collision-2019</link>
+				<pubDate>Fri, 24 May 2019 20:59:59 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Collision 2019]]></category>
+		<category><![CDATA[Technology]]></category>
+		<category><![CDATA[Collision conference]]></category>
+		<category><![CDATA[Collision Toronto]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=8967</guid>
+				<description><![CDATA[<p>Collision 2019 has come and gone, and the massive tech conference did not disappoint. Here are some of the things we learned this year. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/6-things-we-learned-at-collision-2019">6 Things We Learned at Collision 2019</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">Collision 2019 has come and gone, and the massive tech conference did not disappoint, with thousands of attendees, exhibitors, and speakers from some of the largest and most innovative companies in the world. </span></p>
+<p><span style="font-weight: 400;">It’s impossible to sum up the entire conference, but here is a snapshot of some of the things we learned at </span><a href="https://collisionconf.com/"><span style="font-weight: 400;">Collision 2019</span></a><span style="font-weight: 400;">. </span></p>
+<h2><b>Technology is Impacting the World (for Better or Worse)</b></h2>
+<p><span style="font-weight: 400;">This month, we are hosting a series of panel discussions on the use of </span><a href="https://brainstation.io/event/topanelmay2019"><span style="font-weight: 400;">data science for social good</span></a><span style="font-weight: 400;">, which touch on the different ways companies are using data to affect change. A number of Collision talks also pointed to the impact technology is having on a societal level, and it wasn’t always pretty. </span></p>
+<p><span style="font-weight: 400;">For evidence, look no further than a session with Mona Siddiqui, the CDO of the U.S. Department of Health and Human Services, which focused on tech’s role in the spread of misinformation, particularly when it comes to the pro-disease (or anti-vax) movement.</span></p>
+<p><span style="font-weight: 400;">In short, with the online marketplace of information, it’s difficult to separate fact from opinion, which can lead to the rapid spread of false information. </span></p>
+<p><span style="font-weight: 400;">“As more and more of us use social media as the primary source of information, we need to really think about the responsibility of some of these companies around how they’re differentiating information from opinion,” she said, adding that it can’t all be left up to private companies. </span></p>
+<p><span style="font-weight: 400;">“There’s a responsibility in many different parts of this equation – responsibility from a social media company perspective, responsibility from individuals, taking the time to actually look at information in more thoughtful ways,” explained Siddiqui.</span></p>
+<div id="attachment_8970" style="width: 610px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-8970" class="wp-image-8970 size-full" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/unnamed.png" alt="Mona Siddiqui" width="600" height="225" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/unnamed.png 600w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/unnamed-300x113.png 300w" sizes="(max-width: 600px) 100vw, 600px" /><p id="caption-attachment-8970" class="wp-caption-text">Mona Siddiqui</p></div>
+<p><span style="font-weight: 400;">Linda Boff, GE’s Chief Marketing Officer, also brought up that sense of responsibility and purpose and explained how it can be a source of ongoing career motivation. &nbsp;</span></p>
+<p><span style="font-weight: 400;">&#8220;To work in a company that’s involved with tech, where the outcomes are driving healthcare, in areas where affordability is an issue, driving power to the third of the world that doesn’t have electricity&#8230;these things are a way of looking at technology that don’t get the halo that they should.”</span></p>
+<h2><b>Talent is a Fundamental Aspect of Digital Transformation</b></h2>
+<p><span style="font-weight: 400;">A hot topic across the conference was digital transformation, and more specifically, how talent is fundamental to that process. In fact, Robert Alexander, CIO of Capital One, highlighted talent as a critical aspect of the company’s seven-year digital transformation. </span></p>
+<p><span style="font-weight: 400;">“I think the talent is probably the most fundamental part of this transformation and the hardest to do,” said Alexander. “If we think winning in this business is about being a great technology company, then we’ve got to have the talent of a great technology company.”</span></p>
+<p><span style="font-weight: 400;">The trouble is, finding skilled talent can be quite difficult, and numerous executives cited frustration with the outcomes of the traditional educational model. </span></p>
+<p><span style="font-weight: 400;">“I don’t believe that we’re getting the talent coming from universities or academia that has the skill sets that we need for the future,” said Karen Walker, CMO of Cisco Systems. </span></p>
+<h2><b>The Tech Industry is Rethinking the Role of Social Media</b></h2>
+<p><span style="font-weight: 400;">One way or the other, conversations almost always turned toward social media, and the impact it was having on our day-to-day lives. </span></p>
+<p><span style="font-weight: 400;">First, Actor and HITRECORD Co-Founder Joseph Gordon-Levitt discussed the negative influence social networks were having on creativity.</span></p>
+<p><span style="font-weight: 400;">“There isn’t really a way for the business model of those media tech platforms to measure and monetize a meaningful creative experience &#8230; you start thinking while you’re singing or writing, is this going to get a lot of likes? How many followers is this going to get me? And I think that’s not really good for the creative process,” Gordon-Levitt said. </span></p>
+<p><iframe src="https://www.youtube.com/embed/3-Qyh75OTRc" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p><span style="font-weight: 400;">Equally critical was Journalist and Recode Co-Founder Kara Swisher who, while claiming that Facebook had “ruined democracy,” argued that social networks had to take greater responsibility for the power and influence they had.</span></p>
+<p><span style="font-weight: 400;">Alex Stamos, an Adjunct Professor at Stanford University and the former Chief Security Officer at Facebook, disagreed, and while not completely absolving the social network, he argued that </span><span style="font-weight: 400;">that issues with Facebook were actually “issues with humanity itself.”</span></p>
+<p><span style="font-weight: 400;">“Anti-vaxxers, and crazy parents today recommending bleach, this is the collective decision making of millions of people when you give them a freedom they haven’t had before,” Stamos said. </span></p>
+<p><span style="font-weight: 400;">Swisher also held a session with Ev Williams, a Co-Founder of Twitter and Medium, whose views on social media fell much closer to hers. </span></p>
+<p><span style="font-weight: 400;">“Social media amplifies all the bad aspects of humanity,” Williams said, adding that he was, nevertheless, hopeful for the future. </span></p>
+<p><span style="font-weight: 400;">“There is a better version of social media to be invented. I don’t know if that will happen incrementally … or if it will happen with completely new paradigms to come around. But it will happen,” he said.</span></p>
+<h2><b>Data is Everything (and Everywhere)</b></h2>
+<p><span style="font-weight: 400;">From self-driving cars to improving the banking industry, the conference made clear that data is driving innovation and decision-making across industries.</span></p>
+<div id="attachment_8969" style="width: 210px" class="wp-caption alignright"><img aria-describedby="caption-attachment-8969" class="size-medium wp-image-8969" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/0N5A1124-200x300.jpg" alt="Karthic Bala" width="200" height="300"><p id="caption-attachment-8969" class="wp-caption-text">Karthic Bala</p></div>
+<p><span style="font-weight: 400;">Mass media company Condé Nast, for example, used data to create an entirely new health vertical, which had nothing to do with their brand’s focus on fashion, lifestyle, and travel.</span></p>
+<p><span style="font-weight: 400;">“Why health? Condé Nast is not a health company, it’s not a healthcare media company –&nbsp;it’s got nothing to do with health,” explained Karthic Bala, Condé Nast’s CDO. “But what we looked at when we looked at our database, is our users wanted healthcare information.”</span></p>
+<p><span style="font-weight: 400;">Condé Nast has since leveraged first-party data to create content that aligns with the wants and needs of its users. It’s not easy to do, but it’s clear that data-driven decision-making can have a huge payoff for businesses, particularly in media. &nbsp;</span></p>
+<p><span style="font-weight: 400;">Bala summed it up in the simplest, most effective way: “Everybody has data, everybody claims that they have data, but it’s about how you use that data, that’s the most important thing.” </span></p>
+<p><span style="font-weight: 400;">Wisk, a beverage intelligence platform for bars and restaurants, is focused on bringing data to the restaurant industry in a way that’s usable and makes sense to business owners. </span></p>
+<p><span style="font-weight: 400;">“The question is, how do we make that information easy to digest? I think that’s the main challenge,” said Angelo Esposito, Co-Founder and CEO of Wisk. “You can find a lot of reporting tools that can find every report possible, but again that’s reactive, so the question is how do we become proactive and bring it to you?”</span></p>
+<p><span style="font-weight: 400;">On that note, there continues to be increased scrutiny on how companies are using data. Powerhouses like Facebook and Google, for example, are working to increase efficiency by collecting data on the</span><span style="font-weight: 400;">&nbsp;human experience. This, however, raises questions about the level of power consumers have over their personal data.</span></p>
+<p><span style="font-weight: 400;">Venture Capitalist Roger McNamee sounded the alarm at Collision. &nbsp;</span></p>
+<p><span style="font-weight: 400;">“Don’t just sleepwalk into a world where we’re stuck with only the information Facebook and Google choose to give us,” he said.</span></p>
+<div id="attachment_8971" style="width: 1034px" class="wp-caption aligncenter"><img aria-describedby="caption-attachment-8971" class="size-large wp-image-8971" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Collision2019-BrainStation-Thursday-5-2-1024x460.jpg" alt="Wisk Collision 2019" width="1024" height="460" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Collision2019-BrainStation-Thursday-5-2-1024x460.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Collision2019-BrainStation-Thursday-5-2-300x135.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Collision2019-BrainStation-Thursday-5-2-768x345.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/Collision2019-BrainStation-Thursday-5-2-960x431.jpg 960w" sizes="(max-width: 1024px) 100vw, 1024px" /><p id="caption-attachment-8971" class="wp-caption-text">Wisk Collision 2019</p></div>
+<h2><b>Everyone is Talking About Diversity and Inclusion</b></h2>
+<p><span style="font-weight: 400;">Prime Minister Justin Trudeau set the stage for conversations about diversity and inclusion on Collision’s opening night, when he spoke about the role immigration plays in Canada’s tech industry. </span></p>
+<p><span style="font-weight: 400;">“Access to talent obviously comes from immigration and it comes from training young and educating Canadians right,” Trudeau said. </span></p>
+<p><span style="font-weight: 400;">A number of execs touched on these points and suggested promoting diversity and inclusion by incorporating purposeful practices into your hiring efforts. </span></p>
+<p><span style="font-weight: 400;">“You have the opportunity to have diversity be part of your hiring plans and your sourcing as well, and because you have so many different skill sets you can pull people from different walks of life,” said Bharat Vasan, the CEO at PAX Labs, Inc.</span></p>
+<p><span style="font-weight: 400;">“The number one tip I have is to have fifty-fifty sourcing at the top of the funnel, because if you don’t have diversity at the top of the funnel, as you get further down it becomes very hard to have that be part of your hiring practices,” he said.</span></p>
+<p><span style="font-weight: 400;">The aforementioned Linda Boff also spoke about what it means to be inclusive in a large-scale organization like GE.</span></p>
+<p><span style="font-weight: 400;">“I’ve thought a lot about diversity and inclusion, and they’re really two different concepts. I’ve been guilty of thinking that I was doing all the right things by speaking to women’s groups inside the company. I’m proud of that, I do think people need communities, but I’ve really come to believe that inclusion is inviting people with different views into the tent,” said Boff. </span></p>
+<p><span style="font-weight: 400;">Sairah Ashman, the CEO of Wolf Olins, took this one step further, claiming, “You can’t have disruption without diversity. Look for perspectives outside of your own bubble.”</span></p>
+<p><img class="aligncenter size-large wp-image-8974" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/0N5A0815-1024x683.jpg" alt="Collision 2019" width="1024" height="683" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/0N5A0815-1024x683.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/0N5A0815-300x200.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/0N5A0815-768x512.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/05/0N5A0815-960x640.jpg 960w" sizes="(max-width: 1024px) 100vw, 1024px" /></p>
+<h2><b>Tech Runs on Passion</b></h2>
+<p><span style="font-weight: 400;">Discussions were held on every technology-related topic imaginable, but one thing was clear: it takes passion to make it in this industry.&nbsp;</span></p>
+<p><span style="font-weight: 400;">“You go through the ups and downs, you really have to be motivated by more than getting to the top. You really have to care about the thing you’re trying to bring to life in this world,” said Bharat Vasan. </span></p>
+<p><span style="font-weight: 400;">“Surround yourself with good people, because that makes the journey worthwhile,” he said. “You don’t know if you’re going to succeed or fail, but you’re going to learn a lot from the market and you’re going to learn a lot from the people around you. If you can have fun along the way that makes it so much easier.”</span></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/6-things-we-learned-at-collision-2019">6 Things We Learned at Collision 2019</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+	</channel>
+</rss>

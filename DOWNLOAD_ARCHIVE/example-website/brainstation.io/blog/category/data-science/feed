@@ -1,0 +1,1043 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Data Science &#8211; BrainStation® Blog</title>
+	<atom:link href="https://brainstation.io/blog/category/data-science/feed" rel="self" type="application/rss+xml" />
+	<link>https://brainstation.io/blog</link>
+	<description>The Digital Learning Company</description>
+	<lastBuildDate>Thu, 28 Jan 2021 20:12:39 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.9</generator>
+	<item>
+		<title>Alumni Stories: Working Together to Win a Hackathon</title>
+		<link>https://brainstation.io/blog/working-together-to-win-a-hackathon</link>
+				<pubDate>Mon, 15 Jun 2020 17:43:01 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Alumni Experience]]></category>
+		<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[alumni]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[hackathon]]></category>
+		<category><![CDATA[Microsoft]]></category>
+		<category><![CDATA[project management]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11934</guid>
+				<description><![CDATA[<p>Graduates had the opportunity to participate in a stay-at-home hackathon with Microsoft. Learn more about how the winning team worked together.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/working-together-to-win-a-hackathon">Alumni Stories: Working Together to Win a Hackathon</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>This last month, graduates had the opportunity to participate in our first stay-at-home hackathon (in partnership with Microsoft).&nbsp;</p>
+
+
+
+<p>Each team had three days to design a solution for a better work-from-home experience that could integrate with the Microsoft Teams video chat software. After a few intense days of work and collaboration, the judges were seriously impressed with the results.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1-1024x536.jpg" alt="" class="wp-image-11935" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1-1024x536.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1-300x157.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1-768x402.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1-1536x804.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1-2048x1072.jpg 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1-960x502.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15120306/Frame-6-1.jpg 2400w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>We spoke with the winning team: Pablo Lopez Castillo (UX Design), Jung Oh (UX Design), Ali Eddeb (Data Science), and Nick Mahon (Data Science). Together, the alumni designed FocusBuddy, a productivity app to help you stay focused on your tasks.</p>
+
+
+
+<h2>The Challenge</h2>
+
+
+
+<p>Having recently completed their full-time diploma programs at BrainStation, the graduates were eager to test their new skills with a challenge from a tech giant like Microsoft.&nbsp;</p>
+
+
+
+<p>“By participating in this hackathon, my hope was that I would be exposed to the types of challenges or projects Microsoft employees get to tackle, as well as how they solve them,” Oh said.&nbsp;</p>
+
+
+
+<p>For their project, the winning team wanted to reflect the current conditions professionals face when working from home. “We found that productivity was a primary issue remote workers face due to a variety of reasons. One of the most prominent pain points users had with productivity was that they had trouble maintaining self-discipline when attempting to thwart distractions (such as a cell phone),” the team explained.</p>
+
+
+
+<p>The team decided to focus on developing a Microsoft Teams add-on called FocusBuddy, which helps boost remote productivity.&nbsp;</p>
+
+
+
+<p>FocusBuddy:&nbsp;</p>
+
+
+
+<ol><li>Identifies user work habits and suggests on how to improve them with computer vision</li><li>Sends reminders and recommendations throughout a session to increase productivity and wellness&nbsp;</li><li>&nbsp;Awards points for uninterrupted work and healthy habits</li><li>&nbsp;Allows daily team goal-setting with leader boards and results&nbsp;</li></ol>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1-1024x634.png" alt="" class="wp-image-11937" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1-1024x634.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1-300x186.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1-768x476.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1-1536x951.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1-2048x1269.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1-960x595.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131457/Screen-Shot-2020-05-08-at-10.45.17-AM-1.png 2302w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Working Together</h2>
+
+
+
+<p>Working remotely, the team used a plethora of tools to iterate, create, collaborate, and test. The Designers relied on Sketch, Figma, and Invision, while the Data Scientists used Sublime Text 3, Anaconda Prompt, and Jupyter Notebooks. Of course, Microsoft Teams also supported communication and collaboration to keep them working together.&nbsp;</p>
+
+
+
+<p>“Seeing our concept come to life within the time constraints was satisfying as we all had pivotal roles,” Castillo said, explaining that there were many proud moments amongst the team.&nbsp;As a bonus, the team created a product <a href="https://drive.google.com/file/d/1YFr-fAFbb8u6iAJivQWQgxv3bm4342Wk/view" target="_blank" rel="noreferrer noopener" aria-label=" (opens in a new tab)">commercial</a> which really tied the whole presentation together. </p>
+
+
+
+<p>Eddeb for one was impressed by the team dynamics. “We were able to criticize our ideas well and did not fall into groupthink. We were able to delegate tasks effectively and we overall had a good time working together.”</p>
+
+
+
+<p>Similarly, Oh enjoyed working with Data Scientists to leverage unique solutions. “We were able to ask our Data Scientists to provide thought-provoking perspectives, educate ourselves regarding the possibilities of data, and implement innovative solutions as a result.”&nbsp;</p>
+
+
+
+<p>Mahon, meanwhile, was pleased with the way the UX team brought their ideas into reality. “Bringing such a polished look to an otherwise rough idea was incredible.”</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131640/microsofthack-1024x536.jpeg" alt="" class="wp-image-11938" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131640/microsofthack-1024x536.jpeg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131640/microsofthack-300x157.jpeg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131640/microsofthack-768x402.jpeg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131640/microsofthack-960x502.jpeg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/15131640/microsofthack.jpeg 1200w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>But it wasn’t easy.&nbsp;</p>
+
+
+
+<p>Starting the project, in particular, posed a challenge. “There were just so many ways to approach the improvement of the work-from-home experience,” the team said. “We spent a significant amount of time redefining our problem space to achieve what we felt to be the best solution.”</p>
+
+
+
+<p>As they moved forward, the team relied on what they learned at BrainStation to find success.&nbsp;</p>
+
+
+
+<p>“From the plethora of knowledge gained in completing the Data Science program at BrainStation, the most relevant of it was learned during 3D day,” Mahon said. BrainStation 3D is a day in which students from the UX, Data, and Web Dev platforms come together for a day-long collaborative competition to practice working cross-functionally. “Working with UX Designers beforehand and having an idea of how our work complements one another went a long way in arriving at our final product,” said Mahon.&nbsp;</p>
+
+
+
+<p>The others agreed that BrainStation gave them the tools to work well as a multidisciplinary group. Plablo shared that the program taught him skills that helped him with “navigating the problem space and understanding how to extract insights and translating research to identify user needs is a skill I am always working to improve on.”&nbsp;</p>
+
+
+
+<p>Oh agreed that the diploma program taught them how to approach problems in a team setting. “This skill was useful in the hackathon because it enabled our team to get all of our ideas on the table, use our individual strengths and knowledge to analyze and select an idea to move work with, and apply the technical skills we have been trained in.”</p>
+
+
+
+<h2>Taking the Next Step</h2>
+
+
+
+<p>The team encourages other recent graduates and others seeking a role in UX or Data to practice, practice, practice. Edebb says the best advice he’s received is to continue working on projects. “Once you have foundational knowledge, try to implement what you have learned by working on projects.”&nbsp;</p>
+
+
+
+<p>After all, Mahon reminds us:<em> </em>“The slogan that is heard throughout our time at BrainStation is based on being ‘a lifetime learner.’ My advice is to do exactly that; there is never nothing new to learn and the more you know, the more directions you will be able to take your career.”<br></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/working-together-to-win-a-hackathon">Alumni Stories: Working Together to Win a Hackathon</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Data Science Showcase Winter 2020</title>
+		<link>https://brainstation.io/blog/data-science-showcase-winter-2020</link>
+				<pubDate>Tue, 21 Apr 2020 15:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[capstone]]></category>
+		<category><![CDATA[data analytics]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[stud]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11268</guid>
+				<description><![CDATA[<p>Look through some of our favorite Data Science graduate projects.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-showcase-winter-2020">Data Science Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Despite the COVID-19 outbreak, hundreds of BrainStation students recently graduated with Diplomas in UX Design, <a rel="noreferrer noopener" aria-label="Web Development (opens in a new tab)" href="https://brainstation.io/blog/graduate-showcase-winter-2020" target="_blank">Web Development</a>, and Data Science. We couldn&#8217;t be prouder of their achievements and the way they took everything in stride.</p>
+
+
+
+<p>BrainStation’s full-time Diploma programs culminate with students producing an individual portfolio piece for their final Capstone project.</p>
+
+
+
+<p>Here are some of our favorite Data Science projects from Winter 2020. You can also see all of our graduate&#8217;s projects on our <a rel="noreferrer noopener" aria-label="hiring page (opens in a new tab)" href="https://brainstation.io/hiring-brainstation-graduates" target="_blank">hiring page</a>. </p>
+
+
+
+<h2>RoadBoost: Intelligent Traffic Light Control System</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Daria Aza (opens in a new tab)" href="https://www.linkedin.com/in/dariaaza/" target="_blank">Daria Aza</a></h3>
+
+
+
+<p>The satisfying video below speaks for itself. See how Daria was able to improve traffic flow using Deep reinforcement learning to regulate traffic lights.&nbsp;</p>
+
+
+
+<p>Using SUMO (Simulation of Urban Mobility) to create an environment with vehicles and pedestrians, Daria’s goal was to teach traffic lights to react to situations in real-time and adjust lights accordingly. The negative cumulative reward was calculated based on the number of vehicles and pedestrians stopped at the intersection. After every action, the reward was recalculated, eventually decreasing the delay to such an extent that most vehicles and pedestrians were able to move through without waiting. </p>
+
+
+
+<p>View Daria’s <a rel="noreferrer noopener" aria-label=" (opens in a new tab)" href="https://github.com/dariaaza" target="_blank">GitHub</a> to learn more.&nbsp;</p>
+
+
+
+<figure class="wp-block-video"><video controls src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/13163335/intersectionnew.mp4"></video></figure>
+
+
+
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a Data Scientist in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/remote-data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Data Science Diploma Program</a> is a full-time, 12-week program that provides professionals with the skills and experience to start a new career in data.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+
+</div>
+</div>
+</div>
+
+
+
+<h2>Human Activity Recognition</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Carlo Jiaxu Chen (opens in a new tab)" href="https://www.linkedin.com/in/jiaxuchenyvr/" target="_blank">Carlo Jiaxu Chen</a></h3>
+
+
+
+<p>Carlo developed a novel attribute-based machine learning architecture that can recognize human activities such as walking, running, or laying down with limited training data, and an efficient neural network model (CNN-LSTM). The model can accurately predict your activity with results of up to 94 percent accuracy!</p>
+
+
+
+<p>He intends for this technology to be useful for virtual reality software, health, and fitness services, and more. </p>
+
+
+
+<p>See Carlo&#8217;s <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/CarloCHEN" target="_blank">GitHub</a> to see more of his process. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-1024x581.png" alt="" class="wp-image-11103" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-1024x581.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-300x170.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-768x436.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-1536x872.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-2048x1162.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-960x545.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM.png 2664w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Classifying Letters of the ASL Alphabet</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Angel Phanthanourak (opens in a new tab)" href="http://www.linkedin.com/in/angelphanth/" target="_blank">Angel Phanthanourak</a></h3>
+
+
+
+<p>Angel sought to classify letters of the American Sign Language (ASL) alphabet in real-time. Using deep learning (specifically the VGG16 Convolutional Neural Network) she was able to predict ASL letters from live webcam capture with 66 percent accuracy, much higher than randomized predictions, which are accurate 4 percent of the time. </p>
+
+
+
+<p>Her hope is that this tool can help accessibility and independence for members of the deaf, hard of hearing, and non-verbal communities. </p>
+
+
+
+<p>Find updates on Angel&#8217;s <a rel="noreferrer noopener" aria-label="LinkedIn (opens in a new tab)" href="https://www.linkedin.com/in/angelphanth/" target="_blank">LinkedIn</a>.</p>
+
+
+
+<figure class="wp-block-video"><video controls src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153119/Sequence-01_1.mp4"></video></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-1024x816.jpg" alt="" class="wp-image-11064" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-1024x816.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-300x239.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-768x612.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-1536x1224.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-960x765.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak.jpg 2000w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Forecasting Import and Export Trends</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Reza Navidi (opens in a new tab)" href="https://www.linkedin.com/in/reza-navidi-b6a0728/" target="_blank">Reza Navidi</a></h3>
+
+
+
+<p>Reza&#8217;s time series model forecasts import and export trends in Canada. The model investigates global market shares and finds the top merchandise in import and export over the years.  </p>
+
+
+
+<p>See his work on <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/rnavidi" target="_blank">GitHub</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-1024x722.jpg" alt="" class="wp-image-11245" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-1024x722.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-300x212.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-768x542.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-960x677.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi.jpg 1242w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Radiomics: Associating tumor features with survival outcome</h2>
+
+
+
+<h3>(<a rel="noreferrer noopener" aria-label="Hervé (opens in a new tab)" href="https://www.linkedin.com/in/herve-choi/" target="_blank">Hervé</a>) Hiu Fai Choi</h3>
+
+
+
+<p>Hervé’s project aims to associate lung cancer tumor features with the survival outcome of the patient. Observing characteristics of the tumor, such as how big, irregular, lumpy, or coarse the tumor is, may influence the treatment the patient chooses to undergo or the clinician chooses to administer. </p>
+
+
+
+<p>Herve’s data found that more non-uniform tumors yield unfavorable survival outcomes, which may prompt more aggressive approaches for tumor management. </p>
+
+
+
+<p>Look into more of <a href="https://github.com/hhfchoi" target="_blank" rel="noreferrer noopener" aria-label="Herve’s work (opens in a new tab)">Herve’s work</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-1024x683.png" alt="" class="wp-image-11054" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-1024x683.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-300x200.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-768x512.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-960x640.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi.png 1512w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Use of NLP and Supervised Learning to Target Wine Scores</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Aviel Stern (opens in a new tab)" href="https://www.linkedin.com/in/avielstern/" target="_blank">Aviel Stern</a></h3>
+
+
+
+<p>Aviel created a predictive model for wine scores by looking at geography, price, description, variety, and vintage. This algorithm provides valuable consumer insights to wine sellers curating selections and consumers looking for trendy flavors.</p>
+
+
+
+<p>Her work found that logistic regression performed the best with a 80 percent accuracy score in predicting how well wine would be rated. </p>
+
+
+
+<p>See Aviel&#8217;s process on <a href="https://github.com/avielrs" target="_blank" rel="noreferrer noopener" aria-label="github (opens in a new tab)">github</a>.   </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-1024x702.jpg" alt="" class="wp-image-11250" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-1024x702.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-300x206.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-768x527.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-1536x1053.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-960x658.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern.jpg 1756w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>NLP for Fake News Detection</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Tom Satterthwaite (opens in a new tab)" href="https://www.linkedin.com/in/tom-satterthwaite/" target="_blank">Tom Satterthwaite</a></h3>
+
+
+
+<p>The public is only able to identify fake news headlines with 16 to 36 percent accuracy, so Tom aimed to use NLP on news article headlines to develop a model with 75 percent accuracy. </p>
+
+
+
+<p>In the end, Tom was able to build an RNN to achieve an accuracy of 82 percent in predicting fake news. </p>
+
+
+
+<p>Take a look at Tom&#8217;s <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/satters94" target="_blank">GitHub</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-1024x811.png" alt="" class="wp-image-11246" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-1024x811.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-300x238.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-768x608.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-1536x1216.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-960x760.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite.png 1584w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Genre Genie &#8211; Movie Genre Predictions</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Tom Keith (opens in a new tab)" href="https://www.linkedin.com/in/tomkeithdata/" target="_blank">Tom Keith</a></h3>
+
+
+
+<p>Tom&#8217;s app predicts movie genres from a plot summary using multi-label classification machine learning and natural language processing.</p>
+
+
+
+<p>Just enter a plot summary and Genre Genie will predict the genre breakdown between themes such as action, fantasy, adventure, sci-fi, or drama with up to 100 percent accuracy. </p>
+
+
+
+<p><a rel="noreferrer noopener" aria-label="Try Genre Genie (opens in a new tab)" href="http://tomkeith.pythonanywhere.com/" target="_blank">Try Genre Genie</a> for yourself, and see Tom&#8217;s <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/tomkeith" target="_blank">GitHub</a> for more details. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-1024x725.png" alt="" class="wp-image-11107" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-1024x725.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-300x212.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-768x544.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-960x679.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith.png 1201w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-showcase-winter-2020">Data Science Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+							<enclosure url="https://brainstation.io/blog/wp-content/uploads/2020/04/intersectionnew.mp4" length="1964608" type="video/mp4" />
+<enclosure url="https://brainstation.io/blog/wp-content/uploads/2020/04/Sequence-01_1.mp4" length="1868968" type="video/mp4" />
+			</item>
+		<item>
+		<title>Event Recap – Data Literacy: The New Essential Skill</title>
+		<link>https://brainstation.io/blog/event-recap-data-literacy-the-new-essential-skill</link>
+				<pubDate>Wed, 01 Apr 2020 20:26:05 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[BrainStation News]]></category>
+		<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[BrainStation events]]></category>
+		<category><![CDATA[brainStation online event]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data literacy]]></category>
+		<category><![CDATA[data scienc]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=10864</guid>
+				<description><![CDATA[<p>Find out more about BrainStation's online panel event: Data Literacy: The New Essential Skill, featuring Nada Salem from Spotify and Thomas Levi Unbounce.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/event-recap-data-literacy-the-new-essential-skill">Event Recap – Data Literacy: The New Essential Skill</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">BrainStation held its first online panel discussion yesterday –&nbsp;Entitled <em>Data Literacy: The New Essential Skill</em> –&nbsp;</span><span style="font-weight: 400;">and the event attracted thousands of professionals from the world.&nbsp;</span></p>
+<p><span style="font-weight: 400;">&nbsp;</span>Ian Bester, BrainStation&#8217;s Vice-President and GM, hosted the event, which&nbsp;featured Nada Salem from Spotify and Thomas Levi Unbounce.</p>
+<p><span style="font-weight: 400;">The panelists touched on a number of topics, including:&nbsp;</span></p>
+<ul>
+<li style="font-weight: 400;"><span style="font-weight: 400;">The origin of the data skills gap</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Hiring for data literacy</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">How to develop employees with cross-functional abilities</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">Promoting a data-first culture at your organization</span></li>
+<li style="font-weight: 400;"><span style="font-weight: 400;">The role of upskilling and continuous learning in data literacy</span></li>
+</ul>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn data skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in data science, data analytics, machine learning, and python programming. Attend live classes and interact with Instructors and peers from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p><span style="font-weight: 400;">Offering advice to professionals interested in data, Nada Salem discussed how educational backgrounds were becoming less important in the hiring process, particularly when it came to data roles.&nbsp;</span></p>
+<p><span style="font-weight: 400;">“I work with so many people who don&#8217;t have professional training; many are successful taking online courses and using resources such as BrainStation. I&#8217;ve seen so many individuals transition to data roles based just on online courses,” she said.&nbsp;</span></p>
+<p><span style="font-weight: 400;">The panelists also discussed the importance of basic data skills throughout an organization. Levi, in fact, suggested that all professionals should now have basic data skills.&nbsp;</span></p>
+<p><span style="font-weight: 400;">“Learn to embrace uncertainty and probabilities &#8211; learn basic statistics, learn what things don&#8217;t tell you. What is it not able to tell me? How can I use this to inform my questions? Having the ability to ask good questions will really help your decision making and communication with your companies’ data team,” he said.&nbsp;</span></p>
+<p><span style="font-weight: 400;">You can watch the online <em>Data Literacy: The New Essential Skill</em> panel discussion here:&nbsp;</span></p>
+<p style="text-align: center;"><iframe src="https://player.vimeo.com/video/402715299" width="640" height="328" frameborder="0" allowfullscreen="allowfullscreen"></iframe></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/event-recap-data-literacy-the-new-essential-skill">Event Recap – Data Literacy: The New Essential Skill</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Using Data to Track the COVID-19 Outbreak in Canada</title>
+		<link>https://brainstation.io/blog/using-data-to-track-the-covid-19-outbreak-in-canada</link>
+				<pubDate>Tue, 31 Mar 2020 18:33:28 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[coronavirus]]></category>
+		<category><![CDATA[COVID]]></category>
+		<category><![CDATA[COVID-19]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[pandemic]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=10857</guid>
+				<description><![CDATA[<p>Data Scientist Colin Fraser has looked at the data and created a dashboard that tracks the growth of COVID-19 across Canadian provinces. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/using-data-to-track-the-covid-19-outbreak-in-canada">Using Data to Track the COVID-19 Outbreak in Canada</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><a href="http://colin-fraser.net/covid-19" target="_blank" rel="noopener noreferrer">Colin Fraser</a>, a Data Scientist at Facebook (and a former Lead Educator at BrainStation) has recently publish a dashboard that tracks the growth of COVID-19 across Canadian provinces.&nbsp;The data comes from the&nbsp;Johns Hopkins COVID-19 resource center, which they’ve shared publicly in&nbsp;<a href="https://github.com/CSSEGISandData/COVID-19">this GitHub repo</a>.</p>
+<p>While Fraser cannot guarantee the accuracy of this information with the rapid progression of the virus, the data should be consistent with the Johns Hopkins dashboard.</p>
+<div id="current-tally" class="section level2">
+<h2>Current Tally</h2>
+<p>According to the latest data, as of March 30th, 2020 there have been 7,385 confirmed cases reported in Canada, resulting in 79 deaths.</p>
+<p>Breakdowns by province are below.</p>
+<div id="confirmed-cases" class="section level3">
+<h3>Confirmed Cases</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Province</th>
+<th align="left">Most Recent Data</th>
+<th align="left">Confirmed Cases</th>
+<th align="right">New Cases</th>
+<th align="left">Average Daily Growth Rate (Last seven days)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alberta</td>
+<td align="left">2020-03-30</td>
+<td align="left">661</td>
+<td align="right">40</td>
+<td align="left">12.5%</td>
+</tr>
+<tr class="even">
+<td align="left">British Columbia</td>
+<td align="left">2020-03-30</td>
+<td align="left">970</td>
+<td align="right">86</td>
+<td align="left">11.4%</td>
+</tr>
+<tr class="odd">
+<td align="left">Manitoba</td>
+<td align="left">2020-03-30</td>
+<td align="left">96</td>
+<td align="right">24</td>
+<td align="left">27.5%</td>
+</tr>
+<tr class="even">
+<td align="left">New Brunswick</td>
+<td align="left">2020-03-30</td>
+<td align="left">68</td>
+<td align="right">2</td>
+<td align="left">24.5%</td>
+</tr>
+<tr class="odd">
+<td align="left">Newfoundland</td>
+<td align="left">2020-03-30</td>
+<td align="left">148</td>
+<td align="right">13</td>
+<td align="left">34.9%</td>
+</tr>
+<tr class="even">
+<td align="left">Northwest Territories</td>
+<td align="left">2020-03-30</td>
+<td align="left">1</td>
+<td align="right">0</td>
+<td align="left">0.0%</td>
+</tr>
+<tr class="odd">
+<td align="left">Nova Scotia</td>
+<td align="left">2020-03-30</td>
+<td align="left">127</td>
+<td align="right">5</td>
+<td align="left">17.9%</td>
+</tr>
+<tr class="even">
+<td align="left">Ontario</td>
+<td align="left">2020-03-30</td>
+<td align="left">1,706</td>
+<td align="right">351</td>
+<td align="left">19.1%</td>
+</tr>
+<tr class="odd">
+<td align="left">Prince Edward Island</td>
+<td align="left">2020-03-30</td>
+<td align="left">18</td>
+<td align="right">7</td>
+<td align="left">33.2%</td>
+</tr>
+<tr class="even">
+<td align="left">Quebec</td>
+<td align="left">2020-03-30</td>
+<td align="left">3,430</td>
+<td align="right">590</td>
+<td align="left">28.2%</td>
+</tr>
+<tr class="odd">
+<td align="left">Saskatchewan</td>
+<td align="left">2020-03-30</td>
+<td align="left">156</td>
+<td align="right">0</td>
+<td align="left">14.1%</td>
+</tr>
+<tr class="even">
+<td align="left">Yukon</td>
+<td align="left">2020-03-30</td>
+<td align="left">4</td>
+<td align="right">0</td>
+<td align="left">8.3%</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="deaths" class="section level3">
+<h3>Deaths</h3>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Province</th>
+<th align="left">Most Recent Data</th>
+<th align="left">Total Deaths</th>
+<th align="right">New Deaths</th>
+<th align="left">Average Daily Growth Rate (Last seven days)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">Alberta</td>
+<td align="left">2020-03-30</td>
+<td align="left">3</td>
+<td align="right">1</td>
+<td align="left">21.4%</td>
+</tr>
+<tr class="even">
+<td align="left">British Columbia</td>
+<td align="left">2020-03-30</td>
+<td align="left">19</td>
+<td align="right">2</td>
+<td align="left">5.8%</td>
+</tr>
+<tr class="odd">
+<td align="left">Manitoba</td>
+<td align="left">2020-03-30</td>
+<td align="left">1</td>
+<td align="right">0</td>
+<td align="left">NA</td>
+</tr>
+<tr class="even">
+<td align="left">Newfoundland</td>
+<td align="left">2020-03-30</td>
+<td align="left">1</td>
+<td align="right">1</td>
+<td align="left">NA</td>
+</tr>
+<tr class="odd">
+<td align="left">Ontario</td>
+<td align="left">2020-03-30</td>
+<td align="left">31</td>
+<td align="right">10</td>
+<td align="left">28.0%</td>
+</tr>
+<tr class="even">
+<td align="left">Quebec</td>
+<td align="left">2020-03-30</td>
+<td align="left">22</td>
+<td align="right">0</td>
+<td align="left">32.9%</td>
+</tr>
+<tr class="odd">
+<td align="left">Saskatchewan</td>
+<td align="left">2020-03-30</td>
+<td align="left">2</td>
+<td align="right">2</td>
+<td align="left">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="confirmed-cases-1" class="section level2">
+<h2>Confirmed Cases</h2>
+<div id="confirmed-cases-since-the-10th-case" class="section level3">
+<h3>Confirmed Cases Since The 10th Case</h3>
+<p>This chart shows the number of confirmed cases in each province, with the number of days since the 10th case on the x-axis. I’ve included New York State and Washington State for comparison, since those are two of the major US outbreaks. The dashed lines indicate how this chart would look if doubling the number of cases took two, three, or four days.</p>
+<p><img src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html/confirmed_since_start-1.png" width="672"></p>
+</div>
+<div id="growth-rate-in-confirmed-cases-since-10th-confirmed-case" class="section level3">
+<h3>Growth Rate in Confirmed Cases Since 10th Confirmed Case</h3>
+<p>This plot shows the daily growth rate of confirmed cases since the 10th confirmed case. We want this to go to zero.</p>
+<p><img src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html/growth_rate-1.png" width="672"></p>
+</div>
+<div id="confirmed-cases-over-time" class="section level3">
+<h3>Confirmed Cases Over Time</h3>
+<p>This chart shows the number of confirmed cases on each date.</p>
+<p><img src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html/confirmed_by_time-1.png" width="672"></p>
+</div>
+</div>
+<div id="deaths-1" class="section level2">
+<h2>Deaths</h2>
+<div id="deaths-since-3rd-death" class="section level3">
+<h3>Deaths Since 3rd Death</h3>
+<p>This chart shows the number of deaths since the third date in each province or state.</p>
+<p><img src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html/deaths_since_3rd-1.png" width="672"></p>
+</div>
+<div id="deaths-over-time" class="section level3">
+<h3>Deaths Over Time</h3>
+<p>This shows the number of deaths on each date (min three deaths). Note, I am not sure why Quebec dips for a few days, but this is consistent with the data provided by the JHU dashboard.</p>
+<p><img src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html/deaths_by_time-1.png" width="672"></p>
+</div>
+</div>
+<div id="the-curve" class="section level2">
+<h2>“The Curve”</h2>
+<p>This plot shows the number of active cases (cumulative confirmed cases minus deaths and recoveries) over time since the date of the tenth confirmed case in each location. This is “the curve” that you’ve heard about trying to flatten. Note that a different y-axis is drawn for each location.</p>
+<p><img src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html/the_curve-1.png" width="672"></p>
+</div>
+<div id="country-totals" class="section level2">
+<h2>Country Totals</h2>
+<p>This chart shows the number of confirmed cases since the tenth confirmed cases in a few selected countries.</p>
+<p><img src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html/countries-1.png" width="672"></p>
+</div>
+<div id="data" class="section level2">
+<h2>Data</h2>
+<p>The data that I used to produce these charts is below.</p>
+<div id="htmlwidget-1" class="widgetframe html-widget html-widget-static-bound"><iframe src="https://colin-fraser.net/post/2020-03-27-tracking-covid-19-in-canada_files/figure-html//widgets/widget_download_data.html?initialWidth=809&amp;childId=htmlwidget-1&amp;parentTitle=Tracking%20the%20COVID-19%20outbreak%20in%20Canada%20%C2%B7&amp;parentUrl=https%3A%2F%2Fcolin-fraser.net%2F2020%2F03%2F27%2Ftracking-covid-19-in-canada%2F" width="100%" height="500px" frameborder="0" marginheight="0" scrolling="no" data-mce-fragment="1"></iframe></div>
+</div>
+<div id="references" class="section level2">
+<p>Click here to find the <a href="http://colin-fraser.net/covid-19">COVID-19 data</a> used by Fraser used.</p>
+<p>&nbsp;</p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn data skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in data science, data analytics, machine learning, and python programming. Attend live classes and interact with Instructors and peers from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+</div>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/using-data-to-track-the-covid-19-outbreak-in-canada">Using Data to Track the COVID-19 Outbreak in Canada</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Data Certificates You Can Earn From Home</title>
+		<link>https://brainstation.io/blog/data-science-certificates-worth-your-time</link>
+				<pubDate>Fri, 27 Mar 2020 18:33:27 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Analytics]]></category>
+		<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Digital Skills]]></category>
+		<category><![CDATA[Analytics]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data analytics]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[excel]]></category>
+		<category><![CDATA[Machine learning]]></category>
+		<category><![CDATA[python]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=8778</guid>
+				<description><![CDATA[<p>Want to learn new data skills while home? We've rounded up five of the best data certificates that you can earn without leaving the house.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-certificates-worth-your-time">Data Certificates You Can Earn From Home</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">Data continues to transcend industries as one of the most important skills a professional can have, in fact, the number of </span><span style="font-weight: 400;">data job openings</span><span style="font-weight: 400;"> is expected to reach 2,720,000 this year. </span></p>
+<p><span style="font-weight: 400;">Getting a Data Certificate is a surefire way to elevate your technical skills to not only be more hireable but to use data to make better business decisions – and now you can do it from home!</span></p>
+<p><span style="font-weight: 400;">We’ve rounded up five of the best data certificates worth your time.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn data skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in data science, data analytics, machine learning, and python programming. Attend live classes and interact with Instructors and peers from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<h2><a href="https://brainstation.io/course/online/python-programming?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=datacertificates"><strong>Python Programming</strong></a></h2>
+<p><b>What You’ll Learn:</b><span style="font-weight: 400;"> Core Python concepts such as libraries, dictionaries, and lists that are required knowledge for a data-focused role. </span></p>
+<p><span style="font-weight: 400;">Python has risen in popularity amongst data professionals over the past several years and is now one of the </span><a href="https://brainstation.io/research/digital-skills-survey-2020-results/data" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">most popular programming languages</span></a><span style="font-weight: 400;"> for data science and machine learning. Popularity aside, Python is also relatively easy to learn, making it a great option if you’re interested in breaking into the data field but don’t have much experience with object-oriented programming. </span></p>
+<p><span style="font-weight: 400;"><a href="https://brainstation.io/course/online/python-programming?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=datacertificates" target="_blank" rel="noopener noreferrer">Python Programming</a> training will give you a fundamental understanding of Python, which in turn enables you to learn more complex machine learning and data science concepts moving forward.</span></p>
+<h2><a href="https://brainstation.io/course/online/data-science"><strong>Data Science</strong></a></h2>
+<p><b>What You’ll Learn</b><span style="font-weight: 400;">: How to use Python programming to clean, analyze, and model data effectively to derive insights and make decisions. </span></p>
+<p><span style="font-weight: 400;">Demand for data science professionals continues to rise according to a recent report from Indeed –&nbsp;with a </span><span style="font-weight: 400;">29 percent increase</span><span style="font-weight: 400;"> in demand year over year. </span></p>
+<p><span style="font-weight: 400;">A <a href="https://brainstation.io/course/online/data-science?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=datacertificates" target="_blank" rel="noopener noreferrer">Data Science Certificate</a> gives you the tools to make data-driven business decisions, a crucial skill regardless of industry or role. By learning how to use tools like Anaconda, Jupyter Notebooks, and Python, you will be set up to use data modeling to solve problems.</span></p>
+<h2><a href="https://brainstation.io/course/online/data-analytics?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=datacertificates"><strong>Data Analytics</strong></a></h2>
+<p><b>What You’ll Learn</b><span style="font-weight: 400;">: How to effectively analyze data using industry tools including Tableau, Excel, and SQL. </span></p>
+<p><span style="font-weight: 400;">In today’s organizations, there is a need for increased data skills across all departments. In fact, The Digital Skills Survey found that&nbsp;<span class="highlight-number">83 percent</span>&nbsp;of respondents ranked the data literacy in their organization as intermediate or low.</span></p>
+<p><span style="font-weight: 400;">A <a href="https://brainstation.io/course/online/data-analytics?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=datacertificates" target="_blank" rel="noopener noreferrer">Data Analytics certificate</a> will teach you how to work with data more efficiently, using tools like Tableau, Excel, MAMP, and more. You will master the unbiased data analytics process, from organizing and manipulating data within a database, to developing visualizations and presenting insights. You can then apply your analytical skills in the workplace, enabling you to make more informed decisions no matter your industry.</span></p>
+<h2><a href="https://brainstation.io/course/machine-learning?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=datacertificates"><strong>Machine Learning</strong></a></h2>
+<p><b>What You’ll Learn</b><span style="font-weight: 400;">: Gain a technical understanding of the machine learning process and how to leverage industry frameworks to make decisions.</span></p>
+<p><span style="font-weight: 400;">Machine Learning is a big trend at the moment, and for good reason – many organizations and executives see Machine Learning as</span><i><span style="font-weight: 400;"> the</span></i><span style="font-weight: 400;"> trend that will have the greatest impact in the coming years. In fact, this year’s Digital Skills Survey found that 39</span><span style="font-weight: 400;">&nbsp;percent of executives</span><span style="font-weight: 400;"> say their organization intends to invest in Machine Learning in 2020, and 35 percent have already invested. </span></p>
+<p><span style="font-weight: 400;">A </span><a href="https://brainstation.io/course/machine-learning?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=datacertificates" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">certificate in Machine Learning</span></a><span style="font-weight: 400;"> will teach you industry methodology and give you a technical understanding that you can bring to the workplace. By the end of the course, you will understand the machine learning process, including preparing data, framing problems, selecting models, and generating insights.</span></p>
+<p>&nbsp;</p>
+<p><i><span style="font-weight: 400;">Looking to improve your data skills? Check out BrainStation’s <a href="https://brainstation.io/courses#data,on-campus" target="_blank" rel="noopener noreferrer">data courses</a> and training options.</span></i></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-certificates-worth-your-time">Data Certificates You Can Earn From Home</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>BrainStation Graduate Showcase: Fall 2019</title>
+		<link>https://brainstation.io/blog/brainstation-graduate-showcase-fall-2019</link>
+				<pubDate>Tue, 17 Dec 2019 20:27:37 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Demo Day]]></category>
+		<category><![CDATA[Digital Skills]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[Web Development]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[ux design]]></category>
+		<category><![CDATA[web development]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=10281</guid>
+				<description><![CDATA[<p>If you didn’t get a chance to see the projects this cohort, take a look at some of our favorite projects.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/brainstation-graduate-showcase-fall-2019">BrainStation Graduate Showcase: Fall 2019</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">Last week dozens of family, friends, hiring partners, and tech professionals filled our campuses for our latest and greatest Demo Day, the BrainStation graduate project showcase. Each cohort, we’re endlessly inspired by the hard work and dedication of our students and what they&#8217;ve accomplish in just 12 weeks.&nbsp;</span></p>
+<p><span style="font-weight: 400;">If you didn’t get a chance to see the projects this cohort, take a look at some of our favorite ones.</span></p>
+<h2><b>Je T’aime</b></h2>
+<p><a href="http://www.linkedin.com/in/winonah" target="_blank" rel="noopener noreferrer"><b>Winona Huang</b></a><b>, <a href="http://bit.ly/2T1OkQm" target="_blank" rel="noopener noreferrer">UX Design</a></b></p>
+<p><span style="font-weight: 400;">Worried about finding the perfect spot for your wedding? Winona Huang’s got your back. Huang’s </span><i><span style="font-weight: 400;">Je T’aime</span></i><span style="font-weight: 400;"> project is a digital platform that simplifies the wedding venue search for couples by matching their style and vision with breathtaking spaces. Want to see more? Check out Winona’s </span><a href="http://www.winonahuang.com/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">portfolio</span></a><span style="font-weight: 400;">. </span><span style="font-weight: 400;"><br />
+</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1.png"><img class="aligncenter wp-image-10282" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-1024x1024.png" alt="" width="600" height="600" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-1024x1024.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-768x768.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1-960x960.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Je_Taime_Mockup_1.png 1080w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<h2>Predicting Customer Value</h2>
+<p><b><a href="https://www.linkedin.com/in/rachel-kessler/" target="_blank" rel="noopener noreferrer">Rachel Kessler</a>,&nbsp;</b><a href="http://bit.ly/2N7KRw9" target="_blank" rel="noopener noreferrer"><b>Data Science</b></a></p>
+<p><span style="font-weight: 400;">Rachel’s project locates and maintains top B2B customers using data from a local manufacturing company. Her model predicts which sales leads will provide the highest ROI based on customer demographics and behavior. From there, a clustering model segments customers to compare the characteristics of churned and loyal customers.</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Customer-Clustering.png"><img class="size-full wp-image-10283 aligncenter" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Customer-Clustering.png" alt="" width="584" height="584" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Customer-Clustering.png 584w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Customer-Clustering-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Customer-Clustering-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Customer-Clustering-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Customer-Clustering-100x100.png 100w" sizes="(max-width: 584px) 100vw, 584px" /></a></p>
+<p>&nbsp;</p>
+<h2><b>TOMO</b></h2>
+<p><a href="https://www.linkedin.com/in/ohjung/" target="_blank" rel="noopener noreferrer"><b>Jung Oh</b></a><b>, <a href="http://bit.ly/2T1OkQm" target="_blank" rel="noopener noreferrer">UX Design</a></b></p>
+<p><span style="font-weight: 400;">TOMO is an app that reminds you to reach out to your friends and keep a pulse on the vitals of your friendship in an enjoyable way. The advent of smartphones and social software has divided our attention and makes it more challenging to maintain tight-knit bonds. TOMO is a solution to this problem. See more on Jung&#8217;s <a href="https://jungs-portfolio-starter.webflow.io/" target="_blank" rel="noopener noreferrer">portfolio</a>.&nbsp;</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.49.18-PM.png"><img class="aligncenter wp-image-10284" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.49.18-PM-1024x577.png" alt="" width="600" height="338" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.49.18-PM-1024x577.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.49.18-PM-300x169.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.49.18-PM-768x432.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.49.18-PM-960x541.png 960w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.47.42-PM.png"><img class="aligncenter wp-image-10286" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.47.42-PM-1024x534.png" alt="" width="600" height="313" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.47.42-PM-1024x534.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.47.42-PM-300x156.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.47.42-PM-768x400.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-10-at-8.47.42-PM-960x500.png 960w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<p>&nbsp;</p>
+<h2>Forecasting Electricity Usage</h2>
+<p><a href="http://www.linkedin.com/in/razzimovassaghi" target="_blank" rel="noopener noreferrer"><b>Razzi Movassaghi</b></a><b>, <a href="http://bit.ly/2N7KRw9" target="_blank" rel="noopener noreferrer">Data Science</a></b></p>
+<p><span style="font-weight: 400;">This project tries to understand and predict the monthly patterns of “metered electrical power demand” for the province of Alberta. In particular, it looks to forecast peak demand times using historical data of electricity usage and weather conditions.</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi.png"><img class="aligncenter wp-image-10290" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi.png" alt="" width="600" height="600" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi-768x768.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Example_Razzi-960x960.png 960w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<h2><b>Headroom</b></h2>
+<p><a href="https://www.linkedin.com/in/kevin-mccarthy-yvr/" target="_blank" rel="noopener noreferrer"><b>Kevin McCarthy</b></a><b>, <a href="http://bit.ly/2T1OkQm" target="_blank" rel="noopener noreferrer">UX Design</a></b></p>
+<p><span style="font-weight: 400;">Headroom captures and consolidates musical ideas in your head. Using direct brain-to-app technology, a headband monitors your brain waves for new sonic content that it saves to your mobile device. Headroom ensures no sound gets forgotten for musicians and producers who might not be able to write down an idea before it fades away or is forgotten. See more of Kevin’s future-forward ideas in his </span><a href="https://www.meetkevin.co/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">portfolio</span></a><span style="font-weight: 400;">.</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03.png"><img class="aligncenter wp-image-10288" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-1024x1024.png" alt="" width="600" height="600" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-1024x1024.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-768x768.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03-960x960.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/mccarthy_headroom-app_insta_03.png 1200w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<h2>Reddit Knows You</h2>
+<p><strong><a href="https://www.linkedin.com/in/doyle-zhang/" target="_blank" rel="noopener noreferrer">Doyle Zhang</a>, <a href="http://bit.ly/2N7KRw9" target="_blank" rel="noopener noreferrer">Data Science</a></strong></p>
+<p>This project looks into the comments on the biggest online forum &#8211; Reddit, and attempts to use Machine Learning to predict users’ personality (MBTI) and dive into the topics they are interested in. This information can be used to do better targeting and content curation. Doyle&#8217;s graphs below show which topics INTP users like to discuss.</p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Doyle-Capstone-INTP-Topic-Modelling.gif"><img class="aligncenter wp-image-10307" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Doyle-Capstone-INTP-Topic-Modelling-1024x656.gif" alt="" width="600" height="384" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Doyle-Capstone-INTP-Topic-Modelling-1024x656.gif 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Doyle-Capstone-INTP-Topic-Modelling-300x192.gif 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Doyle-Capstone-INTP-Topic-Modelling-768x492.gif 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Doyle-Capstone-INTP-Topic-Modelling-960x615.gif 960w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<h2><b>Sprint</b></h2>
+<p><a href="https://www.linkedin.com/in/codeepalmer/" target="_blank" rel="noopener noreferrer"><b>Codee Palmer</b></a><b>, <a href="http://bit.ly/2QYBSOF" target="_blank" rel="noopener noreferrer">Web Development</a></b></p>
+<p><span style="font-weight: 400;">Move with confidence using Sprint! This app helps runners find the best running routes –&nbsp;anywhere in the world. See what people say about a route, get weather updates, and join chat boards to organize running meetups.</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/capstone-mock.png"><img class="aligncenter wp-image-10299" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/capstone-mock-1024x588.png" alt="" width="600" height="344" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/capstone-mock-1024x588.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/capstone-mock-300x172.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/capstone-mock-768x441.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/capstone-mock-960x551.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/capstone-mock.png 1584w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<h2><b>Verdrobe</b></h2>
+<p><strong><a href="https://www.linkedin.com/in/rylan-ferrer-13b772178/" target="_blank" rel="noopener noreferrer">Rylan Ferrer</a>, <a href="http://bit.ly/2QYBSOF" target="_blank" rel="noopener noreferrer">Web Development&nbsp;</a></strong></p>
+<p><span style="font-weight: 400;">Verdrobe is a machine learning web application that organizes clothing, curates outfits, and shares your unique style with your friends and followers. Take a look at Rylan’s whole </span><a href="https://rylanferrer.com/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">portfolio</span></a><span style="font-weight: 400;">.</span></p>
+<p><span style="font-weight: 400;"><br />
+<a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM.png"><img class="aligncenter wp-image-10291" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-1024x1024.png" alt="" width="600" height="600" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-1024x1024.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-768x768.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM-960x960.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-16-at-5.11.58-PM.png 1540w" sizes="(max-width: 600px) 100vw, 600px" /></a>&nbsp;</span></p>
+<h2>Attention Detection</h2>
+<p><a href="https://www.linkedin.com/in/thgoncalves/"><b>Thiago Goncalves</b></a><b>, <a href="http://bit.ly/2N7KRw9" target="_blank" rel="noopener noreferrer">Data Science</a></b></p>
+<p><span style="font-weight: 400;">Our attention is constantly divided with emails, phone calls, messages, and more. But, some critical tasks, like driving, require your full concentration. To reduce accidents, Thiago created a Convolutional Neural Network to detect distracted drivers via a live video feed.</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.15.13-PM.png"><img class="aligncenter wp-image-10292" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.15.13-PM-1024x640.png" alt="" width="600" height="375" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.15.13-PM-1024x640.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.15.13-PM-300x188.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.15.13-PM-768x480.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.15.13-PM-960x600.png 960w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.18.43-PM-2.png"><img class="aligncenter wp-image-10293" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.18.43-PM-2-1024x576.png" alt="" width="600" height="338" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.18.43-PM-2-1024x576.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.18.43-PM-2-300x169.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.18.43-PM-2-768x432.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/Screen-Shot-2019-12-11-at-4.18.43-PM-2-960x540.png 960w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<h2><b>Muse</b></h2>
+<p><a href="http://www.linkedin.com/in/christina-lanning"><b>Christina Lanning</b></a><b>, <a href="http://bit.ly/2T1OkQm" target="_blank" rel="noopener noreferrer">UX Design</a></b></p>
+<p><span style="font-weight: 400;">Muse provides gallery visitors with a new way to learn about art and experience culture through in-depth exploration of artworks and personalized tours. Leveraging augmented reality and beacon technology, Muse also helps you navigate the gallery. See more of Christina’s work on her </span><a href="https://www.christinalanning.design/"><span style="font-weight: 400;">portfolio</span></a><span style="font-weight: 400;">.&nbsp;</span></p>
+<p><a href="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/muse.png"><img class="aligncenter wp-image-10294" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/muse-1024x781.png" alt="" width="600" height="458" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/muse-1024x781.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/muse-300x229.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/muse-768x586.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2019/12/muse-960x732.png 960w" sizes="(max-width: 600px) 100vw, 600px" /></a></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/brainstation-graduate-showcase-fall-2019">BrainStation Graduate Showcase: Fall 2019</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Data Science vs. Machine Learning</title>
+		<link>https://brainstation.io/blog/data-science-vs-machine-learning</link>
+				<pubDate>Thu, 05 Dec 2019 21:35:59 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Digital 101]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[Machine learning]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=10187</guid>
+				<description><![CDATA[<p>You may have heard about how machine learning will impact our lives. The question is, what’s the difference between data science and machine learning? </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-vs-machine-learning">Data Science vs. Machine Learning</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">As we’ve explored in the past, the need for data professionals is soaring and trending only upward, with an expected 28 percent rise in demand over the next two years and a </span><a href="https://brainstation.io/blog/what-is-data-science"><span style="font-weight: 400;">projected</span></a><span style="font-weight: 400;"> 2.7 million new jobs. Roles for Data Scientists have increased by 650 percent since 2012, and few expect that trend to reverse.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn data skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in data science, data analytics, machine learning, and python programming. Attend live classes and interact with Instructors and peers from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p><span style="font-weight: 400;">Meanwhile, those in the industry are seeing a larger and larger focus on machine learning. BrainStation’s </span><a href="https://brainstation.io/research/digital-skills-survey-2019-results/data"><span style="font-weight: 400;">2019 Digital Skills Survey</span></a><span style="font-weight: 400;"> found that machine learning was the trend most likely to have an impact on the work of data professionals, with 80 percent of data respondents singling it out as the top difference-maker in the coming five-to-10 years. And Google Trends shows that its popularity as a search term has grown roughly 200 percent over the last three years.</span></p>
+<p><span style="font-weight: 400;">The question is, what’s the difference between data science and machine learning? We took a closer look.</span></p>
+<h2><b>Machine Learning</b></h2>
+<p><span style="font-weight: 400;">To put it simply, machine learning – or the process of a computer learning how to better perform a task as it gains more experience doing so – uses&nbsp;algorithms to make predictions and find patterns. Machine learning spans a wide array of ideas, tools, and techniques used by Data Scientists and other professionals, and it’s one of the most popular methods for processing big amounts of raw data.</span></p>
+<p><span style="font-weight: 400;">It might be easiest to view machine learning as a part of data science. Machine learning frees Data Scientists from the tedious task of sifting through massive volumes of data by using complex algorithms and problem-solving methods including supervised and unsupervised learning, regression, classification, clustering, and neural networks.</span></p>
+<p><span style="font-weight: 400;">Examples of machine learning are all around you. Facebook, for instance, uses machine learning to analyze your past behavior to present content and notifications in line with your interests. Similarly, when Netflix somehow recommends a show you’d love to binge-watch, it’s an example of machine learning.</span></p>
+<p><span style="font-weight: 400;">Perhaps the simplest example of machine learning in motion lies in how it approaches the task of recognizing handwriting. To train a machine with examples of correct input-output pairs – which is called supervised machine learning – the computer is shown images of handwritten numbers alongside the correct labels for those digits. The computer then tries to figure out the shared characteristics of each digit, and gradually picks up on the patterns between the images and the labels.&nbsp;</span></p>
+<p><span style="font-weight: 400;">Generally, machine learning is effective to solve problems that are statistical or probabilistic in nature, deeply complex, and that can be adequately handled with an approximate solution. For instance, the issue of detecting credit card fraud checks those boxes: solutions are probabilistic because a determination won’t be made until a company reaches its customer; the rules around fraud are complex; and approximate solutions are adequate since we’re simply flagging transactions for further review.</span></p>
+<p><span style="font-weight: 400;">Although many of the more advanced machine learning tools do require some experience and knowhow, the basics can still be impactful for those looking to dig deeper. Many supervised and unsupervised learning models are implemented in R and Python, and straightforward models like linear or logistic regression can be used to perform informative machine-learning tasks.</span></p>
+<h2><b>Data Science</b></h2>
+<p><span style="font-weight: 400;">Data science uses technology and math to find otherwise invisible patterns in raw data to help us make predictions and better-informed decisions. As more and more data is generated and collected by companies, data science is the key to finding otherwise hidden insights that can have a transformative effect on factors including consumer behavior, operational issues, marketing opportunities, supply-chain cycles, and predictive analyses.</span></p>
+<p><span style="font-weight: 400;">A Data Scientist spends significant time collecting, extracting, cleaning, modeling and analyzing data before using an array of techniques to come to meaningful conclusions, including predictive causal analytics (or predicting the possibilities of an event in the future), prescriptive analytics (conjuring a range of actions and the related outcomes) and, yes, machine learning.</span></p>
+<p><span style="font-weight: 400;">It might sound as though Data Scientists spend their days buried in numbers, but that isn’t the case. BrainStation’s Digital Skills Survey found that Data Scientists primarily work on developing new ideas, products, and services, as opposed to optimizing existing platforms.</span></p>
+<p><span style="font-weight: 400;">And while a majority of respondents (73 percent) indicated that they work with numerical data, 61 percent said they also work with text, 44 percent with structured data, 13 percent with images, and 12 percent with graphics. Some even work with video and audio.</span></p>
+<p><span style="font-weight: 400;">In all cases, however, the goal of data science is to leverage data to help a company make better decisions. And given the sheer volume of data being generated and now analyzed, data science is a field that has never been more important.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a Data Scientist in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/remote-data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Data Science Diploma Program</a> is a full-time, 12-week program that provides professionals with the skills and experience to start a new career in data.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-vs-machine-learning">Data Science vs. Machine Learning</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>3 Things You Need to Do Before Hiring a Data Scientist</title>
+		<link>https://brainstation.io/blog/3-things-you-need-to-do-before-hiring-a-data-scientist</link>
+				<pubDate>Mon, 02 Dec 2019 14:27:59 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[hiring]]></category>
+		<category><![CDATA[strategy]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=7377</guid>
+				<description><![CDATA[<p>Looking to hire a Data Scientist but don't know where to start? Here are some ways to prepare before making that first hire. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/3-things-you-need-to-do-before-hiring-a-data-scientist">3 Things You Need to Do Before Hiring a Data Scientist</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">A company decides to make the leap into data science, and has hired their first Data Scientist. She shows up and her boss hands her a laptop and tells her to get to work. </span></p>
+<p><span style="font-weight: 400;">If the company is lucky, they’ve snagged an enterprising Data Scientist who can figure out a way to make an impact. Odds are though, it will lead to an expensive Data Scientist sitting around, frustratedly wishing they had something to work on. </span></p>
+<p><span style="font-weight: 400;">What can you do to avoid this increasingly common situation? Here are some things you should do before hiring a Data Scientist. </span></p>
+<h2><span style="font-weight: 400;">Have a Realistic Data Roadmap</span></h2>
+<p><span style="font-weight: 400;">We’ve all heard how revolutionary data, AI and machine learning are going to be, so once you hire your first Data Scientist, they ought to have no trouble ushering your organization into the future. Right? Not exactly. </span></p>
+<p><span style="font-weight: 400;">Data Scientists are equipped with in-depth knowledge of statistics, machine learning, and big data technologies&#8230;but they most likely don’t know your industry. This means that your Data Scientist will spend a significant amount of time learning your business and figuring out how to apply their knowledge and expertise to your domain.</span></p>
+<p><span style="font-weight: 400;">You can help this process significantly by having a general understanding of what can and can’t be accomplished with data science – even if you don’t have a full understanding of </span><i><span style="font-weight: 400;">how</span></i><span style="font-weight: 400;"> Data Scientists do what they do. By having some </span><i><span style="font-weight: 400;">specific</span></i><span style="font-weight: 400;"> ideas about how the Data Scientist could impact your business, you will minimize that lag between your first hire and your first data-driven business decisions. </span></p>
+<h2><span style="font-weight: 400;">Understand What Data Scientists Can Do</span></h2>
+<p><span style="font-weight: 400;">“Data science” is broad, and Data Scientists can do a lot, but contemporary understanding of this is centered around </span><i><span style="font-weight: 400;">machine learning</span></i><span style="font-weight: 400;">. </span></p>
+<p><span style="font-weight: 400;">Machine learning is fundamentally about making accurate </span><i><span style="font-weight: 400;">predictions</span></i><span style="font-weight: 400;">. As a side note, in machine learning, we use the term “predict” quite broadly—in every-day speak, </span><i><span style="font-weight: 400;">predictions </span></i><span style="font-weight: 400;">are about the future, but in machine learning, predicting is the much more general filling in of data that we don’t have. So you may have a machine learning algorithm that “predicts” what segment a customer belongs to based on their activities and interactions with your company. This prediction isn’t really about the future per se, but we call it a “prediction” because you are using data that you have to fill in data that you don’t have.</span></p>
+<p><span style="font-weight: 400;">Machine learning predictions involve taking data that you have and using it to predict the values of data that you don’t have. Truly understanding this idea is half the battle. To pose a machine learning problem</span><span style="font-weight: 400;">, you begin by identifying some outcome that you want to predict. You might go on to theorize some events or data points that you think would be instrumental in predicting that outcome. Generally these predictive data points are called </span><i><span style="font-weight: 400;">features</span></i><span style="font-weight: 400;">. </span></p>
+<p><span style="font-weight: 400;">The machine learning approach is then to get as many historical examples as you can of the outcome that you’re trying to predict, along with the features that you’ve chosen, and have the computer analyze the historical examples to find patterns linking the features to the outcomes.</span></p>
+<p><span style="font-weight: 400;">By understanding the outline of this process, you can empower your newly hired Data Scientist to do effective work much more quickly and easily. Moreover, if there is a strong understanding of what can be produced (and what is needed to produce it), you and and the business as a whole will be better positioned to use the Data Scientist’s work.</span></p>
+<h2><span style="font-weight: 400;">Understand What Can Go Wrong</span></h2>
+<p><span style="font-weight: 400;">Consider two competing telecom companies, BigTel and CoolTec. Neither has had a Data Scientist working in the marketing department before, but managers at both have read about how data science is the future and have decided to hire one. Each has a focus on improving customer retention. </span></p>
+<p><span style="font-weight: 400;">The manager at BigTel brings the Data Scientist on, hands her a laptop, and tells her to start using data science to help customer retention. The newly hired Data Scientist at BigTel begins feeling around, getting her hands on whatever data she can find, analyzing different measures of customer churn and retention, trying to come up with a useful way to apply the skills that she brings to the problem of reducing retention. </span></p>
+<p><span style="font-weight: 400;">She spends a few months producing impressive and informative reports and powerpoint presentations, interviewing people across the business to better understand customer retention, and brainstorming ways to impact retention. Unfortunately, it’s not clear how to make use of these facts, figures, and ideas to fundamentally affect changes in customer retention. Many months go by and it begins to look like the return on investment in data science isn’t as great as it was cracked up to be. Everyone is sad.</span></p>
+<p><span style="font-weight: 400;">At CoolTec, the hiring manager has read this article and spent some time contemplating how to use machine learning to help with retention – before even making the first hire. By the time the Data Scientist is hired, there is already a plan: the Data Scientist at CoolTec will create a machine learning model that predicts which customers are likely to churn in the next three months. The model will make these predictions based on customer interactions, historical billing patterns, and geography. That model will be used to generate call lists for retention agents, who will contact the high-risk customers with special offers.</span></p>
+<p><span style="font-weight: 400;">At CoolTec, the Data Scientist can get started doing what she’s good at right out of the gate. When the problem is posed in the language of machine learning—</span><i><span style="font-weight: 400;">build a model to predict which customers are likely to churn—</span></i><span style="font-weight: 400;">the Data Scientist’s education and training will be put to its best use. And while they are building this model, managers at CoolTec can make arrangements with the rest of the business for how to consume and deal with the predictions.</span></p>
+<h2><span style="font-weight: 400;">Conclusion</span></h2>
+<p><span style="font-weight: 400;">You don’t need to know everything about machine learning to hire a Data Scientist— after all, that’s what you’re hiring the Data Scientist to do. But it is useful to understand the general principles of machine learning, and how to use that process to produce positive business outcomes. The Data Scientist’s specialty is in creating predictive models, not in creating positive business outcomes. As a manager, if you can handle the translation from a business question to a machine learning question, the Data Scientist can hit the ground running, producing things that can be truly transformative.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon" /></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn data skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&#038;utm_medium=BlogPost&#038;utm_campaign=lead_bookCall" target="_blank" rel="noopener">Online Live Certificate Courses</a> in data science, data analytics, machine learning, and python programming. Attend live classes and interact with Instructors and peers from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&#038;utm_medium=BlogPost&#038;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/3-things-you-need-to-do-before-hiring-a-data-scientist">3 Things You Need to Do Before Hiring a Data Scientist</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>7 Sessions Not to Miss at Data &#038; AI Marketing Toronto Conference and Expo</title>
+		<link>https://brainstation.io/blog/7-sessions-not-to-miss-at-data-ai-marketing-toronto-conference-and-expo</link>
+				<pubDate>Wed, 27 Nov 2019 15:47:05 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Analytics]]></category>
+		<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Events]]></category>
+		<category><![CDATA[Toronto]]></category>
+		<category><![CDATA[AI]]></category>
+		<category><![CDATA[artificial intelligence]]></category>
+		<category><![CDATA[big data]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data analytics]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[data security]]></category>
+		<category><![CDATA[loyalty programs]]></category>
+		<category><![CDATA[Machine learning]]></category>
+		<category><![CDATA[marketing]]></category>
+		<category><![CDATA[privacy]]></category>
+		<category><![CDATA[storytelling]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=10132</guid>
+				<description><![CDATA[<p>The Data &#038; AI Marketing Conference and Expo is kicking off next week in Toronto! Here are seven sessions you really shouldn’t miss.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/7-sessions-not-to-miss-at-data-ai-marketing-toronto-conference-and-expo">7 Sessions Not to Miss at Data &#038; AI Marketing Toronto Conference and Expo</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">The Data &amp; AI Marketing Toronto Conference and Expo is kicking off next week! The two-day event is expected to draw more than 1,000 attendees, with more than 60 speakers⁠, 35 exhibiting brands, case studies, and solutions workshops. </span><b style="font-size: 16px;"></b></p>
+<p><span style="font-weight: 400;">Interested in checking out the conference? Register now and </span><a href="https://datamarketing.ca/2019/register/"><span style="font-weight: 400;">use the code “BRAINSTATION”</span></a><span style="font-weight: 400;"> and you can get 20 percent off your ticket.</span><b style="font-size: 16px;"></b></p>
+<p><span style="font-weight: 400;">Still on the fence? Here are seven sessions you really shouldn’t miss. </span></p>
+<h3><b>What Your Use of Data Says About the Viability of Your Marketing Culture</b></h3>
+<p><span style="font-weight: 400;">December 2nd, 10 am</span></p>
+<p><span style="font-weight: 400;">Heather Ritchie, the Head of Campaign Strategy and Executive Producer of Futurithmic at Nokia, leads this session, which explores how Nokia uses data to make its Futurithmic content platform stronger each month. It will look at how data was used to set up the program, the data used monthly to evaluate success, and how data can be used to make constant improvements.  </span></p>
+<h3><b>Insights Through Big Data Vs. Artificial Intelligence</b></h3>
+<p><span style="font-weight: 400;">December 2nd, 1:30 pm </span></p>
+<p><span style="font-weight: 400;">Danielle Thé, the Senior Product Manager at Wattpad digs into how artificial intelligence can provide us with insights that big data analytics never could. To get there, we have to understand the difference between insights from big data vs. artificial intelligence, and the importance of continually collecting data.</span></p>
+<h3><b>Let’s Talk Privacy, Fireside Chat Hosted by IAB</b></h3>
+<p><span style="font-weight: 400;">December  2nd, 4:30 pm</span></p>
+<p><span style="font-weight: 400;">Hosted by the Interactive Advertising Bureau Of Canada, this fireside chat with Holt Renfrew&#8217;s Corporate Privacy Officer Kristina Smith explores privacy matters in the age of big data collection. As the ability to collect data continues to get easier, how can we ensure the security of consumer data?</span></p>
+<h3><b>Unlocking Data to Activate Your Locations</b></h3>
+<p><span style="font-weight: 400;">December 3rd, 8:45 am</span></p>
+<p><span style="font-weight: 400;">In this session, Mike Jolly, the</span> <span style="font-weight: 400;">Global Head of Measurement and Insights at Waze, looks at how some of the most innovative brands are taking charge of their destination-based data to help move people to physical storefronts. By building location insights into a brand’s campaign, and embracing a test and learn mindset, brands can quickly prove what works – and scale results.</span></p>
+<h3><b>Loyalty Isn&#8217;t Dead&#8230;Yet! </b></h3>
+<p><span style="font-weight: 400;">December 3rd, 9:30 am</span><br />
+<span style="font-weight: 400;">Featuring executives from Nissan Canada, Facebook, Bank of Montreal, and Phillips North America, this panel discussion explores how your business can shift from targeting a customer transaction to a focus on creating a lasting relationship with your customer.</span></p>
+<h3><b>Using Data to More Effectively Deliver Stories</b></h3>
+<p><span style="font-weight: 400;">December 3rd, 3:30 pm</span></p>
+<p><span style="font-weight: 400;">In this session, Sean Stanleigh, the Head of Globe Content Studio at the Globe And Mail, showcases how the newsroom and the content studio use data and social listening to make future storytelling decisions for their audience and their advertising clients.</span></p>
+<h3><b>Panel: Machine Learning Marketers</b></h3>
+<p><span style="font-weight: 400;">December 3rd, 4:45 pm</span></p>
+<p><span style="font-weight: 400;">This panel discussion features speakers from G Adventures, Rogers, York University, and more, and will explore how marketers are using machine learning for anything from content creation to collecting in-depth analytics. Find out how team leaders are managing high expectations for their employees to upgrade their skill-sets and the shifts in their team’s dynamics.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon" /></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a Data Scientist in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/remote-data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Data Science Diploma Program</a> is a full-time, 12-week program that provides professionals with the skills and experience to start a new career in data.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/7-sessions-not-to-miss-at-data-ai-marketing-toronto-conference-and-expo">7 Sessions Not to Miss at Data &#038; AI Marketing Toronto Conference and Expo</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>What Programming Languages Do You Need for Data Science?</title>
+		<link>https://brainstation.io/blog/what-programming-languages-do-you-need-for-data-science</link>
+				<pubDate>Fri, 15 Nov 2019 21:23:54 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Digital 101]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[Programming]]></category>
+		<category><![CDATA[python]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=10053</guid>
+				<description><![CDATA[<p>The demand for data science professionals is skyrocketing. Here are the top programming languages needed for a career in data science. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/what-programming-languages-do-you-need-for-data-science">What Programming Languages Do You Need for Data Science?</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[<p><span style="font-weight: 400;">We’ve recently </span><a href="https://brainstation.io/blog/what-is-data-science"><span style="font-weight: 400;">explored</span></a><span style="font-weight: 400;"> the skyrocketing demand for Data Scientists and the reasons the field is growing at such a rapid rate.&nbsp;</span></p>
+<p><span style="font-weight: 400;">If you’re interested in the technical skills required by the field, read on for the top programming languages for Data Science.&nbsp;</span></p>
+<h2><b>Python</b></h2>
+<p><span style="font-weight: 400;">With a manageable learning curve and an array of libraries that allow for near-endless applications, Python is the top programming language of choice for many Data Scientists who appreciate its accessibility, ease of use and general-purpose versatility. In fact, BrainStation’s </span><a href="https://brainstation.io/research/digital-skills-survey-2019-results/data"><span style="font-weight: 400;">2019 Digital Skills Survey</span></a><span style="font-weight: 400;"> found that Python was the most frequently used tool for Data Scientists overall.&nbsp;</span></p>
+<p><span style="font-weight: 400;">Since being introduced in 1991, Python has built up a growing number of dedicated libraries to carry out tasks including data preprocessing, analysis, predictions, visualization, and preservation. Meanwhile, Python libraries including Tensorflow, pandas, and scikit-learn allow for more advanced machine learning or deep learning applications.&nbsp;</span></p>
+<p><span style="font-weight: 400;">Data Scientists also tend to find Python to be generally faster than R and better for data manipulation.&nbsp;</span></p>
+<p>You can find out more about this language with BrainStation&#8217;s <a href="https://brainstation.io/course/online/python-programming?utm_source=BSTNblog&amp;utm_medium=blog&amp;utm_campaign=Blog_ProgrammingLanguagesforDataScience">Python Programming Course</a>.</p>
+<h2><b>R</b></h2>
+<p><span style="font-weight: 400;">A free, open-source programming language that was released in 1995 as a descendant of the S programming language, R offers a top-notch range of quality domain-specific packages to meet nearly every statistical and data visualization application a Data Scientist might need, including neural networks, non-linear regression, advanced plotting and much more. Its visualization library ggplot2 is a powerful tool, and R’s static graphics can make it easier to produce graphs and mathematical symbols and formulae.&nbsp;</span></p>
+<p><span style="font-weight: 400;">Yes, Python does have a speed advantage over the slower R, but for specific statistical and data analysis purposes, R’s vast range of packages gives it a slight edge between the two.</span></p>
+<p><span style="font-weight: 400;">It is worth noting that R isn’t a general-purpose programming language and is intended to be used specifically for statistical analysis. And R does feature a steeper learning curve than the approachable Python.</span></p>
+<h2><b>SQL</b></h2>
+<p><span style="font-weight: 400;">Standing for “Structured Query Language,” SQL has been at the core of storing and retrieving data for decades now. SQL is a domain-specific language for managing data in relational databases and it’s a must-have skill for Data Scientists, who rely on SQL for updating, querying, editing and manipulating databases and extracting data.</span></p>
+<p><span style="font-weight: 400;">SQL is particularly helpful for managing structured data, especially within large databases. And since SQL is a core skill, it’s helpful that its declarative language is quite readable and intuitive.</span></p>
+<p><span style="font-weight: 400;">Though SQL is not as useful as an analytical tool, it is a highly efficient and crucial tool for data retrieval.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Learn data skills to boost your career – from home!</p>
+<p class="lead__description">BrainStation offers <a href="https://brainstation.io/online-live?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Online Live Certificate Courses</a> in data science, data analytics, machine learning, and python programming. Attend live classes and interact with Instructors and peers from anywhere in the world.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<h2><b>Java</b></h2>
+<p><span style="font-weight: 400;">One of the oldest general-purpose languages used by Data Scientists, Java’s strength lies in part in its popularity and ubiquity: many companies, especially big, international companies, used Java to create backend systems and applications for desktop, mobile or web.</span></p>
+<p><span style="font-weight: 400;">Java skills are increasingly attractive in part because of the possibility of weaving data science production code directly into an existing database. It’s also highly regarded for its performance, type safety and portability between platforms. And it’s worth noting that Hadoop runs on the Java virtual machine (JVM), another reason Java is a must-have skill for Data Scientists.</span></p>
+<h2><b>Scala</b></h2>
+<p><span style="font-weight: 400;">User-friendly and flexible, Scala is the ideal programming language when dealing with great volumes of data. Combining object-oriented and functional programming, Scala avoids bugs in complex applications with its static types, facilitates large-scale parallel processing, and, when paired with Apache Spark, provides high-performance cluster computing.</span></p>
+<p><span style="font-weight: 400;">Engineered to run on the JVM, anything written on Scala can run anywhere that Java runs. It is becoming especially popular for anyone building complex algorithms or performing large-scale machine learning.</span></p>
+<p><span style="font-weight: 400;">Scala does feature a steeper learning curve than some programming languages, but its massive user base is a testament to the value in sticking with it.</span></p>
+<h2><b>Julia</b></h2>
+<p><span style="font-weight: 400;">A much newer programming language than others on this list, Julia has nevertheless made a fast impression thanks to its lightning-fast performance, simplicity, and readability. Designed for numerical analysis and computational science, Julia is especially useful for solving complex mathematical operations, which explains why it’s becoming a fixture in the financial industry. It’s also becoming widely known as a language for artificial intelligence, and many large banks are now using Julia for risk analytics.</span></p>
+<p><span style="font-weight: 400;">Because the language is relatively young, Julia does lack the variety of packages offered by R or Python.</span></p>
+<h2><b>MATLAB</b></h2>
+<p><span style="font-weight: 400;">Used widely in statistical analysis, this proprietary numerical computing language will be helpful for Data Scientists dealing with high-level mathematical needs, including Fourier transforms, signal processing, image processing, and matrix algebra. MATLAB has become widely used in industry and academia for its intensive mathematical functionality. It’s also worth mentioning its value as a data visualization tool, as it features some great inbuilt plotting capabilities.</span></p>
+<p><span style="font-weight: 400;">MATLAB can also help cut down on time spent preprocessing data and help you find the best machine-learning models, regardless of your level of expertise.</span></p>
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a Data Scientist in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/remote-data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Data Science Diploma Program</a> is a full-time, 12-week program that provides professionals with the skills and experience to start a new career in data.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+</div>
+</div>
+</div>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/what-programming-languages-do-you-need-for-data-science">What Programming Languages Do You Need for Data Science?</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+	</channel>
+</rss>

@@ -1,0 +1,2153 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Student Experience &#8211; BrainStation® Blog</title>
+	<atom:link href="https://brainstation.io/blog/category/student-experience/feed" rel="self" type="application/rss+xml" />
+	<link>https://brainstation.io/blog</link>
+	<description>The Digital Learning Company</description>
+	<lastBuildDate>Tue, 24 Aug 2021 15:30:50 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=5.3.9</generator>
+	<item>
+		<title>BrainStation Project Showcase Winter 2020</title>
+		<link>https://brainstation.io/blog/brainstation-project-showcase-virtual-demo-day-winter-2020</link>
+				<pubDate>Wed, 27 Jan 2021 17:11:42 +0000</pubDate>
+		<dc:creator><![CDATA[Emily Peck]]></dc:creator>
+				<category><![CDATA[Demo Day]]></category>
+		<category><![CDATA[Events]]></category>
+		<category><![CDATA[Student Experience]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=12475</guid>
+				<description><![CDATA[<p>After 12 weeks of accelerated learning, collaborating, and creating, BrainStation Diploma students are able to showcase everything they’ve [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/brainstation-project-showcase-virtual-demo-day-winter-2020">BrainStation Project Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>After 12 weeks of accelerated learning, collaborating, and creating, BrainStation Diploma students are able to showcase everything they’ve accomplished at our Virtual Demo Day.</p>
+
+
+
+<p>Here are some of our favorite projects from Winter 2020. Don’t forget to take a look at all of the latest graduate’s work on our <a href="https://brainstation.io/hiring-brainstation-graduates">Hiring BrainStation Graduates</a> page.</p>
+
+
+
+<h2>A Yard Sale, For Those Without a Lawn</h2>
+
+
+
+<figure class="wp-block-image"><img src="https://lh3.googleusercontent.com/IIEytz80KUySJrM4pAGT6kW3_gs_MgUJcgvHKeOolSkJZErdjiihXbd7E0j8AnJMCyz-PMPNPbdch8XNw-UdF1OzTz3ZYDBWhboKfTMKK7APnSmyzltHOSBpIimniKBhk9dZ45um" alt="Screenshot of the Rummage interface."/></figure>
+
+
+
+<p>With the increased interest in supporting local businesses and sustainability, second-hand shopping is becoming a popular option for consumers and sellers.<br><br>Matt Lemche, Web Development, designed an app that allows people to sell their unwanted items in a virtual space that emulates the idea of a community yard sale.</p>
+
+
+
+<p>Users of Rummage can either set up an online pop-up shop to make extra income off their unwanted items; or, they can search to find that hidden gem they’ve been thrifting for every weekend. Rummage is a new way to engage in e-commerce.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27121933/image2-1024x599.png" alt="" class="wp-image-12510" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27121933/image2-1024x599.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27121933/image2-300x175.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27121933/image2-768x449.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27121933/image2-1536x898.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27121933/image2-960x561.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27121933/image2.png 1666w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Watch Matt demo their project on <a href="https://brainstation.io/hiring-brainstation-graduates">our hiring page</a>.</p>
+
+
+
+<h2>IBD Risk Prediction Using Machine Learning</h2>
+
+
+
+<figure class="wp-block-image"><img src="https://lh3.googleusercontent.com/Ek7lyOhiMBc0m-5laETYb-11CskCf0iI83p1hGG6bYa8-jCayVmBTOXurC9nCvqAzZ5p0pYmYxbjJjuNtfuvJD6G2Ad-BY6FXVAWLVgzTq539HRZ_4em9m3ZlFMLR9UNqSX-8oQb" alt="Collection of screen grabs about IBD Prediction."/></figure>
+
+
+
+<p>Inflammatory Bowel Disease (IBD) affects 1.6 million people in North America, with an average healthcare cost of 31 billion dollars annually.</p>
+
+
+
+<p>Two known risk factors are a person’s diet and smoking habits. But genetics are the most influential indicators to help determine a person’s likelihood of having IBD. Samit crafted an algorithm that predicts the probability of developing IBD using a person&#8217;s DNA.</p>
+
+
+
+<p>Samit Watve, Data Science, created a system capable of identifying risk to enable clinicians and researchers to collect genomic information from newborn babies, apply machine learning to the data, to generate a predictive risk model before any symptoms appear.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122000/image14-1024x557.png" alt="" class="wp-image-12511" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122000/image14-1024x557.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122000/image14-300x163.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122000/image14-768x417.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122000/image14-1536x835.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122000/image14-960x522.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122000/image14.png 1851w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Watch Samit demo their project on <a href="https://brainstation.io/hiring-brainstation-graduates">our hiring page</a>.</p>
+
+
+
+<h2>Make Skincare a Breeze</h2>
+
+
+
+<figure class="wp-block-image"><img src="https://lh6.googleusercontent.com/KndbSWFyAHxkF4tlk3RLelD3i5o5hiYvEsl4PL_wvU3ofhzw-xIO_APv_szXWtUL1AoU5obze6sd01VvBZucNrXC6dN-Oj2YMWfqePMr9hX1o9z45KDqAnh6BV_zjj9i9mVSg8tB" alt="Logo for Breeze Skincare"/></figure>
+
+
+
+<p>There is an overwhelming amount of choices in the skincare industry as self-care continues to be a part of our daily conversations. Many brands market exclusively to women and focus on beauty rather than health, leaving many customers feeling confused about their complexions.&nbsp;</p>
+
+
+
+<p>Alyssa Fan, Digital Marketing, created Breeze to focus on health before beauty, and to market to all genders who are looking to create or innovate their skin care routines.</p>
+
+
+
+<p>Combining email marketing, social media and customer reviews, Breeze’s campaign looks to provide a holistic approach to build trust and help its customers win at healthy skin.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122220/image11-1024x534.png" alt="" class="wp-image-12512" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122220/image11-1024x534.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122220/image11-300x156.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122220/image11-768x400.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122220/image11-1536x801.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122220/image11-960x500.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122220/image11.png 1913w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Watch Alyssa demo their project on <a href="https://brainstation.io/hiring-brainstation-graduates">our hiring page</a>.</p>
+
+
+
+<h2>Put Students in the Lab, From Their Own Homes</h2>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/o2GQO7POkUfhmJ9_cGPx4565SkL3QY__IQbCs7_r6rC-1rJcVHLFxTg5YeukU6UUCwl1Smvx6S8eRuev23nOqrCxKIIEEDDdFdqqq3JkrTnf7fCn6Q0RZ-KTodsaIk7F5soW7Ti9" alt="Screenshot of the Volta app design"/></figure>
+
+
+
+<p>Education continues to innovate at a rapid pace as the needs of our world continue to evolve. For science students, having limited time in a lab to learn and practice proper methods can prevent them from meeting course objectives. Kea Legard, User Experience Design, saw a digital solution.</p>
+
+
+
+<p>Volta uses mobile VR and voice user interface (VUI) to allow students to master lab skills by manipulating lab equipment in a virtual environment when a lab is not accessible.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122334/image4-1024x593.png" alt="" class="wp-image-12513" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122334/image4-1024x593.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122334/image4-300x174.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122334/image4-768x445.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122334/image4-1536x890.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122334/image4-960x556.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122334/image4.png 1719w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Watch Kea demo their project on <a href="https://brainstation.io/hiring-brainstation-graduates">our hiring page</a>. </p>
+
+
+
+<h2>Cleanse Your Palette-Making Process</h2>
+
+
+
+<figure class="wp-block-image"><img src="https://lh5.googleusercontent.com/WE9eZmmjriOmYCIJGJ8GoAnNzIYsaf8JJs1obmTs2wuV2YMB8YcKeBfHFcRfwSfN1jU_VRd7HJbdkn4uysRBo9rwUmr6Xjy3gUFVYnB9fh2oPKqrkl7OhmGzpPOPXSG3j81E6Jfm" alt="Two examples of colour palettes created with the Palette app."/></figure>
+
+
+
+<p>Whether creating a website, a presentation, or your artistic masterpiece, selecting the right colors to convey your message is essential. Ryan Vu, Web Development, wanted a simple space to get creative.</p>
+
+
+
+<p>Palette is an interactive palette generator that allows creatives to generate and save custom color palettes in one accessible place. Drawing pads allow users to test how the colors work together and easily make adjustments.&nbsp;</p>
+
+
+
+<p>With a web application and a desktop application, Palette wants to bring the play into your day to help you finish your projects.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122434/image7-1024x545.png" alt="" class="wp-image-12514" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122434/image7-1024x545.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122434/image7-300x160.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122434/image7-768x408.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122434/image7-1536x817.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122434/image7-960x510.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122434/image7.png 1717w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Watch Ryan demo their project on <a href="https://brainstation.io/hiring-brainstation-graduates">our hiring page</a>. </p>
+
+
+
+<h2>No More Fear from Food Allergies</h2>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/AZQXjBYjy9G2oa4Ilq6xn1X5XSkgoir0jTRrRV_A9ZJ3leFdHd8ZBHecwGxH_kXC3Sq4AQo5QwgUbcxzCBvXQ_cTTXjPPtKC_ANo0nOqCGrXQdvuTsNyvRUbOyFDWGtTYftkIubu" alt="Screenshot of REveal's Instagram post."/></figure>
+
+
+
+<p>Between Canada and the U.S., over 35 million people are affected by at least one food allergy. Enjoying an evening dining out is often met with limitations and fear of having an allergic reaction. Stavroula Liovas, Digital Marketing, wanted a fun way to share information.</p>
+
+
+
+<p>REveal looks to empower users to trust what they eat, no matter where they’re eating. Emphasizing a strong SEO campaign to drive awareness to frantic foodies looking for information, REveal’s campaign is focused on momentum and education to become top of mind to potential users.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122556/image5-1-1024x554.png" alt="" class="wp-image-12516" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122556/image5-1-1024x554.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122556/image5-1-300x162.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122556/image5-1-768x416.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122556/image5-1-1536x832.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122556/image5-1-960x520.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122556/image5-1.png 1910w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Watch Stavroula demo their project on <a href="https://brainstation.io/hiring-brainstation-graduates">our hiring page</a>. </p>
+
+
+
+<h2>Crowdsourced, Custom Gift-Giving</h2>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/VGVvDt9dHAbBLwP9cu9WEM_CAjKSkMTRmFXRm8uIPyEO4noe7F6e5p6JcJV0V4VKiVWjax4jC9qDriKJbe8Df482KnfieRAaXZGXF3Q_aup3XxJ2eO7ve0I7ThfGpQxOMxDsCgfI" alt="Screenshot of the interface for luxbux.com"/></figure>
+
+
+
+<p>Buying a present for someone can be a stressful task, especially when the perfect gift is out of your price range. Receiving the wrong present can create an awkward situation if you’re uncomfortable asking for something else. Omar Said, Web Development, coded a custom wish list for this situation.</p>
+
+
+
+<p>Luxbux is a website that allows for users to give money towards a specific present their loved one requested for their birthday or holiday. Focusing on higher-end goods, users have transparency about what gifts their loved ones want, and how they plan to spend the money given.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122621/image6-1024x602.png" alt="" class="wp-image-12517" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122621/image6-1024x602.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122621/image6-300x176.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122621/image6-768x451.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122621/image6-960x564.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2021/01/27122621/image6.png 1380w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>Watch Omar demo their project on <a href="https://brainstation.io/hiring-brainstation-graduates">our hiring page</a>. </p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<h2><strong>Want to create your own portfolio? </strong></h2>
+
+
+
+<p><a href="https://brainstation.io/book-call">Speak to a Learning Advisor</a> to find out how you can take the first step towards your new career in data, development, design, or digital marketing.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/brainstation-project-showcase-virtual-demo-day-winter-2020">BrainStation Project Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>BrainStation Project Showcase</title>
+		<link>https://brainstation.io/blog/brainstation-graduate-showcase</link>
+				<pubDate>Wed, 26 Aug 2020 17:57:45 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Demo Day]]></category>
+		<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[Coding bootcamp]]></category>
+		<category><![CDATA[data]]></category>
+		<category><![CDATA[datascience]]></category>
+		<category><![CDATA[development]]></category>
+		<category><![CDATA[digital marketing]]></category>
+		<category><![CDATA[Digital marketing courses]]></category>
+		<category><![CDATA[UX Bootcamp]]></category>
+		<category><![CDATA[ux design]]></category>
+		<category><![CDATA[web development]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=12047</guid>
+				<description><![CDATA[<p>Here are the best projects from BrainStation's Diploma graduates. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/brainstation-graduate-showcase">BrainStation Project Showcase</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>After 12 weeks of accelerated learning, collaborating, and creating,  BrainStation Diploma students are able to showcase everything they’ve accomplished at our Virtual Demo day.&nbsp;</p>
+
+
+
+<p>Here are some of our favorite projects from Spring 2020. Don’t forget to take a look at all of the latest graduate’s work on our&nbsp;<a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">hiring page</a>.</p>
+
+
+
+<h2>Bi-Modal Sentiment Analysis</h2>
+
+
+
+<p><strong><a href="https://www.linkedin.com/in/fatirali/">Syed Fatir Ali</a>, <a href="https://brainstation.io/course/online/remote-data-science-bootcamputm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Data Science</a></strong></p>
+
+
+
+<p>As humans, we perceive the world through a myriad of different senses. The “data” that these senses provide to our brain helps us create our “reality”. </p>
+
+
+
+<p>Ali designed a machine that could replicate how human’s perceive the real world. To create more accurate Natural Language Processing (NLP), machine learning models should be able to utilize multiple sources of data, so Ali&#8217;s project aimed to create a real-time sentiment analysis classifier using text and audio data concurrently.  </p>
+
+
+
+<p>Watch Ali demo his project on the our <a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">hiring page</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110730/Architectures-for-Modeling-Text-and-Audio-data-concurrently-Fatir-Ali-1024x575.jpg" alt="" class="wp-image-12048" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110730/Architectures-for-Modeling-Text-and-Audio-data-concurrently-Fatir-Ali-1024x575.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110730/Architectures-for-Modeling-Text-and-Audio-data-concurrently-Fatir-Ali-300x168.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110730/Architectures-for-Modeling-Text-and-Audio-data-concurrently-Fatir-Ali-768x431.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110730/Architectures-for-Modeling-Text-and-Audio-data-concurrently-Fatir-Ali-960x539.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110730/Architectures-for-Modeling-Text-and-Audio-data-concurrently-Fatir-Ali.jpg 1446w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110743/Mel-Frequency-Spectrogram-of-a-10-second-audio-file-Fatir-Ali.jpg" alt="" class="wp-image-12049" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110743/Mel-Frequency-Spectrogram-of-a-10-second-audio-file-Fatir-Ali.jpg 982w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110743/Mel-Frequency-Spectrogram-of-a-10-second-audio-file-Fatir-Ali-300x126.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110743/Mel-Frequency-Spectrogram-of-a-10-second-audio-file-Fatir-Ali-768x323.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110743/Mel-Frequency-Spectrogram-of-a-10-second-audio-file-Fatir-Ali-960x404.jpg 960w" sizes="(max-width: 982px) 100vw, 982px" /></figure>
+
+
+
+<h2><strong>Tabby</strong></h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/brendanpkirby">Brendan Kirby</a>, <a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">UX Design</a></p>
+
+
+
+<p>Tabby is a crowd-sourced cat-sitting service and community intended to improve the accessibility, availability, and affordability of pet-sitting exclusively for cat-owners. </p>
+
+
+
+<p>Kirby&#8217;s app offers direct messaging, cashless payments, and on-demand appointments to ensure a street-free process from beginning to end.</p>
+
+
+
+<p>See&nbsp;<a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">more mockups</a>&nbsp;on our Hiring page.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-1024x683.jpg" alt="" class="wp-image-12059" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-1024x683.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-300x200.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-768x512.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-1536x1024.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-2048x1365.jpg 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-960x640.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161752/MarketingWebsite-Brendan-Kirby-1-scaled.jpg 2560w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161812/IsometricMockup-Brendan-Kirby-1024x768.jpg" alt="" class="wp-image-12060" width="495" height="371" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161812/IsometricMockup-Brendan-Kirby-1024x768.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161812/IsometricMockup-Brendan-Kirby-300x225.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161812/IsometricMockup-Brendan-Kirby-768x576.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161812/IsometricMockup-Brendan-Kirby-705x529.jpg 705w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25161812/IsometricMockup-Brendan-Kirby-960x720.jpg 960w" sizes="(max-width: 495px) 100vw, 495px" /></figure></div>
+
+
+
+<h2><strong>YYRO</strong></h2>
+
+
+
+<p><strong><a href="https://www.linkedin.com/in/weizhen-liang/">Weizhen Liang</a>, <a href="https://brainstation.io/course/toronto/web-development-immersiveutm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Web Development</a> </strong></p>
+
+
+
+<p>Liang created YYRO, a fully functional and ready-to-deploy gaming website. The site has all the essential elements required for a gaming website and is dedicated to bringing players together in an active, friendly community. </p>
+
+
+
+<p>The site is fully responsive for mobile, tablet, and desktop and compatible with iOS and Android devices.</p>
+
+
+
+<p>See what the gaming site <a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">has to offer</a>. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110826/tablet-homepage-%E4%BB%80%E4%B9%88%E9%83%BD%E7%95%A5%E6%87%82%E4%B8%80%E7%82%B9%E7%9A%84%E8%80%81%E7%88%B8.jpeg" alt="" class="wp-image-12052"/></figure></div>
+
+
+
+<h2>ImageCap</h2>
+
+
+
+<p><strong><a href="https://www.linkedin.com/in/varsha-rai">Varsha Rai</a>, <a href="https://brainstation.io/course/online/remote-data-science-bootcamputm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Data Science</a></strong></p>
+
+
+
+<p>ImageCap is a tool that generates captions from images using neural networks. Rai fed image feature vectors and partial captions to the model so it could predict the next word of the caption. </p>
+
+
+
+<p>To process images, Rai used a Convolutional Neural Network (CNN) and the GloVe model to process words in the caption. </p>
+
+
+
+<p>Partial caption and image feature vector pass through the Recurrent Neural Network (RNN) and the model picks up the next possible word with the highest probability and generates the next sequence.</p>
+
+
+
+<p>Watch Rai <a href="https://brainstation.io/hiring-brainstation-graduates">explain her full p</a><a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">r</a><a href="https://brainstation.io/hiring-brainstation-graduates">ocess</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM-1024x641.png" alt="" class="wp-image-12050" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM-1024x641.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM-300x188.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM-768x481.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM-1536x961.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM-2048x1282.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM-960x601.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110802/Screen-Shot-2020-08-05-at-11.21.43-PM.png 2160w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM-1024x583.png" alt="" class="wp-image-12051" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM-1024x583.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM-300x171.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM-768x437.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM-1536x874.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM-2048x1165.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM-960x546.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110812/Screen-Shot-2020-08-05-at-11.23.01-PM.png 2158w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2><strong>WeClick</strong></h2>
+
+
+
+<p><strong><a href="https://www.linkedin.com/in/samiyadalwai">Samiya Dalwai</a>, <a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">UX Design</a></strong></p>
+
+
+
+<p>WeClick is an app that helps newcomers to Canada connect with one another through interest-based activities and 1-on-1 meetups. The designs show that activities and people are recommended to users based on compatibility and interests as a way to help those who’ve recently emigrated to Canada make meaningful connections and find their community.</p>
+
+
+
+<p><a href="https://brainstation.io/hiring-brainstation-graduates">Watch</a>&nbsp;Dalwai explain her design process and review her&nbsp;<a href="http://samiya.design/">portfolio</a>.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1.jpg" alt="" class="wp-image-12071" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1.jpg 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231120/App-ScreensMockup-Samiya-Dalwai-copy-1-960x960.jpg 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy.jpg" alt="" class="wp-image-12072" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy.jpg 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25231229/Explore-Activities-Screens-Samiya-Dalwai-copy-960x960.jpg 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2>JOGA</h2>
+
+
+
+<p><strong><a href="https://www.linkedin.com/in/steven-matthew-martins/">Steven Martins</a>, <a href="https://brainstation.io/course/toronto/web-development-immersiveutm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Web Development</a></strong></p>
+
+
+
+<p>JOGA is an app that allows users to find sports pick-up games created by other users. They can also create their own games for other users to join. </p>
+
+
+
+<p>To leverage local park infrastructure and green space, Martins created JOGA to cater to those looking to play soccer, basketball, and street hockey, but as the community flourishes, more sports can be added to the platform. </p>
+
+
+
+<p><a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">See more features</a> on JOGA. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110840/HomeScreen1-smcool00%40hotmail.com_-511x1024.png" alt="" class="wp-image-12053" width="356" height="713" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110840/HomeScreen1-smcool00%40hotmail.com_-511x1024.png 511w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110840/HomeScreen1-smcool00%40hotmail.com_-150x300.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110840/HomeScreen1-smcool00%40hotmail.com_-768x1538.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110840/HomeScreen1-smcool00%40hotmail.com_-767x1536.png 767w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/24110840/HomeScreen1-smcool00%40hotmail.com_.png 864w" sizes="(max-width: 356px) 100vw, 356px" /></figure></div>
+
+
+
+<h2>HUGGZi</h2>
+
+
+
+<p><strong><a href="https://www.linkedin.com/in/bonneyhalani/">Bonney Halani</a>, <a href="https://brainstation.io/course/online/digital-marketing?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Digital Marketing</a></strong></p>
+
+
+
+<p>New parents don&#8217;t have a lot of time on their hands, and choosing the right products can be a daunting endeavour. </p>
+
+
+
+<p>To ease some of that burden, Halani developed a marketing strategy for HUGGZi, a monthly subscription box service specially tailored to fulfill your baby&#8217;s needs with a curated selection of the best products. </p>
+
+
+
+<p><a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Find more</a> digital marketing final projects. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163319/Screen-Shot-2020-08-25-at-4.32.31-PM-1024x573.png" alt="" class="wp-image-12061" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163319/Screen-Shot-2020-08-25-at-4.32.31-PM-1024x573.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163319/Screen-Shot-2020-08-25-at-4.32.31-PM-300x168.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163319/Screen-Shot-2020-08-25-at-4.32.31-PM-768x430.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163319/Screen-Shot-2020-08-25-at-4.32.31-PM-960x537.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163319/Screen-Shot-2020-08-25-at-4.32.31-PM.png 1276w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Airbender Project &#8211; Airbnb Listings Recommender System</h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/rey-reynaldy/">Rey Reynaldy</a>, <a href="https://brainstation.io/course/online/remote-data-science-bootcamputm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Data Science</a></p>
+
+
+
+<p>Rey loves travelling, but found it difficult to select the best place to stay on Airbnb. </p>
+
+
+
+<p>For his project, Rey built a recommendation system for Airbnb listings. Using content-based filtering methods, user preference, similar content, and similar user preference listings he was able to curate a preferred Airbnb list. NLP process was used during exploratory data analysis and sentiment analysis technique was utilized to determine the score of the user&#8217;s review content. </p>
+
+
+
+<p>Learn more on Rey&#8217;s <a href="http://github.com/rey-reynaldy">Github</a>.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM-1024x565.png" alt="" class="wp-image-12114" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM-1024x565.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM-300x166.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM-768x424.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM-1536x848.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM-2048x1131.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM-960x530.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162451/Screen-Shot-2020-09-17-at-4.18.55-PM.png 2402w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM-1024x572.png" alt="" class="wp-image-12115" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM-1024x572.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM-300x168.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM-768x429.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM-1536x858.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM-2048x1144.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM-960x536.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17162457/Screen-Shot-2020-09-17-at-4.20.21-PM.png 2398w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>SpellBee</h2>
+
+
+
+<p><strong><a href="https://www.linkedin.com/in/jessica-kwok/">Jessica Kwok</a>, <a href="https://brainstation.io/course/toronto/web-development-immersive?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Web Development</a></strong></p>
+
+
+
+<p>As a new mom, Kwok wanted to make use of technology in a fun, educational way, so she developed SpellBee to help kids learn and practice how to spell.</p>
+
+
+
+<p>Kwok recognized that parents are seeking tools that they have control over, but also expose their children to learning opportunities. SpellBee does just that by allowing parents to create and edit their own vocabulary decks. </p>
+
+
+
+<p><a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">See more</a> web development projects. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163638/Vocabulary-Decks-Jessica-Kwok-574x1024.png" alt="" class="wp-image-12062" width="383" height="684" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163638/Vocabulary-Decks-Jessica-Kwok-574x1024.png 574w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163638/Vocabulary-Decks-Jessica-Kwok-168x300.png 168w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163638/Vocabulary-Decks-Jessica-Kwok.png 638w" sizes="(max-width: 383px) 100vw, 383px" /></figure></div>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163651/Custom-Vocabulary-Decks-Jessica-Kwok-575x1024.png" alt="" class="wp-image-12063" width="377" height="671" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163651/Custom-Vocabulary-Decks-Jessica-Kwok-575x1024.png 575w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163651/Custom-Vocabulary-Decks-Jessica-Kwok-168x300.png 168w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25163651/Custom-Vocabulary-Decks-Jessica-Kwok.png 638w" sizes="(max-width: 377px) 100vw, 377px" /></figure></div>
+
+
+
+<h2><strong>Noeme AR</strong></h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/hellowynnie/">Wynnie Chung</a>, <a href="https://brainstation.io/course/online/remote-user-experience-design-bootcamp?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">UX Design</a></p>
+
+
+
+<p>Noeme AR is an augmented reality application to help patients record and showcase their pain symptoms as a way to enhance patient-doctor communication and collaboration.&nbsp;&nbsp;</p>
+
+
+
+<p>Chung&#8217;s application reimagines the traditional paper-based, pre-assessment process into three-step, digital AR experience that captures the location, intensity, and direction of pain on the patient’s body. By providing a baseline of quality information on a patient’s condition, Noeme AR helps doctors and patients quickly enter into meaningful conversations towards diagnosis and plan of care.</p>
+
+
+
+<p>See all the features of Noeme AR on the&nbsp;<a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Hiring Showcase</a>.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-1024x1024.jpg" alt="" class="wp-image-12021" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-960x960.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung.jpg 1080w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-1024x1024.jpg" alt="" class="wp-image-12066" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung-960x960.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230838/3_NoemeAR_StepTwoInput_Rateit-Wynnie-Chung.jpg 1080w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-1024x1024.jpg" alt="" class="wp-image-12068" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1-960x960.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/25230906/2_NoemeAR_StepThreeInput_Moveit-Wynnie-Chung-1.jpg 1080w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Movie App</h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/sanakrichen/">Sana Krichen</a>, <a href="https://brainstation.io/course/online/remote-data-science-bootcamputm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Data Science</a></p>
+
+
+
+<p>Sana designed an app that predicts movie genres and detects spoilers in reviews. The technical process requires scraping data from the IMDB website, using supervised machine learning techniques along with natural language processing and implementing some text similarity techniques. </p>
+
+
+
+<p>The end result is an app that can predict what genre a movie falls under by reading and learning from movie descriptions. </p>
+
+
+
+<p>Meet Sana on our <a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Hiring page</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-1024x1024.png" alt="" class="wp-image-12113" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-1024x1024.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-768x768.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM-960x960.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17161215/Screen-Shot-2020-09-17-at-4.10.20-PM.png 1196w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Svara</h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/ryantoddgarza/">Ryan Todd Garza</a>, <a href="https://brainstation.io/course/toronto/web-development-immersive?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Web Development</a> </p>
+
+
+
+<p>Svara is a generative music app based on the traditional rules of Hindustani ragas, a melodic framework for improvisation largely used in Indian classical music.</p>
+
+
+
+<p>Music-lovers using the app are shown frequency and amplitude feedback along with any other relevant information about the raga that has been randomly generated. </p>
+
+
+
+<p>Watch Ryan demo his project on our <a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Hiring page</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-1022x1024.png" alt="" class="wp-image-12110" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-1022x1024.png 1022w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-768x769.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM-960x961.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17152612/Screen-Shot-2020-09-17-at-3.24.14-PM.png 1318w" sizes="(max-width: 1022px) 100vw, 1022px" /></figure>
+
+
+
+<h2>micdrp</h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/angusryer/">Angus Ryer</a>, <a href="https://brainstation.io/course/toronto/web-development-immersive?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Web Development</a></p>
+
+
+
+<p>Micdrp is a voice-to-confidence converter.  The idea is that if you sing specific notes, you&#8217;ll strengthening specific muscles in the process. Angus&#8217; app, micdrp guides singers through what notes to practice, and the result is power, clarity and confidence while belting out tunes. </p>
+
+
+
+<p>See more on our <a href="https://brainstation.io/hiring-brainstation-graduates?utm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Hiring page</a>. </p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-1022x1024.png" alt="" class="wp-image-12112" width="594" height="595" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-1022x1024.png 1022w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-768x769.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM-960x961.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/09/17160736/Screen-Shot-2020-09-17-at-4.01.46-PM.png 1318w" sizes="(max-width: 594px) 100vw, 594px" /></figure></div>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p>Want to create your own tech portfolio? <a href="https://brainstation.io/book-callutm_source=Blog&amp;utm_medium=Post&amp;utm_campaign=projectShowcase">Speak to a Learning Advisor</a> to find out how you can take the first step towards your new career in data, development, or UX.&nbsp;</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/brainstation-graduate-showcase">BrainStation Project Showcase</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>UX Design Showcase Spring 2020</title>
+		<link>https://brainstation.io/blog/ux-design-showcase-spring-2020</link>
+				<pubDate>Fri, 07 Aug 2020 20:42:56 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[capstone]]></category>
+		<category><![CDATA[design]]></category>
+		<category><![CDATA[graduates]]></category>
+		<category><![CDATA[ux design]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=12012</guid>
+				<description><![CDATA[<p>After 12 weeks of accelerated learning, collaborating, and creating, our BrainStation Diploma students are able to showcase everything [&#8230;]</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/ux-design-showcase-spring-2020">UX Design Showcase Spring 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>After 12 weeks of accelerated learning, collaborating, and creating, our BrainStation Diploma students are able to showcase everything they’ve accomplished at our Virtual Demo day.&nbsp;</p>
+
+
+
+<p>It’s no exaggeration to say each season we’re in awe of how quickly students adapt to an intensive learning environment and the final results of their hard work.</p>
+
+
+
+<p>Here are some of our favorite UX projects from Spring 2020. Don’t forget to take a look at all of the latest graduate’s projects on our <a href="https://brainstation.io/hiring-brainstation-graduates">hiring page</a>.</p>
+
+
+
+<h2><strong>SERVED</strong></h2>
+
+
+
+<p><a href="http://www.linkedin.com/in/andreaparizaleta">Andrea Arizaleta</a></p>
+
+
+
+<p>SERVED is an iOS app designed to improve and enhance people’s overall restaurant dining experience, providing an easy and reliable way to order food. The app allows guests to order from a digital menu, check an order status while waiting, conveniently split bills, and quickly pay the bill whenever the meal is finished.</p>
+
+
+
+<p>Visit the hiring page to <a href="https://brainstation.io/hiring-brainstation-graduates">watch</a> Andrea demo her design.&nbsp;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07135600/Screen-Shot-2020-08-05-at-11.11.25-PM-e1596823012795-867x1024.png" alt="A mock-up of Served, an app to enhance your dining experience. Served connects people to thier favorite restaurants through their phones wherever they are." class="wp-image-12013" min-width:="" "476"="" min-height:="" "563"="" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07135600/Screen-Shot-2020-08-05-at-11.11.25-PM-e1596823012795-867x1024.png 867w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07135600/Screen-Shot-2020-08-05-at-11.11.25-PM-e1596823012795-254x300.png 254w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07135600/Screen-Shot-2020-08-05-at-11.11.25-PM-e1596823012795-768x907.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07135600/Screen-Shot-2020-08-05-at-11.11.25-PM-e1596823012795-960x1133.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07135600/Screen-Shot-2020-08-05-at-11.11.25-PM-e1596823012795.png 1269w" sizes="(max-width: 867px) 100vw, 867px" /></figure></div>
+
+
+
+<h2><strong>PlusFolio</strong></h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/michael-yue-sik-kin/">Michael Yue Sik Kin</a></p>
+
+
+
+<p>PlusFolio is an app that allows Designers to collaborate with fellow students or colleagues to create beautiful, collaborative portfolio projects.</p>
+
+
+
+<p>For any aspiring Designer, there is a lot of pressure to have a strong portfolio, which can open the door to additional opportunities. Through collaboration, Designers can add a level of diversity and teamwork to their projects—two things that will elevate a project’s value in the eyes of employers.</p>
+
+
+
+<p>See the full scope of Michael’s app on the official <a href="https://brainstation.io/hiring-brainstation-graduates">showcase page</a>.&nbsp;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin-473x1024.png" alt="" class="wp-image-12014" width="376" height="814" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin-473x1024.png 473w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin-139x300.png 139w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin-768x1661.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin-710x1536.png 710w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin-947x2048.png 947w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin-960x2076.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141621/02.-My-Projects-Home-Michael-David-Yue-Sik-Kin.png 1000w" sizes="(max-width: 376px) 100vw, 376px" /></figure></div>
+
+
+
+<h2><strong>Spark</strong></h2>
+
+
+
+<p><a href="http://www.linkedin.com/in/randykhoo1">Randy Khoo</a></p>
+
+
+
+<p>Spark is a mobile app designed to help organizations build a culture that inspires growth. The platform acts as a centralized information hub that provides employees tools to keep them engaged and motivated.</p>
+
+
+
+<p>Want to see the full concept? Check out our <a href="https://brainstation.io/hiring-brainstation-graduates">Hiring page</a>.&nbsp;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141721/Hero-image-4x-Randy-Khoo.png" alt="" class="wp-image-12015" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141721/Hero-image-4x-Randy-Khoo.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141721/Hero-image-4x-Randy-Khoo-300x194.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141721/Hero-image-4x-Randy-Khoo-768x495.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07141721/Hero-image-4x-Randy-Khoo-960x619.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure></div>
+
+
+
+<h2><strong>Tabby</strong></h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/brendanpkirby">Brendan Kirby</a></p>
+
+
+
+<p>Tabby is a crowd-sourced cat-sitting service and community intended to improve the accessibility, availability, and affordability of pet-sitting exclusively for cat-owners. The app offers direct messaging, cashless payments, and on-demand appointments to ensure a street-free process from beginning to end.See <a href="https://brainstation.io/hiring-brainstation-graduates">more mockups</a> on our Hiring page.</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-1024x683.jpg" alt="" class="wp-image-12017" min-width: "734" min-height: "489" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-1024x683.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-300x200.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-768x512.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-1536x1024.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-2048x1365.jpg 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-960x640.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142110/MarketingWebsite-Brendan-Kirby-scaled.jpg 2560w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure></div>
+
+
+
+<h2><strong>WeClick</strong></h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/samiyadalwai">Samiya Dalwai</a></p>
+
+
+
+<p>WeClick is an app that helps newcomers to Canada connect with one another through interest-based activities and 1-on-1 meetups. The designs show that activities and people are recommended to users based on compatibility and interests as a way to help those who’ve recently emigrated to Canada make meaningful connections and find their community.</p>
+
+
+
+<p><a href="https://brainstation.io/hiring-brainstation-graduates">Watch</a> Samiya explain her design process and review her <a href="http://samiya.design">portfolio</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142219/App-ScreensMockup-Samiya-Dalwai-copy-e1598411412722.jpg" alt="" class="wp-image-12018" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142219/App-ScreensMockup-Samiya-Dalwai-copy-e1598411412722.jpg 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142219/App-ScreensMockup-Samiya-Dalwai-copy-e1598411412722-300x134.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142219/App-ScreensMockup-Samiya-Dalwai-copy-e1598411412722-768x342.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142219/App-ScreensMockup-Samiya-Dalwai-copy-e1598411412722-960x427.jpg 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2><strong>Bondly</strong></h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/benhabib/">Ben Habib</a></p>
+
+
+
+<p>Bondly is a photo and video sharing app that enables friends to collaborate on media albums. The platform provides a space where friends can combine their memories and bond over shared experiences.</p>
+
+
+
+<p>Let Ben walk you through <a href="https://brainstation.io/hiring-brainstation-graduates">his design</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib.png" alt="" class="wp-image-12019" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib-300x300.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib-150x150.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib-768x768.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib-109x109.png 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib-100x100.png 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142450/HomeFriendsCollection-Ben-Habib-960x960.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2><strong>Noeme AR</strong></h2>
+
+
+
+<p><a href="https://www.linkedin.com/in/hellowynnie/">Wynnie Chung</a></p>
+
+
+
+<p>Noeme AR is an augmented reality application to help patients record and showcase their pain symptoms as a way to enhance patient-doctor communication and collaboration.&nbsp;&nbsp;</p>
+
+
+
+<p>The application reimagines the traditional paper-based, pre-assessment process into three-step, digital AR experience that captures the location, intensity, and direction of pain on the patient&#8217;s body. By providing a baseline of quality information on a patient&#8217;s condition, Noeme AR helps doctors and patients quickly enter into meaningful conversations towards diagnosis and plan of care.</p>
+
+
+
+<p>See all the features of Noeme AR on the <a href="https://brainstation.io/hiring-brainstation-graduates">Hiring Showcase</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-1024x1024.jpg" alt="" class="wp-image-12021" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung-960x960.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/08/07142602/4_NoemeAR_StepOneInput_Markit-Wynnie-Chung.jpg 1080w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p><em>See more UX, Data, and Development projects on <a href="https://www.instagram.com/brainstation">BrainStation’s Instagram</a>. </em></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/ux-design-showcase-spring-2020">UX Design Showcase Spring 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Portfolio Highlight: Vanessa Kwan, UX Design</title>
+		<link>https://brainstation.io/blog/portfolio-highlight-vanessa-kwan-ux-design</link>
+				<pubDate>Mon, 08 Jun 2020 19:03:54 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Demo Day]]></category>
+		<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[UX Bootcamp]]></category>
+		<category><![CDATA[ux design]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11914</guid>
+				<description><![CDATA[<p>We spoke with UX Design graduate, Vanessa Kwan to find out more about her learning experience and her capstone project: Lemon House. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/portfolio-highlight-vanessa-kwan-ux-design">Portfolio Highlight: Vanessa Kwan, UX Design</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<div class="wp-block-image"><figure class="alignright size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/08150117/VanessaKwan_1_UX-1024x1024.jpg" alt="" class="wp-image-11918" width="282" height="282" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/08150117/VanessaKwan_1_UX-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/08150117/VanessaKwan_1_UX-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/08150117/VanessaKwan_1_UX-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/08150117/VanessaKwan_1_UX-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/08150117/VanessaKwan_1_UX-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/06/08150117/VanessaKwan_1_UX-100x100.jpg 100w" sizes="(max-width: 282px) 100vw, 282px" /></figure></div>
+
+
+
+<p>Creating a show-stopping project for your portfolio is an important component of the UX Design Diploma program at BrainStation and for anyone looking to pursue a career in design.&nbsp;</p>
+
+
+
+<p>Case in point: this excellent <a href="https://www.byvanessakwan.com/">portfolio</a> by recent graduate, Vanessa Kwan.&nbsp;</p>
+
+
+
+<p>We spoke with Kwan to find out more about her learning experience and her capstone project: Lemon House.&nbsp;</p>
+
+
+
+<h2>Making the Change&nbsp;</h2>
+
+
+
+<p>Kwan was educated in the sciences, but when it came time to enter the workforce, she decided to switch focus and pursue a career she’d love.&nbsp;</p>
+
+
+
+<p>“I went to university for a science degree, but knew that wasn’t where my passion lied, and I really wanted to be in a field that challenged me creatively.” She learned about UX design from some friends and was intrigued by the mix of research and design.</p>
+
+
+
+<p>“I wanted to take the chance at pursuing my passions and taking a leap of faith in trying to change careers,” she said, explaining her decision to join BrainStation’s UX Design Diploma program.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/sWrp4pN02ra8QDYMUDN7D6_57uVTvxMJnAKp9Q8RT1ouPm0M0M1m7lE7aD5Vl5HxV9KsyXvtakZExYvHJst6yoaqZ08U8GjOCRoLYcDK4cuGpcpJV_BxW6LH3glUmh6PNb9l6bKb" alt=""/></figure>
+
+
+
+<h2>The Student Housing Problem</h2>
+
+
+
+<p>For her capstone project, Kwan decided to create <a href="https://www.byvanessakwan.com/lemon-house">Lemon House</a>, a mobile app focused on improving post-secondary students’ experience searching for somewhere to live off-campus.</p>
+
+
+
+<p>Kwan was familiar with the excitement that comes with finding new-found freedom in university and living with friends near campus. But, finding that dream house wasn’t easy.</p>
+
+
+
+<p>“Being a student living away from home for the first time in an unfamiliar city, there was a lot of information to know before signing a lease,” Kwan said.&nbsp;&nbsp;</p>
+
+
+
+<p>She explains that house hunting is time-consuming and disorganized without a localized space to view rental spaces, neighborhood information, or leasing details. It can also be stressful having to sift through Google searches, Kiji ads, Facebook groups, rental pages, to say nothing of contacting landlords and signing leases. It’s a lot to juggle for a new student who might be doing most of the house-hunting remotely.&nbsp;</p>
+
+
+
+<p>“Why does the process of finding housing have to be so stressful and lengthy?”&nbsp;</p>
+
+
+
+<p>Lemon House consolidates all rental properties suitable for college students, making it easier to find the perfect home near your new campus.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/a_JNalaxAJ_CVbfuDaFnec7zcT_fynjpOVh1BYCtol8YrOLs37Rn8ds_RFZsT-ptB3do7rR8GeqLwf1oTJb92E375NZz5Ek0NCHNt_cTbsFRsNfmf961iASlC6h1LonPmgMgUqhB" alt=""/></figure>
+
+
+
+<h2>The Design Process</h2>
+
+
+
+<p>As with any good Designer, Kwan started by digging into the data. She found that rental prices were increasing and that the average student spends over five months searching for off-campus accommodations. She then researched the current house-hunting process and interviewed current students.&nbsp;</p>
+
+
+
+<p>Once she began developing design concepts, user feedback became essential and was extremely helpful in refining the design.&nbsp;</p>
+
+
+
+<p>“Asking for feedback [&#8230;] helped with keeping in mind to always re-engage the users. I also learned to apply my own critical judgment to sort out and define the most important feedback to apply towards the design.”</p>
+
+
+
+<p>Before beginning the diploma program, Kwan had a limited design background, but she quickly learned to apply the elements of UI and use a grid/spacing system.</p>
+
+
+
+<p>“I had to make many iterations of my screens before the final product,” Kwan shared. “It was challenging, but I definitely really enjoyed the process because looking back at my work I can really see a growth in my learning.”</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh5.googleusercontent.com/PO2AWNgIasbD9q0r0f72w3XdKofrnn5PtyqPMY7rB-L90qsjkX2Ogtk6sxzRPI_1ej5JfXSajPxfqQLY6qVzPyd1SRIPK8txSr_mYd6Qvqf45Q72QIHRe-B86xvx47kORmBehEYY" alt=""/></figure>
+
+
+
+<p>Safe to say, the end result is a beautiful example of thoughtful design.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh5.googleusercontent.com/nfIWULIv5Gcw-Mq0nvLk2gxKKpQNir0STAtdR5WtJEQz6MiEct712ICFzoFb49RKe0fIj7QG73FdIEBaf_FQi1l5D6yh8i8oBjmDog2Jd2h-LVAM2oKxnttggTIobV6jqVgiMW_r" alt=""/></figure>
+
+
+
+<h2>The BrainStation Experience</h2>
+
+
+
+<p>At the end of it all, Kwan is happy with what she learned and more importantly the people she was able to meet.&nbsp;</p>
+
+
+
+<p>“A highlight of my time at BrainStation would have to be meeting and getting close to everyone in my cohort,” she remembers.&nbsp;</p>
+
+
+
+<p>“I learned a lot from the other students as we worked and helped each other on projects. I was also able to glimpse what the data science and web development students do through BrainStation 3D – it was a great opportunity to work with the other disciplines and create a product within a short amount of time.”</p>
+
+
+
+<p>Kwan is now ready to take the next step and launch her career in UX Design.&nbsp;<br></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/portfolio-highlight-vanessa-kwan-ux-design">Portfolio Highlight: Vanessa Kwan, UX Design</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>How to Attend a Bootcamp as an International Student</title>
+		<link>https://brainstation.io/blog/how-to-attend-a-bootcamp-as-an-international-student</link>
+				<pubDate>Fri, 22 May 2020 01:30:00 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[full time bootcamp]]></category>
+		<category><![CDATA[international student]]></category>
+
+		<guid isPermaLink="false">https://blog.brainstation.io/?p=7632</guid>
+				<description><![CDATA[<p>Are you an international student looking to take a bootcamp in North America? Here's everything you need to know to succeed.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-to-attend-a-bootcamp-as-an-international-student">How to Attend a Bootcamp as an International Student</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p><span style="font-weight: 400;">North American tech markets continue to climb the ranks, with cities like Toronto beating out Silicon Valley as North America’s </span><a href="https://www.cbre.com/research-and-reports/Scoring-Tech-Talent-in-North-America-2018" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">fastest growing tech hub</span></a><span style="font-weight: 400;">, and New York ranking in the </span><a href="https://www.cbre.com/research-and-reports/Scoring-Tech-Talent-in-North-America-2018" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">top 5 tech talent markets</span></a><span style="font-weight: 400;">. It’s no surprise, then, that BrainStation’s campuses are popular digital skills training institutions amongst international students. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Planning for training in a different country, however, can be difficult. To help, we’ve outlined some common areas of confusion, and provided some tips for international students looking to study in either the US or Canada. </span></p>
+
+
+
+<h2><b>How to Get a Student Visa in the United States</b></h2>
+
+
+
+<p><span style="font-weight: 400;">The requirements for studying in the US or Canada vary depending on what country you live in, the length of the study program, and whether you have intentions to stay in the country after you complete the program. </span></p>
+
+
+
+<p><span style="font-weight: 400;">If you are not a US citizen, you will most likely need to obtain a visa before going to the US to study. The type of visa depends on the length of your program and total period of time you wish to stay in the United States. Here is a helpful </span><a href="https://travel.state.gov/content/travel/en/us-visas/study/student-visa.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">government resource</span></a><span style="font-weight: 400;"> to determine which type of visa you will need. </span></p>
+
+
+
+<p><span style="font-weight: 400;">The most common types of visas used for a BrainStation program or course would be a B2, F, or M visa. The B2 visa is a standard visitor visa and will be suitable for a program that is three months or less.</span></p>
+
+
+
+<p><span style="font-weight: 400;">If you need more information about the process of studying in the United States, this </span><a href="https://www.usa.gov/study-in-us#item-35632" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">US government website</span></a><span style="font-weight: 400;"> outlines specific details.&nbsp;</span></p>
+
+
+
+<h2><b>How to Get a Student Visa in Canada</b></h2>
+
+
+
+<p><span style="font-weight: 400;">As an international student in Canada, you may need to </span><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/application/application-forms-guides/guide-5269-applying-study-permit-outside-canada.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">apply for a study permit</span></a><span style="font-weight: 400;"> if your program is longer than six months (24 weeks), or if you intend to take consecutive programs that will extend past a six-month period. </span></p>
+
+
+
+<p><span style="font-weight: 400;">BrainStation’s full-time diploma programs are 12 weeks, meaning that international students do not typically have to apply for a study permit. However, depending on your country of residence, you may still need to apply for a visa. Visa requirements are unique to each country, and you can find out if you need to apply for one through this </span><a href="http://www.cic.gc.ca/english/visit/visas.asp" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">government website.</span></a><span style="font-weight: 400;"> If you need to contact the Canadian Visa office in your area for more specific information, </span><a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/contact-ircc/offices/international-visa-offices.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">you can reference this list of offices</span></a><span style="font-weight: 400;"> outside of Canada. </span></p>
+
+
+
+<p><span style="font-weight: 400;">It is recommended that if you need to apply for a visa, you do so a couple of months in advance. Visa applications can take several weeks to process, and if you apply too close to the course start date, you may not have an approved visa before the beginning of class. Students need to have their visa or study permit secured before the start of class, so it’s recommended that you speak with the respective government to ensure you will have sufficient time to complete the application process. </span></p>
+
+
+
+<p><span style="font-weight: 400;">The </span><a href="http://www.cic.gc.ca/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Citizen and Immigration Canada website</span></a><span style="font-weight: 400;"> provides more details on entering and studying in Canada.</span></p>
+
+
+
+<h2><b>How to Finance Your Digital Education</b></h2>
+
+
+
+<p><span style="font-weight: 400;">BrainStation offers a range of </span><a href="https://brainstation.io/scholarships" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">scholarships</span></a><span style="font-weight: 400;"> for both full-time diploma programs and part-time courses. Additionally, there are a few different financing options available for international students and immigrants in Canada and the US. </span></p>
+
+
+
+<p><span style="font-weight: 400;">The US Government does not provide loans, grants, or financial assistance for international students, however, it is possible to look for funding from other independent organizations. A helpful resource is the US Government’s </span><a href="https://www.careeronestop.org/toolkit/training/find-scholarships.aspx" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">free online scholarship search tool.</span></a></p>
+
+
+
+<p><a href="https://windmillmicrolending.org/applicants/faq/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Windmill Microlending</span></a><span style="font-weight: 400;"> (formerly </span><a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/partners-service-providers/immigrant-serving-organizations/best-pratices/immigrant-access-fund.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Immigrant Access Fund Canada</span></a><span style="font-weight: 400;">) is an organization that provides funding for Canadian immigrants who will incur costs to work in the same profession in Canada as they did in their home country. This is helpful for professionals who are taking a diploma program to ensure that their existing skills are relevant in the Canadian landscape.</span></p>
+
+
+
+<h2><b>Booking Flights and Accommodations </b></h2>
+
+
+
+<p><span style="font-weight: 400;">As an international student, you are responsible for finding and booking your own flights and accommodation to study in North America. When booking flights, it’s important to ensure you arrive in your city of study prior to your course start date. </span></p>
+
+
+
+<p><span style="font-weight: 400;">You may also want time before the start of the course to settle into your accommodations, and get comfortable with your new city, transit system, and surroundings. Many international professionals who come to the US or Canada for a BrainStation program or course will rent or sublet apartments through housing networks. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Here are some resources to assist you in the search for housing:</span></p>
+
+
+
+<ul><li style="font-weight: 400;"><a href="https://www.common.com/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Common</span></a></li><li style="font-weight: 400;"><a href="https://www1.nyc.gov/nyc-resources/categories/housing-development.page" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Housing NYC</span></a></li><li style="font-weight: 400;"><a href="https://www.search4studenthousing.com/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Search 4 Student Housing</span></a></li><li style="font-weight: 400;"><a href="https://www.canada.ca/en/immigration-refugees-citizenship/services/new-immigrants/new-life-canada/housing.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Housing in Canada</span></a></li><li style="font-weight: 400;"><a href="https://www.toronto.ca/community-people/housing-shelter/finding-housing/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Toronto Housing</span></a></li><li style="font-weight: 400;"><a href="https://vancouver.ca/news-calendar/moving-to-vancouver.aspx" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Move to Vancouver</span></a></li><li style="font-weight: 400;"><a href="https://canadahomestaynetwork.ca/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Canada Homestay Network</span></a></li></ul>
+
+
+
+<p><span style="font-weight: 400;">Some professionals even look for long-term </span><a href="https://www.airbnb.ca/" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Airbnb</span></a><span style="font-weight: 400;"> accommodations that they can rent for the duration of the program. Finding accommodations can be time consuming, so it’s beneficial to start looking for available housing well before you arrive.</span></p>
+
+
+
+<h2><b>Finding a Job After Graduation</b></h2>
+
+
+
+<p><span style="font-weight: 400;">BrainStation’s full-time students are provided with career support, however, finding a job after completing a 12-week diploma program is ultimately up to the individual. Students must ensure that they are eligible to work in the US or Canada, this includes obtaining a work permit, sponsorship, or visa. While this can be a challenge for international students, it is definitely possible. BrainStation graduates come from more than 15 countries across the globe. </span></p>
+
+
+
+<p><span style="font-weight: 400;">“My advice is to get to know the local work culture, ranging from styles of email communication to resumes. Also, get local experience no matter what, even if it means interning at first,” says Pavla Bobosikova, an international student and graduate of BrainStation’s full-time UX Design program. “Most importantly, you should go out, meet people, and build a strong network. Your network really is your net worth, and can help you find jobs, places to live, and enjoy the city that you live in.” </span></p>
+
+
+
+<p><span style="font-weight: 400;">Pavla was granted a work permit in Canada prior to studying at BrainStation, and found a job in design after graduating from the full-time program. </span></p>
+
+
+
+<p><span style="font-weight: 400;">“I started looking for UX/UI jobs while studying at BrainStation, and I was very lucky to get multiple job offers based on presenting my work at the BrainStation Demo Day at the end of my course,” says Pavla. “I’m currently the head of design at Nudge.ai, a relationship intelligence platform. I lead both product and brand design, including launching new products, website, brand renewal, as well as constant user experience improvements to our web and mobile apps.”</span></p>
+
+
+
+<p><span style="font-weight: 400;">BrainStation offers career services to students and graduates of full-time diploma programs, which includes mock interviews, and networking opportunities. BrainStation also has a diverse network of hiring partner organizations that attend events and Demo Days, giving students the opportunity to connect with industry professionals. Many international students use these events as tools throughout their job search. </span></p>
+
+
+
+<p><span style="font-weight: 400;">“I go to networking events, I look at job postings online on LinkedIn, Glassdoor, and Indeed,” says Sophie Sengmany, an international student who took BrainStation’s full-time UX Design program. Sophie just finished working as a UX Design Fellow for Code for Canada. </span></p>
+
+
+
+<h2><b>Applying to BrainStation</b></h2>
+
+
+
+<p><span style="font-weight: 400;">The full-time application process at BrainStation takes between four to six weeks, and students must meet all application requirements. If you meet the requirements, you will have a short interview with a member of our Admissions Team before you’re accepted into the program. Please note that English language proficiency is a primary requirement of taking a diploma program at BrainStation. </span></p>
+
+
+
+<p><span style="font-weight: 400;">If English is a second language, evidence of proficiency can be satisfied by one of the following standards:</span></p>
+
+
+
+<ul><li style="font-weight: 400;"><span style="font-weight: 400;">Minimum overall score of 50 on the Canadian Academic English Language Assessment (CAEL)</span></li><li style="font-weight: 400;"><span style="font-weight: 400;">Minimum overall score of 90 on the TOEFL iBT test</span></li><li style="font-weight: 400;"><span style="font-weight: 400;">Minimum overall band score of 6.5 on the IELTS (academic)</span></li></ul>
+
+
+
+<p><span style="font-weight: 400;">Upon acceptance into the program, students must complete a prep course to ensure they are ready to hit the ground running on the first day of class. You can find out more about the full-time application process </span><a href="https://brainstation.io/courses#full-time" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">through our program pages. </span></a></p>
+
+
+
+<h2><b>Once You Arrive</b></h2>
+
+
+
+<p><span style="font-weight: 400;">You will want to arrive in advance of the course start date to settle into your accommodations, get your bearings, and determine the best form of transportation to take to class each day. These </span><a href="https://www.uscis.gov/tools/settling-us/welcome-united-states" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Welcome to the United States</span></a><span style="font-weight: 400;"> and &nbsp;</span><a href="https://www.canada.ca/en/immigration-refugees-citizenship/corporate/publications-manuals/publication-welcome-canada-what-you-should-know.html" target="_blank" rel="noopener noreferrer"><span style="font-weight: 400;">Welcome to Canada</span></a><span style="font-weight: 400;"> resources created by the countries respective governments are helpful tools for many international students and immigrants arriving in Canada. </span></p>
+
+
+
+<p><span style="font-weight: 400;">Students of BrainStation’s full-time programs form strong relationships with fellow professionals, sharing resources and tips to help one another. </span></p>
+
+
+
+<p><span style="font-weight: 400;">“There was a diverse mix of international and local students of various professional backgrounds in my class,” says Pavla. “Every class we would share the conferences that we are attending, the job boards that we discovered, as well as give each other feedback on our resumes and portfolios. Everyone helped each other.” </span></p>
+
+
+
+<p><span style="font-weight: 400;">We recommend that you swing by campus before your first day of class to get acquainted with the building, our campus coordinators, and BrainStation’s very own Quantum Coffee shop. </span></p>
+
+
+
+<p><span style="font-weight: 400;">If you have any questions about applying to BrainStation as an international student, don’t hesitate to reach out through email: <a href="mailto:contact@brainstation.io" target="_blank" rel="noopener noreferrer">contact@brainstation.io</a> and one of our Learning Advisors would be happy to help guide you through the process. </span></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/how-to-attend-a-bootcamp-as-an-international-student">How to Attend a Bootcamp as an International Student</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Portfolio Highlight: Makeeda Johnson, UX Design</title>
+		<link>https://brainstation.io/blog/portfolio-highlight-makeeda-johnson-ux-design</link>
+				<pubDate>Wed, 13 May 2020 20:08:07 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Demo Day]]></category>
+		<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[capstone]]></category>
+		<category><![CDATA[travel]]></category>
+		<category><![CDATA[UI Design]]></category>
+		<category><![CDATA[ux design]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11376</guid>
+				<description><![CDATA[<p>A strong portfolio highlights your skills and experience. We spoke with UX Design graduate, Makeeda Johnson, about her design process creating Trip.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/portfolio-highlight-makeeda-johnson-ux-design">Portfolio Highlight: Makeeda Johnson, UX Design</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<div class="wp-block-image"><figure class="alignright size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/13154222/MakeedaJohnson_2_UX-1024x1024.jpg" alt="" class="wp-image-11534" width="312" height="312" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/13154222/MakeedaJohnson_2_UX-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/13154222/MakeedaJohnson_2_UX-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/13154222/MakeedaJohnson_2_UX-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/13154222/MakeedaJohnson_2_UX-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/13154222/MakeedaJohnson_2_UX-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/13154222/MakeedaJohnson_2_UX-100x100.jpg 100w" sizes="(max-width: 312px) 100vw, 312px" /></figure></div>
+
+
+
+<p>When entering the field of design, a <a href="https://brainstation.io/blog/5-of-the-best-sites-to-build-your-portfolio">strong portfolio</a> that showcases completed work is essential to highlight your skills and experience and help you stand out from the crowd.&nbsp;&nbsp;</p>
+
+
+
+<p>Makeeda Johnson, a recent graduate of BrainStation’s UX Design Diploma Program presents a great example of a <a href="https://makeedajohnson.com/">portfolio</a> that demonstrates her project flow and design process.&nbsp;</p>
+
+
+
+<h2>Launching a UX Career</h2>
+
+
+
+<p>Johnson was happy with her job as a Finance &amp; Compliance Coordinator at a pharmaceutical company –&nbsp;she was often promoted and thought it was the perfect place for her. But, over time, her perspective changed.&nbsp;</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh3.googleusercontent.com/HFTdu2hCK-yi3A13K3UE57byRa4cCWWGjT3RRsQUX40u1sPEGGmQk0MxIVoY6ETTVMYlyfjAlGY4jFeoaXO1bNGpsjWUAVuX7b8t9L7577aNu8iIoGuWBcaNk5_yZUQxK89ovsue" alt=""/></figure>
+
+
+
+<p>“After a while, I realized that, aside from helping people, I had completely abandoned all the things I was passionate about. After a candid conversation with a friend, he asked if I had considered UX Design and I thought, ‘What on earth is that?’ A few Google searches and workshops later, I fell in love.”</p>
+
+
+
+<p>Not to say jumping into UX Design wasn’t a big leap.</p>
+
+
+
+<p>“It took awhile for me to make the decision to leave my full-time job to pursue UX, but I knew it was right for me. I just knew that if I applied myself, the reward would turn out to be much greater than the risk. Looking back, I have no regrets and I&#8217;m happy I took the leap of faith.”</p>
+
+
+
+<h2>A Design for Travel</h2>
+
+
+
+<p>Johnson designed <a href="https://makeedajohnson.com/projects/">Trip</a>, an app to plan your travel itinerary and log your experiences. After traveling, Johnson was often faced with the same onslaught of questions, asking where she’d been, how she rated an excursion, or what venues she recommended, so she thought, “It would be cool to create something that would help facilitate that interaction, somewhere people can&nbsp; see their friend&#8217;s entire trip and easily recreate the experience for themselves.”</p>
+
+
+
+<p>Through her experience, Johnson learned three crucial design practices that led her to create a successful project.</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/GaIPaljhA5-z_fRf5iUWdKNXjr9gTGXtYc9JTxPrCdCl4rNLqUi0Vog4EN4iIPVo8ZP8tFWwVa_F2EiS4MsJmX9_hsW9MsD9uwkzAwI-5FzZSNFxsp7ClrjmGtwuC934arhqf5FS" alt=""/></figure>
+
+
+
+<p><strong>1. You aren&#8217;t the expert, your target users are</strong></p>
+
+
+
+<p>Target user feedback is crucial if you want to improve your product.</p>
+
+
+
+<p><strong>2. Embrace ambiguity</strong></p>
+
+
+
+<p>Sometimes the feedback you get will be as vague as &#8220;I just don&#8217;t like something about the way this feels&#8221; or &#8220;make this better&#8221; and it&#8217;ll be up to you to figure it out.</p>
+
+
+
+<p><strong>3. Be confident</strong></p>
+
+
+
+<p>Imposter Syndrome is a topic that comes up often and I learned it&#8217;s important to be confident in your design ability. Feedback is very important, but it&#8217;s also important to be able to stand your ground and justify your design choices when necessary.</p>
+
+
+
+<h2>Learn as You Go&nbsp;</h2>
+
+
+
+<p>User research is an important step in developing user-friendly designs, but it can be difficult to manage all the feedback. Johnson quickly learned that she’d have to prioritize suggestions.&nbsp;</p>
+
+
+
+<p>“My initial strategy was to try and accommodate all the feedback I received. This worked well up until someone&#8217;s feedback directly conflicted with someone else&#8217;s. Going forward, I had to prioritize feedback by asking myself if it was a recommendation based on universal design guidelines or personal preference.”</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/7ugM5_wGF3dFvtsaH4UGMWey2U0YPeXxdTq2i99CKHZbocayfX_fusJs4jnhVc914E13iSAit4virtwovA_8BluTJXzerNdXNL71JWAYgNkG59OS6GPpdwhSHqjt3NTEBF9-1IR8" alt=""/></figure>
+
+
+
+<p>Now that she’s earned her Diploma, what does Johnson remember most?</p>
+
+
+
+<p>“The highlight of my time at BrainStation was definitely the people! I met so many amazing people and formed such great friendships in such a short amount of time. We started out as this shy bunch of people who were afraid to present our work to each other and now we&#8217;re basically like a big BrainStation family.”&nbsp;</p>
+
+
+
+<hr class="wp-block-separator"/>
+
+
+
+<p></p>
+
+
+
+<p><em>Interested in launching a career in UX Design? See our <a href="https://bit.ly/2Xnq65t" target="_blank" rel="noreferrer noopener" aria-label="Diploma Program's curriculum (opens in a new tab)">Diploma Program&#8217;s curriculum</a>. </em></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/portfolio-highlight-makeeda-johnson-ux-design">Portfolio Highlight: Makeeda Johnson, UX Design</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Portfolio Highlight: Floria Chu, UX Design</title>
+		<link>https://brainstation.io/blog/portfolio-highlight-floria-chu</link>
+				<pubDate>Wed, 29 Apr 2020 20:43:18 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Demo Day]]></category>
+		<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[UX]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11345</guid>
+				<description><![CDATA[<p>We spoke with UX Design gradaute Floria Chu about her design process creating Traflo and  her experience as a BrainStation Diploma student. </p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/portfolio-highlight-floria-chu">Portfolio Highlight: Floria Chu, UX Design</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p><a href="https://brainstation.io/blog/5-dos-and-donts-for-building-a-design-portfolio">Building a strong portfolio</a> piece is an essential part of the BrainStation Diploma Program experience and for good reason; when searching for jobs, it’s important to have completed work that showcases your skills and understanding.</p>
+
+
+
+<div class="wp-block-image"><figure class="alignright size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29163137/FloriaChu_2_UX-1-1024x1024.jpg" alt="" class="wp-image-11351" width="251" height="251" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29163137/FloriaChu_2_UX-1-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29163137/FloriaChu_2_UX-1-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29163137/FloriaChu_2_UX-1-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29163137/FloriaChu_2_UX-1-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29163137/FloriaChu_2_UX-1-100x100.jpg 100w" sizes="(max-width: 251px) 100vw, 251px" /></figure></div>
+
+
+
+<p>We were impressed with the work of <a href="https://www.linkedin.com/in/floriachu/" target="_blank" rel="noreferrer noopener" aria-label="Floria Chu (opens in a new tab)">Floria Chu</a>, a recent graduate of the UX Design Diploma Program, who created a beautiful <a rel="noreferrer noopener" aria-label=" (opens in a new tab)" href="https://www.floriachu.com/" target="_blank">portfolio</a> to showcase her capstone project. We spoke with Chu about her design process and experience as a BrainStation Diploma student.&nbsp;</p>
+
+
+
+<h2>Starting a Career in Design&nbsp;</h2>
+
+
+
+<p>Early in her career, Chu knew she had an appreciation for design, but didn’t see herself as having the the skills needed to bring her ideas to life.&nbsp;</p>
+
+
+
+<p>Speaking with other Designers, however, convinced Chu that if she was determined, she could pursue a career in design.</p>
+
+
+
+<p>“I knew I wanted to play a bigger part in creating something that would bring positive impact and joy to others. I spoke to a few UX Designers and Product Designers and one thing they would tell me was that ‘the eye to design and the heart to create can be developed over time as long as I was passionate to learn and improve.’ It convinced me to put my hands and mind to the test in UX Design.”</p>
+
+
+
+<h2>The Concept</h2>
+
+
+
+<p>For her capstone project, Chu created <a rel="noreferrer noopener" aria-label="Taflo (opens in a new tab)" href="https://www.floriachu.com/portfolio/traflo" target="_blank">Traflo</a>, an app that makes it easier to find and browse travel recommendations from your friends and family.<br></p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh3.googleusercontent.com/t30ZyB7P-py8Oq140RPbMRcPDX2WAmIYNIKeRRhRSAZrboxXA9cQqxELQIFg90o3d8jBtNdbDrHkPpKSZgC8zvkncMdeRf9j16KE3zxaHB1mTGgTCkY2yrEyXZ84hdFBIpcD3s4c" alt=""/></figure>
+
+
+
+<p>Avid travelers will know this problem all too well: You book a much-needed vacation and reach out to your friends and family for recommendations. But then, the weeks before your vacation, you can’t seem to remember any of those suggestions or where you wrote them down… if you did.<br></p>
+
+
+
+<p>Traflo makes it easier to browse recommendations from the people you trust without getting bogged down by countless travel forums and blogs. You can see a full <a rel="noreferrer noopener" aria-label="prototype on inVision (opens in a new tab)" href="https://projects.invisionapp.com/share/NPWC1P95S4R#/screens" target="_blank">prototype on inVision</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29160034/Screen-Shot-2020-04-29-at-11.30.23-AM-1024x767.png" alt="" class="wp-image-11346" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29160034/Screen-Shot-2020-04-29-at-11.30.23-AM-1024x767.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29160034/Screen-Shot-2020-04-29-at-11.30.23-AM-300x225.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29160034/Screen-Shot-2020-04-29-at-11.30.23-AM-768x575.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29160034/Screen-Shot-2020-04-29-at-11.30.23-AM-705x529.png 705w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29160034/Screen-Shot-2020-04-29-at-11.30.23-AM-960x719.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/29160034/Screen-Shot-2020-04-29-at-11.30.23-AM.png 1314w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<p>“I chose to explore this problem space because it is a topic that gets brought up so often in my chats with others. When it comes to traveling, personally, I struggle with planning and building an itinerary; however, I was curious to know if others around me also felt the same,” Chu said.&nbsp;&nbsp;</p>
+
+
+
+<h2>Design Process</h2>
+
+
+
+<p>In planning her design, Chu recognized the importance of focusing on the actual user and dedicating time to research.</p>
+
+
+
+<p>“It is so easy to get excited and wrapped up in the idea of building something that suits your own needs and desires, but one key lesson that pushed me to grow as a Designer was learning to put myself in the shoes of the users,” she said.&nbsp;</p>
+
+
+
+<p>During user research, Chu found that getting feedback from her target audience wasn’t always easy, but always worth the effort.&nbsp;</p>
+
+
+
+<p>“Gathering constructive feedback was tough to receive but it really allowed me to see areas of improvements within the project, and how small tweaks can make an experience 10 times better.”</p>
+
+
+
+<figure class="wp-block-image"><img src="https://lh4.googleusercontent.com/GrSA8-HMoo7DIs-QWy2XZQerPvpJ1a4nL2uleXxKtkiJRAeIEzzmwCuFKkH60qGv_Z9TF0xLHtRRr2U39sVW8RKIYMLmvpv49E5Ks4HIiXTMSUGS_eDxeurQu9ZFk4l12UuDQGHM" alt=""/></figure>
+
+
+
+<p>After 12 weeks, Chu has a completed app and a stellar portfolio of completed work for her job search, all of which was informed by her BrainStation learning experience.&nbsp;&nbsp;</p>
+
+
+
+<p>“There are so many highlights from a short 12-week program, but one of the biggest highlights had to be learning from Educators from different backgrounds and industry experience. They came from different walks of life that allowed myself and fellow classmates to relate to, and the fact they are so passionate in user experience design helped make this intense program that much more enjoyable and exciting.”</p>
+
+
+
+<p></p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/portfolio-highlight-floria-chu">Portfolio Highlight: Floria Chu, UX Design</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>UX Design Showcase Winter 2020</title>
+		<link>https://brainstation.io/blog/ux-design-showcase-winter-2020</link>
+				<pubDate>Wed, 22 Apr 2020 14:46:01 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[UX]]></category>
+		<category><![CDATA[capstone]]></category>
+		<category><![CDATA[design]]></category>
+		<category><![CDATA[uidesign]]></category>
+		<category><![CDATA[UX Bootcamp]]></category>
+		<category><![CDATA[ux research]]></category>
+		<category><![CDATA[uxdesign]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11270</guid>
+				<description><![CDATA[<p>Look through some of our favorite UX Design graduate projects.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/ux-design-showcase-winter-2020">UX Design Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Despite the COVID-19 outbreak, hundreds of BrainStation students recently graduated with Diplomas in UX Design, Web Development, and Data Science. We couldn&#8217;t be prouder of their achievements and the way they took everything in stride.</p>
+
+
+
+<p>BrainStation’s full-time Diploma programs culminate with students producing an individual portfolio piece for their final Capstone project.</p>
+
+
+
+<p>Here are some of our favorite UX Design projects from Winter 2020. You can also see all of our graduate&#8217;s projects on our <a rel="noreferrer noopener" aria-label="hiring page (opens in a new tab)" href="https://brainstation.io/hiring-brainstation-graduates" target="_blank">hiring page</a>. </p>
+
+
+
+<h2>Aleator</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Oscar Paulsson (opens in a new tab)" href="http://www.linkedin.com/in/oscar-paulsson" target="_blank">Oscar Paulsson</a></h3>
+
+
+
+<p>Aleator is an application that allows music lovers and musicians to organize and host their own intimate shows. Oscar recognized a demand for more intimate live music experiences; shows that focus on the performance and talent. His design aims to strengthen local music communities as well as reinforce art as communal and interactive.</p>
+
+
+
+<p>Look at Oscar&#8217;s <a rel="noreferrer noopener" aria-label=" (opens in a new tab)" href="https://opdesign.io/" target="_blank">portfolio</a> for more of his work.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17152826/Brand-Oscar-Paulsson.png" alt="" class="wp-image-11253" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17152826/Brand-Oscar-Paulsson.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17152826/Brand-Oscar-Paulsson-300x203.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17152826/Brand-Oscar-Paulsson-768x521.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17152826/Brand-Oscar-Paulsson-960x651.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153243/Mockups-Oscar-Paulsson-1.png" alt="" class="wp-image-11255" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153243/Mockups-Oscar-Paulsson-1.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153243/Mockups-Oscar-Paulsson-1-300x185.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153243/Mockups-Oscar-Paulsson-1-768x472.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153243/Mockups-Oscar-Paulsson-1-960x590.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Scott Sobere-Yu (opens in a new tab)" href="http://linkedin.com/in/scottrs" target="_blank">Scott Sobere-Yu</a></h3>
+
+
+
+<p>Social Eyes helps low-income families with children find affordable social activities. Scott was inspired by his own experience, as growing up he didn’t always have access to high-cost activities. </p>
+
+
+
+<p>The Social Eyes app solves this by focusing on maintaining your budget while also exposing children to activities that will aid with social development. </p>
+
+
+
+<p>See Scott’s <a rel="noreferrer noopener" aria-label="full design process (opens in a new tab)" href="http://scottrs.ca/" target="_blank">full design process</a>.&nbsp;</p>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09144036/socialEyes_activity-774x1024.png" alt="" class="wp-image-11045" width="580" height="767" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09144036/socialEyes_activity-774x1024.png 774w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09144036/socialEyes_activity-227x300.png 227w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09144036/socialEyes_activity-768x1016.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09144036/socialEyes_activity-960x1270.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09144036/socialEyes_activity.png 1064w" sizes="(max-width: 580px) 100vw, 580px" /></figure></div>
+
+
+
+<h2>Canvas AR</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Nicole Chan (opens in a new tab)" href="https://www.linkedin.com/in/nchan125/" target="_blank">Nicole Chan</a></h3>
+
+
+
+<p>Nicole noticed how social media can negatively affect our well-being, causing feelings of isolation and inadequacy. That inspired her to create a way to build a community through technology. </p>
+
+
+
+<p>Her app Canvas AR allows you to explore the city with friends and find people’s art in augmented reality. Use Canva AR to walk around and see what others have created projected on everyday facades – get inspired and design something to share with the community.</p>
+
+
+
+<p>Look through Nicole&#8217;s <a href="https://www.nikkichan.me/" target="_blank" rel="noreferrer noopener" aria-label="portfolio (opens in a new tab)">portfolio</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145828/Hero%402x-Nikki-Chan.jpg" alt="" class="wp-image-11247"/></figure>
+
+
+
+<div class="wp-block-image"><figure class="aligncenter size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150148/Featuredartists-w700_80-Nikki-Chan-521x1024.jpg" alt="" class="wp-image-11248" width="406" height="798" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150148/Featuredartists-w700_80-Nikki-Chan-521x1024.jpg 521w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150148/Featuredartists-w700_80-Nikki-Chan-153x300.jpg 153w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150148/Featuredartists-w700_80-Nikki-Chan.jpg 700w" sizes="(max-width: 406px) 100vw, 406px" /></figure></div>
+
+
+
+<h2>Loop</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Judy Yen (opens in a new tab)" href="https://www.linkedin.com/in/judy-yen/" target="_blank">Judy Yen</a></h3>
+
+
+
+<p>Judy designed Loop, a platform for people with busy schedules who find themselves unintentionally neglecting their friends. The app stores all of your closest friends together, then based on past memories and common attributes, allows you to keep those connections alive. You can also set reminders to contact your friends and assess your friendship strength based on how often you message them. </p>
+
+
+
+<p>See more of Judy’s <a href="https://www.judyyen.ca/" target="_blank" rel="noreferrer noopener" aria-label="design work (opens in a new tab)">design work</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-1024x1024.jpg" alt="" class="wp-image-11052" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-1024x1024.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-1536x1536.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-2048x2048.jpg 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-960x960.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150112/HiFi-Mock-02-Judy-Yen-scaled.jpg 2560w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150206/HiFi-Mock-03-Judy-Yen.jpg" alt="" class="wp-image-11053" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150206/HiFi-Mock-03-Judy-Yen.jpg 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150206/HiFi-Mock-03-Judy-Yen-300x201.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150206/HiFi-Mock-03-Judy-Yen-768x515.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150206/HiFi-Mock-03-Judy-Yen-960x644.jpg 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2>Hive</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Vickie Chountalos (opens in a new tab)" href="https://www.linkedin.com/in/vickiechountalos/" target="_blank">Vickie Chountalos</a></h3>
+
+
+
+<p>Vickie&#8217;s project is a great response to our current times. Hive is a mobile app that provides a private social network to help separated families stay connected. It’s a safe space to chat about daily moments, share interests and goals, and stay up-to-date on your family’s most treasured moments.</p>
+
+
+
+<p>See more of Vickie&#8217;s designs and photography on her <a rel="noreferrer noopener" aria-label="portfolio (opens in a new tab)" href="https://vickiechountalos.com/" target="_blank">portfolio</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150750/Landing-Page-Vickie-Chountalos.png" alt="" class="wp-image-11249" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150750/Landing-Page-Vickie-Chountalos.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150750/Landing-Page-Vickie-Chountalos-300x179.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150750/Landing-Page-Vickie-Chountalos-768x459.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17150750/Landing-Page-Vickie-Chountalos-960x574.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2>Maint</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Maryam Ndope (opens in a new tab)" href="https://www.linkedin.com/in/maryamndope/" target="_blank">Maryam Ndope</a></h3>
+
+
+
+<p>Maint provides an easy, paperless way for tenants to report maintenance issues to their landlord. After personally experiencing the frustration of reporting important maintenance issues and witnessing the lack of transparency on the status of repairs, Maryam knew she could improve the process with an online solution for tenants. </p>
+
+
+
+<p>See more of Maryam&#8217;s work on her <a href="https://maryamndope.com/" target="_blank" rel="noreferrer noopener" aria-label="portfolio (opens in a new tab)">portfolio</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope.jpg" alt="" class="wp-image-11057" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope.jpg 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151340/Maryam_maint_mockups-Maryam-Ndope-960x960.jpg 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2>Citrus+</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Kristine Hur (opens in a new tab)" href="https://www.linkedin.com/in/kristinehur/" target="_blank">Kristine Hur</a></h3>
+
+
+
+<p>Citrus+ offers an easier and faster way to manage personal healthcare. The app allows patients to manage treatment priorities, schedule appointments, and stay in touch with their healthcare providers to get the most out of their healthcare journey. Through integration of third-party technologies, the app also helps patients discover new treatment options.</p>
+
+
+
+<p>Learn about the other features <a rel="noreferrer noopener" aria-label="Citrus+ (opens in a new tab)" href="http://kristinehur.com/" target="_blank">Citrus+</a> offers.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/05182103/Citrus_hero-1024x321.jpg" alt="" class="wp-image-11403" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/05182103/Citrus_hero-1024x321.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/05182103/Citrus_hero-300x94.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/05182103/Citrus_hero-768x241.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/05182103/Citrus_hero-1536x481.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/05182103/Citrus_hero-960x301.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/05/05182103/Citrus_hero.jpg 1726w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Luce</h2>
+
+
+
+<h3><a rel="noreferrer noopener" href="https://www.linkedin.com/in/evayuemh/" target="_blank">Eva Yue</a></h3>
+
+
+
+<p>Historically, high fashion has often contradicted philanthropy and sustainability. Luce aims to address this issue by providing a secondary fashion market where consumers are able to make the best use out of their luxury goods. </p>
+
+
+
+<p>Luce provides a touchpoint where users can effortlessly resell or purchase fashion goods. </p>
+
+
+
+<p>See more of <a rel="noreferrer noopener" aria-label="Eva's work (opens in a new tab)" href="http://evayue.design/" target="_blank">Eva&#8217;s work</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153303/eva-yue-1-807x1024.jpg" alt="" class="wp-image-11256" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153303/eva-yue-1-807x1024.jpg 807w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153303/eva-yue-1-236x300.jpg 236w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153303/eva-yue-1-768x975.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153303/eva-yue-1-960x1218.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153303/eva-yue-1.jpg 1093w" sizes="(max-width: 807px) 100vw, 807px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153310/Gifting-Screen-eva-yue-938x1024.jpg" alt="" class="wp-image-11257" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153310/Gifting-Screen-eva-yue-938x1024.jpg 938w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153310/Gifting-Screen-eva-yue-275x300.jpg 275w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153310/Gifting-Screen-eva-yue-768x838.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153310/Gifting-Screen-eva-yue-960x1048.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153310/Gifting-Screen-eva-yue.jpg 1246w" sizes="(max-width: 938px) 100vw, 938px" /></figure>
+
+
+
+<h2>Sustainable</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Mickaila Sandre (opens in a new tab)" href="https://www.linkedin.com/in/mickaila-sandre/" target="_blank">Mickaila Sandre</a></h3>
+
+
+
+<p>Sustainable is an iOS app that helps eco-conscious consumers practice sustainable living by competing with their friends in various challenges.</p>
+
+
+
+<p>Want to eat less meat? Challenge a friend to take meatless Mondays with you. Want to remember to carry your water bottle more frequently? See if your friend is willing to try it too!</p>
+
+
+
+<p>Watch Mickaila <a rel="noreferrer noopener" aria-label="demo (opens in a new tab)" href="https://brainstation.io/hiring-brainstation-graduates" target="_blank">demo</a> her project.  </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-1024x880.jpg" alt="" class="wp-image-11258" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-1024x880.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-300x258.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-768x660.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-1536x1321.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-2048x1761.jpg 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-960x825.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17153916/02-Challenges-Mickey-Sandre-scaled.jpg 2560w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>tldnr</h2>
+
+
+
+<h3><a href="https://www.linkedin.com/in/jacobaspler/" target="_blank" rel="noreferrer noopener" aria-label="Izzy Aspler (opens in a new tab)">Izzy Aspler</a></h3>
+
+
+
+<p>Izzy designed tldnr (too long, did not read), a mobile app built for board game lovers. If you&#8217;ve forgotten a rule, tldnr provides quick, smart search results of game facts. The app harnesses the contributions of game enthusiasts to maintain and improve official rule documentation and also allows for new interpretations so gamers can create alternative ways to play the same game.</p>
+
+
+
+<p>See more of Izzy&#8217;s <a href="https://www.izzy.works/">work</a> on his portfolio. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20150845/UI-Design-Izzy-Aspler-1024x372.jpg" alt="" class="wp-image-11277" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20150845/UI-Design-Izzy-Aspler-1024x372.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20150845/UI-Design-Izzy-Aspler-300x109.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20150845/UI-Design-Izzy-Aspler-768x279.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20150845/UI-Design-Izzy-Aspler-1536x558.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20150845/UI-Design-Izzy-Aspler-960x349.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20150845/UI-Design-Izzy-Aspler.jpg 1920w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/ux-design-showcase-winter-2020">UX Design Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+		<item>
+		<title>Data Science Showcase Winter 2020</title>
+		<link>https://brainstation.io/blog/data-science-showcase-winter-2020</link>
+				<pubDate>Tue, 21 Apr 2020 15:00:00 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Data Science]]></category>
+		<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[capstone]]></category>
+		<category><![CDATA[data analytics]]></category>
+		<category><![CDATA[data science]]></category>
+		<category><![CDATA[stud]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11268</guid>
+				<description><![CDATA[<p>Look through some of our favorite Data Science graduate projects.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-showcase-winter-2020">Data Science Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Despite the COVID-19 outbreak, hundreds of BrainStation students recently graduated with Diplomas in UX Design, <a rel="noreferrer noopener" aria-label="Web Development (opens in a new tab)" href="https://brainstation.io/blog/graduate-showcase-winter-2020" target="_blank">Web Development</a>, and Data Science. We couldn&#8217;t be prouder of their achievements and the way they took everything in stride.</p>
+
+
+
+<p>BrainStation’s full-time Diploma programs culminate with students producing an individual portfolio piece for their final Capstone project.</p>
+
+
+
+<p>Here are some of our favorite Data Science projects from Winter 2020. You can also see all of our graduate&#8217;s projects on our <a rel="noreferrer noopener" aria-label="hiring page (opens in a new tab)" href="https://brainstation.io/hiring-brainstation-graduates" target="_blank">hiring page</a>. </p>
+
+
+
+<h2>RoadBoost: Intelligent Traffic Light Control System</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Daria Aza (opens in a new tab)" href="https://www.linkedin.com/in/dariaaza/" target="_blank">Daria Aza</a></h3>
+
+
+
+<p>The satisfying video below speaks for itself. See how Daria was able to improve traffic flow using Deep reinforcement learning to regulate traffic lights.&nbsp;</p>
+
+
+
+<p>Using SUMO (Simulation of Urban Mobility) to create an environment with vehicles and pedestrians, Daria’s goal was to teach traffic lights to react to situations in real-time and adjust lights accordingly. The negative cumulative reward was calculated based on the number of vehicles and pedestrians stopped at the intersection. After every action, the reward was recalculated, eventually decreasing the delay to such an extent that most vehicles and pedestrians were able to move through without waiting. </p>
+
+
+
+<p>View Daria’s <a rel="noreferrer noopener" aria-label=" (opens in a new tab)" href="https://github.com/dariaaza" target="_blank">GitHub</a> to learn more.&nbsp;</p>
+
+
+
+<figure class="wp-block-video"><video controls src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/13163335/intersectionnew.mp4"></video></figure>
+
+
+
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Data.jpg" alt="Icon"></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a Data Scientist in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/remote-data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Data Science Diploma Program</a> is a full-time, 12-week program that provides professionals with the skills and experience to start a new career in data.</p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/data-science-bootcamp?utm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+
+</div>
+</div>
+</div>
+
+
+
+<h2>Human Activity Recognition</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Carlo Jiaxu Chen (opens in a new tab)" href="https://www.linkedin.com/in/jiaxuchenyvr/" target="_blank">Carlo Jiaxu Chen</a></h3>
+
+
+
+<p>Carlo developed a novel attribute-based machine learning architecture that can recognize human activities such as walking, running, or laying down with limited training data, and an efficient neural network model (CNN-LSTM). The model can accurately predict your activity with results of up to 94 percent accuracy!</p>
+
+
+
+<p>He intends for this technology to be useful for virtual reality software, health, and fitness services, and more. </p>
+
+
+
+<p>See Carlo&#8217;s <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/CarloCHEN" target="_blank">GitHub</a> to see more of his process. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-1024x581.png" alt="" class="wp-image-11103" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-1024x581.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-300x170.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-768x436.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-1536x872.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-2048x1162.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM-960x545.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14160837/Screen-Shot-2020-04-14-at-4.07.51-PM.png 2664w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Classifying Letters of the ASL Alphabet</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Angel Phanthanourak (opens in a new tab)" href="http://www.linkedin.com/in/angelphanth/" target="_blank">Angel Phanthanourak</a></h3>
+
+
+
+<p>Angel sought to classify letters of the American Sign Language (ASL) alphabet in real-time. Using deep learning (specifically the VGG16 Convolutional Neural Network) she was able to predict ASL letters from live webcam capture with 66 percent accuracy, much higher than randomized predictions, which are accurate 4 percent of the time. </p>
+
+
+
+<p>Her hope is that this tool can help accessibility and independence for members of the deaf, hard of hearing, and non-verbal communities. </p>
+
+
+
+<p>Find updates on Angel&#8217;s <a rel="noreferrer noopener" aria-label="LinkedIn (opens in a new tab)" href="https://www.linkedin.com/in/angelphanth/" target="_blank">LinkedIn</a>.</p>
+
+
+
+<figure class="wp-block-video"><video controls src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153119/Sequence-01_1.mp4"></video></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-1024x816.jpg" alt="" class="wp-image-11064" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-1024x816.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-300x239.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-768x612.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-1536x1224.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak-960x765.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09153142/Confusion-Matrices-displaying-best-model-performance-Angel-Phanthanourak.jpg 2000w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Forecasting Import and Export Trends</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Reza Navidi (opens in a new tab)" href="https://www.linkedin.com/in/reza-navidi-b6a0728/" target="_blank">Reza Navidi</a></h3>
+
+
+
+<p>Reza&#8217;s time series model forecasts import and export trends in Canada. The model investigates global market shares and finds the top merchandise in import and export over the years.  </p>
+
+
+
+<p>See his work on <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/rnavidi" target="_blank">GitHub</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-1024x722.jpg" alt="" class="wp-image-11245" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-1024x722.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-300x212.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-768x542.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi-960x677.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17144808/2-Box-graph-import-reza-omran-navidi.jpg 1242w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Radiomics: Associating tumor features with survival outcome</h2>
+
+
+
+<h3>(<a rel="noreferrer noopener" aria-label="Hervé (opens in a new tab)" href="https://www.linkedin.com/in/herve-choi/" target="_blank">Hervé</a>) Hiu Fai Choi</h3>
+
+
+
+<p>Hervé’s project aims to associate lung cancer tumor features with the survival outcome of the patient. Observing characteristics of the tumor, such as how big, irregular, lumpy, or coarse the tumor is, may influence the treatment the patient chooses to undergo or the clinician chooses to administer. </p>
+
+
+
+<p>Herve’s data found that more non-uniform tumors yield unfavorable survival outcomes, which may prompt more aggressive approaches for tumor management. </p>
+
+
+
+<p>Look into more of <a href="https://github.com/hhfchoi" target="_blank" rel="noreferrer noopener" aria-label="Herve’s work (opens in a new tab)">Herve’s work</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-1024x683.png" alt="" class="wp-image-11054" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-1024x683.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-300x200.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-768x512.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi-960x640.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150238/histogram-of-gray-level-non-uniformity-normalized-for-the-clusters-Herve-Choi.png 1512w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Use of NLP and Supervised Learning to Target Wine Scores</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Aviel Stern (opens in a new tab)" href="https://www.linkedin.com/in/avielstern/" target="_blank">Aviel Stern</a></h3>
+
+
+
+<p>Aviel created a predictive model for wine scores by looking at geography, price, description, variety, and vintage. This algorithm provides valuable consumer insights to wine sellers curating selections and consumers looking for trendy flavors.</p>
+
+
+
+<p>Her work found that logistic regression performed the best with a 80 percent accuracy score in predicting how well wine would be rated. </p>
+
+
+
+<p>See Aviel&#8217;s process on <a href="https://github.com/avielrs" target="_blank" rel="noreferrer noopener" aria-label="github (opens in a new tab)">github</a>.   </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-1024x702.jpg" alt="" class="wp-image-11250" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-1024x702.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-300x206.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-768x527.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-1536x1053.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern-960x658.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17151438/AvielStern_Figure1-Aviel-Stern.jpg 1756w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>NLP for Fake News Detection</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Tom Satterthwaite (opens in a new tab)" href="https://www.linkedin.com/in/tom-satterthwaite/" target="_blank">Tom Satterthwaite</a></h3>
+
+
+
+<p>The public is only able to identify fake news headlines with 16 to 36 percent accuracy, so Tom aimed to use NLP on news article headlines to develop a model with 75 percent accuracy. </p>
+
+
+
+<p>In the end, Tom was able to build an RNN to achieve an accuracy of 82 percent in predicting fake news. </p>
+
+
+
+<p>Take a look at Tom&#8217;s <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/satters94" target="_blank">GitHub</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-1024x811.png" alt="" class="wp-image-11246" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-1024x811.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-300x238.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-768x608.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-1536x1216.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite-960x760.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17145216/Election-News-Trend-Tom-Satterthwaite.png 1584w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Genre Genie &#8211; Movie Genre Predictions</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Tom Keith (opens in a new tab)" href="https://www.linkedin.com/in/tomkeithdata/" target="_blank">Tom Keith</a></h3>
+
+
+
+<p>Tom&#8217;s app predicts movie genres from a plot summary using multi-label classification machine learning and natural language processing.</p>
+
+
+
+<p>Just enter a plot summary and Genre Genie will predict the genre breakdown between themes such as action, fantasy, adventure, sci-fi, or drama with up to 100 percent accuracy. </p>
+
+
+
+<p><a rel="noreferrer noopener" aria-label="Try Genre Genie (opens in a new tab)" href="http://tomkeith.pythonanywhere.com/" target="_blank">Try Genre Genie</a> for yourself, and see Tom&#8217;s <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/tomkeith" target="_blank">GitHub</a> for more details. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-1024x725.png" alt="" class="wp-image-11107" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-1024x725.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-300x212.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-768x544.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith-960x679.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181117/Genre-genie-1-app-screenshot-Tom-Keith.png 1201w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/data-science-showcase-winter-2020">Data Science Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+							<enclosure url="https://brainstation.io/blog/wp-content/uploads/2020/04/intersectionnew.mp4" length="1964608" type="video/mp4" />
+<enclosure url="https://brainstation.io/blog/wp-content/uploads/2020/04/Sequence-01_1.mp4" length="1868968" type="video/mp4" />
+			</item>
+		<item>
+		<title>Web Development Showcase Winter 2020</title>
+		<link>https://brainstation.io/blog/graduate-showcase-winter-2020</link>
+				<pubDate>Fri, 10 Apr 2020 00:26:00 +0000</pubDate>
+		<dc:creator><![CDATA[BrainStation]]></dc:creator>
+				<category><![CDATA[Student Experience]]></category>
+		<category><![CDATA[Web Development]]></category>
+		<category><![CDATA[capstone]]></category>
+		<category><![CDATA[coding]]></category>
+		<category><![CDATA[Coding bootcamp]]></category>
+		<category><![CDATA[web development]]></category>
+
+		<guid isPermaLink="false">https://brainstation.io/blog/?p=11030</guid>
+				<description><![CDATA[<p>Look through some of our favorite Web Development graduate projects.</p>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/graduate-showcase-winter-2020">Web Development Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></description>
+								<content:encoded><![CDATA[
+<p>Despite the COVID-19 outbreak, hundreds of BrainStation students recently graduated with Diplomas in UX Design, Web Development, and Data Science. We couldn&#8217;t be prouder of their achievements and the way they took everything in stride.</p>
+
+
+
+<p>BrainStation’s full-time Diploma programs culminate with students producing an individual portfolio piece for their final Capstone project.</p>
+
+
+
+<p>Here are some of our favorite Web Development projects from Winter 2020. You can also see all of our graduate&#8217;s projects on our <a rel="noreferrer noopener" aria-label="hiring page (opens in a new tab)" href="https://brainstation.io/hiring-brainstation-graduates" target="_blank">hiring page</a>. </p>
+
+
+
+<h2>Rally</h2>
+
+
+
+<h3><a href="https://www.linkedin.com/in/thomasvgriffiths/" target="_blank" rel="noreferrer noopener" aria-label="Thomas Griffiths (opens in a new tab)">Thomas Griffiths</a></h3>
+
+
+
+<p>Rally is a React Native app that helps social circles have spontaneous hangouts. First, taking shared interests into consideration, the app connects users with their nearby friends that have a high chance of hanging out.  Then, users are provided suggestions of places to go and things to do based on their location and interests.</p>
+
+
+
+<p>Watch Thomas <a href="https://brainstation.io/hiring-brainstation-graduates" target="_blank" rel="noreferrer noopener" aria-label="demo (opens in a new tab)">demo</a> his work. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154041/Screen-Shot-2020-04-20-at-3.35.03-PM-1.png" alt="" class="wp-image-11280" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154041/Screen-Shot-2020-04-20-at-3.35.03-PM-1.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154041/Screen-Shot-2020-04-20-at-3.35.03-PM-1-300x234.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154041/Screen-Shot-2020-04-20-at-3.35.03-PM-1-768x600.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154041/Screen-Shot-2020-04-20-at-3.35.03-PM-1-960x750.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1.jpg" alt="" class="wp-image-11281" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1.jpg 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1-300x300.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1-150x150.jpg 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1-768x768.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1-109x109.jpg 109w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1-100x100.jpg 100w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20154049/Rally-Selection-Go-Out-Thomas-Griffiths-1-960x960.jpg 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2>Perfect Cup</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Andrii Taran (opens in a new tab)" href="https://www.linkedin.com/in/andriitaran/" target="_blank">Andrii Taran</a></h3>
+
+
+
+<p>Perfect Cup is a mobile app that helps users make the perfect cup of coffee every time (who doesn’t want that?). The app also allows you to customize recipes and techniques to suit your taste, helping you take your home-brewing skills to the next level. Start by selecting pour-over or French press, then follow directions for the perfect brew time and bean-to-water ratio based on your roast and taste preferences. </p>
+
+
+
+<p>See Andrii’s <a rel="noreferrer noopener" aria-label="Github (opens in a new tab)" href="https://github.com/andriitaran" target="_blank">Github</a> to get the full scope of his project.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111139/Brew_Welcome-Screen-Andrii-Taran.png" alt="" class="wp-image-11031" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111139/Brew_Welcome-Screen-Andrii-Taran.png 978w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111139/Brew_Welcome-Screen-Andrii-Taran-300x295.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111139/Brew_Welcome-Screen-Andrii-Taran-768x755.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111139/Brew_Welcome-Screen-Andrii-Taran-960x943.png 960w" sizes="(max-width: 978px) 100vw, 978px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111223/Brew-Adjustment-Page-Andrii-Taran.png" alt="" class="wp-image-11032" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111223/Brew-Adjustment-Page-Andrii-Taran.png 786w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111223/Brew-Adjustment-Page-Andrii-Taran-265x300.png 265w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09111223/Brew-Adjustment-Page-Andrii-Taran-768x870.png 768w" sizes="(max-width: 786px) 100vw, 786px" /></figure>
+
+
+
+<h2>uChoose</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Fitale Wari (opens in a new tab)" href="https://www.linkedin.com/in/fitale-wari/" target="_blank">Fitale Wari</a></h3>
+
+
+
+<p>Fitale developed uChoose, an app that suggests universities for you to consider based on simplified campus match scores, tuition costs, and location preferences. Not only can users find the schools that best fit their academic standing, but they can also find institutions that are most affordable and begin the application process. </p>
+
+
+
+<p>See Fitale&#8217;s <a href="https://github.com/fitale" target="_blank" rel="noreferrer noopener" aria-label="github (opens in a new tab)">github</a>. </p>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143233/mobile_landing-page-Fitale-Wari-510x1024.png" alt="" class="wp-image-11243" width="306" height="615" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143233/mobile_landing-page-Fitale-Wari-510x1024.png 510w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143233/mobile_landing-page-Fitale-Wari-150x300.png 150w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143233/mobile_landing-page-Fitale-Wari.png 650w" sizes="(max-width: 306px) 100vw, 306px" /></figure>
+
+
+
+<figure class="wp-block-image size-large is-resized"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143243/mobile_university-page-Fitale-Wari-535x1024.png" alt="" class="wp-image-11244" width="304" height="582" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143243/mobile_university-page-Fitale-Wari-535x1024.png 535w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143243/mobile_university-page-Fitale-Wari-157x300.png 157w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17143243/mobile_university-page-Fitale-Wari.png 688w" sizes="(max-width: 304px) 100vw, 304px" /></figure>
+
+
+
+<div class="lead-grid-container">
+<div class="lead__card">
+<div class="lead__image"><img class="hide--mobile" src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/03/Dev-2.jpg" alt="Icon" /></div>
+<div class="lead__content">
+<p id="lead__heading" class="heading--4">Become a Web Developer in just 12 weeks!</p>
+<p class="lead__description">BrainStation&#8217;s <a href="https://brainstation.io/course/online/remote-web-development-bootcamp?utm_source=Blog&#038;utm_medium=BlogPost&#038;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Web Development Diploma Program</a> is a full-time, 12-week program that equips professionals with the skills and experience to start a new career in development. </p>
+<p id="lead__button--margin"><a id="lead__button--hover" class="lead__button" href="https://brainstation.io/book-call/remote-web-development-bootcamp?utm_source=Blog&#038;utm_medium=BlogPost&#038;utm_campaign=blogLead" target="_blank" rel="noopener noreferrer">Speak to a Learning Advisor</a></p>
+
+</div>
+</div>
+</div>
+
+
+
+<h2>Odyssey80</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Lesley Dent (opens in a new tab)" href="https://www.linkedin.com/in/lesley-dent/" target="_blank">Lesley Dent</a></h3>
+
+
+
+<p>Inspired by the text-adventure games of the 1980s, Odyssey80 is a browser game where you help an old computer update its way into the 21st century.</p>
+
+
+
+<p>The game begins with a cry for help: can you help the computer advance into the current era? If you&#8217;re in, you&#8217;ll be immersed in a world of neon and riddles. </p>
+
+
+
+<p>See more of Lesley&#8217;s work on her <a href="https://github.com/LesleyDent" target="_blank" rel="noreferrer noopener" aria-label="github (opens in a new tab)">github</a>.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181717/Screen-Shot-2020-04-06-at-11.31.30-AM-Lesley-Dent.png" alt="" class="wp-image-11108" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181717/Screen-Shot-2020-04-06-at-11.31.30-AM-Lesley-Dent.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181717/Screen-Shot-2020-04-06-at-11.31.30-AM-Lesley-Dent-300x159.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181717/Screen-Shot-2020-04-06-at-11.31.30-AM-Lesley-Dent-768x408.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14181717/Screen-Shot-2020-04-06-at-11.31.30-AM-Lesley-Dent-960x510.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14182127/Screen-Shot-2020-04-06-at-11.36.25-AM-Lesley-Dent.png" alt="" class="wp-image-11109" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14182127/Screen-Shot-2020-04-06-at-11.36.25-AM-Lesley-Dent.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14182127/Screen-Shot-2020-04-06-at-11.36.25-AM-Lesley-Dent-300x159.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14182127/Screen-Shot-2020-04-06-at-11.36.25-AM-Lesley-Dent-768x408.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14182127/Screen-Shot-2020-04-06-at-11.36.25-AM-Lesley-Dent-960x510.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2>Sembrana</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Philip Bertogg (opens in a new tab)" href="https://www.linkedin.com/in/philip-bertogg/" target="_blank">Philip Bertogg</a></h3>
+
+
+
+<p>Sembrana aims to empower users to grow fresh, organic produce in the comfort of their own homes, helping them reduce their carbon footprint, improve their living environment, and find a healthy, affordable alternative to store-bought produce. </p>
+
+
+
+<p>Philip created this website for his mother’s business back in Ecuador (hence the Spanish name). He wanted to create a website that made information about Sembrana easily accessible to customers. </p>
+
+
+
+<p>Take a look at at Philip&#8217;s <a href="https://github.com/Philip-93" target="_blank" rel="noreferrer noopener" aria-label="Github (opens in a new tab)">Github</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09145926/Logo-Philip-Bertogg-1024x641.png" alt="" class="wp-image-11049" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09145926/Logo-Philip-Bertogg-1024x641.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09145926/Logo-Philip-Bertogg-300x188.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09145926/Logo-Philip-Bertogg-768x481.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09145926/Logo-Philip-Bertogg-960x601.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09145926/Logo-Philip-Bertogg.png 1440w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150038/Home-Page-Philip-Bertogg.png" alt="" class="wp-image-11051" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150038/Home-Page-Philip-Bertogg.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150038/Home-Page-Philip-Bertogg-300x155.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150038/Home-Page-Philip-Bertogg-768x397.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150038/Home-Page-Philip-Bertogg-960x496.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<h2>Yummy Recipes</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Rajat Bansal (opens in a new tab)" href="https://www.linkedin.com/in/rjtbansal/" target="_blank">Rajat Bansal</a></h3>
+
+
+
+<p>Rajat created Yummy Recipes to provide a modern alternative for users to view and upload homemade recipes with easy to use interface built with state of the art tech stack. Users can view daily specials as well as recipes by cuisines, categories and guest users. </p>
+
+
+
+<p>See more of Rajat&#8217;s <a href="https://github.com/rjtbansal" target="_blank" rel="noreferrer noopener" aria-label="work (opens in a new tab)">work</a>.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14174225/home-page-Rajat-Bansal-1024x486.png" alt="" class="wp-image-11106" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14174225/home-page-Rajat-Bansal-1024x486.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14174225/home-page-Rajat-Bansal-300x142.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14174225/home-page-Rajat-Bansal-768x365.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14174225/home-page-Rajat-Bansal-1536x730.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14174225/home-page-Rajat-Bansal-960x456.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14174225/home-page-Rajat-Bansal.png 1897w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>QueuePid</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Tiffany Chan (opens in a new tab)" href="https://www.linkedin.com/in/tiffanyvchan" target="_blank">Tiffany Chan</a></h3>
+
+
+
+<p>QueuePid is a music compatibility app based on Spotify streaming data. It showcases your recent top music trends and aims to find your musical soulmate by calculating a compatibility score with another user. By selecting a user, it allows you to explore your song, artist, and genre matches and then compares average features (e.g. danceability, energy, mood, speechiness, acousticness) based on your most-streamed tracks. </p>
+
+
+
+<p>See Tiffany&#8217;s <a href="https://github.com/tiffvchan" target="_blank" rel="noreferrer noopener" aria-label="portfolio (opens in a new tab)">portfolio</a>.&nbsp;</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150258/ComparePage1-Tiffany-Chan-1024x692.png" alt="" class="wp-image-11055" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150258/ComparePage1-Tiffany-Chan-1024x692.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150258/ComparePage1-Tiffany-Chan-300x203.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150258/ComparePage1-Tiffany-Chan-768x519.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150258/ComparePage1-Tiffany-Chan-960x649.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09150258/ComparePage1-Tiffany-Chan.png 1071w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Blue Banana Solutions</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Connor Steele (opens in a new tab)" href="https://www.linkedin.com/in/connorsteele/" target="_blank">Connor Steele</a></h3>
+
+
+
+<p>For the marketers in the room, Connor created Blue Banana Solutions, a hub where users can view and export custom Salesforce and Google Analytics reports in one place. The interactive charts are any marketer’s dream come true. </p>
+
+
+
+<p>View Connor’s <a rel="noreferrer noopener" aria-label=" (opens in a new tab)" href="https://github.com/chromewhip" target="_blank">Github</a>.</p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele-1024x964.png" alt="" class="wp-image-11058" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele-1024x964.png 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele-300x282.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele-768x723.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele-1536x1446.png 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele-2048x1927.png 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele-960x903.png 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/09151441/localhost_3000_-1-Connor-Steele.png 2920w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Tree App</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Chris Harris (opens in a new tab)" href="https://www.linkedin.com/in/chris-harris-11512878/" target="_blank">Chris Harris</a></h3>
+
+
+
+<p>Chris&#8217;s app enables tree planting supervisors to record project information on one dynamic table. Having been a tree planter himself, Chris knows this tool will provide valuable project insights and validations in one place, eliminating a lot of the work, redundancy and chances for error.</p>
+
+
+
+<p>See Chris&#8217;s <a href="https://github.com/shaktiness" target="_blank" rel="noreferrer noopener" aria-label="github (opens in a new tab)">github</a> for more details. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162835/Screen-Shot-2020-04-14-at-4.24.34-PM.png" alt="" class="wp-image-11105" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162835/Screen-Shot-2020-04-14-at-4.24.34-PM.png 1000w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162835/Screen-Shot-2020-04-14-at-4.24.34-PM-300x252.png 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162835/Screen-Shot-2020-04-14-at-4.24.34-PM-768x645.png 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162835/Screen-Shot-2020-04-14-at-4.24.34-PM-960x806.png 960w" sizes="(max-width: 1000px) 100vw, 1000px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris-1024x922.jpg" alt="" class="wp-image-11104" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris-1024x922.jpg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris-300x270.jpg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris-768x692.jpg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris-1536x1383.jpg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris-2048x1845.jpg 2048w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris-960x865.jpg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/14162633/2020-04-03-Tree-App-2.0-Chris-Harris.jpg 2236w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+
+
+
+<h2>Waste Not</h2>
+
+
+
+<h3><a rel="noreferrer noopener" aria-label="Laura Brennan (opens in a new tab)" href="https://www.linkedin.com/in/laura-jane-brennan/" target="_blank">Laura Brennan</a></h3>
+
+
+
+<p>Waste Not is a zero-waste, zero-dollar exchange network; it&#8217;s a message-board style platform that links people who have things they don&#8217;t need with those seeking the same products.</p>
+
+
+
+<p>Users can browse posted items, filter by neighbourhood, create new posts, and securely comment to get in touch with others in the network.</p>
+
+
+
+<p>See Laura&#8217;s work on <a href="https://github.com/laurajbrennan" target="_blank" rel="noreferrer noopener" aria-label="github (opens in a new tab)">github</a>. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154350/Screen-Shot-2020-04-17-at-3.42.47-PM-472x1024.png" alt="" class="wp-image-11259" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154350/Screen-Shot-2020-04-17-at-3.42.47-PM-472x1024.png 472w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154350/Screen-Shot-2020-04-17-at-3.42.47-PM-138x300.png 138w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154350/Screen-Shot-2020-04-17-at-3.42.47-PM.png 688w" sizes="(max-width: 472px) 100vw, 472px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154412/Screen-Shot-2020-04-17-at-3.43.09-PM-476x1024.png" alt="" class="wp-image-11260" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154412/Screen-Shot-2020-04-17-at-3.43.09-PM-476x1024.png 476w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154412/Screen-Shot-2020-04-17-at-3.43.09-PM-139x300.png 139w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/17154412/Screen-Shot-2020-04-17-at-3.43.09-PM.png 562w" sizes="(max-width: 476px) 100vw, 476px" /></figure>
+
+
+
+<h2>QR Card</h2>
+
+
+
+<h3><a href="https://www.linkedin.com/in/briantalves/" target="_blank" rel="noreferrer noopener" aria-label="Brian Alves (opens in a new tab)">Brian Alves</a></h3>
+
+
+
+<p>Using React and Node.js, Brian created QR Card, an app that outputs a 3D-printed business card with a QR code that holds your CV, LinkedIn, Github, and any other portfolio assets you want to include.</p>
+
+
+
+<p>Brian&#8217;s app is intended to help new candidates stand out in the hiring market. </p>
+
+
+
+<p>See his <a rel="noreferrer noopener" aria-label="github (opens in a new tab)" href="https://github.com/briantalves" target="_blank">github</a> for more details, and watch his <a href="https://brainstation.io/hiring-brainstation-graduates" target="_blank" rel="noreferrer noopener" aria-label="demo (opens in a new tab)">demo</a> to see the 3D printer in action. </p>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20161032/QR-Card-Digital-Brian-Alves.png" alt="" class="wp-image-11284" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20161032/QR-Card-Digital-Brian-Alves.png 394w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20161032/QR-Card-Digital-Brian-Alves-153x300.png 153w" sizes="(max-width: 394px) 100vw, 394px" /></figure>
+
+
+
+<figure class="wp-block-image size-large"><img src="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves-1024x768.jpeg" alt="" class="wp-image-11283" srcset="https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves-1024x768.jpeg 1024w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves-300x225.jpeg 300w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves-768x576.jpeg 768w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves-1536x1152.jpeg 1536w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves-705x529.jpeg 705w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves-960x720.jpeg 960w, https://d1jxdyr49kipv5.cloudfront.net/prod/wp-content/uploads/2020/04/20160929/QR-Card-physical-Brian-Alves.jpeg 1600w" sizes="(max-width: 1024px) 100vw, 1024px" /></figure>
+<p>The post <a rel="nofollow" href="https://brainstation.io/blog/graduate-showcase-winter-2020">Web Development Showcase Winter 2020</a> appeared first on <a rel="nofollow" href="https://brainstation.io/blog">BrainStation® Blog</a>.</p>
+]]></content:encoded>
+										</item>
+	</channel>
+</rss>
