@@ -1,0 +1,74 @@
+0
+1
+00:00:00,150 --> 00:00:00,850
+Hello, friends.
+1
+
+2
+00:00:00,870 --> 00:00:03,090
+Welcome to this course in this course.
+2
+
+3
+00:00:03,120 --> 00:00:08,010
+We will be learning Gatsby and Graphql, and we will create a blog website.
+3
+
+4
+00:00:09,380 --> 00:00:12,320
+So are there any course requirements or prerequisite?
+4
+
+5
+00:00:13,370 --> 00:00:18,860
+To work on this project, you must have the following skill sets, you should have basic knowledge of
+5
+
+6
+00:00:18,860 --> 00:00:23,030
+HTML, basic knowledge of CSIS and basic knowledge of JavaScript.
+6
+
+7
+00:00:24,200 --> 00:00:30,770
+Course objectives, participants will be able to implement their Gatsbyjs and graphql concept in
+7
+
+8
+00:00:30,770 --> 00:00:37,610
+their current and future projects what you will learn in this course, we will create a blog website
+8
+
+9
+00:00:37,610 --> 00:00:39,170
+using Gastby and graphql.
+9
+
+10
+00:00:39,920 --> 00:00:46,670
+And for styling, we will be using style components who are the target of students, students with no
+10
+
+11
+00:00:46,670 --> 00:00:53,600
+Gatsby and graphql experience, front end developers and anyone who wants to learn Gatsby and graphql
+11
+
+12
+00:00:53,690 --> 00:00:53,870
+in.
+12
+
+13
+00:00:55,080 --> 00:01:01,230
+By the end of the course, you will have the following skill set hands on regarding practical and real
+13
+
+14
+00:01:01,230 --> 00:01:05,520
+life scenario of creating a blog using Gatsby and graphql.
+14
+
+15
+00:01:06,480 --> 00:01:09,900
+So let's get started and I'll see you in the next video.

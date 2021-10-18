@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+.help.figma.com	TRUE	/	FALSE	1999999999	__cfruid	85ccab3baa62785057e5bbfcddef0eda7b9e1b68-1634200364
+help.figma.com	TRUE	/	FALSE	1999999999	SameSite	None
+
