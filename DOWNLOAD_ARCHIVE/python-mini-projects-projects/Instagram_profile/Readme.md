@@ -1,16 +1,17 @@
 ## Instgram profile information
 
-### install packages 
+### install packages
+
 ```
 pip install -r requirements.txt
 ```
 
 ### Execute Program
+
 ```
 python InstgramProfile.py <username>
 ```
 
-### Sample run 
-
+### Sample run
 
 <img src="output.png"/>

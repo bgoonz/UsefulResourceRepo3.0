@@ -8,7 +8,7 @@
 //   return cache.pop()
 // }
 
-export const fibonacci = n =>
+export const fibonacci = (n) =>
   Array(n)
     .fill()
-    .reduce(([a, b]) => [b, a + b], [0, 1])[0]
+    .reduce(([a, b]) => [b, a + b], [0, 1])[0];

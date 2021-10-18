@@ -9,7 +9,7 @@ Modern Roman numerals are written by expressing each digit separately starting w
 Example:
 
 ```js
-solution(1000) // should return 'M'
+solution(1000); // should return 'M'
 ```
 
 Help:

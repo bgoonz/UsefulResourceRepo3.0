@@ -12,4 +12,4 @@
 // }
 
 export const findDigit = (n, k) =>
-  k <= 0 ? -1 : ~~Math.abs((n / 10 ** (k - 1)) % 10)
+  k <= 0 ? -1 : ~~Math.abs((n / 10 ** (k - 1)) % 10);

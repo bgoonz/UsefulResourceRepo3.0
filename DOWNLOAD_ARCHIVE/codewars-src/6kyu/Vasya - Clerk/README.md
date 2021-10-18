@@ -11,7 +11,7 @@ Can Vasya sell a ticket to each person and give the change if he initially has n
 Return YES, if Vasya can sell a ticket to each person and give the change with the bills he has at hand at that moment. Otherwise return NO.
 
 ```js
-tickets([25, 25, 50]) // => YES
-tickets([25, 100])
+tickets([25, 25, 50]); // => YES
+tickets([25, 100]);
 // => NO. Vasya will not have enough money to give change to 100 dollars
 ```

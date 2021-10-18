@@ -17,5 +17,5 @@
 //   ].length
 // }
 
-export const duplicateCount = text =>
-  (text.match(/(\w)(?=(?!.*\1.*\1).*\1)/gi) || []).length
+export const duplicateCount = (text) =>
+  (text.match(/(\w)(?=(?!.*\1.*\1).*\1)/gi) || []).length;

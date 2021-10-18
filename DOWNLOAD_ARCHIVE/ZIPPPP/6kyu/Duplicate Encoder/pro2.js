@@ -1,6 +1,6 @@
 export function duplicateEncode(word) {
-  word = word.toLowerCase()
+  word = word.toLowerCase();
   return word
     .toLowerCase()
-    .replace(/./g, m => (word.indexOf(m) == word.lastIndexOf(m) ? '(' : ')'))
+    .replace(/./g, (m) => (word.indexOf(m) == word.lastIndexOf(m) ? "(" : ")"));
 }

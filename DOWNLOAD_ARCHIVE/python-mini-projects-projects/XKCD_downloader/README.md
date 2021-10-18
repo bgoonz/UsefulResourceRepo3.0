@@ -15,4 +15,3 @@ python3 xkcd_downloader.py -l 'issue-number'
 Example :
 
 python3 xkcd_downloader.py -l 956
-

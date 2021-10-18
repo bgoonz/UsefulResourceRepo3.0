@@ -12,10 +12,10 @@ Your task is to write the function longestSequence(n) that either finds the long
 ## Example
 
 ```js
-longestSequence(50) // => [3, 4, 5]
+longestSequence(50); // => [3, 4, 5]
 // 9 + 16 + 25 = 50
 
-longestSequence(595) // => [6, 7, 8, 9, 10, 11, 12]
+longestSequence(595); // => [6, 7, 8, 9, 10, 11, 12]
 
-longestSequence(10) // => []
+longestSequence(10); // => []
 ```

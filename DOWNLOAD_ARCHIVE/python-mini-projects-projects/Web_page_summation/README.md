@@ -6,7 +6,6 @@ This project is carried out for the purpose of building a machine learning model
 
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-
 ### Prerequisites
 
 Python distribution
@@ -43,23 +42,22 @@ Install dependencies using requirements file
 
 ```
 pip install -r requirements.txt
-``` 
+```
+
 **Note: Your virtual environment must always be activated before running any command**
 
 ## Deployment
 
 Start app (Make sure to enter a valid website to an existing website)
 
-
 Example of valid commands
 
 ```
 python app.py simple --url https://facebook.com --sentence 1 --language english
-python app.py simple --url https://facebook.com 
+python app.py simple --url https://facebook.com
 python app.py simple --url https://korapay.com
 python app.py bulk --path ./csv/valid_websites.csv
 ```
-
 
 ### APIs
 
@@ -82,3 +80,4 @@ optional arguments:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE.md) file for details
 
+```

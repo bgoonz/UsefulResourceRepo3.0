@@ -1,7 +1,7 @@
-export const orderWeight = str =>
+export const orderWeight = (str) =>
   str
-    .split(' ')
+    .split(" ")
     .sort((a, b) => sum(a) - sum(b) || a.localeCompare(b))
-    .join(' ')
+    .join(" ");
 
-const sum = str => str.split``.reduce((sum, x) => sum + +x, 0)
+const sum = (str) => str.split``.reduce((sum, x) => sum + +x, 0);

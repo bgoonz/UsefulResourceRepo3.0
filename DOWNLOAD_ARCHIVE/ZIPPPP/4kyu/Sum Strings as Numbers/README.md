@@ -8,5 +8,5 @@ A string representation of an integer will contain no characters besides the ten
 ## Example
 
 ```js
-sumStrings('1', '2') // => '3'
+sumStrings("1", "2"); // => '3'
 ```

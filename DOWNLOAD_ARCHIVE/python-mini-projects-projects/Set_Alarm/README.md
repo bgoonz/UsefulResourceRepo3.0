@@ -4,17 +4,19 @@ This script lets you set an alarm and plays your selected music after the select
 **THIS SCRIPT ONLY WORKS ON WINDOWS**
 
 ### Usage
+
 ```
 $ python alarm.py
 ```
 
 ### Sample output
-```
-$ python3 alarm.py 
 
-###########################                                                                                           
-###### Alarm Program ######                                                                                           
-###########################                                                                                           
+```
+$ python3 alarm.py
+
+###########################
+###### Alarm Program ######
+###########################
 
 Set the alarm time (e.g. 01:10): 00:01
 
@@ -38,6 +40,6 @@ Enter the index of the listed musics (e.g. 1): 1
 >>> Alarm has been set successfully for 00:01! Please dont close the program! <<<
 ```
 
-## *Author Name*
+## _Author Name_
 
 [Kai Reichart](https://github.com/KaiReichart)

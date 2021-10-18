@@ -9,6 +9,6 @@ The passed in string will only consist of alphabetical characters and spaces(' '
 ## Example
 
 ```js
-toWeirdCase('String') //=> returns "StRiNg"
-toWeirdCase('Weird string case') //=> returns "WeIrD StRiNg CaSe"
+toWeirdCase("String"); //=> returns "StRiNg"
+toWeirdCase("Weird string case"); //=> returns "WeIrD StRiNg CaSe"
 ```

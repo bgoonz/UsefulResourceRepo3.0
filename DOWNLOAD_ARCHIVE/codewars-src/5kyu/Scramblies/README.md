@@ -6,8 +6,8 @@ Complete the function scramble(str1, str2) that returns true if a portion of str
 
 ## Notes
 
-* Only lower case letters will be used (a-z). No punctuation or digits will be included.
-* Performance needs to be considered
+- Only lower case letters will be used (a-z). No punctuation or digits will be included.
+- Performance needs to be considered
 
 # Example
 

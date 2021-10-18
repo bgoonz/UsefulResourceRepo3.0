@@ -2,7 +2,7 @@
 
 This script is used to fetch the status code of any request.
 
-Input: 
+Input:
 -> URL of a website or an API
 
 Output:

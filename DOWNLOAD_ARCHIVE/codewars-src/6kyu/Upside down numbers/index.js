@@ -13,11 +13,11 @@
 
 export const solve = (x, y) =>
   [...Array(y - x).keys()].filter(
-    n =>
-      (n + x + '')
-        .split('')
+    (n) =>
+      (n + x + "")
+        .split("")
         .reverse()
-        .map(n => [0, 1, , , , , 9, , 8, 6][n])
-        .join('') ===
-      n + x + '',
-  ).length
+        .map((n) => [0, 1, , , , , 9, , 8, 6][n])
+        .join("") ===
+      n + x + ""
+  ).length;

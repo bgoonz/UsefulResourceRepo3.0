@@ -7,5 +7,5 @@ Complete the solution so that the function will break up camel casing, using a s
 Example
 
 ```js
-solution('camelCasing') // => should return 'camel Casing'
+solution("camelCasing"); // => should return 'camel Casing'
 ```

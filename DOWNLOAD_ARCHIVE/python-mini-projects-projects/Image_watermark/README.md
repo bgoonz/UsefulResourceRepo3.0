@@ -19,4 +19,5 @@ Replace the `[image_path]` with the image you want to add watermark to.
 The output will be the image with desired watermark.
 
 ## Author
+
 [Mitesh](https://github.com/Mitesh2499)

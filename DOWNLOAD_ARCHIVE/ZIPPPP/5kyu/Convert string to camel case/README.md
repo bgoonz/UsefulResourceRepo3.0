@@ -8,8 +8,8 @@ Complete the method/function so that it converts dash/underscore delimited words
 
 ```js
 // returns "theStealthWarrior"
-toCamelCase('the-stealth-warrior')
+toCamelCase("the-stealth-warrior");
 
 // returns "TheStealthWarrior"
-toCamelCase('The_Stealth_Warrior')
+toCamelCase("The_Stealth_Warrior");
 ```

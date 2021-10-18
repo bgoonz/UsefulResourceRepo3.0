@@ -10,19 +10,19 @@ chmod provides two types of syntax that can be used for changing permissions. An
 
 Here is the list of the permission you can set with the octal representation of this one.
 
-* > User
+- > User
 
   read (4)
   write (2)
   execute (1)
 
-* > Group
+- > Group
 
   read (4)
   write (2)
   execute (1)
 
-* > Other
+- > Other
 
   read (4)
   write (2)

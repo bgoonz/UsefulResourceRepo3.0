@@ -7,10 +7,10 @@
 //   ~~((Math.log(2 * Math.PI * n) / 2 + n * (Math.log(n) - 1)) / Math.LN10) + 1
 
 export function count(n) {
-  let value = 0
+  let value = 0;
   while (n >= 2) {
-    value += Math.log10(n)
-    n--
+    value += Math.log10(n);
+    n--;
   }
-  return ~~value + 1
+  return ~~value + 1;
 }

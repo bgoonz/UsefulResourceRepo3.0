@@ -1,6 +1,6 @@
 export function validBraces(braces) {
   while (/\(\)|\[\]|\{\}/g.test(braces)) {
-    braces = braces.replace(/\(\)|\[\]|\{\}/g, '')
+    braces = braces.replace(/\(\)|\[\]|\{\}/g, "");
   }
-  return braces.length === 0
+  return braces.length === 0;
 }

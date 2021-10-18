@@ -1,7 +1,7 @@
 export function createPhoneNumber(numbers) {
-  let format = '(xxx) xxx-xxxx'
+  let format = "(xxx) xxx-xxxx";
   for (let num of numbers) {
-    format = format.replace('x', num)
+    format = format.replace("x", num);
   }
-  return format
+  return format;
 }

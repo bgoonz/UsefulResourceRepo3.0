@@ -5,4 +5,4 @@
 
 // export const isIsogram = str => !str.match(/([a-z]).*\1/i)
 
-export const isIsogram = str => !str.match(/(.).*\1/i)
+export const isIsogram = (str) => !str.match(/(.).*\1/i);

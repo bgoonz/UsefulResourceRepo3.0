@@ -1,1 +1,1 @@
-export const add = n => m => m + n
+export const add = (n) => (m) => m + n;

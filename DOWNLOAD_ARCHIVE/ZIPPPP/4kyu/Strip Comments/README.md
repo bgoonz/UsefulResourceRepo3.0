@@ -17,7 +17,7 @@ bananas !apples
 The output expected would be:
 
 ```js
-apples, pears
-grapes
-bananas
+apples, pears;
+grapes;
+bananas;
 ```

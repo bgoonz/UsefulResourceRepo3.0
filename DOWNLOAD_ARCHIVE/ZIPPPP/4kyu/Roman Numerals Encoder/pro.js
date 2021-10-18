@@ -13,17 +13,17 @@ export function solution(number) {
     V: 5,
     IV: 4,
     I: 1,
-  }
+  };
 
-  let res = ''
+  let res = "";
   while (number > 0) {
     for (let a in roman) {
       if (roman[a] <= number) {
-        res += a
-        number -= roman[a]
-        break
+        res += a;
+        number -= roman[a];
+        break;
       }
     }
   }
-  return res
+  return res;
 }

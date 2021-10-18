@@ -9,5 +9,5 @@ You have to write the function findMissing(list), list will always be at least 3
 ## Example
 
 ```js
-findMissing([1, 3, 5, 9, 11]) == 7
+findMissing([1, 3, 5, 9, 11]) == 7;
 ```

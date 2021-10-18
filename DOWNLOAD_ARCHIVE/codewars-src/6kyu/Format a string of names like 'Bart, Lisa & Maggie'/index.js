@@ -19,7 +19,7 @@
 
 export function list(names) {
   return names
-    .map(o => o.name)
-    .join(', ')
-    .replace(/^(.*)(, )(.*)$/, '$1 & $3')
+    .map((o) => o.name)
+    .join(", ")
+    .replace(/^(.*)(, )(.*)$/, "$1 & $3");
 }

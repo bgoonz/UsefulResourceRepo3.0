@@ -4,12 +4,11 @@
 
 export function toWeirdCase(string) {
   return string
-    .split(' ')
-    .map(str =>
-      str.replace(
-        /(.)/g,
-        (x, _, i) => (i % 2 === 0 ? x.toUpperCase() : x.toLowerCase()),
-      ),
+    .split(" ")
+    .map((str) =>
+      str.replace(/(.)/g, (x, _, i) =>
+        i % 2 === 0 ? x.toUpperCase() : x.toLowerCase()
+      )
     )
-    .join(' ')
+    .join(" ");
 }

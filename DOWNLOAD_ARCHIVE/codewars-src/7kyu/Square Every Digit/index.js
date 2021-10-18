@@ -6,4 +6,4 @@
 
 // export const squareDigits = x => +`${x}`.replace(/./g, a => a * a)
 
-export const squareDigits = x => +[...`${x}`].map(a => a * a).join``
+export const squareDigits = (x) => +[...`${x}`].map((a) => a * a).join``;

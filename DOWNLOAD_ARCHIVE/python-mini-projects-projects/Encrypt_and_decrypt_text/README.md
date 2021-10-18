@@ -12,9 +12,11 @@ A small python program that encodes and decodes text.
 > python aes_encode.py "a text"
 
 Example:
+
 ```
 python aes_encode.py "hello world"
 ```
+
 An encrypted file (`encrypted.bin`) will be generated
 when the program has finished running.
 

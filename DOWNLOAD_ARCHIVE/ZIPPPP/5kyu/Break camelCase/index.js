@@ -7,5 +7,5 @@
 // }
 
 export function solution(string) {
-  return string.replace(/([a-z])([A-Z])/g, '$1 $2')
+  return string.replace(/([a-z])([A-Z])/g, "$1 $2");
 }

@@ -8,5 +8,5 @@ Write a function that accepts an array of 10 integers (between 0 and 9), that re
 
 ```js
 // => returns "(123) 456-7890"
-createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0])
+createPhoneNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]);
 ```

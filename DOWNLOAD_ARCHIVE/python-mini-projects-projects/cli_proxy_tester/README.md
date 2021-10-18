@@ -1,6 +1,6 @@
 # mini-projects-python - cli based proxy tester (#77)
 
-*Author:* Ingo Kleiber (ingo@kleiber.me)
+_Author:_ Ingo Kleiber (ingo@kleiber.me)
 
 This mini project is a proxy tester based on `requests`. It utilized `pandas` for handling csv files and
 `click` for the CLI.

@@ -1,9 +1,12 @@
 # hashing passwords
+
 ## Execute
+
 `python hashing_passwords.py <password> [-t {sha256,sha512,md5}] `  
-*※Default hash-type is sha256*
+_※Default hash-type is sha256_
 
 ## Example
+
 ```
 $ python hashing_passwords.py nakao
 < hash-type : sha256 >

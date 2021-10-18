@@ -7,7 +7,7 @@ Given a list lst and a number N, create a new list that contains each number of 
 ## Example
 
 ```js
-deleteNth([1, 1, 1, 1], 2) // return [1,1]
+deleteNth([1, 1, 1, 1], 2); // return [1,1]
 
-deleteNth([20, 37, 20, 21], 1) // return [20,37,21]
+deleteNth([20, 37, 20, 21], 1); // return [20,37,21]
 ```

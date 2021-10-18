@@ -1,3 +1,3 @@
 export function toCurrency(price) {
-  return price.toLocaleString()
+  return price.toLocaleString();
 }

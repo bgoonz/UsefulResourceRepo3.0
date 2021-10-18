@@ -7,8 +7,8 @@ This time we want to write calculations using functions and get the results. Let
 ## Example
 
 ```js
-seven(times(five())) // must return 35
-four(plus(nine())) // must return 13
-eight(minus(three())) // must return 5
-six(dividedBy(two())) // must return 3
+seven(times(five())); // must return 35
+four(plus(nine())); // must return 13
+eight(minus(three())); // must return 5
+six(dividedBy(two())); // must return 3
 ```

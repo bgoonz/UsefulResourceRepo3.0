@@ -5,12 +5,10 @@ from an IMAP server.
 
 The messages are written to a simple four-column CSV file.
 
-
 ## Dependencies
 
 This depends on the BeautifulSoup library and `lxml`
 for extracting text from HTML messages.
-
 
 ## Running the script
 
@@ -32,11 +30,10 @@ This generates `mails.csv` in the current directory.
 
 The generated CSV file contains the following fields for each message:
 
-* Date
-* From (Sender)
-* Subject
-* Message text
-
+- Date
+- From (Sender)
+- Subject
+- Message text
 
 ## Development ideas
 
@@ -56,7 +53,6 @@ It might be useful to be able to specify which messages to fetch,
 instead of have it fetch everything every time.
 
 The exception handling is not a good example of how to do this properly.
-
 
 ## Author Name
 

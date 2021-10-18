@@ -1,1 +1,1 @@
-export const flatten = arr => [].concat.apply([], arr)
+export const flatten = (arr) => [].concat.apply([], arr);

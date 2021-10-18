@@ -1,3 +1,3 @@
 export function toCurrency(price) {
-  return price.toString().replace(/(\d)(?=(\d{3})+$)/g, '$1,')
+  return price.toString().replace(/(\d)(?=(\d{3})+$)/g, "$1,");
 }

@@ -7,6 +7,6 @@ Complete the solution so that it splits the string into pairs of two characters.
 ## Example
 
 ```js
-solution('abc') // should return ['ab', 'c_']
-solution('abcdef') // should return ['ab', 'cd', 'ef']
+solution("abc"); // should return ['ab', 'c_']
+solution("abcdef"); // should return ['ab', 'cd', 'ef']
 ```

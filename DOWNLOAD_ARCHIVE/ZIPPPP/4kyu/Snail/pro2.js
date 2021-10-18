@@ -1,11 +1,11 @@
 // HELP:
 
 export function snail(array) {
-  let res = []
+  let res = [];
   while (array.length) {
-    res.push(...array.shift())
-    array.map(row => res.push(row.pop()))
-    array.reverse().map(row => row.reverse())
+    res.push(...array.shift());
+    array.map((row) => res.push(row.pop()));
+    array.reverse().map((row) => row.reverse());
   }
-  return res
+  return res;
 }
