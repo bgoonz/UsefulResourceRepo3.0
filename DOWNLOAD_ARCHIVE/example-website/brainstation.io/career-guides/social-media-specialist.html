@@ -1,0 +1,1685 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="apple-touch-icon" sizes="180x180" href="../app/themes/brainstation/dist/images/favicon/apple-touch-icon_2e744cfd.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../app/themes/brainstation/dist/images/favicon/favicon-32x32_ae68a7a3.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../app/themes/brainstation/dist/images/favicon/favicon-16x16_063a4696.png">
+<link rel="manifest" href="../app/themes/brainstation/dist/images/favicon/site_3cebfca6.webmanifest">
+<link rel="mask-icon" href="../app/themes/brainstation/dist/images/favicon/safari-pinned-tab_5a9c2464.svg" color="#5bbad5">
+<link rel="shortcut icon" href="../app/themes/brainstation/dist/images/favicon/favicon_61094a7e.ico">
+<meta name="apple-mobile-web-app-title" content="BrainStation®">
+<meta name="application-name" content="BrainStation®">
+<meta name="msapplication-TileColor" content="#2b5797">
+<meta name="msapplication-config" content="https://brainstation.io/app/themes/brainstation/dist/images/favicon/browserconfig_c79d3306.xml">
+<meta name="theme-color" content="#ffffff">
+<script data-cfasync="false" type="text/javascript">var ewww_webp_supported=!1;function check_webp_feature(A,e){if(e=void 0!==e?e:function(){},ewww_webp_supported)e(ewww_webp_supported);else{var w=new Image;w.onload=function(){ewww_webp_supported=0<w.width&&0<w.height,e&&e(ewww_webp_supported)},w.onerror=function(){e&&e(!1)},w.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA=="}[A]}}check_webp_feature("alpha");</script><script data-cfasync="false" type="text/javascript">var Arrive=function(c,e,w){"use strict";if(c.MutationObserver&&"undefined"!=typeof HTMLElement){var r,t,a=0,u=(r=HTMLElement.prototype.matches||HTMLElement.prototype.webkitMatchesSelector||HTMLElement.prototype.mozMatchesSelector||HTMLElement.prototype.msMatchesSelector,{matchesSelector:function(e,t){return e instanceof HTMLElement&&r.call(e,t)},addMethod:function(e,t,r){var a=e[t];e[t]=function(){return r.length==arguments.length?r.apply(this,arguments):"function"==typeof a?a.apply(this,arguments):void 0}},callCallbacks:function(e,t){t&&t.options.onceOnly&&1==t.firedElems.length&&(e=[e[0]]);for(var r,a=0;r=e[a];a++)r&&r.callback&&r.callback.call(r.elem,r.elem);t&&t.options.onceOnly&&1==t.firedElems.length&&t.me.unbindEventWithSelectorAndCallback.call(t.target,t.selector,t.callback)},checkChildNodesRecursively:function(e,t,r,a){for(var i,n=0;i=e[n];n++)r(i,t,a)&&a.push({callback:t.callback,elem:i}),0<i.childNodes.length&&u.checkChildNodesRecursively(i.childNodes,t,r,a)},mergeArrays:function(e,t){var r,a={};for(r in e)e.hasOwnProperty(r)&&(a[r]=e[r]);for(r in t)t.hasOwnProperty(r)&&(a[r]=t[r]);return a},toElementsArray:function(e){return void 0===e||"number"==typeof e.length&&e!==c||(e=[e]),e}}),d=((t=function(){this._eventsBucket=[],this._beforeAdding=null,this._beforeRemoving=null}).prototype.addEvent=function(e,t,r,a){var i={target:e,selector:t,options:r,callback:a,firedElems:[]};return this._beforeAdding&&this._beforeAdding(i),this._eventsBucket.push(i),i},t.prototype.removeEvent=function(e){for(var t,r=this._eventsBucket.length-1;t=this._eventsBucket[r];r--)if(e(t)){this._beforeRemoving&&this._beforeRemoving(t);var a=this._eventsBucket.splice(r,1);a&&a.length&&(a[0].callback=null)}},t.prototype.beforeAdding=function(e){this._beforeAdding=e},t.prototype.beforeRemoving=function(e){this._beforeRemoving=e},t),o=function(i,n){var o=new d,l=this,s={fireOnAttributesModification:!1};return o.beforeAdding(function(t){var e,r=t.target;r!==c.document&&r!==c||(r=document.getElementsByTagName("html")[0]),e=new MutationObserver(function(e){n.call(this,e,t)});var a=i(t.options);e.observe(r,a),t.observer=e,t.me=l}),o.beforeRemoving(function(e){e.observer.disconnect()}),this.bindEvent=function(e,t,r){t=u.mergeArrays(s,t);for(var a=u.toElementsArray(this),i=0;i<a.length;i++)o.addEvent(a[i],e,t,r)},this.unbindEvent=function(){var r=u.toElementsArray(this);o.removeEvent(function(e){for(var t=0;t<r.length;t++)if(this===w||e.target===r[t])return!0;return!1})},this.unbindEventWithSelectorOrCallback=function(r){var e,a=u.toElementsArray(this),i=r;e="function"==typeof r?function(e){for(var t=0;t<a.length;t++)if((this===w||e.target===a[t])&&e.callback===i)return!0;return!1}:function(e){for(var t=0;t<a.length;t++)if((this===w||e.target===a[t])&&e.selector===r)return!0;return!1},o.removeEvent(e)},this.unbindEventWithSelectorAndCallback=function(r,a){var i=u.toElementsArray(this);o.removeEvent(function(e){for(var t=0;t<i.length;t++)if((this===w||e.target===i[t])&&e.selector===r&&e.callback===a)return!0;return!1})},this},i=new function(){var s={fireOnAttributesModification:!1,onceOnly:!1,existing:!1};function n(e,t,r){return!(!u.matchesSelector(e,t.selector)||(e._id===w&&(e._id=a++),-1!=t.firedElems.indexOf(e._id))||(t.firedElems.push(e._id),0))}var c=(i=new o(function(e){var t={attributes:!1,childList:!0,subtree:!0};return e.fireOnAttributesModification&&(t.attributes=!0),t},function(e,i){e.forEach(function(e){var t=e.addedNodes,r=e.target,a=[];null!==t&&0<t.length?u.checkChildNodesRecursively(t,i,n,a):"attributes"===e.type&&n(r,i)&&a.push({callback:i.callback,elem:r}),u.callCallbacks(a,i)})})).bindEvent;return i.bindEvent=function(e,t,r){t=void 0===r?(r=t,s):u.mergeArrays(s,t);var a=u.toElementsArray(this);if(t.existing){for(var i=[],n=0;n<a.length;n++)for(var o=a[n].querySelectorAll(e),l=0;l<o.length;l++)i.push({callback:r,elem:o[l]});if(t.onceOnly&&i.length)return r.call(i[0].elem,i[0].elem);setTimeout(u.callCallbacks,1,i)}c.call(this,e,t,r)},i},l=new function(){var a={};function i(e,t){return u.matchesSelector(e,t.selector)}var n=(l=new o(function(){return{childList:!0,subtree:!0}},function(e,a){e.forEach(function(e){var t=e.removedNodes,r=[];null!==t&&0<t.length&&u.checkChildNodesRecursively(t,a,i,r),u.callCallbacks(r,a)})})).bindEvent;return l.bindEvent=function(e,t,r){t=void 0===r?(r=t,a):u.mergeArrays(a,t),n.call(this,e,t,r)},l};e&&g(e.fn),g(HTMLElement.prototype),g(NodeList.prototype),g(HTMLCollection.prototype),g(HTMLDocument.prototype),g(Window.prototype);var n={};return s(i,n,"unbindAllArrive"),s(l,n,"unbindAllLeave"),n}function s(e,t,r){u.addMethod(t,r,e.unbindEvent),u.addMethod(t,r,e.unbindEventWithSelectorOrCallback),u.addMethod(t,r,e.unbindEventWithSelectorAndCallback)}function g(e){e.arrive=i.bindEvent,s(i,e,"unbindArrive"),e.leave=l.bindEvent,s(l,e,"unbindLeave")}}(window,"undefined"==typeof jQuery?null:jQuery,void 0),ewww_webp_supported=!1;function check_webp_feature(e,t){if(ewww_webp_supported)t(ewww_webp_supported);else{var r=new Image;r.onload=function(){ewww_webp_supported=0<r.width&&0<r.height,t(ewww_webp_supported)},r.onerror=function(){t(!1)},r.src="data:image/webp;base64,"+{alpha:"UklGRkoAAABXRUJQVlA4WAoAAAAQAAAAAAAAAAAAQUxQSAwAAAARBxAR/Q9ERP8DAABWUDggGAAAABQBAJ0BKgEAAQAAAP4AAA3AAP7mtQAAAA==",animation:"UklGRlIAAABXRUJQVlA4WAoAAAASAAAAAAAAAAAAQU5JTQYAAAD/////AABBTk1GJgAAAAAAAAAAAAAAAAAAAGQAAABWUDhMDQAAAC8AAAAQBxAREYiI/gcA"}[e]}}function ewwwLoadImages(e){if(e){for(var t=document.querySelectorAll(".batch-image img, .image-wrapper a, .ngg-pro-masonry-item a, .ngg-galleria-offscreen-seo-wrapper a"),r=0,a=t.length;r<a;r++)ewwwAttr(t[r],"data-src",t[r].getAttribute("data-webp")),ewwwAttr(t[r],"data-thumbnail",t[r].getAttribute("data-webp-thumbnail"));for(r=0,a=(n=document.querySelectorAll(".rev_slider ul li")).length;r<a;r++){ewwwAttr(n[r],"data-thumb",n[r].getAttribute("data-webp-thumb"));for(var i=1;i<11;)ewwwAttr(n[r],"data-param"+i,n[r].getAttribute("data-webp-param"+i)),i++}var n;for(r=0,a=(n=document.querySelectorAll(".rev_slider img")).length;r<a;r++)ewwwAttr(n[r],"data-lazyload",n[r].getAttribute("data-webp-lazyload"));var o=document.querySelectorAll("div.woocommerce-product-gallery__image");for(r=0,a=o.length;r<a;r++)ewwwAttr(o[r],"data-thumb",o[r].getAttribute("data-webp-thumb"))}var l=document.querySelectorAll("video");for(r=0,a=l.length;r<a;r++)ewwwAttr(l[r],"poster",e?l[r].getAttribute("data-poster-webp"):l[r].getAttribute("data-poster-image"));var s=document.querySelectorAll("img.ewww_webp_lazy_load");for(r=0,a=s.length;r<a;r++){if(e){ewwwAttr(s[r],"data-lazy-srcset",s[r].getAttribute("data-lazy-srcset-webp")),ewwwAttr(s[r],"data-srcset",s[r].getAttribute("data-srcset-webp")),ewwwAttr(s[r],"data-lazy-src",s[r].getAttribute("data-lazy-src-webp")),ewwwAttr(s[r],"data-src",s[r].getAttribute("data-src-webp")),ewwwAttr(s[r],"data-orig-file",s[r].getAttribute("data-webp-orig-file")),ewwwAttr(s[r],"data-medium-file",s[r].getAttribute("data-webp-medium-file")),ewwwAttr(s[r],"data-large-file",s[r].getAttribute("data-webp-large-file"));var c=s[r].getAttribute("srcset");null!=c&&!1!==c&&c.includes("R0lGOD")&&ewwwAttr(s[r],"src",s[r].getAttribute("data-lazy-src-webp"))}s[r].className=s[r].className.replace(/\bewww_webp_lazy_load\b/,"")}var w=document.querySelectorAll(".ewww_webp");for(r=0,a=w.length;r<a;r++)e?(ewwwAttr(w[r],"srcset",w[r].getAttribute("data-srcset-webp")),ewwwAttr(w[r],"src",w[r].getAttribute("data-src-webp")),ewwwAttr(w[r],"data-orig-file",w[r].getAttribute("data-webp-orig-file")),ewwwAttr(w[r],"data-medium-file",w[r].getAttribute("data-webp-medium-file")),ewwwAttr(w[r],"data-large-file",w[r].getAttribute("data-webp-large-file")),ewwwAttr(w[r],"data-large_image",w[r].getAttribute("data-webp-large_image")),ewwwAttr(w[r],"data-src",w[r].getAttribute("data-webp-src"))):(ewwwAttr(w[r],"srcset",w[r].getAttribute("data-srcset-img")),ewwwAttr(w[r],"src",w[r].getAttribute("data-src-img"))),w[r].className=w[r].className.replace(/\bewww_webp\b/,"ewww_webp_loaded");window.jQuery&&jQuery.fn.isotope&&jQuery.fn.imagesLoaded&&(jQuery(".fusion-posts-container-infinite").imagesLoaded(function(){jQuery(".fusion-posts-container-infinite").hasClass("isotope")&&jQuery(".fusion-posts-container-infinite").isotope()}),jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").imagesLoaded(function(){jQuery(".fusion-portfolio:not(.fusion-recent-works) .fusion-portfolio-wrapper").isotope()}))}function ewwwWebPInit(e){ewwwLoadImages(e),ewwwNggLoadGalleries(e),document.arrive(".ewww_webp",function(){ewwwLoadImages(e)}),document.arrive(".ewww_webp_lazy_load",function(){ewwwLoadImages(e)}),document.arrive("videos",function(){ewwwLoadImages(e)}),"loading"==document.readyState?document.addEventListener("DOMContentLoaded",ewwwJSONParserInit):("undefined"!=typeof galleries&&ewwwNggParseGalleries(e),ewwwWooParseVariations(e))}function ewwwAttr(e,t,r){null!=r&&!1!==r&&e.setAttribute(t,r)}function ewwwJSONParserInit(){"undefined"!=typeof galleries&&check_webp_feature("alpha",ewwwNggParseGalleries),check_webp_feature("alpha",ewwwWooParseVariations)}function ewwwWooParseVariations(e){if(e)for(var t=document.querySelectorAll("form.variations_form"),r=0,a=t.length;r<a;r++){var i=t[r].getAttribute("data-product_variations"),n=!1;try{for(var o in i=JSON.parse(i))void 0!==i[o]&&void 0!==i[o].image&&(void 0!==i[o].image.src_webp&&(i[o].image.src=i[o].image.src_webp,n=!0),void 0!==i[o].image.srcset_webp&&(i[o].image.srcset=i[o].image.srcset_webp,n=!0),void 0!==i[o].image.full_src_webp&&(i[o].image.full_src=i[o].image.full_src_webp,n=!0),void 0!==i[o].image.gallery_thumbnail_src_webp&&(i[o].image.gallery_thumbnail_src=i[o].image.gallery_thumbnail_src_webp,n=!0),void 0!==i[o].image.thumb_src_webp&&(i[o].image.thumb_src=i[o].image.thumb_src_webp,n=!0));n&&ewwwAttr(t[r],"data-product_variations",JSON.stringify(i))}catch(e){}}}function ewwwNggParseGalleries(e){if(e)for(var t in galleries){var r=galleries[t];galleries[t].images_list=ewwwNggParseImageList(r.images_list)}}function ewwwNggLoadGalleries(e){e&&document.addEventListener("ngg.galleria.themeadded",function(e,t){window.ngg_galleria._create_backup=window.ngg_galleria.create,window.ngg_galleria.create=function(e,t){var r=$(e).data("id");return galleries["gallery_"+r].images_list=ewwwNggParseImageList(galleries["gallery_"+r].images_list),window.ngg_galleria._create_backup(e,t)}})}function ewwwNggParseImageList(e){for(var t in e){var r=e[t];if(void 0!==r["image-webp"]&&(e[t].image=r["image-webp"],delete e[t]["image-webp"]),void 0!==r["thumb-webp"]&&(e[t].thumb=r["thumb-webp"],delete e[t]["thumb-webp"]),void 0!==r.full_image_webp&&(e[t].full_image=r.full_image_webp,delete e[t].full_image_webp),void 0!==r.srcsets)for(var a in r.srcsets)nggSrcset=r.srcsets[a],void 0!==r.srcsets[a+"-webp"]&&(e[t].srcsets[a]=r.srcsets[a+"-webp"],delete e[t].srcsets[a+"-webp"]);if(void 0!==r.full_srcsets)for(var i in r.full_srcsets)nggFSrcset=r.full_srcsets[i],void 0!==r.full_srcsets[i+"-webp"]&&(e[t].full_srcsets[i]=r.full_srcsets[i+"-webp"],delete e[t].full_srcsets[i+"-webp"])}return e}check_webp_feature("alpha",ewwwWebPInit);</script><title>Social Media Specialist (2021 Guide) | BrainStation®</title>
+
+<meta name="description" content="BrainStation&#8217;s Social Media Specialist career guide is the complete guide to developing your digital career in social media." />
+<meta property="og:image" content="https://wpassets-stage9.brainstation.io/app/uploads/2021/09/20152822/cropped-Career-Guide-Social-Media-Specialist-OG-Image-e1632166073394.jpg" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="Social Media Specialist (2021 Guide)" />
+<meta property="og:description" content="BrainStation&#8217;s Social Media Specialist career guide is the complete guide to developing your digital career in social media." />
+<meta property="og:url" content="https://brainstation.io/career-guides/social-media-specialist" />
+<meta property="og:site_name" content="BrainStation®" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Social Media Specialist (2021 Guide)" />
+<meta name="twitter:description" content="BrainStation&#8217;s Social Media Specialist career guide is the complete guide to developing your digital career in social media." />
+<meta name="twitter:image" content="https://wpassets-stage9.brainstation.io/app/uploads/2021/09/20152822/cropped-Career-Guide-Social-Media-Specialist-OG-Image-e1632166073394.jpg" />
+<link rel="canonical" href="social-media-specialist.html" />
+
+<link rel='dns-prefetch' href='../home/location/united-kingdom.html' />
+<link rel='dns-prefetch' href='https://s.w.org/' />
+<script type="text/javascript">
+			window._wpemojiSettings = {"baseUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/72x72\/","ext":".png","svgUrl":"https:\/\/s.w.org\/images\/core\/emoji\/13.1.0\/svg\/","svgExt":".svg","source":{"concatemoji":"https:\/\/brainstation.io\/wp\/wp-includes\/js\/wp-emoji-release.min.js?ver=5.8.1"}};
+			!function(e,a,t){var n,r,o,i=a.createElement("canvas"),p=i.getContext&&i.getContext("2d");function s(e,t){var a=String.fromCharCode;p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,e),0,0);e=i.toDataURL();return p.clearRect(0,0,i.width,i.height),p.fillText(a.apply(this,t),0,0),e===i.toDataURL()}function c(e){var t=a.createElement("script");t.src=e,t.defer=t.type="text/javascript",a.getElementsByTagName("head")[0].appendChild(t)}for(o=Array("flag","emoji"),t.supports={everything:!0,everythingExceptFlag:!0},r=0;r<o.length;r++)t.supports[o[r]]=function(e){if(!p||!p.fillText)return!1;switch(p.textBaseline="top",p.font="600 32px Arial",e){case"flag":return s([127987,65039,8205,9895,65039],[127987,65039,8203,9895,65039])?!1:!s([55356,56826,55356,56819],[55356,56826,8203,55356,56819])&&!s([55356,57332,56128,56423,56128,56418,56128,56421,56128,56430,56128,56423,56128,56447],[55356,57332,8203,56128,56423,8203,56128,56418,8203,56128,56421,8203,56128,56430,8203,56128,56423,8203,56128,56447]);case"emoji":return!s([10084,65039,8205,55357,56613],[10084,65039,8203,55357,56613])}return!1}(o[r]),t.supports.everything=t.supports.everything&&t.supports[o[r]],"flag"!==o[r]&&(t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&t.supports[o[r]]);t.supports.everythingExceptFlag=t.supports.everythingExceptFlag&&!t.supports.flag,t.DOMReady=!1,t.readyCallback=function(){t.DOMReady=!0},t.supports.everything||(n=function(){t.readyCallback()},a.addEventListener?(a.addEventListener("DOMContentLoaded",n,!1),e.addEventListener("load",n,!1)):(e.attachEvent("onload",n),a.attachEvent("onreadystatechange",function(){"complete"===a.readyState&&t.readyCallback()})),(n=t.source||{}).concatemoji?c(n.concatemoji):n.wpemoji&&n.twemoji&&(c(n.twemoji),c(n.wpemoji)))}(window,document,window._wpemojiSettings);
+		</script>
+<style type="text/css">
+img.wp-smiley,
+img.emoji {
+	display: inline !important;
+	border: none !important;
+	box-shadow: none !important;
+	height: 1em !important;
+	width: 1em !important;
+	margin: 0 .07em !important;
+	vertical-align: -0.1em !important;
+	background: none !important;
+	padding: 0 !important;
+}
+</style>
+<link rel='stylesheet' id='bstn-blocks-front-end-style-css' href='../app/mu-plugins/bstn-blocks/build/bstn-blocks-front-end-style.css%3Fver=6983dfa694c4fe017d68ba9a30943e83.css' type='text/css' media='all' />
+<link rel='stylesheet' id='sage/main.css-css' href='../app/themes/brainstation/dist/styles/magazine_de3c92fd.css' type='text/css' media='all' />
+<link rel='stylesheet' id='career-guide-styles-css' href='../app/themes/brainstation/dist/styles/career-guide_de3c92fd.css' type='text/css' media='all' />
+<script type='text/javascript' async='async' src='../wp/wp-includes/js/jquery/jquery.min.js%3Fver=3.6.0' id='jquery-core-js'></script>
+<link rel="https://api.w.org/" href="../wp/api/index.html" /><link rel="alternate" type="application/json" href="../wp/api/wp/v2/career-guide/125275" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="../wp/xmlrpc.php%3Frsd" />
+<link rel="wlwmanifest" type="application/wlwmanifest+xml" href="../wp/wp-includes/wlwmanifest.xml" />
+<link rel="alternate" type="application/json+oembed" href="../wp/api/oembed/1.0/embed%3Furl=https:%252F%252Fbrainstation.io%252Fcareer-guides%252Fsocial-media-specialist" />
+<link rel="alternate" type="text/xml+oembed" href="../wp/api/oembed/1.0/embed%3Furl=https:%252F%252Fbrainstation.io%252Fcareer-guides%252Fsocial-media-specialist&amp;format=xml" />
+<noscript><style>.lazyload[data-src]{display:none !important;}</style></noscript><style>.lazyload{background-image:none !important;}.lazyload:before{background-image:none !important;}</style></head>
+<body class="career-guide-template-default single single-career-guide postid-125275 single-format-standard social-media-specialist app-data index-data singular-data single-data single-career-guide-data single-career-guide-social-media-specialist-data">
+<script data-cfasync="false">if(ewww_webp_supported){document.body.classList.add("webp-support");}</script>
+<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="position:absolute;width:0;height:0" focusable="false">
+<defs>
+<symbol id="icons.smallRightArrow" viewBox="0 0 8 12">
+<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 8 12"><path fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" stroke="currentColor" d="M1 10.499l5.477-4.75L1 1" /></svg>
+</symbol>
+<symbol id="icons.data" viewBox="0 0 42 36">
+<svg aria-hidden="true" class="animated-icon animated-icon--data" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42 36"><style>.animated-icon__path--data{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}@keyframes draw--data{0%{stroke-dasharray:53px 53px;stroke-dashoffset:53px}28.57%,57.14%{stroke-dasharray:53px 53px;stroke-dashoffset:0}85.71%,100%{stroke-dasharray:53px 53px;stroke-dashoffset:-53px}}</style><path d="M19 36a15.64 15.64 0 0 1 0-31.28.85.85 0 0 1 .85.85v13.94h13.96a.85.85 0 0 1 .85.85A15.65 15.65 0 0 1 19 36zm-.83-29.55a13.94 13.94 0 1 0 14.76 14.76H19a.85.85 0 0 1-.85-.85V6.45z" /><path class="animated-icon__path animated-icon__path--data" d="M38.77 15.65A14.79 14.79 0 0 0 24 .86v14.79h14.77z" style="animation:7000ms draw--data -5600ms infinite" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" /></svg>
+</symbol>
+<symbol id="icons.design" viewBox="0 0 38 32">
+<svg aria-hidden="true" class="animated-icon animated-icon--design" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 32"><style>@keyframes draw{0%{stroke-dashoffset:39px;stroke-dasharray:39px 39px}28.57%,57.14%{stroke-dashoffset:0;stroke-dasharray:39px 39px}85.71%,100%{stroke-dashoffset:-39px;stroke-dasharray:39px 39px}}</style><path d="M18.43 16.57a8.64 8.64 0 1 0-7.55 0A13 13 0 0 0 1.7 29v2.16a.72.72 0 1 0 1.44 0V29a11.52 11.52 0 0 1 23 0v2.16a.72.72 0 1 0 1.44 0V29a13 13 0 0 0-9.15-12.43zm-11-7.76a7.2 7.2 0 1 1 7.2 7.2 7.2 7.2 0 0 1-7.17-7.2z" /><path class="animated-icon__path" d="M30.96 5.45l1.7 3.45 3.8.55-2.75 2.68.65 3.79-3.4-1.79-3.4 1.79.65-3.79-2.76-2.68 3.81-.55 1.7-3.45z" style="animation:7000ms draw 0ms infinite" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" /></svg>
+</symbol>
+<symbol id="icons.development" viewBox="0 0 42.1 32">
+<svg aria-hidden="true" class="animated-icon animated-icon--development" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 42.1 32"><style>.animated-icon__path--development{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}@keyframes draw1{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:60px 26px;stroke-dashoffset:60px}28.57%{stroke-dashoffset:0}57.1399%{stroke-dashoffset:0;stroke-dasharray:60px 26px}57.14%{stroke-dashoffset:0;stroke-dasharray:26px 60px}85.71%{stroke-dashoffset:-60px}to{stroke-dashoffset:-60px;stroke-dasharray:26px 60px}}@keyframes draw2{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:34px 52px;stroke-dashoffset:60px}28.57%{stroke-dashoffset:0}57.1399%{stroke-dasharray:34px 52px;stroke-dashoffset:0}57.14%{stroke-dashoffset:26px;stroke-dasharray:52px 34px}85.71%{stroke-dashoffset:-34px}to{stroke-dasharray:52px 34px;stroke-dashoffset:-34px}}@keyframes draw3{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:8px 60px;stroke-dashoffset:60px}28.57%{stroke-dashoffset:0}57.1399%{stroke-dasharray:8px 60px;stroke-dashoffset:0}57.14%{stroke-dashoffset:52px;stroke-dasharray:60px 60px}85.71%{stroke-dashoffset:-8px}to{stroke-dasharray:60px 60px;stroke-dashoffset:-8px}}.line1{animation:7000ms draw1 -1400ms infinite}.line2{animation:7000ms draw2 -1400ms infinite}.line3{animation:7000ms draw3 -1400ms infinite}</style><path d="M40.4 27.8c0 1.4-1.1 2.5-2.5 2.5H4.2c-1.4 0-2.5-1.1-2.5-2.5V27h15.2v1.7h8.4V27h15.2v.8zM3.4 2.5c0-.5.4-.8.8-.8h33.7c.5 0 .8.4.8.8v22.7H3.4V2.5zm37 22.8V2.5c0-1.4-1.1-2.5-2.5-2.5H4.2C2.8 0 1.7 1.1 1.7 2.5v22.7H0v2.5C0 30.1 1.9 32 4.2 32h33.7c2.3 0 4.2-1.9 4.2-4.2v-2.5h-1.7z" /><path class="animated-icon__path animated-icon__path--development line1" d="M8.1 8.8h26" /><path class="animated-icon__path animated-icon__path--development line3" d="M8.1 18.8h7.6" /><path class="animated-icon__path animated-icon__path--development line2" d="M8.1 13.8h26" /></svg>
+</symbol>
+<symbol id="icons.marketing" viewBox="0 0 38 35.95">
+<svg aria-hidden="true" class="animated-icon animated-icon--marketing" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 38 35.95"><style>.cls-9{fill:transparent}.animated-icon__path--marketing{fill:none;stroke:currentColor;stroke-linecap:round;stroke-linejoin:round;stroke-width:1.6px;animation:7000ms draw -4200ms infinite}@keyframes draw{0%{stroke-dasharray:82px 82px;stroke-dashoffset:82px}28.57%,57.14%{stroke-dasharray:82px 82px;stroke-dashoffset:0}85.71%,100%{stroke-dasharray:82px 82px;stroke-dashoffset:-82px}}</style><path d="M17 29.92h-3a.76.76 0 0 0 0 1.52h3a.76.76 0 0 0 0-1.52z" /><path d="M26.76 7.39V2.28A2.27 2.27 0 0 0 24.51 0h-18a2.27 2.27 0 0 0-2.25 2.28v31.44A2.27 2.27 0 0 0 6.51 36h18a2.27 2.27 0 0 0 2.25-2.28V22.94h-1.5v10.78a.76.76 0 0 1-.75.76h-18a.76.76 0 0 1-.75-.76V2.28a.76.76 0 0 1 .75-.76h18a.76.76 0 0 1 .75.76v5.1h1.5z" /><rect class="cls-9" x="18.5" y="8.19" width="18.08" height="13.95" rx="1.75" ry="1.75" /><path class="animated-icon__path animated-icon__path--marketing" d="M19.13 8.6a1.74 1.74 0 0 1 1.13-.41h14.58a1.76 1.76 0 0 1 1.75 1.75v10.45a1.76 1.76 0 0 1-1.75 1.75H20.25a1.76 1.76 0 0 1-1.75-1.75V9.94a1.74 1.74 0 0 1 .5-1.22l8.54 5.74 8.55-5.59" /></svg>
+</symbol>
+<symbol id="icons.product" viewBox="0 0 38.1 35.9">
+<svg aria-hidden="true" class="animated-icon animated-icon--product" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 38.1 35.9"><style>.animated-icon__path--product{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}.st1{clip-path:url(social-media-specialist.html)}.st2{clip-path:url(social-media-specialist.html)}.st3{clip-path:url(social-media-specialist.html)}.st4{clip-path:url(social-media-specialist.html)}.st5{clip-path:url(social-media-specialist.html)}.st6{clip-path:url(social-media-specialist.html)}.st7{clip-path:url(social-media-specialist.html)}.st8{clip-path:url(social-media-specialist.html)}.st9{clip-path:url(social-media-specialist.html)}.st10{clip-path:url(social-media-specialist.html)}.animated-icon__path--product{stroke-dashoffset:7px;stroke-dasharray:7px}@keyframes draw--product1{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:21px 7px;stroke-dashoffset:21px}28.57%{stroke-dashoffset:0}57.1399%{stroke-dashoffset:0;stroke-dasharray:21px 7px}57.14%{stroke-dashoffset:0;stroke-dasharray:7px 21px}85.71%{stroke-dashoffset:-21px}to{stroke-dashoffset:-7px;stroke-dasharray:7px 21px}}@keyframes draw--product2{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:14px 14px;stroke-dashoffset:21px}28.57%{stroke-dashoffset:0}57.1399%{stroke-dasharray:14px 14px;stroke-dashoffset:0}57.14%{stroke-dashoffset:7px;stroke-dasharray:14px 14px}85.71%{stroke-dashoffset:-14px}to{stroke-dasharray:14px 14px;stroke-dashoffset:-14px}}@keyframes draw--product3{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:7px 21px;stroke-dashoffset:21px}28.57%{stroke-dashoffset:0}57.1399%{stroke-dasharray:7px 21px;stroke-dashoffset:0}57.14%{stroke-dashoffset:14px;stroke-dasharray:21px 21px}85.71%{stroke-dashoffset:-7px}to{stroke-dasharray:21px 21px;stroke-dashoffset:-7px}}.check1{animation:7000ms draw--product1 -2800ms infinite}.check2{animation:7000ms draw--product2 -2800ms infinite}.check3{animation:7000ms draw--product3 -2800ms infinite}</style><defs><path id="SVGID_1_" d="M4.6 6.2h-3V2.3c0-.4.3-.8.8-.8h1.5c.4 0 .7.4.7.8v3.9zm0 27.4c0 .4-.3.8-.7.8H2.3c-.4 0-.8-.4-.8-.8V7.8h3v25.8zM3.8-.1H2.3C1.1-.1.1 1 .1 2.3v31.3c0 1.3 1 2.3 2.2 2.3h1.5C5 35.9 6 34.8 6 33.6V2.3C6.1 1 5-.1 3.8-.1z" /></defs><clipPath id="SVGID_2_"><use xlink:href="#SVGID_1_" overflow="visible" /></clipPath><g class="st1"><path class="st2" d="M-4.9-5.1h16v46h-16z" /></g><defs><path id="SVGID_5_" d="M36.5 33.6c0 .4-.3.8-.8.8H12.4c-.4 0-.8-.4-.8-.8V2.3c0-.4.3-.8.8-.8h23.3c.4 0 .8.4.8.8v31.3zM35.7-.1H12.4c-1.3 0-2.3 1.1-2.3 2.3v31.3c0 1.3 1 2.3 2.3 2.3h23.3c1.3 0 2.3-1.1 2.3-2.3V2.3c.1-1.3-1-2.4-2.3-2.4z" /></defs><clipPath id="SVGID_6_"><use xlink:href="#SVGID_5_" overflow="visible" /></clipPath><g class="st3"><path class="st4" d="M5.1-5.1h38v46h-38z" /></g><defs><path id="SVGID_9_" d="M32.3 8.9h-9.4c-.4 0-.8.4-.8 1s.4 1 .8 1h9.4c.4 0 .8-.4.8-1s-.4-1-.8-1z" /></defs><clipPath id="SVGID_10_"><use xlink:href="#SVGID_9_" overflow="visible" /></clipPath><g class="st5"><path class="st6" d="M17.1 3.9h21v12h-21z" /></g><defs><path id="SVGID_15_" d="M32.3 16.9h-9.4c-.4 0-.8.4-.8 1s.4 1 .8 1h9.4c.4 0 .8-.4.8-1s-.4-1-.8-1z" /></defs><clipPath id="SVGID_16_"><use xlink:href="#SVGID_15_" overflow="visible" /></clipPath><g class="st7"><path class="st8" d="M17.1 11.9h21v12h-21z" /></g><defs><path id="SVGID_21_" d="M32.3 24.9h-9.4c-.4 0-.8.4-.8 1s.4 1 .8 1h9.4c.4 0 .8-.4.8-1 0-.5-.4-1-.8-1z" /></defs><clipPath id="SVGID_22_"><use xlink:href="#SVGID_21_" overflow="visible" /></clipPath><g class="st9"><path class="st10" d="M17.1 19.9h21v12h-21z" /></g><path class="check1 animated-icon__path animated-icon__path--product" d="M14.8 10.5l1.5 1.7 3-3.5" /><path class="check2 animated-icon__path animated-icon__path--product" d="M14.8 18.5l1.5 1.7 3-3.5" /><path class="check3 animated-icon__path animated-icon__path--product" d="M14.8 26.5l1.5 1.7 3-3.5" /></svg>
+</symbol>
+<symbol id="icons.business" viewBox="0 0 48 48">
+<svg aria-hidden="true" class="animated-icon animated-icon--business" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48"><style>.animated-icon__path--business{fill:none;stroke:currentColor;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:10}@keyframes draw1--business{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:48.853px 6.143px;stroke-dashoffset:48.853px}28.57%{stroke-dashoffset:0px}57.1399%{stroke-dashoffset:0px;stroke-dasharray:48.853px 6.143px}57.14%{stroke-dashoffset:0;stroke-dasharray:6.143px 48.853px}85.71%{stroke-dashoffset:-48.853px}to{stroke-dashoffset:-48.853px;stroke-dasharray:6.143px 48.853px}}@keyframes draw2--business{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:42.71px 23.597px;stroke-dashoffset:48.853px}28.57%{stroke-dashoffset:0px}57.1399%{stroke-dasharray:42.71px 23.597px;stroke-dashoffset:0px}57.14%{stroke-dashoffset:6.143px;stroke-dasharray:23.597px 42.71px}85.71%{stroke-dashoffset:-42.71px}to{stroke-dasharray:23.597px 42.71px;stroke-dashoffset:-42.71px}}@keyframes draw3--business{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:25.256px 33.471px;stroke-dashoffset:48.853px}28.57%{stroke-dashoffset:0px}57.1399%{stroke-dasharray:25.256px 33.471px;stroke-dashoffset:0px}57.14%{stroke-dashoffset:23.597px;stroke-dasharray:33.471px 25.256px}85.71%{stroke-dashoffset:-25.256px}to{stroke-dasharray:33.471px 25.256px;stroke-dashoffset:-25.256px}}@keyframes draw4--business{0%{animation-timing-function:cubic-bezier(.645,.045,.355,1);stroke-dasharray:15.382px 48.853px;stroke-dashoffset:48.853px}28.57%{stroke-dashoffset:0px}57.1399%{stroke-dasharray:15.382px 48.853px;stroke-dashoffset:0px}57.14%{stroke-dashoffset:33.471px;stroke-dasharray:48.853px 15.382px}85.71%{stroke-dashoffset:-15.382px}to{stroke-dasharray:48.853px 15.382px;stroke-dashoffset:-15.382px}}</style><path class="animated-icon__path animated-icon__path--business" d="M41.28 29.731V14.350" style="animation:7000ms draw4--business -4700ms infinite" /><path class="animated-icon__path animated-icon__path--business" d="M35.52 29.731v-9.874" style="animation:7000ms draw3--business -4700ms infinite" /><path class="animated-icon__path animated-icon__path--business" d="M29.76 29.731V12.277" style="animation:7000ms draw2--business -4700ms infinite" /><path class="animated-icon__path animated-icon__path--business" d="M24 29.731v-6.143" style="animation:7000ms draw1--business -4700ms infinite" /><path d="M9.88.006A5.754 5.754 0 004.81 2.56a5.757 5.757 0 004.79 8.96A5.76 5.76 0 0010.723.112 5.73 5.73 0 009.88.005zM9.6 1.92a3.845 3.845 0 013.549 2.37 3.852 3.852 0 01-.833 4.185 3.844 3.844 0 01-5.91-.582 3.837 3.837 0 01.48-4.846A3.842 3.842 0 019.6 1.92zm8.64 1.92a.961.961 0 00-.68 1.639c.18.18.425.28.68.28h26.88a.963.963 0 01.96.962V33.6a.965.965 0 01-.96.96H18.24a.961.961 0 00-.68 1.64c.18.18.425.28.68.28h26.88A2.883 2.883 0 0048 33.6V6.72a2.882 2.882 0 00-2.88-2.88H18.24zm-8.64 9.6a9.6 9.6 0 00-9.6 9.6v6.72a2.88 2.88 0 002.88 2.88h.96V43.2a2.877 2.877 0 002.88 2.88h5.76a2.88 2.88 0 002.879-2.88V32.64h.961a2.88 2.88 0 002.879-2.88v-6.72a9.593 9.593 0 00-2.81-6.788 9.604 9.604 0 00-6.79-2.813zm0 1.92a7.679 7.679 0 017.68 7.68v6.72a.96.96 0 01-.959.96h-.962a1.917 1.917 0 00-1.92 1.92V43.2a.961.961 0 01-.959.96H6.72a.963.963 0 01-.96-.96V32.64a1.918 1.918 0 00-1.92-1.92h-.96a.96.96 0 01-.96-.96v-6.72a7.679 7.679 0 017.68-7.68z" /></svg>
+</symbol>
+</defs>
+</svg>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-57513051-1"> </script>
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-57513051-1');
+  </script>
+<header class="v3-page-header">
+<nav class="v3-nav v3-nav--desktop container" aria-label="Primary navigation">
+<div class="v3-main-nav__underline v3-main-nav__underline--active"></div>
+<ul class="v3-main-nav__list">
+<li class="v3-main-nav__item v3-page-header__logo">
+<a href="../home/location/united-kingdom.html">
+<img src="../app/themes/brainstation/dist/images/logos/bstn-logo_b9e38ef3.svg" width="169" height="28" alt="BrainStation">
+</a>
+</li>
+<li class="v3-main-nav__item v3-main-nav__item--hover">
+<button class="v3-main-nav__focusable" aria-haspopup="true" data-bst-label="">
+Bootcamps
+<img src="../app/themes/brainstation/dist/images/icons/chevron-up-black_1326a423.svg" class="v3-main-nav__chevron" width="10" height="6" aria-hidden="true" alt="Up arrow" role="presentation">
+</button>
+<nav class="v3-main-nav__dropdown inner-nav">
+<div class="container inner-nav__container">
+<div class="inner-nav__section">
+<div class="inner-nav__column inner-nav__column--main ">
+<div class="inner-nav__main-details">
+<p class="inner-nav__subtitle">Full-Time or Part-Time</p>
+<p class="heading inner-nav__title">Bootcamps</p>
+<p class="inner-nav__description">Our award-winning bootcamps will help you launch a new career in tech in-person or online. You can attend our bootcamps full-time or part-time.</p>
+</div>
+<div class="inner-nav__main-links">
+<a href="../reviews-and-testimonials.html" class="inner-nav__link inner-nav__main-link" data-bst-label="global-nav_bootcamps_testimonials">
+View Testimonials
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+<a href="are-coding-bootcamps-worth-it.html" class="inner-nav__link inner-nav__main-link" data-bst-label="global-nav_bootcamps_coding-bootcamps">
+Learn About Coding Bootcamps
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</div>
+</div>
+<div class="inner-nav__column inner-nav__column--secondary ">
+<ul class="inner-nav__icon-cards">
+<li class="inner-nav__icon-card inner-nav__card">
+<a href="../course/online/data-science-bootcamp.html" class="inner-nav__link--card inner-nav__icon-card-wrapper" data-bst-label="global-nav_bootcamps_data-science-bootcamp">
+<div class="inner-nav__icon-card-icon">
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-icon' aria-label='Data Science Bootcamp' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.data'></use>
+</svg></div>
+</div>
+<span class="inner-nav__icon-card-label">Data Science Bootcamp</span>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-arrow-right' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</li>
+<li class="inner-nav__icon-card inner-nav__card">
+<a href="../course/online/web-development-immersive.html" class="inner-nav__link--card inner-nav__icon-card-wrapper" data-bst-label="global-nav_bootcamps_web-development-bootcamp">
+<div class="inner-nav__icon-card-icon">
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-icon' aria-label='Web Development Bootcamp' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.development'></use>
+</svg></div>
+</div>
+<span class="inner-nav__icon-card-label">Web Development Bootcamp</span>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-arrow-right' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</li>
+<li class="inner-nav__icon-card inner-nav__card">
+<a href="../course/online/user-experience-immersive.html" class="inner-nav__link--card inner-nav__icon-card-wrapper" data-bst-label="global-nav_bootcamps_ux-design-bootcamp">
+<div class="inner-nav__icon-card-icon">
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-icon' aria-label='UX Design Bootcamp' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.design'></use>
+</svg></div>
+</div>
+<span class="inner-nav__icon-card-label">UX Design Bootcamp</span>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-arrow-right' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</li>
+<li class="inner-nav__icon-card inner-nav__card">
+<a href="../course/online/digital-marketing-bootcamp.html" class="inner-nav__link--card inner-nav__icon-card-wrapper" data-bst-label="global-nav_bootcamps_digital-marketing-bootcamp">
+<div class="inner-nav__icon-card-icon">
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-icon' aria-label='Digital Marketing Bootcamp' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.marketing'></use>
+</svg></div>
+</div>
+<span class="inner-nav__icon-card-label">Digital Marketing Bootcamp</span>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__icon-card-arrow-right' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</li>
+</ul>
+<div class="inner-nav__big-links">
+<div class="inner-nav__big-link">
+<p class="inner-nav__big-link-label">We&#039;ll help you land your dream job in tech.</p>
+<a class="inner-nav__big-link-cta bstn-button--secondary" href="../get-hired.html" data-bst-label="global-nav_bootcamps_get-hired">
+Learn More
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<img src="../app/themes/brainstation/dist/images/shapes/global-nav_181aee9f.svg" class="inner-nav__background-pattern" role="presentation" />
+</nav>
+</li>
+<li class="v3-main-nav__item v3-main-nav__item--hover">
+<button class="v3-main-nav__focusable" aria-haspopup="true" data-bst-label="">
+Courses
+<img src="../app/themes/brainstation/dist/images/icons/chevron-up-black_1326a423.svg" class="v3-main-nav__chevron" width="10" height="6" aria-hidden="true" alt="Up arrow" role="presentation">
+</button>
+<nav class="v3-main-nav__dropdown inner-nav">
+<div class="container inner-nav__container">
+<div class="inner-nav__section">
+<div class="inner-nav__column inner-nav__column--main inner-nav__column--main-large">
+<div class="inner-nav__main-details">
+<p class="inner-nav__subtitle">Part-Time Certificate</p>
+<p class="heading inner-nav__title">Courses</p>
+<p class="inner-nav__description">Learn a new digital skill by taking one of our certificate courses in-person or online. Our courses are part-time and can take anywhere from 5 to 10 weeks to complete.</p>
+</div>
+<div class="inner-nav__main-links">
+<a href="../courses.html" class="inner-nav__link inner-nav__main-link" data-bst-label="global-nav_courses_browse-courses">
+Browse All Courses
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+<a href="../reviews-and-testimonials.html" class="inner-nav__link inner-nav__main-link" data-bst-label="global-nav_courses_testimonials">
+View Testimonials
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</div>
+</div>
+<div class="inner-nav__column inner-nav__column--secondary inner-nav__column--secondary-small">
+<ul class="inner-nav__columns">
+<li class="inner-nav__column col-lg-4">
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<p class="inner-nav__column-section-title">Data</p>
+</div>
+ <li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/data-analytics.html" data-bst-label="global-nav_courses_data-analytics">
+Data Analytics
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/data-science.html" data-bst-label="global-nav_courses_data-science">
+Data Science
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/python-programming.html" data-bst-label="global-nav_courses_python-programming">
+Python
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/cybersecurity.html" data-bst-label="global-nav_courses_cybersecurity">
+Cybersecurity
+</a>
+</li>
+</ul>
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<p class="inner-nav__column-section-title">Design</p>
+</div>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/user-experience-design.html" data-bst-label="global-nav_courses_ux-design">
+UX Design
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/user-interface-design.html" data-bst-label="global-nav_courses_ui-design">
+UI Design
+</a>
+</li>
+</ul>
+</li>
+<li class="inner-nav__column col-lg-4">
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<p class="inner-nav__column-section-title">Development</p>
+</div>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/intro-to-web-development.html" data-bst-label="global-nav_courses_web-development">
+Web Development
+</a>
+</li>
+</ul>
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<p class="inner-nav__column-section-title">Marketing</p>
+</div>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/digital-marketing.html" data-bst-label="global-nav_courses_digital-marketing">
+Digital Marketing
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/social-media-marketing.html" data-bst-label="global-nav_courses_social-media-marketing">
+Social Media Marketing
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/seo-sem-analytics.html" data-bst-label="global-nav_courses_search-engine-marketing">
+Search Engine Marketing
+</a>
+</li>
+</ul>
+</li>
+<li class="inner-nav__column col-lg-4">
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<p class="inner-nav__column-section-title">Product</p>
+</div>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/product-management.html" data-bst-label="global-nav_courses_product-management">
+Product Management
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/design-thinking.html" data-bst-label="global-nav_courses_design-thinking">
+Design Thinking
+</a>
+</li>
+</ul>
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<p class="inner-nav__column-section-title">Business</p>
+</div>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../course/online/digital-leadership.html" data-bst-label="global-nav_courses_digital-leadership">
+Digital Leadership
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<img src="../app/themes/brainstation/dist/images/shapes/global-nav_181aee9f.svg" class="inner-nav__background-pattern" role="presentation" />
+</nav>
+</li>
+<li class="v3-main-nav__item v3-main-nav__item--hover">
+<button class="v3-main-nav__focusable" aria-haspopup="true" data-bst-label="">
+Campuses
+<img src="../app/themes/brainstation/dist/images/icons/chevron-up-black_1326a423.svg" class="v3-main-nav__chevron" width="10" height="6" aria-hidden="true" alt="Up arrow" role="presentation">
+</button>
+<nav class="v3-main-nav__dropdown inner-nav">
+<div class="container inner-nav__container">
+<div class="inner-nav__section">
+<div class="inner-nav__column inner-nav__column--main inner-nav__column--main-large">
+<div class="inner-nav__main-details">
+<p class="inner-nav__subtitle"></p>
+<p class="heading inner-nav__title">Campuses</p>
+<p class="inner-nav__description">Explore BrainStation’s global community network, including our on-campus and online bootcamps, certificate courses, and thought leadership events.</p>
+</div>
+<div class="inner-nav__main-links">
+<a href="../events.html" class="inner-nav__link inner-nav__main-link" data-bst-label="global-nav_cities_events">
+View Events
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</div>
+</div>
+<div class="inner-nav__column inner-nav__column--secondary inner-nav__column--secondary-small">
+<ul class="inner-nav__columns">
+<li class="inner-nav__column inner-nav__column--bordered">
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<img class="inner-nav__column-section-title-icon" src="../app/themes/brainstation/dist/images/icons/world_45dcfd96.svg" alt="Online flag">
+<p class="inner-nav__column-section-title">Online</p>
+</div>
+<li class="inner-nav__columns-compact">
+<ul class="inner-nav__column-compact">
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../online-live%3Futm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall.html" data-bst-label="global-nav_cities_online">
+Worldwide
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="inner-nav__column ">
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<img class="inner-nav__column-section-title-icon" src="../app/themes/brainstation/dist/images/icons/us-black_b6adf4e5.svg" alt="United States flag">
+<p class="inner-nav__column-section-title">United States</p>
+</div>
+<li class="inner-nav__columns-compact">
+<ul class="inner-nav__column-compact">
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../new-york.html" data-bst-label="global-nav_cities_new-york">
+New York
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../miami.html" data-bst-label="global-nav_cities_miami">
+Miami
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../chicago.html" data-bst-label="global-nav_cities_chicago">
+Chicago
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../seattle.html" data-bst-label="global-nav_cities_seattle">
+Seattle
+</a>
+</li>
+</ul>
+<ul class="inner-nav__column-compact">
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../los-angeles.html" data-bst-label="global-nav_cities_los-angeles">
+Los Angeles
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../san-francisco.html" data-bst-label="global-nav_cities_san-francisco">
+San Francisco
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../dallas.html" data-bst-label="global-nav_cities_dallas">
+Dallas
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="inner-nav__column ">
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<img class="inner-nav__column-section-title-icon" src="../app/themes/brainstation/dist/images/icons/canada-black_3d12d975.svg" alt="Canada flag">
+<p class="inner-nav__column-section-title">Canada</p>
+</div>
+
+<li class="inner-nav__columns-compact">
+<ul class="inner-nav__column-compact">
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../toronto.html" data-bst-label="global-nav_cities_toronto">
+Toronto
+</a>
+</li>
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../vancouver.html" data-bst-label="global-nav_cities_vancouver">
+Vancouver
+</a>
+</li>
+</ul>
+</li>
+</ul>
+<ul class="inner-nav__column-section">
+<div class="inner-nav__column-section-title-wrapper">
+<img class="inner-nav__column-section-title-icon" src="../app/themes/brainstation/dist/images/icons/uk-black_8b274f0e.svg" alt="United Kingdom flag">
+<p class="inner-nav__column-section-title">United Kingdom</p>
+</div>
+<li class="inner-nav__columns-compact">
+<ul class="inner-nav__column-compact">
+<li class="inner-nav__column-link">
+<a class="inner-nav__link inner-nav__link--general" href="../london.html" data-bst-label="global-nav_cities_london">
+London
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<img src="../app/themes/brainstation/dist/images/shapes/global-nav_181aee9f.svg" class="inner-nav__background-pattern" role="presentation" />
+</nav>
+</li>
+<li class="v3-main-nav__item v3-main-nav__item--hover">
+<button class="v3-main-nav__focusable" aria-haspopup="true" data-bst-label="">
+For Companies
+<img src="../app/themes/brainstation/dist/images/icons/chevron-up-black_1326a423.svg" class="v3-main-nav__chevron" width="10" height="6" aria-hidden="true" alt="Up arrow" role="presentation">
+</button>
+<nav class="v3-main-nav__dropdown inner-nav">
+<div class="container inner-nav__container">
+<div class="inner-nav__section">
+<div class="inner-nav__column inner-nav__column--main ">
+<div class="inner-nav__main-details">
+<p class="inner-nav__subtitle"></p>
+<p class="heading inner-nav__title">For Companies</p>
+<p class="inner-nav__description">BrainStation helps companies prepare for the future of work through cutting-edge digital skills training, top talent recruitment, and more.</p>
+</div>
+<div class="inner-nav__main-links">
+</div>
+</div>
+<div class="inner-nav__column inner-nav__column--secondary ">
+<ul class="inner-nav__cards">
+<li class="inner-nav__card inner-nav__link-card">
+<a class="inner-nav__link--card inner-nav__link--general inner-nav__link-card-wrapper" href="../corporate-training.html" data-bst-label="global-nav_for-companies_corporate-training">
+<div class="inner-nav__link--proxy inner-nav__card-title-group">
+<p class="inner-nav__card-title">Corporate Training</p>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</div>
+<p class="inner-nav__link-card-description">Flexible, hands-on skills training to empower your workforce.</p>
+</a>
+</li>
+<li class="inner-nav__card inner-nav__link-card">
+<a class="inner-nav__link--card inner-nav__link--general inner-nav__link-card-wrapper" href="../hiring-partners.html" data-bst-label="global-nav_for-companies_hire-bs-grads">
+<div class="inner-nav__link--proxy inner-nav__card-title-group">
+<p class="inner-nav__card-title">Hire BrainStation Graduates</p>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</div>
+<p class="inner-nav__link-card-description">Tap into our network of skilled graduates, get access to our hiring events, and more.</p>
+</a>
+</li>
+<li class="inner-nav__card inner-nav__link-card">
+<a class="inner-nav__link--card inner-nav__link--general inner-nav__link-card-wrapper" href="../impact.html" data-bst-label="global-nav_for-companies_impact-scholarships">
+<div class="inner-nav__link--proxy inner-nav__card-title-group">
+<p class="inner-nav__card-title">Impact Scholarships</p>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</div>
+<p class="inner-nav__link-card-description">Become a sponsor and contribute to diversity and accessibility in tech.</p>
+</a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<img src="../app/themes/brainstation/dist/images/shapes/global-nav_181aee9f.svg" class="inner-nav__background-pattern" role="presentation" />
+</nav>
+</li>
+<li class="v3-main-nav__item v3-main-nav__item--hover">
+<button class="v3-main-nav__focusable" aria-haspopup="true" data-bst-label="">
+About
+<img src="../app/themes/brainstation/dist/images/icons/chevron-up-black_1326a423.svg" class="v3-main-nav__chevron" width="10" height="6" aria-hidden="true" alt="Up arrow" role="presentation">
+</button>
+<nav class="v3-main-nav__dropdown inner-nav">
+<div class="container inner-nav__container">
+<div class="inner-nav__section">
+<div class="inner-nav__column inner-nav__column--main ">
+<div class="inner-nav__main-details">
+<p class="inner-nav__subtitle"></p>
+<p class="heading inner-nav__title">About</p>
+<p class="inner-nav__description">BrainStation is the global leader in digital skills training, empowering businesses and brands to succeed in the digital age.</p>
+</div>
+<div class="inner-nav__main-links">
+<a href="../contact.html" class="inner-nav__link inner-nav__main-link" data-bst-label="global-nav_about_contact">
+Contact Us
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</a>
+</div>
+</div>
+<div class="inner-nav__column inner-nav__column--secondary ">
+<ul class="inner-nav__cards">
+<li class="inner-nav__card inner-nav__link-card">
+<a class="inner-nav__link--card inner-nav__link--general inner-nav__link-card-wrapper" href="../about.html" data-bst-label="global-nav_about_our-story">
+<div class="inner-nav__link--proxy inner-nav__card-title-group">
+<p class="inner-nav__card-title">Our Story</p>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</div>
+<p class="inner-nav__link-card-description">Learn about who we are, our vision and how we’re changing the future of work.</p>
+</a>
+</li>
+<li class="inner-nav__card inner-nav__link-card">
+<a class="inner-nav__link--card inner-nav__link--general inner-nav__link-card-wrapper" href="../reviews-and-testimonials.html" data-bst-label="global-nav_about_testimonials">
+<div class="inner-nav__link--proxy inner-nav__card-title-group">
+<p class="inner-nav__card-title">Testimonials</p>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</div>
+<p class="inner-nav__link-card-description">Hear from our students on how BrainStation has helped them build successful careers.</p>
+</a>
+</li>
+<li class="inner-nav__card inner-nav__link-card">
+<a class="inner-nav__link--card inner-nav__link--general inner-nav__link-card-wrapper" href="../careers.html" data-bst-label="global-nav_about_careers">
+<div class="inner-nav__link--proxy inner-nav__card-title-group">
+<p class="inner-nav__card-title">Careers</p>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</div>
+<p class="inner-nav__link-card-description">Looking to join our team? View our open positions across the globe.</p>
+</a>
+</li>
+<li class="inner-nav__card inner-nav__link-card">
+<a class="inner-nav__link--card inner-nav__link--general inner-nav__link-card-wrapper" href="../press.html" data-bst-label="global-nav_about_press">
+<div class="inner-nav__link--proxy inner-nav__card-title-group">
+<p class="inner-nav__card-title">Press and Media</p>
+<div class='inner-nav__icon'>
+<svg class='inner-nav__right-arrow' aria-label='' width='6' height='9' aria-hidden='true' role='presentation'>
+<use xlink:href='#icons.smallRightArrow'></use>
+</svg></div>
+</div>
+<p class="inner-nav__link-card-description">Resources and contact information for our media partners.</p>
+</a>
+</li>
+</ul>
+<div class="inner-nav__big-links">
+<div class="inner-nav__big-link">
+<p class="inner-nav__big-link-label">Looking to become an instructor or guest speaker?</p>
+<a class="inner-nav__big-link-cta bstn-button--secondary" href="../contribute.html" data-bst-label="global-nav_about_become-an-instructor">
+Get Involved
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<img src="../app/themes/brainstation/dist/images/shapes/global-nav_181aee9f.svg" class="inner-nav__background-pattern" role="presentation" />
+</nav>
+</li>
+<li class="v3-main-nav__divider"></li>
+<li class="v3-main-nav__item">
+<a class="v3_button v3-main-nav__focusable v3-main-nav__get-started bstn-button--primary" href="../book-call.html">
+Get Started
+</a>
+</li>
+</ul>
+</nav>
+<nav class="v3-nav v3-nav--mobile container" aria-label="Mobile navigation bar">
+<ul class="v3-nav__wrapper">
+<li class="v3-nav__item v3-page-header__logo">
+<a href="../home/location/united-kingdom.html">
+<img src="../app/themes/brainstation/dist/images/logos/bstn-logo_b9e38ef3.svg" width="188" height="26" alt="BrainStation">
+</a>
+</li>
+<li class="v3-nav__item v3-page-header__menu hidden-print">
+<img src="../app/themes/brainstation/dist/images/icons/menu_5328003b.svg" width="24" height="24" aria-hidden="true" alt="Menu">
+</li>
+</ul>
+</nav>
+</header>
+<div class="v3-mobile-sidebar">
+<nav class="v3-mobile-nav" aria-label="Primary Navigation - Mobile">
+<div class="v3-mobile-sidebar__backdrop"></div>
+<div class="v3-mobile-nav__inner">
+<ul class="v3-mobile-nav__wrapper  v3-mobile-nav__wrapper--main  v3-mobile-nav__wrapper--active" data-mobile-nav-level="0" data-mobile-nav-tag="main">
+<li class="v3-mobile-nav__item v3-mobile-nav__item--header">
+<span></span>
+<button class="v3-mobile-nav__close">
+<img src="../app/themes/brainstation/dist/images/icons/cross_171f34ff.svg" class="v3-mobile-nav__close__icon" width="14" height="14" aria-hidden="true" alt="Close">
+</button>
+</li>
+<li class="v3-mobile-nav__item">
+<a class="v3-mobile-nav__link" href="../courses.html" data-mobile-nav-target="bootcamps" data-bst-label="global-nav_bootcamps">
+Bootcamps
+<img src="../app/themes/brainstation/dist/images/icons/chevron-right-black_01c45f31.svg" role="presentation" class="v3-mobile-nav__next" width="9" height="16" aria-hidden="true" alt="Right arrow" />
+</a>
+</li>
+<li class="v3-mobile-nav__item">
+<a class="v3-mobile-nav__link" href="../courses.html" data-mobile-nav-target="courses" data-bst-label="global-nav_courses">
+Courses
+<img src="../app/themes/brainstation/dist/images/icons/chevron-right-black_01c45f31.svg" role="presentation" class="v3-mobile-nav__next" width="9" height="16" aria-hidden="true" alt="Right arrow" />
+</a>
+</li>
+<li class="v3-mobile-nav__item">
+<a class="v3-mobile-nav__link" href="social-media-specialist.html#" data-mobile-nav-target="campuses" data-bst-label="global-nav_campuses">
+Campuses
+ <img src="../app/themes/brainstation/dist/images/icons/chevron-right-black_01c45f31.svg" role="presentation" class="v3-mobile-nav__next" width="9" height="16" aria-hidden="true" alt="Right arrow" />
+</a>
+</li>
+<li class="v3-mobile-nav__item">
+<a class="v3-mobile-nav__link" href="social-media-specialist.html#" data-mobile-nav-target="for-companies" data-bst-label="global-nav_for-companies">
+For Companies
+<img src="../app/themes/brainstation/dist/images/icons/chevron-right-black_01c45f31.svg" role="presentation" class="v3-mobile-nav__next" width="9" height="16" aria-hidden="true" alt="Right arrow" />
+</a>
+</li>
+<li class="v3-mobile-nav__item">
+<a class="v3-mobile-nav__link" href="../about.html" data-mobile-nav-target="about" data-bst-label="global-nav_about">
+About
+<img src="../app/themes/brainstation/dist/images/icons/chevron-right-black_01c45f31.svg" role="presentation" class="v3-mobile-nav__next" width="9" height="16" aria-hidden="true" alt="Right arrow" />
+</a>
+</li>
+<li class="v3-mobile-nav__item">
+<a class="v3-mobile-nav__link" href="../events.html" data-mobile-nav-target="events" data-bst-label="global-nav_events">
+Events
+</a>
+</li>
+<li class="v3-mobile-nav__spacer"></li>
+</ul>
+<ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--bootcamps' data-mobile-nav-level='1' data-mobile-nav-tag='bootcamps'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Bootcamps
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/data-science-bootcamp.html' data-bst-label='global-nav_bootcamps_data-science-bootcamp'>Data Science Bootcamp</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/user-experience-immersive.html' data-bst-label='global-nav_bootcamps_ux-design-bootcamp'>UX Design Bootcamp</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/web-development-immersive.html' data-bst-label='global-nav_bootcamps_web-development-bootcamp'>Web Development Bootcamp</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/digital-marketing-bootcamp.html' data-bst-label='global-nav_bootcamps_digital-marketing-bootcamp'>Digital Marketing Bootcamp</a></li></ul>
+<ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--courses' data-mobile-nav-level='1' data-mobile-nav-tag='courses'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Courses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='courses-data' href='../courses.html#data' data-bst-label=''>
+Data Courses
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='courses-design' href='../courses.html#design' data-bst-label=''>
+Design Courses
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='courses-development' href='../courses.html#development' data-bst-label=''>
+Development Courses
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='courses-marketing' href='../courses.html#marketing' data-bst-label=''>
+Marketing Courses
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='courses-product' href='../courses.html#product' data-bst-label=''>
+Product Courses
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='courses-business' href='../courses.html#business' data-bst-label=''>
+Business Courses
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--data' data-mobile-nav-level='2' data-mobile-nav-tag='courses-data'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Data Courses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/data-analytics.html' data-bst-label='global-nav_courses_data-analytics'>Data Analytics</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/data-science.html' data-bst-label='global-nav_courses_data-science'>Data Science</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/python-programming.html' data-bst-label='global-nav_courses_python-programming'>Python</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/cybersecurity.html' data-bst-label='global-nav_courses_cybersecurity'>Cybersecurity</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--design' data-mobile-nav-level='2' data-mobile-nav-tag='courses-design'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Design Courses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/user-experience-design.html' data-bst-label='global-nav_courses_user-experience-design'>UX Design</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/user-interface-design.html' data-bst-label='global-nav_courses_user-interface-design'>UI Design</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--development' data-mobile-nav-level='2' data-mobile-nav-tag='courses-development'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Development Courses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/intro-to-web-development.html' data-bst-label='global-nav_courses_web-development'>Web Development</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--marketing' data-mobile-nav-level='2' data-mobile-nav-tag='courses-marketing'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Marketing Courses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/digital-marketing.html' data-bst-label='global-nav_courses_digital-marketing'>Digital Marketing</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/seo-sem-analytics.html' data-bst-label='global-nav_courses_seo-sem-analytics'>Search Engine Marketing</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/social-media-marketing.html' data-bst-label='global-nav_courses_social-media-marketing'>Social Media Marketing</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--product' data-mobile-nav-level='2' data-mobile-nav-tag='courses-product'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Product Courses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/product-management.html' data-bst-label='global-nav_courses_product-management'>Product Management</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/design-thinking.html' data-bst-label='global-nav_courses_design-thinking'>Design Thinking</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--business' data-mobile-nav-level='2' data-mobile-nav-tag='courses-business'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Business Courses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../course/online/digital-leadership.html' data-bst-label='global-nav_courses_digital-marketing'>Digital Leadership</a></li></ul>
+<ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--campuses' data-mobile-nav-level='1' data-mobile-nav-tag='campuses'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Campuses
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='campuses-online' href='social-media-specialist.html#' data-bst-label=''>
+Online
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='campuses-united-states' href='social-media-specialist.html#' data-bst-label=''>
+United States
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='campuses-canada' href='social-media-specialist.html#' data-bst-label=''>
+Canada
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' data-mobile-nav-target='campuses-united-kingdom' href='social-media-specialist.html#' data-bst-label=''>
+United Kingdom
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-right-black.svg' class='v3-mobile-nav__next' width='9' height='16' aria-hidden='true' alt='' />
+</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--online' data-mobile-nav-level='2' data-mobile-nav-tag='campuses-online'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Online
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../online-live%3Futm_source=Blog&amp;utm_medium=BlogPost&amp;utm_campaign=lead_bookCall.html' data-bst-label='global-nav_cities_online'>Worldwide</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--united-states' data-mobile-nav-level='2' data-mobile-nav-tag='campuses-united-states'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+United States
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../new-york.html' data-bst-label='global-nav_cities_new-york'>New York</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../miami.html' data-bst-label='global-nav_cities_miami'></a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../chicago.html' data-bst-label='global-nav_cities_chicago'>Chicago</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../seattle.html' data-bst-label='global-nav_cities_seattle'>Seattle</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../los-angeles.html' data-bst-label='global-nav_cities_los-angeles'>Los Angeles</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../san-francisco.html' data-bst-label='global-nav_cities_san-francisco'>San Francisco</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../dallas.html' data-bst-label='global-nav_cities_dallas'>Dallas</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--canada' data-mobile-nav-level='2' data-mobile-nav-tag='campuses-canada'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+Canada
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../toronto.html' data-bst-label='global-nav_cities_toronto'>Toronto</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../vancouver.html' data-bst-label='global-nav_cities_vancouver'>Vancouver</a></li></ul><ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--united-kingdom' data-mobile-nav-level='2' data-mobile-nav-tag='campuses-united-kingdom'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+United Kingdom
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../london.html' data-bst-label='global-nav_cities_london'>London</a></li></ul>
+<ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--for-companies' data-mobile-nav-level='1' data-mobile-nav-tag='for-companies'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+For Companies
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../corporate-training.html' data-bst-label='global-nav_for-companies_corporate-training'>Corporate Training</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../hiring-partners.html' data-bst-label='global-nav_for-companies_hiring-partners'>Hire BrainStation Graduates</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../impact.html' data-bst-label='global-nav_for-companies_impact-scholarships'>Impact Scholarships</a></li></ul>
+<ul class='v3-mobile-nav__wrapper v3-mobile-nav__wrapper--about' data-mobile-nav-level='1' data-mobile-nav-tag='about'>
+<li class='v3-mobile-nav__item v3-mobile-nav__item--header'>
+<button class='v3-mobile-nav__prev'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/chevron-left-black.svg' width='9' height='16' aria-hidden='true' />
+</button>
+About
+<button class='v3-mobile-nav__close'>
+<img src='../app/themes/brainstation/resources/assets/images/icons/cross.svg' class='v3-mobile-nav__close__icon' width='14' height='14' aria-hidden='true' alt='Close' />
+</button>
+</li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../about.html' data-bst-label='global-nav_about_our-story'>Our Story</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../reviews-and-testimonials.html' data-bst-label='global-nav_about_testimonials'>Testimonials</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../careers.html' data-bst-label='global-nav_about_careers'>Careers</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../press.html' data-bst-label='global-nav_about_press'>Press and Media</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../contribute.html' data-bst-label='global-nav_about_become-an-instructor'>Become an Instructor or Guest Speaker</a></li><li class='v3-mobile-nav__item'><a class='v3-mobile-nav__link' href='../contact.html' data-bst-label='global-nav_about_contact'>Contact Us</a></li></ul>
+</div>
+</nav>
+</div>
+<main class="main-content " role="document">
+<style>
+  :root {
+    --bstn-theme-color-primary: #1358db;
+    --bstn-theme-color-primary-rgb: 19,88,219;
+    --bstn-theme-color-secondary: #000;
+  }
+</style>
+<div class="career-guide-breadcrumbs career-guide-breadcrumbs--hub-page">
+<ol class="career-guide-breadcrumbs__menu">
+<li class="career-guide-breadcrumbs__menu-item">
+<a href="../career-guides.html">Career Guides</a>
+</li>
+<li class="career-guide-breadcrumbs__menu-item career-guide-breadcrumbs__menu-item--active">Social Media Specialist</li>
+</ol>
+</div>
+<div class="career-guide-post">
+<aside class="career-guide-post__sidebar-container">
+<button class="career-guide-left-nav-toggle" aria-label="Open page navigation">
+<div class="career-guide-left-nav-toggle__content career-guide-left-nav-toggle__content--nav-hidden">
+<svg aria-hidden="true" class="career-guide-left-nav-toggle__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 17" fill="none"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M13 16H2.5c-.398 0-.78-.158-1.06-.44A1.494 1.494 0 011 14.5M7 2H3c-.53 0-1.04.21-1.414.586A1.995 1.995 0 001 4v10.5c0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44h10c.133 0 .26-.053.354-.146A.504.504 0 0013 12.5v-10a.504.504 0 00-.146-.354A.504.504 0 0012.5 2H11m1 14v-3" /><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M11 9L9 7 7 9V2a.997.997 0 011-1h2a.997.997 0 011 1v7z" /></svg>
+<span>Menu</span>
+</div>
+<div class="career-guide-left-nav-toggle__content career-guide-left-nav-toggle__content--nav-visible">
+<svg aria-hidden="true" class="career-guide-left-nav-toggle__icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M6.82031 6.25L11.1797 10.6094C11.2148 10.6797 11.25 10.75 11.25 10.8203C11.25 10.8906 11.2148 10.9609 11.1797 10.9961L10.3711 11.8047C10.3008 11.875 10.2305 11.875 10.1602 11.875C10.0898 11.875 10.0195 11.875 9.98438 11.8047L5.625 7.44531L1.26562 11.8047C1.19531 11.875 1.125 11.875 1.05469 11.875C0.984375 11.875 0.914062 11.875 0.878906 11.8047L0.0703125 10.9961C0 10.9609 0 10.8906 0 10.8203C0 10.75 0 10.6797 0.0703125 10.6094L4.42969 6.25L0.0703125 1.89062C0 1.85547 0 1.78516 0 1.71484C0 1.64453 0 1.57422 0.0703125 1.50391L0.878906 0.695312C0.914062 0.660156 0.984375 0.625 1.05469 0.625C1.125 0.625 1.19531 0.660156 1.26562 0.695312L5.625 5.05469L9.98438 0.695312C10.0195 0.660156 10.0898 0.625 10.1602 0.625C10.2305 0.625 10.3008 0.660156 10.3711 0.695312L11.1797 1.50391C11.2148 1.57422 11.25 1.64453 11.25 1.71484C11.25 1.78516 11.2148 1.85547 11.1797 1.89062L10.4414 2.62891L6.82031 6.25Z" fill="currentColor" />
+</svg>
+<span>Close</span>
+</div>
+</button>
+<nav class="career-guide-left-nav">
+<div class="menu-cg-social-media-specialist-container"><ul id="menu-cg-social-media-specialist" class="career-guide-left-nav__root"><li class="career-guide-left-nav__level-0  menu-item menu-item-type-post_type menu-item-object-career-guide current-menu-item menu-item-has-children">
+<h2 class="career-guide-left-nav__hub-link">
+<a class="" href="social-media-specialist.html">
+<span class="career-guide-left-nav__hub-link-text-wrapper">
+<img src="https://wpassets.brainstation.io/app/uploads/2021/09/23170939/BrainStation-Media-Martketing-icon-white.svg.svg" class="career-guide-left-nav__hub-link-icon" alt="" />
+Social Media Specialist
+</span>
+<svg aria-hidden="true" class="career-guide-left-nav__hub-link-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M2.857 12H20m-8 8l8-8-8-8" /></svg>
+</a>
+</h2>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-1  menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" data-left-nav-section-display="visible" aria-expanded="1">
+<button class="career-guide-left-nav__expand-toggle" aria-label="Toggle navigation section">
+<span>The Basics</span>
+<div class="career-guide-left-nav__expand-icon-group">
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+</div>
+</button>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="what-is-social-media-marketing.html">
+What Is Social Media Marketing?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-do-you-mean-by-social-media-marketing">
+What Do You Mean by Social Media Marketing?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-are-the-benefits-of-social-media-marketing">
+What Are the Benefits of Social Media Marketing?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-are-the-most-popular-social-media-platforms">
+What Are the Most Popular Social Media Platforms?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#which-social-media-platform-is-growing-fastest">
+Which Social Media Platform Is Growing Fastest?
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="how-to-work-in-social-media.html">
+How to Work in Social Media
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="how-to-work-in-social-media.html#how-to-work-in-social-media">
+How to Work in Social Media
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="how-many-people-use-social-media.html">
+How Many People Use Social Media?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-percent-of-people-use-social-media">
+What Percent of People Use Social Media?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#which-age-group-uses-social-media-the-most">
+Which Age Group Uses Social Media the Most?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#which-country-uses-social-media-the-most">
+Which Country Uses Social Media the Most?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#which-gender-uses-social-media-more">
+Which Gender Uses Social Media More?
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-1  menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" data-left-nav-section-display="visible" aria-expanded="1">
+<button class="career-guide-left-nav__expand-toggle" aria-label="Toggle navigation section">
+<span>On The Job</span>
+<div class="career-guide-left-nav__expand-icon-group">
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+</div>
+</button>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="what-does-a-social-media-specialist-do.html">
+What Does a Social Media Specialist Do?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-are-the-responsibilities-of-a-social-media-marketing-specialist?">
+What Are the Responsibilities of a Social Media Marketing Specialist?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-specialist-job-description">
+Social Media Specialist Job Description
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-does-a-social-media-specialist-do-all-day?">
+What Does a Social Media Specialist Do All Day?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-is-the-role-of-a-social-media-specialist?">
+What Is the Role of a Social Media Specialist?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-is-the-difference-between-a-social-media-strategist-and-a-social-media-specialist?">
+What Is the Difference Between a Social Media Strategist and a Social Media Specialist?
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="what-tools-do-social-media-specialists-use.html">
+What Tools Do Social Media Specialists Use?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-are-social-media-management-tools?">
+What Are Social Media Management Tools?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-management-tools">
+Social Media Management Tools
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-are-social-listening-tools?">
+What Are Social Listening Tools?
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide">
+<a href="../blog/how-to-plan-a-social-media-marketing-campaign.html">
+How Do You Plan a Social Media Campaign
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-0  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<h2 class="career-guide-left-nav__hub-link">
+<a class="" href="how-to-become-a-social-media-specialist.html">
+<span class="career-guide-left-nav__hub-link-text-wrapper">
+<img src="https://wpassets.brainstation.io/app/uploads/2021/09/23170939/BrainStation-Media-Martketing-icon-white.svg.svg" class="career-guide-left-nav__hub-link-icon" alt="" />
+How to Become a Social Media Specialist
+</span>
+<svg aria-hidden="true" class="career-guide-left-nav__hub-link-nav-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M2.857 12H20m-8 8l8-8-8-8" /></svg>
+</a>
+</h2>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-1  menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" data-left-nav-section-display="visible" aria-expanded="1">
+<button class="career-guide-left-nav__expand-toggle" aria-label="Toggle navigation section">
+<span>Skills</span>
+<div class="career-guide-left-nav__expand-icon-group">
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+</div>
+</button>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="what-skills-do-you-need-to-be-a-social-media-specialist.html">
+What Skills Do You Need to Be a Social Media Specialist?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-do-you-need-to-be-a-good-social-media-specialist?">
+What Do You Need to Be a Good Social Media Specialist?
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="do-you-need-a-degree-to-be-a-social-media-specialist.html">
+Do You Need a Degree to Be a Social Media Specialist?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-education-do-you-need-to-become-a-social-media-professional?">
+What Education Do You Need to Become a Social Media Professional?
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="is-social-media-hard-to-learn.html">
+Is Social Media Hard to Learn?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#how-can-i-improve-my-social-media-skills?">
+How Can I Improve My Social Media Skills?
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="../blog/why-a-social-media-marketing-certification-is-worth-it.html">
+Why a Social Media Marketing Certification Is Worth It
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-trends-are-always-changing">
+Social Media Trends Are Always Changing
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-is-essential-for-branding-and-marketing">
+Social Media Is Essential for Branding and Marketing
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#you-need-to-know-how-to-measure-the-roi-of-social-media-marketing">
+You Need to Know How to Measure the ROI of Social Media Marketing
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-1  menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" data-left-nav-section-display="visible" aria-expanded="1">
+<button class="career-guide-left-nav__expand-toggle" aria-label="Toggle navigation section">
+<span>Career Path</span>
+<div class="career-guide-left-nav__expand-icon-group">
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+</div>
+</button>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="is-social-media-specialist-a-good-career.html">
+Is Social Media Specialist a Good Career?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#is-social-media-marketing-in-demand">
+Is Social Media Marketing in Demand?
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="how-much-can-a-social-media-specialist-make.html">
+How Much Can a Social Media Specialist Make?
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#how-much-can-social-media-professionals-make">
+How Much Can Social Media Professionals Make?
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-1  menu-item menu-item-type-custom menu-item-object-custom menu-item-has-children" data-left-nav-section-display="visible" aria-expanded="1">
+<button class="career-guide-left-nav__expand-toggle" aria-label="Toggle navigation section">
+<span>Getting The Job</span>
+<div class="career-guide-left-nav__expand-icon-group">
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--plus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+<svg aria-hidden="true" class="career-guide-left-nav__expand-icon career-guide-left-nav__expand-icon--minus" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><path fill="currentColor" d="M7.01 7.824a1.334 1.334 0 00-2.016 1.747l6.333 7.303a1.333 1.333 0 002.014 0l6.333-7.303a1.333 1.333 0 00-2.014-1.747l-5.326 6.14-5.325-6.14z" /></svg>
+</div>
+</button>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="social-media-cover-letters.html">
+Social Media Cover Letters
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-are-social-media-cover-letters?">
+What Are Social Media Cover Letters?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-cover-letters---a-step-by-step-guide">
+Social Media Cover Letters - a Step-by-Step Guide
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#getting-started---what-is-the-purpose-of-the-cover-letter?">
+Getting Started - What is the Purpose of the Cover Letter?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#how-to-create-an-outline-for-a-social-media-cover-letter">
+How to Create an Outline for a Social Media Cover Letter
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-to-include-in-your-social-media-cover-letter?">
+What to Include in Your Social Media Cover Letter?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-manager-and-specialist-cover-letter-examples">
+Social Media Manager and Specialist Cover Letter Examples
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-manager-and-social-media-specialist-cover-letter-template">
+Social Media Manager and Social Media Specialist Cover Letter Template
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="what-is-a-social-media-resume.html">
+Social Media Manager Resumes
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-are-social-media-resumes?">
+What Are Social Media Resumes?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-manager-and-social-media-specialist-resumes---a-step-by-step-guide">
+Social Media Manager and Social Media Specialist Resumes - a Step-by-Step Guide
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#getting-started---what-is-the-purpose-of-the-resume?">
+Getting Started - What Is the Purpose of the Resume?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#how-to-create-an-outline-for-a-social-media-resume">
+How to Create an Outline for a Social Media Resume
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-to-include-in-your-social-media-manager-or-social-media-specialist-resume?">
+What to Include in Your Social Media Manager or Social Media Specialist Resume?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#what-skills-should-you-put-on-a-social-media-resume?">
+What Skills Should You Put on a Social Media Resume?
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#social-media-manager-resume-example-template">
+Social Media Manager Resume Example Template
+</a>
+</li>
+</ul>
+</li>
+<li class="career-guide-left-nav__level-2  menu-item menu-item-type-post_type menu-item-object-career-guide menu-item-has-children">
+<a href="social-media-interview-questions.html">
+Social Media Interview Questions
+</a>
+<ul class="sub-menu">
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html">
+List of Social Media Interview Questions: Social Media-Related Questions
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html">
+List of Social Media Interview Questions: Technical Skills Questions
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html">
+List of Social Media Interview Questions: Personal Questions
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html">
+List of Social Media Interview Questions: Leadership and Communication
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html">
+List of Social Media Interview Questions: Behavioral
+</a>
+</li>
+<li class="career-guide-left-nav__level-3  menu-item menu-item-type-custom menu-item-object-custom">
+<a href="social-media-specialist.html#list-of-social-media-interview-questions-from-top-companies-(amazon,-google,-facebook,-microsoft)">
+List of Social Media Interview Questions From Top Companies (Amazon, Google, Facebook, Microsoft)
+</a>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul></div>
+</nav>
+<div class="career-guide-left-nav__scroll-hint career-guide-left-nav__scroll-hint--bottom" data-scroll-hint-bottom>
+<p class="career-guide-left-nav__scroll-hint-text">Scroll</p>
+<svg aria-hidden="true" class="career-guide-left-nav__scroll-hint-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><g stroke-linecap="round" stroke-width="1.5" fill-rule="evenodd" stroke="currentColor" fill="none" stroke-linejoin="round"><path d="M23.25 12.311L12.53 23.03h0a.749.749 0 01-1.06 0L.75 12.311M23.25 1.061L12.53 11.78h0a.749.749 0 01-1.06 0L.75 1.061" /></g></svg>
+</div>
+</aside>
+
+<svg style="display: none;">
+<defs>
+<symbol id="left-nav-minus" viewBox="0 0 12 4">
+<path d="M7.27129 0.728699L4.72871 0.728797L0 0.728699V3.27127H4.72871L7.27129 3.27137L12 3.27127V0.728699H7.27129Z" fill="currentColor" />
+</symbol>
+<symbol id="left-nav-plus" viewBox="0 0 12 12">
+<path d="M7.27129 4.72871V0H4.72871V4.72871H0V7.27129H4.72871V12H7.27129V7.27129H12V4.72871H7.27129Z" fill="currentColor" />
+</symbol>
+</defs>
+</svg>
+<article class="career-guide-post__main-content">
+<header class="wp-block-bstn-blocks-hero-simple bstn-blocks-hero-simple"><div class="bstn-blocks-hero-simple__full-width-wrapper bstn-blocks-hero-simple__full-width-wrapper--main bstn-blocks-hero-simple__full-width-wrapper--bg-flair"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1140 621" fill="none" class="bstn-blocks-hero-simple__bg-flair--rich"><g opacity="0.55"><path stroke="#3C4556" strokelinecap="square" d="M60.026 736.434V203.02"></path><path stroke="#3C4556" strokelinecap="square" d="M60.364 436.132L-120 436.131l180.364.001zm0-99.873H-120 60.364zm0-99.872H-120 60.364zM128 536.004h-248 248z" cliprule="evenodd"></path><path fill="#3C4556" fillrule="evenodd" d="M57.518 535.982a2.286 2.286 0 114.572 0 2.286 2.286 0 01-4.572 0zm0-99.836a2.286 2.286 0 114.572-.002 2.286 2.286 0 01-4.572.002zm0-99.837a2.286 2.286 0 114.572-.002 2.286 2.286 0 01-4.572.002zm0-99.837a2.286 2.286 0 114.572-.002 2.286 2.286 0 01-4.572.002z" cliprule="evenodd"></path></g><g opacity="0.55"><path stroke="#3C4556" strokelinecap="square" d="M979.195-28.206V397.98m81.185-524.745V397.98"></path><path stroke="#3C4556" strokelinecap="square" d="M1141.45 168.46H964h177.45zm0 98.334H964h177.45zm0 98.333H964h177.45zm66.55-295H964h244z" cliprule="evenodd"></path><path fill="#3C4556" fillrule="evenodd" d="M1138.66 70.148a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49-.001zm-80.21 0c0 1.243 1.01 2.251 2.25 2.251s2.25-1.008 2.25-2.251c0-1.243-1.01-2.251-2.25-2.251s-2.25 1.008-2.25 2.25zm-81.707 0a2.25 2.25 0 104.5.004 2.25 2.25 0 00-4.5-.005zm81.707 98.299a2.252 2.252 0 002.25 2.251 2.252 2.252 0 000-4.503 2.253 2.253 0 00-2.25 2.252zm-81.707 0a2.25 2.25 0 104.498 0 2.25 2.25 0 00-2.249-2.252 2.25 2.25 0 00-2.249 2.252zm161.917-.001a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49 0zm0 98.299a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49 0zm-80.21 0c0 1.243 1.01 2.251 2.25 2.251s2.25-1.008 2.25-2.251c0-1.243-1.01-2.251-2.25-2.251s-2.25 1.008-2.25 2.251zm-81.707 0a2.25 2.25 0 104.5.002 2.25 2.25 0 00-4.5-.002zm81.707 98.299c0 1.243 1.01 2.251 2.25 2.251s2.25-1.008 2.25-2.251c0-1.243-1.01-2.251-2.25-2.251s-2.25 1.008-2.25 2.251zm-81.707 0a2.25 2.25 0 104.5.002 2.25 2.25 0 00-4.5-.002zm161.917 0a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49 0z" cliprule="evenodd"></path></g></svg><div class="bstn-blocks-hero-simple__container"><div class="bstn-blocks-hero-simple__copy-container"><p class="bstn-blocks-hero-simple__subtitle"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 14 17" fill="none" class="bstn-blocks-hero-simple__subtitle-icon"><path stroke="currentColor" strokelinecap="round" strokelinejoin="round" d="M12.554 16H2.444c-.383 0-.75-.158-1.021-.44A1.53 1.53 0 011 14.5M6.777 2H2.926c-.511 0-1 .21-1.362.586A2.039 2.039 0 001 4v10.5c0-.398.152-.78.423-1.06.27-.282.638-.44 1.021-.44h9.629c.127 0 .25-.053.34-.146a.512.512 0 00.141-.354v-10c0-.133-.05-.26-.14-.354A.481.481 0 0012.072 2h-1.445m.964 14v-3"></path><path stroke="currentColor" strokelinecap="round" strokelinejoin="round" d="M10.628 9L8.703 7 6.777 9V2c0-.265.101-.52.282-.707A.941.941 0 017.739 1h1.926c.256 0 .5.105.681.293.18.187.282.442.282.707v7z"></path></svg>Career Guide</p><h1 class="bstn-blocks-hero-simple__title">Social Media Specialist</h1><p class="bstn-blocks-hero-simple__description">BrainStation’s Social Media Specialist career guide is intended to help you take the first steps toward a lucrative career in social media and digital marketing. The guide provides an in-depth overview of the data skills you should learn, the best digital marketing training options, career paths in social media, how to become a Social Media Specialist, and more.</p></div><div class="bstn-blocks-hero-simple__image-container"><img class="bstn-blocks-hero-simple__image" src="https://wpassets.brainstation.io/app/uploads/2021/09/23170941/BS_Headers_Marketing_Social-Media-Specialist.svg" alt="Social Media Specialist using computer and phone." /></div></div></div></header>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<div class="wp-block-bstn-blocks-course-cta-card bstn-blocks-course-cta-card"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 14 17" fill="none" class="bstn-blocks-course-cta-card__icon"><path stroke="currentColor" strokelinecap="round" strokelinejoin="round" d="M12.554 16H2.444c-.383 0-.75-.158-1.021-.44A1.53 1.53 0 011 14.5M6.777 2H2.926c-.511 0-1 .21-1.362.586A2.039 2.039 0 001 4v10.5c0-.398.152-.78.423-1.06.27-.282.638-.44 1.021-.44h9.629c.127 0 .25-.053.34-.146a.512.512 0 00.141-.354v-10c0-.133-.05-.26-.14-.354A.481.481 0 0012.072 2h-1.445m.964 14v-3"></path><path stroke="currentColor" strokelinecap="round" strokelinejoin="round" d="M10.628 9L8.703 7 6.777 9V2c0-.265.101-.52.282-.707A.941.941 0 017.739 1h1.926c.256 0 .5.105.681.293.18.187.282.442.282.707v7z"></path></svg><div class="bstn-blocks-course-cta-card__content"><div role="heading" aria-level="2">Ready to start your career in Marketing? Find out more about BrainStation&#8217;s <a class="bstn-blocks-course-cta-card__link" href="../course/online/digital-marketing-bootcamp.html" target="_blank" rel="noreferrer noopener">Digital Marketing Bootcamp<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" class="bstn-blocks-course-cta-card__link-icon"><path fill="currentColor" d="M6.345 12.743a1 1 0 001.31 1.511l5.477-4.749a1 1 0 000-1.511l-5.477-4.75a1.001 1.001 0 00-1.31 1.512l4.606 3.993-4.606 3.994z"></path></svg></a></div></div></div>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">What Is a Social Media Specialist?</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>A Social Media Specialist is responsible for planning, creating, and publishing content on all social media platforms to build an audience, boost brand awareness and ensure customer engagement. Depending on the role, size of the company, and salary level, Social Media Specialist could also oversee higher-level social media strategy, monitor site metrics and data, handle responding directly to customer feedback (otherwise known as community management), and personally craft creative content.</p>
+<p>Given the quantity and variety of social media channels, a Social Media Specialist must also understand how to create and plan content that caters to the specific audience of each social media app or platform – for instance, what works on Facebook will not necessarily be effective on Twitter or Instagram.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">What Does a Social Media Specialist Do?</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>A Social Media Specialist plans and carries out social media strategies, crafts and publishes social media content, handles community engagement and customer service, and sifts through analytic metrics to measure their success.</p>
+<p>Across pretty much any job, the ultimate goal of a Social Media Specialist is to create or plan content on all social media channels that will lead to high levels of engagement with target audiences, increases in various platform-specific metrics (for example, likes on Facebook or Instagram or followers on Twitter), boosts to company website traffic, and ultimately an increase in revenue for a business.</p>
+<p>A Social Media Specialist will also monitor broader cultural trends – specific to each social media platform – and identify opportunities for a brand to jump into larger conversations or create content with the potential to go viral based on of-the-moment social media trends.</p>
+<p>To summarize, a Social Media Specialist job will typically include some or all of the following responsibilities:</p>
+<ul class="wp-block-list"><li>Create and implement social media strategies after conducting thorough research</li><li>Create compelling, highly shareable new content</li><li>Communicate directly with customers (community management)</li><li>Create editorial calendars and syndication schedules</li><li>Capture social media data and metrics and create reports for company stakeholders</li><li>Build social media networks by targeting industry professionals and influencers</li></ul>
+<p>Click here to find out more about&nbsp;<a href="what-does-a-social-media-specialist-do.html" target="_blank" rel="noreferrer noopener">what a Social Media Specialist does</a>.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">Most Popular Social Media Platforms</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>Although we typically group many very different platforms under the broad social media umbrella, a Social Media Specialist should understand the differences between the types of social media platforms and the ways in which their users differ.</p>
+<p>Although some social media platforms might straddle the line between a few categories, here are the main types of social media that any Social Media Specialist should master:</p>
+<ul class="wp-block-list"><li><strong>Image-sharing sites</strong>. Platforms including Instagram, Snapchat, and Pinterest are all about the visuals – and recent reports indicate that visual content garners more engagement than written content on social media.</li><li><strong>Social networking sites</strong>. At their core, Facebook, Twitter, LinkedIn, and other platforms in this category are about connecting with others, and these social media channels are used by pretty much every demographic around the world.</li><li><strong>Video sharing sites</strong>. YouTube is so ubiquitous and widely used that it almost doesn’t register as a social media channel, while Vimeo – used by many professionals – is also worth the time of any social media marketing professional.</li><li><strong>Social blogging</strong>. It’s been found that a brand can see real dividends from blogging, and sites like Tumblr and Medium support a wide variety of content on a wide variety of topics.</li><li><strong>Social community sites</strong>. Forums and discussion boards have been a mainstay on the Internet since before Social Media Specialists existed. With Reddit now leading the way, there are many social media platforms and channels based around discussing news and current events or requesting help or information.</li></ul>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">The Benefits of Social Media</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>With the audience of people interacting with social media – practically everyone – it stands to reason that any smart company already knows how important social media is to overall success. Still, there may be other benefits of social media that some companies are still undervaluing or overlooking, including:</p>
+<ul class="wp-block-list"><li><strong>Easy competitive analysis</strong>. Want to know what your competition in business is up to? Ask your Social Media Specialist.</li><li><strong>Better customer service</strong>. Not only will social media teams directly interact with anyone who reaches out for help, they’ll also use social listening tools to anticipate concerns or gather feedback on what is or isn’t working.</li><li><strong>Learn more about customers</strong>. Social media is one of the best ways to get an authentic look at your audience and customer base. Plus, a smart brand will curate its social media around customer content and photos to boost engagement.</li><li><strong>Appeal to younger clients</strong>. Although age demographics vary by platform, social media is generally still a solid way to reach young people.</li><li><strong>Deepen connection to your brand</strong>. Social media users are selective with whom they follow, so a company’s social media following says a lot about how it’s perceived.</li><li><strong>Boost sales</strong>. There’s no getting around it – social media influences how people spend money (studies have shown that nearly 80 percent of Pinterest users make purchases based on what they see on the platform).</li></ul>
+<p>Click here to find out more about&nbsp;<a href="what-does-a-social-media-specialist-do.html" target="_blank" rel="noreferrer noopener">what a Social Media Specialist does</a>.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">Who Does a Social Media Specialist Work With?</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>Most Social Media Specialists are a part of digital marketing teams. Those digital marketing teams tend to not be very big – our survey found that 64 percent worked on a team of ten or fewer – though since digital marketing roles are in high demand, that could slowly change.</p>
+<p>Beyond their immediate teams, a Social Media Specialist might work with many other departments within a company, including sales, IT, web development, web design, customer service, and product teams.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">Social Media Specialist Salaries</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>The average salary for a Social Media Specialist in the United States is just over $48,000. With more experience, a Social Media Manager can make an average salary of anywhere between $63,000 and $97,000, with a much higher salary figure in certain locations of the United States.</p>
+<p>Click here to find&nbsp;<a href="how-much-can-a-social-media-specialist-make.html" target="_blank" rel="noreferrer noopener">how much a Social Media Specialist makes</a>.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">Demand for Social Media Specialists</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>Reports show that there&#8217;s high demand and low supply for skilled Social Media Specialists and other social media professionals. Even beyond Social Media Specialist job descriptions, digital marketing jobs are beginning to outpace traditional marketing jobs, and all digital marketing jobs call for some level of social media skills.</p>
+<p>In fact, communications jobs also now regularly call for social media skills, given how important a company’s social media presence is to its overall PR strategy.</p>
+<p>Click here to learn more about&nbsp;<a href="is-social-media-specialist-a-good-career.html#is-social-media-marketing-in-demand?" target="_blank" rel="noreferrer noopener">the demand for social media marketing</a>.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">Reasons to Become a Social Media Specialist</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>Since many are curious about exploring career paths in digital marketing, these are a few of the best reasons to become a Social Media Specialist:</p>
+<ul class="wp-block-list"><li><strong>Get paid to do something you love</strong>. Chances are, you spend a lot of time on social media already the average person spends more than two hours every day scrolling social. Turning that hobby into a job could be a more natural transition than you think. Friends might be envious when they see that your day-to-day work duties involve monitoring the account of influencers or joining in on fun trending topics.</li><li><strong>Indulge your creative side</strong>. A top Social Media Manager brings together strong storytelling instincts, a keen design eye, and a sense of humor to create shareable content that is relevant and resonates on an emotional level. Being able to have a creative job is something that many people find really rewarding.</li><li><strong>You’re always in the know</strong>. Since being an effective social media expert means living and breathing trending topics, you’ll soon be that person at the party who is an expert on pretty much everything. And not only will you have your finger permanently on the pulse, but you’ll also be in a rare position to understand exactly what’s happening within your company. Since your job has you on the frontlines of potential PR disasters and customer service issues, your company will keep you in the loop while others might be left in the dark.</li><li><strong>You won’t have to wonder how you’re doing</strong>. With all of the analytic tools and technology at your fingertips to evaluate the performance of the social media accounts you’re running, you won’t have to be left in the dark about whether you’re meeting your goals and objectives. Seeing real-time engagement through analytics tools can be a great motivator – not to mention provide a feeling of instant gratification.</li><li><strong>You could go viral</strong>. Does the prospect of seeing social media content you created being shared and enjoyed by people all around the world excite you? Each day brings the potential for one of your posts to resonate with millions worldwide. With that comes great responsibility as well, of course, but if being able to reach a massive worldwide audience with something you made is exciting to you, you might be well-suited for a career in social media management.</li></ul>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">What Tools Do Social Media Specialists Use?</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>Social Media Specialists and Social Media Managers have a range of largely free tools to perform tasks like scheduling content posts, creating eye-catching new social media images, getting data about social media performance across a variety of metrics, and more.</p>
+<p>Some of the most popular tools for Social Media Specialists include:</p>
+<ul class="wp-block-list"><li><strong>Google Analytics</strong>. One of the easiest methods to track campaign performance.</li><li><strong>Hootsuite</strong>. Create, schedule, track and analyze social media posts across practically any platform.</li><li><strong>Facebook Insights</strong>. Look here for a deep dive into your performance on one of the most important social media platforms.</li><li><strong>Buffer</strong>. Like Hootsuite, a free social media manager with a range of helpful features including scheduling posts.</li><li><strong>Canva</strong>. Social media image creation made easy.</li><li><strong>Sendible</strong>. Favored for lead generation, Sendible has a tool that lets you select which keywords you want to target and where posts were made.</li><li><strong>HubSpot</strong>. A popular social listening tool, Hubspot is an all-in-one tool to help build social media marketing campaigns.</li></ul>
+<p>Click here to learn more about&nbsp;<a href="what-tools-do-social-media-specialists-use.html" target="_blank" rel="noreferrer noopener">the tools Social Media Specialists use&nbsp;</a>.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">What Skills do Social Media Specialists Need?</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>Though the specifics vary with different jobs, there are some skills that every Social Media Specialist needs to have:</p>
+<ul class="wp-block-list"><li><strong>Strong visual sense</strong>. It helps if you have experience using content creation tools such as Canva, Giphy, or the Adobe suite.</li><li><strong>Good customer service skills</strong>. A Social Media Specialist will be interacting directly with the public, which carries a lot of risk for a company.</li><li><strong>Awareness of trends</strong>. Social media professionals are always on top of the latest trends and news, and they know how a brand can best interact with what’s happening.</li><li><strong>Embracing channel diversity</strong>. No two social media platforms can be approached the same way.</li><li><strong>Understanding SEO</strong>. Although the debate rages over the relationship between social media and SEO, any digital marketing specialist needs at least an understanding of both.</li><li><strong>Mind for numbers</strong>. Most social media platforms and third-party tools offer robust data analytics, so determining the most important metrics and KPIs is a huge part of effectively steering social media strategy.</li></ul>
+<p>Click here to learn more about&nbsp;<a href="what-skills-do-you-need-to-be-a-social-media-specialist.html" target="_blank" rel="noreferrer noopener">what skills Social Media Specialists need</a>.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">Social Media Specialist Career Paths</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>Given how integral social media has become to the strategy of virtually any company in any industry, a Social Media Specialist has a lot of options when it comes to selecting a career path.</p>
+<p>Especially within a bigger company, there will be a variety of highly niche roles within a larger digital marketing or social media marketing team. A Social Media Specialist who relishes dealing with the public might explore roles that focus specifically on managing a community, or another with a flair for creative design might focus on content creation.</p>
+<p>Given how crucial brand consciousness is to a Social Media Specialist’s job responsibility, it’s not surprising that many social media pros choose to transition into brand consultancy. Becoming a social media consultant is another common path (one that typically comes with a high salary).</p>
+<p>Others with a background in social media choose to dig deeper into data analysis or market research.</p>
+<p>Finally, there’s always the option to become more of a digital marketing generalist and apply for jobs with titles like Digital Marketing Manager.</p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-heading bstn-blocks-heading bstn-blocks-heading--h2 has-text-align-left"><h2 class="bstn-blocks-heading__heading-element">Social Media Jobs</h2></div>
+<div class="wp-block-bstn-blocks-indented-content-container bstn-blocks-indented-content-container"><div class="row"><div class="bstn-blocks-indented-content-container__content col col-sm-8 col-sm-offset-1">
+<p>The following job descriptions share some qualities with the Social Media Specialist role:</p>
+<ul class="wp-block-list"><li><strong>Digital Marketing Manager</strong>: Of course, social media marketing is a subset of digital marketing. Depending on the size of a company or digital marketing team, digital marketers typically handle various types of online marketing as part of their job, spanning SEO, SEM, PPC, and social media. Regardless of their areas of expertise, Digital Marketing Managers create and execute marketing strategies, manage content, and leverage social media to drive traffic and sales.</li><li><strong>Search Engine Optimization (SEO) Manager</strong>: SEO Managers are experts on what makes Google tick. They know how to change the language, layout, and organization of sites so that algorithms will send them straight to the top of the search engine results page (SERP). SEO Managers help content creators craft a content strategy that will boost visibility on social media and the SERP.</li><li><strong>Search Engine Marketer</strong>: SEO and search engine marketing (SEM) are commonly confused. SEM spans strategies including Pay Per Click marketing (PPC), advertising, and customer relationship management. Search Engine Marketers need to have experience with platforms like Google AdWords and Bing AdWords.</li><li><strong>Email Marketing Specialist</strong>: Another role within digital marketing, Email Marketing Specialists write copy and put together email flyers that they hope customers might actually open and look at. Email is considered one of the best ways to reach committed target audiences, so companies are placing increasing importance on creating compelling copy that won’t be swiped into someone’s junk folder.</li></ul>
+<p></p>
+</div></div></div>
+<div class="wp-block-bstn-blocks-content-navigation-footer bstn-blocks-content-nav-footer"><div class="bstn-blocks-content-nav-footer__links-container"><div class="bstn-blocks-content-nav-footer__link-container"></div><div class="bstn-blocks-content-nav-footer__link-container"><p class="bstn-blocks-content-nav-footer__link-title">Next Article</p><a class="bstn-blocks-content-nav-footer__link" href="what-is-social-media-marketing.html"><span class="bstn-blocks-content-nav-footer__link-text">What Is Social Media Marketing?</span><span class="bstn-blocks-content-nav-footer__link-icon-wrapper bstn-blocks-content-nav-footer__link-icon-wrapper--right"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" class="bstn-blocks-content-nav-footer__link-icon bstn-blocks-content-nav-footer__link-icon--right"><path fill="currentColor" d="M6.345 12.743a1 1 0 001.31 1.511l5.477-4.749a1 1 0 000-1.511l-5.477-4.75a1.001 1.001 0 00-1.31 1.512l4.606 3.993-4.606 3.994z"></path></svg></span></a></div></div></div>
+<section class="wp-block-bstn-blocks-course-cta bstn-blocks-course-cta"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 1140 621" fill="none" class="bstn-blocks-course-cta__bg-flair--rich"><g opacity="0.55"><path stroke="#3C4556" strokelinecap="square" d="M60.026 736.434V203.02"></path><path stroke="#3C4556" strokelinecap="square" d="M60.364 436.132L-120 436.131l180.364.001zm0-99.873H-120 60.364zm0-99.872H-120 60.364zM128 536.004h-248 248z" cliprule="evenodd"></path><path fill="#3C4556" fillrule="evenodd" d="M57.518 535.982a2.286 2.286 0 114.572 0 2.286 2.286 0 01-4.572 0zm0-99.836a2.286 2.286 0 114.572-.002 2.286 2.286 0 01-4.572.002zm0-99.837a2.286 2.286 0 114.572-.002 2.286 2.286 0 01-4.572.002zm0-99.837a2.286 2.286 0 114.572-.002 2.286 2.286 0 01-4.572.002z" cliprule="evenodd"></path></g><g opacity="0.55"><path stroke="#3C4556" strokelinecap="square" d="M979.195-28.206V397.98m81.185-524.745V397.98"></path><path stroke="#3C4556" strokelinecap="square" d="M1141.45 168.46H964h177.45zm0 98.334H964h177.45zm0 98.333H964h177.45zm66.55-295H964h244z" cliprule="evenodd"></path><path fill="#3C4556" fillrule="evenodd" d="M1138.66 70.148a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49-.001zm-80.21 0c0 1.243 1.01 2.251 2.25 2.251s2.25-1.008 2.25-2.251c0-1.243-1.01-2.251-2.25-2.251s-2.25 1.008-2.25 2.25zm-81.707 0a2.25 2.25 0 104.5.004 2.25 2.25 0 00-4.5-.005zm81.707 98.299a2.252 2.252 0 002.25 2.251 2.252 2.252 0 000-4.503 2.253 2.253 0 00-2.25 2.252zm-81.707 0a2.25 2.25 0 104.498 0 2.25 2.25 0 00-2.249-2.252 2.25 2.25 0 00-2.249 2.252zm161.917-.001a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49 0zm0 98.299a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49 0zm-80.21 0c0 1.243 1.01 2.251 2.25 2.251s2.25-1.008 2.25-2.251c0-1.243-1.01-2.251-2.25-2.251s-2.25 1.008-2.25 2.251zm-81.707 0a2.25 2.25 0 104.5.002 2.25 2.25 0 00-4.5-.002zm81.707 98.299c0 1.243 1.01 2.251 2.25 2.251s2.25-1.008 2.25-2.251c0-1.243-1.01-2.251-2.25-2.251s-2.25 1.008-2.25 2.251zm-81.707 0a2.25 2.25 0 104.5.002 2.25 2.25 0 00-4.5-.002zm161.917 0a2.244 2.244 0 104.49 0 2.246 2.246 0 10-4.49 0z" cliprule="evenodd"></path></g></svg><div class="bstn-blocks-course-cta__container"><div class="bstn-blocks-course-cta__copy-container"><p class="bstn-blocks-course-cta__subtitle"><span>GET STARTED</span></p><h2 class="bstn-blocks-course-cta__title">Kickstart Your Social Media Specialist Career</h2><p class="bstn-blocks-course-cta__description">We offer a wide variety of programs and courses built on adaptive curriculum and led by leading industry experts.</p><ul class="bstn-blocks-course-cta__description-checklist wp-block-list is-style-kg-list-checklist-alternate"><li><p class="bstn-blocks-course-cta__checklist-item">Work on projects in a collaborative setting</p></li><li><p class="bstn-blocks-course-cta__checklist-item">Take advantage of our flexible plans and scholarships</p></li><li><p class="bstn-blocks-course-cta__checklist-item">Get access to VIP events and workshops</p></li></ul><a class="bstn-blocks-course-cta__cta-button" href="../book-call/remote-digital-marketing-bootcamp.html">Speak to a Learning Advisor</a></div><div class="bstn-blocks-course-cta__course-container"><h3 class="bstn-blocks-course-cta__course-list-heading">RECOMMENDED COURSES FOR SOCIAL MEDIA SPECIALIST</h3><ul class="bstn-blocks-course-cta__course-list">
+<div class="wp-block-bstn-blocks-course-card bstn-blocks-course-card"><a class="bstn-blocks-course-card__link-wrapper" href="../course/online/digital-marketing-bootcamp.html"><div class="bstn-blocks-course-card__title-group"><span class="bstn-blocks-course-card__tag bstn-blocks-course-card__tag--blue">BOOTCAMP</span><span class="bstn-blocks-course-card__title" href="https://brainstation.io/course/online/remote-digital-marketing-bootcamp">Digital Marketing Bootcamp<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" class="bstn-blocks-course-card__link-icon"><path fill="currentColor" d="M6.345 12.743a1 1 0 001.31 1.511l5.477-4.749a1 1 0 000-1.511l-5.477-4.75a1.001 1.001 0 00-1.31 1.512l4.606 3.993-4.606 3.994z"></path></svg></span></div><p class="bstn-blocks-course-card__description">Our Digital Marketing bootcamp is designed to transform your skillset, providing hands-on&#8230;</p></a></div>
+<div class="wp-block-bstn-blocks-course-card bstn-blocks-course-card"><a class="bstn-blocks-course-card__link-wrapper" href="../course/social-media-marketing.html"><div class="bstn-blocks-course-card__title-group"><span class="bstn-blocks-course-card__tag bstn-blocks-course-card__tag--yellow">Certificate</span><span class="bstn-blocks-course-card__title" href="https://brainstation.io/online/social-media-marketing-course">Social Media Marketing Course<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" class="bstn-blocks-course-card__link-icon"><path fill="currentColor" d="M6.345 12.743a1 1 0 001.31 1.511l5.477-4.749a1 1 0 000-1.511l-5.477-4.75a1.001 1.001 0 00-1.31 1.512l4.606 3.993-4.606 3.994z"></path></svg></span></div><p class="bstn-blocks-course-card__description">Gain hands-on experience building measurable, end-to-end social campaigns, and working with&#8230;</p></a></div>
+<div class="wp-block-bstn-blocks-course-card bstn-blocks-course-card"><a class="bstn-blocks-course-card__link-wrapper" href="../course/online/digital-marketing.html"><div class="bstn-blocks-course-card__title-group"><span class="bstn-blocks-course-card__tag bstn-blocks-course-card__tag--yellow">Certificate</span><span class="bstn-blocks-course-card__title" href="https://brainstation.io/course/online/digital-marketing">Digital Marketing Course<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none" class="bstn-blocks-course-card__link-icon"><path fill="currentColor" d="M6.345 12.743a1 1 0 001.31 1.511l5.477-4.749a1 1 0 000-1.511l-5.477-4.75a1.001 1.001 0 00-1.31 1.512l4.606 3.993-4.606 3.994z"></path></svg></span></div><p class="bstn-blocks-course-card__description">The part-time Digital Marketing course was designed for marketers looking to develop and&#8230;</p></a></div>
+</ul></div></div></section>
+</article>
+</div>
+</main>
+<div class="notification notification--bottom hidden" role="alert" data-cookie-notification>
+<div class="container">
+<div class="notification__body notification__body--flex notification__body--large">
+<p class="notification__description">We use cookies to improve your experience on our site, and to deliver personalized content. By using BrainStation, you agree to our <a title="Terms of Service" class="text-white hover:text-yellow active:text-yellow underline" href="../terms-and-conditions.html">privacy policy</a>.</p>
+<button class="bstn-button--tertiary" type="button" data-cookie-acceptance-trigger>I Accept</button>
+<button class="bstn-button--text p-2 text-2xl text-yellow" type="button" aria-label="Deny and Dismiss" data-cookie-denial-trigger>&times;</button>
+</div>
+</div>
+</div>
+<footer class="v3_page-footer">
+<div class="container">
+<div class="v3_page-footer__row">
+<div class="v3_page-footer__intro-col">
+<div class="v3_page-footer__company-info-container">
+<div class="v3_page-footer__company-info-main">
+<img src="../app/themes/brainstation/dist/images/logos/bstn-logo-small-white_99c83cee.svg" width="43" alt="BrainStation logo" class="v3_page-footer__logo" />
+<p class="v3_page-footer__description">BrainStation is the global leader in digital skills training. We empower businesses and brands to succeed in the digital age.</p>
+</div>
+<ul class="v3_page-footer__social-links">
+<li class="v3_page-footer__social-link">
+<a href="https://www.linkedin.com/edu/school?id=164173&trk=tyah&trkInfo=idx%3A3-1-5%2CtarId%3A1423674489955%2Ctas%3Abrainstation">
+<svg class="v3_page-footer__social-icon" xmlns="http://www.w3.org/2000/svg" width="18" height="16" viewBox="0 0 12 11">
+<path fill="#FFF" fill-rule="evenodd" d="M11.862 10.917H9.24V7.108c0-.997-.41-1.677-1.311-1.677-.69 0-1.074.46-1.252.902-.067.159-.057.38-.057.601v3.983H4.023s.033-6.746 0-7.36H6.62v1.155c.154-.505.983-1.225 2.308-1.225 1.643 0 2.934 1.058 2.934 3.338v4.092zM1.396 2.637H1.38C.543 2.637 0 2.074 0 1.36 0 .634.559.083 1.412.083c.853 0 1.378.55 1.395 1.276 0 .713-.542 1.278-1.41 1.278zM.3 3.557h2.312v7.36H.3v-7.36z"></path>
+</svg>
+</a>
+</li>
+<li class="v3_page-footer__social-link">
+<a href="https://www.facebook.com/brainstation">
+<svg class="v3_page-footer__social-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="19" viewBox="0 0 14 13">
+<path fill="#FFF" fill-rule="evenodd" d="M7.097 13H.899a.716.716 0 0 1-.714-.718V.717C.185.321.505 0 .899 0h11.512c.395 0 .714.321.714.717v11.565c0 .397-.32.718-.714.718H9.114V7.966h1.682l.252-1.962H9.114V4.75c0-.568.157-.955.968-.955h1.034V2.04a13.762 13.762 0 0 0-1.507-.078c-1.491 0-2.512.915-2.512 2.594v1.447H5.41v1.962h1.687V13z"></path>
+</svg>
+</a>
+</li>
+<li class="v3_page-footer__social-link">
+<a href="https://twitter.com/BrainStation">
+<svg class="v3_page-footer__social-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="16" viewBox="0 0 14 11">
+<path fill="#FFF" fill-rule="evenodd" d="M13.658 1.366a5.167 5.167 0 0 1-1.524.43c.548-.338.97-.874 1.167-1.512-.513.313-1.08.54-1.687.662A2.613 2.613 0 0 0 9.677.083c-1.465 0-2.654 1.225-2.654 2.735 0 .214.023.423.068.623C4.885 3.327 2.93 2.239 1.62.583c-.229.405-.36.875-.36 1.376 0 .948.47 1.786 1.182 2.276a2.598 2.598 0 0 1-1.204-.341v.034c0 1.325.916 2.43 2.13 2.681a2.567 2.567 0 0 1-1.2.048c.34 1.086 1.32 1.877 2.482 1.898A5.227 5.227 0 0 1 .718 9.69a7.368 7.368 0 0 0 4.07 1.228c4.883 0 7.553-4.167 7.553-7.781 0-.12-.002-.238-.007-.355.52-.385.97-.867 1.324-1.415"></path>
+</svg>
+</a>
+</li>
+<li class="v3_page-footer__social-link">
+<a href="http://instagram.com/brainstation">
+<svg class="v3_page-footer__social-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 13 13">
+<path fill="#FFF" fill-rule="evenodd" d="M6.53 0c1.757 0 1.977.007 2.667.04.69.03 1.16.14 1.571.301a3.17 3.17 0 0 1 1.146.75c.36.361.581.724.746 1.151.16.414.27.886.301 1.578.032.693.039.915.039 2.68 0 1.765-.007 1.987-.039 2.68-.031.692-.14 1.164-.3 1.578-.166.427-.387.79-.747 1.151a3.17 3.17 0 0 1-1.146.75c-.412.16-.882.27-1.57.302-.69.032-.911.039-2.668.039-1.757 0-1.978-.007-2.668-.04-.689-.03-1.159-.14-1.57-.301a3.17 3.17 0 0 1-1.146-.75 3.188 3.188 0 0 1-.747-1.151C.24 10.344.13 9.872.1 9.18c-.032-.693-.04-.915-.04-2.68 0-1.765.008-1.987.04-2.68.03-.692.14-1.164.3-1.578.166-.427.387-.79.747-1.151a3.17 3.17 0 0 1 1.146-.75c.411-.16.881-.27 1.57-.302C4.552.007 4.772 0 6.53 0zm0 1.171c-1.728 0-1.932.007-2.615.038-.63.029-.973.135-1.201.224a2.004 2.004 0 0 0-.744.486 2.015 2.015 0 0 0-.484.747c-.089.23-.194.574-.223 1.207-.031.686-.038.891-.038 2.627 0 1.736.007 1.941.038 2.627.029.633.134.977.223 1.207.117.303.257.52.484.747.226.227.442.368.744.486.228.09.57.195 1.201.224.682.031.887.038 2.615.038 1.728 0 1.932-.007 2.614-.038.631-.029.974-.135 1.202-.224.302-.118.517-.259.744-.486.226-.228.366-.444.484-.747.088-.23.194-.574.222-1.207.032-.686.038-.891.038-2.627 0-1.736-.006-1.941-.038-2.627-.028-.633-.134-.977-.222-1.207a2.015 2.015 0 0 0-.484-.747 2.004 2.004 0 0 0-.744-.486c-.228-.09-.57-.195-1.202-.224-.682-.031-.887-.038-2.614-.038zm0 1.991A3.33 3.33 0 0 1 9.852 6.5 3.33 3.33 0 0 1 6.53 9.838 3.33 3.33 0 0 1 3.207 6.5 3.33 3.33 0 0 1 6.53 3.162zm0 5.505c1.19 0 2.157-.97 2.157-2.167A2.162 2.162 0 0 0 6.53 4.333c-1.191 0-2.157.97-2.157 2.167 0 1.197.966 2.167 2.157 2.167zm4.23-5.637c0 .431-.348.78-.776.78a.778.778 0 0 1-.777-.78c0-.43.348-.78.777-.78.428 0 .776.35.776.78z"></path>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+</div>
+<ul class="v3_page-footer__nav-col">
+<div class="v3_page-footer__column">
+<ul class="v3_page-footer__sitemap">
+<li class="v3_page-footer__sitemap-title">Bootcamps</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/web-development-immersive.html">Web Development
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/user-experience-immersive.html">User Experience Design
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/data-science-bootcamp.html">Data Science
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/digital-marketing-bootcamp.html">Digital Marketing
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="are-coding-bootcamps-worth-it.html">Coding Bootcamps
+<span class="v3_page-footer__sitemap-item-follow-link-icon">
+<svg class="v3_page-footer__arrow-right inline-block align-baseline" width="5" height="8" viewBox="0 0 14 21" xmlns="http://www.w3.org/2000/svg"><path d='M1.28 17.655a1.778 1.778 0 002.329 2.686l9.737-8.443a1.778 1.778 0 000-2.686L3.609.768a1.778 1.778 0 00-2.33 2.686l8.188 7.1-8.187 7.1z' fill='currentcolor' /></svg>
+</span>
+</a>
+</li>
+</ul>
+<ul class="v3_page-footer__sitemap">
+ <li class="v3_page-footer__sitemap-title">Career Guides</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../blog/what-makes-a-good-web-developer.html">Become a Web Developer
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../blog/how-to-become-a-ux-designer.html">Become a UX Designer
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../blog/how-to-become-a-data-scientist.html">Become a Data Scientist
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="how-to-become-a-digital-marketer.html">Become a Digital Marketer
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="how-to-become-a-data-analyst.html">Become a Data Analyst
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../career-guides.html">View All
+<span class="v3_page-footer__sitemap-item-follow-link-icon">
+<svg class="v3_page-footer__arrow-right inline-block align-baseline" width="5" height="8" viewBox="0 0 14 21" xmlns="http://www.w3.org/2000/svg"><path d='M1.28 17.655a1.778 1.778 0 002.329 2.686l9.737-8.443a1.778 1.778 0 000-2.686L3.609.768a1.778 1.778 0 00-2.33 2.686l8.188 7.1-8.187 7.1z' fill='currentcolor' /></svg>
+</span>
+</a>
+</li>
+</ul>
+</div>
+<div class="v3_page-footer__column">
+<ul class="v3_page-footer__sitemap">
+<li class="v3_page-footer__sitemap-title">Certificate Courses</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/intro-to-web-development.html">Web Development
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/user-experience-design.html">User Experience Design
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/data-science.html">Data Science
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/digital-marketing.html">Digital Marketing
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/cybersecurity.html">Cybersecurity
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/digital-leadership.html">Digital Leadership
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/data-analytics.html">Data Analytics
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/python-programming.html">Python
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/user-interface-design.html">User Interface Design
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/design-thinking.html">Design Thinking
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/seo-sem-analytics.html">Search Engine Marketing
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/social-media-marketing.html">Social Media Marketing
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../course/product-management.html">Product Management
+</a>
+</li>
+</ul>
+</div>
+<div class="v3_page-footer__column">
+<ul class="v3_page-footer__sitemap">
+<li class="v3_page-footer__sitemap-title">About</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../about.html">Our Story
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../careers.html">Careers
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../contribute.html">Get Involved
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../magazine.html">Magazine
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../contact.html">Contact Us
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../press.html">Press and Media
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../blog/index.html">Blog
+</a>
+</li>
+</ul>
+<ul class="v3_page-footer__sitemap">
+<li class="v3_page-footer__sitemap-title">For Companies</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../hiring-partners.html">Hire Our Grads
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../corporate-training.html">Corporate Training
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../impact.html">Impact Scholarships
+</a>
+</li>
+</ul>
+<ul class="v3_page-footer__sitemap">
+<li class="v3_page-footer__sitemap-title">Resources</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../get-hired.html">Get Hired
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../certification.html">Certification
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../scholarships.html">Scholarships
+</a>
+</li>
+<li class="v3_page-footer__sitemap-item">
+<a href="../reviews-and-testimonials.html">Testimonials
+</a>
+</li>
+</ul>
+</div>
+</ul>
+</div>
+<hr class="v3_page-footer__divider" />
+<div class="v3_col-md-12 v3_page-footer__legal">
+<p>All Content © BrainStation Inc. 2015-2021. "BRAINSTATION" and the BrainStation Logo are trademarks of BrainStation Inc. All Rights Reserved.</p>
+<a href="../terms-and-conditions.html">Terms of Service</a>
+<a href="../accessibility.html">Accessibility</a>
+</div>
+</div>
+</footer>
+<script type='text/javascript' id='eio-lazy-load-js-before'>
+var eio_lazy_vars = {"exactdn_domain":"","skip_autoscale":0,"threshold":0};
+</script>
+<script type='text/javascript' async='async' src='../app/plugins/ewww-image-optimizer/includes/lazysizes.min.js%3Fver=625' id='eio-lazy-load-js'></script>
+<script type='text/javascript' async='async' src='../app/mu-plugins/bstn-blocks/build/bstn-blocks-front-end.js%3Fver=3241f9773a5aef628e7bc43adc1b0351' id='bstn-blocks-front-end-js'></script>
+<script type='text/javascript' async='async' src='../app/themes/brainstation/dist/scripts/magazine_de3c92fd.js' id='sage/main.js-js'></script>
+<script type='text/javascript' async='async' src='../wp/wp-includes/js/wp-embed.min.js%3Fver=5.8.1' id='wp-embed-js'></script>
+</body>
+</html>
+
