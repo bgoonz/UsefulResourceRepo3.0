@@ -8,8 +8,6 @@
 
 {%- for letter, entries in content %}
 
-
-
 **{{ letter }}**
 
 {%- for (name, grouptype, page, anchor, extra, qualifier, description) in entries %}
