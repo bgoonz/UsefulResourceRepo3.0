@@ -1,0 +1,179 @@
+1
+00:00:00,150 --> 00:00:02,400
+I love to start working on Gatsby.
+
+2
+00:00:02,430 --> 00:00:08,820
+We will use Gatsby to bootstrap The Gatsby side, so we need to go to the official website, which is
+
+3
+00:00:08,820 --> 00:00:13,980
+Gatsby, James Dotcom, and we need to go to dogs and inside we need to click on QuickStart.
+
+4
+00:00:14,460 --> 00:00:18,320
+OK, so these are the steps to create a Gatsby website.
+
+5
+00:00:18,870 --> 00:00:26,430
+So instead of the steps I will use and be X and be X will help us to get the latest version of Gatsby.
+
+6
+00:00:27,030 --> 00:00:29,530
+When you bootstrap your application and that's great.
+
+7
+00:00:29,730 --> 00:00:34,800
+So that is one advantage of using antiques so you can do whatever you want.
+
+8
+00:00:34,800 --> 00:00:39,730
+If you want to follow the step, you can follow this or else you can follow what I am doing, ok.
+
+9
+00:00:39,750 --> 00:00:44,670
+I'll be using antiques so to use and and we need to go to Israel studio.
+
+10
+00:00:44,910 --> 00:00:46,770
+OK, so we need a good editor.
+
+11
+00:00:46,770 --> 00:00:48,360
+I am using Visual Studio Code.
+
+12
+00:00:48,360 --> 00:00:54,530
+If you don't have visual studio would just Google it as a and this is the FirstLine.
+
+13
+00:00:56,370 --> 00:01:01,620
+So you need to install this, OK, so this is Warmack, and if you are a Windows user, you just need
+
+14
+00:01:01,620 --> 00:01:06,600
+to click on this arrow and you need to download and install it and even you need to install JS.
+
+15
+00:01:06,610 --> 00:01:07,680
+OK, so your.
+
+16
+00:01:08,640 --> 00:01:15,450
+Is the Narges website, and if you are a Mac user, just click on this Altius Virgin and if you are
+
+17
+00:01:15,450 --> 00:01:19,280
+a Windows user, just go to download and your the options.
+
+18
+00:01:19,290 --> 00:01:21,380
+OK, so just click and install it.
+
+19
+00:01:21,630 --> 00:01:23,520
+So there's two things you required.
+
+20
+00:01:23,550 --> 00:01:30,210
+OK, so now I'll go to a little studio code, which is my code editor and you're I'll open the terminal
+
+21
+00:01:30,210 --> 00:01:36,480
+by pressing control and practically OK, which is about the you and I want to create my website on desktop.
+
+22
+00:01:36,480 --> 00:01:41,160
+So let me go to my desktop, which is next stop.
+
+23
+00:01:44,430 --> 00:01:51,020
+Now I'm inside my desktop and I will write the command and be X Gadsby's.
+
+24
+00:01:52,900 --> 00:02:01,890
+New, this new keyword will create a site for us and I'll keep the name of my Web site as speech and
+
+25
+00:02:01,900 --> 00:02:02,280
+blog.
+
+26
+00:02:02,620 --> 00:02:07,420
+OK, because we are creating a blog Web site, you can keep whatever name you want, OK?
+
+27
+00:02:07,630 --> 00:02:08,840
+And I'll press enter.
+
+28
+00:02:09,070 --> 00:02:10,540
+So it will take some time.
+
+29
+00:02:23,640 --> 00:02:30,660
+So now everything is in and we need to navigate inside the folder, so here we need to write code and
+
+30
+00:02:31,020 --> 00:02:33,260
+we need to read Gadsby IFN blog.
+
+31
+00:02:33,360 --> 00:02:35,450
+OK, whatever the name of the site you have given.
+
+32
+00:02:36,180 --> 00:02:43,020
+So now I'm inside this folder and now we need to write and start OK and press enter.
+
+33
+00:02:44,420 --> 00:02:48,640
+So Gatsby will build the site, so it will take some time.
+
+34
+00:02:51,070 --> 00:02:54,440
+So here we have localhost eight thousand.
+
+35
+00:02:54,910 --> 00:03:01,570
+This is where our dev server is going to be and we also have localhost eight thousand four, which slash
+
+36
+00:03:02,080 --> 00:03:03,880
+and underscore to underscore, to underscore.
+
+37
+00:03:03,880 --> 00:03:06,110
+These are three in the school and then grad school.
+
+38
+00:03:06,520 --> 00:03:11,170
+So this is the graphical editor that I'm going to talk about in the future videos.
+
+39
+00:03:11,380 --> 00:03:15,280
+And we will use this a lot in the schools to create graphical queries.
+
+40
+00:03:15,500 --> 00:03:20,130
+But for now, we will click on we will copy this localhost eight thousand.
+
+41
+00:03:20,290 --> 00:03:25,600
+OK, I'll copy this and I'll go to the browser and I'll pasted.
+
+42
+00:03:28,050 --> 00:03:34,170
+And as you can see, this site is working perfect, so we have successfully bootstrap our application
+
+43
+00:03:34,170 --> 00:03:34,920
+with Gadsby's.
+
+44
+00:03:35,730 --> 00:03:37,320
+So now let's move on.
+
+45
+00:03:37,350 --> 00:03:38,790
+So I'll see you in the next video.
