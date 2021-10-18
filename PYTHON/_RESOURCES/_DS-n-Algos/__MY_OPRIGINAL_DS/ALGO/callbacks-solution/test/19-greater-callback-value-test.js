@@ -1,8 +1,8 @@
-const assert = require("assert");
-const greaterCallbackValue = require("../problems/19-greater-callback-value.js");
+const assert = require('assert');
+const greaterCallbackValue = require('../problems/19-greater-callback-value.js');
 
-describe("greaterCallbackValue", () => {
-  it("", () => {
+describe('greaterCallbackValue', () => {
+  it('', () => {
     let doubler = (n) => {
       return 2 * n;
     };

@@ -1,8 +1,8 @@
-const assert = require("assert");
-const andSelect = require("../problems/11-and-select.js");
+const assert = require('assert');
+const andSelect = require('../problems/11-and-select.js');
 
-describe("andSelect", () => {
-  it("", () => {
+describe('andSelect', () => {
+  it('', () => {
     let isEven = (n) => {
       return n % 2 === 0;
     };
@@ -20,14 +20,14 @@ describe("andSelect", () => {
     };
 
     let startsWithA = (s) => {
-      return s[0].toUpperCase() === "A";
+      return s[0].toUpperCase() === 'A';
     };
     const actual2 = andSelect(
-      ["ants", "APPLES", "ART", "BACON", "arm"],
+      ['ants', 'APPLES', 'ART', 'BACON', 'arm'],
       isUpperCase,
       startsWithA
     );
-    const expected2 = ["APPLES", "ART"];
+    const expected2 = ['APPLES', 'ART'];
     assert.deepEqual(actual2, expected2);
   });
 });

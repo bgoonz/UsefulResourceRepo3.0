@@ -1,29 +1,18 @@
-pydoc \-\-- Online Help for Modules
-===================================
+# pydoc \-\-- Online Help for Modules
 
-::: {.module synopsis="Online help for modules"}
-pydoc
-:::
+::: {.module synopsis="Online help for modules"} pydoc :::
 
 Purpose
 
-:   Generates help for Python modules and classes from the code.
+: Generates help for Python modules and classes from the code.
 
-The `pydoc` module imports a Python module and uses the contents to
-generate help text at runtime. The output includes docstrings for any
-objects that have them, and all of the classes, methods, and functions
-of the module are described.
+The `pydoc` module imports a Python module and uses the contents to generate help text at runtime. The output includes docstrings for any objects that have them, and all of the classes, methods, and functions of the module are described.
 
-Plain Text Help
----------------
+## Plain Text Help
 
-Running `pydoc` as a command line program and passing the name of a
-module produces help text for the module and its contents on the
-console, using a pager program if one is configured. For example, to see
-the help text for the `atexit`{.interpreted-text role="mod"} module, run
-`pydoc atexit`.
+Running `pydoc` as a command line program and passing the name of a module produces help text for the module and its contents on the console, using a pager program if one is configured. For example, to see the help text for the `atexit`{.interpreted-text role="mod"} module, run `pydoc atexit`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ pydoc atexit
 
 Help on built-in module atexit:
@@ -39,7 +28,7 @@ FUNCTIONS
     register(...)
         register(func, *args, **kwargs) -> func
 
-        Register a function to be executed upon normal program 
+        Register a function to be executed upon normal program
 termination
 
             func - function to be called at exit
@@ -51,7 +40,7 @@ termination
     unregister(...)
         unregister(func) -> None
 
-        Unregister an exit function which was previously 
+        Unregister an exit function which was previously
 registered using
         atexit.register
 
@@ -61,20 +50,17 @@ FILE
     (built-in)
 ```
 
-HTML Help
----------
+## HTML Help
 
-`pydoc` will also generate HTML output, either writing a static file to
-a local directory or starting a web server to browse documentation
-online.
+`pydoc` will also generate HTML output, either writing a static file to a local directory or starting a web server to browse documentation online.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ pydoc -w atexit
 ```
 
 Creates `atexit.html` in the current directory.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ pydoc -p 5000
 Server ready at http://localhost:5000/
 Server commands: [b]rowser, [q]uit
@@ -82,17 +68,13 @@ server> q
 Server stopped
 ```
 
-Starts a web server listening at `http://localhost:5000/`. The server
-generates documentation on the fly as you browse. Use the `b` command to
-open a browser window automatically, and `q` to stop the server.
+Starts a web server listening at `http://localhost:5000/`. The server generates documentation on the fly as you browse. Use the `b` command to open a browser window automatically, and `q` to stop the server.
 
-Interactive Help
-----------------
+## Interactive Help
 
-`pydoc` also adds a function `help()` to the `__builtins__` so the same
-information can be accessed from the Python interpreter prompt.
+`pydoc` also adds a function `help()` to the `__builtins__` so the same information can be accessed from the Python interpreter prompt.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python
 
 Python 3.5.2 (v3.5.2:4def2a2901a5, Jun 26 2016, 10:47:25)
@@ -110,7 +92,6 @@ to be executed upon normal program termination.
 ```
 
 ::: {.seealso}
--   `pydoc`{.interpreted-text role="pydoc"}
--   `inspect`{.interpreted-text role="mod"} \-- The `inspect` module can
-    be used to retrieve the docstrings for an object programmatically.
-:::
+
+- `pydoc`{.interpreted-text role="pydoc"}
+- `inspect`{.interpreted-text role="mod"} \-- The `inspect` module can be used to retrieve the docstrings for an object programmatically. :::

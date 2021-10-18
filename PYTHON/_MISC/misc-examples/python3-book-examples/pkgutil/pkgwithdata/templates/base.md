@@ -1,4 +1,3 @@
-Example Template
-================
+# Example Template
 
 This is a sample data file.

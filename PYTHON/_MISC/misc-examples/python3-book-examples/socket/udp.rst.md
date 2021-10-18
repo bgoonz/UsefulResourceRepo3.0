@@ -1,47 +1,26 @@
-User Datagram Client and Server
-===============================
+# User Datagram Client and Server
 
-The user datagram protocol (UDP) works differently from TCP/IP. Where
-TCP is a *stream oriented* protocol, ensuring that all of the data is
-transmitted in the right order, UDP is a *message oriented* protocol.
-UDP does not require a long-lived connection, so setting up a UDP socket
-is a little simpler. On the other hand, UDP messages must fit within a
-single datagram (for IPv4, that means they can only hold 65,507 bytes
-because the 65,535 byte packet also includes header information) and
-delivery is not guaranteed as it is with TCP.
+The user datagram protocol (UDP) works differently from TCP/IP. Where TCP is a _stream oriented_ protocol, ensuring that all of the data is transmitted in the right order, UDP is a _message oriented_ protocol. UDP does not require a long-lived connection, so setting up a UDP socket is a little simpler. On the other hand, UDP messages must fit within a single datagram (for IPv4, that means they can only hold 65,507 bytes because the 65,535 byte packet also includes header information) and delivery is not guaranteed as it is with TCP.
 
-Echo Server
------------
+## Echo Server
 
-Since there is no connection, per se, the server does not need to listen
-for and accept connections. It only needs to use `bind()` to associate
-its socket with a port, and then wait for individual messages.
+Since there is no connection, per se, the server does not need to listen for and accept connections. It only needs to use `bind()` to associate its socket with a port, and then wait for individual messages.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-socket\_echo\_server\_dgram.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} socket_echo_server_dgram.py :::
 
-Messages are read from the socket using `recvfrom()`, which returns the
-data as well as the address of the client from which it was sent.
+Messages are read from the socket using `recvfrom()`, which returns the data as well as the address of the client from which it was sent.
 
-Echo Client
------------
+## Echo Client
 
-The UDP echo client is similar the server, but does not use `bind()` to
-attach its socket to an address. It uses `sendto()` to deliver its
-message directly to the server, and `recvfrom()` to receive the
-response.
+The UDP echo client is similar the server, but does not use `bind()` to attach its socket to an address. It uses `sendto()` to deliver its message directly to the server, and `recvfrom()` to receive the response.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-socket\_echo\_client\_dgram.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} socket_echo_client_dgram.py :::
 
-Client and Server Together
---------------------------
+## Client and Server Together
 
 Running the server produces:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 socket_echo_server_dgram.py
 starting up on localhost port 10000
 
@@ -55,7 +34,7 @@ waiting to receive message
 
 The client output is:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 socket_echo_client_dgram.py
 sending b'This is the message.  It will be repeated.'
 waiting to receive

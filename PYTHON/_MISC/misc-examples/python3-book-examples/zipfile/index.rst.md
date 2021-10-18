@@ -1,30 +1,22 @@
-zipfile \-\-- ZIP Archive Access
-================================
+# zipfile \-\-- ZIP Archive Access
 
-::: {.module synopsis="ZIP archive access"}
-zipfile
-:::
+::: {.module synopsis="ZIP archive access"} zipfile :::
 
 Purpose
 
-:   Read and write ZIP archive files.
+: Read and write ZIP archive files.
 
-The `zipfile` module can be used to manipulate ZIP archive files, the
-format popularized by the PC program PKZIP.
+The `zipfile` module can be used to manipulate ZIP archive files, the format popularized by the PC program PKZIP.
 
-Testing ZIP Files
------------------
+## Testing ZIP Files
 
-The `is_zipfile()` function returns a boolean indicating whether or not
-the filename passed as an argument refers to a valid ZIP archive.
+The `is_zipfile()` function returns a boolean indicating whether or not the filename passed as an argument refers to a valid ZIP archive.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_is\_zipfile.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_is_zipfile.py :::
 
 If the file does not exist at all, `is_zipfile()` returns `False`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_is_zipfile.py
 
      README.txt  False
@@ -33,39 +25,27 @@ bad_example.zip  False
    notthere.zip  False
 ```
 
-Reading Metadata from an Archive
---------------------------------
+## Reading Metadata from an Archive
 
-Use the `ZipFile` class to work directly with a ZIP archive. It supports
-methods for reading data about existing archives as well as modifying
-the archives by adding additional files.
+Use the `ZipFile` class to work directly with a ZIP archive. It supports methods for reading data about existing archives as well as modifying the archives by adding additional files.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_namelist.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_namelist.py :::
 
-The `namelist()` method returns the names of the files in an existing
-archive.
+The `namelist()` method returns the names of the files in an existing archive.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_namelist.py
 
 ['README.txt']
 ```
 
-The list of names is only part of the information available from the
-archive, though. To access all of the metadata about the ZIP contents,
-use the `infolist()` or `getinfo()` methods.
+The list of names is only part of the information available from the archive, though. To access all of the metadata about the ZIP contents, use the `infolist()` or `getinfo()` methods.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_infolist.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_infolist.py :::
 
-There are additional fields other than those printed here, but
-deciphering the values into anything useful requires careful reading of
-the *PKZIP Application Note* with the ZIP file specification.
+There are additional fields other than those printed here, but deciphering the values into anything useful requires careful reading of the _PKZIP Application Note_ with the ZIP file specification.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_infolist.py
 
 README.txt
@@ -77,35 +57,28 @@ README.txt
   Uncompressed: 76 bytes
 ```
 
-If the name of the archive member is known in advance, its `ZipInfo`
-object can be retrieved directly with `getinfo()`.
+If the name of the archive member is known in advance, its `ZipInfo` object can be retrieved directly with `getinfo()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_getinfo.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_getinfo.py :::
 
 If the archive member is not present, `getinfo()` raises a `KeyError`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_getinfo.py
 
 README.txt is 76 bytes
 ERROR: Did not find notthere.txt in zip file
 ```
 
-Extracting Archived Files From an Archive
------------------------------------------
+## Extracting Archived Files From an Archive
 
-To access the data from an archive member, use the `read()` method,
-passing the member\'s name.
+To access the data from an archive member, use the `read()` method, passing the member\'s name.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_read.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_read.py :::
 
 The data is automatically decompressed, if necessary.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_read.py
 
 README.txt :
@@ -115,20 +88,15 @@ e.zip as data.\n'
 ERROR: Did not find notthere.txt in zip file
 ```
 
-Creating New Archives
----------------------
+## Creating New Archives
 
-To create a new archive, instantiate the `ZipFile` with a mode of `'w'`.
-Any existing file is truncated and a new archive is started. To add
-files, use the `write()` method.
+To create a new archive, instantiate the `ZipFile` with a mode of `'w'`. Any existing file is truncated and a new archive is started. To add files, use the `write()` method.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_write.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_write.py :::
 
 By default, the contents of the archive are not compressed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_write.py
 
 creating archive
@@ -143,20 +111,13 @@ README.txt
   Uncompressed: 76 bytes
 ```
 
-To add compression, the `zlib`{.interpreted-text role="mod"} module is
-required. If `zlib`{.interpreted-text role="mod"} is available, the
-compression mode for individual files or for the archive as a whole can
-be set using `zipfile.ZIP_DEFLATED`. The default compression mode is
-`zipfile.ZIP_STORED`, which adds the input data to the archive without
-compressing it.
+To add compression, the `zlib`{.interpreted-text role="mod"} module is required. If `zlib`{.interpreted-text role="mod"} is available, the compression mode for individual files or for the archive as a whole can be set using `zipfile.ZIP_DEFLATED`. The default compression mode is `zipfile.ZIP_STORED`, which adds the input data to the archive without compressing it.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_write\_compression.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_write_compression.py :::
 
 This time, the archive member is compressed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_write_compression.py
 
 creating archive
@@ -171,19 +132,15 @@ README.txt
   Uncompressed: 76 bytes
 ```
 
-Using Alternate Archive Member Names
-------------------------------------
+## Using Alternate Archive Member Names
 
-Pass an `arcname` value to `write()` to add a file to an archive using a
-name other than the original filename.
+Pass an `arcname` value to `write()` to add a file to an archive using a name other than the original filename.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_write\_arcname.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_write_arcname.py :::
 
 There is no sign of the original filename in the archive.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_write_arcname.py
 
 NOT_README.txt
@@ -195,23 +152,15 @@ NOT_README.txt
   Uncompressed: 76 bytes
 ```
 
-Writing Data from Sources Other Than Files
-------------------------------------------
+## Writing Data from Sources Other Than Files
 
-Sometimes it is necessary to write to a ZIP archive using data that did
-not come from an existing file. Rather than writing the data to a file,
-then adding that file to the ZIP archive, use the `writestr()` method to
-add a string of bytes to the archive directly.
+Sometimes it is necessary to write to a ZIP archive using data that did not come from an existing file. Rather than writing the data to a file, then adding that file to the ZIP archive, use the `writestr()` method to add a string of bytes to the archive directly.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_writestr.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_writestr.py :::
 
-In this case, the `compress_type` argument to `ZipFile` was used to
-compress the data, since `writestr()` does not take an argument to
-specify the compression.
+In this case, the `compress_type` argument to `ZipFile` was used to compress the data, since `writestr()` does not take an argument to specify the compression.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_writestr.py
 
 from_string.txt
@@ -225,22 +174,15 @@ from_string.txt
 b'This data did not exist in a file.'
 ```
 
-Writing with a ZipInfo Instance
--------------------------------
+## Writing with a ZipInfo Instance
 
-Normally, the modification date is computed when a file or string is
-added to the archive. A `ZipInfo` instance can be passed to `writestr()`
-to define the modification date and other metadata.
+Normally, the modification date is computed when a file or string is added to the archive. A `ZipInfo` instance can be passed to `writestr()` to define the modification date and other metadata.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_writestr\_zipinfo.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_writestr_zipinfo.py :::
 
-In this example, the modified time is set to the current time, the data
-is compressed, and false value for `create_system` is used. A simple
-comment is also associated with the new file.
+In this example, the modified time is set to the current time, the data is compressed, and false value for `create_system` is used. A simple comment is also associated with the new file.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_writestr_zipinfo.py
 
 from_string.txt
@@ -252,21 +194,15 @@ from_string.txt
   Uncompressed: 34 bytes
 ```
 
-Appending to Files
-------------------
+## Appending to Files
 
-In addition to creating new archives, it is possible to append to an
-existing archive or add an archive at the end of an existing file (such
-as a `.exe` file for a self-extracting archive). To open a file to
-append to it, use mode `'a'`.
+In addition to creating new archives, it is possible to append to an existing archive or add an archive at the end of an existing file (such as a `.exe` file for a self-extracting archive). To open a file to append to it, use mode `'a'`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_append.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_append.py :::
 
 The resulting archive contains two members:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_append.py
 
 creating archive
@@ -298,26 +234,15 @@ README2.txt
   Uncompressed: 76 bytes
 ```
 
-Python ZIP Archives
--------------------
+## Python ZIP Archives
 
-Python can import modules from inside ZIP archives using
-`zipimport`{.interpreted-text role="mod"}, if those archives appear in
-`sys.path`. The `PyZipFile` class can be used to construct a module
-suitable for use in this way. The extra method `writepy()` tells
-`PyZipFile` to scan a directory for `.py` files and add the
-corresponding `.pyo` or `.pyc` file to the archive. If neither compiled
-form exists, a `.pyc` file is created and added.
+Python can import modules from inside ZIP archives using `zipimport`{.interpreted-text role="mod"}, if those archives appear in `sys.path`. The `PyZipFile` class can be used to construct a module suitable for use in this way. The extra method `writepy()` tells `PyZipFile` to scan a directory for `.py` files and add the corresponding `.pyo` or `.pyc` file to the archive. If neither compiled form exists, a `.pyc` file is created and added.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-zipfile\_pyzipfile.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} zipfile_pyzipfile.py :::
 
-With the debug attribute of the `PyZipFile` set to `3`, verbose
-debugging is enabled and output is produced as it compiles each `.py`
-file it finds.
+With the debug attribute of the `PyZipFile` set to `3`, verbose debugging is enabled and output is produced as it compiles each `.py` file it finds.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 zipfile_pyzipfile.py
 
 Adding python files
@@ -365,21 +290,14 @@ zipfile_writestr_zipinfo.pyc
 Imported from: pyzipfile.zip/zipfile_pyzipfile.pyc
 ```
 
-Limitations
------------
+## Limitations
 
-The `zipfile` module does not support ZIP files with appended comments,
-or multi-disk archives. It does support ZIP files larger than 4 GB that
-use the ZIP64 extensions.
+The `zipfile` module does not support ZIP files with appended comments, or multi-disk archives. It does support ZIP files larger than 4 GB that use the ZIP64 extensions.
 
 ::: {.seealso}
--   `zipfile`{.interpreted-text role="pydoc"}
--   `zlib`{.interpreted-text role="mod"} \-- ZIP compression library
--   `tarfile`{.interpreted-text role="mod"} \-- Read and write tar
-    archives
--   `zipimport`{.interpreted-text role="mod"} \-- Import Python modules
-    from ZIP archive.
--   [PKZIP Application
-    Note](https://support.pkware.com/display/PKZIP/Application+Note+Archives)
-    \-- Official specification for the ZIP archive format.
-:::
+
+- `zipfile`{.interpreted-text role="pydoc"}
+- `zlib`{.interpreted-text role="mod"} \-- ZIP compression library
+- `tarfile`{.interpreted-text role="mod"} \-- Read and write tar archives
+- `zipimport`{.interpreted-text role="mod"} \-- Import Python modules from ZIP archive.
+- [PKZIP Application Note](https://support.pkware.com/display/PKZIP/Application+Note+Archives) \-- Official specification for the ZIP archive format. :::

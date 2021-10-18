@@ -1,61 +1,38 @@
-xmlrpc.client \-\-- Client Library for XML-RPC
-==============================================
+# xmlrpc.client \-\-- Client Library for XML-RPC
 
-::: {.module synopsis="Client library for XML-RPC"}
-xmlrpc.client
-:::
+::: {.module synopsis="Client library for XML-RPC"} xmlrpc.client :::
 
 Purpose
 
-:   Client-side library for XML-RPC communication.
+: Client-side library for XML-RPC communication.
 
-XML-RPC is a lightweight remote procedure call protocol built on top of
-HTTP and XML. The `xmlrpclib`{.interpreted-text role="mod"} module lets
-a Python program communicate with an XML-RPC server written in any
-language.
+XML-RPC is a lightweight remote procedure call protocol built on top of HTTP and XML. The `xmlrpclib`{.interpreted-text role="mod"} module lets a Python program communicate with an XML-RPC server written in any language.
 
-All of the examples in this section use the server defined in
-`xmlrpc_server.py`, available in the source distribution and included
-here for reference.
+All of the examples in this section use the server defined in `xmlrpc_server.py`, available in the source distribution and included here for reference.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_server.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_server.py :::
 
-Connecting to a Server
-----------------------
+## Connecting to a Server
 
-The simplest way to connect a client to a server is to instantiate a
-`ServerProxy` object, giving it the URI of the server. For example, the
-demo server runs on port 9000 of localhost.
+The simplest way to connect a client to a server is to instantiate a `ServerProxy` object, giving it the URI of the server. For example, the demo server runs on port 9000 of localhost.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_ServerProxy.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_ServerProxy.py :::
 
-In this case, the `ping()` method of the service takes no arguments and
-returns a single Boolean value.
+In this case, the `ping()` method of the service takes no arguments and returns a single Boolean value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_ServerProxy.py
 
 Ping: True
 ```
 
-Other options are available to support alternate transport. Both HTTP
-and HTTPS are supported out of the box, both with basic authentication.
-To implement a new communication channel, only a new transport class is
-needed. It could be an interesting exercise, for example, to implement
-XML-RPC over SMTP.
+Other options are available to support alternate transport. Both HTTP and HTTPS are supported out of the box, both with basic authentication. To implement a new communication channel, only a new transport class is needed. It could be an interesting exercise, for example, to implement XML-RPC over SMTP.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_ServerProxy\_verbose.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_ServerProxy_verbose.py :::
 
-The `verbose` option gives debugging information useful for resolving
-communication errors.
+The `verbose` option gives debugging information useful for resolving communication errors.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_ServerProxy_verbose.py
 
 send: b'POST /RPC2 HTTP/1.1\r\nHost: localhost:9000\r\n
@@ -71,53 +48,40 @@ Content-length body: b"<?xml version='1.0'?>\n<methodResponse>\n
 Ping: True
 ```
 
-The default encoding can be changed from UTF-8 if an alternate system is
-needed.
+The default encoding can be changed from UTF-8 if an alternate system is needed.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_ServerProxy\_encoding.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_ServerProxy_encoding.py :::
 
 The server automatically detects the correct encoding.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_ServerProxy_encoding.py
 
 Ping: True
 ```
 
-The `allow_none` option controls whether Python\'s `None` value is
-automatically translated to a nil value or if it causes an error.
+The `allow_none` option controls whether Python\'s `None` value is automatically translated to a nil value or if it causes an error.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_ServerProxy\_allow\_none.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_ServerProxy_allow_none.py :::
 
-The error is raised locally if the client does not allow `None`, but can
-also be raised from within the server if it is not configured to allow
-`None`.
+The error is raised locally if the client does not allow `None`, but can also be raised from within the server if it is not configured to allow `None`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_ServerProxy_allow_none.py
 
 ERROR: cannot marshal None unless allow_none is enabled
 Allowed: ['None', "<class 'NoneType'>", None]
 ```
 
-Data Types
-----------
+## Data Types
 
-The XML-RPC protocol recognizes a limited set of common data types. The
-types can be passed as arguments or return values and combined to create
-more complex data structures.
+The XML-RPC protocol recognizes a limited set of common data types. The types can be passed as arguments or return values and combined to create more complex data structures.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_types.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_types.py :::
 
 The simple types are
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_types.py
 
 boolean     : True
@@ -146,19 +110,13 @@ structure   : {'a': 'dictionary'}
               {'a': 'dictionary'}
 ```
 
-The supported types can be nested to create values of arbitrary
-complexity.
+The supported types can be nested to create values of arbitrary complexity.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_types\_nested.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_types_nested.py :::
 
-This program passes a list of dictionaries containing all of the
-supported types to the sample server, which returns the data. Tuples are
-converted to lists and `datetime` instances are converted to `DateTime`
-objects, but otherwise the data is unchanged.
+This program passes a list of dictionaries containing all of the supported types to the sample server, which returns the data. Tuples are converted to lists and `datetime` instances are converted to `DateTime` objects, but otherwise the data is unchanged.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_types_nested.py
 
 Before:
@@ -208,43 +166,28 @@ After:
   'structure': {'a': 'dictionary'}}]
 ```
 
-XML-RPC supports dates as a native type, and
-`xmlrpclib`{.interpreted-text role="mod"} can use one of two classes to
-represent the date values in the outgoing proxy or when they are
-received from the server.
+XML-RPC supports dates as a native type, and `xmlrpclib`{.interpreted-text role="mod"} can use one of two classes to represent the date values in the outgoing proxy or when they are received from the server.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_ServerProxy\_use\_datetime.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_ServerProxy_use_datetime.py :::
 
-By default an internal version of `DateTime` is used, but the
-`use_datetime` option turns on support for using the classes in the
-`datetime`{.interpreted-text role="mod"} module.
+By default an internal version of `DateTime` is used, but the `use_datetime` option turns on support for using the classes in the `datetime`{.interpreted-text role="mod"} module.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 source/xmlrpc.client/xmlrpc_ServerProxy_use_datetime.py
 
 With: 2016-06-18 19:18:31 <class 'datetime.datetime'> datetime
 Without: 20160618T19:18:31 <class 'xmlrpc.client.DateTime'> DateTime
 ```
 
-Passing Objects
----------------
+## Passing Objects
 
-Instances of Python classes are treated as structures and passed as a
-dictionary, with the attributes of the object as values in the
-dictionary.
+Instances of Python classes are treated as structures and passed as a dictionary, with the attributes of the object as values in the dictionary.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_types\_object.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_types_object.py :::
 
-When the value is sent back to the client from the server the result is
-a dictionary on the client, since there is nothing encoded in the values
-to tell the server (or client) that it should be instantiated as part of
-a class.
+When the value is sent back to the client from the server the result is a dictionary on the client, since there is nothing encoded in the values to tell the server (or client) that it should be instantiated as part of a class.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_types_object.py
 
 o  : MyObj(1, 'b goes here')
@@ -257,23 +200,15 @@ o2 : MyObj(2, MyObj(1, 'b goes here'))
  {'a': 2, 'b': {'a': 1, 'b': 'b goes here'}}]
 ```
 
-Binary Data
------------
+## Binary Data
 
-All values passed to the server are encoded and escaped automatically.
-However, some data types may contain characters that are not valid XML.
-For example, binary image data may include byte values in the ASCII
-control range 0 to 31. To pass binary data, it is best to use the
-`Binary` class to encode it for transport.
+All values passed to the server are encoded and escaped automatically. However, some data types may contain characters that are not valid XML. For example, binary image data may include byte values in the ASCII control range 0 to 31. To pass binary data, it is best to use the `Binary` class to encode it for transport.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_Binary.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_Binary.py :::
 
-If the string containing a NULL byte is passed to `show_type()`, an
-exception is raised in the XML parser as it processes the response.
+If the string containing a NULL byte is passed to `show_type()`, an exception is raised in the XML parser as it processes the response.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_Binary.py
 
 Local string: b'This is a string with control characters\x00'
@@ -282,16 +217,11 @@ As binary: b'This is a string with control characters\x00'
 ERROR: not well-formed (invalid token): line 6, column 55
 ```
 
-`Binary` objects can also be used to send objects using
-`pickle`{.interpreted-text role="mod"}. The normal security issues
-related to sending what amounts to executable code over the wire apply
-here (i.e., do not do this unless the communication channel is secure).
+`Binary` objects can also be used to send objects using `pickle`{.interpreted-text role="mod"}. The normal security issues related to sending what amounts to executable code over the wire apply here (i.e., do not do this unless the communication channel is secure).
 
-The data attribute of the `Binary` instance contains the pickled version
-of the object, so it has to be unpickled before it can be used. That
-results in a different object (with a new id value).
+The data attribute of the `Binary` instance contains the pickled version of the object, so it has to be unpickled before it can be used. That results in a different object (with a new id value).
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_Binary_pickle.py
 
 Local: 4327262304
@@ -305,47 +235,30 @@ From pickle: 4327262472
 MyObj(1, 'b goes here')
 ```
 
-Exception Handling
-------------------
+## Exception Handling
 
-Since the XML-RPC server might be written in any language, exception
-classes cannot be transmitted directly. Instead, exceptions raised in
-the server are converted to `Fault` objects and raised as exceptions
-locally in the client.
+Since the XML-RPC server might be written in any language, exception classes cannot be transmitted directly. Instead, exceptions raised in the server are converted to `Fault` objects and raised as exceptions locally in the client.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_exception.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_exception.py :::
 
-The original error message is saved in the
-`faultString`{.interpreted-text role="attr"} attribute, and
-`faultCode`{.interpreted-text role="attr"} is set to an XML-RPC error
-number.
+The original error message is saved in the `faultString`{.interpreted-text role="attr"} attribute, and `faultCode`{.interpreted-text role="attr"} is set to an XML-RPC error number.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_exception.py
 
 Fault code: 1
 Message   : <class 'RuntimeError'>:A message
 ```
 
-Combining Calls Into One Message
---------------------------------
+## Combining Calls Into One Message
 
-Multicall is an extension to the XML-RPC protocol that allows more than
-one call to be sent at the same time, with the responses collected and
-returned to the caller.
+Multicall is an extension to the XML-RPC protocol that allows more than one call to be sent at the same time, with the responses collected and returned to the caller.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_MultiCall.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_MultiCall.py :::
 
-To use a `MultiCall` instance, invoke the methods on it as with a
-`ServerProxy`, then call the object with no arguments to actually run
-the remote functions. The return value is an iterator that yields the
-results from all of the calls.
+To use a `MultiCall` instance, invoke the methods on it as with a `ServerProxy`, then call the object with no arguments to actually run the remote functions. The return value is an iterator that yields the results from all of the calls.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_MultiCall.py
 
 0 True
@@ -353,17 +266,13 @@ $ python3 xmlrpc_MultiCall.py
 2 ['string', "<class 'str'>", 'string']
 ```
 
-If one of the calls causes a `Fault`, the exception is raised when the
-result is produced from the iterator and no more results are available.
+If one of the calls causes a `Fault`, the exception is raised when the result is produced from the iterator and no more results are available.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-xmlrpc\_MultiCall\_exception.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} xmlrpc_MultiCall_exception.py :::
 
-Since the third response, from `raises_exception()`, generates an
-exception, the response from `show_type()` is not accessible.
+Since the third response, from `raises_exception()`, generates an exception, the response from `show_type()` is not accessible.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 xmlrpc_MultiCall_exception.py
 
 0 True
@@ -372,12 +281,8 @@ ERROR: <Fault 1: "<class 'RuntimeError'>:Next to last call stops execution">
 ```
 
 ::: {.seealso}
--   `xmlrpc.client`{.interpreted-text role="pydoc"}
--   `xmlrpc.server`{.interpreted-text role="mod"} \-- An XML-RPC server
-    implementation.
--   `http.server`{.interpreted-text role="mod"} \-- An HTTP server
-    implementation.
--   [XML-RPC How To](http://www.tldp.org/HOWTO/XML-RPC-HOWTO/index.html)
-    \--Describes how to use XML-RPC to implement clients and servers in
-    a variety of languages.
-:::
+
+- `xmlrpc.client`{.interpreted-text role="pydoc"}
+- `xmlrpc.server`{.interpreted-text role="mod"} \-- An XML-RPC server implementation.
+- `http.server`{.interpreted-text role="mod"} \-- An HTTP server implementation.
+- [XML-RPC How To](http://www.tldp.org/HOWTO/XML-RPC-HOWTO/index.html) \--Describes how to use XML-RPC to implement clients and servers in a variety of languages. :::

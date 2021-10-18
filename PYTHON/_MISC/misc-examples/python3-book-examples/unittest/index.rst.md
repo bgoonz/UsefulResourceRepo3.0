@@ -1,41 +1,24 @@
-unittest \-\-- Automated Testing Framework
-==========================================
+# unittest \-\-- Automated Testing Framework
 
-::: {.module synopsis="Automated testing framework"}
-unittest
-:::
+::: {.module synopsis="Automated testing framework"} unittest :::
 
 Purpose
 
-:   Automated testing framework
+: Automated testing framework
 
-Python\'s `unittest` module is based on the XUnit framework design by
-Kent Beck and Erich Gamma. The same pattern is repeated in many other
-languages, including C, Perl, Java, and Smalltalk. The framework
-implemented by `unittest` supports fixtures, test suites, and a test
-runner to enable automated testing.
+Python\'s `unittest` module is based on the XUnit framework design by Kent Beck and Erich Gamma. The same pattern is repeated in many other languages, including C, Perl, Java, and Smalltalk. The framework implemented by `unittest` supports fixtures, test suites, and a test runner to enable automated testing.
 
-Basic Test Structure
---------------------
+## Basic Test Structure
 
-Tests, as defined by `unittest`, have two parts: code to manage test
-dependencies (called *fixtures*), and the test itself. Individual tests
-are created by subclassing `TestCase` and overriding or adding
-appropriate methods. In the following example, the `SimplisticTest` has
-a single `test()` method, which would fail if `a` is ever different from
-`b`.
+Tests, as defined by `unittest`, have two parts: code to manage test dependencies (called _fixtures_), and the test itself. Individual tests are created by subclassing `TestCase` and overriding or adding appropriate methods. In the following example, the `SimplisticTest` has a single `test()` method, which would fail if `a` is ever different from `b`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_simple.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_simple.py :::
 
-Running Tests
--------------
+## Running Tests
 
-The easiest way to run unittest tests is use the automatic discovery
-available through the command line interface.
+The easiest way to run unittest tests is use the automatic discovery available through the command line interface.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest unittest_simple.py
 
 .
@@ -45,12 +28,9 @@ Ran 1 test in 0.000s
 OK
 ```
 
-This abbreviated output includes the amount of time the tests took,
-along with a status indicator for each test (the \".\" on the first line
-of output means that a test passed). For more detailed test results,
-include the `-v` option.
+This abbreviated output includes the amount of time the tests took, along with a status indicator for each test (the \".\" on the first line of output means that a test passed). For more detailed test results, include the `-v` option.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_simple.py
 
 test (unittest_simple.SimplisticTest) ... ok
@@ -61,31 +41,25 @@ Ran 1 test in 0.000s
 OK
 ```
 
-Test Outcomes
--------------
+## Test Outcomes
 
-Tests have 3 possible outcomes, described in
-`Test Case Outcomes`{.interpreted-text role="table"}.
+Tests have 3 possible outcomes, described in `Test Case Outcomes`{.interpreted-text role="table"}.
 
-  Outcome   Description
-  --------- -----------------------------------------------------------------
-  ok        The test passes.
-  FAIL      The test does not pass, and raises an AssertionError exception.
-  ERROR     The test raises any exception other than AssertionError.
+Outcome Description
 
-  : Test Case Outcomes
+---
 
-There is no explicit way to cause a test to \"pass\", so a test\'s
-status depends on the presence (or absence) of an exception.
+ok The test passes. FAIL The test does not pass, and raises an AssertionError exception. ERROR The test raises any exception other than AssertionError.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_outcomes.py
-:::
+: Test Case Outcomes
 
-When a test fails or generates an error, the traceback is included in
-the output.
+There is no explicit way to cause a test to \"pass\", so a test\'s status depends on the presence (or absence) of an exception.
 
-``` {.sourceCode .none}
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_outcomes.py :::
+
+When a test fails or generates an error, the traceback is included in the output.
+
+```{.sourceCode .none}
 $ python3 -m unittest unittest_outcomes.py
 
 EF.
@@ -111,20 +85,13 @@ Ran 3 tests in 0.001s
 FAILED (failures=1, errors=1)
 ```
 
-In the previous example, `testFail()` fails and the traceback shows the
-line with the failure code. It is up to the person reading the test
-output to look at the code to figure out the meaning of the failed test,
-though.
+In the previous example, `testFail()` fails and the traceback shows the line with the failure code. It is up to the person reading the test output to look at the code to figure out the meaning of the failed test, though.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_failwithmessage.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_failwithmessage.py :::
 
-To make it easier to understand the nature of a test failure, the
-`fail*()` and `assert*()` methods all accept an argument `msg`, which
-can be used to produce a more detailed error message.
+To make it easier to understand the nature of a test failure, the `fail*()` and `assert*()` methods all accept an argument `msg`, which can be used to produce a more detailed error message.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_failwithmessage.py
 
 testFail (unittest_failwithmessage.FailureMessageTest) ... FAIL
@@ -143,22 +110,15 @@ Ran 1 test in 0.000s
 FAILED (failures=1)
 ```
 
-Asserting Truth
----------------
+## Asserting Truth
 
-Most tests assert the truth of some condition. There are two different
-ways to write truth-checking tests, depending on the perspective of the
-test author and the desired outcome of the code being tested.
+Most tests assert the truth of some condition. There are two different ways to write truth-checking tests, depending on the perspective of the test author and the desired outcome of the code being tested.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_truth.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_truth.py :::
 
-If the code produces a value which can be evaluated as true, the method
-`assertTrue()` should be used. If the code produces a false value, the
-method `assertFalse()` make more sense.
+If the code produces a value which can be evaluated as true, the method `assertTrue()` should be used. If the code produces a false value, the method `assertFalse()` make more sense.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_truth.py
 
 testAssertFalse (unittest_truth.TruthTest) ... ok
@@ -170,20 +130,15 @@ Ran 2 tests in 0.000s
 OK
 ```
 
-Testing Equality
-----------------
+## Testing Equality
 
-As a special case, `unittest` includes methods for testing the equality
-of two values.
+As a special case, `unittest` includes methods for testing the equality of two values.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_equality.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_equality.py :::
 
-When they fail, these special test methods produce error messages
-including the values being compared.
+When they fail, these special test methods produce error messages including the values being compared.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_equality.py
 
 testExpectEqual (unittest_equality.EqualityTest) ... ok
@@ -216,21 +171,15 @@ Ran 4 tests in 0.001s
 FAILED (failures=2)
 ```
 
-Almost Equal?
--------------
+## Almost Equal?
 
-In addition to strict equality, it is possible to test for near equality
-of floating point numbers using `assertAlmostEqual()` and
-`assertNotAlmostEqual()`.
+In addition to strict equality, it is possible to test for near equality of floating point numbers using `assertAlmostEqual()` and `assertNotAlmostEqual()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_almostequal.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_almostequal.py :::
 
-The arguments are the values to be compared, and the number of decimal
-places to use for the test.
+The arguments are the values to be compared, and the number of decimal places to use for the test.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest unittest_almostequal.py
 
 .F.
@@ -248,21 +197,15 @@ Ran 3 tests in 0.001s
 FAILED (failures=1)
 ```
 
-Containers
-----------
+## Containers
 
-In addition to the generic `assertEqual()` and `assertNotEqual()`, there
-are special methods for comparing containers like `list`, `dict`, and
-`set` objects.
+In addition to the generic `assertEqual()` and `assertNotEqual()`, there are special methods for comparing containers like `list`, `dict`, and `set` objects.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_equality\_container.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_equality_container.py :::
 
-Each method reports inequality using a format that is meaningful for the
-input type, making test failures easier to understand and correct.
+Each method reports inequality using a format that is meaningful for the input type, making test failures easier to understand and correct.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest unittest_equality_container.py
 
 FFFFFFF
@@ -390,14 +333,11 @@ FAILED (failures=7)
 
 Use `assertIn()` to test container membership.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_in.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_in.py :::
 
-Any object that supports the `in` operator or the container API can be
-used with `assertIn()`.
+Any object that supports the `in` operator or the container API can be used with `assertIn()`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest unittest_in.py
 
 FFF
@@ -431,26 +371,15 @@ Ran 3 tests in 0.001s
 FAILED (failures=3)
 ```
 
-Testing for Exceptions
-----------------------
+## Testing for Exceptions
 
-As previously mentioned, if a test raises an exception other than
-`AssertionError` it is treated as an error. This is very useful for
-uncovering mistakes while modifying code that has existing test
-coverage. There are circumstances, however, in which the test should
-verify that some code does produce an exception. For example, if an
-invalid value is given to an attribute of an object. In such cases,
-`assertRaises()` makes the code more clear than trapping the exception
-in the test. Compare these two tests:
+As previously mentioned, if a test raises an exception other than `AssertionError` it is treated as an error. This is very useful for uncovering mistakes while modifying code that has existing test coverage. There are circumstances, however, in which the test should verify that some code does produce an exception. For example, if an invalid value is given to an attribute of an object. In such cases, `assertRaises()` makes the code more clear than trapping the exception in the test. Compare these two tests:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_exception.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_exception.py :::
 
-The results for both are the same, but the second test using
-`assertRaises()` is more succinct.
+The results for both are the same, but the second test using `assertRaises()` is more succinct.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_exception.py
 
 testAssertRaises (unittest_exception.ExceptionTest) ... ok
@@ -462,43 +391,27 @@ Ran 2 tests in 0.000s
 OK
 ```
 
-Test Fixtures
--------------
+## Test Fixtures
 
-Fixtures are outside resources needed by a test. For example, tests for
-one class may all need an instance of another class that provides
-configuration settings or another shared resource. Other test fixtures
-include database connections and temporary files (many people would
-argue that using external resources makes such tests not \"unit\" tests,
-but they are still tests and still useful).
+Fixtures are outside resources needed by a test. For example, tests for one class may all need an instance of another class that provides configuration settings or another shared resource. Other test fixtures include database connections and temporary files (many people would argue that using external resources makes such tests not \"unit\" tests, but they are still tests and still useful).
 
-`unittest` includes special hooks to configure and clean up any fixtures
-needed by tests. To establish fixtures for each individual test case,
-override `setUp()` on the `TestCase`. To clean them up, override
-`tearDown()`. To manage one set of fixtures for all instances of a test
-class, override the class methods `setUpClass()` and `tearDownClass()`
-for the `TestCase`. And to handle especially expensive setup operations
-for all of the tests within a module, use the module-level functions
-`setUpModule()` and `tearDownModule()`.
+`unittest` includes special hooks to configure and clean up any fixtures needed by tests. To establish fixtures for each individual test case, override `setUp()` on the `TestCase`. To clean them up, override `tearDown()`. To manage one set of fixtures for all instances of a test class, override the class methods `setUpClass()` and `tearDownClass()` for the `TestCase`. And to handle especially expensive setup operations for all of the tests within a module, use the module-level functions `setUpModule()` and `tearDownModule()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_fixtures.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_fixtures.py :::
 
-When this sample test is run, the order of execution of the fixture and
-test methods is apparent.
+When this sample test is run, the order of execution of the fixture and test methods is apparent.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u -m unittest -v unittest_fixtures.py
 
 In setUpModule()
 In setUpClass()
-test1 (unittest_fixtures.FixturesTest) ... 
+test1 (unittest_fixtures.FixturesTest) ...
 In setUp()
 In test1()
 In tearDown()
 ok
-test2 (unittest_fixtures.FixturesTest) ... 
+test2 (unittest_fixtures.FixturesTest) ...
 In setUp()
 In test2()
 In tearDown()
@@ -512,26 +425,20 @@ Ran 2 tests in 0.000s
 OK
 ```
 
-The `tearDown` methods may not all be invoked if there are errors in the
-process of cleaning up fixtures. To ensure that a fixture is always
-released correctly, use `addCleanup()`.
+The `tearDown` methods may not all be invoked if there are errors in the process of cleaning up fixtures. To ensure that a fixture is always released correctly, use `addCleanup()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_addcleanup.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_addcleanup.py :::
 
-This example test creates a temporary directory and then uses
-`shutil`{.interpreted-text role="mod"} to clean it up when the test is
-done.
+This example test creates a temporary directory and then uses `shutil`{.interpreted-text role="mod"} to clean it up when the test is done.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -u -m unittest -v unittest_addcleanup.py
 
-test1 (unittest_addcleanup.FixturesTest) ... 
+test1 (unittest_addcleanup.FixturesTest) ...
 In test1()
 In remove_tmpdir()
 ok
-test2 (unittest_addcleanup.FixturesTest) ... 
+test2 (unittest_addcleanup.FixturesTest) ...
 In test2()
 In remove_tmpdir()
 ok
@@ -542,33 +449,19 @@ Ran 2 tests in 0.002s
 OK
 ```
 
-Repeating Tests with Different Inputs
--------------------------------------
+## Repeating Tests with Different Inputs
 
-It is frequently useful to run the same test logic with different
-inputs. Rather than defining a separate test method for each small case,
-a common way of doing this is to use one test method containing several
-related assertion calls. The problem with this approach is that as soon
-as one assertion fails, the rest are skipped. A better solution is to
-use `subTest()` to create a context for a test within a test method. If
-the test fails, the failure is reported and the remaining tests
-continue.
+It is frequently useful to run the same test logic with different inputs. Rather than defining a separate test method for each small case, a common way of doing this is to use one test method containing several related assertion calls. The problem with this approach is that as soon as one assertion fails, the rest are skipped. A better solution is to use `subTest()` to create a context for a test within a test method. If the test fails, the failure is reported and the remaining tests continue.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_subtest.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_subtest.py :::
 
-In this example, the `test_combined()` method never runs the assertions
-for the patterns `'c'` and `'d'`. The `test_with_subtest()` method does,
-and correctly reports the additional failure. Note that the test runner
-still considers there to only be two test cases, even though there are
-three failures reported.
+In this example, the `test_combined()` method never runs the assertions for the patterns `'c'` and `'d'`. The `test_with_subtest()` method does, and correctly reports the additional failure. Note that the test runner still considers there to only be two test cases, even though there are three failures reported.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_subtest.py
 
 test_combined (unittest_subtest.SubTest) ... FAIL
-test_with_subtest (unittest_subtest.SubTest) ... 
+test_with_subtest (unittest_subtest.SubTest) ...
 ================================================================
 FAIL: test_combined (unittest_subtest.SubTest)
 ----------------------------------------------------------------
@@ -599,26 +492,15 @@ Ran 2 tests in 0.001s
 FAILED (failures=3)
 ```
 
-Skipping Tests
---------------
+## Skipping Tests
 
-It is frequently useful to be able to skip a test if some external
-condition is not met. For example, when writing tests to check behavior
-of a library under a specific version of Python there is no reason to
-run those tests under other versions of Python. Test classes and methods
-can be decorated with `skip()` to always skip the tests. The decorators
-`skipIf()` and `skipUnless()` can be used to check a condition before
-skipping.
+It is frequently useful to be able to skip a test if some external condition is not met. For example, when writing tests to check behavior of a library under a specific version of Python there is no reason to run those tests under other versions of Python. Test classes and methods can be decorated with `skip()` to always skip the tests. The decorators `skipIf()` and `skipUnless()` can be used to check a condition before skipping.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_skip.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_skip.py :::
 
-For complex conditions that are difficult to express in a single
-expression to be passed to `skipIf()` or `skipUnless()`, a test case may
-raise `SkipTest` directly to cause the test to be skipped.
+For complex conditions that are difficult to express in a single expression to be passed to `skipIf()` or `skipUnless()`, a test case may raise `SkipTest` directly to cause the test to be skipped.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_skip.py
 
 test (unittest_skip.SkippingTest) ... skipped 'always skipped'
@@ -635,21 +517,15 @@ Ran 4 tests in 0.000s
 OK (skipped=4)
 ```
 
-Ignoring Failing Tests
-----------------------
+## Ignoring Failing Tests
 
-Rather than deleting tests that are persistently broken, they can be
-marked with the `expectedFailure()` decorator so the failure is ignored.
+Rather than deleting tests that are persistently broken, they can be marked with the `expectedFailure()` decorator so the failure is ignored.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-unittest\_expectedfailure.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} unittest_expectedfailure.py :::
 
-If a test that is expected to fail does in fact pass, that condition is
-treated as a special sort of failure and reported as an \"unexpected
-success\".
+If a test that is expected to fail does in fact pass, that condition is treated as a special sort of failure and reported as an \"unexpected success\".
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -m unittest -v unittest_expectedfailure.py
 
 test_always_passes (unittest_expectedfailure.Test) ...
@@ -664,16 +540,9 @@ FAILED (expected failures=1, unexpected successes=1)
 ```
 
 ::: {.seealso}
--   `unittest`{.interpreted-text role="pydoc"}
--   `doctest`{.interpreted-text role="mod"} \-- An alternate means of
-    running tests embedded in docstrings or external documentation
-    files.
--   [nose](https://nose.readthedocs.io/en/latest/) \-- Third-party test
-    runner with sophisticated discovery features.
--   [pytest](http://doc.pytest.org/en/latest/) \-- A popular third-party
-    test runner with support for distributed execution and an alternate
-    fixture management system.
--   [testrepository](http://testrepository.readthedocs.io/en/latest/)
-    \--Third-party test runner used by the OpenStack project, with
-    support for parallel execution andtracking failures.
-:::
+
+- `unittest`{.interpreted-text role="pydoc"}
+- `doctest`{.interpreted-text role="mod"} \-- An alternate means of running tests embedded in docstrings or external documentation files.
+- [nose](https://nose.readthedocs.io/en/latest/) \-- Third-party test runner with sophisticated discovery features.
+- [pytest](http://doc.pytest.org/en/latest/) \-- A popular third-party test runner with support for distributed execution and an alternate fixture management system.
+- [testrepository](http://testrepository.readthedocs.io/en/latest/) \--Third-party test runner used by the OpenStack project, with support for parallel execution andtracking failures. :::

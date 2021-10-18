@@ -1,8 +1,8 @@
-const assert = require("assert");
-const mySimpleReduce = require("../problems/24-my-simple-reduce.js");
+const assert = require('assert');
+const mySimpleReduce = require('../problems/24-my-simple-reduce.js');
 
-describe("mySimpleReduce", () => {
-  it("", () => {
+describe('mySimpleReduce', () => {
+  it('', () => {
     let result1 = mySimpleReduce([5, 3, 2, 4], (sum, el) => {
       return sum + el;
     });

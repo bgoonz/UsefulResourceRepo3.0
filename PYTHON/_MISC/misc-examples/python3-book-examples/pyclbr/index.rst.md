@@ -1,45 +1,26 @@
-pyclbr \-\-- Class Browser
-==========================
+# pyclbr \-\-- Class Browser
 
-::: {.module synopsis="Class browser"}
-pyclbr
-:::
+::: {.module synopsis="Class browser"} pyclbr :::
 
 Purpose
 
-:   Implements an API suitable for use in a source code editor for
-    making a class browser.
+: Implements an API suitable for use in a source code editor for making a class browser.
 
-`pyclbr` can scan Python source to find classes and stand-alone
-functions. The information about class, method, and function names and
-line numbers is gathered using `tokenize`{.interpreted-text role="mod"}
-*without* importing the code.
+`pyclbr` can scan Python source to find classes and stand-alone functions. The information about class, method, and function names and line numbers is gathered using `tokenize`{.interpreted-text role="mod"} _without_ importing the code.
 
 The examples in this section use the following source file as input.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-pyclbr\_example.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} pyclbr_example.py :::
 
-Scanning for Classes
---------------------
+## Scanning for Classes
 
-There are two public functions exposed by `pyclbr`. The first,
-`readmodule()`, takes the name of the module as argument returns a
-mapping of class names to `Class` objects containing the metadata about
-the class source.
+There are two public functions exposed by `pyclbr`. The first, `readmodule()`, takes the name of the module as argument returns a mapping of class names to `Class` objects containing the metadata about the class source.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-pyclbr\_readmodule.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} pyclbr_readmodule.py :::
 
-The metadata for the class includes the file and line number where it is
-defined, as well as the names of super classes. The methods of the class
-are saved as a mapping between method name and line number. The output
-shows the classes and methods listed in order based on their line number
-in the source file.
+The metadata for the class includes the file and line number where it is defined, as well as the names of super classes. The methods of the class are saved as a mapping between method name and line number. The output shows the classes and methods listed in order based on their line number in the source file.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pyclbr_readmodule.py
 
 Class: Base
@@ -66,30 +47,22 @@ Class: MixinUser
   Method: method3 [47]
 ```
 
-Scanning for Functions
-----------------------
+## Scanning for Functions
 
-The other public function in `pyclbr` is `readmodule_ex()`. It does
-everything that `readmodule()` does, and adds functions to the result
-set.
+The other public function in `pyclbr` is `readmodule_ex()`. It does everything that `readmodule()` does, and adds functions to the result set.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-pyclbr\_readmodule\_ex.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} pyclbr_readmodule_ex.py :::
 
 Each `Function` object has properties much like the `Class` object.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 pyclbr_readmodule_ex.py
 
 Function: my_function [51]
 ```
 
 ::: {.seealso}
--   `pyclbr`{.interpreted-text role="pydoc"}
--   `inspect`{.interpreted-text role="mod"} \-- The `inspect` module can
-    discover more metadata about classes and functions, but requires
-    importing the code.
--   `tokenize`{.interpreted-text role="mod"} \-- The `tokenize` module
-    parses Python source code into tokens.
-:::
+
+- `pyclbr`{.interpreted-text role="pydoc"}
+- `inspect`{.interpreted-text role="mod"} \-- The `inspect` module can discover more metadata about classes and functions, but requires importing the code.
+- `tokenize`{.interpreted-text role="mod"} \-- The `tokenize` module parses Python source code into tokens. :::

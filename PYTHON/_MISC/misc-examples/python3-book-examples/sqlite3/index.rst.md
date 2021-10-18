@@ -1,42 +1,24 @@
-sqlite3 \-\-- Embedded Relational Database
-==========================================
+# sqlite3 \-\-- Embedded Relational Database
 
-::: {.module synopsis="Embedded relational database"}
-sqlite3
-:::
+::: {.module synopsis="Embedded relational database"} sqlite3 :::
 
 Purpose
 
-:   Implements an embedded relational database with SQL support.
+: Implements an embedded relational database with SQL support.
 
-The `sqlite3` module implements a [Python DB-API
-2.0](https://www.python.org/dev/peps/pep-0249/) compliant interface to
-SQLite, an in-process relational database. SQLite is designed to be
-embedded in applications, instead of using a separate database server
-program such as MySQL, PostgreSQL, or Oracle. It is fast, rigorously
-tested, and flexible, making it suitable for prototyping and production
-deployment for some applications.
+The `sqlite3` module implements a [Python DB-API 2.0](https://www.python.org/dev/peps/pep-0249/) compliant interface to SQLite, an in-process relational database. SQLite is designed to be embedded in applications, instead of using a separate database server program such as MySQL, PostgreSQL, or Oracle. It is fast, rigorously tested, and flexible, making it suitable for prototyping and production deployment for some applications.
 
-Creating a Database
--------------------
+## Creating a Database
 
-An SQLite database is stored as a single file on the file system. The
-library manages access to the file, including locking it to prevent
-corruption when multiple writers use it. The database is created the
-first time the file is accessed, but the application is responsible for
-managing the table definitions, or *schema*, within the database.
+An SQLite database is stored as a single file on the file system. The library manages access to the file, including locking it to prevent corruption when multiple writers use it. The database is created the first time the file is accessed, but the application is responsible for managing the table definitions, or _schema_, within the database.
 
-This example looks for the database file before opening it with
-`connect()` so it knows when to create the schema for new databases.
+This example looks for the database file before opening it with `connect()` so it knows when to create the schema for new databases.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_createdb.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_createdb.py :::
 
-Running the script twice shows that it creates the empty file if it does
-not exist.
+Running the script twice shows that it creates the empty file if it does not exist.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ ls *.db
 
 ls: *.db: No such file or directory
@@ -54,56 +36,37 @@ $ python3 sqlite3_createdb.py
 Database exists, assume schema does, too.
 ```
 
-After creating the new database file, the next step is to create the
-schema to define the tables within the database. The remaining examples
-in this section all use the same database schema with tables for
-managing tasks. The details of the database schema are presented in
-`The project Table`{.interpreted-text role="table"} and
-`The task Table`{.interpreted-text role="table"}.
+After creating the new database file, the next step is to create the schema to define the tables within the database. The remaining examples in this section all use the same database schema with tables for managing tasks. The details of the database schema are presented in `The project Table`{.interpreted-text role="table"} and `The task Table`{.interpreted-text role="table"}.
 
-  Column        Type   Description
-  ------------- ------ ---------------------------------
-  name          text   Project name
-  description   text   Long project description
-  deadline      date   Due date for the entire project
+Column Type Description
 
-  : The project Table
+---
 
-  Column          Type      Description
-  --------------- --------- -----------------------------------------------------------------------
-  id              number    Unique task identifier
-  priority        integer   Numerical priority, lower is more important
-  details         text      Full task details
-  status          text      Task status (one of \'new\', \'pending\', \'done\', or \'canceled\').
-  deadline        date      Due date for this task
-  completed\_on   date      When the task was completed.
-  project         text      The name of the project for this task.
+name text Project name description text Long project description deadline date Due date for the entire project
 
-  : The task Table
+: The project Table
 
-The *data definition language* (DDL) statements to create the tables
-are:
+Column Type Description
 
-::: {.cssclass}
-sql-caption
+---
 
-::: {.literalinclude caption="" language="sql"}
-todo\_schema.sql
-:::
-:::
+id number Unique task identifier priority integer Numerical priority, lower is more important details text Full task details status text Task status (one of \'new\', \'pending\', \'done\', or \'canceled\'). deadline date Due date for this task completed_on date When the task was completed. project text The name of the project for this task.
 
-The `executescript()` method of the `Connection` can be used to run the
-DDL instructions to create the schema.
+: The task Table
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_create\_schema.py
-:::
+The _data definition language_ (DDL) statements to create the tables are:
 
-After the tables are created, a few `insert` statements create a sample
-project and related tasks. The `sqlite3` command line program can be
-used to examine the contents of the database.
+::: {.cssclass} sql-caption
 
-``` {.sourceCode .none}
+::: {.literalinclude caption="" language="sql"} todo_schema.sql ::: :::
+
+The `executescript()` method of the `Connection` can be used to run the DDL instructions to create the schema.
+
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_create_schema.py :::
+
+After the tables are created, a few `insert` statements create a sample project and related tasks. The `sqlite3` command line program can be used to examine the contents of the database.
+
+```{.sourceCode .none}
 $ rm -f todo.db
 $ python3 sqlite3_create_schema.py
 
@@ -117,25 +80,15 @@ $ sqlite3 todo.db 'select * from task'
 3|1|write about sqlite3|active|2017-07-31||pymotw
 ```
 
-Retrieving Data
----------------
+## Retrieving Data
 
-To retrieve the values saved in the `task` table from within a Python
-program, create a `Cursor` from a database connection. A cursor produces
-a consistent view of the data, and is the primary means of interacting
-with a transactional database system like SQLite.
+To retrieve the values saved in the `task` table from within a Python program, create a `Cursor` from a database connection. A cursor produces a consistent view of the data, and is the primary means of interacting with a transactional database system like SQLite.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_select\_tasks.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_select_tasks.py :::
 
-Querying is a two step process. First, run the query with the cursor\'s
-`execute()` method to tell the database engine what data to collect.
-Then, use `fetchall()` to retrieve the results. The return value is a
-sequence of tuples containing the values for the columns included in the
-`select` clause of the query.
+Querying is a two step process. First, run the query with the cursor\'s `execute()` method to tell the database engine what data to collect. Then, use `fetchall()` to retrieve the results. The return value is a sequence of tuples containing the values for the columns included in the `select` clause of the query.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_select_tasks.py
 
  1 [1] write about select        [done    ] (2016-04-25)
@@ -143,18 +96,13 @@ $ python3 sqlite3_select_tasks.py
  3 [1] write about sqlite3       [active  ] (2017-07-31)
 ```
 
-The results can be retrieved one at a time with `fetchone()`, or in
-fixed-size batches with `fetchmany()`.
+The results can be retrieved one at a time with `fetchone()`, or in fixed-size batches with `fetchmany()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_select\_variations.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_select_variations.py :::
 
-The value passed to `fetchmany()` is the maximum number of items to
-return. If fewer items are available, the sequence returned will be
-smaller than the maximum value.
+The value passed to `fetchmany()` is the maximum number of items to return. If fewer items are available, the sequence returned will be smaller than the maximum value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_select_variations.py
 
 Project details for Python Module of the Week (pymotw)
@@ -166,25 +114,15 @@ Next 5 tasks:
  3 [1] write about sqlite3       [active  ] (2017-07-31)
 ```
 
-Query Metadata
---------------
+## Query Metadata
 
-The DB-API 2.0 specification says that after `execute()` has been
-called, the `Cursor` should set its `description`{.interpreted-text
-role="attr"} attribute to hold information about the data that will be
-returned by the fetch methods. The API specification say that the
-description value is a sequence of tuples containing the column name,
-type, display size, internal size, precision, scale, and a flag that
-says whether null values are accepted.
+The DB-API 2.0 specification says that after `execute()` has been called, the `Cursor` should set its `description`{.interpreted-text role="attr"} attribute to hold information about the data that will be returned by the fetch methods. The API specification say that the description value is a sequence of tuples containing the column name, type, display size, internal size, precision, scale, and a flag that says whether null values are accepted.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_cursor\_description.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_cursor_description.py :::
 
-Because `sqlite3` does not enforce type or size constraints on data
-inserted into a database, only the column name value is filled in.
+Because `sqlite3` does not enforce type or size constraints on data inserted into a database, only the column name value is filled in.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_cursor_description.py
 
 Task table has these columns:
@@ -197,37 +135,17 @@ Task table has these columns:
 ('project', None, None, None, None, None, None)
 ```
 
-Row Objects
------------
+## Row Objects
 
-By default, the values returned by the fetch methods as \"rows\" from
-the database are tuples. The caller is responsible for knowing the order
-of the columns in the query and extracting individual values from the
-tuple. When the number of values in a query grows, or the code working
-with the data is spread out in a library, it is usually easier to work
-with an object and access values using their column names. That way, the
-number and order of the tuple contents can change over time as the query
-is edited, and code depending on the query results is less likely to
-break.
+By default, the values returned by the fetch methods as \"rows\" from the database are tuples. The caller is responsible for knowing the order of the columns in the query and extracting individual values from the tuple. When the number of values in a query grows, or the code working with the data is spread out in a library, it is usually easier to work with an object and access values using their column names. That way, the number and order of the tuple contents can change over time as the query is edited, and code depending on the query results is less likely to break.
 
-`Connection` objects have a `row_factory` property that allows the
-calling code to control the type of object created to represent each row
-in the query result set. `sqlite3` also includes a `Row` class intended
-to be used as a row factory. Column values can be accessed through `Row`
-instances by using the column index or name.
+`Connection` objects have a `row_factory` property that allows the calling code to control the type of object created to represent each row in the query result set. `sqlite3` also includes a `Row` class intended to be used as a row factory. Column values can be accessed through `Row` instances by using the column index or name.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_row\_factory.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_row_factory.py :::
 
-This version of the `sqlite3_select_variations.py` example has been
-re-written using `Row` instances instead of tuples. The row from the
-project table is still printed by accessing the column values through
-position, but the `print` statement for tasks uses keyword lookup
-instead, so it does not matter that the order of the columns in the
-query has been changed.
+This version of the `sqlite3_select_variations.py` example has been re-written using `Row` instances instead of tuples. The row from the project table is still printed by accessing the column values through position, but the `print` statement for tasks uses keyword lookup instead, so it does not matter that the order of the columns in the query has been changed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_row_factory.py
 
 Project details for Python Module of the Week (pymotw)
@@ -239,42 +157,21 @@ Next 5 tasks:
  3 [1] write about sqlite3       [active  ] (2017-07-31)
 ```
 
-Using Variables with Queries
-----------------------------
+## Using Variables with Queries
 
-Using queries defined as literal strings embedded in a program is
-inflexible. For example, when another project is added to the database
-the query to show the top five tasks should be updated to work with
-either project. One way to add more flexibility is to build an SQL
-statement with the desired query by combining values in Python. However,
-building a query string in this way is dangerous, and should be avoided.
-Failing to correctly escape special characters in the variable parts of
-the query can result in SQL parsing errors, or worse, a class of
-security vulnerabilities known as *SQL-injection attacks*, which allow
-intruders to execute arbitrary SQL statements in the database.
+Using queries defined as literal strings embedded in a program is inflexible. For example, when another project is added to the database the query to show the top five tasks should be updated to work with either project. One way to add more flexibility is to build an SQL statement with the desired query by combining values in Python. However, building a query string in this way is dangerous, and should be avoided. Failing to correctly escape special characters in the variable parts of the query can result in SQL parsing errors, or worse, a class of security vulnerabilities known as _SQL-injection attacks_, which allow intruders to execute arbitrary SQL statements in the database.
 
-The proper way to use dynamic values with queries is through *host
-variables* passed to `execute()` along with the SQL instruction. A
-placeholder value in the SQL is replaced with the value of the host
-variable when the statement is executed. Using host variables instead of
-inserting arbitrary values into the SQL before it is parsed avoids
-injection attacks because there is no chance that the untrusted values
-will affect how the SQL is parsed. SQLite supports two forms for queries
-with placeholders, positional and named.
+The proper way to use dynamic values with queries is through _host variables_ passed to `execute()` along with the SQL instruction. A placeholder value in the SQL is replaced with the value of the host variable when the statement is executed. Using host variables instead of inserting arbitrary values into the SQL before it is parsed avoids injection attacks because there is no chance that the untrusted values will affect how the SQL is parsed. SQLite supports two forms for queries with placeholders, positional and named.
 
 ### Positional Parameters
 
-A question mark (`?`) denotes a positional argument, passed to
-`execute()` as a member of a tuple.
+A question mark (`?`) denotes a positional argument, passed to `execute()` as a member of a tuple.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_argument\_positional.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_argument_positional.py :::
 
-The command line argument is passed safely to the query as a positional
-argument, and there is no chance for bad data to corrupt the database.
+The command line argument is passed safely to the query as a positional argument, and there is no chance for bad data to corrupt the database.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_argument_positional.py pymotw
 
  1 [1] write about select        [done    ] (2016-04-25)
@@ -284,18 +181,13 @@ $ python3 sqlite3_argument_positional.py pymotw
 
 ### Named Parameters
 
-Use named parameters for more complex queries with a lot of parameters,
-or where some parameters are repeated multiple times within the query.
-Named parameters are prefixed with a colon (e.g., `:param_name`).
+Use named parameters for more complex queries with a lot of parameters, or where some parameters are repeated multiple times within the query. Named parameters are prefixed with a colon (e.g., `:param_name`).
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_argument\_named.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_argument_named.py :::
 
-Neither positional nor named parameters need to be quoted or escaped,
-since they are given special treatment by the query parser.
+Neither positional nor named parameters need to be quoted or escaped, since they are given special treatment by the query parser.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_argument_named.py pymotw
 
  1 [1] write about select        [done    ] (2016-04-25)
@@ -303,19 +195,13 @@ $ python3 sqlite3_argument_named.py pymotw
  3 [1] write about sqlite3       [active  ] (2017-07-31)
 ```
 
-Query parameters can be used with `select`, `insert`, and `update`
-statements. They can appear in any part of the query where a literal
-value is legal.
+Query parameters can be used with `select`, `insert`, and `update` statements. They can appear in any part of the query where a literal value is legal.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_argument\_update.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_argument_update.py :::
 
-This `update` statement uses two named parameters. The `id` value is
-used to find the right row to modify, and the `status` value is written
-to the table.
+This `update` statement uses two named parameters. The `id` value is used to find the right row to modify, and the `status` value is written to the table.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_argument_update.py 2 done
 $ python3 sqlite3_argument_named.py pymotw
 
@@ -324,29 +210,19 @@ $ python3 sqlite3_argument_named.py pymotw
  3 [1] write about sqlite3       [active  ] (2017-07-31)
 ```
 
-Bulk Loading
-------------
+## Bulk Loading
 
-To apply the same SQL instruction to a large set of data, use
-`executemany()`. This is useful for loading data, since it avoids
-looping over the inputs in Python and lets the underlying library apply
-loop optimizations. This example program reads a list of tasks from a
-comma-separated value file using the `csv`{.interpreted-text role="mod"}
-module and loads them into the database.
+To apply the same SQL instruction to a large set of data, use `executemany()`. This is useful for loading data, since it avoids looping over the inputs in Python and lets the underlying library apply loop optimizations. This example program reads a list of tasks from a comma-separated value file using the `csv`{.interpreted-text role="mod"} module and loads them into the database.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_load\_csv.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_load_csv.py :::
 
 The sample data file `tasks.csv` contains:
 
-::: {.literalinclude}
-tasks.csv
-:::
+::: {.literalinclude} tasks.csv :::
 
 Running the program produces:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_load_csv.py tasks.csv
 $ python3 sqlite3_argument_named.py pymotw
 
@@ -358,35 +234,17 @@ $ python3 sqlite3_argument_named.py pymotw
  3 [1] write about sqlite3       [active  ] (2017-07-31)
 ```
 
-Defining New Column Types
--------------------------
+## Defining New Column Types
 
-SQLite has native support for integer, floating point, and text columns.
-Data of these types is converted automatically by `sqlite3` from
-Python\'s representation to a value that can be stored in the database,
-and back again, as needed. Integer values are loaded from the database
-into `int` or `long` variables, depending on the size of the value. Text
-is saved and retrieved as `str`, unless the
-`text_factory`{.interpreted-text role="attr"} for the `Connection` has
-been changed.
+SQLite has native support for integer, floating point, and text columns. Data of these types is converted automatically by `sqlite3` from Python\'s representation to a value that can be stored in the database, and back again, as needed. Integer values are loaded from the database into `int` or `long` variables, depending on the size of the value. Text is saved and retrieved as `str`, unless the `text_factory`{.interpreted-text role="attr"} for the `Connection` has been changed.
 
-Although SQLite only supports a few data types internally, `sqlite3`
-includes facilities for defining custom types to allow a Python
-application to store any type of data in a column. Conversion for types
-beyond those supported by default is enabled in the database connection
-using the `detect_types` flag. Use `PARSE_DECLTYPES` if the column was
-declared using the desired type when the table was defined.
+Although SQLite only supports a few data types internally, `sqlite3` includes facilities for defining custom types to allow a Python application to store any type of data in a column. Conversion for types beyond those supported by default is enabled in the database connection using the `detect_types` flag. Use `PARSE_DECLTYPES` if the column was declared using the desired type when the table was defined.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_date\_types.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_date_types.py :::
 
-`sqlite3` provides converters for date and timestamp columns, using the
-classes `date` and `datetime` from the `datetime`{.interpreted-text
-role="mod"} module to represent the values in Python. Both date-related
-converters are enabled automatically when type-detection is turned on.
+`sqlite3` provides converters for date and timestamp columns, using the classes `date` and `datetime` from the `datetime`{.interpreted-text role="mod"} module to represent the values in Python. Both date-related converters are enabled automatically when type-detection is turned on.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_date_types.py
 
 Without type detection:
@@ -400,26 +258,13 @@ With type detection:
   deadline  datetime.date(2016, 4, 25) <class 'datetime.date'>
 ```
 
-Two functions need to be registered to define a new type. The *adapter*
-takes the Python object as input and returns a byte string that can be
-stored in the database. The *converter* receives the string from the
-database and returns a Python object. Use `register_adapter()` to define
-an adapter function, and `register_converter()` for a converter
-function.
+Two functions need to be registered to define a new type. The _adapter_ takes the Python object as input and returns a byte string that can be stored in the database. The _converter_ receives the string from the database and returns a Python object. Use `register_adapter()` to define an adapter function, and `register_converter()` for a converter function.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_custom\_type.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_custom_type.py :::
 
-This example uses `pickle`{.interpreted-text role="mod"} to save an
-object to a string that can be stored in the database, a useful
-technique for storing arbitrary objects, but one that does not allow
-querying based on object attributes. A real *object-relational mapper*,
-such as [SQLAlchemy](http://sqlalchemy.org/), that stores attribute
-values in their own columns will be more useful for large amounts of
-data.
+This example uses `pickle`{.interpreted-text role="mod"} to save an object to a string that can be stored in the database, a useful technique for storing arbitrary objects, but one that does not allow querying based on object attributes. A real _object-relational mapper_, such as [SQLAlchemy](http://sqlalchemy.org/), that stores attribute values in their own columns will be more useful for large amounts of data.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_custom_type.py
 
 adapter_func(MyObj('this is a value to save'))
@@ -440,23 +285,15 @@ Retrieved 2 MyObj(42)
   with type <class '__main__.MyObj'>
 ```
 
-Determining Types for Columns
------------------------------
+## Determining Types for Columns
 
-There are two sources for types information about the data for a query.
-The original table declaration can be used to identify the type of a
-real column, as shown earlier. A type specifier can also be included in
-the `select` clause of the query itself using the form
-`as "name [type]"`.
+There are two sources for types information about the data for a query. The original table declaration can be used to identify the type of a real column, as shown earlier. A type specifier can also be included in the `select` clause of the query itself using the form `as "name [type]"`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_custom\_type\_column.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_custom_type_column.py :::
 
-Use the `detect_types` flag `PARSE_COLNAMES` when the type is part of
-the query instead of the original table definition.
+Use the `detect_types` flag `PARSE_COLNAMES` when the type is part of the query instead of the original table definition.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_custom_type_column.py
 
 adapter_func(MyObj('this is a value to save'))
@@ -477,39 +314,21 @@ Retrieved 2 MyObj(42)
   with type <class '__main__.MyObj'>
 ```
 
-Transactions
-------------
+## Transactions
 
-One of the key features of relational databases is the use of
-*transactions* to maintain a consistent internal state. With
-transactions enabled, several changes can be made through one connection
-without effecting any other users until the results are *committed* and
-flushed to the actual database.
+One of the key features of relational databases is the use of _transactions_ to maintain a consistent internal state. With transactions enabled, several changes can be made through one connection without effecting any other users until the results are _committed_ and flushed to the actual database.
 
 ### Preserving Changes
 
-Changes to the database, either through `insert` or `update` statements,
-need to be saved by explicitly calling `commit()`. This requirement
-gives an application an opportunity to make several related changes
-together, so they are stored *atomically* instead of incrementally, and
-avoids a situation where partial updates are seen by different clients
-connecting to the database simultaneously.
+Changes to the database, either through `insert` or `update` statements, need to be saved by explicitly calling `commit()`. This requirement gives an application an opportunity to make several related changes together, so they are stored _atomically_ instead of incrementally, and avoids a situation where partial updates are seen by different clients connecting to the database simultaneously.
 
-The effect of calling `commit()` can be seen with a program that uses
-several connections to the database. A new row is inserted with the
-first connection, and then two attempts are made to read it back using
-separate connections.
+The effect of calling `commit()` can be seen with a program that uses several connections to the database. A new row is inserted with the first connection, and then two attempts are made to read it back using separate connections.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_transaction\_commit.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_transaction_commit.py :::
 
-When `show_projects()` is called before `conn1` has been committed, the
-results depend on which connection is used. Since the change was made
-through `conn1`, it sees the altered data. However, `conn2` does not.
-After committing, the new connection `conn3` sees the inserted row.
+When `show_projects()` is called before `conn1` has been committed, the results depend on which connection is used. Since the change was made through `conn1`, it sees the altered data. However, `conn2` does not. After committing, the new connection `conn3` sees the inserted row.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_transaction_commit.py
 
 Before changes:
@@ -529,19 +348,13 @@ After commit:
 
 ### Discarding Changes
 
-Uncommitted changes can also be discarded entirely using `rollback()`.
-The `commit()` and `rollback()` methods are usually called from
-different parts of the same `try:except` block, with errors triggering a
-rollback.
+Uncommitted changes can also be discarded entirely using `rollback()`. The `commit()` and `rollback()` methods are usually called from different parts of the same `try:except` block, with errors triggering a rollback.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_transaction\_rollback.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_transaction_rollback.py :::
 
-After calling `rollback()`, the changes to the database are no longer
-present.
+After calling `rollback()`, the changes to the database are no longer present.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_transaction_rollback.py
 
 Before changes:
@@ -557,38 +370,21 @@ After rollback:
    virtualenvwrapper
 ```
 
-Isolation Levels
-----------------
+## Isolation Levels
 
-`sqlite3` supports three locking modes, called *isolation levels*, that
-control the technique used to prevent incompatible changes between
-connections. The isolation level is set by passing a string as the
-`isolation_level` argument when a connection is opened, so different
-connections can use different values.
+`sqlite3` supports three locking modes, called _isolation levels_, that control the technique used to prevent incompatible changes between connections. The isolation level is set by passing a string as the `isolation_level` argument when a connection is opened, so different connections can use different values.
 
-This program demonstrates the effect of different isolation levels on
-the order of events in threads using separate connections to the same
-database. Four threads are created. Two threads write changes to the
-database by updating existing rows. The other two threads attempt to
-read all of the rows from the `task` table.
+This program demonstrates the effect of different isolation levels on the order of events in threads using separate connections to the same database. Four threads are created. Two threads write changes to the database by updating existing rows. The other two threads attempt to read all of the rows from the `task` table.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_isolation\_levels.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_isolation_levels.py :::
 
-The threads are synchronized using an `Event` object from the
-`threading`{.interpreted-text role="mod"} module. The `writer()`
-function connects and make changes to the database, but does not commit
-before the event fires. The `reader()` function connects, then waits to
-query the database until after the synchronization event occurs.
+The threads are synchronized using an `Event` object from the `threading`{.interpreted-text role="mod"} module. The `writer()` function connects and make changes to the database, but does not commit before the event fires. The `reader()` function connects, then waits to query the database until after the synchronization event occurs.
 
 ### Deferred
 
-The default isolation level is `DEFERRED`. Using deferred mode locks the
-database, but only once a change is begun. All of the previous examples
-use deferred mode.
+The default isolation level is `DEFERRED`. Using deferred mode locks the database, but only once a change is begun. All of the previous examples use deferred mode.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_isolation_levels.py DEFERRED
 
 2016-08-20 17:46:26,972 (Reader 1  ) waiting to synchronize
@@ -610,13 +406,9 @@ $ python3 sqlite3_isolation_levels.py DEFERRED
 
 ### Immediate
 
-Immediate mode locks the database as soon as a change starts and
-prevents other cursors from making changes until the transaction is
-committed. It is suitable for a database with complicated writes, but
-more readers than writers, since the readers are not blocked while the
-transaction is ongoing.
+Immediate mode locks the database as soon as a change starts and prevents other cursors from making changes until the transaction is committed. It is suitable for a database with complicated writes, but more readers than writers, since the readers are not blocked while the transaction is ongoing.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_isolation_levels.py IMMEDIATE
 
 2016-08-20 17:46:30,121 (Reader 1  ) waiting to synchronize
@@ -638,11 +430,9 @@ $ python3 sqlite3_isolation_levels.py IMMEDIATE
 
 ### Exclusive
 
-Exclusive mode locks the database to all readers and writers. Its use
-should be limited in situations where database performance is important,
-since each exclusive connection blocks all other users.
+Exclusive mode locks the database to all readers and writers. Its use should be limited in situations where database performance is important, since each exclusive connection blocks all other users.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_isolation_levels.py EXCLUSIVE
 
 2016-08-20 17:46:33,320 (Reader 1  ) waiting to synchronize
@@ -662,28 +452,15 @@ $ python3 sqlite3_isolation_levels.py EXCLUSIVE
 2016-08-20 17:46:36,386 (Writer 1  ) CHANGES COMMITTED
 ```
 
-Because the first writer has started making changes, the readers and
-second writer block until it commits. The `sleep()` call introduces an
-artificial delay in the writer thread to highlight the fact that the
-other connections are blocking.
+Because the first writer has started making changes, the readers and second writer block until it commits. The `sleep()` call introduces an artificial delay in the writer thread to highlight the fact that the other connections are blocking.
 
 ### Autocommit
 
-The `isolation_level` parameter for the connection can also be set to
-`None` to enable autocommit mode. With autocommit enabled, each
-`execute()` call is committed immediately when the statement finishes.
-Autocommit mode is suited for short transactions, such as those that
-insert a small amount of data into a single table. The database is
-locked for as little time as possible, so there is less chance of
-contention between threads.
+The `isolation_level` parameter for the connection can also be set to `None` to enable autocommit mode. With autocommit enabled, each `execute()` call is committed immediately when the statement finishes. Autocommit mode is suited for short transactions, such as those that insert a small amount of data into a single table. The database is locked for as little time as possible, so there is less chance of contention between threads.
 
-In `sqlite3_autocommit.py`, the explicit call to `commit()` has been
-removed and the isolation level is set to `None`, but otherwise is the
-same as `sqlite3_isolation_levels.py`. The output is different, however,
-since both writer threads finish their work before either reader starts
-querying.
+In `sqlite3_autocommit.py`, the explicit call to `commit()` has been removed and the isolation level is set to `None`, but otherwise is the same as `sqlite3_isolation_levels.py`. The output is different, however, since both writer threads finish their work before either reader starts querying.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_autocommit.py
 
 2016-08-20 17:46:36,451 (Reader 1  ) waiting to synchronize
@@ -701,36 +478,19 @@ $ python3 sqlite3_autocommit.py
 2016-08-20 17:46:37,454 (Reader 2  ) results fetched
 ```
 
-In-Memory Databases
--------------------
+## In-Memory Databases
 
-SQLite supports managing an entire database in RAM, instead of relying
-on a disk file. In-memory databases are useful for automated testing,
-where the database does not need to be preserved between test runs, or
-when experimenting with a schema or other database features. To open an
-in-memory database, use the string `':memory:'` instead of a filename
-when creating the `Connection`. Each `':memory:'` connection creates a
-separate database instance, so changes made by a cursor in one do not
-effect other connections.
+SQLite supports managing an entire database in RAM, instead of relying on a disk file. In-memory databases are useful for automated testing, where the database does not need to be preserved between test runs, or when experimenting with a schema or other database features. To open an in-memory database, use the string `':memory:'` instead of a filename when creating the `Connection`. Each `':memory:'` connection creates a separate database instance, so changes made by a cursor in one do not effect other connections.
 
-Exporting the Contents of a Database
-------------------------------------
+## Exporting the Contents of a Database
 
-The contents of an in-memory database can be saved using the
-`iterdump()` method of the `Connection`. The iterator returned by
-`iterdump()` produces a series of strings that together build SQL
-instructions to recreate the state of the database.
+The contents of an in-memory database can be saved using the `iterdump()` method of the `Connection`. The iterator returned by `iterdump()` produces a series of strings that together build SQL instructions to recreate the state of the database.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_iterdump.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_iterdump.py :::
 
-`iterdump()` can also be used with databases saved to files, but it is
-most useful for preserving a database that would not otherwise be saved.
-This output has been edited to fit on the page while remaining
-syntactically correct.
+`iterdump()` can also be used with databases saved to files, but it is most useful for preserving a database that would not otherwise be saved. This output has been edited to fit on the page while remaining syntactically correct.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_iterdump.py
 
 Creating schema
@@ -764,26 +524,15 @@ sqlite3','active','2010-10-17',NULL,'pymotw');
 COMMIT;
 ```
 
-Using Python Functions in SQL
------------------------------
+## Using Python Functions in SQL
 
-SQL syntax supports calling functions during queries, either in the
-column list or `where` clause of the `select` statement. This feature
-makes it possible to process data before returning it from the query,
-and can be used to convert between different formats, perform
-calculations that would be clumsy in pure SQL, and reuse application
-code.
+SQL syntax supports calling functions during queries, either in the column list or `where` clause of the `select` statement. This feature makes it possible to process data before returning it from the query, and can be used to convert between different formats, perform calculations that would be clumsy in pure SQL, and reuse application code.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_create\_function.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_create_function.py :::
 
-Functions are exposed using the `create_function()` method of the
-`Connection`. The parameters are the name of the function (as it should
-be used from within SQL), the number of arguments the function takes,
-and the Python function to expose.
+Functions are exposed using the `create_function()` method of the `Connection`. The parameters are the name of the function (as it should be used from within SQL), the number of arguments the function takes, and the Python function to expose.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_create_function.py
 
 Original values:
@@ -833,30 +582,22 @@ Decrypting 'erivfr puncgre vagebf'
 Decrypting 'fhogvgyr'
 ```
 
-Querying with Regular Expressions
----------------------------------
+## Querying with Regular Expressions
 
-Sqlite supports several special user functions that are associated with
-SQL syntax. For example, a function `regexp` can be used in a query to
-check if a column\'s string value matches a regular expression using the
-following syntax.
+Sqlite supports several special user functions that are associated with SQL syntax. For example, a function `regexp` can be used in a query to check if a column\'s string value matches a regular expression using the following syntax.
 
-``` {.sourceCode .sql}
+```{.sourceCode .sql}
 SELECT * FROM table
 WHERE column REGEXP '.*pattern.*'
 ```
 
-This examples associates a function with `regexp()` to test values using
-Python\'s `re`{.interpreted-text role="mod"} module.
+This examples associates a function with `regexp()` to test values using Python\'s `re`{.interpreted-text role="mod"} module.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_regex.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_regex.py :::
 
-The output is all of the tasks where the details column matches the
-pattern.
+The output is all of the tasks where the details column matches the pattern.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_regex.py
 
  1 [9] write about select        [done    ] (2016-04-25)
@@ -864,30 +605,17 @@ $ python3 sqlite3_regex.py
  3 [9] write about sqlite3       [active  ] (2017-07-31)
 ```
 
-Custom Aggregation
-------------------
+## Custom Aggregation
 
-An aggregation function collects many pieces of individual data and
-summarizes it in some way. Examples of built-in aggregation functions
-are `avg()` (average), `min()`, `max()`, and `count()`.
+An aggregation function collects many pieces of individual data and summarizes it in some way. Examples of built-in aggregation functions are `avg()` (average), `min()`, `max()`, and `count()`.
 
-The API for aggregators used by `sqlite3` is defined in terms of a class
-with two methods. The `step()` method is called once for each data value
-as the query is processed. The `finalize()` method is called one time at
-the end of the query and should return the aggregate value. This example
-implements an aggregator for the arithmetic *mode*. It returns the value
-that appears most frequently in the input.
+The API for aggregators used by `sqlite3` is defined in terms of a class with two methods. The `step()` method is called once for each data value as the query is processed. The `finalize()` method is called one time at the end of the query and should return the aggregate value. This example implements an aggregator for the arithmetic _mode_. It returns the value that appears most frequently in the input.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_create\_aggregate.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_create_aggregate.py :::
 
-The aggregator class is registered with the `create_aggregate()` method
-of the `Connection`. The parameters are the name of the function (as it
-should be used from within SQL), the number of arguments the `step()`
-method takes, and the class to use.
+The aggregator class is registered with the `create_aggregate()` method of the `Connection`. The parameters are the name of the function (as it should be used from within SQL), the number of arguments the `step()` method takes, and the class to use.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_create_aggregate.py
 
 step('2016-04-25')
@@ -900,20 +628,15 @@ finalize() -> '2016-11-01' (1 times)
 mode(deadline) is: 2016-11-01
 ```
 
-Threading and Connection Sharing
---------------------------------
+## Threading and Connection Sharing
 
-For historical reasons having to do with old versions of SQLite,
-`Connection` objects cannot be shared between threads. Each thread must
-create its own connection to the database.
+For historical reasons having to do with old versions of SQLite, `Connection` objects cannot be shared between threads. Each thread must create its own connection to the database.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_threading.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_threading.py :::
 
 Attempts to share a connection between threads result in an exception.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_threading.py
 
 Starting thread
@@ -922,32 +645,15 @@ same thread.The object was created in thread id 140735234088960
 and this is thread id 123145307557888
 ```
 
-Restricting Access to Data
---------------------------
+## Restricting Access to Data
 
-Although SQLite does not have user access controls found in other,
-larger, relational databases, it does have a mechanism for limiting
-access to columns. Each connection can install an *authorizer function*
-to grant or deny access to columns at runtime based on any desired
-criteria. The authorizer function is invoked during the parsing of SQL
-statements, and is passed five arguments. The first is an action code
-indicating the type of operation being performed (reading, writing,
-deleting, etc.). The rest of the arguments depend on the action code.
-For `SQLITE_READ` operations, the arguments are the name of the table,
-the name of the column, the location in the SQL where the access is
-occurring (main query, trigger, etc.), and `None`.
+Although SQLite does not have user access controls found in other, larger, relational databases, it does have a mechanism for limiting access to columns. Each connection can install an _authorizer function_ to grant or deny access to columns at runtime based on any desired criteria. The authorizer function is invoked during the parsing of SQL statements, and is passed five arguments. The first is an action code indicating the type of operation being performed (reading, writing, deleting, etc.). The rest of the arguments depend on the action code. For `SQLITE_READ` operations, the arguments are the name of the table, the name of the column, the location in the SQL where the access is occurring (main query, trigger, etc.), and `None`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sqlite3\_set\_authorizer.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sqlite3_set_authorizer.py :::
 
-This example uses `SQLITE_IGNORE` to cause the strings from the
-`task.details` column to be replaced with null values in the query
-results. It also prevents all access to the `task.priority` column by
-returning `SQLITE_DENY`, which in turn causes SQLite to raise an
-exception.
+This example uses `SQLITE_IGNORE` to cause the strings from the `task.details` column to be replaced with null values in the query results. It also prevents all access to the `task.priority` column by returning `SQLITE_DENY`, which in turn causes SQLite to raise an exception.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sqlite3_set_authorizer.py
 
 Using SQLITE_IGNORE to mask a column value:
@@ -988,19 +694,12 @@ Traceback (most recent call last):
 sqlite3.DatabaseError: access to task.priority is prohibited
 ```
 
-The possible action codes are available as constants in `sqlite3`, with
-names prefixed `SQLITE_`. Each type of SQL statement can be flagged, and
-access to individual columns can be controlled as well.
+The possible action codes are available as constants in `sqlite3`, with names prefixed `SQLITE_`. Each type of SQL statement can be flagged, and access to individual columns can be controlled as well.
 
 ::: {.seealso}
--   `sqlite3`{.interpreted-text role="pydoc"}
--   `249`{.interpreted-text role="pep"} \-- DB API 2.0 Specification (A
-    standard interface for modules that provide access to relational
-    databases.)
--   [SQLite](http://www.sqlite.org/) \-- The official site of the SQLite
-    library.
--   `shelve`{.interpreted-text role="mod"} \-- Key-value store for
-    saving arbitrary Python objects.
--   [SQLAlchemy](http://sqlalchemy.org/) \-- A popular object-relational
-    mapper that supports SQLite among many other relational databases.
-:::
+
+- `sqlite3`{.interpreted-text role="pydoc"}
+- `249`{.interpreted-text role="pep"} \-- DB API 2.0 Specification (A standard interface for modules that provide access to relational databases.)
+- [SQLite](http://www.sqlite.org/) \-- The official site of the SQLite library.
+- `shelve`{.interpreted-text role="mod"} \-- Key-value store for saving arbitrary Python objects.
+- [SQLAlchemy](http://sqlalchemy.org/) \-- A popular object-relational mapper that supports SQLite among many other relational databases. :::

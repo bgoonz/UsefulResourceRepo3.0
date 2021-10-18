@@ -1,65 +1,40 @@
-uuid \-\-- Universally Unique Identifiers
-=========================================
+# uuid \-\-- Universally Unique Identifiers
 
-::: {.module synopsis="Universally unique identifiers"}
-uuid
-:::
+::: {.module synopsis="Universally unique identifiers"} uuid :::
 
 Purpose
 
-:   The `uuid` module implements Universally Unique Identifiers as
-    described in RFC 4122.
+: The `uuid` module implements Universally Unique Identifiers as described in RFC 4122.
 
-`4122`{.interpreted-text role="rfc"} defines a system for creating
-universally unique identifiers for resources in a way that does not
-require a central registrar. UUID values are 128 bits long and, as the
-reference guide says, \"can guarantee uniqueness across space and
-time.\" They are useful for generating identifiers for documents, hosts,
-application clients, and other situations where a unique value is
-necessary. The RFC is specifically focused on creating a Uniform
-Resource Name namespace and covers three main algorithms:
+`4122`{.interpreted-text role="rfc"} defines a system for creating universally unique identifiers for resources in a way that does not require a central registrar. UUID values are 128 bits long and, as the reference guide says, \"can guarantee uniqueness across space and time.\" They are useful for generating identifiers for documents, hosts, application clients, and other situations where a unique value is necessary. The RFC is specifically focused on creating a Uniform Resource Name namespace and covers three main algorithms:
 
--   Using IEEE 802 MAC addresses as a source of uniqueness
--   Using pseudo-random numbers
--   Using well-known strings combined with cryptographic hashing
+- Using IEEE 802 MAC addresses as a source of uniqueness
+- Using pseudo-random numbers
+- Using well-known strings combined with cryptographic hashing
 
-In all cases, the seed value is combined with the system clock and a
-clock sequence value used to maintain uniqueness in case the clock is
-set backwards.
+In all cases, the seed value is combined with the system clock and a clock sequence value used to maintain uniqueness in case the clock is set backwards.
 
-UUID 1 - IEEE 802 MAC Address
------------------------------
+## UUID 1 - IEEE 802 MAC Address
 
-UUID version 1 values are computed using the MAC address of the host.
-The `uuid` module uses `getnode()` to retrieve the MAC value of the
-current system.
+UUID version 1 values are computed using the MAC address of the host. The `uuid` module uses `getnode()` to retrieve the MAC value of the current system.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_getnode.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_getnode.py :::
 
-If a system has more than one network card, and so more than one MAC,
-any one of the values may be returned.
+If a system has more than one network card, and so more than one MAC, any one of the values may be returned.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_getnode.py
 
 0xa860b60304d5
 ```
 
-To generate a UUID for a host, identified by its MAC address, use the
-`uuid1()` function. The node identifier argument is optional; leave the
-field blank to use the value returned by `getnode()`.
+To generate a UUID for a host, identified by its MAC address, use the `uuid1()` function. The node identifier argument is optional; leave the field blank to use the value returned by `getnode()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_uuid1.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_uuid1.py :::
 
-The components of the UUID object returned can be accessed through
-read-only instance attributes. Some attributes, such as `hex`, `int`,
-and `urn`, are different representations of the UUID value.
+The components of the UUID object returned can be accessed through read-only instance attributes. Some attributes, such as `hex`, `int`, and `urn`, are different representations of the UUID value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_uuid1.py
 
 38332b62-2aea-11e8-b103-a860b60304d5
@@ -81,17 +56,13 @@ fields  : (942877538, 10986, 4584, 177, 3, 185133323977941)
   clock_seq           :  12547
 ```
 
-Because of the time component, each call to `uuid1()` returns a new
-value.
+Because of the time component, each call to `uuid1()` returns a new value.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_uuid1\_repeat.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_uuid1_repeat.py :::
 
-In this output, only the time component (at the beginning of the string)
-changes.
+In this output, only the time component (at the beginning of the string) changes.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_uuid1_repeat.py
 
 3842ca28-2aea-11e8-8fec-a860b60304d5
@@ -99,45 +70,28 @@ $ python3 uuid_uuid1_repeat.py
 3844cdf4-2aea-11e8-ac38-a860b60304d5
 ```
 
-Because each computer has a different MAC address, running the sample
-program on different systems will produce entirely different values.
-This example passes explicit node IDs to simulate running on different
-hosts.
+Because each computer has a different MAC address, running the sample program on different systems will produce entirely different values. This example passes explicit node IDs to simulate running on different hosts.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_uuid1\_othermac.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_uuid1_othermac.py :::
 
-In addition to a different time value the node identifier at the end of
-the UUID also changes.
+In addition to a different time value the node identifier at the end of the UUID also changes.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_uuid1_othermac.py
 
 3851ea50-2aea-11e8-936d-001ec200d9e0 0x1ec200d9e0
 3852caa6-2aea-11e8-a805-001e5274040e 0x1e5274040e
 ```
 
-UUID 3 and 5 - Name-Based Values
---------------------------------
+## UUID 3 and 5 - Name-Based Values
 
-It is also useful in some contexts to create UUID values from names
-instead of random or time-based values. Versions 3 and 5 of the UUID
-specification use cryptographic hash values (MD5 or SHA-1, respectively)
-to combine namespace-specific seed values with names. There are several
-well-known namespaces, identified by pre-defined UUID values, for
-working with DNS, URLs, ISO OIDs, and X.500 Distinguished Names. New
-application-specific namespaces can be defined by generating and saving
-UUID values.
+It is also useful in some contexts to create UUID values from names instead of random or time-based values. Versions 3 and 5 of the UUID specification use cryptographic hash values (MD5 or SHA-1, respectively) to combine namespace-specific seed values with names. There are several well-known namespaces, identified by pre-defined UUID values, for working with DNS, URLs, ISO OIDs, and X.500 Distinguished Names. New application-specific namespaces can be defined by generating and saving UUID values.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_uuid3\_uuid5.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_uuid3_uuid5.py :::
 
-To create a UUID from a DNS name, pass `uuid.NAMESPACE_DNS` as the
-namespace argument to `uuid3()` or `uuid5()`:
+To create a UUID from a DNS name, pass `uuid.NAMESPACE_DNS` as the namespace argument to `uuid3()` or `uuid5()`:
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_uuid3_uuid5.py
 
 www.doughellmann.com
@@ -149,16 +103,13 @@ blog.doughellmann.com
   SHA-1 : fa829736-7ef8-5239-9906-b4775a5abacb
 ```
 
-The UUID value for a given name in a namespace is always the same, no
-matter when or where it is calculated.
+The UUID value for a given name in a namespace is always the same, no matter when or where it is calculated.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_uuid3\_repeat.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_uuid3_repeat.py :::
 
 Values for the same name in the namespaces are different.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_uuid3_repeat.py
 
 NAMESPACE_DNS
@@ -178,28 +129,15 @@ NAMESPACE_X500
   4a54d6e7-ce68-37fb-b0ba-09acc87cabb7
 ```
 
-UUID 4 - Random Values
-----------------------
+## UUID 4 - Random Values
 
-Sometimes host-based and namespace-based UUID values are not \"different
-enough.\" For example, in cases where UUID is intended to be used as a
-hash key, a more random sequence of values with more differentiation is
-desirable to avoid collisions in the hash table. Having values with
-fewer common digits also makes it easier to find them in log files. To
-add greater differentiation in UUIDs, use `uuid4()` to generate them
-using random input values.
+Sometimes host-based and namespace-based UUID values are not \"different enough.\" For example, in cases where UUID is intended to be used as a hash key, a more random sequence of values with more differentiation is desirable to avoid collisions in the hash table. Having values with fewer common digits also makes it easier to find them in log files. To add greater differentiation in UUIDs, use `uuid4()` to generate them using random input values.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_uuid4.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_uuid4.py :::
 
-The source of randomness depends on which C libraries are available when
-`uuid` is imported. If `libuuid` (or `uuid.dll`) can be loaded and it
-contains a function for generating random values, it is used. Otherwise
-`os.urandom()` or the `random`{.interpreted-text role="mod"} module are
-used.
+The source of randomness depends on which C libraries are available when `uuid` is imported. If `libuuid` (or `uuid.dll`) can be loaded and it contains a function for generating random values, it is used. Otherwise `os.urandom()` or the `random`{.interpreted-text role="mod"} module are used.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_uuid4.py
 
 74695723-65ed-4170-af77-b9f22608535d
@@ -207,23 +145,15 @@ db199e25-e292-41cd-b488-80a8f99d163a
 196750b3-bbb9-488e-b3ec-62ec0e468bbc
 ```
 
-Working with UUID Objects
--------------------------
+## Working with UUID Objects
 
-In addition to generating new UUID values, it is possible to parse
-strings in standard formats to create UUID objects, making it easier to
-handle comparisons and sorting operations.
+In addition to generating new UUID values, it is possible to parse strings in standard formats to create UUID objects, making it easier to handle comparisons and sorting operations.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-uuid\_uuid\_objects.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} uuid_uuid_objects.py :::
 
-Surrounding curly braces are removed from the input, as are dashes
-(`-`). If the string has a prefix containing `urn:` and/or `uuid:`, it
-is also removed. The remaining text must be a string of 16 hexadecimal
-digits, which are then interpreted as a UUID value.
+Surrounding curly braces are removed from the input, as are dashes (`-`). If the string has a prefix containing `urn:` and/or `uuid:`, it is also removed. The remaining text must be a string of 16 hexadecimal digits, which are then interpreted as a UUID value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 uuid_uuid_objects.py
 
 input_values
@@ -243,9 +173,7 @@ sorted
 ```
 
 ::: {.seealso}
--   `uuid`{.interpreted-text role="pydoc"}
--   `Python 2 to 3 porting notes for uuid <porting-uuid>`{.interpreted-text
-    role="ref"}
--   `4122`{.interpreted-text role="rfc"} \-- A Universally Unique
-    Identifier (UUID) URN Namespace
-:::
+
+- `uuid`{.interpreted-text role="pydoc"}
+- `Python 2 to 3 porting notes for uuid <porting-uuid>`{.interpreted-text role="ref"}
+- `4122`{.interpreted-text role="rfc"} \-- A Universally Unique Identifier (UUID) URN Namespace :::

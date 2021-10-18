@@ -1,31 +1,16 @@
-Interpreter Settings {#sys-interpreter}
-====================
+# Interpreter Settings {#sys-interpreter}
 
-`sys` contains attributes and functions for accessing compile-time or
-runtime configuration settings for the interpreter.
+`sys` contains attributes and functions for accessing compile-time or runtime configuration settings for the interpreter.
 
-Build-time Version Information {#sys-build-time-info}
-------------------------------
+## Build-time Version Information {#sys-build-time-info}
 
-The version used to build the C interpreter is available in a few forms.
-`sys.version` is a human-readable string that usually includes the full
-version number as well as information about the build date, compiler,
-and platform. `sys.hexversion` is easier to use for checking the
-interpreter version since it is a simple integer. When formatted using
-`hex()`, it is clear that parts of `sys.hexversion` come from the
-version information also visible in the more readable `sys.version_info`
-(a five-part namedtuple representing just the version number). The
-separate C API version used by the current interpreter is saved in
-`sys.api_version`.
+The version used to build the C interpreter is available in a few forms. `sys.version` is a human-readable string that usually includes the full version number as well as information about the build date, compiler, and platform. `sys.hexversion` is easier to use for checking the interpreter version since it is a simple integer. When formatted using `hex()`, it is clear that parts of `sys.hexversion` come from the version information also visible in the more readable `sys.version_info` (a five-part namedtuple representing just the version number). The separate C API version used by the current interpreter is saved in `sys.api_version`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_version\_values.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_version_values.py :::
 
-All of the values depend on the actual interpreter used to run the
-sample program.
+All of the values depend on the actual interpreter used to run the sample program.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sys_version_values.py
 
 Version info:
@@ -38,45 +23,31 @@ sys.hexversion   = 0x30701f0
 sys.api_version  = 1013
 ```
 
-The operating system platform used to build the interpreter is saved as
-`sys.platform`.
+The operating system platform used to build the interpreter is saved as `sys.platform`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_platform.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_platform.py :::
 
-For most Unix systems, the value comes from combining the output of
-`uname -s` with the first part of the version in `uname -r`. For other
-operating systems there is a hard-coded table of values.
+For most Unix systems, the value comes from combining the output of `uname -s` with the first part of the version in `uname -r`. For other operating systems there is a hard-coded table of values.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sys_platform.py
 
 This interpreter was built for: darwin
 ```
 
 ::: {.seealso}
--   [Platform
-    values](https://docs.python.org/3/library/sys.html#sys.platform)
-    \--Hard-coded values of `sys.platform` for systems without `uname`.
-:::
 
-Interpreter Implementation
---------------------------
+- [Platform values](https://docs.python.org/3/library/sys.html#sys.platform) \--Hard-coded values of `sys.platform` for systems without `uname`. :::
 
-The CPython interpreter is one of several implementations of the Python
-language. `sys.implementation` is provided to detect the current
-implementation for libraries that need to work around any differences in
-interpreters.
+## Interpreter Implementation
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_implementation.py
-:::
+The CPython interpreter is one of several implementations of the Python language. `sys.implementation` is provided to detect the current implementation for libraries that need to work around any differences in interpreters.
 
-`sys.implementation.version` is the same as `sys.version_info` for
-CPython, but will be different for other interpreters.
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_implementation.py :::
 
-``` {.sourceCode .none}
+`sys.implementation.version` is the same as `sys.version_info` for CPython, but will be different for other interpreters.
+
+```{.sourceCode .none}
 $ python3 sys_implementation.py
 
 Name: cpython
@@ -86,59 +57,56 @@ Cache tag: cpython-37
 ```
 
 ::: {.seealso}
--   `421`{.interpreted-text role="pep"} \-- Adding `sys.implementation`
-:::
 
-Command Line Options
---------------------
+- `421`{.interpreted-text role="pep"} \-- Adding `sys.implementation` :::
 
-The CPython interpreter accepts several command-line options to control
-its behavior, listed in `CPython Command Line Option
-Flags`{.interpreted-text role="table"}.
+## Command Line Options
 
-  ------------------------------------------------------------------------
-  Option   Meaning
-  -------- ---------------------------------------------------------------
-  `-B`     do not write .py\[co\] files on import
+The CPython interpreter accepts several command-line options to control its behavior, listed in `CPython Command Line Option Flags`{.interpreted-text role="table"}.
 
-  `-b`     issue warnings about converting bytes to string without
-           decoding properly and comparing bytes with strings
+---
 
-  `-bb`    convert bytes warnings to errors
+Option Meaning
 
-  `-d`     debug output from parser
+---
 
-  `-E`     ignore PYTHON\* environment variables (such as PYTHONPATH)
+`-B` do not write .py\[co\] files on import
 
-  `-i`     inspect interactively after running script
+`-b` issue warnings about converting bytes to string without decoding properly and comparing bytes with strings
 
-  `-O`     optimize generated bytecode slightly
+`-bb` convert bytes warnings to errors
 
-  `-OO`    remove doc-strings in addition to the -O optimizations
+`-d` debug output from parser
 
-  `-s`     do not add user site directory to sys.path
+`-E` ignore PYTHON\* environment variables (such as PYTHONPATH)
 
-  `-S`     do not run \'import site\' on initialization
+`-i` inspect interactively after running script
 
-  `-t`     issue warnings about inconsistent tab usage
+`-O` optimize generated bytecode slightly
 
-  `-tt`    issue errors for inconsistent tab usage
+`-OO` remove doc-strings in addition to the -O optimizations
 
-  `-v`     verbose
-  ------------------------------------------------------------------------
+`-s` do not add user site directory to sys.path
 
-  : CPython Command Line Option Flags
+`-S` do not run \'import site\' on initialization
+
+`-t` issue warnings about inconsistent tab usage
+
+`-tt` issue errors for inconsistent tab usage
+
+`-v` verbose
+
+---
+
+: CPython Command Line Option Flags
 
 Some of these are available for programs to check through `sys.flags`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_flags.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_flags.py :::
 
-Experiment with `sys_flags.py` to learn how the command line options map
-to the flags settings.
+Experiment with `sys_flags.py` to learn how the command line options map to the flags settings.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 -S -E -b sys_flags.py
 
 Warning on bytes/str errors
@@ -146,44 +114,28 @@ Not importing "site"
 Ignoring environment
 ```
 
-Unicode Defaults {#sys-unicode-defaults}
-----------------
+## Unicode Defaults {#sys-unicode-defaults}
 
-To get the name of the default Unicode encoding the interpreter is
-using, call `getdefaultencoding()`. The value is set during start-up,
-and cannot be changed.
+To get the name of the default Unicode encoding the interpreter is using, call `getdefaultencoding()`. The value is set during start-up, and cannot be changed.
 
-The internal encoding default and the file system encoding may be
-different for some operating systems, so there is a separate way to
-retrieve the file system setting. `getfilesystemencoding()` returns an
-OS-specific (*not* file system-specific) value.
+The internal encoding default and the file system encoding may be different for some operating systems, so there is a separate way to retrieve the file system setting. `getfilesystemencoding()` returns an OS-specific (_not_ file system-specific) value.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_unicode.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_unicode.py :::
 
-Rather than relying on the global default encoding, most Unicode experts
-recommend making an application explicitly Unicode-aware. This provides
-two benefits: different Unicode encodings for different data sources can
-be handled more cleanly, and the number of assumptions about encodings
-in the application code is reduced.
+Rather than relying on the global default encoding, most Unicode experts recommend making an application explicitly Unicode-aware. This provides two benefits: different Unicode encodings for different data sources can be handled more cleanly, and the number of assumptions about encodings in the application code is reduced.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sys_unicode.py
 
 Default encoding     : utf-8
 File system encoding : utf-8
 ```
 
-Interactive Prompts
--------------------
+## Interactive Prompts
 
-The interactive interpreter uses two separate prompts for indicating the
-default input level (`ps1`) and the \"continuation\" of a multi-line
-statement (`ps2`). The values are only used by the interactive
-interpreter.
+The interactive interpreter uses two separate prompts for indicating the default input level (`ps1`) and the \"continuation\" of a multi-line statement (`ps2`). The values are only used by the interactive interpreter.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 >>> import sys
 >>> sys.ps1
 '>>> '
@@ -194,29 +146,25 @@ interpreter.
 
 Either or both prompt can be changed to a different string.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 >>> sys.ps1 = '::: '
 ::: sys.ps2 = '~~~ '
 ::: for i in range(3):
 ~~~   print i
-~~~ 
+~~~
 0
 1
 2
-::: 
+:::
 ```
 
-Alternately, any object that can be converted to a string (via
-`__str__`) can be used for the prompt.
+Alternately, any object that can be converted to a string (via `__str__`) can be used for the prompt.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_ps1.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_ps1.py :::
 
-The `LineCounter` keeps track of how many times it has been used, so the
-number in the prompt increases each time.
+The `LineCounter` keeps track of how many times it has been used, so the number in the prompt increases each time.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python
 Python 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
@@ -230,21 +178,15 @@ information.
 (  3)>
 ```
 
-Display Hook
-------------
+## Display Hook
 
-`sys.displayhook` is invoked by the interactive interpreter each time
-the user enters an expression. The result of evaluating the expression
-is passed as the only argument to the function.
+`sys.displayhook` is invoked by the interactive interpreter each time the user enters an expression. The result of evaluating the expression is passed as the only argument to the function.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_displayhook.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_displayhook.py :::
 
-The default value (saved in `sys.__displayhook__`) prints the result to
-stdout and saves it in `_` for easy reference later.
+The default value (saved in `sys.__displayhook__`) prints the result to stdout and saves it in `_` for easy reference later.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3
 Python 3.4.2 (v3.4.2:ab2c023a9432, Oct  5 2014, 20:42:22)
 [GCC 4.2.1 (Apple Inc. build 5666) (dot 3)] on darwin
@@ -280,27 +222,17 @@ installing
 (  3)>
 ```
 
-Install Location
-----------------
+## Install Location
 
-The path to the actual interpreter program is available in
-`sys.executable` on all systems for which having a path to the
-interpreter makes sense. This can be useful for ensuring that the
-correct interpreter is being used, and also gives clues about paths that
-might be set based on the interpreter location.
+The path to the actual interpreter program is available in `sys.executable` on all systems for which having a path to the interpreter makes sense. This can be useful for ensuring that the correct interpreter is being used, and also gives clues about paths that might be set based on the interpreter location.
 
-`sys.prefix` refers to the parent directory of the interpreter
-installation. It usually includes `bin` and `lib` directories for
-executables and installed modules, respectively.
+`sys.prefix` refers to the parent directory of the interpreter installation. It usually includes `bin` and `lib` directories for executables and installed modules, respectively.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-sys\_locations.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} sys_locations.py :::
 
-This example output was produced on a Mac running a framework build
-installed from python.org.
+This example output was produced on a Mac running a framework build installed from python.org.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 sys_locations.py
 
 Interpreter executable:

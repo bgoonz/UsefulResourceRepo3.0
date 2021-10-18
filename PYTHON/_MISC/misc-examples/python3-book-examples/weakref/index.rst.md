@@ -1,38 +1,22 @@
-weakref \-\-- Impermanent References to Objects
-===============================================
+# weakref \-\-- Impermanent References to Objects
 
-::: {.module synopsis="Impermanent references to objects"}
-weakref
-:::
+::: {.module synopsis="Impermanent references to objects"} weakref :::
 
 Purpose
 
-:   Refer to an \"expensive\" object, but allow its memory to be
-    reclaimed by the garbage collector if there are no other non-weak
-    references.
+: Refer to an \"expensive\" object, but allow its memory to be reclaimed by the garbage collector if there are no other non-weak references.
 
-The `weakref` module supports weak references to objects. A normal
-reference increments the reference count on the object and prevents it
-from being garbage collected. This outcome is not always desirable,
-especially when a circular reference might be present or when a cache of
-objects should be deleted when memory is needed. A weak reference is a
-handle to an object that does not keep it from being cleaned up
-automatically.
+The `weakref` module supports weak references to objects. A normal reference increments the reference count on the object and prevents it from being garbage collected. This outcome is not always desirable, especially when a circular reference might be present or when a cache of objects should be deleted when memory is needed. A weak reference is a handle to an object that does not keep it from being cleaned up automatically.
 
-References
-----------
+## References
 
-Weak references to objects are managed through the `ref` class. To
-retrieve the original object, call the reference object.
+Weak references to objects are managed through the `ref` class. To retrieve the original object, call the reference object.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_ref.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_ref.py :::
 
-In this case, since `obj` is deleted before the second call to the
-reference, the `ref` returns `None`.
+In this case, since `obj` is deleted before the second call to the reference, the `ref` returns `None`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_ref.py
 
 obj: <__main__.ExpensiveObject object at 0x1007b1a58>
@@ -44,22 +28,15 @@ deleting obj
 r(): None
 ```
 
-Reference Callbacks
--------------------
+## Reference Callbacks
 
-The `ref` constructor accepts an optional callback function that is
-invoked when the referenced object is deleted.
+The `ref` constructor accepts an optional callback function that is invoked when the referenced object is deleted.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_ref\_callback.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_ref_callback.py :::
 
-The callback receives the reference object as an argument after the
-reference is \"dead\" and no longer refers to the original object. One
-use for this feature is to remove the weak reference object from a
-cache.
+The callback receives the reference object as an argument after the reference is \"dead\" and no longer refers to the original object. One use for this feature is to remove the weak reference object from a cache.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_ref_callback.py
 
 obj: <__main__.ExpensiveObject object at 0x1010b1978>
@@ -72,41 +49,28 @@ callback(<weakref at 0x1010a92c8; dead>)
 r(): None
 ```
 
-Finalizing Objects
-------------------
+## Finalizing Objects
 
-For more robust management of resources when weak references are cleaned
-up, use `finalize` to associate callbacks with objects. A `finalize`
-instance is retained until the attached object is deleted, even if the
-application does not retain a reference to the finalizer.
+For more robust management of resources when weak references are cleaned up, use `finalize` to associate callbacks with objects. A `finalize` instance is retained until the attached object is deleted, even if the application does not retain a reference to the finalizer.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_finalize.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_finalize.py :::
 
-The arguments to `finalize` are the object to track, a callable to
-invoke when the object is garbage collected, and any positional or named
-arguments to pass to the callable.
+The arguments to `finalize` are the object to track, a callable to invoke when the object is garbage collected, and any positional or named arguments to pass to the callable.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_finalize.py
 
 (Deleting <__main__.ExpensiveObject object at 0x1019b10f0>)
 on_finalize(('extra argument',))
 ```
 
-The `finalize` instance has a writable propertly `atexit` to control
-whether the callback is invoked as a program is exiting, if it hasn\'t
-already been called.
+The `finalize` instance has a writable propertly `atexit` to control whether the callback is invoked as a program is exiting, if it hasn\'t already been called.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_finalize\_atexit.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_finalize_atexit.py :::
 
-The default is to invoke the callback. Setting `atexit` to false
-disables that behavior.
+The default is to invoke the callback. Setting `atexit` to false disables that behavior.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_finalize_atexit.py 1
 
 on_finalize(('extra argument',))
@@ -115,58 +79,39 @@ on_finalize(('extra argument',))
 $ python3 weakref_finalize_atexit.py 0
 ```
 
-Giving the `finalize` instance a reference to the object it tracks
-causes a reference to be retained, so the object is never garbage
-collected.
+Giving the `finalize` instance a reference to the object it tracks causes a reference to be retained, so the object is never garbage collected.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_finalize\_reference.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_finalize_reference.py :::
 
-As this example shows, even though the explicit reference to `obj` is
-deleted, the object is retained and visible to the garbage collector
-through `f`.
+As this example shows, even though the explicit reference to `obj` is deleted, the object is retained and visible to the garbage collector through `f`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_finalize_reference.py
 
 found uncollected object in gc
 ```
 
-Using a bound method of a tracked object as the callable can also
-prevent an object from being finalized properly.
+Using a bound method of a tracked object as the callable can also prevent an object from being finalized properly.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_finalize\_reference\_method.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_finalize_reference_method.py :::
 
-Because the callable given to `finalize` is a bound method of the
-instance `obj`, the finalize object holds a reference to `obj`, which
-cannot be deleted and garbage collected.
+Because the callable given to `finalize` is a bound method of the instance `obj`, the finalize object holds a reference to `obj`, which cannot be deleted and garbage collected.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_finalize_reference_method.py
 
 found uncollected object in gc
 ```
 
-Proxies
--------
+## Proxies
 
-It is sometimes more convenient to use a proxy, rather than a weak
-reference. Proxies can be used as though they were the original object,
-and do not need to be called before the object is accessible. As a
-consequence, they can be passed to a library that does not know it is
-receiving a reference instead of the real object.
+It is sometimes more convenient to use a proxy, rather than a weak reference. Proxies can be used as though they were the original object, and do not need to be called before the object is accessible. As a consequence, they can be passed to a library that does not know it is receiving a reference instead of the real object.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_proxy.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_proxy.py :::
 
-If the proxy is accessed after the referent object is removed, a
-`ReferenceError` exception is raised.
+If the proxy is accessed after the referent object is removed, a `ReferenceError` exception is raised.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_proxy.py
 
 via obj: My Object
@@ -179,33 +124,17 @@ Traceback (most recent call last):
 ReferenceError: weakly-referenced object no longer exists
 ```
 
-Caching Objects
----------------
+## Caching Objects
 
-The `ref` and `proxy` classes are considered \"low level.\" While they
-are useful for maintaining weak references to individual objects and
-allowing cycles to be garbage collected, the `WeakKeyDictionary` and
-`WeakValueDictionary` classes provide a more appropriate API for
-creating a cache of several objects.
+The `ref` and `proxy` classes are considered \"low level.\" While they are useful for maintaining weak references to individual objects and allowing cycles to be garbage collected, the `WeakKeyDictionary` and `WeakValueDictionary` classes provide a more appropriate API for creating a cache of several objects.
 
-The `WeakValueDictionary` class uses weak references to the values it
-holds, allowing them to be garbage collected when other code is not
-actually using them. Using explicit calls to the garbage collector
-illustrates the difference between memory handling with a regular
-dictionary and `WeakValueDictionary`:
+The `WeakValueDictionary` class uses weak references to the values it holds, allowing them to be garbage collected when other code is not actually using them. Using explicit calls to the garbage collector illustrates the difference between memory handling with a regular dictionary and `WeakValueDictionary`:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-weakref\_valuedict.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} weakref_valuedict.py :::
 
-Any loop variables that refer to the values being cached must be cleared
-explicitly so the reference count of the object is decremented.
-Otherwise, the garbage collector will not remove the objects and they
-will remain in the cache. Similarly, the `all_refs` variable is used to
-hold references to prevent them from being garbage collected
-prematurely.
+Any loop variables that refer to the values being cached must be cleared explicitly so the reference count of the object is decremented. Otherwise, the garbage collector will not remove the objects and they will remain in the cache. Similarly, the `all_refs` variable is used to hold references to prevent them from being garbage collected prematurely.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 weakref_valuedict.py
 
 CACHE TYPE: <class 'dict'>
@@ -248,28 +177,16 @@ CACHE TYPE: <class 'weakref.WeakValueDictionary'>
   demo returning
 ```
 
-The `WeakKeyDictionary` works similarly but uses weak references for the
-keys instead of the values in the dictionary.
+The `WeakKeyDictionary` works similarly but uses weak references for the keys instead of the values in the dictionary.
 
-::: {.warning}
-::: {.admonition-title}
-Warning
-:::
+::: {.warning} ::: {.admonition-title} Warning :::
 
 The library documentation for `weakref` contains this warning:
 
-> Caution: Because a `WeakValueDictionary` is built on top of a Python
-> dictionary, it must not change size when iterating over it. This can
-> be difficult to ensure for a `WeakValueDictionary` because actions
-> performed by the program during iteration may cause items in the
-> dictionary to vanish \"by magic\" (as a side effect of garbage
-> collection).
-:::
+> Caution: Because a `WeakValueDictionary` is built on top of a Python dictionary, it must not change size when iterating over it. This can be difficult to ensure for a `WeakValueDictionary` because actions performed by the program during iteration may cause items in the dictionary to vanish \"by magic\" (as a side effect of garbage collection). :::
 
 ::: {.seealso}
--   `weakref`{.interpreted-text role="pydoc"}
--   `gc`{.interpreted-text role="mod"} \-- The `gc` module is the
-    interface to the interpreter\'s garbage collector.
--   `205`{.interpreted-text role="pep"} \-- \"Weak References\"
-    enhancement proposal.
-:::
+
+- `weakref`{.interpreted-text role="pydoc"}
+- `gc`{.interpreted-text role="mod"} \-- The `gc` module is the interface to the interpreter\'s garbage collector.
+- `205`{.interpreted-text role="pep"} \-- \"Weak References\" enhancement proposal. :::

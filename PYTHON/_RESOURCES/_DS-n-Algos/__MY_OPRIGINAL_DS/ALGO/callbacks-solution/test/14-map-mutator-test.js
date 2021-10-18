@@ -1,8 +1,8 @@
-const assert = require("assert");
-const mapMutator = require("../problems/14-map-mutator.js");
+const assert = require('assert');
+const mapMutator = require('../problems/14-map-mutator.js');
 
-describe("mapMutator", () => {
-  it("", () => {
+describe('mapMutator', () => {
+  it('', () => {
     let arr1 = [4, 2, 6, 5];
     mapMutator(arr1, (el) => {
       return el * 2;

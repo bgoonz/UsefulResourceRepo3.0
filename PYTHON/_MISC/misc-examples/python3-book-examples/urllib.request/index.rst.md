@@ -1,48 +1,26 @@
-urllib.request \-\-- Network Resource Access
-============================================
+# urllib.request \-\-- Network Resource Access
 
-::: {.module synopsis="Network Resource Access"}
-urllib.request
-:::
+::: {.module synopsis="Network Resource Access"} urllib.request :::
 
 Purpose
 
-:   A library for opening URLs that can be extended by defining custom
-    protocol handlers.
+: A library for opening URLs that can be extended by defining custom protocol handlers.
 
-The `urllib.request` module provides an API for using Internet resources
-identified by URLs. It is designed to be extended by individual
-applications to support new protocols or add variations to existing
-protocols (such as handling HTTP basic authentication).
+The `urllib.request` module provides an API for using Internet resources identified by URLs. It is designed to be extended by individual applications to support new protocols or add variations to existing protocols (such as handling HTTP basic authentication).
 
-HTTP GET
---------
+## HTTP GET
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-The test server for these examples is in `http_server_GET.py`, from the
-examples for the `http.server`{.interpreted-text role="mod"} module.
-Start the server in one terminal window, then run these examples in
-another.
-:::
+The test server for these examples is in `http_server_GET.py`, from the examples for the `http.server`{.interpreted-text role="mod"} module. Start the server in one terminal window, then run these examples in another. :::
 
-An HTTP GET operation is the simplest use of `urllib.request`. Pass the
-URL to `urlopen()` to get a \"file-like\" handle to the remote data.
+An HTTP GET operation is the simplest use of `urllib.request`. Pass the URL to `urlopen()` to get a \"file-like\" handle to the remote data.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_urlopen.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_urlopen.py :::
 
-The example server accepts the incoming values and formats a plain text
-response to send back. The return value from `urlopen()` gives access to
-the headers from the HTTP server through the `info()` method, and the
-data for the remote resource via methods like `read()` and
-`readlines()`.
+The example server accepts the incoming values and formats a plain text response to send back. The return value from `urlopen()` gives access to the headers from the HTTP server through the `info()` method, and the data for the remote resource via methods like `read()` and `readlines()`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 urllib_request_urlopen.py
 
 RESPONSE: <http.client.HTTPResponse object at 0x101744d68>
@@ -80,14 +58,11 @@ User-Agent=Python-urllib/3.5
 
 The file-like object returned by `urlopen()` is iterable:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_urlopen\_iterator.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_urlopen_iterator.py :::
 
-This example strips the trailing newlines and carriage returns before
-printing the output.
+This example strips the trailing newlines and carriage returns before printing the output.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 urllib_request_urlopen_iterator.py
 
 CLIENT VALUES:
@@ -110,20 +85,15 @@ Host=localhost:8080
 User-Agent=Python-urllib/3.5
 ```
 
-Encoding Arguments
-------------------
+## Encoding Arguments
 
-Arguments can be passed to the server by encoding them with
-`urllib.parse.urlencode()` and appending them to the URL.
+Arguments can be passed to the server by encoding them with `urllib.parse.urlencode()` and appending them to the URL.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_http\_get\_args.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_http_get_args.py :::
 
-The list of client values returned in the example output contains the
-encoded query arguments.
+The list of client values returned in the example output contains the encoded query arguments.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python urllib_request_http_get_args.py
 Encoded: q=query+string&foo=bar
 CLIENT VALUES:
@@ -146,31 +116,19 @@ Host=localhost:8080
 User-Agent=Python-urllib/3.5
 ```
 
-HTTP POST
----------
+## HTTP POST
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-The test server for these examples is in `http_server_POST.py`, from the
-examples for the `http.server`{.interpreted-text role="mod"} module.
-Start the server in one terminal window, then run these examples in
-another.
-:::
+The test server for these examples is in `http_server_POST.py`, from the examples for the `http.server`{.interpreted-text role="mod"} module. Start the server in one terminal window, then run these examples in another. :::
 
-To send form-encoded data to the remote server using POST instead GET,
-pass the encoded query arguments as data to `urlopen()`.
+To send form-encoded data to the remote server using POST instead GET, pass the encoded query arguments as data to `urlopen()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_urlopen\_post.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_urlopen_post.py :::
 
-The server can decode the form data and access the individual values by
-name.
+The server can decode the form data and access the individual values by name.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 urllib_request_urlopen_post.py
 
 Client: ('127.0.0.1', 58568)
@@ -181,34 +139,17 @@ Form data:
     q=query string
 ```
 
-Adding Outgoing Headers
------------------------
+## Adding Outgoing Headers
 
-`urlopen()` is a convenience function that hides some of the details of
-how the request is made and handled. More precise control is possible by
-using a `Request` instance directly. For example, custom headers can be
-added to the outgoing request to control the format of data returned,
-specify the version of a document cached locally, and tell the remote
-server the name of the software client communicating with it.
+`urlopen()` is a convenience function that hides some of the details of how the request is made and handled. More precise control is possible by using a `Request` instance directly. For example, custom headers can be added to the outgoing request to control the format of data returned, specify the version of a document cached locally, and tell the remote server the name of the software client communicating with it.
 
-As the output from the earlier examples shows, the default *User-agent*
-header value is made up of the constant `Python-urllib`, followed by the
-Python interpreter version. When creating an application that will
-access web resources owned by someone else, it is courteous to include
-real user agent information in the requests, so they can identify the
-source of the hits more easily. Using a custom agent also allows them to
-control crawlers using a `robots.txt` file (see the
-`http.robotparser`{.interpreted-text role="mod"} module).
+As the output from the earlier examples shows, the default _User-agent_ header value is made up of the constant `Python-urllib`, followed by the Python interpreter version. When creating an application that will access web resources owned by someone else, it is courteous to include real user agent information in the requests, so they can identify the source of the hits more easily. Using a custom agent also allows them to control crawlers using a `robots.txt` file (see the `http.robotparser`{.interpreted-text role="mod"} module).
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_request\_header.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_request_header.py :::
 
-After creating a `Request` object, use `add_header()` to set the user
-agent value before opening the request. The last line of the output
-shows the custom value.
+After creating a `Request` object, use `add_header()` to set the user agent value before opening the request. The last line of the output shows the custom value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 urllib_request_request_header.py
 
 CLIENT VALUES:
@@ -231,20 +172,15 @@ Host=localhost:8080
 User-Agent=PyMOTW (https://pymotw.com/)
 ```
 
-Posting Form Data from a Request
---------------------------------
+## Posting Form Data from a Request
 
-The outgoing data can be specified when building the `Request` to have
-it posted to the server.
+The outgoing data can be specified when building the `Request` to have it posted to the server.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_request\_post.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_request_post.py :::
 
-The HTTP method used by the `Request` changes from GET to POST
-automatically after the data is added.
+The HTTP method used by the `Request` changes from GET to POST automatically after the data is added.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 urllib_request_request_post.py
 
 Request method : POST
@@ -261,27 +197,20 @@ Form data:
     q=query string
 ```
 
-Uploading Files
----------------
+## Uploading Files
 
-Encoding files for upload requires a little more work than simple forms.
-A complete MIME message needs to be constructed in the body of the
-request, so that the server can distinguish incoming form fields from
-uploaded files.
+Encoding files for upload requires a little more work than simple forms. A complete MIME message needs to be constructed in the body of the request, so that the server can distinguish incoming form fields from uploaded files.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_upload\_files.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_upload_files.py :::
 
-The `MultiPartForm` class can represent an arbitrary form as a
-multi-part MIME message with attached files.
+The `MultiPartForm` class can represent an arbitrary form as a multi-part MIME message with attached files.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 urllib_request_upload_files.py
 
 OUTGOING DATA:
 User-agent: PyMOTW (https://pymotw.com/)
-Content-type: multipart/form-data; 
+Content-type: multipart/form-data;
     boundary=d99b5dc60871491b9d63352eb24972b4
 Content-length: 389
 
@@ -294,7 +223,7 @@ Content-Disposition: form-data; name="lastname"
 
 Hellmann
 --d99b5dc60871491b9d63352eb24972b4
-Content-Disposition: file; name="biography"; 
+Content-Disposition: file; name="biography";
     filename="bio.txt"
 Content-Type: text/plain
 
@@ -312,34 +241,17 @@ Form data:
     lastname=Hellmann
 ```
 
-Creating Custom Protocol Handlers
----------------------------------
+## Creating Custom Protocol Handlers
 
-`urllib.request` has built-in support for HTTP(S), FTP, and local file
-access. To add support for other URL types, register another protocol
-handler. For example, to support URLs pointing to arbitrary files on
-remote NFS servers, without requiring users to mount the path before
-accessing the file, create a class derived from `BaseHandler` and with a
-method `nfs_open()`.
+`urllib.request` has built-in support for HTTP(S), FTP, and local file access. To add support for other URL types, register another protocol handler. For example, to support URLs pointing to arbitrary files on remote NFS servers, without requiring users to mount the path before accessing the file, create a class derived from `BaseHandler` and with a method `nfs_open()`.
 
-The protocol-specific `open()` method is given a single argument, the
-`Request` instance, and it should return an object with a `read()`
-method that can be used to read the data, an `info()` method to return
-the response headers, and `geturl()` to return the actual URL of the
-file being read. A simple way to achieve that is to create an instance
-of `urllib.response.addinfourl`, passing the headers, URL, and open file
-handle in to the constructor.
+The protocol-specific `open()` method is given a single argument, the `Request` instance, and it should return an object with a `read()` method that can be used to read the data, an `info()` method to return the response headers, and `geturl()` to return the actual URL of the file being read. A simple way to achieve that is to create an instance of `urllib.response.addinfourl`, passing the headers, URL, and open file handle in to the constructor.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-urllib\_request\_nfs\_handler.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} urllib_request_nfs_handler.py :::
 
-The `FauxNFSHandler` and `NFSFile` classes print messages to illustrate
-where a real implementation would add mount and unmount calls. Since
-this is just a simulation, `FauxNFSHandler` is primed with the name of a
-temporary directory where it should look for all of its files.
+The `FauxNFSHandler` and `NFSFile` classes print messages to illustrate where a real implementation would add mount and unmount calls. Since this is just a simulation, `FauxNFSHandler` is primed with the name of a temporary directory where it should look for all of its files.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 urllib_request_nfs_handler.py
 
 FauxNFSHandler simulating mount:
@@ -360,18 +272,9 @@ NFSFile:
 ```
 
 ::: {.seealso}
--   `urllib.request`{.interpreted-text role="pydoc"}
--   `urllib.parse`{.interpreted-text role="mod"} \-- Work with the URL
-    string itself.
--   [Form content
-    types](http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13.4)
-    \-- W3C specification for posting files or large amounts of data via
-    HTTP forms.
--   `mimetypes`{.interpreted-text role="mod"} \-- Map filenames to
-    mimetype.
--   [requests](https://pypi.python.org/pypi/requests) \--Third-party
-    HTTP library with better support for secure connections and an
-    easier to use API. The Python core development team recommends most
-    developers use `requests`, in part because it receives more frequent
-    security updates than the standard library.
-:::
+
+- `urllib.request`{.interpreted-text role="pydoc"}
+- `urllib.parse`{.interpreted-text role="mod"} \-- Work with the URL string itself.
+- [Form content types](http://www.w3.org/TR/REC-html40/interact/forms.html#h-17.13.4) \-- W3C specification for posting files or large amounts of data via HTTP forms.
+- `mimetypes`{.interpreted-text role="mod"} \-- Map filenames to mimetype.
+- [requests](https://pypi.python.org/pypi/requests) \--Third-party HTTP library with better support for secure connections and an easier to use API. The Python core development team recommends most developers use `requests`, in part because it receives more frequent security updates than the standard library. :::

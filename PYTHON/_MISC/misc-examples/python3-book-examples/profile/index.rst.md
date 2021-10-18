@@ -1,43 +1,26 @@
-profile and pstats \-\-- Performance Analysis
-=============================================
+# profile and pstats \-\-- Performance Analysis
 
-::: {.module synopsis="Performance analysis of Python programs."}
-profile
-:::
+::: {.module synopsis="Performance analysis of Python programs."} profile :::
 
 Purpose
 
-:   Performance analysis of Python programs.
+: Performance analysis of Python programs.
 
-The `profile` module provides APIs for collecting and analyzing
-statistics about how Python source consumes processor resources.
+The `profile` module provides APIs for collecting and analyzing statistics about how Python source consumes processor resources.
 
-::: {.note}
-::: {.admonition-title}
-Note
-:::
+::: {.note} ::: {.admonition-title} Note :::
 
-This output reports in this section have been reformatted to fit on the
-page. Lines ending with backslash (`\`) are continued on the next line.
-:::
+This output reports in this section have been reformatted to fit on the page. Lines ending with backslash (`\`) are continued on the next line. :::
 
-Running the Profiler
---------------------
+## Running the Profiler
 
-The most basic starting point in the `profile` module is `run()`. It
-takes a string statement as argument, and creates a report of the time
-spent executing different lines of code while running the statement.
+The most basic starting point in the `profile` module is `run()`. It takes a string statement as argument, and creates a report of the time spent executing different lines of code while running the statement.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-profile\_fibonacci\_raw.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} profile_fibonacci_raw.py :::
 
-This recursive version of a Fibonacci sequence calculator is especially
-useful for demonstrating the profile because the performance can be
-improved significantly. The standard report format shows a summary and
-then details for each function executed.
+This recursive version of a Fibonacci sequence calculator is especially useful for demonstrating the profile because the performance can be improved significantly. The standard report format shows a summary and then details for each function executed.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 profile_fibonacci_raw.py
 
 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 98\
@@ -67,27 +50,15 @@ raw.py:11(fib)
 raw.py:22(fib_seq)
 ```
 
-The raw version takes 57359 separate function calls and 0.127 seconds to
-run. The fact that there are only 69 *primitive* calls says that the
-vast majority of those 57k calls were recursive. The details about where
-time was spent are broken out by function in the listing showing the
-number of calls, total time spent in the function, time per call
-(tottime/ncalls), cumulative time spent in a function, and the ratio of
-cumulative time to primitive calls.
+The raw version takes 57359 separate function calls and 0.127 seconds to run. The fact that there are only 69 _primitive_ calls says that the vast majority of those 57k calls were recursive. The details about where time was spent are broken out by function in the listing showing the number of calls, total time spent in the function, time per call (tottime/ncalls), cumulative time spent in a function, and the ratio of cumulative time to primitive calls.
 
-Not surprisingly, most of the time here is spent calling `fib()`
-repeatedly. Adding a cache decorator reduces the number of recursive
-calls, and has a big impact on the performance of this function.
+Not surprisingly, most of the time here is spent calling `fib()` repeatedly. Adding a cache decorator reduces the number of recursive calls, and has a big impact on the performance of this function.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-profile\_fibonacci\_memoized.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} profile_fibonacci_memoized.py :::
 
-By remembering the Fibonacci value at each level, most of the recursion
-is avoided and the run drops down to 89 calls that only take 0.001
-seconds. The `ncalls` count for `fib()` shows that it *never* recurses.
+By remembering the Fibonacci value at each level, most of the recursion is avoided and the run drops down to 89 calls that only take 0.001 seconds. The `ncalls` count for `fib()` shows that it _never_ recurses.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 profile_fibonacci_memoized.py
 
 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 98\
@@ -116,25 +87,18 @@ memoized.py:12(fib)
 memoized.py:24(fib_seq)
 ```
 
-Running in a Context
---------------------
+## Running in a Context
 
-Sometimes, instead of constructing a complex expression for `run()`, it
-is easier to build a simple expression and pass it parameters through a
-context, using `runctx()`.
+Sometimes, instead of constructing a complex expression for `run()`, it is easier to build a simple expression and pass it parameters through a context, using `runctx()`.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-profile\_runctx.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} profile_runctx.py :::
 
-In this example, the value of `n` is passed through the local variable
-context instead of being embedded directly in the statement passed to
-`runctx()`.
+In this example, the value of `n` is passed through the local variable context instead of being embedded directly in the statement passed to `runctx()`.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 profile_runctx.py
 
-[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 
+[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610,
 987, 1597, 2584, 4181, 6765]
 
         148 function calls (90 primitive calls) in 0.002 seconds
@@ -162,30 +126,19 @@ memoized.py:27(fib)
 memoized.py:39(fib_seq)
 ```
 
-pstats: Saving and Working With Statistics
-------------------------------------------
+## pstats: Saving and Working With Statistics
 
-::: {.module synopsis="Manipulate and analyze profile statistics."}
-pstats
-:::
+::: {.module synopsis="Manipulate and analyze profile statistics."} pstats :::
 
-The standard report created by the `profile` functions is not very
-flexible. However, custom reports can be produced by saving the raw
-profiling data from `run()` and `runctx()` and processing it separately
-with the `pstats.Stats` class.
+The standard report created by the `profile` functions is not very flexible. However, custom reports can be produced by saving the raw profiling data from `run()` and `runctx()` and processing it separately with the `pstats.Stats` class.
 
-This example runs several iterations of the same test and combines the
-results:
+This example runs several iterations of the same test and combines the results:
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-profile\_stats.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} profile_stats.py :::
 
-The output report is sorted in descending order of cumulative time spent
-in the function and the directory names are removed from the printed
-filenames to conserve horizontal space on the page.
+The output report is sorted in descending order of cumulative time spent in the function and the directory names are removed from the printed filenames to conserve horizontal space on the page.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 profile_stats.py
 
 0 [0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, \
@@ -229,22 +182,15 @@ f 'list' objects}
 of '_lsprof.Profiler' objects}
 ```
 
-Limiting Report Contents
-------------------------
+## Limiting Report Contents
 
-The output can be restricted by function. This version only shows
-information about the performance of `fib()` and `fib_seq()` by using a
-regular expression to match the desired `filename:lineno(function)`
-values.
+The output can be restricted by function. This version only shows information about the performance of `fib()` and `fib_seq()` by using a regular expression to match the desired `filename:lineno(function)` values.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-profile\_stats\_restricted.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} profile_stats_restricted.py :::
 
-The regular expression includes a literal left parenthesis (`(`) to
-match against the function name portion of the location value.
+The regular expression includes a literal left parenthesis (`(`) to match against the function name portion of the location value.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 profile_stats_restricted.py
 
 Sat Dec 31 07:46:22 2016    profile_stats_0.stats
@@ -267,21 +213,15 @@ memoized.py:24(fib_seq)
 memoized.py:12(fib)
 ```
 
-Caller / Callee Graphs
-----------------------
+## Caller / Callee Graphs
 
-`Stats` also includes methods for printing the callers and callees of
-functions.
+`Stats` also includes methods for printing the callers and callees of functions.
 
-::: {.literalinclude caption="" start-after="#end_pymotw_header"}
-profile\_stats\_callers.py
-:::
+::: {.literalinclude caption="" start-after="#end_pymotw_header"} profile_stats_callers.py :::
 
-The arguments to `print_callers()` and `print_callees()` work the same
-as the restriction arguments to `print_stats()`. The output shows the
-caller, callee, number of calls, and cumulative time.
+The arguments to `print_callers()` and `print_callees()` work the same as the restriction arguments to `print_stats()`. The output shows the caller, callee, number of calls, and cumulative time.
 
-``` {.sourceCode .none}
+```{.sourceCode .none}
 $ python3 profile_stats_callers.py
 
 INCOMING CALLERS:
@@ -314,22 +254,14 @@ profile_fibonacci_memoized.py:24(fib_seq)  ->      21    0.000  \
   0.000  {method 'append' of 'list' objects}
                                                   100    0.000  \
   0.000  {method 'extend' of 'list' objects}
-profile_fibonacci_memoized.py:12(fib)      -> 
+profile_fibonacci_memoized.py:12(fib)      ->
 ```
 
 ::: {.seealso}
--   `profile`{.interpreted-text role="pydoc"}
--   `functools.lru_cache() <functools-lru_cache>`{.interpreted-text
-    role="ref"} \-- The cache decorator used to improve performance in
-    this example.
--   [The Stats
-    Class](https://docs.python.org/3.5/library/profile.html#the-stats-class)
-    \-- Standard library documentation for `pstats.Stats`.
--   [Gprof2Dot](http://code.google.com/p/jrfonseca/wiki/Gprof2Dot) \--
-    Visualization tool for profile output data.
--   [Python Decorators: Syntactic Sugar \|
-    avinash.vora](http://avinashv.net/2008/04/python-decorators-syntactic-sugar/)
-    \-- Another memoized Fibonacci sequence generator in Python.
--   [Smiley](https://github.com/dhellmann/smiley) \-- Python Application
-    Tracer
-:::
+
+- `profile`{.interpreted-text role="pydoc"}
+- `functools.lru_cache() <functools-lru_cache>`{.interpreted-text role="ref"} \-- The cache decorator used to improve performance in this example.
+- [The Stats Class](https://docs.python.org/3.5/library/profile.html#the-stats-class) \-- Standard library documentation for `pstats.Stats`.
+- [Gprof2Dot](http://code.google.com/p/jrfonseca/wiki/Gprof2Dot) \-- Visualization tool for profile output data.
+- [Python Decorators: Syntactic Sugar \| avinash.vora](http://avinashv.net/2008/04/python-decorators-syntactic-sugar/) \-- Another memoized Fibonacci sequence generator in Python.
+- [Smiley](https://github.com/dhellmann/smiley) \-- Python Application Tracer :::
