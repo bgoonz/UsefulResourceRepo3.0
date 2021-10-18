@@ -1,0 +1,249 @@
+.v3-single-hero *,
+.v3-single-hero *::before,
+.v3-single-hero *::after {
+	box-sizing: border-box;
+}
+
+/* Theses are all very similar but NOT IDENTICAL to the home-hero css */
+.v3-single-hero {
+	position: relative;
+	width: 100%;
+	max-width: 1440px;
+	margin: auto;
+	padding-top: 29vw;
+}
+
+.v3-single-hero__bg-image {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+}
+
+.v3-single-hero__content {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	padding: 24px;
+	font-family: 'AvenirNext', 'Helvetica', 'Arial', sans-serif;
+	border-radius: 3px;
+	box-shadow: 0 0 0 1px #e7e7e7, 0 2px 4px 0 rgba(0, 0, 0, 0.1);
+	background-color: white;
+	margin-bottom: 46px;
+	text-align: center;
+}
+
+.v3-single-hero__tags {
+	margin-bottom: 8px;
+}
+
+.v3-single-hero__tags-slash {
+	display: inline-block;
+	margin: 0 4px;
+	color: #767676;
+}
+
+.v3-single-hero__title {
+	font-size: 26px;
+	line-height: 38px;
+	font-weight: 600;
+	margin-bottom: 32px;
+	letter-spacing: -0.2px;
+}
+
+.v3-single-hero__title a {
+	display: block;
+	color: black;
+}
+
+.v3-single-hero__title a:hover,
+.v3-single-hero__title a:focus,
+.v3-single-hero__title a:active {
+	color: black;
+}
+
+.v3-single-hero__meta {
+	font-weight: 600;
+	font-size: 12px;
+	text-transform: uppercase;
+	letter-spacing: 0.5px;
+	color: #767676;
+}
+
+.v3-single-hero__author {
+	display: none;
+	margin-right: 16px;
+}
+
+.v3-single-hero__author-display-name {
+	color: #1358db;
+}
+
+
+/* Tablet+ styles */
+@media only screen and (min-width: 768px) {
+	.v3-single-hero__content {
+		padding: 40px 48px;
+	}
+
+	.v3-single-hero__tags {
+		margin-bottom: 24px;
+	}
+
+	.v3-single-hero__title {
+		font-size: 42px;
+		line-height: 56px;
+	}
+}
+
+@media only screen and (min-width: 1441px) {
+	.v3-single-hero {
+		padding-top: 280px;
+	}
+}
+
+
+
+/* Single blog post styles */
+.v3-single.post.type-post {
+	float: none;
+	margin-bottom: 100px !important;
+}
+
+.v3-single-content {
+	margin-top: 48px;
+	margin-bottom: 48px;
+	color: #373737;
+}
+
+.v3-single-content,
+.v3-single-content * {
+	font-family: Merriweather, Georgia, serif;
+	font-size: 14px;
+	line-height: 24px;
+	letter-spacing: 0.1px;
+}
+
+.v3-single-content img,
+.v3-single-content iframe,
+.v3-single-content .wp-caption {
+	max-width: 100%;
+}
+
+.v3-single-content blockquote {
+	opacity: 1;
+	width: auto;
+	margin: 48px 0;
+}
+
+.v3-single-content blockquote,
+.v3-single-content blockquote * {
+	font-family: 'AvenirNext', 'Helvetica', 'Arial', sans-serif !important;
+	color: #1358db;
+	font-size: 26px;
+	line-height: 38px;
+	text-transform: none;
+}
+
+.v3-single-content blockquote footer {
+	font-size: 12px;
+	line-height: 20px;
+	font-weight: bold;
+	letter-spacing: 0.5px;
+	color: #767676;
+	text-transform: uppercase;
+}
+
+.v3-single-content h2,
+.v3-single-content h2 * {
+	font-family: 'AvenirNext', 'Helvetica', 'Arial', sans-serif !important;
+	font-size: 28px !important;
+	line-height: 38px !important;
+	font-weight: 600 !important;
+	margin: 48px 0 !important;
+}
+
+.v3-single-content a,
+.v3-single-content a:hover,
+.v3-single-content a:focus,
+.v3-single-content a:active {
+	color: #1358db;
+}
+
+.v3-single-content p {
+	margin: 32px 0;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.v3-single-content li {
+	margin-left: 1.2em;
+}
+
+.v3-single-content .wp-caption-text {
+	font-size: 14px !important;
+	font-style: normal !important;
+	opacity: 1 !important;
+	font-weight: normal;
+	text-align: center;
+}
+
+@media only screen and (min-width: 768px) {
+	.v3-single-content {
+		padding: 0 88px;
+	}
+
+	.v3-single-content,
+	.v3-single-content * {
+		font-family: Merriweather, Georgia, serif;
+		font-size: 18px;
+		line-height: 28px;
+	}
+
+	.v3-single-content blockquote {
+		margin: 104px 76px;
+		text-align: center;
+	}
+}
+
+@media only screen and (min-width: 992px) {
+	.v3-single-content blockquote {
+		margin: 104px 152px;
+	}
+}
+
+
+/* Social media sharing links */
+.v3-share {
+	display: flex;
+	justify-content: space-between;
+	width: 140px;
+	list-style: none;
+	margin: 0 auto 44px;
+}
+
+.v3-share__link {
+	font-size: 28px;
+	line-height: 1;
+	color: #1358db;
+}
+
+.v3-share__link:hover,
+.v3-share__link:focus,
+.v3-share__link:active {
+	color: #1358db;
+}
+
+
+
+/* Related posts section. Actual post styles are from v3-post-grid */
+.v3-single-related__title {
+	font-family: AvenirNext,Helvetica,Arial,sans-serif;
+	font-size: 26px;
+	line-height: 38px;
+	font-weight: 600;
+}
+
+.v3-single-related .v3-post-grid {
+	margin-top: 24px;
+}
