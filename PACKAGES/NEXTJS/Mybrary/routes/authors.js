@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
     const authors = await Author.find(searchOptions)
     res.render('authors/index', {
       authors: authors,
-      searchOptions: req.query
+      searchOptions: req.query,
     })
   } catch {
     res.redirect('/')
@@ -28,7 +28,7 @@ router.get('/new', (req, res) => {
 // Create Author Route
 router.post('/', async (req, res) => {
   const author = new Author({
-    name: req.body.name
+    name: req.body.name,
   })
   try {
     const newAuthor = await author.save()
@@ -36,7 +36,7 @@ router.post('/', async (req, res) => {
   } catch {
     res.render('authors/new', {
       author: author,
-      errorMessage: 'Error creating Author'
+      errorMessage: 'Error creating Author',
     })
   }
 })
@@ -47,7 +47,7 @@ router.get('/:id', async (req, res) => {
     const books = await Book.find({ author: author.id }).limit(6).exec()
     res.render('authors/show', {
       author: author,
-      booksByAuthor: books
+      booksByAuthor: books,
     })
   } catch {
     res.redirect('/')
@@ -76,7 +76,7 @@ router.put('/:id', async (req, res) => {
     } else {
       res.render('authors/edit', {
         author: author,
-        errorMessage: 'Error updating Author'
+        errorMessage: 'Error updating Author',
       })
     }
   }

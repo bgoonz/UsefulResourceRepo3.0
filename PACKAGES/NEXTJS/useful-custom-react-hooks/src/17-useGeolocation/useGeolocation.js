@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react"
+import { useState, useEffect } from 'react'
 
 export default function useGeolocation(options) {
   const [loading, setLoading] = useState(true)
@@ -6,12 +6,12 @@ export default function useGeolocation(options) {
   const [data, setData] = useState({})
 
   useEffect(() => {
-    const successHandler = e => {
+    const successHandler = (e) => {
       setLoading(false)
       setError(null)
       setData(e.coords)
     }
-    const errorHandler = e => {
+    const errorHandler = (e) => {
       setError(e)
       setLoading(false)
     }

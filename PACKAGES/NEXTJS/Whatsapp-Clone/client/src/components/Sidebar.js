@@ -12,7 +12,7 @@ export default function Sidebar({ id }) {
   const [activeKey, setActiveKey] = useState(CONVERSATIONS_KEY)
   const [modalOpen, setModalOpen] = useState(false)
   const conversationsOpen = activeKey === CONVERSATIONS_KEY
-  
+
   function closeModal() {
     setModalOpen(false)
   }
@@ -45,10 +45,11 @@ export default function Sidebar({ id }) {
       </Tab.Container>
 
       <Modal show={modalOpen} onHide={closeModal}>
-        {conversationsOpen ?
-          <NewConversationModal closeModal={closeModal} /> :
+        {conversationsOpen ? (
+          <NewConversationModal closeModal={closeModal} />
+        ) : (
           <NewContactModal closeModal={closeModal} />
-        }
+        )}
       </Modal>
     </div>
   )

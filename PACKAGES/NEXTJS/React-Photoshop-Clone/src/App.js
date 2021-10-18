@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './App.css';
+import React, { useState } from 'react'
+import './App.css'
 import Slider from './Slider'
 import SidebarItem from './SidebarItem'
 
@@ -10,9 +10,9 @@ const DEFAULT_OPTIONS = [
     value: 100,
     range: {
       min: 0,
-      max: 200
+      max: 200,
     },
-    unit: '%'
+    unit: '%',
   },
   {
     name: 'Contrast',
@@ -20,9 +20,9 @@ const DEFAULT_OPTIONS = [
     value: 100,
     range: {
       min: 0,
-      max: 200
+      max: 200,
     },
-    unit: '%'
+    unit: '%',
   },
   {
     name: 'Saturation',
@@ -30,9 +30,9 @@ const DEFAULT_OPTIONS = [
     value: 100,
     range: {
       min: 0,
-      max: 200
+      max: 200,
     },
-    unit: '%'
+    unit: '%',
   },
   {
     name: 'Grayscale',
@@ -40,9 +40,9 @@ const DEFAULT_OPTIONS = [
     value: 0,
     range: {
       min: 0,
-      max: 100
+      max: 100,
     },
-    unit: '%'
+    unit: '%',
   },
   {
     name: 'Sepia',
@@ -50,9 +50,9 @@ const DEFAULT_OPTIONS = [
     value: 0,
     range: {
       min: 0,
-      max: 100
+      max: 100,
     },
-    unit: '%'
+    unit: '%',
   },
   {
     name: 'Hue Rotate',
@@ -60,9 +60,9 @@ const DEFAULT_OPTIONS = [
     value: 0,
     range: {
       min: 0,
-      max: 360
+      max: 360,
     },
-    unit: 'deg'
+    unit: 'deg',
   },
   {
     name: 'Blur',
@@ -70,10 +70,10 @@ const DEFAULT_OPTIONS = [
     value: 0,
     range: {
       min: 0,
-      max: 20
+      max: 20,
     },
-    unit: 'px'
-  }
+    unit: 'px',
+  },
 ]
 
 function App() {
@@ -82,7 +82,7 @@ function App() {
   const selectedOption = options[selectedOptionIndex]
 
   function handleSliderChange({ target }) {
-    setOptions(prevOptions => {
+    setOptions((prevOptions) => {
       return prevOptions.map((option, index) => {
         if (index !== selectedOptionIndex) return option
         return { ...option, value: target.value }
@@ -91,7 +91,7 @@ function App() {
   }
 
   function getImageStyle() {
-    const filters = options.map(option => {
+    const filters = options.map((option) => {
       return `${option.property}(${option.value}${option.unit})`
     })
 
@@ -125,4 +125,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     const books = await query.exec()
     res.render('books/index', {
       books: books,
-      searchOptions: req.query
+      searchOptions: req.query,
     })
   } catch {
     res.redirect('/')
@@ -39,7 +39,7 @@ router.post('/', async (req, res) => {
     author: req.body.author,
     publishDate: new Date(req.body.publishDate),
     pageCount: req.body.pageCount,
-    description: req.body.description
+    description: req.body.description,
   })
   saveCover(book, req.body.cover)
 
@@ -54,9 +54,7 @@ router.post('/', async (req, res) => {
 // Show Book Route
 router.get('/:id', async (req, res) => {
   try {
-    const book = await Book.findById(req.params.id)
-                           .populate('author')
-                           .exec()
+    const book = await Book.findById(req.params.id).populate('author').exec()
     res.render('books/show', { book: book })
   } catch {
     res.redirect('/')
@@ -109,7 +107,7 @@ router.delete('/:id', async (req, res) => {
     if (book != null) {
       res.render('books/show', {
         book: book,
-        errorMessage: 'Could not remove book'
+        errorMessage: 'Could not remove book',
       })
     } else {
       res.redirect('/')
@@ -130,7 +128,7 @@ async function renderFormPage(res, book, form, hasError = false) {
     const authors = await Author.find({})
     const params = {
       authors: authors,
-      book: book
+      book: book,
     }
     if (hasError) {
       if (form === 'edit') {

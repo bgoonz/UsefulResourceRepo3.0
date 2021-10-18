@@ -1,12 +1,12 @@
 disintegrate.init()
 
-document.getElementById('img').addEventListener('click', e => {
+document.getElementById('img').addEventListener('click', (e) => {
   const disObj = disintegrate.getDisObj(e.target)
   disintegrate.createSimultaneousParticles(disObj)
   e.target.remove()
 })
 
-const thanosSnap = function() {
+const thanosSnap = function () {
   this.name = 'ThanosSnap'
   this.animationDuration = 1500
   this.size = 3
@@ -20,7 +20,12 @@ const thanosSnap = function() {
       this.first = false
     }
     ctx.beginPath()
-    ctx.fillRect(this.startX - this.size / 2, this.startY - this.size / 2, this.size, this.size)
+    ctx.fillRect(
+      this.startX - this.size / 2,
+      this.startY - this.size / 2,
+      this.size,
+      this.size
+    )
     const r = this.rgbArray[0]
     const g = this.rgbArray[1]
     const b = this.rgbArray[2]

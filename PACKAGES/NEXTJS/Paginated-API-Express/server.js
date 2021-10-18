@@ -3,10 +3,13 @@ const app = express()
 const mongoose = require('mongoose')
 const User = require('./users')
 
-mongoose.connect('mongodb://localhost/pagination', { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect('mongodb://localhost/pagination', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+})
 const db = mongoose.connection
 db.once('open', async () => {
-  if (await User.countDocuments().exec() > 0) return
+  if ((await User.countDocuments().exec()) > 0) return
 
   Promise.all([
     User.create({ name: 'User 1' }),
@@ -20,7 +23,7 @@ db.once('open', async () => {
     User.create({ name: 'User 9' }),
     User.create({ name: 'User 10' }),
     User.create({ name: 'User 11' }),
-    User.create({ name: 'User 12' })
+    User.create({ name: 'User 12' }),
   ]).then(() => console.log('Added Users'))
 })
 
@@ -38,17 +41,17 @@ function paginatedResults(model) {
 
     const results = {}
 
-    if (endIndex < await model.countDocuments().exec()) {
+    if (endIndex < (await model.countDocuments().exec())) {
       results.next = {
         page: page + 1,
-        limit: limit
+        limit: limit,
       }
     }
-    
+
     if (startIndex > 0) {
       results.previous = {
         page: page - 1,
-        limit: limit
+        limit: limit,
       }
     }
     try {

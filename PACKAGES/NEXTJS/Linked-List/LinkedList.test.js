@@ -52,7 +52,7 @@ describe('#insertAtIndex', () => {
     test('it does not insert anything', () => {
       const ll = LinkedList.fromValues(10, 20)
       ll.insertAtIndex(-1, 30)
-      
+
       expect(ll.length).toBe(2)
     })
   })
@@ -61,7 +61,7 @@ describe('#insertAtIndex', () => {
     test('it does not insert anything', () => {
       const ll = LinkedList.fromValues(10, 20)
       ll.insertAtIndex(5, 30)
-      
+
       expect(ll.length).toBe(2)
     })
   })
@@ -105,7 +105,7 @@ describe('#removeAtIndex', () => {
     test('it does not remove anything', () => {
       const ll = LinkedList.fromValues(10, 20)
       ll.removeAtIndex(-1)
-      
+
       expect(ll.length).toBe(2)
     })
   })
@@ -114,7 +114,7 @@ describe('#removeAtIndex', () => {
     test('it does not remove anything', () => {
       const ll = LinkedList.fromValues(10, 20)
       ll.removeAtIndex(-1)
-      
+
       expect(ll.length).toBe(2)
     })
   })

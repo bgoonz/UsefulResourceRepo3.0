@@ -4,7 +4,8 @@ const Song = require('./models/song.js')
 const app = express()
 
 mongoose.connect('mongodb://localhost/songRecorder', {
-  useNewUrlParser: true, useUnifiedTopology: true
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 })
 
 app.set('view engine', 'ejs')
@@ -17,7 +18,7 @@ app.get('/', (req, res) => {
 
 app.post('/songs', async (req, res) => {
   const song = new Song({
-    notes: req.body.songNotes
+    notes: req.body.songNotes,
   })
 
   await song.save()

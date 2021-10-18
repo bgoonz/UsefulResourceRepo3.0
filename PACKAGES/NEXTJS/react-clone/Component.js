@@ -1,17 +1,17 @@
-import { useState, useEffect, useMemo } from "./MyReact.js"
+import { useState, useEffect, useMemo } from './MyReact.js'
 
 export default function Component({ propCount, buttonElem }) {
   const [count, setCount] = useState(0)
   const propCountDoubled = useMemo(() => {
-    console.log("In Memo")
+    console.log('In Memo')
     return propCount * 2
   }, [propCount])
 
   useEffect(() => {
-    const handler = () => setCount(currentCount => currentCount + 1)
-    buttonElem.addEventListener("click", handler)
+    const handler = () => setCount((currentCount) => currentCount + 1)
+    buttonElem.addEventListener('click', handler)
 
-    return () => buttonElem.removeEventListener("click", handler)
+    return () => buttonElem.removeEventListener('click', handler)
   }, [buttonElem])
 
   return `

@@ -3,14 +3,14 @@ import Modal from './Modal'
 
 const BUTTON_WRAPPER_STYLES = {
   position: 'relative',
-  zIndex: 1
+  zIndex: 1,
 }
 
 const OTHER_CONTENT_STYLES = {
   position: 'relative',
   zIndex: 2,
   backgroundColor: 'red',
-  padding: '10px'
+  padding: '10px',
 }
 
 export default function App() {

@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import Counter from './Counter'
 import CounterHooks from './CounterHooks'
 
 function App() {
-  console.log("Render App")
+  console.log('Render App')
   return (
     <>
       Counter
@@ -14,4 +14,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

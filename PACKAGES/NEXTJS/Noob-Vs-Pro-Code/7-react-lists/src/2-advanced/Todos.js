@@ -1,14 +1,14 @@
-import React, { useState } from "react"
-import PropTypes from "prop-types"
-import Todo from "./Todo"
+import React, { useState } from 'react'
+import PropTypes from 'prop-types'
+import Todo from './Todo'
 
 function Todos({ initialTodos }) {
   const [todos, setTodos] = useState(initialTodos)
   const [selectedTodo, setSelectedTodo] = useState()
 
   function handleToggleComplete(todoId) {
-    setTodos(currTodos => {
-      return currTodos.map(todo => {
+    setTodos((currTodos) => {
+      return currTodos.map((todo) => {
         if (todo.id === todoId) {
           return { ...todo, complete: !todo.complete }
         }
@@ -18,12 +18,12 @@ function Todos({ initialTodos }) {
   }
 
   function handleSelect(todoId) {
-    setSelectedTodo(todos.find(todo => todo.id === todoId))
+    setSelectedTodo(todos.find((todo) => todo.id === todoId))
   }
 
   return (
     <>
-      {todos.map(todo => (
+      {todos.map((todo) => (
         <Todo
           key={todo.id}
           todo={todo}
@@ -44,7 +44,7 @@ function Todos({ initialTodos }) {
 }
 
 Todos.propTypes = {
-  initialTodos: PropTypes.array
+  initialTodos: PropTypes.array,
 }
 
 export default Todos

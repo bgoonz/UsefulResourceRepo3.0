@@ -6,7 +6,9 @@
 @import 'recipe.css';
 @import 'recipe-edit.css';
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   font-family: Gotham Rounded, sans-serif;
   box-sizing: border-box;
 }

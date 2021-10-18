@@ -10,7 +10,7 @@ function updateStrengthMeter() {
 
   let strength = 100
   reasonsContainer.innerHTML = ''
-  weaknesses.forEach(weakness => {
+  weaknesses.forEach((weakness) => {
     if (weakness == null) return
     strength -= weakness.deduction
     const messageElement = document.createElement('div')
@@ -37,21 +37,20 @@ function lengthWeakness(password) {
   if (length <= 5) {
     return {
       message: 'Your password is too short',
-      deduction: 40
+      deduction: 40,
     }
   }
 
   if (length <= 10) {
     return {
       message: 'Your password could be longer',
-      deduction: 15
+      deduction: 15,
     }
   }
 }
 
 function uppercaseWeakness(password) {
   return characterTypeWeakness(password, /[A-Z]/g, 'uppercase characters')
-
 }
 
 function lowercaseWeakness(password) {
@@ -63,7 +62,11 @@ function numberWeakness(password) {
 }
 
 function specialCharactersWeakness(password) {
-  return characterTypeWeakness(password, /[^0-9a-zA-Z\s]/g, 'special characters')
+  return characterTypeWeakness(
+    password,
+    /[^0-9a-zA-Z\s]/g,
+    'special characters'
+  )
 }
 
 function characterTypeWeakness(password, regex, type) {
@@ -72,14 +75,14 @@ function characterTypeWeakness(password, regex, type) {
   if (matches.length === 0) {
     return {
       message: `Your password has no ${type}`,
-      deduction: 20
+      deduction: 20,
     }
   }
 
   if (matches.length <= 2) {
     return {
       message: `Your password could use more ${type}`,
-      deduction: 5
+      deduction: 5,
     }
   }
 }
@@ -89,7 +92,7 @@ function repeatCharactersWeakness(password) {
   if (matches.length > 0) {
     return {
       message: 'Your password has repeat characters',
-      deduction: matches.length * 10
+      deduction: matches.length * 10,
     }
   }
 }

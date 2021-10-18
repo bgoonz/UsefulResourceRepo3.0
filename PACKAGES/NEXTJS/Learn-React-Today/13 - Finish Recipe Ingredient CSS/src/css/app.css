@@ -5,7 +5,9 @@
 @import 'ingredient-list.css';
 @import 'recipe.css';
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   font-family: Gotham Rounded, sans-serif;
 }
 

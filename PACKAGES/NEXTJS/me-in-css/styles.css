@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -22,7 +24,8 @@ body {
   align-items: center;
 }
 
-.eyes, .brows {
+.eyes,
+.brows {
   position: absolute;
   width: 195px;
   display: flex;

@@ -1,4 +1,4 @@
-const { Client } = require("@notionhq/client")
+const { Client } = require('@notionhq/client')
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY })
 
@@ -9,7 +9,7 @@ async function getTags() {
 
   return notionPropertiesById(database.properties)[
     process.env.NOTION_TAGS_ID
-  ].multi_select.options.map(option => {
+  ].multi_select.options.map((option) => {
     return { id: option.id, name: option.name }
   })
 }
@@ -30,7 +30,7 @@ function createSuggestion({ title, description, isProject, tags }) {
       [process.env.NOTION_TITLE_ID]: {
         title: [
           {
-            type: "text",
+            type: 'text',
             text: {
               content: title,
             },
@@ -40,7 +40,7 @@ function createSuggestion({ title, description, isProject, tags }) {
       [process.env.NOTION_DESCRIPTION_ID]: {
         rich_text: [
           {
-            type: "text",
+            type: 'text',
             text: {
               content: description,
             },
@@ -54,7 +54,7 @@ function createSuggestion({ title, description, isProject, tags }) {
         number: 0,
       },
       [process.env.NOTION_TAGS_ID]: {
-        multi_select: tags.map(tag => {
+        multi_select: tags.map((tag) => {
           return { id: tag.id }
         }),
       },
@@ -65,7 +65,7 @@ function createSuggestion({ title, description, isProject, tags }) {
 async function getSuggestions() {
   const notionPages = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
-    sorts: [{ property: process.env.NOTION_VOTES_ID, direction: "descending" }],
+    sorts: [{ property: process.env.NOTION_VOTES_ID, direction: 'descending' }],
   })
 
   return notionPages.results.map(fromNotionObject)
@@ -79,7 +79,7 @@ function fromNotionObject(notionPage) {
     title: propertiesById[process.env.NOTION_TITLE_ID].title[0].plain_text,
     votes: propertiesById[process.env.NOTION_VOTES_ID].number,
     tags: propertiesById[process.env.NOTION_TAGS_ID].multi_select.map(
-      option => {
+      (option) => {
         return { id: option.id, name: option.name }
       }
     ),

@@ -1,24 +1,24 @@
-import Stack from "../components/Stack"
+import Stack from '../components/Stack'
 
 export default {
-  title: "Components/Stack",
+  title: 'Components/Stack',
   component: Stack,
   argTypes: {
-    numberOfChildren: { type: "number", defaultValue: 4 },
+    numberOfChildren: { type: 'number', defaultValue: 4 },
   },
 }
 
 const Template = ({ numberOfChildren, ...args }) => (
   <Stack {...args}>
-    {[...Array(numberOfChildren).keys()].map(n => (
+    {[...Array(numberOfChildren).keys()].map((n) => (
       <div
         style={{
-          width: "50px",
-          height: "50px",
-          backgroundColor: "red",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
+          width: '50px',
+          height: '50px',
+          backgroundColor: 'red',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
         }}
       >
         {n + 1}
@@ -29,21 +29,21 @@ const Template = ({ numberOfChildren, ...args }) => (
 
 export const Horizontal = Template.bind({})
 Horizontal.args = {
-  direction: "row",
+  direction: 'row',
   spacing: 2,
   wrap: false,
 }
 
 export const Vertical = Template.bind({})
 Vertical.args = {
-  direction: "column",
+  direction: 'column',
   spacing: 2,
   wrap: false,
 }
 
 export const NoSpacing = Template.bind({})
 NoSpacing.args = {
-  direction: "row",
+  direction: 'row',
   spacing: 0,
   wrap: false,
 }
@@ -51,7 +51,7 @@ NoSpacing.args = {
 export const WrapOverflow = Template.bind({})
 WrapOverflow.args = {
   numberOfChildren: 40,
-  direction: "row",
+  direction: 'row',
   spacing: 2,
   wrap: true,
 }
@@ -59,7 +59,7 @@ WrapOverflow.args = {
 export const Empty = Template.bind({})
 Empty.args = {
   numberOfChildren: 0,
-  direction: "row",
+  direction: 'row',
   spacing: 2,
   wrap: false,
 }

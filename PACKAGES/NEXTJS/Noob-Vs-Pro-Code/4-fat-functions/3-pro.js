@@ -15,26 +15,26 @@ function validateUser(user) {
   const validations = {
     username: {
       required: true,
-      length: 3
+      length: 3,
     },
     password: {
       required: true,
-      length: 8
-    }
+      length: 8,
+    },
   }
 
   const errors = validationMessages(validations, user)
 
   return {
-    valid: Object.values(errors).every(messages => messages.length === 0),
-    errors: errors
+    valid: Object.values(errors).every((messages) => messages.length === 0),
+    errors: errors,
   }
 }
 
 const user = {
   id: 1,
   username: 'WDS',
-  password: 'password'
+  password: 'password',
 }
 
 const { errors, valid } = validateUser(user)
@@ -43,4 +43,3 @@ if (valid) {
 } else {
   printErrors(errors)
 }
-

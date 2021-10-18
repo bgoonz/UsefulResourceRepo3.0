@@ -1,10 +1,10 @@
 import React from 'react'
 import Login from './Login'
-import useLocalStorage from '../hooks/useLocalStorage';
+import useLocalStorage from '../hooks/useLocalStorage'
 import Dashboard from './Dashboard'
 import { ContactsProvider } from '../contexts/ContactsProvider'
-import { ConversationsProvider } from '../contexts/ConversationsProvider';
-import { SocketProvider } from '../contexts/SocketProvider';
+import { ConversationsProvider } from '../contexts/ConversationsProvider'
+import { SocketProvider } from '../contexts/SocketProvider'
 
 function App() {
   const [id, setId] = useLocalStorage('id')
@@ -19,9 +19,7 @@ function App() {
     </SocketProvider>
   )
 
-  return (
-    id ? dashboard : <Login onIdSubmit={setId} />
-  )
+  return id ? dashboard : <Login onIdSubmit={setId} />
 }
 
-export default App;
+export default App

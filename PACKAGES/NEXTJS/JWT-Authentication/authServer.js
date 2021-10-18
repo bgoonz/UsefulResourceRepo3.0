@@ -20,7 +20,7 @@ app.post('/token', (req, res) => {
 })
 
 app.delete('/logout', (req, res) => {
-  refreshTokens = refreshTokens.filter(token => token !== req.body.token)
+  refreshTokens = refreshTokens.filter((token) => token !== req.body.token)
   res.sendStatus(204)
 })
 

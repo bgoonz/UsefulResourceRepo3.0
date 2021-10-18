@@ -3,7 +3,9 @@
 @import 'buttons.css';
 @import 'recipe-list.css';
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   font-family: Gotham Rounded, sans-serif;
 }
 

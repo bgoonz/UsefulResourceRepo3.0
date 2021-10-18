@@ -6,24 +6,26 @@ const SELECTIONS = [
   {
     name: 'rock',
     emoji: '✊',
-    beats: 'scissors'
+    beats: 'scissors',
   },
   {
     name: 'paper',
     emoji: '✋',
-    beats: 'rock'
+    beats: 'rock',
   },
   {
     name: 'scissors',
     emoji: '✌',
-    beats: 'paper'
-  }
+    beats: 'paper',
+  },
 ]
 
-selectionButtons.forEach(selectionButton => {
-  selectionButton.addEventListener('click', e => {
+selectionButtons.forEach((selectionButton) => {
+  selectionButton.addEventListener('click', (e) => {
     const selectionName = selectionButton.dataset.selection
-    const selection = SELECTIONS.find(selection => selection.name === selectionName)
+    const selection = SELECTIONS.find(
+      (selection) => selection.name === selectionName
+    )
     makeSelection(selection)
   })
 })

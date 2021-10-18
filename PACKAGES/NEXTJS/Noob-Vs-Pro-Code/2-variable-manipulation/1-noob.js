@@ -1,6 +1,6 @@
 function calculateTotal(items, options) {
   let t = 0
-  items.forEach(i => {
+  items.forEach((i) => {
     t += i.price * i.quan
   })
   t = t - t * (options.dis || 0)
@@ -12,7 +12,7 @@ function calculateTotal(items, options) {
 const testItems = [
   { price: 15, quan: 2 },
   { price: 20, quan: 1 },
-  { price: 5, quan: 4 }
+  { price: 5, quan: 4 },
 ]
 
 // console.log(calculateTotal())
@@ -21,5 +21,5 @@ const testItems = [
 console.log(calculateTotal([], {}))
 console.log(calculateTotal(testItems, {}))
 console.log(calculateTotal(testItems, { ship: 0 }))
-console.log(calculateTotal(testItems, { dis: .75 }))
+console.log(calculateTotal(testItems, { dis: 0.75 }))
 console.log(calculateTotal(testItems, { ship: 12 }))

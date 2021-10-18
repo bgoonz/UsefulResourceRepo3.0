@@ -1,9 +1,9 @@
-import useStateWithValidation from "./useStateWithValidation"
+import useStateWithValidation from './useStateWithValidation'
 
 export default function StateWithValidationComponent() {
   const [username, setUsername, isValid] = useStateWithValidation(
-    name => name.length > 5,
-    ""
+    (name) => name.length > 5,
+    ''
   )
 
   return (
@@ -12,7 +12,7 @@ export default function StateWithValidationComponent() {
       <input
         type="text"
         value={username}
-        onChange={e => setUsername(e.target.value)}
+        onChange={(e) => setUsername(e.target.value)}
       />
     </>
   )

@@ -17,7 +17,7 @@ const keyMap = [...keys].reduce((map, key) => {
 let recordingStartTime
 let songNotes = currentSong && currentSong.notes
 
-keys.forEach(key => {
+keys.forEach((key) => {
   key.addEventListener('click', () => playNote(key))
 })
 
@@ -29,7 +29,7 @@ if (saveButton) {
 }
 playButton.addEventListener('click', playSong)
 
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', (e) => {
   if (e.repeat) return
   const key = e.key
   const whiteKeyIndex = WHITE_KEYS.indexOf(key)
@@ -67,7 +67,7 @@ function stopRecording() {
 
 function playSong() {
   if (songNotes.length === 0) return
-  songNotes.forEach(note => {
+  songNotes.forEach((note) => {
     setTimeout(() => {
       playNote(keyMap[note.key])
     }, note.startTime)
@@ -88,12 +88,12 @@ function playNote(key) {
 function recordNote(note) {
   songNotes.push({
     key: note,
-    startTime: Date.now() - recordingStartTime
+    startTime: Date.now() - recordingStartTime,
   })
 }
 
 function saveSong() {
-  axios.post('/songs', { songNotes: songNotes }).then(res => {
+  axios.post('/songs', { songNotes: songNotes }).then((res) => {
     songLink.classList.add('show')
     songLink.href = `/songs/${res.data._id}`
   })

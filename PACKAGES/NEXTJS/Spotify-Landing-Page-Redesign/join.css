@@ -12,7 +12,7 @@
 }
 
 .accent-text {
-  color: #BC3A80;
+  color: #bc3a80;
 }
 
 .join-form {
@@ -35,15 +35,15 @@
 
 .input-group label {
   font-weight: bold;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
 }
 
 .input-group input {
   outline: none;
   background: none;
-  border: 1px solid #2E3852;
+  border: 1px solid #2e3852;
   font-size: 1em;
-  padding: .5em;
+  padding: 0.5em;
   color: inherit;
   border-radius: 5px;
 }
@@ -82,7 +82,7 @@
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  background-color: rgb(188, 58, 128, .1);
+  background-color: rgb(188, 58, 128, 0.1);
 }
 
 .join-page-circle-2 {
@@ -102,5 +102,5 @@
   height: 100%;
   width: 100%;
   border-radius: 50%;
-  background-color: rgb(52, 87, 178, .1);
+  background-color: rgb(52, 87, 178, 0.1);
 }

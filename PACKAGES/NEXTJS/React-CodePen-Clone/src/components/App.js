@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react'
 import Editor from './Editor'
 import useLocalStorage from '../hooks/useLocalStorage'
 
@@ -58,4 +58,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

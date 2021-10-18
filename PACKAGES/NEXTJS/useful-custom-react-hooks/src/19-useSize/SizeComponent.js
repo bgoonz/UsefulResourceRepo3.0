@@ -1,5 +1,5 @@
-import { useRef } from "react"
-import useSize from "./useSize"
+import { useRef } from 'react'
+import useSize from './useSize'
 
 export default function SizeComponent() {
   const ref = useRef()

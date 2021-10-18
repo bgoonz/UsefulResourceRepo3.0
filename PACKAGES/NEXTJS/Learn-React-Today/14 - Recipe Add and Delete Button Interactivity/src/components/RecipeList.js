@@ -2,15 +2,11 @@ import React from 'react'
 import Recipe from './Recipe'
 
 export default function RecipeList(props) {
-  const {
-    recipes,
-    handleRecipeAdd,
-    handleRecipeDelete
-  } = props
+  const { recipes, handleRecipeAdd, handleRecipeDelete } = props
   return (
     <div className="recipe-list">
       <div>
-        {recipes.map(recipe => {
+        {recipes.map((recipe) => {
           return (
             <Recipe
               key={recipe.id}
@@ -21,10 +17,7 @@ export default function RecipeList(props) {
         })}
       </div>
       <div className="recipe-list__add-recipe-btn-container">
-        <button
-          className="btn btn--primary"
-          onClick={handleRecipeAdd}
-        >
+        <button className="btn btn--primary" onClick={handleRecipeAdd}>
           Add Recipe
         </button>
       </div>

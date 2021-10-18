@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react"
+import { useEffect, useRef } from 'react'
 
 export default function useEventListener(
   eventType,
@@ -13,7 +13,7 @@ export default function useEventListener(
 
   useEffect(() => {
     if (element == null) return
-    const handler = e => callbackRef.current(e)
+    const handler = (e) => callbackRef.current(e)
     element.addEventListener(eventType, handler)
 
     return () => element.removeEventListener(eventType, handler)

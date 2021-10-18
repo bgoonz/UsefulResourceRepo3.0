@@ -1,4 +1,4 @@
-import useGeolocation from "./useGeolocation"
+import useGeolocation from './useGeolocation'
 
 export default function GeolocationComponent() {
   const {

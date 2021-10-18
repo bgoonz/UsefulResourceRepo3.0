@@ -1,10 +1,7 @@
 import React from 'react'
 
 export default function RecipeIngredientEdit(props) {
-  const {
-    ingredient,
-    handleIngredientChange
-  } = props
+  const { ingredient, handleIngredientChange } = props
 
   function handleChange(changes) {
     handleIngredientChange(ingredient.id, { ...ingredient, ...changes })

@@ -1,5 +1,5 @@
-import { useState } from "react"
-import useFetch from "./useFetch"
+import { useState } from 'react'
+import useFetch from './useFetch'
 
 export default function FetchComponent() {
   const [id, setId] = useState(1)
@@ -12,7 +12,7 @@ export default function FetchComponent() {
   return (
     <div>
       <div>{id}</div>
-      <button onClick={() => setId(currentId => currentId + 1)}>
+      <button onClick={() => setId((currentId) => currentId + 1)}>
         Increment ID
       </button>
       <div>Loading: {loading.toString()}</div>

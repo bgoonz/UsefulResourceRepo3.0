@@ -9,12 +9,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCompressAlt, faExpandAlt } from '@fortawesome/free-solid-svg-icons'
 
 export default function Editor(props) {
-  const {
-    language,
-    displayName,
-    value,
-    onChange
-  } = props
+  const { language, displayName, value, onChange } = props
   const [open, setOpen] = useState(true)
 
   function handleChange(editor, data, value) {
@@ -28,7 +23,7 @@ export default function Editor(props) {
         <button
           type="button"
           className="expand-collapse-btn"
-          onClick={() => setOpen(prevOpen => !prevOpen)}
+          onClick={() => setOpen((prevOpen) => !prevOpen)}
         >
           <FontAwesomeIcon icon={open ? faCompressAlt : faExpandAlt} />
         </button>
@@ -42,7 +37,7 @@ export default function Editor(props) {
           lint: true,
           mode: language,
           theme: 'material',
-          lineNumbers: true
+          lineNumbers: true,
         }}
       />
     </div>

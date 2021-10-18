@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react"
+import { useCallback, useEffect, useState } from 'react'
 
 export default function useAsync(callback, dependencies = []) {
   const [loading, setLoading] = useState(true)

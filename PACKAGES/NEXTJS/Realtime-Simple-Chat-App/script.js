@@ -7,19 +7,19 @@ const name = prompt('What is your name?')
 appendMessage('You joined')
 socket.emit('new-user', name)
 
-socket.on('chat-message', data => {
+socket.on('chat-message', (data) => {
   appendMessage(`${data.name}: ${data.message}`)
 })
 
-socket.on('user-connected', name => {
+socket.on('user-connected', (name) => {
   appendMessage(`${name} connected`)
 })
 
-socket.on('user-disconnected', name => {
+socket.on('user-disconnected', (name) => {
   appendMessage(`${name} disconnected`)
 })
 
-messageForm.addEventListener('submit', e => {
+messageForm.addEventListener('submit', (e) => {
   e.preventDefault()
   const message = messageInput.value
   appendMessage(`You: ${message}`)
