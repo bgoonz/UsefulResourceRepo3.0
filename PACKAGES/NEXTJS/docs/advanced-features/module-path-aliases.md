@@ -1,9 +1,8 @@
-Absolute Imports and Module path aliases
-========================================
+# Absolute Imports and Module path aliases
 
 **Examples**
 
--   [Absolute Imports](https://github.com/vercel/next.js/tree/canary/examples/with-absolute-imports)
+- [Absolute Imports](https://github.com/vercel/next.js/tree/canary/examples/with-absolute-imports)
 
 Next.js automatically supports the `tsconfig.json` and `jsconfig.json` `"paths"` and `"baseUrl"` options since [Next.js 9.4](https://nextjs.org/blog/next-9-4).
 

@@ -1,4 +1,4 @@
-document.querySelectorAll('input').forEach(input => {
+document.querySelectorAll('input').forEach((input) => {
   input.addEventListener('input', inputChanged)
 })
 

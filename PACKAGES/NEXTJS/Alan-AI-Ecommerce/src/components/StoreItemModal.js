@@ -1,9 +1,9 @@
-import { useRef } from "react"
-import formatCurrency from "../util/formatCurrency"
-import Modal from "react-modal"
-import { useCart } from "../context/CartContext"
+import { useRef } from 'react'
+import formatCurrency from '../util/formatCurrency'
+import Modal from 'react-modal'
+import { useCart } from '../context/CartContext'
 
-Modal.setAppElement("#root")
+Modal.setAppElement('#root')
 
 export default function StoreItemModal({ item, open, closeModal }) {
   const { addToCart } = useCart()
@@ -23,18 +23,18 @@ export default function StoreItemModal({ item, open, closeModal }) {
       onRequestClose={closeModal}
       style={{
         overlay: {
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          backgroundColor: "rgba(255, 255, 255, 0.9)"
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          backgroundColor: 'rgba(255, 255, 255, 0.9)',
         },
         content: {
-          margin: "10px",
-          padding: "0",
-          inset: "auto",
+          margin: '10px',
+          padding: '0',
+          inset: 'auto',
           boxShadow:
-            "var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)"
-        }
+            'var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04)',
+        },
       }}
     >
       <section className="text-gray-700 body-font overflow-hidden">

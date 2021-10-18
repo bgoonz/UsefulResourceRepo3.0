@@ -1,14 +1,12 @@
-TypeScript
-==========
+# TypeScript
 
 **Examples**
 
--   [TypeScript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
+- [TypeScript](https://github.com/vercel/next.js/tree/canary/examples/with-typescript)
 
 Next.js provides an integrated [TypeScript](https://www.typescriptlang.org/) experience out of the box, similar to an IDE.
 
-`create-next-app` support
--------------------------
+## `create-next-app` support
 
 You can create a TypeScript project with [`create-next-app`](https://nextjs.org/docs/api-reference/create-next-app) using the `--ts, --typescript` flag like so:
 
@@ -16,8 +14,7 @@ You can create a TypeScript project with [`create-next-app`](https://nextjs.org/
     # or
     yarn create next-app --typescript
 
-Existing projects
------------------
+## Existing projects
 
 To get started in an existing project, create an empty `tsconfig.json` file in the root folder:
 
@@ -53,8 +50,7 @@ By default, Next.js will do type checking as part of `next build`. We recommend 
 
 If you want to silence the error reports, refer to the documentation for [Ignoring TypeScript errors](/docs/api-reference/next.config.js/ignoring-typescript-errors.md).
 
-Static Generation and Server-side Rendering
--------------------------------------------
+## Static Generation and Server-side Rendering
 
 For `getStaticProps`, `getStaticPaths`, and `getServerSideProps`, you can use the `GetStaticProps`, `GetStaticPaths`, and `GetServerSideProps` types respectively:
 
@@ -74,8 +70,7 @@ For `getStaticProps`, `getStaticPaths`, and `getServerSideProps`, you can use th
 
 > If you’re using `getInitialProps`, you can [follow the directions on this page](/docs/api-reference/data-fetching/getInitialProps.md#typescript).
 
-API Routes
-----------
+## API Routes
 
 The following is an example of how to use the built-in types for API routes:
 
@@ -97,8 +92,7 @@ You can also type the response data:
       res.status(200).json({ name: 'John Doe' })
     }
 
-Custom `App`
-------------
+## Custom `App`
 
 If you have a [custom `App`](/docs/advanced-features/custom-app.md), you can use the built-in type `AppProps` and change file name to `./pages/_app.tsx` like so:
 
@@ -123,15 +117,13 @@ If you have a [custom `App`](/docs/advanced-features/custom-app.md), you can use
 
     export default MyApp
 
-Path aliases and baseUrl
-------------------------
+## Path aliases and baseUrl
 
 Next.js automatically supports the `tsconfig.json` `"paths"` and `"baseUrl"` options.
 
 You can learn more about this feature on the [Module Path aliases documentation](/docs/advanced-features/module-path-aliases.md).
 
-Type checking next.config.js
-----------------------------
+## Type checking next.config.js
 
 The `next.config.js` file must be a JavaScript file as it does not get parsed by Babel or TypeScript, however you can add some type checking in your IDE using JSDoc as below:
 
@@ -146,8 +138,7 @@ The `next.config.js` file must be a JavaScript file as it does not get parsed by
 
     module.exports = nextConfig
 
-Incremental type checking
--------------------------
+## Incremental type checking
 
 Since `v10.2.1` Next.js supports [incremental type checking](https://www.typescriptlang.org/tsconfig#incremental) when enabled in your `tsconfig.json`, this can help speed up type checking in larger applications.
 

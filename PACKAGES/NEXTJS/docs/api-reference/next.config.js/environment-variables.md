@@ -1,11 +1,10 @@
-Environment Variables
-=====================
+# Environment Variables
 
 > Since the release of [Next.js 9.4](https://nextjs.org/blog/next-9-4) we now have a more intuitive and ergonomic experience for [adding environment variables](/docs/basic-features/environment-variables.md). Give it a try!
 
 **Examples**
 
--   [With env](https://github.com/vercel/next.js/tree/canary/examples/with-env-from-next-config-js)
+- [With env](https://github.com/vercel/next.js/tree/canary/examples/with-env-from-next-config-js)
 
 To add environment variables to the JavaScript bundle, open `next.config.js` and add the `env` config:
 
@@ -33,8 +32,7 @@ Will end up being:
 
     return <h1>The value of customKey is: {'my-value'}</h1>
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)
 

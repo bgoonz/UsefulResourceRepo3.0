@@ -1,5 +1,4 @@
-Re-exporting all exports from a page is disallowed
-==================================================
+# Re-exporting all exports from a page is disallowed
 
 #### Why This Error Occurred
 

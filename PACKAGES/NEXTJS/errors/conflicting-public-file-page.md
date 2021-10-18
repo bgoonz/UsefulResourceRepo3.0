@@ -1,5 +1,4 @@
-Conflicting Public File and Page File
-=====================================
+# Conflicting Public File and Page File
 
 #### Why This Error Occurred
 
@@ -25,4 +24,4 @@ Non-conflicting public file and page file
 
 ### Useful Links
 
--   [Static file serving docs](https://nextjs.org/docs/basic-features/static-file-serving)
+- [Static file serving docs](https://nextjs.org/docs/basic-features/static-file-serving)

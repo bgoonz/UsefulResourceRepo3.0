@@ -1,25 +1,45 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>conflicting-ssg-paths</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="conflicting-ssg-paths">Conflicting SSG Paths</h1>
-<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
-<p>In your <code>getStaticPaths</code> function for one of your pages you returned conflicting paths. All page paths must be unique and duplicates are not allowed.</p>
-<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
-<p>Remove any conflicting paths shown in the error message and only return them from one <code>getStaticPaths</code>.</p>
-<p>Example conflicting paths:</p>
-<pre class="jsx"><code>// pages/hello/world.js
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>conflicting-ssg-paths</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="conflicting-ssg-paths">Conflicting SSG Paths</h1>
+    <h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+    <p>
+      In your <code>getStaticPaths</code> function for one of your pages you
+      returned conflicting paths. All page paths must be unique and duplicates
+      are not allowed.
+    </p>
+    <h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+    <p>
+      Remove any conflicting paths shown in the error message and only return
+      them from one <code>getStaticPaths</code>.
+    </p>
+    <p>Example conflicting paths:</p>
+    <pre class="jsx"><code>// pages/hello/world.js
 export default function Hello() {
   return &#39;hello world!&#39;
 }
@@ -39,8 +59,8 @@ export const getStaticPaths = () =&gt; ({
 export default function CatchAll() {
   return &#39;Catch-all page&#39;
 }</code></pre>
-<p>Example conflicting paths:</p>
-<pre class="jsx"><code>// pages/blog/[slug].js
+    <p>Example conflicting paths:</p>
+    <pre class="jsx"><code>// pages/blog/[slug].js
 export const getStaticPaths = () =&gt; ({
   paths: [&#39;/blog/conflicting&#39;, &#39;/blog/another&#39;],
   fallback: false,
@@ -65,9 +85,14 @@ export const getStaticPaths = () =&gt; ({
 export default function CatchAll() {
   return &#39;Catch-all page&#39;
 }</code></pre>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation"><code>getStaticPaths</code> Documentation</a></li>
-</ul>
-</body>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a
+          href="https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation"
+          ><code>getStaticPaths</code> Documentation</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

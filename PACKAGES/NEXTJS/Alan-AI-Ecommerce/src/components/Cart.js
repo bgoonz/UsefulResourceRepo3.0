@@ -1,16 +1,11 @@
-import CartItem from "./CartItem"
-import classnames from "classnames"
-import formatCurrency from "../util/formatCurrency"
-import { useCart } from "../context/CartContext"
+import CartItem from './CartItem'
+import classnames from 'classnames'
+import formatCurrency from '../util/formatCurrency'
+import { useCart } from '../context/CartContext'
 
 export default function Cart() {
-  const {
-    cart,
-    showCartItems,
-    setShowCartItems,
-    showCart,
-    checkout
-  } = useCart()
+  const { cart, showCartItems, setShowCartItems, showCart, checkout } =
+    useCart()
   const totalCents = cart.reduce((sum, entry) => {
     return sum + entry.item.priceCents * entry.quantity
   }, 0)
@@ -19,21 +14,21 @@ export default function Cart() {
     <section className={classnames({ invisible: !showCart })}>
       <div
         className={classnames(
-          "mb-4",
-          "top-0",
-          "right-0",
-          "mr-4",
-          "mt-20",
-          "fixed",
+          'mb-4',
+          'top-0',
+          'right-0',
+          'mr-4',
+          'mt-20',
+          'fixed',
           { invisible: !showCartItems }
         )}
       >
         <div
-          style={{ maxHeight: "calc(100vh - 6rem)" }}
+          style={{ maxHeight: 'calc(100vh - 6rem)' }}
           className="bg-white text-gray-700 body-font shadow-lg border rounded-lg flex flex-col"
         >
           <div className="overflow-y-auto px-4 pt-4">
-            {cart.map(entry => (
+            {cart.map((entry) => (
               <CartItem key={entry.itemId} entry={entry} />
             ))}
           </div>
@@ -52,7 +47,7 @@ export default function Cart() {
         </div>
       </div>
       <button
-        onClick={() => setShowCartItems(prev => !prev)}
+        onClick={() => setShowCartItems((prev) => !prev)}
         className="fixed top-0 right-0 mr-4 mt-4 w-12 bg-blue-500 p-2 rounded-full text-white hover:bg-blue-700"
       >
         <svg

@@ -1,16 +1,14 @@
-Testing
-=======
+# Testing
 
 **Examples**
 
--   [Next.js with Cypress](https://github.com/vercel/next.js/tree/canary/examples/with-cypress)
--   [Next.js with Playwright](https://github.com/vercel/next.js/tree/canary/examples/with-playwright)
--   [Next.js with Jest and React Testing Library](https://github.com/vercel/next.js/tree/canary/examples/with-jest)
+- [Next.js with Cypress](https://github.com/vercel/next.js/tree/canary/examples/with-cypress)
+- [Next.js with Playwright](https://github.com/vercel/next.js/tree/canary/examples/with-playwright)
+- [Next.js with Jest and React Testing Library](https://github.com/vercel/next.js/tree/canary/examples/with-jest)
 
 Learn how to set up Next.js with three commonly used testing tools: [Cypress](https://www.cypress.io/blog/2021/04/06/cypress-component-testing-react/), [Jest](https://jestjs.io/docs/tutorial-react), and [React Testing Library](https://testing-library.com/docs/react-testing-library/intro/).
 
-Cypress
--------
+## Cypress
 
 Cypress is a test runner used for **End-to-End (E2E)** and **Integration Testing**.
 
@@ -95,7 +93,7 @@ Since Cypress is testing a real Next.js application, it requires the Next.js ser
 
 Run `npm run build` and `npm run start`, then run `npm run cypress` in another terminal window to start Cypress.
 
-> **Note:** Alternatively, you can install the `start-server-and-test` package and add it to the `package.json` scripts field: `"test": "start-server-and-test start http://localhost:3000           cypress"` to start the Next.js production server in conjuction with Cypress. Remember to rebuild your application after new changes.
+> **Note:** Alternatively, you can install the `start-server-and-test` package and add it to the `package.json` scripts field: `"test": "start-server-and-test start http://localhost:3000 cypress"` to start the Next.js production server in conjuction with Cypress. Remember to rebuild your application after new changes.
 
 ### Getting ready for Continuous Integration (CI)
 
@@ -113,12 +111,11 @@ You will have noticed that running Cypress so far has opened an interactive brow
 
 You can learn more about Cypress and Continuous Integration from these resources:
 
--   [Cypress Continuous Integration Docs](https://docs.cypress.io/guides/continuous-integration/introduction)
--   [Cypress GitHub Actions Guide](https://on.cypress.io/github-actions)
--   [Official Cypress Github Action](https://github.com/cypress-io/github-action)
+- [Cypress Continuous Integration Docs](https://docs.cypress.io/guides/continuous-integration/introduction)
+- [Cypress GitHub Actions Guide](https://on.cypress.io/github-actions)
+- [Official Cypress Github Action](https://github.com/cypress-io/github-action)
 
-Playwright
-----------
+## Playwright
 
 Playwright is a testing framework that lets you automate Chromium, Firefox, and WebKit with a single API. You can use it to write **End-to-End (E2E)** and **Integration** tests across all platforms.
 
@@ -204,13 +201,12 @@ Playwright will by default run your tests in the [headed mode](https://playwrigh
 
 You can learn more about Playwright and Continuous Integration from these resources:
 
--   [Getting started with Playwright](https://playwright.dev/docs/intro)
--   [Use a development server](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests)
--   [Playwright on your CI provider](https://playwright.dev/docs/ci)
--   [Use a development server](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests)
+- [Getting started with Playwright](https://playwright.dev/docs/intro)
+- [Use a development server](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests)
+- [Playwright on your CI provider](https://playwright.dev/docs/ci)
+- [Use a development server](https://playwright.dev/docs/test-advanced#launching-a-development-web-server-during-the-tests)
 
-Jest and React Testing Library
-------------------------------
+## Jest and React Testing Library
 
 Jest and React Testing Library are frequently used together for **Unit Testing**.
 
@@ -378,18 +374,17 @@ Run `npm run test` to run your test suite. After your tests pass or fail, you wi
 
 For further reading, you may find these resources helpful:
 
--   [Jest Docs](https://jestjs.io/docs/getting-started)
--   [React Testing Library Docs](https://testing-library.com/docs/react-testing-library/intro/)
--   [Testing Playground](https://testing-playground.com/) - use good testing practices to match elements.
+- [Jest Docs](https://jestjs.io/docs/getting-started)
+- [React Testing Library Docs](https://testing-library.com/docs/react-testing-library/intro/)
+- [Testing Playground](https://testing-playground.com/) - use good testing practices to match elements.
 
-Community Packages and Examples
--------------------------------
+## Community Packages and Examples
 
 The Next.js community has created packages and articles you may find helpful:
 
--   [next-page-tester](https://github.com/toomuchdesign/next-page-tester) for DOM Integration Testing.
--   [next-router-mock](https://github.com/scottrippey/next-router-mock) for Storybook.
--   [Test Preview Vercel Deploys with Cypress](https://glebbahmutov.com/blog/develop-preview-test/) by Gleb Bahmutov.
+- [next-page-tester](https://github.com/toomuchdesign/next-page-tester) for DOM Integration Testing.
+- [next-router-mock](https://github.com/scottrippey/next-router-mock) for Storybook.
+- [Test Preview Vercel Deploys with Cypress](https://glebbahmutov.com/blog/develop-preview-test/) by Gleb Bahmutov.
 
 For more information on what to read next, we recommend:
 

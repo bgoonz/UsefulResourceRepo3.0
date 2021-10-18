@@ -1,22 +1,19 @@
-Next.js Codemods
-================
+# Next.js Codemods
 
 Next.js provides Codemod transformations to help upgrade your Next.js codebase when a feature is deprecated.
 
 Codemods are transformations that run on your codebase programmatically. This allows for a large amount of changes to be applied without having to manually go through every file.
 
-Usage
------
+## Usage
 
 `npx @next/codemod <transform> <path>`
 
--   `transform` - name of transform, see available transforms below.
--   `path` - files or directory to transform
--   `--dry` Do a dry-run, no code will be edited
--   `--print` Prints the changed output for comparison
+- `transform` - name of transform, see available transforms below.
+- `path` - files or directory to transform
+- `--dry` Do a dry-run, no code will be edited
+- `--print` Prints the changed output for comparison
 
-Next.js 11
-----------
+## Next.js 11
 
 ### `cra-to-next` (experimental)
 
@@ -24,8 +21,7 @@ Migrates a Create React App project to Next.js; creating a pages directory and n
 
 Please share any feedback related to this transform [in this discussion](https://github.com/vercel/next.js/discussions/25858).
 
-Next.js 10
-----------
+## Next.js 10
 
 ### `add-missing-react-import`
 
@@ -50,8 +46,7 @@ Transforms into:
       }
     }
 
-Next.js 9
----------
+## Next.js 9
 
 ### `name-default-component`
 
@@ -117,8 +112,7 @@ Run the codemod:
 
     npx @next/codemod withamp-to-config
 
-Next.js 6
----------
+## Next.js 6
 
 ### `url-to-withrouter`
 

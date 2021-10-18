@@ -1,21 +1,19 @@
-Image Component and Image Optimization
-======================================
+# Image Component and Image Optimization
 
 **Examples**
 
--   [Image Component](https://github.com/vercel/next.js/tree/canary/examples/image-component)
+- [Image Component](https://github.com/vercel/next.js/tree/canary/examples/image-component)
 
 The Next.js Image component, [`next/image`](/docs/api-reference/next/image.md), is an extension of the HTML `<img>` element, evolved for the modern web. It includes a variety of built-in performance optimizations to help you achieve good [Core Web Vitals](https://nextjs.org/learn/seo/web-performance). These scores are an important measurement of user experience on your website, and are [factored into Google’s search rankings](https://nextjs.org/learn/seo/web-performance/seo-impact).
 
 Some of the optimizations built into the Image component include:
 
--   **Improved Performance:** Always serve correctly sized image for each device, using modern image formats.
--   **Visual Stability:** Prevent [Cumulative Layout Shift](https://nextjs.org/learn/seo/web-performance/cls) automatically.
--   **Faster Page Loads:** Images are only loaded when they enter the viewport, with optional blur-up placeholders
--   **Asset Flexibility:** On-demand image resizing, even for images stored on remote servers
+- **Improved Performance:** Always serve correctly sized image for each device, using modern image formats.
+- **Visual Stability:** Prevent [Cumulative Layout Shift](https://nextjs.org/learn/seo/web-performance/cls) automatically.
+- **Faster Page Loads:** Images are only loaded when they enter the viewport, with optional blur-up placeholders
+- **Asset Flexibility:** On-demand image resizing, even for images stored on remote servers
 
-Using the Image Component
--------------------------
+## Using the Image Component
 
 To add an image to your application, import the [`next/image`](/docs/api-reference/next/image.md) component:
 
@@ -29,7 +27,7 @@ To use a local image, `import` your `.jpg`, `.png`, or `.webp` files:
 
     import profilePic from '../public/me.png'
 
-Dynamic `await import()` or `require()` are *not* supported. The `import` must be static so it can be analyzed at build time.
+Dynamic `await import()` or `require()` are _not_ supported. The `import` must be static so it can be analyzed at build time.
 
 Next.js will automatically determine the `width` and `height` of your image based on the imported file. These values are used to prevent [Cumulative Layout Shift](https://nextjs.org/learn/seo/web-performance/cls) while your image is loading.
 
@@ -98,10 +96,9 @@ The default loader for Next.js applications uses the built-in Image Optimization
 
 Loaders can be defined per-image, or at the application level.
 
-Image Sizing
-------------
+## Image Sizing
 
-One of the ways that images most commonly hurt performance is through *layout shift*, where the image pushes other elements around on the page as it loads in. This performance problem is so annoying to users that it has its own Core Web Vital, called [Cumulative Layout Shift](https://web.dev/cls/). The way to avoid image-based layout shifts is to [always size your images](https://web.dev/optimize-cls/#images-without-dimensions). This allows the browser to reserve precisely enough space for the image before it loads.
+One of the ways that images most commonly hurt performance is through _layout shift_, where the image pushes other elements around on the page as it loads in. This performance problem is so annoying to users that it has its own Core Web Vital, called [Cumulative Layout Shift](https://web.dev/cls/). The way to avoid image-based layout shifts is to [always size your images](https://web.dev/optimize-cls/#images-without-dimensions). This allows the browser to reserve precisely enough space for the image before it loads.
 
 Because `next/image` is designed to guarantee good performance results, it cannot be used in a way that will contribute to layout shift, and **must** be sized in one of three ways:
 
@@ -127,8 +124,7 @@ Because `next/image` is designed to guarantee good performance results, it canno
 
 If none of the suggested methods works for sizing your images, the `next/image` component is designed to work well on a page alongside standard `<img>` elements.
 
-Styling
--------
+## Styling
 
 Styling the Image component is not that different from styling a normal `<img>` element, but there are a few guidelines to keep in mind:
 
@@ -156,8 +152,7 @@ This is necessary for the proper rendering of the image element in that layout m
 
 This is the default for `<div>` elements but should be specified otherwise.
 
-Properties
-----------
+## Properties
 
 [**View all properties available to the `next/image` component.**](/docs/api-reference/next/image.md)
 
@@ -165,15 +160,13 @@ Properties
 
 For examples of the Image component used with the various fill modes, see the [Image component example app](https://image-component.nextjs.gallery/).
 
-Configuration
--------------
+## Configuration
 
 The `next/image` component and Next.js Image Optimization API can be configured in the [`next.config.js` file](/docs/api-reference/next.config.js/introduction.md). These configurations allow you to [enable remote domains](/docs/api-reference/next/image.md#domains), [define custom image breakpoints](/docs/api-reference/next/image.md#device-sizes), [change caching behavior](/docs/api-reference/next/image.md#caching-behavior) and more.
 
 [**Read the full image configuration documentation for more information.**](/docs/api-reference/next/image.md#configuration-options)
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

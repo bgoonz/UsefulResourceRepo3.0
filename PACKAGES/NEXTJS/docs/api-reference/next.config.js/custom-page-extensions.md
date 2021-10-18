@@ -1,5 +1,4 @@
-Custom Page Extensions
-======================
+# Custom Page Extensions
 
 Aimed at modules like <span class="citation" data-cites="next/mdx">\[@next/mdx\]</span>(https://github.com/vercel/next.js/tree/canary/packages/next-mdx), which adds support for pages ending with `.mdx`. You can configure the extensions looked for in the `pages` directory when resolving pages.
 
@@ -13,8 +12,7 @@ Open `next.config.js` and add the `pageExtensions` config:
 
 > **Note**: configuring `pageExtensions` also affects `_document.js`, `_app.js` as well as files under `pages/api/`. For example, setting `pageExtensions: ['page.tsx', 'page.ts']` means the following files: `_document.tsx`, `_app.tsx`, `pages/users.tsx` and `pages/api/users.ts` will have to be renamed to `_document.page.tsx`, `_app.page.tsx`, `pages/users.page.tsx` and `pages/api/users.page.ts` respectively.
 
-Including non-page files in the `pages` directory
--------------------------------------------------
+## Including non-page files in the `pages` directory
 
 To colocate test files, generated files, or other files used by components in the `pages` directory, you can prefix the extensions with something like `page`.
 
@@ -37,7 +35,6 @@ Without this config, Next.js assumes every tsx/ts/jsx/js file in the `pages` dir
 
     See https://nextjs.org/docs/messages/page-without-valid-component for more info.
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)

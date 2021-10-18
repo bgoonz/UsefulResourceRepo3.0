@@ -1,9 +1,8 @@
-Dynamic Import
-==============
+# Dynamic Import
 
 **Examples**
 
--   [Dynamic Import](https://github.com/vercel/next.js/tree/canary/examples/with-dynamic-import)
+- [Dynamic Import](https://github.com/vercel/next.js/tree/canary/examples/with-dynamic-import)
 
 Next.js supports ES2020 [dynamic `import()`](https://github.com/tc39/proposal-dynamic-import) for JavaScript. With it you can import JavaScript modules dynamically and work with them. They also work with SSR.
 
@@ -39,8 +38,7 @@ You can think of dynamic imports as another way to split your code into manageab
 
 React components can also be imported using dynamic imports, but in this case we use it in conjunction with `next/dynamic` to make sure it works like any other React Component. Check out the sections below for more details on how it works.
 
-Basic usage
------------
+## Basic usage
 
 In the following example, the module `../components/hello` will be dynamically loaded by the page:
 
@@ -64,8 +62,7 @@ In the following example, the module `../components/hello` will be dynamically l
 
 > **Note**: In `import('path/to/component')`, the path must be explicitly written. It can’t be a template string nor a variable. Furthermore the `import()` has to be inside the `dynamic()` call for Next.js to be able to match webpack bundles / module ids to the specific `dynamic()` call and preload them before rendering. `dynamic()` can’t be used inside of React rendering as it needs to be marked in the top level of the module for preloading to work, similar to `React.lazy`.
 
-With named exports
-------------------
+## With named exports
 
 If the dynamic component is not the default export, you can use a named export too. Consider the module `../components/hello.js` which has a named export `Hello`:
 
@@ -93,8 +90,7 @@ To dynamically import the `Hello` component, you can return it from the [Promise
 
     export default Home
 
-With custom loading component
------------------------------
+## With custom loading component
 
 An optional `loading` component can be added to render a loading state while the dynamic component is being loaded. For example:
 
@@ -117,8 +113,7 @@ An optional `loading` component can be added to render a loading state while the
 
     export default Home
 
-With no SSR
------------
+## With no SSR
 
 You may not always want to include a module on server-side. For example, when the module includes a library that only works in the browser.
 
@@ -143,8 +138,7 @@ Take a look at the following example:
 
     export default Home
 
-With suspense
--------------
+## With suspense
 
 Option `suspense` allows you to lazy-load a component, similar to `React.lazy` and `<Suspense>` with React 18. Note that it only works on client-side or server-side with `fallback`. Full SSR support in concurrent mode is still a work-in-progress.
 

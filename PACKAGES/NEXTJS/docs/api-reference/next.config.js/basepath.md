@@ -1,5 +1,4 @@
-Base Path
-=========
+# Base Path
 
 **Version History**
 
@@ -15,8 +14,7 @@ To deploy a Next.js application under a sub-path of a domain you can use the `ba
 
 Note: this value must be set at build time and can not be changed without re-building as the value is inlined in the client-side bundles.
 
-Links
------
+## Links
 
 When linking to other pages using `next/link` and `next/router` the `basePath` will be automatically applied.
 
@@ -38,8 +36,7 @@ Output html:
 
 This makes sure that you don’t have to change all links in your application when changing the `basePath` value.
 
-Images
-------
+## Images
 
 When using the [`next/image`](/docs/api-reference/next/image.md) component, you will need to add the `basePath` in front of `src`.
 

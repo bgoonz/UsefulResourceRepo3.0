@@ -1,5 +1,4 @@
-AMP Export Validation
-=====================
+# AMP Export Validation
 
 #### Why This Error Occurred
 
@@ -13,4 +12,4 @@ Look at the error messages and follow their appropriate links to learn more abou
 
 ### Useful Links
 
--   [AMP HTML Specification](https://www.ampproject.org/docs/fundamentals/spec)
+- [AMP HTML Specification](https://www.ampproject.org/docs/fundamentals/spec)

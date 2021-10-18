@@ -1,5 +1,4 @@
-Font Optimization
-=================
+# Font Optimization
 
 Since version **10.2**, Next.js has built-in web font optimization.
 
@@ -16,8 +15,7 @@ By default, Next.js will automatically inline font CSS at build time, eliminatin
       @font-face{font-family:'Inter';font-style:normal...
     </style>
 
-Usage
------
+## Usage
 
 To add a web font to your Next.js application, override `next/head`. For example, you can add a font to a specific page:
 
@@ -70,8 +68,7 @@ Automatic Webfont Optimization currently supports Google Fonts and Typekit with 
 
 See [Google Font Display](https://nextjs.org/docs/messages/google-font-display) for more information.
 
-Disabling Optimization
-----------------------
+## Disabling Optimization
 
 If you do not want Next.js to optimize your fonts, you can opt-out.
 
@@ -81,8 +78,7 @@ If you do not want Next.js to optimize your fonts, you can opt-out.
       optimizeFonts: false,
     }
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

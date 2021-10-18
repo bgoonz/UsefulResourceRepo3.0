@@ -1,5 +1,4 @@
-Runtime Configuration
-=====================
+# Runtime Configuration
 
 > Generally you’ll want to use [build-time environment variables](/docs/basic-features/environment-variables.md) to provide your configuration. The reason for this is that runtime configuration adds rendering / initialization overhead and is incompatible with [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md).
 
@@ -49,8 +48,7 @@ To get access to the runtime configs in your app use `next/config`, like so:
 
     export default MyImage
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)
 

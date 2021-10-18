@@ -1,5 +1,4 @@
-404.js Cannot Have getInitialProps
-==================================
+# 404.js Cannot Have getInitialProps
 
 #### Why This Error Occurred
 
@@ -13,4 +12,4 @@ If you want to fetch data for your `404.js` page move it to a client side fetch 
 
 ### Useful Links
 
--   [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)
+- [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)

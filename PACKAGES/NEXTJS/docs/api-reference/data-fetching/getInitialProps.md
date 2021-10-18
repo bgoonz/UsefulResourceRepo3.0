@@ -1,5 +1,4 @@
-getInitialProps
-===============
+# getInitialProps
 
 > **Recommended: [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) or [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering)**.
 >
@@ -49,26 +48,23 @@ Data returned from `getInitialProps` is serialized when server rendering, simila
 
 For the initial page load, `getInitialProps` will run on the server only. `getInitialProps` will then run on the client when navigating to a different route via the [`next/link`](/docs/api-reference/next/link.md) component or by using [`next/router`](/docs/api-reference/next/router.md). However, if `getInitialProps` is used in a custom `_app.js`, and the page being navigated to implements `getServerSideProps`, then `getInitialProps` will run on the server.
 
-Context Object
---------------
+## Context Object
 
 `getInitialProps` receives a single argument called `context`, it’s an object with the following properties:
 
--   `pathname` - Current route. That is the path of the page in `/pages`
--   `query` - Query string section of URL parsed as an object
--   `asPath` - `String` of the actual path (including the query) shown in the browser
--   `req` - [HTTP request object](https://nodejs.org/api/http.html#http_class_http_incomingmessage "Class: http.IncomingMessage HTTP | Node.js v14.8.0 Documentation") (server only)
--   `res` - [HTTP response object](https://nodejs.org/api/http.html#http_class_http_serverresponse "Class: http.ServerResponse HTTP | Node.js v14.8.0 Documentation") (server only)
--   `err` - Error object if any error is encountered during the rendering
+- `pathname` - Current route. That is the path of the page in `/pages`
+- `query` - Query string section of URL parsed as an object
+- `asPath` - `String` of the actual path (including the query) shown in the browser
+- `req` - [HTTP request object](https://nodejs.org/api/http.html#http_class_http_incomingmessage 'Class: http.IncomingMessage HTTP | Node.js v14.8.0 Documentation') (server only)
+- `res` - [HTTP response object](https://nodejs.org/api/http.html#http_class_http_serverresponse 'Class: http.ServerResponse HTTP | Node.js v14.8.0 Documentation') (server only)
+- `err` - Error object if any error is encountered during the rendering
 
-Caveats
--------
+## Caveats
 
--   `getInitialProps` can **not** be used in children components, only in the default export of every page
--   If you are using server-side only modules inside `getInitialProps`, make sure to [import them properly](https://arunoda.me/blog/ssr-and-server-only-modules), otherwise it’ll slow down your app
+- `getInitialProps` can **not** be used in children components, only in the default export of every page
+- If you are using server-side only modules inside `getInitialProps`, make sure to [import them properly](https://arunoda.me/blog/ssr-and-server-only-modules), otherwise it’ll slow down your app
 
-TypeScript
-----------
+## TypeScript
 
 If you’re using TypeScript, you can use the `NextPage` type for function components:
 
@@ -110,8 +106,7 @@ And for `React.Component`, you can use `NextPageContext`:
       }
     }
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

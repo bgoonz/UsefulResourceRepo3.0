@@ -1,13 +1,12 @@
-Custom Server
-=============
+# Custom Server
 
 **Examples**
 
--   [Basic custom server](https://github.com/vercel/next.js/tree/canary/examples/custom-server)
--   [Express integration](https://github.com/vercel/next.js/tree/canary/examples/custom-server-express)
--   [Hapi integration](https://github.com/vercel/next.js/tree/canary/examples/custom-server-hapi)
--   [Koa integration](https://github.com/vercel/next.js/tree/canary/examples/custom-server-koa)
--   [SSR Caching](https://github.com/vercel/next.js/tree/canary/examples/ssr-caching)
+- [Basic custom server](https://github.com/vercel/next.js/tree/canary/examples/custom-server)
+- [Express integration](https://github.com/vercel/next.js/tree/canary/examples/custom-server-express)
+- [Hapi integration](https://github.com/vercel/next.js/tree/canary/examples/custom-server-hapi)
+- [Koa integration](https://github.com/vercel/next.js/tree/canary/examples/custom-server-koa)
+- [SSR Caching](https://github.com/vercel/next.js/tree/canary/examples/ssr-caching)
 
 By default, Next.js includes its own server with `next start`. If you have an existing backend, you can still use it with Next.js (this is not a custom server). A custom Next.js server allows you to start a server 100% programmatically in order to use custom server patterns. Most of the time, you will not need this – but it’s available for complete customization.
 
@@ -56,7 +55,7 @@ To run the custom server you’ll need to update the `scripts` in `package.json`
       "start": "NODE_ENV=production node server.js"
     }
 
-------------------------------------------------------------------------
+---
 
 The custom server uses the following import to connect the server with the Next.js application:
 
@@ -65,15 +64,14 @@ The custom server uses the following import to connect the server with the Next.
 
 The above `next` import is a function that receives an object with the following options:
 
--   `dev`: `Boolean` - Whether or not to launch Next.js in dev mode. Defaults to `false`
--   `dir`: `String` - Location of the Next.js project. Defaults to `'.'`
--   `quiet`: `Boolean` - Hide error messages containing server information. Defaults to `false`
--   `conf`: `object` - The same object you would use in [next.config.js](/docs/api-reference/next.config.js/introduction.md). Defaults to `{}`
+- `dev`: `Boolean` - Whether or not to launch Next.js in dev mode. Defaults to `false`
+- `dir`: `String` - Location of the Next.js project. Defaults to `'.'`
+- `quiet`: `Boolean` - Hide error messages containing server information. Defaults to `false`
+- `conf`: `object` - The same object you would use in [next.config.js](/docs/api-reference/next.config.js/introduction.md). Defaults to `{}`
 
 The returned `app` can then be used to let Next.js handle requests as required.
 
-Disabling file-system routing
------------------------------
+## Disabling file-system routing
 
 By default, `Next` will serve each file in the `pages` folder under a pathname matching the filename. If your project uses a custom server, this behavior may result in the same content being served from multiple paths, which can present problems with SEO and UX.
 

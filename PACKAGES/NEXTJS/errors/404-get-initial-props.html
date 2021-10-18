@@ -1,27 +1,62 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>404-get-initial-props</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="js-cannot-have-getinitialprops">404.js Cannot Have getInitialProps</h1>
-<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
-<p>In your <code>404.js</code> page you added <code>getInitialProps</code> or <code>getServerSideProps</code> which is not allowed as this prevents the page from being static and <code>404.js</code> is meant to provide more flexibility for a static 404 page. Having a static 404 page is the most ideal as this page can be served very often and if not static puts extra strain on your server and more invocations for serverless functions which increase the cost of hosting your site unnecessarily.</p>
-<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
-<p>Remove <code>getInitialProps</code> from <code>404.js</code> and make sure no HOC’s used in <code>404.js</code> attach <code>getInitialProps</code>.</p>
-<p>If you want to fetch data for your <code>404.js</code> page move it to a client side fetch inside of <code>componentDidMount</code> or <code>useEffect(() =&gt; {}, [])</code>.</p>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://nextjs.org/docs/advanced-features/automatic-static-optimization">Automatic Static Optimization</a></li>
-</ul>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>404-get-initial-props</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="js-cannot-have-getinitialprops">
+      404.js Cannot Have getInitialProps
+    </h1>
+    <h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+    <p>
+      In your <code>404.js</code> page you added <code>getInitialProps</code> or
+      <code>getServerSideProps</code> which is not allowed as this prevents the
+      page from being static and <code>404.js</code> is meant to provide more
+      flexibility for a static 404 page. Having a static 404 page is the most
+      ideal as this page can be served very often and if not static puts extra
+      strain on your server and more invocations for serverless functions which
+      increase the cost of hosting your site unnecessarily.
+    </p>
+    <h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+    <p>
+      Remove <code>getInitialProps</code> from <code>404.js</code> and make sure
+      no HOC’s used in <code>404.js</code> attach <code>getInitialProps</code>.
+    </p>
+    <p>
+      If you want to fetch data for your <code>404.js</code> page move it to a
+      client side fetch inside of <code>componentDidMount</code> or
+      <code>useEffect(() =&gt; {}, [])</code>.
+    </p>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a
+          href="https://nextjs.org/docs/advanced-features/automatic-static-optimization"
+          >Automatic Static Optimization</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

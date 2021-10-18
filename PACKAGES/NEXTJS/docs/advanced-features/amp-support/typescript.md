@@ -1,5 +1,4 @@
-TypeScript
-==========
+# TypeScript
 
 AMP currently doesn’t have built-in types for TypeScript, but it’s in their roadmap ([\#13791](https://github.com/ampproject/amphtml/issues/13791)).
 

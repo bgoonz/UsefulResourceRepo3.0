@@ -1,8 +1,6 @@
-Deployment
-==========
+# Deployment
 
-Vercel (Recommended)
---------------------
+## Vercel (Recommended)
 
 The easiest way to deploy Next.js to production is to use the **[Vercel platform](https://vercel.com)** from the creators of Next.js. [Vercel](https://vercel.com) is a cloud platform for static sites, hybrid apps, and Serverless Functions.
 
@@ -25,11 +23,11 @@ Congratulations! You’ve deployed your Next.js app! If you have questions, take
 
 Let’s talk about the workflow we recommend using. [Vercel](https://vercel.com) supports what we call the **DPS** workflow: **D**evelop, **P**review, and **S**hip:
 
--   **Develop:** Write code in Next.js. Keep the development server running and take advantage of [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh).
--   **Preview:** Every time you push changes to a branch on GitHub / GitLab / BitBucket, Vercel automatically creates a new deployment with a unique URL. You can view them on GitHub when you open a pull request, or under “Preview Deployments” on your project page on Vercel. [Learn more about it here](https://vercel.com/features/deployment-previews).
--   **Ship:** When you’re ready to ship, merge the pull request to your default branch (e.g. `main`). Vercel will automatically create a production deployment.
+- **Develop:** Write code in Next.js. Keep the development server running and take advantage of [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh).
+- **Preview:** Every time you push changes to a branch on GitHub / GitLab / BitBucket, Vercel automatically creates a new deployment with a unique URL. You can view them on GitHub when you open a pull request, or under “Preview Deployments” on your project page on Vercel. [Learn more about it here](https://vercel.com/features/deployment-previews).
+- **Ship:** When you’re ready to ship, merge the pull request to your default branch (e.g. `main`). Vercel will automatically create a production deployment.
 
-By using the DPS workflow, in addition to doing *code reviews*, you can do *deployment previews*. Each deployment creates a unique URL that can be shared or used for integration tests.
+By using the DPS workflow, in addition to doing _code reviews_, you can do _deployment previews_. Each deployment creates a unique URL that can be shared or used for integration tests.
 
 ### Optimized for Next.js
 
@@ -37,19 +35,18 @@ By using the DPS workflow, in addition to doing *code reviews*, you can do *depl
 
 For example, the [hybrid pages](/docs/basic-features/pages.md) approach is fully supported out of the box.
 
--   Every page can either use [Static Generation](/docs/basic-features/pages.md#static-generation) or [Server-Side Rendering](/docs/basic-features/pages.md#server-side-rendering).
--   Pages that use [Static Generation](/docs/basic-features/pages.md#static-generation) and assets (JS, CSS, images, fonts, etc) will automatically be served from [Vercel’s Edge Network](https://vercel.com/docs/edge-network/overview), which is blazingly fast.
--   Pages that use [Server-Side Rendering](/docs/basic-features/pages.md#server-side-rendering) and [API routes](/docs/api-routes/introduction.md) will automatically become isolated Serverless Functions. This allows page rendering and API requests to scale infinitely.
+- Every page can either use [Static Generation](/docs/basic-features/pages.md#static-generation) or [Server-Side Rendering](/docs/basic-features/pages.md#server-side-rendering).
+- Pages that use [Static Generation](/docs/basic-features/pages.md#static-generation) and assets (JS, CSS, images, fonts, etc) will automatically be served from [Vercel’s Edge Network](https://vercel.com/docs/edge-network/overview), which is blazingly fast.
+- Pages that use [Server-Side Rendering](/docs/basic-features/pages.md#server-side-rendering) and [API routes](/docs/api-routes/introduction.md) will automatically become isolated Serverless Functions. This allows page rendering and API requests to scale infinitely.
 
 ### Custom Domains, Environment Variables, Automatic HTTPS, and more
 
--   **Custom Domains:** Once deployed on [Vercel](https://vercel.com), you can assign a custom domain to your Next.js app. Take a look at [our documentation here](https://vercel.com/docs/custom-domains).
--   **Environment Variables:** You can also set environment variables on Vercel. Take a look at [our documentation here](https://vercel.com/docs/environment-variables). You can then [use those environment variables](/docs/api-reference/next.config.js/environment-variables.md) in your Next.js app.
--   **Automatic HTTPS:** HTTPS is enabled by default (including custom domains) and doesn’t require extra configuration. We auto-renew SSL certificates.
--   **More:** [Read our documentation](https://vercel.com/docs) to learn more about the Vercel platform.
+- **Custom Domains:** Once deployed on [Vercel](https://vercel.com), you can assign a custom domain to your Next.js app. Take a look at [our documentation here](https://vercel.com/docs/custom-domains).
+- **Environment Variables:** You can also set environment variables on Vercel. Take a look at [our documentation here](https://vercel.com/docs/environment-variables). You can then [use those environment variables](/docs/api-reference/next.config.js/environment-variables.md) in your Next.js app.
+- **Automatic HTTPS:** HTTPS is enabled by default (including custom domains) and doesn’t require extra configuration. We auto-renew SSL certificates.
+- **More:** [Read our documentation](https://vercel.com/docs) to learn more about the Vercel platform.
 
-Automatic Updates
------------------
+## Automatic Updates
 
 When you deploy your Next.js application, you want to see the latest version without needing to reload.
 
@@ -57,8 +54,7 @@ Next.js will automatically load the latest version of your application in the ba
 
 **Note:** If a new page (with an old version) has already been prefetched by `next/link`, Next.js will use the old version. Then, after either a full page refresh or multiple client-side page transitions, Next.js will show the latest version.
 
-Other hosting options
----------------------
+## Other hosting options
 
 ### Node.js Server
 
@@ -80,7 +76,7 @@ If you are using [`next/image`](/docs/basic-features/image-optimization.md), con
 
 **Examples**
 
--   [with-docker](https://github.com/vercel/next.js/tree/canary/examples/with-docker)
+- [with-docker](https://github.com/vercel/next.js/tree/canary/examples/with-docker)
 
 Next.js can be deployed to any hosting provider that supports [Docker](https://www.docker.com/) containers. You can use this approach when deploying to container orchestrators such as [Kubernetes](https://kubernetes.io/) or [HashiCorp Nomad](https://www.nomadproject.io/), or when running inside a single node in any cloud provider.
 

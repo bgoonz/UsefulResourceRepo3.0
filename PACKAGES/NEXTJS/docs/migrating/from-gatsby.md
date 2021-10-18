@@ -1,22 +1,20 @@
-Migrating from Gatsby
-=====================
+# Migrating from Gatsby
 
 This guide will help you understand how to transition from an existing Gatsby project to Next.js. Migrating to Next.js will allow you to:
 
--   Choose which [data fetching](/docs/basic-features/data-fetching.md) strategy you want on a per-page basis.
--   Use [Incremental Static Regeneration](/docs/basic-features/data-fetching.md#incremental-static-regeneration) to update *existing* pages by re-rendering them in the background as traffic comes in.
--   Use [API Routes](/docs/api-routes/introduction.md).
+- Choose which [data fetching](/docs/basic-features/data-fetching.md) strategy you want on a per-page basis.
+- Use [Incremental Static Regeneration](/docs/basic-features/data-fetching.md#incremental-static-regeneration) to update _existing_ pages by re-rendering them in the background as traffic comes in.
+- Use [API Routes](/docs/api-routes/introduction.md).
 
 And more! Let’s walk through a series of steps to complete the migration.
 
-Updating `package.json` and dependencies
-----------------------------------------
+## Updating `package.json` and dependencies
 
 The first step towards migrating to Next.js is to update `package.json` and dependencies. You should:
 
--   Remove all Gatsby-related packages (but keep `react` and `react-dom`).
--   Install `next`.
--   Add Next.js related commands to `scripts`. One is `next dev`, which runs a development server at `localhost:3000`. You should also add `next build` and `next start` for creating and starting a production build.
+- Remove all Gatsby-related packages (but keep `react` and `react-dom`).
+- Install `next`.
+- Add Next.js related commands to `scripts`. One is `next dev`, which runs a development server at `localhost:3000`. You should also add `next build` and `next start` for creating and starting a production build.
 
 Here’s an example `package.json` ([view diff](https://github.com/leerob/gatsby-to-nextjs/pull/1/files#diff-b9cfc7f2cdf78a7f4b91a753d10865a2)):
 
@@ -33,32 +31,28 @@ Here’s an example `package.json` ([view diff](https://github.com/leerob/gatsby
       }
     }
 
-Static Assets and Compiled Output
----------------------------------
+## Static Assets and Compiled Output
 
 Gatsby uses the `public` directory for the compiled output, whereas Next.js uses it for static assets. Here are the steps for migration ([view diff](https://github.com/leerob/gatsby-to-nextjs/pull/1/files#diff-a084b794bc0759e7a6b77810e01874f2)):
 
--   Remove `.cache/` and `public` from `.gitignore` and delete both directories.
--   Rename Gatsby’s `static` directory as `public`.
--   Add `.next` to `.gitignore`.
+- Remove `.cache/` and `public` from `.gitignore` and delete both directories.
+- Rename Gatsby’s `static` directory as `public`.
+- Add `.next` to `.gitignore`.
 
-Creating Routes
----------------
+## Creating Routes
 
 Both Gatsby and Next support a `pages` directory, which uses [file-system based routing](/docs/routing/introduction.md). Gatsby’s directory is `src/pages`, which is also [supported by Next.js](/docs/advanced-features/src-directory.md).
 
 Gatsby creates dynamic routes using the `createPages` API inside of `gatsby-node.js`. With Next, we can use [Dynamic Routes](/docs/routing/dynamic-routes.md) inside of `pages` to achieve the same effect. Rather than having a `template` directory, you can use the React component inside your dynamic route file. For example:
 
--   **Gatsby:** `createPages` API inside `gatsby-node.js` for each blog post, then have a template file at `src/templates/blog-post.js`.
--   **Next:** Create `pages/blog/[slug].js` which contains the blog post template. The value of `slug` is accessible through a [query parameter](/docs/routing/dynamic-routes.md). For example, the route `/blog/first-post` would forward the query object `{ 'slug': 'first-post' }` to `pages/blog/[slug].js` ([learn more here](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation)).
+- **Gatsby:** `createPages` API inside `gatsby-node.js` for each blog post, then have a template file at `src/templates/blog-post.js`.
+- **Next:** Create `pages/blog/[slug].js` which contains the blog post template. The value of `slug` is accessible through a [query parameter](/docs/routing/dynamic-routes.md). For example, the route `/blog/first-post` would forward the query object `{ 'slug': 'first-post' }` to `pages/blog/[slug].js` ([learn more here](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation)).
 
-Styling
--------
+## Styling
 
 With Gatsby, global CSS imports are included in `gatsby-browser.js`. With Next, you should create a [custom `_app.js`](/docs/advanced-features/custom-app.md) for global CSS. When migrating, you can copy over your CSS imports directly and update the relative file path, if necessary. Next.js has [built-in CSS support](/docs/basic-features/built-in-css-support.md).
 
-Links
------
+## Links
 
 The Gatsby `Link` and Next.js [`Link`](/docs/api-reference/next/link.md) component have a slightly different API.
 
@@ -84,8 +78,7 @@ The Gatsby `Link` and Next.js [`Link`](/docs/api-reference/next/link.md) compone
 
 Update any import statements, switch `to` to `href`, and add an `<a>` tag as a child of the element.
 
-Data Fetching
--------------
+## Data Fetching
 
 The largest difference between Gatsby and Next.js is how data fetching is implemented. Gatsby is opinionated with GraphQL being the default strategy for retrieving data across your application. With Next.js, you get to choose which strategy you want (GraphQL is one supported option).
 
@@ -158,8 +151,7 @@ You’ll commonly see Gatsby plugins used for reading the file system (`gatsby-s
       return posts
     }
 
-Image Component and Image Optimization
---------------------------------------
+## Image Component and Image Optimization
 
 Next.js has a built-in [Image Component and Automatic Image Optimization](/docs/basic-features/image-optimization.md).
 
@@ -173,9 +165,9 @@ Instead of optimizing images at build time, Next.js optimizes images on-demand, 
 
 This means you can remove common Gatsby plugins like:
 
--   `gatsby-image`
--   `gatsby-transformer-sharp`
--   `gatsby-plugin-sharp`
+- `gatsby-image`
+- `gatsby-transformer-sharp`
+- `gatsby-plugin-sharp`
 
 Instead, use the built-in [`next/image`](/docs/api-reference/next/image.md) component and [Automatic Image Optimization](/docs/basic-features/image-optimization.md).
 
@@ -207,8 +199,7 @@ Instead, use the built-in [`next/image`](/docs/api-reference/next/image.md) comp
       )
     }
 
-Site Configuration
-------------------
+## Site Configuration
 
 With Gatsby, your site’s metadata (name, description, etc) is located inside `gatsby-config.js`. This is then exposed through the GraphQL API and consumed through a `pageQuery` or a static query inside a component.
 
@@ -228,8 +219,7 @@ With Next.js, we recommend creating a config file similar to below. You can then
       },
     }
 
-Search Engine Optimization
---------------------------
+## Search Engine Optimization
 
 Most Gatsby examples use `react-helmet` to assist with adding `meta` tags for proper SEO. With Next.js, we use [`next/head`](/docs/api-reference/next/head.md) to add `meta` tags to your `<head />` element. For example, here’s an SEO component with Gatsby:
 
@@ -306,7 +296,6 @@ And here’s the same example using Next.js, including reading from a site confi
       )
     }
 
-Learn more
-----------
+## Learn more
 
 Take a look at [this pull request](https://github.com/leerob/gatsby-to-nextjs/pull/1) for more details on how an app can be migrated from Gatsby to Next.js. If you have questions or if this guide didn’t work for you, feel free to reach out to our community on [GitHub Discussions](https://github.com/vercel/next.js/discussions).

@@ -1,19 +1,17 @@
-Environment Variables
-=====================
+# Environment Variables
 
 > This document is for Next.js versions 9.4 and up. If you’re using an older version of Next.js, upgrade or refer to [Environment Variables in next.config.js](/docs/api-reference/next.config.js/environment-variables.md).
 
 **Examples**
 
--   [Environment Variables](https://github.com/vercel/next.js/tree/canary/examples/environment-variables)
+- [Environment Variables](https://github.com/vercel/next.js/tree/canary/examples/environment-variables)
 
 Next.js comes with built-in support for environment variables, which allows you to do the following:
 
--   [Use `.env.local` to load environment variables](#loading-environment-variables)
--   [Expose environment variables to the browser by prefixing with `NEXT_PUBLIC_`](#exposing-environment-variables-to-the-browser)
+- [Use `.env.local` to load environment variables](#loading-environment-variables)
+- [Expose environment variables to the browser by prefixing with `NEXT_PUBLIC_`](#exposing-environment-variables-to-the-browser)
 
-Loading Environment Variables
------------------------------
+## Loading Environment Variables
 
 Next.js has built-in support for loading environment variables from `.env.local` into `process.env`.
 
@@ -37,7 +35,7 @@ For example, using [`getStaticProps`](/docs/basic-features/data-fetching.md#gets
       // ...
     }
 
-> **Note**: In order to keep server-only secrets safe, Next.js replaces `process.env.*` with the correct values at build time. This means that `process.env` is not a standard JavaScript object, so you’re not able to use [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). Environment variables must be referenced as e.g. `process.env.NEXT_PUBLIC_PUBLISHABLE_KEY`, *not* `const { NEXT_PUBLIC_PUBLISHABLE_KEY } = process.env`.
+> **Note**: In order to keep server-only secrets safe, Next.js replaces `process.env.*` with the correct values at build time. This means that `process.env` is not a standard JavaScript object, so you’re not able to use [object destructuring](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment). Environment variables must be referenced as e.g. `process.env.NEXT_PUBLIC_PUBLISHABLE_KEY`, _not_ `const { NEXT_PUBLIC_PUBLISHABLE_KEY } = process.env`.
 
 > **Note**: Next.js will automatically expand variables (`$VAR`) inside of your `.env*` files. This allows you to reference other secrets, like so:
 >
@@ -59,8 +57,7 @@ For example, using [`getStaticProps`](/docs/basic-features/data-fetching.md#gets
 >     # becomes "pre$A"
 >     CORRECT=pre\$A
 
-Exposing Environment Variables to the Browser
----------------------------------------------
+## Exposing Environment Variables to the Browser
 
 By default environment variables are only available in the Node.js environment, meaning they won’t be exposed to the browser.
 
@@ -82,8 +79,7 @@ This loads `process.env.NEXT_PUBLIC_ANALYTICS_ID` into the Node.js environment a
 
     export default HomePage
 
-Default Environment Variables
------------------------------
+## Default Environment Variables
 
 In general only one `.env.local` file is needed. However, sometimes you might want to add some defaults for the `development` (`next dev`) or `production` (`next start`) environment.
 
@@ -93,8 +89,7 @@ Next.js allows you to set defaults in `.env` (all environments), `.env.developme
 
 > **Note**: `.env`, `.env.development`, and `.env.production` files should be included in your repository as they define defaults. **`.env.*.local` should be added to `.gitignore`**, as those files are intended to be ignored. `.env.local` is where secrets can be stored.
 
-Environment Variables on Vercel
--------------------------------
+## Environment Variables on Vercel
 
 When deploying your Next.js application to [Vercel](https://vercel.com), Environment Variables can be configured [in the Project Settings](https://vercel.com/docs/environment-variables).
 
@@ -106,8 +101,7 @@ If you’ve configured [Development Environment Variables](https://vercel.com/do
 
 When using the Vercel CLI to deploy make sure you add a [`.vercelignore`](https://vercel.com/guides/prevent-uploading-sourcepaths-with-vercelignore?query=vercelignore#allowlist) that includes files that should not be uploaded, generally these are the same files included in `.gitignore`.
 
-Test Environment Variables
---------------------------
+## Test Environment Variables
 
 Apart from `development` and `production` environments, there is a 3rd option available: `test`. In the same way you can set defaults for development or production environments, you can do the same with `.env.test` file for testing environment (though this one is not so common as the previous two).
 

@@ -1,5 +1,4 @@
-Must not access ServerResponse after getServerSideProps() resolves
-==================================================================
+# Must not access ServerResponse after getServerSideProps() resolves
 
 #### Why This Error Occurred
 
@@ -15,4 +14,4 @@ You can fix this error by moving any access of the `res` object into `getServerS
 
 ### Useful Links
 
--   [Data Fetching Docs](https://nextjs.org/docs/basic-features/data-fetching)
+- [Data Fetching Docs](https://nextjs.org/docs/basic-features/data-fetching)

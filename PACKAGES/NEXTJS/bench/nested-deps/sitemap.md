@@ -1,4 +1,3 @@
-nested-deps
-===========
+# nested-deps
 
 <table><thead><tr class="header"><th></th><th>Name</th><th>Size</th><th>Modified</th><th></th></tr></thead><tbody><tr class="odd"><td></td><td><span class="goup">..</span></td><td>—</td><td>—</td><td></td></tr><tr class="even"><td></td><td><span class="name">pages</span></td><td>—</td><td>Wed Oct 13 05:33:15 2021</td><td></td></tr><tr class="odd"><td></td><td><span class="name">.gitignore</span></td><td>17 bytes</td><td>Wed Oct 13 05:27:26 2021</td><td></td></tr><tr class="even"><td></td><td><span class="name">bench.mjs</span></td><td>4 KB</td><td>Wed Oct 13 05:27:26 2021</td><td></td></tr><tr class="odd"><td></td><td><span class="name">fuzzponent.js</span></td><td>5 KB</td><td>Wed Oct 13 05:27:26 2021</td><td></td></tr><tr class="even"><td></td><td><span class="name">next.config.js</span></td><td>133 bytes</td><td>Wed Oct 13 05:27:26 2021</td><td></td></tr><tr class="odd"><td></td><td><span class="name">package.json</span></td><td>629 bytes</td><td>Wed Oct 13 05:27:26 2021</td><td></td></tr></tbody></table>

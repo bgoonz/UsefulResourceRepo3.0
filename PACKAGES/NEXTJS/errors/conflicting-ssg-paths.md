@@ -1,5 +1,4 @@
-Conflicting SSG Paths
-=====================
+# Conflicting SSG Paths
 
 #### Why This Error Occurred
 
@@ -62,4 +61,4 @@ Example conflicting paths:
 
 ### Useful Links
 
--   [`getStaticPaths` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)
+- [`getStaticPaths` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)

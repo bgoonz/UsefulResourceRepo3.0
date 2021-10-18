@@ -1,5 +1,4 @@
-Images cannot be imported into your custom document.
-====================================================
+# Images cannot be imported into your custom document.
 
 #### Why This Error Occurred
 
@@ -29,6 +28,6 @@ If your image needs to be displayed on every page you can relocate it to your [`
 
 ### Useful Links
 
--   [Custom `Document`](https://nextjs.org/docs/advanced-features/custom-document)
--   [Custom `App`](https://nextjs.org/docs/advanced-features/custom-app)
--   [Static File Serving](https://nextjs.org/docs/basic-features/static-file-serving)
+- [Custom `Document`](https://nextjs.org/docs/advanced-features/custom-document)
+- [Custom `App`](https://nextjs.org/docs/advanced-features/custom-app)
+- [Static File Serving](https://nextjs.org/docs/basic-features/static-file-serving)

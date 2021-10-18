@@ -1,5 +1,4 @@
-CSS Modules Imported by a Dependency
-====================================
+# CSS Modules Imported by a Dependency
 
 #### Why This Error Occurred
 
@@ -15,6 +14,6 @@ Compiled dependencies do not have references to CSS Module files, or any other f
 
 The dependency should also provide instructions about what CSS needs to be imported by you, in your application.
 
-------------------------------------------------------------------------
+---
 
 If this is **first party code**, try [including said monorepo package in the compilation pipeline](https://github.com/vercel/next.js/tree/canary/examples/with-yarn-workspaces).

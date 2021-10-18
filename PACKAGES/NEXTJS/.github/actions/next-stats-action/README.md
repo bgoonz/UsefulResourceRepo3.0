@@ -1,19 +1,16 @@
-Next.js Stats GitHub Action
-===========================
+# Next.js Stats GitHub Action
 
 > Downloads and runs project with provided configs gathering stats to compare branches
 
 See it in action at Next.js https://github.com/vercel/next.js
 
-Getting Started
----------------
+## Getting Started
 
 1.  Add a `.stats-app` folder to your project with a [`stats-config.js`](#stats-config) and any files to run against for example a test app that is to be built
 2.  Add the action to your [workflow](https://help.github.com/en/articles/configuring-a-workflow)
 3.  Enjoy the stats
 
-Stats Config
-------------
+## Stats Config
 
     const StatsConfig = {
       // the Heading to show at the top of stats comments

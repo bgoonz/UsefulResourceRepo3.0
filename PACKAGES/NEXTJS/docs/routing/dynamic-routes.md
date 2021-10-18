@@ -1,9 +1,8 @@
-Dynamic Routes
-==============
+# Dynamic Routes
 
 **Examples**
 
--   [Dynamic Routing](https://github.com/vercel/next.js/tree/canary/examples/dynamic-routing)
+- [Dynamic Routing](https://github.com/vercel/next.js/tree/canary/examples/dynamic-routing)
 
 Defining routes by using predefined paths is not always enough for complex applications. In Next.js you can add brackets to a page (`[param]`) to create a dynamic route (a.k.a. url slugs, pretty urls, and others).
 
@@ -72,11 +71,11 @@ Read our docs for [Linking between pages](/docs/routing/introduction.md#linking-
 
 **Examples**
 
--   [Catch All Routes](https://github.com/vercel/next.js/tree/canary/examples/catch-all-routes)
+- [Catch All Routes](https://github.com/vercel/next.js/tree/canary/examples/catch-all-routes)
 
 Dynamic routes can be extended to catch all paths by adding three dots (`...`) inside the brackets. For example:
 
--   `pages/post/[...slug].js` matches `/post/a`, but also `/post/a/b`, `/post/a/b/c` and so on.
+- `pages/post/[...slug].js` matches `/post/a`, but also `/post/a/b`, `/post/a/b/c` and so on.
 
 > **Note**: You can use names other than `slug`, such as: `[...param]`
 
@@ -102,19 +101,17 @@ The `query` objects are as follows:
     { "slug": ["a"] } // `GET /post/a` (single-element array)
     { "slug": ["a", "b"] } // `GET /post/a/b` (multi-element array)
 
-Caveats
--------
+## Caveats
 
--   Predefined routes take precedence over dynamic routes, and dynamic routes over catch all routes. Take a look at the following examples:
-    -   `pages/post/create.js` - Will match `/post/create`
-    -   `pages/post/[pid].js` - Will match `/post/1`, `/post/abc`, etc. But not `/post/create`
-    -   `pages/post/[...slug].js` - Will match `/post/1/2`, `/post/a/b/c`, etc. But not `/post/create`, `/post/abc`
--   Pages that are statically optimized by [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) will be hydrated without their route parameters provided, i.e `query` will be an empty object (`{}`).
+- Predefined routes take precedence over dynamic routes, and dynamic routes over catch all routes. Take a look at the following examples:
+  - `pages/post/create.js` - Will match `/post/create`
+  - `pages/post/[pid].js` - Will match `/post/1`, `/post/abc`, etc. But not `/post/create`
+  - `pages/post/[...slug].js` - Will match `/post/1/2`, `/post/a/b/c`, etc. But not `/post/create`, `/post/abc`
+- Pages that are statically optimized by [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) will be hydrated without their route parameters provided, i.e `query` will be an empty object (`{}`).
 
-    After hydration, Next.js will trigger an update to your application to provide the route parameters in the `query` object.
+  After hydration, Next.js will trigger an update to your application to provide the route parameters in the `query` object.
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

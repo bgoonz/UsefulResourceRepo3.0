@@ -1,5 +1,4 @@
-Can’t Override Next Props
-=========================
+# Can’t Override Next Props
 
 #### Why This Error Occurred
 
@@ -11,4 +10,4 @@ Look in your \_app.js component’s `getInitialProps` function and make sure nei
 
 ### Useful Links
 
--   [The issue this was reported in: \#6480](https://github.com/vercel/next.js/issues/6480)
+- [The issue this was reported in: \#6480](https://github.com/vercel/next.js/issues/6480)

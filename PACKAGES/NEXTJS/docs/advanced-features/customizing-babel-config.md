@@ -1,13 +1,12 @@
-Customizing Babel Config
-========================
+# Customizing Babel Config
 
 **Examples**
 
--   [Customizing babel configuration](https://github.com/vercel/next.js/tree/canary/examples/with-custom-babel-config)
+- [Customizing babel configuration](https://github.com/vercel/next.js/tree/canary/examples/with-custom-babel-config)
 
 Next.js includes the `next/babel` preset to your app, which includes everything needed to compile React applications and server-side code. But if you want to extend the default Babel configs, it’s also possible.
 
-To start, you only need to define a `.babelrc` file (or `babel.config.js`) at the top of your app. If such a file is found, it will be considered as the *source of truth*, and therefore it needs to define what Next.js needs as well, which is the `next/babel` preset.
+To start, you only need to define a `.babelrc` file (or `babel.config.js`) at the top of your app. If such a file is found, it will be considered as the _source of truth_, and therefore it needs to define what Next.js needs as well, which is the `next/babel` preset.
 
 Here’s an example `.babelrc` file:
 

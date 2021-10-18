@@ -1,5 +1,4 @@
-Static Optimization Indicator
-=============================
+# Static Optimization Indicator
 
 > **Note:** This indicator was removed in Next.js version 10.0.1. We recommend upgrading to the latest version of Next.js.
 

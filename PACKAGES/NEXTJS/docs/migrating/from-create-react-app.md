@@ -1,22 +1,20 @@
-Migrating from Create React App
-===============================
+# Migrating from Create React App
 
 This guide will help you understand how to transition from an existing non-ejected Create React App project to Next.js. Migrating to Next.js will allow you to:
 
--   Choose which [data fetching](/docs/basic-features/data-fetching.md) strategy you want on a per-page basis.
--   Use [Incremental Static Regeneration](/docs/basic-features/data-fetching.md#incremental-static-regeneration) to update *existing* pages by re-rendering them in the background as traffic comes in.
--   Use [API Routes](/docs/api-routes/introduction.md).
+- Choose which [data fetching](/docs/basic-features/data-fetching.md) strategy you want on a per-page basis.
+- Use [Incremental Static Regeneration](/docs/basic-features/data-fetching.md#incremental-static-regeneration) to update _existing_ pages by re-rendering them in the background as traffic comes in.
+- Use [API Routes](/docs/api-routes/introduction.md).
 
 And more! Let’s walk through a series of steps to complete the migration.
 
-Updating `package.json` and dependencies
-----------------------------------------
+## Updating `package.json` and dependencies
 
 The first step towards migrating to Next.js is to update `package.json` and dependencies. You should:
 
--   Remove `react-scripts` (but keep `react` and `react-dom`). If you’re using React Router, you can also remove `react-router-dom`.
--   Install `next`.
--   Add Next.js related commands to `scripts`. One is `next dev`, which runs a development server at `localhost:3000`. You should also add `next build` and `next start` for creating and starting a production build.
+- Remove `react-scripts` (but keep `react` and `react-dom`). If you’re using React Router, you can also remove `react-router-dom`.
+- Install `next`.
+- Add Next.js related commands to `scripts`. One is `next dev`, which runs a development server at `localhost:3000`. You should also add `next build` and `next start` for creating and starting a production build.
 
 Here’s an example `package.json`:
 
@@ -33,35 +31,31 @@ Here’s an example `package.json`:
       }
     }
 
-Static Assets and Compiled Output
----------------------------------
+## Static Assets and Compiled Output
 
 Create React App uses the `public` directory for the [entry HTML file](https://create-react-app.dev/docs/using-the-public-folder), whereas Next.js uses it for static assets. It’s possible to add static assets here, but Create React App recommends importing them directly from JavaScript files.
 
--   Move any images, fonts, or other static assets to `public`.
--   Convert `index.html` (the entry point of your application) to Next.js. Any `<head>` code should be moved to a [custom `_document.js`](/docs/advanced-features/custom-document.md). Any shared layout between all pages should be moved to a [custom `_app.js`](/docs/advanced-features/custom-app.md).
--   See [Styling](#styling) for CSS/Sass files.
--   Add `.next` to `.gitignore`.
+- Move any images, fonts, or other static assets to `public`.
+- Convert `index.html` (the entry point of your application) to Next.js. Any `<head>` code should be moved to a [custom `_document.js`](/docs/advanced-features/custom-document.md). Any shared layout between all pages should be moved to a [custom `_app.js`](/docs/advanced-features/custom-app.md).
+- See [Styling](#styling) for CSS/Sass files.
+- Add `.next` to `.gitignore`.
 
-Creating Routes & Linking
--------------------------
+## Creating Routes & Linking
 
 With Create React App, you’re likely using React Router. Instead of using a third-party library, Next.js includes its own [file-system based routing](/docs/routing/introduction.md).
 
--   Convert all `Route` components to new files in the `pages` directory.
--   For routes that require dynamic content (e.g. `/blog/:slug`), you can use [Dynamic Routes](/docs/routing/dynamic-routes.md) with Next.js (e.g. `pages/blog/[slug].js`). The value of `slug` is accessible through a [query parameter](/docs/routing/dynamic-routes.md). For example, the route `/blog/first-post` would forward the query object `{ 'slug': 'first-post' }` to `pages/blog/[slug].js` ([learn more here](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation)).
+- Convert all `Route` components to new files in the `pages` directory.
+- For routes that require dynamic content (e.g. `/blog/:slug`), you can use [Dynamic Routes](/docs/routing/dynamic-routes.md) with Next.js (e.g. `pages/blog/[slug].js`). The value of `slug` is accessible through a [query parameter](/docs/routing/dynamic-routes.md). For example, the route `/blog/first-post` would forward the query object `{ 'slug': 'first-post' }` to `pages/blog/[slug].js` ([learn more here](/docs/basic-features/data-fetching.md#getstaticpaths-static-generation)).
 
 For more information, see [Migrating from React Router](/docs/migrating/from-react-router.md).
 
-Styling
--------
+## Styling
 
 Next.js has built-in support for [CSS](/docs/basic-features/built-in-css-support.md), [Sass](/docs/basic-features/built-in-css-support.md#sass-support) and [CSS-in-JS](/docs/basic-features/built-in-css-support.md#css-in-js).
 
 With Create React App, you can import `.css` files directly inside React components. Next.js allows you to do the same, but requires these files to be [CSS Modules](/docs/basic-features/built-in-css-support.md). For global styles, you’ll need a [custom `_app.js`](/docs/advanced-features/custom-app.md) to add a [global stylesheet](/docs/basic-features/built-in-css-support.md#adding-a-global-stylesheet).
 
-Safely Accessing Web APIs
--------------------------
+## Safely Accessing Web APIs
 
 With client-side rendered applications (like Create React App), you can access `window`, `localStorage`, `navigator`, and other [Web APIs](https://developer.mozilla.org/en-US/docs/Web/API) out of the box.
 
@@ -79,8 +73,7 @@ A recommended way of accessing Web APIs safely is by using the [`useEffect`](htt
       // You now have access to `window`
     }, [])
 
-Image Component and Image Optimization
---------------------------------------
+## Image Component and Image Optimization
 
 Since version **10.0.0**, Next.js has a built-in [Image Component and Automatic Image Optimization](/docs/basic-features/image-optimization.md).
 
@@ -107,16 +100,14 @@ Instead of optimizing images at build time, Next.js optimizes images on-demand, 
       )
     }
 
-Environment Variables
----------------------
+## Environment Variables
 
 Next.js has support for `.env` [Environment Variables](/docs/basic-features/environment-variables.md) similar to Create React App. The main different is the prefix used to expose environment variables on the client-side.
 
--   Change all environment variables with the `REACT_APP_` prefix to `NEXT_PUBLIC_`.
--   Server-side environment variables will be available at build-time and in [API Routes](/docs/api-routes/introduction.md).
+- Change all environment variables with the `REACT_APP_` prefix to `NEXT_PUBLIC_`.
+- Server-side environment variables will be available at build-time and in [API Routes](/docs/api-routes/introduction.md).
 
-Search Engine Optimization
---------------------------
+## Search Engine Optimization
 
 Most Create React App examples use `react-helmet` to assist with adding `meta` tags for proper SEO. With Next.js, we use [`next/head`](/docs/api-reference/next/head.md) to add `meta` tags to your `<head />` element. For example, here’s an SEO component with Create React App:
 
@@ -190,8 +181,7 @@ And here’s the same example using Next.js.
       )
     }
 
-Single-Page App (SPA)
----------------------
+## Single-Page App (SPA)
 
 If you want to move your existing Create React App to Next.js and keep a Single-Page App, you can move your old application’s entry point to an [Optional Catch-All Route](/docs/routing/dynamic-routes.md#optional-catch-all-routes) named `pages/[[...app]].js`.
 
@@ -216,18 +206,16 @@ If you want to move your existing Create React App to Next.js and keep a Single-
 
     export default App
 
-Ejected Create React App
-------------------------
+## Ejected Create React App
 
 If you’ve ejected Create React App, here are some things to consider:
 
--   If you have custom file loaders set up for CSS, Sass, or other assets, this is all built-in with Next.js.
--   If you’ve manually added [new JavaScript features](/docs/basic-features/supported-browsers-features.md#javascript-language-features) (e.g. Optional Chaining) or [Polyfills](/docs/basic-features/supported-browsers-features.md#polyfills), check to see what’s included by default with Next.js.
--   If you have a custom code splitting setup, you can remove that. Next.js has automatic code splitting on a [per-page basis](/docs/basic-features/pages.md).
--   You can [customize your PostCSS setup](/docs/advanced-features/customizing-postcss-config.md#default-behavior) with Next.js without ejecting from the framework.
--   You should reference the default [Babel config](/docs/advanced-features/customizing-babel-config.md) and [Webpack config](/docs/api-reference/next.config.js/custom-webpack-config.md) of Next.js to see what’s included by default.
+- If you have custom file loaders set up for CSS, Sass, or other assets, this is all built-in with Next.js.
+- If you’ve manually added [new JavaScript features](/docs/basic-features/supported-browsers-features.md#javascript-language-features) (e.g. Optional Chaining) or [Polyfills](/docs/basic-features/supported-browsers-features.md#polyfills), check to see what’s included by default with Next.js.
+- If you have a custom code splitting setup, you can remove that. Next.js has automatic code splitting on a [per-page basis](/docs/basic-features/pages.md).
+- You can [customize your PostCSS setup](/docs/advanced-features/customizing-postcss-config.md#default-behavior) with Next.js without ejecting from the framework.
+- You should reference the default [Babel config](/docs/advanced-features/customizing-babel-config.md) and [Webpack config](/docs/api-reference/next.config.js/custom-webpack-config.md) of Next.js to see what’s included by default.
 
-Learn More
-----------
+## Learn More
 
 You can learn more about Next.js by completing our [starter tutorial](https://nextjs.org/learn/basics/create-nextjs-app). If you have questions or if this guide didn’t work for you, feel free to reach out to our community on [GitHub Discussions](https://github.com/vercel/next.js/discussions).

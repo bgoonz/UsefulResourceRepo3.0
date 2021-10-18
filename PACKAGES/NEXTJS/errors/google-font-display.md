@@ -1,5 +1,4 @@
-Google Font Display
-===================
+# Google Font Display
 
 ### Why This Error Occurred
 
@@ -32,4 +31,4 @@ If you want to specifically display a font using a `block` or `fallback` strateg
 
 ### Useful Links
 
--   [Font-display](https://font-display.glitch.me/)
+- [Font-display](https://font-display.glitch.me/)

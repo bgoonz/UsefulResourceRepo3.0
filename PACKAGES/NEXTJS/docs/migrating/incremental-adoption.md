@@ -1,16 +1,14 @@
-Incrementally Adopting Next.js
-==============================
+# Incrementally Adopting Next.js
 
 **Examples**
 
--   [Rewrites](https://github.com/vercel/next.js/tree/canary/examples/rewrites)
--   [Redirects](https://github.com/vercel/next.js/tree/canary/examples/redirects)
--   [Multi-Zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
+- [Rewrites](https://github.com/vercel/next.js/tree/canary/examples/rewrites)
+- [Redirects](https://github.com/vercel/next.js/tree/canary/examples/redirects)
+- [Multi-Zones](https://github.com/vercel/next.js/tree/canary/examples/with-zones)
 
 Next.js has been designed for gradual adoption. With Next.js, you can continue using your existing code and add as much (or as little) React as you need. By starting small and incrementally adding more pages, you can prevent derailing feature work by avoiding a complete rewrite.
 
-Strategies
-----------
+## Strategies
 
 ### Subpath
 
@@ -73,13 +71,12 @@ To learn more about rewrites, take a look at our [documentation](/docs/api-refer
 
 Next.js and [Vercel](https://vercel.com) make it straightforward to adopt [micro-frontends](https://martinfowler.com/articles/micro-frontends.html) and deploy as a [Monorepo](https://vercel.com/blog/monorepos). This allows you to use [subdomains](https://en.wikipedia.org/wiki/Subdomain) to adopt new applications incrementally. Some benefits of micro-frontends:
 
--   Smaller, more cohesive and maintainable codebases.
--   More scalable organizations with decoupled, autonomous teams.
--   The ability to upgrade, update, or even rewrite parts of the frontend in a more incremental fashion.
+- Smaller, more cohesive and maintainable codebases.
+- More scalable organizations with decoupled, autonomous teams.
+- The ability to upgrade, update, or even rewrite parts of the frontend in a more incremental fashion.
 
 Once your monorepo is set up, push changes to your Git repository as usual and you’ll see the commits deployed to the Vercel projects you’ve connected.
 
-Conclusion
-----------
+## Conclusion
 
 To learn more, read about [subpaths](/docs/api-reference/next.config.js/basepath.md) and [rewrites](/docs/api-reference/next.config.js/rewrites.md) or [deploy an example with micro-frontends](https://vercel.com/new/git/external?repository-url=https://github.com/vercel/next.js/tree/canary/examples/with-zones&project-name=with-zones&repository-name=with-zones).

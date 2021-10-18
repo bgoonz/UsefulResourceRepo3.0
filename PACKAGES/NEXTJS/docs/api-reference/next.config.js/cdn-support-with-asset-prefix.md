@@ -1,5 +1,4 @@
-CDN Support with Asset Prefix
-=============================
+# CDN Support with Asset Prefix
 
 > **Attention**: [Deploying to Vercel](/docs/deployment.md) automatically configures a global CDN for your Next.js project. You do not need to manually setup an Asset Prefix.
 
@@ -28,12 +27,11 @@ The exact configuration for uploading your files to a given CDN will depend on y
 
 While `assetPrefix` covers requests to `_next/static`, it does not influence the following paths:
 
--   Files in the [public](/docs/basic-features/static-file-serving.md) folder; if you want to serve those assets over a CDN, you’ll have to introduce the prefix yourself
--   `/_next/data/` requests for `getServerSideProps` pages. These requests will always be made against the main domain since they’re not static.
--   `/_next/data/` requests for `getStaticProps` pages. These requests will always be made against the main domain to support [Incremental Static Generation](/docs/basic-features/data-fetching.md#incremental-static-regeneration), even if you’re not using it (for consistency).
+- Files in the [public](/docs/basic-features/static-file-serving.md) folder; if you want to serve those assets over a CDN, you’ll have to introduce the prefix yourself
+- `/_next/data/` requests for `getServerSideProps` pages. These requests will always be made against the main domain since they’re not static.
+- `/_next/data/` requests for `getStaticProps` pages. These requests will always be made against the main domain to support [Incremental Static Generation](/docs/basic-features/data-fetching.md#incremental-static-regeneration), even if you’re not using it (for consistency).
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)
 

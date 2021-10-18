@@ -1,5 +1,4 @@
-Duplicate Sass Dependencies
-===========================
+# Duplicate Sass Dependencies
 
 #### Why This Error Occurred
 
@@ -23,4 +22,4 @@ Since `sass` is now the canonical implementation, we suggest removing the older 
 
 ### Useful Links
 
--   [`sass` package documentation](https://github.com/sass/dart-sass)
+- [`sass` package documentation](https://github.com/sass/dart-sass)

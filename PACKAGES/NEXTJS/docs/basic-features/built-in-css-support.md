@@ -1,15 +1,13 @@
-Built-In CSS Support
-====================
+# Built-In CSS Support
 
 **Examples**
 
--   [Basic CSS Example](https://github.com/vercel/next.js/tree/canary/examples/basic-css)
--   [With Tailwind CSS](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss)
+- [Basic CSS Example](https://github.com/vercel/next.js/tree/canary/examples/basic-css)
+- [With Tailwind CSS](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss)
 
 Next.js allows you to import CSS files from a JavaScript file. This is possible because Next.js extends the concept of [`import`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import) beyond JavaScript.
 
-Adding a Global Stylesheet
---------------------------
+## Adding a Global Stylesheet
 
 To add a stylesheet to your application, import the CSS file within `pages/_app.js`.
 
@@ -78,8 +76,7 @@ For importing CSS required by a third party component, you can do so in your com
       )
     }
 
-Adding Component-Level CSS
---------------------------
+## Adding Component-Level CSS
 
 Next.js supports [CSS Modules](https://github.com/css-modules/css-modules) using the `[name].module.css` file naming convention.
 
@@ -117,12 +114,11 @@ Then, create `components/Button.js`, importing and using the above CSS file:
       )
     }
 
-CSS Modules are an *optional feature* and are **only enabled for files with the `.module.css` extension**. Regular `<link>` stylesheets and global CSS files are still supported.
+CSS Modules are an _optional feature_ and are **only enabled for files with the `.module.css` extension**. Regular `<link>` stylesheets and global CSS files are still supported.
 
 In production, all CSS Module files will be automatically concatenated into **many minified and code-split** `.css` files. These `.css` files represent hot execution paths in your application, ensuring the minimal amount of CSS is loaded for your application to paint.
 
-Sass Support
-------------
+## Sass Support
 
 Next.js allows you to import Sass using both the `.scss` and `.sass` extensions. You can use component-level Sass via CSS Modules and the `.module.scss` or `.module.sass` extension.
 
@@ -174,22 +170,21 @@ For example, using the exported `primaryColor` Sass variable:
       )
     }
 
-CSS-in-JS
----------
+## CSS-in-JS
 
 **Examples**
 
--   [Styled JSX](https://github.com/vercel/next.js/tree/canary/examples/with-styled-jsx)
--   [Styled Components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components)
--   [Emotion](https://github.com/vercel/next.js/tree/canary/examples/with-emotion)
--   [Linaria](https://github.com/vercel/next.js/tree/canary/examples/with-linaria)
--   [Tailwind CSS + Emotion](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss-emotion)
--   [Styletron](https://github.com/vercel/next.js/tree/canary/examples/with-styletron)
--   [Glamor](https://github.com/vercel/next.js/tree/canary/examples/with-glamor)
--   [Cxs](https://github.com/vercel/next.js/tree/canary/examples/with-cxs)
--   [Aphrodite](https://github.com/vercel/next.js/tree/canary/examples/with-aphrodite)
--   [Fela](https://github.com/vercel/next.js/tree/canary/examples/with-fela)
--   [Stitches](https://github.com/vercel/next.js/tree/canary/examples/with-stitches)
+- [Styled JSX](https://github.com/vercel/next.js/tree/canary/examples/with-styled-jsx)
+- [Styled Components](https://github.com/vercel/next.js/tree/canary/examples/with-styled-components)
+- [Emotion](https://github.com/vercel/next.js/tree/canary/examples/with-emotion)
+- [Linaria](https://github.com/vercel/next.js/tree/canary/examples/with-linaria)
+- [Tailwind CSS + Emotion](https://github.com/vercel/next.js/tree/canary/examples/with-tailwindcss-emotion)
+- [Styletron](https://github.com/vercel/next.js/tree/canary/examples/with-styletron)
+- [Glamor](https://github.com/vercel/next.js/tree/canary/examples/with-glamor)
+- [Cxs](https://github.com/vercel/next.js/tree/canary/examples/with-cxs)
+- [Aphrodite](https://github.com/vercel/next.js/tree/canary/examples/with-aphrodite)
+- [Fela](https://github.com/vercel/next.js/tree/canary/examples/with-fela)
+- [Stitches](https://github.com/vercel/next.js/tree/canary/examples/with-stitches)
 
 It’s possible to use any existing CSS-in-JS solution. The simplest one is inline styles:
 
@@ -236,15 +231,13 @@ A component using `styled-jsx` looks like this:
 
 Please see the [styled-jsx documentation](https://github.com/vercel/styled-jsx) for more examples.
 
-FAQ
----
+## FAQ
 
 ### Does it work with JavaScript disabled?
 
 Yes, if you disable JavaScript the CSS will still be loaded in the production build (`next start`). During development, we require JavaScript to be enabled to provide the best developer experience with [Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh).
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

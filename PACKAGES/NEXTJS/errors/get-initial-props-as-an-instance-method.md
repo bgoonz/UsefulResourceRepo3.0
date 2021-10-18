@@ -1,5 +1,4 @@
-getInitialProps was defined as an instance method
-=================================================
+# getInitialProps was defined as an instance method
 
 #### Why This Error Occurred
 
@@ -33,4 +32,4 @@ or
 
 ### Useful Links
 
--   [Fetching data and component lifecycle](https://nextjs.org/docs/api-reference/data-fetching/getInitialProps)
+- [Fetching data and component lifecycle](https://nextjs.org/docs/api-reference/data-fetching/getInitialProps)

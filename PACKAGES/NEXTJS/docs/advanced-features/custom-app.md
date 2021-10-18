@@ -1,13 +1,12 @@
-Custom `App`
-============
+# Custom `App`
 
 Next.js uses the `App` component to initialize pages. You can override it and control the page initialization. Which allows you to do amazing things like:
 
--   Persisting layout between page changes
--   Keeping state when navigating pages
--   Custom error handling using `componentDidCatch`
--   Inject additional data into pages
--   [Add global CSS](/docs/basic-features/built-in-css-support.md#adding-a-global-stylesheet)
+- Persisting layout between page changes
+- Keeping state when navigating pages
+- Custom error handling using `componentDidCatch`
+- Inject additional data into pages
+- [Add global CSS](/docs/basic-features/built-in-css-support.md#adding-a-global-stylesheet)
 
 To override the default `App`, create the file `./pages/_app.js` as shown below:
 
@@ -37,17 +36,16 @@ The `Component` prop is the active `page`, so whenever you navigate between rout
 
 ### Caveats
 
--   If your app is running and you added a custom `App`, you’ll need to restart the development server. Only required if `pages/_app.js` didn’t exist before.
--   Adding a custom [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md) in your `App` will disable [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) in pages without [Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
--   When you add `getInitialProps` in your custom app, you must `import App from "next/app"`, call `App.getInitialProps(appContext)` inside `getInitialProps` and merge the returned object into the return value.
--   `App` currently does not support Next.js [Data Fetching methods](/docs/basic-features/data-fetching.md) like [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) or [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering).
+- If your app is running and you added a custom `App`, you’ll need to restart the development server. Only required if `pages/_app.js` didn’t exist before.
+- Adding a custom [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md) in your `App` will disable [Automatic Static Optimization](/docs/advanced-features/automatic-static-optimization.md) in pages without [Static Generation](/docs/basic-features/data-fetching.md#getstaticprops-static-generation).
+- When you add `getInitialProps` in your custom app, you must `import App from "next/app"`, call `App.getInitialProps(appContext)` inside `getInitialProps` and merge the returned object into the return value.
+- `App` currently does not support Next.js [Data Fetching methods](/docs/basic-features/data-fetching.md) like [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) or [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering).
 
 ### TypeScript
 
 If you’re using TypeScript, take a look at [our TypeScript documentation](/docs/basic-features/typescript.md#custom-app).
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

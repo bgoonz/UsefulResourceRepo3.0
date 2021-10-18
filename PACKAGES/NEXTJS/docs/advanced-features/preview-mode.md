@@ -1,24 +1,23 @@
-Preview Mode
-============
+# Preview Mode
 
 > This document is for Next.js versions 9.3 and up. If you’re using older versions of Next.js, refer to our [previous documentation](https://nextjs.org/docs/tag/v9.2.2/basic-features/pages).
 
 **Examples**
 
--   [WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress) ([Demo](https://next-blog-wordpress.vercel.app))
--   [DatoCMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-datocms) ([Demo](https://next-blog-datocms.vercel.app/))
--   [TakeShape Example](https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape) ([Demo](https://next-blog-takeshape.vercel.app/))
--   [Sanity Example](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) ([Demo](https://next-blog-sanity.vercel.app/))
--   [Prismic Example](https://github.com/vercel/next.js/tree/canary/examples/cms-prismic) ([Demo](https://next-blog-prismic.vercel.app/))
--   [Contentful Example](https://github.com/vercel/next.js/tree/canary/examples/cms-contentful) ([Demo](https://next-blog-contentful.vercel.app/))
--   [Strapi Example](https://github.com/vercel/next.js/tree/canary/examples/cms-strapi) ([Demo](https://next-blog-strapi.vercel.app/))
--   [Prepr Example](https://github.com/vercel/next.js/tree/canary/examples/cms-prepr) ([Demo](https://next-blog-prepr.vercel.app/))
--   [Agility CMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms) ([Demo](https://next-blog-agilitycms.vercel.app/))
--   [Cosmic Example](https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic) ([Demo](https://next-blog-cosmic.vercel.app/))
--   [ButterCMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms) ([Demo](https://next-blog-buttercms.vercel.app/))
--   [Storyblok Example](https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok) ([Demo](https://next-blog-storyblok.vercel.app/))
--   [GraphCMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms) ([Demo](https://next-blog-graphcms.vercel.app/))
--   [Kontent Example](https://github.com/vercel/next.js/tree/canary/examples/cms-kontent) ([Demo](https://next-blog-kontent.vercel.app//))
+- [WordPress Example](https://github.com/vercel/next.js/tree/canary/examples/cms-wordpress) ([Demo](https://next-blog-wordpress.vercel.app))
+- [DatoCMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-datocms) ([Demo](https://next-blog-datocms.vercel.app/))
+- [TakeShape Example](https://github.com/vercel/next.js/tree/canary/examples/cms-takeshape) ([Demo](https://next-blog-takeshape.vercel.app/))
+- [Sanity Example](https://github.com/vercel/next.js/tree/canary/examples/cms-sanity) ([Demo](https://next-blog-sanity.vercel.app/))
+- [Prismic Example](https://github.com/vercel/next.js/tree/canary/examples/cms-prismic) ([Demo](https://next-blog-prismic.vercel.app/))
+- [Contentful Example](https://github.com/vercel/next.js/tree/canary/examples/cms-contentful) ([Demo](https://next-blog-contentful.vercel.app/))
+- [Strapi Example](https://github.com/vercel/next.js/tree/canary/examples/cms-strapi) ([Demo](https://next-blog-strapi.vercel.app/))
+- [Prepr Example](https://github.com/vercel/next.js/tree/canary/examples/cms-prepr) ([Demo](https://next-blog-prepr.vercel.app/))
+- [Agility CMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-agilitycms) ([Demo](https://next-blog-agilitycms.vercel.app/))
+- [Cosmic Example](https://github.com/vercel/next.js/tree/canary/examples/cms-cosmic) ([Demo](https://next-blog-cosmic.vercel.app/))
+- [ButterCMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-buttercms) ([Demo](https://next-blog-buttercms.vercel.app/))
+- [Storyblok Example](https://github.com/vercel/next.js/tree/canary/examples/cms-storyblok) ([Demo](https://next-blog-storyblok.vercel.app/))
+- [GraphCMS Example](https://github.com/vercel/next.js/tree/canary/examples/cms-graphcms) ([Demo](https://next-blog-graphcms.vercel.app/))
+- [Kontent Example](https://github.com/vercel/next.js/tree/canary/examples/cms-kontent) ([Demo](https://next-blog-kontent.vercel.app//))
 
 In the [Pages documentation](/docs/basic-features/pages.md) and the [Data Fetching documentation](/docs/basic-features/data-fetching.md), we talked about how to pre-render a page at build time (**Static Generation**) using `getStaticProps` and `getStaticPaths`.
 
@@ -26,8 +25,7 @@ Static Generation is useful when your pages fetch data from a headless CMS. Howe
 
 Next.js has a feature called **Preview Mode** which solves this problem. Here are instructions on how to use it.
 
-Step 1. Create and access a preview API route
----------------------------------------------
+## Step 1. Create and access a preview API route
 
 > Take a look at the [API Routes documentation](/docs/api-routes/introduction.md) first if you’re not familiar with Next.js API Routes.
 
@@ -57,7 +55,7 @@ If you use your browser’s developer tools, you’ll notice that the `__prerend
 
 ### Securely accessing it from your Headless CMS
 
-In practice, you’d want to call this API route *securely* from your headless CMS. The specific steps will vary depending on which headless CMS you’re using, but here are some common steps you could take.
+In practice, you’d want to call this API route _securely_ from your headless CMS. The specific steps will vary depending on which headless CMS you’re using, but here are some common steps you could take.
 
 These steps assume that the headless CMS you’re using supports setting **custom preview URLs**. If it doesn’t, you can still use this method to secure your preview URLs, but you’ll need to construct and access the preview URL manually.
 
@@ -67,46 +65,45 @@ These steps assume that the headless CMS you’re using supports setting **custo
 
     https://<your-site>/api/preview?secret=<token>&slug=<path>
 
--   `<your-site>` should be your deployment domain.
--   `<token>` should be replaced with the secret token you generated.
--   `<path>` should be the path for the page that you want to preview. If you want to preview `/posts/foo`, then you should use `&slug=/posts/foo`.
+- `<your-site>` should be your deployment domain.
+- `<token>` should be replaced with the secret token you generated.
+- `<path>` should be the path for the page that you want to preview. If you want to preview `/posts/foo`, then you should use `&slug=/posts/foo`.
 
 Your headless CMS might allow you to include a variable in the preview URL so that `<path>` can be set dynamically based on the CMS’s data like so: `&slug=/posts/{entry.fields.slug}`
 
 **Finally**, in the preview API route:
 
--   Check that the secret matches and that the `slug` parameter exists (if not, the request should fail).
--   -   Call `res.setPreviewData`.
--   Then redirect the browser to the path specified by `slug`. (The following example uses a [307 redirect](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307)).
+- Check that the secret matches and that the `slug` parameter exists (if not, the request should fail).
+- - Call `res.setPreviewData`.
+- Then redirect the browser to the path specified by `slug`. (The following example uses a [307 redirect](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/307)).
 
-    export default async (req, res) => {
-      // Check the secret and next parameters
-      // This secret should only be known to this API route and the CMS
-      if (req.query.secret !== 'MY_SECRET_TOKEN' || !req.query.slug) {
-        return res.status(401).json({ message: 'Invalid token' })
-      }
+  export default async (req, res) => {
+  // Check the secret and next parameters
+  // This secret should only be known to this API route and the CMS
+  if (req.query.secret !== 'MY_SECRET_TOKEN' || !req.query.slug) {
+  return res.status(401).json({ message: 'Invalid token' })
+  }
 
-      // Fetch the headless CMS to check if the provided `slug` exists
-      // getPostBySlug would implement the required fetching logic to the headless CMS
-      const post = await getPostBySlug(req.query.slug)
+  // Fetch the headless CMS to check if the provided `slug` exists
+  // getPostBySlug would implement the required fetching logic to the headless CMS
+  const post = await getPostBySlug(req.query.slug)
 
-      // If the slug doesn't exist prevent preview mode from being enabled
-      if (!post) {
-        return res.status(401).json({ message: 'Invalid slug' })
-      }
+  // If the slug doesn't exist prevent preview mode from being enabled
+  if (!post) {
+  return res.status(401).json({ message: 'Invalid slug' })
+  }
 
-      // Enable Preview Mode by setting the cookies
-      res.setPreviewData({})
+  // Enable Preview Mode by setting the cookies
+  res.setPreviewData({})
 
-      // Redirect to the path from the fetched post
-      // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
-      res.redirect(post.slug)
-    }
+  // Redirect to the path from the fetched post
+  // We don't redirect to req.query.slug as that might lead to open redirect vulnerabilities
+  res.redirect(post.slug)
+  }
 
 If it succeeds, then the browser will be redirected to the path you want to preview with the preview mode cookies being set.
 
-Step 2. Update `getStaticProps`
--------------------------------
+## Step 2. Update `getStaticProps`
 
 The next step is to update `getStaticProps` to support the preview mode.
 
@@ -114,16 +111,16 @@ If you request a page which has `getStaticProps` with the preview mode cookies s
 
 Furthermore, it will be called with a `context` object where:
 
--   `context.preview` will be `true`.
--   `context.previewData` will be the same as the argument used for `setPreviewData`.
+- `context.preview` will be `true`.
+- `context.previewData` will be the same as the argument used for `setPreviewData`.
 
-    export async function getStaticProps(context) {
-      // If you request this page with the preview mode cookies set:
-      //
-      // - context.preview will be true
-      // - context.previewData will be the same as
-      //   the argument used for `setPreviewData`.
-    }
+  export async function getStaticProps(context) {
+  // If you request this page with the preview mode cookies set:
+  //
+  // - context.preview will be true
+  // - context.previewData will be the same as
+  // the argument used for `setPreviewData`.
+  }
 
 We used `res.setPreviewData({})` in the preview API route, so `context.previewData` will be `{}`. You can use this to pass session information from the preview API route to `getStaticProps` if necessary.
 
@@ -149,8 +146,7 @@ That’s it! If you access the preview API route (with `secret` and `slug`) from
     # and you should be able to see the preview.
     https://<your-site>/api/preview?secret=<token>&slug=<path>
 
-More Details
-------------
+## More Details
 
 ### Clear the preview mode cookies
 
@@ -169,11 +165,11 @@ To clear the preview cookies manually, you can create an API route which calls `
 
 `setPreviewData` takes an optional second parameter which should be an options object. It accepts the following keys:
 
--   `maxAge`: Specifies the number (in seconds) for the preview session to last for.
+- `maxAge`: Specifies the number (in seconds) for the preview session to last for.
 
-    setPreviewData(data, {
-      maxAge: 60 * 60, // The preview mode cookies expire in 1 hour
-    })
+  setPreviewData(data, {
+  maxAge: 60 \* 60, // The preview mode cookies expire in 1 hour
+  })
 
 ### `previewData` size limits
 
@@ -199,8 +195,7 @@ Both the bypass cookie value and the private key for encrypting the `previewData
 
 > **Note:** To test Preview Mode locally over HTTP your browser will need to allow third-party cookies and local storage access.
 
-Learn more
-----------
+## Learn more
 
 The following pages might also be useful.
 

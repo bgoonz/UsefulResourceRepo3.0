@@ -1,5 +1,4 @@
-API routes in Static export
-===========================
+# API routes in Static export
 
 #### Why This Warning Occurred
 
@@ -13,4 +12,4 @@ Use `next build` with platforms that don’t require `next export` like https://
 
 ### Useful Links
 
--   [Static HTML export](https://nextjs.org/docs/advanced-features/static-html-export)
+- [Static HTML export](https://nextjs.org/docs/advanced-features/static-html-export)

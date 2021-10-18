@@ -1,5 +1,4 @@
-Security Headers
-================
+# Security Headers
 
 To improve the security of your application, you can use [`headers`](/docs/api-reference/next.config.js/headers.md) in `next.config.js` to apply HTTP response headers to all routes in your application.
 
@@ -21,8 +20,7 @@ To improve the security of your application, you can use [`headers`](/docs/api-r
       },
     }
 
-Options
--------
+## Options
 
 ### [X-DNS-Prefetch-Control](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-DNS-Prefetch-Control)
 
@@ -102,13 +100,12 @@ You can read about the many different CSP options [here](https://developer.mozil
 
 ### References
 
--   [MDN](https://developer.mozilla.org)
--   [Varun Naik](https://blog.vnaik.com/posts/web-attacks.html)
--   [Scott Helme](https://scotthelme.co.uk)
--   [Mozilla Observatory](https://observatory.mozilla.org/)
+- [MDN](https://developer.mozilla.org)
+- [Varun Naik](https://blog.vnaik.com/posts/web-attacks.html)
+- [Scott Helme](https://scotthelme.co.uk)
+- [Mozilla Observatory](https://observatory.mozilla.org/)
 
-Related
--------
+## Related
 
 For more information, we recommend the following sections:
 

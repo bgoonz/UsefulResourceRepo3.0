@@ -1,19 +1,17 @@
-API Middlewares
-===============
+# API Middlewares
 
 **Examples**
 
--   [API Routes with middleware](https://github.com/vercel/next.js/tree/canary/examples/api-routes-middleware)
--   [API Routes with CORS](https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors)
+- [API Routes with middleware](https://github.com/vercel/next.js/tree/canary/examples/api-routes-middleware)
+- [API Routes with CORS](https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors)
 
 API routes provide built in middlewares which parse the incoming request (`req`). Those middlewares are:
 
--   `req.cookies` - An object containing the cookies sent by the request. Defaults to `{}`
--   `req.query` - An object containing the [query string](https://en.wikipedia.org/wiki/Query_string). Defaults to `{}`
--   `req.body` - An object containing the body parsed by `content-type`, or `null` if no body was sent
+- `req.cookies` - An object containing the cookies sent by the request. Defaults to `{}`
+- `req.query` - An object containing the [query string](https://en.wikipedia.org/wiki/Query_string). Defaults to `{}`
+- `req.body` - An object containing the body parsed by `content-type`, or `null` if no body was sent
 
-Custom config
--------------
+## Custom config
 
 Every API route can export a `config` object to change the default configs, which are the following:
 
@@ -45,7 +43,7 @@ The `api` object includes all configs available for API routes.
       },
     }
 
-`externalResolver` is an explicit flag that tells the server that this route is being handled by an external resolver like *express* or *connect*. Enabling this option disables warnings for unresolved requests.
+`externalResolver` is an explicit flag that tells the server that this route is being handled by an external resolver like _express_ or _connect_. Enabling this option disables warnings for unresolved requests.
 
     export const config = {
       api: {
@@ -53,8 +51,7 @@ The `api` object includes all configs available for API routes.
       },
     }
 
-Connect/Express middleware support
-----------------------------------
+## Connect/Express middleware support
 
 You can also use [Connect](https://github.com/senchalabs/connect) compatible middleware.
 
@@ -101,8 +98,7 @@ Now, let’s add `cors` to the API route:
 
 > Go to the [API Routes with CORS](https://github.com/vercel/next.js/tree/canary/examples/api-routes-cors) example to see the finished app
 
-Extending the `req`/`res` objects with TypeScript
--------------------------------------------------
+## Extending the `req`/`res` objects with TypeScript
 
 For better type-safety, it is not recommended to extend the `req` and `res` objects. Instead, use functions to work with them:
 

@@ -1,23 +1,23 @@
-import { join } from "path"
+import { join } from 'path'
 
 const ROOT_FOLDER_PATH =
-  "//NAS-BACKUP/Web Dev Simplified/Courses/JavaScript Simplified/Edited Videos/Advanced Section"
+  '//NAS-BACKUP/Web Dev Simplified/Courses/JavaScript Simplified/Edited Videos/Advanced Section'
 
-it("uploads thumbnails and removes .mp4 from name", () => {
-  cy.visit("https://app.podia.com/products/javascript-simplified-advanced")
-  cy.get("#email").type(Cypress.env("USERNAME"))
-  cy.get("#password").type(Cypress.env("PASSWORD"))
+it('uploads thumbnails and removes .mp4 from name', () => {
+  cy.visit('https://app.podia.com/products/javascript-simplified-advanced')
+  cy.get('#email').type(Cypress.env('USERNAME'))
+  cy.get('#password').type(Cypress.env('PASSWORD'))
   cy.get('form input[type="submit"]').click()
-  cy.get(".section-block-list a.btn:contains(Edit)").each((element, index) => {
+  cy.get('.section-block-list a.btn:contains(Edit)').each((element, index) => {
     cy.wrap(element).click()
     cy.wait(1000)
-    cy.get("#block_title")
-      .invoke("val")
-      .then(text => {
-        cy.get("#block_title")
+    cy.get('#block_title')
+      .invoke('val')
+      .then((text) => {
+        cy.get('#block_title')
           .clear()
           .type(
-            text.replace(".mp4", "").replace(/^\d\d/, numberToString(index + 1))
+            text.replace('.mp4', '').replace(/^\d\d/, numberToString(index + 1))
           )
 
         // cy.task("getFiles", ROOT_FOLDER_PATH).then(thumbnailFiles => {
@@ -28,7 +28,7 @@ it("uploads thumbnails and removes .mp4 from name", () => {
         //     .then(Cypress.Blob.arrayBufferToBlob)
         //     .then(file => {
         //       console.log(file)
-        cy.get("#custom-thumbnail").click()
+        cy.get('#custom-thumbnail').click()
         cy.wait(5000)
         //       cy.get(".dropzone").attachFile(
         //         {

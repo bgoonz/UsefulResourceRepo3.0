@@ -1,25 +1,47 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>app-container-deprecated</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="app-container-deprecated">App Container Deprecated</h1>
-<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
-<p>In versions prior to v9.0.4 the <code>&lt;Container&gt;</code> component was used in <code>./pages/_app.js</code> to handle scrolling to hashes. This handling has been moved up the tree so the <code>&lt;Container&gt;</code> component is no longer needed in your custom <code>&lt;App&gt;</code>!</p>
-<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
-<p>Remove the <code>&lt;Container&gt;</code> component from your Custom <code>&lt;App&gt;</code> (<code>./pages/_app.js</code>).</p>
-<p><strong>Before</strong></p>
-<pre class="jsx"><code>import React from &#39;react&#39;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>app-container-deprecated</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="app-container-deprecated">App Container Deprecated</h1>
+    <h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+    <p>
+      In versions prior to v9.0.4 the <code>&lt;Container&gt;</code> component
+      was used in <code>./pages/_app.js</code> to handle scrolling to hashes.
+      This handling has been moved up the tree so the
+      <code>&lt;Container&gt;</code> component is no longer needed in your
+      custom <code>&lt;App&gt;</code>!
+    </p>
+    <h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+    <p>
+      Remove the <code>&lt;Container&gt;</code> component from your Custom
+      <code>&lt;App&gt;</code> (<code>./pages/_app.js</code>).
+    </p>
+    <p><strong>Before</strong></p>
+    <pre class="jsx"><code>import React from &#39;react&#39;
 import App, { Container } from &#39;next/app&#39;
 
 class MyApp extends App {
@@ -34,8 +56,8 @@ class MyApp extends App {
 }
 
 export default MyApp</code></pre>
-<p><strong>After</strong></p>
-<pre class="jsx"><code>import React from &#39;react&#39;
+    <p><strong>After</strong></p>
+    <pre class="jsx"><code>import React from &#39;react&#39;
 import App from &#39;next/app&#39;
 
 class MyApp extends App {
@@ -46,5 +68,5 @@ class MyApp extends App {
 }
 
 export default MyApp</code></pre>
-</body>
+  </body>
 </html>

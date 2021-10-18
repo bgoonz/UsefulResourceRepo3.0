@@ -1,5 +1,4 @@
-Conflicting AMP Tag
-===================
+# Conflicting AMP Tag
 
 #### Why This Error Occurred
 

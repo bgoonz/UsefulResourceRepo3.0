@@ -1,5 +1,4 @@
-Global CSS Must Be in Your Custom &lt;App&gt;
-=============================================
+# Global CSS Must Be in Your Custom &lt;App&gt;
 
 #### Why This Error Occurred
 

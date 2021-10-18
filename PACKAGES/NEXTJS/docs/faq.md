@@ -1,5 +1,4 @@
-Frequently Asked Questions
-==========================
+# Frequently Asked Questions
 
 Is this production ready?
 
@@ -23,8 +22,8 @@ See the documentation about [customizing babel config](/docs/advanced-features/c
 
 Why a new Router? Next.js is special in that:
 
--   Routes don’t need to be known ahead of time, We don’t ship a route manifest
--   Routes are always lazy-loadable
+- Routes don’t need to be known ahead of time, We don’t ship a route manifest
+- Routes are always lazy-loadable
 
 How do I fetch data?
 

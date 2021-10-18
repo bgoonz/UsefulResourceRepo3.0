@@ -1,5 +1,4 @@
-Build directory not writeable
-=============================
+# Build directory not writeable
 
 #### Why This Error Occurred
 
@@ -24,4 +23,4 @@ and the custom server starts Next in production mode when `NODE_ENV` is `product
 
 ### Useful Links
 
--   [Custom Server documentation + examples](https://nextjs.org/docs/advanced-features/custom-server)
+- [Custom Server documentation + examples](https://nextjs.org/docs/advanced-features/custom-server)

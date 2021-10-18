@@ -1,32 +1,29 @@
-Going to Production
-===================
+# Going to Production
 
 Before taking your Next.js application to production, here are some recommendations to ensure the best user experience.
 
-In General
-----------
+## In General
 
--   Use [caching](#caching) wherever possible.
--   Ensure your database and backend are deployed in the same region.
--   Aim to ship the least amount of JavaScript possible.
--   Defer loading heavy JavaScript bundles until needed.
--   Ensure [logging](#logging) is set up.
--   Ensure [error handling](#error-handling) is set up.
--   Configure the [404](/docs/advanced-features/custom-error-page.md#404-page) (Not Found) and [500](/docs/advanced-features/custom-error-page.md#500-page) (Error) pages.
--   Ensure you are [measuring performance](/docs/advanced-features/measuring-performance.md).
--   Run [Lighthouse](https://developers.google.com/web/tools/lighthouse) to check for performance, best practices, accessibility, and SEO. For best results, use a production build of Next.js and use incognito in your browser so results aren’t affected by extensions.
--   Review [Supported Browsers and Features](/docs/basic-features/supported-browsers-features.md).
--   Improve performance using:
-    -   [`next/image` and Automatic Image Optimization](/docs/basic-features/image-optimization.md)
-    -   [Automatic Font Optimization](/docs/basic-features/font-optimization.md)
-    -   [Script Optimization](/docs/basic-features/script.md)
+- Use [caching](#caching) wherever possible.
+- Ensure your database and backend are deployed in the same region.
+- Aim to ship the least amount of JavaScript possible.
+- Defer loading heavy JavaScript bundles until needed.
+- Ensure [logging](#logging) is set up.
+- Ensure [error handling](#error-handling) is set up.
+- Configure the [404](/docs/advanced-features/custom-error-page.md#404-page) (Not Found) and [500](/docs/advanced-features/custom-error-page.md#500-page) (Error) pages.
+- Ensure you are [measuring performance](/docs/advanced-features/measuring-performance.md).
+- Run [Lighthouse](https://developers.google.com/web/tools/lighthouse) to check for performance, best practices, accessibility, and SEO. For best results, use a production build of Next.js and use incognito in your browser so results aren’t affected by extensions.
+- Review [Supported Browsers and Features](/docs/basic-features/supported-browsers-features.md).
+- Improve performance using:
+  - [`next/image` and Automatic Image Optimization](/docs/basic-features/image-optimization.md)
+  - [Automatic Font Optimization](/docs/basic-features/font-optimization.md)
+  - [Script Optimization](/docs/basic-features/script.md)
 
-Caching
--------
+## Caching
 
 **Examples**
 
--   [ssr-caching](https://github.com/vercel/next.js/tree/canary/examples/ssr-caching)
+- [ssr-caching](https://github.com/vercel/next.js/tree/canary/examples/ssr-caching)
 
 Caching improves response times and reduces the number of requests to external services. Next.js automatically adds caching headers to immutable assets served from `/_next/static` including JavaScript, CSS, static images, and other media.
 
@@ -60,49 +57,45 @@ You can also use caching headers inside `getServerSideProps` and API Routes for 
 
 > **Note:** Your deployment provider must support edge caching for dynamic responses. If you are self-hosting, you will need to add this logic to the edge yourself using a key/value store. If you are using Vercel, [edge caching works without configuration](https://vercel.com/docs/edge-network/caching).
 
-Reducing JavaScript Size
-------------------------
+## Reducing JavaScript Size
 
 **Examples**
 
--   [with-dynamic-import](https://github.com/vercel/next.js/tree/canary/examples/with-dynamic-import)
+- [with-dynamic-import](https://github.com/vercel/next.js/tree/canary/examples/with-dynamic-import)
 
 To reduce the amount of JavaScript sent to the browser, you can use the following tools to understand what is included inside each JavaScript bundle:
 
--   [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost) – Display the size of the imported package inside VSCode.
--   [Package Phobia](https://packagephobia.com/) – Find the cost of adding a new dev dependency to your project.
--   [Bundle Phobia](https://bundlephobia.com/) - Analyze how much a dependency can increase bundle sizes.
--   [Webpack Bundle Analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer) – Visualize size of webpack output files with an interactive, zoomable treemap.
+- [Import Cost](https://marketplace.visualstudio.com/items?itemName=wix.vscode-import-cost) – Display the size of the imported package inside VSCode.
+- [Package Phobia](https://packagephobia.com/) – Find the cost of adding a new dev dependency to your project.
+- [Bundle Phobia](https://bundlephobia.com/) - Analyze how much a dependency can increase bundle sizes.
+- [Webpack Bundle Analyzer](https://github.com/vercel/next.js/tree/canary/packages/next-bundle-analyzer) – Visualize size of webpack output files with an interactive, zoomable treemap.
 
 Each file inside your `pages/` directory will automatically be code split into its own JavaScript bundle during `next build`. You can also use [Dynamic Imports](/docs/advanced-features/dynamic-import.md) to lazy-load components and libraries. For example, you might want to defer loading your modal code until a user clicks the open button.
 
-Logging
--------
+## Logging
 
 **Examples**
 
--   [with-logging](https://github.com/Logflare/next-pino-logflare-logging-example)
+- [with-logging](https://github.com/Logflare/next-pino-logflare-logging-example)
 
 Since Next.js runs on both the client and server, there are multiple forms of logging supported:
 
--   `console.log` in the browser
--   `stdout` on the server
+- `console.log` in the browser
+- `stdout` on the server
 
 If you want a structured logging package, we recommend [Pino](https://www.npmjs.com/package/pino). If you’re using Vercel, there are [pre-built logging integrations](https://vercel.com/integrations#logging) compatible with Next.js.
 
-Error Handling
---------------
+## Error Handling
 
 **Examples**
 
--   [with-sentry](https://github.com/vercel/next.js/tree/canary/examples/with-sentry)
+- [with-sentry](https://github.com/vercel/next.js/tree/canary/examples/with-sentry)
 
 When an unhandled exception occurs, you can control the experience for your users with the [500 page](/docs/advanced-features/custom-error-page.md#500-page). We recommend customizing this to your brand instead of the default Next.js theme.
 
 You can also log and track exceptions with a tool like Sentry. [This example](https://github.com/vercel/next.js/tree/canary/examples/with-sentry) shows how to catch & report errors on both the client and server-side, using the Sentry SDK for Next.js. There’s also a [Sentry integration for Vercel](https://vercel.com/integrations/sentry).
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

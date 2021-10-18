@@ -1,5 +1,4 @@
-ESLint
-======
+# ESLint
 
 Since version **11.0.0**, Next.js provides an integrated [ESLint](https://eslint.org/) experience out of the box. Add `next lint` as a script to `package.json`:
 
@@ -25,19 +24,19 @@ If you don’t already have ESLint configured in your application, you will be g
 
 One of the following three options can be selected:
 
--   **Strict**: Includes Next.js’ base ESLint configuration along with a stricter [Core Web Vitals rule-set](/docs/basic-features/eslint.md#core-web-vitals). This is the recommended configuration for developers setting up ESLint for the first time.
+- **Strict**: Includes Next.js’ base ESLint configuration along with a stricter [Core Web Vitals rule-set](/docs/basic-features/eslint.md#core-web-vitals). This is the recommended configuration for developers setting up ESLint for the first time.
 
-        {
-          "extends": "next/core-web-vitals"
-        }
+      {
+        "extends": "next/core-web-vitals"
+      }
 
--   **Base**: Includes Next.js’ base ESLint configuration.
+- **Base**: Includes Next.js’ base ESLint configuration.
 
-        {
-          "extends": "next"
-        }
+      {
+        "extends": "next"
+      }
 
--   **Cancel**: Does not include any ESLint configuration. Only select this option if you plan on setting up your own custom ESLint configuration.
+- **Cancel**: Does not include any ESLint configuration. Only select this option if you plan on setting up your own custom ESLint configuration.
 
 If either of the two configuration options are selected, Next.js will automatically install `eslint` and `eslint-config-next` as development dependencies in your application and create an `.eslintrc.json` file in the root of your project that includes your selected configuration.
 
@@ -47,8 +46,7 @@ You can now run `next lint` every time you want to run ESLint to catch errors. O
 
 We recommend using an appropriate [integration](https://eslint.org/docs/user-guide/integrations#editors) to view warnings and errors directly in your code editor during development.
 
-ESLint Config
--------------
+## ESLint Config
 
 The default configuration (`eslint-config-next`) includes everything you need to have an optimal out-of-the-box linting experience in Next.js. If you do not have ESLint already configured in your application, we recommend using `next lint` to set up ESLint along with this configuration.
 
@@ -56,22 +54,21 @@ The default configuration (`eslint-config-next`) includes everything you need to
 
 Recommended rule-sets from the following ESLint plugins are all used within `eslint-config-next`:
 
--   [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)
--   [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks)
--   [`eslint-plugin-next`](https://www.npmjs.com/package/@next/eslint-plugin-next)
+- [`eslint-plugin-react`](https://www.npmjs.com/package/eslint-plugin-react)
+- [`eslint-plugin-react-hooks`](https://www.npmjs.com/package/eslint-plugin-react-hooks)
+- [`eslint-plugin-next`](https://www.npmjs.com/package/@next/eslint-plugin-next)
 
 You can see the full details of the shareable configuration in the [`eslint-config-next`](https://www.npmjs.com/package/eslint-config-next) package.
 
 This will take precedence over the configuration from `next.config.js`.
 
-ESLint Plugin
--------------
+## ESLint Plugin
 
 Next.js provides an ESLint plugin, [`eslint-plugin-next`](https://www.npmjs.com/package/@next/eslint-plugin-next), already bundled within the base configuration that makes it possible to catch common issues and problems in a Next.js application. The full set of rules is as follows:
 
 <table style="width:99%;"><colgroup><col style="width: 1%" /><col style="width: 42%" /><col style="width: 56%" /></colgroup><thead><tr class="header"><th style="text-align: center;"></th><th>Rule</th><th>Description</th></tr></thead><tbody><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/google-font-display">next/google-font-display</a></td><td>Enforce optional or swap font-display behavior with Google Fonts</td></tr><tr class="even"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/google-font-preconnect">next/google-font-preconnect</a></td><td>Enforce preconnect usage with Google Fonts</td></tr><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/link-passhref">next/link-passhref</a></td><td>Enforce passHref prop usage with custom Link components</td></tr><tr class="even"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-css-tags">next/no-css-tags</a></td><td>Prevent manual stylesheet tags</td></tr><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-document-import-in-page">next/no-document-import-in-page</a></td><td>Disallow importing next/document outside of pages/document.js</td></tr><tr class="even"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-head-import-in-document">next/no-head-import-in-document</a></td><td>Disallow importing next/head in pages/document.js</td></tr><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-html-link-for-pages">next/no-html-link-for-pages</a></td><td>Prohibit HTML anchor links to pages without a Link component</td></tr><tr class="even"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-img-element">next/no-img-element</a></td><td>Prohibit usage of HTML &lt;img&gt; element</td></tr><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-page-custom-font">next/no-page-custom-font</a></td><td>Prevent page-only custom fonts</td></tr><tr class="even"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-sync-scripts">next/no-sync-scripts</a></td><td>Forbid synchronous scripts</td></tr><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-title-in-document-head">next/no-title-in-document-head</a></td><td>Disallow using &lt;title&gt; with Head from next/document</td></tr><tr class="even"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/no-unwanted-polyfillio">next/no-unwanted-polyfillio</a></td><td>Prevent duplicate polyfills from Polyfill.io</td></tr><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/inline-script-id">next/inline-script-id</a></td><td>Enforce id attribute on next/script components with inline content</td></tr><tr class="even"><td style="text-align: center;">✔️</td><td>next/no-typos</td><td>Ensure no typos were made declaring <a href="https://nextjs.org/docs/basic-features/data-fetching">Next.js’s data fetching function</a></td></tr><tr class="odd"><td style="text-align: center;">✔️</td><td><a href="https://nextjs.org/docs/messages/next-script-for-ga">next/next-script-for-ga</a></td><td>Use the Script component to defer loading of the script until necessary.</td></tr></tbody></table>
 
--   ✔: Enabled in the recommended configuration
+- ✔: Enabled in the recommended configuration
 
 If you already have ESLint configured in your application, we recommend extending from this plugin directly instead of including `eslint-config-next` unless a few conditions are met. Refer to the [Recommended Plugin Ruleset](/docs/basic-features/eslint.md#recommended-plugin-ruleset) to learn more.
 
@@ -92,8 +89,7 @@ If you’re using `eslint-plugin-next` in a project where Next.js isn’t instal
 
 `rootDir` can be a path (relative or absolute), a glob (i.e. `"/packages/*/"`), or an array of paths and/or globs.
 
-Linting Custom Directories and Files
-------------------------------------
+## Linting Custom Directories and Files
 
 By default, Next.js will run ESLint for all files in the `pages/`, `components/`, and `lib/` directories. However, you can specify which directories using the `dirs` option in the `eslint` config in `next.config.js` for production builds:
 
@@ -107,15 +103,13 @@ Similarly, the `--dir` and `--file` flags can be used for `next lint` to lint sp
 
     next lint --dir pages --dir utils --file bar.js
 
-Caching
--------
+## Caching
 
 To improve performance, information of files processed by ESLint are cached by default. This is stored in `.next/cache` or in your defined [build directory](/docs/api-reference/next.config.js/setting-a-custom-build-directory). If you include any ESLint rules that depend on more than the contents of a single source file and need to disable the cache, use the `--no-cache` flag with `next lint`.
 
     next lint --no-cache
 
-Disabling Rules
----------------
+## Disabling Rules
 
 If you would like to modify or disable any rules provided by the supported plugins (`react`, `react-hooks`, `next`), you can directly change them using the `rules` property in your `.eslintrc`:
 
@@ -139,8 +133,7 @@ The `next/core-web-vitals` rule set is enabled when `next lint` is run for the f
 
 > The `next/core-web-vitals` entry point is automatically included for new applications built with [Create Next App](/docs/api-reference/create-next-app.md).
 
-Usage With Other Tools
-----------------------
+## Usage With Other Tools
 
 ### Prettier
 
@@ -161,20 +154,19 @@ If you would like to use `next lint` with [lint-staged](https://github.com/okone
           .join(' --file ')}`,
     }
 
-Migrating Existing Config
--------------------------
+## Migrating Existing Config
 
 ### Recommended Plugin Ruleset
 
 If you already have ESLint configured in your application and any of the following conditions are true:
 
--   You have one or more of the following plugins already installed (either separately or through a different config such as `airbnb` or `react-app`):
-    -   `react`
-    -   `react-hooks`
-    -   `jsx-a11y`
-    -   `import`
--   You’ve defined specific `parserOptions` that are different from how Babel is configured within Next.js (this is not recommended unless you have [customized your Babel configuration](/docs/advanced-features/customizing-babel-config.md))
--   You have `eslint-plugin-import` installed with Node.js and/or TypeScript [resolvers](https://github.com/benmosher/eslint-plugin-import#resolvers) defined to handle imports
+- You have one or more of the following plugins already installed (either separately or through a different config such as `airbnb` or `react-app`):
+  - `react`
+  - `react-hooks`
+  - `jsx-a11y`
+  - `import`
+- You’ve defined specific `parserOptions` that are different from how Babel is configured within Next.js (this is not recommended unless you have [customized your Babel configuration](/docs/advanced-features/customizing-babel-config.md))
+- You have `eslint-plugin-import` installed with Node.js and/or TypeScript [resolvers](https://github.com/benmosher/eslint-plugin-import#resolvers) defined to handle imports
 
 Then we recommend either removing these settings if you prefer how these properties have been configured within [`eslint-config-next`](https://github.com/vercel/next.js/blob/canary/packages/eslint-config-next/index.js) or extending directly from the Next.js ESLint plugin instead:
 

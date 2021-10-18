@@ -1,10 +1,8 @@
-next/router
-===========
+# next/router
 
 > Before moving forward, we recommend you to read [Routing Introduction](/docs/routing/introduction.md) first.
 
-useRouter
----------
+## useRouter
 
 If you want to access the [`router` object](#router-object) inside any function component in your app, you can use the `useRouter` hook, take a look at the following example:
 
@@ -33,22 +31,21 @@ If you want to access the [`router` object](#router-object) inside any function 
 
 > `useRouter` is a [React Hook](https://reactjs.org/docs/hooks-intro.html), meaning it cannot be used with classes. You can either use [withRouter](#withRouter) or wrap your class in a function component.
 
-`router` object
----------------
+## `router` object
 
 The following is the definition of the `router` object returned by both [`useRouter`](#useRouter) and [`withRouter`](#withRouter):
 
--   `pathname`: `String` - Current route. That is the path of the page in `/pages`, the configured `basePath` or `locale` is not included.
--   `query`: `Object` - The query string parsed to an object. It will be an empty object during prerendering if the page doesn’t have [data fetching requirements](/docs/basic-features/data-fetching.md). Defaults to `{}`
--   `asPath`: `String` - The path (including the query) shown in the browser without the configured `basePath` or `locale`.
--   `isFallback`: `boolean` - Whether the current page is in [fallback mode](/docs/basic-features/data-fetching.md#fallback-pages).
--   `basePath`: `String` - The active [basePath](/docs/api-reference/next.config.js/basepath.md) (if enabled).
--   `locale`: `String` - The active locale (if enabled).
--   `locales`: `String[]` - All supported locales (if enabled).
--   `defaultLocale`: `String` - The current default locale (if enabled).
--   `domainLocales`: `Array<{domain, defaultLocale, locales}>` - Any configured domain locales.
--   `isReady`: `boolean` - Whether the router fields are updated client-side and ready for use. Should only be used inside of `useEffect` methods and not for conditionally rendering on the server.
--   `isPreview`: `boolean` - Whether the application is currently in [preview mode](/docs/advanced-features/preview-mode.md).
+- `pathname`: `String` - Current route. That is the path of the page in `/pages`, the configured `basePath` or `locale` is not included.
+- `query`: `Object` - The query string parsed to an object. It will be an empty object during prerendering if the page doesn’t have [data fetching requirements](/docs/basic-features/data-fetching.md). Defaults to `{}`
+- `asPath`: `String` - The path (including the query) shown in the browser without the configured `basePath` or `locale`.
+- `isFallback`: `boolean` - Whether the current page is in [fallback mode](/docs/basic-features/data-fetching.md#fallback-pages).
+- `basePath`: `String` - The active [basePath](/docs/api-reference/next.config.js/basepath.md) (if enabled).
+- `locale`: `String` - The active locale (if enabled).
+- `locales`: `String[]` - All supported locales (if enabled).
+- `defaultLocale`: `String` - The current default locale (if enabled).
+- `domainLocales`: `Array<{domain, defaultLocale, locales}>` - Any configured domain locales.
+- `isReady`: `boolean` - Whether the router fields are updated client-side and ready for use. Should only be used inside of `useEffect` methods and not for conditionally rendering on the server.
+- `isPreview`: `boolean` - Whether the application is currently in [preview mode](/docs/advanced-features/preview-mode.md).
 
 Additionally, the following methods are also included inside `router`:
 
@@ -56,18 +53,18 @@ Additionally, the following methods are also included inside `router`:
 
 **Examples**
 
--   [Using Router](https://github.com/vercel/next.js/tree/canary/examples/using-router)
+- [Using Router](https://github.com/vercel/next.js/tree/canary/examples/using-router)
 
 Handles client-side transitions, this method is useful for cases where [`next/link`](/docs/api-reference/next/link.md) is not enough.
 
     router.push(url, as, options)
 
--   `url` - The URL to navigate to
--   `as` - Optional decorator for the path that will be shown in the browser URL bar. Before Next.js 9.5.3 this was used for dynamic routes, check our [previous docs](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes) to see how it worked. Note: when this path differs from the one provided in `href` the previous `href`/`as` behavior is used as shown in the [previous docs](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes)
--   `options` - Optional object with the following configuration options:
-    -   `scroll` - Optional boolean, controls scrolling to the top of the page after navigation. Defaults to `true`
-    -   [`shallow`](/docs/routing/shallow-routing.md): Update the path of the current page without rerunning [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering) or [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md). Defaults to `false`
-    -   `locale` - Optional string, indicates locale of the new page
+- `url` - The URL to navigate to
+- `as` - Optional decorator for the path that will be shown in the browser URL bar. Before Next.js 9.5.3 this was used for dynamic routes, check our [previous docs](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes) to see how it worked. Note: when this path differs from the one provided in `href` the previous `href`/`as` behavior is used as shown in the [previous docs](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes)
+- `options` - Optional object with the following configuration options:
+  - `scroll` - Optional boolean, controls scrolling to the top of the page after navigation. Defaults to `true`
+  - [`shallow`](/docs/routing/shallow-routing.md): Update the path of the current page without rerunning [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering) or [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md). Defaults to `false`
+  - `locale` - Optional string, indicates locale of the new page
 
 > You don’t need to use `router.push` for external URLs. [window.location](https://developer.mozilla.org/en-US/docs/Web/API/Window/location) is better suited for those cases.
 
@@ -154,7 +151,7 @@ Similar to the `replace` prop in [`next/link`](/docs/api-reference/next/link.md)
 
     router.replace(url, as, options)
 
--   The API for `router.replace` is exactly the same as the API for [`router.push`](#router.push).
+- The API for `router.replace` is exactly the same as the API for [`router.push`](#router.push).
 
 #### Usage
 
@@ -180,8 +177,8 @@ Prefetch pages for faster client-side transitions. This method is only useful fo
 
     router.prefetch(url, as)
 
--   `url` - The URL to prefetch, including explicit routes (e.g. `/dashboard`) and dynamic routes (e.g. `/product/[id]`)
--   `as` - Optional decorator for `url`. Before Next.js 9.5.3 this was used to prefetch dynamic routes, check our [previous docs](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes) to see how it worked
+- `url` - The URL to prefetch, including explicit routes (e.g. `/dashboard`) and dynamic routes (e.g. `/product/[id]`)
+- `as` - Optional decorator for `url`. Before Next.js 9.5.3 this was used to prefetch dynamic routes, check our [previous docs](https://nextjs.org/docs/tag/v9.5.2/api-reference/next/link#dynamic-routes) to see how it worked
 
 #### Usage
 
@@ -226,10 +223,10 @@ In some cases (for example, if using a [Custom Server](/docs/advanced-features/c
 
     router.beforePopState(cb)
 
--   `cb` - The function to run on incoming `popstate` events. The function receives the state of the event as an object with the following props:
-    -   `url`: `String` - the route for the new state. This is usually the name of a `page`
-    -   `as`: `String` - the url that will be shown in the browser
-    -   `options`: `Object` - Additional options sent by [router.push](#router.push)
+- `cb` - The function to run on incoming `popstate` events. The function receives the state of the event as an object with the following props:
+  - `url`: `String` - the route for the new state. This is usually the name of a `page`
+  - `as`: `String` - the url that will be shown in the browser
+  - `options`: `Object` - Additional options sent by [router.push](#router.push)
 
 If `cb` returns `false`, the Next.js router will not handle `popstate`, and you’ll be responsible for handling it in that case. See [Disabling file-system routing](/docs/advanced-features/custom-server.md#disabling-file-system-routing).
 
@@ -299,17 +296,17 @@ Reload the current URL. Equivalent to clicking the browser’s refresh button. I
 
 **Examples**
 
--   [With a page loading indicator](https://github.com/vercel/next.js/tree/canary/examples/with-loading)
+- [With a page loading indicator](https://github.com/vercel/next.js/tree/canary/examples/with-loading)
 
 You can listen to different events happening inside the Next.js Router. Here’s a list of supported events:
 
--   `routeChangeStart(url, { shallow })` - Fires when a route starts to change
--   `routeChangeComplete(url, { shallow })` - Fires when a route changed completely
--   `routeChangeError(err, url, { shallow })` - Fires when there’s an error when changing routes, or a route load is cancelled
-    -   `err.cancelled` - Indicates if the navigation was cancelled
--   `beforeHistoryChange(url, { shallow })` - Fires before changing the browser’s history
--   `hashChangeStart(url, { shallow })` - Fires when the hash will change but not the page
--   `hashChangeComplete(url, { shallow })` - Fires when the hash has changed but not the page
+- `routeChangeStart(url, { shallow })` - Fires when a route starts to change
+- `routeChangeComplete(url, { shallow })` - Fires when a route changed completely
+- `routeChangeError(err, url, { shallow })` - Fires when there’s an error when changing routes, or a route load is cancelled
+  - `err.cancelled` - Indicates if the navigation was cancelled
+- `beforeHistoryChange(url, { shallow })` - Fires before changing the browser’s history
+- `hashChangeStart(url, { shallow })` - Fires when the hash will change but not the page
+- `hashChangeComplete(url, { shallow })` - Fires when the hash has changed but not the page
 
 > **Note:** Here `url` is the URL shown in the browser, including the [`basePath`](/docs/api-reference/next.config.js/basepath.md).
 
@@ -375,8 +372,7 @@ If a route load is cancelled (for example, by clicking two links rapidly in succ
       return <Component {...pageProps} />
     }
 
-withRouter
-----------
+## withRouter
 
 If [`useRouter`](#useRouter) is not the best fit for you, `withRouter` can also add the same [`router` object](#router-object) to any component.
 

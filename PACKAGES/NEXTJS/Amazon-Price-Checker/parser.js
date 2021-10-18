@@ -12,10 +12,11 @@ checkPrice()
 
 async function checkPrice() {
   try {
-    const priceString = await nightmare.goto(url)
-                                       .wait("#priceblock_ourprice")
-                                       .evaluate(() => document.getElementById("priceblock_ourprice").innerText)
-                                       .end()
+    const priceString = await nightmare
+      .goto(url)
+      .wait('#priceblock_ourprice')
+      .evaluate(() => document.getElementById('priceblock_ourprice').innerText)
+      .end()
     const priceNumber = parseFloat(priceString.replace('$', ''))
     if (priceNumber < minPrice) {
       await sendEmail(
@@ -35,7 +36,7 @@ function sendEmail(subject, body) {
     from: 'amazon-price-checker@example.com',
     subject: subject,
     text: body,
-    html: body
+    html: body,
   }
 
   return sgMail.send(email)

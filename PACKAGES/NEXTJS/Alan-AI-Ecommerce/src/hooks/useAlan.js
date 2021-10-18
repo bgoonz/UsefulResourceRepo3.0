@@ -1,14 +1,14 @@
-import { useEffect, useState, useCallback } from "react"
-import alanBtn from "@alan-ai/alan-sdk-web"
-import { useCart } from "../context/CartContext"
-import storeItems from "../items.json"
+import { useEffect, useState, useCallback } from 'react'
+import alanBtn from '@alan-ai/alan-sdk-web'
+import { useCart } from '../context/CartContext'
+import storeItems from '../items.json'
 
 const COMMANDS = {
-  OPEN_CART: "open-cart",
-  CLOSE_CART: "close-cart",
-  ADD_ITEM: "add-item",
-  REMOVE_ITEM: "remove-item",
-  PURCHASE_ITEMS: "purchase-items"
+  OPEN_CART: 'open-cart',
+  CLOSE_CART: 'close-cart',
+  ADD_ITEM: 'add-item',
+  REMOVE_ITEM: 'remove-item',
+  PURCHASE_ITEMS: 'purchase-items',
 }
 
 export default function useAlan() {
@@ -19,23 +19,23 @@ export default function useAlan() {
     addToCart,
     removeFromCart,
     cart,
-    checkout
+    checkout,
   } = useCart()
 
   const openCart = useCallback(() => {
     if (isCartEmpty) {
-      alanInstance.playText("You have no items in your cart")
+      alanInstance.playText('You have no items in your cart')
     } else {
-      alanInstance.playText("Opening cart")
+      alanInstance.playText('Opening cart')
       setShowCartItems(true)
     }
   }, [alanInstance, isCartEmpty, setShowCartItems])
 
   const closeCart = useCallback(() => {
     if (isCartEmpty) {
-      alanInstance.playText("You have no items in your cart")
+      alanInstance.playText('You have no items in your cart')
     } else {
-      alanInstance.playText("Closing cart")
+      alanInstance.playText('Closing cart')
       setShowCartItems(false)
     }
   }, [alanInstance, isCartEmpty, setShowCartItems])
@@ -43,7 +43,7 @@ export default function useAlan() {
   const addItem = useCallback(
     ({ detail: { name, quantity } }) => {
       const item = storeItems.find(
-        i => i.name.toLowerCase() === name.toLowerCase()
+        (i) => i.name.toLowerCase() === name.toLowerCase()
       )
       if (item == null) {
         alanInstance.playText(`I cannot find the ${name} item`)
@@ -60,7 +60,7 @@ export default function useAlan() {
   const removeItem = useCallback(
     ({ detail: { name } }) => {
       const entry = cart.find(
-        e => e.item.name.toLowerCase() === name.toLowerCase()
+        (e) => e.item.name.toLowerCase() === name.toLowerCase()
       )
       if (entry == null) {
         alanInstance.playText(`I cannot find the ${name} item in your cart`)
@@ -74,9 +74,9 @@ export default function useAlan() {
 
   const purchaseItems = useCallback(() => {
     if (isCartEmpty) {
-      alanInstance.playText("Your cart is empty")
+      alanInstance.playText('Your cart is empty')
     } else {
-      alanInstance.playText("Checking out")
+      alanInstance.playText('Checking out')
       checkout()
     }
   }, [alanInstance, isCartEmpty, checkout])
@@ -102,12 +102,12 @@ export default function useAlan() {
 
     setAlanInstance(
       alanBtn({
-        top: "15px",
-        left: "15px",
+        top: '15px',
+        left: '15px',
         key: process.env.REACT_APP_ALAN_KEY,
         onCommand: ({ command, payload }) => {
           window.dispatchEvent(new CustomEvent(command, { detail: payload }))
-        }
+        },
       })
     )
   }, [])

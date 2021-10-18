@@ -1,5 +1,4 @@
-Script Component
-================
+# Script Component
 
 **Version History**
 
@@ -11,17 +10,16 @@ Websites often need third parties for things like analytics, ads, customer suppo
 
 With `next/script`, you can define the `strategy` property and Next.js will optimize loading for the script:
 
--   `beforeInteractive`: For critical scripts that need to be fetched and executed **before** the page is interactive, such as bot detection and consent management. These scripts are injected into the initial HTML from the server and run before self-bundled JavaScript is executed.
--   `afterInteractive` (**default**): For scripts that can fetch and execute **after** the page is interactive, such as tag managers and analytics. These scripts are injected on the client-side and will run after hydration.
--   `lazyOnload` For scripts that can wait to load during idle time, such as chat support and social media widgets.
+- `beforeInteractive`: For critical scripts that need to be fetched and executed **before** the page is interactive, such as bot detection and consent management. These scripts are injected into the initial HTML from the server and run before self-bundled JavaScript is executed.
+- `afterInteractive` (**default**): For scripts that can fetch and execute **after** the page is interactive, such as tag managers and analytics. These scripts are injected on the client-side and will run after hydration.
+- `lazyOnload` For scripts that can wait to load during idle time, such as chat support and social media widgets.
 
 > **Note:**
 >
-> -   `<Script>` supports inline scripts with `afterInteractive` and `lazyOnload` strategy.
-> -   Inline scripts wrapped with `<Script>` *require an `id` attribute to be defined* to track and optimize the script.
+> - `<Script>` supports inline scripts with `afterInteractive` and `lazyOnload` strategy.
+> - Inline scripts wrapped with `<Script>` _require an `id` attribute to be defined_ to track and optimize the script.
 
-Usage
------
+## Usage
 
 Previously, you needed to define `script` tags inside the `Head` of your Next.js page.
 
@@ -44,7 +42,7 @@ Now, you use `next/script` in the body of your Next.js page. It has client-side 
 
 > **Note:**
 >
-> -   `next/script` **must not** be placed in either a `next/head` component or in `pages/_document.js`.
+> - `next/script` **must not** be placed in either a `next/head` component or in `pages/_document.js`.
 
     // After
 
@@ -59,8 +57,7 @@ Now, you use `next/script` in the body of your Next.js page. It has client-side 
       )
     }
 
-Examples
---------
+## Examples
 
 ### Loading Polyfills
 

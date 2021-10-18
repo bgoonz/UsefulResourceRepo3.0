@@ -1,8 +1,6 @@
-Upgrade Guide
-=============
+# Upgrade Guide
 
-Upgrading from version 10 to 11
--------------------------------
+## Upgrading from version 10 to 11
 
 ### Upgrade React version to latest
 
@@ -125,13 +123,11 @@ In case you’re accessing `router.events` during rendering, in Next.js 11 `rout
 
 If your application uses `router.router.events` which was an internal property that was not public please make sure to use `router.events` as well.
 
-React 16 to 17
---------------
+## React 16 to 17
 
 React 17 introduced a new [JSX Transform](https://reactjs.org/blog/2020/09/22/introducing-the-new-jsx-transform.html) that brings a long-time Next.js feature to the wider React ecosystem: Not having to `import React from 'react'` when using JSX. When using React 17 Next.js will automatically use the new transform. This transform does not make the `React` variable global, which was an unintended side-effect of the previous Next.js implementation. A [codemod is available](/docs/advanced-features/codemods.md#add-missing-react-import) to automatically fix cases where you accidentally used `React` without importing it.
 
-Upgrading from version 9 to 10
-------------------------------
+## Upgrading from version 9 to 10
 
 There were no breaking changes between version 9 and 10.
 
@@ -143,8 +139,7 @@ Or using `yarn`:
 
     yarn add next@10
 
-Upgrading from version 8 to 9
------------------------------
+## Upgrading from version 8 to 9
 
 ### Preamble
 
@@ -277,8 +272,7 @@ You can revert to the previous behavior by creating a `next.config.js` with the 
 
 Pages in `./pages/api/` are now considered [API Routes](https://nextjs.org/blog/next-9#api-routes). Pages in this directory will no longer contain a client-side bundle.
 
-Deprecated Features
--------------------
+## Deprecated Features
 
 #### `next/dynamic` has deprecated loading multiple modules at once
 

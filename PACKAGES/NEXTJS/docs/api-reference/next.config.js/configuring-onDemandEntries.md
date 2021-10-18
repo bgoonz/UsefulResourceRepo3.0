@@ -1,5 +1,4 @@
-Configuring onDemandEntries
-===========================
+# Configuring onDemandEntries
 
 Next.js exposes some options that give you some control over how the server will dispose or keep in memory built pages in development.
 
@@ -14,7 +13,6 @@ To change the defaults, open `next.config.js` and add the `onDemandEntries` conf
       },
     }
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)

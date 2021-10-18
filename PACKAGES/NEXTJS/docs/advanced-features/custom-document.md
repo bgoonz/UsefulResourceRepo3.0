@@ -1,5 +1,4 @@
-Custom `Document`
-=================
+# Custom `Document`
 
 A custom `Document` is commonly used to augment your application’s `<html>` and `<body>` tags. This is necessary because Next.js pages skip the definition of the surrounding document’s markup.
 
@@ -40,18 +39,16 @@ The `<Head />` component used here is not the same one from [`next/head`](/docs/
 
 The `ctx` object is equivalent to the one received in [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md#context-object), with one addition:
 
--   `renderPage`: `Function` - a callback that runs the actual React rendering logic (synchronously). It’s useful to decorate this function in order to support server-rendering wrappers like Aphrodite’s [`renderStatic`](https://github.com/Khan/aphrodite#server-side-rendering)
+- `renderPage`: `Function` - a callback that runs the actual React rendering logic (synchronously). It’s useful to decorate this function in order to support server-rendering wrappers like Aphrodite’s [`renderStatic`](https://github.com/Khan/aphrodite#server-side-rendering)
 
-Caveats
--------
+## Caveats
 
--   `Document` is only rendered in the server, event handlers like `onClick` won’t work.
--   React components outside of `<Main />` will not be initialized by the browser. Do *not* add application logic here or custom CSS (like `styled-jsx`). If you need shared components in all your pages (like a menu or a toolbar), take a look at the [`App`](/docs/advanced-features/custom-app.md) component instead.
--   `Document`’s `getInitialProps` function is not called during client-side transitions, nor when a page is [statically optimized](/docs/advanced-features/automatic-static-optimization.md).
--   `Document` currently does not support Next.js [Data Fetching methods](/docs/basic-features/data-fetching.md) like [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) or [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering).
+- `Document` is only rendered in the server, event handlers like `onClick` won’t work.
+- React components outside of `<Main />` will not be initialized by the browser. Do _not_ add application logic here or custom CSS (like `styled-jsx`). If you need shared components in all your pages (like a menu or a toolbar), take a look at the [`App`](/docs/advanced-features/custom-app.md) component instead.
+- `Document`’s `getInitialProps` function is not called during client-side transitions, nor when a page is [statically optimized](/docs/advanced-features/automatic-static-optimization.md).
+- `Document` currently does not support Next.js [Data Fetching methods](/docs/basic-features/data-fetching.md) like [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) or [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering).
 
-Customizing `renderPage`
-------------------------
+## Customizing `renderPage`
 
 > It should be noted that the only reason you should be customizing `renderPage` is for usage with **css-in-js** libraries that need to wrap the application to properly work with server-side rendering.
 
@@ -80,8 +77,7 @@ It takes as argument an options object for further customization:
 
     export default MyDocument
 
-TypeScript
-----------
+## TypeScript
 
 You can use the built-in `DocumentContext` type and change the file name to `./pages/_document.tsx` like so:
 

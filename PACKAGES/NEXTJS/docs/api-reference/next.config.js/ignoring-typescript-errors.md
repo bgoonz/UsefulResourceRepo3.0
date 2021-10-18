@@ -1,5 +1,4 @@
-Ignoring TypeScript Errors
-==========================
+# Ignoring TypeScript Errors
 
 Next.js fails your **production build** (`next build`) when TypeScript errors are present in your project.
 
@@ -19,8 +18,7 @@ Open `next.config.js` and enable the `ignoreBuildErrors` option in the `typescri
       },
     }
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)
 

@@ -1,5 +1,4 @@
-Detected next.config.js, no exported configuration found
-========================================================
+# Detected next.config.js, no exported configuration found
 
 #### Why This Warning Occurred
 
@@ -15,4 +14,4 @@ Check if you correctly export configuration in `next.config.js` file:
 
 ### Useful Links
 
--   [Introduction to next.config.js](https://nextjs.org/docs/api-reference/next.config.js/introduction)
+- [Introduction to next.config.js](https://nextjs.org/docs/api-reference/next.config.js/introduction)

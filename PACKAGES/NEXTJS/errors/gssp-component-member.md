@@ -1,5 +1,4 @@
-getStaticProps/getServerSideProps can not be attached to the page component
-===========================================================================
+# getStaticProps/getServerSideProps can not be attached to the page component
 
 #### Why This Error Occurred
 
@@ -41,4 +40,4 @@ Move the method to it’s own export from your page.
 
 ### Useful Links
 
--   [Data Fetching Docs](https://nextjs.org/docs/basic-features/data-fetching)
+- [Data Fetching Docs](https://nextjs.org/docs/basic-features/data-fetching)

@@ -1,5 +1,4 @@
-CSS Imported by a Dependency
-============================
+# CSS Imported by a Dependency
 
 #### Why This Error Occurred
 
@@ -17,7 +16,7 @@ The dependency should also provide instructions about what CSS needs to be impor
 
 Importing CSS files within `node_modules` cannot be supported because we cannot know the correct behavior:
 
--   Should the file be consumed as Global CSS or CSS Modules?
--   If Global, in what order does the file need to be injected?
--   If Modules, what are the emitted class names? As-is, camel-case, snake case?
--   Etc…
+- Should the file be consumed as Global CSS or CSS Modules?
+- If Global, in what order does the file need to be injected?
+- If Modules, what are the emitted class names? As-is, camel-case, snake case?
+- Etc…

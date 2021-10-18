@@ -1,5 +1,4 @@
-`Head` or `NextScript` attribute `crossOrigin` is deprecated
-============================================================
+# `Head` or `NextScript` attribute `crossOrigin` is deprecated
 
 #### Why This Error Occurred
 
@@ -16,4 +15,4 @@ Add the config option:
 
 ### Useful Links
 
--   [The issue this was reported in: \#5674](https://github.com/vercel/next.js/issues/5674)
+- [The issue this was reported in: \#5674](https://github.com/vercel/next.js/issues/5674)

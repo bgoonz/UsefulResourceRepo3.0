@@ -1,9 +1,8 @@
-next/image
-==========
+# next/image
 
 **Examples**
 
--   [Image Component](https://github.com/vercel/next.js/tree/canary/examples/image-component)
+- [Image Component](https://github.com/vercel/next.js/tree/canary/examples/image-component)
 
 **Version History**
 
@@ -13,8 +12,7 @@ next/image
 
 > **Note: This is API documentation for the Image Component and Image Optimization. For a feature overview and usage information for images in Next.js, please see [Images](/docs/basic-features/image-optimization.md).**
 
-Required Props
---------------
+## Required Props
 
 The `<Image />` component requires the following properties.
 
@@ -39,8 +37,7 @@ The height of the image, in pixels. Must be an integer without a unit.
 
 Required, except for statically imported images, or those with [`layout="fill"`](#layout).
 
-Optional Props
---------------
+## Optional Props
 
 The `<Image />` component accepts a number of additional properties beyond those which are required. This section describes the most commonly-used properties of the Image component. Find details about more rarely-used properties in the [Advanced Props](#advanced-props) section.
 
@@ -50,18 +47,18 @@ The layout behavior of the image as the viewport changes size.
 
 <table style="width:98%;"><colgroup><col style="width: 10%" /><col style="width: 28%" /><col style="width: 56%" /><col style="width: 3%" /></colgroup><thead><tr class="header"><th><code>layout</code></th><th>Behavior</th><th><code>srcSet</code></th><th><code>sizes</code></th></tr></thead><tbody><tr class="odd"><td><code>intrinsic</code> (default)</td><td>Scale <em>down</em> to fit width of container, up to image size</td><td><code>1x</code>, <code>2x</code> (based on <a href="#image-sizes">imageSizes</a>)</td><td>N/A</td></tr><tr class="even"><td><code>fixed</code></td><td>Sized to <code>width</code> and <code>height</code> exactly</td><td><code>1x</code>, <code>2x</code> (based on <a href="#image-sizes">imageSizes</a>)</td><td>N/A</td></tr><tr class="odd"><td><code>responsive</code></td><td>Scale to fit width of container</td><td><code>640w</code>, <code>750w</code>, … <code>2048w</code>, <code>3840w</code> (based on <a href="#image-sizes">imageSizes</a> and <a href="#device-sizes">deviceSizes</a>)</td><td><code>100vw</code></td></tr><tr class="even"><td><code>fill</code></td><td>Grow in both X and Y axes to fill container</td><td><code>640w</code>, <code>750w</code>, … <code>2048w</code>, <code>3840w</code> (based on <a href="#image-sizes">imageSizes</a> and <a href="#device-sizes">deviceSizes</a>)</td><td><code>100vw</code></td></tr></tbody></table>
 
--   [Demo the `intrinsic` layout (default)](https://image-component.nextjs.gallery/layout-intrinsic)
-    -   When `intrinsic`, the image will scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports.
--   [Demo the `fixed` layout](https://image-component.nextjs.gallery/layout-fixed)
-    -   When `fixed`, the image dimensions will not change as the viewport changes (no responsiveness) similar to the native `img` element.
--   [Demo the `responsive` layout](https://image-component.nextjs.gallery/layout-responsive)
-    -   When `responsive`, the image will scale the dimensions down for smaller viewports and scale up for larger viewports.
-    -   Ensure the parent element uses `display: block` in their stylesheet.
--   [Demo the `fill` layout](https://image-component.nextjs.gallery/layout-fill)
-    -   When `fill`, the image will stretch both width and height to the dimensions of the parent element, provided the parent element is relative.
-    -   This is usually paired with the [`objectFit`](#objectFit) property.
-    -   Ensure the parent element has `position: relative` in their stylesheet.
--   [Demo background image](https://image-component.nextjs.gallery/background)
+- [Demo the `intrinsic` layout (default)](https://image-component.nextjs.gallery/layout-intrinsic)
+  - When `intrinsic`, the image will scale the dimensions down for smaller viewports, but maintain the original dimensions for larger viewports.
+- [Demo the `fixed` layout](https://image-component.nextjs.gallery/layout-fixed)
+  - When `fixed`, the image dimensions will not change as the viewport changes (no responsiveness) similar to the native `img` element.
+- [Demo the `responsive` layout](https://image-component.nextjs.gallery/layout-responsive)
+  - When `responsive`, the image will scale the dimensions down for smaller viewports and scale up for larger viewports.
+  - Ensure the parent element uses `display: block` in their stylesheet.
+- [Demo the `fill` layout](https://image-component.nextjs.gallery/layout-fill)
+  - When `fill`, the image will stretch both width and height to the dimensions of the parent element, provided the parent element is relative.
+  - This is usually paired with the [`objectFit`](#objectFit) property.
+  - Ensure the parent element has `position: relative` in their stylesheet.
+- [Demo background image](https://image-component.nextjs.gallery/background)
 
 ### loader
 
@@ -69,9 +66,9 @@ A custom function used to resolve URLs. Setting the loader as a prop on the Imag
 
 A `loader` is a function returning a URL string for the image, given the following parameters:
 
--   [`src`](#src)
--   [`width`](#width)
--   [`quality`](#quality)
+- [`src`](#src)
+- [`width`](#width)
+- [`quality`](#quality)
 
 Here is an example of using a custom loader with `next/image`:
 
@@ -127,11 +124,10 @@ When `empty`, there will be no placeholder while the image is loading, only empt
 
 Try it out:
 
--   [Demo the `blur` placeholder](https://image-component.nextjs.gallery/placeholder)
--   [Demo the shimmer effect with `blurDataURL` prop](https://image-component.nextjs.gallery/shimmer)
+- [Demo the `blur` placeholder](https://image-component.nextjs.gallery/placeholder)
+- [Demo the shimmer effect with `blurDataURL` prop](https://image-component.nextjs.gallery/shimmer)
 
-Advanced Props
---------------
+## Advanced Props
 
 In some cases, you may need more advanced usage. The `<Image />` component optionally accepts the following advanced properties.
 
@@ -153,8 +149,8 @@ A callback function that is invoked once the image is completely loaded and the 
 
 The `onLoadingComplete` function accepts one parameter, an object with the following properties:
 
--   [`naturalWidth`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/naturalWidth)
--   [`naturalHeight`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/naturalHeight)
+- [`naturalWidth`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/naturalWidth)
+- [`naturalHeight`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLImageElement/naturalHeight)
 
 ### loading
 
@@ -178,8 +174,8 @@ Must be a base64-encoded image. It will be enlarged and blurred, so a very small
 
 Try it out:
 
--   [Demo the default `blurDataURL` prop](https://image-component.nextjs.gallery/placeholder)
--   [Demo the shimmer effect with `blurDataURL` prop](https://image-component.nextjs.gallery/shimmer)
+- [Demo the default `blurDataURL` prop](https://image-component.nextjs.gallery/placeholder)
+- [Demo the shimmer effect with `blurDataURL` prop](https://image-component.nextjs.gallery/shimmer)
 
 You can also [generate a solid color Data URL](https://png-pixel.com) to match the image.
 
@@ -193,18 +189,16 @@ A string (with similar syntax to the margin property) that acts as the bounding 
 
 When true, the source image will be served as-is instead of changing quality, size, or format. Defaults to `false`.
 
-Other Props
------------
+## Other Props
 
 Other properties on the `<Image />` component will be passed to the underlying `img` element with the exception of the following:
 
--   `style`. Use `className` instead.
--   `srcSet`. Use [Device Sizes](#device-sizes) instead.
--   `ref`. Use [`onLoadingComplete`](#onloadingcomplete) instead.
--   `decoding`. It is always `"async"`.
+- `style`. Use `className` instead.
+- `srcSet`. Use [Device Sizes](#device-sizes) instead.
+- `ref`. Use [`onLoadingComplete`](#onloadingcomplete) instead.
+- `decoding`. It is always `"async"`.
 
-Configuration Options
----------------------
+## Configuration Options
 
 ### Domains
 
@@ -231,12 +225,12 @@ If you want to use a cloud provider to optimize images instead of using the Next
 
 The following Image Optimization cloud providers are included:
 
--   Default: Works automatically with `next dev`, `next start`, or a custom server
--   [Vercel](https://vercel.com): Works automatically when you deploy on Vercel, no configuration necessary. [Learn more](https://vercel.com/docs/next.js/image-optimization)
--   [Imgix](https://www.imgix.com): `loader: 'imgix'`
--   [Cloudinary](https://cloudinary.com): `loader: 'cloudinary'`
--   [Akamai](https://www.akamai.com): `loader: 'akamai'`
--   Custom: `loader: 'custom'` use a custom cloud provider by implementing the [`loader`](/docs/api-reference/next/image.md#loader) prop on the `next/image` component
+- Default: Works automatically with `next dev`, `next start`, or a custom server
+- [Vercel](https://vercel.com): Works automatically when you deploy on Vercel, no configuration necessary. [Learn more](https://vercel.com/docs/next.js/image-optimization)
+- [Imgix](https://www.imgix.com): `loader: 'imgix'`
+- [Cloudinary](https://cloudinary.com): `loader: 'cloudinary'`
+- [Akamai](https://www.akamai.com): `loader: 'akamai'`
+- Custom: `loader: 'custom'` use a custom cloud provider by implementing the [`loader`](/docs/api-reference/next/image.md#loader) prop on the `next/image` component
 
 If you need a different provider, you can use the [`loader`](#loader) prop with `next/image`.
 
@@ -244,8 +238,7 @@ If you need a different provider, you can use the [`loader`](#loader) prop with 
 
 > The `next/image` component’s default loader uses [`squoosh`](https://www.npmjs.com/package/@squoosh/lib) because it is quick to install and suitable for a development environment. When using `next start` in your production environment, it is strongly recommended that you install [`sharp`](https://www.npmjs.com/package/sharp) by running `yarn add sharp` in your project directory. This is not necessary for Vercel deployments, as `sharp` is installed automatically.
 
-Advanced
---------
+## Advanced
 
 The following configuration is for advanced use cases and is usually not necessary. If you choose to configure the properties below, you will override any changes to the Next.js defaults in future updates.
 
@@ -275,8 +268,7 @@ If no configuration is provided, the default below is used.
       },
     }
 
-Caching Behavior
-----------------
+## Caching Behavior
 
 The following describes the caching algorithm for the default [loader](#loader). For all other loaders, please refer to your cloud provider’s documentation.
 
@@ -284,10 +276,10 @@ Images are optimized dynamically upon request and stored in the `<distDir>/cache
 
 The expiration (or rather Max Age) is defined by the upstream server’s `Cache-Control` header.
 
--   If `s-maxage` is found in `Cache-Control`, it is used. If no `s-maxage` is found, then `max-age` is used. If no `max-age` is found, then [`minimumCacheTTL`](#minimum-cache-ttl) is used.
--   You can configure [`minimumCacheTTL`](#minimum-cache-ttl) to increase the cache duration when the upstream image does not include `max-age`.
--   You can also configure [`deviceSizes`](#device-sizes) and [`imageSizes`](#device-sizes) to reduce the total number of possible generated images.
--   You can also configure [formats](/docs/basic-features/image-optimization.md#acceptable-formats) to disable multiple formats in favor of a single image format.
+- If `s-maxage` is found in `Cache-Control`, it is used. If no `s-maxage` is found, then `max-age` is used. If no `max-age` is found, then [`minimumCacheTTL`](#minimum-cache-ttl) is used.
+- You can configure [`minimumCacheTTL`](#minimum-cache-ttl) to increase the cache duration when the upstream image does not include `max-age`.
+- You can also configure [`deviceSizes`](#device-sizes) and [`imageSizes`](#device-sizes) to reduce the total number of possible generated images.
+- You can also configure [formats](/docs/basic-features/image-optimization.md#acceptable-formats) to disable multiple formats in favor of a single image format.
 
 You can configure the Time to Live (TTL) in seconds for cached optimized images. In many cases, it’s better to use a [Static Image Import](/docs/basic-features/image-optimization.md#local-images) which will automatically hash the file contents and cache the image forever with a `Cache-Control` header of `immutable`.
 
@@ -327,8 +319,7 @@ If no configuration is provided, the default below is used.
       },
     }
 
-Related
--------
+## Related
 
 For an overview of the Image component features and usage guidelines, see:
 

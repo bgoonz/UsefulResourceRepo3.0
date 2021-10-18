@@ -1,26 +1,57 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>custom-document-image-import</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="images-cannot-be-imported-into-your-custom-document.">Images cannot be imported into your custom document.</h1>
-<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
-<p>An attempt to import an image file into <a href="https://nextjs.org/docs/advanced-features/custom-document"><code>pages/_document.js</code></a> was made.</p>
-<p>Custom documents aren’t compiled for the browser and images statically imported like this will not be displayed.</p>
-<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
-<p>If your image needs to be displayed on every page you can relocate it to your <a href="https://nextjs.org/docs/advanced-features/custom-app"><code>pages/_app.js</code></a> file.</p>
-<h4 id="example">Example</h4>
-<pre class="jsx"><code>//pages/_app.js
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>custom-document-image-import</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="images-cannot-be-imported-into-your-custom-document.">
+      Images cannot be imported into your custom document.
+    </h1>
+    <h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+    <p>
+      An attempt to import an image file into
+      <a href="https://nextjs.org/docs/advanced-features/custom-document"
+        ><code>pages/_document.js</code></a
+      >
+      was made.
+    </p>
+    <p>
+      Custom documents aren’t compiled for the browser and images statically
+      imported like this will not be displayed.
+    </p>
+    <h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+    <p>
+      If your image needs to be displayed on every page you can relocate it to
+      your
+      <a href="https://nextjs.org/docs/advanced-features/custom-app"
+        ><code>pages/_app.js</code></a
+      >
+      file.
+    </p>
+    <h4 id="example">Example</h4>
+    <pre class="jsx"><code>//pages/_app.js
 import yourImage from &quot;path/to/your/image&quot;
 import Image from &quot;next/image&quot;
 
@@ -33,11 +64,23 @@ function MyApp({ Component, pageProps }) {
 }
 
 export default MyApp</code></pre>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://nextjs.org/docs/advanced-features/custom-document">Custom <code>Document</code></a></li>
-<li><a href="https://nextjs.org/docs/advanced-features/custom-app">Custom <code>App</code></a></li>
-<li><a href="https://nextjs.org/docs/basic-features/static-file-serving">Static File Serving</a></li>
-</ul>
-</body>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a href="https://nextjs.org/docs/advanced-features/custom-document"
+          >Custom <code>Document</code></a
+        >
+      </li>
+      <li>
+        <a href="https://nextjs.org/docs/advanced-features/custom-app"
+          >Custom <code>App</code></a
+        >
+      </li>
+      <li>
+        <a href="https://nextjs.org/docs/basic-features/static-file-serving"
+          >Static File Serving</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

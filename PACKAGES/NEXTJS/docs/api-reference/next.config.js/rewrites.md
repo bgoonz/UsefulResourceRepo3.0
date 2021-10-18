@@ -1,9 +1,8 @@
-Rewrites
-========
+# Rewrites
 
 **Examples**
 
--   [Rewrites](https://github.com/vercel/next.js/tree/canary/examples/rewrites)
+- [Rewrites](https://github.com/vercel/next.js/tree/canary/examples/rewrites)
 
 **Version History**
 
@@ -30,11 +29,11 @@ Rewrites are applied to client-side routing, a `<Link href="/about">` will have 
 
 `rewrites` is an async function that expects an array to be returned holding objects with `source` and `destination` properties:
 
--   `source`: `String` - is the incoming request path pattern.
--   `destination`: `String` is the path you want to route to.
--   `basePath`: `false` or `undefined` - if false the basePath won’t be included when matching, can be used for external rewrites only.
--   `locale`: `false` or `undefined` - whether the locale should not be included when matching.
--   `has` is an array of [has objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
+- `source`: `String` - is the incoming request path pattern.
+- `destination`: `String` is the path you want to route to.
+- `basePath`: `false` or `undefined` - if false the basePath won’t be included when matching, can be used for external rewrites only.
+- `locale`: `false` or `undefined` - whether the locale should not be included when matching.
+- `has` is an array of [has objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
 
 Rewrites are applied after checking the filesystem (pages and `/public` files) and before dynamic routes by default. This behavior can be changed by instead returning an object instead of an array from the `rewrites` function since `v10.1` of Next.js:
 
@@ -82,8 +81,7 @@ The order Next.js routes are checked is:
 5.  `afterFiles` rewrites are checked/applied, if one of these rewrites is matched we check dynamic routes/static files after each match
 6.  `fallback` rewrites are checked/applied, these are applied before rendering the 404 page and after dynamic routes/all static assets have been checked.
 
-Rewrite parameters
-------------------
+## Rewrite parameters
 
 When using parameters in a rewrite the parameters will be passed in the query by default when none of the parameters are used in the `destination`.
 
@@ -127,8 +125,7 @@ You can still pass the parameters manually in the query if one is already used i
       },
     }
 
-Path Matching
--------------
+## Path Matching
 
 Path matches are allowed, for example `/blog/:slug` will match `/blog/hello-world` (no nested paths):
 
@@ -187,88 +184,86 @@ The following characters `(`, `)`, `{`, `}`, `:`, `*`, `+`, `?` are used for reg
       },
     }
 
-Header, Cookie, and Query Matching
-----------------------------------
+## Header, Cookie, and Query Matching
 
 To only match a rewrite when header, cookie, or query values also match the `has` field can be used. Both the `source` and all `has` items must match for the rewrite to be applied.
 
 `has` items have the following fields:
 
--   `type`: `String` - must be either `header`, `cookie`, `host`, or `query`.
--   `key`: `String` - the key from the selected type to match against.
--   `value`: `String` or `undefined` - the value to check for, if undefined any value will match. A regex like string can be used to capture a specific part of the value, e.g. if the value `first-(?<paramName>.*)` is used for `first-second` then `second` will be usable in the destination with `:paramName`.
+- `type`: `String` - must be either `header`, `cookie`, `host`, or `query`.
+- `key`: `String` - the key from the selected type to match against.
+- `value`: `String` or `undefined` - the value to check for, if undefined any value will match. A regex like string can be used to capture a specific part of the value, e.g. if the value `first-(?<paramName>.*)` is used for `first-second` then `second` will be usable in the destination with `:paramName`.
 
-    module.exports = {
-      async rewrites() {
-        return [
-          // if the header `x-rewrite-me` is present,
-          // this rewrite will be applied
-          {
-            source: '/:path*',
-            has: [
-              {
-                type: 'header',
-                key: 'x-rewrite-me',
-              },
-            ],
-            destination: '/another-page',
-          },
-          // if the source, query, and cookie are matched,
-          // this rewrite will be applied
-          {
-            source: '/specific/:path*',
-            has: [
-              {
-                type: 'query',
-                key: 'page',
-                // the page value will not be available in the
-                // destination since value is provided and doesn't
-                // use a named capture group e.g. (?<page>home)
-                value: 'home',
-              },
-              {
-                type: 'cookie',
-                key: 'authorized',
-                value: 'true',
-              },
-            ],
-            destination: '/:path*/home',
-          },
-          // if the header `x-authorized` is present and
-          // contains a matching value, this rewrite will be applied
-          {
-            source: '/:path*',
-            has: [
-              {
-                type: 'header',
-                key: 'x-authorized',
-                value: '(?<authorized>yes|true)',
-              },
-            ],
-            destination: '/home?authorized=:authorized',
-          },
-          // if the host is `example.com`,
-          // this rewrite will be applied
-          {
-            source: '/:path*',
-            has: [
-              {
-                type: 'host',
-                value: 'example.com',
-              },
-            ],
-            destination: '/another-page',
-          },
-        ]
-      },
-    }
+  module.exports = {
+  async rewrites() {
+  return [
+  // if the header `x-rewrite-me` is present,
+  // this rewrite will be applied
+  {
+  source: '/:path*',
+  has: [
+  {
+  type: 'header',
+  key: 'x-rewrite-me',
+  },
+  ],
+  destination: '/another-page',
+  },
+  // if the source, query, and cookie are matched,
+  // this rewrite will be applied
+  {
+  source: '/specific/:path*',
+  has: [
+  {
+  type: 'query',
+  key: 'page',
+  // the page value will not be available in the
+  // destination since value is provided and doesn't
+  // use a named capture group e.g. (?<page>home)
+  value: 'home',
+  },
+  {
+  type: 'cookie',
+  key: 'authorized',
+  value: 'true',
+  },
+  ],
+  destination: '/:path*/home',
+  },
+  // if the header `x-authorized` is present and
+  // contains a matching value, this rewrite will be applied
+  {
+  source: '/:path*',
+  has: [
+  {
+  type: 'header',
+  key: 'x-authorized',
+  value: '(?<authorized>yes|true)',
+  },
+  ],
+  destination: '/home?authorized=:authorized',
+  },
+  // if the host is `example.com`,
+  // this rewrite will be applied
+  {
+  source: '/:path\*',
+  has: [
+  {
+  type: 'host',
+  value: 'example.com',
+  },
+  ],
+  destination: '/another-page',
+  },
+  ]
+  },
+  }
 
-Rewriting to an external URL
-----------------------------
+## Rewriting to an external URL
 
 **Examples**
 
--   [Incremental adoption of Next.js](https://github.com/vercel/next.js/tree/canary/examples/custom-routes-proxying)
+- [Incremental adoption of Next.js](https://github.com/vercel/next.js/tree/canary/examples/custom-routes-proxying)
 
 Rewrites allow you to rewrite to an external url. This is especially useful for incrementally adopting Next.js.
 

@@ -1,5 +1,4 @@
-Empty Object Returned From `getInitialProps`
-============================================
+# Empty Object Returned From `getInitialProps`
 
 #### Why This Error Occurred
 
@@ -11,4 +10,4 @@ Look for any page’s using `getInitialProps` that return an empty object `{}`. 
 
 ### Useful Links
 
--   [Automatic Static Optimization Documentation](https://nextjs.org/docs/advanced-features/automatic-static-optimization)
+- [Automatic Static Optimization Documentation](https://nextjs.org/docs/advanced-features/automatic-static-optimization)

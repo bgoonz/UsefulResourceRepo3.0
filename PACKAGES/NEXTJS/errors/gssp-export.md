@@ -1,5 +1,4 @@
-getServerSideProps Export Error
-===============================
+# getServerSideProps Export Error
 
 #### Why This Error Occurred
 
@@ -31,6 +30,6 @@ The `getServerSideProps` lifecycle is not compatible with `next export`, so youâ
 
 ### Useful Links
 
--   [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)
--   [`getStaticProps` documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
--   [`exportPathMap` documentation](https://nextjs.org/docs/api-reference/next.config.js/exportPathMap)
+- [Automatic Static Optimization](https://nextjs.org/docs/advanced-features/automatic-static-optimization)
+- [`getStaticProps` documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+- [`exportPathMap` documentation](https://nextjs.org/docs/api-reference/next.config.js/exportPathMap)

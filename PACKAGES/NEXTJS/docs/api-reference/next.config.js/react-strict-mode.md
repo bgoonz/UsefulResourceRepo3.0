@@ -1,5 +1,4 @@
-React Strict Mode
-=================
+# React Strict Mode
 
 > **Suggested**: We strongly suggest you enable Strict Mode in your Next.js application to better prepare your application for the future of React.
 
@@ -14,7 +13,6 @@ The Next.js runtime is Strict Mode-compliant. To opt-in to Strict Mode, configur
 
 If you or your team are not ready to use Strict Mode in your entire application, that’s OK! You can incrementally migrate on a page-by-page basis using `<React.StrictMode>`.
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)

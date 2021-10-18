@@ -1,5 +1,4 @@
-next.config.js
-==============
+# next.config.js
 
 For custom advanced behavior of Next.js, you can create a `next.config.js` in the root of your project directory (next to `package.json`).
 

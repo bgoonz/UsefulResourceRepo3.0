@@ -1,5 +1,4 @@
-Trailing Slash
-==============
+# Trailing Slash
 
 **Version History**
 
@@ -15,7 +14,6 @@ Open `next.config.js` and add the `trailingSlash` config:
 
 With this option set, urls like `/about` will redirect to `/about/`.
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)

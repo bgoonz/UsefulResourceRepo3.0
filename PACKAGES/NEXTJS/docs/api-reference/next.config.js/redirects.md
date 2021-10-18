@@ -1,9 +1,8 @@
-Redirects
-=========
+# Redirects
 
 **Examples**
 
--   [Redirects](https://github.com/vercel/next.js/tree/canary/examples/redirects)
+- [Redirects](https://github.com/vercel/next.js/tree/canary/examples/redirects)
 
 **Version History**
 
@@ -29,12 +28,12 @@ To use Redirects you can use the `redirects` key in `next.config.js`:
 
 `redirects` is an async function that expects an array to be returned holding objects with `source`, `destination`, and `permanent` properties:
 
--   `source` is the incoming request path pattern.
--   `destination` is the path you want to route to.
--   `permanent` `true` or `false` - if `true` will use the 308 status code which instructs clients/search engines to cache the redirect forever, if `false` will use the 307 status code which is temporary and is not cached.
--   `basePath`: `false` or `undefined` - if false the basePath won’t be included when matching, can be used for external rewrites only.
--   `locale`: `false` or `undefined` - whether the locale should not be included when matching.
--   `has` is an array of [has objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
+- `source` is the incoming request path pattern.
+- `destination` is the path you want to route to.
+- `permanent` `true` or `false` - if `true` will use the 308 status code which instructs clients/search engines to cache the redirect forever, if `false` will use the 307 status code which is temporary and is not cached.
+- `basePath`: `false` or `undefined` - if false the basePath won’t be included when matching, can be used for external rewrites only.
+- `locale`: `false` or `undefined` - whether the locale should not be included when matching.
+- `has` is an array of [has objects](#header-cookie-and-query-matching) with the `type`, `key` and `value` properties.
 
 Redirects are checked before the filesystem which includes pages and `/public` files.
 
@@ -48,8 +47,7 @@ When a redirect is applied, any query values provided in the request will be pas
 
 When `/old-blog/post-1?hello=world` is requested, the client will be redirected to `/blog/post-1?hello=world`.
 
-Path Matching
--------------
+## Path Matching
 
 Path matches are allowed, for example `/old-blog/:slug` will match `/old-blog/hello-world` (no nested paths):
 
@@ -112,24 +110,23 @@ The following characters `(`, `)`, `{`, `}`, `:`, `*`, `+`, `?` are used for reg
       },
     }
 
-Header, Cookie, and Query Matching
-----------------------------------
+## Header, Cookie, and Query Matching
 
 To only match a redirect when header, cookie, or query values also match the `has` field can be used. Both the `source` and all `has` items must match for the redirect to be applied.
 
 `has` items have the following fields:
 
--   `type`: `String` - must be either `header`, `cookie`, `host`, or `query`.
--   `key`: `String` - the key from the selected type to match against.
--   `value`: `String` or `undefined` - the value to check for, if undefined any value will match. A regex like string can be used to capture a specific part of the value, e.g. if the value `first-(?<paramName>.*)` is used for `first-second` then `second` will be usable in the destination with `:paramName`.
+- `type`: `String` - must be either `header`, `cookie`, `host`, or `query`.
+- `key`: `String` - the key from the selected type to match against.
+- `value`: `String` or `undefined` - the value to check for, if undefined any value will match. A regex like string can be used to capture a specific part of the value, e.g. if the value `first-(?<paramName>.*)` is used for `first-second` then `second` will be usable in the destination with `:paramName`.
 
-    module.exports = {
-      async redirects() {
-        return [
-          // if the header `x-redirect-me` is present,
-          // this redirect will be applied
-          {
-            source: '/:path((?!another-page$).*)',
+  module.exports = {
+  async redirects() {
+  return [
+  // if the header `x-redirect-me` is present,
+  // this redirect will be applied
+  {
+  source: '/:path((?!another-page$).*)',
             has: [
               {
                 type: 'header',
@@ -178,19 +175,19 @@ To only match a redirect when header, cookie, or query values also match the `ha
           // if the host is `example.com`,
           // this redirect will be applied
           {
-            source: '/:path((?!another-page$).*)',
-            has: [
-              {
-                type: 'host',
-                value: 'example.com',
-              },
-            ],
-            permanent: false,
-            destination: '/another-page',
-          },
-        ]
-      },
-    }
+            source: '/:path((?!another-page$).\*)',
+  has: [
+  {
+  type: 'host',
+  value: 'example.com',
+  },
+  ],
+  permanent: false,
+  destination: '/another-page',
+  },
+  ]
+  },
+  }
 
 ### Redirects with basePath support
 
@@ -261,8 +258,7 @@ When leveraging [`i18n` support](/docs/advanced-features/i18n-routing.md) with r
 
 In some rare cases, you might need to assign a custom status code for older HTTP Clients to properly redirect. In these cases, you can use the `statusCode` property instead of the `permanent` property, but not both. Note: to ensure IE11 compatibility a `Refresh` header is automatically added for the 308 status code.
 
-Other Redirects
----------------
+## Other Redirects
 
--   Inside [API Routes](/docs/api-routes/response-helpers.md), you can use `res.redirect()`.
--   Inside [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) and [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering), you can redirect specific pages at request-time.
+- Inside [API Routes](/docs/api-routes/response-helpers.md), you can use `res.redirect()`.
+- Inside [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) and [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering), you can redirect specific pages at request-time.

@@ -1,5 +1,4 @@
-Env Loading Disabled
-====================
+# Env Loading Disabled
 
 #### Why This Error Occurred
 
@@ -15,7 +14,7 @@ Remove `dotenv` from your `devDependencies` or `dependencies` and allow Next.js 
 
 ### Useful Links
 
--   [dotenv](https://npmjs.com/package/dotenv)
--   [dotenv-expand](https://npmjs.com/package/dotenv-expand)
--   [Environment Variables](https://en.wikipedia.org/wiki/Environment_variable)
--   [Next.js Environment Variables Docs](https://nextjs.org/docs/basic-features/environment-variables)
+- [dotenv](https://npmjs.com/package/dotenv)
+- [dotenv-expand](https://npmjs.com/package/dotenv-expand)
+- [Environment Variables](https://en.wikipedia.org/wiki/Environment_variable)
+- [Next.js Environment Variables Docs](https://nextjs.org/docs/basic-features/environment-variables)

@@ -1,8 +1,6 @@
-Custom Error Page
-=================
+# Custom Error Page
 
-404 Page
---------
+## 404 Page
 
 A 404 page may be accessed very often. Server-rendering an error page for every visit increases the load of the Next.js server. This can result in increased costs and slow experiences.
 
@@ -19,8 +17,7 @@ To create a custom 404 page you can create a `pages/404.js` file. This file is s
 
 > **Note**: You can use [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation) inside this page if you need to fetch data at build time.
 
-500 Page
---------
+## 500 Page
 
 Server-rendering an error page for every visit adds complexity to responding to errors. To help users get responses to errors as fast as possible, Next.js provides a static 500 page by default without having to add any additional files.
 

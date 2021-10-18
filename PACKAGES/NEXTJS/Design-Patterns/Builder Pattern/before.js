@@ -14,4 +14,9 @@ class User {
   }
 }
 
-const user = new User('Bob', undefined, undefined, new Address('12345', 'Main St.'))
+const user = new User(
+  'Bob',
+  undefined,
+  undefined,
+  new Address('12345', 'Main St.')
+)

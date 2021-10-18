@@ -1,5 +1,4 @@
-Adding AMP Components
-=====================
+# Adding AMP Components
 
 The AMP community provides [many components](https://amp.dev/documentation/components/) to make AMP pages more interactive. Next.js will automatically import all components used on a page and there is no need to manually import AMP component scripts:
 

@@ -9,13 +9,10 @@ class User {
   }
 }
 
-const users = [
-  new User(1, 'Bob'),
-  new User(2, 'John')
-]
+const users = [new User(1, 'Bob'), new User(2, 'John')]
 
 function getUser(id) {
-  return users.find(user => user.id === id)
+  return users.find((user) => user.id === id)
 }
 
 function printUser(id) {
@@ -27,7 +24,7 @@ function printUser(id) {
     This is problematic since we need to remember to always put this every time we use the users name
 
     It is also bad because if we want to print `Unknown User` instead, we would need to change every place that we put `Guest` which will most likely be all over the application
-  */ 
+  */
   let name = 'Guest'
   if (user != null && user.name != null) name = user.name
   console.log('Hello ' + name)

@@ -1,15 +1,13 @@
-Authentication
-==============
+# Authentication
 
 Authentication verifies who a user is, while authorization controls what a user can access. Next.js supports multiple authentication patterns, each designed for different use cases. This page will go through each case so that you can choose based on your constraints.
 
-Authentication Patterns
------------------------
+## Authentication Patterns
 
 The first step to identifying which authentication pattern you need is understanding the [data-fetching strategy](/docs/basic-features/data-fetching.md) you want. We can then determine which authentication providers support this strategy. There are two main patterns:
 
--   Use [static generation](/docs/basic-features/pages.md#static-generation-recommended) to server-render a loading state, followed by fetching user data client-side.
--   Fetch user data [server-side](/docs/basic-features/pages.md#server-side-rendering) to eliminate a flash of unauthenticated content.
+- Use [static generation](/docs/basic-features/pages.md#static-generation-recommended) to server-render a loading state, followed by fetching user data client-side.
+- Fetch user data [server-side](/docs/basic-features/pages.md#server-side-rendering) to eliminate a flash of unauthenticated content.
 
 ### Authenticating Statically Generated Pages
 
@@ -95,8 +93,7 @@ Let’s transform the profile example to use [server-side rendering](/docs/basic
 
 An advantage of this pattern is preventing a flash of unauthenticated content before redirecting. It’s important to note fetching user data in `getServerSideProps` will block rendering until the request to your authentication provider resolves. To prevent creating a bottleneck and increasing your TTFB ([Time to First Byte](https://web.dev/time-to-first-byte/)), you should ensure your authentication lookup is fast. Otherwise, consider [static generation](#authenticating-statically-generated-pages).
 
-Authentication Providers
-------------------------
+## Authentication Providers
 
 Now that we’ve discussed authentication patterns, let’s look at specific providers and explore how they’re used with Next.js.
 
@@ -104,18 +101,18 @@ Now that we’ve discussed authentication patterns, let’s look at specific pro
 
 **Examples**
 
--   [with-iron-session](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session)
--   [next-auth-example](https://github.com/nextauthjs/next-auth-example)
+- [with-iron-session](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session)
+- [next-auth-example](https://github.com/nextauthjs/next-auth-example)
 
 If you have an existing database with user data, you’ll likely want to utilize an open-source solution that’s provider agnostic.
 
--   If you want a low-level, encrypted, and stateless session utility use [`next-iron-session`](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session).
--   If you want a full-featured authentication system with built-in providers (Google, Facebook, GitHub…), JWT, JWE, email/password, magic links and more… use [`next-auth`](https://github.com/nextauthjs/next-auth-example).
+- If you want a low-level, encrypted, and stateless session utility use [`next-iron-session`](https://github.com/vercel/next.js/tree/canary/examples/with-iron-session).
+- If you want a full-featured authentication system with built-in providers (Google, Facebook, GitHub…), JWT, JWE, email/password, magic links and more… use [`next-auth`](https://github.com/nextauthjs/next-auth-example).
 
 Both of these libraries support either authentication pattern. If you’re interested in [Passport](http://www.passportjs.org/), we also have examples for it using secure and encrypted cookies:
 
--   [with-passport](https://github.com/vercel/next.js/tree/canary/examples/with-passport)
--   [with-passport-and-next-connect](https://github.com/vercel/next.js/tree/canary/examples/with-passport-and-next-connect)
+- [with-passport](https://github.com/vercel/next.js/tree/canary/examples/with-passport)
+- [with-passport-and-next-connect](https://github.com/vercel/next.js/tree/canary/examples/with-passport-and-next-connect)
 
 ### Other Providers
 
@@ -123,17 +120,16 @@ To see examples with other authentication providers, check out the [examples fol
 
 **Examples**
 
--   [with-firebase-authentication](https://github.com/vercel/next.js/tree/canary/examples/with-firebase-authentication)
--   [with-magic](https://github.com/vercel/next.js/tree/canary/examples/with-magic)
--   [auth0](https://github.com/vercel/next.js/tree/canary/examples/auth0)
--   [with-supabase-auth-realtime-db](https://github.com/vercel/next.js/tree/canary/examples/with-supabase-auth-realtime-db)
--   [with-userbase](https://github.com/vercel/next.js/tree/canary/examples/with-userbase)
--   [with-supertokens](https://github.com/vercel/next.js/tree/canary/examples/with-supertokens)
--   [with-nhost-auth-realtime-graphql](https://github.com/vercel/next.js/tree/canary/examples/with-nhost-auth-realtime-graphql)
--   [with-clerk](https://github.com/vercel/next.js/tree/canary/examples/with-clerk)
+- [with-firebase-authentication](https://github.com/vercel/next.js/tree/canary/examples/with-firebase-authentication)
+- [with-magic](https://github.com/vercel/next.js/tree/canary/examples/with-magic)
+- [auth0](https://github.com/vercel/next.js/tree/canary/examples/auth0)
+- [with-supabase-auth-realtime-db](https://github.com/vercel/next.js/tree/canary/examples/with-supabase-auth-realtime-db)
+- [with-userbase](https://github.com/vercel/next.js/tree/canary/examples/with-userbase)
+- [with-supertokens](https://github.com/vercel/next.js/tree/canary/examples/with-supertokens)
+- [with-nhost-auth-realtime-graphql](https://github.com/vercel/next.js/tree/canary/examples/with-nhost-auth-realtime-graphql)
+- [with-clerk](https://github.com/vercel/next.js/tree/canary/examples/with-clerk)
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

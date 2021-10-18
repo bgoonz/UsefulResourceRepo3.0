@@ -1,5 +1,4 @@
-Next.js CLI
-===========
+# Next.js CLI
 
 The Next.js CLI allows you to start, build, and export your application.
 
@@ -7,7 +6,7 @@ To get a list of the available CLI commands, run the following command inside yo
 
     npx next -h
 
-*([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher)*
+_([npx](https://medium.com/@maybekatz/introducing-npx-an-npm-package-runner-55f7d4bd282b) comes with npm 5.2+ and higher)_
 
 The output should look like this:
 
@@ -30,13 +29,12 @@ You can pass any [node arguments](https://nodejs.org/api/cli.html#cli_node_optio
     NODE_OPTIONS='-r esm' next
     NODE_OPTIONS='--inspect' next
 
-Build
------
+## Build
 
 `next build` creates an optimized production build of your application. The output displays information about each route.
 
--   **Size** – The number of assets downloaded when navigating to the page client-side. The size for each route only includes its dependencies.
--   **First Load JS** – The number of assets downloaded when visiting the page from the server. The amount of JS shared by all is shown as a separate metric.
+- **Size** – The number of assets downloaded when navigating to the page client-side. The size for each route only includes its dependencies.
+- **First Load JS** – The number of assets downloaded when visiting the page from the server. The amount of JS shared by all is shown as a separate metric.
 
 The first load is indicated by green, yellow, or red. Aim for green for performant applications.
 
@@ -52,8 +50,7 @@ You can enable more verbose build output with the `--debug` flag in `next build`
 
 With this flag enabled additional build output like rewrites, redirects, and headers will be shown.
 
-Development
------------
+## Development
 
 `next dev` starts the application in development mode with hot-code reloading, error reporting, and more:
 
@@ -71,8 +68,7 @@ You can also set the hostname to be different from the default of `0.0.0.0`, thi
 
     npx next dev -H 192.168.1.2
 
-Production
-----------
+## Production
 
 `next start` starts the application in production mode. The application should be compiled with [`next build`](#build) first.
 
@@ -86,8 +82,7 @@ Or using the `PORT` environment variable:
 
 > Note: `PORT` can not be set in `.env` as booting up the HTTP server happens before any other code is initialized.
 
-Lint
-----
+## Lint
 
 `next lint` runs ESLint for all files in the `pages`, `components`, and `lib` directories. It also provides a guided setup to install any required dependencies if ESLint is not already configured in your application.
 
@@ -95,8 +90,7 @@ If you have other directories that you would like to lint, you can specify them 
 
     next lint --dir utils
 
-Telemetry
----------
+## Telemetry
 
 Next.js collects **completely anonymous** telemetry data about general usage. Participation in this anonymous program is optional, and you may opt-out if you’d not like to share any information.
 

@@ -1,5 +1,4 @@
-The provided export path doesn’t match the page.
-================================================
+# The provided export path doesn’t match the page.
 
 #### Why This Error Occurred
 
@@ -21,4 +20,4 @@ Change your `exportPathMap` function in `next.config.js` to have a path that mat
 
 ### Useful Links
 
--   [exportPathMap](https://nextjs.org/docs/api-reference/next.config.js/exportPathMap) documentation
+- [exportPathMap](https://nextjs.org/docs/api-reference/next.config.js/exportPathMap) documentation

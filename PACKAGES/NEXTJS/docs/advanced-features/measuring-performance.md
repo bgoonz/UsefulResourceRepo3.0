@@ -1,5 +1,4 @@
-Measuring performance
-=====================
+# Measuring performance
 
 [Next.js Analytics](https://nextjs.org/analytics) allows you to analyze and measure the performance of pages using different metrics.
 
@@ -7,8 +6,7 @@ You can start collecting your [Real Experience Score](https://vercel.com/docs/an
 
 The rest of this documentation describes the built-in relayer Next.js Analytics uses.
 
-Build Your Own
---------------
+## Build Your Own
 
 First, you will need to create a [custom App](/docs/advanced-features/custom-app.md) component and define a `reportWebVitals` function:
 
@@ -27,27 +25,26 @@ This function is fired when the final values for any of the metrics have finishe
 
 The `metric` object returned to the function consists of a number of properties:
 
--   `id`: Unique identifier for the metric in the context of the current page load
--   `name`: Metric name
--   `startTime`: First recorded timestamp of the performance entry in [milliseconds](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp) (if applicable)
--   `value`: Value, or duration in [milliseconds](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp), of the performance entry
--   `label`: Type of metric (`web-vital` or `custom`)
+- `id`: Unique identifier for the metric in the context of the current page load
+- `name`: Metric name
+- `startTime`: First recorded timestamp of the performance entry in [milliseconds](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp) (if applicable)
+- `value`: Value, or duration in [milliseconds](https://developer.mozilla.org/en-US/docs/Web/API/DOMHighResTimeStamp), of the performance entry
+- `label`: Type of metric (`web-vital` or `custom`)
 
 There are two types of metrics that are tracked:
 
--   Web Vitals
--   Custom metrics
+- Web Vitals
+- Custom metrics
 
-Web Vitals
-----------
+## Web Vitals
 
 [Web Vitals](https://web.dev/vitals/) are a set of useful metrics that aim to capture the user experience of a web page. The following web vitals are all included:
 
--   [Time to First Byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte) (TTFB)
--   [First Contentful Paint](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint) (FCP)
--   [Largest Contentful Paint](https://web.dev/lcp/) (LCP)
--   [First Input Delay](https://web.dev/fid/) (FID)
--   [Cumulative Layout Shift](https://web.dev/cls/) (CLS)
+- [Time to First Byte](https://developer.mozilla.org/en-US/docs/Glossary/Time_to_first_byte) (TTFB)
+- [First Contentful Paint](https://developer.mozilla.org/en-US/docs/Glossary/First_contentful_paint) (FCP)
+- [Largest Contentful Paint](https://web.dev/lcp/) (LCP)
+- [First Input Delay](https://web.dev/fid/) (FID)
+- [Cumulative Layout Shift](https://web.dev/cls/) (CLS)
 
 You can handle all the results of these metrics using the `web-vital` label:
 
@@ -83,14 +80,13 @@ There’s also the option of handling each of the metrics separately:
 
 A third-party library, [web-vitals](https://github.com/GoogleChrome/web-vitals), is used to measure these metrics. Browser compatibility depends on the particular metric, so refer to the [Browser Support](https://github.com/GoogleChrome/web-vitals#browser-support) section to find out which browsers are supported.
 
-Custom metrics
---------------
+## Custom metrics
 
 In addition to the core metrics listed above, there are some additional custom metrics that measure the time it takes for the page to hydrate and render:
 
--   `Next.js-hydration`: Length of time it takes for the page to start and finish hydrating (in ms)
--   `Next.js-route-change-to-render`: Length of time it takes for a page to start rendering after a route change (in ms)
--   `Next.js-render`: Length of time it takes for a page to finish render after a route change (in ms)
+- `Next.js-hydration`: Length of time it takes for the page to start and finish hydrating (in ms)
+- `Next.js-route-change-to-render`: Length of time it takes for a page to start rendering after a route change (in ms)
+- `Next.js-render`: Length of time it takes for a page to finish render after a route change (in ms)
 
 You can handle all the results of these metrics using the `custom` label:
 
@@ -120,8 +116,7 @@ There’s also the option of handling each of the metrics separately:
 
 These metrics work in all browsers that support the [User Timing API](https://caniuse.com/#feat=user-timing).
 
-Sending results to analytics
-----------------------------
+## Sending results to analytics
 
 With the relay function, you can send any of results to an analytics endpoint to measure and track real user performance on your site. For example:
 
@@ -153,8 +148,7 @@ With the relay function, you can send any of results to an analytics endpoint to
 >
 > Read more about [sending results to Google Analytics](https://github.com/GoogleChrome/web-vitals#send-the-results-to-google-analytics).
 
-TypeScript
-----------
+## TypeScript
 
 If you are using TypeScript, you can use the built-in type `NextWebVitalsMetric`:
 

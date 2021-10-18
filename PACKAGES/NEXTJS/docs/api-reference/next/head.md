@@ -1,10 +1,9 @@
-next/head
-=========
+# next/head
 
 **Examples**
 
--   [Head Elements](https://github.com/vercel/next.js/tree/canary/examples/head-elements)
--   [Layout Component](https://github.com/vercel/next.js/tree/canary/examples/layout-component)
+- [Head Elements](https://github.com/vercel/next.js/tree/canary/examples/head-elements)
+- [Layout Component](https://github.com/vercel/next.js/tree/canary/examples/layout-component)
 
 We expose a built-in component for appending elements to the `head` of the page:
 

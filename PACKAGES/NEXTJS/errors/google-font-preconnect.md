@@ -1,5 +1,4 @@
-Google Font Preconnect
-======================
+# Google Font Preconnect
 
 ### Why This Error Occurred
 
@@ -13,4 +12,4 @@ Add `rel="preconnect"` to the Google Font domain `<link>` tag:
 
 ### Useful Links
 
--   [Preconnect to required origins](https://web.dev/uses-rel-preconnect/)
+- [Preconnect to required origins](https://web.dev/uses-rel-preconnect/)

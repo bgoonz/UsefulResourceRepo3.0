@@ -1,9 +1,8 @@
-Shallow Routing
-===============
+# Shallow Routing
 
 **Examples**
 
--   [Shallow Routing](https://github.com/vercel/next.js/tree/canary/examples/with-shallow-routing)
+- [Shallow Routing](https://github.com/vercel/next.js/tree/canary/examples/with-shallow-routing)
 
 Shallow routing allows you to change the URL without running data fetching methods again, that includes [`getServerSideProps`](/docs/basic-features/data-fetching.md#getserversideprops-server-side-rendering), [`getStaticProps`](/docs/basic-features/data-fetching.md#getstaticprops-static-generation), and [`getInitialProps`](/docs/api-reference/data-fetching/getInitialProps.md).
 
@@ -42,8 +41,7 @@ You can also watch for URL changes via [`componentDidUpdate`](https://reactjs.or
       }
     }
 
-Caveats
--------
+## Caveats
 
 Shallow routing **only** works for same page URL changes. For example, let’s assume we have another page called `pages/about.js`, and you run this:
 

@@ -1,5 +1,4 @@
-Mixed `notFound` and `redirect`
-===============================
+# Mixed `notFound` and `redirect`
 
 #### Why This Error Occurred
 
@@ -13,5 +12,5 @@ Make sure only `notFound` **or** `redirect` is being returned on your page’s `
 
 ### Useful Links
 
--   [`getStaticProps` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
--   [`getServerSideProps` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering)
+- [`getStaticProps` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+- [`getServerSideProps` Documentation](https://nextjs.org/docs/basic-features/data-fetching#getserversideprops-server-side-rendering)

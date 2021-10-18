@@ -1,9 +1,8 @@
-Dynamic API Routes
-==================
+# Dynamic API Routes
 
 **Examples**
 
--   [Basic API Routes](https://github.com/vercel/next.js/tree/canary/examples/api-routes)
+- [Basic API Routes](https://github.com/vercel/next.js/tree/canary/examples/api-routes)
 
 API routes support [dynamic routes](/docs/routing/dynamic-routes.md), and follow the same file naming rules used for `pages`.
 
@@ -20,17 +19,17 @@ Now, a request to `/api/post/abc` will respond with the text: `Post: abc`.
 
 A very common RESTful pattern is to set up routes like this:
 
--   `GET api/posts` - gets a list of posts, probably paginated
--   `GET api/posts/12345` - gets post id 12345
+- `GET api/posts` - gets a list of posts, probably paginated
+- `GET api/posts/12345` - gets post id 12345
 
 We can model this in two ways:
 
--   Option 1:
-    -   `/api/posts.js`
-    -   `/api/posts/[postId].js`
--   Option 2:
-    -   `/api/posts/index.js`
-    -   `/api/posts/[postId].js`
+- Option 1:
+  - `/api/posts.js`
+  - `/api/posts/[postId].js`
+- Option 2:
+  - `/api/posts/index.js`
+  - `/api/posts/[postId].js`
 
 Both are equivalent. A third option of only using `/api/posts/[postId].js` is not valid because Dynamic Routes (including Catch-all routes - see below) do not have an `undefined` state and `GET api/posts` will not match `/api/posts/[postId].js` under any circumstances.
 
@@ -38,7 +37,7 @@ Both are equivalent. A third option of only using `/api/posts/[postId].js` is no
 
 API Routes can be extended to catch all paths by adding three dots (`...`) inside the brackets. For example:
 
--   `pages/api/post/[...slug].js` matches `/api/post/a`, but also `/api/post/a/b`, `/api/post/a/b/c` and so on.
+- `pages/api/post/[...slug].js` matches `/api/post/a`, but also `/api/post/a/b`, `/api/post/a/b/c` and so on.
 
 > **Note**: You can use names other than `slug`, such as: `[...param]`
 
@@ -73,16 +72,14 @@ The `query` objects are as follows:
     { "slug": ["a"] } // `GET /api/post/a` (single-element array)
     { "slug": ["a", "b"] } // `GET /api/post/a/b` (multi-element array)
 
-Caveats
--------
+## Caveats
 
--   Predefined API routes take precedence over dynamic API routes, and dynamic API routes over catch all API routes. Take a look at the following examples:
-    -   `pages/api/post/create.js` - Will match `/api/post/create`
-    -   `pages/api/post/[pid].js` - Will match `/api/post/1`, `/api/post/abc`, etc. But not `/api/post/create`
-    -   `pages/api/post/[...slug].js` - Will match `/api/post/1/2`, `/api/post/a/b/c`, etc. But not `/api/post/create`, `/api/post/abc`
+- Predefined API routes take precedence over dynamic API routes, and dynamic API routes over catch all API routes. Take a look at the following examples:
+  - `pages/api/post/create.js` - Will match `/api/post/create`
+  - `pages/api/post/[pid].js` - Will match `/api/post/1`, `/api/post/abc`, etc. But not `/api/post/create`
+  - `pages/api/post/[...slug].js` - Will match `/api/post/1/2`, `/api/post/a/b/c`, etc. But not `/api/post/create`, `/api/post/abc`
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

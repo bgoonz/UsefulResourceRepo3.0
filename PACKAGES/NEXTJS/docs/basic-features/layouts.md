@@ -1,9 +1,8 @@
-Layouts
-=======
+# Layouts
 
 **Examples**
 
--   [layout-component](https://github.com/vercel/next.js/tree/canary/examples/layout-component)
+- [layout-component](https://github.com/vercel/next.js/tree/canary/examples/layout-component)
 
 The React model allows us to deconstruct a [page](/docs/basic-features/pages.md) into a series of components. Many of these components are often reused between pages. For example, you might have the same navigation bar and footer on every page.
 
@@ -22,8 +21,7 @@ The React model allows us to deconstruct a [page](/docs/basic-features/pages.md)
       )
     }
 
-Examples
---------
+## Examples
 
 ### Single Shared Layout with Custom App
 
@@ -43,7 +41,7 @@ If you only have one layout for your entire application, you can create a [Custo
 
 ### Per-Page Layouts
 
-If you need multiple layouts, you can add a property `getLayout` to your page, allowing you to return a React component for the layout. This allows you to define the layout on a *per-page basis*. Since we’re returning a function, we can have complex nested layouts if desired.
+If you need multiple layouts, you can add a property `getLayout` to your page, allowing you to return a React component for the layout. This allows you to define the layout on a _per-page basis_. Since we’re returning a function, we can have complex nested layouts if desired.
 
     // pages/index.js
 

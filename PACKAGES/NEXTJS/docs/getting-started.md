@@ -1,5 +1,4 @@
-Getting Started
-===============
+# Getting Started
 
 Welcome to the Next.js documentation!
 
@@ -11,11 +10,10 @@ If you have questions about anything related to Next.js, you’re always welcome
 
 #### System Requirements
 
--   [Node.js 12.0](https://nodejs.org/) or later
--   MacOS, Windows (including WSL), and Linux are supported
+- [Node.js 12.0](https://nodejs.org/) or later
+- MacOS, Windows (including WSL), and Linux are supported
 
-Setup
------
+## Setup
 
 We recommend creating a new Next.js app using `create-next-app`, which sets up everything automatically for you. To create a project, run:
 
@@ -33,8 +31,7 @@ After the installation is complete, follow the instructions to start the develop
 
 For more information on how to use `create-next-app`, you can review the [`create-next-app` documentation](/docs/api-reference/create-next-app.md)
 
-Manual Setup
-------------
+## Manual Setup
 
 Install `next`, `react` and `react-dom` in your project:
 
@@ -53,10 +50,10 @@ Open `package.json` and add the following `scripts`:
 
 These scripts refer to the different stages of developing an application:
 
--   `dev` - Runs [`next dev`](/docs/api-reference/cli.md#development) which starts Next.js in development mode
--   `build` - Runs [`next build`](/docs/api-reference/cli.md#build) which builds the application for production usage
--   `start` - Runs [`next start`](/docs/api-reference/cli.md#production) which starts a Next.js production server
--   `lint` - Runs [`next lint`](/docs/api-reference/cli.md#lint) which sets up Next.js’ built-in ESLint configuration
+- `dev` - Runs [`next dev`](/docs/api-reference/cli.md#development) which starts Next.js in development mode
+- `build` - Runs [`next build`](/docs/api-reference/cli.md#build) which builds the application for production usage
+- `start` - Runs [`next start`](/docs/api-reference/cli.md#production) which starts a Next.js production server
+- `lint` - Runs [`next lint`](/docs/api-reference/cli.md#lint) which sets up Next.js’ built-in ESLint configuration
 
 Next.js is built around the concept of [pages](/docs/basic-features/pages.md). A page is a [React Component](https://reactjs.org/docs/components-and-props.html) exported from a `.js`, `.jsx`, `.ts`, or `.tsx` file in the `pages` directory.
 
@@ -78,15 +75,14 @@ Visit `http://localhost:3000` to view your application.
 
 So far, we get:
 
--   Automatic compilation and bundling (with webpack and babel)
--   [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)
--   [Static generation and server-side rendering](/docs/basic-features/data-fetching.md) of [`./pages/`](/docs/basic-features/pages.md)
--   [Static file serving](/docs/basic-features/static-file-serving.md). `./public/` is mapped to `/`
+- Automatic compilation and bundling (with webpack and babel)
+- [React Fast Refresh](https://nextjs.org/blog/next-9-4#fast-refresh)
+- [Static generation and server-side rendering](/docs/basic-features/data-fetching.md) of [`./pages/`](/docs/basic-features/pages.md)
+- [Static file serving](/docs/basic-features/static-file-serving.md). `./public/` is mapped to `/`
 
 In addition, any Next.js application is ready for production from the start, read more in our [Deployment documentation](/docs/deployment.md).
 
-Related
--------
+## Related
 
 For more information on what to do next, we recommend the following sections:
 

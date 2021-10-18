@@ -1,5 +1,4 @@
-Circular structure in “getInitialProps” result
-==============================================
+# Circular structure in “getInitialProps” result
 
 #### Why This Error Occurred
 

@@ -1,19 +1,18 @@
-exportPathMap
-=============
+# exportPathMap
 
 > This feature is exclusive to `next export`. Please refer to [Static HTML export](/docs/advanced-features/static-html-export.md) if you want to learn more about it.
 
 **Examples**
 
--   [Static Export](https://github.com/vercel/next.js/tree/canary/examples/with-static-export)
+- [Static Export](https://github.com/vercel/next.js/tree/canary/examples/with-static-export)
 
 `exportPathMap` allows you to specify a mapping of request paths to page destinations, to be used during export. Paths defined in `exportPathMap` will also be available when using [`next dev`](/docs/api-reference/cli.md#development).
 
 Let’s start with an example, to create a custom `exportPathMap` for an app with the following pages:
 
--   `pages/index.js`
--   `pages/about.js`
--   `pages/post.js`
+- `pages/index.js`
+- `pages/about.js`
+- `pages/post.js`
 
 Open `next.config.js` and add the following `exportPathMap` config:
 
@@ -38,21 +37,20 @@ The pages will then be exported as HTML files, for example, `/about` will become
 
 `exportPathMap` is an `async` function that receives 2 arguments: the first one is `defaultPathMap`, which is the default map used by Next.js. The second argument is an object with:
 
--   `dev` - `true` when `exportPathMap` is being called in development. `false` when running `next export`. In development `exportPathMap` is used to define routes.
--   `dir` - Absolute path to the project directory
--   `outDir` - Absolute path to the `out/` directory ([configurable with `-o`](#customizing-the-output-directory)). When `dev` is `true` the value of `outDir` will be `null`.
--   `distDir` - Absolute path to the `.next/` directory (configurable with the [`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md) config)
--   `buildId` - The generated build id
+- `dev` - `true` when `exportPathMap` is being called in development. `false` when running `next export`. In development `exportPathMap` is used to define routes.
+- `dir` - Absolute path to the project directory
+- `outDir` - Absolute path to the `out/` directory ([configurable with `-o`](#customizing-the-output-directory)). When `dev` is `true` the value of `outDir` will be `null`.
+- `distDir` - Absolute path to the `.next/` directory (configurable with the [`distDir`](/docs/api-reference/next.config.js/setting-a-custom-build-directory.md) config)
+- `buildId` - The generated build id
 
 The returned object is a map of pages where the `key` is the `pathname` and the `value` is an object that accepts the following fields:
 
--   `page`: `String` - the page inside the `pages` directory to render
--   `query`: `Object` - the `query` object passed to `getInitialProps` when prerendering. Defaults to `{}`
+- `page`: `String` - the page inside the `pages` directory to render
+- `query`: `Object` - the `query` object passed to `getInitialProps` when prerendering. Defaults to `{}`
 
 > The exported `pathname` can also be a filename (for example, `/readme.md`), but you may need to set the `Content-Type` header to `text/html` when serving its content if it is different than `.html`.
 
-Adding a trailing slash
------------------------
+## Adding a trailing slash
 
 It is possible to configure Next.js to export pages as `index.html` files and require trailing slashes, `/about` becomes `/about/index.html` and is routable via `/about/`. This was the default behavior prior to Next.js 9.
 
@@ -62,15 +60,13 @@ To switch back and add a trailing slash, open `next.config.js` and enable the `t
       trailingSlash: true,
     }
 
-Customizing the output directory
---------------------------------
+## Customizing the output directory
 
 [`next export`](/docs/advanced-features/static-html-export.md#how-to-use-it) will use `out` as the default output directory, you can customize this using the `-o` argument, like so:
 
     next export -o outdir
 
-Related
--------
+## Related
 
 [**Introduction to next.config.js:** <span class="small">Learn more about the configuration file used by Next.js.</span>](/docs/api-reference/next.config.js/introduction.md)
 

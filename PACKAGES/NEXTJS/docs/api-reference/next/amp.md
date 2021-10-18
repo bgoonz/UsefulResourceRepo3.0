@@ -1,9 +1,8 @@
-next/amp
-========
+# next/amp
 
 **Examples**
 
--   [AMP](https://github.com/vercel/next.js/tree/canary/examples/amp)
+- [AMP](https://github.com/vercel/next.js/tree/canary/examples/amp)
 
 > AMP support is one of our advanced features, you can [read more about AMP here](/docs/advanced-features/amp-support/introduction.md).
 
@@ -13,13 +12,12 @@ To enable AMP, add the following config to your page:
 
 The `amp` config accepts the following values:
 
--   `true` - The page will be AMP-only
--   `'hybrid'` - The page will have two versions, one with AMP and another one with HTML
+- `true` - The page will be AMP-only
+- `'hybrid'` - The page will have two versions, one with AMP and another one with HTML
 
 To learn more about the `amp` config, read the sections below.
 
-AMP First Page
---------------
+## AMP First Page
 
 Take a look at the following example:
 
@@ -33,12 +31,11 @@ Take a look at the following example:
 
 The page above is an AMP-only page, which means:
 
--   The page has no Next.js or React client-side runtime
--   The page is automatically optimized with [AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer), an optimizer that applies the same transformations as AMP caches (improves performance by up to 42%)
--   The page has a user-accessible (optimized) version of the page and a search-engine indexable (unoptimized) version of the page
+- The page has no Next.js or React client-side runtime
+- The page is automatically optimized with [AMP Optimizer](https://github.com/ampproject/amp-toolbox/tree/master/packages/optimizer), an optimizer that applies the same transformations as AMP caches (improves performance by up to 42%)
+- The page has a user-accessible (optimized) version of the page and a search-engine indexable (unoptimized) version of the page
 
-Hybrid AMP Page
----------------
+## Hybrid AMP Page
 
 Take a look at the following example:
 
@@ -71,7 +68,7 @@ Take a look at the following example:
 
 The page above is a hybrid AMP page, which means:
 
--   The page is rendered as traditional HTML (default) and AMP HTML (by adding `?amp=1` to the URL)
--   The AMP version of the page only has valid optimizations applied with AMP Optimizer so that it is indexable by search-engines
+- The page is rendered as traditional HTML (default) and AMP HTML (by adding `?amp=1` to the URL)
+- The AMP version of the page only has valid optimizations applied with AMP Optimizer so that it is indexable by search-engines
 
 The page uses `useAmp` to differentiate between modes, it’s a [React Hook](https://reactjs.org/docs/hooks-intro.html) that returns `true` if the page is using AMP, and `false` otherwise.
