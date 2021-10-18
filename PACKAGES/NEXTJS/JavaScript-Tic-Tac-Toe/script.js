@@ -8,13 +8,15 @@ const WINNING_COMBINATIONS = [
   [1, 4, 7],
   [2, 5, 8],
   [0, 4, 8],
-  [2, 4, 6]
+  [2, 4, 6],
 ]
 const cellElements = document.querySelectorAll('[data-cell]')
 const board = document.getElementById('board')
 const winningMessageElement = document.getElementById('winningMessage')
 const restartButton = document.getElementById('restartButton')
-const winningMessageTextElement = document.querySelector('[data-winning-message-text]')
+const winningMessageTextElement = document.querySelector(
+  '[data-winning-message-text]'
+)
 let circleTurn
 
 startGame()
@@ -23,7 +25,7 @@ restartButton.addEventListener('click', startGame)
 
 function startGame() {
   circleTurn = false
-  cellElements.forEach(cell => {
+  cellElements.forEach((cell) => {
     cell.classList.remove(X_CLASS)
     cell.classList.remove(CIRCLE_CLASS)
     cell.removeEventListener('click', handleClick)
@@ -57,8 +59,10 @@ function endGame(draw) {
 }
 
 function isDraw() {
-  return [...cellElements].every(cell => {
-    return cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
+  return [...cellElements].every((cell) => {
+    return (
+      cell.classList.contains(X_CLASS) || cell.classList.contains(CIRCLE_CLASS)
+    )
   })
 }
 
@@ -81,8 +85,8 @@ function setBoardHoverClass() {
 }
 
 function checkWin(currentClass) {
-  return WINNING_COMBINATIONS.some(combination => {
-    return combination.every(index => {
+  return WINNING_COMBINATIONS.some((combination) => {
+    return combination.every((index) => {
       return cellElements[index].classList.contains(currentClass)
     })
   })

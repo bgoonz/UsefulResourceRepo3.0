@@ -1,5 +1,4 @@
-Link passHref
-=============
+# Link passHref
 
 ### Why This Error Occurred
 
@@ -28,4 +27,4 @@ If you’re using a custom component that wraps an `<a>` tag, make sure to add `
 
 ### Useful Links
 
--   [next/link - Custom Component](https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag)
+- [next/link - Custom Component](https://nextjs.org/docs/api-reference/next/link#if-the-child-is-a-custom-component-that-wraps-an-a-tag)

@@ -1,5 +1,4 @@
-`<title>` should not be used in \_document.js’s `<Head>`
-========================================================
+# `<title>` should not be used in \_document.js’s `<Head>`
 
 #### Why This Error Occurred
 
@@ -28,4 +27,4 @@ Set `<title>` in `pages/_app.js` instead:
 
 ### Useful Links
 
--   [The issue this was reported in: \#4596](https://github.com/vercel/next.js/issues/4596)
+- [The issue this was reported in: \#4596](https://github.com/vercel/next.js/issues/4596)

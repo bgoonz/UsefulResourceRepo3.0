@@ -5,11 +5,11 @@ const keys = document.querySelectorAll('.key')
 const whiteKeys = document.querySelectorAll('.key.white')
 const blackKeys = document.querySelectorAll('.key.black')
 
-keys.forEach(key => {
+keys.forEach((key) => {
   key.addEventListener('click', () => playNote(key))
 })
 
-document.addEventListener('keydown', e => {
+document.addEventListener('keydown', (e) => {
   if (e.repeat) return
   const key = e.key
   const whiteKeyIndex = WHITE_KEYS.indexOf(key)

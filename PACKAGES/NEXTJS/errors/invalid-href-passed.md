@@ -1,5 +1,4 @@
-Invalid href passed to router
-=============================
+# Invalid href passed to router
 
 #### Why This Error Occurred
 
@@ -15,4 +14,4 @@ Look for any usage of `next/link` or `next/router` that is being passed a non-in
 
 ### Useful Links
 
--   [Routing section in Documentation](https://nextjs.org/docs/routing/introduction)
+- [Routing section in Documentation](https://nextjs.org/docs/routing/introduction)

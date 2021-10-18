@@ -1,4 +1,4 @@
-const fs = require("fs")
+const fs = require('fs')
 
 module.exports = class FileSystem {
   static read(path) {
@@ -12,7 +12,7 @@ module.exports = class FileSystem {
 
   static write(path, content) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(path, content.toString(), err => {
+      fs.writeFile(path, content.toString(), (err) => {
         if (err) return reject(err)
         resolve()
       })

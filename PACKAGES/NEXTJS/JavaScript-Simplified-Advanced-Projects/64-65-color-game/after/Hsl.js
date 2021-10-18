@@ -1,4 +1,4 @@
-import { randomNumber, randomValueInRange } from "./utils.js"
+import { randomNumber, randomValueInRange } from './utils.js'
 
 const MAX_HUE_VALUE = 360
 const MAX_SATURATION_VALUE = 100

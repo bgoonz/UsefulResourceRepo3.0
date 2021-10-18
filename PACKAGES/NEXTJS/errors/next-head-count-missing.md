@@ -1,5 +1,4 @@
-`next-head-count` is missing
-============================
+# `next-head-count` is missing
 
 #### Why This Error Occurred
 

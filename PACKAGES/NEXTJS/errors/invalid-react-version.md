@@ -1,5 +1,4 @@
-Invalid React Version
-=====================
+# Invalid React Version
 
 #### Why This Error Occurred
 

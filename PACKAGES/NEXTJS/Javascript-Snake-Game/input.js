@@ -1,7 +1,7 @@
 let inputDirection = { x: 0, y: 0 }
 let lastInputDirection = { x: 0, y: 0 }
 
-window.addEventListener('keydown', e => {
+window.addEventListener('keydown', (e) => {
   switch (e.key) {
     case 'ArrowUp':
       if (lastInputDirection.y !== 0) break

@@ -1,4 +1,4 @@
-import Rgb from "./Rgb.js"
+import Rgb from './Rgb.js'
 
 export default class Hex extends Rgb {
   toCss() {

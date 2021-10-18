@@ -1,19 +1,26 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { NetInput, NeuralNetwork, normalize, TNetInput, toNetInput } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import {
+  NetInput,
+  NeuralNetwork,
+  normalize,
+  TNetInput,
+  toNetInput,
+} from 'tfjs-image-recognition-base'
 
-import { denseBlock3 } from './denseBlock';
-import { extractParamsFromWeigthMapTiny } from './extractParamsFromWeigthMapTiny';
-import { extractParamsTiny } from './extractParamsTiny';
-import { IFaceFeatureExtractor, TinyFaceFeatureExtractorParams } from './types';
+import { denseBlock3 } from './denseBlock'
+import { extractParamsFromWeigthMapTiny } from './extractParamsFromWeigthMapTiny'
+import { extractParamsTiny } from './extractParamsTiny'
+import { IFaceFeatureExtractor, TinyFaceFeatureExtractorParams } from './types'
 
-export class TinyFaceFeatureExtractor extends NeuralNetwork<TinyFaceFeatureExtractorParams> implements IFaceFeatureExtractor<TinyFaceFeatureExtractorParams> {
-
+export class TinyFaceFeatureExtractor
+  extends NeuralNetwork<TinyFaceFeatureExtractorParams>
+  implements IFaceFeatureExtractor<TinyFaceFeatureExtractorParams>
+{
   constructor() {
     super('TinyFaceFeatureExtractor')
   }
 
   public forwardInput(input: NetInput): tf.Tensor4D {
-
     const { params } = this
 
     if (!params) {
@@ -23,7 +30,9 @@ export class TinyFaceFeatureExtractor extends NeuralNetwork<TinyFaceFeatureExtra
     return tf.tidy(() => {
       const batchTensor = input.toBatchTensor(112, true)
       const meanRgb = [122.782, 117.001, 104.298]
-      const normalized = normalize(batchTensor, meanRgb).div(tf.scalar(255)) as tf.Tensor4D
+      const normalized = normalize(batchTensor, meanRgb).div(
+        tf.scalar(255)
+      ) as tf.Tensor4D
 
       let out = denseBlock3(normalized, params.dense0, true)
       out = denseBlock3(out, params.dense1)

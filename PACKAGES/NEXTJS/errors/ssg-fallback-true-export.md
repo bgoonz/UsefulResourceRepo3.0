@@ -1,5 +1,4 @@
-SSG `fallback: true` Export Error
-=================================
+# SSG `fallback: true` Export Error
 
 #### Why This Error Occurred
 
@@ -11,5 +10,5 @@ If you would like the `fallback: true` behavior, `next export` should not be use
 
 ### Useful Links
 
--   [deployment documentation](https://nextjs.org/docs/deployment#vercel-recommended)
--   [`fallback: true` documentation](https://nextjs.org/docs/basic-features/data-fetching#fallback-true)
+- [deployment documentation](https://nextjs.org/docs/deployment#vercel-recommended)
+- [`fallback: true` documentation](https://nextjs.org/docs/basic-features/data-fetching#fallback-true)

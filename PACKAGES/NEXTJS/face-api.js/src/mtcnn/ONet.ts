@@ -1,20 +1,25 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base'
 
-import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
-import { prelu } from './prelu';
-import { sharedLayer } from './sharedLayers';
-import { ONetParams } from './types';
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer'
+import { prelu } from './prelu'
+import { sharedLayer } from './sharedLayers'
+import { ONetParams } from './types'
 
-export function ONet(x: tf.Tensor4D, params: ONetParams): { scores: tf.Tensor1D, regions: tf.Tensor2D, points: tf.Tensor2D } {
+export function ONet(
+  x: tf.Tensor4D,
+  params: ONetParams
+): { scores: tf.Tensor1D; regions: tf.Tensor2D; points: tf.Tensor2D } {
   return tf.tidy(() => {
-
     let out = sharedLayer(x, params)
     out = tf.maxPool(out, [2, 2], [2, 2], 'same')
     out = TfjsImageRecognitionBase.convLayer(out, params.conv4, 'valid')
     out = prelu<tf.Tensor4D>(out, params.prelu4_alpha)
 
-    const vectorized = tf.reshape(out, [out.shape[0], params.fc1.weights.shape[0]]) as tf.Tensor2D
+    const vectorized = tf.reshape(out, [
+      out.shape[0],
+      params.fc1.weights.shape[0],
+    ]) as tf.Tensor2D
     const fc1 = fullyConnectedLayer(vectorized, params.fc1)
     const prelu5 = prelu<tf.Tensor2D>(fc1, params.prelu5_alpha)
     const fc2_1 = fullyConnectedLayer(prelu5, params.fc2_1)

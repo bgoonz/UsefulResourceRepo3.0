@@ -1,5 +1,4 @@
-Router.onAppUpdated is removed
-==============================
+# Router.onAppUpdated is removed
 
 Due to [this bug fix](https://github.com/vercel/next.js/pull/3849), we had to remove the `Router.onAppUpdated` hook. But the default functionality of this feature is still in effect.
 

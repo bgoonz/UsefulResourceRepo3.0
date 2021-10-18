@@ -1,5 +1,4 @@
-No Duplicate Head
-=================
+# No Duplicate Head
 
 ### Why This Error Occurred
 
@@ -34,4 +33,4 @@ Only use a single `<Head />` component in your custom document in `pages/_docume
 
 ### Useful Links
 
--   [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
+- [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)

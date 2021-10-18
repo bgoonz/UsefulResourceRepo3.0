@@ -1,5 +1,4 @@
-Invalid i18n config
-===================
+# Invalid i18n config
 
 #### Why This Error
 
@@ -40,4 +39,4 @@ Make sure your `i18n` field follows the allowed config shape, limits, and values
 
 ### Useful Links
 
--   [Internationalized Routing Documentation](https://nextjs.org/docs/advanced-features/i18n-routing)
+- [Internationalized Routing Documentation](https://nextjs.org/docs/advanced-features/i18n-routing)

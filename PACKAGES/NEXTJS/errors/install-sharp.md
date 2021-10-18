@@ -1,5 +1,4 @@
-Install `sharp` to Use Built-In Image Optimization
-==================================================
+# Install `sharp` to Use Built-In Image Optimization
 
 #### Why This Error Occurred
 

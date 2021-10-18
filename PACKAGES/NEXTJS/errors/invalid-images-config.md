@@ -1,5 +1,4 @@
-Invalid images config
-=====================
+# Invalid images config
 
 #### Why This Error Occurred
 
@@ -32,5 +31,5 @@ Make sure your `images` field follows the allowed config shape and values:
 
 ### Useful Links
 
--   [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
--   [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)
+- [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
+- [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)

@@ -9,15 +9,17 @@ searchBox.addListener('places_changed', () => {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
-      'Accept': 'application/json'
+      Accept: 'application/json',
     },
     body: JSON.stringify({
       latitude: latitude,
-      longitude: longitude
-    })
-  }).then(res => res.json()).then(data => {
-    setWeatherData(data, place.formatted_address)
+      longitude: longitude,
+    }),
   })
+    .then((res) => res.json())
+    .then((data) => {
+      setWeatherData(data, place.formatted_address)
+    })
 })
 
 const icon = new Skycons({ color: '#222' })

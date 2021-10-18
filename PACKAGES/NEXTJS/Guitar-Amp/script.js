@@ -6,22 +6,22 @@ const visualizer = document.getElementById('visualizer')
 
 const context = new AudioContext()
 const analyserNode = new AnalyserNode(context, { fftSize: 256 })
-const gainNode = new GainNode(context, { gain: volume.value})
+const gainNode = new GainNode(context, { gain: volume.value })
 const bassEQ = new BiquadFilterNode(context, {
   type: 'lowshelf',
   frequency: 500,
-  gain: bass.value
+  gain: bass.value,
 })
 const midEQ = new BiquadFilterNode(context, {
   type: 'peaking',
   Q: Math.SQRT1_2,
   frequency: 1500,
-  gain: mid.value
+  gain: mid.value,
 })
 const trebleEQ = new BiquadFilterNode(context, {
   type: 'highshelf',
   frequency: 3000,
-  gain: treble.value
+  gain: treble.value,
 })
 
 setupEventListeners()
@@ -32,24 +32,24 @@ drawVisualizer()
 function setupEventListeners() {
   window.addEventListener('resize', resize)
 
-  volume.addEventListener('input', e => {
+  volume.addEventListener('input', (e) => {
     const value = parseFloat(e.target.value)
-    gainNode.gain.setTargetAtTime(value, context.currentTime, .01)
+    gainNode.gain.setTargetAtTime(value, context.currentTime, 0.01)
   })
 
-  bass.addEventListener('input', e => {
+  bass.addEventListener('input', (e) => {
     const value = parseInt(e.target.value)
-    bassEQ.gain.setTargetAtTime(value, context.currentTime, .01)
+    bassEQ.gain.setTargetAtTime(value, context.currentTime, 0.01)
   })
 
-  mid.addEventListener('input', e => {
+  mid.addEventListener('input', (e) => {
     const value = parseInt(e.target.value)
-    midEQ.gain.setTargetAtTime(value, context.currentTime, .01)
+    midEQ.gain.setTargetAtTime(value, context.currentTime, 0.01)
   })
 
-  treble.addEventListener('input', e => {
+  treble.addEventListener('input', (e) => {
     const value = parseInt(e.target.value)
-    trebleEQ.gain.setTargetAtTime(value, context.currentTime, .01)
+    trebleEQ.gain.setTargetAtTime(value, context.currentTime, 0.01)
   })
 }
 
@@ -74,8 +74,8 @@ function getGuitar() {
       echoCancellation: false,
       autoGainControl: false,
       noiseSuppression: false,
-      latency: 0
-    }
+      latency: 0,
+    },
   })
 }
 
@@ -93,10 +93,10 @@ function drawVisualizer() {
   canvasContext.clearRect(0, 0, width, height)
 
   dataArray.forEach((item, index) => {
-    const y = item / 255 * height / 2
+    const y = ((item / 255) * height) / 2
     const x = barWidth * index
 
-    canvasContext.fillStyle = `hsl(${y / height * 400}, 100%, 50%)`
+    canvasContext.fillStyle = `hsl(${(y / height) * 400}, 100%, 50%)`
     canvasContext.fillRect(x, height - y, barWidth, y)
   })
 }

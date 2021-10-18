@@ -1,22 +1,36 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { isTensor2D, TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import {
+  isTensor2D,
+  TfjsImageRecognitionBase,
+} from 'tfjs-image-recognition-base'
 
-import { ConvLayerParams, NetParams, ResidualLayerParams, ScaleLayerParams } from './types';
+import {
+  ConvLayerParams,
+  NetParams,
+  ResidualLayerParams,
+  ScaleLayerParams,
+} from './types'
 
-function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBase.ParamMapping[]) {
-
-  const extractWeightEntry = TfjsImageRecognitionBase.extractWeightEntryFactory(weightMap, paramMappings)
+function extractorsFactory(
+  weightMap: any,
+  paramMappings: TfjsImageRecognitionBase.ParamMapping[]
+) {
+  const extractWeightEntry = TfjsImageRecognitionBase.extractWeightEntryFactory(
+    weightMap,
+    paramMappings
+  )
 
   function extractScaleLayerParams(prefix: string): ScaleLayerParams {
-
-    const weights = extractWeightEntry<tf.Tensor1D>(`${prefix}/scale/weights`, 1)
+    const weights = extractWeightEntry<tf.Tensor1D>(
+      `${prefix}/scale/weights`,
+      1
+    )
     const biases = extractWeightEntry<tf.Tensor1D>(`${prefix}/scale/biases`, 1)
 
     return { weights, biases }
   }
 
   function extractConvLayerParams(prefix: string): ConvLayerParams {
-
     const filters = extractWeightEntry<tf.Tensor4D>(`${prefix}/conv/filters`, 4)
     const bias = extractWeightEntry<tf.Tensor1D>(`${prefix}/conv/bias`, 1)
     const scale = extractScaleLayerParams(prefix)
@@ -27,27 +41,24 @@ function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBa
   function extractResidualLayerParams(prefix: string): ResidualLayerParams {
     return {
       conv1: extractConvLayerParams(`${prefix}/conv1`),
-      conv2: extractConvLayerParams(`${prefix}/conv2`)
+      conv2: extractConvLayerParams(`${prefix}/conv2`),
     }
   }
 
   return {
     extractConvLayerParams,
-    extractResidualLayerParams
+    extractResidualLayerParams,
   }
-
 }
 
-export function extractParamsFromWeigthMap(
-  weightMap: tf.NamedTensorMap
-): { params: NetParams, paramMappings: TfjsImageRecognitionBase.ParamMapping[] } {
-
+export function extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap): {
+  params: NetParams
+  paramMappings: TfjsImageRecognitionBase.ParamMapping[]
+} {
   const paramMappings: TfjsImageRecognitionBase.ParamMapping[] = []
 
-  const {
-    extractConvLayerParams,
-    extractResidualLayerParams
-  } = extractorsFactory(weightMap, paramMappings)
+  const { extractConvLayerParams, extractResidualLayerParams } =
+    extractorsFactory(weightMap, paramMappings)
 
   const conv32_down = extractConvLayerParams('conv32_down')
   const conv32_1 = extractResidualLayerParams('conv32_1')
@@ -72,7 +83,9 @@ export function extractParamsFromWeigthMap(
   paramMappings.push({ originalPath: 'fc', paramPath: 'fc' })
 
   if (!isTensor2D(fc)) {
-    throw new Error(`expected weightMap[fc] to be a Tensor2D, instead have ${fc}`)
+    throw new Error(
+      `expected weightMap[fc] to be a Tensor2D, instead have ${fc}`
+    )
   }
 
   const params = {
@@ -91,7 +104,7 @@ export function extractParamsFromWeigthMap(
     conv256_1,
     conv256_2,
     conv256_down_out,
-    fc
+    fc,
   }
 
   TfjsImageRecognitionBase.disposeUnusedWeightTensors(weightMap, paramMappings)

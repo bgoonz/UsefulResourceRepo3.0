@@ -1,5 +1,4 @@
-Duplicate Polyfills from Polyfill.io
-====================================
+# Duplicate Polyfills from Polyfill.io
 
 #### Why This Error Occurred
 
@@ -11,4 +10,4 @@ Remove all duplicate polyfills that are included with Polyfill.io. If you need t
 
 ### Useful Links
 
--   [Supported Browsers and Features](https://nextjs.org/docs/basic-features/supported-browsers-features)
+- [Supported Browsers and Features](https://nextjs.org/docs/basic-features/supported-browsers-features)

@@ -1,5 +1,4 @@
-No Sync Scripts
-===============
+# No Sync Scripts
 
 ### Why This Error Occurred
 
@@ -26,4 +25,4 @@ Use the Script component with the right loading strategy to defer loading of the
 
 ### Useful Links
 
--   [Efficiently load third-party JavaScript](https://web.dev/efficiently-load-third-party-javascript/)
+- [Efficiently load third-party JavaScript](https://web.dev/efficiently-load-third-party-javascript/)

@@ -17,7 +17,7 @@ body {
 }
 
 .subtext {
-  color: #CCC;
+  color: #ccc;
   font-size: 1.5rem;
   margin-bottom: 10px;
 }
@@ -38,23 +38,23 @@ body {
   justify-content: center;
   align-items: center;
   color: white;
-  border: 2px solid #BBB;
+  border: 2px solid #bbb;
   user-select: none;
 }
 
-.board > [data-status="hidden"] {
-  background-color: #BBB;
+.board > [data-status='hidden'] {
+  background-color: #bbb;
   cursor: pointer;
 }
 
-.board > [data-status="mine"] {
+.board > [data-status='mine'] {
   background-color: red;
 }
 
-.board > [data-status="number"] {
+.board > [data-status='number'] {
   background-color: none;
 }
 
-.board > [data-status="marked"] {
+.board > [data-status='marked'] {
   background-color: yellow;
 }

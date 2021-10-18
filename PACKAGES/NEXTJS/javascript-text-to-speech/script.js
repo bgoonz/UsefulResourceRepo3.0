@@ -19,7 +19,7 @@ const utterance = new SpeechSynthesisUtterance()
 utterance.addEventListener('end', () => {
   textInput.disabled = false
 })
-utterance.addEventListener('boundary', e => {
+utterance.addEventListener('boundary', (e) => {
   currentCharacter = e.charIndex
 })
 

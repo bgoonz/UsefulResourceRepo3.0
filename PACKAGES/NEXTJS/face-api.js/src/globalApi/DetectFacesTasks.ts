@@ -1,16 +1,31 @@
-import { TfjsImageRecognitionBase, TNetInput } from 'tfjs-image-recognition-base';
+import {
+  TfjsImageRecognitionBase,
+  TNetInput,
+} from 'tfjs-image-recognition-base'
 
-import { FaceDetection } from '../classes/FaceDetection';
-import { extendWithFaceDetection, WithFaceDetection } from '../factories/WithFaceDetection';
-import { MtcnnOptions } from '../mtcnn/MtcnnOptions';
-import { SsdMobilenetv1Options } from '../ssdMobilenetv1/SsdMobilenetv1Options';
-import { TinyFaceDetectorOptions } from '../tinyFaceDetector/TinyFaceDetectorOptions';
-import { ComposableTask } from './ComposableTask';
-import { DetectAllFaceLandmarksTask, DetectSingleFaceLandmarksTask } from './DetectFaceLandmarksTasks';
-import { nets } from './nets';
-import { PredictAllAgeAndGenderTask, PredictSingleAgeAndGenderTask } from './PredictAgeAndGenderTask';
-import { PredictAllFaceExpressionsTask, PredictSingleFaceExpressionsTask } from './PredictFaceExpressionsTask';
-import { FaceDetectionOptions } from './types';
+import { FaceDetection } from '../classes/FaceDetection'
+import {
+  extendWithFaceDetection,
+  WithFaceDetection,
+} from '../factories/WithFaceDetection'
+import { MtcnnOptions } from '../mtcnn/MtcnnOptions'
+import { SsdMobilenetv1Options } from '../ssdMobilenetv1/SsdMobilenetv1Options'
+import { TinyFaceDetectorOptions } from '../tinyFaceDetector/TinyFaceDetectorOptions'
+import { ComposableTask } from './ComposableTask'
+import {
+  DetectAllFaceLandmarksTask,
+  DetectSingleFaceLandmarksTask,
+} from './DetectFaceLandmarksTasks'
+import { nets } from './nets'
+import {
+  PredictAllAgeAndGenderTask,
+  PredictSingleAgeAndGenderTask,
+} from './PredictAgeAndGenderTask'
+import {
+  PredictAllFaceExpressionsTask,
+  PredictSingleFaceExpressionsTask,
+} from './PredictFaceExpressionsTask'
+import { FaceDetectionOptions } from './types'
 
 export class DetectFacesTaskBase<TReturn> extends ComposableTask<TReturn> {
   constructor(
@@ -22,39 +37,40 @@ export class DetectFacesTaskBase<TReturn> extends ComposableTask<TReturn> {
 }
 
 export class DetectAllFacesTask extends DetectFacesTaskBase<FaceDetection[]> {
-
   public async run(): Promise<FaceDetection[]> {
-
     const { input, options } = this
 
     if (options instanceof MtcnnOptions) {
-      return (await nets.mtcnn.forward(input, options))
-        .map(result => result.detection)
+      return (await nets.mtcnn.forward(input, options)).map(
+        (result) => result.detection
+      )
     }
 
-    const faceDetectionFunction = options instanceof TinyFaceDetectorOptions
-      ? (input: TNetInput) => nets.tinyFaceDetector.locateFaces(input, options)
-      : (
-        options instanceof SsdMobilenetv1Options
-          ? (input: TNetInput) => nets.ssdMobilenetv1.locateFaces(input, options)
-          : (
-            options instanceof TfjsImageRecognitionBase.TinyYolov2Options
-              ? (input: TNetInput) => nets.tinyYolov2.locateFaces(input, options)
-              : null
-          )
-      )
+    const faceDetectionFunction =
+      options instanceof TinyFaceDetectorOptions
+        ? (input: TNetInput) =>
+            nets.tinyFaceDetector.locateFaces(input, options)
+        : options instanceof SsdMobilenetv1Options
+        ? (input: TNetInput) => nets.ssdMobilenetv1.locateFaces(input, options)
+        : options instanceof TfjsImageRecognitionBase.TinyYolov2Options
+        ? (input: TNetInput) => nets.tinyYolov2.locateFaces(input, options)
+        : null
 
     if (!faceDetectionFunction) {
-      throw new Error('detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options')
+      throw new Error(
+        'detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options'
+      )
     }
 
     return faceDetectionFunction(input)
   }
 
   private runAndExtendWithFaceDetections(): Promise<WithFaceDetection<{}>[]> {
-    return new Promise<WithFaceDetection<{}>[]>(async res => {
+    return new Promise<WithFaceDetection<{}>[]>(async (res) => {
       const detections = await this.run()
-      return res(detections.map(detection => extendWithFaceDetection({}, detection)))
+      return res(
+        detections.map((detection) => extendWithFaceDetection({}, detection))
+      )
     })
   }
 
@@ -67,7 +83,7 @@ export class DetectAllFacesTask extends DetectFacesTaskBase<FaceDetection[]> {
   }
 
   withFaceExpressions() {
-    return new PredictAllFaceExpressionsTask (
+    return new PredictAllFaceExpressionsTask(
       this.runAndExtendWithFaceDetections(),
       this.input
     )
@@ -81,23 +97,29 @@ export class DetectAllFacesTask extends DetectFacesTaskBase<FaceDetection[]> {
   }
 }
 
-export class DetectSingleFaceTask extends DetectFacesTaskBase<FaceDetection | undefined> {
-
+export class DetectSingleFaceTask extends DetectFacesTaskBase<
+  FaceDetection | undefined
+> {
   public async run(): Promise<FaceDetection | undefined> {
-    const faceDetections = await new DetectAllFacesTask(this.input, this.options);
-    let faceDetectionWithHighestScore = faceDetections[0];
-    faceDetections.forEach(faceDetection => {
+    const faceDetections = await new DetectAllFacesTask(
+      this.input,
+      this.options
+    )
+    let faceDetectionWithHighestScore = faceDetections[0]
+    faceDetections.forEach((faceDetection) => {
       if (faceDetection.score > faceDetectionWithHighestScore.score) {
-        faceDetectionWithHighestScore = faceDetection;
+        faceDetectionWithHighestScore = faceDetection
       }
-    });
-    return faceDetectionWithHighestScore;
+    })
+    return faceDetectionWithHighestScore
   }
 
   private runAndExtendWithFaceDetection(): Promise<WithFaceDetection<{}>> {
-    return new Promise<WithFaceDetection<{}>>(async res => {
+    return new Promise<WithFaceDetection<{}>>(async (res) => {
       const detection = await this.run()
-      return res(detection ? extendWithFaceDetection<{}>({}, detection) : undefined)
+      return res(
+        detection ? extendWithFaceDetection<{}>({}, detection) : undefined
+      )
     })
   }
 

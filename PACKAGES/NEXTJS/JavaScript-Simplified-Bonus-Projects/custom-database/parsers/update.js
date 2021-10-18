@@ -1,8 +1,8 @@
-const UpdateCommand = require("../commands/UpdateCommand")
-const safeParseJSON = require("../utils/safeParseJSON")
+const UpdateCommand = require('../commands/UpdateCommand')
+const safeParseJSON = require('../utils/safeParseJSON')
 
-const UPDATE_COMMAND = "UPDATE"
-const BEFORE_TABLE_COMMAND = "IN"
+const UPDATE_COMMAND = 'UPDATE'
+const BEFORE_TABLE_COMMAND = 'IN'
 const REGEX = new RegExp(
   `${UPDATE_COMMAND}\\s+(?<properties>{.*})\\s+${BEFORE_TABLE_COMMAND}\\s+(?<tableName>\\S+)`
 )

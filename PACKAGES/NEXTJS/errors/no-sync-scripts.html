@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>no-sync-scripts</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="no-sync-scripts">No Sync Scripts</h1>
-<h3 id="why-this-error-occurred">Why This Error Occurred</h3>
-<p>A synchronous script was used which can impact your webpage’s performance.</p>
-<h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
-<h4 id="script-component-experimental">Script component (experimental)</h4>
-<p>Use the Script component with the right loading strategy to defer loading of the script until necessary.</p>
-<pre class="jsx"><code>import Script from &#39;next/script&#39;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>no-sync-scripts</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="no-sync-scripts">No Sync Scripts</h1>
+    <h3 id="why-this-error-occurred">Why This Error Occurred</h3>
+    <p>
+      A synchronous script was used which can impact your webpage’s performance.
+    </p>
+    <h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
+    <h4 id="script-component-experimental">Script component (experimental)</h4>
+    <p>
+      Use the Script component with the right loading strategy to defer loading
+      of the script until necessary.
+    </p>
+    <pre class="jsx"><code>import Script from &#39;next/script&#39;
 
 const Home = () =&gt; {
   return (
@@ -31,9 +49,13 @@ const Home = () =&gt; {
 }
 
 export default Home</code></pre>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://web.dev/efficiently-load-third-party-javascript/">Efficiently load third-party JavaScript</a></li>
-</ul>
-</body>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a href="https://web.dev/efficiently-load-third-party-javascript/"
+          >Efficiently load third-party JavaScript</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

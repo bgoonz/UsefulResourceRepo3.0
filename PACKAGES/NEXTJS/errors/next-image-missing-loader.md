@@ -1,5 +1,4 @@
-Missing `loader` Prop on `next/image`
-=====================================
+# Missing `loader` Prop on `next/image`
 
 #### Why This Error Occurred
 
@@ -7,10 +6,10 @@ When using the `next/image` component with [`loader="custom"`](https://nextjs.or
 
 #### Possible Ways to Fix It
 
--   Add the [`loader`](https://nextjs.org/docs/api-reference/next/image#loader) prop to all usages of the `next/image` component.
--   Change the [`loader`](https://nextjs.org/docs/basic-features/image-optimization#loader) configuration in `next.config.js`.
+- Add the [`loader`](https://nextjs.org/docs/api-reference/next/image#loader) prop to all usages of the `next/image` component.
+- Change the [`loader`](https://nextjs.org/docs/basic-features/image-optimization#loader) configuration in `next.config.js`.
 
 ### Useful Links
 
--   [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
--   [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)
+- [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
+- [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)

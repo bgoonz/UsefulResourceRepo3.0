@@ -10,5 +10,5 @@ function twoSum(nums, target) {
     }
   }
 
-	return []
+  return []
 }

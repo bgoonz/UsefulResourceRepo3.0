@@ -1,5 +1,4 @@
-Invalid assetPrefix
-===================
+# Invalid assetPrefix
 
 #### Why This Error Occurred
 

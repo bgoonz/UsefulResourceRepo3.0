@@ -1,4 +1,4 @@
-import { Box } from 'tfjs-image-recognition-base';
+import { Box } from 'tfjs-image-recognition-base'
 
 export class MtcnnBox extends Box<MtcnnBox> {
   constructor(left: number, top: number, right: number, bottom: number) {

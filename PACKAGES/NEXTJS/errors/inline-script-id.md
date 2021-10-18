@@ -1,13 +1,10 @@
-next/script components with inline content require an `id` attribute
-====================================================================
+# next/script components with inline content require an `id` attribute
 
-Why This Error Occurred
------------------------
+## Why This Error Occurred
 
 `next/script` components with inline content require an `id` attribute to be defined to track and optimize the script.
 
-Possible Ways to Fix It
------------------------
+## Possible Ways to Fix It
 
 Add an `id` attribute to the `next/script` component.
 
@@ -22,7 +19,6 @@ Add an `id` attribute to the `next/script` component.
       )
     }
 
-Useful links
-------------
+## Useful links
 
--   [Docs for Next.js Script component](https://nextjs.org/docs/basic-features/script)
+- [Docs for Next.js Script component](https://nextjs.org/docs/basic-features/script)

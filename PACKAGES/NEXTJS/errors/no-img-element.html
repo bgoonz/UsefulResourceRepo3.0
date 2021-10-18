@@ -1,24 +1,41 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>no-img-element</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="no-img-element">No Img Element</h1>
-<h3 id="why-this-error-occurred">Why This Error Occurred</h3>
-<p>An HTML <code>&lt;img&gt;</code> element was used to display an image. For better performance and automatic Image Optimization, use Next.js’ built-in image component instead.</p>
-<h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
-<p>Import and use the <code>&lt;Image /&gt;</code> component:</p>
-<pre class="jsx"><code>import Image from &#39;next/image&#39;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>no-img-element</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="no-img-element">No Img Element</h1>
+    <h3 id="why-this-error-occurred">Why This Error Occurred</h3>
+    <p>
+      An HTML <code>&lt;img&gt;</code> element was used to display an image. For
+      better performance and automatic Image Optimization, use Next.js’ built-in
+      image component instead.
+    </p>
+    <h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
+    <p>Import and use the <code>&lt;Image /&gt;</code> component:</p>
+    <pre class="jsx"><code>import Image from &#39;next/image&#39;
 
 function Home() {
   return (
@@ -34,9 +51,13 @@ function Home() {
 }
 
 export default Home</code></pre>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://nextjs.org/docs/basic-features/image-optimization">Image Component and Image Optimization</a></li>
-</ul>
-</body>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a href="https://nextjs.org/docs/basic-features/image-optimization"
+          >Image Component and Image Optimization</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

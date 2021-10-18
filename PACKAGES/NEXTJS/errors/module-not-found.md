@@ -1,14 +1,13 @@
-Module Not Found
-================
+# Module Not Found
 
 #### Why This Error Occurred
 
 A module not found error can occur for many different reasons:
 
--   The module you’re trying to import is not installed in your dependencies
--   The module you’re trying to import is in a different directory
--   The module you’re trying to import has a different casing
--   The module you’re trying to import uses Node.js specific modules, for example `dns`, outside of `getStaticProps` / `getStaticPaths` / `getServerSideProps`
+- The module you’re trying to import is not installed in your dependencies
+- The module you’re trying to import is in a different directory
+- The module you’re trying to import has a different casing
+- The module you’re trying to import uses Node.js specific modules, for example `dns`, outside of `getStaticProps` / `getStaticPaths` / `getServerSideProps`
 
 #### Possible Ways to Fix It
 
@@ -22,8 +21,8 @@ For example when importing the `swr` package:
 
 The `swr` module has to be installed using a package manager.
 
--   When using `npm`: `npm install swr`
--   When using `yarn`: `yarn add swr`
+- When using `npm`: `npm install swr`
+- When using `yarn`: `yarn add swr`
 
 ##### The module you’re trying to import is in a different directory
 

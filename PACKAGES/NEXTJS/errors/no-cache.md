@@ -1,5 +1,4 @@
-No Cache Detected
-=================
+# No Cache Detected
 
 ### Why This Error Occurred
 

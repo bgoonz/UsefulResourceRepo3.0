@@ -1,5 +1,4 @@
-Multiple children were passed to
-================================
+# Multiple children were passed to
 
 #### Why This Error Occurred
 

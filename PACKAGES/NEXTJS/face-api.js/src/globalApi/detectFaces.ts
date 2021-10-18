@@ -1,8 +1,8 @@
-import { TNetInput } from 'tfjs-image-recognition-base';
+import { TNetInput } from 'tfjs-image-recognition-base'
 
-import { SsdMobilenetv1Options } from '../ssdMobilenetv1/SsdMobilenetv1Options';
-import { DetectAllFacesTask, DetectSingleFaceTask } from './DetectFacesTasks';
-import { FaceDetectionOptions } from './types';
+import { SsdMobilenetv1Options } from '../ssdMobilenetv1/SsdMobilenetv1Options'
+import { DetectAllFacesTask, DetectSingleFaceTask } from './DetectFacesTasks'
+import { FaceDetectionOptions } from './types'
 
 export function detectSingleFace(
   input: TNetInput,

@@ -1,5 +1,4 @@
-next.config.js Loading Error
-============================
+# next.config.js Loading Error
 
 #### Why This Error Occurred
 
@@ -11,5 +10,5 @@ See the error message in your terminal where you started `next` to see more cont
 
 ### Useful Links
 
--   [next.config.js documentation](https://nextjs.org/docs/api-reference/next.config.js/introduction)
--   [node.js version feature chart](https://node.green/)
+- [next.config.js documentation](https://nextjs.org/docs/api-reference/next.config.js/introduction)
+- [node.js version feature chart](https://node.green/)

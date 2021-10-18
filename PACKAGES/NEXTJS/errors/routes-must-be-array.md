@@ -1,5 +1,4 @@
-Custom Routes must return an array
-==================================
+# Custom Routes must return an array
 
 #### Why This Error Occurred
 

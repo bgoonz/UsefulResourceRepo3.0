@@ -1,5 +1,4 @@
-`prefetch={true}` is deprecated
-===============================
+# `prefetch={true}` is deprecated
 
 #### Why This Error Occurred
 

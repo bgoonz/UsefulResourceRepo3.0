@@ -1,15 +1,15 @@
-import { times, range } from "lodash/fp"
+import { times, range } from 'lodash/fp'
 
 export const TILE_STATUSES = {
-  HIDDEN: "hidden",
-  MINE: "mine",
-  NUMBER: "number",
-  MARKED: "marked",
+  HIDDEN: 'hidden',
+  MINE: 'mine',
+  NUMBER: 'number',
+  MARKED: 'marked',
 }
 
 export function createBoard(boardSize, minePositions) {
-  return times(x => {
-    return times(y => {
+  return times((x) => {
+    return times((y) => {
       return {
         x,
         y,
@@ -23,7 +23,7 @@ export function createBoard(boardSize, minePositions) {
 export function markedTilesCount(board) {
   return board.reduce((count, row) => {
     return (
-      count + row.filter(tile => tile.status === TILE_STATUSES.MARKED).length
+      count + row.filter((tile) => tile.status === TILE_STATUSES.MARKED).length
     )
   }, 0)
 }
@@ -74,7 +74,7 @@ export function revealTile(board, { x, y }) {
   }
 
   const adjacentTiles = nearbyTiles(board, tile)
-  const mines = adjacentTiles.filter(t => t.mine)
+  const mines = adjacentTiles.filter((t) => t.mine)
   const newBoard = replaceTile(
     board,
     { x, y },
@@ -89,8 +89,8 @@ export function revealTile(board, { x, y }) {
 }
 
 export function checkWin(board) {
-  return board.every(row => {
-    return row.every(tile => {
+  return board.every((row) => {
+    return row.every((tile) => {
       return (
         tile.status === TILE_STATUSES.NUMBER ||
         (tile.mine &&
@@ -102,8 +102,8 @@ export function checkWin(board) {
 }
 
 export function checkLose(board) {
-  return board.some(row => {
-    return row.some(tile => {
+  return board.some((row) => {
+    return row.some((tile) => {
       return tile.status === TILE_STATUSES.MINE
     })
   })
@@ -117,10 +117,10 @@ function nearbyTiles(board, { x, y }) {
   const offsets = range(-1, 2)
 
   return offsets
-    .flatMap(xOffset => {
-      return offsets.map(yOffset => {
+    .flatMap((xOffset) => {
+      return offsets.map((yOffset) => {
         return board[x + xOffset]?.[y + yOffset]
       })
     })
-    .filter(tile => tile != null)
+    .filter((tile) => tile != null)
 }

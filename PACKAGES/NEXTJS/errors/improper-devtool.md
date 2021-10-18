@@ -1,5 +1,4 @@
-Improper webpack `devtool` used in development mode
-===================================================
+# Improper webpack `devtool` used in development mode
 
 #### Why This Error Occurred
 

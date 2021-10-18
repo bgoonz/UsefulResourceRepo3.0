@@ -1,14 +1,31 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base'
 
-import { NetParams, ONetParams, PNetParams, RNetParams, SharedParams } from './types';
+import {
+  NetParams,
+  ONetParams,
+  PNetParams,
+  RNetParams,
+  SharedParams,
+} from './types'
 
-function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBase.ParamMapping[]) {
+function extractorsFactory(
+  weightMap: any,
+  paramMappings: TfjsImageRecognitionBase.ParamMapping[]
+) {
+  const extractWeightEntry = TfjsImageRecognitionBase.extractWeightEntryFactory(
+    weightMap,
+    paramMappings
+  )
 
-  const extractWeightEntry = TfjsImageRecognitionBase.extractWeightEntryFactory(weightMap, paramMappings)
-
-  function extractConvParams(prefix: string): TfjsImageRecognitionBase.ConvParams {
-    const filters = extractWeightEntry<tf.Tensor4D>(`${prefix}/weights`, 4, `${prefix}/filters`)
+  function extractConvParams(
+    prefix: string
+  ): TfjsImageRecognitionBase.ConvParams {
+    const filters = extractWeightEntry<tf.Tensor4D>(
+      `${prefix}/weights`,
+      4,
+      `${prefix}/filters`
+    )
     const bias = extractWeightEntry<tf.Tensor1D>(`${prefix}/bias`, 1)
 
     return { filters, bias }
@@ -26,7 +43,6 @@ function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBa
   }
 
   function extractSharedParams(prefix: string): SharedParams {
-
     const conv1 = extractConvParams(`${prefix}/conv1`)
     const prelu1_alpha = extractPReluParams(`${prefix}/prelu1_alpha`)
     const conv2 = extractConvParams(`${prefix}/conv2`)
@@ -38,7 +54,6 @@ function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBa
   }
 
   function extractPNetParams(): PNetParams {
-
     const sharedParams = extractSharedParams('pnet')
     const conv4_1 = extractConvParams('pnet/conv4_1')
     const conv4_2 = extractConvParams('pnet/conv4_2')
@@ -47,7 +62,6 @@ function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBa
   }
 
   function extractRNetParams(): RNetParams {
-
     const sharedParams = extractSharedParams('rnet')
     const fc1 = extractFCParams('rnet/fc1')
     const prelu4_alpha = extractPReluParams('rnet/prelu4_alpha')
@@ -58,7 +72,6 @@ function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBa
   }
 
   function extractONetParams(): ONetParams {
-
     const sharedParams = extractSharedParams('onet')
     const conv4 = extractConvParams('onet/conv4')
     const prelu4_alpha = extractPReluParams('onet/prelu4_alpha')
@@ -68,28 +81,33 @@ function extractorsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBa
     const fc2_2 = extractFCParams('onet/fc2_2')
     const fc2_3 = extractFCParams('onet/fc2_3')
 
-    return { ...sharedParams, conv4, prelu4_alpha, fc1, prelu5_alpha, fc2_1, fc2_2, fc2_3 }
+    return {
+      ...sharedParams,
+      conv4,
+      prelu4_alpha,
+      fc1,
+      prelu5_alpha,
+      fc2_1,
+      fc2_2,
+      fc2_3,
+    }
   }
 
   return {
     extractPNetParams,
     extractRNetParams,
-    extractONetParams
+    extractONetParams,
   }
-
 }
 
-export function extractParamsFromWeigthMap(
-  weightMap: tf.NamedTensorMap
-): { params: NetParams, paramMappings: TfjsImageRecognitionBase.ParamMapping[] } {
-
+export function extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap): {
+  params: NetParams
+  paramMappings: TfjsImageRecognitionBase.ParamMapping[]
+} {
   const paramMappings: TfjsImageRecognitionBase.ParamMapping[] = []
 
-  const {
-    extractPNetParams,
-    extractRNetParams,
-    extractONetParams
-  } = extractorsFactory(weightMap, paramMappings)
+  const { extractPNetParams, extractRNetParams, extractONetParams } =
+    extractorsFactory(weightMap, paramMappings)
 
   const pnet = extractPNetParams()
   const rnet = extractRNetParams()

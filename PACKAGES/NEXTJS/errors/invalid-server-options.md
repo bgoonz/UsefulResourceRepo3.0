@@ -1,5 +1,4 @@
-It looks like the next instance is being instantiated incorrectly.
-==================================================================
+# It looks like the next instance is being instantiated incorrectly.
 
 #### Why This Error Occurred
 
@@ -17,6 +16,6 @@ And make sure you’re passing dev as shown in the examples below:
 
 ### Useful Links
 
--   [custom-server-express](https://github.com/vercel/next.js/blob/6ca00bfe312c8d3fc5c20d25a9cd8d2741a29332/examples/custom-server-express/server.js#L6)
--   [custom-server](https://github.com/vercel/next.js/blob/6ca00bfe312c8d3fc5c20d25a9cd8d2741a29332/examples/custom-server/server.js#L6)
--   [custom-server-typescript](https://github.com/vercel/next.js/blob/6ca00bfe312c8d3fc5c20d25a9cd8d2741a29332/examples/custom-server-typescript/server/index.ts#L7)
+- [custom-server-express](https://github.com/vercel/next.js/blob/6ca00bfe312c8d3fc5c20d25a9cd8d2741a29332/examples/custom-server-express/server.js#L6)
+- [custom-server](https://github.com/vercel/next.js/blob/6ca00bfe312c8d3fc5c20d25a9cd8d2741a29332/examples/custom-server/server.js#L6)
+- [custom-server-typescript](https://github.com/vercel/next.js/blob/6ca00bfe312c8d3fc5c20d25a9cd8d2741a29332/examples/custom-server-typescript/server/index.ts#L7)

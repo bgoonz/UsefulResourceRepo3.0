@@ -1,5 +1,4 @@
-Viewport `meta` tags should not be used in `_document.js`’s `<Head>`
-====================================================================
+# Viewport `meta` tags should not be used in `_document.js`’s `<Head>`
 
 #### Why This Error Occurred
 
@@ -27,4 +26,4 @@ Set your viewport `meta` tag in `pages/_app.js` instead:
 
 ### Useful Links
 
--   [Issue \#13230](https://github.com/vercel/next.js/issues/13230), which led to the creation of this warning.
+- [Issue \#13230](https://github.com/vercel/next.js/issues/13230), which led to the creation of this warning.

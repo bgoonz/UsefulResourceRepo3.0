@@ -1,9 +1,13 @@
-import * as faceapi from 'face-api.js';
+import * as faceapi from 'face-api.js'
 
-import { canvas, faceDetectionNet, faceDetectionOptions, saveFile } from './commons';
+import {
+  canvas,
+  faceDetectionNet,
+  faceDetectionOptions,
+  saveFile,
+} from './commons'
 
 async function run() {
-
   await faceDetectionNet.loadFromDisk('../../weights')
 
   const img = await canvas.loadImage('../images/bbt1.jpg')

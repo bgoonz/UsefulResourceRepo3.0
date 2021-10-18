@@ -1,46 +1,52 @@
-import * as faceapi from '../../../src';
-import { MtcnnOptions } from '../../../src/mtcnn/MtcnnOptions';
-import { loadImage } from '../../env';
-import { expectFaceDetections } from '../../expectFaceDetections';
-import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks';
-import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions';
+import * as faceapi from '../../../src'
+import { MtcnnOptions } from '../../../src/mtcnn/MtcnnOptions'
+import { loadImage } from '../../env'
+import { expectFaceDetections } from '../../expectFaceDetections'
+import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks'
+import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions'
 import {
   assembleExpectedFullFaceDescriptions,
   describeWithBackend,
   describeWithNets,
   expectAllTensorsReleased,
   ExpectedFullFaceDescription,
-} from '../../utils';
-import { expectedMtcnnBoxes } from './expectMtcnnResults';
+} from '../../utils'
+import { expectedMtcnnBoxes } from './expectMtcnnResults'
 
 describeWithBackend('mtcnn', () => {
-
   let imgEl: HTMLImageElement
   let expectedFullFaceDescriptions: ExpectedFullFaceDescription[]
   const expectedScores = [1.0, 1.0, 1.0, 1.0, 0.99, 0.99]
 
   beforeAll(async () => {
     imgEl = await loadImage('test/images/faces.jpg')
-    expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(expectedMtcnnBoxes)
+    expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(
+      expectedMtcnnBoxes
+    )
   })
 
   describeWithNets('globalApi', { withAllFacesMtcnn: true }, () => {
-
     it('detectAllFaces', async () => {
       const options = new MtcnnOptions({
-        minFaceSize: 20
+        minFaceSize: 20,
       })
 
       const results = await faceapi.detectAllFaces(imgEl, options)
       const maxScoreDelta = 0.01
       const maxBoxDelta = 10
       expect(results.length).toEqual(6)
-      expectFaceDetections(results, expectedMtcnnBoxes, expectedScores, maxScoreDelta, maxBoxDelta)
+      expectFaceDetections(
+        results,
+        expectedMtcnnBoxes,
+        expectedScores,
+        maxScoreDelta,
+        maxBoxDelta
+      )
     })
 
     it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
       const options = new MtcnnOptions({
-        minFaceSize: 20
+        minFaceSize: 20,
       })
 
       const results = await faceapi
@@ -50,15 +56,20 @@ describeWithBackend('mtcnn', () => {
       const deltas = {
         maxScoreDelta: 0.01,
         maxBoxDelta: 10,
-        maxLandmarksDelta: 6
+        maxLandmarksDelta: 6,
       }
       expect(results.length).toEqual(6)
-      expectFaceDetectionsWithLandmarks(results, expectedFullFaceDescriptions, expectedScores, deltas)
+      expectFaceDetectionsWithLandmarks(
+        results,
+        expectedFullFaceDescriptions,
+        expectedScores,
+        deltas
+      )
     })
 
     it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
       const options = new MtcnnOptions({
-        minFaceSize: 20
+        minFaceSize: 20,
       })
 
       const results = await faceapi
@@ -70,15 +81,20 @@ describeWithBackend('mtcnn', () => {
         maxScoreDelta: 0.01,
         maxBoxDelta: 10,
         maxLandmarksDelta: 6,
-        maxDescriptorDelta: 0.2
+        maxDescriptorDelta: 0.2,
       }
       expect(results.length).toEqual(6)
-      expectFullFaceDescriptions(results, expectedFullFaceDescriptions, expectedScores, deltas)
+      expectFullFaceDescriptions(
+        results,
+        expectedFullFaceDescriptions,
+        expectedScores,
+        deltas
+      )
     })
 
     it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
       const options = new MtcnnOptions({
-        minFaceSize: 20
+        minFaceSize: 20,
       })
 
       const result = await faceapi
@@ -90,7 +106,7 @@ describeWithBackend('mtcnn', () => {
         maxScoreDelta: 0.01,
         maxBoxDelta: 10,
         maxLandmarksDelta: 6,
-        maxDescriptorDelta: 0.2
+        maxDescriptorDelta: 0.2,
       }
 
       expect(!!result).toBeTruthy()
@@ -110,7 +126,5 @@ describeWithBackend('mtcnn', () => {
           .withFaceDescriptors()
       })
     })
-
   })
-
 })

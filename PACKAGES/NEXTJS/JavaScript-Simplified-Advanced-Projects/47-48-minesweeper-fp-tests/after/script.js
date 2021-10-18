@@ -9,28 +9,28 @@ import {
   checkLose,
   positionMatch,
   markedTilesCount,
-} from "./minesweeper.js"
+} from './minesweeper.js'
 
 let testBoard
-if (process.env.NODE_ENV !== "production" && window.testBoard) {
+if (process.env.NODE_ENV !== 'production' && window.testBoard) {
   testBoard = window.testBoard
 }
 
 const BOARD_SIZE = testBoard?.length ?? 10
-const NUMBER_OF_MINES = testBoard?.flat().filter(t => t.mine).length ?? 3
+const NUMBER_OF_MINES = testBoard?.flat().filter((t) => t.mine).length ?? 3
 
 let board =
   testBoard ??
   createBoard(BOARD_SIZE, getMinePositions(BOARD_SIZE, NUMBER_OF_MINES))
-const boardElement = document.querySelector(".board")
-const minesLeftText = document.querySelector("[data-mine-count]")
-const messageText = document.querySelector(".subtext")
+const boardElement = document.querySelector('.board')
+const minesLeftText = document.querySelector('[data-mine-count]')
+const messageText = document.querySelector('.subtext')
 
 function render() {
-  boardElement.innerHTML = ""
+  boardElement.innerHTML = ''
   checkGameEnd()
 
-  getTileElements().forEach(element => {
+  getTileElements().forEach((element) => {
     boardElement.append(element)
   })
 
@@ -38,22 +38,22 @@ function render() {
 }
 
 function getTileElements() {
-  return board.flatMap(row => {
+  return board.flatMap((row) => {
     return row.map(tileToElement)
   })
 }
 
 function tileToElement(tile) {
-  const element = document.createElement("div")
+  const element = document.createElement('div')
   element.dataset.status = tile.status
   element.dataset.x = tile.x
   element.dataset.y = tile.y
-  element.textContent = tile.adjacentMinesCount || ""
+  element.textContent = tile.adjacentMinesCount || ''
   return element
 }
 
-boardElement.addEventListener("click", e => {
-  if (!e.target.matches("[data-status]")) return
+boardElement.addEventListener('click', (e) => {
+  if (!e.target.matches('[data-status]')) return
 
   board = revealTile(board, {
     x: parseInt(e.target.dataset.x),
@@ -62,8 +62,8 @@ boardElement.addEventListener("click", e => {
   render()
 })
 
-boardElement.addEventListener("contextmenu", e => {
-  if (!e.target.matches("[data-status]")) return
+boardElement.addEventListener('contextmenu', (e) => {
+  if (!e.target.matches('[data-status]')) return
 
   e.preventDefault()
   board = markTile(board, {
@@ -73,7 +73,7 @@ boardElement.addEventListener("contextmenu", e => {
   render()
 })
 
-boardElement.style.setProperty("--size", BOARD_SIZE)
+boardElement.style.setProperty('--size', BOARD_SIZE)
 render()
 
 function listMinesLeft() {
@@ -85,17 +85,17 @@ function checkGameEnd() {
   const lose = checkLose(board)
 
   if (win || lose) {
-    boardElement.addEventListener("click", stopProp, { capture: true })
-    boardElement.addEventListener("contextmenu", stopProp, { capture: true })
+    boardElement.addEventListener('click', stopProp, { capture: true })
+    boardElement.addEventListener('contextmenu', stopProp, { capture: true })
   }
 
   if (win) {
-    messageText.textContent = "You Win"
+    messageText.textContent = 'You Win'
   }
   if (lose) {
-    messageText.textContent = "You Lose"
-    board.forEach(row => {
-      row.forEach(tile => {
+    messageText.textContent = 'You Lose'
+    board.forEach((row) => {
+      row.forEach((tile) => {
         if (tile.status === TILE_STATUSES.MARKED) board = markTile(board, tile)
         if (tile.mine) board = revealTile(board, tile)
       })

@@ -1,25 +1,51 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>next-script-for-ga</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="next-script-for-google-analytics">Next Script for Google Analytics</h1>
-<h3 id="why-this-error-occurred">Why This Error Occurred</h3>
-<p>An inline script was used for Google analytics which might impact your webpage’s performance.</p>
-<h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
-<h4 id="using-gtag.js">Using gtag.js</h4>
-<p>If you are using the <a href="https://developers.google.com/analytics/devguides/collection/gtagjs">gtag.js</a> script to add analytics, use the <code>next/script</code> component with the right loading strategy to defer loading of the script until necessary.</p>
-<pre class="jsx"><code>import Script from &#39;next/script&#39;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>next-script-for-ga</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="next-script-for-google-analytics">
+      Next Script for Google Analytics
+    </h1>
+    <h3 id="why-this-error-occurred">Why This Error Occurred</h3>
+    <p>
+      An inline script was used for Google analytics which might impact your
+      webpage’s performance.
+    </p>
+    <h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
+    <h4 id="using-gtag.js">Using gtag.js</h4>
+    <p>
+      If you are using the
+      <a
+        href="https://developers.google.com/analytics/devguides/collection/gtagjs"
+        >gtag.js</a
+      >
+      script to add analytics, use the <code>next/script</code> component with
+      the right loading strategy to defer loading of the script until necessary.
+    </p>
+    <pre class="jsx"><code>import Script from &#39;next/script&#39;
 
 const Home = () =&gt; {
   return (
@@ -43,9 +69,16 @@ const Home = () =&gt; {
 }
 
 export default Home</code></pre>
-<h4 id="using-analytics.js">Using analytics.js</h4>
-<p>If you are using the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs">analytics.js</a> script to add analytics:</p>
-<pre class="jsx"><code>import Script from &#39;next/script&#39;
+    <h4 id="using-analytics.js">Using analytics.js</h4>
+    <p>
+      If you are using the
+      <a
+        href="https://developers.google.com/analytics/devguides/collection/analyticsjs"
+        >analytics.js</a
+      >
+      script to add analytics:
+    </p>
+    <pre class="jsx"><code>import Script from &#39;next/script&#39;
 
 const Home = () =&gt; {
   return (
@@ -66,8 +99,14 @@ const Home = () =&gt; {
 }
 
 export default Home</code></pre>
-<p>If you are using the <a href="https://developers.google.com/analytics/devguides/collection/analyticsjs#alternative_async_tag">alternative async variant</a>:</p>
-<pre class="jsx"><code>import Script from &#39;next/script&#39;
+    <p>
+      If you are using the
+      <a
+        href="https://developers.google.com/analytics/devguides/collection/analyticsjs#alternative_async_tag"
+        >alternative async variant</a
+      >:
+    </p>
+    <pre class="jsx"><code>import Script from &#39;next/script&#39;
 
 const Home = () =&gt; {
   return (
@@ -88,11 +127,24 @@ const Home = () =&gt; {
 }
 
 export default Home</code></pre>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://developers.google.com/analytics/devguides/collection/analyticsjs">Add analytics.js to Your Site</a></li>
-<li><a href="https://web.dev/efficiently-load-third-party-javascript/">Efficiently load third-party JavaScript</a></li>
-<li><a href="https://nextjs.org/docs/basic-features/script">next/script Documentation</a></li>
-</ul>
-</body>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a
+          href="https://developers.google.com/analytics/devguides/collection/analyticsjs"
+          >Add analytics.js to Your Site</a
+        >
+      </li>
+      <li>
+        <a href="https://web.dev/efficiently-load-third-party-javascript/"
+          >Efficiently load third-party JavaScript</a
+        >
+      </li>
+      <li>
+        <a href="https://nextjs.org/docs/basic-features/script"
+          >next/script Documentation</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

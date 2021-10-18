@@ -1,5 +1,4 @@
-No HTML link for pages
-======================
+# No HTML link for pages
 
 ### Why This Error Occurred
 
@@ -55,4 +54,4 @@ In some cases, you may also need to configure this rule directly by providing a 
 
 ### Useful Links
 
--   [next/link API Reference](https://nextjs.org/docs/api-reference/next/link)
+- [next/link API Reference](https://nextjs.org/docs/api-reference/next/link)

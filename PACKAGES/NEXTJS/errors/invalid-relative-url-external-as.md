@@ -1,5 +1,4 @@
-Invalid relative `href` and external `as` values
-================================================
+# Invalid relative `href` and external `as` values
 
 #### Why This Error Occurred
 
@@ -41,4 +40,4 @@ Look for any usage of the `next/link` component, `Router#push`, or `Router#repla
 
 ### Useful Links
 
--   [Routing section in Documentation](https://nextjs.org/docs/routing/introduction)
+- [Routing section in Documentation](https://nextjs.org/docs/routing/introduction)

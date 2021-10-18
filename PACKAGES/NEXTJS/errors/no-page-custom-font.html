@@ -1,24 +1,44 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>no-page-custom-font</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="no-page-custom-font">No Page Custom Font</h1>
-<h3 id="why-this-error-occurred">Why This Error Occurred</h3>
-<p>A custom font was added to a page and not with a custom <code>Document</code>. This only adds the font to the specific page and not to the entire application.</p>
-<h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
-<p>Create the file <code>./pages/_document.js</code> and add the font to a custom Document:</p>
-<pre class="jsx"><code>// pages/_document.js
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>no-page-custom-font</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="no-page-custom-font">No Page Custom Font</h1>
+    <h3 id="why-this-error-occurred">Why This Error Occurred</h3>
+    <p>
+      A custom font was added to a page and not with a custom
+      <code>Document</code>. This only adds the font to the specific page and
+      not to the entire application.
+    </p>
+    <h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
+    <p>
+      Create the file <code>./pages/_document.js</code> and add the font to a
+      custom Document:
+    </p>
+    <pre class="jsx"><code>// pages/_document.js
 
 import Document, { Html, Head, Main, NextScript } from &#39;next/document&#39;
 
@@ -42,12 +62,23 @@ class MyDocument extends Document {
 }
 
 export default MyDocument</code></pre>
-<h3 id="when-not-to-use-it">When Not To Use It</h3>
-<p>If you have a reason to only load a font for a particular page, then you can disable this rule.</p>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://nextjs.org/docs/advanced-features/custom-document">Custom Document</a></li>
-<li><a href="https://nextjs.org/docs/basic-features/font-optimization">Font Optimization</a></li>
-</ul>
-</body>
+    <h3 id="when-not-to-use-it">When Not To Use It</h3>
+    <p>
+      If you have a reason to only load a font for a particular page, then you
+      can disable this rule.
+    </p>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a href="https://nextjs.org/docs/advanced-features/custom-document"
+          >Custom Document</a
+        >
+      </li>
+      <li>
+        <a href="https://nextjs.org/docs/basic-features/font-optimization"
+          >Font Optimization</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

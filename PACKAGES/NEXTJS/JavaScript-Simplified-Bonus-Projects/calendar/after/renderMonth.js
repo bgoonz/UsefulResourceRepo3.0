@@ -7,14 +7,14 @@ import {
   isSameMonth,
   isSameDay,
   format,
-} from "date-fns"
-import createDayElement from "./createDayElement"
+} from 'date-fns'
+import createDayElement from './createDayElement'
 
-const daysContainer = document.querySelector("[data-calendar-days]")
+const daysContainer = document.querySelector('[data-calendar-days]')
 export default function renderMonth(monthDate) {
-  document.querySelector("[data-month-title]").textContent = format(
+  document.querySelector('[data-month-title]').textContent = format(
     monthDate,
-    "MMMM yyyy"
+    'MMMM yyyy'
   )
   const dayElements = getCalendarDates(monthDate).map((date, index) => {
     return createDayElement(date, {
@@ -23,21 +23,21 @@ export default function renderMonth(monthDate) {
       showWeekName: index < 7,
     })
   })
-  daysContainer.innerHTML = ""
-  dayElements.forEach(element => daysContainer.append(element))
+  daysContainer.innerHTML = ''
+  dayElements.forEach((element) => daysContainer.append(element))
   dayElements.forEach(fixEventOverflow)
 }
 
 export function fixEventOverflow(dateContainer) {
-  const eventContainer = dateContainer.querySelector("[data-event-container]")
-  const viewMoreButton = dateContainer.querySelector("[data-view-more-btn]")
-  const events = eventContainer.querySelectorAll("[data-event]")
-  viewMoreButton.classList.add("hide")
-  events.forEach(event => event.classList.remove("hide"))
+  const eventContainer = dateContainer.querySelector('[data-event-container]')
+  const viewMoreButton = dateContainer.querySelector('[data-view-more-btn]')
+  const events = eventContainer.querySelectorAll('[data-event]')
+  viewMoreButton.classList.add('hide')
+  events.forEach((event) => event.classList.remove('hide'))
   for (let i = events.length - 1; i >= 0; i--) {
     if (dateContainer.scrollHeight <= dateContainer.clientHeight) break
-    events[i].classList.add("hide")
-    viewMoreButton.classList.remove("hide")
+    events[i].classList.add('hide')
+    viewMoreButton.classList.remove('hide')
     viewMoreButton.textContent = `+ ${events.length - i} More`
   }
 }

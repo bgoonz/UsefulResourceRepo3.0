@@ -1,5 +1,4 @@
-PostCSS Configuration Is a Function
-===================================
+# PostCSS Configuration Is a Function
 
 #### Why This Error Occurred
 

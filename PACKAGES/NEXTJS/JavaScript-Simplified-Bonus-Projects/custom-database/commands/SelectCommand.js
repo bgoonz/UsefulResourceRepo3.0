@@ -1,5 +1,5 @@
-const Table = require("../Table")
-const pick = require("lodash/pick")
+const Table = require('../Table')
+const pick = require('lodash/pick')
 
 module.exports = class SelectCommand {
   constructor({ tableName, columns, allColumns }) {
@@ -13,7 +13,7 @@ module.exports = class SelectCommand {
     if (whereCommand) data = whereCommand.perform(data)
     if (this.allColumns) return data
 
-    return data.map(object => {
+    return data.map((object) => {
       return pick(object, this.columns)
     })
   }

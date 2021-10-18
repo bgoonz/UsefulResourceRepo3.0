@@ -1,5 +1,4 @@
-Sharp Missing In Production
-===========================
+# Sharp Missing In Production
 
 #### Why This Error Occurred
 
@@ -9,12 +8,12 @@ You are seeing this error because Image Optimization in production mode (`next s
 
 #### Possible Ways to Fix It
 
--   Install `sharp` by running `yarn add sharp` in your project directory and then reboot the server by running `next start` again
--   If `sharp` is already installed but can’t be resolved, set the `NEXT_SHARP_PATH` environment variable such as `NEXT_SHARP_PATH=/tmp/node_modules/sharp next start`
+- Install `sharp` by running `yarn add sharp` in your project directory and then reboot the server by running `next start` again
+- If `sharp` is already installed but can’t be resolved, set the `NEXT_SHARP_PATH` environment variable such as `NEXT_SHARP_PATH=/tmp/node_modules/sharp next start`
 
 > Note: This is not necessary for Vercel deployments, since `sharp` is installed automatically for you.
 
 ### Useful Links
 
--   [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
--   [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)
+- [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
+- [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)

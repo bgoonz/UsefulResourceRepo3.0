@@ -1,4 +1,4 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base'
 
 export type ReductionBlockParams = {
   separable_conv0: TfjsImageRecognitionBase.SeparableConvParams
@@ -18,7 +18,7 @@ export type TinyXceptionParams = {
     reduction_block_0: ReductionBlockParams
     reduction_block_1: ReductionBlockParams
   }
-  middle_flow: any,
+  middle_flow: any
   exit_flow: {
     reduction_block: ReductionBlockParams
     separable_conv: TfjsImageRecognitionBase.SeparableConvParams

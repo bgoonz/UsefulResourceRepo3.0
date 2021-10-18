@@ -1,23 +1,23 @@
-import { AgeGenderNet } from '../ageGenderNet/AgeGenderNet';
-import { FaceExpressionNet } from '../faceExpressionNet/FaceExpressionNet';
-import { FaceLandmark68Net } from '../faceLandmarkNet/FaceLandmark68Net';
-import { FaceLandmark68TinyNet } from '../faceLandmarkNet/FaceLandmark68TinyNet';
-import { FaceRecognitionNet } from '../faceRecognitionNet/FaceRecognitionNet';
-import { Mtcnn } from '../mtcnn/Mtcnn';
-import { SsdMobilenetv1 } from '../ssdMobilenetv1/SsdMobilenetv1';
-import { TinyFaceDetector } from '../tinyFaceDetector/TinyFaceDetector';
-import { TinyYolov2 } from '../tinyYolov2';
+import { AgeGenderNet } from '../ageGenderNet/AgeGenderNet'
+import { FaceExpressionNet } from '../faceExpressionNet/FaceExpressionNet'
+import { FaceLandmark68Net } from '../faceLandmarkNet/FaceLandmark68Net'
+import { FaceLandmark68TinyNet } from '../faceLandmarkNet/FaceLandmark68TinyNet'
+import { FaceRecognitionNet } from '../faceRecognitionNet/FaceRecognitionNet'
+import { Mtcnn } from '../mtcnn/Mtcnn'
+import { SsdMobilenetv1 } from '../ssdMobilenetv1/SsdMobilenetv1'
+import { TinyFaceDetector } from '../tinyFaceDetector/TinyFaceDetector'
+import { TinyYolov2 } from '../tinyYolov2'
 export var nets = {
-    ssdMobilenetv1: new SsdMobilenetv1(),
-    tinyFaceDetector: new TinyFaceDetector(),
-    tinyYolov2: new TinyYolov2(),
-    mtcnn: new Mtcnn(),
-    faceLandmark68Net: new FaceLandmark68Net(),
-    faceLandmark68TinyNet: new FaceLandmark68TinyNet(),
-    faceRecognitionNet: new FaceRecognitionNet(),
-    faceExpressionNet: new FaceExpressionNet(),
-    ageGenderNet: new AgeGenderNet()
-};
+  ssdMobilenetv1: new SsdMobilenetv1(),
+  tinyFaceDetector: new TinyFaceDetector(),
+  tinyYolov2: new TinyYolov2(),
+  mtcnn: new Mtcnn(),
+  faceLandmark68Net: new FaceLandmark68Net(),
+  faceLandmark68TinyNet: new FaceLandmark68TinyNet(),
+  faceRecognitionNet: new FaceRecognitionNet(),
+  faceExpressionNet: new FaceExpressionNet(),
+  ageGenderNet: new AgeGenderNet(),
+}
 /**
  * Attempts to detect all faces in an image using SSD Mobilenetv1 Network.
  *
@@ -26,8 +26,8 @@ export var nets = {
  * @returns Bounding box of each face with score.
  */
 export var ssdMobilenetv1 = function (input, options) {
-    return nets.ssdMobilenetv1.locateFaces(input, options);
-};
+  return nets.ssdMobilenetv1.locateFaces(input, options)
+}
 /**
  * Attempts to detect all faces in an image using the Tiny Face Detector.
  *
@@ -36,8 +36,8 @@ export var ssdMobilenetv1 = function (input, options) {
  * @returns Bounding box of each face with score.
  */
 export var tinyFaceDetector = function (input, options) {
-    return nets.tinyFaceDetector.locateFaces(input, options);
-};
+  return nets.tinyFaceDetector.locateFaces(input, options)
+}
 /**
  * Attempts to detect all faces in an image using the Tiny Yolov2 Network.
  *
@@ -46,8 +46,8 @@ export var tinyFaceDetector = function (input, options) {
  * @returns Bounding box of each face with score.
  */
 export var tinyYolov2 = function (input, options) {
-    return nets.tinyYolov2.locateFaces(input, options);
-};
+  return nets.tinyYolov2.locateFaces(input, options)
+}
 /**
  * Attempts to detect all faces in an image and the 5 point face landmarks
  * of each detected face using the MTCNN Network.
@@ -57,8 +57,8 @@ export var tinyYolov2 = function (input, options) {
  * @returns Bounding box of each face with score and 5 point face landmarks.
  */
 export var mtcnn = function (input, options) {
-    return nets.mtcnn.forward(input, options);
-};
+  return nets.mtcnn.forward(input, options)
+}
 /**
  * Detects the 68 point face landmark positions of the face shown in an image.
  *
@@ -67,8 +67,8 @@ export var mtcnn = function (input, options) {
  * @returns 68 point face landmarks or array thereof in case of batch input.
  */
 export var detectFaceLandmarks = function (input) {
-    return nets.faceLandmark68Net.detectLandmarks(input);
-};
+  return nets.faceLandmark68Net.detectLandmarks(input)
+}
 /**
  * Detects the 68 point face landmark positions of the face shown in an image
  * using a tinier version of the 68 point face landmark model, which is slightly
@@ -79,8 +79,8 @@ export var detectFaceLandmarks = function (input) {
  * @returns 68 point face landmarks or array thereof in case of batch input.
  */
 export var detectFaceLandmarksTiny = function (input) {
-    return nets.faceLandmark68TinyNet.detectLandmarks(input);
-};
+  return nets.faceLandmark68TinyNet.detectLandmarks(input)
+}
 /**
  * Computes a 128 entry vector (face descriptor / face embeddings) from the face shown in an image,
  * which uniquely represents the features of that persons face. The computed face descriptor can
@@ -92,8 +92,8 @@ export var detectFaceLandmarksTiny = function (input) {
  * @returns Face descriptor with 128 entries or array thereof in case of batch input.
  */
 export var computeFaceDescriptor = function (input) {
-    return nets.faceRecognitionNet.computeFaceDescriptor(input);
-};
+  return nets.faceRecognitionNet.computeFaceDescriptor(input)
+}
 /**
  * Recognizes the facial expressions from a face image.
  *
@@ -102,8 +102,8 @@ export var computeFaceDescriptor = function (input) {
  * @returns Facial expressions with corresponding probabilities or array thereof in case of batch input.
  */
 export var recognizeFaceExpressions = function (input) {
-    return nets.faceExpressionNet.predictExpressions(input);
-};
+  return nets.faceExpressionNet.predictExpressions(input)
+}
 /**
  * Predicts age and gender from a face image.
  *
@@ -112,19 +112,37 @@ export var recognizeFaceExpressions = function (input) {
  * @returns Predictions with age, gender and gender probability or array thereof in case of batch input.
  */
 export var predictAgeAndGender = function (input) {
-    return nets.ageGenderNet.predictAgeAndGender(input);
-};
-export var loadSsdMobilenetv1Model = function (url) { return nets.ssdMobilenetv1.load(url); };
-export var loadTinyFaceDetectorModel = function (url) { return nets.tinyFaceDetector.load(url); };
-export var loadMtcnnModel = function (url) { return nets.mtcnn.load(url); };
-export var loadTinyYolov2Model = function (url) { return nets.tinyYolov2.load(url); };
-export var loadFaceLandmarkModel = function (url) { return nets.faceLandmark68Net.load(url); };
-export var loadFaceLandmarkTinyModel = function (url) { return nets.faceLandmark68TinyNet.load(url); };
-export var loadFaceRecognitionModel = function (url) { return nets.faceRecognitionNet.load(url); };
-export var loadFaceExpressionModel = function (url) { return nets.faceExpressionNet.load(url); };
-export var loadAgeGenderModel = function (url) { return nets.ageGenderNet.load(url); };
+  return nets.ageGenderNet.predictAgeAndGender(input)
+}
+export var loadSsdMobilenetv1Model = function (url) {
+  return nets.ssdMobilenetv1.load(url)
+}
+export var loadTinyFaceDetectorModel = function (url) {
+  return nets.tinyFaceDetector.load(url)
+}
+export var loadMtcnnModel = function (url) {
+  return nets.mtcnn.load(url)
+}
+export var loadTinyYolov2Model = function (url) {
+  return nets.tinyYolov2.load(url)
+}
+export var loadFaceLandmarkModel = function (url) {
+  return nets.faceLandmark68Net.load(url)
+}
+export var loadFaceLandmarkTinyModel = function (url) {
+  return nets.faceLandmark68TinyNet.load(url)
+}
+export var loadFaceRecognitionModel = function (url) {
+  return nets.faceRecognitionNet.load(url)
+}
+export var loadFaceExpressionModel = function (url) {
+  return nets.faceExpressionNet.load(url)
+}
+export var loadAgeGenderModel = function (url) {
+  return nets.ageGenderNet.load(url)
+}
 // backward compatibility
-export var loadFaceDetectionModel = loadSsdMobilenetv1Model;
-export var locateFaces = ssdMobilenetv1;
-export var detectLandmarks = detectFaceLandmarks;
+export var loadFaceDetectionModel = loadSsdMobilenetv1Model
+export var locateFaces = ssdMobilenetv1
+export var detectLandmarks = detectFaceLandmarks
 //# sourceMappingURL=nets.js.map

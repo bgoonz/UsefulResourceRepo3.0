@@ -1,18 +1,18 @@
-const UpdateCommand = require("./UpdateCommand")
+const UpdateCommand = require('./UpdateCommand')
 
-describe("With properties", () => {
+describe('With properties', () => {
   const updateCommand = new UpdateCommand({ properties: { c: 3 } })
   const data = [
     { a: 1, b: 2 },
     { a: 3, b: 4 },
   ]
 
-  test("It updates all records", async () => {
+  test('It updates all records', async () => {
     const readSpy = jest
-      .spyOn(updateCommand.table, "readData")
+      .spyOn(updateCommand.table, 'readData')
       .mockResolvedValue(data)
     const writeSpy = jest
-      .spyOn(updateCommand.table, "overwriteTable")
+      .spyOn(updateCommand.table, 'overwriteTable')
       .mockResolvedValue()
 
     const expectedData = [
@@ -29,20 +29,20 @@ describe("With properties", () => {
   })
 })
 
-describe("With a where command", () => {
+describe('With a where command', () => {
   const updateCommand = new UpdateCommand({ properties: { c: 3 } })
-  const whereCommand = { perform: data => [data[0]] }
+  const whereCommand = { perform: (data) => [data[0]] }
   const data = [
     { a: 1, b: 2 },
     { a: 3, b: 4 },
   ]
 
-  test("It updates all matching records", async () => {
+  test('It updates all matching records', async () => {
     const readSpy = jest
-      .spyOn(updateCommand.table, "readData")
+      .spyOn(updateCommand.table, 'readData')
       .mockResolvedValue(data)
     const writeSpy = jest
-      .spyOn(updateCommand.table, "overwriteTable")
+      .spyOn(updateCommand.table, 'overwriteTable')
       .mockResolvedValue()
 
     const expectedData = [

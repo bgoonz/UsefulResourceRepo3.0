@@ -1,16 +1,25 @@
-import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base'
 
-import { loadConvParamsFactory } from '../common/loadConvParamsFactory';
-import { DenseBlock3Params, DenseBlock4Params } from './types';
+import { loadConvParamsFactory } from '../common/loadConvParamsFactory'
+import { DenseBlock3Params, DenseBlock4Params } from './types'
 
-export function loadParamsFactory(weightMap: any, paramMappings: TfjsImageRecognitionBase.ParamMapping[]) {
-
-  const extractWeightEntry = TfjsImageRecognitionBase.extractWeightEntryFactory(weightMap, paramMappings)
+export function loadParamsFactory(
+  weightMap: any,
+  paramMappings: TfjsImageRecognitionBase.ParamMapping[]
+) {
+  const extractWeightEntry = TfjsImageRecognitionBase.extractWeightEntryFactory(
+    weightMap,
+    paramMappings
+  )
 
   const extractConvParams = loadConvParamsFactory(extractWeightEntry)
-  const extractSeparableConvParams = TfjsImageRecognitionBase.loadSeparableConvParamsFactory(extractWeightEntry)
+  const extractSeparableConvParams =
+    TfjsImageRecognitionBase.loadSeparableConvParamsFactory(extractWeightEntry)
 
-  function extractDenseBlock3Params(prefix: string, isFirstLayer: boolean = false): DenseBlock3Params {
+  function extractDenseBlock3Params(
+    prefix: string,
+    isFirstLayer: boolean = false
+  ): DenseBlock3Params {
     const conv0 = isFirstLayer
       ? extractConvParams(`${prefix}/conv0`)
       : extractSeparableConvParams(`${prefix}/conv0`)
@@ -20,7 +29,10 @@ export function loadParamsFactory(weightMap: any, paramMappings: TfjsImageRecogn
     return { conv0, conv1, conv2 }
   }
 
-  function extractDenseBlock4Params(prefix: string, isFirstLayer: boolean = false): DenseBlock4Params {
+  function extractDenseBlock4Params(
+    prefix: string,
+    isFirstLayer: boolean = false
+  ): DenseBlock4Params {
     const conv0 = isFirstLayer
       ? extractConvParams(`${prefix}/conv0`)
       : extractSeparableConvParams(`${prefix}/conv0`)
@@ -33,6 +45,6 @@ export function loadParamsFactory(weightMap: any, paramMappings: TfjsImageRecogn
 
   return {
     extractDenseBlock3Params,
-    extractDenseBlock4Params
+    extractDenseBlock4Params,
   }
 }

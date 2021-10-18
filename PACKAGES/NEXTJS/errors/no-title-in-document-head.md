@@ -1,5 +1,4 @@
-No Title in Document Head
-=========================
+# No Title in Document Head
 
 ### Why This Error Occurred
 
@@ -25,5 +24,5 @@ Within a page or component, import and use `next/head` to define a page title:
 
 ### Useful links
 
--   [next/head](https://nextjs.org/docs/api-reference/next/head)
--   [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
+- [next/head](https://nextjs.org/docs/api-reference/next/head)
+- [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)

@@ -1,9 +1,8 @@
-ESM packages need to be imported
-================================
+# ESM packages need to be imported
 
 #### Why This Error Occurred
 
-Packages in node\_modules that are published as EcmaScript Module, need to be `import`ed via `import ... from 'package'` or `import('package')`.
+Packages in node_modules that are published as EcmaScript Module, need to be `import`ed via `import ... from 'package'` or `import('package')`.
 
 You get this error when using a different way to reference the package, e. g. `require()`.
 
@@ -17,4 +16,4 @@ You get this error when using a different way to reference the package, e. g. `r
 
 ### Useful Links
 
--   [Node.js ESM require docs](https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#esm_require)
+- [Node.js ESM require docs](https://nodejs.org/dist/latest-v16.x/docs/api/esm.html#esm_require)

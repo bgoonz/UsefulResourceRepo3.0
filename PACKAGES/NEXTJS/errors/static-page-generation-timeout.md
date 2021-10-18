@@ -1,5 +1,4 @@
-Static page generation timed out after multiple attempts
-========================================================
+# Static page generation timed out after multiple attempts
 
 #### Why This Error Occurred
 
@@ -9,12 +8,12 @@ When restarted it will retry all uncompleted jobs, but if a job was unsuccessful
 
 #### Possible Ways to Fix It
 
--   Make sure that there is no infinite loop during execution.
--   Make sure all Promises in `getStaticPaths`/`getStaticProps` `resolve` or `reject` correctly.
--   Avoid very long timeouts for network requests.
--   Increase the timeout by changing the `experimental.staticPageGenerationTimeout` configuration option (default `60` in seconds).
+- Make sure that there is no infinite loop during execution.
+- Make sure all Promises in `getStaticPaths`/`getStaticProps` `resolve` or `reject` correctly.
+- Avoid very long timeouts for network requests.
+- Increase the timeout by changing the `experimental.staticPageGenerationTimeout` configuration option (default `60` in seconds).
 
 ### Useful Links
 
--   [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)
--   [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+- [`getStaticPaths`](https://nextjs.org/docs/basic-features/data-fetching#getstaticpaths-static-generation)
+- [`getStaticProps`](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)

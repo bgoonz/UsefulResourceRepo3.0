@@ -1,5 +1,4 @@
-Script component inside Head component
-======================================
+# Script component inside Head component
 
 #### Why This Error Occurred
 
@@ -41,5 +40,5 @@ Move the `<Script />` component outside of `<Head>...</Head>`
 
 ### Useful links
 
--   [next/head](https://nextjs.org/docs/api-reference/next/head)
--   [next/script](https://nextjs.org/docs/basic-features/script#usage)
+- [next/head](https://nextjs.org/docs/api-reference/next/head)
+- [next/script](https://nextjs.org/docs/basic-features/script#usage)

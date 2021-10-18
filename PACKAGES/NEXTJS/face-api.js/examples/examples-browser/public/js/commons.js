@@ -2,12 +2,12 @@ async function requestExternalImage(imageUrl) {
   const res = await fetch('fetch_external_image', {
     method: 'post',
     headers: {
-      'content-type': 'application/json'
+      'content-type': 'application/json',
     },
-    body: JSON.stringify({ imageUrl })
+    body: JSON.stringify({ imageUrl }),
   })
   if (!(res.status < 400)) {
-    console.error(res.status + ' : ' + await res.text())
+    console.error(res.status + ' : ' + (await res.text()))
     throw new Error('failed to fetch image from url: ' + imageUrl)
   }
 
@@ -26,79 +26,79 @@ function renderNavBar(navbarId, exampleUri) {
   const examples = [
     {
       uri: 'face_detection',
-      name: 'Face Detection'
+      name: 'Face Detection',
     },
     {
       uri: 'face_landmark_detection',
-      name: 'Face Landmark Detection'
+      name: 'Face Landmark Detection',
     },
     {
       uri: 'face_expression_recognition',
-      name: 'Face Expression Recognition'
+      name: 'Face Expression Recognition',
     },
     {
       uri: 'age_and_gender_recognition',
-      name: 'Age and Gender Recognition'
+      name: 'Age and Gender Recognition',
     },
     {
       uri: 'face_recognition',
-      name: 'Face Recognition'
+      name: 'Face Recognition',
     },
     {
       uri: 'face_extraction',
-      name: 'Face Extraction'
+      name: 'Face Extraction',
     },
     {
       uri: 'video_face_tracking',
-      name: 'Video Face Tracking'
+      name: 'Video Face Tracking',
     },
     {
       uri: 'webcam_face_detection',
-      name: 'Webcam Face Detection'
+      name: 'Webcam Face Detection',
     },
     {
       uri: 'webcam_face_landmark_detection',
-      name: 'Webcam Face Landmark Detection'
+      name: 'Webcam Face Landmark Detection',
     },
     {
       uri: 'webcam_face_expression_recognition',
-      name: 'Webcam Face Expression Recognition'
+      name: 'Webcam Face Expression Recognition',
     },
     {
       uri: 'webcam_age_and_gender_recognition',
-      name: 'Webcam Age and Gender Recognition'
+      name: 'Webcam Age and Gender Recognition',
     },
     {
       uri: 'bbt_face_landmark_detection',
-      name: 'BBT Face Landmark Detection'
+      name: 'BBT Face Landmark Detection',
     },
     {
       uri: 'bbt_face_similarity',
-      name: 'BBT Face Similarity'
+      name: 'BBT Face Similarity',
     },
     {
       uri: 'bbt_face_matching',
-      name: 'BBT Face Matching'
+      name: 'BBT Face Matching',
     },
     {
       uri: 'bbt_face_recognition',
-      name: 'BBT Face Recognition'
+      name: 'BBT Face Recognition',
     },
     {
       uri: 'batch_face_landmarks',
-      name: 'Batch Face Landmark Detection'
+      name: 'Batch Face Landmark Detection',
     },
     {
       uri: 'batch_face_recognition',
-      name: 'Batch Face Recognition'
-    }
+      name: 'Batch Face Recognition',
+    },
   ]
 
   const navbar = $(navbarId).get(0)
   const pageContainer = $('.page-container').get(0)
 
   const header = document.createElement('h3')
-  header.innerHTML = examples.find(ex => ex.uri === exampleUri).name
+  header.innerHTML = examples.find((ex) => ex.uri === exampleUri).name
   pageContainer.insertBefore(header, pageContainer.children[0])
 
   const menuContent = document.createElement('ul')
@@ -107,7 +107,7 @@ function renderNavBar(navbarId, exampleUri) {
   navbar.appendChild(menuContent)
 
   const menuButton = document.createElement('a')
-  menuButton.href='#'
+  menuButton.href = '#'
   menuButton.classList.add('button-collapse', 'show-on-large')
   menuButton.setAttribute('data-activates', 'slide-out')
   const menuButtonIcon = document.createElement('img')
@@ -129,29 +129,33 @@ function renderNavBar(navbarId, exampleUri) {
   li.appendChild(githubLink)
   menuContent.appendChild(li)
 
-  examples
-    .forEach(ex => {
-      const li = document.createElement('li')
-      if (ex.uri === exampleUri) {
-        li.style.background='#b0b0b0'
-      }
-      const a = document.createElement('a')
-      a.classList.add('waves-effect', 'waves-light', 'pad-sides-sm')
-      a.href = ex.uri
-      const span = document.createElement('span')
-      span.innerHTML = ex.name
-      span.style.whiteSpace = 'nowrap'
-      a.appendChild(span)
-      li.appendChild(a)
-      menuContent.appendChild(li)
-    })
+  examples.forEach((ex) => {
+    const li = document.createElement('li')
+    if (ex.uri === exampleUri) {
+      li.style.background = '#b0b0b0'
+    }
+    const a = document.createElement('a')
+    a.classList.add('waves-effect', 'waves-light', 'pad-sides-sm')
+    a.href = ex.uri
+    const span = document.createElement('span')
+    span.innerHTML = ex.name
+    span.style.whiteSpace = 'nowrap'
+    a.appendChild(span)
+    li.appendChild(a)
+    menuContent.appendChild(li)
+  })
 
   $('.button-collapse').sideNav({
-    menuWidth: 260
+    menuWidth: 260,
   })
 }
 
-function renderSelectList(selectListId, onChange, initialValue, renderChildren) {
+function renderSelectList(
+  selectListId,
+  onChange,
+  initialValue,
+  renderChildren
+) {
   const select = document.createElement('select')
   $(selectListId).get(0).appendChild(select)
   renderChildren(select)

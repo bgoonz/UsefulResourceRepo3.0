@@ -20,7 +20,7 @@ export default class Calculator {
   }
 
   set primaryOperand(value) {
-    this.#primaryOperandDisplay.dataset.value = value ?? ""
+    this.#primaryOperandDisplay.dataset.value = value ?? ''
     this.#primaryOperandDisplay.textContent = displayNumber(value)
   }
 
@@ -29,7 +29,7 @@ export default class Calculator {
   }
 
   set secondaryOperand(value) {
-    this.#secondaryOperandDisplay.dataset.value = value ?? ""
+    this.#secondaryOperandDisplay.dataset.value = value ?? ''
     this.#secondaryOperandDisplay.textContent = displayNumber(value)
   }
 
@@ -38,13 +38,13 @@ export default class Calculator {
   }
 
   set operation(value) {
-    this.#operationDisplay.textContent = value ?? ""
+    this.#operationDisplay.textContent = value ?? ''
   }
 
   addDigit(digit) {
     if (
-      digit === "." &&
-      this.#primaryOperandDisplay.dataset.value.includes(".")
+      digit === '.' &&
+      this.#primaryOperandDisplay.dataset.value.includes('.')
     ) {
       return
     }
@@ -68,16 +68,16 @@ export default class Calculator {
   evaluate() {
     let result
     switch (this.operation) {
-      case "*":
+      case '*':
         result = this.secondaryOperand * this.primaryOperand
         break
-      case "÷":
+      case '÷':
         result = this.secondaryOperand / this.primaryOperand
         break
-      case "+":
+      case '+':
         result = this.secondaryOperand + this.primaryOperand
         break
-      case "-":
+      case '-':
         result = this.secondaryOperand - this.primaryOperand
         break
       default:
@@ -91,7 +91,7 @@ export default class Calculator {
   }
 
   chooseOperation(operation) {
-    if (this.operation !== "") return
+    if (this.operation !== '') return
     this.operation = operation
     this.secondaryOperand = this.primaryOperand
     this.primaryOperand = 0
@@ -104,13 +104,13 @@ export default class Calculator {
   }
 }
 
-const NUMBER_FORMATTER = new Intl.NumberFormat("en")
+const NUMBER_FORMATTER = new Intl.NumberFormat('en')
 
 function displayNumber(number) {
-  const stringNumber = number?.toString() || ""
-  if (stringNumber === "") return ""
-  const [integer, decimal] = stringNumber.split(".")
+  const stringNumber = number?.toString() || ''
+  if (stringNumber === '') return ''
+  const [integer, decimal] = stringNumber.split('.')
   const formattedInteger = NUMBER_FORMATTER.format(integer)
   if (decimal == null) return formattedInteger
-  return formattedInteger + "." + decimal
+  return formattedInteger + '.' + decimal
 }

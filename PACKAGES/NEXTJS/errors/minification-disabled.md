@@ -1,5 +1,4 @@
-Minification Disabled in Production
-===================================
+# Minification Disabled in Production
 
 #### Why This Error Occurred
 

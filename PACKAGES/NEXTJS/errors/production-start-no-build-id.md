@@ -1,5 +1,4 @@
-Could not find a production build
-=================================
+# Could not find a production build
 
 #### Why This Error Occurred
 
@@ -7,5 +6,5 @@ When running `next start` or a custom server in production mode a production bui
 
 #### Possible Ways to Fix It
 
--   Run `next build` to create a production build before booting up the production server.
--   If your intention was to run the development server run `next dev` instead.
+- Run `next build` to create a production build before booting up the production server.
+- If your intention was to run the development server run `next dev` instead.

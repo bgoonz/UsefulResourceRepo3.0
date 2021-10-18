@@ -1,5 +1,4 @@
-Invalid PostCSS Configuration
-=============================
+# Invalid PostCSS Configuration
 
 #### Why This Error Occurred
 
@@ -55,7 +54,7 @@ You can [read more about configuring PostCSS in Next.js here](https://nextjs.org
       plugins: ['postcss-plugin', 'postcss-plugin-a'],
     }
 
-------------------------------------------------------------------------
+---
 
 **Before: plugin is instantiated with configuration**
 
@@ -82,7 +81,7 @@ You can [read more about configuring PostCSS in Next.js here](https://nextjs.org
       ],
     }
 
-------------------------------------------------------------------------
+---
 
 **Before: plugin is missing configuration**
 

@@ -1,5 +1,4 @@
-Install `sass` to Use Built-In Sass Support
-===========================================
+# Install `sass` to Use Built-In Sass Support
 
 #### Why This Error Occurred
 
@@ -15,4 +14,4 @@ Please install the `sass` package in your project.
 
 ### Useful Links
 
--   [Sass Support in Documentation](https://nextjs.org/docs/basic-features/built-in-css-support#sass-support)
+- [Sass Support in Documentation](https://nextjs.org/docs/basic-features/built-in-css-support#sass-support)

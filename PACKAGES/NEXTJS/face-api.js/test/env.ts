@@ -1,7 +1,7 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { fetchNetWeights, NeuralNetwork } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import { fetchNetWeights, NeuralNetwork } from 'tfjs-image-recognition-base'
 
-import { env, fetchImage, fetchJson } from '../src';
+import { env, fetchImage, fetchJson } from '../src'
 
 export let fs: any, path: any, canvas: any
 
@@ -16,7 +16,11 @@ if (env.isNodejs()) {
   const { Canvas, Image, ImageData } = canvas
   env.monkeyPatch({ Canvas, Image, ImageData })
 } else {
-  if ((window['__karma__'].config.jasmine.args as string[]).some(arg => arg === 'backend_cpu')) {
+  if (
+    (window['__karma__'].config.jasmine.args as string[]).some(
+      (arg) => arg === 'backend_cpu'
+    )
+  ) {
     tf.setBackend('cpu')
   }
 }
@@ -30,8 +34,12 @@ export async function initNet<TNet extends NeuralNetwork<any>>(
     await net.loadFromDisk(path.resolve(__dirname, '../weights'))
   } else {
     const url = uncompressedFilename
-      ? await fetchNetWeights(`base/weights_uncompressed/${uncompressedFilename}`)
-      : (isUnusedModel ? 'base/weights_unused' : 'base/weights')
+      ? await fetchNetWeights(
+          `base/weights_uncompressed/${uncompressedFilename}`
+        )
+      : isUnusedModel
+      ? 'base/weights_unused'
+      : 'base/weights'
     await net.load(url)
   }
 }
@@ -45,8 +53,9 @@ export async function loadImage(uri: string): Promise<HTMLImageElement> {
 
 export async function loadJson<T>(uri: string): Promise<T> {
   if (env.isNodejs()) {
-    return JSON.parse(fs.readFileSync(path.resolve(__dirname, '../', uri)).toString())
+    return JSON.parse(
+      fs.readFileSync(path.resolve(__dirname, '../', uri)).toString()
+    )
   }
   return fetchJson<T>(`base${uri.startsWith('/') ? '' : '/'}${uri}`)
 }
-

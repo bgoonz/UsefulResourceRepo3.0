@@ -1,4 +1,4 @@
-const Table = require("../Table")
+const Table = require('../Table')
 
 module.exports = class UpdateCommand {
   constructor({ tableName, properties }) {
@@ -11,7 +11,7 @@ module.exports = class UpdateCommand {
     let dataToUpdate = originalData
     if (whereCommand) dataToUpdate = whereCommand.perform(dataToUpdate)
     const updatedRecords = []
-    const newData = originalData.map(record => {
+    const newData = originalData.map((record) => {
       if (dataToUpdate.includes(record)) {
         const newRecord = { ...record, ...this.properties }
         updatedRecords.push(newRecord)

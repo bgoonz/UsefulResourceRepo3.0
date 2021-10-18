@@ -1,4 +1,6 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   font-family: 'Gotham Rounded', sans-serif;
 }
@@ -32,10 +34,9 @@ body {
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  border-top-left-radius: 5px; 
-  border-top-right-radius: 5px; 
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
-
 
 .icon-container {
   position: relative;

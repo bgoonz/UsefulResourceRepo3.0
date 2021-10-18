@@ -1,5 +1,4 @@
-Invalid Project Directory Casing
-================================
+# Invalid Project Directory Casing
 
 #### Why This Error Occurred
 
@@ -13,5 +12,5 @@ Ensure the casing for the current working directory matches the actual case of t
 
 ### Useful Links
 
--   [Next.js CLI documentation](https://nextjs.org/docs/api-reference/cli)
--   [Case sensitivity in filesystems](https://en.wikipedia.org/wiki/Case_sensitivity#In_filesystems)
+- [Next.js CLI documentation](https://nextjs.org/docs/api-reference/cli)
+- [Case sensitivity in filesystems](https://en.wikipedia.org/wiki/Case_sensitivity#In_filesystems)

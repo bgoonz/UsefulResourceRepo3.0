@@ -1,5 +1,4 @@
-No Page Custom Font
-===================
+# No Page Custom Font
 
 ### Why This Error Occurred
 
@@ -40,5 +39,5 @@ If you have a reason to only load a font for a particular page, then you can dis
 
 ### Useful Links
 
--   [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
--   [Font Optimization](https://nextjs.org/docs/basic-features/font-optimization)
+- [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
+- [Font Optimization](https://nextjs.org/docs/basic-features/font-optimization)

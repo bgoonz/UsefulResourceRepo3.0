@@ -1,5 +1,4 @@
-Invalid webpack resolve alias
-=============================
+# Invalid webpack resolve alias
 
 #### Why This Error Occurred
 
@@ -18,4 +17,4 @@ This is not a bug in Next.js, it’s related to the user adding a custom webpack
 
 ### Useful Links
 
--   [Related issue](https://github.com/vercel/next.js/issues/6681)
+- [Related issue](https://github.com/vercel/next.js/issues/6681)

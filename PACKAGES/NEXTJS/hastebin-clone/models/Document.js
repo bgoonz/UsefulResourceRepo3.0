@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+const mongoose = require('mongoose')
 
 const documentScheme = new mongoose.Schema({
   value: {
@@ -7,4 +7,4 @@ const documentScheme = new mongoose.Schema({
   },
 })
 
-module.exports = mongoose.model("Document", documentScheme)
+module.exports = mongoose.model('Document', documentScheme)

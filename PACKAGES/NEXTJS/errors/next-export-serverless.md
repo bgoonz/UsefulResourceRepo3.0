@@ -1,5 +1,4 @@
-Using `next export` with `target` not set to `server`
-=====================================================
+# Using `next export` with `target` not set to `server`
 
 #### Why This Error Occurred
 

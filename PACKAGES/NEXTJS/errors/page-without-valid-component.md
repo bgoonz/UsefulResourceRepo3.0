@@ -1,5 +1,4 @@
-Page Without Valid React Component
-==================================
+# Page Without Valid React Component
 
 #### Why This Error Occurred
 

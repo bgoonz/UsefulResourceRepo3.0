@@ -1,10 +1,10 @@
 // Logic
 
 export const TILE_STATUSES = {
-  HIDDEN: "hidden",
-  MINE: "mine",
-  NUMBER: "number",
-  MARKED: "marked",
+  HIDDEN: 'hidden',
+  MINE: 'mine',
+  NUMBER: 'number',
+  MARKED: 'marked',
 }
 
 export function createBoard(boardSize, numberOfMines) {
@@ -14,7 +14,7 @@ export function createBoard(boardSize, numberOfMines) {
   for (let x = 0; x < boardSize; x++) {
     const row = []
     for (let y = 0; y < boardSize; y++) {
-      const element = document.createElement("div")
+      const element = document.createElement('div')
       element.dataset.status = TILE_STATUSES.HIDDEN
 
       const tile = {
@@ -65,7 +65,7 @@ export function revealTile(board, tile) {
 
   tile.status = TILE_STATUSES.NUMBER
   const adjacentTiles = nearbyTiles(board, tile)
-  const mines = adjacentTiles.filter(t => t.mine)
+  const mines = adjacentTiles.filter((t) => t.mine)
   if (mines.length === 0) {
     adjacentTiles.forEach(revealTile.bind(null, board))
   } else {
@@ -74,8 +74,8 @@ export function revealTile(board, tile) {
 }
 
 export function checkWin(board) {
-  return board.every(row => {
-    return row.every(tile => {
+  return board.every((row) => {
+    return row.every((tile) => {
       return (
         tile.status === TILE_STATUSES.NUMBER ||
         (tile.mine &&
@@ -87,8 +87,8 @@ export function checkWin(board) {
 }
 
 export function checkLose(board) {
-  return board.some(row => {
-    return row.some(tile => {
+  return board.some((row) => {
+    return row.some((tile) => {
       return tile.status === TILE_STATUSES.MINE
     })
   })

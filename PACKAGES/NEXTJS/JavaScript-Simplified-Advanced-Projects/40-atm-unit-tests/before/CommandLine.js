@@ -1,4 +1,4 @@
-const readline = require("readline")
+const readline = require('readline')
 
 module.exports = class CommandLine {
   static ask(question) {
@@ -7,8 +7,8 @@ module.exports = class CommandLine {
       output: process.stdout,
     })
 
-    return new Promise(resolve => {
-      rl.question(`${question} `, answer => {
+    return new Promise((resolve) => {
+      rl.question(`${question} `, (answer) => {
         resolve(answer)
         rl.close()
       })

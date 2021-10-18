@@ -1,7 +1,7 @@
-const { v4: uuidV4 } = require("uuid")
-const fs = require("fs")
-const TableDoesNotExistError = require("./errors/TableDoesNotExistError")
-const { reject } = require("rsvp")
+const { v4: uuidV4 } = require('uuid')
+const fs = require('fs')
+const TableDoesNotExistError = require('./errors/TableDoesNotExistError')
+const { reject } = require('rsvp')
 
 module.exports = class Table {
   constructor(tableName) {
@@ -14,7 +14,7 @@ module.exports = class Table {
 
   overwriteTable(data) {
     return new Promise((resolve, reject) => {
-      fs.writeFile(this.filePath, JSON.stringify(data), error => {
+      fs.writeFile(this.filePath, JSON.stringify(data), (error) => {
         if (error) return reject(error)
         resolve()
       })
@@ -25,18 +25,18 @@ module.exports = class Table {
     const recordWithId = { _id: uuidV4(), ...record }
     return new Promise((resolve, reject) => {
       this.readData()
-        .catch(e => {
+        .catch((e) => {
           if (e instanceof TableDoesNotExistError) {
             return []
           } else {
             reject(e)
           }
         })
-        .then(data => {
+        .then((data) => {
           fs.writeFile(
             this.filePath,
             JSON.stringify([...data, recordWithId]),
-            error => {
+            (error) => {
               if (error) return reject(error)
               resolve(recordWithId)
             }

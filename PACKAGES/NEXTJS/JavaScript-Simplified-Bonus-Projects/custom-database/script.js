@@ -1,5 +1,5 @@
-const readline = require("readline")
-const parseCommand = require("./parseCommand")
+const readline = require('readline')
+const parseCommand = require('./parseCommand')
 const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout,
@@ -18,8 +18,8 @@ async function start() {
 start()
 
 function waitForCommand() {
-  return new Promise(resolve => {
-    rl.question("> ", resolve)
+  return new Promise((resolve) => {
+    rl.question('> ', resolve)
   })
 }
 

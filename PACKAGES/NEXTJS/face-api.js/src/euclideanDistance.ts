@@ -1,4 +1,7 @@
-export function euclideanDistance(arr1: number[] | Float32Array, arr2: number[] | Float32Array) {
+export function euclideanDistance(
+  arr1: number[] | Float32Array,
+  arr2: number[] | Float32Array
+) {
   if (arr1.length !== arr2.length)
     throw new Error('euclideanDistance: arr1.length !== arr2.length')
 

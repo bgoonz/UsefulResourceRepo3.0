@@ -1,5 +1,4 @@
-Nested Reserved Page
-====================
+# Nested Reserved Page
 
 #### Why This Error Occurred
 
@@ -11,6 +10,6 @@ Move the reserved pages directly under your pages folder so that they are picked
 
 ### Useful Links
 
--   [Custom `_app` Documentation](https://nextjs.org/docs/advanced-features/custom-app)
--   [Custom `_error` Documentation](https://nextjs.org/docs/advanced-features/custom-error-page)
--   [Custom `_document` Documentation](https://nextjs.org/docs/advanced-features/custom-document)
+- [Custom `_app` Documentation](https://nextjs.org/docs/advanced-features/custom-app)
+- [Custom `_error` Documentation](https://nextjs.org/docs/advanced-features/custom-error-page)
+- [Custom `_document` Documentation](https://nextjs.org/docs/advanced-features/custom-document)

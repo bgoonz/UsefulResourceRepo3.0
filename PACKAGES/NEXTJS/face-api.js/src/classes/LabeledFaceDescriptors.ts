@@ -4,17 +4,28 @@ export class LabeledFaceDescriptors {
 
   constructor(label: string, descriptors: Float32Array[]) {
     if (!(typeof label === 'string')) {
-      throw new Error('LabeledFaceDescriptors - constructor expected label to be a string')
+      throw new Error(
+        'LabeledFaceDescriptors - constructor expected label to be a string'
+      )
     }
 
-    if (!Array.isArray(descriptors) || descriptors.some(desc => !(desc instanceof Float32Array))) {
-      throw new Error('LabeledFaceDescriptors - constructor expected descriptors to be an array of Float32Array')
+    if (
+      !Array.isArray(descriptors) ||
+      descriptors.some((desc) => !(desc instanceof Float32Array))
+    ) {
+      throw new Error(
+        'LabeledFaceDescriptors - constructor expected descriptors to be an array of Float32Array'
+      )
     }
 
     this._label = label
     this._descriptors = descriptors
   }
 
-  public get label(): string { return this._label }
-  public get descriptors(): Float32Array[] { return this._descriptors }
+  public get label(): string {
+    return this._label
+  }
+  public get descriptors(): Float32Array[] {
+    return this._descriptors
+  }
 }

@@ -1,5 +1,4 @@
-Rendering Without Starting Slash
-================================
+# Rendering Without Starting Slash
 
 #### Why This Error Occurred
 

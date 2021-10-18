@@ -1,4 +1,9 @@
-import { Box, IDimensions, ObjectDetection, Rect } from 'tfjs-image-recognition-base';
+import {
+  Box,
+  IDimensions,
+  ObjectDetection,
+  Rect,
+} from 'tfjs-image-recognition-base'
 
 export interface IFaceDetecion {
   score: number
@@ -6,11 +11,7 @@ export interface IFaceDetecion {
 }
 
 export class FaceDetection extends ObjectDetection implements IFaceDetecion {
-  constructor(
-    score: number,
-    relativeBox: Rect,
-    imageDims: IDimensions
-  ) {
+  constructor(score: number, relativeBox: Rect, imageDims: IDimensions) {
     super(score, score, '', relativeBox, imageDims)
   }
 

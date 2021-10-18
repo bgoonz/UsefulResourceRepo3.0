@@ -1,5 +1,4 @@
-Script component inside \_document.js
-=====================================
+# Script component inside \_document.js
 
 #### Why This Error Occurred
 
@@ -22,5 +21,5 @@ If you want a global script, instead use the `_app.js` page.
 
     export default MyApp
 
--   [custom-app](https://nextjs.org/docs/advanced-features/custom-app)
--   [next-script](https://nextjs.org/docs/basic-features/script#usage)
+- [custom-app](https://nextjs.org/docs/advanced-features/custom-app)
+- [next-script](https://nextjs.org/docs/basic-features/script#usage)

@@ -1,15 +1,19 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { NetInput, NeuralNetwork, TNetInput, toNetInput } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import {
+  NetInput,
+  NeuralNetwork,
+  TNetInput,
+  toNetInput,
+} from 'tfjs-image-recognition-base'
 
-import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
-import { seperateWeightMaps } from '../faceProcessor/util';
-import { TinyXception } from '../xception/TinyXception';
-import { extractParams } from './extractParams';
-import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
-import { AgeAndGenderPrediction, Gender, NetOutput, NetParams } from './types';
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer'
+import { seperateWeightMaps } from '../faceProcessor/util'
+import { TinyXception } from '../xception/TinyXception'
+import { extractParams } from './extractParams'
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap'
+import { AgeAndGenderPrediction, Gender, NetOutput, NetParams } from './types'
 
 export class AgeGenderNet extends NeuralNetwork<NetParams> {
-
   private _faceFeatureExtractor: TinyXception
 
   constructor(faceFeatureExtractor: TinyXception = new TinyXception(2)) {
@@ -22,7 +26,6 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
   }
 
   public runNet(input: NetInput | tf.Tensor4D): NetOutput {
-
     const { params } = this
 
     if (!params) {
@@ -30,11 +33,14 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
     }
 
     return tf.tidy(() => {
-      const bottleneckFeatures = input instanceof NetInput
-        ? this.faceFeatureExtractor.forwardInput(input)
-        : input
+      const bottleneckFeatures =
+        input instanceof NetInput
+          ? this.faceFeatureExtractor.forwardInput(input)
+          : input
 
-      const pooled = tf.avgPool(bottleneckFeatures, [7, 7], [2, 2], 'valid').as2D(bottleneckFeatures.shape[0], -1)
+      const pooled = tf
+        .avgPool(bottleneckFeatures, [7, 7], [2, 2], 'valid')
+        .as2D(bottleneckFeatures.shape[0], -1)
       const age = fullyConnectedLayer(pooled, params.fc.age).as1D()
       const gender = fullyConnectedLayer(pooled, params.fc.gender)
       return { age, gender }
@@ -52,7 +58,9 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
     return this.forwardInput(await toNetInput(input))
   }
 
-  public async predictAgeAndGender(input: TNetInput): Promise<AgeAndGenderPrediction | AgeAndGenderPrediction[]> {
+  public async predictAgeAndGender(
+    input: TNetInput
+  ): Promise<AgeAndGenderPrediction | AgeAndGenderPrediction[]> {
     const netInput = await toNetInput(input)
     const out = await this.forwardInput(netInput)
 
@@ -60,7 +68,7 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
     const genders = tf.unstack(out.gender)
     const ageAndGenderTensors = ages.map((ageTensor, i) => ({
       ageTensor,
-      genderTensor: genders[i]
+      genderTensor: genders[i],
     }))
 
     const predictionsByBatch = await Promise.all(
@@ -69,7 +77,7 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
         const probMale = (await genderTensor.data())[0]
         const isMale = probMale > 0.5
         const gender = isMale ? Gender.MALE : Gender.FEMALE
-        const genderProbability = isMale ? probMale : (1 - probMale)
+        const genderProbability = isMale ? probMale : 1 - probMale
 
         ageTensor.dispose()
         genderTensor.dispose()
@@ -79,9 +87,7 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
     out.age.dispose()
     out.gender.dispose()
 
-    return netInput.isBatchInput
-      ? predictionsByBatch
-      : predictionsByBatch[0]
+    return netInput.isBatchInput ? predictionsByBatch : predictionsByBatch[0]
   }
 
   protected getDefaultModelName(): string {
@@ -104,7 +110,6 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
   }
 
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap) {
-
     const { featureExtractorMap, classifierMap } = seperateWeightMaps(weightMap)
 
     this.faceFeatureExtractor.loadFromWeightMap(featureExtractorMap)
@@ -113,11 +118,15 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
   }
 
   protected extractParams(weights: Float32Array) {
+    const classifierWeightSize = 512 * 1 + 1 + (512 * 2 + 2)
 
-    const classifierWeightSize = (512 * 1 + 1) + (512 * 2 + 2)
-
-    const featureExtractorWeights = weights.slice(0, weights.length - classifierWeightSize)
-    const classifierWeights = weights.slice(weights.length - classifierWeightSize)
+    const featureExtractorWeights = weights.slice(
+      0,
+      weights.length - classifierWeightSize
+    )
+    const classifierWeights = weights.slice(
+      weights.length - classifierWeightSize
+    )
 
     this.faceFeatureExtractor.extractWeights(featureExtractorWeights)
     return this.extractClassifierParams(classifierWeights)

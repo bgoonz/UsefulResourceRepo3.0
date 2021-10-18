@@ -1,5 +1,4 @@
-Invalid Usage of `suspense` Option of `next/dynamic`
-====================================================
+# Invalid Usage of `suspense` Option of `next/dynamic`
 
 #### Why This Error Occurred
 
@@ -11,4 +10,4 @@ Remove `suspense: true` option in `next/dynamic` usages.
 
 ### Useful Links
 
--   [Dynamic Import Suspense Usage](https://nextjs.org/docs/advanced-features/dynamic-import#with-suspense)
+- [Dynamic Import Suspense Usage](https://nextjs.org/docs/advanced-features/dynamic-import#with-suspense)

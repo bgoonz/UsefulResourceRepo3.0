@@ -1,13 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var FaceDetection_1 = require("../classes/FaceDetection");
+'use strict'
+Object.defineProperty(exports, '__esModule', { value: true })
+var FaceDetection_1 = require('../classes/FaceDetection')
 function isWithFaceDetection(obj) {
-    return obj['detection'] instanceof FaceDetection_1.FaceDetection;
+  return obj['detection'] instanceof FaceDetection_1.FaceDetection
 }
-exports.isWithFaceDetection = isWithFaceDetection;
+exports.isWithFaceDetection = isWithFaceDetection
 function extendWithFaceDetection(sourceObj, detection) {
-    var extension = { detection: detection };
-    return Object.assign({}, sourceObj, extension);
+  var extension = { detection: detection }
+  return Object.assign({}, sourceObj, extension)
 }
-exports.extendWithFaceDetection = extendWithFaceDetection;
+exports.extendWithFaceDetection = extendWithFaceDetection
 //# sourceMappingURL=WithFaceDetection.js.map

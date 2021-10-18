@@ -1,5 +1,4 @@
-No Head Import in Document
-==========================
+# No Head Import in Document
 
 ### Why This Error Occurred
 
@@ -30,4 +29,4 @@ Only import and use `next/document` within `pages/_document.js` to override the 
 
 ### Useful Links
 
--   [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
+- [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)

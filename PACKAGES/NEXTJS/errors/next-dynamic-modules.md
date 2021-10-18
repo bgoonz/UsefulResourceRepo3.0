@@ -1,5 +1,4 @@
-`next/dynamic` has deprecated loading multiple modules at once
-==============================================================
+# `next/dynamic` has deprecated loading multiple modules at once
 
 #### Why This Error Occurred
 

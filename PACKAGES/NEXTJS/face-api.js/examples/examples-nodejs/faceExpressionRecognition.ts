@@ -1,20 +1,28 @@
-import * as faceapi from 'face-api.js';
+import * as faceapi from 'face-api.js'
 
-import { canvas, faceDetectionNet, faceDetectionOptions, saveFile } from './commons';
+import {
+  canvas,
+  faceDetectionNet,
+  faceDetectionOptions,
+  saveFile,
+} from './commons'
 
 async function run() {
-
   await faceDetectionNet.loadFromDisk('../../weights')
   await faceapi.nets.faceLandmark68Net.loadFromDisk('../../weights')
   await faceapi.nets.faceExpressionNet.loadFromDisk('../../weights')
 
   const img = await canvas.loadImage('../images/surprised.jpg')
-  const results = await faceapi.detectAllFaces(img, faceDetectionOptions)
-  .withFaceLandmarks()
+  const results = await faceapi
+    .detectAllFaces(img, faceDetectionOptions)
+    .withFaceLandmarks()
     .withFaceExpressions()
 
   const out = faceapi.createCanvasFromMedia(img) as any
-  faceapi.draw.drawDetections(out, results.map(res => res.detection))
+  faceapi.draw.drawDetections(
+    out,
+    results.map((res) => res.detection)
+  )
   faceapi.draw.drawFaceExpressions(out, results)
 
   saveFile('faceExpressionRecognition.jpg', out.toBuffer('image/jpeg'))

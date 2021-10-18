@@ -1,11 +1,11 @@
-import addGlobalEventListener from "./utils/addGlobalEventListener.js"
-import setupDragAndDrop from "./dragAndDrop.js"
-import { v4 as uuidV4 } from "uuid"
+import addGlobalEventListener from './utils/addGlobalEventListener.js'
+import setupDragAndDrop from './dragAndDrop.js'
+import { v4 as uuidV4 } from 'uuid'
 
-const STORAGE_PREFIX = "TRELLO_CLONE"
+const STORAGE_PREFIX = 'TRELLO_CLONE'
 const LANES_STORAGE_KEY = `${STORAGE_PREFIX}-lanes`
 const DEFAULT_LANES = {
-  backlog: [{ id: uuidV4(), text: "Create your first task" }],
+  backlog: [{ id: uuidV4(), text: 'Create your first task' }],
   doing: [],
   done: [],
 }
@@ -14,20 +14,20 @@ renderTasks()
 
 setupDragAndDrop(onDragComplete)
 
-addGlobalEventListener("submit", "[data-task-form]", e => {
+addGlobalEventListener('submit', '[data-task-form]', (e) => {
   e.preventDefault()
 
-  const taskInput = e.target.querySelector("[data-task-input]")
+  const taskInput = e.target.querySelector('[data-task-input]')
   const taskText = taskInput.value
-  if (taskText === "") return
+  if (taskText === '') return
 
   const task = { id: uuidV4(), text: taskText }
-  const laneElement = e.target.closest(".lane").querySelector("[data-lane-id]")
+  const laneElement = e.target.closest('.lane').querySelector('[data-lane-id]')
   lanes[laneElement.dataset.laneId].push(task)
 
   const taskElement = createTaskElement(task)
   laneElement.append(taskElement)
-  taskInput.value = ""
+  taskInput.value = ''
 
   saveLanes()
 })
@@ -38,7 +38,7 @@ function onDragComplete(e) {
   const startLaneTasks = lanes[startLaneId]
   const endLaneTasks = lanes[endLaneId]
 
-  const task = startLaneTasks.find(t => t.id === e.dragElement.id)
+  const task = startLaneTasks.find((t) => t.id === e.dragElement.id)
   startLaneTasks.splice(startLaneTasks.indexOf(task), 1)
   endLaneTasks.splice(e.index, 0, task)
 
@@ -55,11 +55,11 @@ function saveLanes() {
 }
 
 function renderTasks() {
-  Object.entries(lanes).forEach(obj => {
+  Object.entries(lanes).forEach((obj) => {
     const laneId = obj[0]
     const tasks = obj[1]
     const lane = document.querySelector(`[data-lane-id="${laneId}"]`)
-    tasks.forEach(task => {
+    tasks.forEach((task) => {
       const taskElement = createTaskElement(task)
       lane.append(taskElement)
     })
@@ -67,10 +67,10 @@ function renderTasks() {
 }
 
 function createTaskElement(task) {
-  const element = document.createElement("div")
+  const element = document.createElement('div')
   element.id = task.id
   element.innerText = task.text
-  element.classList.add("task")
+  element.classList.add('task')
   element.dataset.draggable = true
   return element
 }

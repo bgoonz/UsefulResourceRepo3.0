@@ -6,9 +6,9 @@ import {
   Rect,
   TNetInput,
   toNetInput,
-} from 'tfjs-image-recognition-base';
+} from 'tfjs-image-recognition-base'
 
-import { FaceDetection } from '../classes/FaceDetection';
+import { FaceDetection } from '../classes/FaceDetection'
 
 /**
  * Extracts the image regions containing the detected faces.
@@ -21,7 +21,6 @@ export async function extractFaces(
   input: TNetInput,
   detections: Array<FaceDetection | Rect>
 ): Promise<HTMLCanvasElement[]> {
-
   const { Canvas } = env.getEnv()
 
   let canvas = input as HTMLCanvasElement
@@ -34,23 +33,28 @@ export async function extractFaces(
     }
 
     const tensorOrCanvas = netInput.getInput(0)
-    canvas = tensorOrCanvas instanceof Canvas
-      ? tensorOrCanvas
-      : await imageTensorToCanvas(tensorOrCanvas)
+    canvas =
+      tensorOrCanvas instanceof Canvas
+        ? tensorOrCanvas
+        : await imageTensorToCanvas(tensorOrCanvas)
   }
 
   const ctx = getContext2dOrThrow(canvas)
-  const boxes = detections.map(
-    det => det instanceof FaceDetection
-      ? det.forSize(canvas.width, canvas.height).box.floor()
-      : det
-  )
-    .map(box => box.clipAtImageBorders(canvas.width, canvas.height))
+  const boxes = detections
+    .map((det) =>
+      det instanceof FaceDetection
+        ? det.forSize(canvas.width, canvas.height).box.floor()
+        : det
+    )
+    .map((box) => box.clipAtImageBorders(canvas.width, canvas.height))
 
   return boxes.map(({ x, y, width, height }) => {
     const faceImg = createCanvas({ width, height })
-    getContext2dOrThrow(faceImg)
-      .putImageData(ctx.getImageData(x, y, width, height), 0, 0)
+    getContext2dOrThrow(faceImg).putImageData(
+      ctx.getImageData(x, y, width, height),
+      0,
+      0
+    )
     return faceImg
   })
 }

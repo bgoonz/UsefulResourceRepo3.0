@@ -1,21 +1,24 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { NetInput, NeuralNetwork, normalize, TNetInput, toNetInput } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import {
+  NetInput,
+  NeuralNetwork,
+  normalize,
+  TNetInput,
+  toNetInput,
+} from 'tfjs-image-recognition-base'
 
-import { convDown } from './convLayer';
-import { extractParams } from './extractParams';
-import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
-import { residual, residualDown } from './residualLayer';
-import { NetParams } from './types';
-
+import { convDown } from './convLayer'
+import { extractParams } from './extractParams'
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap'
+import { residual, residualDown } from './residualLayer'
+import { NetParams } from './types'
 
 export class FaceRecognitionNet extends NeuralNetwork<NetParams> {
-
   constructor() {
     super('FaceRecognitionNet')
   }
 
   public forwardInput(input: NetInput): tf.Tensor2D {
-
     const { params } = this
 
     if (!params) {
@@ -26,7 +29,9 @@ export class FaceRecognitionNet extends NeuralNetwork<NetParams> {
       const batchTensor = input.toBatchTensor(150, true).toFloat()
 
       const meanRgb = [122.782, 117.001, 104.298]
-      const normalized = normalize(batchTensor, meanRgb).div(tf.scalar(256)) as tf.Tensor4D
+      const normalized = normalize(batchTensor, meanRgb).div(
+        tf.scalar(256)
+      ) as tf.Tensor4D
 
       let out = convDown(normalized, params.conv32_down)
       out = tf.maxPool(out, 3, 2, 'valid')
@@ -60,18 +65,20 @@ export class FaceRecognitionNet extends NeuralNetwork<NetParams> {
     return this.forwardInput(await toNetInput(input))
   }
 
-  public async computeFaceDescriptor(input: TNetInput): Promise<Float32Array|Float32Array[]> {
+  public async computeFaceDescriptor(
+    input: TNetInput
+  ): Promise<Float32Array | Float32Array[]> {
     const netInput = await toNetInput(input)
 
-    const faceDescriptorTensors = tf.tidy(
-      () => tf.unstack(this.forwardInput(netInput))
+    const faceDescriptorTensors = tf.tidy(() =>
+      tf.unstack(this.forwardInput(netInput))
     )
 
-    const faceDescriptorsForBatch = await Promise.all(faceDescriptorTensors.map(
-      t => t.data()
+    const faceDescriptorsForBatch = (await Promise.all(
+      faceDescriptorTensors.map((t) => t.data())
     )) as Float32Array[]
 
-    faceDescriptorTensors.forEach(t => t.dispose())
+    faceDescriptorTensors.forEach((t) => t.dispose())
 
     return netInput.isBatchInput
       ? faceDescriptorsForBatch

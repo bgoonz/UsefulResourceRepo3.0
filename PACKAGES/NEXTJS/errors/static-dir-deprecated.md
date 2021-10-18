@@ -1,5 +1,4 @@
-Static directory is deprecated
-==============================
+# Static directory is deprecated
 
 #### Why This Error Occurred
 
@@ -32,4 +31,4 @@ You can move your `static` directory inside of the `public` directory and all UR
 
 ### Useful Links
 
--   [Static file serving docs](https://nextjs.org/docs/basic-features/static-file-serving)
+- [Static file serving docs](https://nextjs.org/docs/basic-features/static-file-serving)

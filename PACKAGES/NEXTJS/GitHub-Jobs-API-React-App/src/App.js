@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState } from 'react'
 import useFetchJobs from './useFetchJobs'
 import { Container } from 'react-bootstrap'
 import Job from './Job'
-import JobsPagination from './JobsPagination';
-import SearchForm from './SearchForm';
+import JobsPagination from './JobsPagination'
+import SearchForm from './SearchForm'
 
 function App() {
   const [params, setParams] = useState({})
@@ -14,7 +14,7 @@ function App() {
     const param = e.target.name
     const value = e.target.value
     setPage(1)
-    setParams(prevParams => {
+    setParams((prevParams) => {
       return { ...prevParams, [param]: value }
     })
   }
@@ -26,7 +26,7 @@ function App() {
       <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
       {loading && <h1>Loading...</h1>}
       {error && <h1>Error. Try Refreshing.</h1>}
-      {jobs.map(job => {
+      {jobs.map((job) => {
         return <Job key={job.id} job={job} />
       })}
       <JobsPagination page={page} setPage={setPage} hasNextPage={hasNextPage} />
@@ -34,4 +34,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

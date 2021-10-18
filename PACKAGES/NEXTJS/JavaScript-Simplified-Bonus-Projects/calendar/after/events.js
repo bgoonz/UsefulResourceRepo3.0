@@ -1,10 +1,12 @@
-import { isSameDay, parseISO } from "date-fns"
+import { isSameDay, parseISO } from 'date-fns'
 
-const EVENTS_KEY = "CALENDAR.events"
+const EVENTS_KEY = 'CALENDAR.events'
 
-let events = (JSON.parse(localStorage.getItem(EVENTS_KEY)) || []).map(event => {
-  return { ...event, date: parseISO(event.date) }
-})
+let events = (JSON.parse(localStorage.getItem(EVENTS_KEY)) || []).map(
+  (event) => {
+    return { ...event, date: parseISO(event.date) }
+  }
+)
 
 export function addEvent(event) {
   events.push(event)
@@ -12,7 +14,7 @@ export function addEvent(event) {
 }
 
 export function updateEvent(event) {
-  events = events.map(e => {
+  events = events.map((e) => {
     if (e.id === event.id) return event
     return e
   })
@@ -20,12 +22,14 @@ export function updateEvent(event) {
 }
 
 export function removeEvent(event) {
-  events = events.filter(e => e.id !== event.id)
+  events = events.filter((e) => e.id !== event.id)
   save()
 }
 
 export function getEventsForDay(date) {
-  return events.filter(event => isSameDay(event.date, date)).sort(compareEvents)
+  return events
+    .filter((event) => isSameDay(event.date, date))
+    .sort(compareEvents)
 }
 
 function compareEvents(eventA, eventB) {
@@ -43,7 +47,7 @@ function compareEvents(eventA, eventB) {
 }
 
 function eventTimeToNumber(time) {
-  return parseFloat(time.replace(":", "."))
+  return parseFloat(time.replace(':', '.'))
 }
 
 function save() {

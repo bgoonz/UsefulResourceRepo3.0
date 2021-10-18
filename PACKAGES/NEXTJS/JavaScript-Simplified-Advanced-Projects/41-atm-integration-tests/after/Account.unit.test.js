@@ -1,17 +1,17 @@
-const FileSystem = require("./FileSystem")
-const Account = require("./Account")
+const FileSystem = require('./FileSystem')
+const Account = require('./Account')
 
 beforeEach(() => {
   jest.restoreAllMocks()
 })
 
-describe("#deposit", () => {
-  test("it adds money to the account", async () => {
+describe('#deposit', () => {
+  test('it adds money to the account', async () => {
     const startingBalance = 5
     const amount = 10
-    const account = await createAccount("Kyle", startingBalance)
+    const account = await createAccount('Kyle', startingBalance)
     const spy = jest
-      .spyOn(FileSystem, "write")
+      .spyOn(FileSystem, 'write')
       .mockReturnValue(Promise.resolve())
 
     await account.deposit(amount)
@@ -20,13 +20,13 @@ describe("#deposit", () => {
   })
 })
 
-describe("#withdraw", () => {
-  test("it removes money from the account", async () => {
+describe('#withdraw', () => {
+  test('it removes money from the account', async () => {
     const startingBalance = 10
     const amount = 5
-    const account = await createAccount("Kyle", startingBalance)
+    const account = await createAccount('Kyle', startingBalance)
     const spy = jest
-      .spyOn(FileSystem, "write")
+      .spyOn(FileSystem, 'write')
       .mockReturnValue(Promise.resolve())
 
     await account.withdraw(amount)
@@ -34,12 +34,12 @@ describe("#withdraw", () => {
     expect(spy).toBeCalledWith(account.filePath, startingBalance - amount)
   })
 
-  describe("with not enough money in the account", () => {
-    test("it should throw an error", async () => {
+  describe('with not enough money in the account', () => {
+    test('it should throw an error', async () => {
       const startingBalance = 5
       const amount = 10
-      const account = await createAccount("Kyle", startingBalance)
-      const spy = jest.spyOn(FileSystem, "write")
+      const account = await createAccount('Kyle', startingBalance)
+      const spy = jest.spyOn(FileSystem, 'write')
 
       await expect(account.withdraw(amount)).rejects.toThrow()
       expect(account.balance).toBe(startingBalance)
@@ -50,7 +50,7 @@ describe("#withdraw", () => {
 
 async function createAccount(name, balance) {
   const spy = jest
-    .spyOn(FileSystem, "read")
+    .spyOn(FileSystem, 'read')
     .mockReturnValueOnce(Promise.resolve(balance))
   const account = await Account.find(name)
   spy.mockRestore()

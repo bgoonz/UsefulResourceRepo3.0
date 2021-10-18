@@ -1,5 +1,4 @@
-No Img Element
-==============
+# No Img Element
 
 ### Why This Error Occurred
 
@@ -28,4 +27,4 @@ Import and use the `<Image />` component:
 
 ### Useful Links
 
--   [Image Component and Image Optimization](https://nextjs.org/docs/basic-features/image-optimization)
+- [Image Component and Image Optimization](https://nextjs.org/docs/basic-features/image-optimization)

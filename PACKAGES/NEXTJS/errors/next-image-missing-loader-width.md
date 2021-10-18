@@ -1,5 +1,4 @@
-Missing `width` in the URL Returned by the Loader Prop on `next/image`
-======================================================================
+# Missing `width` in the URL Returned by the Loader Prop on `next/image`
 
 #### Why This Error Occurred
 
@@ -9,10 +8,10 @@ This error occurred because the provided `loader()` function did not use `width`
 
 #### Possible Ways to Fix It
 
--   Ensure your Image Optimization provider can resize images. Then use the `width` parameter from the [`loader()`](https://nextjs.org/docs/api-reference/next/image#loader) function to construct the correct URL string.
--   Add the [`unoptimized`](https://nextjs.org/docs/api-reference/next/image#unoptimized) prop.
+- Ensure your Image Optimization provider can resize images. Then use the `width` parameter from the [`loader()`](https://nextjs.org/docs/api-reference/next/image#loader) function to construct the correct URL string.
+- Add the [`unoptimized`](https://nextjs.org/docs/api-reference/next/image#unoptimized) prop.
 
 ### Useful Links
 
--   [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
--   [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)
+- [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
+- [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)

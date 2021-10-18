@@ -1,28 +1,65 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>invalid-href-passed</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="invalid-href-passed-to-router">Invalid href passed to router</h1>
-<h4 id="why-this-error-occurred">Why This Error Occurred</h4>
-<p>Next.js provides a router which can be utilized via a component imported via <code>next/link</code>, a wrapper <code>withRouter(Component)</code>, and now a hook <code>useRouter()</code>. When using any of these, it is expected they are only used for internal navigation, i.e. navigating between pages in the same Next.js application.</p>
-<p>Either you passed a non-internal <code>href</code> to a <code>next/link</code> component or you called <code>Router#push</code> or <code>Router#replace</code> with one.</p>
-<p>Invalid <code>href</code>s include external sites (https://google.com) and <code>mailto:</code> links. In the past, usage of these invalid <code>href</code>s could have gone unnoticed, but since they can cause unexpected behavior we now show a warning in development for them.</p>
-<h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
-<p>Look for any usage of <code>next/link</code> or <code>next/router</code> that is being passed a non-internal <code>href</code> and replace them with either an anchor tag (<code>&lt;a&gt;</code>) or <code>window.location.href = YOUR_HREF</code>.</p>
-<h3 id="useful-links">Useful Links</h3>
-<ul>
-<li><a href="https://nextjs.org/docs/routing/introduction">Routing section in Documentation</a></li>
-</ul>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>invalid-href-passed</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="invalid-href-passed-to-router">Invalid href passed to router</h1>
+    <h4 id="why-this-error-occurred">Why This Error Occurred</h4>
+    <p>
+      Next.js provides a router which can be utilized via a component imported
+      via <code>next/link</code>, a wrapper <code>withRouter(Component)</code>,
+      and now a hook <code>useRouter()</code>. When using any of these, it is
+      expected they are only used for internal navigation, i.e. navigating
+      between pages in the same Next.js application.
+    </p>
+    <p>
+      Either you passed a non-internal <code>href</code> to a
+      <code>next/link</code> component or you called <code>Router#push</code> or
+      <code>Router#replace</code> with one.
+    </p>
+    <p>
+      Invalid <code>href</code>s include external sites (https://google.com) and
+      <code>mailto:</code> links. In the past, usage of these invalid
+      <code>href</code>s could have gone unnoticed, but since they can cause
+      unexpected behavior we now show a warning in development for them.
+    </p>
+    <h4 id="possible-ways-to-fix-it">Possible Ways to Fix It</h4>
+    <p>
+      Look for any usage of <code>next/link</code> or
+      <code>next/router</code> that is being passed a non-internal
+      <code>href</code> and replace them with either an anchor tag
+      (<code>&lt;a&gt;</code>) or <code>window.location.href = YOUR_HREF</code>.
+    </p>
+    <h3 id="useful-links">Useful Links</h3>
+    <ul>
+      <li>
+        <a href="https://nextjs.org/docs/routing/introduction"
+          >Routing section in Documentation</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

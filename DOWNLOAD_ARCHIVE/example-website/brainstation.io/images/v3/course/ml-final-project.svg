@@ -1,0 +1,183 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="720" height="464" viewBox="0 0 720 464">
+    <defs>
+        <filter id="a" width="123.6%" height="135.6%" x="-11.8%" y="-17%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="7"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <rect id="b" width="406.201" height="269.726" rx="13.433"/>
+        <filter id="c" width="113%" height="119.6%" x="-6.5%" y="-9.1%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="8.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+        </filter>
+        <path id="e" d="M15.535 0h601.43c8.58 0 15.536 6.955 15.536 15.535v370.29H0V15.535C0 6.955 6.955 0 15.535 0z"/>
+        <filter id="f" width="110.3%" height="116.8%" x="-5.1%" y="-7.9%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="10.5"/>
+            <feColorMatrix in="shadowBlurOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+        </filter>
+        <filter id="h" width="111.1%" height="118%" x="-5.5%" y="-8.9%" filterUnits="objectBoundingBox">
+            <feOffset dy="2" in="SourceAlpha" result="shadowOffsetOuter1"/>
+            <feGaussianBlur in="shadowOffsetOuter1" result="shadowBlurOuter1" stdDeviation="6.5"/>
+            <feColorMatrix in="shadowBlurOuter1" result="shadowMatrixOuter1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.1 0"/>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"/>
+                <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+        </filter>
+        <rect id="i" width="531.403" height="329.985" rx="11.166"/>
+        <text id="k" fill="#888" font-family="Helvetica-Bold, Helvetica" font-size="8.239" font-weight="bold">
+            <tspan x=".271" y="266.837">year manufactured</tspan>
+        </text>
+        <filter id="j" width="105.4%" height="136.4%" x="-2.7%" y="-18.2%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1.5"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+        </filter>
+        <filter id="l" width="105.4%" height="136.4%" x="-2.7%" y="-18.2%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1.5"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+        </filter>
+        <text id="n" fill="#888" font-family="Helvetica-Bold, Helvetica" font-size="8.239" font-weight="bold">
+            <tspan x="412.082" y="266.837">weight</tspan>
+        </text>
+        <filter id="m" width="114.8%" height="136.4%" x="-7.4%" y="-18.2%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1.5"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+        </filter>
+        <filter id="o" width="114.8%" height="136.4%" x="-7.4%" y="-18.2%" filterUnits="objectBoundingBox">
+            <feGaussianBlur in="SourceAlpha" result="shadowBlurInner1" stdDeviation="1.5"/>
+            <feOffset dy="1" in="shadowBlurInner1" result="shadowOffsetInner1"/>
+            <feComposite in="shadowOffsetInner1" in2="SourceAlpha" k2="-1" k3="1" operator="arithmetic" result="shadowInnerInner1"/>
+            <feColorMatrix in="shadowInnerInner1" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.5 0"/>
+        </filter>
+    </defs>
+    <g fill="none" fill-rule="evenodd">
+        <g filter="url(#a)" transform="translate(293 17)">
+            <mask id="d" fill="#fff">
+                <use xlink:href="#b"/>
+            </mask>
+            <use fill="#000" fill-rule="nonzero" filter="url(#c)" xlink:href="#b"/>
+            <g mask="url(#d)">
+                <g transform="translate(-5.373 -22.567)">
+                    <mask id="g" fill="#fff">
+                        <use xlink:href="#e"/>
+                    </mask>
+                    <use fill="#000" filter="url(#f)" xlink:href="#e"/>
+                    <use fill="#F9FAFA" xlink:href="#e"/>
+                    <path fill="#414141" d="M-4.268-3.414h664.083v157.925H-4.268z" mask="url(#g)"/>
+                </g>
+            </g>
+            <path fill="#272822" fill-rule="nonzero" d="M-5.373 21.708h632.501v341.55H-5.373z" mask="url(#d)"/>
+            <path fill="#272822" fill-rule="nonzero" d="M8.078.023h124.575a5.693 5.693 0 0 1 5.217 3.414l8.05 18.433a5.693 5.693 0 0 1-5.218 7.97H.35a5.693 5.693 0 0 1-5.25-7.893L2.83 3.514A5.693 5.693 0 0 1 8.079.023z" mask="url(#d)"/>
+            <text font-family="Inconsolata" font-size="7.56" font-weight="400" letter-spacing="-.036" mask="url(#d)">
+                <tspan x="29.515" y="42.8" fill="#52E5FF">def</tspan> <tspan x="40.747" y="42.8" fill="#FFF"> </tspan> <tspan x="44.49" y="42.8" fill="#A8E42C">split</tspan> <tspan x="63.21" y="42.8" fill="#FFF">(</tspan> <tspan x="66.954" y="42.8" fill="#FF7426">i</tspan> <tspan x="70.697" y="42.8" fill="#FFF">, </tspan> <tspan x="78.185" y="42.8" fill="#FF7426">attrVal</tspan> <tspan x="104.392" y="42.8" fill="#FFF">, </tspan> <tspan x="111.88" y="42.8" fill="#FF7426">dataset</tspan> <tspan x="138.087" y="42.8" fill="#FFF">):</tspan> <tspan x="29.515" y="53.643" fill="#FFF"> left, right </tspan> <tspan x="89.417" y="53.643" fill="#FB3471">= </tspan> <tspan x="96.904" y="53.643" fill="#52E5FF">list</tspan> <tspan x="111.88" y="53.643" fill="#FFF">(), </tspan> <tspan x="126.855" y="53.643" fill="#52E5FF">list</tspan> <tspan x="141.831" y="53.643" fill="#FFF">()</tspan> <tspan x="29.515" y="64.486" fill="#FFF"> </tspan> <tspan x="40.747" y="64.486" fill="#FB3471"> for</tspan> <tspan x="55.722" y="64.486" fill="#FFF"> row </tspan> <tspan x="74.441" y="64.486" fill="#FB3471">in</tspan> <tspan x="81.929" y="64.486" fill="#FFF"> dataset:</tspan> <tspan x="29.515" y="75.329" fill="#FFF"> </tspan> <tspan x="59.466" y="75.329" fill="#FB3471">if</tspan> <tspan x="66.954" y="75.329" fill="#FFF"> row[i] </tspan> <tspan x="96.904" y="75.329" fill="#FB3471">&lt;</tspan> <tspan x="100.648" y="75.329" fill="#FFF"> attrVal:</tspan> <tspan x="29.515" y="86.171" fill="#FFF"> left.</tspan> <tspan x="93.161" y="86.171" fill="#52E5FF">append</tspan> <tspan x="115.624" y="86.171" fill="#FFF">(row)</tspan> <tspan x="29.515" y="97.014" fill="#FFF"> </tspan> <tspan x="59.466" y="97.014" fill="#FB3471">else</tspan> <tspan x="74.441" y="97.014" fill="#FFF">:</tspan> <tspan x="29.515" y="107.857" fill="#FFF"> right.</tspan> <tspan x="96.904" y="107.857" fill="#52E5FF">append</tspan> <tspan x="119.368" y="107.857" fill="#FFF">(row)</tspan> <tspan x="29.515" y="118.7" fill="#FFF"> </tspan> <tspan x="44.49" y="118.7" fill="#FB3471">return</tspan> <tspan x="66.954" y="118.7" fill="#FFF"> left, right</tspan>  <tspan x="29.515" y="140.386" fill="#676767"># Calculate the Gini index for a split dataset</tspan> <tspan x="29.515" y="151.229" fill="#52E5FF">def</tspan> <tspan x="40.747" y="151.229" fill="#FFF"> </tspan> <tspan x="44.49" y="151.229" fill="#A8E42C">get_gini</tspan> <tspan x="74.441" y="151.229" fill="#FFF">(</tspan> <tspan x="78.185" y="151.229" fill="#FF7426">groups</tspan> <tspan x="100.648" y="151.229" fill="#FFF">, </tspan> <tspan x="108.136" y="151.229" fill="#FF7426">class</tspan> <tspan x="126.855" y="151.229" fill="#FFF">es):</tspan> <tspan x="29.515" y="162.072" fill="#FFF"> instance_count </tspan> <tspan x="100.648" y="162.072" fill="#FB3471">=</tspan> <tspan x="104.392" y="162.072" fill="#FFF"> float(sum([len(group) for group in groups]))</tspan> <tspan x="29.515" y="172.914" fill="#FFF"> gini </tspan> <tspan x="63.21" y="172.914" fill="#FB3471">=</tspan> <tspan x="66.954" y="172.914" fill="#FFF"> </tspan> <tspan x="70.697" y="172.914" fill="#B38DFF">0.0</tspan>  <tspan x="29.515" y="183.757" fill="#FFF"> </tspan> <tspan x="44.49" y="183.757" fill="#FB3471">for</tspan> <tspan x="55.722" y="183.757" fill="#FFF"> group </tspan> <tspan x="81.929" y="183.757" fill="#FB3471">in</tspan> <tspan x="89.417" y="183.757" fill="#FFF"> groups:</tspan> <tspan x="29.515" y="194.6" fill="#FFF"> size </tspan> <tspan x="78.185" y="194.6" fill="#FB3471">=</tspan> <tspan x="81.929" y="194.6" fill="#FFF"> float(len(group))</tspan> <tspan x="29.515" y="205.443" fill="#FFF"> </tspan> <tspan x="59.466" y="205.443" fill="#FB3471">if</tspan> <tspan x="66.954" y="205.443" fill="#FFF"> size </tspan> <tspan x="89.417" y="205.443" fill="#FB3471">==</tspan> <tspan x="96.904" y="205.443" fill="#FFF"> </tspan> <tspan x="100.648" y="205.443" fill="#B38DFF">0</tspan> <tspan x="104.392" y="205.443" fill="#FFF">:</tspan> <tspan x="29.515" y="216.286" fill="#FFF"> </tspan> <tspan x="74.441" y="216.286" fill="#FB3471">continue</tspan>  <tspan x="29.515" y="227.129" fill="#FFF"> score </tspan> <tspan x="81.929" y="227.129" fill="#FB3471">=</tspan> <tspan x="85.673" y="227.129" fill="#FFF"> </tspan> <tspan x="89.417" y="227.129" fill="#B38DFF">0.0</tspan>  <tspan x="29.515" y="237.972" fill="#FFF"> </tspan> <tspan x="59.466" y="237.972" fill="#FB3471">for</tspan> <tspan x="70.697" y="237.972" fill="#FFF"> class_val </tspan> <tspan x="111.88" y="237.972" fill="#FB3471">in</tspan> <tspan x="119.368" y="237.972" fill="#FFF"> classes:</tspan> <tspan x="29.515" y="248.814" fill="#FFF"> p </tspan> <tspan x="81.929" y="248.814" fill="#FB3471">=</tspan> <tspan x="85.673" y="248.814" fill="#FFF"> [row[</tspan> <tspan x="108.136" y="248.814" fill="#FB3471">-</tspan> <tspan x="111.88" y="248.814" fill="#B38DFF">1</tspan> <tspan x="115.624" y="248.814" fill="#FFF">] </tspan> <tspan x="123.111" y="248.814" fill="#FB3471">for</tspan> <tspan x="134.343" y="248.814" fill="#FFF"> row in group].count(class_val) / size</tspan> <tspan x="29.515" y="259.657" fill="#FFF"> score </tspan> <tspan x="96.904" y="259.657" fill="#FB3471">+=</tspan> <tspan x="104.392" y="259.657" fill="#FFF"> p </tspan> <tspan x="115.624" y="259.657" fill="#FB3471">*</tspan> <tspan x="119.368" y="259.657" fill="#FFF"> p</tspan> <tspan x="29.515" y="270.5" fill="#FFF"> gini </tspan> <tspan x="78.185" y="270.5" fill="#FB3471">+=</tspan> <tspan x="85.673" y="270.5" fill="#FFF"> (</tspan> <tspan x="93.161" y="270.5" fill="#B38DFF">1.0</tspan> <tspan x="104.392" y="270.5" fill="#FFF"> </tspan> <tspan x="108.136" y="270.5" fill="#FB3471">-</tspan> <tspan x="111.88" y="270.5" fill="#FFF"> score) * (size / instance_count)</tspan> <tspan x="29.515" y="281.343" fill="#FFF"> </tspan> <tspan x="44.49" y="281.343" fill="#FB3471">return</tspan> <tspan x="66.954" y="281.343" fill="#FFF"> gini</tspan>
+            </text>
+            <g mask="url(#d)">
+                <path fill="#878787" fill-rule="nonzero" d="M128.04 15.425l2.046-2.046a.387.387 0 1 0-.546-.547l-2.046 2.046-2.047-2.046a.387.387 0 0 0-.546.547l2.046 2.046-2.046 2.046a.387.387 0 1 0 .546.546l2.047-2.046 2.046 2.046a.387.387 0 0 0 .546-.546l-2.046-2.046z"/>
+                <text stroke="#979797" stroke-width=".945" font-family="Inconsolata" font-size="8.505" font-weight="400" letter-spacing="-.034" transform="translate(13.643 9.1)">
+                    <tspan x="0" y="7" fill="#FFF">recommendation.py</tspan>
+                </text>
+            </g>
+            <text fill="#9D9D9D" font-family="Inconsolata" font-size="7.56" font-weight="400" letter-spacing="-.03" mask="url(#d)">
+                <tspan x="17.04" y="43.069">1</tspan> <tspan x="17.04" y="53.912">2</tspan> <tspan x="17.04" y="64.755">3</tspan> <tspan x="17.04" y="75.598">4</tspan> <tspan x="17.04" y="86.441">5</tspan> <tspan x="17.04" y="97.283">6</tspan> <tspan x="17.04" y="108.126">7</tspan> <tspan x="17.04" y="118.969">8</tspan> <tspan x="17.04" y="129.812">9</tspan> <tspan x="13.29" y="140.655">10</tspan> <tspan x="13.29" y="151.498">11</tspan> <tspan x="13.29" y="162.341">12</tspan> <tspan x="13.29" y="173.183">13</tspan> <tspan x="13.29" y="184.026">14</tspan> <tspan x="13.29" y="194.869">15</tspan> <tspan x="13.29" y="205.712">16</tspan> <tspan x="13.29" y="216.555">17</tspan> <tspan x="13.29" y="227.398">18</tspan> <tspan x="13.29" y="238.241">19</tspan> <tspan x="13.29" y="249.084">20</tspan> <tspan x="13.29" y="259.926">21</tspan> <tspan x="13.29" y="270.769">22</tspan>
+            </text>
+            <path fill-rule="nonzero" stroke="#676767" stroke-linecap="square" stroke-width=".525" d="M45.355 69.472v46.317M60.355 81.472V94.5M60.355 102.472V115.5M45.355 189.472v80.254M60.355 210.472v13.096M60.355 243.472v23.193M32.355 49.125V122.5M31.355 158.5v111.226" mask="url(#d)"/>
+        </g>
+        <use fill="#FFF" filter="url(#h)" transform="translate(13 119)" xlink:href="#i"/>
+        <g fill="#FFF">
+            <path stroke="#DFDFDF" stroke-width=".902" d="M163.813 227.143h238.71v50.269h-238.71z"/>
+            <path d="M148.74 250.247h292.41v38.988H148.74z"/>
+        </g>
+        <path fill="#FF7426" d="M155.238 284.362h2.437v10.559h-2.437zM151.177 287.611h2.437v7.31h-2.437zM164.173 279.488h2.437v15.433h-2.437zM167.422 282.737h2.437v12.184h-2.437zM171.483 285.986h2.437v8.935h-2.436zM175.546 276.239h2.437v18.682h-2.437zM186.104 294.109h2.437v1h-2.437zM180.418 294.109h2.437v1h-2.436zM160.112 289.235h2.437v5.686h-2.437z"/>
+        <path fill="#B4DF5B" d="M148.74 275.427h2.437v19.494h-2.436zM157.675 282.737h2.437v12.184h-2.436zM165.798 276.239h2.437v18.682h-2.437zM185.291 294.109h2.437v1h-2.437zM144.68 289.235h2.436v5.686h-2.437z"/>
+        <text fill="#888" font-family="Helvetica-Bold, Helvetica" font-size="8.239" font-weight="bold" transform="translate(137.37 275.427)">
+            <tspan x="6.894" y="32.367">popularity</tspan>
+        </text>
+        <g fill="#B4DF5B">
+            <path d="M389.979 284.361h2.437v10.56h-2.437zM385.918 266.492h2.437v28.43h-2.437zM398.914 279.488h2.437v15.433h-2.437zM402.163 282.737h2.437v12.184h-2.437zM406.224 285.986h2.437v8.935h-2.437zM410.285 276.24h2.437v18.681h-2.437zM415.159 293.296h2.437v1.625h-2.437zM420.845 294.108h2.437v1h-2.437zM424.906 291.672h2.437v3.25h-2.437zM429.779 294.108h2.437v1h-2.437zM433.84 291.672h2.438v3.25h-2.437zM394.853 289.235h2.437v5.686h-2.437z"/>
+        </g>
+        <g fill="#FF7426">
+            <path d="M369.672 282.737h2.437v12.184h-2.437zM373.734 285.987h2.437v8.935h-2.437zM377.796 248.623h2.437v46.298h-2.437zM381.856 275.427h2.437v19.494h-2.437zM388.354 294.109h2.437v1h-2.437zM392.415 291.672h2.437v3.249h-2.437zM365.611 272.178h2.437v22.743h-2.437z"/>
+        </g>
+        <text fill="#888" font-family="Helvetica-Bold, Helvetica" font-size="8.239" font-weight="bold" transform="translate(365.611 248.623)">
+            <tspan x="19.314" y="59.172">quantity</tspan>
+        </text>
+        <g fill="#FFF">
+            <path stroke="#DFDFDF" stroke-width=".902" d="M88.273 331.111h151.8v51.081h-151.8z"/>
+            <path d="M60.206 353.403h219.308v33.302H60.206z"/>
+        </g>
+        <g fill="#FFF">
+            <path stroke="#E3E3E3" stroke-width=".902" d="M324.639 331.111h151.8v52.706h-151.8z"/>
+            <path d="M290.885 353.403h219.308v34.927H290.885z"/>
+        </g>
+        <path stroke="#DFDFDF" stroke-linecap="square" stroke-width=".902" d="M400.944 330.66v-15.162M283.168 226.692V211.53M164.58 330.66v-15.162"/>
+        <g fill="#888" transform="translate(51 146.55)">
+            <use filter="url(#j)" xlink:href="#k"/>
+            <use filter="url(#l)" xlink:href="#k"/>
+        </g>
+        <text fill="#888" font-family="Helvetica-Bold, Helvetica" font-size="8.239" font-weight="bold" transform="translate(51 146.55)">
+            <tspan x="175.717" y="266.837">quality</tspan>
+        </text>
+        <text fill="#888" font-family="Helvetica-Bold, Helvetica" font-size="8.239" font-weight="bold" transform="translate(51 146.55)">
+            <tspan x="236.636" y="266.837">year manufactured</tspan>
+        </text>
+        <g fill="#888" transform="translate(51 146.55)">
+            <use filter="url(#m)" xlink:href="#n"/>
+            <use filter="url(#o)" xlink:href="#n"/>
+        </g>
+        <g>
+            <g fill="#B4DF5B">
+                <path d="M229.153 389.954h2.437v10.559h-2.437zM225.092 372.085h2.437v28.429h-2.437zM238.088 385.08h2.437v15.434h-2.437zM241.337 388.33h2.437v12.184h-2.437zM245.398 391.579h2.437v8.935h-2.437zM249.46 381.832h2.436v18.682h-2.437zM254.333 398.889h2.437v1.625h-2.437zM260.02 399.7h2.436v1h-2.437zM264.08 397.265h2.437v3.249h-2.437zM268.953 399.7h2.437v1h-2.437zM273.015 397.265h2.437v3.249h-2.437zM234.027 394.828h2.437v5.686h-2.437z"/>
+            </g>
+            <g fill="#FF7426">
+                <path d="M208.847 388.33h2.437v12.183h-2.437zM212.909 391.58h2.437v8.934h-2.437zM216.97 354.215h2.437v46.298h-2.437zM221.031 381.02h2.437v19.493h-2.437zM227.529 399.701h2.437v1h-2.437zM231.59 397.264h2.437v3.25h-2.437zM204.786 377.77h2.437v22.743h-2.437z"/>
+            </g>
+        </g>
+        <g>
+            <g fill="#B4DF5B">
+                <path d="M454.959 389.954h2.437v10.559h-2.437zM450.898 372.085h2.437v28.429h-2.437zM463.894 385.08h2.437v15.434h-2.437zM467.143 388.33h2.437v12.184h-2.437zM471.204 391.579h2.437v8.935h-2.437zM475.265 381.832h2.437v18.682h-2.437zM480.139 398.889h2.437v1.625h-2.437zM485.825 399.7h2.437v1h-2.437zM489.886 397.265h2.437v3.249h-2.437zM494.759 399.7h2.437v1h-2.437zM498.82 397.265h2.438v3.249h-2.437zM459.833 394.828h2.437v5.686h-2.437z"/>
+            </g>
+            <g fill="#FF7426">
+                <path d="M467.955 398.077h2.437v2.437h-2.437zM472.017 398.077h2.437v2.437h-2.437zM476.078 389.954h2.437v10.56h-2.437zM480.139 396.452h2.437v4.061h-2.437zM486.637 400.421h2.437v1h-2.437zM490.698 399.701h2.437v1h-2.437zM463.894 395.64h2.437v4.873h-2.437z"/>
+            </g>
+        </g>
+        <g>
+            <g fill="#B4DF5B">
+                <path d="M67.516 395.64h2.436v4.874h-2.436zM63.454 387.518h2.437v12.996h-2.437zM76.45 393.204h2.437v7.31H76.45zM79.7 394.828h2.436v5.686H79.7zM83.76 396.453h2.437v4.06H83.76zM87.822 391.579h2.436v8.935h-2.436zM92.695 399.702h2.438v1h-2.438zM98.381 400.328h2.437v1h-2.437zM102.442 398.889h2.438v1.625h-2.438zM107.315 400.328h2.437v1h-2.437zM111.377 398.889h2.438v1.625h-2.438zM72.39 398.077h2.436v2.437H72.39z"/>
+            </g>
+            <g fill="#FF7426">
+                <path d="M72.389 397.265h2.437v3.249h-2.437zM76.451 398.077h2.437v2.437h-2.437zM80.512 388.33h2.437v12.184h-2.437zM84.573 395.64h2.437v4.873h-2.437zM91.071 400.407h2.437v1h-2.437zM95.132 399.7h2.437v1h-2.437zM68.328 394.828h2.437v5.686h-2.437z"/>
+            </g>
+        </g>
+        <g>
+            <g fill="#B4DF5B">
+                <path d="M303.88 395.64h2.437v4.874h-2.437zM299.82 387.518h2.436v12.996h-2.437zM312.815 393.204h2.437v7.31h-2.437zM316.064 394.828h2.437v5.686h-2.437zM320.125 396.453h2.437v4.06h-2.437zM324.186 391.579h2.437v8.935h-2.437zM329.06 399.702h2.437v1h-2.437zM334.746 400.328h2.437v1h-2.437zM338.807 398.889h2.437v1.625h-2.437zM343.68 400.328h2.437v1h-2.437zM347.742 398.889h2.437v1.625h-2.437zM308.754 398.077h2.437v2.437h-2.437z"/>
+            </g>
+            <g fill="#FF7426">
+                <path d="M308.754 397.265h2.437v3.249h-2.437zM312.816 398.077h2.437v2.437h-2.437zM316.877 388.33h2.437v12.184h-2.437zM320.938 395.64h2.437v4.873h-2.437zM327.436 400.407h2.437v1h-2.437zM331.497 399.7h2.437v1h-2.437zM304.693 394.828h2.437v5.686h-2.437z"/>
+            </g>
+        </g>
+        <text fill="#888" font-family="Helvetica-Bold, Helvetica" font-size="8.239" font-weight="bold" transform="translate(51 146.55)">
+            <tspan x="222.015" y="58.901">price</tspan>
+        </text>
+        <g>
+            <g fill="#FF7426">
+                <path d="M273.827 182.018h2.437v10.559h-2.437zM269.766 164.149h2.437v28.429h-2.437zM282.762 177.145h2.437v15.433h-2.437zM286.011 180.394h2.437v12.184h-2.437zM290.072 183.643h2.437v8.935h-2.437zM294.133 173.896h2.437v18.682h-2.437zM299.007 190.953h2.437v1.625h-2.437zM304.693 191.765h2.437v1h-2.437zM308.754 189.329h2.437v3.249h-2.437zM313.627 191.765h2.437v1h-2.437zM317.689 189.329h2.437v3.249h-2.437zM278.701 186.892h2.437v5.686h-2.437z"/>
+            </g>
+            <g fill="#B4DF5B">
+                <path d="M251.084 182.019h2.437v10.559h-2.437zM247.023 147.092h2.437v45.486h-2.437zM260.019 177.145h2.437v15.433h-2.437zM263.268 180.394h2.437v12.184h-2.437zM267.329 183.643h2.437v8.935h-2.437zM271.39 173.896h2.437v18.682h-2.437zM276.264 190.953h2.437v1.625h-2.437zM281.95 191.766h2.437v1h-2.437zM286.011 189.329h2.437v3.249h-2.437zM290.884 191.766h2.437v1h-2.437zM294.946 189.329h2.437v3.249h-2.437zM255.958 186.892h2.437v5.686h-2.437z"/>
+            </g>
+        </g>
+    </g>
+</svg>

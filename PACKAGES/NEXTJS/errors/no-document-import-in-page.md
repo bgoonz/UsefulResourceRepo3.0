@@ -1,5 +1,4 @@
-No Document Import in Page
-==========================
+# No Document Import in Page
 
 ### Why This Error Occurred
 
@@ -20,4 +19,4 @@ Only import and use `next/document` within `pages/_document.js` (or `pages/_docu
 
 ### Useful Links
 
--   [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)
+- [Custom Document](https://nextjs.org/docs/advanced-features/custom-document)

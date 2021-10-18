@@ -2,7 +2,6 @@ const SSD_MOBILENETV1 = 'ssd_mobilenetv1'
 const TINY_FACE_DETECTOR = 'tiny_face_detector'
 const MTCNN = 'mtcnn'
 
-
 let selectedFaceDetector = SSD_MOBILENETV1
 
 // ssd_mobilenetv1 options
@@ -18,11 +17,9 @@ let minFaceSize = 20
 function getFaceDetectorOptions() {
   return selectedFaceDetector === SSD_MOBILENETV1
     ? new faceapi.SsdMobilenetv1Options({ minConfidence })
-    : (
-      selectedFaceDetector === TINY_FACE_DETECTOR
-        ? new faceapi.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
-        : new faceapi.MtcnnOptions({ minFaceSize })
-    )
+    : selectedFaceDetector === TINY_FACE_DETECTOR
+    ? new faceapi.TinyFaceDetectorOptions({ inputSize, scoreThreshold })
+    : new faceapi.MtcnnOptions({ minFaceSize })
 }
 
 function onIncreaseMinConfidence() {
@@ -89,8 +86,11 @@ function isFaceDetectionModelLoaded() {
 }
 
 async function changeFaceDetector(detector) {
-  ['#ssd_mobilenetv1_controls', '#tiny_face_detector_controls', '#mtcnn_controls']
-    .forEach(id => $(id).hide())
+  ;[
+    '#ssd_mobilenetv1_controls',
+    '#tiny_face_detector_controls',
+    '#mtcnn_controls',
+  ].forEach((id) => $(id).hide())
 
   selectedFaceDetector = detector
   const faceDetectorSelect = $('#selectFaceDetector')

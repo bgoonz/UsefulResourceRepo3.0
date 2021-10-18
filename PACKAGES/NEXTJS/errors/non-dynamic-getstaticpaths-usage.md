@@ -1,5 +1,4 @@
-getStaticPaths Used on Non-Dynamic Page
-=======================================
+# getStaticPaths Used on Non-Dynamic Page
 
 #### Why This Error Occurred
 
@@ -11,5 +10,5 @@ Remove the `getStaticPaths` export on the non-dynamic page or rename the page to
 
 ### Useful Links
 
--   [Dynamic Routes Documentation](https://nextjs.org/docs/routing/dynamic-routes)
--   [`getStaticPaths` Documentation](https://nextjs.org/docs/routing/dynamic-routes)
+- [Dynamic Routes Documentation](https://nextjs.org/docs/routing/dynamic-routes)
+- [`getStaticPaths` Documentation](https://nextjs.org/docs/routing/dynamic-routes)

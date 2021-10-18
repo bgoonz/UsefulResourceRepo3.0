@@ -1,24 +1,46 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>no-title-in-document-head</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="no-title-in-document-head">No Title in Document Head</h1>
-<h3 id="why-this-error-occurred">Why This Error Occurred</h3>
-<p>A <code>&lt;title&gt;</code> element was defined within the <code>Head</code> component imported from <code>next/document</code>, which should only be used for any <code>&lt;head&gt;</code> code that is common for all pages. Title tags should be defined at the page-level using <code>next/head</code>.</p>
-<h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
-<p>Within a page or component, import and use <code>next/head</code> to define a page title:</p>
-<pre class="jsx"><code>import Head from &#39;next/head&#39;
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>no-title-in-document-head</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="no-title-in-document-head">No Title in Document Head</h1>
+    <h3 id="why-this-error-occurred">Why This Error Occurred</h3>
+    <p>
+      A <code>&lt;title&gt;</code> element was defined within the
+      <code>Head</code> component imported from <code>next/document</code>,
+      which should only be used for any <code>&lt;head&gt;</code> code that is
+      common for all pages. Title tags should be defined at the page-level using
+      <code>next/head</code>.
+    </p>
+    <h3 id="possible-ways-to-fix-it">Possible Ways to Fix It</h3>
+    <p>
+      Within a page or component, import and use <code>next/head</code> to
+      define a page title:
+    </p>
+    <pre class="jsx"><code>import Head from &#39;next/head&#39;
 
 export class Home {
   render() {
@@ -31,10 +53,16 @@ export class Home {
     )
   }
 }</code></pre>
-<h3 id="useful-links">Useful links</h3>
-<ul>
-<li><a href="https://nextjs.org/docs/api-reference/next/head">next/head</a></li>
-<li><a href="https://nextjs.org/docs/advanced-features/custom-document">Custom Document</a></li>
-</ul>
-</body>
+    <h3 id="useful-links">Useful links</h3>
+    <ul>
+      <li>
+        <a href="https://nextjs.org/docs/api-reference/next/head">next/head</a>
+      </li>
+      <li>
+        <a href="https://nextjs.org/docs/advanced-features/custom-document"
+          >Custom Document</a
+        >
+      </li>
+    </ul>
+  </body>
 </html>

@@ -9,13 +9,13 @@ function startGame() {
 }
 
 function showTextNode(textNodeIndex) {
-  const textNode = textNodes.find(textNode => textNode.id === textNodeIndex)
+  const textNode = textNodes.find((textNode) => textNode.id === textNodeIndex)
   textElement.innerText = textNode.text
   while (optionButtonsElement.firstChild) {
     optionButtonsElement.removeChild(optionButtonsElement.firstChild)
   }
 
-  textNode.options.forEach(option => {
+  textNode.options.forEach((option) => {
     if (showOption(option)) {
       const button = document.createElement('button')
       button.innerText = option.text
@@ -47,13 +47,13 @@ const textNodes = [
       {
         text: 'Take the goo',
         setState: { blueGoo: true },
-        nextText: 2
+        nextText: 2,
       },
       {
         text: 'Leave the goo',
-        nextText: 2
-      }
-    ]
+        nextText: 2,
+      },
+    ],
   },
   {
     id: 2,
@@ -63,19 +63,19 @@ const textNodes = [
         text: 'Trade the goo for a sword',
         requiredState: (currentState) => currentState.blueGoo,
         setState: { blueGoo: false, sword: true },
-        nextText: 3
+        nextText: 3,
       },
       {
         text: 'Trade the goo for a shield',
         requiredState: (currentState) => currentState.blueGoo,
         setState: { blueGoo: false, shield: true },
-        nextText: 3
+        nextText: 3,
       },
       {
         text: 'Ignore the merchant',
-        nextText: 3
-      }
-    ]
+        nextText: 3,
+      },
+    ],
   },
   {
     id: 3,
@@ -83,17 +83,17 @@ const textNodes = [
     options: [
       {
         text: 'Explore the castle',
-        nextText: 4
+        nextText: 4,
       },
       {
         text: 'Find a room to sleep at in the town',
-        nextText: 5
+        nextText: 5,
       },
       {
         text: 'Find some hay in a stable to sleep in',
-        nextText: 6
-      }
-    ]
+        nextText: 6,
+      },
+    ],
   },
   {
     id: 4,
@@ -101,9 +101,9 @@ const textNodes = [
     options: [
       {
         text: 'Restart',
-        nextText: -1
-      }
-    ]
+        nextText: -1,
+      },
+    ],
   },
   {
     id: 5,
@@ -111,9 +111,9 @@ const textNodes = [
     options: [
       {
         text: 'Restart',
-        nextText: -1
-      }
-    ]
+        nextText: -1,
+      },
+    ],
   },
   {
     id: 6,
@@ -121,9 +121,9 @@ const textNodes = [
     options: [
       {
         text: 'Explore the castle',
-        nextText: 7
-      }
-    ]
+        nextText: 7,
+      },
+    ],
   },
   {
     id: 7,
@@ -131,24 +131,24 @@ const textNodes = [
     options: [
       {
         text: 'Try to run',
-        nextText: 8
+        nextText: 8,
       },
       {
         text: 'Attack it with your sword',
         requiredState: (currentState) => currentState.sword,
-        nextText: 9
+        nextText: 9,
       },
       {
         text: 'Hide behind your shield',
         requiredState: (currentState) => currentState.shield,
-        nextText: 10
+        nextText: 10,
       },
       {
         text: 'Throw the blue goo at it',
         requiredState: (currentState) => currentState.blueGoo,
-        nextText: 11
-      }
-    ]
+        nextText: 11,
+      },
+    ],
   },
   {
     id: 8,
@@ -156,9 +156,9 @@ const textNodes = [
     options: [
       {
         text: 'Restart',
-        nextText: -1
-      }
-    ]
+        nextText: -1,
+      },
+    ],
   },
   {
     id: 9,
@@ -166,9 +166,9 @@ const textNodes = [
     options: [
       {
         text: 'Restart',
-        nextText: -1
-      }
-    ]
+        nextText: -1,
+      },
+    ],
   },
   {
     id: 10,
@@ -176,9 +176,9 @@ const textNodes = [
     options: [
       {
         text: 'Restart',
-        nextText: -1
-      }
-    ]
+        nextText: -1,
+      },
+    ],
   },
   {
     id: 11,
@@ -186,10 +186,10 @@ const textNodes = [
     options: [
       {
         text: 'Congratulations. Play Again.',
-        nextText: -1
-      }
-    ]
-  }
+        nextText: -1,
+      },
+    ],
+  },
 ]
 
 startGame()

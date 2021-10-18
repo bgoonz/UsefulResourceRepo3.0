@@ -8,8 +8,8 @@ queryFetch(`
       code
     }
   }
-`).then(data => {
-  data.data.continents.forEach(continent => {
+`).then((data) => {
+  data.data.continents.forEach((continent) => {
     const option = document.createElement('option')
     option.value = continent.code
     option.innerText = continent.name
@@ -17,11 +17,11 @@ queryFetch(`
   })
 })
 
-continentSelect.addEventListener('change', async e => {
+continentSelect.addEventListener('change', async (e) => {
   const continentCode = e.target.value
   const countries = await getContinentCountries(continentCode)
   countryList.innerHTML = ''
-  countries.forEach(country => {
+  countries.forEach((country) => {
     const element = document.createElement('div')
     element.innerText = country.name
     countryList.append(element)
@@ -29,7 +29,8 @@ continentSelect.addEventListener('change', async e => {
 })
 
 function getContinentCountries(continentCode) {
-  return queryFetch(`
+  return queryFetch(
+    `
     query getCountries($code: String) {
       continent(code: $code) {
         countries {
@@ -37,7 +38,9 @@ function getContinentCountries(continentCode) {
         }
       }
     }
-  `, { code: continentCode }).then(data => {
+  `,
+    { code: continentCode }
+  ).then((data) => {
     return data.data.continent.countries
   })
 }
@@ -45,10 +48,10 @@ function getContinentCountries(continentCode) {
 function queryFetch(query, variables) {
   return fetch('https://countries.trevorblades.com/', {
     method: 'POST',
-    headers: { "Content-Type": "application/json" },
+    headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       query: query,
-      variables: variables
-    })
-  }).then(res => res.json())
+      variables: variables,
+    }),
+  }).then((res) => res.json())
 }

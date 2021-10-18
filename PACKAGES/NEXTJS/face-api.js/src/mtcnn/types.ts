@@ -1,8 +1,8 @@
-import * as tf from '@tensorflow/tfjs-core';
-import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
+import * as tf from '@tensorflow/tfjs-core'
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base'
 
-import { FaceLandmarks5 } from '../classes/FaceLandmarks5';
-import { WithFaceDetection, WithFaceLandmarks } from '../factories';
+import { FaceLandmarks5 } from '../classes/FaceLandmarks5'
+import { WithFaceDetection, WithFaceLandmarks } from '../factories'
 
 export type SharedParams = {
   conv1: TfjsImageRecognitionBase.ConvParams
@@ -41,4 +41,7 @@ export type NetParams = {
   onet: ONetParams
 }
 
-export type MtcnnResult = WithFaceLandmarks<WithFaceDetection<{}>, FaceLandmarks5>
+export type MtcnnResult = WithFaceLandmarks<
+  WithFaceDetection<{}>,
+  FaceLandmarks5
+>

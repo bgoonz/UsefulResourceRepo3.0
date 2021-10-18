@@ -1,15 +1,14 @@
-Ignored PostCSS Plugin
-======================
+# Ignored PostCSS Plugin
 
 #### Why This Error Occurred
 
 The project’s custom PostCSS configuration attempts to configure unnecessary plugins:
 
--   postcss-modules-values
--   postcss-modules-scope
--   postcss-modules-extract-imports
--   postcss-modules-local-by-default
--   postcss-modules
+- postcss-modules-values
+- postcss-modules-scope
+- postcss-modules-extract-imports
+- postcss-modules-local-by-default
+- postcss-modules
 
 #### Possible Ways to Fix It
 

@@ -1,5 +1,4 @@
-Invalid Custom Route `source`
-=============================
+# Invalid Custom Route `source`
 
 #### Why This Error Occurred
 
@@ -25,5 +24,5 @@ Wrap the `RegExp` part of your `source` as an un-named parameter.
 
 ### Useful Links
 
--   [path-to-regexp](https://github.com/pillarjs/path-to-regexp)
--   [un-named parameters](https://github.com/pillarjs/path-to-regexp#unnamed-parameters)
+- [path-to-regexp](https://github.com/pillarjs/path-to-regexp)
+- [un-named parameters](https://github.com/pillarjs/path-to-regexp#unnamed-parameters)

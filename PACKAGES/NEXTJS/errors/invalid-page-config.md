@@ -1,5 +1,4 @@
-Invalid Page Config
-===================
+# Invalid Page Config
 
 #### Why This Error Occurred
 
@@ -28,5 +27,5 @@ This is allowed
 
 ### Useful Links
 
--   [Enabling AMP Support](https://nextjs.org/docs/advanced-features/amp-support/introduction)
--   [API Middlewares](https://nextjs.org/docs/api-routes/api-middlewares)
+- [Enabling AMP Support](https://nextjs.org/docs/advanced-features/amp-support/introduction)
+- [API Middlewares](https://nextjs.org/docs/api-routes/api-middlewares)

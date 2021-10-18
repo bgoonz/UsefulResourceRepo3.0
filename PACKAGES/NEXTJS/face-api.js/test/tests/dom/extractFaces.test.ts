@@ -1,9 +1,10 @@
-import { createCanvasFromMedia, env, extractFaces, Rect } from '../../../src';
-import { loadImage } from '../../env';
+import { createCanvasFromMedia, env, extractFaces, Rect } from '../../../src'
+import { loadImage } from '../../env'
 
 describe('extractFaces', () => {
-
-  let imgEl: HTMLImageElement, canvasEl: HTMLCanvasElement, Canvas: typeof HTMLCanvasElement
+  let imgEl: HTMLImageElement,
+    canvasEl: HTMLCanvasElement,
+    Canvas: typeof HTMLCanvasElement
 
   beforeAll(async () => {
     imgEl = await loadImage('test/images/face1.png')
@@ -12,7 +13,6 @@ describe('extractFaces', () => {
   })
 
   describe('extracts canvases', () => {
-
     it('HTMLImageElement, single box', async () => {
       const rect = new Rect(0, 0, 50, 60)
       const canvases = await extractFaces(imgEl, [rect])
@@ -24,10 +24,7 @@ describe('extractFaces', () => {
     })
 
     it('HTMLImageElement, multiple boxes', async () => {
-      const rects = [
-        new Rect(0, 0, 50, 60),
-        new Rect(50, 50, 70, 80),
-      ]
+      const rects = [new Rect(0, 0, 50, 60), new Rect(50, 50, 70, 80)]
       const canvases = await extractFaces(imgEl, rects)
 
       expect(canvases.length).toEqual(2)
@@ -50,10 +47,7 @@ describe('extractFaces', () => {
     })
 
     it('HTMLCanvasElement, multiple boxes', async () => {
-      const rects = [
-        new Rect(0, 0, 50, 60),
-        new Rect(50, 50, 70, 80),
-      ]
+      const rects = [new Rect(0, 0, 50, 60), new Rect(50, 50, 70, 80)]
       const canvases = await extractFaces(canvasEl, rects)
 
       expect(canvases.length).toEqual(2)
@@ -64,11 +58,9 @@ describe('extractFaces', () => {
       expect(canvases[1].width).toEqual(70)
       expect(canvases[1].height).toEqual(80)
     })
-
   })
 
   describe('box out of image borders', () => {
-
     it('clips upper left corner', async () => {
       const rect = new Rect(-10, -10, 110, 110)
       const canvases = await extractFaces(imgEl, [rect])
@@ -92,7 +84,5 @@ describe('extractFaces', () => {
       expect(canvases[0].width).toEqual(imgEl.width)
       expect(canvases[0].height).toEqual(imgEl.height)
     })
-
   })
-
 })

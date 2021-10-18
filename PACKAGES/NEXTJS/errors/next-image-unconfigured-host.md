@@ -1,5 +1,4 @@
-next/image Un-configured Host
-=============================
+# next/image Un-configured Host
 
 #### Why This Error Occurred
 
@@ -18,4 +17,4 @@ Add the hostname of your URL to the `images.domains` config in `next.config.js`:
 
 ### Useful Links
 
--   [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
+- [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)

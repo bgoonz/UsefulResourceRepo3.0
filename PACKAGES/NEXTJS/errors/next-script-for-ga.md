@@ -1,5 +1,4 @@
-Next Script for Google Analytics
-================================
+# Next Script for Google Analytics
 
 ### Why This Error Occurred
 
@@ -88,6 +87,6 @@ If you are using the [alternative async variant](https://developers.google.com/a
 
 ### Useful Links
 
--   [Add analytics.js to Your Site](https://developers.google.com/analytics/devguides/collection/analyticsjs)
--   [Efficiently load third-party JavaScript](https://web.dev/efficiently-load-third-party-javascript/)
--   [next/script Documentation](https://nextjs.org/docs/basic-features/script)
+- [Add analytics.js to Your Site](https://developers.google.com/analytics/devguides/collection/analyticsjs)
+- [Efficiently load third-party JavaScript](https://web.dev/efficiently-load-third-party-javascript/)
+- [next/script Documentation](https://nextjs.org/docs/basic-features/script)

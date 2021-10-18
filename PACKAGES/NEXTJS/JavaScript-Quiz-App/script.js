@@ -14,7 +14,7 @@ nextButton.addEventListener('click', () => {
 
 function startGame() {
   startButton.classList.add('hide')
-  shuffledQuestions = questions.sort(() => Math.random() - .5)
+  shuffledQuestions = questions.sort(() => Math.random() - 0.5)
   currentQuestionIndex = 0
   questionContainerElement.classList.remove('hide')
   setNextQuestion()
@@ -27,7 +27,7 @@ function setNextQuestion() {
 
 function showQuestion(question) {
   questionElement.innerText = question.question
-  question.answers.forEach(answer => {
+  question.answers.forEach((answer) => {
     const button = document.createElement('button')
     button.innerText = answer.text
     button.classList.add('btn')
@@ -51,7 +51,7 @@ function selectAnswer(e) {
   const selectedButton = e.target
   const correct = selectedButton.dataset.correct
   setStatusClass(document.body, correct)
-  Array.from(answerButtonsElement.children).forEach(button => {
+  Array.from(answerButtonsElement.children).forEach((button) => {
     setStatusClass(button, button.dataset.correct)
   })
   if (shuffledQuestions.length > currentQuestionIndex + 1) {
@@ -81,8 +81,8 @@ const questions = [
     question: 'What is 2 + 2?',
     answers: [
       { text: '4', correct: true },
-      { text: '22', correct: false }
-    ]
+      { text: '22', correct: false },
+    ],
   },
   {
     question: 'Who is the best YouTuber?',
@@ -90,8 +90,8 @@ const questions = [
       { text: 'Web Dev Simplified', correct: true },
       { text: 'Traversy Media', correct: true },
       { text: 'Dev Ed', correct: true },
-      { text: 'Fun Fun Function', correct: true }
-    ]
+      { text: 'Fun Fun Function', correct: true },
+    ],
   },
   {
     question: 'Is web development fun?',
@@ -99,14 +99,14 @@ const questions = [
       { text: 'Kinda', correct: false },
       { text: 'YES!!!', correct: true },
       { text: 'Um no', correct: false },
-      { text: 'IDK', correct: false }
-    ]
+      { text: 'IDK', correct: false },
+    ],
   },
   {
     question: 'What is 4 * 2?',
     answers: [
       { text: '6', correct: false },
-      { text: '8', correct: true }
-    ]
-  }
+      { text: '8', correct: true },
+    ],
+  },
 ]

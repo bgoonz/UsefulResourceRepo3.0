@@ -1,21 +1,21 @@
-const express = require("express")
-const cors = require("cors")
-const axios = require("axios")
-require("dotenv").config()
+const express = require('express')
+const cors = require('cors')
+const axios = require('axios')
+require('dotenv').config()
 const app = express()
 app.use(cors())
 app.use(express.urlencoded({ extended: true }))
 
-app.get("/weather", (req, res) => {
+app.get('/weather', (req, res) => {
   const { lat, lon } = req.query
   axios
-    .get("https://api.openweathermap.org/data/2.5/onecall", {
+    .get('https://api.openweathermap.org/data/2.5/onecall', {
       params: {
         lat,
         lon,
         appid: process.env.API_KEY,
-        units: "imperial",
-        exclude: "minutely,alerts",
+        units: 'imperial',
+        exclude: 'minutely,alerts',
       },
     })
     .then(({ data }) => {
@@ -25,7 +25,7 @@ app.get("/weather", (req, res) => {
         hourly: parseHourlyWeather(data),
       })
     })
-    .catch(e => {
+    .catch((e) => {
       console.log(e)
       res.sendStatus(500)
     })
@@ -49,7 +49,7 @@ function parseCurrentWeather({ current, daily }) {
 }
 
 function parseDailyWeather({ daily }) {
-  return daily.slice(1).map(day => {
+  return daily.slice(1).map((day) => {
     return {
       timestamp: day.dt * 1000,
       icon: day.weather[0].icon,
@@ -61,8 +61,8 @@ function parseDailyWeather({ daily }) {
 const HOUR_IN_SECONDS = 3600
 function parseHourlyWeather({ hourly, current }) {
   return hourly
-    .filter(hour => hour.dt > current.dt - HOUR_IN_SECONDS)
-    .map(hour => {
+    .filter((hour) => hour.dt > current.dt - HOUR_IN_SECONDS)
+    .map((hour) => {
       return {
         timestamp: hour.dt * 1000,
         icon: hour.weather[0].icon,

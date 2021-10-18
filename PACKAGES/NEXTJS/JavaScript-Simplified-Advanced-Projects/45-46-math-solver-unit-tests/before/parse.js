@@ -1,7 +1,9 @@
 const PARENTHESIS_REGEX = /\((?<equation>[^\(\)]*)\)/
-const MULTIPLY_DIVIDE_REGEX = /(?<operand1>\S+)\s*(?<operation>[\/\*])\s*(?<operand2>\S+)/
+const MULTIPLY_DIVIDE_REGEX =
+  /(?<operand1>\S+)\s*(?<operation>[\/\*])\s*(?<operand2>\S+)/
 const EXPONENT_REGEX = /(?<operand1>\S+)\s*(?<operation>\^)\s*(?<operand2>\S+)/
-const ADD_SUBTRACT_REGEX = /(?<operand1>\S+)\s*(?<operation>(?<!e)[-\+])\s*(?<operand2>\S+)/
+const ADD_SUBTRACT_REGEX =
+  /(?<operand1>\S+)\s*(?<operation>(?<!e)[-\+])\s*(?<operand2>\S+)/
 
 export default function parse(equation) {
   if (equation.match(PARENTHESIS_REGEX)) {
@@ -31,15 +33,15 @@ function handleMath({ operand1, operand2, operation }) {
   const number2 = parseFloat(operand2)
 
   switch (operation) {
-    case "*":
+    case '*':
       return number1 * number2
-    case "/":
+    case '/':
       return number1 / number2
-    case "+":
+    case '+':
       return number1 + number2
-    case "-":
+    case '-':
       return number1 - number2
-    case "^":
+    case '^':
       return number1 ** number2
   }
 }

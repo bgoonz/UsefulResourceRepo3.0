@@ -1,5 +1,4 @@
-Opt-out of Automatic Static Optimization
-========================================
+# Opt-out of Automatic Static Optimization
 
 #### Why This Warning Occurred
 
@@ -9,7 +8,7 @@ This causes **all pages** to be executed on the server – disabling [Automatic 
 
 #### Possible Ways to Fix It
 
-Be sure you meant to use `getInitialProps` in `pages/_app`! There are some valid use cases for this, but it is often better to handle `getInitialProps` on a *per-page* basis.
+Be sure you meant to use `getInitialProps` in `pages/_app`! There are some valid use cases for this, but it is often better to handle `getInitialProps` on a _per-page_ basis.
 
 If you previously copied the [Custom `<App>`](https://nextjs.org/docs/advanced-features/custom-app) example, you may be able to remove your `getInitialProps`.
 

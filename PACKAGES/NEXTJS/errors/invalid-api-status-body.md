@@ -24,5 +24,5 @@ After
 
 ### Useful Links
 
--   [204 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
--   [304 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304)
+- [204 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/204)
+- [304 status code documentation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/304)

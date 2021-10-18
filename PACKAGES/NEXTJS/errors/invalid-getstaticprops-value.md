@@ -1,5 +1,4 @@
-Invalid getStaticProps Return Value
-===================================
+# Invalid getStaticProps Return Value
 
 #### Why This Error Occurred
 

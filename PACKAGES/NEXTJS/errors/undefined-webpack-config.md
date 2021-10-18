@@ -1,5 +1,4 @@
-Missing webpack config
-======================
+# Missing webpack config
 
 #### Why This Error Occurred
 
@@ -24,4 +23,4 @@ Make sure to return the `webpack` config from your custom `webpack` function in 
 
 ### Useful Links
 
--   [Custom webpack config Documentation](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config)
+- [Custom webpack config Documentation](https://nextjs.org/docs/api-reference/next.config.js/custom-webpack-config)

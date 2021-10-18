@@ -1,5 +1,4 @@
-Invalid Redirect getStaticProps/getServerSideProps
-==================================================
+# Invalid Redirect getStaticProps/getServerSideProps
 
 #### Why This Error Occurred
 
@@ -28,4 +27,4 @@ Make sure you return the proper values for the `redirect` value.
 
 ### Useful Links
 
--   [Data Fetching Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)
+- [Data Fetching Documentation](https://nextjs.org/docs/basic-features/data-fetching#getstaticprops-static-generation)

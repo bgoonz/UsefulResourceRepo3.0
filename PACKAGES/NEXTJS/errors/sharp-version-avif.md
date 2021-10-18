@@ -1,5 +1,4 @@
-Sharp Version Does Not Support AVIF
-===================================
+# Sharp Version Does Not Support AVIF
 
 #### Why This Error Occurred
 
@@ -11,9 +10,9 @@ AVIF support was added to [`sharp`](https://www.npmjs.com/package/sharp) in vers
 
 #### Possible Ways to Fix It
 
--   Install the latest version of `sharp` by running `yarn add sharp@latest` in your project directory
--   If you’re using the `NEXT_SHARP_PATH` environment variable, then update the `sharp` install referenced in that path, for example `cd "$NEXT_SHARP_PATH/../" && yarn add sharp@latest`
--   If you cannot upgrade `sharp`, you can instead disable AVIF by configuring [`formats`](https://nextjs.org/docs/api-reference/next/image#image-formats) in your `next.config.js`
+- Install the latest version of `sharp` by running `yarn add sharp@latest` in your project directory
+- If you’re using the `NEXT_SHARP_PATH` environment variable, then update the `sharp` install referenced in that path, for example `cd "$NEXT_SHARP_PATH/../" && yarn add sharp@latest`
+- If you cannot upgrade `sharp`, you can instead disable AVIF by configuring [`formats`](https://nextjs.org/docs/api-reference/next/image#image-formats) in your `next.config.js`
 
 After choosing an option above, reboot the server by running either `next dev` or `next start` for development or production respectively.
 
@@ -21,5 +20,5 @@ After choosing an option above, reboot the server by running either `next dev` o
 
 ### Useful Links
 
--   [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
--   [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)
+- [Image Optimization Documentation](https://nextjs.org/docs/basic-features/image-optimization)
+- [`next/image` Documentation](https://nextjs.org/docs/api-reference/next/image)
