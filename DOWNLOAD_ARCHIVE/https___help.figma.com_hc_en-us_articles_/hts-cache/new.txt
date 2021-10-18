@@ -1,0 +1,3 @@
+date	size'/'remotesize	flags(request:Update,Range state:File response:Modified,Chunked,gZipped)	statuscode	status ('servermsg')	MIME	Etag|Date	URL	localfile	(from URL)
+04:32:44	476/476	---MCZ	200	added ('OK')	text/plain	etag:W/%22c7d6023e5b2fa4941bf93da45260bd5a%22	https://help.figma.com/robots.txt		(from )
+04:32:44	8017/8017	---MCZ	403	error ('Forbidden')	text/html	date:Thu,%2014%20Oct%202021%2008:32:45%20GMT	https://help.figma.com/hc/en-us/articles/	C:/Users/bryan/Downloads/https___help.figma.com_hc_en-us_articles_/help.figma.com/hc/en-us/articles/index.html	(from )

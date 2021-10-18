@@ -1,0 +1,51 @@
+1
+00:00:00,180 --> 00:00:01,810
+Hello and welcome back.
+
+2
+00:00:02,010 --> 00:00:07,920
+And this video, we will see what a different type of credit to render our data in order to render our
+
+3
+00:00:07,920 --> 00:00:08,380
+data.
+
+4
+00:00:08,550 --> 00:00:09,930
+We have three options.
+
+5
+00:00:10,300 --> 00:00:14,340
+We have static, we have beachbody and we have static ready.
+
+6
+00:00:14,610 --> 00:00:20,850
+So in this case, I will not be too static, very competent, because this is an old way of rendering
+
+7
+00:00:20,850 --> 00:00:21,480
+the data.
+
+8
+00:00:21,900 --> 00:00:28,540
+I will show you, Beachbody, and you started getting used to the query is added back at 15 Bandaranayake
+
+9
+00:00:28,560 --> 00:00:29,280
+who came out.
+
+10
+00:00:29,280 --> 00:00:35,820
+And the only difference between page query and you stratigraphy is that in page query we can use variables
+
+11
+00:00:36,180 --> 00:00:37,910
+so we can have dynamic variables.
+
+12
+00:00:38,070 --> 00:00:43,470
+But a new static, you cannot have a dynamic variable as the name of this static query.
+
+13
+00:00:43,520 --> 00:00:47,790
+OK, so this is it for this video and I'll see you in the next video.

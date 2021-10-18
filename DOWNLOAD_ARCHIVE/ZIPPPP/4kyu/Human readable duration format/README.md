@@ -9,8 +9,8 @@ The function must accept a non-negative integer. If it is zero, it just returns 
 It is much easier to understand with an example:
 
 ```js
-formatDuration(62); // returns "1 minute and 2 seconds"
-formatDuration(3662); // returns "1 hour, 1 minute and 2 seconds"
+formatDuration(62) // returns "1 minute and 2 seconds"
+formatDuration(3662) // returns "1 hour, 1 minute and 2 seconds"
 ```
 
 For the purpose of this Kata, a year is 365 days and a day is 24 hours.
