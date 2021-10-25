@@ -1,0 +1,38 @@
+{
+  "name": "line-clamp",
+  "version": "0.0.8",
+  "description": "Line clamp a DOM element in vanilla JavaScript.",
+  "author": "Lim Yuan Qing",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yuanqing/line-clamp.git"
+  },
+  "devDependencies": {
+    "concurrently": "^3.5.1",
+    "ecstatic": "^3.2.0",
+    "gzip-size-cli": "^2.1.0",
+    "opn-cli": "^3.1.0",
+    "prettier-standard": "^8.0.0",
+    "standard": "^11.0.0",
+    "uglify-js": "^3.3.12",
+    "watchify": "^3.11.0"
+  },
+  "scripts": {
+    "start": "concurrently \"watchify index.js --standalone lineClamp --outfile example/bundle.js\" \"ecstatic example --port 8080\" \"opn 'http://0.0.0.0:8080/'\"",
+    "fix": "prettier-standard index.js",
+    "lint": "standard index.js",
+    "weight": "uglifyjs index.js --compress --mangle --toplevel | gzip-size"
+  },
+  "keywords": [
+    "clamp",
+    "dom",
+    "ellipsis",
+    "html",
+    "line clamp",
+    "line-clamp",
+    "text",
+    "truncate",
+    "truncation"
+  ]
+}

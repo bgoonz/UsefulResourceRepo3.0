@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>line-clamp</title>
+  <meta charset="utf-8">
+  <style>
+    .line-clamp {
+      width: 100px;
+      line-height: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="line-clamp">
+    Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit.
+  </div>
+  <script src="/bundle.js"></script>
+  <script>
+    const element = document.querySelector('.line-clamp')
+    lineClamp(element, 3)
+  </script>
+</body>
+</html>
