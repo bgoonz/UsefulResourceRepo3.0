@@ -7,12 +7,13 @@
     border-top: 6px solid $primary;
     border-radius: 8px;
     background-color: white;
-    box-shadow: 0 25px 20px -25px rgba(0, 0, 0, 0.2), 0 0 15px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 25px 20px -25px rgba(0, 0, 0, 0.2),
+      0 0 15px rgba(0, 0, 0, 0.05);
     position: relative;
     z-index: 1;
     height: 100%;
     .pricing-header {
-      background-color: rgba($grey, .35);
+      background-color: rgba($grey, 0.35);
       display: flex;
       justify-content: space-between;
       flex-wrap: wrap;
@@ -61,7 +62,7 @@
             border-color: $primary;
             border-style: solid;
             border-width: 0 2px 2px 0;
-            content: "";
+            content: '';
             height: 0.625em;
             left: 0.3em;
             position: absolute;
@@ -71,7 +72,6 @@
           }
         }
       }
-
     }
 
     .pricing-footer {

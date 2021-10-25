@@ -1,8 +1,8 @@
-var fs = require( 'fs' );
-var path = require( 'path' );
+var fs = require('fs');
+var path = require('path');
 
 // path to `hello-world.txt`
-var filePath = path.resolve( __dirname, 'res/hello-world.txt' );
+var filePath = path.resolve(__dirname, 'res/hello-world.txt');
 
 // read file using `fs.readFile`
 // fs.readFile( filePath, { encoding: 'utf-8' }, function( err, data ) {
@@ -10,8 +10,8 @@ var filePath = path.resolve( __dirname, 'res/hello-world.txt' );
 // } );
 
 // no need for callback
-var data = fs.readFileSync( filePath, { encoding: 'utf-8' } );
-console.log( 'Data: ', data );
+var data = fs.readFileSync(filePath, { encoding: 'utf-8' });
+console.log('Data: ', data);
 
 // simple log statement
-console.log( '-end-of-the-program-' );
+console.log('-end-of-the-program-');

@@ -5,10 +5,10 @@
   grid-template-columns: 1fr 150px;
   grid-template-rows: auto auto 1fr auto;
   grid-template-areas:
-    "header header"
-    "nav sidebar"
-    "content sidebar"
-    "footer footer";
+    'header header'
+    'nav sidebar'
+    'content sidebar'
+    'footer footer';
 }
 
 .header {

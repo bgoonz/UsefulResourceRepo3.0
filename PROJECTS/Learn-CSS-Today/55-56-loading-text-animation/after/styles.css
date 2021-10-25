@@ -26,7 +26,7 @@ body {
 .btn-load:focus::after {
   --default-transform: translateY(200%);
 
-  content: "Loading";
+  content: 'Loading';
   position: absolute;
   color: black;
   transform: var(--default-transform);
@@ -42,11 +42,11 @@ body {
   }
 
   10% {
-    content: "Loading.";
+    content: 'Loading.';
   }
 
   20% {
-    content: "Loading..";
+    content: 'Loading..';
   }
 
   25% {
@@ -54,25 +54,25 @@ body {
   }
 
   30% {
-    content: "Loading...";
+    content: 'Loading...';
   }
 
   40% {
-    content: "Loading..";
+    content: 'Loading..';
   }
 
   50% {
-    content: "Loading.";
+    content: 'Loading.';
     opacity: 0.6;
     transform: var(--default-transform) rotate(0);
   }
 
   60% {
-    content: "Loading";
+    content: 'Loading';
   }
 
   70% {
-    content: "Loading.";
+    content: 'Loading.';
   }
 
   75% {
@@ -80,15 +80,15 @@ body {
   }
 
   80% {
-    content: "Loading..";
+    content: 'Loading..';
   }
 
   90% {
-    content: "Loading...";
+    content: 'Loading...';
   }
 
   100% {
-    content: "Loaded";
+    content: 'Loaded';
     opacity: 1;
     transform: var(--default-transform) rotate(0);
   }

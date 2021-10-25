@@ -32,7 +32,7 @@
     background-size: 18px;
     background-repeat: no-repeat;
     padding-left: 24px;
-    background-image: url("../images/ui/star.svg");
+    background-image: url('../images/ui/star.svg');
     span {
       line-height: 22px;
     }
@@ -57,13 +57,13 @@
       vertical-align: middle;
     }
     .stars {
-      background-image: url("../images/ui/star.svg");
+      background-image: url('../images/ui/star.svg');
     }
     .issues {
-      background-image: url("../images/ui/issues.svg");
+      background-image: url('../images/ui/issues.svg');
     }
     .forks {
-      background-image: url("../images/ui/forks.svg");
+      background-image: url('../images/ui/forks.svg');
     }
   }
   .theme-detail-image {
@@ -104,7 +104,6 @@
       padding-bottom: $layout-padding * 4;
     }
   }
-
 }
 
 .page-default-single .wrapper {

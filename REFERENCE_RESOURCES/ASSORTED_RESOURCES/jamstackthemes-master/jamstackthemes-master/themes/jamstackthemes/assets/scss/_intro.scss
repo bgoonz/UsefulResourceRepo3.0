@@ -77,14 +77,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    p { margin: 0;}
+    p {
+      margin: 0;
+    }
     .button {
       color: #647f96;
       border-color: #647f96;
       margin: 0;
     }
     strong {
-
     }
   }
   .count {

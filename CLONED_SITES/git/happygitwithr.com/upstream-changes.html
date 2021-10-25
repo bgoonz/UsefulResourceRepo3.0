@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 31 Get upstream changes for a fork | Happy Git and GitHub for the useR</title>
+<meta name="author" content="Jenny Bryan, the STAT 545 TAs, Jim Hester">
+<meta name="description" content="This workflow is relevant if you have done fork and clone and now you need to pull subsequent changes from the original repo into your copy. Sometimes you set this up right away, when you fork and...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 31 Get upstream changes for a fork | Happy Git and GitHub for the useR">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://happygitwithr.com/upstream-changes.html">
+<meta property="og:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<meta property="og:description" content="This workflow is relevant if you have done fork and clone and now you need to pull subsequent changes from the original repo into your copy. Sometimes you set this up right away, when you fork and...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 31 Get upstream changes for a fork | Happy Git and GitHub for the useR">
+<meta name="twitter:site" content="@jennybryan">
+<meta name="twitter:description" content="This workflow is relevant if you have done fork and clone and now you need to pull subsequent changes from the original repo into your copy. Sometimes you set this up right away, when you fork and...">
+<meta name="twitter:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-131856976-1"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-131856976-1');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Happy Git and GitHub for the useR</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Let’s Git started</a></li>
+<li><a class="" href="big-picture.html"><span class="header-section-number">1</span> Why Git? Why GitHub?</a></li>
+<li><a class="" href="contrib.html"><span class="header-section-number">2</span> Contributors</a></li>
+<li><a class="" href="workshops.html"><span class="header-section-number">3</span> Workshops</a></li>
+<li class="book-part">Installation</li>
+<li><a class="" href="install-intro.html">Half the battle</a></li>
+<li><a class="" href="github-acct.html"><span class="header-section-number">4</span> Register a GitHub account</a></li>
+<li><a class="" href="install-r-rstudio.html"><span class="header-section-number">5</span> Install or upgrade R and RStudio</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">6</span> Install Git</a></li>
+<li><a class="" href="hello-git.html"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
+<li><a class="" href="git-client.html"><span class="header-section-number">8</span> Install a Git client</a></li>
+<li class="book-part">Connect Git, GitHub, RStudio</li>
+<li><a class="" href="connect-intro.html">Can you hear me now?</a></li>
+<li><a class="" href="https-pat.html"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="" href="ssh-keys.html"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
+<li><a class="" href="push-pull-github.html"><span class="header-section-number">11</span> Connect to GitHub</a></li>
+<li><a class="" href="rstudio-git-github.html"><span class="header-section-number">12</span> Connect RStudio to Git and GitHub</a></li>
+<li><a class="" href="rstudio-see-git.html"><span class="header-section-number">13</span> Detect Git from RStudio</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">14</span> RStudio, Git, GitHub Hell</a></li>
+<li class="book-part">Early GitHub Wins</li>
+<li><a class="" href="usage-intro.html">Get started with GitHub</a></li>
+<li><a class="" href="new-github-first.html"><span class="header-section-number">15</span> New project, GitHub first</a></li>
+<li><a class="" href="existing-github-first.html"><span class="header-section-number">16</span> Existing project, GitHub first</a></li>
+<li><a class="" href="existing-github-last.html"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
+<li><a class="" href="rmd-test-drive.html"><span class="header-section-number">18</span> Test drive R Markdown</a></li>
+<li><a class="" href="r-test-drive.html"><span class="header-section-number">19</span> Render an R script</a></li>
+<li class="book-part">Git fundamentals</li>
+<li><a class="" href="git-intro.html">Some Git basics</a></li>
+<li><a class="" href="git-basics.html"><span class="header-section-number">20</span> Repo, commit, diff, tag</a></li>
+<li><a class="" href="git-commands.html"><span class="header-section-number">21</span> Git commands</a></li>
+<li><a class="" href="git-branches.html"><span class="header-section-number">22</span> Branches</a></li>
+<li><a class="" href="git-remotes.html"><span class="header-section-number">23</span> Remotes</a></li>
+<li class="book-part">Remote setups</li>
+<li><a class="" href="remote-scenarios-intro.html">Git remote setups</a></li>
+<li><a class="" href="common-remote-setups.html"><span class="header-section-number">24</span> Common remote setups</a></li>
+<li><a class="" href="equivocal.html"><span class="header-section-number">25</span> Equivocal remote setups</a></li>
+<li class="book-part">Daily Workflows</li>
+<li><a class="" href="workflows-intro.html">Useful Git patterns for real life</a></li>
+<li><a class="" href="repeated-amend.html"><span class="header-section-number">26</span> The Repeated Amend</a></li>
+<li><a class="" href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></li>
+<li><a class="" href="pull-tricky.html"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li><a class="" href="time-travel-see-past.html"><span class="header-section-number">29</span> Time travel: See the past</a></li>
+<li><a class="" href="fork-and-clone.html"><span class="header-section-number">30</span> Fork and clone</a></li>
+<li><a class="active" href="upstream-changes.html"><span class="header-section-number">31</span> Get upstream changes for a fork</a></li>
+<li><a class="" href="pr-extend.html"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
+<li><a class="" href="workflows-browsability.html"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
+<li class="book-part">Activity prompts</li>
+<li><a class="" href="clone.html"><span class="header-section-number">34</span> Clone a repo</a></li>
+<li><a class="" href="bingo.html"><span class="header-section-number">35</span> Create a bingo card</a></li>
+<li><a class="" href="burn.html"><span class="header-section-number">36</span> Burn it all down</a></li>
+<li><a class="" href="reset.html"><span class="header-section-number">37</span> Resetting</a></li>
+<li><a class="" href="search.html"><span class="header-section-number">38</span> Search GitHub</a></li>
+<li class="book-part">Notes</li>
+<li><a class="" href="notes-intro.html">Notes</a></li>
+<li><a class="" href="classroom-overview.html"><span class="header-section-number">39</span> Run a course with GitHub</a></li>
+<li><a class="" href="ideas-for-content.html"><span class="header-section-number">40</span> Ideas for content</a></li>
+<li><a class="" href="bookdown-cheat-sheet.html"><span class="header-section-number">41</span> Bookdown cheat sheet</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="shell.html"><span class="header-section-number">A</span> The shell</a></li>
+<li><a class="" href="comic-relief.html"><span class="header-section-number">B</span> Comic relief</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">C</span> Resources</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">D</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jennybc/happy-git-with-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="upstream-changes" class="section level1">
+<h1>
+<span class="header-section-number">31</span> Get upstream changes for a fork<a class="anchor" aria-label="anchor" href="#upstream-changes"><i class="fas fa-link"></i></a>
+</h1>
+<p>This workflow is relevant if you have done <a href="fork-and-clone.html#fork-and-clone">fork and clone</a> and now you need to pull subsequent changes from the original repo into your copy.</p>
+<p>Sometimes you set this up right away, when you fork and clone, even though you don’t need it yet. Congratulations, you are planning for the future!</p>
+<p>It’s also very typical to do this step a few days or months later. Maybe you’re taking an interest in someone else’s work for the second time and you want to make another pull request. Or you just want your copy to reflect their recent work. It is also totally normal to set this up upon first need.</p>
+<p>Vocabulary: <code>OWNER/REPO</code> refers to the original GitHub repo, owned by <code>OWNER</code>, who is not you. <code>YOU/REPO</code> refers to your copy on GitHub, i.e. your fork.</p>
+<div id="no-you-cant-do-this-via-github-1" class="section level2">
+<h2>
+<span class="header-section-number">31.1</span> No, you can’t do this via GitHub<a class="anchor" aria-label="anchor" href="#no-you-cant-do-this-via-github-1"><i class="fas fa-link"></i></a>
+</h2>
+<p>You might hope that GitHub could automatically keep your fork <code>YOU/REPO</code> synced up with the original <code>OWNER/REPO</code>. Or that you could do this in the browser interface. Then you could pull those upstream changes into your local repo.</p>
+<p>But you can’t.</p>
+<p>There are some tantalizing, janky ways to sort of do parts of this. But they have fatal flaws that make them unsustainable. I believe you really do need to add <code>OWNER/REPO</code> as a second remote on your repo and pull from there.</p>
+</div>
+<div id="initial-conditions" class="section level2">
+<h2>
+<span class="header-section-number">31.2</span> Initial conditions<a class="anchor" aria-label="anchor" href="#initial-conditions"><i class="fas fa-link"></i></a>
+</h2>
+<p>Get into the repo of interest, i.e. your local copy. For many of you, this means launching it as an RStudio Project. You’ll probably also want to open a terminal (Appendix <a href="shell.html#shell">A</a>) within RStudio for some Git work via <em>Tools &gt; Terminal &gt; New Terminal</em>.</p>
+<p>Make sure you are on the <code>master</code> branch and your “working tree is clean”. <code>git status</code> should show something like:</p>
+<div class="sourceCode" id="cb166"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb166-1"><a href="upstream-changes.html#cb166-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb166-2"><a href="upstream-changes.html#cb166-2"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/master'</span>.</span>
+<span id="cb166-3"><a href="upstream-changes.html#cb166-3"></a></span>
+<span id="cb166-4"><a href="upstream-changes.html#cb166-4"></a><span class="ex">nothing</span> to commit, working tree clean</span></code></pre></div>
+<p>BTW I recommend that you <a href="fork-and-clone.html#dont-touch-master">never make your own commits to the <code>master</code> branch of a fork</a>. However, if you have already done so, we are going to address your sorry situation below.</p>
+</div>
+<div id="list-your-remotes" class="section level2">
+<h2>
+<span class="header-section-number">31.3</span> List your remotes<a class="anchor" aria-label="anchor" href="#list-your-remotes"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s inspect <a href="git-remotes.html#git-remotes">the current remotes</a> for your local repo. In the shell (Appendix <a href="shell.html#shell">A</a>):</p>
+<div class="sourceCode" id="cb167"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb167-1"><a href="upstream-changes.html#cb167-1"></a><span class="fu">git</span> remote -v</span></code></pre></div>
+<p>Most of you will see output along these lines (let’s call this BEFORE):</p>
+<div class="sourceCode" id="cb168"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb168-1"><a href="upstream-changes.html#cb168-1"></a><span class="ex">origin</span>  https://github.com/YOU/REPO.git (fetch)</span>
+<span id="cb168-2"><a href="upstream-changes.html#cb168-2"></a><span class="ex">origin</span>  https://github.com/YOU/REPO.git (push)</span></code></pre></div>
+<p>There is only one remote, named <code>origin</code>, corresponding to your fork on GitHub. This figure depicts a BEFORE scenario:</p>
+<div class="inline-figure"><img src="img/fork-no-upstream-sad.png"></div>
+<p>This is sad, because there is no direct connection between <code>OWNER/REPO</code> and your local copy of the repo.</p>
+<p>The state we want to see is like this (let’s call this AFTER):</p>
+<div class="sourceCode" id="cb169"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb169-1"><a href="upstream-changes.html#cb169-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git (fetch)</span>
+<span id="cb169-2"><a href="upstream-changes.html#cb169-2"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git (push)</span>
+<span id="cb169-3"><a href="upstream-changes.html#cb169-3"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git (fetch)</span>
+<span id="cb169-4"><a href="upstream-changes.html#cb169-4"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git (push)</span></code></pre></div>
+<p>Notice the second remote, named <code>upstream</code>, corresponding to the original repo on GitHub. This figure depicts AFTER, the scenario we want to achieve:</p>
+<div class="inline-figure"><img src="img/fork-triangle-happy.png"></div>
+<p>Sidebar: If you used <code>usethis::create_from_github("OWNER/REPO")</code> for your original “fork and clone”, the <code>upstream</code> should already be set up. In that case, you can skip to the part where we pull from <code>upstream</code>.</p>
+</div>
+<div id="add-the-upstream-remote" class="section level2">
+<h2>
+<span class="header-section-number">31.4</span> Add the <code>upstream</code> remote<a class="anchor" aria-label="anchor" href="#add-the-upstream-remote"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let us add <code>OWNER/REPO</code> as the <code>upstream</code> remote.</p>
+<p>On <a href="https://github.com">GitHub</a>, make sure you are signed in and navigate to the original repo, <code>OWNER/REPO</code>. It is easy to get to from your fork, <code>YOU/REPO</code>, via “forked from” links near the top.</p>
+<p>Use the big green “Clone or download” button to get the URL for <code>OWNER/REPO</code> on your clipboard. Be intentional about whether you copy the HTTPS or SSH URL.</p>
+<div id="command-line-git" class="section level3">
+<h3>
+<span class="header-section-number">31.4.1</span> Command line Git<a class="anchor" aria-label="anchor" href="#command-line-git"><i class="fas fa-link"></i></a>
+</h3>
+<p>Use a command like this, but make an intentional choice about using an HTTPS vs SSH URL.</p>
+<div class="sourceCode" id="cb170"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb170-1"><a href="upstream-changes.html#cb170-1"></a><span class="fu">git</span> remote add upstream https://github.com/OWNER/REPO.git</span></code></pre></div>
+<p>The nickname <code>upstream</code> can technically be whatever you want. There is a strong tradition of using <code>upstream</code> in this context and, even though I have better ideas, I believe it is best to conform. Every book, blog post, and Stack Overflow thread that you read will use <code>upstream</code> here. Save your psychic energy for other things.</p>
+</div>
+<div id="rstudio" class="section level3">
+<h3>
+<span class="header-section-number">31.4.2</span> RStudio<a class="anchor" aria-label="anchor" href="#rstudio"><i class="fas fa-link"></i></a>
+</h3>
+<p>This feels a bit odd, but humor me. Click on “New Branch” in the Git pane.</p>
+<div class="inline-figure">
+<img src="img/rstudio-new-branch.png">]</div>
+<p>This will reveal a button to “Add Remote”. Click it. Enter <code>upstream</code> as the remote name and paste the URL for <code>OWNER/REPO</code> that you got from GitHub. Click “Add”. Decline the opportunity to add a new branch by clicking “Cancel”.</p>
+</div>
+</div>
+<div id="verify-your-upstream-remote" class="section level2">
+<h2>
+<span class="header-section-number">31.5</span> Verify your <code>upstream</code> remote<a class="anchor" aria-label="anchor" href="#verify-your-upstream-remote"><i class="fas fa-link"></i></a>
+</h2>
+<p>Let’s inspect <a href="git-remotes.html#git-remotes">the current remotes</a> for your local repo AGAIN. In the shell:</p>
+<div class="sourceCode" id="cb171"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb171-1"><a href="upstream-changes.html#cb171-1"></a><span class="fu">git</span> remote -v</span></code></pre></div>
+<p>Now you should see something like</p>
+<div class="sourceCode" id="cb172"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb172-1"><a href="upstream-changes.html#cb172-1"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git (fetch)</span>
+<span id="cb172-2"><a href="upstream-changes.html#cb172-2"></a><span class="ex">origin</span>    https://github.com/YOU/REPO.git (push)</span>
+<span id="cb172-3"><a href="upstream-changes.html#cb172-3"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git (fetch)</span>
+<span id="cb172-4"><a href="upstream-changes.html#cb172-4"></a><span class="ex">upstream</span>  https://github.com/OWNER/REPO.git (push)</span></code></pre></div>
+<p>Notice the second remote, named <code>upstream</code>, corresponding to the original repo on GitHub. We have gotten to this:</p>
+<div class="inline-figure"><img src="img/fork-triangle-happy.png"></div>
+</div>
+<div id="pull-changes-from-upstream" class="section level2">
+<h2>
+<span class="header-section-number">31.6</span> Pull changes from <code>upstream</code><a class="anchor" aria-label="anchor" href="#pull-changes-from-upstream"><i class="fas fa-link"></i></a>
+</h2>
+<p>Now we can pull the changes that we don’t have from <code>OWNER/REPO</code> into our local copy.</p>
+<div class="sourceCode" id="cb173"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb173-1"><a href="upstream-changes.html#cb173-1"></a><span class="fu">git</span> pull upstream master --ff-only</span></code></pre></div>
+<p>This says: “pull the changes from the remote known as <code>upstream</code> into the <code>master</code> branch of my local repo”. We are being explicit about the remote and the branch in this case, because (as our <code>git remote -v</code> commands reveal), <code>upstream/master</code> is <strong>not</strong> the default tracking branch for local <code>master</code>.</p>
+<p>I <strong>highly recommend</strong> using the <code>--ff-only</code> flag in this case, so that you also say “if I have made my own commits to <code>master</code>, please force me to confront this problem NOW”. Here’s what it looks like if a fast-forward merge isn’t possible:</p>
+<div class="sourceCode" id="cb174"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb174-1"><a href="upstream-changes.html#cb174-1"></a>$ <span class="fu">git</span> pull upstream master --ff-only</span>
+<span id="cb174-2"><a href="upstream-changes.html#cb174-2"></a><span class="ex">From</span> github.com:OWNER/REPO</span>
+<span id="cb174-3"><a href="upstream-changes.html#cb174-3"></a> <span class="ex">*</span> branch              master     -<span class="op">&gt;</span> FETCH_HEAD</span>
+<span id="cb174-4"><a href="upstream-changes.html#cb174-4"></a><span class="ex">fatal</span>: Not possible to fast-forward, aborting.</span></code></pre></div>
+<p>See <a href="upstream-changes.html#touched-master">Um, what if I did touch <code>master</code>?</a> to get yourself back on the happy path.</p>
+</div>
+<div id="push-these-changes-to-originmaster" class="section level2">
+<h2>
+<span class="header-section-number">31.7</span> Push these changes to <code>origin/master</code><a class="anchor" aria-label="anchor" href="#push-these-changes-to-originmaster"><i class="fas fa-link"></i></a>
+</h2>
+<p>This is, frankly, totally optional and many people who are facile with Git do not bother.</p>
+<p>If you take my advice to <a href="fork-and-clone.html#dont-touch-master">never work in <code>master</code> of a fork</a>, then the state of the <code>master</code> branch in your fork <code>YOU/REPO</code> does not matter. You will never make a pull request from <code>master</code>.</p>
+<p>If, however, your grasp of all these Git concepts is tenuous at best, it can be helpful to try to keep things simple and orderly and synced up.</p>
+<p>Feel free to push the newly updated state of local <code>master</code> to your fork <code>YOU/REPO</code> and enjoy the satisfaction of being “caught up” with <code>OWNER/REPO</code>.</p>
+<p>In the shell:</p>
+<div class="sourceCode" id="cb175"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb175-1"><a href="upstream-changes.html#cb175-1"></a><span class="fu">git</span> push</span></code></pre></div>
+<p>Or use the green “Push” button in RStudio.</p>
+</div>
+<div id="touched-master" class="section level2">
+<h2>
+<span class="header-section-number">31.8</span> Um, what if I did touch <code>master</code>?<a class="anchor" aria-label="anchor" href="#touched-master"><i class="fas fa-link"></i></a>
+</h2>
+<p>I told you not to!</p>
+<p>But OK here we are.</p>
+<p>Let’s imagine this is the state of the original repo <code>OWNER/REPO</code>:</p>
+<div class="sourceCode" id="cb176"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb176-1"><a href="upstream-changes.html#cb176-1"></a><span class="ex">...</span> -- A -- B -- C -- D -- E -- F</span></code></pre></div>
+<p>and and this is the state of the <code>master</code> branch in your local copy:</p>
+<div class="sourceCode" id="cb177"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb177-1"><a href="upstream-changes.html#cb177-1"></a><span class="ex">...</span> -- A -- B -- C -- X -- Y -- Z</span></code></pre></div>
+<p>The two histories agree, up to commit or state <code>C</code>, then they diverge.</p>
+<p>If you want to preserve the work in commits <code>X</code>, <code>Y</code>, and <code>Z</code>, create a new branch right now, with tip at <code>Z</code>, via <code>git checkout -b my-great-innovations</code> (pick your own branch name!). Then checkout <code>master</code> via <code>git checkout master</code>.</p>
+<p>I now assume you have either preserved the work in <code>X</code>, <code>Y</code>, and <code>Z</code> (with a branch) or have decided to let it go.</p>
+<p>Do a hard reset of the <code>master</code> branch to <code>C</code>.</p>
+<div class="sourceCode" id="cb178"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb178-1"><a href="upstream-changes.html#cb178-1"></a><span class="fu">git</span> reset --hard C</span></code></pre></div>
+<p>You will have to figure out how to convey <code>C</code> in Git-speak. Specify it relative to <code>HEAD</code> or provide the SHA. See <em>future link about resets</em> for more support.</p>
+<p>The instructions above for pulling changes from upstream should now work. Your <code>master</code> branch should reflect the history of <code>OWNER/REPO</code>:</p>
+<div class="sourceCode" id="cb179"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb179-1"><a href="upstream-changes.html#cb179-1"></a><span class="ex">...</span> -- A -- B -- C -- D -- E -- F</span></code></pre></div>
+<p>If you chose to create a branch with your work, you will also have that locally:</p>
+<div class="sourceCode" id="cb180"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb180-1"><a href="upstream-changes.html#cb180-1"></a><span class="ex">...</span> -- A -- B -- C -- D -- E -- F (master)</span>
+<span id="cb180-2"><a href="upstream-changes.html#cb180-2"></a>                   <span class="kw">\</span></span>
+<span id="cb180-3"><a href="upstream-changes.html#cb180-3"></a>                    <span class="ex">--</span> X -- Y -- Z (my-great-innovations)</span></code></pre></div>
+<p>If you pushed your alternative history (with commits <code>X</code>, <code>Y</code>, and <code>Z</code>) to your fork <code>YOU/REPO</code> and you like keeping everything synced up, you will also need to force push <code>master</code> via <code>git push --force</code>, but we really really don’t like discussing force pushes in Happy Git. We only do so here, because we are talking about a fork, which is fairly easy to replace if things so sideways.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="fork-and-clone.html"><span class="header-section-number">30</span> Fork and clone</a></div>
+<div class="next"><a href="pr-extend.html"><span class="header-section-number">32</span> Explore and extend a pull request</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#upstream-changes"><span class="header-section-number">31</span> Get upstream changes for a fork</a></li>
+<li><a class="nav-link" href="#no-you-cant-do-this-via-github-1"><span class="header-section-number">31.1</span> No, you can’t do this via GitHub</a></li>
+<li><a class="nav-link" href="#initial-conditions"><span class="header-section-number">31.2</span> Initial conditions</a></li>
+<li><a class="nav-link" href="#list-your-remotes"><span class="header-section-number">31.3</span> List your remotes</a></li>
+<li>
+<a class="nav-link" href="#add-the-upstream-remote"><span class="header-section-number">31.4</span> Add the upstream remote</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#command-line-git"><span class="header-section-number">31.4.1</span> Command line Git</a></li>
+<li><a class="nav-link" href="#rstudio"><span class="header-section-number">31.4.2</span> RStudio</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#verify-your-upstream-remote"><span class="header-section-number">31.5</span> Verify your upstream remote</a></li>
+<li><a class="nav-link" href="#pull-changes-from-upstream"><span class="header-section-number">31.6</span> Pull changes from upstream</a></li>
+<li><a class="nav-link" href="#push-these-changes-to-originmaster"><span class="header-section-number">31.7</span> Push these changes to origin/master</a></li>
+<li><a class="nav-link" href="#touched-master"><span class="header-section-number">31.8</span> Um, what if I did touch master?</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jennybc/happy-git-with-r/blob/master/workflows-upstream-changes-into-fork.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jennybc/happy-git-with-r/edit/master/workflows-upstream-changes-into-fork.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Happy Git and GitHub for the useR</strong>" was written by Jenny Bryan, the STAT 545 TAs, Jim Hester. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

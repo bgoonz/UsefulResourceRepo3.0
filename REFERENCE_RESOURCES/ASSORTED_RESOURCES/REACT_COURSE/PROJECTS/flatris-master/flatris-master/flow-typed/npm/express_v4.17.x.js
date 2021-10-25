@@ -42,7 +42,10 @@ declare type express$RequestParams = { [param: string]: string, ... };
     foo: string | void;
   }
 */
-declare class express$Request extends http$IncomingMessage mixins express$RequestResponseBase {
+declare class express$Request
+  extends http$IncomingMessage
+  mixins express$RequestResponseBase
+{
   baseUrl: string;
   body: mixed;
   cookies: { [cookie: string]: string, ... };
@@ -55,7 +58,7 @@ declare class express$Request extends http$IncomingMessage mixins express$Reques
   originalUrl: string;
   params: express$RequestParams;
   path: string;
-  protocol: "https" | "http";
+  protocol: 'https' | 'http';
   query: { [name: string]: string | Array<string>, ... };
   route: string;
   secure: boolean;
@@ -97,11 +100,14 @@ declare type express$SendFileOptions = {
   root?: string,
   lastModified?: boolean,
   headers?: { [name: string]: string, ... },
-  dotfiles?: "allow" | "deny" | "ignore",
+  dotfiles?: 'allow' | 'deny' | 'ignore',
   ...
 };
 
-declare class express$Response extends http$ServerResponse mixins express$RequestResponseBase {
+declare class express$Response
+  extends http$ServerResponse
+  mixins express$RequestResponseBase
+{
   headersSent: boolean;
   locals: { [name: string]: mixed, ... };
   append(field: string, value?: string): this;
@@ -142,18 +148,18 @@ declare class express$Response extends http$ServerResponse mixins express$Reques
   req: express$Request;
 }
 
-declare type express$NextFunction = (err?: ?Error | "route") => mixed;
+declare type express$NextFunction = (err?: ?Error | 'route') => mixed;
 declare type express$Middleware<
   Req: express$Request = express$Request,
-  Res: express$Response = express$Response,
+  Res: express$Response = express$Response
 > =
-  ((req: Req, res: Res, next: express$NextFunction) => mixed) |
-  ((error: Error, req: Req, res: Res, next: express$NextFunction) => mixed);
+  | ((req: Req, res: Res, next: express$NextFunction) => mixed)
+  | ((error: Error, req: Req, res: Res, next: express$NextFunction) => mixed);
 
 declare interface express$RouteMethodType<
   T,
   Req: express$Request = express$Request,
-  Res: express$Response = express$Response,
+  Res: express$Response = express$Response
 > {
   (middleware: express$Middleware<Req, Res>): T;
   (...middleware: Array<express$Middleware<Req, Res>>): T;
@@ -165,7 +171,7 @@ declare interface express$RouteMethodType<
 
 declare class express$Route<
   Req: express$Request = express$Request,
-  Res: express$Response = express$Response,
+  Res: express$Response = express$Response
 > {
   all: express$RouteMethodType<this, Req, Res>;
   get: express$RouteMethodType<this, Req, Res>;
@@ -198,22 +204,34 @@ declare class express$Route<
   connect: express$RouteMethodType<this, Req, Res>;
 }
 
-declare type express$RouterUseable<Req: express$Request, Res: express$Response> =
+declare type express$RouterUseable<
+  Req: express$Request,
+  Res: express$Response
+> =
   | express$Middleware<Req, Res>
   | express$Router<Req, Res>
   | $ReadOnlyArray<express$Middleware<Req, Res> | express$Router<Req, Res>>;
 
 declare class express$Router<
-  Req: express$Request = express$Request,
-  Res: express$Response = express$Response,
-> extends express$Route<Req, Res> {
+    Req: express$Request = express$Request,
+    Res: express$Response = express$Response
+  >
+  extends express$Route<Req, Res>
+{
   constructor(options?: express$RouterOptions): void;
   route(path: string): express$Route<Req, Res>;
   static <Req2: express$Request, Res2: express$Response>(
-    options?: express$RouterOptions,
+    options?: express$RouterOptions
   ): express$Router<Req2, Res2>;
-  use(express$RouterUseable<Req, Res>, ...express$RouterUseable<Req, Res>[]): this;
-  use(express$Path, express$RouterUseable<Req, Res>, ...express$RouterUseable<Req, Res>[]): this;
+  use(
+    express$RouterUseable<Req, Res>,
+    ...express$RouterUseable<Req, Res>[]
+  ): this;
+  use(
+    express$Path,
+    express$RouterUseable<Req, Res>,
+    ...express$RouterUseable<Req, Res>[]
+  ): this;
   handle(
     req: http$IncomingMessage<>,
     res: http$ServerResponse,
@@ -226,7 +244,7 @@ declare class express$Router<
       res: Res,
       next: express$NextFunction,
       value: string,
-      paramName: string,
+      paramName: string
     ) => mixed
   ): void;
   (
@@ -245,9 +263,12 @@ not be deemed to lack type coverage.
 */
 
 declare class express$Application<
-  Req: express$Request = express$Request,
-  Res: express$Response = express$Response,
-> extends express$Router<Req, Res> mixins events$EventEmitter {
+    Req: express$Request = express$Request,
+    Res: express$Response = express$Response
+  >
+  extends express$Router<Req, Res>
+  mixins events$EventEmitter
+{
   constructor(): void;
   locals: { [name: string]: mixed, ... };
   mountpath: string;
@@ -321,14 +342,14 @@ declare type express$UrlEncodedOptions = {
     encoding: string
   ) => mixed,
   ...
-}
+};
 
-declare module "express" {
+declare module 'express' {
   declare export type RouterOptions = express$RouterOptions;
   declare export type CookieOptions = express$CookieOptions;
   declare export type Middleware<
     Req: express$Request = express$Request,
-    Res: express$Response = express$Response,
+    Res: express$Response = express$Response
   > = express$Middleware<Req, Res>;
   declare export type NextFunction = express$NextFunction;
   declare export type RequestParams = express$RequestParams;
@@ -336,15 +357,21 @@ declare module "express" {
   declare export type $Request = express$Request;
   declare export type $Application<
     Req: express$Request = express$Request,
-    Res: express$Response = express$Response,
+    Res: express$Response = express$Response
   > = express$Application<Req, Res>;
 
   declare module.exports: {
     // If you try to call like a function, it will use this signature
-    <Req: express$Request, Res: express$Response>(): express$Application<Req, Res>,
+    <Req: express$Request, Res: express$Response>(): express$Application<
+      Req,
+      Res
+    >,
     json: (opts: ?JsonOptions) => express$Middleware<>,
     // `static` property on the function
-    static: <Req: express$Request, Res: express$Response>(root: string, options?: Object) => express$Middleware<Req, Res>,
+    static: <Req: express$Request, Res: express$Response>(
+      root: string,
+      options?: Object
+    ) => express$Middleware<Req, Res>,
     // `Router` property on the function
     Router: typeof express$Router,
     urlencoded: (opts: ?express$UrlEncodedOptions) => express$Middleware<>,

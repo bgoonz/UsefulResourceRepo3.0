@@ -20,13 +20,12 @@ disabled_reason: Github repo not found
 
 The original, pure CSS template was created by W3C, [you can check it out here!](https://www.w3schools.com/w3css/tryw3css_templates_dark_portfolio.htm)
 
-This has been "ported" to run on Eleventy, and stays true to the original as much as possible.
-Uses the original W3.css with no modifications!
+This has been "ported" to run on Eleventy, and stays true to the original as much as possible. Uses the original W3.css with no modifications!
 
 ## Eleventy specific additions
+
 - The last 6 posts with the "photo" tag will be used in the front page portfolio section.
 - The starter blog boilerplate has been left in.
 - The Archive link was left in
 - A "files" folder has been added with a fake resume for use with the "download resume" button
-- Inside _data/faNav.json is a list of the Navigation keys and their corresponding FontAwesome icon class
-
+- Inside \_data/faNav.json is a list of the Navigation keys and their corresponding FontAwesome icon class

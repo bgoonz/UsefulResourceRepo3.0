@@ -1,5 +1,5 @@
-var targetSelector = ".grid";
-var activeHash = "";
+var targetSelector = '.grid';
+var activeHash = '';
 var activePage = -1;
 
 /**
@@ -9,20 +9,20 @@ var activePage = -1;
  */
 
 function deserializeHash() {
-  var hash = window.location.hash.replace(/^#/g, "");
+  var hash = window.location.hash.replace(/^#/g, '');
   var obj = null;
   var groups = [];
 
   if (!hash) return obj;
 
   obj = {};
-  groups = hash.split("&");
+  groups = hash.split('&');
 
-  groups.forEach(function(group) {
-    var pair = group.split("=");
+  groups.forEach(function (group) {
+    var pair = group.split('=');
     var groupName = pair[0];
 
-    obj[groupName] = pair[1].split(",");
+    obj[groupName] = pair[1].split(',');
   });
 
   return obj;
@@ -36,19 +36,19 @@ function deserializeHash() {
  */
 
 function serializeUiState(uiState) {
-  var output = "";
+  var output = '';
 
   for (var key in uiState) {
     var values = uiState[key];
 
     if (!values.length) continue;
 
-    output += key + "=";
-    output += values.join(",");
-    output += "&";
+    output += key + '=';
+    output += values.join(',');
+    output += '&';
   }
 
-  output = output.replace(/&$/g, "");
+  output = output.replace(/&$/g, '');
 
   return output;
 }
@@ -66,10 +66,12 @@ function getUiState() {
   // in your HTML.
 
   var uiState = {
-    ssg: mixer.getFilterGroupSelectors("ssg").map(getValueFromSelector),
-    cms: mixer.getFilterGroupSelectors("cms").map(getValueFromSelector),
-    css: mixer.getFilterGroupSelectors("css").map(getValueFromSelector),
-    archetype: mixer.getFilterGroupSelectors("archetype").map(getValueFromSelector)
+    ssg: mixer.getFilterGroupSelectors('ssg').map(getValueFromSelector),
+    cms: mixer.getFilterGroupSelectors('cms').map(getValueFromSelector),
+    css: mixer.getFilterGroupSelectors('css').map(getValueFromSelector),
+    archetype: mixer
+      .getFilterGroupSelectors('archetype')
+      .map(getValueFromSelector),
   };
 
   return uiState;
@@ -92,12 +94,12 @@ function setHash(state) {
 
   // Create a URL hash string by serializing the uiState object
 
-  var newHash = "#" + serializeUiState(uiState);
+  var newHash = '#' + serializeUiState(uiState);
 
-  if (selector === targetSelector && window.location.href.indexOf("#") > -1) {
+  if (selector === targetSelector && window.location.href.indexOf('#') > -1) {
     // Equivalent to filter "all", and a hash exists, remove the hash
 
-    activeHash = "";
+    activeHash = '';
 
     history.replaceState(null, document.title, window.location.pathname);
   } else if (newHash !== window.location.hash && selector !== targetSelector) {
@@ -127,10 +129,13 @@ function syncMixerWithPreviousUiState(uiState, animate) {
   var css = uiState && uiState.css ? uiState.css : [];
   var archetype = uiState && uiState.archetype ? uiState.archetype : [];
 
-  mixer.setFilterGroupSelectors("ssg", ssg.map(getSelectorFromValue));
-  mixer.setFilterGroupSelectors("cms", cms.map(getSelectorFromValue));
-  mixer.setFilterGroupSelectors("css", css.map(getSelectorFromValue));
-  mixer.setFilterGroupSelectors("archetype", archetype.map(getSelectorFromValue));
+  mixer.setFilterGroupSelectors('ssg', ssg.map(getSelectorFromValue));
+  mixer.setFilterGroupSelectors('cms', cms.map(getSelectorFromValue));
+  mixer.setFilterGroupSelectors('css', css.map(getSelectorFromValue));
+  mixer.setFilterGroupSelectors(
+    'archetype',
+    archetype.map(getSelectorFromValue)
+  );
 
   // Parse the filter groups (passing `false` will perform no animation)
 
@@ -145,7 +150,7 @@ function syncMixerWithPreviousUiState(uiState, animate) {
  */
 
 function getValueFromSelector(selector) {
-  return selector.replace(/^./, "");
+  return selector.replace(/^./, '');
 }
 
 /**
@@ -158,16 +163,15 @@ function getValueFromSelector(selector) {
 
 function handleParseFilterGroups(command) {
   if (activePage > 1) {
-      // If an activePage greater than 1 has been parsed
-      // from the URL, update the command with a pagination
-      // instruction
+    // If an activePage greater than 1 has been parsed
+    // from the URL, update the command with a pagination
+    // instruction
 
-      command.paginate = activePage;
+    command.paginate = activePage;
   }
 
   return command;
 }
-
 
 /**
  * Converts a simple value (e.g. 'green') into a selector (e.g. '.green').
@@ -177,6 +181,5 @@ function handleParseFilterGroups(command) {
  */
 
 function getSelectorFromValue(value) {
-  return "." + value;
+  return '.' + value;
 }
-

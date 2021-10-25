@@ -1,18 +1,18 @@
 class ElementCollection extends Array {
   ready(cb) {
     const isReady = this.some((e) => {
-      return e.readyState != null && e.readyState != "loading";
+      return e.readyState != null && e.readyState != 'loading';
     });
     if (isReady) {
       cb();
     } else {
-      this.on("DOMContentLoaded", cb);
+      this.on('DOMContentLoaded', cb);
     }
     return this;
   }
 
   on(event, cbOrSelector, cb) {
-    if (typeof cbOrSelector === "function") {
+    if (typeof cbOrSelector === 'function') {
       this.forEach((e) => e.addEventListener(event, cbOrSelector));
     } else {
       this.forEach((elem) => {
@@ -44,7 +44,7 @@ class ElementCollection extends Array {
 
   css(property, value) {
     const camelProp = property.replace(/(-[a-z])/, (g) => {
-      return g.replace("-", "").toUpperCase();
+      return g.replace('-', '').toUpperCase();
     });
     this.forEach((e) => (e.style[camelProp] = value));
     return this;
@@ -76,7 +76,7 @@ class AjaxPromise {
 }
 
 function $(param) {
-  if (typeof param === "string" || param instanceof String) {
+  if (typeof param === 'string' || param instanceof String) {
     return new ElementCollection(...document.querySelectorAll(param));
   } else {
     return new ElementCollection(param);
@@ -88,13 +88,13 @@ $.get = function ({ url, data = {}, success = () => {}, dataType }) {
     .map(([key, value]) => {
       return `${key}=${value}`;
     })
-    .join("&");
+    .join('&');
 
   return new AjaxPromise(
     fetch(`${url}?${queryString}`, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": dataType,
+        'Content-Type': dataType,
       },
     })
       .then((res) => {

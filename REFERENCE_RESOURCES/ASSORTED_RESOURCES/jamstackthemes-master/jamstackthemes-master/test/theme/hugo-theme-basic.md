@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-02-01T18:42:50.000Z
 description: >-
-  Basic site theme styled with minimal tachyons, syntax highlighting, and blog
-  series configuration. 📦
+  Basic site theme styled with minimal tachyons, syntax highlighting, and blog series configuration. 📦
+
 stale: false
 ---
