@@ -1,10 +1,10 @@
 paypal
   .Buttons({
     createOrder: function () {
-      return fetch("/create-order", {
-        method: "POST",
+      return fetch('/create-order', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
         },
         body: JSON.stringify({
           items: [
@@ -31,4 +31,4 @@ paypal
       return actions.order.capture();
     },
   })
-  .render("#paypal");
+  .render('#paypal');

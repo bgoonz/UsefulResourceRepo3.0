@@ -1,23 +1,23 @@
-const strengthMeter = document.getElementById("strength-meter");
-const passwordInput = document.getElementById("password-input");
-const reasonsContainer = document.getElementById("reasons");
+const strengthMeter = document.getElementById('strength-meter');
+const passwordInput = document.getElementById('password-input');
+const reasonsContainer = document.getElementById('reasons');
 
-passwordInput.addEventListener("input", updateStrengthMeter);
+passwordInput.addEventListener('input', updateStrengthMeter);
 updateStrengthMeter();
 
 function updateStrengthMeter() {
   const weaknesses = calculatePasswordStrength(passwordInput.value);
 
   let strength = 100;
-  reasonsContainer.innerHTML = "";
+  reasonsContainer.innerHTML = '';
   weaknesses.forEach((weakness) => {
     if (weakness == null) return;
     strength -= weakness.deduction;
-    const messageElement = document.createElement("div");
+    const messageElement = document.createElement('div');
     messageElement.innerText = weakness.message;
     reasonsContainer.appendChild(messageElement);
   });
-  strengthMeter.style.setProperty("--strength", strength);
+  strengthMeter.style.setProperty('--strength', strength);
 }
 
 function calculatePasswordStrength(password) {
@@ -36,36 +36,36 @@ function lengthWeakness(password) {
 
   if (length <= 5) {
     return {
-      message: "Your password is too short",
+      message: 'Your password is too short',
       deduction: 40,
     };
   }
 
   if (length <= 10) {
     return {
-      message: "Your password could be longer",
+      message: 'Your password could be longer',
       deduction: 15,
     };
   }
 }
 
 function uppercaseWeakness(password) {
-  return characterTypeWeakness(password, /[A-Z]/g, "uppercase characters");
+  return characterTypeWeakness(password, /[A-Z]/g, 'uppercase characters');
 }
 
 function lowercaseWeakness(password) {
-  return characterTypeWeakness(password, /[a-z]/g, "lowercase characters");
+  return characterTypeWeakness(password, /[a-z]/g, 'lowercase characters');
 }
 
 function numberWeakness(password) {
-  return characterTypeWeakness(password, /[0-9]/g, "numbers");
+  return characterTypeWeakness(password, /[0-9]/g, 'numbers');
 }
 
 function specialCharactersWeakness(password) {
   return characterTypeWeakness(
     password,
     /[^0-9a-zA-Z\s]/g,
-    "special characters"
+    'special characters'
   );
 }
 
@@ -91,7 +91,7 @@ function repeatCharactersWeakness(password) {
   const matches = password.match(/(.)\1/g) || [];
   if (matches.length > 0) {
     return {
-      message: "Your password has repeat characters",
+      message: 'Your password has repeat characters',
       deduction: matches.length * 10,
     };
   }

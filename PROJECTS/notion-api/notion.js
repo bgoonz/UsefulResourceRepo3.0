@@ -1,4 +1,4 @@
-const { Client } = require("@notionhq/client");
+const { Client } = require('@notionhq/client');
 
 const notion = new Client({ auth: process.env.NOTION_API_KEY });
 
@@ -30,7 +30,7 @@ function createSuggestion({ title, description, isProject, tags }) {
       [process.env.NOTION_TITLE_ID]: {
         title: [
           {
-            type: "text",
+            type: 'text',
             text: {
               content: title,
             },
@@ -40,7 +40,7 @@ function createSuggestion({ title, description, isProject, tags }) {
       [process.env.NOTION_DESCRIPTION_ID]: {
         rich_text: [
           {
-            type: "text",
+            type: 'text',
             text: {
               content: description,
             },
@@ -65,7 +65,7 @@ function createSuggestion({ title, description, isProject, tags }) {
 async function getSuggestions() {
   const notionPages = await notion.databases.query({
     database_id: process.env.NOTION_DATABASE_ID,
-    sorts: [{ property: process.env.NOTION_VOTES_ID, direction: "descending" }],
+    sorts: [{ property: process.env.NOTION_VOTES_ID, direction: 'descending' }],
   });
 
   return notionPages.results.map(fromNotionObject);

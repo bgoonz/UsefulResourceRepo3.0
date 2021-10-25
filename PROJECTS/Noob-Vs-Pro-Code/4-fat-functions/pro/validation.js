@@ -31,7 +31,7 @@ function validateLengthMessage(value, length) {
 function validateRequiredMessage(value) {
   if (value) return;
 
-  return "is required";
+  return 'is required';
 }
 
 function printErrors(errors) {

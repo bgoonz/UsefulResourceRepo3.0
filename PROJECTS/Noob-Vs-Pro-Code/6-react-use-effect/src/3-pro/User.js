@@ -1,15 +1,15 @@
-import React, { useState, useEffect, useMemo } from "react";
-import PropTypes from "prop-types";
+import React, { useState, useEffect, useMemo } from 'react';
+import PropTypes from 'prop-types';
 
 function User({ age }) {
-  const [name, setName] = useState("");
+  const [name, setName] = useState('');
   const [dark, setDark] = useState(false);
   const user = useMemo(() => {
     return { age, name };
   }, [name, age]);
   const buttonStyle = {
-    backgroundColor: dark ? "#000" : "initial",
-    color: dark ? "#FFF" : "initial",
+    backgroundColor: dark ? '#000' : 'initial',
+    color: dark ? '#FFF' : 'initial',
   };
 
   useEffect(() => {

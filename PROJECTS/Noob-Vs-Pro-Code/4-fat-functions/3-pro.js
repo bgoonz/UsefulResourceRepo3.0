@@ -1,12 +1,12 @@
-const { updateUser, createUser } = require("./api/users");
-const { validationMessages, printErrors } = require("./pro/validation");
+const { updateUser, createUser } = require('./api/users');
+const { validationMessages, printErrors } = require('./pro/validation');
 
 function saveUser(user) {
   if (user.id == null) {
-    console.log("Created User");
+    console.log('Created User');
     createUser(user);
   } else {
-    console.log("Updated User");
+    console.log('Updated User');
     updateUser(user);
   }
 }
@@ -33,8 +33,8 @@ function validateUser(user) {
 
 const user = {
   id: 1,
-  username: "WDS",
-  password: "password",
+  username: 'WDS',
+  password: 'password',
 };
 
 const { errors, valid } = validateUser(user);

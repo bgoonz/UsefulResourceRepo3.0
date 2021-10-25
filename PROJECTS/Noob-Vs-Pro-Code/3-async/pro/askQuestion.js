@@ -1,4 +1,4 @@
-const readline = require("readline");
+const readline = require('readline');
 
 function askQuestion(question) {
   const readlineInterface = readline.createInterface({

@@ -1,6 +1,6 @@
 function toAccounting(n) {
   if (n < 0) {
-    return "(" + Math.abs(n) + ")";
+    return '(' + Math.abs(n) + ')';
   } else {
     return n.toString();
   }
