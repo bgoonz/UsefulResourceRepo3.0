@@ -1,0 +1,25 @@
+#!/bin/sh
+
+set -e
+
+#/ Usage: gpbegin [-r<repo>] -b<branch> [-m<message>]
+#/   -r repository path (default ~/.gitpaid)
+#/   -b branch name
+#/   -m commit message (default empty)
+#/   -h show this help message
+
+. "$(dirname "$(dirname "$0")")/lib/gp.sh"
+
+while getopts m:b:r:h NAME
+do
+	case "$NAME" in
+		m) MESSAGE="$OPTARG";;
+		b) BRANCH="$OPTARG";;
+		r) REPO="$OPTARG";;
+		*) usage;;
+	esac
+done
+
+gpinit
+
+gpcommit "$MESSAGE"

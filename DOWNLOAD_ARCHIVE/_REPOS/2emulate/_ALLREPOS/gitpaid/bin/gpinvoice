@@ -1,0 +1,102 @@
+#!/bin/sh
+
+set -e
+
+#/ Usage: gpinvoice [-r<repo>] -b<branch>
+#/   -r repository path (default ~/.gitpaid)
+#/   -b branch name
+#/   -h show this help message
+
+. "$(dirname "$(dirname "$0")")/lib/gp.sh"
+
+while getopts b:r:h NAME
+do
+	case "$NAME" in
+		b) BRANCH="$OPTARG";;
+		r) REPO="$OPTARG";;
+		*) usage;;
+	esac
+done
+
+gpinit
+
+echo "# Invoice"
+echo
+date
+echo "from $BRANCH branch of $REPO"
+echo
+echo "## Work log"
+
+gpworkbegin() {
+	echo
+	echo "Began: $(git show "$1" --pretty=format:%aD)"
+}
+
+gpworkend() {
+	echo
+	echo "Ended: $(git show "$1" --pretty=format:%aD)"
+	AUTHOR_DATE="$(git show "$1" --pretty=format:%at)"
+	COMMITTER_DATE="$(git show "$1" --pretty=format:%ct)"
+	[ "$AUTHOR_DATE" = "$COMMITTER_DATE" ] && {
+		MINUTES="$((($AUTHOR_DATE - $BEGIN) / 60))"
+		echo "Billed time: $(gpprettytime "$MINUTES")"
+	} || {
+		MINUTES="$(($COMMITTER_DATE - 1000000000))"
+		echo "Billed time (adjusted): $(gpprettytime "$MINUTES")"
+	}
+	echo "$MINUTES" >&3
+}
+
+HEAD="$(git rev-parse "$BRANCH")"
+git rev-list --reverse "$HEAD" | while read COMMIT
+do
+	COMMITTER="$(git show "$COMMIT" --pretty=format:%cn)"
+
+	# End when work has ended at least once and gpbegin is encountered again.
+	[ -n "$ENDED" -a "$COMMITTER" = "gpbegin" ] && {
+		gpworkend "$OLDCOMMIT"
+		BEGIN=
+		ENDED=
+	}
+
+	# Begin when work has not already begun and gpbegin is encountered.
+	[ -z "$BEGIN" -a "$COMMITTER" = "gpbegin" ] && {
+		gpworkbegin "$COMMIT"
+		BEGIN="$(git show "$COMMIT" --pretty=format:%at)"
+	}
+
+	SUBJECT="$(git show "$COMMIT" --pretty=format:%s)"
+	BODY="$(git show "$COMMIT" --pretty=format:%b)"
+	[ -n "$SUBJECT" -o -n "$BODY" ] && echo
+	[ -n "$SUBJECT" ] && echo "$SUBJECT" | tr \\n \\0 | xargs -0 -n1 echo ">"
+	[ -n "$SUBJECT" -a -n "$BODY" ] && echo ">"
+	[ -n "$BODY" ] && echo "$BODY" | tr \\n \\0 | xargs -0 -n1 echo ">"
+
+	# Note that *an* end has been encountered.  It may not be *the* end.
+	[ -n "$BEGIN" -a "$COMMITTER" = "gpend" ] && ENDED=1 || true
+
+	[ "$HEAD" = "$COMMIT" ] && case "$COMMITTER" in
+
+		# The tip of the branch is necessarily the end if work has ended
+		# and it is an end.
+		gpend) gpworkend "$COMMIT";;
+
+		# The tip of the branch is open if it begins work itself.
+		gpbegin)
+			echo
+			echo "(still in progress)";;
+
+	esac
+
+	# Keep a reference to the previous commit.
+	OLDCOMMIT="$COMMIT"
+
+# Sum billable minutes comine from the loop process on file descriptor 3.
+done 3>minutes
+MINUTES="$(awk '{SUM += $1} END {print SUM}' <minutes)"
+rm minutes
+
+echo
+echo "## Summary"
+echo
+echo "Total billed time: $(gpprettytime "$MINUTES")"
