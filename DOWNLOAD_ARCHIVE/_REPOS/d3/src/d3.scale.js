@@ -1,0 +1,16 @@
+var scale = require("./scale/scale"),
+    category = require("./scale/category");
+scale.linear = require("./scale/linear");
+scale.log = require("./scale/log");
+scale.pow = require("./scale/pow");
+scale.sqrt = require("./scale/sqrt");
+scale.ordinal = require("./scale/ordinal");
+scale.category10 = category;
+scale.category20 = category.category20;
+scale.category20b = category.category20b;
+scale.category20c = category.category20c;
+scale.quantile = require("./scale/quantile");
+scale.quantize = require("./scale/quantize");
+scale.threshold = require("./scale/threshold");
+scale.identity = require("./scale/identity");
+module.exports = scale;

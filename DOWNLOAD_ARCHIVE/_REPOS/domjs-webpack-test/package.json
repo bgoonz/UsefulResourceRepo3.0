@@ -1,0 +1,12 @@
+{
+	"name": "domjs-webpack",
+	"version": "0.2.0",
+	"dependencies": {
+		"webpack": "0.3.x",
+		"domjs": "0.2.0"
+	},
+	"scripts": {
+		"build": "node node_modules/webpack/bin/webpack --colors --script-src-prefix js/ lib/test.js js/compiled.js",
+		"build_min": "node node_modules/webpack/bin/webpack --colors --min --script-src-prefix js/ lib/test.js js/compiled.js"
+	}
+}

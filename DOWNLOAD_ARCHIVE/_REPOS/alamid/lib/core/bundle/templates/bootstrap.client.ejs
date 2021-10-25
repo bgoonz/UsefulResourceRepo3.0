@@ -1,0 +1,38 @@
+"use strict";
+
+var alamidIndex = require("alamid/lib/index.js");
+
+function initAlamid() {
+    var Client = require("alamid/lib/client/Client.class.js"),
+        MainPage = require("../app/pages/MainPage.class.js");
+
+    alamidIndex.client = new Client(MainPage);
+}
+
+function initRegistries() {
+
+    require(<%= JSON.stringify(pageRegistry) %>);
+    require(<%= JSON.stringify(serviceRegistry) %>);
+    require(<%= JSON.stringify(schemaRegistry) %>);
+    require(<%= JSON.stringify(modelRegistry) %>);
+}
+
+function initClient() {
+    require("../app/init.client.js");
+}
+
+function initConfig() {
+
+    var config = require("alamid/lib/shared/config.js");
+
+    <% _(clientConfig).each(function assignClientConfigValue(value, key) { %>
+    config[<%= JSON.stringify(key) %>] = <%= toSrc(value) %>;
+    <% }); %>
+
+    alamidIndex.config = config;
+}
+
+initConfig();
+initAlamid();
+initRegistries();
+initClient();

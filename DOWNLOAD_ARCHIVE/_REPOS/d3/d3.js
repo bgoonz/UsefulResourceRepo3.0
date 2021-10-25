@@ -1,0 +1,1 @@
+d3 = require('./src/d3');

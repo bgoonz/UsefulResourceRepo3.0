@@ -1,0 +1,123 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "_": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "open": {
+      "type": "boolean"
+    },
+    "o": {
+      "type": "boolean"
+    },
+    "version": {
+      "type": "boolean"
+    },
+    "v": {
+      "type": "boolean"
+    },
+    "help": {
+      "type": "boolean"
+    },
+    "h": {
+      "type": "boolean"
+    },
+    "quiet": {
+      "type": "boolean"
+    },
+    "q": {
+      "type": "boolean"
+    },
+    "silent": {
+      "type": "boolean"
+    },
+    "s": {
+      "type": "boolean"
+    },
+    "writeTicks": {
+      "type": "boolean"
+    },
+    "write-ticks": {
+      "type": "boolean"
+    },
+    "treeDebug": {
+      "type": "boolean"
+    },
+    "tree-debug": {
+      "type": "boolean"
+    },
+    "D": {
+      "type": "string"
+    },
+    "output-dir": {
+      "type": "string"
+    },
+    "outputDir": {
+      "type": "string"
+    },
+    "output-html": {
+      "type": "string"
+    },
+    "outputHtml": {
+      "type": "string"
+    },
+    "F": {
+      "type": "string"
+    },
+    "title": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "visualize-only": {
+      "type": "string"
+    },
+    "visualizeOnly": {
+      "type": "string"
+    },
+    "collect-only": {
+      "type": "boolean"
+    },
+    "collectOnly": {
+      "type": "boolean"
+    },
+    "on-port": {
+      "type": "string"
+    },
+    "onPort": {
+      "type": "string"
+    },
+    "P": {
+      "type": "string"
+    },    
+     "kernelTracing": {
+      "type": "boolean"
+    },
+    "kernel-tracing": {
+      "type": "boolean"
+    },
+    "kernelTracingDebug": {
+      "type": "boolean"
+    },
+    "kernel-tracing-debug": {
+      "type": "boolean"
+    },
+    "pathToNodeBinary": {},
+    "path-to-node-binary": {},
+    "status": {},
+    "--": {
+      "type": "array",
+      "items": {}
+    },
+    "argv": {
+      "type": "array",
+      "items": {}
+    },
+    "onProcessExit": {}
+  }
+}

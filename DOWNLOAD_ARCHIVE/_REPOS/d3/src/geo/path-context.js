@@ -1,0 +1,51 @@
+var d3_noop = require("../core/noop")._noop,
+    _u03c0 = require("../core/core")._u03c0;
+
+function d3_geo_pathContext(context) {
+  var pointRadius = 4.5;
+
+  var stream = {
+    point: point,
+
+    // While inside a line, override point to moveTo then lineTo.
+    lineStart: function() { stream.point = pointLineStart; },
+    lineEnd: lineEnd,
+
+    // While inside a polygon, override lineEnd to closePath.
+    polygonStart: function() { stream.lineEnd = lineEndPolygon; },
+    polygonEnd: function() { stream.lineEnd = lineEnd; stream.point = point; },
+
+    pointRadius: function(_) {
+      pointRadius = _;
+      return stream;
+    },
+
+    result: d3_noop
+  };
+
+  function point(x, y) {
+    context.moveTo(x, y);
+    context.arc(x, y, pointRadius, 0, 2 * _u03c0);
+  }
+
+  function pointLineStart(x, y) {
+    context.moveTo(x, y);
+    stream.point = pointLine;
+  }
+
+  function pointLine(x, y) {
+    context.lineTo(x, y);
+  }
+
+  function lineEnd() {
+    stream.point = point;
+  }
+
+  function lineEndPolygon() {
+    context.closePath();
+  }
+
+  return stream;
+}
+
+exports._pathContext = d3_geo_pathContext;

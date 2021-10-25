@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<div class="posts">
+<%
+var posts = getFilesAtPath('posts').toJSON().concat(getFilesAtPath('voxels').toJSON());
+posts.sort(function(a, b) {
+  return b.date - a.date;
+});
+%>
+<% for (var i = 0; i < posts.length; i++) { %>
+  <% var post = posts[i]; %>
+  <section class="post">
+    <div class="header">
+      <h1><a href="<%= post.url %>"><%= post.title %></a></h1>
+      <em class="date"><%- post.date.toDateString() %></em>
+      <% if (post.project) { %>
+        <div class="project">
+          <%- partial('icons/' + post.project) %>
+        </div>
+      <% } else { %>
+        <div class="icon"><i class="icon-<%= post.icon || 'picture' %> icon-white"></i></div>
+      <% } %>
+    </div>
+    <p><%- post.description %></p>
+  </section>
+<% } %>
+
+<!-- videos -->
+<section class="post">
+  <iframe width="770" height="533" src="http://www.youtube.com/embed/khWOLOL2SzA?list=UUpqYfSWEcyBGorRGvPsHkgg" frameborder="0" allowfullscreen></iframe>
+</section>
+</div>
