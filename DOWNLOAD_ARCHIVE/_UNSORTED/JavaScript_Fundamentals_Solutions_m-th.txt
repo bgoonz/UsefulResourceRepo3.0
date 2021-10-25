@@ -1,0 +1,27 @@
+Week 3 of cohort Web21  - JavaScript Fundamentals
+
+Solutions
+
+Day -1 Objects
+https://codepen.io/lambdaschool/pen/cf6f87c54714773bb313da58f696197f?editors=0010
+
+Day1 - Arrays
+https://codepen.io/lambdaschool/pen/62df2a0d481e9a045ae5c012ff44efab?editors=0010
+
+Day2 - Callbacks
+https://codepen.io/lambdaschool/pen/49562e7cfe889123d48be0351d225b5f
+
+Day2-Array Methods
+https://codepen.io/lambdaschool/pen/4619a4477cefcbf288b1534eafd3bd3b
+
+Day2 - Closures Solution
+https://codepen.io/lambdaschool/pen/be333bfa58bc5118241c5d6f18fffc8b?editors=0010
+
+Day2 - Functional Conversion
+https://codepen.io/lambdaschool/pen/ddfe8ceb27e5ec57eecebef59d239dcf?editors=0010
+
+Day3 - Prototype
+https://codepen.io/lambdaschool/pen/ceea2a5c46c87e569f163b967955f0c1?editors=0011
+
+Day4 - Lambda Classes 
+https://codepen.io/lambdaschool/pen/9fb304ca3c9270824be8e9f2d20998dc?editors=0012

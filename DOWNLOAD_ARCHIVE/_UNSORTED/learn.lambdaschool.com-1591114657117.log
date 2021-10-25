@@ -1,0 +1,15 @@
+jekyll-search.js:1 Uncaught Error: SimpleJekyllSearch --- You must specify a searchInput
+    at throwError (jekyll-search.js:1)
+    at validateOptions (jekyll-search.js:1)
+    at SimpleJekyllSearch.self.init (jekyll-search.js:1)
+    at (index):2261
+throwError @ jekyll-search.js:1
+validateOptions @ jekyll-search.js:1
+SimpleJekyllSearch.self.init @ jekyll-search.js:1
+(anonymous) @ (index):2261
+MathJax.js?config=TeX-AMS-MML_HTMLorMML:32 WARNING: cdn.mathjax.org has been retired. Check https://www.mathjax.org/cdn-shutting-down/ for migration tips.
+replaceScript @ MathJax.js?config=TeX-AMS-MML_HTMLorMML:32
+(anonymous) @ MathJax.js?config=TeX-AMS-MML_HTMLorMML:37
+(anonymous) @ MathJax.js?config=TeX-AMS-MML_HTMLorMML:53
+DevTools failed to load SourceMap: Could not load content for https://learn.lambdaschool.com/assets/js/vendor/popper.min.js.map: HTTP error: status code 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
+DevTools failed to load SourceMap: Could not load content for https://learn.lambdaschool.com/assets/js/mermaid.min.js.map: HTTP error: status code 404, net::ERR_HTTP_RESPONSE_CODE_FAILURE
