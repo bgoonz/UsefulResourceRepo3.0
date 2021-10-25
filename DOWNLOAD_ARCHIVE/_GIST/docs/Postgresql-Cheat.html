@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Postgresql-Cheat</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h1 id="postgresql-cheatsheets">Postgresql · Cheatsheets</h1>
+<blockquote>
+<p>source</p>
+</blockquote>
+<h2 id="basic-commands">Basic Commands</h2>
+<h3 id="login-to-postgresql">Login to postgresql</h3>
+<pre><code>psql -U postgres
+psql -d mydb -U myuser -W
+psql -h myhost -d mydb -U myuser -W
+psql -U myuser -h myhost &quot;dbname=mydb sslmode=require&quot; # ssl connection</code></pre>
+<h3 id="default-admin-login">Default Admin Login</h3>
+<pre><code>sudo -u postgres psql -U postgres
+sudo -u postgres psql</code></pre>
+<h3 id="list-databases-on-postgresql-server">List databases on postgresql server</h3>
+<h3 id="determine-system-tables">Determine system tables</h3>
+<pre><code>select * from pg_tables where tableowner = &#39;postgres&#39;;</code></pre>
+<h3 id="list-databases-from-within-a-pg-shell">List databases from within a pg shell</h3>
+<h3 id="list-databases-from-unix-command-prompt">List databases from UNIX command prompt</h3>
+<h3 id="describe-a-table">Describe a table</h3>
+<h3 id="quit-psql">Quit psql</h3>
+<h3 id="switch-postgres-database-within-admin-login-shell">Switch postgres database within admin login shell</h3>
+<h3 id="reset-a-user-password-as-admin">Reset a user password as admin</h3>
+<pre><code>alter user usertochange with password &#39;new_passwd&#39;;</code></pre>
+<h3 id="show-all-tables">Show all tables</h3>
+<h3 id="list-all-schemas">List all Schemas</h3>
+<h3 id="list-all-users">List all users</h3>
+<h3 id="load-data-into-postgresql">Load data into postgresql</h3>
+<pre><code>psql -W -U username -H hostname &lt; file.sql</code></pre>
+<h3 id="dump-backup-data-into-file">Dump (Backup) Data into file</h3>
+<pre><code>pg_dump -W -U username -h hostname database_name &gt; file.sql</code></pre>
+<h3 id="increment-a-sequence">Increment a sequence</h3>
+<pre><code>SELECT nextval(&#39;my_id_seq&#39;);</code></pre>
+<h3 id="create-new-user">Create new user</h3>
+<pre><code>CREATE USER lemmy WITH PASSWORD &#39;myPassword&#39;;
+# or
+
+sudo -u postgres createuser lemmy -W</code></pre>
+<h3 id="change-user-password">Change user password</h3>
+<pre><code>ALTER USER Postgres WITH PASSWORD &#39;mypass&#39;;</code></pre>
+<h3 id="grant-user-createdb-privilege">Grant user createdb privilege</h3>
+<pre><code>ALTER USER myuser WITH createdb;</code></pre>
+<h3 id="create-a-superuser-user">Create a superuser user</h3>
+<pre><code>create user mysuper with password &#39;1234&#39; SUPERUSER
+# or even better
+create user mysuper with password &#39;1234&#39; SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN REPLICATION;
+# or
+sudo -u postgres createuser lemmy -W -s</code></pre>
+<h3 id="upgrade-an-existing-user-to-superuser">Upgrade an existing user to superuser</h3>
+<pre><code>alter user mysuper with superuser;
+# or even better
+alter user mysuper with SUPERUSER CREATEDB CREATEROLE INHERIT LOGIN REPLICATION</code></pre>
+<h3 id="show-database-version">Show Database Version</h3>
+<h3 id="change-database-owner">Change Database Owner</h3>
+<pre><code>alter database database_name owner to new_owner;</code></pre>
+<h3 id="copy-a-database">Copy a database</h3>
+<pre><code>CREATE DATABASE newdb WITH TEMPLATE originaldb;</code></pre>
+<h3 id="view-database-connections">View Database Connections</h3>
+<pre><code>SELECT * FROM pg_stat_activity;</code></pre>
+<h3 id="view-show-data-directory-works-on-9.1">View show data directory (works on 9.1+)</h3>
+<h3 id="show-run-time-parameters">Show run-time parameters</h3>
+<pre><code>show all;
+select * from pg_settings;</code></pre>
+<h3 id="show-the-block-size-setting">Show the block size setting</h3>
+<pre><code># show block_size;
+ block_size
+------------
+ 8192
+(1 row)</code></pre>
+<h3 id="show-stored-procedure-source">Show stored procedure source</h3>
+<pre><code>SELECT prosrc FROM pg_proc WHERE proname = &#39;procname&#39;</code></pre>
+<h3 id="grant-examples">Grant examples</h3>
+<pre><code># readonly to all tables for myuser
+grant select on all tables in schema public to myuser;
+# all privileges on table1 and table2 to myuser
+grant all privileges on table1, table2, table3 to myuser;</code></pre>
+<h3 id="restore-postgres-.dump-file">Restore Postgres .dump file</h3>
+<pre><code>pg_restore --verbose --clean --no-acl --no-owner -h localhost -U myuser -d mydb latest.dump</code></pre>
+<p><a href="https://gist.github.com/kagemusha/1569836">source</a></p>
+<h3 id="find-all-active-sessions-and-kill-them-i.e.-for-when-needing-to-drop-or-rename-db">Find all active sessions and kill them (i.e. for when needing to drop or rename db)</h3>
+<p>Source: <a href="http://stackoverflow.com/questions/5408156/how-to-drop-a-postgresql-database-if-there-are-active-connections-to-it">http://stackoverflow.com/questions/5408156/how-to-drop-a-postgresql-database-if-there-are-active-connections-to-it</a></p>
+<pre><code># Postgres 9.6 and above
+SELECT pg_terminate_backend(pg_stat_activity.pid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = &#39;TARGET_DB&#39;
+ AND pid &lt;&gt; pg_backend_pid();
+
+# Postgres 9.6 and below
+SELECT pg_terminate_backend(pg_stat_activity.procpid)
+FROM pg_stat_activity
+WHERE pg_stat_activity.datname = &#39;TARGET_DB&#39;
+AND procpid &lt;&gt; pg_backend_pid();</code></pre>
+<h2 id="handy-queries">Handy Queries</h2>
+<pre><code>-- List procedure/function
+SELECT * FROM pg_proc WHERE proname=&#39;__procedurename__&#39;;
+
+-- List view (including the definition)
+SELECT * FROM pg_views WHERE viewname=&#39;__viewname__&#39;;
+
+-- Show DB table space in use
+SELECT pg_size_pretty(pg_total_relation_size(&#39;__table_name__&#39;));:
+
+-- Show DB space in use
+SELECT pg_size_pretty(pg_database_size(&#39;__database_name__&#39;));
+
+-- Show current user&#39;s statement timeout
+show statement_timeout;
+
+-- Show table indexes
+SELECT * FROM pg_indexes WHERE tablename=&#39;__table_name__&#39; AND schemaname=&#39;__schema_name__&#39;;
+
+-- Get all indexes from all tables of a schema:
+SELECT
+   t.relname AS table_name,
+   i.relname AS index_name,
+   a.attname AS column_name
+FROM
+   pg_class t,
+   pg_class i,
+   pg_index ix,
+   pg_attribute a,
+   pg_namespace n
+WHERE
+   t.oid = ix.indrelid
+   AND i.oid = ix.indexrelid
+   AND a.attrelid = t.oid
+   AND a.attnum = ANY(ix.indkey)
+   AND t.relnamespace = n.oid
+   AND n.nspname = &#39;kartones&#39;
+ORDER BY
+   t.relname,
+   i.relname
+
+-- Queries being executed at a certain DB
+SELECT datname, application_name, pid, backend_start, query_start, state_change, state, query
+  FROM pg_stat_activity
+  WHERE datname=&#39;__database_name__&#39;;
+
+-- Get all queries from all dbs waiting for data (might be hung)
+SELECT * FROM pg_stat_activity WHERE waiting=&#39;t&#39;;</code></pre>
+<h3 id="query-analysis">Query analysis</h3>
+<pre><code>-- See the query plan for the given query
+EXPLAIN __query__
+
+-- See and execute the query plan for the given query
+EXPLAIN ANALYZE __query__
+
+-- Collect statistics
+ANALYZE [__table__]</code></pre>
+<h2 id="querying-data">Querying Data</h2>
+<h3 id="from-a-single-table">From a Single Table</h3>
+<pre><code>-- Query data in columns c1, c2 from a table
+SELECT c1, c2 FROM t;
+
+-- Query distinct rows from a table
+SELECT DISTINCT c1
+FROM t
+WHERE condition;
+
+-- Sort the result set in ascending or descending order
+SELECT c1, c2
+FROM t
+ORDER BY c1 ASC [DESC];
+
+-- Skip offset of rows and return the next n rows
+SELECT c1, c2
+FROM t
+ORDER BY c1
+LIMIT n
+OFFSET offset;
+
+-- Group rows using an aggregate function
+SELECT c1, aggregate(c2)
+FROM t
+GROUP BY c1;
+
+-- Filter groups using HAVING clause
+SELECT c1, aggregate(c2) FROM t
+GROUP BY c1
+HAVING condition;</code></pre>
+<h3 id="from-multiple-tables">From Multiple Tables</h3>
+<pre><code>-- Inner join t1 and t2
+SELECT c1, c2
+FROM t1
+INNER JOIN t2
+ON condition;
+
+-- Left join t1 and t1
+SELECT c1, c2
+FROM t1
+LEFT JOIN t2
+ON condition;
+
+-- Right join t1 and t2
+SELECT c1, c2
+FROM t1
+RIGHT JOIN t2
+ON condition;
+
+-- Perform full outer join
+SELECT c1, c2
+FROM t1
+FULL OUTER JOIN t2
+ON condition;
+
+-- Produce a Cartesian product of rows in tables
+SELECT c1, c2
+FROM t1
+CROSS JOIN t2;
+
+-- Another way to perform cross join
+SELECT c1, c2
+FROM t1, t2;
+
+-- Join t1 to itself using INNER JOIN clause
+SELECT c1, c2
+FROM t1 A
+INNER JOIN t2 B ON condition</code></pre>
+<h3 id="using-sql-operators">Using SQL Operators</h3>
+<pre><code>-- Combine rows from two queries
+SELECT c1, c2 FROM t1
+UNION [ALL]
+SELECT c1, c2 FROM t2;
+
+-- Return the intersection of two queries
+SELECT c1, c2 FROM t1
+INTERSECT
+SELECT c1, c2 FROM t2;
+
+-- Subtract a result set from another result set
+SELECT c1, c2 FROM t1
+EXCEPT
+SELECT c1, c2 FROM t2;
+
+-- Query rows using pattern matching %, _
+SELECT c1, c2 FROM t1
+WHERE c1 [NOT] LIKE pattern;
+
+-- Query rows in a list
+SELECT c1, c2
+FROM t
+WHERE c1
+[NOT] IN value_list;
+
+-- Query rows between two values
+SELECT c1, c2
+FROM t
+WHERE c1
+BETWEEN low AND high;
+
+-- Check if values in a table is NULL or not
+SELECT c1, c2 FROM t
+WHERE c1 IS [NOT] NULL;</code></pre>
+<h2 id="source">Source:</h2>
+<ul>
+<li><a href="https://www.postgresql.org/docs/9.6/static/app-psql.html">PostgreSQL 9.6.0 Documentation</a></li>
+<li><a href="https://pgexercises.com/">PostgreSQL Exercises</a></li>
+<li><a href="http://www.postgresqltutorial.com/postgresql-cheat-sheets">PostgreSQL Tutorial</a></li>
+</ul>
+</body>
+</html>

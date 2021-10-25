@@ -1,0 +1,128 @@
+{
+  "_from": "@stdlib/assert-has-tostringtag-support@^0.0.x",
+  "_id": "@stdlib/assert-has-tostringtag-support@0.0.7",
+  "_inBundle": false,
+  "_integrity": "sha512-hE9MyseGwS4joFU3NAMjtZe8FPLZl7N/RAu21gOeiRSpm7ewbBjvmYwNTuZCnNV6FxMyxPCtW9lzXVP33fM8rQ==",
+  "_location": "/@stdlib/assert-has-tostringtag-support",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/assert-has-tostringtag-support@^0.0.x",
+    "name": "@stdlib/assert-has-tostringtag-support",
+    "escapedName": "@stdlib%2fassert-has-tostringtag-support",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/assert-is-boolean",
+    "/@stdlib/assert-is-string",
+    "/@stdlib/utils-native-class"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/assert-has-tostringtag-support/-/assert-has-tostringtag-support-0.0.7.tgz",
+  "_shasum": "a861ce6c8440d80305937a7d285f72157cc3daaa",
+  "_spec": "@stdlib/assert-has-tostringtag-support@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/utils-native-class",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bin": {
+    "has-tostringtag-support": "bin/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/assert-has-symbol-support": "^0.0.x",
+    "@stdlib/cli-ctor": "^0.0.x",
+    "@stdlib/fs-read-file": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Detect native Symbol.toStringTag support.",
+  "devDependencies": {
+    "@stdlib/assert-is-boolean": "^0.0.x",
+    "@stdlib/assert-is-browser": "^0.0.x",
+    "@stdlib/assert-is-windows": "^0.0.x",
+    "@stdlib/bench": "^0.0.x",
+    "@stdlib/process-exec-path": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "proxyquire": "^2.0.0",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdutils",
+    "stdutil",
+    "utilities",
+    "utility",
+    "utils",
+    "util",
+    "detect",
+    "feature",
+    "symbol",
+    "tostringtag",
+    "class",
+    "type",
+    "typeof",
+    "es2015",
+    "es6",
+    "support",
+    "has",
+    "native",
+    "issupported",
+    "cli"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/assert-has-tostringtag-support",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/assert-has-tostringtag-support.git"
+  },
+  "scripts": {
+    "benchmark": "make benchmark",
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.7"
+}

@@ -1,0 +1,27 @@
+{
+  "name": "file-system",
+  "version": "1.0.0",
+  "description": "generate html directory from folder",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Bryan Guner",
+  "license": "MIT",
+  "dependencies": {
+    "@stdlib/fs-write-file": "0.0.7",
+    "dirlist-static": "^1.2.1",
+    "file-fetch": "^1.7.0",
+    "fs-extra": "^10.0.0",
+    "grunt-directory-to-html": "^0.2.0",
+    "make-dir": "^3.1.0",
+    "path-exists": "^5.0.0",
+    "requireindex": "^1.2.0",
+    "sitemap-js-obj": "0.0.3",
+    "stencil": "0.0.5",
+    "walkdir": "^0.4.1",
+    "write": "^2.0.0",
+    "write-file-atomic": "^3.0.3",
+    "write-json-file": "^5.0.0"
+  }
+}

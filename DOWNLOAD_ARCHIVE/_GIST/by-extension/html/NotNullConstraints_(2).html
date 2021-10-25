@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>NotNullConstraints</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h4 id="not-null-constraints">Not Null Constraints</h4>
+    <h1 id="required-columns">“Required” Columns</h1>
+    <p>
+      To identify a URL in the table you use the key, but it is currently
+      possible to insert rows without a key.
+    </p>
+    <p>
+      Execute the following command to add a constraint that makes
+      the <code>key</code> column required:
+    </p>
+    <pre><code>ALTER TABLE shorturl ALTER COLUMN key SET NOT NULL;</code></pre>
+    <p>
+      💡 TIP: Using <code>psql</code>, you can hit <code>&lt;tab&gt;</code> for
+      auto-complete.
+    </p>
+    <p>
+      <code>NULL</code> in SQL is used to indicate “no value”. By adding a “not
+      null” constraint on a column, you make sure it must have a value.
+    </p>
+    <p>
+      To inspect the changes to the table, execute the following command in the
+      terminal:
+    </p>
+    <pre><code>\d shorturl</code></pre>
+    <p>
+      Notice that now both the primary key <code>id</code> and the
+      column <code>key</code> are marked as “not null” in the “Nullable” column.
+    </p>
+    <p>
+      To test the new constraint, try to insert a row without providing a key:
+    </p>
+    <pre><code>INSERT INTO shorturl (url) VALUES (&#39;https://www.postgresql.org&#39;);</code></pre>
+    <p>
+      As expected, the command fails because you did not provide a key. Next,
+      try to provide “NULL” key:
+    </p>
+    <pre><code>INSERT INTO shorturl (url, key) VALUES (&#39;https://www.postgresql.org&#39;, NULL);</code></pre>
+    <p>This also fails because <code>key</code> cannot be NULL.</p>
+    <p>
+      In addition to <code>key</code>, all the other fields in the table must
+      have a value. To enforce that, execute the following command to add “not
+      null” constraints on the other fields in the table:
+    </p>
+    <pre><code>ALTER TABLE shorturl ALTER COLUMN url SET NOT NULL;
+ALTER TABLE shorturl ALTER COLUMN hits SET NOT NULL;
+ALTER TABLE shorturl ALTER COLUMN created_at SET NOT NULL;</code></pre>
+    <p>
+      Execute the following command in the terminal to inspect the new
+      constraints:
+    </p>
+    <pre><code>\d shorturl</code></pre>
+    <p>
+      Notice the column titled “Nullable” in the output; all fields are now
+      marked as “not null”.
+    </p>
+    <p>
+      📚 The relevant documentation on NOT NULL constraints can be found <a
+        href="https://www.postgresql.org/docs/13/ddl-constraints.html#id-1.5.4.6.6"
+        >here</a
+      >.
+    </p>
+    <p>
+      Now that all the fields in the table are required, you are going to make
+      it easier to insert new short URLs to the table.
+    </p>
+  </body>
+</html>

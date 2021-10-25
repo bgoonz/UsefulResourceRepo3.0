@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>Usingpandocwith-gh-actions</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="using-pandoc-with-github-actions">
+      Using <code>pandoc</code> with
+      <a href="https://github.com/features/actions">GitHub Actions</a>
+    </h1>
+    <!-- badges: start -->
+    <p>
+      <a href="https://github.com/maxheld83/pandoc-example/actions"
+        ><img
+          src="https://github.com/maxheld83/pandoc-example/workflows/Simple%20Usage/badge.svg"
+          alt="Simple Usage"
+      /></a>
+      <a href="https://github.com/maxheld83/pandoc-example/actions"
+        ><img
+          src="https://github.com/maxheld83/pandoc-example/workflows/Long%20Usage/badge.svg"
+          alt="Long Usage"
+      /></a>
+      <a href="https://github.com/maxheld83/pandoc-example/actions"
+        ><img
+          src="https://github.com/maxheld83/pandoc-example/workflows/Advanced%20Usage/badge.svg"
+          alt="Advanced Usage"
+      /></a>
+      <!-- badges: end -->
+    </p>
+    <p>
+      You can use <a href="https://pandoc.org/">pandoc</a>, the
+      <strong>universal markup converter</strong>, on GitHub Actions to convert
+      documents.
+    </p>
+    <p>
+      GitHub Actions is an Infrastructure as a Service (IaaS) from GitHub, that
+      allows you to automatically run code on GitHub’s servers on every push (or
+      a bunch of other GitHub events). For example, you can use GitHub Actions
+      to convert some <code>file.md</code> to <code>file.pdf</code> (via LaTeX)
+      and upload the results to a web host.
+    </p>
+    <h2 id="using-dockerpandoc-images-directly">
+      Using <code>docker://pandoc</code> Images Directly
+    </h2>
+    <p>
+      You can now <em>directly</em>
+      <a
+        href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/configuring-a-workflow#referencing-a-container-on-docker-hub"
+        >reference container actions</a
+      >
+      on GitHub Actions. You do not <em>need</em> a separate GitHub Action.
+    </p>
+    <p>
+      If you need LaTeX (because you want to convert through to PDF), you should
+      use the <code>docker://pandoc/latex</code> image. Otherwise, the smaller
+      <code>docker://pandoc/core</code> will suffice.
+    </p>
+    <p>
+      It is a good idea to be explicit about the pandoc version you require,
+      such as <code>docker://pandoc/core:2.9</code>. This way, any future
+      breaking changes in pandoc will not affect your workflow. You can find out
+      whatever the latest released docker image is on
+      <a href="https://hub.docker.com/r/pandoc/core/tags">docker hub</a>. You
+      should avoid specifying <em>no</em> tag or the <code>latest</code> tag –
+      these will float to the latest image and will expose your workflow to
+      potentially breaking changes.
+    </p>
+    <h2 id="simple-usage">Simple Usage</h2>
+    <p>
+      You can use pandoc inside GitHub actions exactly as you would use it on
+      the command line. The string passed to <code>args</code> gets appended to
+      the
+      <a href="https://pandoc.org/MANUAL.html"><code>pandoc</code> command</a>.
+    </p>
+    <p>
+      The below example is equivalent to running <code>pandoc --help</code>.
+    </p>
+    <p>
+      You can see it in action
+      <a href="http://github.com/maxheld83/pandoc-example">here</a>.
+    </p>
+    <pre><code>name: Simple Usage
+
+on: push
+
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: &quot;--help&quot; # gets appended to pandoc command</code></pre>
+    <h2 id="long-pandoc-calls">Long Pandoc Calls</h2>
+    <p>
+      Remember that as per the
+      <a
+        href="https://help.github.com/en/actions/automating-your-workflow-with-github-actions/workflow-syntax-for-github-actions#jobsjob_idstepswithargs"
+        >GitHub Actions workflow syntax</a
+      >, "an <code>array of strings</code> is not supported by the
+      <code>jobs.&lt;job_id&gt;.steps.with.args</code> parameter. Pandoc
+      commands can sometimes get quite long and unwieldy, but you must pass them
+      as a <em>single</em> string. If you want to break up the string over
+      several lines, you can use YAML’s
+      <a href="http://www.yaml.org/spec/1.2/spec.html#id2794534"
+        >block chomping indicator</a
+      >:
+    </p>
+    <pre><code>name: Long Usage
+
+on: push
+
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-18.04
+    steps:
+      - run: echo &quot;foo&quot; &gt; input.txt  # create an example file
+      - uses: docker://pandoc/core:2.9
+        with:
+          args: &gt;-  # allows you to break string into multiple lines
+            --standalone
+            --output=index.html
+            input.txt</code></pre>
+    <p>
+      You can see it in action
+      <a href="http://github.com/maxheld83/pandoc-example">here</a>.
+    </p>
+    <h2 id="advanced-usage">Advanced Usage</h2>
+    <p>You can also:</p>
+    <ul>
+      <li>
+        create an output directory to compile into; makes it easier to deploy
+        outputs.
+      </li>
+      <li>
+        upload the output directory to
+        <a
+          href="https://help.github.com/en/articles/managing-a-workflow-run#downloading-logs-and-artifacts"
+          >GitHub’s artifact storage</a
+        >; you can quickly download the results from your GitHub Actions tab in
+        your repo.
+      </li>
+    </ul>
+    <p>
+      Remember that wildcard substitution (say, <code>pandoc *.md</code>) or
+      other shell features frequently used with pandoc do not work inside GitHub
+      Actions yaml files <code>args:</code> fields. Only
+      <a
+        href="https://help.github.com/en/actions/reference/context-and-expression-syntax-for-github-actions"
+        >GitHub Actions context and expression syntax</a
+      >
+      can be used here. If you want to make use of such shell features, you have
+      to run that in a separate step in a <code>run</code> field and store the
+      result in the GitHub actions context. The below workflow includes an
+      example of how to do this to concatenate several input files.
+    </p>
+    <p>
+      You can see it in action (haha!)
+      <a href="http://github.com/maxheld83/pandoc-example">here</a>.
+    </p>
+    <pre><code>name: Advanced Usage
+
+on: push
+
+jobs:
+  convert_via_pandoc:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: create file list
+        id: files_list
+        run: |
+          echo &quot;Lorem ipsum&quot; &gt; lorem_1.md  # create two example files
+          echo &quot;dolor sit amet&quot; &gt; lorem_2.md
+          mkdir output  # create output dir
+          # this will also include README.md
+          echo &quot;::set-output name=files::$(printf &#39;&quot;%s&quot; &#39; *.md)&quot;
+
+      - uses: docker://pandoc/latex:2.9
+        with:
+          args: --output=output/result.pdf ${{ steps.files_list.outputs.files }}
+          
+      - uses: actions/upload-artifact@master
+        with:
+          name: output
+          path: output</code></pre>
+  </body>
+</html>

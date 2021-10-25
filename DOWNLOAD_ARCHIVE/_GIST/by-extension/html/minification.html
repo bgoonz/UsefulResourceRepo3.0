@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>minification</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <p>
+      In production, it is recommended to minify any JavaScript code that is
+      included with your application.
+      <strong
+        >Minification can help your website load several times faster,</strong
+      >
+      especially as the size of your JavaScript source code grows.
+    </p>
+    <p>Here’s one way to set it up:</p>
+    <ol type="1">
+      <li><a href="https://nodejs.org/">Install Node.js</a></li>
+      <li>
+        Run <code>npm init -y</code> in your project folder (<strong
+          >don’t skip this step!</strong
+        >)
+      </li>
+      <li>Run <code>npm install terser</code></li>
+    </ol>
+    <p>
+      Now, to minify a file called <code>like_button.js</code>, run in the
+      terminal:
+    </p>
+    <pre><code>npx terser -c -m -o like_button.min.js -- like_button.js</code></pre>
+    <p>
+      This will produce a file called <code>like_button.min.js</code> with the
+      minified code in the same directory. If you’re typing this often, you can
+      <a
+        href="https://medium.freecodecamp.org/introduction-to-npm-scripts-1dbb2ae01633"
+        >create an npm script</a
+      >
+      to give this command a name.
+    </p>
+  </body>
+</html>

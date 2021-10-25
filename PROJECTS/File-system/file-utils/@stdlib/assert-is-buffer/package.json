@@ -1,0 +1,114 @@
+{
+  "_from": "@stdlib/assert-is-buffer@^0.0.x",
+  "_id": "@stdlib/assert-is-buffer@0.0.7",
+  "_inBundle": false,
+  "_integrity": "sha512-1VJPY69LPNFtF4kB17SIegROVxU2J5j0HNMP5UdvfxISegE4kaTPUE0TET6yZ2/cYe4vFAXYnpY8YlRHCFpWlg==",
+  "_location": "/@stdlib/assert-is-buffer",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/assert-is-buffer@^0.0.x",
+    "name": "@stdlib/assert-is-buffer",
+    "escapedName": "@stdlib%2fassert-is-buffer",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/assert-has-node-buffer-support",
+    "/@stdlib/utils-constructor-name"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/assert-is-buffer/-/assert-is-buffer-0.0.7.tgz",
+  "_shasum": "40a5bd5cf507ed60d6af2e60bb734d7dfd72cf6c",
+  "_spec": "@stdlib/assert-is-buffer@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/utils-constructor-name",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/assert-is-object-like": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Test if a value is a Buffer object.",
+  "devDependencies": {
+    "@stdlib/array-int8": "^0.0.x",
+    "@stdlib/assert-is-boolean": "^0.0.x",
+    "@stdlib/bench": "^0.0.x",
+    "@stdlib/buffer-ctor": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdassert",
+    "assertion",
+    "assert",
+    "utilities",
+    "utility",
+    "utils",
+    "util",
+    "valid",
+    "node",
+    "buffer",
+    "is",
+    "isbuffer",
+    "type",
+    "check"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/assert-is-buffer",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/assert-is-buffer.git"
+  },
+  "scripts": {
+    "benchmark": "make benchmark",
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.7"
+}

@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Git</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+</head>
+<body>
+<h3 id="tools"><strong>Tools:</strong></h3>
+<ul>
+<li><a href="https://www.npmjs.com/package/git-tip">git-tip</a> - A handy CLI to make optimum use of these tips. (<a href="https://github.com/djoudi5/docker-git-tip">Here in Docker container</a>)</li>
+</ul>
+<p>P.S: All these commands are tested on <code>git version 2.7.4 (Apple Git-66)</code>.</p>
+<ul>
+<li><a href="#everyday-git-in-twenty-commands-or-so">Everyday Git in twenty commands or so</a></li>
+<li><a href="#show-helpful-guides-that-come-with-git">Show helpful guides that come with Git</a></li>
+<li><a href="#search-change-by-content">Search change by content</a></li>
+<li><a href="#show-changes-over-time-for-specific-file">Show changes over time for specific file</a></li>
+<li><a href="#remove-sensitive-data-from-history-after-a-push">Remove sensitive data from history, after a push</a></li>
+<li><a href="#sync-with-remote-overwrite-local-changes">Sync with remote, overwrite local changes</a></li>
+<li><a href="#list-of-all-files-till-a-commit">List of all files till a commit</a></li>
+<li><a href="#git-reset-first-commit">Git reset first commit</a></li>
+<li><a href="#reset-preserve-uncommitted-local-changes">Reset: preserve uncommitted local changes</a></li>
+<li><a href="#list-all-the-conflicted-files">List all the conflicted files</a></li>
+<li><a href="#list-of-all-files-changed-in-a-commit">List of all files changed in a commit</a></li>
+<li><a href="#unstaged-changes-since-last-commit">Unstaged changes since last commit</a></li>
+<li><a href="#changes-staged-for-commit">Changes staged for commit</a></li>
+<li><a href="#show-both-staged-and-unstaged-changes">Show both staged and unstaged changes</a></li>
+<li><a href="#list-all-branches-that-are-already-merged-into-master">List all branches that are already merged into master</a></li>
+<li><a href="#quickly-switch-to-the-previous-branch">Quickly switch to the previous branch</a></li>
+<li><a href="#remove-branches-that-have-already-been-merged-with-master">Remove branches that have already been merged with master</a></li>
+<li><a href="#list-all-branches-and-their-upstreams-as-well-as-last-commit-on-branch">List all branches and their upstreams, as well as last commit on branch</a></li>
+<li><a href="#track-upstream-branch">Track upstream branch</a></li>
+<li><a href="#delete-local-branch">Delete local branch</a></li>
+<li><a href="#delete-remote-branch">Delete remote branch</a></li>
+<li><a href="#delete-local-tag">Delete local tag</a></li>
+<li><a href="#delete-remote-tag">Delete remote tag</a></li>
+<li><a href="#undo-local-changes-with-the-last-content-in-head">Undo local changes with the last content in head</a></li>
+<li><a href="#revert-undo-a-commit-by-creating-a-new-commit">Revert: Undo a commit by creating a new commit</a></li>
+<li><a href="#reset-discard-commits-advised-for-private-branch">Reset: Discard commits, advised for private branch</a></li>
+<li><a href="#reword-the-previous-commit-message">Reword the previous commit message</a></li>
+<li><a href="#see-commit-history-for-just-the-current-branch">See commit history for just the current branch</a></li>
+<li><a href="#amend-author">Amend author.</a></li>
+<li><a href="#reset-author-after-author-has-been-changed-in-the-global-config">Reset author, after author has been changed in the global config.</a></li>
+<li><a href="#changing-a-remotes-url">Changing a remote’s URL</a></li>
+<li><a href="#get-list-of-all-remote-references">Get list of all remote references</a></li>
+<li><a href="#get-list-of-all-local-and-remote-branches">Get list of all local and remote branches</a></li>
+<li><a href="#get-only-remote-branches">Get only remote branches</a></li>
+<li><a href="#stage-parts-of-a-changed-file-instead-of-the-entire-file">Stage parts of a changed file, instead of the entire file</a></li>
+<li><a href="#get-git-bash-completion">Get git bash completion</a></li>
+<li><a href="#what-changed-since-two-weeks">What changed since two weeks?</a></li>
+<li><a href="#see-all-commits-made-since-forking-from-master">See all commits made since forking from master</a></li>
+<li><a href="#pick-commits-across-branches-using-cherry-pick">Pick commits across branches using cherry-pick</a></li>
+<li><a href="#find-out-branches-containing-commit-hash">Find out branches containing commit-hash</a></li>
+<li><a href="#git-aliases">Git Aliases</a></li>
+<li><a href="#saving-current-state-of-tracked-files-without-commiting">Saving current state of tracked files without commiting</a></li>
+<li><a href="#saving-current-state-of-unstaged-changes-to-tracked-files">Saving current state of unstaged changes to tracked files</a></li>
+<li><a href="#saving-current-state-including-untracked-files">Saving current state including untracked files</a></li>
+<li><a href="#saving-current-state-with-message">Saving current state with message</a></li>
+<li><a href="#saving-current-state-of-all-files-ignored-untracked-and-tracked">Saving current state of all files (ignored, untracked, and tracked)</a></li>
+<li><a href="#show-list-of-all-saved-stashes">Show list of all saved stashes</a></li>
+<li><a href="#apply-any-stash-without-deleting-from-the-stashed-list">Apply any stash without deleting from the stashed list</a></li>
+<li><a href="#apply-last-stashed-state-and-delete-it-from-stashed-list">Apply last stashed state and delete it from stashed list</a></li>
+<li><a href="#delete-all-stored-stashes">Delete all stored stashes</a></li>
+<li><a href="#grab-a-single-file-from-a-stash">Grab a single file from a stash</a></li>
+<li><a href="#show-all-tracked-files">Show all tracked files</a></li>
+<li><a href="#show-all-untracked-files">Show all untracked files</a></li>
+<li><a href="#show-all-ignored-files">Show all ignored files</a></li>
+<li><a href="#create-new-working-tree-from-a-repository-git-25">Create new working tree from a repository (git 2.5)</a></li>
+<li><a href="#create-new-working-tree-from-head-state">Create new working tree from HEAD state</a></li>
+<li><a href="#untrack-files-without-deleting">Untrack files without deleting</a></li>
+<li><a href="#before-deleting-untracked-filesdirectory-do-a-dry-run-to-get-the-list-of-these-filesdirectories">Before deleting untracked files/directory, do a dry run to get the list of these files/directories</a></li>
+<li><a href="#forcefully-remove-untracked-files">Forcefully remove untracked files</a></li>
+<li><a href="#forcefully-remove-untracked-directory">Forcefully remove untracked directory</a></li>
+<li><a href="#update-all-the-submodules">Update all the submodules</a></li>
+<li><a href="#show-all-commits-in-the-current-branch-yet-to-be-merged-to-master">Show all commits in the current branch yet to be merged to master</a></li>
+<li><a href="#rename-a-branch">Rename a branch</a></li>
+<li><a href="#rebases-feature-to-master-and-merges-it-in-to-master">Rebases ‘feature’ to ‘master’ and merges it in to master</a></li>
+<li><a href="#archive-the-master-branch">Archive the <code>master</code> branch</a></li>
+<li><a href="#modify-previous-commit-without-modifying-the-commit-message">Modify previous commit without modifying the commit message</a></li>
+<li><a href="#prunes-references-to-remove-branches-that-have-been-deleted-in-the-remote">Prunes references to remove branches that have been deleted in the remote.</a></li>
+<li><a href="#delete-local-branches-that-has-been-squash-and-merged-in-the-remote">Delete local branches that has been squash and merged in the remote.</a></li>
+<li><a href="#retrieve-the-commit-hash-of-the-initial-revision">Retrieve the commit hash of the initial revision.</a></li>
+<li><a href="#visualize-the-version-tree">Visualize the version tree.</a></li>
+<li><a href="#visualize-the-tree-including-commits-that-are-only-referenced-from-reflogs">Visualize the tree including commits that are only referenced from reflogs</a></li>
+<li><a href="#deploying-git-tracked-subfolder-to-gh-pages">Deploying git tracked subfolder to gh-pages</a></li>
+<li><a href="#adding-a-project-to-repo-using-subtree">Adding a project to repo using subtree</a></li>
+<li><a href="#get-latest-changes-in-your-repo-for-a-linked-project-using-subtree">Get latest changes in your repo for a linked project using subtree</a></li>
+<li><a href="#export-a-branch-with-history-to-a-file">Export a branch with history to a file.</a></li>
+<li><a href="#import-from-a-bundle">Import from a bundle</a></li>
+<li><a href="#get-the-name-of-current-branch">Get the name of current branch.</a></li>
+<li><a href="#ignore-one-file-on-commit-eg-changelog">Ignore one file on commit (e.g. Changelog).</a></li>
+<li><a href="#stash-changes-before-rebasing">Stash changes before rebasing</a></li>
+<li><a href="#fetch-pull-request-by-id-to-a-local-branch">Fetch pull request by ID to a local branch</a></li>
+<li><a href="#show-the-most-recent-tag-on-the-current-branch">Show the most recent tag on the current branch.</a></li>
+<li><a href="#show-inline-word-diff">Show inline word diff.</a></li>
+<li><a href="#show-changes-using-common-diff-tools">Show changes using common diff tools.</a></li>
+<li><a href="#dont-consider-changes-for-tracked-file">Don’t consider changes for tracked file.</a></li>
+<li><a href="#undo-assume-unchanged">Undo assume-unchanged.</a></li>
+<li><a href="#clean-the-files-from-gitignore">Clean the files from <code>.gitignore</code>.</a></li>
+<li><a href="#restore-deleted-file">Restore deleted file.</a></li>
+<li><a href="#restore-file-to-a-specific-commit-hash">Restore file to a specific commit-hash</a></li>
+<li><a href="#always-rebase-instead-of-merge-on-pull">Always rebase instead of merge on pull.</a></li>
+<li><a href="#list-all-the-alias-and-configs">List all the alias and configs.</a></li>
+<li><a href="#make-git-case-sensitive">Make git case sensitive.</a></li>
+<li><a href="#add-custom-editors">Add custom editors.</a></li>
+<li><a href="#auto-correct-typos">Auto correct typos.</a></li>
+<li><a href="#check-if-the-change-was-a-part-of-a-release">Check if the change was a part of a release.</a></li>
+<li><a href="#dry-run-any-command-that-supports-dry-run-flag-should-do">Dry run. (any command that supports dry-run flag should do.)</a></li>
+<li><a href="#marks-your-commit-as-a-fix-of-a-previous-commit">Marks your commit as a fix of a previous commit.</a></li>
+<li><a href="#squash-fixup-commits-normal-commits">Squash fixup commits normal commits.</a></li>
+<li><a href="#skip-staging-area-during-commit">Skip staging area during commit.</a></li>
+<li><a href="#interactive-staging">Interactive staging.</a></li>
+<li><a href="#list-ignored-files">List ignored files.</a></li>
+<li><a href="#status-of-ignored-files">Status of ignored files.</a></li>
+<li><a href="#commits-in-branch1-that-are-not-in-branch2">Commits in Branch1 that are not in Branch2</a></li>
+<li><a href="#list-n-last-commits">List n last commits</a></li>
+<li><a href="#reuse-recorded-resolution-record-and-reuse-previous-conflicts-resolutions">Reuse recorded resolution, record and reuse previous conflicts resolutions.</a></li>
+<li><a href="#open-all-conflicted-files-in-an-editor">Open all conflicted files in an editor.</a></li>
+<li><a href="#count-unpacked-number-of-objects-and-their-disk-consumption">Count unpacked number of objects and their disk consumption.</a></li>
+<li><a href="#prune-all-unreachable-objects-from-the-object-database">Prune all unreachable objects from the object database.</a></li>
+<li><a href="#instantly-browse-your-working-repository-in-gitweb">Instantly browse your working repository in gitweb.</a></li>
+<li><a href="#view-the-gpg-signatures-in-the-commit-log">View the GPG signatures in the commit log</a></li>
+<li><a href="#remove-entry-in-the-global-config">Remove entry in the global config.</a></li>
+<li><a href="#checkout-a-new-branch-without-any-history">Checkout a new branch without any history</a></li>
+<li><a href="#extract-file-from-another-branch">Extract file from another branch.</a></li>
+<li><a href="#list-only-the-root-and-merge-commits">List only the root and merge commits.</a></li>
+<li><a href="#change-previous-two-commits-with-an-interactive-rebase">Change previous two commits with an interactive rebase.</a></li>
+<li><a href="#list-all-branch-is-wip">List all branch is WIP</a></li>
+<li><a href="#find-guilty-with-binary-search">Find guilty with binary search</a></li>
+<li><a href="#bypass-pre-commit-and-commit-msg-githooks">Bypass pre-commit and commit-msg githooks</a></li>
+<li><a href="#list-commits-and-changes-to-a-specific-file-even-through-renaming">List commits and changes to a specific file (even through renaming)</a></li>
+<li><a href="#clone-a-single-branch">Clone a single branch</a></li>
+<li><a href="#create-and-switch-new-branch">Create and switch new branch</a></li>
+<li><a href="#ignore-file-mode-changes-on-commits">Ignore file mode changes on commits</a></li>
+<li><a href="#turn-off-git-colored-terminal-output">Turn off git colored terminal output</a></li>
+<li><a href="#specific-color-settings">Specific color settings</a></li>
+<li><a href="#show-all-local-branches-ordered-by-recent-commits">Show all local branches ordered by recent commits</a></li>
+<li><a href="#find-lines-matching-the-pattern-regex-or-string-in-tracked-files">Find lines matching the pattern (regex or string) in tracked files</a></li>
+<li><a href="#clone-a-shallow-copy-of-a-repository">Clone a shallow copy of a repository</a></li>
+<li><a href="#search-commit-log-across-all-branches-for-given-text">Search Commit log across all branches for given text</a></li>
+<li><a href="#get-first-commit-in-a-branch-from-master">Get first commit in a branch (from master)</a></li>
+<li><a href="#unstaging-staged-file">Unstaging Staged file</a></li>
+<li><a href="#force-push-to-remote-repository">Force push to Remote Repository</a></li>
+<li><a href="#adding-remote-name">Adding Remote name</a></li>
+<li><a href="#list-all-currently-configured-remotes">List all currently configured remotes</a></li>
+<li><a href="#show-the-author-time-and-last-revision-made-to-each-line-of-a-given-file">Show the author, time and last revision made to each line of a given file</a></li>
+<li><a href="#group-commits-by-authors-and-title">Group commits by authors and title</a></li>
+<li><a href="#forced-push-but-still-ensure-you-dont-overwrite-others-work">Forced push but still ensure you don’t overwrite other’s work</a></li>
+<li><a href="#show-how-many-lines-does-an-author-contribute">Show how many lines does an author contribute</a></li>
+<li><a href="#revert-reverting-an-entire-merge">Revert: Reverting an entire merge</a></li>
+<li><a href="#number-of-commits-in-a-branch">Number of commits in a branch</a></li>
+<li><a href="#alias-git-undo">Alias: git undo</a></li>
+<li><a href="#add-object-notes">Add object notes</a></li>
+<li><a href="#show-all-the-git-notes">Show all the git-notes</a></li>
+<li><a href="#apply-commit-from-another-repository">Apply commit from another repository</a></li>
+<li><a href="#specific-fetch-reference">Specific fetch reference</a></li>
+<li><a href="#find-common-ancestor-of-two-branches">Find common ancestor of two branches</a></li>
+<li><a href="#list-unpushed-git-commits">List unpushed git commits</a></li>
+<li><a href="#add-everything-but-whitespace-changes">Add everything, but whitespace changes</a></li>
+<li><a href="#edit-localglobal-git-config">Edit [local/global] git config</a></li>
+<li><a href="#blame-on-certain-range">blame on certain range</a></li>
+<li><a href="#show-a-git-logical-variable">Show a Git logical variable.</a></li>
+<li><a href="#preformatted-patch-file">Preformatted patch file.</a></li>
+<li><a href="#get-the-repo-name">Get the repo name.</a></li>
+<li><a href="#logs-between-date-range">logs between date range</a></li>
+<li><a href="#exclude-author-from-logs">Exclude author from logs</a></li>
+<li><a href="#generates-a-summary-of-pending-changes">Generates a summary of pending changes</a></li>
+<li><a href="#list-references-in-a-remote-repository">List references in a remote repository</a></li>
+<li><a href="#backup-untracked-files">Backup untracked files.</a></li>
+<li><a href="#list-all-git-aliases">List all git aliases</a></li>
+<li><a href="#show-git-status-short">Show git status short</a></li>
+<li><a href="#checkout-a-commit-prior-to-a-day-ago">Checkout a commit prior to a day ago</a></li>
+<li><a href="#push-a-new-local-branch-to-remote-repository-and-track">Push a new local branch to remote repository and track</a></li>
+<li><a href="#change-a-branch-base">Change a branch base</a></li>
+<li><a href="#use-ssh-instead-of-https-for-remotes">Use SSH instead of HTTPs for remotes</a></li>
+<li><a href="#update-a-submodule-to-the-latest-commit">Update a submodule to the latest commit</a></li>
+<li><a href="#prevent-auto-replacing-lf-with-crlf">Prevent auto replacing LF with CRLF</a></li>
+</ul>
+<h2 id="everyday-git-in-twenty-commands-or-so">Everyday Git in twenty commands or so</h2>
+<pre><code>git help everyday</code></pre>
+<h2 id="show-helpful-guides-that-come-with-git">Show helpful guides that come with Git</h2>
+<pre><code>git help -g</code></pre>
+<h2 id="search-change-by-content">Search change by content</h2>
+<pre><code>git log -S&#39;&lt;a term in the source&gt;&#39;</code></pre>
+<h2 id="show-changes-over-time-for-specific-file">Show changes over time for specific file</h2>
+<pre><code>git log -p &lt;file_name&gt;</code></pre>
+<h2 id="remove-sensitive-data-from-history-after-a-push">Remove sensitive data from history, after a push</h2>
+<pre><code>git filter-branch --force --index-filter &#39;git rm --cached --ignore-unmatch &lt;path-to-your-file&gt;&#39; --prune-empty --tag-name-filter cat -- --all &amp;&amp; git push origin --force --all</code></pre>
+<h2 id="sync-with-remote-overwrite-local-changes">Sync with remote, overwrite local changes</h2>
+<pre><code>git fetch origin &amp;&amp; git reset --hard origin/master &amp;&amp; git clean -f -d</code></pre>
+<h2 id="list-of-all-files-till-a-commit">List of all files till a commit</h2>
+<pre><code>git ls-tree --name-only -r &lt;commit-ish&gt;</code></pre>
+<h2 id="git-reset-first-commit">Git reset first commit</h2>
+<pre><code>git update-ref -d HEAD</code></pre>
+<h2 id="reset-preserve-uncommitted-local-changes">Reset: preserve uncommitted local changes</h2>
+<pre><code>git reset --keep &lt;commit&gt;</code></pre>
+<h2 id="list-all-the-conflicted-files">List all the conflicted files</h2>
+<pre><code>git diff --name-only --diff-filter=U</code></pre>
+<h2 id="list-of-all-files-changed-in-a-commit">List of all files changed in a commit</h2>
+<pre><code>git diff-tree --no-commit-id --name-only -r &lt;commit-ish&gt;</code></pre>
+<h2 id="unstaged-changes-since-last-commit">Unstaged changes since last commit</h2>
+<pre><code>git diff</code></pre>
+<h2 id="changes-staged-for-commit">Changes staged for commit</h2>
+<pre><code>git diff --cached</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git diff --staged</code></pre>
+<h2 id="show-both-staged-and-unstaged-changes">Show both staged and unstaged changes</h2>
+<pre><code>git diff HEAD</code></pre>
+<h2 id="list-all-branches-that-are-already-merged-into-master">List all branches that are already merged into master</h2>
+<pre><code>git branch --merged master</code></pre>
+<h2 id="quickly-switch-to-the-previous-branch">Quickly switch to the previous branch</h2>
+<pre><code>git checkout -</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git checkout @{-1}</code></pre>
+<h2 id="remove-branches-that-have-already-been-merged-with-master">Remove branches that have already been merged with master</h2>
+<pre><code>git branch --merged master | grep -v &#39;^\*&#39; | xargs -n 1 git branch -d</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git branch --merged master | grep -v &#39;^\*\|  master&#39; | xargs -n 1 git branch -d # will not delete master if master is not checked out</code></pre>
+<h2 id="list-all-branches-and-their-upstreams-as-well-as-last-commit-on-branch">List all branches and their upstreams, as well as last commit on branch</h2>
+<pre><code>git branch -vv</code></pre>
+<h2 id="track-upstream-branch">Track upstream branch</h2>
+<pre><code>git branch -u origin/mybranch</code></pre>
+<h2 id="delete-local-branch">Delete local branch</h2>
+<pre><code>git branch -d &lt;local_branchname&gt;</code></pre>
+<h2 id="delete-remote-branch">Delete remote branch</h2>
+<pre><code>git push origin --delete &lt;remote_branchname&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git push origin :&lt;remote_branchname&gt;
+
+git branch -dr &lt;remote/branch&gt;</code></pre>
+<h2 id="delete-local-tag">Delete local tag</h2>
+<pre><code>git tag -d &lt;tag-name&gt;</code></pre>
+<h2 id="delete-remote-tag">Delete remote tag</h2>
+<pre><code>git push origin :refs/tags/&lt;tag-name&gt;</code></pre>
+<h2 id="undo-local-changes-with-the-last-content-in-head">Undo local changes with the last content in head</h2>
+<pre><code>git checkout -- &lt;file_name&gt;</code></pre>
+<h2 id="revert-undo-a-commit-by-creating-a-new-commit">Revert: Undo a commit by creating a new commit</h2>
+<pre><code>git revert &lt;commit-ish&gt;</code></pre>
+<h2 id="reset-discard-commits-advised-for-private-branch">Reset: Discard commits, advised for private branch</h2>
+<pre><code>git reset &lt;commit-ish&gt;</code></pre>
+<h2 id="reword-the-previous-commit-message">Reword the previous commit message</h2>
+<pre><code>git commit -v --amend</code></pre>
+<h2 id="see-commit-history-for-just-the-current-branch">See commit history for just the current branch</h2>
+<pre><code>git cherry -v master</code></pre>
+<h2 id="amend-author.">Amend author.</h2>
+<pre><code>git commit --amend --author=&#39;Author Name &lt;email@address.com&gt;&#39;</code></pre>
+<h2 id="reset-author-after-author-has-been-changed-in-the-global-config.">Reset author, after author has been changed in the global config.</h2>
+<pre><code>git commit --amend --reset-author --no-edit</code></pre>
+<h2 id="changing-a-remotes-url">Changing a remote’s URL</h2>
+<pre><code>git remote set-url origin &lt;URL&gt;</code></pre>
+<h2 id="get-list-of-all-remote-references">Get list of all remote references</h2>
+<pre><code>git remote</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git remote show</code></pre>
+<h2 id="get-list-of-all-local-and-remote-branches">Get list of all local and remote branches</h2>
+<pre><code>git branch -a</code></pre>
+<h2 id="get-only-remote-branches">Get only remote branches</h2>
+<pre><code>git branch -r</code></pre>
+<h2 id="stage-parts-of-a-changed-file-instead-of-the-entire-file">Stage parts of a changed file, instead of the entire file</h2>
+<pre><code>git add -p</code></pre>
+<h2 id="get-git-bash-completion">Get git bash completion</h2>
+<pre><code>curl -L http://git.io/vfhol &gt; ~/.git-completion.bash &amp;&amp; echo &#39;[ -f ~/.git-completion.bash ] &amp;&amp; . ~/.git-completion.bash&#39; &gt;&gt; ~/.bashrc</code></pre>
+<h2 id="what-changed-since-two-weeks">What changed since two weeks?</h2>
+<pre><code>git log --no-merges --raw --since=&#39;2 weeks ago&#39;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git whatchanged --since=&#39;2 weeks ago&#39;</code></pre>
+<h2 id="see-all-commits-made-since-forking-from-master">See all commits made since forking from master</h2>
+<pre><code>git log --no-merges --stat --reverse master..</code></pre>
+<h2 id="pick-commits-across-branches-using-cherry-pick">Pick commits across branches using cherry-pick</h2>
+<pre><code>git checkout &lt;branch-name&gt; &amp;&amp; git cherry-pick &lt;commit-ish&gt;</code></pre>
+<h2 id="find-out-branches-containing-commit-hash">Find out branches containing commit-hash</h2>
+<pre><code>git branch -a --contains &lt;commit-ish&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git branch --contains &lt;commit-ish&gt;</code></pre>
+<h2 id="git-aliases">Git Aliases</h2>
+<pre><code>git config --global alias.&lt;handle&gt; &lt;command&gt;
+git config --global alias.st status</code></pre>
+<h2 id="saving-current-state-of-tracked-files-without-commiting">Saving current state of tracked files without commiting</h2>
+<pre><code>git stash</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git stash push</code></pre>
+<h2 id="saving-current-state-of-unstaged-changes-to-tracked-files">Saving current state of unstaged changes to tracked files</h2>
+<pre><code>git stash -k</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git stash --keep-index
+
+git stash push --keep-index</code></pre>
+<h2 id="saving-current-state-including-untracked-files">Saving current state including untracked files</h2>
+<pre><code>git stash -u</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git stash push -u
+
+git stash push --include-untracked</code></pre>
+<h2 id="saving-current-state-with-message">Saving current state with message</h2>
+<pre><code>git stash push -m &lt;message&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git stash push --message &lt;message&gt;</code></pre>
+<h2 id="saving-current-state-of-all-files-ignored-untracked-and-tracked">Saving current state of all files (ignored, untracked, and tracked)</h2>
+<pre><code>git stash -a</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git stash --all
+
+git stash push --all</code></pre>
+<h2 id="show-list-of-all-saved-stashes">Show list of all saved stashes</h2>
+<pre><code>git stash list</code></pre>
+<h2 id="apply-any-stash-without-deleting-from-the-stashed-list">Apply any stash without deleting from the stashed list</h2>
+<pre><code>git stash apply &lt;stash@{n}&gt;</code></pre>
+<h2 id="apply-last-stashed-state-and-delete-it-from-stashed-list">Apply last stashed state and delete it from stashed list</h2>
+<pre><code>git stash pop</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git stash apply stash@{0} &amp;&amp; git stash drop stash@{0}</code></pre>
+<h2 id="delete-all-stored-stashes">Delete all stored stashes</h2>
+<pre><code>git stash clear</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git stash drop &lt;stash@{n}&gt;</code></pre>
+<h2 id="grab-a-single-file-from-a-stash">Grab a single file from a stash</h2>
+<pre><code>git checkout &lt;stash@{n}&gt; -- &lt;file_path&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git checkout stash@{0} -- &lt;file_path&gt;</code></pre>
+<h2 id="show-all-tracked-files">Show all tracked files</h2>
+<pre><code>git ls-files -t</code></pre>
+<h2 id="show-all-untracked-files">Show all untracked files</h2>
+<pre><code>git ls-files --others</code></pre>
+<h2 id="show-all-ignored-files">Show all ignored files</h2>
+<pre><code>git ls-files --others -i --exclude-standard</code></pre>
+<h2 id="create-new-working-tree-from-a-repository-git-2.5">Create new working tree from a repository (git 2.5)</h2>
+<pre><code>git worktree add -b &lt;branch-name&gt; &lt;path&gt; &lt;start-point&gt;</code></pre>
+<h2 id="create-new-working-tree-from-head-state">Create new working tree from HEAD state</h2>
+<pre><code>git worktree add --detach &lt;path&gt; HEAD</code></pre>
+<h2 id="untrack-files-without-deleting">Untrack files without deleting</h2>
+<pre><code>git rm --cached &lt;file_path&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git rm --cached -r &lt;directory_path&gt;</code></pre>
+<h2 id="before-deleting-untracked-filesdirectory-do-a-dry-run-to-get-the-list-of-these-filesdirectories">Before deleting untracked files/directory, do a dry run to get the list of these files/directories</h2>
+<pre><code>git clean -n</code></pre>
+<h2 id="forcefully-remove-untracked-files">Forcefully remove untracked files</h2>
+<pre><code>git clean -f</code></pre>
+<h2 id="forcefully-remove-untracked-directory">Forcefully remove untracked directory</h2>
+<pre><code>git clean -f -d</code></pre>
+<h2 id="update-all-the-submodules">Update all the submodules</h2>
+<pre><code>git submodule foreach git pull</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git submodule update --init --recursive
+
+git submodule update --remote</code></pre>
+<h2 id="show-all-commits-in-the-current-branch-yet-to-be-merged-to-master">Show all commits in the current branch yet to be merged to master</h2>
+<pre><code>git cherry -v master</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git cherry -v master &lt;branch-to-be-merged&gt;</code></pre>
+<h2 id="rename-a-branch">Rename a branch</h2>
+<pre><code>git branch -m &lt;new-branch-name&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git branch -m [&lt;old-branch-name&gt;] &lt;new-branch-name&gt;</code></pre>
+<h2 id="rebases-feature-to-master-and-merges-it-in-to-master">Rebases ‘feature’ to ‘master’ and merges it in to master</h2>
+<pre><code>git rebase master feature &amp;&amp; git checkout master &amp;&amp; git merge -</code></pre>
+<h2 id="archive-the-master-branch">Archive the <code>master</code> branch</h2>
+<pre><code>git archive master --format=zip --output=master.zip</code></pre>
+<h2 id="modify-previous-commit-without-modifying-the-commit-message">Modify previous commit without modifying the commit message</h2>
+<pre><code>git add --all &amp;&amp; git commit --amend --no-edit</code></pre>
+<h2 id="prunes-references-to-remove-branches-that-have-been-deleted-in-the-remote.">Prunes references to remove branches that have been deleted in the remote.</h2>
+<pre><code>git fetch -p</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git remote prune origin</code></pre>
+<h2 id="delete-local-branches-that-has-been-squash-and-merged-in-the-remote.">Delete local branches that has been squash and merged in the remote.</h2>
+<pre><code>git branch -vv | grep &#39;: gone]&#39; | awk &#39;{print &lt;!-- @doxie.inject start --&gt;}&#39; | xargs git branch -D</code></pre>
+<h2 id="retrieve-the-commit-hash-of-the-initial-revision.">Retrieve the commit hash of the initial revision.</h2>
+<pre><code> git rev-list --reverse HEAD | head -1</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git rev-list --max-parents=0 HEAD
+
+git log --pretty=oneline | tail -1 | cut -c 1-40
+
+git log --pretty=oneline --reverse | head -1 | cut -c 1-40</code></pre>
+<h2 id="visualize-the-version-tree.">Visualize the version tree.</h2>
+<pre><code>git log --pretty=oneline --graph --decorate --all</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>gitk --all
+
+git log --graph --pretty=format:&#39;%C(auto) %h | %s | %an | %ar%d&#39;</code></pre>
+<h2 id="visualize-the-tree-including-commits-that-are-only-referenced-from-reflogs">Visualize the tree including commits that are only referenced from reflogs</h2>
+<pre><code>git log --graph --decorate --oneline $(git rev-list --walk-reflogs --all)</code></pre>
+<h2 id="deploying-git-tracked-subfolder-to-gh-pages">Deploying git tracked subfolder to gh-pages</h2>
+<pre><code>git subtree push --prefix subfolder_name origin gh-pages</code></pre>
+<h2 id="adding-a-project-to-repo-using-subtree">Adding a project to repo using subtree</h2>
+<pre><code>git subtree add --prefix=&lt;directory_name&gt;/&lt;project_name&gt; --squash git@github.com:&lt;username&gt;/&lt;project_name&gt;.git master</code></pre>
+<h2 id="get-latest-changes-in-your-repo-for-a-linked-project-using-subtree">Get latest changes in your repo for a linked project using subtree</h2>
+<pre><code>git subtree pull --prefix=&lt;directory_name&gt;/&lt;project_name&gt; --squash git@github.com:&lt;username&gt;/&lt;project_name&gt;.git master</code></pre>
+<h2 id="export-a-branch-with-history-to-a-file.">Export a branch with history to a file.</h2>
+<pre><code>git bundle create &lt;file&gt; &lt;branch-name&gt;</code></pre>
+<h2 id="import-from-a-bundle">Import from a bundle</h2>
+<pre><code>git clone repo.bundle &lt;repo-dir&gt; -b &lt;branch-name&gt;</code></pre>
+<h2 id="get-the-name-of-current-branch.">Get the name of current branch.</h2>
+<pre><code>git rev-parse --abbrev-ref HEAD</code></pre>
+<h2 id="ignore-one-file-on-commit-e.g.-changelog.">Ignore one file on commit (e.g. Changelog).</h2>
+<pre><code>git update-index --assume-unchanged Changelog; git commit -a; git update-index --no-assume-unchanged Changelog</code></pre>
+<h2 id="stash-changes-before-rebasing">Stash changes before rebasing</h2>
+<pre><code>git rebase --autostash</code></pre>
+<h2 id="fetch-pull-request-by-id-to-a-local-branch">Fetch pull request by ID to a local branch</h2>
+<pre><code>git fetch origin pull/&lt;id&gt;/head:&lt;branch-name&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git pull origin pull/&lt;id&gt;/head:&lt;branch-name&gt;</code></pre>
+<h2 id="show-the-most-recent-tag-on-the-current-branch.">Show the most recent tag on the current branch.</h2>
+<pre><code>git describe --tags --abbrev=0</code></pre>
+<h2 id="show-inline-word-diff.">Show inline word diff.</h2>
+<pre><code>git diff --word-diff</code></pre>
+<h2 id="show-changes-using-common-diff-tools.">Show changes using common diff tools.</h2>
+<pre><code>git difftool [-t &lt;tool&gt;] &lt;commit1&gt; &lt;commit2&gt; &lt;path&gt;</code></pre>
+<h2 id="dont-consider-changes-for-tracked-file.">Don’t consider changes for tracked file.</h2>
+<pre><code>git update-index --assume-unchanged &lt;file_name&gt;</code></pre>
+<h2 id="undo-assume-unchanged.">Undo assume-unchanged.</h2>
+<pre><code>git update-index --no-assume-unchanged &lt;file_name&gt;</code></pre>
+<h2 id="clean-the-files-from-.gitignore.">Clean the files from <code>.gitignore</code>.</h2>
+<pre><code>git clean -X -f</code></pre>
+<h2 id="restore-deleted-file.">Restore deleted file.</h2>
+<pre><code>git checkout &lt;deleting_commit&gt; -- &lt;file_path&gt;</code></pre>
+<h2 id="restore-file-to-a-specific-commit-hash">Restore file to a specific commit-hash</h2>
+<pre><code>git checkout &lt;commit-ish&gt; -- &lt;file_path&gt;</code></pre>
+<h2 id="always-rebase-instead-of-merge-on-pull.">Always rebase instead of merge on pull.</h2>
+<pre><code>git config --global pull.rebase true</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>#git &lt; 1.7.9
+git config --global branch.autosetuprebase always</code></pre>
+<h2 id="list-all-the-alias-and-configs.">List all the alias and configs.</h2>
+<pre><code>git config --list</code></pre>
+<h2 id="make-git-case-sensitive.">Make git case sensitive.</h2>
+<pre><code>git config --global core.ignorecase false</code></pre>
+<h2 id="add-custom-editors.">Add custom editors.</h2>
+<pre><code>git config --global core.editor &#39;$EDITOR&#39;</code></pre>
+<h2 id="auto-correct-typos.">Auto correct typos.</h2>
+<pre><code>git config --global help.autocorrect 1</code></pre>
+<h2 id="check-if-the-change-was-a-part-of-a-release.">Check if the change was a part of a release.</h2>
+<pre><code>git name-rev --name-only &lt;SHA-1&gt;</code></pre>
+<h2 id="dry-run.-any-command-that-supports-dry-run-flag-should-do.">Dry run. (any command that supports dry-run flag should do.)</h2>
+<pre><code>git clean -fd --dry-run</code></pre>
+<h2 id="marks-your-commit-as-a-fix-of-a-previous-commit.">Marks your commit as a fix of a previous commit.</h2>
+<pre><code>git commit --fixup &lt;SHA-1&gt;</code></pre>
+<h2 id="squash-fixup-commits-normal-commits.">Squash fixup commits normal commits.</h2>
+<pre><code>git rebase -i --autosquash</code></pre>
+<h2 id="skip-staging-area-during-commit.">Skip staging area during commit.</h2>
+<pre><code>git commit --only &lt;file_path&gt;</code></pre>
+<h2 id="interactive-staging.">Interactive staging.</h2>
+<pre><code>git add -i</code></pre>
+<h2 id="list-ignored-files.">List ignored files.</h2>
+<pre><code>git check-ignore *</code></pre>
+<h2 id="status-of-ignored-files.">Status of ignored files.</h2>
+<pre><code>git status --ignored</code></pre>
+<h2 id="commits-in-branch1-that-are-not-in-branch2">Commits in Branch1 that are not in Branch2</h2>
+<pre><code>git log Branch1 ^Branch2</code></pre>
+<h2 id="list-n-last-commits">List n last commits</h2>
+<pre><code>git log -&lt;n&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git log -n &lt;n&gt;</code></pre>
+<h2 id="reuse-recorded-resolution-record-and-reuse-previous-conflicts-resolutions.">Reuse recorded resolution, record and reuse previous conflicts resolutions.</h2>
+<pre><code>git config --global rerere.enabled 1</code></pre>
+<h2 id="open-all-conflicted-files-in-an-editor.">Open all conflicted files in an editor.</h2>
+<pre><code>git diff --name-only | uniq | xargs $EDITOR</code></pre>
+<h2 id="count-unpacked-number-of-objects-and-their-disk-consumption.">Count unpacked number of objects and their disk consumption.</h2>
+<pre><code>git count-objects --human-readable</code></pre>
+<h2 id="prune-all-unreachable-objects-from-the-object-database.">Prune all unreachable objects from the object database.</h2>
+<pre><code>git gc --prune=now --aggressive</code></pre>
+<h2 id="instantly-browse-your-working-repository-in-gitweb.">Instantly browse your working repository in gitweb.</h2>
+<pre><code>git instaweb [--local] [--httpd=&lt;httpd&gt;] [--port=&lt;port&gt;] [--browser=&lt;browser&gt;]</code></pre>
+<h2 id="view-the-gpg-signatures-in-the-commit-log">View the GPG signatures in the commit log</h2>
+<pre><code>git log --show-signature</code></pre>
+<h2 id="remove-entry-in-the-global-config.">Remove entry in the global config.</h2>
+<pre><code>git config --global --unset &lt;entry-name&gt;</code></pre>
+<h2 id="checkout-a-new-branch-without-any-history">Checkout a new branch without any history</h2>
+<pre><code>git checkout --orphan &lt;branch_name&gt;</code></pre>
+<h2 id="extract-file-from-another-branch.">Extract file from another branch.</h2>
+<pre><code>git show &lt;branch_name&gt;:&lt;file_name&gt;</code></pre>
+<h2 id="list-only-the-root-and-merge-commits.">List only the root and merge commits.</h2>
+<pre><code>git log --first-parent</code></pre>
+<h2 id="change-previous-two-commits-with-an-interactive-rebase.">Change previous two commits with an interactive rebase.</h2>
+<pre><code>git rebase --interactive HEAD~2</code></pre>
+<h2 id="list-all-branch-is-wip">List all branch is WIP</h2>
+<pre><code>git checkout master &amp;&amp; git branch --no-merged</code></pre>
+<h2 id="find-guilty-with-binary-search">Find guilty with binary search</h2>
+<pre><code>git bisect start                    # Search start
+git bisect bad                      # Set point to bad commit
+git bisect good v2.6.13-rc2         # Set point to good commit|tag
+git bisect bad                      # Say current state is bad
+git bisect good                     # Say current state is good
+git bisect reset                    # Finish search</code></pre>
+<h2 id="bypass-pre-commit-and-commit-msg-githooks">Bypass pre-commit and commit-msg githooks</h2>
+<pre><code>git commit --no-verify</code></pre>
+<h2 id="list-commits-and-changes-to-a-specific-file-even-through-renaming">List commits and changes to a specific file (even through renaming)</h2>
+<pre><code>git log --follow -p -- &lt;file_path&gt;</code></pre>
+<h2 id="clone-a-single-branch">Clone a single branch</h2>
+<pre><code>git clone -b &lt;branch-name&gt; --single-branch https://github.com/user/repo.git</code></pre>
+<h2 id="create-and-switch-new-branch">Create and switch new branch</h2>
+<pre><code>git checkout -b &lt;branch-name&gt;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git branch &lt;branch-name&gt; &amp;&amp; git checkout &lt;branch-name&gt;</code></pre>
+<h2 id="ignore-file-mode-changes-on-commits">Ignore file mode changes on commits</h2>
+<pre><code>git config core.fileMode false</code></pre>
+<h2 id="turn-off-git-colored-terminal-output">Turn off git colored terminal output</h2>
+<pre><code>git config --global color.ui false</code></pre>
+<h2 id="specific-color-settings">Specific color settings</h2>
+<pre><code>git config --global &lt;specific command e.g branch, diff&gt; &lt;true, false or always&gt;</code></pre>
+<h2 id="show-all-local-branches-ordered-by-recent-commits">Show all local branches ordered by recent commits</h2>
+<pre><code>git for-each-ref --sort=-committerdate --format=&#39;%(refname:short)&#39; refs/heads/</code></pre>
+<h2 id="find-lines-matching-the-pattern-regex-or-string-in-tracked-files">Find lines matching the pattern (regex or string) in tracked files</h2>
+<pre><code>git grep --heading --line-number &#39;foo bar&#39;</code></pre>
+<h2 id="clone-a-shallow-copy-of-a-repository">Clone a shallow copy of a repository</h2>
+<pre><code>git clone https://github.com/user/repo.git --depth 1</code></pre>
+<h2 id="search-commit-log-across-all-branches-for-given-text">Search Commit log across all branches for given text</h2>
+<pre><code>git log --all --grep=&#39;&lt;given-text&gt;&#39;</code></pre>
+<h2 id="get-first-commit-in-a-branch-from-master">Get first commit in a branch (from master)</h2>
+<pre><code>git log --oneline master..&lt;branch-name&gt; | tail -1</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git log --reverse master..&lt;branch-name&gt; | head -6</code></pre>
+<h2 id="unstaging-staged-file">Unstaging Staged file</h2>
+<pre><code>git reset HEAD &lt;file-name&gt;</code></pre>
+<h2 id="force-push-to-remote-repository">Force push to Remote Repository</h2>
+<pre><code>git push -f &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
+<h2 id="adding-remote-name">Adding Remote name</h2>
+<pre><code>git remote add &lt;remote-nickname&gt; &lt;remote-url&gt;</code></pre>
+<h2 id="list-all-currently-configured-remotes">List all currently configured remotes</h2>
+<pre><code>git remote -v</code></pre>
+<h2 id="show-the-author-time-and-last-revision-made-to-each-line-of-a-given-file">Show the author, time and last revision made to each line of a given file</h2>
+<pre><code>git blame &lt;file-name&gt;</code></pre>
+<h2 id="group-commits-by-authors-and-title">Group commits by authors and title</h2>
+<pre><code>git shortlog</code></pre>
+<h2 id="forced-push-but-still-ensure-you-dont-overwrite-others-work">Forced push but still ensure you don’t overwrite other’s work</h2>
+<pre><code>git push --force-with-lease &lt;remote-name&gt; &lt;branch-name&gt;</code></pre>
+<h2 id="show-how-many-lines-does-an-author-contribute">Show how many lines does an author contribute</h2>
+<pre><code>git log --author=&#39;_Your_Name_Here_&#39; --pretty=tformat: --numstat | gawk &#39;{ add += &lt;!-- @doxie.inject start --&gt;; subs += &lt;!-- @doxie.inject end --&gt;; loc += &lt;!-- @doxie.inject start --&gt; - &lt;!-- @doxie.inject end --&gt; } END { printf &quot;added lines: %s removed lines: %s total lines: %s
+&quot;, add, subs, loc }&#39; -</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git log --author=&#39;_Your_Name_Here_&#39; --pretty=tformat: --numstat | awk &#39;{ add += &lt;!-- @doxie.inject start --&gt;; subs += &lt;!-- @doxie.inject end --&gt;; loc += &lt;!-- @doxie.inject start --&gt; - &lt;!-- @doxie.inject end --&gt; } END { printf &quot;added lines: %s, removed lines: %s, total lines: %s
+&quot;, add, subs, loc }&#39; - # on Mac OSX</code></pre>
+<h2 id="revert-reverting-an-entire-merge">Revert: Reverting an entire merge</h2>
+<pre><code>git revert -m 1 &lt;commit-ish&gt;</code></pre>
+<h2 id="number-of-commits-in-a-branch">Number of commits in a branch</h2>
+<pre><code>git rev-list --count &lt;branch-name&gt;</code></pre>
+<h2 id="alias-git-undo">Alias: git undo</h2>
+<pre><code>git config --global alias.undo &#39;!f() { git reset --hard $(git rev-parse --abbrev-ref HEAD)@{${1-1}}; }; f&#39;</code></pre>
+<h2 id="add-object-notes">Add object notes</h2>
+<pre><code>git notes add -m &#39;Note on the previous commit....&#39;</code></pre>
+<h2 id="show-all-the-git-notes">Show all the git-notes</h2>
+<pre><code>git log --show-notes=&#39;*&#39;</code></pre>
+<h2 id="apply-commit-from-another-repository">Apply commit from another repository</h2>
+<pre><code>git --git-dir=&lt;source-dir&gt;/.git format-patch -k -1 --stdout &lt;SHA1&gt; | git am -3 -k</code></pre>
+<h2 id="specific-fetch-reference">Specific fetch reference</h2>
+<pre><code>git fetch origin master:refs/remotes/origin/mymaster</code></pre>
+<h2 id="find-common-ancestor-of-two-branches">Find common ancestor of two branches</h2>
+<pre><code>git merge-base &lt;branch-name&gt; &lt;other-branch-name&gt;</code></pre>
+<h2 id="list-unpushed-git-commits">List unpushed git commits</h2>
+<pre><code>git log --branches --not --remotes</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git log @{u}..
+
+git cherry -v</code></pre>
+<h2 id="add-everything-but-whitespace-changes">Add everything, but whitespace changes</h2>
+<pre><code>git diff --ignore-all-space | git apply --cached</code></pre>
+<h2 id="edit-localglobal-git-config">Edit [local/global] git config</h2>
+<pre><code>git config [--global] --edit</code></pre>
+<h2 id="blame-on-certain-range">blame on certain range</h2>
+<pre><code>git blame -L &lt;start&gt;,&lt;end&gt;</code></pre>
+<h2 id="show-a-git-logical-variable.">Show a Git logical variable.</h2>
+<pre><code>git var -l | &lt;variable&gt;</code></pre>
+<h2 id="preformatted-patch-file.">Preformatted patch file.</h2>
+<pre><code>git format-patch -M upstream..topic</code></pre>
+<h2 id="get-the-repo-name.">Get the repo name.</h2>
+<pre><code>git rev-parse --show-toplevel</code></pre>
+<h2 id="logs-between-date-range">logs between date range</h2>
+<pre><code>git log --since=&#39;FEB 1 2017&#39; --until=&#39;FEB 14 2017&#39;</code></pre>
+<h2 id="exclude-author-from-logs">Exclude author from logs</h2>
+<pre><code>git log --perl-regexp --author=&#39;^((?!excluded-author-regex).*)</code></pre>
+<h2 id="generates-a-summary-of-pending-changes">Generates a summary of pending changes</h2>
+<pre><code>git request-pull v1.0 https://git.ko.xz/project master:for-linus</code></pre>
+<h2 id="list-references-in-a-remote-repository">List references in a remote repository</h2>
+<pre><code>git ls-remote git://git.kernel.org/pub/scm/git/git.git</code></pre>
+<h2 id="backup-untracked-files.">Backup untracked files.</h2>
+<pre><code>git ls-files --others -i --exclude-standard | xargs zip untracked.zip</code></pre>
+<h2 id="list-all-git-aliases">List all git aliases</h2>
+<pre><code>git config -l | grep alias | sed &#39;s/^alias\.//g&#39;</code></pre>
+<p><strong>Alternatives:</strong></p>
+<pre><code>git config -l | grep alias | cut -d &#39;.&#39; -f 2</code></pre>
+<h2 id="show-git-status-short">Show git status short</h2>
+<pre><code>git status --short --branch</code></pre>
+<h2 id="checkout-a-commit-prior-to-a-day-ago">Checkout a commit prior to a day ago</h2>
+<pre><code>git checkout master@{yesterday}</code></pre>
+<h2 id="push-a-new-local-branch-to-remote-repository-and-track">Push a new local branch to remote repository and track</h2>
+<pre><code>git push -u origin &lt;branch_name&gt;</code></pre>
+<h2 id="change-a-branch-base">Change a branch base</h2>
+<pre><code>git rebase --onto &lt;new_base&gt; &lt;old_base&gt;</code></pre>
+<h2 id="use-ssh-instead-of-https-for-remotes">Use SSH instead of HTTPs for remotes</h2>
+<pre><code>git config --global url.&#39;git@github.com:&#39;.insteadOf &#39;https://github.com/&#39;</code></pre>
+<h2 id="update-a-submodule-to-the-latest-commit">Update a submodule to the latest commit</h2>
+<pre><code>cd &lt;path-to-submodule&gt;
+git pull origin &lt;branch&gt;
+cd &lt;root-of-your-main-project&gt;
+git add &lt;path-to-submodule&gt;
+git commit -m &quot;submodule updated&quot;</code></pre>
+<h2 id="prevent-auto-replacing-lf-with-crlf">Prevent auto replacing LF with CRLF</h2>
+<pre><code>git config --global core.autocrlf false</code></pre>
+</body>
+</html>
