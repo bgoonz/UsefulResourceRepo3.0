@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <!-- Font Awesome JavaScript -->
+    <script defer="defer" src="./assets/fa/solid.js"></script>
+    <script defer="defer" src="./assets/fa/regular.js"></script>
+    <script defer="defer" src="./assets/fa/fontawesome.js"></script>
+
+    <title>Countdown Timer App</title>
+
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body>
+    <!-- begin modal -->
+    <div
+      class="modal fade"
+      id="static-backdrop"
+      data-backdrop="static"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="staticBackdropLabel"
+      aria-hidden="true"
+    >
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <div class="container-fluid">
+              <div class="row">
+                <div class="col-11 text-left">
+                  <h4>Set Timedown counter</h4>
+                </div>
+                <div class="col-1 text-right">
+                  <button
+                    class="close"
+                    type="button"
+                    aria-label="Close"
+                    data-dismiss="modal"
+                    id="dismiss-btn"
+                  >
+                    <i aria-hidden="true" class="far fa-times-circle fa-lg"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-body">
+            <div class="container-fluid">
+              <div class="row justify-content-around text-center">
+                <div class="col-3">
+                  <label for="hh-in">Hours</label>
+                  <input class="user-entry" type="number" min="0" max="23" />
+                </div>
+                <div class="col-3">
+                  <label for="mm-in">Minutes</label>
+                  <input class="user-entry" type="number" min="0" max="59" />
+                </div>
+                <div class="col-3">
+                  <label for="ss-in">Seconds</label>
+                  <input class="user-entry" type="number" min="0" max="59" />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <div class="container-fluid">
+              <div class="row justify-content-center text-center">
+                <div class="col-4">
+                  <button
+                    id="save-btn"
+                    type="button"
+                    class="btn btn-success"
+                    data-dismiss="modal"
+                  >
+                    Save changes
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end modal -->
+
+    <div class="container-fluid">
+      <div class="row justify-content-center mt-5">
+        <!-- col6 trigger modal -->
+        <div class="col-12 col-md-8 col-lg-6 text-center mt-3" id="clock">
+          <span class="font-size" id="hh">00</span>
+          <span class="font-size">:</span>
+          <span class="font-size" id="mm">00</span>
+          <span class="font-size">:</span>
+          <span class="font-size" id="ss">00</span>
+          <span id="ms">00</span>
+        </div>
+        <!-- end trigger modal -->
+      </div>
+      <div class="row justify-content-center mt-3 text-center" id="d-row-1">
+        <div class="col-12">
+          <button title="start" type="button" id="start" class="action-btn">
+            <i class="fas fa-play fa-4x"></i>
+          </button>
+        </div>
+      </div>
+      <div
+        class="row justify-content-center mt-3 text-center d-none"
+        id="d-row-2"
+      >
+        <div class="col-2 col-sm-1">
+          <button title="stop" type="button" class="action-btn" id="stop">
+            <i class="fas fa-stop fa-4x"></i>
+          </button>
+          <button
+            title="resume"
+            type="button"
+            class="action-btn d-none"
+            id="resume"
+          >
+            <i class="fas fa-pause-circle fa-4x"></i>
+          </button>
+        </div>
+        <div class="col-2 col-sm-1 ml-5">
+          <button title="reset" type="button" class="action-btn" id="reset">
+            <i class="fas fa-stop-circle fa-4x"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- owner Javascript --->
+    <script src="./assets/script.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+      integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "hosting": [
+    {
+      "target": "pass-gen",
+      "public": "password-generator/public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    },
+    {
+      "target": "bs-wp",
+      "public": "bootstrap-basics/public",
+      "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+  ]
+}
