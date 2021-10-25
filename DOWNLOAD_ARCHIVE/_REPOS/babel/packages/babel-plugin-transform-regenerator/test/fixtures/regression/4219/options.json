@@ -1,7 +1,0 @@
-{
-  "plugins": [
-    "transform-parameters",
-    "transform-spread",
-    "transform-regenerator"
-  ]
-}

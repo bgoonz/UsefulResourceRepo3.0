@@ -1,1 +1,0 @@
-$.toast({ text: "test" });

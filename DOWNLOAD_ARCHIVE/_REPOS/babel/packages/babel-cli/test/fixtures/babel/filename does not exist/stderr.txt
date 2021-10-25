@@ -1,2 +1,0 @@
-babel:
-  index.js does not exist

@@ -1,5 +1,0 @@
-= Keywords book
-:doctype: book
-:keywords: a, b, c
-
-include::chapter.adoc[leveloffset=+1]

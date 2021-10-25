@@ -1,9 +1,0 @@
-= Video
-:doctype: book
-
-Preamble
-
-== Chapter
-
-.Video
-video::small.webm[width=400]

@@ -1,3 +1,0 @@
-(function* () {
-  return function.sent;
-}());

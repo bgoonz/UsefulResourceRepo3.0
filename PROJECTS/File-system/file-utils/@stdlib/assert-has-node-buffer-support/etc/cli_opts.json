@@ -1,8 +1,0 @@
-{
-  "string": [],
-  "boolean": ["help", "version"],
-  "alias": {
-    "help": ["h"],
-    "version": ["V"]
-  }
-}

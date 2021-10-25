@@ -1,2 +1,0 @@
-Plugin was loaded, so --env-name matched.
-foo

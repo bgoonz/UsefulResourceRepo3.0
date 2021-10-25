@@ -1,1 +1,0 @@
-Simple problem, use `for` to enum every element, and judge.

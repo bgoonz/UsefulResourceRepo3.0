@@ -1,8 +1,0 @@
-{
-  "sourceType": "module",
-  "plugins": [
-    "flow",
-    "optionalChaining"
-  ],
-  "throws": "Unexpected token (1:21)"
-}

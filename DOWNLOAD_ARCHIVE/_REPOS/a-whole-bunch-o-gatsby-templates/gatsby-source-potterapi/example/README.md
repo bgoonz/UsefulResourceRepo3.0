@@ -1,1 +1,0 @@
-# gatsby-source-potterapi Example

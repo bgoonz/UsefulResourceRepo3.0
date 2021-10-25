@@ -1,3 +1,0 @@
-{
-  "plugins": ["proposal-function-sent", "proposal-async-generator-functions"]
-}

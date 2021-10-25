@@ -1,3 +1,0 @@
-{
-  "plugins": ["proposal-export-default-from", "transform-typescript"]
-}

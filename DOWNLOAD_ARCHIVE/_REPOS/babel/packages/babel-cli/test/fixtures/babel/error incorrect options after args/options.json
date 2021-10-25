@@ -1,4 +1,0 @@
-{
-  "args": ["script.js", "--spruce-maps"],
-  "stderrContains": true
-}

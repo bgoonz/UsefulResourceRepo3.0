@@ -1,3 +1,0 @@
-var containsDuplicate = function(nums) {
-
-}

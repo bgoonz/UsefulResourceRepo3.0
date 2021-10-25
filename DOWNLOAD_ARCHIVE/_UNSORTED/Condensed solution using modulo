@@ -1,9 +1,0 @@
-function counterMakerWithLimit(maxValue) {
-  let count = 0;
-
-  function counter () {
-    count %= (maxValue + 1);
-    return count++;
-  }
-  return counter;
-}

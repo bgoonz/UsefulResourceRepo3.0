@@ -1,7 +1,0 @@
-{
-  "plugins": [
-    "transform-runtime",
-    "transform-classes",
-    "transform-modules-commonjs"
-  ]
-}

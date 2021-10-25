@@ -1,2 +1,0 @@
-def containsDuplicate(num):
-    pass

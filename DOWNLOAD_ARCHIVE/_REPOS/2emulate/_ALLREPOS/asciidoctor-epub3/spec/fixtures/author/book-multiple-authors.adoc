@@ -1,5 +1,0 @@
-= Minimal book
-Author One; Author Two
-:doctype: book
-
-include::chapter.adoc[leveloffset=+1]

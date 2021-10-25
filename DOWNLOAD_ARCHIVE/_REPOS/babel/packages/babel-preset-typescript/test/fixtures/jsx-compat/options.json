@@ -1,7 +1,0 @@
-{
-  "presets": [
-    ["react", { "runtime": "classic" }, "before"],
-    "typescript",
-    ["react", { "runtime": "classic" }, "after"]
-  ]
-}

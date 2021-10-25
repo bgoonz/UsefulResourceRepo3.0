@@ -1,4 +1,0 @@
-= Minimal book
-:doctype: book
-:producer: MyProducer
-include::chapter.adoc[leveloffset=+1]

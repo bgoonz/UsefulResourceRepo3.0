@@ -1,1 +1,0 @@
-arrayADS.js

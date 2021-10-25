@@ -1,4 +1,0 @@
-obj = Object.values(user.posts)
-Object.keys(obj).forEach((key) => {
-		const likes = obj[key].likes
-})

@@ -1,5 +1,0 @@
-= Reproducible book
-:reproducible:
-:doctype: book
-
-include::chapter.adoc[leveloffset=+1]

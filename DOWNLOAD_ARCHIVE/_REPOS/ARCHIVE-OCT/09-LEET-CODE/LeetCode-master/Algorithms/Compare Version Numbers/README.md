@@ -1,1 +1,0 @@
-It may be easy, but you should notice that `.` may appear many times in one version number, as well as 0 times. So just cut two version numbers according to `.`, and compare the corresponding two numbers after cutting.

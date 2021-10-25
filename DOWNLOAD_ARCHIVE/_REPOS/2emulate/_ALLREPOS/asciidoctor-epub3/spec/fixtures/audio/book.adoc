@@ -1,7 +1,0 @@
-= Audio
-:doctype: book
-
-== Chapter
-
-.Audio
-audio::small.mp3[]

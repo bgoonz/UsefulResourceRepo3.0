@@ -1,5 +1,0 @@
-{
-  "babel": {
-    "plugins": ["./plugin"]
-  }
-}

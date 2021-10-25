@@ -1,1 +1,0 @@
-I solve it by loop/recursion, but it seems that there is a rule about it.

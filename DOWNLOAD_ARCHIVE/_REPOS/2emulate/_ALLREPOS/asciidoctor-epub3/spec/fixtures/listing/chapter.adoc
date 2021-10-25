@@ -1,6 +1,0 @@
-= Chapter
-
-[title=.gitattributes]
-----
-*   -text
-----

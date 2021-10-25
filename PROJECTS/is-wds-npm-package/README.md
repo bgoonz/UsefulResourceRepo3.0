@@ -1,1 +1,0 @@
-# is-wds-npm-package

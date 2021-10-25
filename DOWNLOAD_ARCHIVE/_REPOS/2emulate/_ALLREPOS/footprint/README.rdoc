@@ -1,8 +1,0 @@
-== Footnote
-
-This app to ...
-
-
-== Demo
-
-{http://footprint-2012.herokuapp.com/}[http://footprint-2012.herokuapp.com/]

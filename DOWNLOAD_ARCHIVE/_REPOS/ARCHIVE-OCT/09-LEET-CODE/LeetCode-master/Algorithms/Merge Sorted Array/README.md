@@ -1,1 +1,0 @@
-I just use `push` and `sort`, and the complexity is O((n+m)log(n+m)), you can solve it with O(n+m)!

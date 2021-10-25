@@ -1,3 +1,0 @@
-{
-  "plugins": ["transform-modules-amd", "transform-member-expression-literals"]
-}

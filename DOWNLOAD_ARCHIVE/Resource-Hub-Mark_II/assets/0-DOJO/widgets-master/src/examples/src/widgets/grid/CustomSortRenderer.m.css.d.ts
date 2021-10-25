@@ -1,1 +1,0 @@
-export const sort: string;

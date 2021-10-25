@@ -1,4 +1,0 @@
-{
-  "plugins": ["typescript"],
-  "createParenthesizedExpressions": true
-}

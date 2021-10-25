@@ -1,3 +1,0 @@
-{
-  "args": ["--config-file", "../.othername_babelrc", "-f", "file.js"]
-}

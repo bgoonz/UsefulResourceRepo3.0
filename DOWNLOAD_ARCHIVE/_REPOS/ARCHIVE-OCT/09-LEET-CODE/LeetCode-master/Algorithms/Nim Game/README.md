@@ -1,1 +1,0 @@
-If the number(n) of the stones cannot be exactly divided by 4, then you will win. How? Firstly take the number of `n % 4`, then your friend takes `m`, you can take `4-m`, and the last will always be taken by you.

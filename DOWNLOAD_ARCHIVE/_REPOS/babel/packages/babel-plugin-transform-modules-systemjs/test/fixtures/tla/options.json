@@ -1,3 +1,0 @@
-{
-  "plugins": ["transform-modules-systemjs", "syntax-top-level-await"]
-}

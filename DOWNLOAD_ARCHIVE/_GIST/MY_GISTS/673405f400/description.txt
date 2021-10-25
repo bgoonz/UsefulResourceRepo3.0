@@ -1,1 +1,0 @@
-Example `styles/website.css` styles that over-ride Gitbook's own styles, specifically for code blocks and image alingment (centred).

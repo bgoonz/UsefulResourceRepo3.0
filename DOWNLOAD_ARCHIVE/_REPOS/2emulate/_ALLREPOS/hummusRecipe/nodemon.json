@@ -1,9 +1,0 @@
-{
-    "watch": [
-        "tests/**/*", "bin/**/*"
-    ],
-    "env": {
-        "NODE_ENV": "development"
-    },
-    "ext": "js"
-}

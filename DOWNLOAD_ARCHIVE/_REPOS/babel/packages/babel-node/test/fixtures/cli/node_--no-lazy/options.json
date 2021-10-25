@@ -1,4 +1,0 @@
-{
-  "args": ["--nolazy", "--eval", "console.log('foo')"],
-  "stdout": "foo"
-}

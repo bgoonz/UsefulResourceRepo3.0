@@ -1,1 +1,0 @@
-Use `push` and `shift` in JavaScript, really enjoy JavaScript functions!

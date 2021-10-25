@@ -1,6 +1,0 @@
-= Article
-
-[asciimath,title=Math]
-++++
-y=x^2 sqrt(4)
-++++

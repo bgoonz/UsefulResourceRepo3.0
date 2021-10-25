@@ -1,3 +1,0 @@
-(() => {
-  $("[data-toggle='popover']").popover();
-})();

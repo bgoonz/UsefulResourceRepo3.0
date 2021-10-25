@@ -1,1 +1,0 @@
-Only organization members with the [_owner_](/articles/permission-levels-for-an-organization) or [_billing manager_](/articles/adding-a-billing-manager-to-your-organization) role can access or change billing settings for your organization.

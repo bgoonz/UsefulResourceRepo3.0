@@ -1,4 +1,0 @@
-{
-  "presets": ["flow"],
-  "plugins": ["proposal-class-properties"]
-}

@@ -1,1 +1,0 @@
-gendir-python-bash.md

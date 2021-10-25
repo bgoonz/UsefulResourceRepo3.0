@@ -1,4 +1,0 @@
-{
-  "targets": { "esmodules": true },
-  "presets": ["env"]
-}

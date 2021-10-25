@@ -1,7 +1,0 @@
-module
-Foo
-{}
-
-module
-'m'
-{}

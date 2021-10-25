@@ -1,2 +1,0 @@
-Config was loaded, so --config-file was used.
-foo

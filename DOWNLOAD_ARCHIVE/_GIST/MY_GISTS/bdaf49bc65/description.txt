@@ -1,1 +1,0 @@
-Facebook Login for the Web with the JavaScript SDK

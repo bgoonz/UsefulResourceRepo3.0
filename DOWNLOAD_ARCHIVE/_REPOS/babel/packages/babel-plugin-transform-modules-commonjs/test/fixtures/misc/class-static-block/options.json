@@ -1,3 +1,0 @@
-{
-  "plugins": ["transform-modules-commonjs", "syntax-class-static-block"]
-}

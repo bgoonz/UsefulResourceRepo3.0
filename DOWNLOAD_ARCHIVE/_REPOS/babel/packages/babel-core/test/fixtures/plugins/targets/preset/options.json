@@ -1,4 +1,0 @@
-{
-  "targets": ["firefox 64", "node 8"],
-  "presets": ["./preset"]
-}

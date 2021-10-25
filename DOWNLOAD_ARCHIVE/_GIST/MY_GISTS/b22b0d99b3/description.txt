@@ -1,1 +1,0 @@
-soln-to-old-lockfile-error-npm.md

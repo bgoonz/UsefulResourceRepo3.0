@@ -1,7 +1,0 @@
-<% if @user.valid? %>
-  // $('body').prepend('<div class="alert alert-success alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>¡Email enviado!</strong> Gracias por su interés.</div>');
-  alert('¡Email enviado!');
-<% else %>
-  // $('body').prepend('<div class="alert alert-danger alert-dismissible" role="alert"><button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button><strong>¡Error(s) encontrado(s)!</strong> <%= @user.errors.full_messages.join(". ") %></div>');
-  alert('¡Error(es) encontrado(s)! <%= @user.errors.full_messages.join(". ") %>');
-<% end %>

@@ -1,4 +1,0 @@
-{
-  "throws": "/fake/path/example.js: someMsg",
-  "os": ["linux", "darwin"]
-}

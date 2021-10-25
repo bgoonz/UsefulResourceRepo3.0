@@ -1,8 +1,0 @@
-= Listing chapter book
-:doctype: book
-:idprefix:
-:idseparator: -
-
-include::chapter-a.adoc[leveloffset=+1]
-
-include::chapter-b.adoc[leveloffset=+1]

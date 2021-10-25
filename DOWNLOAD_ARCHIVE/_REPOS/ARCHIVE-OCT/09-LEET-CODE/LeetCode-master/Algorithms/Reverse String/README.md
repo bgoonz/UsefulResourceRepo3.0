@@ -1,1 +1,0 @@
-Use `split` and `join` in JavaScript Array, it's simple!

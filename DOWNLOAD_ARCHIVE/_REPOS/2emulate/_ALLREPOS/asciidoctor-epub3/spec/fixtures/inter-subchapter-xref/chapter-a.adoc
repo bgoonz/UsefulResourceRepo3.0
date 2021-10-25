@@ -1,3 +1,0 @@
-= Chapter A
-
-include::subchapter-a.adoc[leveloffset=+1]

@@ -1,6 +1,0 @@
-{
-  "plugins": [
-    "transform-named-capturing-groups-regex",
-    "transform-unicode-regex"
-  ]
-}

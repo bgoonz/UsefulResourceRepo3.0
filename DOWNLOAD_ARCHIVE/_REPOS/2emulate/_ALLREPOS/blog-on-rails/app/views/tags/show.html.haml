@@ -1,8 +1,0 @@
-%h1= "Posts related to '#{@tag.name}':"
-
-- if @tag.posts.empty?
-	%p No posts
-- else
-	%ul
-		- @tag.posts.each do |project|
-			%li= link_to project.title, project

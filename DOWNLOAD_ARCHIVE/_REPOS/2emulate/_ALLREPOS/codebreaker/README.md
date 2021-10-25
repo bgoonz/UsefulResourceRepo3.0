@@ -1,5 +1,0 @@
-codebreaker
-===========
-
-Code Breaker - BDD
-
