@@ -1,3 +1,0 @@
-# util
-
-<table><thead><tr class="header"><th></th><th>Name</th><th>Size</th><th>Modified</th><th></th></tr></thead><tbody><tr class="odd"><td></td><td><span class="goup">..</span></td><td>—</td><td>—</td><td></td></tr><tr class="even"><td></td><td><span class="name">exec.js</span></td><td>852 bytes</td><td>Wed Oct 13 05:27:33 2021</td><td></td></tr><tr class="odd"><td></td><td><span class="name">glob.js</span></td><td>108 bytes</td><td>Wed Oct 13 05:27:33 2021</td><td></td></tr><tr class="even"><td></td><td><span class="name">logger.js</span></td><td>270 bytes</td><td>Wed Oct 13 05:27:33 2021</td><td></td></tr></tbody></table>
