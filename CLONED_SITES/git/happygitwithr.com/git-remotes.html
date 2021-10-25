@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 23 Remotes | Happy Git and GitHub for the useR</title>
+<meta name="author" content="Jenny Bryan, the STAT 545 TAs, Jim Hester">
+<meta name="description" content="Remote repositories are versions of your project that are hosted on the Internet or another network. A single project can have 1, 2 or even hundreds of remotes. You pull others changes from...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 23 Remotes | Happy Git and GitHub for the useR">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://happygitwithr.com/git-remotes.html">
+<meta property="og:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<meta property="og:description" content="Remote repositories are versions of your project that are hosted on the Internet or another network. A single project can have 1, 2 or even hundreds of remotes. You pull others changes from...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 23 Remotes | Happy Git and GitHub for the useR">
+<meta name="twitter:site" content="@jennybryan">
+<meta name="twitter:description" content="Remote repositories are versions of your project that are hosted on the Internet or another network. A single project can have 1, 2 or even hundreds of remotes. You pull others changes from...">
+<meta name="twitter:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-131856976-1"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-131856976-1');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Happy Git and GitHub for the useR</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Let’s Git started</a></li>
+<li><a class="" href="big-picture.html"><span class="header-section-number">1</span> Why Git? Why GitHub?</a></li>
+<li><a class="" href="contrib.html"><span class="header-section-number">2</span> Contributors</a></li>
+<li><a class="" href="workshops.html"><span class="header-section-number">3</span> Workshops</a></li>
+<li class="book-part">Installation</li>
+<li><a class="" href="install-intro.html">Half the battle</a></li>
+<li><a class="" href="github-acct.html"><span class="header-section-number">4</span> Register a GitHub account</a></li>
+<li><a class="" href="install-r-rstudio.html"><span class="header-section-number">5</span> Install or upgrade R and RStudio</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">6</span> Install Git</a></li>
+<li><a class="" href="hello-git.html"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
+<li><a class="" href="git-client.html"><span class="header-section-number">8</span> Install a Git client</a></li>
+<li class="book-part">Connect Git, GitHub, RStudio</li>
+<li><a class="" href="connect-intro.html">Can you hear me now?</a></li>
+<li><a class="" href="https-pat.html"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="" href="ssh-keys.html"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
+<li><a class="" href="push-pull-github.html"><span class="header-section-number">11</span> Connect to GitHub</a></li>
+<li><a class="" href="rstudio-git-github.html"><span class="header-section-number">12</span> Connect RStudio to Git and GitHub</a></li>
+<li><a class="" href="rstudio-see-git.html"><span class="header-section-number">13</span> Detect Git from RStudio</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">14</span> RStudio, Git, GitHub Hell</a></li>
+<li class="book-part">Early GitHub Wins</li>
+<li><a class="" href="usage-intro.html">Get started with GitHub</a></li>
+<li><a class="" href="new-github-first.html"><span class="header-section-number">15</span> New project, GitHub first</a></li>
+<li><a class="" href="existing-github-first.html"><span class="header-section-number">16</span> Existing project, GitHub first</a></li>
+<li><a class="" href="existing-github-last.html"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
+<li><a class="" href="rmd-test-drive.html"><span class="header-section-number">18</span> Test drive R Markdown</a></li>
+<li><a class="" href="r-test-drive.html"><span class="header-section-number">19</span> Render an R script</a></li>
+<li class="book-part">Git fundamentals</li>
+<li><a class="" href="git-intro.html">Some Git basics</a></li>
+<li><a class="" href="git-basics.html"><span class="header-section-number">20</span> Repo, commit, diff, tag</a></li>
+<li><a class="" href="git-commands.html"><span class="header-section-number">21</span> Git commands</a></li>
+<li><a class="" href="git-branches.html"><span class="header-section-number">22</span> Branches</a></li>
+<li><a class="active" href="git-remotes.html"><span class="header-section-number">23</span> Remotes</a></li>
+<li class="book-part">Remote setups</li>
+<li><a class="" href="remote-scenarios-intro.html">Git remote setups</a></li>
+<li><a class="" href="common-remote-setups.html"><span class="header-section-number">24</span> Common remote setups</a></li>
+<li><a class="" href="equivocal.html"><span class="header-section-number">25</span> Equivocal remote setups</a></li>
+<li class="book-part">Daily Workflows</li>
+<li><a class="" href="workflows-intro.html">Useful Git patterns for real life</a></li>
+<li><a class="" href="repeated-amend.html"><span class="header-section-number">26</span> The Repeated Amend</a></li>
+<li><a class="" href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></li>
+<li><a class="" href="pull-tricky.html"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li><a class="" href="time-travel-see-past.html"><span class="header-section-number">29</span> Time travel: See the past</a></li>
+<li><a class="" href="fork-and-clone.html"><span class="header-section-number">30</span> Fork and clone</a></li>
+<li><a class="" href="upstream-changes.html"><span class="header-section-number">31</span> Get upstream changes for a fork</a></li>
+<li><a class="" href="pr-extend.html"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
+<li><a class="" href="workflows-browsability.html"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
+<li class="book-part">Activity prompts</li>
+<li><a class="" href="clone.html"><span class="header-section-number">34</span> Clone a repo</a></li>
+<li><a class="" href="bingo.html"><span class="header-section-number">35</span> Create a bingo card</a></li>
+<li><a class="" href="burn.html"><span class="header-section-number">36</span> Burn it all down</a></li>
+<li><a class="" href="reset.html"><span class="header-section-number">37</span> Resetting</a></li>
+<li><a class="" href="search.html"><span class="header-section-number">38</span> Search GitHub</a></li>
+<li class="book-part">Notes</li>
+<li><a class="" href="notes-intro.html">Notes</a></li>
+<li><a class="" href="classroom-overview.html"><span class="header-section-number">39</span> Run a course with GitHub</a></li>
+<li><a class="" href="ideas-for-content.html"><span class="header-section-number">40</span> Ideas for content</a></li>
+<li><a class="" href="bookdown-cheat-sheet.html"><span class="header-section-number">41</span> Bookdown cheat sheet</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="shell.html"><span class="header-section-number">A</span> The shell</a></li>
+<li><a class="" href="comic-relief.html"><span class="header-section-number">B</span> Comic relief</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">C</span> Resources</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">D</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jennybc/happy-git-with-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-remotes" class="section level1">
+<h1>
+<span class="header-section-number">23</span> Remotes<a class="anchor" aria-label="anchor" href="#git-remotes"><i class="fas fa-link"></i></a>
+</h1>
+<p>Remote repositories are versions of your project that are hosted on the
+Internet or another network. A single project can have 1, 2 or even hundreds of
+remotes. You pull others changes from remotes and push your changes to remotes.</p>
+<div id="listing-what-remotes-exist" class="section level2">
+<h2>
+<span class="header-section-number">23.1</span> Listing what remotes exist<a class="anchor" aria-label="anchor" href="#listing-what-remotes-exist"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>git remote</code> lists the names of available remotes, but usually it is more
+useful to see what URLs each note corresponds to (with <code>-v</code>).</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb119-1"><a href="git-remotes.html#cb119-1"></a><span class="fu">git</span> remote -v</span></code></pre></div>
+<pre><code>## origin   https://github.com/jennybc/happy-git-with-r (fetch)
+## origin   https://github.com/jennybc/happy-git-with-r (push)</code></pre>
+</div>
+<div id="adding-a-new-remote" class="section level2">
+<h2>
+<span class="header-section-number">23.2</span> Adding a new remote<a class="anchor" aria-label="anchor" href="#adding-a-new-remote"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>git clone</code> automatically adds a new remote, so often you do not need to do
+this manually initially. However, after the initial clone, it is often useful to
+add additional remotes.</p>
+<p>Use <code>git remote add</code> to add a new remote</p>
+<pre class="shell"><code>git remote add happygit https://github.com/jennybc/happy-git-with-r.git</code></pre>
+<p>Note: when you add a remote you give it a nickname (here <code>happygit</code>), which you can use in git commands in place of the entire URL.</p>
+<pre class="shell"><code>git fetch happygit</code></pre>
+<p>Sidebar on nicknames: there is a strong convention to use <code>origin</code> as the nickname of your main remote. At this point, it is common for the main remote of a repo to be hosted on GitHub (or GitLab or Bitbucket). It is tempting to use a more descriptive nickname (such as <code>github</code>), but you might find that following convention is worth it. It makes your setup easier for others to understand and for you to transfer information that you read in documentation, on Stack Overflow, or in blogs.</p>
+<p>A common reason to add a second remote is when you have done a “fork and clone” of a repo and your personal copy is set up as the <code>origin</code> remote. Eventually you will want to pull changes from the original repository. It is common to use <code>upstream</code> as the nickname for this remote.</p>
+</div>
+<div id="fetching-data-from-remotes" class="section level2">
+<h2>
+<span class="header-section-number">23.3</span> Fetching data from remotes<a class="anchor" aria-label="anchor" href="#fetching-data-from-remotes"><i class="fas fa-link"></i></a>
+</h2>
+<p>To get new data from a remote use <code>git fetch &lt;remote_name&gt;</code>. This retrieves the
+data locally, but importantly it does <em>not</em> change the state of your repository
+or your files in any way. To incorporate the data into your repository, you need to merge or rebase your project with the remote project.</p>
+<pre class="shell"><code># Fetch the data
+git fetch happygit
+
+# Now merge it with our local master
+git merge happygit/master master
+
+# git pull is a shortcut which does the above in one command
+git pull happygit master</code></pre>
+<p>For more detail on <code>git pull</code> workflows, see <a href="pull-tricky.html#pull-tricky">28</a>.</p>
+</div>
+<div id="pushing-to-remotes" class="section level2">
+<h2>
+<span class="header-section-number">23.4</span> Pushing to remotes<a class="anchor" aria-label="anchor" href="#pushing-to-remotes"><i class="fas fa-link"></i></a>
+</h2>
+<p>Use <code>git push &lt;remote&gt; &lt;branch&gt;</code> to push your local changes to the <code>&lt;branch&gt;</code>
+branch on the <code>&lt;remote&gt;</code> remote.</p>
+<pre class="shell"><code># push my local changes to the origin remote's master branch
+git push origin master
+
+# push my local changes to the happygit remote's test branch
+git push happygit test</code></pre>
+</div>
+<div id="renaming-and-changing-remotes" class="section level2">
+<h2>
+<span class="header-section-number">23.5</span> Renaming and changing remotes<a class="anchor" aria-label="anchor" href="#renaming-and-changing-remotes"><i class="fas fa-link"></i></a>
+</h2>
+<p><code>git remote rename</code> can be used to rename a remote</p>
+<pre class="shell"><code>git remote rename happygit hg</code></pre>
+<p><code>git remote set-url</code> can be used to change the URL for a remote. This is
+sometimes useful if you initially set up a remote using https, but now want to
+use the SSH URL instead (or vise versa).</p>
+<pre class="shell"><code>git remote set-url happygit git@github.com:jennybc/happy-git-with-r.git</code></pre>
+<p>One fairly common workflow is you initially cloned a repository on GitHub
+locally (without forking it), but now want to create your own fork and push
+changes to it. As described earlier, it is common to call the main repository <code>upstream</code> and to call your fork <code>origin</code>. So, in this case, you need to first rename the existing remote (from <code>origin</code> to <code>upstream</code>). Then add your fork as a new remote, with the name <code>origin</code>.</p>
+<pre class="shell"><code>git remote rename origin upstream
+git remote add origin git@github.com:jimhester/happy-git-with-r.git</code></pre>
+</div>
+<div id="upstream-tracking-branches" class="section level2">
+<h2>
+<span class="header-section-number">23.6</span> Upstream tracking branches<a class="anchor" aria-label="anchor" href="#upstream-tracking-branches"><i class="fas fa-link"></i></a>
+</h2>
+<p>It is possible to set the branch on the remote each of your local remotes
+corresponds to. <code>git clone</code> sets this up automatically, so for your own master
+branch this is not something you will run into. However by default if you
+create a new branch and try to push to it you will see something like this.</p>
+<pre class="shell"><code>git checkout -b mybranch
+git push
+# fatal: The current branch foo has no upstream branch.
+# To push the current branch and set the remote as upstream, use
+#
+#     git push --set-upstream origin foo</code></pre>
+<p>You can do as the error message says and explicitly set the upstream branch
+with <code>--set-upstream</code>. However I would recommend instead changing the default
+behavior of <code>push</code> to automatically set the upstream branch to the branch with
+the same name on the remote.</p>
+<p>You can do this by changing the git <code>push.default</code> option to <code>current</code>.</p>
+<pre class="shell"><code>git config --global push.default current</code></pre>
+<p>See also Working with Remotes:</p>
+<p><a href="https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes" class="uri">https://git-scm.com/book/en/v2/Git-Basics-Working-with-Remotes</a></p>
+
+</div>
+</div>
+
+
+
+  <div class="chapter-nav">
+<div class="prev"><a href="git-branches.html"><span class="header-section-number">22</span> Branches</a></div>
+<div class="next"><a href="remote-scenarios-intro.html">Git remote setups</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#git-remotes"><span class="header-section-number">23</span> Remotes</a></li>
+<li><a class="nav-link" href="#listing-what-remotes-exist"><span class="header-section-number">23.1</span> Listing what remotes exist</a></li>
+<li><a class="nav-link" href="#adding-a-new-remote"><span class="header-section-number">23.2</span> Adding a new remote</a></li>
+<li><a class="nav-link" href="#fetching-data-from-remotes"><span class="header-section-number">23.3</span> Fetching data from remotes</a></li>
+<li><a class="nav-link" href="#pushing-to-remotes"><span class="header-section-number">23.4</span> Pushing to remotes</a></li>
+<li><a class="nav-link" href="#renaming-and-changing-remotes"><span class="header-section-number">23.5</span> Renaming and changing remotes</a></li>
+<li><a class="nav-link" href="#upstream-tracking-branches"><span class="header-section-number">23.6</span> Upstream tracking branches</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jennybc/happy-git-with-r/blob/master/git-remotes.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jennybc/happy-git-with-r/edit/master/git-remotes.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Happy Git and GitHub for the useR</strong>" was written by Jenny Bryan, the STAT 545 TAs, Jim Hester. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

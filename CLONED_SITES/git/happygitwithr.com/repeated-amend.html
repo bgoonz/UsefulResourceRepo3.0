@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 26 The Repeated Amend | Happy Git and GitHub for the useR</title>
+<meta name="author" content="Jenny Bryan, the STAT 545 TAs, Jim Hester">
+<meta name="description" content="One of the principal joys of version control is the freedom to experiment without fear. If you make a mess of things, you can always go back to a happier version of your project. We describe...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 26 The Repeated Amend | Happy Git and GitHub for the useR">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://happygitwithr.com/repeated-amend.html">
+<meta property="og:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<meta property="og:description" content="One of the principal joys of version control is the freedom to experiment without fear. If you make a mess of things, you can always go back to a happier version of your project. We describe...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 26 The Repeated Amend | Happy Git and GitHub for the useR">
+<meta name="twitter:site" content="@jennybryan">
+<meta name="twitter:description" content="One of the principal joys of version control is the freedom to experiment without fear. If you make a mess of things, you can always go back to a happier version of your project. We describe...">
+<meta name="twitter:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-131856976-1"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-131856976-1');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Happy Git and GitHub for the useR</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Let’s Git started</a></li>
+<li><a class="" href="big-picture.html"><span class="header-section-number">1</span> Why Git? Why GitHub?</a></li>
+<li><a class="" href="contrib.html"><span class="header-section-number">2</span> Contributors</a></li>
+<li><a class="" href="workshops.html"><span class="header-section-number">3</span> Workshops</a></li>
+<li class="book-part">Installation</li>
+<li><a class="" href="install-intro.html">Half the battle</a></li>
+<li><a class="" href="github-acct.html"><span class="header-section-number">4</span> Register a GitHub account</a></li>
+<li><a class="" href="install-r-rstudio.html"><span class="header-section-number">5</span> Install or upgrade R and RStudio</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">6</span> Install Git</a></li>
+<li><a class="" href="hello-git.html"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
+<li><a class="" href="git-client.html"><span class="header-section-number">8</span> Install a Git client</a></li>
+<li class="book-part">Connect Git, GitHub, RStudio</li>
+<li><a class="" href="connect-intro.html">Can you hear me now?</a></li>
+<li><a class="" href="https-pat.html"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="" href="ssh-keys.html"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
+<li><a class="" href="push-pull-github.html"><span class="header-section-number">11</span> Connect to GitHub</a></li>
+<li><a class="" href="rstudio-git-github.html"><span class="header-section-number">12</span> Connect RStudio to Git and GitHub</a></li>
+<li><a class="" href="rstudio-see-git.html"><span class="header-section-number">13</span> Detect Git from RStudio</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">14</span> RStudio, Git, GitHub Hell</a></li>
+<li class="book-part">Early GitHub Wins</li>
+<li><a class="" href="usage-intro.html">Get started with GitHub</a></li>
+<li><a class="" href="new-github-first.html"><span class="header-section-number">15</span> New project, GitHub first</a></li>
+<li><a class="" href="existing-github-first.html"><span class="header-section-number">16</span> Existing project, GitHub first</a></li>
+<li><a class="" href="existing-github-last.html"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
+<li><a class="" href="rmd-test-drive.html"><span class="header-section-number">18</span> Test drive R Markdown</a></li>
+<li><a class="" href="r-test-drive.html"><span class="header-section-number">19</span> Render an R script</a></li>
+<li class="book-part">Git fundamentals</li>
+<li><a class="" href="git-intro.html">Some Git basics</a></li>
+<li><a class="" href="git-basics.html"><span class="header-section-number">20</span> Repo, commit, diff, tag</a></li>
+<li><a class="" href="git-commands.html"><span class="header-section-number">21</span> Git commands</a></li>
+<li><a class="" href="git-branches.html"><span class="header-section-number">22</span> Branches</a></li>
+<li><a class="" href="git-remotes.html"><span class="header-section-number">23</span> Remotes</a></li>
+<li class="book-part">Remote setups</li>
+<li><a class="" href="remote-scenarios-intro.html">Git remote setups</a></li>
+<li><a class="" href="common-remote-setups.html"><span class="header-section-number">24</span> Common remote setups</a></li>
+<li><a class="" href="equivocal.html"><span class="header-section-number">25</span> Equivocal remote setups</a></li>
+<li class="book-part">Daily Workflows</li>
+<li><a class="" href="workflows-intro.html">Useful Git patterns for real life</a></li>
+<li><a class="active" href="repeated-amend.html"><span class="header-section-number">26</span> The Repeated Amend</a></li>
+<li><a class="" href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></li>
+<li><a class="" href="pull-tricky.html"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li><a class="" href="time-travel-see-past.html"><span class="header-section-number">29</span> Time travel: See the past</a></li>
+<li><a class="" href="fork-and-clone.html"><span class="header-section-number">30</span> Fork and clone</a></li>
+<li><a class="" href="upstream-changes.html"><span class="header-section-number">31</span> Get upstream changes for a fork</a></li>
+<li><a class="" href="pr-extend.html"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
+<li><a class="" href="workflows-browsability.html"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
+<li class="book-part">Activity prompts</li>
+<li><a class="" href="clone.html"><span class="header-section-number">34</span> Clone a repo</a></li>
+<li><a class="" href="bingo.html"><span class="header-section-number">35</span> Create a bingo card</a></li>
+<li><a class="" href="burn.html"><span class="header-section-number">36</span> Burn it all down</a></li>
+<li><a class="" href="reset.html"><span class="header-section-number">37</span> Resetting</a></li>
+<li><a class="" href="search.html"><span class="header-section-number">38</span> Search GitHub</a></li>
+<li class="book-part">Notes</li>
+<li><a class="" href="notes-intro.html">Notes</a></li>
+<li><a class="" href="classroom-overview.html"><span class="header-section-number">39</span> Run a course with GitHub</a></li>
+<li><a class="" href="ideas-for-content.html"><span class="header-section-number">40</span> Ideas for content</a></li>
+<li><a class="" href="bookdown-cheat-sheet.html"><span class="header-section-number">41</span> Bookdown cheat sheet</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="shell.html"><span class="header-section-number">A</span> The shell</a></li>
+<li><a class="" href="comic-relief.html"><span class="header-section-number">B</span> Comic relief</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">C</span> Resources</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">D</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jennybc/happy-git-with-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="repeated-amend" class="section level1">
+<h1>
+<span class="header-section-number">26</span> The Repeated Amend<a class="anchor" aria-label="anchor" href="#repeated-amend"><i class="fas fa-link"></i></a>
+</h1>
+<p>One of the principal joys of version control is the freedom to experiment without fear. If you make a mess of things, you can always go back to a happier version of your project. We describe several methods of such time travel in <em>link to come</em>. But you must have a good commit to fall back to!</p>
+<div id="rock-climbing-analogy" class="section level2">
+<h2>
+<span class="header-section-number">26.1</span> Rock climbing analogy<a class="anchor" aria-label="anchor" href="#rock-climbing-analogy"><i class="fas fa-link"></i></a>
+</h2>
+<div class="figure">
+<blockquote>
+Using a Git commit is like using anchors and other protection when climbing. If you’re crossing a dangerous rock face you want to make sure you’ve used protection to catch you if you fall. Commits play a similar role: if you make a mistake, you can’t fall past the previous commit. Coding without commits is like free-climbing: you can travel much faster in the short-term, but in the long-term the chances of catastrophic failure are high! Like rock climbing protection, you want to be judicious in your use of commits. Committing too frequently will slow your progress; use more commits when you’re in uncertain or dangerous territory. Commits are also helpful to others, because they show your journey, not just the destination.
+</blockquote>
+<p class="caption">
+<a href="http://r-pkgs.had.co.nz/git.html#git-commit">R Packages, Hadley Wickham</a> (<span class="citation">Wickham (<a href="references.html#ref-r-pkgs-book" role="doc-biblioref">2015</a>)</span>)
+</p>
+</div>
+<p>Let’s talk about this:</p>
+<blockquote>
+<p>use more commits when you’re in uncertain or dangerous territory</p>
+</blockquote>
+<p>When I’m doing something tricky, I often proceed towards my goal in small increments, checking that everything still works along the way. Yes it works? Make a commit. This is my new worst case scenario. Keep going.</p>
+<p>What’s not to love?</p>
+<p>This can lead to an awful lot of tiny commits. This is absolutely fine and nothing to be ashamed of. But one day you may start to care about the utility and aesthetics of your Git history.</p>
+<p>The Repeated Amend is a pattern where, instead of cluttering your history with lots of tiny commits, you build up a “good” commit gradually, by amending.</p>
+<p><em>Yes, there are other ways to do this, e.g. via squashing and interactive rebase, but I think amending is the best way to get started.</em></p>
+</div>
+<div id="workflow-sketch" class="section level2">
+<h2>
+<span class="header-section-number">26.2</span> Workflow sketch<a class="anchor" aria-label="anchor" href="#workflow-sketch"><i class="fas fa-link"></i></a>
+</h2>
+<div id="initial-condition" class="section level3">
+<h3>
+<span class="header-section-number">26.2.1</span> Initial condition<a class="anchor" aria-label="anchor" href="#initial-condition"><i class="fas fa-link"></i></a>
+</h3>
+<p>Start with your project in a functional state:</p>
+<ul>
+<li>R package? Run your tests or <code>R CMD check</code>.</li>
+<li>Data analysis? Re-run your script or re-render your <code>.Rmd</code> with the new chunk.</li>
+<li>Website or book? Make sure the project still compiles.</li>
+<li>You get the idea.</li>
+</ul>
+<p>Make sure your “working tree is clean” and you are synced up with your GitHub remote. <code>git status</code> should show something like:</p>
+<div class="sourceCode" id="cb130"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb130-1"><a href="repeated-amend.html#cb130-1"></a><span class="ex">On</span> branch master</span>
+<span id="cb130-2"><a href="repeated-amend.html#cb130-2"></a><span class="ex">Your</span> branch is up to date with <span class="st">'origin/master'</span>.</span>
+<span id="cb130-3"><a href="repeated-amend.html#cb130-3"></a></span>
+<span id="cb130-4"><a href="repeated-amend.html#cb130-4"></a><span class="ex">nothing</span> to commit, working tree clean</span></code></pre></div>
+</div>
+<div id="get-to-work" class="section level3">
+<h3>
+<span class="header-section-number">26.2.2</span> Get to work<a class="anchor" aria-label="anchor" href="#get-to-work"><i class="fas fa-link"></i></a>
+</h3>
+<p>Imagine we start at commit C, with previous commit B and, before that, A:</p>
+<div class="sourceCode" id="cb131"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb131-1"><a href="repeated-amend.html#cb131-1"></a><span class="ex">...</span> -- A -- B -- C</span></code></pre></div>
+<p>Make a small step towards your goal. Re-check that your project “works”.</p>
+<p>Stage those changes and make a commit with the message “WIP”, meaning “work in progress”. Do this in RStudio or in the shell (Appendix <a href="shell.html#shell">A</a>):</p>
+<div class="sourceCode" id="cb132"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb132-1"><a href="repeated-amend.html#cb132-1"></a><span class="fu">git</span> commit -m <span class="st">"WIP"</span></span></code></pre></div>
+<p>The message can be anything, but “WIP” is a common convention. If you use it, whenever you return to a project where the most recent commit message is “WIP”, you’ll know that you were probably in the middle of something. If you push a “WIP” commit, on purpose or by mistake, it signals to other people that more commits might be coming.</p>
+<p>Your history now looks like this:</p>
+<div class="sourceCode" id="cb133"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb133-1"><a href="repeated-amend.html#cb133-1"></a><span class="ex">A</span> -- B -- C -- WIP*</span></code></pre></div>
+<p><strong>Don’t push!</strong> The <code><a href="https://rdrr.io/r/base/Arithmetic.html">*</a></code> above signifies a commit that exists only in your local repo, not (yet) on GitHub.</p>
+<p>Do a bit more work. Re-check that your project is still in a functional state. Commit again but this time <strong>amend</strong> your previous commit. RStudio offers a check box for “Amend previous commit” or in the shell:</p>
+<div class="sourceCode" id="cb134"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb134-1"><a href="repeated-amend.html#cb134-1"></a><span class="fu">git</span> commit --amend --no-edit</span></code></pre></div>
+<p>The <code>--no-edit</code> part retains the current commit message of “WIP”.</p>
+<p><strong>Don’t push!</strong> Your history now looks like this:</p>
+<div class="sourceCode" id="cb135"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb135-1"><a href="repeated-amend.html#cb135-1"></a><span class="ex">A</span> -- B -- C -- WIP*</span></code></pre></div>
+<p>but the changes associated with the <code>WIP*</code> commit now represent your last two commits, i.e. all the accumulated changes since state C.</p>
+<p>Keep going like this.</p>
+<p>Let’s say you’ve finally achieved your goal. One last time, check that your project is functional and in a state you’re willing to share with others.</p>
+<p>Commit, amending again, but with a real commit message this time. Think of this as commit D. Push. Do this in RStudio or the shell:</p>
+<div class="sourceCode" id="cb136"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb136-1"><a href="repeated-amend.html#cb136-1"></a><span class="fu">git</span> commit --amend -m <span class="st">"Implement awesome feature; closes #43"</span></span>
+<span id="cb136-2"><a href="repeated-amend.html#cb136-2"></a><span class="fu">git</span> push</span></code></pre></div>
+<p>Your history – and that on GitHub – look like this:</p>
+<div class="sourceCode" id="cb137"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb137-1"><a href="repeated-amend.html#cb137-1"></a><span class="ex">A</span> -- B -- C -- D</span></code></pre></div>
+<p>As far as the world knows, you implemented the feature in one fell swoop. But you got to work on the task incrementally, with the peace of mind that you could never truly break things.</p>
+</div>
+</div>
+<div id="what-if-i-need-to-fall-back" class="section level2">
+<h2>
+<span class="header-section-number">26.3</span> What if I need to fall back?<a class="anchor" aria-label="anchor" href="#what-if-i-need-to-fall-back"><i class="fas fa-link"></i></a>
+</h2>
+<p>Imagine you’re in the middle of a Repeated Amend workflow:</p>
+<div class="sourceCode" id="cb138"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb138-1"><a href="repeated-amend.html#cb138-1"></a><span class="ex">A</span> -- B -- C -- WIP*</span></code></pre></div>
+<p>and you make some changes that break your project, e.g. tests start failing. These bad changes are not yet committed, but they are saved. You want to fall back to the last good state, represented by <code>WIP*</code>.</p>
+<p>In Git lingo, you want to do a <strong>hard reset</strong> to the <code>WIP*</code> state. With the command line:</p>
+<div class="sourceCode" id="cb139"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb139-1"><a href="repeated-amend.html#cb139-1"></a><span class="fu">git</span> reset --hard</span></code></pre></div>
+<p>which is implicitly the same as</p>
+<div class="sourceCode" id="cb140"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb140-1"><a href="repeated-amend.html#cb140-1"></a><span class="fu">git</span> reset --hard HEAD</span></code></pre></div>
+<p>which says: “reset my files to their state at the most recent commit”.</p>
+<p>This is also possible in RStudio. Click on “Diff” or “Commit”. Select a file with changes you do not want. Use “Discard All” to discard all changes in that file. Use “Discard chunk” to discard changes in that file, selectively. Repeat this procedure for each affected file until you are back to an acceptable state. Carry on.</p>
+<p>If you committed a bad state, go to <em>link to come</em> for more reset scenarios.</p>
+</div>
+<div id="why-dont-we-push-intermediate-progress" class="section level2">
+<h2>
+<span class="header-section-number">26.4</span> Why don’t we push intermediate progress?<a class="anchor" aria-label="anchor" href="#why-dont-we-push-intermediate-progress"><i class="fas fa-link"></i></a>
+</h2>
+<p>Amending a commit is an example of what’s called “rewriting Git history”.</p>
+<p>Rewriting history that has already been pushed to GitHub – and therefore potentially pulled by someone else – is a controversial practice. Like most controversial practices, lots of people still indulge in it, as do I.</p>
+<p>But there is the very real possibility that you create headaches for yourself and others, so in Happy Git we must recommend that you abstain. Once you’ve pushed something, consider it written in stone and move on.</p>
+</div>
+<div id="um-what-if-i-did-push" class="section level2">
+<h2>
+<span class="header-section-number">26.5</span> Um, what if I did push?<a class="anchor" aria-label="anchor" href="#um-what-if-i-did-push"><i class="fas fa-link"></i></a>
+</h2>
+<p>I told you not to!</p>
+<p>But OK here we are.</p>
+<p>Let’s imagine you pushed this state to GitHub by mistake:</p>
+<div class="sourceCode" id="cb141"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb141-1"><a href="repeated-amend.html#cb141-1"></a><span class="ex">A</span> -- B -- C -- WIP (85bf30a)</span></code></pre></div>
+<p>and proceeded to <code>git commit --amend</code> again locally, leading to this state:</p>
+<div class="sourceCode" id="cb142"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb142-1"><a href="repeated-amend.html#cb142-1"></a><span class="ex">A</span> -- B -- C -- WIP* (6e884e6)</span></code></pre></div>
+<p>I’m deliberately showing two histories that sort of look the same, in terms of commit messages. But the last SHA reveals they are actually different.</p>
+<p>You are in a pickle now, as you can’t do a simple push or pull. A push will be rejected and a pull will probably lead to a merge that you don’t want.</p>
+<p>You have two choices:</p>
+<ul>
+<li>
+<p>Hard reset your local repo to <code>C</code> (<code>git reset --hard HEAD^</code>) and pull from GitHub. Do this if you have collaborators who may have pulled that state. GitHub and local history now show this:</p>
+<div class="sourceCode" id="cb143"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb143-1"><a href="repeated-amend.html#cb143-1"></a><span class="ex">A</span> -- B -- C -- WIP (85bf30a)</span></code></pre></div>
+</li>
+<li>
+<p>Force push to GitHub (<code>git push --force</code>). Do this if you have no collaborators or you have reason to believe they have not pulled. GitHub and local history now show this:</p>
+<div class="sourceCode" id="cb144"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb144-1"><a href="repeated-amend.html#cb144-1"></a><span class="ex">A</span> -- B -- C -- WIP* (6e884e6)</span></code></pre></div>
+</li>
+</ul>
+<p>Now you are synced up again.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="workflows-intro.html">Useful Git patterns for real life</a></div>
+<div class="next"><a href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#repeated-amend"><span class="header-section-number">26</span> The Repeated Amend</a></li>
+<li><a class="nav-link" href="#rock-climbing-analogy"><span class="header-section-number">26.1</span> Rock climbing analogy</a></li>
+<li>
+<a class="nav-link" href="#workflow-sketch"><span class="header-section-number">26.2</span> Workflow sketch</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#initial-condition"><span class="header-section-number">26.2.1</span> Initial condition</a></li>
+<li><a class="nav-link" href="#get-to-work"><span class="header-section-number">26.2.2</span> Get to work</a></li>
+</ul>
+</li>
+<li><a class="nav-link" href="#what-if-i-need-to-fall-back"><span class="header-section-number">26.3</span> What if I need to fall back?</a></li>
+<li><a class="nav-link" href="#why-dont-we-push-intermediate-progress"><span class="header-section-number">26.4</span> Why don’t we push intermediate progress?</a></li>
+<li><a class="nav-link" href="#um-what-if-i-did-push"><span class="header-section-number">26.5</span> Um, what if I did push?</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jennybc/happy-git-with-r/blob/master/workflows-repeated-amend.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jennybc/happy-git-with-r/edit/master/workflows-repeated-amend.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Happy Git and GitHub for the useR</strong>" was written by Jenny Bryan, the STAT 545 TAs, Jim Hester. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

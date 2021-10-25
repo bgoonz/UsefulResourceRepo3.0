@@ -1,0 +1,141 @@
+@import '../../shared/mixins',
+        '../../shared/reset',
+        '../../shared/about-dark';
+
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+$siteWidth: 680px;
+$navHeight: 34px;
+$navBackgroundColor: #759aaf;
+
+body {
+  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  color: #404040;
+  background: #ecedef;
+}
+
+.container {
+}
+
+header {
+  padding-top: 60px;
+  background: #404040 url('../img/bg.png') 0 0 repeat;
+  border-bottom: 1px solid #dadada;
+  @include box-shadow(0 0 1px rgba(black, .04));
+}
+
+nav {
+  height: $navHeight;
+  border-bottom: 5px solid white;
+  @include box-shadow(inset 0 -2px 1px rgba(black, .03));
+
+}
+
+.nav {
+  margin: 0 auto;
+  width: $siteWidth;
+
+  a {
+    display: block;
+    text-decoration: none;
+  }
+
+  > li {
+    float: left;
+    margin-right: 3px;
+  }
+
+  > li > a {
+    height: $navHeight;
+    line-height: $navHeight;
+    padding: 0 20px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    text-shadow: 0 -1px rgba(black, .3);
+    background: $navBackgroundColor;
+    border-radius: 3px 3px 0 0;
+    @include linear-gradient(top, lighten($navBackgroundColor, 12%), $navBackgroundColor);
+    @include box-shadow(inset 0 1px rgba(white, .3), inset 0 -2px 2px rgba(black, .03), 0 2px white, 0 0 2px rgba(black, .2));
+
+    &:hover {
+      text-decoration: none;
+      background: lighten($navBackgroundColor, 5%);
+      @include linear-gradient(top, lighten($navBackgroundColor, 18%), lighten($navBackgroundColor, 5%));
+    }
+  }
+
+  > li.active > a, > li > a:active, > .dropdown:hover > a {
+    background: white;
+    color: #404040;
+    text-shadow: none;
+    @include box-shadow(0 2px white, 0 0 2px rgba(black, .2));
+  }
+
+  a.icon {
+    position: relative;
+    width: $navHeight * 1.2;
+    padding: 0;
+
+    > span {
+      display: block;
+      position: absolute;
+      top: round(($navHeight - 16px) / 2);
+      left: round(($navHeight * 1.2 - 16px) / 2);
+      height: 16px;
+      width: 16px;
+      background-repeat: no-repeat;
+      background-position: 0 0;
+      @include hide-text;
+    }
+
+    &.home > span { background-image: url('../img/home.png'); }
+  }
+
+  .active a.icon, a.icon:active { > span { background-position: 0 -16px; } }
+}
+
+.dropdown {
+  position: relative;
+  border-bottom: 5px solid white;
+
+  &:hover ul { display: block; }
+
+  ul {
+    display: none;
+    position: absolute;
+    top: $navHeight + 5px;
+    left: -1px;
+    min-width: 160px;
+    padding: 0 0 5px;
+    background: white;
+    border: 1px solid #dadada;
+    border-top: 0;
+    border-radius: 0 0 3px 3px;
+    @include box-shadow(0 0 1px rgba(black, .04));
+
+    &.large { min-width: 200px; }
+  }
+
+  li {
+    display: block;
+    margin: 0 18px;
+    overflow: visible;
+
+    + li { border-top: 1px solid #eee; }
+
+    a {
+      color: #555;
+      padding: 8px 18px;
+      margin: 0 -18px;
+
+      &:hover { color: black; }
+    }
+  }
+}

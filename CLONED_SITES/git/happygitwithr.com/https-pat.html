@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 9 Personal access token for HTTPS | Happy Git and GitHub for the useR</title>
+<meta name="author" content="Jenny Bryan, the STAT 545 TAs, Jim Hester">
+<meta name="description" content="When we interact with a remote Git server, such as GitHub, we have to include credentials in the request. This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 9 Personal access token for HTTPS | Happy Git and GitHub for the useR">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://happygitwithr.com/https-pat.html">
+<meta property="og:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<meta property="og:description" content="When we interact with a remote Git server, such as GitHub, we have to include credentials in the request. This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 9 Personal access token for HTTPS | Happy Git and GitHub for the useR">
+<meta name="twitter:site" content="@jennybryan">
+<meta name="twitter:description" content="When we interact with a remote Git server, such as GitHub, we have to include credentials in the request. This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to...">
+<meta name="twitter:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-131856976-1"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-131856976-1');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Happy Git and GitHub for the useR</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Let’s Git started</a></li>
+<li><a class="" href="big-picture.html"><span class="header-section-number">1</span> Why Git? Why GitHub?</a></li>
+<li><a class="" href="contrib.html"><span class="header-section-number">2</span> Contributors</a></li>
+<li><a class="" href="workshops.html"><span class="header-section-number">3</span> Workshops</a></li>
+<li class="book-part">Installation</li>
+<li><a class="" href="install-intro.html">Half the battle</a></li>
+<li><a class="" href="github-acct.html"><span class="header-section-number">4</span> Register a GitHub account</a></li>
+<li><a class="" href="install-r-rstudio.html"><span class="header-section-number">5</span> Install or upgrade R and RStudio</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">6</span> Install Git</a></li>
+<li><a class="" href="hello-git.html"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
+<li><a class="" href="git-client.html"><span class="header-section-number">8</span> Install a Git client</a></li>
+<li class="book-part">Connect Git, GitHub, RStudio</li>
+<li><a class="" href="connect-intro.html">Can you hear me now?</a></li>
+<li><a class="active" href="https-pat.html"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="" href="ssh-keys.html"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
+<li><a class="" href="push-pull-github.html"><span class="header-section-number">11</span> Connect to GitHub</a></li>
+<li><a class="" href="rstudio-git-github.html"><span class="header-section-number">12</span> Connect RStudio to Git and GitHub</a></li>
+<li><a class="" href="rstudio-see-git.html"><span class="header-section-number">13</span> Detect Git from RStudio</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">14</span> RStudio, Git, GitHub Hell</a></li>
+<li class="book-part">Early GitHub Wins</li>
+<li><a class="" href="usage-intro.html">Get started with GitHub</a></li>
+<li><a class="" href="new-github-first.html"><span class="header-section-number">15</span> New project, GitHub first</a></li>
+<li><a class="" href="existing-github-first.html"><span class="header-section-number">16</span> Existing project, GitHub first</a></li>
+<li><a class="" href="existing-github-last.html"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
+<li><a class="" href="rmd-test-drive.html"><span class="header-section-number">18</span> Test drive R Markdown</a></li>
+<li><a class="" href="r-test-drive.html"><span class="header-section-number">19</span> Render an R script</a></li>
+<li class="book-part">Git fundamentals</li>
+<li><a class="" href="git-intro.html">Some Git basics</a></li>
+<li><a class="" href="git-basics.html"><span class="header-section-number">20</span> Repo, commit, diff, tag</a></li>
+<li><a class="" href="git-commands.html"><span class="header-section-number">21</span> Git commands</a></li>
+<li><a class="" href="git-branches.html"><span class="header-section-number">22</span> Branches</a></li>
+<li><a class="" href="git-remotes.html"><span class="header-section-number">23</span> Remotes</a></li>
+<li class="book-part">Remote setups</li>
+<li><a class="" href="remote-scenarios-intro.html">Git remote setups</a></li>
+<li><a class="" href="common-remote-setups.html"><span class="header-section-number">24</span> Common remote setups</a></li>
+<li><a class="" href="equivocal.html"><span class="header-section-number">25</span> Equivocal remote setups</a></li>
+<li class="book-part">Daily Workflows</li>
+<li><a class="" href="workflows-intro.html">Useful Git patterns for real life</a></li>
+<li><a class="" href="repeated-amend.html"><span class="header-section-number">26</span> The Repeated Amend</a></li>
+<li><a class="" href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></li>
+<li><a class="" href="pull-tricky.html"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li><a class="" href="time-travel-see-past.html"><span class="header-section-number">29</span> Time travel: See the past</a></li>
+<li><a class="" href="fork-and-clone.html"><span class="header-section-number">30</span> Fork and clone</a></li>
+<li><a class="" href="upstream-changes.html"><span class="header-section-number">31</span> Get upstream changes for a fork</a></li>
+<li><a class="" href="pr-extend.html"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
+<li><a class="" href="workflows-browsability.html"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
+<li class="book-part">Activity prompts</li>
+<li><a class="" href="clone.html"><span class="header-section-number">34</span> Clone a repo</a></li>
+<li><a class="" href="bingo.html"><span class="header-section-number">35</span> Create a bingo card</a></li>
+<li><a class="" href="burn.html"><span class="header-section-number">36</span> Burn it all down</a></li>
+<li><a class="" href="reset.html"><span class="header-section-number">37</span> Resetting</a></li>
+<li><a class="" href="search.html"><span class="header-section-number">38</span> Search GitHub</a></li>
+<li class="book-part">Notes</li>
+<li><a class="" href="notes-intro.html">Notes</a></li>
+<li><a class="" href="classroom-overview.html"><span class="header-section-number">39</span> Run a course with GitHub</a></li>
+<li><a class="" href="ideas-for-content.html"><span class="header-section-number">40</span> Ideas for content</a></li>
+<li><a class="" href="bookdown-cheat-sheet.html"><span class="header-section-number">41</span> Bookdown cheat sheet</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="shell.html"><span class="header-section-number">A</span> The shell</a></li>
+<li><a class="" href="comic-relief.html"><span class="header-section-number">B</span> Comic relief</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">C</span> Resources</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">D</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jennybc/happy-git-with-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="https-pat" class="section level1">
+<h1>
+<span class="header-section-number">9</span> Personal access token for HTTPS<a class="anchor" aria-label="anchor" href="#https-pat"><i class="fas fa-link"></i></a>
+</h1>
+<p>When we interact with a remote Git server, such as GitHub, we have to include credentials in the request.
+This proves we are a specific GitHub user, who’s allowed to do whatever we’re asking to do.</p>
+<p>Git can communicate with a remote server using one of two protocols, HTTPS or SSH, and the different protocols use different credentials.</p>
+<p>Here we describe the credential setup for the HTTPS protocol, which is what we recommend if you have no burning reason to pick SSH.
+With HTTPS, we will use a <strong>personal access token (PAT)</strong>.
+Head over to chapter <a href="ssh-keys.html#ssh-keys">10</a> if you really want to set up SSH keys.</p>
+<p>Let it be known that the password that you use to login to GitHub’s website is NOT an acceptable credential when talking to GitHub as a Git server.
+This was possible in the past (and may yet be true for other Git servers), but those days are over at GitHub.
+You can learn more in their blog post <a href="https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/">Token authentication requirements for Git operations</a>.</p>
+<p>Here’s the error you’ll see if you try to do that now:</p>
+<pre class="console"><code>remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+fatal: Authentication failed for 'https://github.com/OWNER/REPO.git/'</code></pre>
+<p>The recommendation to use a personal access token (PAT) is exactly what we cover in this chapter.</p>
+<div id="tldr" class="section level2">
+<h2>
+<span class="header-section-number">9.1</span> TL;DR<a class="anchor" aria-label="anchor" href="#tldr"><i class="fas fa-link"></i></a>
+</h2>
+<p>This is a very minimal account of getting and storing a PAT.
+This might be all you need when you’re first getting yourself set up.
+You can always come back later and read other parts of this chapter.</p>
+<p>Go to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> and click “Generate token”.</p>
+<p>Or, from R, do:</p>
+<div class="sourceCode" id="cb19"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_github_token</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Look over the scopes; I highly recommend selecting “repo”, “user”, and “workflow”.
+Recommended scopes will be pre-selected if you used <code>create_github_token()</code>.</p>
+<p>Click “Generate token”.</p>
+<p>Copy the generated PAT to your clipboard.
+Or leave that browser window open and available for a little while, so you can come back to copy the PAT.</p>
+<p>Provide this PAT next time a Git operation asks for your password<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Yes, it’s confusing that you might be prompted for a password, but you should enter your PAT.
+GitHub no longer allows passwords in this context, but most basic Git tools still frame the authentication task with this language.&lt;/p&gt;"><sup>2</sup></a>.</p>
+<p>You could even get out ahead of this and store the PAT explicitly right now.
+In R, call <code>gitcreds::gitcreds_set()</code> to get a prompt where you can paste your PAT:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="https-pat.html#cb20-1"></a><span class="op">&gt;</span> <span class="fu">gitcreds::gitcreds_set()</span></span>
+<span id="cb20-2"><a href="https-pat.html#cb20-2"></a></span>
+<span id="cb20-3"><a href="https-pat.html#cb20-3"></a><span class="ex">?</span> Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span id="cb20-4"><a href="https-pat.html#cb20-4"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
+<span id="cb20-5"><a href="https-pat.html#cb20-5"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
+<span id="cb20-6"><a href="https-pat.html#cb20-6"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code></pre></div>
+<p>You should be able to work with GitHub now, i.e. push and pull.
+If you’re still doing your initial setup, now is a great time to move on to <a href="push-pull-github.html#push-pull-github">Connect to GitHub</a>.</p>
+<p>Read on to learn more about:</p>
+<ul>
+<li><a href="https-pat.html#https-vs-ssh">How to decide between the HTTPS and SSH protocols</a></li>
+<li><a href="https-pat.html#get-a-pat">PAT scopes, names, and expiration</a></li>
+<li><a href="https-pat.html#store-pat">PAT storage</a></li>
+<li><a href="https-pat.html#pat-troubleshooting">Troubleshooting</a></li>
+</ul>
+</div>
+<div id="https-vs-ssh" class="section level2">
+<h2>
+<span class="header-section-number">9.2</span> HTTPS versus SSH<a class="anchor" aria-label="anchor" href="#https-vs-ssh"><i class="fas fa-link"></i></a>
+</h2>
+<p>I find HTTPS easier to get working quickly and <strong>strongly recommend</strong> it when you first start working with Git/GitHub.
+HTTPS is what GitHub recommends, presumably for exactly the same reasons.
+The “ease of use” argument in favor of HTTPS is especially true for Windows users.
+I started with HTTPS, preferred SSH for a while, and have returned to HTTPS.
+The main thing to know is that this is not an all-or-nothing decision and it’s a relatively easy decision to revisit later.</p>
+<p>Another advantage of HTTPS is that the PAT we’ll set up for that can also be used with GitHub’s REST API.
+That might not mean anything to you (yet), but there are many R packages that call GitHub’s API on your behalf (devtools+usethis, remotes, pak, gh, etc.).
+Configuring your PAT kills two birds with one stone: this single credential can be used to authenticate to GitHub as a regular Git server and for its REST API.
+If you authenticate via SSH for “regular” Git work, you will still have to set up a PAT for work that uses the REST API.</p>
+<div class="inline-figure"><img src="img/pat-kills-both-birds.jpeg" title="Diagram showing different ways of interacting with GitHub as a server and the credential needed for each method" alt="Diagram showing different ways of interacting with GitHub as a server and the credential needed for each method" width="80%" style="display: block; margin: auto;"></div>
+<p>A properly configured PAT means all of this will “just work”:</p>
+<ul>
+<li>Remote HTTPS operations via command line Git and, therefore, via RStudio</li>
+<li>Remote HTTPS operations via the gert R package and, therefore, usethis</li>
+<li>GitHub API operations via the gh R package and, therefore, usethis</li>
+</ul>
+<div id="url-determines-protocol" class="section level3">
+<h3>
+<span class="header-section-number">9.2.1</span> URL determines the protocol<a class="anchor" aria-label="anchor" href="#url-determines-protocol"><i class="fas fa-link"></i></a>
+</h3>
+<p>Even though I’m suggesting that you adopt HTTPS as a lifestyle, it’s good to know that you actually have very granular control over the protocol.
+It is determined by the URL used to access a remote repo.
+Feel free to skip this section if you are new to Git (we mention some concepts and commands that won’t make much sense ’til you’ve used Git a little).</p>
+<p>HTTPS remote URLs look like <code>https://github.com/&lt;OWNER&gt;/&lt;REPO&gt;.git</code>.<br>
+SSH remote URLs look like <code>git@github.com:&lt;OWNER&gt;/&lt;REPO&gt;.git</code>.</p>
+<p><img src="img/github-https-url.png" title="Getting an HTTPS or SSH URL from GitHub" alt="Getting an HTTPS or SSH URL from GitHub" width="49%" height="49%"><img src="img/github-ssh-url.png" title="Getting an HTTPS or SSH URL from GitHub" alt="Getting an HTTPS or SSH URL from GitHub" width="49%" height="49%"></p>
+<p>When you execute a command such as <code>git push origin my-cool-feature-branch</code>, Git looks up the URL you’ve stored for the <code>origin</code> remote and uses the protocol implicit in the URL’s format.
+The protocol is a game time decision.</p>
+<p>This implies that:</p>
+<ul>
+<li>It’s fine to use HTTPS for one remote in a repo and SSH for another.<br>
+</li>
+<li>It’s fine to use HTTPS in one repo and SSH in another.<br>
+</li>
+<li>It’s fine to interact with a GitHub repo via HTTPS from one computer and via SSH from another.<br>
+</li>
+<li>It’s fine to adopt HTTPS for new work, even if some of your pre-existing repos use SSH.</li>
+</ul>
+<p>You just have to be aware that mixed use of HTTPS and SSH means you’ll have to configure both sorts of credentials.</p>
+<p>Changing a specific remote from HTTPS to SSH (and back again) is a straightforward operation with <code>git remote set-url REMOTE_NAME DESIRED_URL</code>:</p>
+<pre class="console"><code>~/rrr/happy-git-with-r % git remote -v
+origin  https://github.com/jennybc/happy-git-with-r.git (fetch)
+origin  https://github.com/jennybc/happy-git-with-r.git (push)
+
+~/rrr/happy-git-with-r % git remote set-url origin git@github.com:jennybc/happy-git-with-r.git
+
+~/rrr/happy-git-with-r % git remote -v
+origin  git@github.com:jennybc/happy-git-with-r.git (fetch)
+origin  git@github.com:jennybc/happy-git-with-r.git (push)
+
+~/rrr/happy-git-with-r % git remote set-url origin https://github.com/jennybc/happy-git-with-r.git</code></pre>
+<p>We can do the same from R using functions in usethis:</p>
+<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; $origin</span>
+<span class="co">#&gt; [1] "https://github.com/jennybc/happy-git-with-r.git"</span>
+
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git_remote</span><span class="op">(</span>
+  <span class="st">"origin"</span>,
+  <span class="st">"git@github.com:jennybc/happy-git-with-r.git"</span>,
+  overwrite <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span>
+
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_remotes</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; $origin</span>
+<span class="co">#&gt; [1] "git@github.com:jennybc/happy-git-with-r.git"</span>
+
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu">use_git_remote</span><span class="op">(</span>
+  <span class="st">"origin"</span>,
+  <span class="st">"https://github.com/jennybc/happy-git-with-r.git"</span>,
+  overwrite <span class="op">=</span> <span class="cn">TRUE</span>
+<span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="get-a-pat" class="section level2">
+<h2>
+<span class="header-section-number">9.3</span> Generate a personal access token (PAT)<a class="anchor" aria-label="anchor" href="#get-a-pat"><i class="fas fa-link"></i></a>
+</h2>
+<p>On github.com, assuming you’re signed in, you can manage your personal access tokens from <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a>, also reachable via <em>Settings &gt; Developer settings &gt; Personal access tokens</em>.
+You could click on “Generate new token” here or, perhaps even better, you could call <code>usethis::create_github_token()</code> from R:</p>
+<div class="sourceCode" id="cb23"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">create_github_token</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>The usethis approach takes you to a pre-filled form where we have pre-selected some recommended scopes, which you can look over and adjust before clicking “Generate token”.
+At the time of writing, the usethis-recommended scopes are “repo”, “user”, “gist”, and “workflow”.</p>
+<div class="inline-figure"><img src="img/new-personal-access-token-screenshot.png" title="Screenshot: Getting a new personal access token on GitHub" alt="Screenshot: Getting a new personal access token on GitHub" width="100%" style="display: block; margin: auto;"></div>
+<p>It is a very good idea to describe the token’s purpose in the <em>Note</em> field, because one day you might have multiple PATs.
+We recommend naming each token after its use case, such as the computer or project you are using it for, e.g. “personal-macbook-air” or “vm-for-project-xyz”.
+In the future, you will find yourself staring at this list of tokens, because inevitably you’ll need to re-generate or delete one of them.
+Make it easy to figure out which token you’ve come here to fiddle with.</p>
+<p>GitHub encourages the use of perishable tokens, with a default <em>Expiration</em> period of 30 days.
+Unless you have a specific reason to fight this, I recommend accepting this default.
+I assume that GitHub’s security folks have good reasons for their recommendation.
+But, of course, you can adjust the <em>Expiration</em> behaviour as you see fit, including “No expiration”.</p>
+<p>Once you’re happy with the token’s <em>Note</em>, <em>Expiration</em>, and <em>Scopes</em>, click “Generate token”.</p>
+<p>You won’t be able to see this token again, so don’t close or navigate away from this browser window until you store the PAT locally.
+Copy the PAT to the clipboard, anticipating what we’ll do next: trigger a prompt that lets us store the PAT in the Git credential store.</p>
+<p>Treat this PAT like a password!
+Do not ever hard-wire your PAT into your code!
+A PAT should always be retrieved implicitly, for example, from the Git credential store.
+We’re about to help you store the PAT in a safe place, where command line Git, RStudio, and R packages can discover it.</p>
+<p>If you use a password management app, such as 1Password or LastPass (highly recommended!), you might want to also add this PAT (and its <em>Note</em>) to the entry for GitHub, where you’re already storing your username and password.
+Storing your PAT in the Git credential store is a semi-persistent convenience, sort of like a browser cache or “remember me” on a website<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;Haha! We all know how well “remember me” works.&lt;/p&gt;"><sup>3</sup></a> and it’s conceivable you will need to re-enter your PAT in the future.
+You could decide to embrace the impermanence of your PAT and, if it somehow goes missing, you’ll just <a href="https-pat.html#regenerate-pat">re-generate the PAT and re-store it</a>.
+If you accept the default 30-day expiration period, this is a workflow you’ll be using often anyway.
+But if you create long-lasting tokens or want to feel free to play around with the functions for setting or clearing your Git credentials, it can be handy to have your own record of your PAT in a secure place, like 1Password or LastPass.</p>
+</div>
+<div id="store-pat" class="section level2">
+<h2>
+<span class="header-section-number">9.4</span> Store your PAT<a class="anchor" aria-label="anchor" href="#store-pat"><i class="fas fa-link"></i></a>
+</h2>
+<p>At this point, I assume you’ve generated a PAT and have it available, in one or both of these ways:</p>
+<ul>
+<li>In a secure, long-term system for storing secrets, like 1Password or LastPass</li>
+<li>For the next few minutes, in a browser window or on the clipboard</li>
+</ul>
+<p>There are a couple ways to get your PAT into the Git credential store:</p>
+<ul>
+<li>Call an R function to explicitly store (or update) your credentials.</li>
+<li>Do something in command line Git or RStudio that triggers a credential
+challenge.</li>
+</ul>
+<div id="call-an-r-function-to-store-your-credentials" class="section level3">
+<h3>
+<span class="header-section-number">9.4.1</span> Call an R function to store your credentials<a class="anchor" aria-label="anchor" href="#call-an-r-function-to-store-your-credentials"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are two R packages for accessing the Git credential store:</p>
+<ul>
+<li><a href="https://r-lib.github.io/gitcreds/">gitcreds</a></li>
+<li><a href="https://docs.ropensci.org/credentials/">credentials</a></li>
+</ul>
+<p>It is likely that these packages will eventually combine into one and, even now, they are largely interoperable.
+You don’t need to follow the instructions for both packages – pick one!</p>
+<div id="gitcreds-package" class="section level4">
+<h4>
+<span class="header-section-number">9.4.1.1</span> gitcreds package<a class="anchor" aria-label="anchor" href="#gitcreds-package"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you don’t have gitcreds installed, install via <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("gitcreds")</a></code>.
+If you’ve installed usethis, you will already have gitcreds, because usethis uses gh and gh uses gitcreds.</p>
+<p>Call <code>gitcreds::gitcreds_set()</code>.
+If you don’t have a PAT stored already, it will prompt you to enter your PAT. Paste!</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="https-pat.html#cb24-1"></a><span class="op">&gt;</span> <span class="fu">gitcreds::gitcreds_set()</span></span>
+<span id="cb24-2"><a href="https-pat.html#cb24-2"></a></span>
+<span id="cb24-3"><a href="https-pat.html#cb24-3"></a><span class="ex">?</span> Enter password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span id="cb24-4"><a href="https-pat.html#cb24-4"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
+<span id="cb24-5"><a href="https-pat.html#cb24-5"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
+<span id="cb24-6"><a href="https-pat.html#cb24-6"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code></pre></div>
+<p>If you already have a stored credential, <code>gitcreds::gitcreds_set()</code> reveals this and will even let you inspect it.
+This helps you decide whether to keep the existing credential or replace it.
+When in doubt, embrace a new, known-to-be-good credential over an old one, of dubious origins.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="https-pat.html#cb25-1"></a><span class="op">&gt;</span> <span class="fu">gitcreds::gitcreds_set()</span></span>
+<span id="cb25-2"><a href="https-pat.html#cb25-2"></a></span>
+<span id="cb25-3"><a href="https-pat.html#cb25-3"></a><span class="ex">-</span><span class="op">&gt;</span> Your current credentials for <span class="st">'https://github.com'</span>:</span>
+<span id="cb25-4"><a href="https-pat.html#cb25-4"></a></span>
+<span id="cb25-5"><a href="https-pat.html#cb25-5"></a>  <span class="ex">protocol</span>: https</span>
+<span id="cb25-6"><a href="https-pat.html#cb25-6"></a>  <span class="ex">host</span>    : github.com</span>
+<span id="cb25-7"><a href="https-pat.html#cb25-7"></a>  <span class="ex">username</span>: PersonalAccessToken</span>
+<span id="cb25-8"><a href="https-pat.html#cb25-8"></a>  <span class="ex">password</span>: <span class="op">&lt;</span>-- hidden --<span class="op">&gt;</span></span>
+<span id="cb25-9"><a href="https-pat.html#cb25-9"></a></span>
+<span id="cb25-10"><a href="https-pat.html#cb25-10"></a><span class="ex">-</span><span class="op">&gt;</span> What would you like to do? </span>
+<span id="cb25-11"><a href="https-pat.html#cb25-11"></a></span>
+<span id="cb25-12"><a href="https-pat.html#cb25-12"></a><span class="ex">1</span>: Keep these credentials</span>
+<span id="cb25-13"><a href="https-pat.html#cb25-13"></a><span class="ex">2</span>: Replace these credentials</span>
+<span id="cb25-14"><a href="https-pat.html#cb25-14"></a><span class="ex">3</span>: See the password / token</span>
+<span id="cb25-15"><a href="https-pat.html#cb25-15"></a></span>
+<span id="cb25-16"><a href="https-pat.html#cb25-16"></a><span class="ex">Selection</span>: 2</span>
+<span id="cb25-17"><a href="https-pat.html#cb25-17"></a></span>
+<span id="cb25-18"><a href="https-pat.html#cb25-18"></a><span class="ex">-</span><span class="op">&gt;</span> Removing current credentials...</span>
+<span id="cb25-19"><a href="https-pat.html#cb25-19"></a></span>
+<span id="cb25-20"><a href="https-pat.html#cb25-20"></a><span class="ex">?</span> Enter new password or token: ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span>
+<span id="cb25-21"><a href="https-pat.html#cb25-21"></a><span class="ex">-</span><span class="op">&gt;</span> Adding new credentials...</span>
+<span id="cb25-22"><a href="https-pat.html#cb25-22"></a><span class="ex">-</span><span class="op">&gt;</span> Removing credentials from cache...</span>
+<span id="cb25-23"><a href="https-pat.html#cb25-23"></a><span class="ex">-</span><span class="op">&gt;</span> Done.</span></code></pre></div>
+<p>You can check that you’ve stored a credential with <code>gitcreds_get()</code>:</p>
+<div class="sourceCode" id="cb26"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">gitcreds_get</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; &lt;gitcreds&gt;</span>
+<span class="co">#&gt;   protocol: https</span>
+<span class="co">#&gt;   host    : github.com</span>
+<span class="co">#&gt;   username: PersonalAccessToken</span>
+<span class="co">#&gt;   password: &lt;-- hidden --&gt;</span></code></pre></div>
+<p>Other functions that can help you feel confident about your PAT setup include:</p>
+<div class="sourceCode" id="cb27"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_sitrep</span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu">gh</span><span class="fu">::</span><span class="fu">gh_whoami</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+<div id="credentials-package" class="section level4">
+<h4>
+<span class="header-section-number">9.4.1.2</span> credentials package<a class="anchor" aria-label="anchor" href="#credentials-package"><i class="fas fa-link"></i></a>
+</h4>
+<p>If you don’t have credentials installed, install via <code><a href="https://rdrr.io/r/utils/install.packages.html">install.packages("credentials")</a></code>.
+If you’ve installed usethis, you will already have credentials, because usethis uses gert and gert uses credentials.</p>
+<p>Call <code>set_github_pat()</code>.
+If you don’t have a PAT stored already, it will prompt you to enter your PAT. Paste!</p>
+<div class="sourceCode" id="cb28"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">credentials</span><span class="fu">::</span><span class="fu">set_github_pat</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>If successful, your initial (and subsequent) calls will look like this:</p>
+<div class="sourceCode" id="cb29"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">credentials</span><span class="fu">::</span><span class="fu">set_github_pat</span><span class="op">(</span><span class="op">)</span>
+<span class="co">#&gt; If prompted for GitHub credentials, enter your PAT in the password field</span>
+<span class="co">#&gt; Using GITHUB_PAT from Jennifer (Jenny) Bryan (credential helper: osxkeychain)</span></code></pre></div>
+<p>Other functions that can help you feel confident about your PAT setup include:</p>
+<div class="sourceCode" id="cb30"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_sitrep</span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu">gh</span><span class="fu">::</span><span class="fu">gh_whoami</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+</div>
+</div>
+<div id="store-credentials-through-organic-git-use" class="section level3">
+<h3>
+<span class="header-section-number">9.4.2</span> Store credentials through organic Git use<a class="anchor" aria-label="anchor" href="#store-credentials-through-organic-git-use"><i class="fas fa-link"></i></a>
+</h3>
+<p><em>Before gitcreds and credentials existed (see above), we had to orchestrate a credential challenge by setting up (and then tearing down) a toy repo.
+That still occurs naturally in the guided exercise in <a href="push-pull-github.html#push-pull-github">Connect to GitHub</a>.
+But I strongly recommend managing your PAT more directly and explicitly with
+<code>gitcreds::gitcreds_set()</code> and related functions in gitcreds.</em></p>
+</div>
+</div>
+<div id="pat-troubleshooting" class="section level2">
+<h2>
+<span class="header-section-number">9.5</span> HTTPS PAT problems and solutions<a class="anchor" aria-label="anchor" href="#pat-troubleshooting"><i class="fas fa-link"></i></a>
+</h2>
+<p>This section is for people who need to know even more about PAT management, because they’re in a nonstandard situation or troubleshooting.</p>
+<div id="valid-pat-gets-stored-but-later-told-the-pat-is-invalid" class="section level3">
+<h3>
+<span class="header-section-number">9.5.1</span> Valid PAT gets stored, but later told the PAT is invalid<a class="anchor" aria-label="anchor" href="#valid-pat-gets-stored-but-later-told-the-pat-is-invalid"><i class="fas fa-link"></i></a>
+</h3>
+<p>Let’s say you generate a fresh PAT and successfully store it as described above.
+Maybe you even use it successfully.
+But later, you’re told your PAT is invalid!
+How can this be?</p>
+<p>Here are some likely explanations:</p>
+<ol style="list-style-type: decimal">
+<li>Your PAT truly is invalid. By default, PATs have an expiration date now. One
+day you really will wake up and find the PAT has gone bad overnight and you
+need to re-generate and re-store it.</li>
+<li>You have an invalid PAT stored <em>somewhere else</em>, that you’ve forgotten about,
+probably in <code>.Renviron</code>. This old, invalid PAT is preventing R packages from
+even discovering your new, valid PAT.</li>
+</ol>
+<div id="regenerate-pat" class="section level4">
+<h4>
+<span class="header-section-number">9.5.1.1</span> PAT has expired<a class="anchor" aria-label="anchor" href="#regenerate-pat"><i class="fas fa-link"></i></a>
+</h4>
+<p>You are going to be re-generating and re-storing your PAT on a schedule dictated by its expiration period.
+By default, once per month.</p>
+<p>When the PAT expires, return to <a href="https://github.com/settings/tokens" class="uri">https://github.com/settings/tokens</a> and click on its <em>Note</em>.
+(You do label your tokens nicely by use case, right? Right?)
+At this point, you can optionally adjust scopes and then click “Regenerate token”.
+You can optionally modify its <em>Expiration</em> and then click “Regenerate token” (again).
+As before, copy the PAT to the clipboard, call <code>gitcreds::gitcreds_set()</code>, and paste!</p>
+<p>Hopefully it’s becoming clear why each token’s <em>Note</em> is so important.
+The actual token may be changing, e.g., once a month, but its use case (and scopes) are much more persistent and stable.</p>
+</div>
+<div id="old-github_pat-in-.renviron" class="section level4">
+<h4>
+<span class="header-section-number">9.5.1.2</span> Old <code>GITHUB_PAT</code> in <code>.Renviron</code><a class="anchor" aria-label="anchor" href="#old-github_pat-in-.renviron"><i class="fas fa-link"></i></a>
+</h4>
+<p>These usethis functions will diagnose this problem:</p>
+<div class="sourceCode" id="cb31"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">gh_token_help</span><span class="op">(</span><span class="op">)</span>
+
+<span class="fu">usethis</span><span class="fu">::</span><span class="fu">git_sitrep</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>In the past, it was common to store a PAT as the <code>GITHUB_PAT</code> environment variable in <code>.Renviron</code>.
+But now, thanks to gitcreds and credentials, we can store and retrieve a PAT, from R, the same way as command line Git does.</p>
+<p>If you have any doubt about your previous practices, open <code>.Renviron</code>, look for a line setting the <code>GITHUB_PAT</code> environment variable, and delete it. <code>usethis::edit_r_environ()</code> can be helpful for getting <code>.Renviron</code> open for editing.
+Don’t forget to restart R for this change to take effect.</p>
+</div>
+</div>
+<div id="pat-doesnt-persist-on-macos-or-windows" class="section level3">
+<h3>
+<span class="header-section-number">9.5.2</span> PAT doesn’t persist on macOS or Windows<a class="anchor" aria-label="anchor" href="#pat-doesnt-persist-on-macos-or-windows"><i class="fas fa-link"></i></a>
+</h3>
+<p>The credential helpers used by Git take advantage of official OS-provided credential stores, where possible, such as macOS Keychain and Windows Credential Manager.</p>
+<p>If you’re trying to follow the advice here and your PAT never persists, consider that you may need to update Git to get its more modern credential helpers.
+This is absolutely an area of Git that has improved rapidly in recent years and the gitcreds and credentials package work best with recent versions of Git.
+I have not needed to explicitly activate a credential helper on macOS or Windows with any recent version of Git.</p>
+<p>Here’s a command to reveal the current credential helper and what I see these days.</p>
+<p>macOS</p>
+<pre class="console"><code>$ git config --show-origin --get credential.helper
+file:/Users/jenny/.gitconfig    osxkeychain</code></pre>
+<p>Windows</p>
+<pre class="console"><code>$ git config --show-origin --get credential.helper
+file:C:/Program Files/Git/mingw64/etc/gitconfig manager</code></pre>
+<p>If you want to know how more about how gitcreds and credentials are managing your PAT, learn about <a href="https://git-scm.com/docs/git-credential"><code>git credential &lt;fill|approve|reject&gt;</code></a>.
+For keeners, that documentation gives you the gory details on how credentials are stored and retrieved:</p>
+<blockquote>
+<p>Git has an internal interface for storing and retrieving credentials from system-specific helpers, as well as prompting the user for usernames and passwords. The <code>git-credential</code> command exposes this interface to scripts which may want to retrieve, store, or prompt for credentials in the same manner as Git.</p>
+</blockquote>
+<p>On Windows, your Git credentials are probably being stored via Credential Manager.</p>
+<p>On macOS, your Git credentials are probably being stored in the Keychain.</p>
+<p>If you really want to poke around directly to explore or clean out your GitHub credentials, launch Credential Manager (Windows) or Keychain Access (macOS) and search for “github.com”.</p>
+</div>
+<div id="pat-doesnt-persist-on-linux" class="section level3">
+<h3>
+<span class="header-section-number">9.5.3</span> PAT doesn’t persist on Linux<a class="anchor" aria-label="anchor" href="#pat-doesnt-persist-on-linux"><i class="fas fa-link"></i></a>
+</h3>
+<p>The credential helpers used by Git take advantage of official OS-provided
+credential stores on macOS and Windows, but sadly there is no exact equivalent on Linux.</p>
+<p>The easiest thing to do is to configure Git to “cache” your credentials (vs “store”), which is more time-limited.
+Then set the cache timeout to some suitably long period of time.
+Here, we set the timeout to ten million seconds or around 16 weeks, enough for a semester.</p>
+<pre class="console"><code>git config --global credential.helper 'cache --timeout=10000000'</code></pre>
+<p>This still may not make your PAT available to R packages.
+In this case, you may need to use the older, less secure approach of storing your PAT in <code>.Renviron</code>.
+<code>usethis::edit_r_environ()</code> opens that file for editing.</p>
+<div class="sourceCode" id="cb35"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="fu">usethis</span><span class="fu">::</span><span class="fu">edit_r_environ</span><span class="op">(</span><span class="op">)</span></code></pre></div>
+<p>Add a line like this, but substitute your PAT:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb36-1"><a href="https-pat.html#cb36-1"></a><span class="va">GITHUB_PAT=</span>ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</span></code></pre></div>
+<p>Make sure this file ends in a newline!
+Lack of a newline can lead to silent failure to load startup files, which can be tricky to debug.
+Take care that this file is not accidentally pushed to the cloud, e.g. Google Drive or GitHub.</p>
+<p>Restart R for changes in <code>.Renviron</code> to take effect.</p>
+
+</div>
+</div>
+</div>
+
+  <div class="chapter-nav">
+<div class="prev"><a href="connect-intro.html">Can you hear me now?</a></div>
+<div class="next"><a href="ssh-keys.html"><span class="header-section-number">10</span> Set up keys for SSH</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#https-pat"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="nav-link" href="#tldr"><span class="header-section-number">9.1</span> TL;DR</a></li>
+<li>
+<a class="nav-link" href="#https-vs-ssh"><span class="header-section-number">9.2</span> HTTPS versus SSH</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#url-determines-protocol"><span class="header-section-number">9.2.1</span> URL determines the protocol</a></li></ul>
+</li>
+<li><a class="nav-link" href="#get-a-pat"><span class="header-section-number">9.3</span> Generate a personal access token (PAT)</a></li>
+<li>
+<a class="nav-link" href="#store-pat"><span class="header-section-number">9.4</span> Store your PAT</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#call-an-r-function-to-store-your-credentials"><span class="header-section-number">9.4.1</span> Call an R function to store your credentials</a></li>
+<li><a class="nav-link" href="#store-credentials-through-organic-git-use"><span class="header-section-number">9.4.2</span> Store credentials through organic Git use</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#pat-troubleshooting"><span class="header-section-number">9.5</span> HTTPS PAT problems and solutions</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#valid-pat-gets-stored-but-later-told-the-pat-is-invalid"><span class="header-section-number">9.5.1</span> Valid PAT gets stored, but later told the PAT is invalid</a></li>
+<li><a class="nav-link" href="#pat-doesnt-persist-on-macos-or-windows"><span class="header-section-number">9.5.2</span> PAT doesn’t persist on macOS or Windows</a></li>
+<li><a class="nav-link" href="#pat-doesnt-persist-on-linux"><span class="header-section-number">9.5.3</span> PAT doesn’t persist on Linux</a></li>
+</ul>
+</li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jennybc/happy-git-with-r/blob/master/connect-https-pat.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jennybc/happy-git-with-r/edit/master/connect-https-pat.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Happy Git and GitHub for the useR</strong>" was written by Jenny Bryan, the STAT 545 TAs, Jim Hester. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

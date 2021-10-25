@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 20 Repo, commit, diff, tag | Happy Git and GitHub for the useR</title>
+<meta name="author" content="Jenny Bryan, the STAT 545 TAs, Jim Hester">
+<meta name="description" content="20.1 Repos or repositories Git is a version control system whose original purpose was to help groups of developers work collaboratively on big software projects. Git manages the evolution of a set...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 20 Repo, commit, diff, tag | Happy Git and GitHub for the useR">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://happygitwithr.com/git-basics.html">
+<meta property="og:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<meta property="og:description" content="20.1 Repos or repositories Git is a version control system whose original purpose was to help groups of developers work collaboratively on big software projects. Git manages the evolution of a set...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 20 Repo, commit, diff, tag | Happy Git and GitHub for the useR">
+<meta name="twitter:site" content="@jennybryan">
+<meta name="twitter:description" content="20.1 Repos or repositories Git is a version control system whose original purpose was to help groups of developers work collaboratively on big software projects. Git manages the evolution of a set...">
+<meta name="twitter:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-131856976-1"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-131856976-1');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Happy Git and GitHub for the useR</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Let’s Git started</a></li>
+<li><a class="" href="big-picture.html"><span class="header-section-number">1</span> Why Git? Why GitHub?</a></li>
+<li><a class="" href="contrib.html"><span class="header-section-number">2</span> Contributors</a></li>
+<li><a class="" href="workshops.html"><span class="header-section-number">3</span> Workshops</a></li>
+<li class="book-part">Installation</li>
+<li><a class="" href="install-intro.html">Half the battle</a></li>
+<li><a class="" href="github-acct.html"><span class="header-section-number">4</span> Register a GitHub account</a></li>
+<li><a class="" href="install-r-rstudio.html"><span class="header-section-number">5</span> Install or upgrade R and RStudio</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">6</span> Install Git</a></li>
+<li><a class="" href="hello-git.html"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
+<li><a class="" href="git-client.html"><span class="header-section-number">8</span> Install a Git client</a></li>
+<li class="book-part">Connect Git, GitHub, RStudio</li>
+<li><a class="" href="connect-intro.html">Can you hear me now?</a></li>
+<li><a class="" href="https-pat.html"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="" href="ssh-keys.html"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
+<li><a class="" href="push-pull-github.html"><span class="header-section-number">11</span> Connect to GitHub</a></li>
+<li><a class="" href="rstudio-git-github.html"><span class="header-section-number">12</span> Connect RStudio to Git and GitHub</a></li>
+<li><a class="" href="rstudio-see-git.html"><span class="header-section-number">13</span> Detect Git from RStudio</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">14</span> RStudio, Git, GitHub Hell</a></li>
+<li class="book-part">Early GitHub Wins</li>
+<li><a class="" href="usage-intro.html">Get started with GitHub</a></li>
+<li><a class="" href="new-github-first.html"><span class="header-section-number">15</span> New project, GitHub first</a></li>
+<li><a class="" href="existing-github-first.html"><span class="header-section-number">16</span> Existing project, GitHub first</a></li>
+<li><a class="" href="existing-github-last.html"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
+<li><a class="" href="rmd-test-drive.html"><span class="header-section-number">18</span> Test drive R Markdown</a></li>
+<li><a class="" href="r-test-drive.html"><span class="header-section-number">19</span> Render an R script</a></li>
+<li class="book-part">Git fundamentals</li>
+<li><a class="" href="git-intro.html">Some Git basics</a></li>
+<li><a class="active" href="git-basics.html"><span class="header-section-number">20</span> Repo, commit, diff, tag</a></li>
+<li><a class="" href="git-commands.html"><span class="header-section-number">21</span> Git commands</a></li>
+<li><a class="" href="git-branches.html"><span class="header-section-number">22</span> Branches</a></li>
+<li><a class="" href="git-remotes.html"><span class="header-section-number">23</span> Remotes</a></li>
+<li class="book-part">Remote setups</li>
+<li><a class="" href="remote-scenarios-intro.html">Git remote setups</a></li>
+<li><a class="" href="common-remote-setups.html"><span class="header-section-number">24</span> Common remote setups</a></li>
+<li><a class="" href="equivocal.html"><span class="header-section-number">25</span> Equivocal remote setups</a></li>
+<li class="book-part">Daily Workflows</li>
+<li><a class="" href="workflows-intro.html">Useful Git patterns for real life</a></li>
+<li><a class="" href="repeated-amend.html"><span class="header-section-number">26</span> The Repeated Amend</a></li>
+<li><a class="" href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></li>
+<li><a class="" href="pull-tricky.html"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li><a class="" href="time-travel-see-past.html"><span class="header-section-number">29</span> Time travel: See the past</a></li>
+<li><a class="" href="fork-and-clone.html"><span class="header-section-number">30</span> Fork and clone</a></li>
+<li><a class="" href="upstream-changes.html"><span class="header-section-number">31</span> Get upstream changes for a fork</a></li>
+<li><a class="" href="pr-extend.html"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
+<li><a class="" href="workflows-browsability.html"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
+<li class="book-part">Activity prompts</li>
+<li><a class="" href="clone.html"><span class="header-section-number">34</span> Clone a repo</a></li>
+<li><a class="" href="bingo.html"><span class="header-section-number">35</span> Create a bingo card</a></li>
+<li><a class="" href="burn.html"><span class="header-section-number">36</span> Burn it all down</a></li>
+<li><a class="" href="reset.html"><span class="header-section-number">37</span> Resetting</a></li>
+<li><a class="" href="search.html"><span class="header-section-number">38</span> Search GitHub</a></li>
+<li class="book-part">Notes</li>
+<li><a class="" href="notes-intro.html">Notes</a></li>
+<li><a class="" href="classroom-overview.html"><span class="header-section-number">39</span> Run a course with GitHub</a></li>
+<li><a class="" href="ideas-for-content.html"><span class="header-section-number">40</span> Ideas for content</a></li>
+<li><a class="" href="bookdown-cheat-sheet.html"><span class="header-section-number">41</span> Bookdown cheat sheet</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="shell.html"><span class="header-section-number">A</span> The shell</a></li>
+<li><a class="" href="comic-relief.html"><span class="header-section-number">B</span> Comic relief</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">C</span> Resources</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">D</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jennybc/happy-git-with-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-basics" class="section level1">
+<h1>
+<span class="header-section-number">20</span> Repo, commit, diff, tag<a class="anchor" aria-label="anchor" href="#git-basics"><i class="fas fa-link"></i></a>
+</h1>
+<div id="repos-or-repositories" class="section level2">
+<h2>
+<span class="header-section-number">20.1</span> Repos or repositories<a class="anchor" aria-label="anchor" href="#repos-or-repositories"><i class="fas fa-link"></i></a>
+</h2>
+<p>Git is a version control system whose original purpose was to help groups of
+developers work collaboratively on big software projects. Git manages the
+evolution of a set of files – called a <strong>repository</strong> or <strong>repo</strong> – in a highly structured way. Historically, these files would have consisted of source code and the instructions for how to build an application from its source.</p>
+<p>Git has been re-purposed by the data science community <span class="citation">(Ram <a href="references.html#ref-Ram2013" role="doc-biblioref">2013</a>; Bartlett <a href="references.html#ref-git-for-humans" role="doc-biblioref">2016</a>; Perez-Riverol et al. <a href="references.html#ref-ten-simple-rules-git" role="doc-biblioref">2016</a>)</span>. We use it to manage the motley collection of files that make up typical data analytical projects, which consist of data, figures, reports, and, yes, some source code.</p>
+<p>For new or existing projects, we recommend that you:</p>
+<ul>
+<li>Dedicate a local directory or folder to it.</li>
+<li>Make it an RStudio Project. <em>Optional but recommended; obviously only applies to projects involving R and users of RStudio.</em>
+</li>
+<li>Make it a Git repository.</li>
+</ul>
+<p>This setup happens once per project and can happen at project inception or at any later point. Chances are your existing projects each already live in a dedicated directory. Making such a directory an RStudio Project and Git repository boils down to allowing those applications to leave notes for themselves in hidden files or directories. The project is still a regular directory on your computer, that you can locate, name, move, and generally interact with as you wish. You don’t have to handle it with special gloves!</p>
+<p>The daily workflow is probably not dramatically different from what you do currently. You work in the usual way, writing R scripts or authoring reports in LaTeX or R Markdown. But instead of only <em>saving</em> individual files, periodically you make a <strong>commit</strong>, which takes a snapshot of all the files in the entire project. If you have ever versioned a file <a href="http://www.phdcomics.com/comics/archive.php?comicid=1531">by adding your initials or the date</a>, you have effectively made a commit, albeit only for a single file. It is a version that is significant to you and that you might want to inspect or revert to later. Periodically, you push commits to GitHub. This is like sharing a document with colleagues on DropBox or sending it out as an email attachment. By pushing to GitHub, you make your work and all your accumulated progress accessible to others.</p>
+<p>This is a moderate change to your normal, daily workflow. It feels weird at first, but quickly becomes second nature. In <a href="http://stat545.com">STAT 545</a> students are required to submit all coursework via GitHub, starting in week one. Most have never seen Git before and do not identify as programmers. It is a major topic in class and office hours for the first two weeks. Then we practically never discuss it again.</p>
+</div>
+<div id="commits-diffs-and-tags" class="section level2">
+<h2>
+<span class="header-section-number">20.2</span> Commits, diffs, and tags<a class="anchor" aria-label="anchor" href="#commits-diffs-and-tags"><i class="fas fa-link"></i></a>
+</h2>
+<p>We now connect the fundamental concepts of Git to the data science workflow:</p>
+<ul>
+<li>repository</li>
+<li>commit</li>
+<li>diff</li>
+</ul>
+<p>Recall that a repository or repo is just a directory of files that Git manages holistically. A commit functions like a snapshot of all the files in the repo, at a specific moment. Under the hood, that is not exactly how Git implements things. Although mental models don’t have to be accurate in order to be useful, in this case it helps to align the two.</p>
+<div class="figure">
+<span style="display:block;" id="fig:commit-diff-sha-tag"></span>
+<img src="img/commit-diff-sha-tag.png" alt="\label{fig:commit-diff-sha-tag}Partial commit history for our iris example, highlighting diffs, commit messages, SHAs, and tags." width="100%"><p class="caption">
+Figure 20.1: Partial commit history for our iris example, highlighting diffs, commit messages, SHAs, and tags.
+</p>
+</div>
+<p>Figure <a href="git-basics.html#fig:commit-diff-sha-tag">20.1</a> is a look at a fictional analysis of the iris data, focusing on the evolution of a script, <code>iris.R</code>. Consider version A of this file and a modified version, version B. Assume that version A was part of one Git commit and version B was part of the next commit. The set of differences between A and B is called a “diff” and Git users contemplate diffs a lot. Diff inspection is how you re-explain to yourself how version A differs from version B. Diff inspection is not limited to adjacent commits. You can inspect the diffs between any two commits.</p>
+<p>In fact, Git’s notion of any specific version of <code>iris.R</code> is as an accumulation of diffs. If you go back far enough, you find the commit where the file was created in the first place. Every later version is stored by Git as that initial version, plus all the intervening diffs in the history that affect the file. We’ll set these internal details aside now, but understanding the importance of these deltas will make Git’s operations less baffling in the long run.</p>
+<p>So, by looking at diffs, it’s easy to see how two snapshots differ, but what about the why?</p>
+<p>Every time you make a commit you must also write a short <strong>commit message</strong>. Ideally, this conveys the motivation for the change. Remember, the diff will show the content. When you revisit a project after a break or need to digest recent changes made by a colleague, looking at the <strong>history</strong>, by reading commit messages and skimming through diffs, is an extremely efficient way to get up to speed. Figure <a href="git-basics.html#fig:commit-diff-sha-tag">20.1</a> shows the messages associated with the last three commits.</p>
+<p>Every commit needs some sort of nickname, so you can identify it. Git does this automatically, assigning each commit what is called a SHA, a seemingly random string of 40 letters and numbers (it is not, in fact, random but is a SHA-1 checksum hash of the commit). Though you will be exposed to these, you don’t have to handle them directly very often and, when you do, usually the first 7 characters suffice. The commit messages in Figure <a href="git-basics.html#fig:commit-diff-sha-tag">20.1</a> are prefixed by such truncated SHAs. You can also designate certain snapshots as special with a <strong>tag</strong>, which is a name of your choosing. In a software project, it is typical to tag a release with its version, e.g., “v1.0.3”. For a manuscript or analytical project, you might tag the version submitted to a journal or transmitted to external collaborators. Figure <a href="git-basics.html#fig:commit-diff-sha-tag">20.1</a> shows a tag, “draft-01”, associated with the last commit.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="git-intro.html">Some Git basics</a></div>
+<div class="next"><a href="git-commands.html"><span class="header-section-number">21</span> Git commands</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#git-basics"><span class="header-section-number">20</span> Repo, commit, diff, tag</a></li>
+<li><a class="nav-link" href="#repos-or-repositories"><span class="header-section-number">20.1</span> Repos or repositories</a></li>
+<li><a class="nav-link" href="#commits-diffs-and-tags"><span class="header-section-number">20.2</span> Commits, diffs, and tags</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jennybc/happy-git-with-r/blob/master/git-basics.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jennybc/happy-git-with-r/edit/master/git-basics.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Happy Git and GitHub for the useR</strong>" was written by Jenny Bryan, the STAT 545 TAs, Jim Hester. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>

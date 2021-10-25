@@ -76,7 +76,7 @@ body {
 .cell.x::after,
 .board.x .cell:not(.x):not(.circle):hover::before,
 .board.x .cell:not(.x):not(.circle):hover::after {
-  content: "";
+  content: '';
   position: absolute;
   width: calc(var(--mark-size) * 0.15);
   height: var(--mark-size);
@@ -96,7 +96,7 @@ body {
 .cell.circle::after,
 .board.circle .cell:not(.x):not(.circle):hover::before,
 .board.circle .cell:not(.x):not(.circle):hover::after {
-  content: "";
+  content: '';
   position: absolute;
   border-radius: 50%;
 }

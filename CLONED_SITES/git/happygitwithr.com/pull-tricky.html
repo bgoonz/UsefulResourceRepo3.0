@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Chapter 28 Pull, but you have local work | Happy Git and GitHub for the useR</title>
+<meta name="author" content="Jenny Bryan, the STAT 545 TAs, Jim Hester">
+<meta name="description" content="Problem: You want to pull changes from upstream, but you have done some new work locally since the last time you pulled. This often comes up because what you actually want to do is push, but Git...">
+<meta name="generator" content="bookdown 0.24 with bs4_book()">
+<meta property="og:title" content="Chapter 28 Pull, but you have local work | Happy Git and GitHub for the useR">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://happygitwithr.com/pull-tricky.html">
+<meta property="og:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<meta property="og:description" content="Problem: You want to pull changes from upstream, but you have done some new work locally since the last time you pulled. This often comes up because what you actually want to do is push, but Git...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Chapter 28 Pull, but you have local work | Happy Git and GitHub for the useR">
+<meta name="twitter:site" content="@jennybryan">
+<meta name="twitter:description" content="Problem: You want to pull changes from upstream, but you have done some new work locally since the last time you pulled. This often comes up because what you actually want to do is push, but Git...">
+<meta name="twitter:image" content="https://happygitwithr.com//img/watch-me-diff-watch-me-rebase-smaller.png">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.3.1/transition.js"></script><script src="libs/bs3compat-0.3.1/tabs.js"></script><script src="libs/bs3compat-0.3.1/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script><!-- Global site tag (gtag.js) - Google Analytics --><script async src="https://www.googletagmanager.com/gtag/js?id=UA-131856976-1"></script><script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-131856976-1');
+  </script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS -->
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Happy Git and GitHub for the useR</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Table of contents"><h2>Table of contents</h2>
+        <ul class="book-toc list-unstyled">
+<li><a class="" href="index.html">Let’s Git started</a></li>
+<li><a class="" href="big-picture.html"><span class="header-section-number">1</span> Why Git? Why GitHub?</a></li>
+<li><a class="" href="contrib.html"><span class="header-section-number">2</span> Contributors</a></li>
+<li><a class="" href="workshops.html"><span class="header-section-number">3</span> Workshops</a></li>
+<li class="book-part">Installation</li>
+<li><a class="" href="install-intro.html">Half the battle</a></li>
+<li><a class="" href="github-acct.html"><span class="header-section-number">4</span> Register a GitHub account</a></li>
+<li><a class="" href="install-r-rstudio.html"><span class="header-section-number">5</span> Install or upgrade R and RStudio</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">6</span> Install Git</a></li>
+<li><a class="" href="hello-git.html"><span class="header-section-number">7</span> Introduce yourself to Git</a></li>
+<li><a class="" href="git-client.html"><span class="header-section-number">8</span> Install a Git client</a></li>
+<li class="book-part">Connect Git, GitHub, RStudio</li>
+<li><a class="" href="connect-intro.html">Can you hear me now?</a></li>
+<li><a class="" href="https-pat.html"><span class="header-section-number">9</span> Personal access token for HTTPS</a></li>
+<li><a class="" href="ssh-keys.html"><span class="header-section-number">10</span> Set up keys for SSH</a></li>
+<li><a class="" href="push-pull-github.html"><span class="header-section-number">11</span> Connect to GitHub</a></li>
+<li><a class="" href="rstudio-git-github.html"><span class="header-section-number">12</span> Connect RStudio to Git and GitHub</a></li>
+<li><a class="" href="rstudio-see-git.html"><span class="header-section-number">13</span> Detect Git from RStudio</a></li>
+<li><a class="" href="troubleshooting.html"><span class="header-section-number">14</span> RStudio, Git, GitHub Hell</a></li>
+<li class="book-part">Early GitHub Wins</li>
+<li><a class="" href="usage-intro.html">Get started with GitHub</a></li>
+<li><a class="" href="new-github-first.html"><span class="header-section-number">15</span> New project, GitHub first</a></li>
+<li><a class="" href="existing-github-first.html"><span class="header-section-number">16</span> Existing project, GitHub first</a></li>
+<li><a class="" href="existing-github-last.html"><span class="header-section-number">17</span> Existing project, GitHub last</a></li>
+<li><a class="" href="rmd-test-drive.html"><span class="header-section-number">18</span> Test drive R Markdown</a></li>
+<li><a class="" href="r-test-drive.html"><span class="header-section-number">19</span> Render an R script</a></li>
+<li class="book-part">Git fundamentals</li>
+<li><a class="" href="git-intro.html">Some Git basics</a></li>
+<li><a class="" href="git-basics.html"><span class="header-section-number">20</span> Repo, commit, diff, tag</a></li>
+<li><a class="" href="git-commands.html"><span class="header-section-number">21</span> Git commands</a></li>
+<li><a class="" href="git-branches.html"><span class="header-section-number">22</span> Branches</a></li>
+<li><a class="" href="git-remotes.html"><span class="header-section-number">23</span> Remotes</a></li>
+<li class="book-part">Remote setups</li>
+<li><a class="" href="remote-scenarios-intro.html">Git remote setups</a></li>
+<li><a class="" href="common-remote-setups.html"><span class="header-section-number">24</span> Common remote setups</a></li>
+<li><a class="" href="equivocal.html"><span class="header-section-number">25</span> Equivocal remote setups</a></li>
+<li class="book-part">Daily Workflows</li>
+<li><a class="" href="workflows-intro.html">Useful Git patterns for real life</a></li>
+<li><a class="" href="repeated-amend.html"><span class="header-section-number">26</span> The Repeated Amend</a></li>
+<li><a class="" href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></li>
+<li><a class="active" href="pull-tricky.html"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li><a class="" href="time-travel-see-past.html"><span class="header-section-number">29</span> Time travel: See the past</a></li>
+<li><a class="" href="fork-and-clone.html"><span class="header-section-number">30</span> Fork and clone</a></li>
+<li><a class="" href="upstream-changes.html"><span class="header-section-number">31</span> Get upstream changes for a fork</a></li>
+<li><a class="" href="pr-extend.html"><span class="header-section-number">32</span> Explore and extend a pull request</a></li>
+<li><a class="" href="workflows-browsability.html"><span class="header-section-number">33</span> Make a GitHub repo browsable</a></li>
+<li class="book-part">Activity prompts</li>
+<li><a class="" href="clone.html"><span class="header-section-number">34</span> Clone a repo</a></li>
+<li><a class="" href="bingo.html"><span class="header-section-number">35</span> Create a bingo card</a></li>
+<li><a class="" href="burn.html"><span class="header-section-number">36</span> Burn it all down</a></li>
+<li><a class="" href="reset.html"><span class="header-section-number">37</span> Resetting</a></li>
+<li><a class="" href="search.html"><span class="header-section-number">38</span> Search GitHub</a></li>
+<li class="book-part">Notes</li>
+<li><a class="" href="notes-intro.html">Notes</a></li>
+<li><a class="" href="classroom-overview.html"><span class="header-section-number">39</span> Run a course with GitHub</a></li>
+<li><a class="" href="ideas-for-content.html"><span class="header-section-number">40</span> Ideas for content</a></li>
+<li><a class="" href="bookdown-cheat-sheet.html"><span class="header-section-number">41</span> Bookdown cheat sheet</a></li>
+<li class="book-part">Appendix</li>
+<li><a class="" href="shell.html"><span class="header-section-number">A</span> The shell</a></li>
+<li><a class="" href="comic-relief.html"><span class="header-section-number">B</span> Comic relief</a></li>
+<li><a class="" href="resources.html"><span class="header-section-number">C</span> Resources</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">D</span> References</a></li>
+</ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/jennybc/happy-git-with-r">View book source <i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="pull-tricky" class="section level1">
+<h1>
+<span class="header-section-number">28</span> Pull, but you have local work<a class="anchor" aria-label="anchor" href="#pull-tricky"><i class="fas fa-link"></i></a>
+</h1>
+<p>Problem: You want to pull changes from upstream, but you have done some new work locally since the last time you pulled. This often comes up because <a href="push-rejected.html#push-rejected">what you actually want to do is <em>push</em></a>, but Git won’t let you until you first incorporate the upstream changes.</p>
+<p>For the sake of simplicity, assume we’re dealing with the <code>master</code> branch and the remote is called <code>origin</code>.</p>
+<p>Recent commit history of <code>origin/master</code>:</p>
+<div class="sourceCode" id="cb148"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb148-1"><a href="pull-tricky.html#cb148-1"></a><span class="ex">A--B--C</span></span></code></pre></div>
+<p>Recent commit history of the local <code>master</code> branch:</p>
+<div class="sourceCode" id="cb149"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb149-1"><a href="pull-tricky.html#cb149-1"></a><span class="ex">A--B--D</span></span></code></pre></div>
+<p>or maybe</p>
+<div class="sourceCode" id="cb150"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb150-1"><a href="pull-tricky.html#cb150-1"></a><span class="ex">A--B--</span>(uncommitted changes)</span></code></pre></div>
+<p>Your goal: get commit <code>C</code> into your local branch, while retaining the work in commit <code>D</code> or your uncommitted changes.</p>
+<ul>
+<li>Local state is <code>A--B--(uncommitted changes)</code>: You could use <code>git stash</code>. Or you could just make a commit to simplify your life (see next bullet).</li>
+<li>Local state is <code>A--B--D</code>: You can get to <code>A--B--C--D</code> or <code>A--B--(something that includes C and D)</code>.</li>
+<li>Local state is <code>A--B--D--(uncommitted changes)</code>: You could just make a commit – a new one or amend <code>D</code> – to simplify your life (see previous bullet).</li>
+</ul>
+<p>We prioritize simple approaches that are good for early Git use, but mention nicer long-term alternatives.</p>
+<div id="local-work-is-uncommitted" class="section level2">
+<h2>
+<span class="header-section-number">28.1</span> Local work is uncommitted<a class="anchor" aria-label="anchor" href="#local-work-is-uncommitted"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remote state is <code>A--B--C</code>.<br>
+Local state is <code>A--B--(uncommitted changes)</code>.</p>
+<div id="happy-simple-cases" class="section level3">
+<h3>
+<span class="header-section-number">28.1.1</span> Happy simple cases<a class="anchor" aria-label="anchor" href="#happy-simple-cases"><i class="fas fa-link"></i></a>
+</h3>
+<p>There are two happy scenarios, in which <code>git pull</code> will “just work”:</p>
+<ul>
+<li>You’ve introduced completely new files that don’t exist in the remote branch and, therefore, cannot possibly have conflicting changes. You’re in luck! You can just <code>git pull</code>.</li>
+<li>The files affected by your local work have ZERO overlap with the files affected by the changes you need to pull from the remote. You’re also in luck! You can just <code>git pull</code>.</li>
+</ul>
+<p>Summary of these happy <code>git pull</code> scenarios:</p>
+<div class="sourceCode" id="cb151"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb151-1"><a href="pull-tricky.html#cb151-1"></a>                 <span class="ex">Remote</span>: A--B--C</span>
+<span id="cb151-2"><a href="pull-tricky.html#cb151-2"></a></span>
+<span id="cb151-3"><a href="pull-tricky.html#cb151-3"></a><span class="ex">Local</span> before <span class="st">'git pull'</span>: A--B--(uncommitted changes)</span>
+<span id="cb151-4"><a href="pull-tricky.html#cb151-4"></a> <span class="ex">Local</span> after <span class="st">'git pull'</span>: A--B--C--(uncommitted changes)</span></code></pre></div>
+<p>What has actually happened here is that <code>git pull</code> resulted in a <em>fast-forward merge</em>, i.e. we placed commit <code>C</code> right on the end of your history. This would also be the case in the simpler situation where recent local history was just <code>A--B</code>, i.e. you had not added any local work since the last sync up with <code>origin/master</code>.</p>
+</div>
+<div id="git-stash-works-sometimes" class="section level3">
+<h3>
+<span class="header-section-number">28.1.2</span> <code>git stash</code> works, sometimes<a class="anchor" aria-label="anchor" href="#git-stash-works-sometimes"><i class="fas fa-link"></i></a>
+</h3>
+<p>If your changes affect a file (<code>foo.R</code> in the example below) that has also been changed in commit <code>C</code>, you cannot <code>git pull</code>. It doesn’t hurt to try, but you will fail and it will look something like this:</p>
+<div class="sourceCode" id="cb152"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb152-1"><a href="pull-tricky.html#cb152-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<span id="cb152-2"><a href="pull-tricky.html#cb152-2"></a><span class="ex">remote</span>: Enumerating objects: 5, done.</span>
+<span id="cb152-3"><a href="pull-tricky.html#cb152-3"></a><span class="ex">remote</span>: Counting objects: 100% (5/5), <span class="kw">done</span><span class="ex">.</span></span>
+<span id="cb152-4"><a href="pull-tricky.html#cb152-4"></a><span class="ex">remote</span>: Compressing objects: 100% (2/2), <span class="kw">done</span><span class="ex">.</span></span>
+<span id="cb152-5"><a href="pull-tricky.html#cb152-5"></a><span class="ex">remote</span>: Total 3 (delta 1), <span class="ex">reused</span> 1 (delta 0), <span class="ex">pack-reused</span> 0</span>
+<span id="cb152-6"><a href="pull-tricky.html#cb152-6"></a><span class="ex">Unpacking</span> objects: 100% (3/3), <span class="kw">done</span><span class="ex">.</span></span>
+<span id="cb152-7"><a href="pull-tricky.html#cb152-7"></a><span class="ex">From</span> github.com:jennybc/ethel</span>
+<span id="cb152-8"><a href="pull-tricky.html#cb152-8"></a>   <span class="ex">db046b4..2d33a6f</span>  master     -<span class="op">&gt;</span> origin/master</span>
+<span id="cb152-9"><a href="pull-tricky.html#cb152-9"></a><span class="ex">Updating</span> db046b4..2d33a6f</span>
+<span id="cb152-10"><a href="pull-tricky.html#cb152-10"></a><span class="ex">error</span>: Your local changes to the following files would be overwritten by merge:</span>
+<span id="cb152-11"><a href="pull-tricky.html#cb152-11"></a>        <span class="ex">foo.R</span></span>
+<span id="cb152-12"><a href="pull-tricky.html#cb152-12"></a><span class="ex">Please</span> commit your changes or stash them before you merge.</span>
+<span id="cb152-13"><a href="pull-tricky.html#cb152-13"></a><span class="ex">Aborting</span></span></code></pre></div>
+<p>Now what? First, you must safeguard your local changes by either stashing or committing them. (I personally would choose to commit and execute a workflow described in <a href="pull-tricky.html#git-pull-with-local-commits">28.2</a>.)</p>
+<p>I am not a big fan of <code>git stash</code>; I think it’s usually better to take every possible chance to solidify your skills around core concepts and operations, e.g., make a commit, possibly in a branch. But if you want to use <code>git stash</code>, this opportunity is as good as it gets.</p>
+<p><code>git stash</code> is a way to temporarily store some changes to get them out of the way. Now you can do something else, without a lot of fuss. In our case, “do something else” is to get the upstream changes with a nice, simple <code>git pull</code>. Then you reapply and delete the stash and pick up where you left off.</p>
+<p>For more details about stashing, I recommend</p>
+<ul>
+<li>The stashing coverage in the “Filesystem interactions” chapter of Git in Practice (<a href="https://gitinpractice.com">book website</a> or <a href="https://github.com/GitInPractice/GitInPractice#readme">read on GitHub</a>)</li>
+<li>
+<a href="https://git-scm.com/book/en/v2/Git-Tools-Stashing-and-Cleaning">7.3 Git Tools - Stashing and Cleaning</a> in <a href="https://git-scm.com/book/en/v2">Pro Git</a>.</li>
+</ul>
+<p>Here’s the best case scenario for “stash, pull, unstash” in the example above:</p>
+<div class="sourceCode" id="cb153"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb153-1"><a href="pull-tricky.html#cb153-1"></a><span class="fu">git</span> stash save</span>
+<span id="cb153-2"><a href="pull-tricky.html#cb153-2"></a><span class="fu">git</span> pull</span>
+<span id="cb153-3"><a href="pull-tricky.html#cb153-3"></a><span class="fu">git</span> stash pop</span></code></pre></div>
+<p>And here’s the output from our example:</p>
+<div class="sourceCode" id="cb154"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb154-1"><a href="pull-tricky.html#cb154-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash save</span>
+<span id="cb154-2"><a href="pull-tricky.html#cb154-2"></a><span class="ex">Saved</span> working directory and index state WIP on master: db046b4 Merge branch <span class="st">'master'</span>of github.com:jennybc/ethel</span>
+<span id="cb154-3"><a href="pull-tricky.html#cb154-3"></a></span>
+<span id="cb154-4"><a href="pull-tricky.html#cb154-4"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<span id="cb154-5"><a href="pull-tricky.html#cb154-5"></a><span class="ex">Updating</span> db046b4..2d33a6f</span>
+<span id="cb154-6"><a href="pull-tricky.html#cb154-6"></a><span class="ex">Fast-forward</span></span>
+<span id="cb154-7"><a href="pull-tricky.html#cb154-7"></a> <span class="ex">foo.R</span> <span class="kw">|</span> <span class="ex">2</span> +-</span>
+<span id="cb154-8"><a href="pull-tricky.html#cb154-8"></a> <span class="ex">1</span> file changed, 1 insertion(+), <span class="ex">1</span> deletion(-)</span>
+<span id="cb154-9"><a href="pull-tricky.html#cb154-9"></a></span>
+<span id="cb154-10"><a href="pull-tricky.html#cb154-10"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash pop</span>
+<span id="cb154-11"><a href="pull-tricky.html#cb154-11"></a><span class="ex">Auto-merging</span> foo.R</span>
+<span id="cb154-12"><a href="pull-tricky.html#cb154-12"></a><span class="ex">On</span> branch master</span>
+<span id="cb154-13"><a href="pull-tricky.html#cb154-13"></a><span class="ex">Your</span> branch is up-to-date with <span class="st">'origin/master'</span>.</span>
+<span id="cb154-14"><a href="pull-tricky.html#cb154-14"></a></span>
+<span id="cb154-15"><a href="pull-tricky.html#cb154-15"></a><span class="ex">Changes</span> not staged for commit:</span>
+<span id="cb154-16"><a href="pull-tricky.html#cb154-16"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git add &lt;file&gt;..."</span> to update what will be committed<span class="kw">)</span></span>
+<span id="cb154-17"><a href="pull-tricky.html#cb154-17"></a>  <span class="kw">(</span><span class="ex">use</span> <span class="st">"git checkout -- &lt;file&gt;..."</span> to discard changes in working directory<span class="kw">)</span></span>
+<span id="cb154-18"><a href="pull-tricky.html#cb154-18"></a></span>
+<span id="cb154-19"><a href="pull-tricky.html#cb154-19"></a>        <span class="ex">modified</span>:   foo.R</span>
+<span id="cb154-20"><a href="pull-tricky.html#cb154-20"></a></span>
+<span id="cb154-21"><a href="pull-tricky.html#cb154-21"></a><span class="ex">no</span> changes added to commit (use <span class="st">"git add"</span> and/or <span class="st">"git commit -a"</span>)</span>
+<span id="cb154-22"><a href="pull-tricky.html#cb154-22"></a><span class="ex">Dropped</span> refs/stash@<span class="dt">{0}</span> (012c4dcd3a4c3af6757c4c3ca99a9eaeff1eb2a4)</span></code></pre></div>
+<p>That is what success looks like. You’ve achieved this:</p>
+<div class="sourceCode" id="cb155"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb155-1"><a href="pull-tricky.html#cb155-1"></a>      <span class="ex">Remote</span>: A--B--C</span>
+<span id="cb155-2"><a href="pull-tricky.html#cb155-2"></a></span>
+<span id="cb155-3"><a href="pull-tricky.html#cb155-3"></a><span class="ex">Local</span> before: A--B--(uncommitted changes)</span>
+<span id="cb155-4"><a href="pull-tricky.html#cb155-4"></a> <span class="ex">Local</span> after: A--B--C--(uncommitted changes)</span></code></pre></div>
+<p>As above, we have just enjoyed a fast-forward merge, made possible by temporarily stashing then unstashing the uncommitted local changes.</p>
+</div>
+<div id="git-stash-with-conflicts" class="section level3">
+<h3>
+<span class="header-section-number">28.1.3</span> <code>git stash</code> with conflicts<a class="anchor" aria-label="anchor" href="#git-stash-with-conflicts"><i class="fas fa-link"></i></a>
+</h3>
+<p>If your local changes have some overlap with changes you are pulling, you will, instead get a merge conflict from <code>git stash pop</code>. Now you have some remedial work to do. In this case, you have gained nothing by using <code>git stash</code> in the first place, which explains my general lack of enthusiasm for <code>git stash</code>.</p>
+<p>Here’s how to execute the <code>git stash</code> workflow in our example, in the face of conflicts (based on <a href="https://stackoverflow.com/a/27382210/2825349">this Stack Overflow answer</a>):</p>
+<div class="sourceCode" id="cb156"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb156-1"><a href="pull-tricky.html#cb156-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash save</span>
+<span id="cb156-2"><a href="pull-tricky.html#cb156-2"></a><span class="ex">Saved</span> working directory and index state WIP on master: 2d33a6f Back to 5</span>
+<span id="cb156-3"><a href="pull-tricky.html#cb156-3"></a></span>
+<span id="cb156-4"><a href="pull-tricky.html#cb156-4"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<span id="cb156-5"><a href="pull-tricky.html#cb156-5"></a><span class="ex">Updating</span> 2d33a6f..1eddf9e</span>
+<span id="cb156-6"><a href="pull-tricky.html#cb156-6"></a><span class="ex">Fast-forward</span></span>
+<span id="cb156-7"><a href="pull-tricky.html#cb156-7"></a> <span class="ex">foo.R</span> <span class="kw">|</span> <span class="ex">1</span> +</span>
+<span id="cb156-8"><a href="pull-tricky.html#cb156-8"></a> <span class="ex">1</span> file changed, 1 insertion(+)</span>
+<span id="cb156-9"><a href="pull-tricky.html#cb156-9"></a> </span>
+<span id="cb156-10"><a href="pull-tricky.html#cb156-10"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash pop</span>
+<span id="cb156-11"><a href="pull-tricky.html#cb156-11"></a><span class="ex">Auto-merging</span> foo.R</span>
+<span id="cb156-12"><a href="pull-tricky.html#cb156-12"></a><span class="ex">CONFLICT</span> (content)<span class="bu">:</span> Merge conflict in foo.R</span></code></pre></div>
+<p>At this point, you must resolve the merge conflict (<em>future link</em>). Literally, at each locus of conflict, pick one version or the other (upstream or stashed) or create a hybrid yourself. Remove the all the markers inserted to demarcate the conflicts. Save.</p>
+<p>Since <code>git stash pop</code> did not go smoothly, we need to manually reset (<em>future link</em>) and delete the stash to finish.</p>
+<div class="sourceCode" id="cb157"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb157-1"><a href="pull-tricky.html#cb157-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git reset</span>
+<span id="cb157-2"><a href="pull-tricky.html#cb157-2"></a><span class="ex">Unstaged</span> changes after reset:</span>
+<span id="cb157-3"><a href="pull-tricky.html#cb157-3"></a><span class="ex">M</span>       foo.R</span>
+<span id="cb157-4"><a href="pull-tricky.html#cb157-4"></a></span>
+<span id="cb157-5"><a href="pull-tricky.html#cb157-5"></a><span class="ex">jenny@2015-mbp</span> ethel $ git stash drop</span>
+<span id="cb157-6"><a href="pull-tricky.html#cb157-6"></a><span class="ex">Dropped</span> refs/stash@<span class="dt">{0}</span> (7928db50288e9b4d934803b6b451a000fd7242ed)</span></code></pre></div>
+<p>Phew, we are done. We’ve achieved this:</p>
+<div class="sourceCode" id="cb158"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb158-1"><a href="pull-tricky.html#cb158-1"></a>      <span class="ex">Remote</span>: A--B--C</span>
+<span id="cb158-2"><a href="pull-tricky.html#cb158-2"></a></span>
+<span id="cb158-3"><a href="pull-tricky.html#cb158-3"></a><span class="ex">Local</span> before: A--B--(uncommitted changes)</span>
+<span id="cb158-4"><a href="pull-tricky.html#cb158-4"></a> <span class="ex">Local</span> after: A--B--C--(uncommitted changes*)</span></code></pre></div>
+<p>The asterisk on <code>uncommitted changes*</code> indicates that your uncommitted changes might now reflect adjustments made when you resolved the conflicts.</p>
+</div>
+</div>
+<div id="git-pull-with-local-commits" class="section level2">
+<h2>
+<span class="header-section-number">28.2</span> Local work is committed<a class="anchor" aria-label="anchor" href="#git-pull-with-local-commits"><i class="fas fa-link"></i></a>
+</h2>
+<p>Remote state is <code>A--B--C</code>.<br>
+Local state is <code>A--B--D</code>.</p>
+<div id="pull-fetch-and-merge" class="section level3">
+<h3>
+<span class="header-section-number">28.2.1</span> Pull (fetch and merge)<a class="anchor" aria-label="anchor" href="#pull-fetch-and-merge"><i class="fas fa-link"></i></a>
+</h3>
+<p>The simplest option is to fetch the commits from upstream and merge them, which is what <code>git pull</code> does. This is a good option if you’re new to Git. It leads to a messier history, but when you are new, this is the least of your worries. Merge, be happy, and carry on.</p>
+<p>Here is the best case, no-merge-conflicts version of <code>git pull</code>:</p>
+<div class="sourceCode" id="cb159"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb159-1"><a href="pull-tricky.html#cb159-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<span id="cb159-2"><a href="pull-tricky.html#cb159-2"></a></span>
+<span id="cb159-3"><a href="pull-tricky.html#cb159-3"></a><span class="op">&lt;</span> <span class="ex">YOU</span> WILL PROBABLY BE KICKED INTO AN EDITOR HERE RE: MERGE COMMIT MESSAGE! <span class="op">&gt;</span></span>
+<span id="cb159-4"><a href="pull-tricky.html#cb159-4"></a></span>
+<span id="cb159-5"><a href="pull-tricky.html#cb159-5"></a><span class="ex">Merge</span> made by the <span class="st">'recursive'</span> strategy.</span>
+<span id="cb159-6"><a href="pull-tricky.html#cb159-6"></a> <span class="ex">README.md</span> <span class="kw">|</span> <span class="ex">4</span> ++--</span>
+<span id="cb159-7"><a href="pull-tricky.html#cb159-7"></a> <span class="ex">1</span> file changed, 2 insertions(+), <span class="ex">2</span> deletions(-)</span></code></pre></div>
+<p>Depending on your version of Git, your config, and your use of a GUI, you might be required to confirm/edit a commit message for the merge commit.</p>
+<p>Or what if things don’t go this smoothly? If commit <code>C</code> (on the remote) and commit <code>D</code> (local) have changes to the same parts of one or more files, Git may not be able to automatically merge and you will get merge conflicts. It will look something like this:</p>
+<div class="sourceCode" id="cb160"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb160-1"><a href="pull-tricky.html#cb160-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git pull</span>
+<span id="cb160-2"><a href="pull-tricky.html#cb160-2"></a><span class="ex">Auto-merging</span> foo.R</span>
+<span id="cb160-3"><a href="pull-tricky.html#cb160-3"></a><span class="ex">CONFLICT</span> (content)<span class="bu">:</span> Merge conflict in foo.R</span>
+<span id="cb160-4"><a href="pull-tricky.html#cb160-4"></a><span class="ex">Automatic</span> merge failed<span class="kw">;</span> <span class="ex">fix</span> conflicts and then commit the result.</span></code></pre></div>
+<p>You must resolve these conflicts (<em>future link</em>). Literally, at each locus of conflict, pick one version or the other (upstream or local) or create a hybrid yourself. Remove the all the markers inserted to demarcate the conflicts. Save.</p>
+<p>Mark the affected file <code>foo.R</code> as resolved via <code>git add</code> and make an explicit <code>git commit</code> to finalize this merge.</p>
+<div class="sourceCode" id="cb161"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb161-1"><a href="pull-tricky.html#cb161-1"></a><span class="ex">jenny@2015-mbp</span> ethel $ git add foo.R</span>
+<span id="cb161-2"><a href="pull-tricky.html#cb161-2"></a><span class="ex">jenny@2015-mbp</span> ethel $ git commit</span>
+<span id="cb161-3"><a href="pull-tricky.html#cb161-3"></a>[<span class="ex">master</span> 20b297b] Merge branch <span class="st">'master'</span> of github.com:jennybc/ethel</span></code></pre></div>
+<p>Again, do not be surprised if, during <code>git commit</code>, you find yourself in an editor, confirming/editing the commit message for the merge commit.</p>
+<p>We’ve achieved this:</p>
+<div class="sourceCode" id="cb162"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb162-1"><a href="pull-tricky.html#cb162-1"></a>      <span class="ex">Remote</span>: A--B--C</span>
+<span id="cb162-2"><a href="pull-tricky.html#cb162-2"></a></span>
+<span id="cb162-3"><a href="pull-tricky.html#cb162-3"></a><span class="ex">Local</span> before: A--B--D</span>
+<span id="cb162-4"><a href="pull-tricky.html#cb162-4"></a> <span class="ex">Local</span> after: A--B--D--(merge commit)</span>
+<span id="cb162-5"><a href="pull-tricky.html#cb162-5"></a>                  \<span class="ex">_C_/</span></span></code></pre></div>
+</div>
+<div id="pull-and-rebase" class="section level3">
+<h3>
+<span class="header-section-number">28.2.2</span> Pull and rebase<a class="anchor" aria-label="anchor" href="#pull-and-rebase"><i class="fas fa-link"></i></a>
+</h3>
+<p><code>git pull --rebase</code> creates a nicer history than <code>git pull</code> when integrating local and remote commits. It avoids a merge commit, so the history is less cluttered and is linear. It can make merge conflicts more onerous to resolve, which is why I still recommend <code>git pull</code> as the entry-level solution.</p>
+<p>Here is the best case, no-merge-conflicts version of <code>git pull --rebase</code>:</p>
+<pre><code>jenny@2015-mbp ethel $ git pull --rebase
+First, rewinding head to replay your work on top of it...
+Applying: Take max</code></pre>
+<p>Notice that you were NOT kicked into an editor to fiddle with the commit message for the merge commit, because there is no merge commit! This is the beauty of rebasing.</p>
+<p>We’ve achieved this:</p>
+<div class="sourceCode" id="cb164"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb164-1"><a href="pull-tricky.html#cb164-1"></a>      <span class="ex">Remote</span>: A--B--C</span>
+<span id="cb164-2"><a href="pull-tricky.html#cb164-2"></a></span>
+<span id="cb164-3"><a href="pull-tricky.html#cb164-3"></a><span class="ex">Local</span> before: A--B--D</span>
+<span id="cb164-4"><a href="pull-tricky.html#cb164-4"></a> <span class="ex">Local</span> after: A--B--C--D</span></code></pre></div>
+<p>It is as if we pulled the upstream work in commit <code>C</code>, then did the local work embodied in commit <code>D</code>. We have no cluttery merge commits and a linear history. Nice!</p>
+<p>The bad news: As with plain vanilla <code>git pull</code>, it is still possible to get merge conflicts with <code>git pull --rebase</code>. If you have multiple local commits, you can even find yourself resolving conflicts over and over, as these commits are sequentially replayed. Hence this is a better fit for more experienced Git users and in situations where conflicts are unlikely (those tend to be correlated, actually).</p>
+<p>At this point, if you try to do <code>git pull --rebase</code> and get bogged down in merge conflicts, I recommend <code>git rebase --abort</code> to back out. For now, just pursue a more straightforward strategy.</p>
+</div>
+</div>
+<div id="other-approaches" class="section level2">
+<h2>
+<span class="header-section-number">28.3</span> Other approaches<a class="anchor" aria-label="anchor" href="#other-approaches"><i class="fas fa-link"></i></a>
+</h2>
+<p>There are many more ways to handle this situation, which you can discover and explore as you gain experience and start to care more about the history. We sketch some ideas here.</p>
+<div id="use-a-temporary-branch-for-local-work" class="section level3">
+<h3>
+<span class="header-section-number">28.3.1</span> Use a temporary branch for local work<a class="anchor" aria-label="anchor" href="#use-a-temporary-branch-for-local-work"><i class="fas fa-link"></i></a>
+</h3>
+<p>Recall:<br>
+Remote state is <code>A--B--C</code>.<br>
+Local state is <code>A--B--(uncommitted changes)</code>.</p>
+<p>This is an alternative to the stash workflow that has the advantage of giving you practice with Git techniques that are more generally useful. It also leads to a nice history.</p>
+<p>Create a new, temporary branch and commit your uncommitted changes there. Checkout <code>master</code> and <code>git pull</code> to get changes from upstream. You now need to recover the work from the commit in the temporary branch. Options:</p>
+<ul>
+<li>Merge the temporary branch into <code>master</code>.</li>
+<li>Cherry pick the commit from the temporary branch into <code>master</code>.</li>
+</ul>
+<p>In either case, it is still possible you will need to deal with merge conflicts.</p>
+<p>In either case, if you felt forced to commit before you were ready or to accept an ugly merge commit, you can either do a mixed reset to “uncommit” but keep the changes on <code>master</code> or keep amending until you are satisfied with the commit.</p>
+</div>
+</div>
+<div id="some-local-work-is-committed-some-is-not" class="section level2">
+<h2>
+<span class="header-section-number">28.4</span> Some local work is committed, some is not<a class="anchor" aria-label="anchor" href="#some-local-work-is-committed-some-is-not"><i class="fas fa-link"></i></a>
+</h2>
+<p>This is an awkward hybrid situation that can be handled with a combination of strategies seen above: make a pragmatic commit on <code>master</code> or a temporary branch. Integrate the upstream and local changes in <code>master</code>. If you aren’t happy with the final pragmatic commit (which only exists locally), reset or amend until you are.</p>
+
+</div>
+</div>
+  <div class="chapter-nav">
+<div class="prev"><a href="push-rejected.html"><span class="header-section-number">27</span> Dealing with push rejection</a></div>
+<div class="next"><a href="time-travel-see-past.html"><span class="header-section-number">29</span> Time travel: See the past</a></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pull-tricky"><span class="header-section-number">28</span> Pull, but you have local work</a></li>
+<li>
+<a class="nav-link" href="#local-work-is-uncommitted"><span class="header-section-number">28.1</span> Local work is uncommitted</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#happy-simple-cases"><span class="header-section-number">28.1.1</span> Happy simple cases</a></li>
+<li><a class="nav-link" href="#git-stash-works-sometimes"><span class="header-section-number">28.1.2</span> git stash works, sometimes</a></li>
+<li><a class="nav-link" href="#git-stash-with-conflicts"><span class="header-section-number">28.1.3</span> git stash with conflicts</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#git-pull-with-local-commits"><span class="header-section-number">28.2</span> Local work is committed</a><ul class="nav navbar-nav">
+<li><a class="nav-link" href="#pull-fetch-and-merge"><span class="header-section-number">28.2.1</span> Pull (fetch and merge)</a></li>
+<li><a class="nav-link" href="#pull-and-rebase"><span class="header-section-number">28.2.2</span> Pull and rebase</a></li>
+</ul>
+</li>
+<li>
+<a class="nav-link" href="#other-approaches"><span class="header-section-number">28.3</span> Other approaches</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#use-a-temporary-branch-for-local-work"><span class="header-section-number">28.3.1</span> Use a temporary branch for local work</a></li></ul>
+</li>
+<li><a class="nav-link" href="#some-local-work-is-committed-some-is-not"><span class="header-section-number">28.4</span> Some local work is committed, some is not</a></li>
+</ul>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+<li><a id="book-source" href="https://github.com/jennybc/happy-git-with-r/blob/master/workflows-pull.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/jennybc/happy-git-with-r/edit/master/workflows-pull.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="bg-primary text-light mt-5"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>"<strong>Happy Git and GitHub for the useR</strong>" was written by Jenny Bryan, the STAT 545 TAs, Jim Hester. </p>
+  </div>
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer>
+</body>
+</html>
