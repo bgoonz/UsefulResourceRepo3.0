@@ -1,6 +1,6 @@
-import React, { useRef } from "react";
-import { Container, Form, Button } from "react-bootstrap";
-import { v4 as uuidV4 } from "uuid";
+import React, { useRef } from 'react';
+import { Container, Form, Button } from 'react-bootstrap';
+import { v4 as uuidV4 } from 'uuid';
 
 export default function Login({ onIdSubmit }) {
   const idRef = useRef();
@@ -18,7 +18,7 @@ export default function Login({ onIdSubmit }) {
   return (
     <Container
       className="align-items-center d-flex"
-      style={{ height: "100vh" }}
+      style={{ height: '100vh' }}
     >
       <Form onSubmit={handleSubmit} className="w-100">
         <Form.Group>

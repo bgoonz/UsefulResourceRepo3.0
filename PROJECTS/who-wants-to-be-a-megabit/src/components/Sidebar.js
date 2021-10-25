@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import SidebarQuestion from "./SidebarQuestion";
+import React, { useState } from 'react';
+import SidebarQuestion from './SidebarQuestion';
 
 const GOOGLE_SVG = (
   <svg
@@ -85,7 +85,7 @@ export default function Sidebar({
         </button>
         <button
           className={`bordered-container perk google btn ${
-            timer > 0 ? "timer" : ""
+            timer > 0 ? 'timer' : ''
           }`}
           disabled={googleDisabled}
           onClick={googlePower}

@@ -1,6 +1,6 @@
-require("dotenv").config();
+require('dotenv').config();
 
-var { google } = require("googleapis");
+var { google } = require('googleapis');
 var OAuth2 = google.auth.OAuth2;
 const VIDEO_ID = process.env.VIDEO_ID;
 
@@ -29,12 +29,12 @@ function authorize() {
 }
 
 function getVideoViews(auth) {
-  const service = google.youtube("v3");
+  const service = google.youtube('v3');
   return new Promise((resolve, reject) => {
     service.videos.list(
       {
         auth: auth,
-        part: "statistics",
+        part: 'statistics',
         id: VIDEO_ID,
       },
       function (err, response) {
@@ -46,16 +46,16 @@ function getVideoViews(auth) {
 }
 
 function updateVideoTitle(auth, views) {
-  const service = google.youtube("v3");
+  const service = google.youtube('v3');
   return new Promise((resolve, reject) => {
     service.videos.update(
       {
         auth: auth,
-        part: "snippet",
+        part: 'snippet',
         resource: {
           id: VIDEO_ID,
           snippet: {
-            title: `This Video Has ${new Intl.NumberFormat("en-US").format(
+            title: `This Video Has ${new Intl.NumberFormat('en-US').format(
               views
             )} Views`,
             categoryId: 27,

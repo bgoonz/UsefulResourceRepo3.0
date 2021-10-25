@@ -17,7 +17,7 @@
 
 body {
   background: var(--color-background);
-  font-family: "Gotham Rounded";
+  font-family: 'Gotham Rounded';
   color: var(--color-text-light);
   font-size: 2rem;
 }
@@ -117,7 +117,7 @@ pre {
 }
 
 .perk.fifty::before {
-  content: "50";
+  content: '50';
   position: absolute;
   top: 0.5rem;
   left: 0.5rem;
@@ -126,7 +126,7 @@ pre {
 }
 
 .perk.fifty::after {
-  content: "50";
+  content: '50';
   position: absolute;
   bottom: 0.5rem;
   right: 0.5rem;

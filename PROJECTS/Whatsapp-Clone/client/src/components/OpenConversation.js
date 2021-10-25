@@ -1,9 +1,9 @@
-import React, { useState, useCallback } from "react";
-import { Form, InputGroup, Button } from "react-bootstrap";
-import { useConversations } from "../contexts/ConversationsProvider";
+import React, { useState, useCallback } from 'react';
+import { Form, InputGroup, Button } from 'react-bootstrap';
+import { useConversations } from '../contexts/ConversationsProvider';
 
 export default function OpenConversation() {
-  const [text, setText] = useState("");
+  const [text, setText] = useState('');
   const setRef = useCallback((node) => {
     if (node) {
       node.scrollIntoView({ smooth: true });
@@ -18,7 +18,7 @@ export default function OpenConversation() {
       selectedConversation.recipients.map((r) => r.id),
       text
     );
-    setText("");
+    setText('');
   }
 
   return (
@@ -34,23 +34,23 @@ export default function OpenConversation() {
                 key={index}
                 className={`my-1 d-flex flex-column ${
                   message.fromMe
-                    ? "align-self-end align-items-end"
-                    : "align-items-start"
+                    ? 'align-self-end align-items-end'
+                    : 'align-items-start'
                 }`}
               >
                 <div
                   className={`rounded px-2 py-1 ${
-                    message.fromMe ? "bg-primary text-white" : "border"
+                    message.fromMe ? 'bg-primary text-white' : 'border'
                   }`}
                 >
                   {message.text}
                 </div>
                 <div
                   className={`text-muted small ${
-                    message.fromMe ? "text-right" : ""
+                    message.fromMe ? 'text-right' : ''
                   }`}
                 >
-                  {message.fromMe ? "You" : message.senderName}
+                  {message.fromMe ? 'You' : message.senderName}
                 </div>
               </div>
             );
@@ -65,7 +65,7 @@ export default function OpenConversation() {
               required
               value={text}
               onChange={(e) => setText(e.target.value)}
-              style={{ height: "75px", resize: "none" }}
+              style={{ height: '75px', resize: 'none' }}
             />
             <InputGroup.Append>
               <Button type="submit">Send</Button>
