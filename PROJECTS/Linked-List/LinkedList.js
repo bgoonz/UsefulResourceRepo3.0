@@ -46,7 +46,7 @@ class LinkedList {
   }
 
   print() {
-    let output = "";
+    let output = '';
     let current = this.head;
     while (current) {
       output = `${output}${current.value} -> `;

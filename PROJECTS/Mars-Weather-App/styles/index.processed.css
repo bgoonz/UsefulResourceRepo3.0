@@ -22,7 +22,7 @@
 
 body {
   margin: 0;
-  font-family: "Montserrat", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   line-height: 1.6;
   background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/308367/mars.jpg);
   background-size: cover;
@@ -170,7 +170,7 @@ a:hover {
 }
 
 .unit__toggle::after {
-  content: "";
+  content: '';
   background: var(--clr-gray);
   border-radius: 100vmax;
   margin: 3px;
@@ -179,7 +179,7 @@ a:hover {
   transition: background-color 250ms;
 }
 
-.unit__toggle[aria-checked="true"]::after {
+.unit__toggle[aria-checked='true']::after {
   margin-left: auto;
 }
 

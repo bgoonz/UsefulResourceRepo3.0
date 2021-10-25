@@ -255,23 +255,23 @@ const data = [
 
 net.train(data);
 
-const colorEl = document.getElementById("color");
-const guessEl = document.getElementById("guess");
-const whiteButton = document.getElementById("white-button");
-const blackButton = document.getElementById("black-button");
-const printButton = document.getElementById("print-button");
+const colorEl = document.getElementById('color');
+const guessEl = document.getElementById('guess');
+const whiteButton = document.getElementById('white-button');
+const blackButton = document.getElementById('black-button');
+const printButton = document.getElementById('print-button');
 let color;
 setRandomColor();
 
-whiteButton.addEventListener("click", () => {
+whiteButton.addEventListener('click', () => {
   chooseColor(1);
 });
 
-blackButton.addEventListener("click", () => {
+blackButton.addEventListener('click', () => {
   chooseColor(0);
 });
 
-printButton.addEventListener("click", print);
+printButton.addEventListener('click', print);
 
 function chooseColor(value) {
   data.push({
@@ -292,7 +292,7 @@ function setRandomColor() {
     b: Math.random(),
   };
   const guess = net.run(color)[0];
-  guessEl.style.color = guess > 0.5 ? "#FFF" : "#000";
+  guessEl.style.color = guess > 0.5 ? '#FFF' : '#000';
   colorEl.style.backgroundColor = `rgba(${color.r * 255}, ${color.g * 255}, ${
     color.b * 255
   })`;

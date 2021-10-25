@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import RecipeIngredientEdit from "./RecipeIngredientEdit";
-import { RecipeContext } from "./App";
+import React, { useContext } from 'react';
+import RecipeIngredientEdit from './RecipeIngredientEdit';
+import { RecipeContext } from './App';
 
 export default function RecipeEdit({ recipe }) {
   const { handleRecipeChange } = useContext(RecipeContext);
@@ -54,7 +54,7 @@ export default function RecipeEdit({ recipe }) {
           id="servings"
           value={recipe.servings}
           onInput={(e) =>
-            handleChange({ servings: parseInt(e.target.value) || "" })
+            handleChange({ servings: parseInt(e.target.value) || '' })
           }
           className="recipe-edit__input"
         />

@@ -1,37 +1,37 @@
-const API_KEY = "DEMO_KEY";
+const API_KEY = 'DEMO_KEY';
 const API_URL = `https://api.nasa.gov/insight_weather/?api_key=${API_KEY}&feedtype=json&ver=1.0`;
 
-const currentSolElement = document.querySelector("[data-current-sol]");
-const currentDateElement = document.querySelector("[data-current-date]");
+const currentSolElement = document.querySelector('[data-current-sol]');
+const currentDateElement = document.querySelector('[data-current-date]');
 const currentTempHighElement = document.querySelector(
-  "[data-current-temp-high]"
+  '[data-current-temp-high]'
 );
-const currentTempLowElement = document.querySelector("[data-current-temp-low]");
-const windSpeedElement = document.querySelector("[data-wind-speed]");
-const windDirectionText = document.querySelector("[data-wind-direction-text]");
+const currentTempLowElement = document.querySelector('[data-current-temp-low]');
+const windSpeedElement = document.querySelector('[data-wind-speed]');
+const windDirectionText = document.querySelector('[data-wind-direction-text]');
 const windDirectionArrow = document.querySelector(
-  "[data-wind-direction-arrow]"
+  '[data-wind-direction-arrow]'
 );
 
 const previousSolTemplate = document.querySelector(
-  "[data-previous-sol-template]"
+  '[data-previous-sol-template]'
 );
-const previousSolContainer = document.querySelector("[data-previous-sols]");
+const previousSolContainer = document.querySelector('[data-previous-sols]');
 
 const previousWeatherToggle = document.querySelector(
-  "[data-previous-weather-toggle]"
+  '[data-previous-weather-toggle]'
 );
 const previousWeatherContainer = document.querySelector(
-  "[data-previous-weather-container]"
+  '[data-previous-weather-container]'
 );
 
-const unitToggle = document.querySelector("[data-unit-toggle]");
+const unitToggle = document.querySelector('[data-unit-toggle]');
 
 let selectedSolIndex;
-let metricUnits = unitToggle.getAttribute("aria-checked") !== "true";
+let metricUnits = unitToggle.getAttribute('aria-checked') !== 'true';
 
-previousWeatherToggle.addEventListener("change", () => {
-  previousWeatherContainer.classList.toggle("show-weather");
+previousWeatherToggle.addEventListener('change', () => {
+  previousWeatherContainer.classList.toggle('show-weather');
 });
 
 getWeather().then((sols) => {
@@ -39,11 +39,11 @@ getWeather().then((sols) => {
   displayPreviousSols(sols);
   displaySelectedSol(sols);
 
-  unitToggle.addEventListener("click", () => {
+  unitToggle.addEventListener('click', () => {
     metricUnits = !metricUnits;
-    const label = metricUnits ? "celsius" : "fahrenheit";
-    unitToggle.setAttribute("aria-checked", !metricUnits);
-    unitToggle.setAttribute("aria-label", label);
+    const label = metricUnits ? 'celsius' : 'fahrenheit';
+    unitToggle.setAttribute('aria-checked', !metricUnits);
+    unitToggle.setAttribute('aria-label', label);
     displaySols(sols);
     updateUnits();
   });
@@ -82,26 +82,26 @@ function displaySelectedSol(sols) {
   windSpeedElement.innerText = displaySpeed(selectedSol.windSpeed);
   windDirectionText.innerText = selectedSol.windDirectionCardinal;
   windDirectionArrow.style.setProperty(
-    "--direction",
+    '--direction',
     `${selectedSol.windDirectionDegrees}deg`
   );
 }
 
 function displayPreviousSols(sols) {
-  previousSolContainer.innerHTML = "";
+  previousSolContainer.innerHTML = '';
   sols.forEach((solData, index) => {
     const solContainer = previousSolTemplate.content.cloneNode(true);
-    solContainer.querySelector("[data-sol]").innerText = solData.sol;
-    solContainer.querySelector("[data-date]").innerText = displayDate(
+    solContainer.querySelector('[data-sol]').innerText = solData.sol;
+    solContainer.querySelector('[data-date]').innerText = displayDate(
       solData.date
     );
-    solContainer.querySelector("[data-temp-high]").innerText =
+    solContainer.querySelector('[data-temp-high]').innerText =
       displayTemperature(solData.maxTemp);
-    solContainer.querySelector("[data-temp-low]").innerText =
+    solContainer.querySelector('[data-temp-low]').innerText =
       displayTemperature(solData.minTemp);
     solContainer
-      .querySelector("[data-select-button]")
-      .addEventListener("click", () => {
+      .querySelector('[data-select-button]')
+      .addEventListener('click', () => {
         selectedSolIndex = index;
         displaySelectedSol(sols);
       });
@@ -110,7 +110,7 @@ function displayPreviousSols(sols) {
 }
 
 function displayDate(date) {
-  return date.toLocaleDateString(undefined, { day: "numeric", month: "long" });
+  return date.toLocaleDateString(undefined, { day: 'numeric', month: 'long' });
 }
 
 function displayTemperature(temperature) {
@@ -132,8 +132,8 @@ function displaySpeed(speed) {
 }
 
 function updateUnits() {
-  const speedUnits = document.querySelectorAll("[data-speed-unit]");
-  const tempUnits = document.querySelectorAll("[data-temp-unit]");
-  speedUnits.forEach((unit) => (unit.innerText = metricUnits ? "kph" : "mph"));
-  tempUnits.forEach((unit) => (unit.innerText = metricUnits ? "C" : "F"));
+  const speedUnits = document.querySelectorAll('[data-speed-unit]');
+  const tempUnits = document.querySelectorAll('[data-temp-unit]');
+  speedUnits.forEach((unit) => (unit.innerText = metricUnits ? 'kph' : 'mph'));
+  tempUnits.forEach((unit) => (unit.innerText = metricUnits ? 'C' : 'F'));
 }

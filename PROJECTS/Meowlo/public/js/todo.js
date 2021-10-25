@@ -5,7 +5,7 @@ class TodoList {
     this.summaryElement = summaryElement;
     this.todos = this.getTodosFromStorage();
     this.hideCompleted = false;
-    this.searchText = "";
+    this.searchText = '';
   }
 
   get filteredTodos() {
@@ -19,7 +19,7 @@ class TodoList {
   }
 
   getTodosFromStorage() {
-    const todosJSON = localStorage.getItem("todos");
+    const todosJSON = localStorage.getItem('todos');
 
     try {
       return todosJSON ? JSON.parse(todosJSON) : [];
@@ -34,7 +34,7 @@ class TodoList {
   }
 
   saveTodos() {
-    localStorage.setItem("todos", JSON.stringify(this.todos));
+    localStorage.setItem('todos', JSON.stringify(this.todos));
   }
 
   removeTodo(id) {
@@ -50,7 +50,7 @@ class TodoList {
   }
 
   renderTodos() {
-    this.todoListElement.innerHTML = "";
+    this.todoListElement.innerHTML = '';
     const incompleteTodos = this.filteredTodos.filter((todo) => !todo.complete);
     this.summaryElement.innerText = this.getSummaryText(incompleteTodos);
     this.todoListElement.appendChild(this.summaryElement);
@@ -64,18 +64,18 @@ class TodoList {
   }
 
   generateTodoDOM(todo) {
-    const todoEl = document.createElement("label");
-    const containerEl = document.createElement("div");
-    const checkbox = document.createElement("input");
-    const todoText = document.createElement("p");
-    const removeButton = document.createElement("button");
+    const todoEl = document.createElement('label');
+    const containerEl = document.createElement('div');
+    const checkbox = document.createElement('input');
+    const todoText = document.createElement('p');
+    const removeButton = document.createElement('button');
 
     // Setup todo checkbox
-    checkbox.setAttribute("type", "checkbox");
+    checkbox.setAttribute('type', 'checkbox');
     checkbox.checked = todo.completed;
     containerEl.appendChild(checkbox);
-    checkbox.classList.add("checkbox--inner");
-    checkbox.addEventListener("change", () => {
+    checkbox.classList.add('checkbox--inner');
+    checkbox.addEventListener('change', () => {
       this.toggleTodo(todo.id);
       this.renderTodos();
     });
@@ -85,15 +85,15 @@ class TodoList {
     containerEl.appendChild(todoText);
 
     // Setup container
-    todoEl.classList.add("list-item");
-    containerEl.classList.add("list-item__container");
+    todoEl.classList.add('list-item');
+    containerEl.classList.add('list-item__container');
     todoEl.appendChild(containerEl);
 
     // Setup the remove button
-    removeButton.textContent = "remove";
-    removeButton.classList.add("button", "button--danger");
+    removeButton.textContent = 'remove';
+    removeButton.classList.add('button', 'button--danger');
     todoEl.appendChild(removeButton);
-    removeButton.addEventListener("click", () => {
+    removeButton.addEventListener('click', () => {
       this.removeTodo(todo.id);
       this.renderTodos();
     });
@@ -102,17 +102,17 @@ class TodoList {
   }
 
   getSummaryText(incompleteTodos) {
-    const plural = incompleteTodos.length === 1 ? "" : "s";
+    const plural = incompleteTodos.length === 1 ? '' : 's';
     return `You have ${incompleteTodos.length} todo${plural} left`;
   }
 }
 
-const todoListElement = document.getElementById("todos");
-const emptyMessageElement = document.createElement("p");
-emptyMessageElement.classList.add("empty-message");
-emptyMessageElement.textContent = "No to-dos to show";
-const summaryElement = document.createElement("h2");
-summaryElement.classList.add("list-title");
+const todoListElement = document.getElementById('todos');
+const emptyMessageElement = document.createElement('p');
+emptyMessageElement.classList.add('empty-message');
+emptyMessageElement.textContent = 'No to-dos to show';
+const summaryElement = document.createElement('h2');
+summaryElement.classList.add('list-title');
 const todoList = new TodoList(
   todoListElement,
   emptyMessageElement,
@@ -121,29 +121,29 @@ const todoList = new TodoList(
 todoList.renderTodos();
 
 // Set up search text handler
-document.getElementById("search-text").addEventListener("input", (e) => {
+document.getElementById('search-text').addEventListener('input', (e) => {
   todoList.searchText = e.target.value;
   todoList.renderTodos();
 });
 
 // Set up checkbox handler
-document.getElementById("hide-completed").addEventListener("change", (e) => {
+document.getElementById('hide-completed').addEventListener('change', (e) => {
   todoList.hideCompleted = e.target.checked;
   todoList.renderTodos();
 });
 
 // Set up form submission handler
-document.getElementById("new-todo").addEventListener("submit", (e) => {
+document.getElementById('new-todo').addEventListener('submit', (e) => {
   e.preventDefault();
   const text = e.target.elements.text.value.trim();
   if (text.length <= 0) return;
   todoList.createTodo(text);
   todoList.renderTodos();
-  e.target.elements.text.value = "";
+  e.target.elements.text.value = '';
 });
 
 // Bonus: Add a watcher for local storage
-window.addEventListener("storage", (e) => {
+window.addEventListener('storage', (e) => {
   if (e.key === todos) {
     todoList.getTodosFromStorage();
     todoList.renderTodos();

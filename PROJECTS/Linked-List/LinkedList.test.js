@@ -1,7 +1,7 @@
-const LinkedList = require("./LinkedList");
+const LinkedList = require('./LinkedList');
 
-describe("#insertAtHead", () => {
-  test("it adds the element to the beginning of the list", () => {
+describe('#insertAtHead', () => {
+  test('it adds the element to the beginning of the list', () => {
     const ll = new LinkedList();
     ll.insertAtHead(10);
     const oldHead = ll.head;
@@ -13,33 +13,33 @@ describe("#insertAtHead", () => {
   });
 });
 
-describe("#getByIndex", () => {
-  describe("with index less than 0", () => {
-    test("it returns null", () => {
+describe('#getByIndex', () => {
+  describe('with index less than 0', () => {
+    test('it returns null', () => {
       const ll = LinkedList.fromValues(10, 20);
 
       expect(ll.getByIndex(-1)).toBeNull();
     });
   });
 
-  describe("with index greater than list length", () => {
-    test("it returns null", () => {
+  describe('with index greater than list length', () => {
+    test('it returns null', () => {
       const ll = LinkedList.fromValues(10, 20);
 
       expect(ll.getByIndex(5)).toBeNull();
     });
   });
 
-  describe("with index 0", () => {
-    test("it returns the head", () => {
+  describe('with index 0', () => {
+    test('it returns the head', () => {
       const ll = LinkedList.fromValues(10, 20);
 
       expect(ll.getByIndex(0).value).toBe(10);
     });
   });
 
-  describe("with index in the middle", () => {
-    test("it returns the element at that index", () => {
+  describe('with index in the middle', () => {
+    test('it returns the element at that index', () => {
       const ll = LinkedList.fromValues(10, 20, 30, 40);
 
       expect(ll.getByIndex(2).value).toBe(30);
@@ -47,9 +47,9 @@ describe("#getByIndex", () => {
   });
 });
 
-describe("#insertAtIndex", () => {
-  describe("with index less than 0", () => {
-    test("it does not insert anything", () => {
+describe('#insertAtIndex', () => {
+  describe('with index less than 0', () => {
+    test('it does not insert anything', () => {
       const ll = LinkedList.fromValues(10, 20);
       ll.insertAtIndex(-1, 30);
 
@@ -57,8 +57,8 @@ describe("#insertAtIndex", () => {
     });
   });
 
-  describe("with index greater than list length", () => {
-    test("it does not insert anything", () => {
+  describe('with index greater than list length', () => {
+    test('it does not insert anything', () => {
       const ll = LinkedList.fromValues(10, 20);
       ll.insertAtIndex(5, 30);
 
@@ -66,8 +66,8 @@ describe("#insertAtIndex", () => {
     });
   });
 
-  describe("with index 0", () => {
-    test("insert at the head", () => {
+  describe('with index 0', () => {
+    test('insert at the head', () => {
       const ll = LinkedList.fromValues(10, 20);
       ll.insertAtIndex(0, 30);
 
@@ -77,8 +77,8 @@ describe("#insertAtIndex", () => {
     });
   });
 
-  describe("with index in the middle", () => {
-    test("insert at the given index", () => {
+  describe('with index in the middle', () => {
+    test('insert at the given index', () => {
       const ll = LinkedList.fromValues(10, 20, 30, 40);
       ll.insertAtIndex(2, 50);
       const node = ll.getByIndex(2);
@@ -90,8 +90,8 @@ describe("#insertAtIndex", () => {
   });
 });
 
-describe("#removeHead", () => {
-  test("removes the head", () => {
+describe('#removeHead', () => {
+  test('removes the head', () => {
     const ll = LinkedList.fromValues(10, 20, 30);
     ll.removeHead();
 
@@ -100,9 +100,9 @@ describe("#removeHead", () => {
   });
 });
 
-describe("#removeAtIndex", () => {
-  describe("with index less than 0", () => {
-    test("it does not remove anything", () => {
+describe('#removeAtIndex', () => {
+  describe('with index less than 0', () => {
+    test('it does not remove anything', () => {
       const ll = LinkedList.fromValues(10, 20);
       ll.removeAtIndex(-1);
 
@@ -110,8 +110,8 @@ describe("#removeAtIndex", () => {
     });
   });
 
-  describe("with index greater than list length", () => {
-    test("it does not remove anything", () => {
+  describe('with index greater than list length', () => {
+    test('it does not remove anything', () => {
       const ll = LinkedList.fromValues(10, 20);
       ll.removeAtIndex(-1);
 
@@ -119,8 +119,8 @@ describe("#removeAtIndex", () => {
     });
   });
 
-  describe("with index 0", () => {
-    test("remove the head", () => {
+  describe('with index 0', () => {
+    test('remove the head', () => {
       const ll = LinkedList.fromValues(10, 20, 30);
       ll.removeAtIndex(0);
 
@@ -130,8 +130,8 @@ describe("#removeAtIndex", () => {
     });
   });
 
-  describe("with index in the middle", () => {
-    test("remove at the given index", () => {
+  describe('with index in the middle', () => {
+    test('remove at the given index', () => {
       const ll = LinkedList.fromValues(10, 20, 30, 40);
       ll.removeAtIndex(2);
       const node = ll.getByIndex(1);

@@ -1,20 +1,20 @@
-const request = require("request");
+const request = require('request');
 
 const forecast = (latitude, longitude, darkskyKey) => {
   const url =
-    "https://api.darksky.net/forecast/" +
+    'https://api.darksky.net/forecast/' +
     darkskyKey +
-    "/" +
+    '/' +
     latitude +
-    "," +
+    ',' +
     longitude +
-    "?units=si";
+    '?units=si';
   return new Promise((resolve, reject) => {
     request({ url: url, json: true }, (error, { body }) => {
       if (error) {
-        reject("Unable to connect to the service!");
+        reject('Unable to connect to the service!');
       } else if (body.error) {
-        reject("Unable to find location, try another search");
+        reject('Unable to find location, try another search');
       } else {
         resolve(
           `Weather summary: ${

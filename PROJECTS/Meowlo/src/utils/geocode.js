@@ -1,18 +1,18 @@
-const request = require("request");
+const request = require('request');
 
 const geocode = (address, mapboxKey) => {
   const url =
-    "https://api.mapbox.com/geocoding/v5/mapbox.places/" +
+    'https://api.mapbox.com/geocoding/v5/mapbox.places/' +
     encodeURIComponent(address) +
-    ".json?access_token=" +
+    '.json?access_token=' +
     mapboxKey +
-    "&limit=1";
+    '&limit=1';
   return new Promise((resolve, reject) => {
     request({ url, json: true }, (error, { body }) => {
       if (error) {
-        reject("Unable to connect to the location services!");
+        reject('Unable to connect to the location services!');
       } else if (body.features == null || body.features.length === 0) {
-        reject("Unable to find location, try another search.");
+        reject('Unable to find location, try another search.');
       } else {
         resolve({
           latitude: body.features[0].center[1],

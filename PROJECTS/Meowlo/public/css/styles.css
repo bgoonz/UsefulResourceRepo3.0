@@ -117,7 +117,7 @@ blockquote:before,
 blockquote:after,
 q:before,
 q:after {
-  content: "";
+  content: '';
   content: none;
 }
 table {
@@ -142,27 +142,27 @@ img {
 
 /*Typography*/
 @font-face {
-  font-family: "Dokdo";
+  font-family: 'Dokdo';
   font-style: normal;
   font-weight: 400;
-  src: local("Dokdo Regular"), local("Dokdo-Regular"),
-    url("../fonts/dokdo-v5-latin-regular.woff2") format("woff2"),
+  src: local('Dokdo Regular'), local('Dokdo-Regular'),
+    url('../fonts/dokdo-v5-latin-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/dokdo-v5-latin-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('../fonts/dokdo-v5-latin-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 @font-face {
-  font-family: "Quicksand";
+  font-family: 'Quicksand';
   font-style: normal;
   font-weight: 400;
-  src: local("Quicksand Regular"), local("Quicksand-Regular"),
-    url("../fonts/quicksand-v9-latin_latin-ext-regular.woff2") format("woff2"),
+  src: local('Quicksand Regular'), local('Quicksand-Regular'),
+    url('../fonts/quicksand-v9-latin_latin-ext-regular.woff2') format('woff2'),
     /* Chrome 26+, Opera 23+, Firefox 39+ */
-      url("../fonts/quicksand-v9-latin_latin-ext-regular.woff") format("woff"); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
+      url('../fonts/quicksand-v9-latin_latin-ext-regular.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
 body {
-  font-family: "Quicksand", Helvetica, sans-serif;
+  font-family: 'Quicksand', Helvetica, sans-serif;
   font-size: 16px;
   max-width: 1200px;
   margin: 0 auto;
@@ -172,7 +172,7 @@ body {
 h1,
 h2,
 h3 {
-  font-family: "Dokdo", cursive;
+  font-family: 'Dokdo', cursive;
   color: var(--blue);
 }
 

@@ -1,5 +1,5 @@
-import React from "react";
-import RecipeIngredientEdit from "./RecipeIngredientEdit";
+import React from 'react';
+import RecipeIngredientEdit from './RecipeIngredientEdit';
 
 export default function RecipeEdit({ recipe }) {
   return (

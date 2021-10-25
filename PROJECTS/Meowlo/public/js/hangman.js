@@ -1,13 +1,13 @@
 //Design HangmanGame Function
 const hangmanStatuses = {
-  PLAYING: "playing",
-  FINISHED: "finished",
-  FAILED: "failed",
+  PLAYING: 'playing',
+  FINISHED: 'finished',
+  FAILED: 'failed',
 };
 
 class HangmanGame {
   constructor(word, times) {
-    this.word = word.toLowerCase().split("");
+    this.word = word.toLowerCase().split('');
     this.times = times;
     this.guessedLetters = [];
     this.status = hangmanStatuses.PLAYING;
@@ -15,7 +15,7 @@ class HangmanGame {
 
   calculateStatus() {
     const finished = this.word.every(
-      (letter) => this.guessedLetters.includes(letter) || letter === " "
+      (letter) => this.guessedLetters.includes(letter) || letter === ' '
     );
 
     if (this.times === 0) {
@@ -31,19 +31,19 @@ class HangmanGame {
     if (this.status === hangmanStatuses.PLAYING) {
       return `You have ${this.times} guesses left`;
     } else if (this.status === hangmanStatuses.FAILED) {
-      return `Nice try! The word is "${this.word.join("")}".`;
+      return `Nice try! The word is "${this.word.join('')}".`;
     } else {
       return `Great work! You guessed the word!`;
     }
   }
 
   get puzzle() {
-    let str = "";
+    let str = '';
     this.word.forEach((letter) => {
-      if (this.guessedLetters.includes(letter) || letter === " ") {
+      if (this.guessedLetters.includes(letter) || letter === ' ') {
         str += letter;
       } else {
-        str += "*";
+        str += '*';
       }
     });
     return str;
@@ -73,38 +73,38 @@ const getPuzzle = async (wordCount) => {
     const data = await response.json();
     return data.puzzle;
   } else {
-    throw new Error("Unable to get puzzle");
+    throw new Error('Unable to get puzzle');
   }
 };
 
 //DOM interaction
-const wordTextElement = document.getElementById("hangman-word");
-const statusTextElement = document.getElementById("hangman-status");
+const wordTextElement = document.getElementById('hangman-word');
+const statusTextElement = document.getElementById('hangman-status');
 
 let game;
 
-window.addEventListener("keypress", (e) => {
+window.addEventListener('keypress', (e) => {
   const guess = String.fromCharCode(e.charCode);
   game.makeGuess(guess);
   render();
 });
 
 const render = () => {
-  wordTextElement.innerHTML = "";
+  wordTextElement.innerHTML = '';
   statusTextElement.textContent = game.statusMsg;
 
-  game.puzzle.split("").forEach((letter) => {
-    const letterEl = document.createElement("span");
+  game.puzzle.split('').forEach((letter) => {
+    const letterEl = document.createElement('span');
     letterEl.textContent = letter;
     wordTextElement.appendChild(letterEl);
   });
 };
 
 const startGame = async () => {
-  const puzzle = await getPuzzle("2");
+  const puzzle = await getPuzzle('2');
   game = new HangmanGame(puzzle, 5);
   render();
 };
 
-document.getElementById("reset").addEventListener("click", startGame);
+document.getElementById('reset').addEventListener('click', startGame);
 startGame();

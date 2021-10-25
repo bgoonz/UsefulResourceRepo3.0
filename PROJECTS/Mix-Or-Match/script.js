@@ -1,10 +1,10 @@
 class AudioController {
   constructor() {
-    this.bgMusic = new Audio("Assets/Audio/creepy.mp3");
-    this.flipSound = new Audio("Assets/Audio/flip.wav");
-    this.matchSound = new Audio("Assets/Audio/match.wav");
-    this.victorySound = new Audio("Assets/Audio/victory.wav");
-    this.gameOverSound = new Audio("Assets/Audio/gameOver.wav");
+    this.bgMusic = new Audio('Assets/Audio/creepy.mp3');
+    this.flipSound = new Audio('Assets/Audio/flip.wav');
+    this.matchSound = new Audio('Assets/Audio/match.wav');
+    this.victorySound = new Audio('Assets/Audio/victory.wav');
+    this.gameOverSound = new Audio('Assets/Audio/gameOver.wav');
     this.bgMusic.volume = 0.5;
     this.bgMusic.loop = true;
   }
@@ -36,8 +36,8 @@ class MixOrMatch {
     this.cardsArray = cards;
     this.totalTime = totalTime;
     this.timeRemaining = totalTime;
-    this.timer = document.getElementById("time-remaining");
-    this.ticker = document.getElementById("flips");
+    this.timer = document.getElementById('time-remaining');
+    this.ticker = document.getElementById('flips');
     this.audioController = new AudioController();
   }
 
@@ -67,17 +67,17 @@ class MixOrMatch {
   gameOver() {
     clearInterval(this.countdown);
     this.audioController.gameOver();
-    document.getElementById("game-over-text").classList.add("visible");
+    document.getElementById('game-over-text').classList.add('visible');
   }
   victory() {
     clearInterval(this.countdown);
     this.audioController.victory();
-    document.getElementById("victory-text").classList.add("visible");
+    document.getElementById('victory-text').classList.add('visible');
   }
   hideCards() {
     this.cardsArray.forEach((card) => {
-      card.classList.remove("visible");
-      card.classList.remove("matched");
+      card.classList.remove('visible');
+      card.classList.remove('matched');
     });
   }
   flipCard(card) {
@@ -85,7 +85,7 @@ class MixOrMatch {
       this.audioController.flip();
       this.totalClicks++;
       this.ticker.innerText = this.totalClicks;
-      card.classList.add("visible");
+      card.classList.add('visible');
 
       if (this.cardToCheck) {
         this.checkForCardMatch(card);
@@ -104,16 +104,16 @@ class MixOrMatch {
   cardMatch(card1, card2) {
     this.matchedCards.push(card1);
     this.matchedCards.push(card2);
-    card1.classList.add("matched");
-    card2.classList.add("matched");
+    card1.classList.add('matched');
+    card2.classList.add('matched');
     this.audioController.match();
     if (this.matchedCards.length === this.cardsArray.length) this.victory();
   }
   cardMismatch(card1, card2) {
     this.busy = true;
     setTimeout(() => {
-      card1.classList.remove("visible");
-      card2.classList.remove("visible");
+      card1.classList.remove('visible');
+      card2.classList.remove('visible');
       this.busy = false;
     }, 1000);
   }
@@ -126,7 +126,7 @@ class MixOrMatch {
     }
   }
   getCardType(card) {
-    return card.getElementsByClassName("card-value")[0].src;
+    return card.getElementsByClassName('card-value')[0].src;
   }
   canFlipCard(card) {
     return (
@@ -137,26 +137,26 @@ class MixOrMatch {
   }
 }
 
-if (document.readyState == "loading") {
-  document.addEventListener("DOMContentLoaded", ready);
+if (document.readyState == 'loading') {
+  document.addEventListener('DOMContentLoaded', ready);
 } else {
   ready();
 }
 
 function ready() {
-  let overlays = Array.from(document.getElementsByClassName("overlay-text"));
-  let cards = Array.from(document.getElementsByClassName("card"));
+  let overlays = Array.from(document.getElementsByClassName('overlay-text'));
+  let cards = Array.from(document.getElementsByClassName('card'));
   let game = new MixOrMatch(100, cards);
 
   overlays.forEach((overlay) => {
-    overlay.addEventListener("click", () => {
-      overlay.classList.remove("visible");
+    overlay.addEventListener('click', () => {
+      overlay.classList.remove('visible');
       game.startGame();
     });
   });
 
   cards.forEach((card) => {
-    card.addEventListener("click", () => {
+    card.addEventListener('click', () => {
       game.flipCard(card);
     });
   });

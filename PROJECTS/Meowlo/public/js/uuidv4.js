@@ -1,15 +1,15 @@
 !(function (r) {
-  if ("object" == typeof exports && "undefined" != typeof module)
+  if ('object' == typeof exports && 'undefined' != typeof module)
     module.exports = r();
-  else if ("function" == typeof define && define.amd) define([], r);
+  else if ('function' == typeof define && define.amd) define([], r);
   else {
     var e;
     (e =
-      "undefined" != typeof window
+      'undefined' != typeof window
         ? window
-        : "undefined" != typeof global
+        : 'undefined' != typeof global
         ? global
-        : "undefined" != typeof self
+        : 'undefined' != typeof self
         ? self
         : this),
       (e.uuidv4 = r());
@@ -19,11 +19,11 @@
     function o(f, u) {
       if (!n[f]) {
         if (!e[f]) {
-          var a = "function" == typeof require && require;
+          var a = 'function' == typeof require && require;
           if (!u && a) return a(f, !0);
           if (i) return i(f, !0);
           var d = new Error("Cannot find module '" + f + "'");
-          throw ((d.code = "MODULE_NOT_FOUND"), d);
+          throw ((d.code = 'MODULE_NOT_FOUND'), d);
         }
         var p = (n[f] = { exports: {} });
         e[f][0].call(
@@ -43,7 +43,7 @@
       return n[f].exports;
     }
     for (
-      var i = "function" == typeof require && require, f = 0;
+      var i = 'function' == typeof require && require, f = 0;
       f < t.length;
       f++
     )
@@ -61,16 +61,16 @@
               t[r[n++]] +
               t[r[n++]] +
               t[r[n++]] +
-              "-" +
+              '-' +
               t[r[n++]] +
               t[r[n++]] +
-              "-" +
+              '-' +
               t[r[n++]] +
               t[r[n++]] +
-              "-" +
+              '-' +
               t[r[n++]] +
               t[r[n++]] +
-              "-" +
+              '-' +
               t[r[n++]] +
               t[r[n++]] +
               t[r[n++]] +
@@ -88,9 +88,9 @@
       2: [
         function (r, e, n) {
           var t =
-            ("undefined" != typeof crypto &&
+            ('undefined' != typeof crypto &&
               crypto.getRandomValues.bind(crypto)) ||
-            ("undefined" != typeof msCrypto &&
+            ('undefined' != typeof msCrypto &&
               msCrypto.getRandomValues.bind(msCrypto));
           if (t) {
             var o = new Uint8Array(16);
@@ -113,19 +113,19 @@
         function (r, e, n) {
           function t(r, e, n) {
             var t = (e && n) || 0;
-            "string" == typeof r &&
-              ((e = "binary" === r ? new Array(16) : null), (r = null)),
+            'string' == typeof r &&
+              ((e = 'binary' === r ? new Array(16) : null), (r = null)),
               (r = r || {});
             var f = r.random || (r.rng || o)();
             if (((f[6] = (15 & f[6]) | 64), (f[8] = (63 & f[8]) | 128), e))
               for (var u = 0; u < 16; ++u) e[t + u] = f[u];
             return e || i(f);
           }
-          var o = r("./lib/rng"),
-            i = r("./lib/bytesToUuid");
+          var o = r('./lib/rng'),
+            i = r('./lib/bytesToUuid');
           e.exports = t;
         },
-        { "./lib/bytesToUuid": 1, "./lib/rng": 2 },
+        { './lib/bytesToUuid': 1, './lib/rng': 2 },
       ],
     },
     {},
