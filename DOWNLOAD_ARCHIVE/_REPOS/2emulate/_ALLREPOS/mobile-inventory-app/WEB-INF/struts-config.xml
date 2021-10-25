@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+          "http://jakarta.apache.org/struts/dtds/struts-config_1_2.dtd">
+
+
+<struts-config>
+    <form-beans>
+        <form-bean 
+        name="LoginForm" 
+        type="com.vicr.mfg.hhd.form.LoginForm"/>
+        <form-bean 
+        name="ListForm" 
+        type="com.vicr.mfg.hhd.form.ListForm"/>
+        <form-bean 
+        name="FetchPOForm" 
+        type="com.vicr.mfg.hhd.form.FetchPOForm"/>
+        <form-bean 
+        name="AddPOForm" 
+        type="com.vicr.mfg.hhd.form.AddPOForm"/>
+        <form-bean 
+        name="SelectForm" 
+        type="com.vicr.mfg.hhd.form.SelectForm"/>    
+    </form-beans>
+    
+    <global-exceptions>
+    
+    </global-exceptions>
+    
+    <global-forwards>
+        <!-- session timeout or invalid session, displays login page -->
+        <!--<forward name="sessionError" path="/Login.jsp" />-->
+        <forward name="sessionError" path="/redirect.jsp" />
+    </global-forwards>
+
+    <action-mappings>
+        <!--
+        <action
+            path="/Login"
+            type="com.vicr.mfg.hhd.action.LoginAction"
+            scope="request"
+            name="LoginForm"
+            input="/Login.jsp">
+            <forward name="Login_Success" path="/Mainmenu.jsp" redirect="false"/>
+            <forward name="Login_Failure" path="/Login.jsp" redirect="false"/>
+        </action> 
+       -->
+       <action 
+           path="/Login" 
+           forward="/Mainmenu.jsp" />
+       <!--
+        <action
+            path="/Logout"
+            type="com.vicr.mfg.hhd.action.LogoutAction"
+            scope="request">    
+            <forward name="Login_Failure" path="/Login.jsp" redirect="true"/>
+        </action>
+        -->
+        <action 
+        path="/selectinv" 
+        forward="/Search.jsp"/>
+              
+        <action 
+        path="/selectrec" 
+        forward="/Rec_PO_Add.jsp"/>
+        
+        <action path="/List"  
+            name = "ListForm"
+            scope="request"
+            input="/Search.jsp"
+            type="com.vicr.mfg.hhd.action.ListAction"
+            parameter="submit">            
+            <forward name="Success_Item" path="/List.jsp" redirect="false"/>
+            <forward name="Success_Container" path="/Contransfer.jsp" redirect="false"/> 
+            <forward name="Failure" path="/Search.jsp" redirect="false"/> 
+        </action>
+        
+        <action path="/FetchPO"  
+            name = "FetchPOForm"
+            scope="session"
+            input="/Rec_PO_Add.jsp"
+            type="com.vicr.mfg.hhd.action.FetchPOAction"
+            parameter="submit">            
+            <forward name="Success" path="/Rec_PO_Pick.jsp" redirect="false"/> 
+            <forward name="Failure" path="/Rec_PO_Add.jsp" redirect="false"/> 
+        </action>
+        
+        <action path="/AddPO"  
+            name = "AddPOForm"
+            scope="session"
+            input="/Rec_PO_Pick.jsp"
+            type="com.vicr.mfg.hhd.action.AddPOAction"
+            parameter="submit">            
+            <forward name="Success" path="/Rec_PO_Add.jsp" redirect="false"/> 
+            <forward name="Failure" path="/Rec_PO_Pick.jsp" redirect="false"/> 
+        </action>
+        
+        <action path="/Fifo"  
+            name = "SelectForm"
+            scope="request"
+            input="/Associate.jsp"
+            type="com.vicr.mfg.hhd.action.FifoAction"
+            parameter="submit">
+            <forward name="Default" path="/FifoResponse.jsp" />
+            <forward name="Success" path="/Associate.jsp" redirect="false"/>
+            <forward name="Error" path="/Associate.jsp" redirect="false"/> 
+        </action>
+        
+        <action path="/Associate"  
+            name = "SelectForm"
+            scope="request"
+            input="/Associate.jsp"
+            type="com.vicr.mfg.hhd.action.AssociateAction"
+            parameter="submit">            
+            <forward name="BCTAssocSuccess" path="/Search.jsp" redirect="false"/>
+            <forward name="BCTAssocFailure" path="/Associate.jsp" redirect="false"/> 
+            <forward name="FifoSuccess" path="/Associate.jsp" redirect="false"/>
+            <forward name="FifoFailure" path="/Associate.jsp" redirect="false"/> 
+        </action>
+        
+        
+        <action path="/Transfer"  
+            name = "SelectForm"
+            scope="request"
+            input="/Transfer.jsp"
+            type="com.vicr.mfg.hhd.action.TransferAction"
+            parameter="submit">            
+            <forward name="BCTTransSuccess" path="/Search.jsp" redirect="false"/>
+            <forward name="BCTTransFailure" path="/Transfer.jsp" redirect="false"/> 
+        </action>
+
+        <action path="/ConDeassociate"  
+            name = "SelectForm"
+            scope="request"
+            input="/Condeassociate.jsp"
+            type="com.vicr.mfg.hhd.action.ConDeassociateAction"
+            parameter="submit">            
+            <forward name="BCTDeassocSuccess" path="/Search.jsp" redirect="false"/>
+            <forward name="BCTDeassocFailure" path="/Condeassociate.jsp" redirect="false"/> 
+        </action>
+        
+        
+        <action path="/ConSplit"  
+            name = "SelectForm"
+            scope="request"
+            input="/Consplit.jsp"
+            type="com.vicr.mfg.hhd.action.ConSplitAction"
+            parameter="submit">            
+            <forward name="BCTConsplitSuccess" path="/Search.jsp" redirect="false"/>
+            <forward name="BCTConsplitFailure" path="/Consplit.jsp" redirect="false"/> 
+        </action>
+        
+        <action path="/ConTransfer"  
+            name = "SelectForm"
+            scope="request"
+            input="/Contransfer.jsp"
+            type="com.vicr.mfg.hhd.action.ConTransferAction"
+            parameter="submit">            
+            <forward name="BCTContransSuccess" path="/Search.jsp" redirect="false"/>
+            <forward name="BCTContransFailure" path="/Contransfer.jsp" redirect="false"/> 
+        </action>
+        
+        <action path="/Select"  
+            name = "SelectForm"
+            scope="request"
+            input="/List.jsp"
+            type="com.vicr.mfg.hhd.action.SelectAction"
+            parameter="submit">            
+            <forward name="Transfer" path="/Transfer.jsp" redirect="false"/> 
+            <forward name="Consplit" path="/Consplit.jsp" redirect="false"/> 
+            <forward name="Contransfer" path="/Contransfer.jsp" redirect="false"/> 
+            <forward name="Associate" path="/Associate.jsp" redirect="false"/> 
+            <forward name="Condeassociate" path="/Condeassociate.jsp" redirect="false"/> 
+            <forward name="Flag" path="/List.do" redirect="false"/> 
+        </action>
+        
+                      
+    </action-mappings>
+    
+    
+    
+    <!-- ===================================== Controller Configuration -->
+    
+    <!-- ================================ Message Resources Definitions -->
+    <message-resources parameter="/com/vicr/mfg/hhd/util/ApplicationResources"/>    
+ 
+
+    <plug-in className="org.apache.struts.tiles.TilesPlugin" >
+        <set-property property="definitions-config" value="/WEB-INF/tiles-defs.xml"/>
+    </plug-in>
+</struts-config>

@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+         version="2.4">
+    <!-- ISSO FILTER: Add the following inside the <web-app> tag -->
+    <filter>
+        <filter-name>ISSO Filter</filter-name>
+        <filter-class>edu.yale.its.tp.cas.client.filter.CASFilter</filter-class>
+        
+        <init-param>
+            <param-name>edu.yale.its.tp.cas.client.filter.loginUrl</param-name>
+            <param-value>https://isso.vicorpower.vicr.com/iSSOw/login</param-value>
+            <!--
+      <param-value>${sso.loginUrl}</param-value>
+-->
+        </init-param>
+        
+        <init-param>
+            <param-name>edu.yale.its.tp.cas.client.filter.validateUrl</param-name>
+            <param-value>https://isso.vicorpower.vicr.com/iSSOw/serviceValidate</param-value>
+            <!--
+      <param-value>${sso.validateUrl}</param-value>
+-->
+        </init-param>
+        
+        <init-param>
+            <param-name>edu.yale.its.tp.cas.client.filter.serverName</param-name>
+            <param-value>localhost:8080</param-value>
+<!--            <param-value>mmanjrekar-ltw7:8080</param-value>-->
+            <!--<param-value>localhost:8084</param-value>-->
+            <!--<param-value>MMANJREKAR-XP:8084</param-value>-->
+            <!--<param-value>rohan:8080</param-value>-->
+            <!--<param-value>cimdev:8080</param-value>-->
+            <!--
+      <param-value>${app.server}</param-value>
+-->
+        </init-param>
+        <!--
+    <init-param>
+      <param-name>edu.yale.its.tp.cas.client.filter.renew</param-name>
+      <param-value>true</param-value>
+    </init-param>
+    -->
+    </filter>
+    <filter-mapping>
+        <filter-name>ISSO Filter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <!-- ISSO FILTER: End -->
+    
+    <!-- User Authorization FILTER: Add the following inside the <web-app> tag -->
+    <filter>
+        <filter-name>Authorization Filter</filter-name>
+        <filter-class>com.vicr.security.authorization.AuthorizationFilter</filter-class>
+        <init-param>
+            <param-name>com.vicr.security.authorization.AuthorizationFilter.functionName</param-name>
+            <param-value>PSBCT_INV_HH</param-value>
+        </init-param>
+        <!-- optional, if not specified, the developer need to handle the filter's errMsg in the session object -->
+        <init-param>
+            <param-name>com.vicr.security.authorization.AuthorizationFilter.errURL</param-name>
+            <param-value>authorizationErr.jsp</param-value>
+        </init-param>
+        <!--optional, the default is 'N'. -->
+        <init-param>
+            <param-name>com.vicr.security.authorization.AuthorizationFilter.cimAuth</param-name>
+            <param-value>N</param-value>
+        </init-param>
+        <init-param>
+            <param-name>com.vicr.security.authorization.AuthorizationFilter.authorizationURL</param-name>
+            <param-value>http://cimprd/axis/services/SSO</param-value>
+        </init-param>
+    </filter>
+    <filter-mapping>
+        <filter-name>Authorization Filter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    <!-- Authorization FILTER: End -->
+    
+    <!-- Session Variable FILTER: Start -->
+    <filter>
+        <filter-name>Session Variable Filter</filter-name>
+        <filter-class>com.vicr.mfg.hhd.filter.SessionVariableFilter</filter-class>
+        <description>
+            This filter renames the session variables from Authorization Filter and 
+            sets the other session variables that are used in the application.
+        </description>
+    </filter>
+    <filter-mapping>
+        <filter-name>Session Variable Filter</filter-name>
+        <url-pattern>*.do</url-pattern>
+    </filter-mapping>
+    <!-- Session Variable FILTER: End -->
+    
+    <session-config>
+        <session-timeout>5</session-timeout>
+    </session-config>
+    
+    <servlet>
+        <servlet-name>action</servlet-name>
+        <servlet-class>org.apache.struts.action.ActionServlet</servlet-class>
+        <init-param>
+            <param-name>config</param-name>
+            <param-value>/WEB-INF/struts-config.xml</param-value>
+        </init-param>
+        <init-param>
+            <param-name>debug</param-name> 
+            <param-value>2</param-value> 
+        </init-param>
+        <init-param>
+            <param-name>detail</param-name> 
+            <param-value>2</param-value> 
+        </init-param>
+        
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>action</servlet-name>
+        <url-pattern>*.do</url-pattern>
+    </servlet-mapping>
+    
+    <welcome-file-list>
+        <welcome-file>redirect.jsp</welcome-file>
+    </welcome-file-list>
+    
+    
+    <jsp-config>
+        
+        <taglib>
+            <taglib-uri>/WEB-INF/struts-bean.tld</taglib-uri>
+            <taglib-location>/WEB-INF/struts-bean.tld</taglib-location>
+        </taglib>
+        
+        <taglib>
+            <taglib-uri>/WEB-INF/struts-html.tld</taglib-uri>
+            <taglib-location>/WEB-INF/struts-html.tld</taglib-location>
+        </taglib>
+        
+        <taglib>
+            <taglib-uri>/WEB-INF/struts-logic.tld</taglib-uri>
+            <taglib-location>/WEB-INF/struts-logic.tld</taglib-location>
+        </taglib>
+        
+        <taglib>
+            <taglib-uri>/tags/struts-nested</taglib-uri>
+            <taglib-location>/WEB-INF/struts-nested.tld</taglib-location>
+        </taglib>
+        
+        <taglib>
+            <taglib-uri>/tags/struts-tiles</taglib-uri>
+            <taglib-location>/WEB-INF/struts-tiles.tld</taglib-location>
+        </taglib>
+        
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+            <taglib-location>/WEB-INF/c.tld</taglib-location>
+        </taglib>
+        
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/core</taglib-uri>
+            <taglib-location>/WEB-INF/c-1_0.tld</taglib-location>
+        </taglib>
+        
+        <taglib>
+            <taglib-uri>http://java.sun.com/jstl/core-rt</taglib-uri>
+            <taglib-location>/WEB-INF/c-1_0-rt.tld</taglib-location>
+        </taglib>
+    </jsp-config>
+    
+    
+    <resource-ref> 
+        <description>Handheld Device</description>
+        <res-ref-name>jdbc/hhd</res-ref-name> 
+        <res-type>javax.sql.DataSource</res-type>
+        <res-auth>Container</res-auth> 
+    </resource-ref> 
+    
+    
+</web-app>

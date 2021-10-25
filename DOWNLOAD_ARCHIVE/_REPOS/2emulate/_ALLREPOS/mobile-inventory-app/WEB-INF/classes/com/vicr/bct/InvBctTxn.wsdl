@@ -1,0 +1,352 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://cimprd/CimBct_WS/services/InvBctTxn" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://cimprd/CimBct_WS/services/InvBctTxn" xmlns:intf="http://cimprd/CimBct_WS/services/InvBctTxn" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tns1="http://soapinterop.org/xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema targetNamespace="http://soapinterop.org/xsd" xmlns="http://www.w3.org/2001/XMLSchema">
+   <import namespace="http://schemas.xmlsoap.org/soap/encoding/"/>
+   <complexType name="WebServiceReply">
+    <sequence>
+     <element name="code" type="xsd:int"/>
+     <element name="data" nillable="true" type="xsd:anyType"/>
+     <element name="msg" nillable="true" type="xsd:string"/>
+    </sequence>
+   </complexType>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="transContainerRequest">
+
+      <wsdl:part name="businessUnit" type="xsd:string"/>
+
+      <wsdl:part name="oprId" type="xsd:string"/>
+
+      <wsdl:part name="deviceId" type="xsd:string"/>
+
+      <wsdl:part name="invItemId" type="xsd:string"/>
+
+      <wsdl:part name="qty_str" type="xsd:string"/>
+
+      <wsdl:part name="container_Id" type="xsd:string"/>
+
+      <wsdl:part name="toStorageArea" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel1" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel2" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel3" type="xsd:string"/>
+
+      <wsdl:part name="unitOfMeasure" type="xsd:string"/>
+
+      <wsdl:part name="expireDate" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="assocContainerResponse">
+
+      <wsdl:part name="assocContainerReturn" type="tns1:WebServiceReply"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deassocContainerRequest">
+
+      <wsdl:part name="businessUnit" type="xsd:string"/>
+
+      <wsdl:part name="oprId" type="xsd:string"/>
+
+      <wsdl:part name="deviceId" type="xsd:string"/>
+
+      <wsdl:part name="invItemId" type="xsd:string"/>
+
+      <wsdl:part name="qty_str" type="xsd:string"/>
+
+      <wsdl:part name="container_Id" type="xsd:string"/>
+
+      <wsdl:part name="toStorageArea" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel1" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel2" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel3" type="xsd:string"/>
+
+      <wsdl:part name="toContainerId" type="xsd:string"/>
+
+      <wsdl:part name="unitOfMeasure" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="splitContainerRequest">
+
+      <wsdl:part name="businessUnit" type="xsd:string"/>
+
+      <wsdl:part name="oprId" type="xsd:string"/>
+
+      <wsdl:part name="deviceId" type="xsd:string"/>
+
+      <wsdl:part name="invItemId" type="xsd:string"/>
+
+      <wsdl:part name="qty_str" type="xsd:string"/>
+
+      <wsdl:part name="container_Id" type="xsd:string"/>
+
+      <wsdl:part name="toStorageArea" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel1" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel2" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel3" type="xsd:string"/>
+
+      <wsdl:part name="toContainerId" type="xsd:string"/>
+
+      <wsdl:part name="unitOfMeasure" type="xsd:string"/>
+
+      <wsdl:part name="expireDate" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="assocContainerRequest">
+
+      <wsdl:part name="businessUnit" type="xsd:string"/>
+
+      <wsdl:part name="oprId" type="xsd:string"/>
+
+      <wsdl:part name="deviceId" type="xsd:string"/>
+
+      <wsdl:part name="invItemId" type="xsd:string"/>
+
+      <wsdl:part name="qty_str" type="xsd:string"/>
+
+      <wsdl:part name="storageArea" type="xsd:string"/>
+
+      <wsdl:part name="storLevel1" type="xsd:string"/>
+
+      <wsdl:part name="storLevel2" type="xsd:string"/>
+
+      <wsdl:part name="storLevel3" type="xsd:string"/>
+
+      <wsdl:part name="toStorageArea" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel1" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel2" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel3" type="xsd:string"/>
+
+      <wsdl:part name="toContainerId" type="xsd:string"/>
+
+      <wsdl:part name="unitOfMeasure" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="transferRequest">
+
+      <wsdl:part name="businessUnit" type="xsd:string"/>
+
+      <wsdl:part name="oprId" type="xsd:string"/>
+
+      <wsdl:part name="deviceId" type="xsd:string"/>
+
+      <wsdl:part name="invItemId" type="xsd:string"/>
+
+      <wsdl:part name="qty_str" type="xsd:string"/>
+
+      <wsdl:part name="storageArea" type="xsd:string"/>
+
+      <wsdl:part name="storLevel1" type="xsd:string"/>
+
+      <wsdl:part name="storLevel2" type="xsd:string"/>
+
+      <wsdl:part name="storLevel3" type="xsd:string"/>
+
+      <wsdl:part name="toStorageArea" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel1" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel2" type="xsd:string"/>
+
+      <wsdl:part name="toStorLevel3" type="xsd:string"/>
+
+      <wsdl:part name="toContainerId" type="xsd:string"/>
+
+      <wsdl:part name="unitOfMeasure" type="xsd:string"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="transContainerResponse">
+
+      <wsdl:part name="transContainerReturn" type="tns1:WebServiceReply"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="transferResponse">
+
+      <wsdl:part name="transferReturn" type="tns1:WebServiceReply"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="splitContainerResponse">
+
+      <wsdl:part name="splitContainerReturn" type="tns1:WebServiceReply"/>
+
+   </wsdl:message>
+
+   <wsdl:message name="deassocContainerResponse">
+
+      <wsdl:part name="deassocContainerReturn" type="tns1:WebServiceReply"/>
+
+   </wsdl:message>
+
+   <wsdl:portType name="InvBctTxn">
+
+      <wsdl:operation name="transfer" parameterOrder="businessUnit oprId deviceId invItemId qty_str storageArea storLevel1 storLevel2 storLevel3 toStorageArea toStorLevel1 toStorLevel2 toStorLevel3 toContainerId unitOfMeasure">
+
+         <wsdl:input message="impl:transferRequest" name="transferRequest"/>
+
+         <wsdl:output message="impl:transferResponse" name="transferResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="assocContainer" parameterOrder="businessUnit oprId deviceId invItemId qty_str storageArea storLevel1 storLevel2 storLevel3 toStorageArea toStorLevel1 toStorLevel2 toStorLevel3 toContainerId unitOfMeasure">
+
+         <wsdl:input message="impl:assocContainerRequest" name="assocContainerRequest"/>
+
+         <wsdl:output message="impl:assocContainerResponse" name="assocContainerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transContainer" parameterOrder="businessUnit oprId deviceId invItemId qty_str container_Id toStorageArea toStorLevel1 toStorLevel2 toStorLevel3 unitOfMeasure expireDate">
+
+         <wsdl:input message="impl:transContainerRequest" name="transContainerRequest"/>
+
+         <wsdl:output message="impl:transContainerResponse" name="transContainerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deassocContainer" parameterOrder="businessUnit oprId deviceId invItemId qty_str container_Id toStorageArea toStorLevel1 toStorLevel2 toStorLevel3 toContainerId unitOfMeasure">
+
+         <wsdl:input message="impl:deassocContainerRequest" name="deassocContainerRequest"/>
+
+         <wsdl:output message="impl:deassocContainerResponse" name="deassocContainerResponse"/>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="splitContainer" parameterOrder="businessUnit oprId deviceId invItemId qty_str container_Id toStorageArea toStorLevel1 toStorLevel2 toStorLevel3 toContainerId unitOfMeasure expireDate">
+
+         <wsdl:input message="impl:splitContainerRequest" name="splitContainerRequest"/>
+
+         <wsdl:output message="impl:splitContainerResponse" name="splitContainerResponse"/>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="InvBctTxnSoapBinding" type="impl:InvBctTxn">
+
+      <wsdlsoap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="transfer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="transferRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bct.vicr.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="transferResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://cimprd/CimBct_WS/services/InvBctTxn" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="assocContainer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="assocContainerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bct.vicr.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="assocContainerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://cimprd/CimBct_WS/services/InvBctTxn" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="transContainer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="transContainerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bct.vicr.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="transContainerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://cimprd/CimBct_WS/services/InvBctTxn" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deassocContainer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deassocContainerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bct.vicr.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deassocContainerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://cimprd/CimBct_WS/services/InvBctTxn" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="splitContainer">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="splitContainerRequest">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://bct.vicr.com" use="encoded"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="splitContainerResponse">
+
+            <wsdlsoap:body encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" namespace="http://cimprd/CimBct_WS/services/InvBctTxn" use="encoded"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="InvBctTxnService">
+
+      <wsdl:port binding="impl:InvBctTxnSoapBinding" name="InvBctTxn">
+
+         <wsdlsoap:address location="http://cimprd/CimBct_WS/services/InvBctTxn"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>
