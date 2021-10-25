@@ -1,0 +1,191 @@
+=== 2.7.1 / 2014-09-26
+
+* 1 bug fix:
+
+  * Removed dead rubyforge setting in Rakefile
+
+=== 2.7.0 / 2014-03-14
+
+* 1 minor enhancement:
+
+  * Added invisible alias.
+
+=== 2.6.0 / 2013-09-18
+
+* 1 minor enhancement:
+
+  * Added deletion of nodes. (thagomizer)
+
+=== 2.5.3 / 2013-05-10
+
+* 2 minor enhancements:
+
+  * Added <> quoted labels.
+  * Added Graph.escape_label.
+
+* 1 bug fix:
+
+  * Fixed issue with labels not escaping double quotes. (tenderlove)
+
+=== 2.5.2 / 2013-02-07
+
+* 1 minor enhancement:
+
+  * Improved doco. I'd be at 100% if rdoc wasn't so borked. :(
+
+=== 2.5.1 / 2012-06-27
+
+* 1 bug fix:
+
+  * UGH. The latest 1.8.7 version has randomized hash buckets and that breaks JUST my tests.
+
+=== 2.5.0 / 2012-02-13
+
+* 1 minor enhancement:
+
+  * Graph should render a pdf if rendering a png will be prohibitive (node+edge > 500)
+
+=== 2.4.1 / 2012-01-30
+
+* 1 minor enhancement:
+
+  * Quoted sub/graph names to allow characters like :. (damphyr)
+
+=== 2.4.0 / 2012-01-16
+
+* 4 minor enhancements:
+
+  * Renamed arrow_none to none_arrow.
+  * Renamed box to box_arrow (because the box shape was already defined).
+  * Renamed diamond to diamond_arrow (because the diamond shape was already defined).
+  * Allow rake analyzer to read from stdin, making it more usable for isolated systems.
+
+* 1 bug fix:
+
+  * Fixed 1.9.3 warnings.
+
+=== 2.3.1 / 2011-12-19
+
+* 1 minor enhancement:
+
+  * Added Aja Hammerly's Easy Data Visualization with Graph slides
+
+=== 2.3.0 / 2011-10-04
+
+* 7 minor enhancements:
+
+  * Added CompoundAttribute
+  * Added arrowhead, arrowtail, and arrowsize attribute methods.
+  * Added default arrowhead attribute helpers (vee, box, dot, etc)..
+  * Added fontsize
+  * Attribute#+ now returns a CompoundAttribute
+  * Colorscheme is now passed down to subgraphs.
+  * font shortcut no longer takes optional fontsize.
+
+=== 2.2.0 / 2011-08-12
+
+* 3 minor enhancements:
+
+  * Added brewer color scheme support: colorscheme(:reds, 5) creates c1 - c5.
+  * Added cluster subgraph shortcut
+  * added Node.connected? and Node.orphan?
+
+* 1 bug fix:
+
+  * Fixed output of single node graphs. (aja)
+
+=== 2.1.0 / 2011-05-26
+
+* 3 minor enhancements:
+
+  * If bin/graph isn't given a type, list them and exit.
+  * Updated RubygemsAnalyzer to work with new API.
+  * `graph` command no longer defaults to any analyzer.
+
+* 2 bug fixes:
+
+  * Escape newlines in labels. (rohitn)
+  * Refactored all saving code to bin/graph for clarity.
+
+=== 2.0.1 / 2011-02-18
+
+* 2 minor enhancements:
+
+  * Slightly improved output.
+  * Refactored Node and Edgue under Thingy.
+
+* 2 bug fixes:
+
+  * Expanded out subcall to rake to include current load path
+  * Use the rake from the calling ruby process as the invoking process
+
+=== 2.0.0 / 2010-12-24
+
+* 1 major enhancement:
+
+  * Graph is completely rewritten. It is no longer a Hash subclass.
+    Not backwards compatible! 147.3% more awesome.
+
+* 27 minor enhancements:
+
+  * #save now defaults type to nil, pass "png" or whatever if you want an image.
+  * Added DepAnalyzer#decorate
+  * Added DepAnalyzer#setup
+  * Added Graph::Node and Graph::Edge to formalize the relationships.
+  * Added Graph#color(name), #shape(name), #style(name).
+  * Added Graph#colorscheme and #fillcolor.
+  * Added Graph#edge(name1, name2, name3 ...)
+  * Added Graph#font.
+  * Added Graph#label(name), Node#label(name) and Edge#label(name).
+  * Added Graph#node(name, label = nil)
+  * Added Graph#node_attribs and Graph#edge_attribs.
+  * Added Graph#subgraphs and Graph#<<(subgraph).
+  * Added Graph::Attribute with ability to decorate: red << node << edge
+  * Added a gallery of examples and a rake task to run them all.
+  * Added digraph { ... subgraph { ... } ... } DSL.
+  * Added homebrew dependency analyzer.
+  * Added shortcut methods for all styles, shapes, and the major colors.
+  * Added support for subgraphs: graph << subgraph.
+  * Insert-order is no longer maintained... this _may_ cause problems.
+  * Node#>> defined so the arrows can point the same way as in dot: n1 >> n2
+  * Removed Graph#prefix in favor of the more structured accessors.
+  * Renamed Graph#attribs to Graph#graph_attribs and it is now graph only.
+  * RubygemsAnalyzer now draws developer dependencies gray.
+  * RubygemsAnalyzer now has -a to graph all dependencies even if not installed.
+  * graph tool no longer opens by default.
+  * graph tool now has -o to `open` the output and -d to switch to the dotfile.
+
+=== 1.2.0 / 2010-03-30
+
+* 10 minor enhancements:
+
+  * Added rake_analyzer.rb to help visualize rake dependencies. YAY!
+  * Added #boxes to convert all nodes to boxes.
+  * Added #global_attrib to set attribs on all nodes.
+  * Added #nodes to return all nodes (even if not part of from-edge).
+  * Added #normalize to remove duplicate edges.
+  * Added #orient to set graph orientation.
+  * Added #rotate as LR alias to #orient.
+  * Added full rdoc for Graph.
+  * Switched to minitest.
+  * Updated Hoe setup.
+
+* 2 bug fixes:
+
+  * Fixed inherited #clear to ensure ivars cleared as well.
+  * Fixed scanner to work with new macports deps output
+
+=== 1.1.0 / 2009-04-16
+
+* 3 minor enhancements:
+
+  * Don't run dot if type is nil
+  * Provide a command plugin for RubyGems, `gem graph`
+  * YAY tests
+
+=== 1.0.0 / 2009-03-27
+
+* 1 major enhancement
+
+  * Birthday!
+

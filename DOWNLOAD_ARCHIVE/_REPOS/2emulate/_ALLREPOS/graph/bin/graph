@@ -1,0 +1,29 @@
+#!/usr/bin/env ruby -ws
+
+$o ||= false
+$d ||= false
+
+type = ARGV.shift
+unless type then
+  require "rubygems"
+
+  hits = Gem.find_files("*_analyzer.rb").map { |s|
+    File.basename s, "_analyzer.rb"
+  } - %w(dep)
+
+  abort "#{File.basename $0}: Need a type: #{hits.join(", ")}"
+end
+
+require "#{type}_analyzer"
+
+name     = "#{type.capitalize}Analyzer"
+klass    = Object.const_get name
+analyzer = klass.new
+graph    = analyzer.run
+
+huge = graph.nodes.size + graph.edges.size > 500
+ext  = $d ? nil : huge ? "pdf" : "png"
+
+graph.save name, ext
+
+system "open #{name}.#{ext || "dot"}" if $o
