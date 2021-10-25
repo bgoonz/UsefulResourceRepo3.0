@@ -1,0 +1,5 @@
+
+<https://github.com/amejiarosario/---ja-learning> a <http://usefulinc.com/ns/doap#GitRepository> .
+
+ [ a <http://usefulinc.com/ns/doap#Project>;
+    <http://usefulinc.com/ns/doap#repository> <https://github.com/amejiarosario/---ja-learning>] .
