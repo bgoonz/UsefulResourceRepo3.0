@@ -25,7 +25,7 @@
  * @module sets/quickfind
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Initialization.<br><br>
@@ -75,4 +75,4 @@
   exports.QuickFind.prototype.connected = function (p, q) {
     return this._ids[p] === this._ids[q];
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

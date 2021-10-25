@@ -1,15 +1,15 @@
 // @ts-check
 /* eslint-disable */
 
-function logArray(message = "", array) {
-  const output = `${message} => (${array.length}) [${array.join(", ")}]`;
+function logArray(message = '', array) {
+  const output = `${message} => (${array.length}) [${array.join(', ')}]`;
   document.writeln(`<p>${output}</p>`);
   console.log(message, array);
 }
 
 let numbers = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 
-console.log("Original array", numbers);
+console.log('Original array', numbers);
 
 function printArray(myArray) {
   for (let i = 0; i < myArray.length; i++) {
@@ -21,13 +21,13 @@ function printArray(myArray) {
 
 // add a new element to the numbers array
 numbers[numbers.length] = 10;
-console.log("Add 10 to the end", numbers);
+console.log('Add 10 to the end', numbers);
 
 numbers.push(11);
-console.log("Add 11 with push", numbers);
+console.log('Add 11 with push', numbers);
 
 numbers.push(12, 13);
-console.log("Add 12 and 13 with push", numbers);
+console.log('Add 12 and 13 with push', numbers);
 
 // insert first position manually
 Array.prototype.insertFirstPosition = function (value) {
@@ -38,29 +38,29 @@ Array.prototype.insertFirstPosition = function (value) {
 };
 
 numbers.insertFirstPosition(-1);
-console.log("Add -1 with insertFirstPosition", numbers);
+console.log('Add -1 with insertFirstPosition', numbers);
 // printArray(numbers);
 
 // using method unshift
 numbers.unshift(-2);
-console.log("Add -2 with unshift", numbers);
+console.log('Add -2 with unshift', numbers);
 //printArray(numbers);
 
 numbers.unshift(-4, -3);
-console.log("Add -4 and -3 with unshift", numbers);
+console.log('Add -4 and -3 with unshift', numbers);
 // printArray(numbers);
 
 // ************** Removing elements
 
 numbers.pop();
-console.log("Removed last value with pop", numbers);
+console.log('Removed last value with pop', numbers);
 
 for (let i = 0; i < numbers.length; i++) {
   numbers[i] = numbers[i + 1];
 }
 
-console.log("Removed first value manually", numbers);
-console.log("Lenght after value removed manually", numbers.length);
+console.log('Removed first value manually', numbers);
+console.log('Lenght after value removed manually', numbers.length);
 
 //reset array
 numbers = [-4, -3, -2, -1, 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -85,23 +85,23 @@ Array.prototype.removeFirstPosition = function () {
 };
 
 numbers = numbers.removeFirstPosition();
-console.log("Removed first with removeFirstPosition + reIndex", numbers);
+console.log('Removed first with removeFirstPosition + reIndex', numbers);
 
 // using method shift
 numbers.shift();
-console.log("Removed first with shift", numbers);
-console.log("Lenght after removed first with shift", numbers.length);
+console.log('Removed first with shift', numbers);
+console.log('Lenght after removed first with shift', numbers.length);
 
 //* *** Removing and Adding elements from the middle of the array or specific position
 // splice method - parameter (index, howManyPositionsToBeRemoved, item1...itemX)
 numbers.splice(5, 3);
-console.log("Removing 3 elements (3, 4, 5) starting index 5", numbers);
+console.log('Removing 3 elements (3, 4, 5) starting index 5', numbers);
 
 numbers.splice(5, 0, 2, 3, 4);
-console.log("Adding 3 elements (2, 3, 4) starting index 5", numbers);
+console.log('Adding 3 elements (2, 3, 4) starting index 5', numbers);
 
 numbers.splice(5, 3, 2, 3, 4);
 console.log(
-  "Removing 3 elements starting index 5 and adding (2, 3, 4)",
+  'Removing 3 elements starting index 5 and adding (2, 3, 4)',
   numbers
 );

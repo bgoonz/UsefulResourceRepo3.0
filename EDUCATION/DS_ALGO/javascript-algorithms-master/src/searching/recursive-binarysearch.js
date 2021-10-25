@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const binarySearch = (() => {
     /**
@@ -48,4 +48,4 @@
   })();
 
   exports.binarySearch = binarySearch;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

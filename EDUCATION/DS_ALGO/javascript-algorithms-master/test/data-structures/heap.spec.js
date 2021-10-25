@@ -1,29 +1,29 @@
-import mod from "../../src/data-structures/heap.js";
+import mod from '../../src/data-structures/heap.js';
 const Heap = mod.Heap;
 
-describe("Heap", () => {
-  "use strict";
+describe('Heap', () => {
+  'use strict';
 
-  it("should be a constructor function", () => {
-    expect(typeof Heap).toBe("function");
+  it('should be a constructor function', () => {
+    expect(typeof Heap).toBe('function');
   });
-  it("should have default comparison function", () => {
+  it('should have default comparison function', () => {
     const heap = new Heap();
-    expect(typeof heap._cmp).toBe("function");
+    expect(typeof heap._cmp).toBe('function');
   });
-  it("should add an object properly", () => {
+  it('should add an object properly', () => {
     const heap = new Heap();
     heap.add(1);
     expect(heap._heap[0]).toBe(1);
   });
-  it("should remove an object properly", () => {
+  it('should remove an object properly', () => {
     const heap = new Heap();
     heap.add(1);
     const res = heap.extract();
     expect(res).toBe(1);
     expect(heap._heap.length).toBe(0);
   });
-  it("should add multiple nodes properly", () => {
+  it('should add multiple nodes properly', () => {
     const heap = new Heap();
     heap.add(55);
     heap.add(11);
@@ -32,7 +32,7 @@ describe("Heap", () => {
     expect(heap._heap.indexOf(11)).toBeGreaterThan(-1);
     expect(heap._heap.indexOf(66)).toBeGreaterThan(-1);
   });
-  it("should remove multiple nodes properly (max heap)", () => {
+  it('should remove multiple nodes properly (max heap)', () => {
     const heap = new Heap();
     heap.add(55);
     heap.add(11);
@@ -44,7 +44,7 @@ describe("Heap", () => {
     res = heap.extract();
     expect(res).toBe(11);
   });
-  it("should remove multiple nodes properly (min heap)", () => {
+  it('should remove multiple nodes properly (min heap)', () => {
     const heap = new Heap((a, b) => {
       return b - a;
     });
@@ -58,7 +58,7 @@ describe("Heap", () => {
     res = heap.extract();
     expect(res).toBe(66);
   });
-  it("should update top node properly", () => {
+  it('should update top node properly', () => {
     const heap = new Heap(({ val }, { val }) => {
       return val - val;
     });
@@ -75,7 +75,7 @@ describe("Heap", () => {
     res = heap.extract();
     expect(res.val).toBe(0);
   });
-  it("should update bottom node properly", () => {
+  it('should update bottom node properly', () => {
     const heap = new Heap(({ val }, { val }) => {
       return val - val;
     });

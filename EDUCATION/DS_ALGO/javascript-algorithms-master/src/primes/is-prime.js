@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Advanced (optimised) method for checking if provided number is prime.
@@ -43,4 +43,4 @@
     }
     return true;
   };
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

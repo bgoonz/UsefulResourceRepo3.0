@@ -5,7 +5,7 @@ let num = 1; // {1}
 num = 3; // {2}
 
 const price = 1.5; // {3}
-const myName = "Packt"; // {4}
+const myName = 'Packt'; // {4}
 const trueValue = true; // {5}
 const nullVar = null; // {6}
 let und; // {7}
@@ -19,16 +19,16 @@ console.log(`und: ${und}`);
 
 // ******* Variable Scope
 
-const myVariable = "global";
-myOtherVariable = "global";
+const myVariable = 'global';
+myOtherVariable = 'global';
 
 function myFunction() {
-  const myVariable = "local";
+  const myVariable = 'local';
   return myVariable;
 }
 
 function myOtherFunction() {
-  myOtherVariable = "local";
+  myOtherVariable = 'local';
   return myOtherVariable;
 }
 

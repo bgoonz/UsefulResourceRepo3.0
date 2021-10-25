@@ -1,17 +1,17 @@
-import { dijkstra } from "../../../src/graphs/shortest-path/dijkstra";
+import { dijkstra } from '../../../src/graphs/shortest-path/dijkstra';
 
-describe("dijkstra", () => {
-  "use strict";
-  it("should define a function", () => {
+describe('dijkstra', () => {
+  'use strict';
+  it('should define a function', () => {
     expect(dijkstra).toBeDefined();
-    expect(typeof dijkstra).toBe("function");
+    expect(typeof dijkstra).toBe('function');
   });
 
-  it("should work with empty graph", () => {
+  it('should work with empty graph', () => {
     expect(dijkstra(0, 0, [])).toBe(Infinity);
   });
 
-  it("should work when the src and dest are the same", () => {
+  it('should work when the src and dest are the same', () => {
     expect(dijkstra(0, 0, [[0]])).toBe(0);
   });
 
@@ -24,7 +24,7 @@ describe("dijkstra", () => {
     ).toBe(Infinity);
   });
 
-  it("should find the shortest path", () => {
+  it('should find the shortest path', () => {
     expect(
       dijkstra(0, 2, [
         [0, 1, 4],

@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const floydWarshall = (() => {
     /**
@@ -79,4 +79,4 @@
   })();
 
   exports.floydWarshall = floydWarshall;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

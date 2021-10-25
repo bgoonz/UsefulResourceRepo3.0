@@ -1,12 +1,12 @@
 const classes = [
-  "amy",
-  "bernadette",
-  "howard",
-  "leonard",
-  "penny",
-  "raj",
-  "sheldon",
-  "stuart",
+  'amy',
+  'bernadette',
+  'howard',
+  'leonard',
+  'penny',
+  'raj',
+  'sheldon',
+  'stuart',
 ];
 
 function getFaceImageUri(className, idx) {
@@ -17,7 +17,7 @@ function renderFaceImageSelectList(selectListId, onChange, initialValue) {
   const indices = [1, 2, 3, 4, 5];
   function renderChildren(select) {
     classes.forEach((className) => {
-      const optgroup = document.createElement("optgroup");
+      const optgroup = document.createElement('optgroup');
       optgroup.label = className;
       select.appendChild(optgroup);
       indices.forEach((imageIdx) =>

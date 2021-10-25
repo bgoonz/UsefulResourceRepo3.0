@@ -41,11 +41,11 @@
  * @module graphs/spanning-trees/prim
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
-  const Heap = require("../../data-structures/heap").Heap;
-  exports.Vertex = require("../../data-structures/vertex").Vertex;
-  exports.Edge = require("../../data-structures/edge").Edge;
+  const Heap = require('../../data-structures/heap').Heap;
+  exports.Vertex = require('../../data-structures/vertex').Vertex;
+  exports.Edge = require('../../data-structures/edge').Edge;
 
   /**
    * Graph.
@@ -152,4 +152,4 @@
       return new exports.Graph(spannigTree);
     };
   })();
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

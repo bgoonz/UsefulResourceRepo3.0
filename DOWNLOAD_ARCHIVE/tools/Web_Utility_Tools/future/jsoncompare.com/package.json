@@ -1,0 +1,108 @@
+{
+  "name": "jsoncompare.com",
+  "version": "0.0.0",
+  "description": "JSONCompare website",
+  "main": "app.js",
+  "private": true,
+  "scripts": {
+    "test": "npm run lint || echo 'ERRORED'",
+    "start": "npm run serve-prod",
+    "serve-prod": "pm2 startOrRestart ecosystem.json --env production --watch",
+    "dev": "open-cli http://localhost:5001; PORT=5001 NODE_ENV=development nodemon packages/backend --ignore 'frontend/*' --ignore 'public/*' --ignore 'node_modules/*'",
+    "build": "npm run clean; NODE_ENV=production webpack --config ./webpack/webpack.config.js --mode production",
+    "check-updates": "ncu; ncu --packageFile ./frontend/package.json",
+    "upgrade": "ncu -u && npm install && lerna exec --concurrency 1 -- ncu -u && lerna exec --concurrency 1 -- npm install",
+    "install-all": "npm install && lerna exec --concurrency 1 -- npm install",
+    "ci-all": "npm ci && lerna exec --concurrency 1 -- npm ci",
+    "reinstall": "rm -rf node_modules package-lock.json && rm -rf packages/*/node_modules packages/*/package-lock.json && npm run install-all",
+    "lint": "eslint . --ext .js --ignore-pattern '**/node_modules/**' --ignore-pattern '**/public/**'",
+    "stylelint": "stylelint frontend/**/*.css",
+    "clean": "rimraf packages/backend/public",
+    "deploy": "pm2 deploy ecosystem.json production --force",
+    "travis-deploy": "if-env TRAVIS_BRANCH=master TRAVIS_PULL_REQUEST=false && npm run release || echo \"Deploy is not run: TRAVIS_BRANCH=$TRAVIS_BRANCH TRAVIS_PULL_REQUEST=$TRAVIS_PULL_REQUEST\"",
+    "release": "ssh-keyscan 192.241.157.86 >> ~/.ssh/known_hosts && npm run deploy"
+  },
+  "browserslist": "> 0.25%",
+  "config": {
+    "validate-commit-msg": {
+      "types": [
+        "feat",
+        "fix",
+        "refactor",
+        "perf",
+        "test",
+        "chore",
+        "revert",
+        "ci"
+      ]
+    },
+    "ghooks": {
+      "commit-msg": "validate-commit-msg"
+    }
+  },
+  "release": {
+    "publish": []
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circlecell/jsoncompare.com.git"
+  },
+  "keywords": [
+    "jsonlint"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/circlecell/jsonlint-next/issues"
+  },
+  "homepage": "https://github.com/circlecell/jsoncompare.com#readme",
+  "devDependencies": {
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/register": "^7.9.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.5.3",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb": "^18.1.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-react": "^7.19.0",
+    "exports-loader": "^0.7.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "ghooks": "^2.0.4",
+    "html-webpack-plugin": "^4.3.0",
+    "if-env": "^1.0.4",
+    "last-release-git": "0.0.3",
+    "lerna": "^3.20.2",
+    "nodemon": "^2.0.3",
+    "npm-check-updates": "^5.0.0",
+    "object.assign": "^4.1.0",
+    "open-browser-webpack-plugin": "0.0.5",
+    "open-cli": "^6.0.1",
+    "postcss-calc": "^7.0.2",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-nested": "^4.2.1",
+    "postcss-url": "^8.0.0",
+    "react": "^16.13.1",
+    "rimraf": "^3.0.2",
+    "script-loader": "^0.7.2",
+    "style-loader": "^1.2.1",
+    "stylelint": "^13.3.3",
+    "stylelint-config-standard": "^20.0.0",
+    "validate-commit-msg": "^2.14.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "peerDependencies": {
+    "pm2": "^4"
+  }
+}

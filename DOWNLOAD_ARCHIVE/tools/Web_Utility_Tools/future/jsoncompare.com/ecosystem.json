@@ -1,0 +1,28 @@
+{
+
+  "apps" : [
+    {
+      "name"      : "jsoncompare.com",
+      "script"    : "packages/backend/index.js",
+      "error_file": "/var/web/jsoncompare.com/logs/err.log",
+      "out_file": "/var/web/jsoncompare.com/logs/out.log",
+      "env": {},
+      "env_production" : {
+        "NODE_ENV": "production",
+        "PORT": "5001",
+        "API_ONLY": "yes"
+      }
+    }
+  ],
+  "deploy" : {
+    "production" : {
+      "user" : "deployer",
+      "host" : "192.241.157.86",
+      "ref"  : "origin/master",
+      "repo" : "git@github.com:circlecell/jsoncompare.com.git",
+      "path" : "/var/web/jsoncompare.com",
+      "ssh_options": ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
+      "post-deploy" : "npm run ci-all && npm run build && npm run serve-prod"
+    },
+  }
+}

@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const countingSort = (() => {
     /**
@@ -85,4 +85,4 @@
   })();
 
   exports.countingSort = countingSort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

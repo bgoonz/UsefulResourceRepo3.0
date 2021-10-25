@@ -24,7 +24,7 @@
  * @module data-structures/hash-table
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Constructs a Node to store data and next/prev nodes in Hash table.
@@ -251,4 +251,4 @@
       }
     }
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

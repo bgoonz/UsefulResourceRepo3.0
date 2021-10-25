@@ -24,7 +24,7 @@
  * @module data-structures/binary-search-tree
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Node of the tree.
@@ -74,9 +74,9 @@
     let insertKey;
     current = current || this._root;
     if (current.value > value) {
-      insertKey = "_left";
+      insertKey = '_left';
     } else {
-      insertKey = "_right";
+      insertKey = '_right';
     }
     if (!current[insertKey]) {
       current[insertKey] = new exports.Node(value, null, null, current);
@@ -98,7 +98,7 @@
       return;
     }
     this._inorder(current._left, callback);
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._inorder(current._right, callback);
@@ -130,7 +130,7 @@
     }
     this._postorder(current._left, callback);
     this._postorder(current._right, callback);
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
   };
@@ -158,7 +158,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._preorder(current._left, callback);
@@ -484,4 +484,4 @@
       this._existsInSubtree(node, root._right)
     );
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

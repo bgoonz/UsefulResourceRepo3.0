@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function id(val) {
     return val;
@@ -28,7 +28,7 @@
    * @returns {Number} Index of the element or -1 if not found.
    */
   function binarySearch(array, value, key) {
-    key = !key ? id : typeof key === "string" ? get(key) : key;
+    key = !key ? id : typeof key === 'string' ? get(key) : key;
     value = key(value);
     let middle = Math.floor(array.length / 2);
     let left = 0;
@@ -48,4 +48,4 @@
   }
 
   exports.binarySearch = binarySearch;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

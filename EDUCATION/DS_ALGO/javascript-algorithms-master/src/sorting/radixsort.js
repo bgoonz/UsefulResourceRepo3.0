@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const radixSort = (() => {
     /**
@@ -51,7 +51,7 @@
       let j;
 
       /* Find maximum key size */
-      let maxKeySize = (array[0] || "").toString().length;
+      let maxKeySize = (array[0] || '').toString().length;
       for (i = 1; i < size; i += 1) {
         const numStr = array[i].toString();
         if (numStr.length > maxKeySize) {
@@ -95,4 +95,4 @@
   })();
 
   exports.radixSort = radixSort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

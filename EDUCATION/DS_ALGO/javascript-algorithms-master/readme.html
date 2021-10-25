@@ -1,257 +1,779 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>readme</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-</head>
-<body>
-<h2 id="about">About</h2>
-<p><a href="https://travis-ci.org/mgechev/javascript-algorithms"><img src="https://travis-ci.org/mgechev/javascript-algorithms.svg?branch=Jakehp-patch-1" alt="Build Status" /></a></p>
-<p>This repository contains JavaScript implementations of famous computer science algorithms.</p>
-<p>API reference with usage examples available <a href="https://mgechev.github.io/javascript-algorithms/" target="_blank">here</a>.</p>
-<h2 id="development">Development</h2>
-<p><strong>To install all dev dependencies</strong></p>
-<p>Call:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">npm</span> install</a></code></pre></div>
-<p><strong>To setup repository with documentation</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">npm</span> run doc</a></code></pre></div>
-<p>This will build the documentation and open it in your browser.</p>
-<p><strong>To update .html files with documentation</strong></p>
-<p>Just run <code>npm run doc</code> again.</p>
-<p><strong>To run tests</strong></p>
-<p>Call:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">npm</span> run test</a></code></pre></div>
-<p>This will execute all <code>*.spec.js</code> files.</p>
-<p><strong>To deploy documentation site</strong></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">npm</span> run deploy</a></code></pre></div>
-<p>This requires you to have commit access to your Git remote.</p>
-<h2 id="contributions">Contributions</h2>
-<p>Fork the repo and make required changes. Afterwards, push your changes in branch. The name will be according to the changes you did. Initiate the pull request.</p>
-<p>Make sure your editor makes validations according to the <code>.jshintrc</code> in the root directory of the repository.</p>
-<p>Before pushing to the repository, run:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">npm</span> run build</a></code></pre></div>
-<p>If the build is not successful, fix your code in order for the tests and jshint validation to run successfully. Then create a pull request.</p>
-<h2 id="contributors">Contributors</h2>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><a href="https://github.com/mgechev"><img alt="mgechev" src="https://avatars1.githubusercontent.com/u/455023?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/AndriiHeonia"><img alt="AndriiHeonia" src="https://avatars1.githubusercontent.com/u/773648?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/Jakehp"><img alt="Jakehp" src="https://avatars1.githubusercontent.com/u/1854569?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/lygstate"><img alt="lygstate" src="https://avatars3.githubusercontent.com/u/121040?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/mik-laj"><img alt="mik-laj" src="https://avatars1.githubusercontent.com/u/12058428?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/krzysztof-grzybek"><img alt="krzysztof-grzybek" src="https://avatars0.githubusercontent.com/u/6236664?v=4&s=117" width="117"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="https://github.com/mgechev">mgechev</a></td>
-<td style="text-align: center;"><a href="https://github.com/AndriiHeonia">AndriiHeonia</a></td>
-<td style="text-align: center;"><a href="https://github.com/Jakehp">Jakehp</a></td>
-<td style="text-align: center;"><a href="https://github.com/lygstate">lygstate</a></td>
-<td style="text-align: center;"><a href="https://github.com/mik-laj">mik-laj</a></td>
-<td style="text-align: center;"><a href="https://github.com/krzysztof-grzybek">krzysztof-grzybek</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><a href="https://github.com/pvoznenko"><img alt="pvoznenko" src="https://avatars3.githubusercontent.com/u/1098414?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/jettcalleja"><img alt="jettcalleja" src="https://avatars0.githubusercontent.com/u/6356258?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/filipefalcaos"><img alt="filipefalcaos" src="https://avatars2.githubusercontent.com/u/9125631?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/kdamball"><img alt="kdamball" src="https://avatars3.githubusercontent.com/u/3318312?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/lekkas"><img alt="lekkas" src="https://avatars3.githubusercontent.com/u/5211478?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/infusion"><img alt="infusion" src="https://avatars3.githubusercontent.com/u/197742?v=4&s=117" width="117"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="https://github.com/pvoznenko">pvoznenko</a></td>
-<td style="text-align: center;"><a href="https://github.com/jettcalleja">jettcalleja</a></td>
-<td style="text-align: center;"><a href="https://github.com/filipefalcaos">filipefalcaos</a></td>
-<td style="text-align: center;"><a href="https://github.com/kdamball">kdamball</a></td>
-<td style="text-align: center;"><a href="https://github.com/lekkas">lekkas</a></td>
-<td style="text-align: center;"><a href="https://github.com/infusion">infusion</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><a href="https://github.com/deniskyashif"><img alt="deniskyashif" src="https://avatars2.githubusercontent.com/u/5999271?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/brunohadlich"><img alt="brunohadlich" src="https://avatars2.githubusercontent.com/u/7043013?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/designeng"><img alt="designeng" src="https://avatars0.githubusercontent.com/u/2807469?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/Microfed"><img alt="Microfed" src="https://avatars1.githubusercontent.com/u/613179?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/Nirajkashyap"><img alt="Nirajkashyap" src="https://avatars3.githubusercontent.com/u/4338110?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/pkerpedjiev"><img alt="pkerpedjiev" src="https://avatars3.githubusercontent.com/u/2143629?v=4&s=117" width="117"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="https://github.com/deniskyashif">deniskyashif</a></td>
-<td style="text-align: center;"><a href="https://github.com/brunohadlich">brunohadlich</a></td>
-<td style="text-align: center;"><a href="https://github.com/designeng">designeng</a></td>
-<td style="text-align: center;"><a href="https://github.com/Microfed">Microfed</a></td>
-<td style="text-align: center;"><a href="https://github.com/Nirajkashyap">Nirajkashyap</a></td>
-<td style="text-align: center;"><a href="https://github.com/pkerpedjiev">pkerpedjiev</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><a href="https://github.com/duffman85"><img alt="duffman85" src="https://avatars0.githubusercontent.com/u/15054422?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/Xuefeng-Zhu"><img alt="Xuefeng-Zhu" src="https://avatars0.githubusercontent.com/u/5875315?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/emyarod"><img alt="emyarod" src="https://avatars3.githubusercontent.com/u/8265238?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/alexjoverm"><img alt="alexjoverm" src="https://avatars3.githubusercontent.com/u/5701162?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/amilajack"><img alt="amilajack" src="https://avatars1.githubusercontent.com/u/6374832?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/BorislavBorisov22"><img alt="BorislavBorisov22" src="https://avatars2.githubusercontent.com/u/20156662?v=4&s=117" width="117"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="https://github.com/duffman85">duffman85</a></td>
-<td style="text-align: center;"><a href="https://github.com/Xuefeng-Zhu">Xuefeng-Zhu</a></td>
-<td style="text-align: center;"><a href="https://github.com/emyarod">emyarod</a></td>
-<td style="text-align: center;"><a href="https://github.com/alexjoverm">alexjoverm</a></td>
-<td style="text-align: center;"><a href="https://github.com/amilajack">amilajack</a></td>
-<td style="text-align: center;"><a href="https://github.com/BorislavBorisov22">BorislavBorisov22</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><a href="https://github.com/brunob15"><img alt="brunob15" src="https://avatars2.githubusercontent.com/u/5839627?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/BryanChan777"><img alt="BryanChan777" src="https://avatars0.githubusercontent.com/u/43082778?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/ysharplanguage"><img alt="ysharplanguage" src="https://avatars0.githubusercontent.com/u/1055314?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/jurassix"><img alt="jurassix" src="https://avatars3.githubusercontent.com/u/1869117?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/fisenkodv"><img alt="fisenkodv" src="https://avatars0.githubusercontent.com/u/1039447?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/contra"><img alt="contra" src="https://avatars0.githubusercontent.com/u/425716?v=4&s=117" width="117"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="https://github.com/brunob15">brunob15</a></td>
-<td style="text-align: center;"><a href="https://github.com/BryanChan777">BryanChan777</a></td>
-<td style="text-align: center;"><a href="https://github.com/ysharplanguage">ysharplanguage</a></td>
-<td style="text-align: center;"><a href="https://github.com/jurassix">jurassix</a></td>
-<td style="text-align: center;"><a href="https://github.com/fisenkodv">fisenkodv</a></td>
-<td style="text-align: center;"><a href="https://github.com/contra">contra</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><a href="https://github.com/liesislukas"><img alt="liesislukas" src="https://avatars3.githubusercontent.com/u/2733862?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/marrcelo"><img alt="marrcelo" src="https://avatars3.githubusercontent.com/u/18054556?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/wnvko"><img alt="wnvko" src="https://avatars3.githubusercontent.com/u/5990334?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/millerrach"><img alt="millerrach" src="https://avatars2.githubusercontent.com/u/12432794?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/xiedezhuo"><img alt="xiedezhuo" src="https://avatars3.githubusercontent.com/u/39017209?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/DengYiping"><img alt="DengYiping" src="https://avatars0.githubusercontent.com/u/12176046?v=4&s=117" width="117"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="https://github.com/liesislukas">liesislukas</a></td>
-<td style="text-align: center;"><a href="https://github.com/marrcelo">marrcelo</a></td>
-<td style="text-align: center;"><a href="https://github.com/wnvko">wnvko</a></td>
-<td style="text-align: center;"><a href="https://github.com/millerrach">millerrach</a></td>
-<td style="text-align: center;"><a href="https://github.com/xiedezhuo">xiedezhuo</a></td>
-<td style="text-align: center;"><a href="https://github.com/DengYiping">DengYiping</a></td>
-</tr>
-</tbody>
-</table>
-<table>
-<thead>
-<tr class="header">
-<th style="text-align: center;"><a href="https://github.com/fanixk"><img alt="fanixk" src="https://avatars2.githubusercontent.com/u/921156?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/wlx199x"><img alt="wlx199x" src="https://avatars1.githubusercontent.com/u/6756730?v=4&s=117" width="117"></a></th>
-<th style="text-align: center;"><a href="https://github.com/shaunak1111"><img alt="shaunak1111" src="https://avatars3.githubusercontent.com/u/1323960?v=4&s=117" width="117"></a></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><a href="https://github.com/fanixk">fanixk</a></td>
-<td style="text-align: center;"><a href="https://github.com/wlx199x">wlx199x</a></td>
-<td style="text-align: center;"><a href="https://github.com/shaunak1111">shaunak1111</a></td>
-</tr>
-</tbody>
-</table>
-<h2 id="license">License</h2>
-<p>The code in this repository is distributed under the terms of the MIT license.</p>
-</body>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>readme</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <h2 id="about">About</h2>
+    <p>
+      <a href="https://travis-ci.org/mgechev/javascript-algorithms"
+        ><img
+          src="https://travis-ci.org/mgechev/javascript-algorithms.svg?branch=Jakehp-patch-1"
+          alt="Build Status"
+      /></a>
+    </p>
+    <p>
+      This repository contains JavaScript implementations of famous computer
+      science algorithms.
+    </p>
+    <p>
+      API reference with usage examples available
+      <a href="https://mgechev.github.io/javascript-algorithms/" target="_blank"
+        >here</a
+      >.
+    </p>
+    <h2 id="development">Development</h2>
+    <p><strong>To install all dev dependencies</strong></p>
+    <p>Call:</p>
+    <div class="sourceCode" id="cb1">
+      <pre
+        class="sourceCode bash"
+      ><code class="sourceCode bash"><a class="sourceLine" id="cb1-1" title="1"><span class="ex">npm</span> install</a></code></pre>
+    </div>
+    <p><strong>To setup repository with documentation</strong></p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode bash"
+      ><code class="sourceCode bash"><a class="sourceLine" id="cb2-1" title="1"><span class="ex">npm</span> run doc</a></code></pre>
+    </div>
+    <p>This will build the documentation and open it in your browser.</p>
+    <p><strong>To update .html files with documentation</strong></p>
+    <p>Just run <code>npm run doc</code> again.</p>
+    <p><strong>To run tests</strong></p>
+    <p>Call:</p>
+    <div class="sourceCode" id="cb3">
+      <pre
+        class="sourceCode bash"
+      ><code class="sourceCode bash"><a class="sourceLine" id="cb3-1" title="1"><span class="ex">npm</span> run test</a></code></pre>
+    </div>
+    <p>This will execute all <code>*.spec.js</code> files.</p>
+    <p><strong>To deploy documentation site</strong></p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode bash"
+      ><code class="sourceCode bash"><a class="sourceLine" id="cb4-1" title="1"><span class="ex">npm</span> run deploy</a></code></pre>
+    </div>
+    <p>This requires you to have commit access to your Git remote.</p>
+    <h2 id="contributions">Contributions</h2>
+    <p>
+      Fork the repo and make required changes. Afterwards, push your changes in
+      branch. The name will be according to the changes you did. Initiate the
+      pull request.
+    </p>
+    <p>
+      Make sure your editor makes validations according to the
+      <code>.jshintrc</code> in the root directory of the repository.
+    </p>
+    <p>Before pushing to the repository, run:</p>
+    <div class="sourceCode" id="cb5">
+      <pre
+        class="sourceCode bash"
+      ><code class="sourceCode bash"><a class="sourceLine" id="cb5-1" title="1"><span class="ex">npm</span> run build</a></code></pre>
+    </div>
+    <p>
+      If the build is not successful, fix your code in order for the tests and
+      jshint validation to run successfully. Then create a pull request.
+    </p>
+    <h2 id="contributors">Contributors</h2>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">
+            <a href="https://github.com/mgechev"
+              ><img
+                alt="mgechev"
+                src="https://avatars1.githubusercontent.com/u/455023?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/AndriiHeonia"
+              ><img
+                alt="AndriiHeonia"
+                src="https://avatars1.githubusercontent.com/u/773648?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/Jakehp"
+              ><img
+                alt="Jakehp"
+                src="https://avatars1.githubusercontent.com/u/1854569?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/lygstate"
+              ><img
+                alt="lygstate"
+                src="https://avatars3.githubusercontent.com/u/121040?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/mik-laj"
+              ><img
+                alt="mik-laj"
+                src="https://avatars1.githubusercontent.com/u/12058428?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/krzysztof-grzybek"
+              ><img
+                alt="krzysztof-grzybek"
+                src="https://avatars0.githubusercontent.com/u/6236664?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <a href="https://github.com/mgechev">mgechev</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/AndriiHeonia">AndriiHeonia</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/Jakehp">Jakehp</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/lygstate">lygstate</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/mik-laj">mik-laj</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/krzysztof-grzybek">krzysztof-grzybek</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">
+            <a href="https://github.com/pvoznenko"
+              ><img
+                alt="pvoznenko"
+                src="https://avatars3.githubusercontent.com/u/1098414?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/jettcalleja"
+              ><img
+                alt="jettcalleja"
+                src="https://avatars0.githubusercontent.com/u/6356258?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/filipefalcaos"
+              ><img
+                alt="filipefalcaos"
+                src="https://avatars2.githubusercontent.com/u/9125631?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/kdamball"
+              ><img
+                alt="kdamball"
+                src="https://avatars3.githubusercontent.com/u/3318312?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/lekkas"
+              ><img
+                alt="lekkas"
+                src="https://avatars3.githubusercontent.com/u/5211478?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/infusion"
+              ><img
+                alt="infusion"
+                src="https://avatars3.githubusercontent.com/u/197742?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <a href="https://github.com/pvoznenko">pvoznenko</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/jettcalleja">jettcalleja</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/filipefalcaos">filipefalcaos</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/kdamball">kdamball</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/lekkas">lekkas</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/infusion">infusion</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">
+            <a href="https://github.com/deniskyashif"
+              ><img
+                alt="deniskyashif"
+                src="https://avatars2.githubusercontent.com/u/5999271?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/brunohadlich"
+              ><img
+                alt="brunohadlich"
+                src="https://avatars2.githubusercontent.com/u/7043013?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/designeng"
+              ><img
+                alt="designeng"
+                src="https://avatars0.githubusercontent.com/u/2807469?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/Microfed"
+              ><img
+                alt="Microfed"
+                src="https://avatars1.githubusercontent.com/u/613179?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/Nirajkashyap"
+              ><img
+                alt="Nirajkashyap"
+                src="https://avatars3.githubusercontent.com/u/4338110?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/pkerpedjiev"
+              ><img
+                alt="pkerpedjiev"
+                src="https://avatars3.githubusercontent.com/u/2143629?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <a href="https://github.com/deniskyashif">deniskyashif</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/brunohadlich">brunohadlich</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/designeng">designeng</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/Microfed">Microfed</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/Nirajkashyap">Nirajkashyap</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/pkerpedjiev">pkerpedjiev</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">
+            <a href="https://github.com/duffman85"
+              ><img
+                alt="duffman85"
+                src="https://avatars0.githubusercontent.com/u/15054422?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/Xuefeng-Zhu"
+              ><img
+                alt="Xuefeng-Zhu"
+                src="https://avatars0.githubusercontent.com/u/5875315?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/emyarod"
+              ><img
+                alt="emyarod"
+                src="https://avatars3.githubusercontent.com/u/8265238?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/alexjoverm"
+              ><img
+                alt="alexjoverm"
+                src="https://avatars3.githubusercontent.com/u/5701162?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/amilajack"
+              ><img
+                alt="amilajack"
+                src="https://avatars1.githubusercontent.com/u/6374832?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/BorislavBorisov22"
+              ><img
+                alt="BorislavBorisov22"
+                src="https://avatars2.githubusercontent.com/u/20156662?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <a href="https://github.com/duffman85">duffman85</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/Xuefeng-Zhu">Xuefeng-Zhu</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/emyarod">emyarod</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/alexjoverm">alexjoverm</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/amilajack">amilajack</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/BorislavBorisov22">BorislavBorisov22</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">
+            <a href="https://github.com/brunob15"
+              ><img
+                alt="brunob15"
+                src="https://avatars2.githubusercontent.com/u/5839627?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/BryanChan777"
+              ><img
+                alt="BryanChan777"
+                src="https://avatars0.githubusercontent.com/u/43082778?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/ysharplanguage"
+              ><img
+                alt="ysharplanguage"
+                src="https://avatars0.githubusercontent.com/u/1055314?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/jurassix"
+              ><img
+                alt="jurassix"
+                src="https://avatars3.githubusercontent.com/u/1869117?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/fisenkodv"
+              ><img
+                alt="fisenkodv"
+                src="https://avatars0.githubusercontent.com/u/1039447?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/contra"
+              ><img
+                alt="contra"
+                src="https://avatars0.githubusercontent.com/u/425716?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <a href="https://github.com/brunob15">brunob15</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/BryanChan777">BryanChan777</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/ysharplanguage">ysharplanguage</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/jurassix">jurassix</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/fisenkodv">fisenkodv</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/contra">contra</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">
+            <a href="https://github.com/liesislukas"
+              ><img
+                alt="liesislukas"
+                src="https://avatars3.githubusercontent.com/u/2733862?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/marrcelo"
+              ><img
+                alt="marrcelo"
+                src="https://avatars3.githubusercontent.com/u/18054556?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/wnvko"
+              ><img
+                alt="wnvko"
+                src="https://avatars3.githubusercontent.com/u/5990334?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/millerrach"
+              ><img
+                alt="millerrach"
+                src="https://avatars2.githubusercontent.com/u/12432794?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/xiedezhuo"
+              ><img
+                alt="xiedezhuo"
+                src="https://avatars3.githubusercontent.com/u/39017209?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/DengYiping"
+              ><img
+                alt="DengYiping"
+                src="https://avatars0.githubusercontent.com/u/12176046?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <a href="https://github.com/liesislukas">liesislukas</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/marrcelo">marrcelo</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/wnvko">wnvko</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/millerrach">millerrach</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/xiedezhuo">xiedezhuo</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/DengYiping">DengYiping</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <table>
+      <thead>
+        <tr class="header">
+          <th style="text-align: center">
+            <a href="https://github.com/fanixk"
+              ><img
+                alt="fanixk"
+                src="https://avatars2.githubusercontent.com/u/921156?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/wlx199x"
+              ><img
+                alt="wlx199x"
+                src="https://avatars1.githubusercontent.com/u/6756730?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+          <th style="text-align: center">
+            <a href="https://github.com/shaunak1111"
+              ><img
+                alt="shaunak1111"
+                src="https://avatars3.githubusercontent.com/u/1323960?v=4&s=117"
+                width="117"
+            /></a>
+          </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td style="text-align: center">
+            <a href="https://github.com/fanixk">fanixk</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/wlx199x">wlx199x</a>
+          </td>
+          <td style="text-align: center">
+            <a href="https://github.com/shaunak1111">shaunak1111</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <h2 id="license">License</h2>
+    <p>
+      The code in this repository is distributed under the terms of the MIT
+      license.
+    </p>
+  </body>
 </html>

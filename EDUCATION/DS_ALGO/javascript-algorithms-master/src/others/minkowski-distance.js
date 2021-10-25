@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const minkowskiDistance = (() => {
     function chebyshevDistance(x, y, lx, p, mathfn) {
@@ -18,7 +18,7 @@
       let i;
 
       if (lx !== ly) {
-        throw "Both vectors should have same dimension";
+        throw 'Both vectors should have same dimension';
       }
 
       if (isNaN(p)) {
@@ -30,7 +30,7 @@
       } else if (p === Number.NEGATIVE_INFINITY) {
         return chebyshevDistance(x, y, lx, p, Math.min);
       } else if (p < 1) {
-        throw "Order less than 1 will violate the triangle inequality";
+        throw 'Order less than 1 will violate the triangle inequality';
       } else {
         d = 0;
 
@@ -70,4 +70,4 @@
   })();
 
   exports.minkowskiDistance = minkowskiDistance;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

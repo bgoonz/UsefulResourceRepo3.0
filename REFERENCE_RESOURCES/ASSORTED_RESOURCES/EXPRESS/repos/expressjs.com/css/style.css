@@ -13,7 +13,7 @@
 }
 
 body {
-  font: 400 14px/1.6 "Open Sans", sans-serif;
+  font: 400 14px/1.6 'Open Sans', sans-serif;
   background: url(/images/bg.jpg);
   margin: 0;
   padding: 0;
@@ -132,7 +132,7 @@ th {
 }
 
 #install-command {
-  font-family: Consolas, Monaco, "Andale Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', monospace;
   padding: 5px 10px;
   background: #fff;
   border: 1px solid #eee;
@@ -238,14 +238,14 @@ a {
 #logo .express {
   margin-top: 63px;
   display: block;
-  font: 25px "Helvetica Neue", "Open Sans", sans-serif;
+  font: 25px 'Helvetica Neue', 'Open Sans', sans-serif;
   font-weight: 100;
   color: #444;
 }
 
 #description .express {
   display: block;
-  font: 4.5em "Helvetica Neue", "Open Sans", sans-serif;
+  font: 4.5em 'Helvetica Neue', 'Open Sans', sans-serif;
   font-weight: 100;
   margin-bottom: 0.25em;
 }
@@ -269,7 +269,7 @@ a {
 #description .description {
   position: relative;
   top: -5px;
-  font: 100 4.1em "Helvetica Neue", "Open Sans", sans-serif;
+  font: 100 4.1em 'Helvetica Neue', 'Open Sans', sans-serif;
   color: #aeaeae;
   line-height: 0.87;
 }
@@ -379,7 +379,7 @@ pre code {
 /* clearfix */
 
 .clearfix:after {
-  content: ".";
+  content: '.';
   display: block;
   clear: both;
   visibility: hidden;
@@ -534,17 +534,17 @@ li p {
   margin: 0;
 }
 
-.doc-box pre[class*="language-"] {
+.doc-box pre[class*='language-'] {
   background: none repeat scroll 0 0 #fff;
 }
 
 /* English pages use backticks for code blocks */
-.en-doc .page pre[class*="language-"] {
+.en-doc .page pre[class*='language-'] {
   padding-top: 10px !important;
 }
 
 /* Non-English pages use pre and code tags for code blocks */
-.non-en-doc .page pre[class*="language-"] {
+.non-en-doc .page pre[class*='language-'] {
   padding-top: 0 !important;
   padding-bottom: 0 !important;
 }

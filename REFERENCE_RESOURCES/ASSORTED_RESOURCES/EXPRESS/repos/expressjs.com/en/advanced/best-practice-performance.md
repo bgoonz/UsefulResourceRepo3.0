@@ -3,7 +3,7 @@ layout: page
 title: Performance Best Practices Using Express in Production
 menu: advanced
 lang: en
-redirect_from: "/advanced/best-practice-performance.html"
+redirect_from: '/advanced/best-practice-performance.html'
 ---
 
 # Production best practices: performance and reliability
@@ -41,8 +41,8 @@ Here are some things you can do in your code to improve your application's perfo
 Gzip compressing can greatly decrease the size of the response body and hence increase the speed of a web app. Use the [compression](https://www.npmjs.com/package/compression) middleware for gzip compression in your Express app. For example:
 
 ```js
-var compression = require("compression");
-var express = require("express");
+var compression = require('compression');
+var express = require('express');
 var app = express();
 app.use(compression());
 ```
@@ -99,19 +99,18 @@ Try-catch is a JavaScript language construct that you can use to catch exception
 
 Use a tool such as [JSHint](http://jshint.com/) or [JSLint](http://www.jslint.com/) to help you find implicit exceptions like [reference errors on undefined variables](http://www.jshint.com/docs/options/#undef).
 
-Here is an example of using try-catch to handle a potential process-crashing exception.
-This middleware function accepts a query field parameter named "params" that is a JSON object.
+Here is an example of using try-catch to handle a potential process-crashing exception. This middleware function accepts a query field parameter named "params" that is a JSON object.
 
 ```js
-app.get("/search", function (req, res) {
+app.get('/search', function (req, res) {
   // Simulating async operation
   setImmediate(function () {
     var jsonStr = req.query.params;
     try {
       var jsonObj = JSON.parse(jsonStr);
-      res.send("Success");
+      res.send('Success');
     } catch (e) {
-      res.status(400).send("Invalid JSON string");
+      res.status(400).send('Invalid JSON string');
     }
   });
 });
@@ -124,7 +123,7 @@ However, try-catch works only for synchronous code. Because the Node platform is
 Promises will handle any exceptions (both explicit and implicit) in asynchronous code blocks that use `then()`. Just add `.catch(next)` to the end of promise chains. For example:
 
 ```js
-app.get("/", function (req, res, next) {
+app.get('/', function (req, res, next) {
   // do some sync stuff
   queryDb()
     .then(function (data) {
@@ -156,18 +155,16 @@ const wrap =
     fn(...args).catch(args[2]);
 
 app.get(
-  "/",
+  '/',
   wrap(async (req, res, next) => {
     const company = await getCompanyById(req.query.id);
     const stream = getLogoStreamById(company.id);
-    stream.on("error", next).pipe(res);
+    stream.on('error', next).pipe(res);
   })
 );
 ```
 
-The `wrap()` function is a wrapper that catches rejected promises and calls `next()` with the error as the first argument.
-For details, see [Asynchronous
-Error Handling in Express with Promises, Generators and ES7](https://strongloop.com/strongblog/async-error-handling-expressjs-es7-promises-generators/#cleaner-code-with-generators).
+The `wrap()` function is a wrapper that catches rejected promises and calls `next()` with the error as the first argument. For details, see [Asynchronous Error Handling in Express with Promises, Generators and ES7](https://strongloop.com/strongblog/async-error-handling-expressjs-es7-promises-generators/#cleaner-code-with-generators).
 
 For more information about error-handling by using promises, see [Promises in Node.js with Q – An Alternative to Callbacks](https://strongloop.com/strongblog/promises-in-node-js-with-q-an-alternative-to-callbacks/).
 

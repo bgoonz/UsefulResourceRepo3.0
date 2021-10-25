@@ -39,7 +39,7 @@
  * @module data-structures/heap
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Minimum heap constructor.
@@ -50,7 +50,7 @@
    */
   exports.Heap = function (cmp) {
     this._heap = [];
-    if (typeof cmp === "function") {
+    if (typeof cmp === 'function') {
       this._cmp = cmp;
     } else {
       this._cmp = (a, b) => {
@@ -174,7 +174,7 @@
    */
   exports.Heap.prototype.extract = function () {
     if (!this._heap.length) {
-      throw "The heap is already empty!";
+      throw 'The heap is already empty!';
     }
     const extr = this._heap.shift();
     this._heapify(0);
@@ -194,4 +194,4 @@
   exports.Heap.prototype.isEmpty = function () {
     return !this._heap.length;
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

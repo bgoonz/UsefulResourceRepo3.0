@@ -1,25 +1,25 @@
-import mod from "../../src/data-structures/avl-tree.js";
+import mod from '../../src/data-structures/avl-tree.js';
 const Node = mod.Node;
 const AVLTree = mod.AVLTree;
 
-describe("Node", () => {
-  "use strict";
+describe('Node', () => {
+  'use strict';
 
-  it("should be a constructor function", () => {
-    expect(typeof Node).toBe("function");
+  it('should be a constructor function', () => {
+    expect(typeof Node).toBe('function');
   });
 });
 
-describe("AVL Tree", () => {
-  "use strict";
+describe('AVL Tree', () => {
+  'use strict';
 
-  it("should be a constructor function", () => {
-    expect(typeof AVLTree).toBe("function");
+  it('should be a constructor function', () => {
+    expect(typeof AVLTree).toBe('function');
   });
-  it("should start with null root", () => {
+  it('should start with null root', () => {
     expect(new AVLTree()._root).toBe(null);
   });
-  it("should insert and single rotate (leftRight) properly", () => {
+  it('should insert and single rotate (leftRight) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(66);
     avlTree.insert(3);
@@ -32,7 +32,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._left._height).toBe(1);
     expect(avlTree._root._right._height).toBe(1);
   });
-  it("should insert and single rotate (rightLeft) properly", () => {
+  it('should insert and single rotate (rightLeft) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(50);
     avlTree.insert(75);
@@ -45,7 +45,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._left._height).toBe(1);
     expect(avlTree._root._right._height).toBe(1);
   });
-  it("should insert and double rotate (leftLeft) properly", () => {
+  it('should insert and double rotate (leftLeft) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(50);
     avlTree.insert(25);
@@ -58,7 +58,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._left._height).toBe(1);
     expect(avlTree._root._right._height).toBe(1);
   });
-  it("should insert and double rotate (rightRight) properly", () => {
+  it('should insert and double rotate (rightRight) properly', () => {
     const avlTree = new AVLTree();
     avlTree.insert(50);
     avlTree.insert(75);
@@ -71,7 +71,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._left._height).toBe(1);
     expect(avlTree._root._right._height).toBe(1);
   });
-  it("should insert multiple nodes and balance properly (1)", () => {
+  it('should insert multiple nodes and balance properly (1)', () => {
     const avlTree = new AVLTree();
     avlTree.insert(30);
     avlTree.insert(15);
@@ -90,7 +90,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._right._left._height).toBe(1);
     expect(avlTree._root._right._right._height).toBe(1);
   });
-  it("should insert multiple nodes and balance properly (2)", () => {
+  it('should insert multiple nodes and balance properly (2)', () => {
     const avlTree = new AVLTree();
     avlTree.insert(24);
     avlTree.insert(67);
@@ -125,7 +125,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._left._right._right.value).toBe(27);
     expect(avlTree._root._left._right._right._height).toBe(1);
   });
-  it("should remove nodes and balance properly (1)", () => {
+  it('should remove nodes and balance properly (1)', () => {
     const avlTree = new AVLTree();
     avlTree.insert(30);
     avlTree.insert(15);
@@ -146,7 +146,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._left._right.value).toBe(60);
     expect(avlTree._root._left._right._height).toBe(1);
   });
-  it("should remove nodes and balance properly (2)", () => {
+  it('should remove nodes and balance properly (2)', () => {
     const avlTree = new AVLTree();
     avlTree.insert(55);
     avlTree.insert(25);
@@ -163,7 +163,7 @@ describe("AVL Tree", () => {
     expect(avlTree._root._right.value).toBe(25);
     expect(avlTree._root._right._height).toBe(1);
   });
-  it("should remove nodes and balance properly (3)", () => {
+  it('should remove nodes and balance properly (3)', () => {
     const avlTree = new AVLTree();
     avlTree.insert(55);
     avlTree.insert(25);

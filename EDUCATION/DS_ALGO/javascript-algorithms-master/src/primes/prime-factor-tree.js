@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Method will return list of all primes for provided number.
@@ -43,4 +43,4 @@
     }
     return array;
   };
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

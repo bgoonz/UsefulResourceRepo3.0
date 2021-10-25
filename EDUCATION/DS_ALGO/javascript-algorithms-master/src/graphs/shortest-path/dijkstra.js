@@ -1,8 +1,8 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const dijkstra = (() => {
-    const Heap = require("../../data-structures/heap.js").Heap;
+    const Heap = require('../../data-structures/heap.js').Heap;
     let current;
     let visited;
     let distance;
@@ -119,4 +119,4 @@
   })();
 
   exports.dijkstra = dijkstra;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

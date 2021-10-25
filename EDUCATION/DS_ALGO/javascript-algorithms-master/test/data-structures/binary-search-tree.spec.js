@@ -1,32 +1,32 @@
-import mod from "../../src/data-structures/binary-search-tree.js";
+import mod from '../../src/data-structures/binary-search-tree.js';
 const Node = mod.Node;
 const BinaryTree = mod.BinaryTree;
 
-describe("Node", () => {
-  "use strict";
+describe('Node', () => {
+  'use strict';
 
-  it("should be a constructor function", () => {
-    expect(typeof Node).toBe("function");
+  it('should be a constructor function', () => {
+    expect(typeof Node).toBe('function');
   });
 });
 
-describe("Binary Tree", () => {
-  "use strict";
+describe('Binary Tree', () => {
+  'use strict';
 
-  it("should be a constructor function", () => {
-    expect(typeof BinaryTree).toBe("function");
+  it('should be a constructor function', () => {
+    expect(typeof BinaryTree).toBe('function');
   });
-  it("should start with null root", () => {
+  it('should start with null root', () => {
     expect(new BinaryTree()._root).toBe(null);
   });
-  it("should insert and remove single node properly", () => {
+  it('should insert and remove single node properly', () => {
     const bTree = new BinaryTree();
     bTree.insert(15);
     const node = bTree.find(15);
     bTree.remove(node);
     expect(bTree._root).toBe(null);
   });
-  it("should remove root and replace with valid child", () => {
+  it('should remove root and replace with valid child', () => {
     const bTree = new BinaryTree();
     bTree.insert(15);
     bTree.insert(30);
@@ -35,7 +35,7 @@ describe("Binary Tree", () => {
     bTree.remove(node);
     expect(bTree._root.value).toBe(30);
   });
-  it("should insert multiple nodes properly", () => {
+  it('should insert multiple nodes properly', () => {
     const bTree = new BinaryTree();
     bTree.insert(10);
     bTree.insert(5);
@@ -54,7 +54,7 @@ describe("Binary Tree", () => {
     expect(rightRootChild._left.value).toBe(14);
     expect(rightRootChild._right.value).toBe(16);
   });
-  it("should remove multiple nodes properly", () => {
+  it('should remove multiple nodes properly', () => {
     const bTree = new BinaryTree();
     bTree.insert(10);
     bTree.insert(5);

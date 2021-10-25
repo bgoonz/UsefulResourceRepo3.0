@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Tarjan's algorithm for finding the connected components in a graph.<br><br>
@@ -69,4 +69,4 @@
   }
 
   exports.tarjanConnectedComponents = tarjanConnectedComponents;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

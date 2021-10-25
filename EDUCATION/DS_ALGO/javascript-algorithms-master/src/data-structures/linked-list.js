@@ -34,7 +34,7 @@
  * @module data-structures/linked-list
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Linked list node.
@@ -273,4 +273,4 @@
     this.first = this.last;
     this.last = tmp;
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

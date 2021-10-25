@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Returns the minimum number of coins from given set,
@@ -44,4 +44,4 @@
   }
 
   exports.minCoinsChange = minCoinsChange;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

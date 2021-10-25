@@ -26,7 +26,7 @@
  */
 
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Initialization.<br><br>
@@ -83,4 +83,4 @@
   exports.QuickUnion.prototype.connected = function (p, q) {
     return this._root(p) === this._root(q);
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

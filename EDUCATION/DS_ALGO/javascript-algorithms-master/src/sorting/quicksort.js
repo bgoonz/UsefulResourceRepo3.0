@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * The quicksort algorithm. It's complexity is O(nlog n).
@@ -80,4 +80,4 @@
   })();
 
   exports.quickSort = quickSort;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

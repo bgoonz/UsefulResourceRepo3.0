@@ -1,17 +1,17 @@
-import { dfs } from "../../../src/graphs/searching/dfs";
+import { dfs } from '../../../src/graphs/searching/dfs';
 
-describe("dfs", () => {
-  "use strict";
+describe('dfs', () => {
+  'use strict';
 
-  it("should work with empty graph", () => {
+  it('should work with empty graph', () => {
     expect(dfs([[]])).toBeTruthy();
   });
 
-  it("should always find a path between node and itself", () => {
+  it('should always find a path between node and itself', () => {
     expect(dfs([[0]]), 0, 0).toBeTruthy();
   });
 
-  it("should always find a path between two directly connected nodes", () => {
+  it('should always find a path between two directly connected nodes', () => {
     expect(
       dfs(
         [
@@ -35,8 +35,8 @@ describe("dfs", () => {
   });
 
   it(
-    "should always find a path between two directly connected" +
-      "connected nodes in a directed graph",
+    'should always find a path between two directly connected' +
+      'connected nodes in a directed graph',
     () => {
       expect(
         dfs(
@@ -51,7 +51,7 @@ describe("dfs", () => {
     }
   );
 
-  it("should always find a path between two indirectly connected nodes", () => {
+  it('should always find a path between two indirectly connected nodes', () => {
     expect(
       dfs(
         [
@@ -65,7 +65,7 @@ describe("dfs", () => {
     ).toBeTruthy();
   });
 
-  it("should not find a path between two nodes, which are not connected", () => {
+  it('should not find a path between two nodes, which are not connected', () => {
     expect(
       dfs(
         [

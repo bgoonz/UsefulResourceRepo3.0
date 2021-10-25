@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const dfs = (() => {
     function hasPath(graph, current, goal) {
@@ -51,4 +51,4 @@
   })();
 
   exports.dfs = dfs;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

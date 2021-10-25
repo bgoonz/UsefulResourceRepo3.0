@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Accepts an array and range. Finds the maximum sum of elements
@@ -76,4 +76,4 @@
   }
 
   exports.maxSubarray = maxSubarray;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

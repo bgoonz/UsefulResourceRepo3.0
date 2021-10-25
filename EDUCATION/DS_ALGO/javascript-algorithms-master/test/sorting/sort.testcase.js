@@ -1,5 +1,5 @@
 export default (sort, algorithmName, options) => {
-  "use strict";
+  'use strict';
 
   options = options || {
     integers: false,
@@ -21,15 +21,15 @@ export default (sort, algorithmName, options) => {
       return result;
     }
 
-    it("should work with empty array", () => {
+    it('should work with empty array', () => {
       expect(sort([])).toEqual([]);
     });
 
-    it("should work with sorted arrays", () => {
+    it('should work with sorted arrays', () => {
       expect(sort([1, 2, 3, 4])).toEqual([1, 2, 3, 4]);
     });
 
-    it("should work with random non-sorted arrays", () => {
+    it('should work with random non-sorted arrays', () => {
       let array;
       if (options.integers) {
         array = createRandomArray();
@@ -46,8 +46,8 @@ export default (sort, algorithmName, options) => {
 
     if (options.reverse) {
       it(
-        "should sort the numbers in descending order " +
-          "when such comparator is provided",
+        'should sort the numbers in descending order ' +
+          'when such comparator is provided',
         () => {
           function comparator(a, b) {
             return b - a;

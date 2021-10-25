@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   exports.longestIncreasingSubsequence = (() => {
     /**
@@ -127,4 +127,4 @@
       return results;
     };
   })();
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

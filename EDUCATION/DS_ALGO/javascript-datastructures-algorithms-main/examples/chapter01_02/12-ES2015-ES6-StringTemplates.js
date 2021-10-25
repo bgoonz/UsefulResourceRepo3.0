@@ -3,7 +3,7 @@
 
 //* ****** EcmaScript 2015 (ES6): Template literals (https://goo.gl/4N36CS)
 const book = {
-  name: "Learning JavaScript DataStructures and Algorithms",
+  name: 'Learning JavaScript DataStructures and Algorithms',
 };
 
 console.log(

@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const topologicalSort = (() => {
     function topologicalSortHelper(node, visited, temp, graph, result) {
@@ -8,7 +8,7 @@
 
       neighbors.forEach((n) => {
         if (temp[n]) {
-          throw new Error("The graph is not a DAG");
+          throw new Error('The graph is not a DAG');
         }
         if (!visited[n]) {
           topologicalSortHelper(n, visited, temp, graph, result);
@@ -57,4 +57,4 @@
   })();
 
   exports.topologicalSort = topologicalSort;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

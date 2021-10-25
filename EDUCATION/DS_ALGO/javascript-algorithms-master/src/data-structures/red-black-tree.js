@@ -29,7 +29,7 @@
  * @module data-structures/red-black-tree
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Enum for the different colors
@@ -90,7 +90,7 @@
    * Creates getters and setters for the properties:
    * key, value, left, right and color.
    */
-  "key value left right color".split(" ").forEach((key) => {
+  'key value left right color'.split(' ').forEach((key) => {
     const valueName =
       key.substr(0, 1).toUpperCase() + key.substr(1, key.length);
     Node.prototype[`get${valueName}`] = function () {
@@ -277,11 +277,11 @@
    */
   exports.RBTree.prototype.levelOrderTraversal = function () {
     const queue = [];
-    let levelOrderString = "";
+    let levelOrderString = '';
     if (this._root) {
       queue.push(this._root);
     } else {
-      levelOrderString = " Tree is empty";
+      levelOrderString = ' Tree is empty';
     }
     while (queue.length !== 0) {
       const tempNode = queue.shift();
@@ -295,4 +295,4 @@
     }
     return `Level Order Traversal -:${levelOrderString}`;
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

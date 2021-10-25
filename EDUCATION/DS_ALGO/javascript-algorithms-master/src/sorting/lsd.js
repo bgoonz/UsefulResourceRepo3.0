@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Sorts strings lexicographically.<br><br>
@@ -47,4 +47,4 @@
   }
 
   exports.lsd = lsd;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

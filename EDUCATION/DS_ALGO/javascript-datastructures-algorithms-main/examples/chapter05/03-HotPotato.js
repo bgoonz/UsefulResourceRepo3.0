@@ -1,6 +1,6 @@
 const { hotPotato } = PacktDataStructuresAlgorithms;
 
-const names = ["John", "Jack", "Camila", "Ingrid", "Carl"];
+const names = ['John', 'Jack', 'Camila', 'Ingrid', 'Carl'];
 const result = hotPotato(names, 7);
 
 result.eliminated.forEach((name) => {

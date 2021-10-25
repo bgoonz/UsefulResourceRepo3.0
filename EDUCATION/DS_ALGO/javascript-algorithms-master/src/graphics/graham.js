@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const slope = ({ y, x }, { y, x }) => (y - y) / (x - x);
 
@@ -84,4 +84,4 @@
   };
 
   exports.convexHull = convexHull;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

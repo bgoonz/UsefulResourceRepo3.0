@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const kmp = (() => {
     function builtKMPTable(str) {
@@ -75,4 +75,4 @@
   })();
 
   exports.kmp = kmp;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

@@ -26,7 +26,7 @@
  */
 
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Initialization.<br><br>
@@ -97,4 +97,4 @@
       this._size[pf] += qsz;
     }
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

@@ -9,10 +9,10 @@ var obj = {};
 
 obj = {
   name: {
-    first: "Gandalf",
-    last: "the Grey",
+    first: 'Gandalf',
+    last: 'the Grey',
   },
-  address: "Middle Earth",
+  address: 'Middle Earth',
 };
 
 /* Object example 3 */
@@ -31,11 +31,11 @@ class Book {
   }
 }
 
-const book = new Book("title", "pag", "isbn");
+const book = new Book('title', 'pag', 'isbn');
 
 console.log(book.title); // outputs the book title
 
-book.title = "new title"; // update the value of the book title
+book.title = 'new title'; // update the value of the book title
 
 console.log(book.title); // outputs the updated value
 

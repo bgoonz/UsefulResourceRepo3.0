@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function Node(val) {
     this.value = val;
@@ -27,10 +27,10 @@
         if (a[i] === b[i]) {
           res.push(a[i]);
         } else {
-          return "";
+          return '';
         }
       }
-      return res.join("");
+      return res.join('');
     }
 
     function addNode(suffix, current) {
@@ -71,4 +71,4 @@
 
   exports.Node = Node;
   exports.SuffixTree = SuffixTree;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 //* ****** EcmaScript 2015 (ES6): Destructuring Assignment + Property Shorthand (https://goo.gl/VsLecp )
-let [x, y] = ["a", "b"];
+let [x, y] = ['a', 'b'];
 let obj = { x, y };
 console.log(obj); // { x: "a", y: "b" }
 
@@ -13,25 +13,25 @@ x = y;
 y = temp;
 
 // code above is the same as
-const x2 = "a";
-const y2 = "b";
+const x2 = 'a';
+const y2 = 'b';
 const obj2 = { x2: x2, y2: y2 };
 console.log(obj2); // { x: "a", y: "b" }
 
 // Method Properties (https://goo.gl/DKU2PN)
 const hello = {
-  name: "abcdef",
+  name: 'abcdef',
   printHello() {
-    console.log("Hello");
+    console.log('Hello');
   },
 };
 console.log(hello.printHello());
 
 // code above is the same as:
 const hello2 = {
-  name: "abcdef",
+  name: 'abcdef',
   printHello: function printHello() {
-    console.log("Hello");
+    console.log('Hello');
   },
 };
 console.log(hello2.printHello());

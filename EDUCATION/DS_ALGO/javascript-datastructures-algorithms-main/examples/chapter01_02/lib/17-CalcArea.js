@@ -1,7 +1,7 @@
 ((global, factory) => {
-  if (typeof define === "function" && define.amd) {
-    define(["exports"], factory);
-  } else if (typeof exports !== "undefined") {
+  if (typeof define === 'function' && define.amd) {
+    define(['exports'], factory);
+  } else if (typeof exports !== 'undefined') {
     factory(exports);
   } else {
     const mod = {
@@ -11,9 +11,9 @@
     global.CalcArea = mod.exports;
   }
 })(this, (exports) => {
-  "use strict";
+  'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
+  Object.defineProperty(exports, '__esModule', {
     value: true,
   });
   const circleArea = (exports.circleArea = function circleArea(r) {

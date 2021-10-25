@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * The shuffling algorithm of
@@ -27,4 +27,4 @@
   }
 
   exports.shuffle = shuffle;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const cartesianProduct = (() => {
     let result;
@@ -45,4 +45,4 @@
   })();
 
   exports.cartesianProduct = cartesianProduct;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

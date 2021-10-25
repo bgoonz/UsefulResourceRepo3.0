@@ -19,7 +19,7 @@
  * @module compression/LZW/LZW
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   exports.LZW = function () {
     this.dictionarySize = 256;
@@ -30,7 +30,7 @@
     const dictionary = {};
     let character;
     let wc;
-    let w = "";
+    let w = '';
     const result = [];
 
     for (i = 0; i < this.dictionarySize; i = i + 1) {
@@ -50,7 +50,7 @@
       }
     }
 
-    if (w !== "") {
+    if (w !== '') {
       result.push(dictionary[w]);
     }
 
@@ -63,7 +63,7 @@
     let w;
     let result;
     let key;
-    let entry = "";
+    let entry = '';
 
     for (i = 0; i < this.dictionarySize; i = i + 1) {
       dictionary[i] = String.fromCharCode(i);
@@ -92,4 +92,4 @@
 
     return result;
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

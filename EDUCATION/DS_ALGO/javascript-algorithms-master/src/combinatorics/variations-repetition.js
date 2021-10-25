@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const variationsWithRepetition = (() => {
     let res;
@@ -51,4 +51,4 @@
   })();
 
   exports.variationsWithRepetition = variationsWithRepetition;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

@@ -16,7 +16,7 @@
       body {
         margin: 0;
         padding-bottom: 30px;
-        font: 14px/1.4 "Helvetica Neue", "Lucida Grande", "Arial";
+        font: 14px/1.4 'Helvetica Neue', 'Lucida Grande', 'Arial';
         font-size: 14px;
         line-height: 1.5;
         -webkit-font-smoothing: antialiased;
@@ -78,7 +78,7 @@
       }
 
       code {
-        font-family: "Helvetica Neue", "Lucida Grande", "Arial";
+        font-family: 'Helvetica Neue', 'Lucida Grande', 'Arial';
       }
 
       ul {
@@ -197,14 +197,14 @@
     </style>
     <script>
       $(function () {
-        $(".section").hide();
-        $(".toggle, a.section-title").toggle(
+        $('.section').hide();
+        $('.toggle, a.section-title').toggle(
           function () {
-            $(this).siblings("ul").fadeIn(300);
+            $(this).siblings('ul').fadeIn(300);
             return false;
           },
           function () {
-            $(this).siblings("ul").fadeOut(300);
+            $(this).siblings('ul').fadeOut(300);
             return false;
           }
         );

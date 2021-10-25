@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
   const permutations = (() => {
     let res;
 
@@ -58,4 +58,4 @@
   })();
 
   exports.permutations = permutations;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

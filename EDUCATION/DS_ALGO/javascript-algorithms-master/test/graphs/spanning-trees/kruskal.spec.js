@@ -1,24 +1,24 @@
-import kruskal from "../../../src/graphs/spanning-trees/kruskal";
+import kruskal from '../../../src/graphs/spanning-trees/kruskal';
 
-describe("Kruskal", () => {
-  "use strict";
+describe('Kruskal', () => {
+  'use strict';
 
-  it("should define a function", () => {
+  it('should define a function', () => {
     expect(kruskal).toBeDefined();
-    expect(typeof kruskal).toBe("object");
-    expect(typeof kruskal.Graph).toBe("function");
-    expect(typeof kruskal.Edge).toBe("function");
-    expect(typeof kruskal.Vertex).toBe("function");
+    expect(typeof kruskal).toBe('object');
+    expect(typeof kruskal.Graph).toBe('function');
+    expect(typeof kruskal.Edge).toBe('function');
+    expect(typeof kruskal.Vertex).toBe('function');
   });
 
-  it("should work with an empty graph", () => {
+  it('should work with an empty graph', () => {
     const graph = new kruskal.Graph([], 0);
     const spanningTree = graph.kruskal();
 
     expect(spanningTree.edges.length).toEqual(0);
   });
 
-  it("should correctly compute general example", () => {
+  it('should correctly compute general example', () => {
     const nodes = [];
     const edges = [];
     let i;

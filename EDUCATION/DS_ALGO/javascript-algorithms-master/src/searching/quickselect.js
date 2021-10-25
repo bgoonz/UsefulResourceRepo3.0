@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Returns the n-th smallest element of list within
@@ -67,4 +67,4 @@
     return undefined;
   }
   exports.quickselect = quickselect;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

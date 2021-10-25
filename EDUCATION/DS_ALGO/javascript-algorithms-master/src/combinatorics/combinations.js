@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const combinations = (() => {
     let res = [];
@@ -50,4 +50,4 @@
   })();
 
   exports.combinations = combinations;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

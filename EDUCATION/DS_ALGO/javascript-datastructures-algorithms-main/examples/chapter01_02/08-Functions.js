@@ -2,7 +2,7 @@
 /* eslint-disable */
 
 function sayHello() {
-  console.log("Hello!");
+  console.log('Hello!');
 }
 
 sayHello();
@@ -12,9 +12,9 @@ function output(text) {
   console.log(text);
 }
 
-output("Hello!");
+output('Hello!');
 
-output("Hello!", "Other text");
+output('Hello!', 'Other text');
 
 output();
 

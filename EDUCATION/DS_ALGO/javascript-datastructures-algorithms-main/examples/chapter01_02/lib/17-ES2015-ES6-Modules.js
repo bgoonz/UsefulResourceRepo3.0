@@ -1,8 +1,8 @@
 ((global, factory) => {
-  if (typeof define === "function" && define.amd) {
-    define(["./17-CalcArea.js", "./17-Book.js"], factory);
-  } else if (typeof exports !== "undefined") {
-    factory(require("./17-CalcArea.js"), require("./17-Book.js"));
+  if (typeof define === 'function' && define.amd) {
+    define(['./17-CalcArea.js', './17-Book.js'], factory);
+  } else if (typeof exports !== 'undefined') {
+    factory(require('./17-CalcArea.js'), require('./17-Book.js'));
   } else {
     const mod = {
       exports: {},
@@ -11,7 +11,7 @@
     global.ES2015ES6Modules = mod.exports;
   }
 })(this, (_CalcArea, _Book) => {
-  "use strict";
+  'use strict';
 
   const area = _interopRequireWildcard(_CalcArea);
 
@@ -58,6 +58,6 @@
 
   console.log(area.square(2));
 
-  const myBook = new _Book2.default("some title");
+  const myBook = new _Book2.default('some title');
   myBook.printTitle();
 });

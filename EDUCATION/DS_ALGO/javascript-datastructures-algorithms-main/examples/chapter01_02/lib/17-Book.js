@@ -1,7 +1,7 @@
 ((global, factory) => {
-  if (typeof define === "function" && define.amd) {
-    define(["module", "exports"], factory);
-  } else if (typeof exports !== "undefined") {
+  if (typeof define === 'function' && define.amd) {
+    define(['module', 'exports'], factory);
+  } else if (typeof exports !== 'undefined') {
     factory(module, exports);
   } else {
     const mod = {
@@ -11,15 +11,15 @@
     global.Book = mod.exports;
   }
 })(this, (module, exports) => {
-  "use strict";
+  'use strict';
 
-  Object.defineProperty(exports, "__esModule", {
+  Object.defineProperty(exports, '__esModule', {
     value: true,
   });
 
   function _classCallCheck(instance, Constructor) {
     if (!(instance instanceof Constructor)) {
-      throw new TypeError("Cannot call a class as a function");
+      throw new TypeError('Cannot call a class as a function');
     }
   }
 
@@ -28,7 +28,7 @@
       props.forEach((descriptor) => {
         descriptor.enumerable = descriptor.enumerable || false;
         descriptor.configurable = true;
-        if ("value" in descriptor) descriptor.writable = true;
+        if ('value' in descriptor) descriptor.writable = true;
         Object.defineProperty(target, descriptor.key, descriptor);
       });
     }
@@ -49,7 +49,7 @@
 
     _createClass(Book, [
       {
-        key: "printTitle",
+        key: 'printTitle',
         value: function printTitle() {
           console.log(this.title);
         },
@@ -60,5 +60,5 @@
   })();
 
   exports.default = Book;
-  module.exports = exports["default"];
+  module.exports = exports['default'];
 });

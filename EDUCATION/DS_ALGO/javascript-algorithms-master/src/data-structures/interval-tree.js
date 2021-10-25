@@ -19,7 +19,7 @@
  * @module data-structures/interval-tree
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Node which describes an interval.
@@ -93,13 +93,13 @@
       if (node.left) {
         addHelper(node.left, interval);
       } else {
-        addNode(node, "left", interval);
+        addNode(node, 'left', interval);
       }
     } else {
       if (node.right) {
         addHelper(node.right, interval);
       } else {
-        addNode(node, "right", interval);
+        addNode(node, 'right', interval);
       }
     }
   }
@@ -128,7 +128,7 @@
     }
     let result = false;
     let temp;
-    ["left", "right"].forEach((key) => {
+    ['left', 'right'].forEach((key) => {
       temp = node[key];
       if (temp) {
         if (temp.max > point) {
@@ -170,7 +170,7 @@
     }
     let result = false;
     let temp;
-    ["left", "right"].forEach((side) => {
+    ['left', 'right'].forEach((side) => {
       temp = node[side];
       if (temp && temp.max >= interval[0]) {
         result = result || intersectsHelper(interval, temp);
@@ -257,9 +257,9 @@
         this._removeHelper(replacement.interval, node);
       } else {
         // When only left or right child exists
-        let side = "left";
+        let side = 'left';
         if (node.right) {
-          side = "right";
+          side = 'right';
         }
         const parentNode = node.parentNode;
         if (parentNode) {
@@ -310,4 +310,4 @@
   exports.IntervalTree.prototype.remove = function (interval) {
     return this._removeHelper(interval, this.root);
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

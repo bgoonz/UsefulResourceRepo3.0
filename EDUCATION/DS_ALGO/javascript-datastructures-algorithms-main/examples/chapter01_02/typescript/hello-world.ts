@@ -1,12 +1,12 @@
-let myName = "Packt";
+let myName = 'Packt';
 // myName = 10;
 
 let age = 20; // number
 let existsFlag = true; // boolean
-let language = "JavaScript"; // string
+let language = 'JavaScript'; // string
 
 let favoriteLanguage: string;
-let langs = ["JavaScript", "Ruby", "Python"];
+let langs = ['JavaScript', 'Ruby', 'Python'];
 favoriteLanguage = langs[0];
 
 interface Person {
@@ -18,8 +18,8 @@ function printName(person: Person) {
   console.log(person.name);
 }
 
-const john = { name: "John", age: 21 };
-const mary = { name: "Mary", age: 21, phone: "123-45678" };
+const john = { name: 'John', age: 21 };
+const mary = { name: 'Mary', age: 21, phone: '123-45678' };
 printName(john);
 printName(mary);
 

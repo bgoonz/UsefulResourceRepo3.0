@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const bfs = (() => {
     function buildPath(parents, targetNode) {
@@ -59,4 +59,4 @@
   })();
 
   exports.bfs = bfs;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

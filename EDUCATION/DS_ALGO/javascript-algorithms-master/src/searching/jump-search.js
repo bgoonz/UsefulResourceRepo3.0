@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
   /**
    * Searches for specific element in a given array using
    * the jump search algorithm.<br><br>
@@ -53,4 +53,4 @@
   }
 
   exports.jumpSearch = jumpSearch;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

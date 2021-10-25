@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function comparator(a, b) {
     return a - b;
@@ -42,4 +42,4 @@
   }
 
   exports.bubbleSort = bubbleSort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

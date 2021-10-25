@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const levenshteinDistance = (() => {
     function levenshteinDistance(s, ls, t, lt) {
@@ -55,4 +55,4 @@
   })();
 
   exports.levenshteinDistance = levenshteinDistance;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Burrows Wheeler.
@@ -36,11 +36,11 @@
     for (let i = 0; i < sorted.length; i += 1) {
       result.push(combinations[i][str.length - 1]);
     }
-    return result.join("");
+    return result.join('');
   };
 
   exports.burrowsWheeler.decode = (encodedStr) => {
-    const sortedCharSequence = encodedStr.split("").sort().join("");
+    const sortedCharSequence = encodedStr.split('').sort().join('');
     const leftSide = {};
     const rightSide = {};
     const maxEachCharLeft = {};
@@ -66,7 +66,7 @@
       leftSide[idLeft] = { char: sortedCharSequence[i], right: idRight };
       rightSide[idRight] = { char: encodedStr[i], left: idRight };
     }
-    let result = "";
+    let result = '';
     const firstChar = sortedCharSequence[0];
     let searchChar = `${firstChar}1`;
     const endChar = searchChar;
@@ -75,7 +75,7 @@
       searchChar = rightSide[leftSide[searchChar].right].left;
     }
     result += leftSide[searchChar].char;
-    result = result.substring(1).split("").reverse().join("");
+    result = result.substring(1).split('').reverse().join('');
     return result;
   };
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

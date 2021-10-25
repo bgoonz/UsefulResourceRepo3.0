@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const quicksort = (() => {
     function charAt(str, i) {
@@ -65,4 +65,4 @@
   })();
 
   exports.quicksort = quicksort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

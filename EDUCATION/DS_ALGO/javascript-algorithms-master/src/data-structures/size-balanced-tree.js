@@ -31,7 +31,7 @@
  */
 
 function CreateSBTreeClass(Node, Nil, updateChild) {
-  "use strict";
+  'use strict';
 
   function LeftRotate(node, childNode) {
     /*
@@ -291,7 +291,7 @@ function CreateSBTreeClass(Node, Nil, updateChild) {
 }
 
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Node constructor of the Size-Balanced tree.
@@ -365,4 +365,4 @@ function CreateSBTreeClass(Node, Nil, updateChild) {
   exports.Node = Node;
   exports.Nil = Nil;
   exports.SBTree = CreateSBTreeClass(Node, Nil, updateChild);
-})(typeof module === "undefined" ? window : module.exports);
+})(typeof module === 'undefined' ? window : module.exports);

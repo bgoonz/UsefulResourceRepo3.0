@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function compare(a, b) {
     return a - b;
@@ -45,4 +45,4 @@
   }
 
   exports.recursiveInsertionSort = recursiveInsertionSort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

@@ -16,7 +16,7 @@
  * @module data-structures/avl-tree
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Node of the tree.
@@ -253,7 +253,7 @@
     */
     // pass z parent to y and move y's left to z's right
     if (z._parent !== null) {
-      const orientation = z._parent._left === z ? "_left" : "_right";
+      const orientation = z._parent._left === z ? '_left' : '_right';
       z._parent[orientation] = y;
       y._parent = z._parent;
     } else {
@@ -292,7 +292,7 @@
     */
     //pass z parent to y and move y's right to z's left
     if (z._parent !== null) {
-      const orientation = z._parent._left === z ? "_left" : "_right";
+      const orientation = z._parent._left === z ? '_left' : '_right';
       z._parent[orientation] = y;
       y._parent = z._parent;
     } else {
@@ -330,7 +330,7 @@
      */
     //pass z parent to x
     if (z._parent !== null) {
-      const orientation = z._parent._left === z ? "_left" : "_right";
+      const orientation = z._parent._left === z ? '_left' : '_right';
       z._parent[orientation] = x;
       x._parent = z._parent;
     } else {
@@ -375,7 +375,7 @@
      */
     //pass z parent to x
     if (z._parent !== null) {
-      const orientation = z._parent._left === z ? "_left" : "_right";
+      const orientation = z._parent._left === z ? '_left' : '_right';
       z._parent[orientation] = x;
       x._parent = z._parent;
     } else {
@@ -421,9 +421,9 @@
     let insertKey;
     current = current || this._root;
     if (current.value > value) {
-      insertKey = "_left";
+      insertKey = '_left';
     } else {
-      insertKey = "_right";
+      insertKey = '_right';
     }
     if (!current[insertKey]) {
       current[insertKey] = new exports.Node(value, null, null, current);
@@ -446,7 +446,7 @@
       return;
     }
     this._inorder(current._left, callback);
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._inorder(current._right, callback);
@@ -476,7 +476,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._postorder(current._left, callback);
@@ -506,7 +506,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._preorder(current._left, callback);
@@ -799,4 +799,4 @@
       this._existsInSubtree(node, root._right)
     );
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

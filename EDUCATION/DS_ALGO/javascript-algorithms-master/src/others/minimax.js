@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
   /* eslint max-params: 0 */
 
   /**
@@ -93,4 +93,4 @@
   }
 
   exports.minimaxBuilder = minimaxBuilder;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

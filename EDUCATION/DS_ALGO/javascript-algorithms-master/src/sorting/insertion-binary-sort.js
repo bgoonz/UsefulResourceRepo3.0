@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function comparator(a, b) {
     return a - b;
@@ -53,4 +53,4 @@
   }
 
   exports.insertionBinarySort = insertionBinarySort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

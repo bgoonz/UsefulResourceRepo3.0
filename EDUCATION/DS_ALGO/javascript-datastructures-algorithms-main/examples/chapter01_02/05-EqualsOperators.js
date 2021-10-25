@@ -3,17 +3,17 @@
 
 // Packt == true
 
-console.log("packt" ? true : false);
+console.log('packt' ? true : false);
 // outputs true
 
-console.log("packt" == true);
+console.log('packt' == true);
 // 1 - converts Boolean using toNumber
 // 'packt' == 1
 // 2 - converts String using toNumber
 // NaN == 1
 // outputs false
 
-console.log("packt" == false);
+console.log('packt' == false);
 // 1 - converts Boolean using toNumber
 // 'packt' == 0
 // 2 - converts String using toNumber
@@ -30,10 +30,10 @@ console.log([0] == true);
 // outputs false
 
 //* ****************************** ===
-console.log("packt" === true); // false
+console.log('packt' === true); // false
 
-console.log("packt" === "packt"); // true
+console.log('packt' === 'packt'); // true
 
-const person1 = { name: "John" };
-const person2 = { name: "John" };
+const person1 = { name: 'John' };
+const person2 = { name: 'John' };
 console.log(person1 === person2); // false, different objects

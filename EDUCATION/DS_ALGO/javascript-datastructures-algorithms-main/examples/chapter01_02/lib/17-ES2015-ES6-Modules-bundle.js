@@ -2,11 +2,11 @@
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        const a = typeof require == "function" && require;
+        const a = typeof require == 'function' && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         const f = new Error(`Cannot find module '${o}'`);
-        throw ((f.code = "MODULE_NOT_FOUND"), f);
+        throw ((f.code = 'MODULE_NOT_FOUND'), f);
       }
       const l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -25,7 +25,7 @@
     }
     return n[o].exports;
   }
-  var i = typeof require == "function" && require;
+  var i = typeof require == 'function' && require;
   for (let o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -33,9 +33,9 @@
     1: [
       function (require, module, exports) {
         ((global, factory) => {
-          if (typeof define === "function" && define.amd) {
-            define(["module", "exports"], factory);
-          } else if (typeof exports !== "undefined") {
+          if (typeof define === 'function' && define.amd) {
+            define(['module', 'exports'], factory);
+          } else if (typeof exports !== 'undefined') {
             factory(module, exports);
           } else {
             const mod = {
@@ -45,15 +45,15 @@
             global.Book = mod.exports;
           }
         })(this, (module, exports) => {
-          "use strict";
+          'use strict';
 
-          Object.defineProperty(exports, "__esModule", {
+          Object.defineProperty(exports, '__esModule', {
             value: true,
           });
 
           function _classCallCheck(instance, Constructor) {
             if (!(instance instanceof Constructor)) {
-              throw new TypeError("Cannot call a class as a function");
+              throw new TypeError('Cannot call a class as a function');
             }
           }
 
@@ -62,7 +62,7 @@
               props.forEach((descriptor) => {
                 descriptor.enumerable = descriptor.enumerable || false;
                 descriptor.configurable = true;
-                if ("value" in descriptor) descriptor.writable = true;
+                if ('value' in descriptor) descriptor.writable = true;
                 Object.defineProperty(target, descriptor.key, descriptor);
               });
             }
@@ -84,7 +84,7 @@
 
             _createClass(Book, [
               {
-                key: "printTitle",
+                key: 'printTitle',
                 value: function printTitle() {
                   console.log(this.title);
                 },
@@ -95,7 +95,7 @@
           })();
 
           exports.default = Book;
-          module.exports = exports["default"];
+          module.exports = exports['default'];
         });
       },
       {},
@@ -103,9 +103,9 @@
     2: [
       function (require, module, exports) {
         ((global, factory) => {
-          if (typeof define === "function" && define.amd) {
-            define(["exports"], factory);
-          } else if (typeof exports !== "undefined") {
+          if (typeof define === 'function' && define.amd) {
+            define(['exports'], factory);
+          } else if (typeof exports !== 'undefined') {
             factory(exports);
           } else {
             const mod = {
@@ -115,9 +115,9 @@
             global.CalcArea = mod.exports;
           }
         })(this, (exports) => {
-          "use strict";
+          'use strict';
 
-          Object.defineProperty(exports, "__esModule", {
+          Object.defineProperty(exports, '__esModule', {
             value: true,
           });
           const circleArea = (exports.circleArea = function circleArea(r) {
@@ -138,10 +138,10 @@
     3: [
       function (require, module, exports) {
         ((global, factory) => {
-          if (typeof define === "function" && define.amd) {
-            define(["./17-CalcArea", "./17-Book"], factory);
-          } else if (typeof exports !== "undefined") {
-            factory(require("./17-CalcArea"), require("./17-Book"));
+          if (typeof define === 'function' && define.amd) {
+            define(['./17-CalcArea', './17-Book'], factory);
+          } else if (typeof exports !== 'undefined') {
+            factory(require('./17-CalcArea'), require('./17-Book'));
           } else {
             const mod = {
               exports: {},
@@ -150,7 +150,7 @@
             global.ES2015ES6Modules = mod.exports;
           }
         })(this, (_CalcArea, _Book) => {
-          "use strict";
+          'use strict';
 
           const area = _interopRequireWildcard(_CalcArea);
 
@@ -194,11 +194,11 @@
 
           console.log(area.square(2));
 
-          const myBook = new _Book2.default("some title");
+          const myBook = new _Book2.default('some title');
           myBook.printTitle();
         });
       },
-      { "./17-Book": 1, "./17-CalcArea": 2 },
+      { './17-Book': 1, './17-CalcArea': 2 },
     ],
   },
   {},

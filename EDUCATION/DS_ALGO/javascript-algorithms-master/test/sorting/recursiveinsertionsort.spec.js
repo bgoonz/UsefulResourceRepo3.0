@@ -1,5 +1,5 @@
-import sortTestCase from "./sort.testcase.js";
-const recursiveInsertionSort = require("../../src/sorting/" +
-  "recursive-insertionsort.js").recursiveInsertionSort;
+import sortTestCase from './sort.testcase.js';
+const recursiveInsertionSort = require('../../src/sorting/' +
+  'recursive-insertionsort.js').recursiveInsertionSort;
 
-sortTestCase(recursiveInsertionSort, "Recursive insertion sort");
+sortTestCase(recursiveInsertionSort, 'Recursive insertion sort');

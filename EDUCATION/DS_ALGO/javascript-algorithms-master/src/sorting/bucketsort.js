@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const bucketSort = (() => {
     /**
@@ -106,4 +106,4 @@
   })();
 
   exports.bucketSort = bucketSort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

@@ -1,16 +1,16 @@
-import mod from "../../src/data-structures/size-balanced-tree.js";
+import mod from '../../src/data-structures/size-balanced-tree.js';
 const Node = mod.Node;
 const Nil = mod.Nil;
 const SBTree = mod.SBTree;
 const updateChild = mod.updateChild;
 
-describe("Node", () => {
-  "use strict";
+describe('Node', () => {
+  'use strict';
 
-  it("should be a constructor function", () => {
-    expect(typeof Node).toBe("function");
+  it('should be a constructor function', () => {
+    expect(typeof Node).toBe('function');
   });
-  it("should be a construct properly", () => {
+  it('should be a construct properly', () => {
     const node = new Node(10, Nil, Nil, Nil, 1);
     expect(node.value).toBe(10);
     expect(node.left).toBe(Nil);
@@ -18,7 +18,7 @@ describe("Node", () => {
     expect(node.parent).toBe(Nil);
     expect(node.size).toBe(1);
   });
-  it("should reference children/parent properly", () => {
+  it('should reference children/parent properly', () => {
     const root = new Node(10, Nil, Nil, Nil, 1);
     const left = new Node(5, root, Nil, Nil, 1);
     const right = new Node(15, root, Nil, Nil, 1);
@@ -38,16 +38,16 @@ describe("Node", () => {
   });
 });
 
-describe("SBTree", () => {
-  "use strict";
+describe('SBTree', () => {
+  'use strict';
 
-  it("should be a constructor function", () => {
-    expect(typeof SBTree).toBe("function");
+  it('should be a constructor function', () => {
+    expect(typeof SBTree).toBe('function');
   });
-  it("should start with null root", () => {
+  it('should start with null root', () => {
     expect(new SBTree()._root).toBe(Nil);
   });
-  it("should insert and remove correctly", () => {
+  it('should insert and remove correctly', () => {
     const sTree = new SBTree();
     expect(sTree.size).toBe(0);
     sTree.insert(0, 10);
@@ -65,7 +65,7 @@ describe("SBTree", () => {
     expect(Nil.value).toBe(null);
   }
 
-  it("test updateChild", () => {
+  it('test updateChild', () => {
     checkNil();
     const root = new Node(10, Nil, Nil, Nil, 1);
     const left = new Node(5, root, Nil, Nil, 1);
@@ -95,7 +95,7 @@ describe("SBTree", () => {
     return Math.floor(Math.random() * (max - min + 1)) + min;
   }
 
-  it("push and get 100000 elements, remove the array by always remove the first/last element", () => {
+  it('push and get 100000 elements, remove the array by always remove the first/last element', () => {
     const sTree = new SBTree();
     for (var i = 0; i < 200000; i += 1) {
       sTree.push(i);
@@ -145,7 +145,7 @@ describe("SBTree", () => {
     checkNil();
   });
 
-  it("test getIndex", () => {
+  it('test getIndex', () => {
     const sTree = new SBTree();
     for (var i = 0; i < 10000; i += 1) {
       const key = i.toString();
@@ -159,7 +159,7 @@ describe("SBTree", () => {
     }
   });
 
-  it("test binary search", () => {
+  it('test binary search', () => {
     const sTree = new SBTree();
     for (let i = 0; i < 10000; i += 1) {
       sTree.push(i);

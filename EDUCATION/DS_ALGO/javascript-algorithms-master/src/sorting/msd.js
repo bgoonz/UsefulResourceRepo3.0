@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function charCodeAt(str, i) {
     return i < str.length ? str.charCodeAt(i) : -1;
@@ -60,4 +60,4 @@
   }
 
   exports.msd = msd;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

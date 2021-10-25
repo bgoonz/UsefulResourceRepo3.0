@@ -11,7 +11,7 @@
  * @module data-structures/bloomfilter
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function randomUint32() {
     return Math.floor(Math.random() * 2 ** 32);
@@ -60,7 +60,7 @@
    */
   exports.Bitmap = function (size = 1024) {
     if (size < 0) {
-      throw new Error("The size cannot be negative");
+      throw new Error('The size cannot be negative');
     }
     this.size = size;
     this.intSize = Math.ceil(size / 32); // number of underlying integers
@@ -87,7 +87,7 @@
   exports.Bitmap.prototype.exists = function (index) {
     // Necessary boundary check
     if (index < 0 || index > this.size) {
-      throw new Error("Index out of bound");
+      throw new Error('Index out of bound');
     }
 
     // Calculate the offset within the int
@@ -105,7 +105,7 @@
   exports.Bitmap.prototype.get = function (index) {
     // Necessary boundary check
     if (index < 0 || index > this.size) {
-      throw new Error("Index out of bound");
+      throw new Error('Index out of bound');
     }
 
     // Calculate the offset within the int
@@ -128,7 +128,7 @@
   exports.Bitmap.prototype.set = function (index, value) {
     // necessary boundary check
     if (index < 0 || index > this.size) {
-      throw new Error("Index out of bound");
+      throw new Error('Index out of bound');
     }
 
     const intOffset = index % 32; //calculate the offset within the int
@@ -152,10 +152,10 @@
    */
   exports.Bloomfilter = function (capacity, errorRate = 0.001) {
     if (errorRate > 1 || errorRate < 0) {
-      throw new Error("The error rate range is outside of bound");
+      throw new Error('The error rate range is outside of bound');
     }
     if (capacity < 0) {
-      throw new Error("The capacity cannot be negative");
+      throw new Error('The capacity cannot be negative');
     }
     this.capacity = capacity;
     this.errorRate = errorRate;
@@ -213,4 +213,4 @@
       this.bitmap.set(hashes[i], true);
     }
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

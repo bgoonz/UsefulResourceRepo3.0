@@ -20,5 +20,5 @@ console.log(circleArea(2));
 const circleArea2 = (r) => 3.14 * r * r;
 console.log(circleArea2(2));
 
-const hello = () => console.log("hello!");
+const hello = () => console.log('hello!');
 hello();

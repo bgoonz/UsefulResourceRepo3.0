@@ -19,7 +19,7 @@ function printMatrix(myMatrix) {
 }
 
 // printMatrix(averageTemp);
-console.log("averageTemp two-dimensional array:");
+console.log('averageTemp two-dimensional array:');
 
 // same as
 
@@ -71,8 +71,8 @@ const matrix3x3x3Output = [];
 for (let i = 0; i < 3; i++) {
   matrix3x3x3Output[i] = [];
   for (let j = 0; j < 3; j++) {
-    matrix3x3x3Output[i][j] = `[${matrix3x3x3[i][j].join(", ")}]`;
+    matrix3x3x3Output[i][j] = `[${matrix3x3x3[i][j].join(', ')}]`;
   }
 }
-console.log("matrix3x3x3 three-dimensional array:");
+console.log('matrix3x3x3 three-dimensional array:');
 console.table(matrix3x3x3Output);

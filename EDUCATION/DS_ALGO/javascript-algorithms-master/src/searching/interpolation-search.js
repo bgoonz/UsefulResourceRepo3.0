@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
   /**
    * Searches for specific element in a given array using
    * the interpolation search algorithm.<br><br>
@@ -52,4 +52,4 @@
     return -1;
   }
   exports.interpolationSearch = interpolationSearch;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

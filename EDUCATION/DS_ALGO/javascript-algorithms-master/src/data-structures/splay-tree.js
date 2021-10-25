@@ -20,7 +20,7 @@
  * @module data-structures/splay-tree
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Node of the tree.
@@ -96,12 +96,12 @@
     const greatGrandParent =
       grandParent._parent !== undefined ? grandParent._parent : null;
 
-    const orientation = parent._right === node ? "_right" : "_left";
-    const oppositeOrientation = orientation === "_left" ? "_right" : "_left";
+    const orientation = parent._right === node ? '_right' : '_left';
+    const oppositeOrientation = orientation === '_left' ? '_right' : '_left';
     const grandParentOrientation =
       greatGrandParent !== null && greatGrandParent._left === grandParent
-        ? "_left"
-        : "_right";
+        ? '_left'
+        : '_right';
 
     // Fix grandparent & great if it exists/not root
     if (this._root === grandParent) {
@@ -147,12 +147,12 @@
     const greatGrandParent =
       grandParent._parent !== undefined ? grandParent._parent : null;
 
-    const orientation = parent._left === node ? "_left" : "_right";
-    const oppositeOrientation = orientation === "_right" ? "_left" : "_right";
+    const orientation = parent._left === node ? '_left' : '_right';
+    const oppositeOrientation = orientation === '_right' ? '_left' : '_right';
     const grandParentOrientation =
       greatGrandParent !== null && greatGrandParent._left === grandParent
-        ? "_left"
-        : "_right";
+        ? '_left'
+        : '_right';
 
     // Fix GrandParent
     if (this._root === grandParent) {
@@ -194,8 +194,8 @@
    */
   exports.SplayTree.prototype._zig = function (node) {
     const parent = node._parent;
-    const orientation = parent._right === node ? "_right" : "_left";
-    const oppositeOrientation = orientation === "_right" ? "_left" : "_right";
+    const orientation = parent._right === node ? '_right' : '_left';
+    const oppositeOrientation = orientation === '_right' ? '_left' : '_right';
 
     if (this._root === parent) {
       this._root = node;
@@ -231,9 +231,9 @@
     let insertKey;
     current = current || this._root;
     if (current.value > value) {
-      insertKey = "_left";
+      insertKey = '_left';
     } else {
-      insertKey = "_right";
+      insertKey = '_right';
     }
     if (!current[insertKey]) {
       current[insertKey] = new exports.Node(value, null, null, current);
@@ -256,7 +256,7 @@
       return;
     }
     this._inorder(current._left, callback);
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._inorder(current._right, callback);
@@ -286,7 +286,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._postorder(current._left, callback);
@@ -316,7 +316,7 @@
     if (!current) {
       return;
     }
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this._preorder(current._left, callback);
@@ -609,4 +609,4 @@
       this._existsInSubtree(node, root._right)
     );
   };
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

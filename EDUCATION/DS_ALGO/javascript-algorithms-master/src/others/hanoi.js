@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Returns all movements needed to solve Hanoi Tower problem.
@@ -42,4 +42,4 @@
   }
 
   exports.hanoi = hanoi;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

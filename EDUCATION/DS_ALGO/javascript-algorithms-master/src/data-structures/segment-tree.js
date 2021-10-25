@@ -42,7 +42,7 @@
      */
     query(start, end) {
       if (start > end) {
-        throw new Error("The start index should be smaller by the end index");
+        throw new Error('The start index should be smaller by the end index');
       }
       const findEl = (originalArrayStart, originalArrayEnd, current) => {
         if (start > originalArrayEnd) {
@@ -102,4 +102,4 @@
   };
 
   exports.SegmentTree = SegmentTree;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

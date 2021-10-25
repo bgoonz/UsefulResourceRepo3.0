@@ -1,10 +1,10 @@
-import mod from "../../src/data-structures/interval-tree.js";
+import mod from '../../src/data-structures/interval-tree.js';
 const IntervalTree = mod.IntervalTree;
 
-describe("IntervalTree", () => {
-  "use strict";
+describe('IntervalTree', () => {
+  'use strict';
 
-  it("should correctly detect intersections", () => {
+  it('should correctly detect intersections', () => {
     let it = new IntervalTree();
 
     it.add([10383734, 10594186]);

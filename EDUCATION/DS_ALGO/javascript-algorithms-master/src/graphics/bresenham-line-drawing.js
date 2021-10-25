@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   /**
    * Draws (prints) the given coordinates
@@ -43,4 +43,4 @@
   }
 
   exports.drawLine = drawLine;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

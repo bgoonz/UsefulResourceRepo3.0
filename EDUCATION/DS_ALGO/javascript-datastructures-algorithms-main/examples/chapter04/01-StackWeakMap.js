@@ -56,7 +56,7 @@ class Stack {
 
   toString() {
     if (this.isEmpty()) {
-      return "";
+      return '';
     }
     const items = _items.get(this);
     const count = _count.get(this);

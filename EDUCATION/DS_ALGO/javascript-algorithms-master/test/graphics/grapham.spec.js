@@ -1,4 +1,4 @@
-import { convexHull } from "../../src/graphics/graham";
+import { convexHull } from '../../src/graphics/graham';
 
 const points = [
   { x: 0, y: 0 },
@@ -9,13 +9,13 @@ const points = [
 ];
 
 describe("Graham's algorithm for convex hull", () => {
-  "use strict";
+  'use strict';
 
-  it("should not throw with empty list", () => {
+  it('should not throw with empty list', () => {
     expect(() => convexHull([])).not.toThrow();
   });
 
-  it("should calculate the convex hull", () => {
+  it('should calculate the convex hull', () => {
     expect(convexHull(points)).toEqual([
       { x: 0, y: 0 },
       { x: 1, y: 0 },

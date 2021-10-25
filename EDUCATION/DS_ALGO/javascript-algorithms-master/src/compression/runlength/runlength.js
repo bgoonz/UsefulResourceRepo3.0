@@ -5,7 +5,7 @@
  * zeros will be stripped and replaced with their count.
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   const runLengthEncoding = (() => {
     /**
@@ -14,14 +14,14 @@
      */
     function convertToAscii(str) {
       const result = [];
-      let currentChar = "";
+      let currentChar = '';
       let i = 0;
       for (; i < str.length; i += 1) {
         currentChar = str[i].charCodeAt(0).toString(2);
-        currentChar = new Array(9 - currentChar.length).join("0") + currentChar;
+        currentChar = new Array(9 - currentChar.length).join('0') + currentChar;
         result.push(currentChar);
       }
-      return result.join("");
+      return result.join('');
     }
 
     /**
@@ -31,19 +31,19 @@
     function runLength(vector) {
       const result = [];
       let zeros = 0;
-      let zerosTemp = "";
+      let zerosTemp = '';
       let i = 0;
       for (; i < vector.length; i += 1) {
-        if (vector[i] === "0") {
+        if (vector[i] === '0') {
           zeros += 1;
         } else {
           zerosTemp = zeros.toString(2);
-          result.push(new Array(zerosTemp.length).join("1"));
+          result.push(new Array(zerosTemp.length).join('1'));
           result.push(`0${zerosTemp}`);
           zeros = 0;
         }
       }
-      return result.join("");
+      return result.join('');
     }
 
     /**
@@ -58,4 +58,4 @@
   })();
 
   exports.runLength = runLengthEncoding;
-})(typeof exports === "undefined" ? window : exports);
+})(typeof exports === 'undefined' ? window : exports);

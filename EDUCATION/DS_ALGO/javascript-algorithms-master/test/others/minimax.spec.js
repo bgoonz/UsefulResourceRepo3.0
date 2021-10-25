@@ -1,13 +1,13 @@
-import { minimaxBuilder } from "../../src/others/minimax.js";
+import { minimaxBuilder } from '../../src/others/minimax.js';
 
-describe("Minimax", () => {
-  "use strict";
+describe('Minimax', () => {
+  'use strict';
 
-  it("builder should be defined", () => {
+  it('builder should be defined', () => {
     expect(minimaxBuilder).toBeDefined();
   });
 
-  describe("with tic tac toe", () => {
+  describe('with tic tac toe', () => {
     let game = ticTacToe();
 
     function getAllNextStates(state) {
@@ -31,11 +31,11 @@ describe("Minimax", () => {
       (state) => game.getScore(state).o - game.getScore(state).x
     );
 
-    it("should win versus dumb agent as first player", () => {
-      let state = game.newState("x");
+    it('should win versus dumb agent as first player', () => {
+      let state = game.newState('x');
 
       while (!game.isGameOver(state)) {
-        if (state.turn === "x") {
+        if (state.turn === 'x') {
           state = game.nextState(
             state,
             minimaxForX(state, true, 5, -Infinity, Infinity).move
@@ -50,11 +50,11 @@ describe("Minimax", () => {
       expect(game.getScore(state)).toEqual({ x: 1, o: 0 });
     });
 
-    it("should win versus dumb agent as second player", () => {
-      let state = game.newState("x");
+    it('should win versus dumb agent as second player', () => {
+      let state = game.newState('x');
 
       while (!game.isGameOver(state)) {
-        if (state.turn === "o") {
+        if (state.turn === 'o') {
           state = game.nextState(
             state,
             minimaxForO(state, true, 5, -Infinity, Infinity).move
@@ -69,11 +69,11 @@ describe("Minimax", () => {
       expect(game.getScore(state)).toEqual({ x: 0, o: 1 });
     });
 
-    it("should be a tie for two minimax agents", () => {
-      let state = game.newState("x");
+    it('should be a tie for two minimax agents', () => {
+      let state = game.newState('x');
 
       while (!game.isGameOver(state)) {
-        if (state.turn === "o") {
+        if (state.turn === 'o') {
           state = game.nextState(
             state,
             minimaxForO(state, true, 5, -Infinity, Infinity).move
@@ -90,7 +90,7 @@ describe("Minimax", () => {
     });
   });
 
-  describe("with simple game", () => {
+  describe('with simple game', () => {
     let game = simpleGame();
 
     const minimaxForA = minimaxBuilder(
@@ -112,7 +112,7 @@ describe("Minimax", () => {
       (state) => game.getScore(state).B - game.getScore(state).A
     );
 
-    it("should win versus dumb agent as a first player", () => {
+    it('should win versus dumb agent as a first player', () => {
       /*         o
               /     \
              o        o
@@ -125,7 +125,7 @@ describe("Minimax", () => {
       let state = game.newState(binaryTree);
 
       while (!game.isGameOver(state)) {
-        if (state.turn === "A") {
+        if (state.turn === 'A') {
           state = game.nextState(
             state,
             minimaxForA(state, true, 5, -Infinity, Infinity).move
@@ -139,7 +139,7 @@ describe("Minimax", () => {
       expect(game.getScore(state)).toEqual({ A: 1, B: -1 });
     });
 
-    it("should win versus dumb agent as a second player", () => {
+    it('should win versus dumb agent as a second player', () => {
       /*     o
            /    \
           o      o
@@ -150,7 +150,7 @@ describe("Minimax", () => {
       let state = game.newState(binaryTree);
 
       while (!game.isGameOver(state)) {
-        if (state.turn === "B") {
+        if (state.turn === 'B') {
           state = game.nextState(
             state,
             minimaxForB(state, true, 5, -Infinity, Infinity).move
@@ -167,7 +167,7 @@ describe("Minimax", () => {
 });
 
 function ticTacToe() {
-  "use strict";
+  'use strict';
 
   function newState(turn) {
     return {
@@ -240,11 +240,11 @@ function ticTacToe() {
     ];
 
     for (const variant of winVariants) {
-      const combo = variant.map(({ y, x }) => board[y][x]).join("");
-      if (combo === "xxx") {
-        return "x";
-      } else if (combo === "ooo") {
-        return "o";
+      const combo = variant.map(({ y, x }) => board[y][x]).join('');
+      if (combo === 'xxx') {
+        return 'x';
+      } else if (combo === 'ooo') {
+        return 'o';
       }
     }
 
@@ -260,9 +260,9 @@ function ticTacToe() {
   }
 
   function getScore(state) {
-    if (getWinner(state) === "x") {
+    if (getWinner(state) === 'x') {
       return { x: 1, o: 0 };
-    } else if (getWinner(state) === "o") {
+    } else if (getWinner(state) === 'o') {
       return { x: 0, o: 1 };
     }
 
@@ -274,7 +274,7 @@ function ticTacToe() {
     newBoard[y][x] = turn;
     return {
       board: newBoard,
-      turn: turn === "x" ? "o" : "x",
+      turn: turn === 'x' ? 'o' : 'x',
     };
   }
 
@@ -297,11 +297,11 @@ function ticTacToe() {
   1  -1 -1   -1
  */
 function simpleGame() {
-  "use strict";
+  'use strict';
 
   function newState(binaryTree) {
     return {
-      turn: "A",
+      turn: 'A',
       tree: binaryTree,
       position: 0,
     };
@@ -311,7 +311,7 @@ function simpleGame() {
     return {
       tree: tree,
       position: move ? position * 2 + 2 : position * 2 + 1,
-      turn: turn === "A" ? "B" : "A",
+      turn: turn === 'A' ? 'B' : 'A',
     };
   }
 

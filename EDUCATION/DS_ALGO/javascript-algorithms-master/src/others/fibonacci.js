@@ -16,11 +16,11 @@
  * @module others/fibonacci
  */
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function fibonacci(n) {
     if (n > 97) {
-      throw "Input too large, results in inaccurate fibonacci value.";
+      throw 'Input too large, results in inaccurate fibonacci value.';
     }
     let n1 = 0;
     let n2 = 1;
@@ -37,4 +37,4 @@
   }
 
   exports.fibonacci = fibonacci;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

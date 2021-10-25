@@ -1,5 +1,5 @@
 ((exports) => {
-  "use strict";
+  'use strict';
 
   function comparator(a, b) {
     return a - b;
@@ -87,4 +87,4 @@
   })();
 
   exports.heapSort = heapSort;
-})(typeof window === "undefined" ? module.exports : window);
+})(typeof window === 'undefined' ? module.exports : window);

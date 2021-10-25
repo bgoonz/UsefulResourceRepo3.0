@@ -6,29 +6,29 @@ let daysOfWeek = new Array(); // {1}
 daysOfWeek = new Array(7); // {2}
 
 daysOfWeek = new Array(
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday"
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday'
 ); // {3}
 
 // preferred
 daysOfWeek = [];
 
 daysOfWeek = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
+  'Sunday',
+  'Monday',
+  'Tuesday',
+  'Wednesday',
+  'Thursday',
+  'Friday',
+  'Saturday',
 ]; // {3}
 
-console.log("daysOfWeek.length", daysOfWeek.length);
+console.log('daysOfWeek.length', daysOfWeek.length);
 
 for (let i = 0; i < daysOfWeek.length; i++) {
   console.log(`daysOfWeek[${i}]`, daysOfWeek[i]);
@@ -50,4 +50,4 @@ for (let i = 1; i < fibonacci.length; i++) {
 }
 
 // instead of {5} and {6} we can simply use
-console.log("fibonacci", fibonacci);
+console.log('fibonacci', fibonacci);

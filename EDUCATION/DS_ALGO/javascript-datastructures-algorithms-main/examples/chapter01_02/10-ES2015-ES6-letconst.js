@@ -4,11 +4,11 @@
 //* ****** EcmaScript 2015 (ES6): let and const keywords
 
 //* ****** EcmaScript 2015 (ES6): let is the new var (https://goo.gl/he0udZ)
-var framework = "Angular";
-var framework = "React";
+var framework = 'Angular';
+var framework = 'React';
 console.log(framework);
 
-let language = "JavaScript!"; // {1}
+let language = 'JavaScript!'; // {1}
 // let language = 'Ruby!'; // {2} - throws error
 console.log(language);
 
@@ -18,9 +18,9 @@ const PI = 3.141593;
 console.log(PI);
 
 const jsFramework = {
-  name: "Angular",
+  name: 'Angular',
 };
-jsFramework.name = "React";
+jsFramework.name = 'React';
 
 // error, cannot reassign object reference
 /*
