@@ -1,0 +1,126 @@
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+html {
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+body {
+  margin: 0;
+}
+.leaderboard .header {
+  color: #fff;
+  height: 4rem;
+  background-color: #006400;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.camper-table {
+  margin: 2rem 1rem;
+}
+.camper-table .camper-table-header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-weight: bold;
+  color: #fff;
+  height: 3rem;
+  background-color: #006400;
+  font-color: #fff;
+}
+.camper-table .camper-table-header .camper-table-rank {
+  flex: 1;
+  text-align: center;
+}
+.camper-table .camper-table-header .camper-table-camper {
+  flex: 1;
+}
+.camper-table .camper-table-header .camper-table-recent {
+  flex: 1;
+  text-align: center;
+  color: #d3d3d3;
+}
+.camper-table .camper-table-header .camper-table-recent.active {
+  color: #fff;
+}
+.camper-table .camper-table-header .camper-table-recent:hover {
+  cursor: pointer;
+  color: #b4ffa2;
+}
+.camper-table .camper-table-header .camper-table-alltime {
+  flex: 1;
+  text-align: center;
+  color: #d3d3d3;
+}
+.camper-table .camper-table-header .camper-table-alltime.active {
+  color: #fff;
+}
+.camper-table .camper-table-header .camper-table-alltime:hover {
+  cursor: pointer;
+  color: #b4ffa2;
+}
+.camper-table .camper-table-users {
+  display: flex;
+  flex-direction: column;
+}
+.camper-table .camper-table-users .camper-row-user:nth-child(odd) {
+  background-color: #e1ffe9;
+}
+.camper-table .camper-table-users .camper-row-user:nth-child(even) {
+  background-color: #abefce;
+}
+.camper-table .camper-table-users .camper-row-user {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0.5rem 0;
+}
+.camper-table .camper-table-users .camper-row-user .camper-row-rank {
+  flex: 1;
+  text-align: center;
+}
+.camper-table .camper-table-users .camper-row-user .camper-row-camper {
+  flex: 1;
+}
+.camper-table .camper-table-users .camper-row-user .camper-row-camper a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: #006400;
+}
+.camper-table .camper-table-users .camper-row-user .camper-row-camper a:hover {
+  text-decoration: underline;
+}
+.camper-table .camper-table-users .camper-row-user .camper-row-camper img {
+  width: 50px;
+  max-height: 50px;
+  border: 2px solid #006400;
+  border-radius: 0.25rem;
+  margin-right: 0.5rem;
+}
+.camper-table .camper-table-users .camper-row-user .camper-row-recent {
+  flex: 1;
+  text-align: center;
+}
+.camper-table .camper-table-users .camper-row-user .camper-row-alltime {
+  flex: 1;
+  text-align: center;
+}
+.made-by {
+  text-align: center;
+  color: #888;
+  margin-bottom: 1rem;
+  font-size: 0.75rem;
+}
+.made-by a {
+  text-decoration: none;
+  color: #0f88ff;
+}
+.made-by a:visited {
+  color: #f95757;
+}
+.made-by a:hover {
+  text-decoration: underline;
+}
