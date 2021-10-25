@@ -1,0 +1,13 @@
+<h3 class="title">Productos</h3>
+<% if @items.any? %>
+  <div id="projects_container">
+    <% @items.each do |item| %>
+      <div class="col-sm-6 col-md-4 project_item">
+        <%= render 'item_thumbnail', item: item %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <br><br>
+  <p>No hay productos para mostrar. Crea un nuevo producto para <%= link_to "proyectos", projects_path %> </p>
+<% end %>

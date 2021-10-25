@@ -1,0 +1,91 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://Acq8yBBiO7TwMovVbKmRizjxcKw0aGp1oavbX68a2kKX9FEdASg1maYE99Sc:EE9uSRDzg7vSsuh3CTdmxGIHZeU6hNRuX3FC0MRtFrGkuZ_tTkX6fpgLiCgk@api.sandbox.paypal.com/v1/oauth2/token
+    body:
+      encoding: UTF-8
+      string: grant_type=client_credentials
+    headers:
+      User-Agent:
+      - PayPalSDK/rest-sdk-ruby 0.6.1 (paypal-sdk-core 0.2.10; ruby 2.1.2p95-x86_64-darwin13.0)
+      Content-Type:
+      - application/x-www-form-urlencoded
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Proxy-Server-Info:
+      - host=slcsbjava2.slc.paypal.com;threadId=237
+      Paypal-Debug-Id:
+      - 0e89155a70245
+      Server-Info:
+      - identitysecuretokenserv:v1.oauth2.token&CalThreadId=74370&TopLevelTxnStartTime=1476c2743e2&Host=slcsbidensectoken501.slc.paypal.com&pid=25146
+      Date:
+      - Fri, 25 Jul 2014 06:13:38 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '428'
+    body:
+      encoding: UTF-8
+      string: '{"scope":"https://uri.paypal.com/services/subscriptions https://api.paypal.com/v1/payments/.*
+        https://api.paypal.com/v1/vault/credit-card https://uri.paypal.com/services/applications/webhooks
+        openid https://uri.paypal.com/services/invoicing https://api.paypal.com/v1/vault/credit-card/.*","access_token":"A015PWikJfTSu73e0YLF461U8Gqit.BnXvYIFwVXctAQqMA","token_type":"Bearer","app_id":"APP-80W284485P519543T","expires_in":28800}'
+    http_version: 
+  recorded_at: Fri, 25 Jul 2014 06:13:38 GMT
+- request:
+    method: post
+    uri: https://api.sandbox.paypal.com/v1/payments/payment
+    body:
+      encoding: UTF-8
+      string: '{"intent":"sale","payer":{"payment_method":"paypal"},"transactions":[{"amount":{"currency":"USD","total":"9.99"},"description":"MyString"}],"redirect_urls":{"return_url":"http://0.0.0.0:4000/orders/36/execute?success=true","cancel_url":"http://0.0.0.0:4000/orders/36/execute?cancel=true"}}'
+    headers:
+      X-Paypal-Sandbox-Email-Address:
+      - Platform.sdk.seller@gmail.com
+      Authorization:
+      - Bearer A015PWikJfTSu73e0YLF461U8Gqit.BnXvYIFwVXctAQqMA
+      Content-Type:
+      - application/json
+      User-Agent:
+      - PayPalSDK/rest-sdk-ruby 0.6.1 (paypal-sdk-core 0.2.10; ruby 2.1.2p95-x86_64-darwin13.0)
+      Paypal-Request-Id:
+      - e22e27e1-45a4-436b-b6ac-349d2ccd786c
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+  response:
+    status:
+      code: 201
+      message: Created
+    headers:
+      Server:
+      - Apache-Coyote/1.1
+      Proxy-Server-Info:
+      - host=slcsbjava3.slc.paypal.com;threadId=9366
+      Paypal-Debug-Id:
+      - 5c6b763a7077a
+      Server-Info:
+      - paymentsplatformserv:v1.payments.payment&CalThreadId=7593&TopLevelTxnStartTime=1476c2747ae&Host=slcsbjm1.slc.paypal.com&pid=23530
+      Content-Language:
+      - "*"
+      Date:
+      - Fri, 25 Jul 2014 06:13:39 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '742'
+    body:
+      encoding: UTF-8
+      string: '{"id":"PAY-54N92446VP939221YKPI7LEY","create_time":"2014-07-25T06:13:39Z","update_time":"2014-07-25T06:13:39Z","state":"created","intent":"sale","payer":{"payment_method":"paypal","payer_info":{"shipping_address":{}}},"transactions":[{"amount":{"total":"9.99","currency":"USD","details":{"subtotal":"9.99"}},"description":"MyString"}],"links":[{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-54N92446VP939221YKPI7LEY","rel":"self","method":"GET"},{"href":"https://www.sandbox.paypal.com/cgi-bin/webscr?cmd=_express-checkout&token=EC-79S89470010512710","rel":"approval_url","method":"REDIRECT"},{"href":"https://api.sandbox.paypal.com/v1/payments/payment/PAY-54N92446VP939221YKPI7LEY/execute","rel":"execute","method":"POST"}]}'
+    http_version: 
+  recorded_at: Fri, 25 Jul 2014 06:13:39 GMT
+recorded_with: VCR 2.9.2

@@ -1,0 +1,13 @@
+<h3 class="title">Proyectos</h3>
+<% if @projects.any? %>
+  <div id="projects_container">
+    <% @projects.each do |project| %>
+      <div class="col-sm-6 col-md-4 project_item">
+        <%= render 'project_thumbnail', project: project %>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <br><br>
+  <p>No proyectos para mostrar. Crea uno nuevo <%= link_to "aqui.", new_project_path %> </p>
+<% end %>

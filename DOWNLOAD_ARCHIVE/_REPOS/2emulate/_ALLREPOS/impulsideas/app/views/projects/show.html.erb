@@ -1,0 +1,67 @@
+<div class="row project_show">
+  <div class="col-md-8">
+    <div class="jumbotron">
+      <h1><%= @project.title %> <small>por <%= @project.user.emailname %></small></h1>
+      <p class="lead"><%= @project.short_description %></p>
+      <%
+        media_meta = YAML.load(@project.media_meta) rescue nil
+        if media_meta.respond_to?(:embed_code)
+      %>
+        <div class="video-container">
+          <%=raw media_meta.embed_code %>
+        </div>
+      <% end %>
+
+      <br>
+
+      <% unless @project.project_url.blank? %>
+        <dt>Pagina del Proyecto:</dt>
+        <dd><%= link_to @project.project_url, @project.project_url, id: 'project_url', target: '_blank' %></dd>
+      <% end %>
+    </div>
+
+    <p>
+      <a href="https://twitter.com/share" class="twitter-share-button" data-lang="en">Tweet</a><script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      <iframe src="//www.facebook.com/plugins/like.php?href=<%= URI.encode(request.original_url) %>&amp;width&amp;layout=button_count&amp;action=like&amp;show_faces=true&amp;share=true&amp;height=21&amp;appId=420436051410681" scrolling="no" frameborder="0" style="border:none; overflow:hidden; height:21px;" allowTransparency="true"></iframe>
+    </p>
+
+    <p><%=raw @project.extended_description %></p>
+
+    <% if @creator %>
+      <hr>
+      <%= link_to 'Editar', edit_project_path(@project), class: 'btn btn-primary' %>
+      <%= link_to 'Eliminar', project_path(@project), class: 'btn btn-danger', method: :delete, data: { confirm: 'Está seguro que quiere eliminar este proyecto?' }  %>
+    <% end %>
+    <%= link_to 'Ver todos', projects_path, class: 'btn btn-default' %>
+  </div>
+
+  <div class="col-md-4">
+    <div class="thumbnail">
+      <div class="caption">
+        <h3><%= number_to_currency(@project.total_contributed || 0) %> <small>USD</small></h3>
+        <p>de un total de <%= number_to_currency(@project.funding_goal) %></p>
+
+        <h3><%= @project.time_left %> <small>DIAS</small></h3>
+        <p>de un total de <%= @project.funding_duration %> dias</p>
+
+        <h3><%= @project.total_contributors %> <small>CONTRIBUYENTE(S)</small></h3>
+        <p>ver <%= link_to 'lista', orders_project_path(@project) %> de aportes</p>
+
+        <!-- <br> -->
+        <!-- <p><%#= link_to 'Contribuye!', new_project_contribution_path(@project), class: 'btn btn-success', role: 'button' %></p> -->
+      </div>
+    </div>
+    <div class="thumbnail">
+      <% if @project.items.any? %>
+        <div class="caption">
+          <h3>Productos soportando este projecto:</h3>
+        </div>
+        <% @project.items.each do |item| %>
+          <%= render 'items/item_thumbnail', item: item %>
+        <% end %>
+      <% end %>
+      <br>
+      <i class="fa fa-plus-square"></i> <%= link_to 'Crear nuevo producto', new_project_item_path(@project) %>
+    </div>
+  </div>
+</div>

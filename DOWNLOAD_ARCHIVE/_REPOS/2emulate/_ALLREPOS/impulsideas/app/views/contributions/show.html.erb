@@ -1,0 +1,12 @@
+<p>
+  <strong>Amount:</strong>
+  <%= @contribution.amount %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @contribution.payment_status %>
+</p>
+
+<%= link_to 'Edit', edit_project_contribution_path(@project, @contribution) %> |
+<%= link_to 'Back', project_contributions_path(@project) %>

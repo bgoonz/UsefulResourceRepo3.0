@@ -1,0 +1,6 @@
+<%= link_to 'Compra',
+  orders_path(order: { amount: item.price, description: item.title,
+    orderable_id: item.id, orderable_type: item.class.to_s}),
+  class: 'btn btn-primary', role: 'button', method: :post,
+  disable_with: "Espere..." %>
+  <%# { image_tag('loading.gif', size: '16', alt: 'procesando') }" %>

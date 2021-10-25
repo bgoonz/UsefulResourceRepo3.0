@@ -1,0 +1,29 @@
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name), html: { class: 'form-signin mg-btm' }) do |f| %>
+  <h3 class="heading-desc">Ingresar a <%= image_tag 'logo.png', height: '30px' %></h3>
+
+  <br>
+  <%= render 'devise/shared/social_links', prefix: 'Ingresar con' %>
+  <hr>
+
+  <div class="main">
+    <h4>Ingresar con Email</h4>
+    <span class="clearfix"></span>
+    <input autofocus="autofocus" class="string email optional form-control" id="user_email" name="user[email]" type="email" value="" placeholder="Email"><br>
+    <input class="password optional form-control" id="user_password" name="user[password]" type="password" placeholder="Contraseña">
+    <span class="clearfix"></span>
+  </div>
+  <div class="login-footer">
+    <div class="row">
+      <div class="col-xs-6 col-md-6">
+        <div class="left-section">
+        <%= link_to "Olvido contraseña?", new_password_path(resource_name) %>
+        <%= link_to "Registrate", new_registration_path(resource_name) %>
+        </div>
+      </div>
+      <div class="col-xs-6 col-md-6 pull-right">
+        <button type="submit" class="btn btn-large btn-danger pull-right">Ingresar</button>
+      </div>
+    </div>
+
+  </div>
+<% end %>

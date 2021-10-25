@@ -1,0 +1,110 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require twitter/bootstrap
+ *= require font-awesome
+ *= require redactor-rails
+ *= require_tree .
+ */
+
+/* User sign in and sign forms. */
+
+$blue: #1791f5;
+$green: #8dd600;
+$grey: #edf3f3;
+
+main.container {
+  padding-top: 100px;
+  padding-bottom: 50px;
+}
+
+footer#footer {
+  margin-top: 100px;
+}
+
+#footer {
+  text-align: center;
+  padding: 2em;
+  background-color: $grey;
+  border-top: 2px solid #F0F0F0;
+  margin-bottom: -100px;
+}
+
+#footer p {
+  font-size: 12px;
+}
+
+@font-face {
+  font-family: 'LeagueGothic';
+  src: asset-url('LeagueGothic-Regular.otf');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.navbar .divider-vertical {
+  height: 40px;
+  margin: 0 9px;
+  border-left: 1px solid #f2f2f2;
+  border-right: 1px solid #ffffff;
+}
+
+// FAQ
+
+ul.faq {
+  li {
+    list-style: none;
+  }
+  .answer {
+    display: none;
+  }
+}
+
+.container .row {
+  .title {
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: -20px;
+    a {
+      color: $blue;
+      text-decoration: none;
+    }
+  }
+}
+
+// General
+
+#main-wrapper {
+  background: $grey;
+}
+
+// #sub-header {
+//   position: relative;
+//   width: 100%;
+//   height: 7px;
+//   background: transparent image_url('grey-triangle-border.png');
+// }
+
+.marketing {
+  .pbox {
+    padding-top: 70px;
+  }
+  .big-icon {
+    font-size: 100px;
+  }
+  span:hover {
+    color: $blue;
+  }
+  background: white;
+}
+
+body {
+  // background: -webkit-gradient(linear, left top, right top, color-stop(0%, rgba(217, 217, 217, 0)), color-stop(50%, rgba(217, 217, 217, 1)), color-stop(100%, rgba(217, 217, 217, 0)));
+}

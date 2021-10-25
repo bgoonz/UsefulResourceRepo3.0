@@ -1,0 +1,32 @@
+<h1>Lista contribuciones para <%= @project.title %></h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Aporte</th>
+      <th>Usuario</th>
+      <th>Fecha</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contributions.each do |contribution| %>
+      <tr>
+        <td><%= link_to contribution.id, project_contribution_path(@project, contribution) %></td>
+        <td><%= number_to_currency(contribution.amount) %></td>
+        <td><%= contribution.user.email %></td>
+        <td><%= contribution.updated_at.strftime('%b/%d - %l:%M %p') %></td>
+        <td><%#= link_to 'Show', [@project, contribution] %></td>
+        <td><%#= link_to 'Edit', edit_project_contribution_path(@project, contribution) %></td>
+        <td><%#= link_to 'Destroy', [@project, contribution] , method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Contribution', new_project_contribution_path(@project) %>

@@ -1,0 +1,98 @@
+<% if @project %>
+  <h1>Contribuciones</h1>
+<% else %>
+  <h1>Ventas</h1>
+<% end %>
+
+<% if @orders.any? %>
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <% unless @project %>
+            <th>ID</th>
+          <% end %>
+          <th>Comprador</th>
+          <th>Description</th>
+          <th>Precio</th>
+          <th>Fecha</th>
+          <th>Vendedor</th>
+          <th>Completada</th>
+          <% unless @project %>
+            <!-- <th>Projecto</th> -->
+            <th>Estado</th>
+            <th></th>
+          <% end %>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @orders.each do |order| %>
+          <tr>
+            <% unless @project %>
+              <td><%= link_to order.id, order %></td>
+            <% end %>
+            <td><%= order.user.emailname %></td>
+            <td><%= link_to order.description, order.item %></td>
+            <td><%= number_to_currency(order.amount) %></td>
+            <td><%=l order.created_at, format: :short %></td>
+            <td><%= order.item.user.emailname %></td>
+            <td><%=t order.completed?.to_s %></td>
+            <% unless @project %>
+              <!-- <td><%#= link_to order.item.project.title, order.item.project %></td> -->
+              <td><%=raw link_to_events(order, current_user) %></td>
+              <td><%= link_to 'Detalles', order %></td>
+            <% end %>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% else %>
+  <p>No hay ordenes para mostrar.</p>
+<% end %>
+
+
+<% if @orders_bought.try(:any?) %>
+  <hr>
+  <h1>Compras</h1>
+  <hr>
+
+  <div class="table-responsive">
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Comprador</th>
+          <th>Description</th>
+          <th>Precio</th>
+          <th>Fecha</th>
+          <th>Vendedor</th>
+          <th>Projecto</th>
+          <th>Estado</th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @orders_bought.each do |order| %>
+          <tr>
+            <td><%= link_to order.id, order %></td>
+            <td><%= order.user.emailname %></td>
+            <td><%= link_to order.description, order.item %></td>
+            <td><%= number_to_currency(order.amount) %></td>
+            <td><%=l order.created_at, format: :short %></td>
+            <td><%= order.item.user.emailname %></td>
+            <td><%= link_to order.item.project.title, order.item.project %></td>
+            <td><%=raw link_to_events(order, current_user) %></td>
+            <td><%= link_to 'Detalles', order %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+<% end %>
+
+<% if @project %>
+  <%= link_to 'Volver al projecto', @project %>
+<% end %>

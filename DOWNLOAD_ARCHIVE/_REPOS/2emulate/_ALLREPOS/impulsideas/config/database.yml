@@ -1,0 +1,21 @@
+development:
+  adapter: postgresql
+  database: impulsideas_development
+  pool: 5
+  host: localhost
+  user:
+  password:
+
+test:
+  adapter: postgresql
+  database: impulsideas_test
+  host: localhost
+  user:
+  password:
+
+production:
+  adapter: postgresql
+  database: impulsideas_production
+  host: localhost
+  user:
+  password:
