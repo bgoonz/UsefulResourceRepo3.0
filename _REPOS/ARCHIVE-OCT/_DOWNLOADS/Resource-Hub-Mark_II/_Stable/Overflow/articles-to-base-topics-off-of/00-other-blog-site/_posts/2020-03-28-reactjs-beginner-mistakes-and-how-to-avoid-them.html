@@ -1,0 +1,140 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!--------------------------------(syntax hilighting)------------------------------------->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css" />
+    <link rel="stlyesheet" href="./prism.css">
+    <!-------------------------------------(scripts)------------------------------------------>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+    <script async src="./prism.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.grid.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css.map">
+    <link rel="stylesheet" href="./css/blog-home.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script async defer src="./css/prism.js"></script>
+  </head>
+
+  <body>
+
+
+
+
+
+
+    <h> id="not-splitting-into-components"><a class="anchor" name="not-splitting" href="#not-splitting"><i
+          class="anchor-icon"></i></a> 1. Not splitting into components</h1>
+      <p>Most people start writing the component and forget to split. So team will endup with very huge render method.
+        Some
+        try to abstract it into instance methods.</p>
+      <p>My rule of thump here is, If you are adding instance method for partial render, mostly it can be splitted into
+        smaller components.</p>
+      <h1 id="component-name-starts-with-small-letter."><a class="anchor" name="name-in-smallcase"
+          href="#name-in-smallcase"><i class="anchor-icon"></i></a> 2. component name starts with small letter.</h1>
+      <p>React has a rule that component name should be capitalized. Since we can write component as functions</p>
+      <pre class="jsx"><code>const abc = () =&gt; { return &lt;div&gt;Hello&lt;/div&gt; }</code></pre>
+      <p>since react can’t render this as component people will call <code>abc()</code> from render if the component
+        name
+        started with lowercase, react will consider it as webcomponents.</p>
+      <h1 id="get-input-value-using-ref"><a class="anchor" name="input-using-ref" href="#input-using-ref"><i
+            class="anchor-icon"></i></a> 3. Get input value using ref</h1>
+      <p>Instead of updating the state people tend to use the ref and get the <code>.value</code> from the inputs. just
+        like
+        how we do in jQuery world.</p>
+      <h1 id="monolith-component-does-eveything"><a class="anchor" name="monolith" href="#monolith"><i
+            class="anchor-icon"></i></a> 4. Monolith component does eveything</h1>
+      <p>Instead of passing the component/children people design the component such a way they can pass different props
+        for
+        all the customization. The component will accept a large obejct with all the details and try to render
+        everything.</p>
+      <p>This makes difficult to maintain the component + adding more surface area for breakage. Things will be worse if
+        you
+        don’t have test cases.</p>
+      <p>I have seen this is preferred even by experienced devs thinking the making the change is easier.</p>
+      <h1 id="passing-too-much-details-in-props"><a class="anchor" name="too-much-details-in-prop"
+          href="#too-much-details-in-prop"><i class="anchor-icon"></i></a> 5. Passing too much details in props</h1>
+      <p>Passing unnecessary and irrelevant info into the component will make it difficult to optimize. If the component
+        need
+        only 3 simple props pass only those 3 instead of object with 3 attrs.</p>
+      <p>if the props are simple string/number, it can optimized easily with PureComponent/ React.memo.</p>
+      <h1 id="passing-duplicate-info-into-props"><a class="anchor" name="duplicate-props" href="#duplicate-props"><i
+            class="anchor-icon"></i></a> 6. Passing duplicate info into props</h1>
+      <p>When people start passing complex objects as props, there is high chance that duplicate info is getting passed
+        as
+        different props.</p>
+      <p>This will confuse the dev and cause bugs</p>
+      <h1 id="redux-storing-data-according-to-ui."><a class="anchor" name="redux-data-according-to-ui"
+          href="#redux-data-according-to-ui"><i class="anchor-icon"></i></a> 7. Redux : storing data according to UI.
+      </h1>
+      <p>Usually when I mentor, I ask the devs to consider the redux store as database. Store the raw data not the
+        processed
+        according to the UI.</p>
+      <p>if we have a first_name and last_name, but UI need full name, Don’t store only full_name in redux</p>
+      <p>This will make difficult to reuse the redux store. If you want to combine either do it on component or add a
+        selector.</p>
+      <h1 id="redux-store-the-duplicate-derived-values"><a class="anchor" name="redux-duplicate"
+          href="#redux-duplicate"><i class="anchor-icon"></i></a> 8. Redux : Store the duplicate &amp; derived values
+      </h1>
+      <p>similar to previous one, If you can derive the value for the UI from the exising data in redux. always derive.
+        Not
+        need to store those again in redux.</p>
+      <p>If you have uses array and need to show the users count, use <code>users.length</code> in render or in
+        selector. No
+        need to store in another key in redux.</p>
+      <h1 id="designing-the-redux-store-according-to-the-ui"><a class="anchor" name="redux-data-ui"
+          href="#redux-data-ui"><i class="anchor-icon"></i></a> 9. Designing the redux store according to the UI</h1>
+      <p>As already told consider redux store as a DB. each reducer should be each entity (like tables). Don’t combine 2
+        entities into same reducer just because you have to show both in same UI</p>
+      <h1 id="impure-reducers."><a class="anchor" name="impure-reducers" href="#impure-reducers"><i
+            class="anchor-icon"></i></a> 10. impure reducers.</h1>
+      <p>people tend update the existing object ( mutate) and return or they miss <code>...state</code> while they
+        return.</p>
+      <p>Some tend to access window/localStorage in reducer to save some duplicate but end up with duplicate the whole
+        store.
+      </p>
+      <h1 id="too-much-dry"><a class="anchor" name="too-much-dry" href="#too-much-dry"><i class="anchor-icon"></i></a>
+        11. Too
+        much DRY</h1>
+      <p>People for maximum code reuse and end up with complex and difficult to maintain component.</p>
+      <h1 id="copying-redux-state-to-local-state."><a class="anchor" name="copy-state-to-local"
+          href="#copy-state-to-local"><i class="anchor-icon"></i></a> 12. Copying redux state to local state.</h1>
+      <p>To avoid extra dispatch and state changes, people tend to copy the state to local and update there which
+        eventually
+        lead to complex component. Will be adding more code to lifecycle methods to handle syncing the redux and local
+        state
+      </p>
+      <h1 id="premature-optimization"><a class="anchor" name="premature-optimization" href="#premature-optimization"><i
+            class="anchor-icon"></i></a> 13. premature optimization</h1>
+      <p>using too much PureComponent or custom <code>shouldComponentUpdate</code> for the components which accept
+        complex
+        props like object or array.</p>
+      <p>Most issues can be solved/optmized with properly splitting the components.</p>
+      <p>Trying to optimize the component only with <code>shouldComponentUpdate</code> without splitting &amp; reducing
+        the
+        props will lead to complex component and lots and lots of issues with not rerendering and endup forceUpdate.</p>
+      <h1 id="too-much-dependency-on-globals"><a class="anchor" name="dependency-on-globals"
+          href="#dependency-on-globals"><i class="anchor-icon"></i></a> 14. Too much dependency on globals</h1>
+      <p>Component directly depend on globals like window and localStorage will be difficult to test and maintain.</p>
+      <h1 id="not-using-the-defaultprops"><a class="anchor" name="defaultprops" href="#defaultprops"><i
+            class="anchor-icon"></i></a> 15. Not using the defaultProps</h1>
+      <p>People tend to miss the usage of defaultProps and tend to add more conditional rendering which make the
+        component
+        complex to difficult to maintain.</p>
+      <h1 id="using-the-react-wrong-way."><a class="anchor" name="react-wrong-way" href="#react-wrong-way"><i
+            class="anchor-icon"></i></a> 16. Using the react wrong way.</h1>
+      <p>React has a Philosophy of doing things functional and declarative way. But beginners coming from imperative
+        apis like
+        DOM apis tend to use the react the only way they know and not ready to learn new paradigm</p>
+
+  </body>
+
+  
+</html>

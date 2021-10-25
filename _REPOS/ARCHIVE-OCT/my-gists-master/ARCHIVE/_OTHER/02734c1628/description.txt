@@ -1,0 +1,1 @@
+illustrating a use-case for willfully violating "TDZ" for stylistic reasons

@@ -1,0 +1,67 @@
+.root {
+	--example-background: var(--color-background);
+
+	/* Spacing */
+	--grid-base: 8px;
+	--spacing-regular: var(--grid-base);
+	--spacing-large: calc(var(--grid-base) * 2);
+	--touch-target-min: 48px;
+
+	/* Fonts */
+	--font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
+		sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+	--font-size-base: 16px;
+	--font-size-small: 14px;
+	--font-size-title: 20px;
+	--font-size-icon: 24px;
+	--line-height-base: 24px;
+
+	--normal-font-weight: 400;
+	--bold-font-weight: 600;
+	--bolder-font-weight: 600;
+
+	/* Color hex values */
+	--color-dark: #cccccc;
+	--color-text-primary: #ffffff;
+	--color-text-faded: #5c6c7c;
+	--color-text-inverted: #000000;
+	--color-highlight: #ff9419;
+	--color-highlight-border: hsl(212.08695652173913, 100%, 58.0980392157%);
+	--color-success: #e778fe;
+	--color-error: #14ecec;
+	--color-alert: #005aff;
+	--color-info: #ff9419;
+	--color-background: #000000;
+	--color-background-inverted: #a39383;
+	--color-background-faded: #0b0908;
+	--color-border: #29221d;
+	--color-border-strong: #a39383;
+	--color-border-invalid: hsl(0, 76.0393700787%, 86.8039215686%);
+	--color-border-valid: hsl(109.70149253731344, 66.5294117647%, 81.6666666667%);
+	--color-box-shadow: rgba(0, 0, 0, 0.2);
+	--color-box-shadow-highlight: rgba(0, 107, 230, 0.2);
+	--color-box-shadow-strong: rgba(0, 0, 0, 0.5);
+	--color-box-shadow-focus: rgba(0, 107, 230, 0.2);
+	--color-box-shadow-invalid: rgba(235, 19, 19, 0.2);
+	--color-box-shadow-valid: rgba(24, 135, 1, 0.2);
+
+	/* Border and shadow */
+	--box-shadow-voffset-large: 9px;
+	--box-shadow-blur-large: 16px;
+	--box-shadow-dimensions-small: 0 2px 2px 0;
+	--box-shadow-dimensions-large: 0 var(--box-shadow-voffset-large) var(--box-shadow-blur-large) 0;
+	--border-width: 1px;
+	--border-width-emphasized: 2px;
+	--border-radius: 4px;
+
+	/* Transitions */
+	--transition-duration: 0.25s;
+	--transition-easing: ease;
+
+	/* Avatar */
+	--avatar-size-small: 24px;
+	--avatar-size-medium: 40px;
+	--avatar-size-large: 56px;
+
+	--tab-width: calc(var(--grid-base) * 16);
+}

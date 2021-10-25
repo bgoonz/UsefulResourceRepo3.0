@@ -91,110 +91,112 @@ import html
 import pprint
 import re
 import sys
+
 # import traceback
 
 PP = pprint.PrettyPrinter(stream=sys.stderr)
 
-BLOCK_TYPE_CODE = 'code'
-BLOCK_TYPE_MATH = 'math'
-BLOCK_TYPE_P = 'p'
-BLOCK_TYPE_UL = 'ul'
-BLOCK_TYPE_OL = 'ol'
-BLOCK_TYPE_BLOCKQUOTE = 'blockquote'
-BLOCK_TYPE_TABLE = 'table'
-BLOCK_TYPE_H1 = 'h1'
-BLOCK_TYPE_H2 = 'h2'
-BLOCK_TYPE_H3 = 'h3'
-BLOCK_TYPE_H4 = 'h4'
-BLOCK_TYPE_H5 = 'h5'
-BLOCK_TYPE_H6 = 'h6'
-BLOCK_TYPE_HR = 'hr'
-BLOCK_TYPE_HN = '_hn'
-BLOCK_TYPE_EMPTY = '_empty'
+BLOCK_TYPE_CODE = "code"
+BLOCK_TYPE_MATH = "math"
+BLOCK_TYPE_P = "p"
+BLOCK_TYPE_UL = "ul"
+BLOCK_TYPE_OL = "ol"
+BLOCK_TYPE_BLOCKQUOTE = "blockquote"
+BLOCK_TYPE_TABLE = "table"
+BLOCK_TYPE_H1 = "h1"
+BLOCK_TYPE_H2 = "h2"
+BLOCK_TYPE_H3 = "h3"
+BLOCK_TYPE_H4 = "h4"
+BLOCK_TYPE_H5 = "h5"
+BLOCK_TYPE_H6 = "h6"
+BLOCK_TYPE_HR = "hr"
+BLOCK_TYPE_HN = "_hn"
+BLOCK_TYPE_EMPTY = "_empty"
 
-MULTILINE_BLOCK_TYPES = [BLOCK_TYPE_CODE,
-                         BLOCK_TYPE_MATH,
-                         BLOCK_TYPE_OL,
-                         BLOCK_TYPE_P,
-                         BLOCK_TYPE_TABLE,
-                         BLOCK_TYPE_UL]
+MULTILINE_BLOCK_TYPES = [
+    BLOCK_TYPE_CODE,
+    BLOCK_TYPE_MATH,
+    BLOCK_TYPE_OL,
+    BLOCK_TYPE_P,
+    BLOCK_TYPE_TABLE,
+    BLOCK_TYPE_UL,
+]
 
-TOC_LITERAL = '[[toc]]'
+TOC_LITERAL = "[[toc]]"
 
-RX_FULL_URL = re.compile(r'^(?P<scheme>[a-z]+):(?P<rest>.*)$')
+RX_FULL_URL = re.compile(r"^(?P<scheme>[a-z]+):(?P<rest>.*)$")
 RX_BLOCKQUOTE = re.compile(
-    r'^(?P<greater_than_signs>>+)\s*(?P<content>.*?)(?P<br> _)?$')
+    r"^(?P<greater_than_signs>>+)\s*(?P<content>.*?)(?P<br> _)?$"
+)
 RX_CODE_START = re.compile(
     r'^(?P<indent>\s*)(?P<raw_tag>\[\[code(\s+type="(?P<type>.*?)"\s*)?\]\])'
-    r'(?P<content>.*)$')
-RX_CODE_END = re.compile(r'^\[\[/code\]\]$')
-RX_CODE_CONTENT = re.compile(r'^(?P<content>.*?)$')
+    r"(?P<content>.*)$"
+)
+RX_CODE_END = re.compile(r"^\[\[/code\]\]$")
+RX_CODE_CONTENT = re.compile(r"^(?P<content>.*?)$")
 RX_MATH_START = re.compile(
-    r'^(?P<indent>\s*)(?P<raw_tag>\[\[math\]\])'
-    r'(?P<content>.*)$')
-RX_MATH_END = re.compile(r'^\[\[/math\]\]$')
-RX_MATH_CONTENT = re.compile(r'^(?P<content>.*?)$')
+    r"^(?P<indent>\s*)(?P<raw_tag>\[\[math\]\])" r"(?P<content>.*)$"
+)
+RX_MATH_END = re.compile(r"^\[\[/math\]\]$")
+RX_MATH_CONTENT = re.compile(r"^(?P<content>.*?)$")
 RX_DIV_START = re.compile(
-    r'^(?P<indent>\s*)(?P<raw_tag>\[\[div(?P<attributes>.*)\]\])$')
-RX_DIV_ATTR = re.compile(r'^\s*(?P<name>[a-z0-9-]+)="(?P<value>.*?)"'
-                         r'(?P<rest>.*)$')
-RX_DIV_END = re.compile(r'^\[\[/div\]\]$')
-RX_UL = re.compile(
-    r'^(?P<indent>\s*)(?P<raw_tag>\*)\s+(?P<content>\S.*?)(?P<br> _)?$')
-RX_OL = re.compile(
-    r'^(?P<indent>\s*)(?P<raw_tag>\#)\s+(?P<content>\S.*?)(?P<br> _)?$')
-RX_TABLE = re.compile(
-    r'^(?P<indent>\s*)(?P<content>\|\|.*?)(?P<br> _)?$')
+    r"^(?P<indent>\s*)(?P<raw_tag>\[\[div(?P<attributes>.*)\]\])$"
+)
+RX_DIV_ATTR = re.compile(r'^\s*(?P<name>[a-z0-9-]+)="(?P<value>.*?)"' r"(?P<rest>.*)$")
+RX_DIV_END = re.compile(r"^\[\[/div\]\]$")
+RX_UL = re.compile(r"^(?P<indent>\s*)(?P<raw_tag>\*)\s+(?P<content>\S.*?)(?P<br> _)?$")
+RX_OL = re.compile(r"^(?P<indent>\s*)(?P<raw_tag>\#)\s+(?P<content>\S.*?)(?P<br> _)?$")
+RX_TABLE = re.compile(r"^(?P<indent>\s*)(?P<content>\|\|.*?)(?P<br> _)?$")
 RX_HN = re.compile(
-    r'^(?P<indent>\s*)'
-    r'(?P<plus_signs>\+{1,6})'
-    r'\s+'
-    r'(?P<content>\S.*?)'
-    r'(?P<br> _)?$')
-RX_HR = re.compile(r'^(?P<indent>\s*)----(?P<content>)(?P<br> _)?$')
-RX_EMPTY = re.compile(r'^\s*(?P<content>)(?P<br> _)?$')
-RX_P = re.compile(r'^\s*(?P<content>.*?)(?P<br> _)?$')
-RX_MARKERS = re.compile(r'(//|\*\*|\{\{|\}\}|@@|\[!--|--\]|--|__|,,|\^\^|'
-                        r'\[\[span [^\]]+\]\]|\[\[/span\]\]|\[\[/size\]\]|'
-                        r'\]\]|##)')
-RX_WHITESPACE = re.compile(r'(\s+)')
-RX_SPAN = re.compile(r'^\[\[span ([^\]]+)\]\]$')
-RX_SIZE = re.compile(r'^\[\[size ([^\]]+)\]\]$')
-RX_RGB = re.compile(r'^[a-fA-F0-9]{6}$')
-RX_PARSE_TRIPLE_BRACKET = re.compile(
-    r'^\[\[\[(?P<href>[^|]*)(\|(?P<name>.+))?\]\]\]$')
-RX_PARSE_DOUBLE_BRACKET = re.compile(r'^\[\[#\s+(?P<anchor>.+)\]\]$')
-RX_PARSE_SINGLE_BRACKET = re.compile(r'^\[(?P<href>\S+)\s+(?P<name>.+)\]$')
+    r"^(?P<indent>\s*)"
+    r"(?P<plus_signs>\+{1,6})"
+    r"\s+"
+    r"(?P<content>\S.*?)"
+    r"(?P<br> _)?$"
+)
+RX_HR = re.compile(r"^(?P<indent>\s*)----(?P<content>)(?P<br> _)?$")
+RX_EMPTY = re.compile(r"^\s*(?P<content>)(?P<br> _)?$")
+RX_P = re.compile(r"^\s*(?P<content>.*?)(?P<br> _)?$")
+RX_MARKERS = re.compile(
+    r"(//|\*\*|\{\{|\}\}|@@|\[!--|--\]|--|__|,,|\^\^|"
+    r"\[\[span [^\]]+\]\]|\[\[/span\]\]|\[\[/size\]\]|"
+    r"\]\]|##)"
+)
+RX_WHITESPACE = re.compile(r"(\s+)")
+RX_SPAN = re.compile(r"^\[\[span ([^\]]+)\]\]$")
+RX_SIZE = re.compile(r"^\[\[size ([^\]]+)\]\]$")
+RX_RGB = re.compile(r"^[a-fA-F0-9]{6}$")
+RX_PARSE_TRIPLE_BRACKET = re.compile(r"^\[\[\[(?P<href>[^|]*)(\|(?P<name>.+))?\]\]\]$")
+RX_PARSE_DOUBLE_BRACKET = re.compile(r"^\[\[#\s+(?P<anchor>.+)\]\]$")
+RX_PARSE_SINGLE_BRACKET = re.compile(r"^\[(?P<href>\S+)\s+(?P<name>.+)\]$")
 RX_TRIPLE_BRACKET = re.compile(
-    r'(?P<token>^\[\[\[[^\]|]+(\|[^\]|]+)?\]\]\])(?P<text>.*)$')
-RX_DOUBLE_BRACKET = re.compile(
-    r'^(?P<token>\[\[[^\]]+\]\])(?P<text>.*)$')
-RX_SINGLE_BRACKET = re.compile(
-    r'^(?P<token>\[(?P<head>[^\]\s]+)[^\]]*\])(?P<text>.*)$')
-RX_ESCAPE_CHAR = re.compile(r'@|<|>')
-RX_DOUBLED_CHAR = re.compile(
-    r'^(//|\*\*|\{\{|\}\}|--|__|,,|\^\^|\|\|)')
-RX_COLOR_HEAD = re.compile(r'^(?P<token>##[a-zA-Z][a-zA-Z0-9 ]*\|)'
-                           '(?P<text>.*)$')
-RX_LEAD_WHITESPACE = re.compile(r'^(?P<token>\s+)(?P<text>.*)$')
-RX_URL_FRAGMENT = re.compile(r'^#[a-zA-Z0-9][a-zA-Z0-9-_]*$')
+    r"(?P<token>^\[\[\[[^\]|]+(\|[^\]|]+)?\]\]\])(?P<text>.*)$"
+)
+RX_DOUBLE_BRACKET = re.compile(r"^(?P<token>\[\[[^\]]+\]\])(?P<text>.*)$")
+RX_SINGLE_BRACKET = re.compile(r"^(?P<token>\[(?P<head>[^\]\s]+)[^\]]*\])(?P<text>.*)$")
+RX_ESCAPE_CHAR = re.compile(r"@|<|>")
+RX_DOUBLED_CHAR = re.compile(r"^(//|\*\*|\{\{|\}\}|--|__|,,|\^\^|\|\|)")
+RX_COLOR_HEAD = re.compile(r"^(?P<token>##[a-zA-Z][a-zA-Z0-9 ]*\|)" "(?P<text>.*)$")
+RX_LEAD_WHITESPACE = re.compile(r"^(?P<token>\s+)(?P<text>.*)$")
+RX_URL_FRAGMENT = re.compile(r"^#[a-zA-Z0-9][a-zA-Z0-9-_]*$")
 RX_URL = re.compile(
-    r'^(?P<token>https?://[a-zA-Z0-9-._~:/#&?=+,;]*[a-zA-Z0-9-_~/#&?=+])'
-    r'(?P<text>.*)$')
-RX_IMAGE = re.compile(r'^\[\[(?P<alignment>=?)image\s+(?P<src>\S+)\s*(?P<attrs>.*)\]\]$')
+    r"^(?P<token>https?://[a-zA-Z0-9-._~:/#&?=+,;]*[a-zA-Z0-9-_~/#&?=+])"
+    r"(?P<text>.*)$"
+)
+RX_IMAGE = re.compile(
+    r"^\[\[(?P<alignment>=?)image\s+(?P<src>\S+)\s*(?P<attrs>.*)\]\]$"
+)
 RX_IMAGE_ATTR = re.compile(
-    r'^\s*(?P<attr>[^ =]+)'
-    r'\s*=\s*'
-    r'"(?P<value>[^"]*)"'
-    r'\s*(?P<rest>.*)$')
-RX_SPACE = re.compile(r' ')
-RX_FULL_ROW = re.compile(r'^\|\|(?P<row>.*)\|\|$')
-RX_START_ROW = re.compile(r'^\|\|(?P<row>.*)$')
-RX_END_ROW = re.compile(r'^(?P<row>.*)\|\|$')
-RX_TAGGED_CELL = re.compile(r'^(?P<tag>~|<|=|>)\s+(?P<content>.*)$')
-RX_EMPTY_PARAGRAPH = re.compile(r'^(<br />|\s)*$', re.M)
-RX_BLANK_LINE = re.compile(r'^\s*$')
-RX_TABLE_CELL_LEXER = re.compile(r'(\|\||@|<|>)')
+    r"^\s*(?P<attr>[^ =]+)" r"\s*=\s*" r'"(?P<value>[^"]*)"' r"\s*(?P<rest>.*)$"
+)
+RX_SPACE = re.compile(r" ")
+RX_FULL_ROW = re.compile(r"^\|\|(?P<row>.*)\|\|$")
+RX_START_ROW = re.compile(r"^\|\|(?P<row>.*)$")
+RX_END_ROW = re.compile(r"^(?P<row>.*)\|\|$")
+RX_TAGGED_CELL = re.compile(r"^(?P<tag>~|<|=|>)\s+(?P<content>.*)$")
+RX_EMPTY_PARAGRAPH = re.compile(r"^(<br />|\s)*$", re.M)
+RX_BLANK_LINE = re.compile(r"^\s*$")
+RX_TABLE_CELL_LEXER = re.compile(r"(\|\||@|<|>)")
 
 
 class NullOutputStream:
@@ -215,7 +217,7 @@ CLOSED_NODE = ClosureNode(True)
 
 
 class Node:
-    def __init__(self, wikidot, raw_tag='', open_tag='', close_tag=None):
+    def __init__(self, wikidot, raw_tag="", open_tag="", close_tag=None):
         self.wikidot = wikidot
         self.children = []
         self.raw_tag = raw_tag
@@ -231,123 +233,119 @@ class Node:
 
     def __str__(self):
         if not self.children:
-            first = ''
-            rest = ''
+            first = ""
+            rest = ""
         elif len(self.children) == 1:
-            if self.children[0] == ' ':
-                first = ' '
-                rest = ''
+            if self.children[0] == " ":
+                first = " "
+                rest = ""
             else:
-                first = ''
+                first = ""
                 rest = str(self.children[0])
         else:
-            if self.children[0] == ' ':
-                first = ' '
-                rest = ''.join([str(child) for child in self.children[1:]])
+            if self.children[0] == " ":
+                first = " "
+                rest = "".join([str(child) for child in self.children[1:]])
             else:
-                first = ''
-                rest = ''.join([str(child) for child in self.children])
+                first = ""
+                rest = "".join([str(child) for child in self.children])
 
         if self.closed():
             if rest:
-                return '{}<{}>{}</{}>'.format(first,
-                                              self.open_tag,
-                                              rest,
-                                              self.close_tag)
+                return "{}<{}>{}</{}>".format(
+                    first, self.open_tag, rest, self.close_tag
+                )
             return first
-        return '{}{}{}{}'.format(first, self.raw_tag, rest, '')
+        return "{}{}{}{}".format(first, self.raw_tag, rest, "")
 
 
 class Italic(Node):
-    def __init__(self, wikidot, raw_tag='//'):
-        Node.__init__(self, wikidot, raw_tag, 'em')
+    def __init__(self, wikidot, raw_tag="//"):
+        Node.__init__(self, wikidot, raw_tag, "em")
 
 
 class Bold(Node):
-    def __init__(self, wikidot, raw_tag='**'):
-        Node.__init__(self, wikidot, raw_tag, 'strong')
+    def __init__(self, wikidot, raw_tag="**"):
+        Node.__init__(self, wikidot, raw_tag, "strong")
 
 
 class FixedWidth(Node):
-    def __init__(self, wikidot, raw_tag='{{'):
-        Node.__init__(self, wikidot, raw_tag, 'tt')
+    def __init__(self, wikidot, raw_tag="{{"):
+        Node.__init__(self, wikidot, raw_tag, "tt")
 
 
 class StrikeThru(Node):
-    def __init__(self, wikidot, raw_tag='--'):
-        Node.__init__(self,
-                      wikidot,
-                      raw_tag,
-                      'span style="text-decoration: line-through;"',
-                      'span')
+    def __init__(self, wikidot, raw_tag="--"):
+        Node.__init__(
+            self,
+            wikidot,
+            raw_tag,
+            'span style="text-decoration: line-through;"',
+            "span",
+        )
 
 
 class Underline(Node):
-    def __init__(self, wikidot, raw_tag='__'):
-        Node.__init__(self,
-                      wikidot,
-                      raw_tag,
-                      'span style="text-decoration: underline;"',
-                      'span')
+    def __init__(self, wikidot, raw_tag="__"):
+        Node.__init__(
+            self, wikidot, raw_tag, 'span style="text-decoration: underline;"', "span"
+        )
 
 
 class Subscript(Node):
-    def __init__(self, wikidot, raw_tag=',,'):
-        Node.__init__(self, wikidot, raw_tag, 'sub')
+    def __init__(self, wikidot, raw_tag=",,"):
+        Node.__init__(self, wikidot, raw_tag, "sub")
 
 
 class Superscript(Node):
-    def __init__(self, wikidot, raw_tag='^^'):
-        Node.__init__(self, wikidot, raw_tag, 'sup')
+    def __init__(self, wikidot, raw_tag="^^"):
+        Node.__init__(self, wikidot, raw_tag, "sup")
 
 
 class Span(Node):
     def __init__(self, wikidot, raw_tag, tag):
-        Node.__init__(self, wikidot, raw_tag, tag, 'span')
+        Node.__init__(self, wikidot, raw_tag, tag, "span")
 
     def __str__(self):
-        return '{}{}{}'.format(
-            '<{}>'.format(self.open_tag),
-            ''.join([str(child) for child in self.children]).rstrip(),
-            '</span>')
+        return "{}{}{}".format(
+            "<{}>".format(self.open_tag),
+            "".join([str(child) for child in self.children]).rstrip(),
+            "</span>",
+        )
 
 
 class Color(Node):
     def __init__(self, wikidot, raw_tag, tag):
-        Node.__init__(self, wikidot, raw_tag, tag, 'span')
+        Node.__init__(self, wikidot, raw_tag, tag, "span")
 
 
 class Size(Node):
     def __init__(self, wikidot, raw_tag, tag):
-        Node.__init__(self, wikidot, raw_tag, tag, 'span')
+        Node.__init__(self, wikidot, raw_tag, tag, "span")
 
 
 class Literal(Node):
     def __init__(self, wikidot, raw_tag, tag):
-        Node.__init__(self, wikidot, raw_tag, tag, 'span')
+        Node.__init__(self, wikidot, raw_tag, tag, "span")
 
     def __str__(self):
-        s = ''.join([str(child) for child in self.children])
-        s = RX_SPACE.sub('&#32;', s)
-        return '<{}>{}</{}>'.format(self.open_tag,
-                                    s,
-                                    self.close_tag)
+        s = "".join([str(child) for child in self.children])
+        s = RX_SPACE.sub("&#32;", s)
+        return "<{}>{}</{}>".format(self.open_tag, s, self.close_tag)
 
 
 class HTMLEntityLiteral(Node):
     def __init__(self, wikidot, raw_tag, tag):
-        Node.__init__(self, wikidot, raw_tag, tag, 'span')
+        Node.__init__(self, wikidot, raw_tag, tag, "span")
 
     def __str__(self):
-        s = ''.join([str(child) for child in self.children])
-        s = RX_SPACE.sub('&#32;', s)
-        return '<{}>{}</{}>'.format(self.open_tag,
-                                    s,
-                                    self.close_tag)
+        s = "".join([str(child) for child in self.children])
+        s = RX_SPACE.sub("&#32;", s)
+        return "<{}>{}</{}>".format(self.open_tag, s, self.close_tag)
 
 
 class Text:
-    def __init__(self, wikidot, raw_tag='', open_tag='', close_tag=None):
+    def __init__(self, wikidot, raw_tag="", open_tag="", close_tag=None):
         self.wikidot = wikidot
         self.raw_tag = raw_tag
         self.open_tag = open_tag
@@ -362,36 +360,33 @@ class Link(Text):
         self.wikidot = wikidot
         full_href = href
         match = RX_FULL_URL.search(href)
-        if not match and not href.startswith('#'):
-            full_href = '{}/{}{}'.format(self.wikidot.link_prefix.rstrip('/'),
-                                         href.lstrip('/'),
-                                         self.wikidot.link_suffix)
-        Text.__init__(self, wikidot, raw_tag, 'a href="{}"'.format(full_href), 'a')
+        if not match and not href.startswith("#"):
+            full_href = "{}/{}{}".format(
+                self.wikidot.link_prefix.rstrip("/"),
+                href.lstrip("/"),
+                self.wikidot.link_suffix,
+            )
+        Text.__init__(self, wikidot, raw_tag, 'a href="{}"'.format(full_href), "a")
         self.content = content
 
     def __str__(self):
-        return '<{}>{}</{}>'.format(self.open_tag,
-                                    self.content,
-                                    self.close_tag)
+        return "<{}>{}</{}>".format(self.open_tag, self.content, self.close_tag)
 
 
 class Anchor(Text):
     def __init__(self, wikidot, raw_tag, name):
-        Text.__init__(self, wikidot, raw_tag, 'a name="{}"'.format(name), 'a')
+        Text.__init__(self, wikidot, raw_tag, 'a name="{}"'.format(name), "a")
 
     def __str__(self):
-        return '<{}></{}>'.format(self.open_tag, self.close_tag)
+        return "<{}></{}>".format(self.open_tag, self.close_tag)
 
 
 class Image(Text):
-    ATTRS = ['title', 'width', 'height', 'style', 'class', 'size']
+    ATTRS = ["title", "width", "height", "style", "class", "size"]
 
     def __init__(self, wikidot, raw_tag, src, attrs, alignment):
         self.wikidot = wikidot
-        Text.__init__(self,
-                      wikidot,
-                      raw_tag,
-                      'img')
+        Text.__init__(self, wikidot, raw_tag, "img")
         self.src = src
         self.attrs = attrs
         self.alignemnt = alignment
@@ -402,15 +397,15 @@ class Image(Text):
             value = self.attrs.get(attr, None)
             if value:
                 s += ' {}="{}"'.format(attr, value)
-        value = self.attrs.get('alt', self.src)
+        value = self.attrs.get("alt", self.src)
         s += ' alt="{}"'.format(value)
-        value = self.attrs.get('class', 'image')
+        value = self.attrs.get("class", "image")
         s += ' class="{}"'.format(value)
-        s += ' />'
-        link = self.attrs.get('link', None)
+        s += " />"
+        link = self.attrs.get("link", None)
         if link:
             s = '<a href="{}">{}</a>'.format(link, s)
-        if self.alignemnt == '=':
+        if self.alignemnt == "=":
             s = '<div class="image-container aligncenter">{}</div>'.format(s)
 
         return s
@@ -421,18 +416,18 @@ class LineBreak(Node):
         Node.__init__(self, wikidot)
 
     def __str__(self):
-        return '<br />\n'
+        return "<br />\n"
 
 
 def str_lex(text):
     tokens = []
     prefix_and_text = text
-    prefix = ''
+    prefix = ""
     text_i = 0
     while text:
-        if text.startswith('['):
-            if text.startswith('[!--'):
-                tokens.append('[!--')
+        if text.startswith("["):
+            if text.startswith("[!--"):
+                tokens.append("[!--")
                 prefix_and_text = text[4:]
                 text = prefix_and_text
                 text_i = 0
@@ -441,9 +436,9 @@ def str_lex(text):
             if md:
                 if prefix:
                     tokens.append(prefix)
-                    prefix = ''
-                tokens.append(md.group('token'))
-                prefix_and_text = md.group('text')
+                    prefix = ""
+                tokens.append(md.group("token"))
+                prefix_and_text = md.group("text")
                 text = prefix_and_text
                 text_i = 0
                 continue
@@ -451,32 +446,32 @@ def str_lex(text):
             if md:
                 if prefix:
                     tokens.append(prefix)
-                    prefix = ''
-                tokens.append(md.group('token'))
-                prefix_and_text = md.group('text')
+                    prefix = ""
+                tokens.append(md.group("token"))
+                prefix_and_text = md.group("text")
                 text = prefix_and_text
                 text_i = 0
                 continue
             md = RX_SINGLE_BRACKET.search(text)
             if md:
-                head = md.group('head')
+                head = md.group("head")
                 if RX_URL.search(head) or RX_URL_FRAGMENT.search(head):
                     if prefix:
                         tokens.append(prefix)
-                        prefix = ''
-                    tokens.append(md.group('token'))
-                    prefix_and_text = md.group('text')
+                        prefix = ""
+                    tokens.append(md.group("token"))
+                    prefix_and_text = md.group("text")
                     text = prefix_and_text
                     text_i = 0
                     continue
-        if text.startswith('##'):
+        if text.startswith("##"):
             if prefix:
                 tokens.append(prefix)
-                prefix = ''
+                prefix = ""
             md = RX_COLOR_HEAD.search(text)
             if md:
-                tokens.append(md.group('token'))
-                prefix_and_text = md.group('text')
+                tokens.append(md.group("token"))
+                prefix_and_text = md.group("text")
                 text = prefix_and_text
                 text_i = 0
                 continue
@@ -489,14 +484,14 @@ def str_lex(text):
         if md:
             if prefix:
                 tokens.append(prefix)
-                prefix = ''
-            tokens.append(md.group('token'))
-            prefix_and_text = md.group('text')
+                prefix = ""
+            tokens.append(md.group("token"))
+            prefix_and_text = md.group("text")
             text = prefix_and_text
             text_i = 0
             continue
-        if text.startswith('--]'):
-            tokens.append('--]')
+        if text.startswith("--]"):
+            tokens.append("--]")
             prefix_and_text = text[3:]
             text = prefix_and_text
             text_i = 0
@@ -512,17 +507,17 @@ def str_lex(text):
         if md:
             if prefix:
                 tokens.append(prefix)
-                prefix = ''
+                prefix = ""
             tokens.append(text[0:2])
             prefix_and_text = text[2:]
             text = prefix_and_text
             text_i = 0
             continue
-        if text.startswith('http'):
+        if text.startswith("http"):
             md = RX_URL.search(text)
             if md:
-                tokens.append(md.group('token'))
-                prefix_and_text = md.group('text')
+                tokens.append(md.group("token"))
+                prefix_and_text = md.group("text")
                 text = prefix_and_text
                 text_i = 0
                 continue
@@ -563,12 +558,12 @@ HTML_ENTITY_LITERAL_END_TOKEN = HTMLEntityLiteralEndToken()
 
 
 def count_literal_escapes(str_tokens):
-    prev_s = ''
+    prev_s = ""
     literal_cnt = 0
     for s in str_tokens:
-        if prev_s + s == '@@':
+        if prev_s + s == "@@":
             literal_cnt += 1
-            prev_s = ''
+            prev_s = ""
         else:
             prev_s = s
 
@@ -578,45 +573,45 @@ def count_literal_escapes(str_tokens):
 def token_lex(text):
     last_idx = -1
     last_html_entity_idx = -1
-    prev_s = ''
+    prev_s = ""
     str_tokens = str_lex(text)
     tokens = []
     remaining_literal_cnt = count_literal_escapes(str_tokens)
 
     for s in str_tokens:
-        if prev_s + s == '@@' and last_idx > -1:
+        if prev_s + s == "@@" and last_idx > -1:
             remaining_literal_cnt -= 1
             tokens.append(LITERAL_END_TOKEN)
             tokens[last_idx] = LITERAL_START_TOKEN
             last_idx = -1
-            prev_s = ''
-        elif prev_s + s == '@@' and remaining_literal_cnt > 1:
+            prev_s = ""
+        elif prev_s + s == "@@" and remaining_literal_cnt > 1:
             remaining_literal_cnt -= 1
-            tokens.append('@@')
+            tokens.append("@@")
             last_idx = len(tokens) - 1
-            prev_s = ''
-        elif prev_s + s == '@<':
-            tokens.append('@<')
+            prev_s = ""
+        elif prev_s + s == "@<":
+            tokens.append("@<")
             if last_html_entity_idx == -1:
                 last_html_entity_idx = len(tokens) - 1
-            prev_s = ''
-        elif prev_s + s == '>@':
+            prev_s = ""
+        elif prev_s + s == ">@":
             if last_html_entity_idx > -1:
                 tokens[last_html_entity_idx] = HTML_ENTITY_LITERAL_START_TOKEN
                 last_html_entity_idx = -1
                 tokens.append(HTML_ENTITY_LITERAL_END_TOKEN)
-                prev_s = ''
+                prev_s = ""
             else:
-                tokens.append('>')
-                prev_s = '@'
-        elif s in {'@', '>'}:
+                tokens.append(">")
+                prev_s = "@"
+        elif s in {"@", ">"}:
             if prev_s:
                 tokens.append(prev_s)
             prev_s = s
         else:
             if prev_s:
                 tokens.append(prev_s)
-                prev_s = ''
+                prev_s = ""
             tokens.append(s)
 
     return tokens
@@ -670,7 +665,7 @@ class InlineParser:
             else:
                 self.span_depth -= 1
             if self.span_depth < 0:
-                raise Exception('negative span depth')
+                raise Exception("negative span depth")
         elif cls == Color:
             self.color = value
         elif cls == Size:
@@ -678,7 +673,7 @@ class InlineParser:
         elif cls == Node:
             pass
         else:
-            raise Exception('unknown class: {}'.format(cls))
+            raise Exception("unknown class: {}".format(cls))
 
     def remove_flag(self, cls):
         self.set_flag(cls, False)
@@ -703,7 +698,7 @@ class InlineParser:
     def restore_nodes(self, removed_nodes):
         while removed_nodes:
             old_nd = removed_nodes.pop()
-            new_nd = type(old_nd)('')
+            new_nd = type(old_nd)("")
             old_nd.set_closure(new_nd)
             self.add_node(new_nd)
 
@@ -711,7 +706,7 @@ class InlineParser:
         removed_nodes = []
         while True:
             if not self.nodes:
-                raise Exception('not on stack: {}'.format(cls_to_remove))
+                raise Exception("not on stack: {}".format(cls_to_remove))
             nd = self.nodes.pop()
             removed_nodes.append(nd)
             self.remove_flag(type(nd))
@@ -754,8 +749,8 @@ class InlineParser:
         while True:
             md = RX_IMAGE_ATTR.search(attrs)
             if md:
-                d[md.group('attr')] = md.group('value')
-                attrs = md.group('rest')
+                d[md.group("attr")] = md.group("value")
+                attrs = md.group("rest")
             else:
                 break
 
@@ -764,9 +759,9 @@ class InlineParser:
     def parse_image(self, token):
         md = RX_IMAGE.search(token)
         if md:
-            src = md.group('src')
-            alignment = md.group('alignment')
-            attrs = self.parse_image_attrs(md.group('attrs'))
+            src = md.group("src")
+            alignment = md.group("alignment")
+            attrs = self.parse_image_attrs(md.group("attrs"))
             self.add_text(Image(self.wikidot, token, src, attrs, alignment))
         else:
             self.add_text(token)
@@ -775,109 +770,116 @@ class InlineParser:
         self.tokens = tokens
         for i, token in enumerate(tokens):
             if self.comment:
-                if token != '--]':
+                if token != "--]":
                     pass
-                elif token == '--]':
+                elif token == "--]":
                     self.comment = False
-            elif token == '[!--':
+            elif token == "[!--":
                 self.comment = True
             elif isinstance(token, LiteralEndToken) and self.escape_literal:
                 self.escape_literal = False
                 self.remove_node(Literal)
             elif isinstance(token, LiteralStartToken):
                 self.escape_literal = True
-                self.add_node(Literal(
-                    self.wikidot,
-                    '@@',
-                    'span style="white-space: pre-wrap;"'))
-            elif isinstance(token, HTMLEntityLiteralEndToken) \
-                    and self.no_escape_literal:
+                self.add_node(
+                    Literal(self.wikidot, "@@", 'span style="white-space: pre-wrap;"')
+                )
+            elif (
+                isinstance(token, HTMLEntityLiteralEndToken) and self.no_escape_literal
+            ):
                 self.no_escape_literal = False
                 self.remove_node(HTMLEntityLiteral)
             elif isinstance(token, HTMLEntityLiteralEndToken):
-                self.add_text(html.escape('>@'))
+                self.add_text(html.escape(">@"))
             elif self.escape_literal:
                 self.add_text(html.escape(token))
             elif self.no_escape_literal:
                 self.add_text(token)
             elif isinstance(token, HTMLEntityLiteralStartToken):
                 self.no_escape_literal = True
-                self.add_node(HTMLEntityLiteral(
-                    self.wikidot,
-                    '@@',
-                    'span style="white-space: pre-wrap;"'))
+                self.add_node(
+                    HTMLEntityLiteral(
+                        self.wikidot, "@@", 'span style="white-space: pre-wrap;"'
+                    )
+                )
             elif not isinstance(token, str):
-                raise Exception('expected token to be a string: ' +
-                                str(type(token)) + ': ' +
-                                str(token))
+                raise Exception(
+                    "expected token to be a string: "
+                    + str(type(token))
+                    + ": "
+                    + str(token)
+                )
             elif RX_WHITESPACE.match(token):
-                self.add_text(' ')
-            elif token.startswith('[[span'):
+                self.add_text(" ")
+            elif token.startswith("[[span"):
                 md = RX_SPAN.search(token)
                 if md:
                     attributes = md.groups()[0]
-                    self.add_node(Span(self.wikidot, token, 'span {}'.format(attributes)))
+                    self.add_node(
+                        Span(self.wikidot, token, "span {}".format(attributes))
+                    )
                 else:
                     self.add_text(token)
-            elif token == '[[/span]]':
+            elif token == "[[/span]]":
                 if self.span_depth > 0:
                     nd = self.remove_node(Span)
                     nd.set_closure(CLOSED_NODE)
                 else:
                     self.add_text(token)
-            elif token.startswith('[[size'):
+            elif token.startswith("[[size"):
                 md = RX_SIZE.search(token)
                 if md:
                     attributes = md.groups()[0]
                     self.add_node(
-                        Size(self.wikidot,
-                             token,
-                             'span style="font-size:{};"'.format(attributes)))
+                        Size(
+                            self.wikidot,
+                            token,
+                            'span style="font-size:{};"'.format(attributes),
+                        )
+                    )
                 else:
                     self.add_text(token)
-            elif token == '[[/size]]':
+            elif token == "[[/size]]":
                 if self.size:
                     nd = self.remove_node(Size)
                     nd.set_closure(CLOSED_NODE)
                 else:
                     self.add_text(token)
-            elif token.startswith('[[image'):
+            elif token.startswith("[[image"):
                 self.parse_image(token)
-            elif token.startswith('[[=image'):
+            elif token.startswith("[[=image"):
                 self.parse_image(token)
-            elif token.startswith('[[['):
+            elif token.startswith("[[["):
                 md = RX_PARSE_TRIPLE_BRACKET.search(token)
                 if md:
-                    name = md.group('name') or md.group('href')
-                    self.add_text(Link(self.wikidot,
-                                       token,
-                                       md.group('href'),
-                                       name))
+                    name = md.group("name") or md.group("href")
+                    self.add_text(Link(self.wikidot, token, md.group("href"), name))
                 else:
                     self.add_text(token)
-            elif token.startswith('[['):
+            elif token.startswith("[["):
                 md = RX_PARSE_DOUBLE_BRACKET.search(token)
                 if md:
-                    self.add_text(Anchor(self.wikidot, token, md.group('anchor')))
+                    self.add_text(Anchor(self.wikidot, token, md.group("anchor")))
                 else:
                     self.add_text(token)
-            elif token.startswith('['):
+            elif token.startswith("["):
                 md = RX_PARSE_SINGLE_BRACKET.search(token)
                 if md:
                     self.add_text(
-                        Link(self.wikidot, token, md.group('href'), md.group('name')))
+                        Link(self.wikidot, token, md.group("href"), md.group("name"))
+                    )
                 else:
                     self.add_text(token)
-            elif token == '##':
+            elif token == "##":
                 if self.color:
                     nd = self.remove_node(Color)
                     nd.set_closure(CLOSED_NODE)
                 else:
                     self.add_text(token)
-            elif token.startswith('##'):
+            elif token.startswith("##"):
                 if self.color:
-                    raise Exception('FIXME: nested color')
-                if token.endswith('|'):
+                    raise Exception("FIXME: nested color")
+                if token.endswith("|"):
                     color = token[2:-1]
                     if RX_RGB.search(color):
                         tag = 'span style="color: #{}"'.format(color.lower())
@@ -886,33 +888,32 @@ class InlineParser:
                     self.add_node(Color(self.wikidot, token, tag))
                 else:
                     self.add_text(token)
-            elif token == '--':
-                self.handle_token(i, '--', self.strike_thru, StrikeThru)
-            elif token == '__':
-                self.handle_token(i, '__', self.underline, Underline)
-            elif token == '//':
-                self.handle_token(i, '//', self.italic, Italic)
-            elif token == '**':
-                self.handle_token(i, '**', self.bold, Bold)
-            elif token == ',,':
-                self.handle_token(i, ',,', self.subscript, Subscript)
-            elif token == '^^':
-                self.handle_token(i, '^^', self.superscript, Superscript)
-            elif token == '{{':
+            elif token == "--":
+                self.handle_token(i, "--", self.strike_thru, StrikeThru)
+            elif token == "__":
+                self.handle_token(i, "__", self.underline, Underline)
+            elif token == "//":
+                self.handle_token(i, "//", self.italic, Italic)
+            elif token == "**":
+                self.handle_token(i, "**", self.bold, Bold)
+            elif token == ",,":
+                self.handle_token(i, ",,", self.subscript, Subscript)
+            elif token == "^^":
+                self.handle_token(i, "^^", self.superscript, Superscript)
+            elif token == "{{":
                 if not self.fixed_width:
-                    if i < len(tokens) - 1 and \
-                       not RX_WHITESPACE.match(tokens[i + 1]):
+                    if i < len(tokens) - 1 and not RX_WHITESPACE.match(tokens[i + 1]):
                         self.add_node(FixedWidth(self.wikidot))
                     else:
-                        self.add_text('{{')
-            elif token == '}}':
+                        self.add_text("{{")
+            elif token == "}}":
                 if self.fixed_width:
                     if i > 0 and not RX_WHITESPACE.match(tokens[i - 1]):
                         nd = self.remove_node(FixedWidth)
                         nd.set_closure(CLOSED_NODE)
                     else:
-                        self.add_text('}}')
-            elif token.startswith('http'):
+                        self.add_text("}}")
+            elif token.startswith("http"):
                 md = RX_URL.search(token)
                 if md:
                     self.add_text(Link(self.wikidot, token, token, token))
@@ -948,7 +949,7 @@ def analyze_line(line, current_block):
     if md:
         return BLOCK_TYPE_P, md
 
-    raise Exception('unparseable line: {}'.format(line))
+    raise Exception("unparseable line: {}".format(line))
 
 
 class Block:
@@ -964,18 +965,20 @@ class Block:
             self.matches.append(match)
         self.tag = self._tag()
 
-    def add_line(self, line, lineno,
-                 block_type=None, match=None, continued=False):
+    def add_line(self, line, lineno, block_type=None, match=None, continued=False):
         self.lines.append(line)
         self.linenos.append(lineno)
         if block_type is None:
             block_type, match = analyze_line(line, None)
-        if not continued and \
-           block_type != BLOCK_TYPE_P and \
-           block_type != BLOCK_TYPE_EMPTY and \
-           block_type != self.block_type:
-            raise Exception('block type mismatch: {}: {}'.format(
-                self.block_type, block_type))
+        if (
+            not continued
+            and block_type != BLOCK_TYPE_P
+            and block_type != BLOCK_TYPE_EMPTY
+            and block_type != self.block_type
+        ):
+            raise Exception(
+                "block type mismatch: {}: {}".format(self.block_type, block_type)
+            )
         self.matches.append(match)
 
     def _tag(self):
@@ -985,22 +988,22 @@ class Block:
         return self.block_type in MULTILINE_BLOCK_TYPES
 
     def write_open_tag(self, output_stream):
-        output_stream.write('<{}>'.format(self.tag))
+        output_stream.write("<{}>".format(self.tag))
 
     def content(self):
         parser = InlineParser(self.wikidot)
         for match in self.matches:
-            parser.parse(token_lex(match.group('content')))
+            parser.parse(token_lex(match.group("content")))
 
         return str(parser.top_node)
 
     def write_content(self, parser, output_stream):
         for match in self.matches:
-            parser.parse(token_lex(match.group('content')))
+            parser.parse(token_lex(match.group("content")))
             output_stream.write(str(parser.top_node))
 
     def write_close_tag(self, output_stream):
-        output_stream.write('</{}>\n'.format(self.tag))
+        output_stream.write("</{}>\n".format(self.tag))
 
     def close(self, output_stream):
         parser = InlineParser(self.wikidot)
@@ -1015,23 +1018,24 @@ class TOC:
         self.headers = []
 
     def add_header(self, header):
-        self.headers.append({
-            'n': header.n(),
-            'toc_number': header.toc_number,
-            'text': header.content()
-        })
+        self.headers.append(
+            {"n": header.n(), "toc_number": header.toc_number, "text": header.content()}
+        )
 
     def close(self, output_stream):
         output_stream.write('<div id="toc">\n')
         output_stream.write('<div class="title">Table of Contents</div>\n')
         output_stream.write('<div id="toc-list">\n')
         for header in self.headers:
-            output_stream.write('<div style="margin-left: {}em;">\n'.format(header['n'] + 1))
-            output_stream.write('<a href="#toc{}">{}</a>\n'.format(header['toc_number'],
-                                                                   header['text']))
-            output_stream.write('</div>\n')
-        output_stream.write('</div>\n')
-        output_stream.write('</div>\n')
+            output_stream.write(
+                '<div style="margin-left: {}em;">\n'.format(header["n"] + 1)
+            )
+            output_stream.write(
+                '<a href="#toc{}">{}</a>\n'.format(header["toc_number"], header["text"])
+            )
+            output_stream.write("</div>\n")
+        output_stream.write("</div>\n")
+        output_stream.write("</div>\n")
 
 
 class Header(Block):
@@ -1043,17 +1047,16 @@ class Header(Block):
         self.wikidot.toc.add_header(self)
 
     def write_open_tag(self, output_stream):
-        output_stream.write('<{} id="toc{}"><span>'.format(self.tag,
-                                                           self.toc_number))
+        output_stream.write('<{} id="toc{}"><span>'.format(self.tag, self.toc_number))
 
     def write_close_tag(self, output_stream):
-        output_stream.write('</span></{}>\n'.format(self.tag))
+        output_stream.write("</span></{}>\n".format(self.tag))
 
     def n(self):
-        return len(self.matches[0].group('plus_signs'))
+        return len(self.matches[0].group("plus_signs"))
 
     def _tag(self):
-        return 'h{}'.format(self.n())
+        return "h{}".format(self.n())
 
 
 class HorizontalRule(Block):
@@ -1061,17 +1064,17 @@ class HorizontalRule(Block):
         Block.__init__(self, wikidot, line, lineno, BLOCK_TYPE_HR, match)
 
     def close(self, output_stream):
-        output_stream.write('<hr />\n')
+        output_stream.write("<hr />\n")
 
 
 class Table(Block):
     def __init__(self, wikidot, line, lineno, match):
         Block.__init__(self, wikidot, line, lineno, BLOCK_TYPE_TABLE, match)
         self.wikidot = wikidot
-        self.cell_type = 'td'
+        self.cell_type = "td"
         self.colspan = 1
         self.text_align = None
-        self.cell_content = ''
+        self.cell_content = ""
         self.parser = None
 
     def start_cell(self):
@@ -1084,42 +1087,43 @@ class Table(Block):
         self.parser.add_text(self.wikidot.LINE_BREAK)
 
     def end_cell(self, output_stream):
-        output_stream.write('<{}>{}</{}>\n'.format(self.open_cell_tag(),
-                                                   str(self.parser.top_node),
-                                                   self.cell_type))
+        output_stream.write(
+            "<{}>{}</{}>\n".format(
+                self.open_cell_tag(), str(self.parser.top_node), self.cell_type
+            )
+        )
 
     def analyze_cell(self, cell):
         md = RX_TAGGED_CELL.search(cell)
         if md:
-            tag = md.group('tag')
-            self.cell_content = md.group('content')
+            tag = md.group("tag")
+            self.cell_content = md.group("content")
         else:
-            tag = ''
+            tag = ""
             self.cell_content = cell
 
-        if tag == '~':
-            self.cell_type = 'th'
+        if tag == "~":
+            self.cell_type = "th"
         else:
-            self.cell_type = 'td'
+            self.cell_type = "td"
 
-        if tag == '<':
-            self.text_align = 'left'
-        elif tag == '=':
-            self.text_align = 'center'
-        elif tag == '>':
-            self.text_align = 'right'
+        if tag == "<":
+            self.text_align = "left"
+        elif tag == "=":
+            self.text_align = "center"
+        elif tag == ">":
+            self.text_align = "right"
         else:
-            self.text_align = ''
+            self.text_align = ""
 
     def open_cell_tag(self):
         components = [self.cell_type]
         if self.colspan > 1:
             components.append('colspan="{}"'.format(self.colspan))
         if self.text_align:
-            components.append(
-                'style="text-align: {};"'.format(self.text_align))
+            components.append('style="text-align: {};"'.format(self.text_align))
 
-        return ' '.join(components)
+        return " ".join(components)
 
     def print_middle_of_cell(self, cell):
         self.add_cell_content(cell)
@@ -1143,8 +1147,7 @@ class Table(Block):
         self.end_cell(output_stream)
         self.colspan = 1
 
-    def print_cells(self, output_stream, first_cell, cells, last_cell,
-                    lone_cell=None):
+    def print_cells(self, output_stream, first_cell, cells, last_cell, lone_cell=None):
         self.colspan = 1
         if lone_cell is not None:
             self.print_middle_of_cell(lone_cell)
@@ -1159,41 +1162,41 @@ class Table(Block):
             self.print_start_of_cell(last_cell)
 
     def row_to_cells(self, row):
-        return row.split('||')
+        return row.split("||")
 
     def row_to_cells_(self, row):
         tokens = row.split(RX_TABLE_CELL_LEXER)
         cells = []
-        current_cell = ''
-        prev_s = ''
+        current_cell = ""
+        prev_s = ""
         literal_contents = None
         html_entity_literal_contents = None
 
         for s in tokens:
-            if prev_s + s == '@@':
+            if prev_s + s == "@@":
                 if literal_contents is not None:
                     current_cell += literal_contents
                     literal_contents = None
                 elif html_entity_literal_contents is not None:
-                    html_entity_literal_contents += '@@'
+                    html_entity_literal_contents += "@@"
                 else:
                     pass
-            elif prev_s + s == '@<':
+            elif prev_s + s == "@<":
                 pass
-            elif prev_s + s == '>@':
+            elif prev_s + s == ">@":
                 pass
-            elif s in {'@', '>'}:
+            elif s in {"@", ">"}:
                 pass
-            elif s == '||':
+            elif s == "||":
                 if literal_contents or html_entity_literal_contents:
-                    current_cell += '||'
+                    current_cell += "||"
                 else:
                     cells.append(current_cell)
-                    current_cell = ''
+                    current_cell = ""
             else:
                 if prev_s:
                     current_cell += prev_s
-                    prev_s = ''
+                    prev_s = ""
                 current_cell += s
 
         if current_cell:
@@ -1206,41 +1209,41 @@ class Table(Block):
         inside_cell = False
         for i, match in enumerate(self.matches):
             try:
-                content = match.group('content')
+                content = match.group("content")
             except IndexError:
-                content = ''
+                content = ""
             try:
                 md = RX_FULL_ROW.search(content)
                 if md:
                     if inside_cell:
-                        raise Exception('unterminated cell')
-                    row = md.group('row')
+                        raise Exception("unterminated cell")
+                    row = md.group("row")
                     cells = self.row_to_cells(row)
-                    output_stream.write('<tr>\n')
+                    output_stream.write("<tr>\n")
                     self.print_cells(output_stream, None, cells, None)
-                    output_stream.write('</tr>\n')
+                    output_stream.write("</tr>\n")
                     inside_cell = False
                     continue
                 md = RX_START_ROW.search(content)
                 if md:
                     if inside_cell:
-                        raise Exception('unterminated cell')
-                    row = md.group('row')
+                        raise Exception("unterminated cell")
+                    row = md.group("row")
                     cells = self.row_to_cells(row)
                     last_cell = cells.pop()
-                    output_stream.write('<tr>\n')
+                    output_stream.write("<tr>\n")
                     self.print_cells(output_stream, None, cells, last_cell)
                     inside_cell = True
                     continue
                 md = RX_END_ROW.search(content)
                 if md:
                     if not inside_cell:
-                        raise Exception('not inside cell')
-                    row = md.group('row')
+                        raise Exception("not inside cell")
+                    row = md.group("row")
                     cells = self.row_to_cells(row)
                     first_cell = cells.pop(0)
                     self.print_cells(output_stream, first_cell, cells, None)
-                    output_stream.write('</tr>\n')
+                    output_stream.write("</tr>\n")
                     inside_cell = False
                     continue
                 row = content
@@ -1251,62 +1254,56 @@ class Table(Block):
                 else:
                     first_cell = cells.pop(0)
                     last_cell = cells.pop()
-                    self.print_cells(output_stream,
-                                     first_cell,
-                                     cells,
-                                     last_cell)
+                    self.print_cells(output_stream, first_cell, cells, last_cell)
                 inside_cell = True
             except Exception:
                 if i < len(self.linenos):
                     sys.stderr.write(
-                        "ERROR line number at source: {}\n".format(
-                            self.linenos[i]))
+                        "ERROR line number at source: {}\n".format(self.linenos[i])
+                    )
                 raise
-        output_stream.write('</table>\n')
+        output_stream.write("</table>\n")
 
 
 class List(Block):
     def __init__(self, wikidot, line, lineno, match):
-        self.raw_tag = match.group('raw_tag')
-        Block.__init__(self,
-                       wikidot,
-                       line,
-                       lineno,
-                       self.raw_tag_to_tag(self.raw_tag),
-                       match)
+        self.raw_tag = match.group("raw_tag")
+        Block.__init__(
+            self, wikidot, line, lineno, self.raw_tag_to_tag(self.raw_tag), match
+        )
         self.opened_lists = None
         self.inside_line = None
 
     def raw_tag_to_tag(self, raw_tag):
-        if raw_tag == '*':
+        if raw_tag == "*":
             return BLOCK_TYPE_UL
-        if raw_tag == '#':
+        if raw_tag == "#":
             return BLOCK_TYPE_OL
-        raise Exception('unrecognized raw tag {}'.format(raw_tag))
+        raise Exception("unrecognized raw tag {}".format(raw_tag))
 
     def open_list(self, output_stream, tag, indent):
         if self.inside_line.get(indent - 1, False):
-            output_stream.write('\n')
+            output_stream.write("\n")
         elif indent > 0:
             self.open_line(output_stream, indent - 1)
-            output_stream.write('\n')
-        output_stream.write('<{}>\n'.format(tag))
+            output_stream.write("\n")
+        output_stream.write("<{}>\n".format(tag))
         self.opened_lists.append(tag)
 
     def close_list(self, output_stream, indent):
         if self.inside_line.get(indent, False):
             self.close_line(output_stream, indent)
         tag = self.opened_lists.pop()
-        output_stream.write('</{}>\n'.format(tag))
+        output_stream.write("</{}>\n".format(tag))
 
     def open_line(self, output_stream, indent):
         if self.inside_line.get(indent, False):
             self.close_line(output_stream, indent)
-        output_stream.write('<li>')
+        output_stream.write("<li>")
         self.inside_line[indent] = True
 
     def close_line(self, output_stream, indent):
-        output_stream.write('</li>\n')
+        output_stream.write("</li>\n")
         self.inside_line[indent] = False
 
     def write_list_content(self, output_stream, node):
@@ -1318,12 +1315,14 @@ class List(Block):
         triple = None
         for match in self.matches:
             if not triple:
-                triple = [None,
-                          self.raw_tag_to_tag(match.group('raw_tag')),
-                          len(match.group('indent'))]
-            content = match.group('content')
+                triple = [
+                    None,
+                    self.raw_tag_to_tag(match.group("raw_tag")),
+                    len(match.group("indent")),
+                ]
+            content = match.group("content")
             parser.parse(token_lex(content))
-            if match.group('br'):
+            if match.group("br"):
                 parser.add_text(self.wikidot.LINE_BREAK)
             else:
                 triple[0] = parser.top_node
@@ -1364,29 +1363,29 @@ class Code(Block):
 
     def write_open_tag(self, output_stream):
         output_stream.write('<div class="code">\n')
-        output_stream.write('<pre>\n')
-        output_stream.write('<code>')
+        output_stream.write("<pre>\n")
+        output_stream.write("<code>")
 
     def write_code_content(self, output_stream):
         n = self.output_nesting_level
         while n > 0:
-            output_stream.write('[[code]]\n')
+            output_stream.write("[[code]]\n")
             n -= 1
 
         for i, match in enumerate(self.matches):
-            if i == 0 and RX_BLANK_LINE.search(match.group('content')):
+            if i == 0 and RX_BLANK_LINE.search(match.group("content")):
                 continue
-            output_stream.write(html.escape(match.group('content'), quote=True))
+            output_stream.write(html.escape(match.group("content"), quote=True))
             if i < len(self.matches) - 1:
-                output_stream.write('\n')
+                output_stream.write("\n")
 
         while self.output_nesting_level > 0:
-            output_stream.write('\n[[/code]]')
+            output_stream.write("\n[[/code]]")
             self.output_nesting_level -= 1
 
     def write_close_tag(self, output_stream):
-        output_stream.write('</code>\n')
-        output_stream.write('</pre></div>\n')
+        output_stream.write("</code>\n")
+        output_stream.write("</pre></div>\n")
 
     def close(self, output_stream):
         self.write_open_tag(output_stream)
@@ -1404,33 +1403,33 @@ class Math(Block):
 
     def write_open_tag(self, output_stream):
         output_stream.write(
-            '<span class="equation-number">({})</span>\n'.format(
-                self.eqn_number))
+            '<span class="equation-number">({})</span>\n'.format(self.eqn_number)
+        )
         output_stream.write(
-            '<div class="math-equation" id="equation-{}">'.format(
-                self.eqn_number))
-        output_stream.write(r'$$ \begin{align} ')
+            '<div class="math-equation" id="equation-{}">'.format(self.eqn_number)
+        )
+        output_stream.write(r"$$ \begin{align} ")
 
     def write_math_content(self, output_stream):
         n = self.output_nesting_level
         while n > 0:
-            output_stream.write('[[math]]\n')
+            output_stream.write("[[math]]\n")
             n -= 1
 
         for i, match in enumerate(self.matches):
-            if i == 0 and RX_BLANK_LINE.search(match.group('content')):
+            if i == 0 and RX_BLANK_LINE.search(match.group("content")):
                 continue
-            output_stream.write(html.escape(match.group('content'), quote=True))
+            output_stream.write(html.escape(match.group("content"), quote=True))
             if i < len(self.matches) - 1:
-                output_stream.write('\n')
+                output_stream.write("\n")
 
         while self.output_nesting_level > 0:
-            output_stream.write('\n[[/math]]')
+            output_stream.write("\n[[/math]]")
             self.output_nesting_level -= 1
 
     def write_close_tag(self, output_stream):
-        output_stream.write(r' \end{align} $$')
-        output_stream.write('</div>\n')
+        output_stream.write(r" \end{align} $$")
+        output_stream.write("</div>\n")
 
     def close(self, output_stream):
         self.write_open_tag(output_stream)
@@ -1445,7 +1444,7 @@ class Paragraph(Block):
 
     def get_content(self, parser):
         for i, match in enumerate(self.matches):
-            parser.parse(token_lex(match.group('content')))
+            parser.parse(token_lex(match.group("content")))
             if i < len(self.matches) - 1:
                 parser.add_text(self.wikidot.LINE_BREAK)
 
@@ -1467,7 +1466,7 @@ class Paragraph(Block):
             if not suppress_tags:
                 self.write_close_tag(output_stream)
             else:
-                output_stream.write('\n')
+                output_stream.write("\n")
 
 
 class Div:
@@ -1477,38 +1476,38 @@ class Div:
         self.parse_attributes(match)
         attrs = self.attributes_to_str()
         if attrs:
-            output_stream.write('<div {}>\n'.format(attrs))
+            output_stream.write("<div {}>\n".format(attrs))
         else:
-            output_stream.write('<div>\n')
+            output_stream.write("<div>\n")
 
     def parse_attributes(self, match):
-        rest = match.group('attributes') or ''
+        rest = match.group("attributes") or ""
         while rest:
             md = RX_DIV_ATTR.search(rest)
             if md:
-                name = md.group('name')
-                value = md.group('value')
-                if name == 'id':
-                    self.attributes[name] = 'u-' + value
+                name = md.group("name")
+                value = md.group("value")
+                if name == "id":
+                    self.attributes[name] = "u-" + value
                 else:
                     self.attributes[name] = value
-                rest = md.group('rest')
+                rest = md.group("rest")
             else:
-                rest = ''
+                rest = ""
 
     def attributes_to_str(self):
         attrs = []
-        for k in ['id', 'class', 'style']:
+        for k in ["id", "class", "style"]:
             if k in self.attributes:
                 attrs.append('{}="{}"'.format(k, self.attributes[k]))
         for k in sorted(self.attributes.keys()):
-            if k.startswith('data-'):
+            if k.startswith("data-"):
                 attrs.append('{}="{}"'.format(k, self.attributes[k]))
 
-        return ' '.join(attrs)
+        return " ".join(attrs)
 
     def close(self, output_stream):
-        output_stream.write('</div>\n')
+        output_stream.write("</div>\n")
 
 
 class BlockParser:
@@ -1535,22 +1534,28 @@ class BlockParser:
         if block_type == BLOCK_TYPE_EMPTY:
             return Empty(wikidot=self.wikidot, line=line, lineno=lineno, match=match)
         if block_type == BLOCK_TYPE_HR:
-            return HorizontalRule(wikidot=self.wikidot, line=line, lineno=lineno, match=match)
+            return HorizontalRule(
+                wikidot=self.wikidot, line=line, lineno=lineno, match=match
+            )
         if block_type == BLOCK_TYPE_CODE:
             return Code(wikidot=self.wikidot, line=line, lineno=lineno, match=match)
         if block_type == BLOCK_TYPE_MATH:
             return Math(wikidot=self.wikidot, line=line, lineno=lineno, match=match)
         if block_type == BLOCK_TYPE_P:
-            return Paragraph(wikidot=self.wikidot, line=line, lineno=lineno, match=match)
+            return Paragraph(
+                wikidot=self.wikidot, line=line, lineno=lineno, match=match
+            )
         if block_type == BLOCK_TYPE_HN:
             return Header(wikidot=self.wikidot, line=line, lineno=lineno, match=match)
         if block_type == BLOCK_TYPE_TABLE:
             return Table(wikidot=self.wikidot, line=line, lineno=lineno, match=match)
-        return Block(wikidot=self.wikidot,
-                     line=line,
-                     lineno=lineno,
-                     block_type=block_type,
-                     match=match)
+        return Block(
+            wikidot=self.wikidot,
+            line=line,
+            lineno=lineno,
+            block_type=block_type,
+            match=match,
+        )
 
     def adjust_blockquote_level(self, output_stream, line):
         if isinstance(self.current_block, Code):
@@ -1558,8 +1563,8 @@ class BlockParser:
 
         md = RX_BLOCKQUOTE.search(line)
         if md:
-            new_bq_level = len(md.group('greater_than_signs'))
-            line = md.group('content')
+            new_bq_level = len(md.group("greater_than_signs"))
+            line = md.group("content")
         else:
             new_bq_level = 0
 
@@ -1568,10 +1573,10 @@ class BlockParser:
 
         if new_bq_level > self.bq_level:
             for _ in range(0, new_bq_level - self.bq_level):
-                output_stream.write('<blockquote>\n')
+                output_stream.write("<blockquote>\n")
         elif new_bq_level < self.bq_level:
             for _ in range(0, self.bq_level - new_bq_level):
-                output_stream.write('</blockquote>\n')
+                output_stream.write("</blockquote>\n")
 
         self.bq_level = new_bq_level
 
@@ -1616,7 +1621,7 @@ class BlockParser:
             md = RX_CODE_CONTENT.search(line)
             if md:
                 return BLOCK_TYPE_CODE, md
-            raise Exception('unparseable line: {}'.format(line))
+            raise Exception("unparseable line: {}".format(line))
 
         if isinstance(self.current_block, Math):
             md = RX_MATH_START.search(line)
@@ -1634,7 +1639,7 @@ class BlockParser:
             md = RX_MATH_CONTENT.search(line)
             if md:
                 return BLOCK_TYPE_MATH, md
-            raise Exception('unparseable line: {}'.format(line))
+            raise Exception("unparseable line: {}".format(line))
 
         if self.bq_level == 0:
             md = RX_CODE_START.search(line)
@@ -1669,36 +1674,31 @@ class BlockParser:
                     continue
 
                 if not self.current_block:
-                    self.current_block = self.block_factory(line,
-                                                            lineno,
-                                                            block_type,
-                                                            match)
+                    self.current_block = self.block_factory(
+                        line, lineno, block_type, match
+                    )
                 elif self.continued_line:
-                    self.current_block.add_line(line,
-                                                lineno,
-                                                block_type,
-                                                match,
-                                                continued=True)
-                elif (block_type == self.current_block.block_type and
-                      self.current_block.multiline_type()):
-                    self.current_block.add_line(line,
-                                                lineno,
-                                                block_type,
-                                                match)
+                    self.current_block.add_line(
+                        line, lineno, block_type, match, continued=True
+                    )
+                elif (
+                    block_type == self.current_block.block_type
+                    and self.current_block.multiline_type()
+                ):
+                    self.current_block.add_line(line, lineno, block_type, match)
                 else:
                     self.close_current_block(output_stream)
-                    self.current_block = self.block_factory(line,
-                                                            lineno,
-                                                            block_type,
-                                                            match)
+                    self.current_block = self.block_factory(
+                        line, lineno, block_type, match
+                    )
 
                 try:
-                    self.continued_line = line.endswith(' _')
+                    self.continued_line = line.endswith(" _")
                 except IndexError:
                     self.continued_line = False
 
             self.close_current_block(output_stream)
-            self.adjust_blockquote_level(output_stream, '')
+            self.adjust_blockquote_level(output_stream, "")
         except Exception:
             sys.stderr.write("ERROR at line {}: {}\n".format(lineno, line))
             raise
@@ -1728,16 +1728,10 @@ class Wikidot:
         BlockParser(self, input_stream).process_lines(output_stream)
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--image-prefix',
-                        dest='image_prefix',
-                        default='')
-    parser.add_argument('--link-prefix',
-                        dest='link_prefix',
-                        default='')
-    parser.add_argument('--link-suffix',
-                        dest='link_suffix',
-                        default='')
+    parser.add_argument("--image-prefix", dest="image_prefix", default="")
+    parser.add_argument("--link-prefix", dest="link_prefix", default="")
+    parser.add_argument("--link-suffix", dest="link_suffix", default="")
     args = parser.parse_args()
     Wikidot(args).to_html(sys.stdin, sys.stdout)

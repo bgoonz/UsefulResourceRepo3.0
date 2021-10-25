@@ -1,0 +1,17 @@
+When building smart display games for the Google Assistant using [Interactive Canvas](https://developers.google.com/assistant/interactivecanvas), you can add fun animations to create a fully immersive experience. Do you know you can synchronize your animations with audio, such as making a dinosaur open its mouth at the exact moment you play the roaring sound? In this blog post, you will learn how to use the SSML [mark tag](https://developers.google.com/assistant/actions/reference/ssml#mark) with the onTtsMark callback function to synchronize your animations with audio.
+
+[SSML](https://developers.google.com/assistant/actions/reference/ssml) stands for Speech Synthesis Markup Language. By using SSML, you can make your conversation’s responses sound more natural by adding breaks between words, and adjusting the speed, pitch and rate of a word. Look at the SSML example below.
+
+<speak> The dinosaur is about to roar <mark name = ‘START\_ROAR’><audio src=’roar.mp3’/><mark name =’STOP\_ROAR’></speak>
+
+![](https://miro.medium.com/max/518/1*OXnV16DdOa9nPcVvceyjSg.gif)
+
+In the SSML, the <mark> tag allows you to indicate during the generated TTS audio when the dinosaur should start and stop animating. It generates events during TTS; your code has a callback that gets triggered by each mark tag. Each mark event has a name. In this example, we have two events named “START\_ROAR” and “STOP\_ROAR”. You need to write code that can be triggered by each mark event. The code for the “START\_ROAR” event can open the dinosaur’s mouth after the spoken prompt “The dinosaur is about to roar “ is complete. Similarly, the code for the “STOP\_ROAR” event can close the dinosaur’s mouth.
+
+Now that the mark tags are in place within the SSML, you can write the logic for each animation when the mark tag is hit. Keep in mind, the name of the mark tag must be unique within the SSML so that the onTtsMark callback responds to the correct cue. Let’s look at the code below.
+
+You register a callback for onTtsMark. The onTtsMark() method receives the markName in the SSML, and depending on the name of the mark tag, triggers the corresponding logic which plays the animation of the dinosaur moving its mouth. For the ‘START\_ROAR’ markName, it will call the beginRoaring function, whereas ‘STOP\_ROARING’ will call the stopRoaring function to stop the animation.
+
+Now that you have learned how to synchronize animations using the SSML mark tag and the onTtsMark callback, we hope you apply this tip in your next Action to create a fully immersive gaming experience for your users.
+
+If you have a tip that you think other developers should know about, share your thoughts with us on [Twitter](https://twitter.com/ActionsOnGoogle) using #AoGProTips. Lastly, check out our collection of other pro tips [here](https://www.youtube.com/playlist?list=PLOU2XLYxmsIJaFhu4mKg3LgUpsrxnr1Y-).

@@ -1,0 +1,96 @@
+.root {
+	composes: mdc-select from '@material/select/dist/mdc.select.css';
+	display: flex;
+	flex-direction: column;
+}
+
+.root:not(.disabled) .trigger {
+	background-color: var(--mdc-theme-on-surface);
+}
+
+.root:hover:not(.disabled) .trigger {
+	background-color: var(--mdc-theme-on-surface-hover);
+}
+
+.expanded {
+	composes: mdc-select--activated from '@material/select/dist/mdc.select.css';
+}
+
+.focused {
+	composes: mdc-select--focused from '@material/select/dist/mdc.select.css';
+}
+
+.valid {
+}
+
+.invalid {
+}
+
+.disabled {
+	composes: mdc-select--disabled from '@material/select/dist/mdc.select.css';
+	background-color: var(--mdc-disabled-color);
+}
+
+.required {
+	composes: mdc-select--required from '@material/select/dist/mdc.select.css';
+}
+
+.trigger {
+	composes: mdc-select__anchor from '@material/select/dist/mdc.select.css';
+	border: 0;
+	padding: 0;
+	width: 100%;
+	outline: none;
+}
+
+.value {
+	composes: mdc-select__selected-text mdc-line-ripple from '@material/select/dist/mdc.select.css';
+	text-align: left;
+	color: var(--mdc-text-color) !important;
+}
+
+.disabled .value {
+	color: var(--mdc-disabled-text-color) !important;
+}
+
+.value::before {
+	border-bottom-color: var(--mdc-text-color) !important;
+}
+
+.valueExpanded {
+	composes: mdc-line-ripple--active from '@material/select/dist/mdc.select.css';
+}
+
+.arrow {
+	composes: mdc-select__dropdown-icon from '@material/select/dist/mdc.select.css';
+}
+
+.labelRoot {
+	composes: mdc-floating-label from '@material/select/dist/mdc.select.css';
+	z-index: 10;
+	color: var(--mdc-text-color) !important;
+}
+
+.labelActive {
+	composes: mdc-floating-label--float-above from '@material/textfield/dist/mdc.textfield.css';
+	color: var(--mdc-theme-primary) !important;
+}
+
+.root .labelActive {
+	top: 26px;
+}
+
+.menuWrapper {
+	box-shadow: var(--mdc-theme-elevation-2);
+	border-radius: var(--mdc-theme-border-radius);
+	overflow: hidden;
+}
+
+.iconDownIcon {
+	composes: downAltIcon from './icon.m.css';
+	color: var(--mdc-text-color);
+}
+
+.focused .iconDownIcon {
+	color: var(--mdc-theme-primary);
+}

@@ -1,0 +1,35 @@
+   info  - socket.io started
+   debug - served static /socket.io.js
+   debug - client authorized
+   info  - handshake authorized 278839520115563206
+   debug - setting request GET /socket.io/1/websocket/278839520115563206
+   debug - set heartbeat interval for client 278839520115563206
+   debug - client authorized for
+   debug - websocket writing 1::
+connection established!
+   debug - websocket writing 5:1+::{"name":"news","args":[{"hello":"world"}]}
+   debug - setting request GET /socket.io/1/xhr-polling/278839520115563206?t=1317787153942
+   debug - setting poll timeout
+   debug - discarding transport
+   debug - cleared heartbeat interval for client 278839520115563206
+   debug - setting request GET /socket.io/1/jsonp-polling/278839520115563206?t=1317787164043&i=1
+   debug - setting poll timeout
+   debug - discarding transport
+   debug - clearing poll timeout
+   debug - clearing poll timeout
+   debug - jsonppolling writing io.j[1]("8::");
+   debug - set close timeout for client 278839520115563206
+   debug - jsonppolling closed due to exceeded duration
+   debug - setting request GET /socket.io/1/jsonp-polling/278839520115563206?t=1317787184457&i=1
+   debug - setting poll timeout
+   debug - discarding transport
+   debug - cleared close timeout for client 278839520115563206
+   debug - clearing poll timeout
+   debug - jsonppolling writing io.j[1]("8::");
+   debug - set close timeout for client 278839520115563206
+   debug - jsonppolling closed due to exceeded duration
+   debug - setting request GET /socket.io/1/jsonp-polling/278839520115563206?t=1317787204519&i=1
+   debug - setting poll timeout
+   debug - discarding transport
+   debug - cleared close timeout for client 278839520115563206
+   debug - clearing poll timeout

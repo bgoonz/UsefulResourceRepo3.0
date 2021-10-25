@@ -1,0 +1,2515 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        
+  <title>Convert HTML to PDF online, Web/HTML to PDF API</title>
+
+  <link href="/static/css/c_base_bundle.44b13bfa6103.css" rel="stylesheet" type="text/css" />
+
+  
+
+  
+<link href="/static/css/c_main.79b67c2b34b8.css" rel="stylesheet" type="text/css" />
+
+
+  
+ <link rel="canonical" href="https://pdfcrowd.com/">
+ <meta name="description" content="Pdfcrowd is a Web/HTML to
+PDF online service. Convert HTML to PDF online in the browser or in your PHP,
+Python, Ruby, .NET, Java apps via the REST API.">
+
+
+
+  
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-15625150-1"></script>
+  <script>
+    var is_pdfcrowd = new RegExp("https?://[^/]*pdfcrowd.com", "i");
+    if (is_pdfcrowd.test(location.href))
+    {
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-15625150-1');
+    }
+  </script>
+  
+  <script>
+    var pdfcrowdOnReady = [];
+    function pdfcrowdRegisterOnReady(fn) {
+        pdfcrowdOnReady.push(fn);
+    }
+  </script>
+</head>
+
+<body>
+  
+
+  <!-- ========== BOOTSTRAP HEADER ============ -->     
+  
+  <!-- Static navbar -->
+  <nav id="nav-main"
+       class="pdfcrowd-remove navbar navbar-expand-md navbar-pdfcrowd navbar-dark fixed-top">
+    <div class="navbar-brand">
+      <a href="/">
+        <img src="/static/images/icon1.png" alt="Pdfcrowd icon"
+             height="28" width="38" class="d-inline-block align-baseline"/>
+        <span id="brand-title">
+          pdfcrowd
+        </span>
+      </a>
+      
+    </div>
+
+    <button class="navbar-toggler" type="button"
+            data-toggle="collapse"
+            data-target="#main-menu-links"
+            aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div id="main-menu-links" class="collapse navbar-collapse">
+          <ul class="navbar-nav ml-auto">
+              
+              <li class="nav-item dropdown">
+                  <form id="main-search" method="get" action="/search/"
+                        class="mr-3 mr-md-2 search-form position-relative">
+                      <div class="mt-1 d-inline-block position-relative">
+                          <input id="in-search"
+                                 type="text" name="q"
+                                 class="d-inline form-control search bg-transparent px-2 py-1"
+                                 autocapitalize="none"
+                                 autocomplete="off"
+                                 autocorrect="off"
+                                 placeholder="Search..."
+                                 value=""
+                                 minlength="1">
+                          <button id="btn-search" class="btn mr-1 p-0" type="submit">
+                              <svg height="18px" version="1.1" viewBox="0 0 30 30" width="18px" xmlns="http://www.w3.org/2000/svg" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns" xmlns:xlink="http://www.w3.org/1999/xlink">
+                                  <g fill="none" fill-rule="evenodd" id="Page-1" stroke="" stroke-width="1">
+                                      <g fill="#aaa">
+                                          <path d="M19.4271164,21.4271164 C18.0372495,22.4174803 16.3366522,23 14.5,23 C9.80557939,23 6,19.1944206 6,14.5 C6,9.80557939 9.80557939,6 14.5,6 C19.1944206,6 23,9.80557939 23,14.5 C23,16.3366522 22.4174803,18.0372495 21.4271164,19.4271164 L27.0119176,25.0119176 C27.5621186,25.5621186 27.5575313,26.4424687 27.0117185,26.9882815 L26.9882815,27.0117185 C26.4438648,27.5561352 25.5576204,27.5576204 25.0119176,27.0119176 L19.4271164,21.4271164 L19.4271164,21.4271164 Z M14.5,21 C18.0898511,21 21,18.0898511 21,14.5 C21,10.9101489 18.0898511,8 14.5,8 C10.9101489,8 8,10.9101489 8,14.5 C8,18.0898511 10.9101489,21 14.5,21 L14.5,21 Z"/>
+                                      </g>
+                                  </g>
+                              </svg>
+                          </button>
+                      </div>
+                  </form>
+              </li>
+              
+
+          <li class="nav-item dropdown">
+            <a href="#"
+               class="nav-link dropdown-toggle"
+               id="navbarDropdown"
+               data-toggle="dropdown"
+               role="button">
+              Products</a>
+            <div class="dropdown-menu">
+              <a class="dropdown-item"
+                 href="/doc/api/">
+                Pdfcrowd API
+                
+              </a>
+              <a class="dropdown-item" href="/save-to-pdf/">Save to PDF Link</a>
+              <a class="dropdown-item" href="/save-as-pdf-addon/">Conversions in Browser</a>
+              <a class="dropdown-item" href="/save-as-pdf-image-wordpress-plugin/">WordPress Plugins</a>
+              
+            </div> <!-- dropdown -->
+          </li>
+            
+          <li class="nav-item">
+            <a class="nav-link" href="/pricing/">Pricing</a>
+          </li>
+              
+          
+              <li class="nav-item">
+                <a class="nav-link" href="/user/sign_in/" rel="nofollow">Log in</a>
+              </li>
+              <li class="nav-item nav-sign-up-item ml-md-3 mr-md-3">
+                <a class="nav-link" href="/user/sign_up/" rel="nofollow">Sign up</a>
+              </li>
+             
+        </ul>
+      </div>
+</nav>
+
+<!-- ========== messages ============ -->
+<div id="wrapper">
+
+
+
+  <div id="messages" class="w-100">
+        
+  </div>
+
+  <div id="top-block" class="w-100">
+    
+ <div class="position-relative">
+ <div class="container-fluid text-white top-block" id="main-carousel"> 
+   <div class="container pt-3">
+     <div class="carousel slide" data-ride="carousel">
+       <div class="carousel-inner">
+         
+         <div class="carousel-item active">
+           <h1 class="text-center text-white">Convert HTML to PDF</h1>
+           <p class="text-center lead">Create PDF from web pages and HTML documents</p>
+           <!-- <hr class="my-4"> -->
+           <!-- <p class="text-center">Invoices, reports, certificates, contracts, CVs, newsletters, leaflets.</p> -->
+         </div>
+
+         <div class="carousel-item">
+           <h1 class="text-center text-white">Convert HTML to Image</h1>
+           <p class="lead text-center">Capture screenshots of web pages and HTML documents</p>
+           <!-- <hr class="my-4"> -->
+           <!-- <p class="text-center">We support jpg, png, gif, tiff and webp image formats.</p> -->
+         </div>
+         
+       </div>
+     </div>
+   </div>
+ </div>
+</div>
+
+  </div>
+
+  <!-- ========== content ============ -->     
+  <div id="content-wrapper"
+       class="pt-3">
+    
+
+<div class="container"> 
+
+<noscript>
+  <p style="text-align: center; font-weight: bold; color: red"><span>Please enable JavaScript to view the form correctly.</span></p>
+</noscript>
+
+<!-- FORM START -->
+
+
+<div id="convert-forms" class="mt-4 card">
+
+  <!-- spinner and result window -->
+  <div id="conv-result" style="display:none;z-index:1200" class="rounded container">
+    <div id="main-result-row" class="row text-dark text-center align-items-center">
+      
+      <div class="col-md-8 offset-md-2">
+
+        <div class="alert shadow alert-light result-pane conv-in-progress-pane mb-0"
+             role="alert">        
+          <p class="h4 alert-heading">Conversion in progress&nbsp;...</p>
+          <div class="spinner mt-3 mr-auto ml-auto">
+          </div>
+        </div>
+
+        <div class="alert shadow alert-light result-pane conv-succeeded-pane mb-0"
+             role="alert">        
+          <button type="button" class="close">
+            <span>&times;</span>
+          </button>
+          <p class="mt-3 h4 alert-heading">Your
+            <span class="mode-pdf">PDF</span>
+            <span class="mode-image">image</span>            
+            is ready</p>
+          <p class="mt-3">
+            <a href="" class="alert-link result-download">Download</a> | 
+            <a href="" class="alert-link result-open" target="_blank">Open</a>
+          </p>
+          <hr>
+          <p class="small">
+            You can
+            <span class="mode-pdf">create PDF</span>
+            <span class="mode-image">make screenshots</span>            
+            in your applications with our
+            <a class="alert-link"
+               href="/doc/api/">conversion&nbsp;API</a>.
+          </p>
+        </div>
+
+        <div class="alert shadow alert-danger result-pane conv-error-pane mb-0"
+             role="alert">        
+          <button type="button" class="close">
+            <span>&times;</span>
+          </button>
+          <p class="h4 alert-heading">Error</p>
+          <p class="error-detail"></p>
+        </div>
+        
+      </div>
+    </div>
+  </div>
+  
+  
+  <div class="card-header">
+    <nav class="nav nav-tabs card-header-tabs flex-column flex-md-row" role="tablist">
+      <a class="nav-item nav-link active flex-sm-fill text-center noselect nodrag"
+         data-toggle="tab"
+         data-url-hash="convert_by_url"
+         role="tab"
+         href="#by_url">Convert Web Page</a>
+      
+      <a class="nav-item nav-link ml-md-3 flex-sm-fill text-center noselect nodrag"
+         data-toggle="tab"
+         data-url-hash="convert_by_upload"
+         role="tab"
+         href="#by_upload">Convert HTML File</a>
+      
+      <a class="nav-item nav-link ml-md-3 flex-sm-fill text-center noselect nodrag"
+         data-toggle="tab"
+         data-url-hash="convert_by_input"
+         role="tab"
+         href="#by_input">Convert HTML Code</a>
+    </nav>
+  </div>
+  
+  <div class="card-body">
+    
+    <form id="convert-form" 
+          action="/form/pdf/convert/uri/"
+          method="post" 
+          accept-charset="utf-8" 
+          class="conversion_form"><input type="hidden" name="csrfmiddlewaretoken" value="smGxVy8kmsA3UsedEXzag2ZAQkzvgUQUremSj7Nysv0RO7d4S2D0pH6zYftI6D5W">
+      
+      <div class="tab-content">
+        <div id="by_url" class="tab-pane show active" role="tabpanel">
+          <label for="uri">Enter a web page to convert:</label>
+          <input type="hidden" name="conversion_source" value="uri">
+          <div class="conversion_input form-group">
+            <input id="uri"
+                   class="form-control"
+                   type="text"
+                   name="src"
+                   spellcheck="false"
+                   autocorrect="off"
+                   autocapitalize="off"
+                   value="en.wikipedia.org">
+          </div>
+        </div>
+        
+        <div id="by_upload" class="tab-pane" role="tabpanel">
+          <p class="form-instructions mb-2">
+            You can upload an HTML file, or a zip, tar.gz, or tar.bz2 archive. The
+            archive can contain external files like images, stylesheets and
+            scripts.
+          </p>
+          <input type="hidden" name="conversion_source" value="upload" disabled>
+          <div class="conversion_input form-group">
+            <div class="custom-file">
+              <input class="custom-file-input"
+                     id="upload" type="file" name="src" disabled>
+              <label class="custom-file-label text-truncate" for="upload">Choose file</label>
+            </div>
+          </div>
+        </div>
+        
+        <div id="by_input" class="tab-pane" role="tabpanel">
+          <label for="direct-html-input">
+            Enter HTML code
+          </label>
+          <input type="hidden" name="conversion_source" value="content" disabled>
+          <div class="conversion_input form-group">
+            <textarea id="direct-html-input"
+                      class="form-control"
+                      name="src"
+                      autocomplete="off"
+                      autocorrect="off"
+                      autocapitalize="off"
+                      spellcheck="false"
+                      rows="6" disabled>
+&lt;html&gt;
+ &lt;body&gt;
+  Hello World!
+ &lt;/body&gt;
+&lt;/html&gt;
+</textarea>
+          </div>
+        </div>
+      </div> <!-- tab-content -->
+      
+
+      <div id="button-row" class="row">
+      
+        <div class="col-sm-8">
+          <div class="d-inline-flex flex-row">
+            <button
+              id="submit-button-url"
+              type="submit"
+              class="btn btn-primary px-4">Convert
+            </button>
+      
+            <div class="input-group ml-2">
+              <div class="input-group-prepend">
+                <label class="input-group-text" for="to-format">To</label>
+              </div>
+              <select class="custom-select"
+                      id="to-format"
+                      name="output_format">
+                <option value="pdf">PDF</option>
+                <option value="jpg">JPG</option>
+                <option value="png">PNG</option>
+                <option value="gif">GIF</option>                
+                <option value="tiff">TIFF</option>
+                <option value="webp">WEBP</option>                
+              </select>
+            </div>
+          </div>
+        </div>
+      
+        <div class="col-sm-4 mt-sm-0 mt-3 text-sm-right">
+          <button
+            id="options-toggle"
+            type="button"
+            class="btn btn-secondary">Show Options</button>
+        </div>
+      </div> <!-- button-row -->
+
+      <div id="conv-options" class="my-3 pt-3 position-relative" style="display:none">
+        
+        <div id="options-overlay" class="rounded" style="display:none">
+          <div class="row">
+            <div class="col-md-10 offset-md-1 mt-md-4">
+              <div class="overlay-message rounded">
+                <p>
+                  <strong><u>CONVERSIONS IN BROWSER</u></strong><br>
+                  Activate Browser License and customize these conversion settings.
+                  <br><a class="btn btn-sm btn-primary"
+                         href="/save-as-pdf-addon/">Learn more about Conversions in Browser</a>
+                  <a class="btn btn-sm btn-primary"
+                     href="/pricing/license/">Browser License</a>
+                </p>
+                <p class="mt-5">
+                  <strong><u>PDFCROWD API</u></strong><br>
+                  Create PDF and screenshots in your applications with the Pdfcrowd API.
+                  <br><a class="btn btn-sm btn-primary"
+                         href="/doc/api/">Learn more about API</a>
+                  <a class="btn btn-sm btn-primary"
+                     href="/pricing/api/">API License</a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        
+<div class="image-only-options">
+  <div class="row justify-content-around mt-2">
+    <div class="col-md-5">
+      <legend class="">Image Size</legend>
+       
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_img_screenshot_width">Image width (px):</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="img_screenshot_width" value="1024" min="96" max="7680" required="true" class="form-control" id="id_img_screenshot_width">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_img_screenshot_width"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+       
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="img_auto_height" class="form-check-input" id="id_img_auto_height" checked>
+    <label class="form-check-label" for="id_img_auto_height">
+      Auto height
+    </label>
+  </div>
+  
+  
+
+
+
+    
+</div>
+
+
+
+
+
+       
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_img_screenshot_height">Image height (px):</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="img_screenshot_height" value="512" min="1" required="true" class="form-control" id="id_img_screenshot_height">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_img_screenshot_height"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+      
+    </div>
+    <div class="col-md-5">
+      <legend class="">HTML Options</legend>
+      <div class="form-group">
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="img_no_javascript" class="form-check-input" id="id_img_no_javascript">
+    <label class="form-check-label" for="id_img_no_javascript">
+      Do not run JavaScript
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="img_no_images" class="form-check-input" id="id_img_no_images">
+    <label class="form-check-label" for="id_img_no_images">
+      Do not print images
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="img_no_backgrounds" class="form-check-input" id="id_img_no_backgrounds">
+    <label class="form-check-label" for="id_img_no_backgrounds">
+      Do not print backgrounds
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="img_use_print_media" class="form-check-input" id="id_img_use_print_media">
+    <label class="form-check-label" for="id_img_use_print_media">
+      Use the print version of the page if available
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+  <div class="row justify-content-around mt-2">
+    <div class="col-md-5">
+      
+      <div class="form-group new-option">
+        <legend>Readability</legend>
+        <input type="hidden" value="off" name="img_block_ads">
+        <input type="hidden" value="off" name="img_enable_remove_zindex">
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="img_block_ads" class="input-padding form-check-input" id="id_img_block_ads" checked>
+    <label class="form-check-label" for="id_img_block_ads">
+      Try to block ads
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="img_enable_remove_zindex" class="form-check-input" id="id_img_enable_remove_zindex" checked>
+    <label class="form-check-label" for="id_img_enable_remove_zindex">
+      Remove obscuring content with high z-index
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  
+    <label for="id_img_zindex_remove_limit">Z-index element remove limit:</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="img_zindex_remove_limit" value="50" min="-9999" required="true" class="form-control" id="id_img_zindex_remove_limit">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_img_zindex_remove_limit"></div>
+  
+  
+  
+      
+
+
+
+
+
+
+
+    
+      </div>
+      
+    </div>
+    <div class="col-md-5">
+    </div>
+  </div>
+</div>
+
+<div class="pdf-only-options">
+
+  <div style="display:none">
+    <input type="checkbox" name="allow_api_v1_choice" id="id_allow_api_v1_choice">
+  </div>
+
+  <div class="row justify-content-around mt-2">
+    <div class="col-md-5">
+      
+      <legend class="">Page Size</legend>
+      
+
+
+
+
+
+<div class="form-group required">
+
+  
+
+
+  
+    <div class="form-check">
+      <span class="bt-radio"><input type="radio" name="page_size" value="predefined" class="form-check-input" id="id_page_size_0" required checked></span>
+      <label class="form-check-label" for="id_page_size_0">
+        Predefined page size
+      </label>
+    </div>
+  
+    <div class="form-check">
+      <span class="bt-radio"><input type="radio" name="page_size" value="custom" class="form-check-input" id="id_page_size_1" required></span>
+      <label class="form-check-label" for="id_page_size_1">
+        Custom page size
+      </label>
+    </div>
+  
+
+
+
+    
+</div>
+
+
+
+
+
+      
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="single_page" class="form-check-input form-check-input" id="id_single_page">
+    <label class="form-check-label" for="id_single_page">
+      Single page PDF
+    </label>
+  </div>
+  
+  
+
+
+
+    
+</div>
+
+
+
+
+
+      <div id="grp-predef-page">
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_page_format">Page format:</label>  
+  
+
+  
+  
+    
+
+
+<select name="page_format" class="custom-select form-control" id="id_page_format">
+  <option value="letter">Letter (216 × 279 mm, 8.5 × 11 inches)</option>
+
+  <option value="a2">A2 (420 × 594 mm, 16.5 × 23.4 inches)</option>
+
+  <option value="a3">A3 (298 × 420 mm, 11.7 × 16.5 inches)</option>
+
+  <option value="a4" selected>A4 (210 × 298 mm, 8.3 × 11.7 inches)</option>
+
+  <option value="a5">A5 (148 × 210 mm, 5.8 × 8.3 inches)</option>
+
+  <option value="a6">A6 (105 × 148 mm, 4.1 × 5.8 inches)</option>
+
+</select>
+
+        
+      <div class="invalid-feedback"
+           data-for="id_page_format"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <div class="form-check">
+      <span class="bt-radio"><input type="radio" name="page_orientation" value="portrait" class="form-check-input" id="id_page_orientation_0"></span>
+      <label class="form-check-label" for="id_page_orientation_0">
+        Portrait
+      </label>
+    </div>
+  
+    <div class="form-check">
+      <span class="bt-radio"><input type="radio" name="page_orientation" value="landscape" class="form-check-input" id="id_page_orientation_1" checked></span>
+      <label class="form-check-label" for="id_page_orientation_1">
+        Landscape
+      </label>
+    </div>
+  
+
+
+
+    
+</div>
+
+
+
+
+    
+      </div>
+      <div id="grp-custom-page">
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_page_width">Page width:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="page_width" value="9.8in" class="unit-value form-control" required="true" id="id_page_width">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_page_width"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_page_height">Page height:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="page_height" value="13.9in" class="unit-value form-control" required="true" id="id_page_height">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_page_height"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+      </div>
+    </div>
+    <div class="col-md-5">
+      <legend class="">Margins</legend>
+      <div class="new-option">
+        
+
+
+
+
+
+<div class="form-group required">
+
+  
+
+
+  
+    <label for="id_margin_type">Margin type:</label>  
+  
+
+  
+  
+    
+
+
+<select name="margin_type" class="custom-select form-control" id="id_margin_type">
+  <option value="default" selected>Default margins</option>
+
+  <option value="custom">Custom margins</option>
+
+  <option value="none">No margins</option>
+
+</select>
+
+        
+      <div class="invalid-feedback"
+           data-for="id_margin_type"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+      
+        <div class="group-custom-margins">
+          
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_margin_top">Top margin:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="margin_top" value="0.2in" class="unit-value form-control" required="true" id="id_margin_top">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_margin_top"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+          
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_margin_right">Right margin:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="margin_right" value="0.2in" class="unit-value form-control" required="true" id="id_margin_right">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_margin_right"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+          
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_margin_bottom">Bottom margin:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="margin_bottom" value="0.2in" class="unit-value form-control" required="true" id="id_margin_bottom">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_margin_bottom"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+          
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_margin_left">Left margin:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="margin_left" value="0.2in" class="unit-value form-control" required="true" id="id_margin_left">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_margin_left"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+        </div>
+      </div>
+      <div class="legacy-option">
+        
+
+
+
+
+
+<div class="form-group required">
+
+  
+
+
+  
+    <label for="id_hmargin">Horizontal margins:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="hmargin" value="0.2in" class="unit-value form-control" required id="id_hmargin">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_hmargin"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+<div class="form-group required">
+
+  
+
+
+  
+    <label for="id_vmargin">Vertical margins:</label>  
+  
+
+  
+  
+    
+
+
+<input type="text" name="vmargin" value="0.2in" class="unit-value form-control" required id="id_vmargin">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_vmargin"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="row justify-content-around mt-4">
+    <div class="col-md-5">
+      <legend class="">PDF options</legend>
+      <div class="form-group">
+        <div class="new-option">
+          
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="linearize" class="form-check-input" id="id_linearize">
+    <label class="form-check-label" for="id_linearize">
+      Fast web view
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        </div>
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="no_print" class="form-check-input" id="id_no_print">
+    <label class="form-check-label" for="id_no_print">
+      Printing not allowed
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="no_copy" class="form-check-input" id="id_no_copy">
+    <label class="form-check-label" for="id_no_copy">
+      Modification not allowed
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="no_modify" class="form-check-input" id="id_no_modify">
+    <label class="form-check-label" for="id_no_modify">
+      Copying not allowed
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="encrypted" class="form-check-input" id="id_encrypted">
+    <label class="form-check-label" for="id_encrypted">
+      Encrypt
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+    
+      </div>
+      <div class="form-group">
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="pagenr_in_footer" class="form-check-input" id="id_pagenr_in_footer">
+    <label class="form-check-label" for="id_pagenr_in_footer">
+      Add the page number to the footer
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="url_in_footer" class="form-check-input" id="id_url_in_footer">
+    <label class="form-check-label" for="id_url_in_footer">
+      Add the source URL to the footer
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        <div class="legacy-option">
+          
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="pdfcrowd_logo" class="form-check-input" id="id_pdfcrowd_logo">
+    <label class="form-check-label" for="id_pdfcrowd_logo">
+      Add the Pdfcrowd logo to the footer
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+    
+        </div>
+      </div>
+      
+      <div class="legacy-option">
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_pdf_scaling_factor">PDF scaling:</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="pdf_scaling_factor" value="133" min="1" step="any" required="true" class="form-control" id="id_pdf_scaling_factor">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_pdf_scaling_factor"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+      </div>
+      
+      
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_user_pwd">PDF user password:</label>  
+  
+
+  
+  
+    
+
+
+<input type="password" name="user_pwd" class="form-control" id="id_user_pwd">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_user_pwd"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+      
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_owner_pwd">PDF owner password:</label>  
+  
+
+  
+  
+    
+
+
+<input type="password" name="owner_pwd" class="form-control" id="id_owner_pwd">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_owner_pwd"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+    </div>
+    <div class="col-md-5">
+      <legend>HTML Options</legend>
+
+      <div class="form-group">
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="no_javascript" class="form-check-input" id="id_no_javascript">
+    <label class="form-check-label" for="id_no_javascript">
+      Do not run JavaScript
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="no_images" class="form-check-input" id="id_no_images">
+    <label class="form-check-label" for="id_no_images">
+      Do not print images
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="no_backgrounds" class="form-check-input" id="id_no_backgrounds">
+    <label class="form-check-label" for="id_no_backgrounds">
+      Do not print backgrounds
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="use_print_media" class="form-check-input" id="id_use_print_media">
+    <label class="form-check-label" for="id_use_print_media">
+      Use the print version of the page if available
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        <div class="legacy-option">
+          
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="no_hyperlinks" class="form-check-input" id="id_no_hyperlinks">
+    <label class="form-check-label" for="id_no_hyperlinks">
+      Do not make hyperlinks
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="legacy-option">  
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_html_zoom">HTML Zoom:</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="html_zoom" value="100" min="0" step="any" required="true" class="form-control" id="id_html_zoom">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_html_zoom"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+      </div>
+      <div class="new-option">
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_scale_factor">Scale Factor:</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="scale_factor" value="100" min="10" max="500" required="true" class="form-control" id="id_scale_factor">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_scale_factor"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+      </div>
+
+      <legend class="">Converter</legend>
+      
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_api_version">Version:</label>  
+  
+
+  
+  
+    
+
+
+<select name="api_version" class="custom-select form-control" id="id_api_version">
+  <option value="2" selected>Latest (2.20.10)</option>
+
+  <option value="2.20.10">Version 2.20.10</option>
+
+  <option value="2.18.10">Version 2.18.10</option>
+
+  <option value="1">Version 1.10.03</option>
+
+</select>
+
+        
+      <div class="invalid-feedback"
+           data-for="id_api_version"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+
+    </div>
+  </div>
+
+  <div class="row justify-content-around mt-4">
+    <div class="col-md-5">
+      
+      <div class="form-group new-option">
+        <legend>Readability</legend>
+        
+        <input type="hidden" value="off" name="block_ads">
+        <input type="hidden" value="off" name="enable_remove_zindex">
+        
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="block_ads" class="input-padding form-check-input" id="id_block_ads" checked>
+    <label class="form-check-label" for="id_block_ads">
+      Try to block ads
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="enable_remove_zindex" class="form-check-input" id="id_enable_remove_zindex" checked>
+    <label class="form-check-label" for="id_enable_remove_zindex">
+      Remove obscuring content with high z-index
+    </label>
+  </div>
+  
+  
+
+
+
+
+
+
+
+
+        
+
+
+
+
+
+  
+
+
+  
+    <label for="id_zindex_remove_limit">Z-index element remove limit:</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="zindex_remove_limit" value="50" min="-9999" required="true" class="form-control" id="id_zindex_remove_limit">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_zindex_remove_limit"></div>
+  
+  
+  
+      
+
+
+
+
+
+
+
+    
+      </div>
+      
+
+      <div class="legacy-option">
+        <legend>Initial PDF View</legend>
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_page_layout">Page layout:</label>  
+  
+
+  
+  
+    
+
+
+<select name="page_layout" class="custom-select form-control" id="id_page_layout">
+  <option value="" selected>Default</option>
+
+  <option value="1">Single Page</option>
+
+  <option value="2">Continuous</option>
+
+  <option value="3">Continuous Facing</option>
+
+</select>
+
+        
+      <div class="invalid-feedback"
+           data-for="id_page_layout"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_initial_pdf_zoom_type">Initial zoom type:</label>  
+  
+
+  
+  
+    
+
+
+<select name="initial_pdf_zoom_type" class="custom-select form-control" id="id_initial_pdf_zoom_type">
+  <option value="" selected>Default</option>
+
+  <option value="1">Fit Width</option>
+
+  <option value="2">Fit Height</option>
+
+  <option value="3">Fit Page</option>
+
+  <option value="4">Zoom</option>
+
+</select>
+
+        
+      <div class="invalid-feedback"
+           data-for="id_initial_pdf_zoom_type"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  
+    <label for="id_initial_pdf_zoom">PDF zoom:</label>  
+  
+
+  
+  
+    
+
+
+<input type="number" name="initial_pdf_zoom" value="100" min="0" step="any" required="true" class="form-control" id="id_initial_pdf_zoom">
+
+        
+      <div class="invalid-feedback"
+           data-for="id_initial_pdf_zoom"></div>
+  
+  
+  
+      
+
+
+
+    
+</div>
+
+
+
+
+
+        
+
+
+
+
+
+<div class="form-group ">
+
+  
+
+
+  <div class="form-check">
+    <input type="checkbox" name="full_screen" class="form-check-input" id="id_full_screen">
+    <label class="form-check-label" for="id_full_screen">
+      Full screen
+    </label>
+  </div>
+  
+  
+
+
+
+    
+</div>
+
+
+
+
+
+      </div>
+    </div>
+    <div class="col-md-5">
+    </div>
+  </div>
+  
+</div> <!-- pdf-options -->
+
+<div class="row justify-content-around mt-4">
+  <div class="col-md-11">
+    <button
+      id="save-options"
+      type="button"
+      class="btn btn-secondary">Save Settings</button>
+
+    <span class="pl-3 text-success save-settings-success" style="display:none">
+      Saved
+    </span>
+
+    <span class="pl-3 text-danger save-settings-failed" style="display:none">
+      Failed, try again later.
+    </span>
+    <br>
+    <span class="small">Remember the settings. The saved settings are used also by the <a href="/save-as-pdf-addon/">add-on</a>.</span>
+  </div>
+</div>
+
+
+
+      </div>            
+
+      <!-- Workaround to avoid corrupted XHR2 request body in IE10 / IE11 -->
+      <input type="hidden" name="_dontcare">
+      <input type="hidden" name="ias" value="0" />
+    </form>
+  </div> <!-- card-body -->
+</div>
+
+<!-- FORM END -->
+
+    
+<div class="row" style="margin-top:3.5rem">
+  <div class="col-lg-5 col-xl-6">
+    <h2 class="">Conversion API</h2>
+    <div>Generate PDF and screenshots from web pages and HTML documents in your
+      applications. Easy integration with your favorite language and
+      framework.
+    </div>
+    <div class="row">
+      <div class="col mt-1">
+        <a href="/doc/api/"
+           class="btn btn btn-primary mt-2 mr-2">Read our API Docs</a>
+        
+        <a href="/playground/html-to-pdf/"
+           class="btn btn btn-primary mt-2">API Playground</a>
+        
+      </div>
+    </div>
+  </div>
+  <div class="col-lg-7 col-xl-6 code-column">
+    <div id="code-window" class="mt-2">
+    <div id="code-toolbar">
+      <nav>
+        <div class="nav nav-pills" id="nav-tab" role="tablist">
+          <a class="nav-item nav-link active" data-toggle="pill" role="tab"
+             href="#nav-curl">Curl</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-php">PHP</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-java">Java</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-dotnet">.NET</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-python">Python</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-nodejs">Node.js</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-ruby">Ruby</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-go">Go</a>
+          <a class="nav-item nav-link" data-toggle="pill" role="tab"
+             href="#nav-cli">Cmd Line</a>
+        </div>
+      </nav>
+    </div>
+
+
+    <div id="code-editor" class="tab-content">
+      <div class="tab-pane fade" id="nav-php" role="tabpanel">
+        <!-- PHP start -->
+        <div class="codehilite"><pre><span></span><span class="c1">// install: &quot;composer require pdfcrowd/pdfcrowd&quot;</span>
+<span class="k">require</span> <span class="s2">&quot;pdfcrowd.php&quot;</span><span class="p">;</span>
+
+<span class="nv">$api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">\Pdfcrowd\HtmlToPdfClient</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span> <span class="s2">&quot;ce544b6ea52a5621fb9d55f8b542d14d&quot;</span><span class="p">);</span>
+<span class="nv">$api</span><span class="o">-&gt;</span><span class="na">convertUrlToFile</span><span class="p">(</span><span class="s2">&quot;http://example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;document.pdf&quot;</span><span class="p">);</span>
+</pre></div>
+
+        <!-- PHP end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/php/">more PHP examples</a>
+        </div>
+      </div>
+
+      
+      <div class="tab-pane fade" id="nav-java" role="tabpanel">
+        <!-- Java start -->
+        <div class="codehilite"><pre><span></span><span class="c1">// install from Maven: https://search.maven.org/artifact/com.pdfcrowd/pdfcrowd/</span>
+<span class="kn">import</span> <span class="nn">com.pdfcrowd.*</span><span class="o">;</span>
+
+<span class="n">Pdfcrowd</span><span class="o">.</span><span class="na">HtmlToPdfClient</span> <span class="n">api</span> <span class="o">=</span>
+    <span class="k">new</span> <span class="n">Pdfcrowd</span><span class="o">.</span><span class="na">HtmlToPdfClient</span><span class="o">(</span><span class="s">&quot;demo&quot;</span><span class="o">,</span> <span class="s">&quot;ce544b6ea52a5621fb9d55f8b542d14d&quot;</span><span class="o">);</span>
+<span class="n">api</span><span class="o">.</span><span class="na">convertUrlToFile</span><span class="o">(</span><span class="s">&quot;https://example.com&quot;</span><span class="o">,</span> <span class="s">&quot;document.pdf&quot;</span><span class="o">);</span>
+        
+</pre></div>
+
+        <!-- Java end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/java/">more Java examples</a>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="nav-dotnet" role="tabpanel">
+        <!-- .NET start -->
+        <div class="codehilite"><pre><span></span><span class="c1">// install: &quot;nuget install -OutputDirectory packages Pdfcrowd.Official&quot;</span>
+<span class="n">pdfcrowd</span><span class="p">.</span><span class="n">HtmlToPdfClient</span> <span class="n">api</span> <span class="p">=</span>
+    <span class="k">new</span> <span class="n">pdfcrowd</span><span class="p">.</span><span class="n">HtmlToPdfClient</span><span class="p">(</span><span class="s">&quot;demo&quot;</span><span class="p">,</span> <span class="s">&quot;ce544b6ea52a5621fb9d55f8b542d14d&quot;</span><span class="p">);</span>
+    
+<span class="n">api</span><span class="p">.</span><span class="n">convertUrlToFile</span><span class="p">(</span><span class="s">&quot;https://example.com&quot;</span><span class="p">,</span> <span class="s">&quot;document.pdf&quot;</span><span class="p">);</span>        
+        
+</pre></div>
+
+        <!-- .NET end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/dotnet/">more .NET examples</a>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="nav-python" role="tabpanel">
+        <!-- Pyton start -->
+        <div class="codehilite"><pre><span></span><span class="c1"># install: &quot;pip install pdfcrowd&quot;</span>
+<span class="kn">import</span> <span class="nn">pdfcrowd</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="n">pdfcrowd</span><span class="o">.</span><span class="n">HtmlToPdfClient</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span> <span class="s2">&quot;ce544b6ea52a5621fb9d55f8b542d14d&quot;</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">convertUrlToFile</span><span class="p">(</span><span class="s1">&#39;https://example.com&#39;</span><span class="p">,</span> <span class="s1">&#39;example.pdf&#39;</span><span class="p">)</span>
+</pre></div>
+        
+        <!-- Pyton end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/python/">more Python examples</a>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="nav-nodejs" role="tabpanel">
+        <!-- node.js start -->
+        <div class="codehilite"><pre><span></span><span class="c1">// install: &quot;npm install pdfcrowd&quot;</span>
+<span class="kd">var</span> <span class="nx">pdfcrowd</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s2">&quot;pdfcrowd&quot;</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">api</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">pdfcrowd</span><span class="p">.</span><span class="nx">HtmlToPdfClient</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span>
+                                       <span class="s2">&quot;ce544b6ea52a5621fb9d55f8b542d14d&quot;</span><span class="p">);</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">convertUrlToFile</span><span class="p">(</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span> <span class="s2">&quot;document.pdf&quot;</span><span class="p">,</span>
+                     <span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">,</span> <span class="nx">fileName</span><span class="p">)</span> <span class="p">{</span> <span class="cm">/* done */</span> <span class="p">}</span>
+<span class="p">);</span>
+        
+</pre></div>
+
+         <!-- node.js end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/nodejs/">more Node.js examples</a>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="nav-ruby" role="tabpanel">
+        <!-- ruby start -->
+        <div class="codehilite"><pre><span></span><span class="c1"># install: &quot;gem install pdfcrowd&quot;</span>
+<span class="nb">require</span> <span class="s2">&quot;pdfcrowd&quot;</span>
+
+<span class="n">api</span> <span class="o">=</span> <span class="no">Pdfcrowd</span><span class="o">::</span><span class="no">HtmlToPdfClient</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;demo&quot;</span><span class="p">,</span> <span class="n">ce544b6ea52a5621fb9d55f8b542d14d</span><span class="p">)</span>
+<span class="n">api</span><span class="o">.</span><span class="n">convertUrlToFile</span><span class="p">(</span><span class="s2">&quot;https://example.com&quot;</span><span class="p">,</span> <span class="s1">&#39;document.pdf&#39;</span><span class="p">)</span>
+        
+</pre></div>
+
+        <!-- ruby end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/ruby/">more Ruby examples</a>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade show active" id="nav-curl" role="tabpanel">
+        <!-- curl start -->
+        <div class="codehilite"><pre><span></span>curl -f -u demo:ce544b6ea52a5621fb9d55f8b542d14d <span class="se">\</span>
+     -o <span class="s2">&quot;document.pdf&quot;</span>  <span class="se">\</span>
+     -F <span class="s2">&quot;url=https://example.com&quot;</span> <span class="se">\</span>
+     https://api.pdfcrowd.com/convert/
+</pre></div>
+
+        <!-- curl end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/http/">more Curl examples</a>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="nav-go" role="tabpanel">
+        <!-- golang start -->
+        <div class="codehilite"><pre><span></span><span class="c1">// install: &quot;go get github.com/pdfcrowd/pdfcrowd-go&quot;</span>
+<span class="kn">import</span> <span class="p">(</span><span class="s">&quot;github.com/pdfcrowd/pdfcrowd-go&quot;</span><span class="p">)</span>
+
+<span class="nx">api</span> <span class="o">:=</span> <span class="nx">pdfcrowd</span><span class="p">.</span><span class="nx">NewHtmlToPdfClient</span><span class="p">(</span><span class="s">&quot;demo&quot;</span><span class="p">,</span> <span class="s">&quot;ce544b6ea52a5621fb9d55f8b542d14d&quot;</span><span class="p">)</span>
+<span class="nx">api</span><span class="p">.</span><span class="nx">ConvertUrlToFile</span><span class="p">(</span><span class="s">&quot;https://example.com&quot;</span><span class="p">,</span> <span class="s">&quot;document.pdf&quot;</span><span class="p">)</span>
+        
+</pre></div>
+
+       <!-- golang end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/go/">more Go examples</a>
+        </div>
+      </div>
+      
+      <div class="tab-pane fade" id="nav-cli" role="tabpanel">
+        <!-- cli start -->
+        <div class="codehilite"><pre><span></span><span class="c1"># install: &quot;pip install pdfcrowd&quot;</span>
+$ html2pdf -user-name <span class="s2">&quot;demo&quot;</span> <span class="se">\</span>
+&gt;          -api-key <span class="s2">&quot;ce544b6ea52a5621fb9d55f8b542d14d&quot;</span> <span class="se">\</span>
+&gt;          <span class="s2">&quot;https://example.com&quot;</span> &gt; document.pdf        
+</pre></div>
+
+        <!-- cli end -->
+        <div class="examples-link">
+         <a href="/doc/api/html-to-pdf/command-line/">more CLI examples</a>
+        </div>
+      </div>
+    </div> <!-- code editor -->
+    </div>
+  </div>
+</div>
+
+<div id="stats" class="row mt-5 text-dark pl-3 pr-3">
+  <div class="stats-column col-md">
+    <div class="stats-column-top">
+      <span class="stats-number">20M+</span>
+      documents
+    </div>
+    <div class="stats-column-bottom">
+      processed every month and keep&nbsp;growing
+    </div>
+  </div>
+  <div class="stats-column col-md">
+    <div class="stats-column-top">
+      <span class="stats-number">150+</span>
+      countries
+    </div>
+    <div class="stats-column-bottom">
+      we serve customers from all&nbsp;over&nbsp;the&nbsp;world
+    </div>
+  </div>
+  <div class="stats-column col-md">
+    <div class="stats-column-top">
+      <span class="stats-number">11</span>
+      years
+    </div>
+    <div class="stats-column-bottom">
+      up and running and continuously&nbsp;innovating
+    </div>
+  </div>
+</div>
+
+
+<div class="row mt-4">
+  <div class="col">
+    <div class="h2">Browse our Products</div>
+    <ul class="list-unstyled solution-list">
+      <li>
+        Create PDF and screenshots in your applications with our
+        <a class="text-nowrap"
+           href="/doc/api/">Conversion API</a>
+      </li>
+      <li>
+        Create PDF and screenshots in your browser with
+        <a class="text-nowrap"
+           href="/save-as-pdf-addon/">Conversions in Browser</a>
+      </li>
+      <li>
+        Add Save to PDF link to your web pages without coding with
+        <a class="text-nowrap"
+           href="/save-to-pdf/">Save to PDF Link</a>
+      </li>
+      <li>
+        Enhance your WordPress web site with our
+        <a class="text-nowrap"
+           href="/save-as-pdf-image-wordpress-plugin/">WordPress plugins</a>
+      </li>
+    </ul>
+  </div>
+</div>
+
+
+<div class="h2 mt-4">Trusted by Businesses Worldwide</div>
+
+<div class="row mt-3 mb-4">
+  <div class="col customers border-top border-bottom py-1 text-center">
+    <a href="/customers/">
+      <img src="/static/images/customers/front1-color.png"
+           width="900" height="55"
+           alt="customers" class="img-fluid"/>
+    </a>
+  </div>
+</div>
+
+
+</div> <!-- container -->
+
+ 
+
+  </div>
+</div>
+
+
+<!-- ========== FOOTER ============ -->
+
+<footer class="footer bg-dark">
+  <div class="container-fluid mt-sm-3 mt-2">
+    <div class="row">
+      <ul class="col list-inline text-center mb-sm-3 mb-2">
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="/contact/" rel="nofollow">Contact</a>
+        </li>
+        <li class="footer-item list-inline-item">|</li>
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="/about/" rel="nofollow">About</a>
+        </li>
+        <li class="footer-item list-inline-item">|</li>        
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="/customers/">Customers</a>
+        </li>
+        <li class="footer-item list-inline-item">|</li>        
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="/blog/">Blog</a>
+        </li>
+        <li class="footer-item list-inline-item">|</li>
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="/faq/">FAQ</a>
+        </li>
+        <li class="footer-item list-inline-item">|</li>        
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="http://twitter.com/pdfcrowd"
+             target="_blank"
+             rel="nofollow noopener">Twitter</a>
+        </li>
+        <li class="footer-item list-inline-item">|</li>        
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="/press/" rel="nofollow">Press</a>
+        </li>
+      </ul>
+    </div>
+    <div class="row">
+      <ul class="col list-inline small text-center">
+        <li class="footer-item list-inline-item">Copyright © 2009-2021 Pdfcrowd s.r.o.</li>
+        <li class="footer-item  list-inline-item">
+          <a class="footer-link" href="/legal/" rel="nofollow">Legal</a>
+        </li>
+        <li class="footer-item list-inline-item">|</li>
+        <li class="footer-item list-inline-item">
+          <a class="footer-link" href="/privacy/" rel="nofollow">Privacy</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+    
+<script type="text/javascript" src="/static/js/c_base_bundle.f2cc29156dae.js" charset="utf-8"></script>
+
+
+<script>
+  $(function() {
+      pdfcrowdOnReady.forEach(function(fn) {
+          fn();
+      });
+  })
+</script>
+
+ 
+ 
+ <script type="text/javascript" src="/static/js/c_convform.a4e0f7c2c5b1.js" charset="utf-8"></script>
+ <script>
+   $(function() {
+       $('.carousel').carousel({
+           interval: 10000
+       });
+   });
+ </script>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<svg id="Light" xmlns="http://www.w3.org/2000/svg" width="28" height="54" viewBox="0 0 28 54">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #fff;
+        fill-rule: evenodd;
+      }
+    </style>
+  </defs>
+  <title>Vector Smart Object5</title>
+  <path id="iPad_Air_2" data-name="iPad Air 2" class="cls-1" d="M26.743,11H1.257A1.24,1.24,0,0,0,0,12.25v37.5A1.241,1.241,0,0,0,1.257,51H26.743A1.241,1.241,0,0,0,28,49.75V12.25A1.24,1.24,0,0,0,26.743,11ZM14,12.5a0.5,0.5,0,1,1-.5.5A0.5,0.5,0,0,1,14,12.5ZM14,50a1,1,0,1,1,1-1A1,1,0,0,1,14,50Zm12-3H2V15H26V47Z"/>
+</svg>

@@ -1,0 +1,1 @@
+ugly hack to figure out the actual viewport dimensions (sans scrollbars)

@@ -1,0 +1,88 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!--------------------------------(syntax hilighting)------------------------------------->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css" />
+    <link rel="stlyesheet" href="./prism.css">
+    <!-------------------------------------(scripts)------------------------------------------>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+    <script async src="./prism.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.grid.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css.map">
+    <link rel="stylesheet" href="./css/blog-home.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script async defer src="./css/prism.js"></script>
+  </head>
+
+  <body>
+
+
+
+
+
+
+    <p>By default, the param name for the member resources like <code>:show</code>, <code>:update</code>,
+      <code>:delete</code> etc are <code>id</code>. Occasionally we come into a situation where the name <code>id</code>
+      doesn’t make sense to the routes.</p>
+    <p>For example, in <code>reservations</code> we have <code>:show</code> but instead of <code>id</code> we will be
+      passing <code>confirmation_code</code> instead of reservation id. Using <code>params[:id]</code> in this case will
+      be confusing for the people who read the code.</p>
+    <p>This blog will describe how we can use a custom name like <code>confirmation_code</code> for the param name and
+      use <code>params[:confirmation_code]</code>.</p>
+    <h1 id="for-all-routes-of-the-resource"><a class="anchor" name="for-all-routes-of-the-resource"
+        href="#for-all-routes-of-the-resource"><i class="anchor-icon"></i></a>For all routes of the resource</h1>
+    <p>Our normal routes for <code>reservations</code> resource will look like</p>
+    <pre><code>Verb   URI Pattern                                       Controller#Action
+GET    /api/v1/reservations/:id(.:format)                api/v1/reservations#
+GET    /api/v1/reservations(.:format)                    api/v1/reservations#index
+POST   /api/v1/reservations(.:format)                    api/v1/reservations#create
+PATCH  /api/v1/reservations/:id(.:format)                api/v1/reservations#update
+PUT    /api/v1/reservations/:id(.:format)                api/v1/reservations#update
+DELETE /api/v1/reservations/:id(.:format)                api/v1/reservations#destroy</code></pre>
+    <p>To change the name <code>id</code> to <code>confirmation_code</code>, we can configure the route like below</p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb2-1" title="1">resources <span class="st">:reservations</span>, <span class="st">param: :confirmation_code</span></a></code></pre>
+    </div>
+    <p>Now for all the reservation member routes, <code>id</code> will be replaced with <code>confirmation_code</code>.
+    </p>
+    <pre><code>Verb   URI Pattern                                       Controller#Action
+GET    /api/v1/reservations/:confirmation_code(.:format) api/v1/reservations#show
+GET    /api/v1/reservations(.:format)                    api/v1/reservations#index
+POST   /api/v1/reservations(.:format)                    api/v1/reservations#create
+PATCH  /api/v1/reservations/:confirmation_code(.:format) api/v1/reservations#update
+PUT    /api/v1/reservations/:confirmation_code(.:format) api/v1/reservations#update
+DELETE /api/v1/reservations/:confirmation_code(.:format) api/v1/reservations#destroy</code></pre>
+    <h1 id="only-for-single-route"><a class="anchor" name="only-for-single-route" href="#only-for-single-route"><i
+          class="anchor-icon"></i></a>Only for single route</h1>
+    <p>If we want the custom name only for a single route like for <code>:show</code>, we can configure this using
+      <code>only</code> &amp; <code>except</code></p>
+    <div class="sourceCode" id="cb4">
+      <pre
+        class="sourceCode rb"><code class="sourceCode ruby"><a class="sourceLine" id="cb4-1" title="1">resources <span class="st">:reservations</span>, <span class="st">only: :show</span>, <span class="st">param: :confirmation_code</span></a>
+<a class="sourceLine" id="cb4-2" title="2">resources <span class="st">:reservations</span>, <span class="st">except: :show</span>,</a></code></pre>
+    </div>
+    <p>The result will be</p>
+    <pre><code>Verb   URI Pattern                                       Controller#Action
+GET    /api/v1/reservations/:confirmation_code(.:format) api/v1/reservations#show
+GET    /api/v1/reservations(.:format)                    api/v1/reservations#index
+POST   /api/v1/reservations(.:format)                    api/v1/reservations#create
+PATCH  /api/v1/reservations/:id(.:format)                api/v1/reservations#update
+PUT    /api/v1/reservations/:id(.:format)                api/v1/reservations#update
+DELETE /api/v1/reservations/:id(.:format)                api/v1/reservations#destroy</code></pre>
+    <p>Now we can use the confirmation code for <code>:show</code> &amp; <code>id</code> for all other routes.</p>
+    <p>Hope this helped.</p>
+
+  </body>
+
+  
+</html>

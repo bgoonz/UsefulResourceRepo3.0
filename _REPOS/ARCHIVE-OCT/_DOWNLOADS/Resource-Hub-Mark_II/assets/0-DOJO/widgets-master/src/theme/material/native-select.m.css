@@ -1,0 +1,79 @@
+.root {
+	composes: mdc-select from '@material/select/dist/mdc.select.css';
+}
+
+.inputWrapper {
+	composes: mdc-select__anchor from '@material/select/dist/mdc.select.css';
+	width: 100%;
+	border-bottom: 1px solid;
+	transition: border-color 0.18s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.root:not(.disabled) .inputWrapper {
+	background-color: var(--mdc-theme-on-surface);
+}
+
+.root:hover:not(.disabled) .inputWrapper {
+	background-color: var(--mdc-theme-on-surface-hover);
+}
+
+.root:not(.disabled) .input {
+	color: var(--mdc-text-color);
+}
+
+.focused .inputWrapper {
+	border-bottom-color: var(--mdc-theme-primary);
+}
+
+.select {
+	composes: mdc-select__selected-text from '@material/select/dist/mdc.select.css';
+	appearance: none;
+	-webkit-appearance: none;
+	cursor: pointer;
+	min-width: 100%;
+	border-radius: 0;
+}
+
+.root:not(.disabled) .select {
+	color: var(--mdc-text-color);
+}
+
+.focused {
+	composes: mdc-select--focused from '@material/select/dist/mdc.select.css';
+}
+
+.arrow {
+	composes: mdc-select__dropdown-icon from '@material/select/dist/mdc.select.css';
+}
+
+.labelRoot {
+	composes: mdc-floating-label from '@material/select/dist/mdc.select.css';
+	composes: root from './label.m.css';
+	z-index: 10;
+}
+
+.labelActive {
+	composes: mdc-floating-label--float-above from '@material/textfield/dist/mdc.textfield.css';
+	composes: active from './label.m.css';
+}
+
+.root .labelActive {
+	top: 26px;
+}
+
+.root:not(.disabled):not(.focused) .inputWrapper {
+	border-bottom-color: var(--mdc-border-color);
+}
+
+.root:not(.disabled):not(.focused) .inputWrapper:hover {
+	border-bottom-color: var(--mdc-border-color-hover);
+}
+
+.iconDownIcon {
+	composes: downAltIcon from './icon.m.css';
+	color: var(--mdc-text-color);
+}
+
+.focused .iconDownIcon {
+	color: var(--mdc-theme-primary);
+}

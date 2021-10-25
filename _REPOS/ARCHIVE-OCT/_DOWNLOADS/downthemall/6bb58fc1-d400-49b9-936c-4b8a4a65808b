@@ -1,0 +1,47 @@
+In a similar way, we may want to have a more interesting ViewPager header than typical:
+
+![](https://miro.medium.com/max/600/1*o4_dFDvRd3AHO4ShcV1A9Q.gif)
+
+We can use a similar trick to integrate with the ViewPager infrastructure, by creating a subclass to pass the current position:
+
+The math is pretty straightforward — onPageScrolled() gives us the position index of the page (so here, 0, 1 or 2 as we have 3 pages), the positionOffset (from 0 to 1, offset from the position…). The total progress of the animation can then be set to be:
+
+`progress = (position + positionOffset) / (numPages-1)`
+
+The previous example built a simple animated header using actual ImageViews. You can also easily integrate Lottie files in your MotionLayout, and set the progress directly — MotionLayout will be able to drive it.
+
+Let’s change our previous example to instead use a LottieAnimationView:
+
+![](https://miro.medium.com/max/600/1*qOoMTYbQOoHLruJ4RltuOA.gif)
+
+Let’s replace the layout file of our MotionLayout-based ViewPager header to only contain a LottieAnimationView for simplicity’s sake:
+
+The key modification in the MotionScene is by using the `motion:progress` attribute:
+
+<Constraint  
+    android:id="@+id/animation\_view"  
+    android:layout\_width="match\_parent"  
+    android:layout\_height="match\_parent"  
+    **motion:progress="0"**/>
+
+As LottieAnimationView has a setProgress() function, this will result in MotionLayout calling it, and allowing you to drive the Lottie progress directly.
+
+The full MotionScene file can be written as:
+
+This third article covers how to easily integrate MotionLayout in your existing layouts.
+
+You can find the source code for those examples in the [ConstraintLayout examples github repository](https://github.com/googlesamples/android-ConstraintLayoutExamples).
+
+There’s a lot more covered in this series of articles:
+
+-   Introduction to MotionLayout ([**part I**](https://medium.com/p/29208674b10d))
+-   Custom attributes, image transitions, keyframes ([**part II**](https://medium.com/p/a31acc084f59))
+-   Taking advantage of MotionLayout in your existing layouts (CoordinatorLayout, DrawerLayout, ViewPager) ([**part III**](https://medium.com/p/47cd64d51a5))
+-   All about Keyframes! ([**part IV**](https://medium.com/@camaelon/defining-motion-paths-in-motionlayout-6095b874d37))
+-   MotionLayout as a choreographer of root layout
+-   Nesting MotionLayout & other Views
+-   MotionLayout with fragments
+
+Feedback, feature request, bug reports? please file them on the [android issue tracker](https://issuetracker.google.com/issues/new?component=323867&template=1023345).
+
+More info on ConstraintLayout & MotionLayout ? Follow us on twitter, [@camaelon](https://twitter.com/camaelon) and [@johnhoford](https://twitter.com/johnhoford)

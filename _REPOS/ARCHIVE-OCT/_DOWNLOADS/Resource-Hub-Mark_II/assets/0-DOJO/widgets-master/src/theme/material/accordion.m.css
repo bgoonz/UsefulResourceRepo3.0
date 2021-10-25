@@ -1,0 +1,33 @@
+.root {
+	font-family: var(--mdc-theme-font-family);
+}
+
+.paneRoot {
+	composes: root from './title-pane.m.css';
+	margin-bottom: 1px;
+	transition: margin ease-in-out 0.25s;
+}
+
+.paneRoot:first-child {
+	border-top-left-radius: 4px;
+	border-top-right-radius: 4px;
+}
+
+.paneRoot:last-child {
+	border-bottom-left-radius: 4px;
+	border-bottom-right-radius: 4px;
+	margin-bottom: 0;
+}
+
+.paneOpen {
+	composes: open from './title-pane.m.css';
+	margin: 16px 0;
+}
+
+.paneOpen:first-child {
+	margin-top: 0;
+}
+
+.paneOpen:last-child {
+	margin-bottom: 0;
+}

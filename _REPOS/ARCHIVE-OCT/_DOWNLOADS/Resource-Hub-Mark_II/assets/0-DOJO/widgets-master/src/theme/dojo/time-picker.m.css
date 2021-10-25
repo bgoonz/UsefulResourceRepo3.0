@@ -1,0 +1,25 @@
+.root {
+}
+
+.input {
+}
+
+.toggleMenuButton {
+	background: none;
+	border: none;
+	color: inherit;
+	font-size: inherit;
+	min-width: unset;
+	padding: 0;
+	cursor: pointer;
+}
+
+.toggleMenuButton:hover,
+.toggleMenuButton:focus {
+	box-shadow: none;
+}
+
+.popup {
+	display: inline-block;
+	background: var(--color-background);
+}

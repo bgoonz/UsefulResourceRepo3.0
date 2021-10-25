@@ -1,0 +1,11 @@
+<ul>
+    <li>
+        <a href="#">Do a thing</a>
+        <summary>
+              ?
+              <details>
+                  Bunch of HTML in here.
+              <details>
+        </summary>
+    </li>
+</ul>

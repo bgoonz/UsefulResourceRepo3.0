@@ -1,0 +1,52 @@
+.root {
+	padding: var(--spacing-regular);
+	border: 1px solid transparent;
+	color: var(--color-text-primary);
+	font-family: var(--font-family);
+	cursor: pointer;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	align-items: center;
+	justify-content: flex-start;
+	min-height: calc(var(--grid-base) * 5.5);
+	display: flex;
+}
+
+.root.active {
+	border: 1px solid var(--color-highlight-border);
+	transition: none;
+}
+
+.selected {
+	background: var(--color-background-faded);
+}
+
+.disabled {
+	color: var(--color-text-faded);
+	font-style: italic;
+}
+
+.root.movedUp {
+	padding-bottom: calc(var(--grid-base) * 6.5);
+}
+
+.root.movedDown {
+	padding-top: calc(var(--grid-base) * 6.5);
+}
+
+.root.collapsed {
+	border-width: 0;
+	height: 0;
+	min-height: 0;
+	overflow: hidden;
+	padding-bottom: 0;
+	padding-top: 0;
+}
+
+.dragIcon {
+	cursor: move;
+	opacity: 0.5;
+	position: absolute;
+	right: var(--grid-base);
+}

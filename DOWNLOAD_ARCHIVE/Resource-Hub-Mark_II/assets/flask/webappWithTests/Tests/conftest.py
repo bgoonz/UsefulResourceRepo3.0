@@ -1,5 +1,5 @@
 import pytest
 
+
 def pytest_addoption(parser):
-	parser.addoption(
-    "--webAppUrl", action="store") 
+    parser.addoption("--webAppUrl", action="store")

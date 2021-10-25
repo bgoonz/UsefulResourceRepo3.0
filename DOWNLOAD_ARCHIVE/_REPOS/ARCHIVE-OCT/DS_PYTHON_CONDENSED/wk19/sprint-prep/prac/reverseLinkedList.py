@@ -4,6 +4,7 @@
 #     self.value = x
 #     self.next = None
 
+
 def reverseLinkedList(l):
     prev = None
     current = l

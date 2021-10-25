@@ -1,0 +1,82 @@
+---
+title: Static Site Generators - Top Open Source SSGs
+description: Check out this showcase of some of the best, open source static site generators. This is community-drive so be sure to submit your favorite today!
+layout: layouts/base.njk
+---
+{% import "components/cards.njk" as cards %}
+
+<section class="md:mt-20">
+  <h1 class="text-center">Site Generators</h1>
+  <p class="text-center">
+    A List of Static Site Generators for Jamstack Sites
+  </p>
+</section>
+
+<section class="cards mt-12">
+  <sort-container>
+    <filter-container data-oninit>
+      <form class="pb-4 filter-form">
+        <div class="flex flex-wrap">
+          <div>
+            <div class="pb-2">
+              <strong class="pr-4">Filter</strong>
+              <span data-filter-results="Generator/Generators" aria-live="polite"></span>
+            </div>
+            <label class="inline-flex pr-4 pb-2">
+              <span class="sr-only">Language</span>
+              <select data-filter-bind="language" data-filter-delimiter="," class="text-black py-1 px-2 rounded-default border border-white bg-white">
+                <option selected value="">All Languages</option>
+                {%- for language in collections.generators | select("data.language") | flatten | unique | sort(false, false) %}
+                <option value="{{ language | lower }}">{{ language }}</option>
+                {%- endfor %}
+              </select>
+            </label>
+            <label class="inline-flex pr-4 pb-2">
+              <span class="sr-only">Template</span>
+              <select data-filter-bind="template" data-filter-delimiter="," class="text-black py-1 px-2 rounded-default border border-white bg-white">
+                <option selected value="">All Templates</option>
+                {%- for template in collections.generators | select("data.templates") | flatten | unique | sort(false, false) %}
+                <option value="{{ template | lower }}">{{ template }}</option>
+                {%- endfor %}
+              </select>
+            </label>
+            <label class="inline-flex pr-4 pb-2">
+              <span class="sr-only">License</span>
+              <select data-filter-bind="license" data-filter-delimiter="," class="text-black py-1 px-2 rounded-default border border-white bg-white">
+                <option selected value="">All Licenses</option>
+                {%- for license in collections.generators | select("data.license") | flatten | unique | sort(false, false) %}
+                <option value="{{ license | lower }}">{{ license }}</option>
+                {%- endfor %}
+              </select>
+            </label>
+          </div>
+          <div>
+            <div class="pb-2">
+              <strong class="pr-4">Sort</strong>
+            </div>
+            <label class="inline-flex pr-4 pb-2">
+              <span class="sr-only">Sort by</span>
+              <select data-sort class="text-black py-1 px-2 rounded-default border border-white bg-white">
+                <option selected value="githubstars-numeric-descending">GitHub Stars</option>
+                <option value="name">Name</option>
+              </select>
+            </label>
+          </div>
+        </div>
+      </form>
+      <div class="grid gap-4 grid-cols-1 md:grid-cols-2 lg:grid-cols-3" data-sort-children>
+      {% for item in collections.generators | sortTools(github) %}
+        {{ cards.repo(item, loop.index0, github) }}
+      {% endfor %}
+      </div>
+    </filter-container>
+  </sort-container>
+</section>
+
+<section class="mt-12">
+  <h2 class="text-white font-semi-bold text-3xl">Contribute</h2>
+  <p>
+    Should your site be featured here in this gallery? Let us know about it by <a href="{{ pkg.repository.url }}" target="_BLANK" rel="noopener">opening a pull request</a>.
+  </p>
+</section>
+

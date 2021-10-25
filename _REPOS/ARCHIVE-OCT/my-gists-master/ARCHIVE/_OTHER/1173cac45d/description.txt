@@ -1,0 +1,1 @@
+BetterPromise: a strawman experiment in subclassing Promise and "fixing" a bunch of its awkward/bad parts

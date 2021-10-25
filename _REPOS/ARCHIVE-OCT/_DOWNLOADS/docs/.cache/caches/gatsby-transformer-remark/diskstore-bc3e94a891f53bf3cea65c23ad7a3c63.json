@@ -1,0 +1,749 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-html-ast-8b4a553feb8985c45e1779d8eb7beea2-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "element",
+        "tagName": "h1",
+        "properties": { "id": "npm-restart1", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#npm-restart1",
+              "aria-label": "npm restart1 permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "npm-restart(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 17, "offset": 17 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 17, "offset": 17 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+          "id": "restart-a-package",
+          "style": "position:relative;"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#restart-a-package",
+              "aria-label": "restart a package permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Restart a package",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 22 },
+              "end": { "line": 4, "column": 21, "offset": 39 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 19 },
+          "end": { "line": 4, "column": 21, "offset": 39 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "synopsis", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#synopsis",
+              "aria-label": "synopsis permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 45 },
+              "end": { "line": 6, "column": 13, "offset": 53 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 41 },
+          "end": { "line": 6, "column": 13, "offset": 53 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> restart <span class=\"token punctuation\">[</span>-- <span class=\"token operator\">&lt;</span>args<span class=\"token operator\">></span><span class=\"token punctuation\">]</span></code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 55 },
+          "end": { "line": 10, "column": 4, "offset": 90 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "description", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#description",
+              "aria-label": "description permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 12, "column": 5, "offset": 96 },
+              "end": { "line": 12, "column": 16, "offset": 107 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 12, "column": 1, "offset": 92 },
+          "end": { "line": 12, "column": 16, "offset": 107 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "This restarts a package.",
+            "position": {
+              "start": { "line": 14, "column": 1, "offset": 109 },
+              "end": { "line": 14, "column": 25, "offset": 133 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 109 },
+          "end": { "line": 14, "column": 25, "offset": 133 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "This runs a package's \"stop\", \"restart\", and \"start\" scripts, and associated\npre- and post- scripts, in the order given below:",
+            "position": {
+              "start": { "line": 16, "column": 1, "offset": 135 },
+              "end": { "line": 17, "column": 50, "offset": 261 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 135 },
+          "end": { "line": 17, "column": 50, "offset": 261 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ol",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "prerestart",
+                "position": {
+                  "start": { "line": 19, "column": 4, "offset": 266 },
+                  "end": { "line": 19, "column": 14, "offset": 276 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 19, "column": 1, "offset": 263 },
+              "end": { "line": 19, "column": 14, "offset": 276 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "prestop",
+                "position": {
+                  "start": { "line": 20, "column": 4, "offset": 280 },
+                  "end": { "line": 20, "column": 11, "offset": 287 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 20, "column": 1, "offset": 277 },
+              "end": { "line": 20, "column": 11, "offset": 287 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "stop",
+                "position": {
+                  "start": { "line": 21, "column": 4, "offset": 291 },
+                  "end": { "line": 21, "column": 8, "offset": 295 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 21, "column": 1, "offset": 288 },
+              "end": { "line": 21, "column": 8, "offset": 295 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "poststop",
+                "position": {
+                  "start": { "line": 22, "column": 4, "offset": 299 },
+                  "end": { "line": 22, "column": 12, "offset": 307 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 22, "column": 1, "offset": 296 },
+              "end": { "line": 22, "column": 12, "offset": 307 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "restart",
+                "position": {
+                  "start": { "line": 23, "column": 4, "offset": 311 },
+                  "end": { "line": 23, "column": 11, "offset": 318 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 23, "column": 1, "offset": 308 },
+              "end": { "line": 23, "column": 11, "offset": 318 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "prestart",
+                "position": {
+                  "start": { "line": 24, "column": 4, "offset": 322 },
+                  "end": { "line": 24, "column": 12, "offset": 330 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 24, "column": 1, "offset": 319 },
+              "end": { "line": 24, "column": 12, "offset": 330 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "start",
+                "position": {
+                  "start": { "line": 25, "column": 4, "offset": 334 },
+                  "end": { "line": 25, "column": 9, "offset": 339 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 25, "column": 1, "offset": 331 },
+              "end": { "line": 25, "column": 9, "offset": 339 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "poststart",
+                "position": {
+                  "start": { "line": 26, "column": 4, "offset": 343 },
+                  "end": { "line": 26, "column": 13, "offset": 352 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 26, "column": 1, "offset": 340 },
+              "end": { "line": 26, "column": 13, "offset": 352 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "postrestart",
+                "position": {
+                  "start": { "line": 27, "column": 4, "offset": 356 },
+                  "end": { "line": 27, "column": 15, "offset": 367 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 27, "column": 1, "offset": 353 },
+              "end": { "line": 27, "column": 15, "offset": 367 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 19, "column": 1, "offset": 263 },
+          "end": { "line": 27, "column": 15, "offset": 367 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "note", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#note",
+              "aria-label": "note permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Note",
+            "position": {
+              "start": { "line": 29, "column": 5, "offset": 373 },
+              "end": { "line": 29, "column": 9, "offset": 377 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 29, "column": 1, "offset": 369 },
+          "end": { "line": 29, "column": 9, "offset": 377 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Note that the \"restart\" script is run ",
+            "position": {
+              "start": { "line": 31, "column": 1, "offset": 379 },
+              "end": { "line": 31, "column": 39, "offset": 417 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "strong",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "in addition to",
+                "position": {
+                  "start": { "line": 31, "column": 41, "offset": 419 },
+                  "end": { "line": 31, "column": 55, "offset": 433 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 31, "column": 39, "offset": 417 },
+              "end": { "line": 31, "column": 57, "offset": 435 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " the \"stop\"\nand \"start\" scripts, not instead of them.",
+            "position": {
+              "start": { "line": 31, "column": 57, "offset": 435 },
+              "end": { "line": 32, "column": 42, "offset": 488 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 31, "column": 1, "offset": 379 },
+          "end": { "line": 32, "column": 42, "offset": 488 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "This is the behavior as of ",
+            "position": {
+              "start": { "line": 34, "column": 1, "offset": 490 },
+              "end": { "line": 34, "column": 28, "offset": 517 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm</code>",
+            "position": {
+              "start": { "line": 34, "column": 28, "offset": 517 },
+              "end": { "line": 34, "column": 33, "offset": 522 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " major version 2. A change in this\nbehavior will be accompanied by an increase in major version number",
+            "position": {
+              "start": { "line": 34, "column": 33, "offset": 522 },
+              "end": { "line": 35, "column": 68, "offset": 624 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 34, "column": 1, "offset": 490 },
+          "end": { "line": 35, "column": 68, "offset": 624 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "see-also", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#see-also",
+              "aria-label": "see also permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 37, "column": 5, "offset": 630 },
+              "end": { "line": 37, "column": 13, "offset": 638 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 37, "column": 1, "offset": 626 },
+          "end": { "line": 37, "column": 13, "offset": 638 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-run-script" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm run-script",
+                    "position": {
+                      "start": { "line": 39, "column": 4, "offset": 643 },
+                      "end": { "line": 39, "column": 18, "offset": 657 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 39, "column": 3, "offset": 642 },
+                  "end": { "line": 39, "column": 49, "offset": 688 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 39, "column": 1, "offset": 640 },
+              "end": { "line": 39, "column": 49, "offset": 688 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/using-npm/scripts" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm scripts",
+                    "position": {
+                      "start": { "line": 40, "column": 4, "offset": 692 },
+                      "end": { "line": 40, "column": 15, "offset": 703 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 40, "column": 3, "offset": 691 },
+                  "end": { "line": 40, "column": 36, "offset": 724 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 40, "column": 1, "offset": 689 },
+              "end": { "line": 40, "column": 36, "offset": 724 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-test" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm test",
+                    "position": {
+                      "start": { "line": 41, "column": 4, "offset": 728 },
+                      "end": { "line": 41, "column": 12, "offset": 736 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 41, "column": 3, "offset": 727 },
+                  "end": { "line": 41, "column": 37, "offset": 761 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 41, "column": 1, "offset": 725 },
+              "end": { "line": 41, "column": 37, "offset": 761 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-start" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm start",
+                    "position": {
+                      "start": { "line": 42, "column": 4, "offset": 765 },
+                      "end": { "line": 42, "column": 13, "offset": 774 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 42, "column": 3, "offset": 764 },
+                  "end": { "line": 42, "column": 39, "offset": 800 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 42, "column": 1, "offset": 762 },
+              "end": { "line": 42, "column": 39, "offset": 800 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-stop" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm stop",
+                    "position": {
+                      "start": { "line": 43, "column": 4, "offset": 804 },
+                      "end": { "line": 43, "column": 12, "offset": 812 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 43, "column": 3, "offset": 803 },
+                  "end": { "line": 43, "column": 37, "offset": 837 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 43, "column": 1, "offset": 801 },
+              "end": { "line": 43, "column": 37, "offset": 837 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-restart" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm restart",
+                    "position": {
+                      "start": { "line": 44, "column": 4, "offset": 841 },
+                      "end": { "line": 44, "column": 15, "offset": 852 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 44, "column": 3, "offset": 840 },
+                  "end": { "line": 44, "column": 43, "offset": 880 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 44, "column": 1, "offset": 838 },
+              "end": { "line": 44, "column": 43, "offset": 880 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 39, "column": 1, "offset": 640 },
+          "end": { "line": 44, "column": 43, "offset": 880 }
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 45, "column": 1, "offset": 881 }
+    }
+  }
+}

@@ -1,0 +1,4 @@
+$(".accordion").accordion({
+  openCallback: myCustomOpenCallback,
+  closeCallback: myCustomCloseCallback
+})

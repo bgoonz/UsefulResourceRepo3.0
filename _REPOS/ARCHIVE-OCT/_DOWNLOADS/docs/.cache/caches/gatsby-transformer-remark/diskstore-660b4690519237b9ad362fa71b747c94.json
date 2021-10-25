@@ -1,0 +1,1449 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-ast-0cb612fd0946814fa34446b300c9c07b-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [
+          {
+            "type": "link",
+            "url": "#install5",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "install5 permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "install(5)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 13, "offset": 13 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 13, "offset": 13 },
+          "indent": []
+        },
+        "data": {
+          "id": "install5",
+          "htmlAttributes": { "id": "install5" },
+          "hProperties": { "id": "install5", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "link",
+            "url": "#download-and-install-npm",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "download and install npm permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Download and Install npm",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 18 },
+              "end": { "line": 4, "column": 28, "offset": 42 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 15 },
+          "end": { "line": 4, "column": 28, "offset": 42 },
+          "indent": []
+        },
+        "data": {
+          "id": "download-and-install-npm",
+          "htmlAttributes": { "id": "download-and-install-npm" },
+          "hProperties": {
+            "id": "download-and-install-npm",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#description",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "description permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 48 },
+              "end": { "line": 6, "column": 16, "offset": 59 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 44 },
+          "end": { "line": 6, "column": 16, "offset": 59 },
+          "indent": []
+        },
+        "data": {
+          "id": "description",
+          "htmlAttributes": { "id": "description" },
+          "hProperties": { "id": "description", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "To publish and install packages to and from the public npm registry, you must install Node.js and the npm command line interface using either a Node version manager or a Node installer. ",
+            "position": {
+              "start": { "line": 8, "column": 1, "offset": 61 },
+              "end": { "line": 8, "column": 187, "offset": 247 },
+              "indent": []
+            }
+          },
+          {
+            "type": "strong",
+            "children": [
+              {
+                "type": "text",
+                "value": "We strongly recommend using a Node version manager to install Node.js and npm.",
+                "position": {
+                  "start": { "line": 8, "column": 189, "offset": 249 },
+                  "end": { "line": 8, "column": 267, "offset": 327 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 8, "column": 187, "offset": 247 },
+              "end": { "line": 8, "column": 269, "offset": 329 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " We do not recommend using a Node installer, since the Node installation process installs npm in a directory with local permissions and can cause permissions errors when you run npm packages globally.",
+            "position": {
+              "start": { "line": 8, "column": 269, "offset": 329 },
+              "end": { "line": 8, "column": 469, "offset": 529 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 61 },
+          "end": { "line": 8, "column": 469, "offset": 529 },
+          "indent": []
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#overview",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "overview permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Overview",
+            "position": {
+              "start": { "line": 10, "column": 5, "offset": 535 },
+              "end": { "line": 10, "column": 13, "offset": 543 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 10, "column": 1, "offset": 531 },
+          "end": { "line": 10, "column": 13, "offset": 543 },
+          "indent": []
+        },
+        "data": {
+          "id": "overview",
+          "htmlAttributes": { "id": "overview" },
+          "hProperties": { "id": "overview", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "#checking-your-version-of-npm-and-node-js",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Checking your version of npm and Node.js",
+                        "position": {
+                          "start": { "line": 12, "column": 4, "offset": 548 },
+                          "end": { "line": 12, "column": 44, "offset": 588 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 12, "column": 3, "offset": 547 },
+                      "end": { "line": 12, "column": 88, "offset": 632 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 12, "column": 3, "offset": 547 },
+                  "end": { "line": 12, "column": 88, "offset": 632 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 12, "column": 1, "offset": 545 },
+              "end": { "line": 12, "column": 88, "offset": 632 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "#using-a-node-version-manager-to-install-node-js-and-npm",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Using a Node version manager to install Node.js and npm",
+                        "position": {
+                          "start": { "line": 13, "column": 4, "offset": 636 },
+                          "end": { "line": 13, "column": 59, "offset": 691 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 13, "column": 3, "offset": 635 },
+                      "end": { "line": 13, "column": 118, "offset": 750 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 13, "column": 3, "offset": 635 },
+                  "end": { "line": 13, "column": 118, "offset": 750 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 13, "column": 1, "offset": 633 },
+              "end": { "line": 13, "column": 118, "offset": 750 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "#using-a-node-installer-to-install-node-js-and-npm",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Using a Node installer to install Node.js and npm",
+                        "position": {
+                          "start": { "line": 14, "column": 4, "offset": 754 },
+                          "end": { "line": 14, "column": 53, "offset": 803 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 14, "column": 3, "offset": 753 },
+                      "end": { "line": 14, "column": 106, "offset": 856 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 14, "column": 3, "offset": 753 },
+                  "end": { "line": 14, "column": 106, "offset": 856 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 14, "column": 1, "offset": 751 },
+              "end": { "line": 14, "column": 106, "offset": 856 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 12, "column": 1, "offset": 545 },
+          "end": { "line": 14, "column": 106, "offset": 856 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#checking-your-version-of-npm-and-nodejs",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "checking your version of npm and nodejs permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Checking your version of npm and Node.js",
+            "position": {
+              "start": { "line": 16, "column": 5, "offset": 862 },
+              "end": { "line": 16, "column": 45, "offset": 902 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 858 },
+          "end": { "line": 16, "column": 45, "offset": 902 },
+          "indent": []
+        },
+        "data": {
+          "id": "checking-your-version-of-npm-and-nodejs",
+          "htmlAttributes": { "id": "checking-your-version-of-npm-and-nodejs" },
+          "hProperties": {
+            "id": "checking-your-version-of-npm-and-nodejs",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "To see if you already have Node.js and npm installed and check the installed version, run the following commands:",
+            "position": {
+              "start": { "line": 18, "column": 1, "offset": 904 },
+              "end": { "line": 18, "column": 114, "offset": 1017 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 18, "column": 1, "offset": 904 },
+          "end": { "line": 18, "column": 114, "offset": 1017 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": null,
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"text\"><pre class=\"language-text\"><code class=\"language-text\">node -v\nnpm -v</code></pre></div>",
+        "position": {
+          "start": { "line": 20, "column": 1, "offset": 1019 },
+          "end": { "line": 23, "column": 4, "offset": 1041 },
+          "indent": [1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#using-a-node-version-manager-to-install-nodejs-and-npm",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "using a node version manager to install nodejs and npm permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Using a Node version manager to install Node.js and npm",
+            "position": {
+              "start": { "line": 25, "column": 5, "offset": 1047 },
+              "end": { "line": 25, "column": 60, "offset": 1102 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 25, "column": 1, "offset": 1043 },
+          "end": { "line": 25, "column": 60, "offset": 1102 },
+          "indent": []
+        },
+        "data": {
+          "id": "using-a-node-version-manager-to-install-nodejs-and-npm",
+          "htmlAttributes": {
+            "id": "using-a-node-version-manager-to-install-nodejs-and-npm"
+          },
+          "hProperties": {
+            "id": "using-a-node-version-manager-to-install-nodejs-and-npm",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Node version managers allow you to install and switch between multiple versions of Node.js and npm on your system so you can test your applications on multiple versions of npm to ensure they work for users on different versions.",
+            "position": {
+              "start": { "line": 27, "column": 1, "offset": 1104 },
+              "end": { "line": 27, "column": 229, "offset": 1332 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 27, "column": 1, "offset": 1104 },
+          "end": { "line": 27, "column": 229, "offset": 1332 },
+          "indent": []
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 4,
+        "children": [
+          {
+            "type": "link",
+            "url": "#osx-or-linux-node-version-managers",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "osx or linux node version managers permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "OSX or Linux Node version managers",
+            "position": {
+              "start": { "line": 29, "column": 6, "offset": 1339 },
+              "end": { "line": 29, "column": 40, "offset": 1373 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 29, "column": 1, "offset": 1334 },
+          "end": { "line": 29, "column": 40, "offset": 1373 },
+          "indent": []
+        },
+        "data": {
+          "id": "osx-or-linux-node-version-managers",
+          "htmlAttributes": { "id": "osx-or-linux-node-version-managers" },
+          "hProperties": {
+            "id": "osx-or-linux-node-version-managers",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://github.com/creationix/nvm",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "nvm",
+                        "position": {
+                          "start": { "line": 31, "column": 4, "offset": 1378 },
+                          "end": { "line": 31, "column": 7, "offset": 1381 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 31, "column": 3, "offset": 1377 },
+                      "end": { "line": 31, "column": 43, "offset": 1417 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 31, "column": 3, "offset": 1377 },
+                  "end": { "line": 31, "column": 43, "offset": 1417 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 31, "column": 1, "offset": 1375 },
+              "end": { "line": 31, "column": 43, "offset": 1417 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://github.com/tj/n",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "n",
+                        "position": {
+                          "start": { "line": 32, "column": 4, "offset": 1421 },
+                          "end": { "line": 32, "column": 5, "offset": 1422 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 32, "column": 3, "offset": 1420 },
+                      "end": { "line": 32, "column": 31, "offset": 1448 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 32, "column": 3, "offset": 1420 },
+                  "end": { "line": 32, "column": 31, "offset": 1448 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 32, "column": 1, "offset": 1418 },
+              "end": { "line": 32, "column": 31, "offset": 1448 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 31, "column": 1, "offset": 1375 },
+          "end": { "line": 32, "column": 31, "offset": 1448 },
+          "indent": [1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 4,
+        "children": [
+          {
+            "type": "link",
+            "url": "#windows-node-version-managers",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "windows node version managers permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Windows Node version managers",
+            "position": {
+              "start": { "line": 34, "column": 6, "offset": 1455 },
+              "end": { "line": 34, "column": 35, "offset": 1484 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 34, "column": 1, "offset": 1450 },
+          "end": { "line": 34, "column": 35, "offset": 1484 },
+          "indent": []
+        },
+        "data": {
+          "id": "windows-node-version-managers",
+          "htmlAttributes": { "id": "windows-node-version-managers" },
+          "hProperties": {
+            "id": "windows-node-version-managers",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://github.com/marcelklehr/nodist",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "nodist",
+                        "position": {
+                          "start": { "line": 36, "column": 4, "offset": 1489 },
+                          "end": { "line": 36, "column": 10, "offset": 1495 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 36, "column": 3, "offset": 1488 },
+                      "end": { "line": 36, "column": 50, "offset": 1535 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 36, "column": 3, "offset": 1488 },
+                  "end": { "line": 36, "column": 50, "offset": 1535 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 36, "column": 1, "offset": 1486 },
+              "end": { "line": 36, "column": 50, "offset": 1535 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://github.com/coreybutler/nvm-windows",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "nvm-windows",
+                        "position": {
+                          "start": { "line": 37, "column": 4, "offset": 1539 },
+                          "end": { "line": 37, "column": 15, "offset": 1550 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 37, "column": 3, "offset": 1538 },
+                      "end": { "line": 37, "column": 60, "offset": 1595 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 37, "column": 3, "offset": 1538 },
+                  "end": { "line": 37, "column": 60, "offset": 1595 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 37, "column": 1, "offset": 1536 },
+              "end": { "line": 37, "column": 60, "offset": 1595 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 36, "column": 1, "offset": 1486 },
+          "end": { "line": 37, "column": 60, "offset": 1595 },
+          "indent": [1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#using-a-node-installer-to-install-nodejs-and-npm",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "using a node installer to install nodejs and npm permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Using a Node installer to install Node.js and npm",
+            "position": {
+              "start": { "line": 39, "column": 5, "offset": 1601 },
+              "end": { "line": 39, "column": 54, "offset": 1650 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 39, "column": 1, "offset": 1597 },
+          "end": { "line": 39, "column": 54, "offset": 1650 },
+          "indent": []
+        },
+        "data": {
+          "id": "using-a-node-installer-to-install-nodejs-and-npm",
+          "htmlAttributes": {
+            "id": "using-a-node-installer-to-install-nodejs-and-npm"
+          },
+          "hProperties": {
+            "id": "using-a-node-installer-to-install-nodejs-and-npm",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "If you are unable to use a Node version manager, you can use a Node installer to install both Node.js and npm on your system.",
+            "position": {
+              "start": { "line": 41, "column": 1, "offset": 1652 },
+              "end": { "line": 41, "column": 126, "offset": 1777 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 41, "column": 1, "offset": 1652 },
+          "end": { "line": 41, "column": 126, "offset": 1777 },
+          "indent": []
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://nodejs.org/en/download/",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Node.js installer",
+                        "position": {
+                          "start": { "line": 43, "column": 4, "offset": 1782 },
+                          "end": { "line": 43, "column": 21, "offset": 1799 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 43, "column": 3, "offset": 1781 },
+                      "end": { "line": 43, "column": 55, "offset": 1833 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 43, "column": 3, "offset": 1781 },
+                  "end": { "line": 43, "column": 55, "offset": 1833 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 43, "column": 1, "offset": 1779 },
+              "end": { "line": 43, "column": 55, "offset": 1833 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://github.com/nodesource/distributions",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "NodeSource installer",
+                        "position": {
+                          "start": { "line": 44, "column": 4, "offset": 1837 },
+                          "end": { "line": 44, "column": 24, "offset": 1857 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 44, "column": 3, "offset": 1836 },
+                      "end": { "line": 44, "column": 70, "offset": 1903 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ". If you use Linux, we recommend that you use a NodeSource installer.",
+                    "position": {
+                      "start": { "line": 44, "column": 70, "offset": 1903 },
+                      "end": { "line": 44, "column": 139, "offset": 1972 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 44, "column": 3, "offset": 1836 },
+                  "end": { "line": 44, "column": 139, "offset": 1972 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 44, "column": 1, "offset": 1834 },
+              "end": { "line": 44, "column": 139, "offset": 1972 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 43, "column": 1, "offset": 1779 },
+          "end": { "line": 44, "column": 139, "offset": 1972 },
+          "indent": [1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 4,
+        "children": [
+          {
+            "type": "link",
+            "url": "#os-x-or-windows-node-installers",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "os x or windows node installers permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "OS X or Windows Node installers",
+            "position": {
+              "start": { "line": 46, "column": 6, "offset": 1979 },
+              "end": { "line": 46, "column": 37, "offset": 2010 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 46, "column": 1, "offset": 1974 },
+          "end": { "line": 46, "column": 37, "offset": 2010 },
+          "indent": []
+        },
+        "data": {
+          "id": "os-x-or-windows-node-installers",
+          "htmlAttributes": { "id": "os-x-or-windows-node-installers" },
+          "hProperties": {
+            "id": "os-x-or-windows-node-installers",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "If you're using OS X or Windows, use one of the installers from the ",
+            "position": {
+              "start": { "line": 48, "column": 1, "offset": 2012 },
+              "end": { "line": 48, "column": 69, "offset": 2080 },
+              "indent": []
+            }
+          },
+          {
+            "type": "link",
+            "title": null,
+            "url": "https://nodejs.org/en/download/",
+            "children": [
+              {
+                "type": "text",
+                "value": "Node.js download page",
+                "position": {
+                  "start": { "line": 48, "column": 70, "offset": 2081 },
+                  "end": { "line": 48, "column": 91, "offset": 2102 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 48, "column": 69, "offset": 2080 },
+              "end": { "line": 48, "column": 125, "offset": 2136 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ". Be sure to install the version labeled ",
+            "position": {
+              "start": { "line": 48, "column": 125, "offset": 2136 },
+              "end": { "line": 48, "column": 166, "offset": 2177 },
+              "indent": []
+            }
+          },
+          {
+            "type": "strong",
+            "children": [
+              {
+                "type": "text",
+                "value": "LTS",
+                "position": {
+                  "start": { "line": 48, "column": 168, "offset": 2179 },
+                  "end": { "line": 48, "column": 171, "offset": 2182 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 48, "column": 166, "offset": 2177 },
+              "end": { "line": 48, "column": 173, "offset": 2184 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ". Other versions have not yet been tested with npm.",
+            "position": {
+              "start": { "line": 48, "column": 173, "offset": 2184 },
+              "end": { "line": 48, "column": 224, "offset": 2235 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 48, "column": 1, "offset": 2012 },
+          "end": { "line": 48, "column": 224, "offset": 2235 },
+          "indent": []
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 4,
+        "children": [
+          {
+            "type": "link",
+            "url": "#linux-or-other-operating-systems-node-installers",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "linux or other operating systems node installers permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Linux or other operating systems Node installers",
+            "position": {
+              "start": { "line": 50, "column": 6, "offset": 2242 },
+              "end": { "line": 50, "column": 54, "offset": 2290 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 50, "column": 1, "offset": 2237 },
+          "end": { "line": 50, "column": 54, "offset": 2290 },
+          "indent": []
+        },
+        "data": {
+          "id": "linux-or-other-operating-systems-node-installers",
+          "htmlAttributes": {
+            "id": "linux-or-other-operating-systems-node-installers"
+          },
+          "hProperties": {
+            "id": "linux-or-other-operating-systems-node-installers",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "If you're using Linux or another operating system, use one of the following installers:",
+            "position": {
+              "start": { "line": 52, "column": 1, "offset": 2292 },
+              "end": { "line": 52, "column": 88, "offset": 2379 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 52, "column": 1, "offset": 2292 },
+          "end": { "line": 52, "column": 88, "offset": 2379 },
+          "indent": []
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://github.com/nodesource/distributions",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "NodeSource installer",
+                        "position": {
+                          "start": { "line": 54, "column": 4, "offset": 2384 },
+                          "end": { "line": 54, "column": 24, "offset": 2404 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 54, "column": 3, "offset": 2383 },
+                      "end": { "line": 54, "column": 70, "offset": 2450 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " (recommended)",
+                    "position": {
+                      "start": { "line": 54, "column": 70, "offset": 2450 },
+                      "end": { "line": 54, "column": 84, "offset": 2464 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 54, "column": 3, "offset": 2383 },
+                  "end": { "line": 54, "column": 84, "offset": 2464 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 54, "column": 1, "offset": 2381 },
+              "end": { "line": 54, "column": 84, "offset": 2464 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "One of the installers on the ",
+                    "position": {
+                      "start": { "line": 55, "column": 3, "offset": 2467 },
+                      "end": { "line": 55, "column": 32, "offset": 2496 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://nodejs.org/en/download/",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Node.js download page",
+                        "position": {
+                          "start": { "line": 55, "column": 33, "offset": 2497 },
+                          "end": { "line": 55, "column": 54, "offset": 2518 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 55, "column": 32, "offset": 2496 },
+                      "end": { "line": 55, "column": 88, "offset": 2552 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 55, "column": 3, "offset": 2467 },
+                  "end": { "line": 55, "column": 88, "offset": 2552 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 55, "column": 1, "offset": 2465 },
+              "end": { "line": 55, "column": 88, "offset": 2552 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 54, "column": 1, "offset": 2381 },
+          "end": { "line": 55, "column": 88, "offset": 2552 },
+          "indent": [1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Or see ",
+            "position": {
+              "start": { "line": 57, "column": 1, "offset": 2554 },
+              "end": { "line": 57, "column": 8, "offset": 2561 },
+              "indent": []
+            }
+          },
+          {
+            "type": "link",
+            "title": null,
+            "url": "https://nodejs.org/en/download/package-manager/",
+            "children": [
+              {
+                "type": "text",
+                "value": "this page",
+                "position": {
+                  "start": { "line": 57, "column": 9, "offset": 2562 },
+                  "end": { "line": 57, "column": 18, "offset": 2571 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 57, "column": 8, "offset": 2561 },
+              "end": { "line": 57, "column": 68, "offset": 2621 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " to install npm for Linux in the way many Linux developers prefer.",
+            "position": {
+              "start": { "line": 57, "column": 68, "offset": 2621 },
+              "end": { "line": 57, "column": 134, "offset": 2687 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 57, "column": 1, "offset": 2554 },
+          "end": { "line": 57, "column": 134, "offset": 2687 },
+          "indent": []
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 4,
+        "children": [
+          {
+            "type": "link",
+            "url": "#less-common-operating-systems",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "less common operating systems permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Less-common operating systems",
+            "position": {
+              "start": { "line": 59, "column": 6, "offset": 2694 },
+              "end": { "line": 59, "column": 35, "offset": 2723 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 59, "column": 1, "offset": 2689 },
+          "end": { "line": 59, "column": 35, "offset": 2723 },
+          "indent": []
+        },
+        "data": {
+          "id": "less-common-operating-systems",
+          "htmlAttributes": { "id": "less-common-operating-systems" },
+          "hProperties": {
+            "id": "less-common-operating-systems",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "For more information on installing Node.js on a variety of operating systems, see ",
+            "position": {
+              "start": { "line": 61, "column": 1, "offset": 2725 },
+              "end": { "line": 61, "column": 83, "offset": 2807 },
+              "indent": []
+            }
+          },
+          {
+            "type": "linkReference",
+            "identifier": "pkg-mgr",
+            "label": "pkg-mgr",
+            "referenceType": "full",
+            "children": [
+              {
+                "type": "text",
+                "value": "this page",
+                "position": {
+                  "start": { "line": 61, "column": 84, "offset": 2808 },
+                  "end": { "line": 61, "column": 93, "offset": 2817 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 61, "column": 83, "offset": 2807 },
+              "end": { "line": 61, "column": 103, "offset": 2827 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ".",
+            "position": {
+              "start": { "line": 61, "column": 103, "offset": 2827 },
+              "end": { "line": 61, "column": 104, "offset": 2828 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 61, "column": 1, "offset": 2725 },
+          "end": { "line": 61, "column": 104, "offset": 2828 },
+          "indent": []
+        }
+      },
+      {
+        "type": "definition",
+        "identifier": "pkg-mgr",
+        "label": "pkg-mgr",
+        "title": null,
+        "url": "https://nodejs.org/en/download/package-manager/",
+        "position": {
+          "start": { "line": 63, "column": 1, "offset": 2830 },
+          "end": { "line": 63, "column": 59, "offset": 2888 },
+          "indent": []
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 64, "column": 1, "offset": 2889 }
+    }
+  }
+}

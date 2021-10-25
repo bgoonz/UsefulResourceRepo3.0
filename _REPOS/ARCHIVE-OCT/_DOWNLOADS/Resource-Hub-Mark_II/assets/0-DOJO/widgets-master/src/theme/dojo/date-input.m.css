@@ -1,0 +1,25 @@
+.root {
+	font-family: var(--font-family);
+}
+
+.input {
+}
+
+.toggleCalendarButton {
+	background: none;
+	border: none;
+	color: inherit;
+	font-size: inherit;
+	min-width: unset;
+	padding: 0;
+}
+
+.toggleCalendarButton:hover,
+.toggleCalendarButton:focus {
+	box-shadow: none;
+}
+
+.popup {
+	display: inline-block;
+	background: var(--color-background);
+}

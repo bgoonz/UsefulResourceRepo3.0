@@ -1,0 +1,111 @@
+.rootFixed {
+	display: block;
+}
+
+.inputWrapperFixed {
+	position: relative;
+}
+
+.fillFixed {
+	bottom: 0;
+	content: '';
+	left: 0;
+	position: absolute;
+	top: 0;
+}
+
+.trackFixed {
+	position: relative;
+	width: 100%;
+}
+
+.thumbFixed {
+	position: absolute;
+}
+
+/* Make native input invisible */
+.nativeInput {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0 none;
+	color: transparent;
+	font-size: inherit;
+	left: 0;
+	margin: 0px;
+	overflow: visible;
+	padding: 0px;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	z-index: 1;
+}
+
+/* invisible native track */
+.nativeInput::-ms-track {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0 none;
+	color: transparent;
+	height: 100%;
+	margin: 0px;
+	overflow: visible;
+	padding: 0px;
+	width: 100%;
+}
+.nativeInput::-moz-range-track {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	background: transparent;
+	border: 0 none;
+	color: transparent;
+	height: 100%;
+	margin: 0px;
+	overflow: visible;
+	padding: 0px;
+	width: 100%;
+}
+.nativeInput:focus::-webkit-slider-runnable-track {
+	background: transparent;
+	border: transparent;
+}
+
+/* thumb needs to be invisible and same size as custom thumb */
+.nativeInput::-ms-thumb {
+	border-radius: 50%;
+	border: 0 none;
+	background: transparent;
+	cursor: pointer;
+}
+.nativeInput::-moz-range-thumb {
+	border-radius: 50%;
+	border: 0 none;
+	background: transparent;
+	cursor: pointer;
+}
+.nativeInput::-webkit-slider-thumb {
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border-radius: 50%;
+	border: 0 none;
+	background: transparent;
+	cursor: pointer;
+}
+
+/* microsoft IE10+ and Edge - eliminates default fills before and after thumb */
+.nativeInput::-ms-fill-lower {
+	background: transparent;
+	border: 0 none;
+}
+.nativeInput::-ms-fill-upper {
+	background: transparent;
+	border: 0 none;
+}
+.nativeInput::-ms-tooltip {
+	display: none;
+}

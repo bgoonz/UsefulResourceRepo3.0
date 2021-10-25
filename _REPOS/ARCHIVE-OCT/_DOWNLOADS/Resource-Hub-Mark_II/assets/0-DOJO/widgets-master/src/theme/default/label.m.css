@@ -1,0 +1,34 @@
+/* The root class of the Label */
+.root {
+}
+/* Added to a read-only Label */
+.readonly {
+}
+/* Added to indicate an invalid state */
+.invalid {
+}
+/* Added to indicate a valid state */
+.valid {
+}
+/* Added to indicate the associated input is required */
+.required {
+}
+/* Added to a disabled Label */
+.disabled {
+}
+/* Added to a focused Label */
+.focused {
+}
+/* Added to a secondary Label */
+.secondary {
+}
+
+/* Added when the label or it's control are active */
+.active {
+}
+
+/* Visual indicator for a required field */
+.required::after {
+	content: '*';
+	color: var(--error-color);
+}

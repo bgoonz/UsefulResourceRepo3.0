@@ -1,6 +1,5 @@
-
-myset1 = {1,2,3}
-myset2 = {1,2,4,5}
+myset1 = {1, 2, 3}
+myset2 = {1, 2, 4, 5}
 
 # union
 myset = myset1.union(myset2)

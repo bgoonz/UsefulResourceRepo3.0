@@ -1,0 +1,75 @@
+  <!DOCTYPE html>
+  <html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog-Post</title>
+    <!--------------------------------(syntax hilighting)------------------------------------->
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/styles/default.min.css" />
+    <link rel="stlyesheet" href="./prism.css">
+    <!-------------------------------------(scripts)------------------------------------------>
+    <script src="//cdn.jsdelivr.net/gh/highlightjs/cdn-release@10.4.0/build/highlight.min.js"></script>
+    <script async src="./prism.js"></script>
+
+
+    <link rel="stylesheet" href="./css/bootstrap.css">
+    <link rel="stylesheet" href="./css/bootstrap.grid.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/bootstrap-reboot.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.css.map">
+    <link rel="stylesheet" href="./css/blog-home.css">
+    <link rel="stylesheet" href="./css/prism.css">
+    <script async defer src="./css/prism.js"></script>
+  </head>
+
+  <body>
+
+
+
+
+
+
+    <p>Recently I came into a situation where I want to migrate one database to another. Once from sqlite to PostgreSQL
+      &amp; another from MariaDB (MySQL) to PostgreSQL. Both were not production level apps.</p>
+    <p>Taking a database dump and importing it into others won’t work because of data type issues &amp; various syntax
+      errors.</p>
+    <p>The only way it worked for me is by using the <code>sequel</code> gem. It will work in just 2 commands if the
+      data is simple.</p>
+    <pre
+      class="shell"><code>gem install sequel pg sqlite3
+sequel -CE sqlite:~/code/data.db postgres://&lt;db_username&gt;:&lt;db_password&gt;@&lt;db_host&gt;/&lt;db_name&gt;</code></pre>
+    <p>Unfortunately, my second migration was not that simple. It had some blob and hit with <a
+        href="https://stackoverflow.com/a/28633839">encoding issue</a>. I tried to fix this by changing the Postgres
+      configuration <code>postgresql.conf</code>.</p>
+    <div class="sourceCode" id="cb2">
+      <pre
+        class="sourceCode conf"><code class="sourceCode ini"><a class="sourceLine" id="cb2-1" title="1"><span class="dt">bytea_output </span><span class="ot">=</span><span class="st"> &#39;escape&#39;                 # hex, escape</span></a></code></pre>
+    </div>
+    <p>It didn’t work for me. So I have to write a small script to remove the escape sequence &amp; update it back in
+      MySQL.</p>
+    <div class="sourceCode" id="cb3">
+      <pre class="sourceCode ruby"><code class="sourceCode ruby"><a class="sourceLine" id="cb3-1" title="1">require <span class="st">&quot;sequel&quot;</span></a>
+<a class="sourceLine" id="cb3-2" title="2"></a>
+<a class="sourceLine" id="cb3-3" title="3"><span class="dt">DB</span> = <span class="dt">Sequel</span>.connect <span class="st">&quot;mysql2://root:root@localhost/&lt;db_name&gt;&quot;</span></a>
+<a class="sourceLine" id="cb3-4" title="4"></a>
+<a class="sourceLine" id="cb3-5" title="5">co = <span class="dt">DB</span>[<span class="st">:table_name</span>]</a>
+<a class="sourceLine" id="cb3-6" title="6"></a>
+<a class="sourceLine" id="cb3-7" title="7">co.each <span class="kw">do</span> | ob |</a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="kw">if</span> (ob[<span class="st">:field_name</span>])</a>
+<a class="sourceLine" id="cb3-9" title="9">        co.where(<span class="st">id: </span>ob[<span class="st">:id</span>]).update(<span class="st">field_name: </span>ob[<span class="st">:field_name</span>].gsub(<span class="st">&quot;\\,&quot;</span>, <span class="st">&quot;&quot;</span>))</a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="kw">end</span></a>
+<a class="sourceLine" id="cb3-11" title="11"><span class="kw">end</span></a></code></pre>
+    </div>
+    <p>With this updated data, sequel import worked fine.</p>
+    <pre><code>gem install sequel pg mysql2
+sequel -CE mysql2://root:root@localhost/&lt;db_name&gt; postgres://&lt;db_username&gt;:&lt;db_password&gt;@&lt;db_host&gt;/&lt;db_name&gt;</code></pre>
+    <p>I used <code>sequel</code> because I had a ruby development environment already set up on my machine. If you are
+      a python dev, you can take a look into <a href="https://pgloader.readthedocs.io/en/latest/">pgloader</a> for the
+      same.</p>
+    <p>If you have found any other way or found any issue on migrating, please let me know via comments.</p>
+
+  </body>
+
+  
+</html>

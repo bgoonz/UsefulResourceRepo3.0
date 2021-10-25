@@ -1,7 +1,12 @@
 from datetime import datetime, timedelta
 from flask_wtf import FlaskForm
 from wtforms.fields import (
-    BooleanField, DateField, StringField, SubmitField, TextAreaField, TimeField
+    BooleanField,
+    DateField,
+    StringField,
+    SubmitField,
+    TextAreaField,
+    TimeField,
 )
 from wtforms.widgets.html5 import DateInput, TimeInput
 from wtforms.validators import DataRequired, ValidationError
@@ -10,15 +15,15 @@ from wtforms.validators import DataRequired, ValidationError
 def next_block(delta=0):
     def time():
         now = datetime.now()
-        return now - timedelta(minutes=now.minute % 15 - delta - 15,
-                               seconds=now.second)
+        return now - timedelta(minutes=now.minute % 15 - delta - 15, seconds=now.second)
+
     return time
 
 
 v = [DataRequired()]
-di = {'default': datetime.now, 'widget': DateInput()}
-sti = {'default': next_block(), 'widget': TimeInput()}
-eti = {'default': next_block(60), 'widget': TimeInput()}
+di = {"default": datetime.now, "widget": DateInput()}
+sti = {"default": next_block(), "widget": TimeInput()}
+eti = {"default": next_block(60), "widget": TimeInput()}
 
 
 class AppointmentForm(FlaskForm):

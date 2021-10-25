@@ -7,33 +7,31 @@ from flask import render_template
 from python_webapp_flask import app
 
 
-@app.route('/')
-@app.route('/home')
+@app.route("/")
+@app.route("/home")
 def home():
     """Renders the home page."""
-    return render_template(
-        'index.html',
-        title='Home Page',
-        year=datetime.now().year,
-    )
+    return render_template("index.html", title="Home Page", year=datetime.now().year)
 
-@app.route('/contact')
+
+@app.route("/contact")
 def contact():
     """Renders the contact page."""
     return render_template(
-        'contact.html',
-        title='Contact',
-        #year=datetime.now().year,
+        "contact.html",
+        title="Contact",
+        # year=datetime.now().year,
         year=datetime.now().year,
-        message='Your contact page.'
+        message="Your contact page.",
     )
 
-@app.route('/about')
+
+@app.route("/about")
 def about():
     """Renders the about page."""
     return render_template(
-        'about.html',
-        title='About',
+        "about.html",
+        title="About",
         year=datetime.now().year,
-        message='Your application description page.'
+        message="Your application description page.",
     )

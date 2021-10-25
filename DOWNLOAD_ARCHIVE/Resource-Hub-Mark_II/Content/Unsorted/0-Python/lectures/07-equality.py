@@ -20,17 +20,17 @@ c = "1"
 
 a = []
 # Falsy Values:
-    # 0, 0.0, 0j (complex number)
-    # ''
-    # False
-    # None
-    # []
-    # ()
-    # {}
-    # set()
-    # range(0)
+# 0, 0.0, 0j (complex number)
+# ''
+# False
+# None
+# []
+# ()
+# {}
+# set()
+# range(0)
 
-if (a):
-    print(f'{a} is true')
+if a:
+    print(f"{a} is true")
 else:
-    print(f'{a} is false')
+    print(f"{a} is false")

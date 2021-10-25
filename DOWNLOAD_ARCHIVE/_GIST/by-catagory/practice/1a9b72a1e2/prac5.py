@@ -1,4 +1,3 @@
-
 import random
 
 # importing 'random' tp generate random numbers

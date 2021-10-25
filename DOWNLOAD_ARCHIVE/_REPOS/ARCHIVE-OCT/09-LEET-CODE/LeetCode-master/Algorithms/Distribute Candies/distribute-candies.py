@@ -2,6 +2,7 @@
 # Author : Fish.Yu
 # Date   : 2017-12-26
 
+
 class Solution:
     def distributeCandies(self, candies):
         """

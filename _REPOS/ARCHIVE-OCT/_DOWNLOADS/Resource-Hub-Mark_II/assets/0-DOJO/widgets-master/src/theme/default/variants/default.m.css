@@ -1,0 +1,20 @@
+.root {
+	--selected-background: #34495e;
+	--selected-color: #fff;
+	--disabled-color: #bbb;
+	--component-background: #fff;
+	--component-color: #424242;
+	--component-color-hover: #828282;
+	--underlay-background: rgba(66, 66, 66, 0.3);
+
+	--error-color: red;
+	--success-color: green;
+
+	--short-animation-duration: 0.2s;
+	--short-animation-easing: ease;
+	--medium-animation-duration: 0.5s;
+
+	--border-radius: 4px;
+
+	--slider-height: 13px;
+}

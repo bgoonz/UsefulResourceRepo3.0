@@ -1,0 +1,1 @@
+Automagically Set R Working Directory on Linux Machine 

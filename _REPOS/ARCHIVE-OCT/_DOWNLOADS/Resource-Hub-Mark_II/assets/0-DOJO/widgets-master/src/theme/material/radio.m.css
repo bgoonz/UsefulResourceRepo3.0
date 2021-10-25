@@ -1,0 +1,37 @@
+.root {
+	--mdc-theme-secondary: var(--mdc-theme-primary);
+	display: flex;
+	align-items: center;
+}
+
+.inputWrapper {
+	composes: mdc-radio from '@material/radio/dist/mdc.radio.css';
+}
+
+.input {
+	composes: mdc-radio__native-control from '@material/radio/dist/mdc.radio.css';
+}
+
+.radioBackground {
+	composes: mdc-radio__background from '@material/radio/dist/mdc.radio.css';
+}
+.radioOuter {
+	composes: mdc-radio__outer-circle from '@material/radio/dist/mdc.radio.css';
+}
+.radioInner {
+	composes: mdc-radio__inner-circle from '@material/radio/dist/mdc.radio.css';
+}
+
+.root .input:enabled:not(:checked) + .radioBackground .radioOuter,
+.root.disabled .input:not(:checked) + .radioBackground .radioOuter {
+	border-color: var(--mdc-border-color);
+}
+
+.root.disabled.checked .radioOuter,
+.root.disabled.checked .radioInner {
+	border-color: var(--mdc-border-color) !important;
+}
+
+.root.disabled .inputWrapper {
+	opacity: 0.5;
+}

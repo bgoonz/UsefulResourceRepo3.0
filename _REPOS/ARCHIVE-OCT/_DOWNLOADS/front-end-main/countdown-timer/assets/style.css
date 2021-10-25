@@ -1,0 +1,88 @@
+@keyframes animatedBorder {
+  25% {
+    outline: 4px solid rgba(23, 32, 42, 0.7);
+  }
+  50% {
+    outline: 8px solid rgba(23, 32, 42, 0.4);
+  }
+  75% {
+    outline: 12px solid rgba(23, 32, 42, 0.1);
+  }
+  100% {
+    outline: 16px solid rgba(23, 32, 42, 0);
+  }
+}
+
+input {
+  width: 70%;
+}
+
+#dismiss-btn:active {
+  color: red;
+}
+
+#dismiss-btn:focus,
+.action-btn:focus {
+  outline: none;
+}
+
+.action-btn {
+  background-color: white;
+  border: none;
+}
+
+#clock,
+.action-btn {
+  color: #17202a;
+}
+
+#start:hover,
+#resume:hover {
+  color: #253343;
+  cursor: pointer;
+}
+
+#ms {
+  font-size: 2.5em;
+  color: #b20f1c;
+}
+
+#reset {
+  color: #90000c;
+}
+
+#reset:hover {
+  color: #b7000f;
+  cursor: pointer;
+}
+
+#stop:hover {
+  cursor: pointer;
+  animation-name: animatedBorder;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+
+@media all and (min-width: 300px) {
+  .font-size {
+    font-size: 3em;
+  }
+}
+
+@media all and (min-width: 376px) {
+  .font-size {
+    font-size: 5em;
+  }
+}
+
+@media all and (min-width: 966px) {
+  .font-size {
+    font-size: 7em;
+  }
+}
+
+@media all and (min-width: 1200px) {
+  .font-size {
+    font-size: 8em;
+  }
+}

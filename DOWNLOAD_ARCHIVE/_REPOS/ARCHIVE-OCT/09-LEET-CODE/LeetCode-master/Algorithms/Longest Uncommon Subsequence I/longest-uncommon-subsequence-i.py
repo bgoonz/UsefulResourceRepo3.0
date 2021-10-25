@@ -2,6 +2,7 @@
 # Author : Han Zichi
 # Date   : 2017-04-23
 
+
 class Solution(object):
     def findLUSlength(self, a, b):
         """

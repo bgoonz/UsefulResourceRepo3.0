@@ -1,0 +1,7 @@
+language: node_js
+node_js:
+  - "9"
+script:
+  - bash scripts/build.sh
+after_success:
+  - bash scripts/push.sh

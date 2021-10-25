@@ -1,0 +1,8 @@
+[submodule "PUBLIC/assets/xinha/examples/drawio"]
+	path = PUBLIC/assets/xinha/examples/drawio
+	url = https://github.com/jgraph/drawio.git
+[submodule "sequelize-recipe-box"]
+	path = sequelize-recipe-box
+	url = https://github.com/bgoonz/sequelize-recipe-box.git
+
+

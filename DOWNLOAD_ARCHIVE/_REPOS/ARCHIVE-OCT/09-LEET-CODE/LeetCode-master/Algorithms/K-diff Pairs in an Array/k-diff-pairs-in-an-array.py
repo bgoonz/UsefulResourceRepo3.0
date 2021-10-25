@@ -2,6 +2,7 @@
 # Author : Han Zichi
 # Date   : 2017-03-07
 
+
 class Solution(object):
     def findPairs(self, nums, k):
         """

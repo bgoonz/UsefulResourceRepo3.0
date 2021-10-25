@@ -4,20 +4,22 @@
 
 import math
 
+
 class Solution:
-  def judgeSquareSum(self, c):
-    """
+    def judgeSquareSum(self, c):
+        """
     :type c: int
     :rtype: bool
     """
-    mid = math.floor(math.sqrt(c))
+        mid = math.floor(math.sqrt(c))
 
-    for i in range(0, mid + 1):
-      rem = c - i * i
-      if (rem == math.pow(math.floor(math.sqrt(rem)), 2)):
-        return True 
+        for i in range(0, mid + 1):
+            rem = c - i * i
+            if rem == math.pow(math.floor(math.sqrt(rem)), 2):
+                return True
 
-    return False
+        return False
+
 
 obj = Solution()
 print(obj.judgeSquareSum(5))

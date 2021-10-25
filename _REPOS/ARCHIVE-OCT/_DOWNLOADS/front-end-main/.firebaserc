@@ -1,0 +1,17 @@
+{
+  "projects": {
+    "default": "static-content-c7a9e"
+  },
+  "targets": {
+    "static-content-c7a9e": {
+      "hosting": {
+        "pass-gen": [
+          "forgepass"
+        ],
+        "bs-wp": [
+          "bootstrap-webpage"
+        ]
+      }
+    }
+  }
+}

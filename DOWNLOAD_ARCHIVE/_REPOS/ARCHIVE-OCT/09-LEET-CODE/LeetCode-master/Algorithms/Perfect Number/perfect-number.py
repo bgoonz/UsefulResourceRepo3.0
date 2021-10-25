@@ -3,6 +3,8 @@
 # Date   : 2017-04-23
 
 import math
+
+
 class Solution(object):
     def checkPerfectNumber(self, num):
         """
@@ -16,6 +18,6 @@ class Solution(object):
         end = int(math.sqrt(num))
         for i in range(2, end + 1):
             if num % i == 0:
-                total += i + num / i 
+                total += i + num / i
 
         return total == num

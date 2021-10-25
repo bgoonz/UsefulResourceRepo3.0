@@ -1,5 +1,6 @@
 def square(x):
-    return x*x
+    return x * x
+
 
 def map(f, lst):
     ret = []
@@ -7,5 +8,5 @@ def map(f, lst):
         ret.append(f(elt))
     return ret
 
-y = map(square, [1,2,3,4,5,6])
 
+y = map(square, [1, 2, 3, 4, 5, 6])

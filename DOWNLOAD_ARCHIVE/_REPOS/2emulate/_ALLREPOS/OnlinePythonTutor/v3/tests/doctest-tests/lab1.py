@@ -1,4 +1,4 @@
-'''
+"""
 
 # My first Labyrinth lab
 
@@ -15,7 +15,7 @@ This is the lab description -- write whatever you want in here in
 
 woohoo!
 
-'''
+"""
 
 
 def factorial(n):
@@ -55,11 +55,12 @@ def factorial(n):
     OverflowError: n too large
     """
     import math
+
     if not n >= 0:
         raise ValueError("n must be >= 0")
     if math.floor(n) != n:
         raise ValueError("n must be exact integer")
-    if n+1 == n:  # catch a value like 1e300
+    if n + 1 == n:  # catch a value like 1e300
         raise OverflowError("n too large")
     result = 1
     factor = 2
@@ -102,9 +103,12 @@ def slow_multiply(a, b):
     return prod
 
 
-GLOBAL_DATA = [{"name": "John",  "age": 21},
-               {"name": "Jane",  "age": 35},
-               {"name": "Carol", "age": 18}]
+GLOBAL_DATA = [
+    {"name": "John", "age": 21},
+    {"name": "Jane", "age": 35},
+    {"name": "Carol", "age": 18},
+]
+
 
 def find_age(person):
     """
@@ -136,4 +140,4 @@ KeyError
     for e in GLOBAL_DATA:
         if e["name"] == person:
             return e["age"]
-    raise KeyError # not found!
+    raise KeyError  # not found!

@@ -1,4 +1,3 @@
-
 def parse(s):
     padded = f"{s} "
     total = 0

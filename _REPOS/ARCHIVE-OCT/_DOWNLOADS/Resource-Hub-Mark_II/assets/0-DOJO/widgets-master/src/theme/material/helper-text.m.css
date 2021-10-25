@@ -1,0 +1,28 @@
+.root {
+	composes: mdc-text-field-helper-line from '@material/textfield/dist/mdc.textfield.css';
+	max-width: 100%;
+}
+
+.text {
+	composes: mdc-text-field-helper-text mdc-text-field-helper-text--persistent mdc-text-field-helper-text--validation-msg from '@material/textfield/dist/mdc.textfield.css';
+}
+
+.root .text {
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	color: var(--mdc-disabled-text-color) !important;
+}
+
+.valid,
+.invalid {
+	composes: mdc-text-field-helper-text--validation-msg from '@material/textfield/dist/mdc.textfield.css';
+}
+
+.root.valid .text {
+	color: var(--mdc-theme-success) !important;
+}
+
+.root.invalid .text {
+	color: var(--mdc-theme-error) !important;
+}

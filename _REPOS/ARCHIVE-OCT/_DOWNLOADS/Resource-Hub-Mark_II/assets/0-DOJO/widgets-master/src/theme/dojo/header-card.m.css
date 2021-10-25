@@ -1,0 +1,33 @@
+.root {
+	font-family: var(--font-family);
+}
+
+/* The wrapper around a header */
+.header {
+	display: flex;
+	padding-top: calc(2 * var(--spacing-regular));
+	align-items: center;
+}
+
+.headerContent {
+	flex: 1 1 auto;
+}
+
+.avatar {
+	margin-right: calc(2 * var(--spacing-regular));
+	flex: 0 0 auto;
+}
+
+.title,
+.subtitle {
+	font-weight: inherit;
+	margin: 0;
+}
+
+.title {
+	font-size: var(--font-size-title);
+}
+
+.subtitle {
+	font-size: var(--font-size-small);
+}

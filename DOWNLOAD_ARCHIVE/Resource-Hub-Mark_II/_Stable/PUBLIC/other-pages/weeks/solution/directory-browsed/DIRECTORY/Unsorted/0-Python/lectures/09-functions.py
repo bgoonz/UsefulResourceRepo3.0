@@ -11,18 +11,18 @@
 
 xor = lambda left, right: left != right
 
-print(xor(True, True))   #> False
-print(xor(True, False))  #> True
-print(xor(False, True))  #> True
-print(xor(False, False)) #> False
-
+print(xor(True, True))  # > False
+print(xor(True, False))  # > True
+print(xor(False, True))  # > True
+print(xor(False, False))  # > False
 
 
 def print_powers_of(base, exp=1):
-  i = 1
-  while i <= exp:
-    print(base ** i)
-    i += 1
+    i = 1
+    while i <= exp:
+        print(base ** i)
+        i += 1
+
 
 # We are not hoisting the function declaration, we need to invoke after declared
 print_powers_of(15)
@@ -32,7 +32,7 @@ print_powers_of(3, 5)
 print_powers_of(10, 5)
 
 if True:
-  x = 10
+    x = 10
 
 print(x)
 print(i)

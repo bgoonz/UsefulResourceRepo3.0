@@ -1,0 +1,14 @@
+
+title: TriNet
+description: HR expertise tailored to thousands of small and medium size businesses
+link: 'https://www.trinet.com'
+thumbnailurl: /img/examples/trinet.jpg
+tools:
+  - Netlify
+  - Vue.js
+  - Nuxt
+  - Contentstack
+  - GitLab
+  - Sass
+  - Vuetify
+

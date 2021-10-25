@@ -6,7 +6,7 @@ from io import BytesIO
 
 url = "https://unsplash.com"
 
-driver = webdriver.Firefox(executable_path=r'geckodriver.exe')
+driver = webdriver.Firefox(executable_path=r"geckodriver.exe")
 driver.get(url)
 
 driver.execute_script("window.scrollTo(0,1000);")

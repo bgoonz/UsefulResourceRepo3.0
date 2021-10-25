@@ -1,0 +1,6586 @@
+<!doctype html>
+<html>
+  <head>
+    <title>
+      Replit - Blog
+    </title>
+    <link rel="shortcut icon" href="https://replit.com/public/images/favicon.ico" type="image/vnd.microsoft.icon">
+    
+    <meta property="og:title" content="Replit Blog">
+    <meta property="og:description" content="The blog of the Repl.it team where we talk about new features, design, and engineering!">
+    <meta property="og:type" content="article" >
+    <meta property="og:image" content="https://replit.com/public/images/sm.png" >
+    <meta property="og:site_name" content="Replit Blog" ><meta property="fb:app_id" content="1775481339348651" >
+
+    <meta itemprop="name" content="Replit Blog" >
+    <meta itemprop="description" content="The blog of the Repl.it team where we talk about new features, design, and engineering!" >
+    <meta itemprop="image" content="https://replit.com/public/images/sm.png" >
+
+    <meta name="description" content="The blog of the Repl.it team where we talk about new features, design, and engineering!" >
+    <meta name="keywords" content="IDE,Interpreter,Compiler,Teach,Host,Learn,Code,REPL,Compiler,Clojure,Haskell,Kotlin (beta),QBasic,Forth,LOLCODE,BrainF,Emoticon,Bloop,Unlambda,JavaScript,CoffeeScript,Scheme,APL,Lua,Python 2.7,Ruby,Roy,Python,Nodejs,Go,C++,C,C#,F#,HTML, CSS, JS,Rust,Swift,Python (with Turtle),R,Bash,Quil,Crystal,Julia,Elixir,Nim,Dart,Reason NodeJs,Erlang,TypeScript,Pygame,Love2D,Tkinter,Java Swing,Emacs Lisp (Elisp),PHP Web Server,SQLite,Java,PHP CLI,Pyxel"><meta name="author" property="og:author" content="Replit Blog">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Replit Blog">
+    <meta name="twitter:site" content="@replit">
+    <meta name="twitter:description" content="The blog of the Replit team where we talk about new features, design, and engineering!">
+    <meta name="twitter:image" content="https://repl.it/public/images/sm.png">
+
+    <link id="lightCSS" rel="stylesheet" type="text/css" href="/style.css?v=20">
+
+    <link rel="stylesheet" type="text/css" href="/hljs.min.css">
+
+	<style id="cssHolder"></style>
+
+    <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:100,200,300,400,500,700&display=swap" rel="stylesheet">
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+
+    <link rel="apple-touch-icon" href="https://replit.com/public/images/sm.png">
+    <meta name="apple-mobile-web-app-title" content="Replit Blog">
+
+    <link rel="alternate" type="application/rss+xml" title="Replit Blog" href="/feed.xml" />
+
+      <script>
+          !function(){var analytics=window.analytics=window.analytics||[];if(!analytics.initialize)if(analytics.invoked)window.console&&console.error&&console.error("Segment snippet included twice.");else{analytics.invoked=!0;analytics.methods=["trackSubmit","trackClick","trackLink","trackForm","pageview","identify","reset","group","track","ready","alias","debug","page","once","off","on"];analytics.factory=function(t){return function(){var e=Array.prototype.slice.call(arguments);e.unshift(t);analytics.push(e);return analytics}};for(var t=0;t<analytics.methods.length;t++){var e=analytics.methods[t];analytics[e]=analytics.factory(e)}analytics.load=function(t){var e=document.createElement("script");e.type="text/javascript";e.async=!0;e.src=("https:"===document.location.protocol?"https://":"http://")+"cdn.segment.com/analytics.js/v1/"+t+"/analytics.min.js";var n=document.getElementsByTagName("script")[0];n.parentNode.insertBefore(e,n)};analytics.SNIPPET_VERSION="4.0.0";
+            analytics.load('jdVID8rHoI7wkCBDjKmjApGBGWclWIKJ');
+            analytics.page('blog');
+          }}();</script><script>
+      (function (isTouchDevice) {
+      if (!isTouchDevice) return;
+      var isTouchClass = 'is-touch-device';
+      var docElement = document.documentElement;
+      docElement.className = docElement.className ? [docElement.className, isTouchClass].join(' ') : isTouchClass;
+      })(('ontouchstart' in window) || window.DocumentTouch && document instanceof DocumentTouch);
+    </script>
+  </head>
+  <body>
+
+  <section class="page_container">
+  <style>
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 0 auto 40px auto;
+    max-width: 1800px;
+    flex: 1;
+    width: 100%;
+    padding: 16px 0;
+  }
+
+.navigation-container {
+  display: flex;
+  align-items: center;
+ }
+
+ .navigation-links {
+  text-decoration: none;
+  padding: 4px 8px 8px 8px;
+  margin: 4px;
+  color: var(--text-color);
+  transition: .2s color ease-in-out;
+ }
+
+ .navigation-links:hover {
+  color: #0070E0;
+ }
+
+.navigation .sign-up {
+ margin: 0 0 4px 12px;
+ padding: 8px 16px; 
+background-color: #0070E0;
+ border-radius: 4px;
+
+font-weight: 500;
+ text-decoration: none;
+  color: white;
+  transition: .2s opacity ease-in-out
+}
+
+.navigation .sign-up:hover {
+opacity: .9;
+}
+
+.navigation-container img {
+ margin: 0 12px;
+width: 110px;
+}
+
+@media all and (max-width:800px) {
+
+.navigation {
+padding: 16px 0;
+margin: 24px auto 32px auto;
+}
+.navigation img {
+margin: 0;
+}
+
+.navigation-links {
+display: none;
+}
+
+.navigation .sign-up{
+margin: 0;
+}
+
+
+}
+
+</style>
+
+
+
+<nav class= "navigation">
+
+<div class ="navigation-container">
+ <a class="logo" href="//replit.com"><img id="logo-img" src=".//images/logo.png" alt="repl.it"/></a>
+
+  <a class ="navigation-links" href ="//replit.com/site/ide">Features</a>
+  <a class ="navigation-links" href ="//replit.com/site/jobs">Jobs</a>
+  <a class ="navigation-links" href ="//blog.replit.com">Blog</a>
+  <a class ="navigation-links" href ="//replit.com/site/pricing">Pricing</a>
+  <a class ="navigation-links" href ="//replit.com/jam?from=static">Jam</a>
+</div>
+
+ <a class ="sign-up" href ="//replit.com/signup">Sign up</a>
+</nav>
+    <a class="repl-link" href="/__repl">Edit on Replit</a>
+
+    
+	<div id="post_container">
+	
+	
+	
+	  
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/codemirror-mobile">A New Code Editor for Mobile - CodeMirror 6</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Sep 21 2021 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Today, we are thrilled to announce <a href="https://codemirror.net/6/">CodeMirror</a> as the new code editor on Replit for mobile devices. CodeMirror is a versatile code editor that has been specifically designed with mobile in mind, providing an excellent touchscreen experience. This change is the beginning of a focused effort on mobile development here at Replit; the editor is just the first step! The editor supports all the features you expect from a code editor, and we&#39;re working on making it even more powerful.</p>
+
+	</div>
+	
+		<a href="/codemirror-mobile" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/back-to-school-1">Back to School 101 - The Replit Teacher Community</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Sep 20 2021 by Lena Vu Sawyer
+	</h3>
+	<div class="post-content markdown">
+		<p><em>Part 1 of our back-to-school series.</em> </p>
+
+	</div>
+	
+		<a href="/back-to-school-1" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/amtrak">How I Created an NPM Package to Access Amtrak&#39;s Semi-Private API</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Sep 15 2021 by Piero Maddaleni
+	</h3>
+	<div class="post-content markdown">
+		<p>Recently, I took it upon myself to both learn TypeScript and reverse engineer Amtrak&#39;s train tracking API. The result of this was the <a href="https://www.npmjs.com/package/amtrak">Amtrak NPM Package</a> and my own <a href="https://api.amtrak.piemadd.com/">Amtrak Train Tracking API</a>. I wanted to make it easier for others to use the API, as the data received from <a href="https://maps.amtrak.com/services/MapDataService/trains/getTrainsData">Amtrak&#39;s endpoint</a> isn&#39;t useable without the use of decryption, and even then the resulting data is all in one massive JSON object.</p>
+
+	</div>
+	
+		<a href="/amtrak" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/data-loss">Data Loss: a sad tale with a happy ending</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Sep 10 2021 by Luis Héctor Chávez
+	</h3>
+	<div class="post-content markdown">
+		<p>Earlier this year, we discovered that we were losing data for some of our users. This manifested as either repls being completely empty after reloading, or some of the changes to files not being present after reloading. Obviously losing data is the worst we can do, so we had to fix this immediately. This blog post narrates the adventure of how we discovered this, how we fixed it, and the lessons we learned during the way.</p>
+
+	</div>
+	
+		<a href="/data-loss" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/kaboom2000">New Kaboom Workspace</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Sep 9 2021 by Tiga Wu
+	</h3>
+	<div class="post-content markdown">
+		<p><img src="https://blog.repl.it/images/kaboom2000/kaboom2000.png" alt="kaboom2000"></p>
+
+	</div>
+	
+		<a href="/kaboom2000" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/curriculum-hub">Announcing the Replit Curriculum Hub!</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Sep 2 2021 by Derrick McMillen and Lena Vu Sawyer
+	</h3>
+	<div class="post-content markdown">
+		<p><em>Say hello to the Replit Curriculum Hub, your one-stop-shop for quality CS learning materials!</em></p>
+
+	</div>
+	
+		<a href="/curriculum-hub" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/faster-repls">Making Replit Faster for Everyone</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Sep 1 2021 by Matt Iselin
+	</h3>
+	<div class="post-content markdown">
+		<p>Replit&#39;s mission is to make programming accessible and provide computer superpowers. To achieve that goal, repls need to be <em>fast</em>. To that end we&#39;ve been working on a number of improvements in our infrastructure and code to unlock faster repls.</p>
+
+	</div>
+	
+		<a href="/faster-repls" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/changelog-08-21">Changelog - August 2021</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Sep 1 2021 by Replit team
+	</h3>
+	<div class="post-content markdown">
+		<p>Fall is right around the corner, and its time for the August edition of our monthly changelog!</p>
+
+	</div>
+	
+		<a href="/changelog-08-21" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/congressional-app-challenge">Coding for Change</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Sep 1 2021 by Lena Vu Sawyer
+	</h3>
+	<div class="post-content markdown">
+		<p><em>Replit and Congressional App Challenge are joining efforts to increase Computer Science literacy and access in the U.S.</em> </p>
+
+	</div>
+	
+		<a href="/congressional-app-challenge" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teacher-update-8.21">Replit Teacher Updates - August 2021</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Aug 28 2021 by Lena Vu Sawyer
+	</h3>
+	<div class="post-content markdown">
+		<p>Hi Teachers,</p>
+
+	</div>
+	
+		<a href="/teacher-update-8.21" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/google-pr">Replit Joins Google for Education Integrated Solutions Initiative</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Aug 24 2021 by Lena Vu Sawyer
+	</h3>
+	<div class="post-content markdown">
+		<p><em>New Replit features, powered by Google Cloud, make it easier than ever for students to code.</em></p>
+
+	</div>
+	
+		<a href="/google-pr" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/fcc">Announcing $100,000 Grant to freeCodeCamp</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Aug 23 2021 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Today, we&#39;re excited to announce that we&#39;re <a href="http://freecodecamp.org/news/announcing-rust-course-replit-web">granting $100,000</a> to <a href="https://www.freecodecamp.org/">freeCodeCamp</a> to fund new interactive programming courses in Rust and Python web development (with Flask + <a href="https://blog.replit.com/replit-web">replit.web</a>) and to partially fund their upcoming <a href="https://www.freecodecamp.org/news/building-a-data-science-curriculum-with-advanced-math-and-machine-learning/">Data Science curriculum</a>. </p>
+
+	</div>
+	
+		<a href="/fcc" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/everyoneprograms">Everyone will learn to program (or why the computer revolution *still* hasn&#39;t happened yet)</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Aug 19 2021 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Last week <a href="https://www.youtube.com/watch?v=zZVUZuDfhFY">I spoke on behalf of Replit</a> at the <a href="https://www.asugsvsummit.com/">ASU+GSV summit</a>, one of the largest education technology conferences in the world, on the topic <a href="https://asugsv.app.swapcard.com/widget/event/asu-gsv-2021/planning/UGxhbm5pbmdfNjI4NTk0">&quot;Is coding an essential modern fluency?&quot;</a>. For me and the rest of the panelists (<a href="https://scholar.harvard.edu/mikesmith">Mike Smith of Harvard</a>, <a href="https://mysurestart.com/about">Taniya Mishra of SureStart</a>, and <a href="https://www.tynker.com/about/">Krishna Vedati of Tynker</a>) the answer is an easy and obvious YES. And I&#39;m guessing if you&#39;ve been coding along with Replit&#39;s journey, it&#39;s a yes too.</p>
+
+	</div>
+	
+		<a href="/everyoneprograms" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/replit-compute">Replit²</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Aug 6 2021 by Guillaume St-Pierre
+	</h3>
+	<div class="post-content markdown">
+		<p>Replit has <em>many</em> use cases and features, but one that&#39;s less talked about is its ability to serve as a secure compute environment for specialized apps. What if you want to build some tool that will generate code, then execute it for your users? Or maybe you are building a specialized online IDE that injects code for users, then executes the bundle? With Replit, you can start building those kinds of applications quickly without having to focus on building a fast and secure backend. Build the frontend, we&#39;ll provide the compute power.</p>
+
+	</div>
+	
+		<a href="/replit-compute" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/alexa-hackathon">The Replit Summer Hackathon</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Aug 3 2021 by Søren Rood
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;re excited to announce the Replit summer hackathon! What you&#39;ll be building: <a href="https://www.amazon.com/alexa-skills/b?ie=UTF8&amp;node=13727921011">Amazon Alexa skills</a>!</p>
+
+	</div>
+	
+		<a href="/alexa-hackathon" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/replexa">Building Alexa Skills On Replit</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Aug 2 2021 by Søren Rood
+	</h3>
+	<div class="post-content markdown">
+		<p>At Replit, we want to give everyone in the world <strong>computer superpowers</strong>.</p>
+
+	</div>
+	
+		<a href="/replexa" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/changelog-07-21">Changelog - July 2021</a>
+	</h1>
+	<h3 class="post-author">
+		Sun Aug 1 2021 by Replit team
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;re back for the July edition of our monthly changelog where we highlight some of our big and small feature releases, user experience changes, and bug fixes!</p>
+
+	</div>
+	
+		<a href="/changelog-07-21" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/emails">The wild west of the internet</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 29 2021 by Nathan Zilora
+	</h3>
+	<div class="post-content markdown">
+		<p>Emails are the wild west of the internet. A lawless land filled with incompatibility and unexpected behaviors. At the same time, it’s still one of the best ways we can reach our customers and inform them about new features and events that they might be interested in. I’m going to talk about a recent experience I had with the emails, specifically Gmail iOS dark mode. My hope is that you can learn from this experience and it’ll save you the time and turmoil it cost me.</p>
+
+	</div>
+	
+		<a href="/emails" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/replit-web">A Python Framework With Built-in Database and Auth Support</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jul 28 2021 by Spencer Pogorzelski
+	</h3>
+	<div class="post-content markdown">
+		<p>Replit enables coders to build apps quickly. With nothing but a browser, a developer can spin up a server, store data in Repl DB, and authenticate users using Repl Auth. However, until today, users had to string together all these components to build an app. This is why we&#39;re excited to announce <code>replit.web</code>, a Python framework focused on making apps quickly. Building an app with user auth and persistence has never been easier:</p>
+
+	</div>
+	
+		<a href="/replit-web" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/nix_web_app">Building a web app with Nix (Because why not?)</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jul 16 2021 by Guillaume St-Pierre
+	</h3>
+	<div class="post-content markdown">
+		<p>Learning a new programming language can be a very difficult task. Where should you start? How do I improve my skills from &quot;Hello, World!&quot; to building complete applications? It helps to have a starter project. One of my favourites is building a web app. I have been learning the Nix package manager for a few weeks now - <a href="https://blog.replit.com/nix_dynamic_version">starting with creating a dynamic version system</a> - and I think its the perfect time to write a web application with it (Even though I probably shouldn&#39;t).</p>
+
+	</div>
+	
+		<a href="/nix_web_app" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/collaborative-coding">Building the future of collaborative coding</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jul 9 2021 by Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>One of the most powerful aspects of Replit is the
+ability to collaborate with friends and peers in real time.
+When we first added support for <a href="https://blog.replit.com/multi">multiplayer</a>,
+we set out to make it as easy as possible to code with others.
+Since then, collaboration has become an integral part of our product
+with the release of features like <a href="https://blog.replit.com/threads">threads</a>
+and <a href="https://blog.replit.com/draw">draw</a>.</p>
+
+	</div>
+	
+		<a href="/collaborative-coding" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/rv0">Our First Replit Ventures</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jul 6 2021 by Søren Rood
+	</h3>
+	<div class="post-content markdown">
+		<p>Our first <a href="https://blog.replit.com/ventures">Replit Ventures</a> was a tremendous success. </p>
+
+	</div>
+	
+		<a href="/rv0" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/changelog-06-21">Changelog - June 2021</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jul 2 2021 by Replit team
+	</h3>
+	<div class="post-content markdown">
+		<p>Welcome to the June edition of our monthly changelog, where we highlight some of our big and small feature releases, user experience changes, and bug fixes!</p>
+
+	</div>
+	
+		<a href="/changelog-06-21" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/multiplayer-debugging">Multiplayer Debugging Experience for Python, Node.js, Java, and C/C++</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jul 2 2021 by Luis Héctor Chávez, Alex Kotliarskyi, Tyler Angert
+	</h3>
+	<div class="post-content markdown">
+		<p>A couple of months ago, we announced our intention to create a new <a href="https://blog.replit.com/debuggest">collaborative program comprehension experience</a> for your repls. This project isn&#39;t <em>just</em> about figuring out what&#39;s wrong with your code, but really understanding what&#39;s going on, together with the people you work with. Today, we are happy to announce that we&#39;re releasing the first phase of this experience: a Replit-native, zero-configuration, multiplayer-friendly, interactive debugger for C, C++, Node.js, Python, and Java repls!</p>
+
+	</div>
+	
+		<a href="/multiplayer-debugging" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/amplemarket">AmpleMarket gets their whole team coding with Replit</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jun 30 2021 by Obaida Albaroudi &amp; Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Speed is the number one thing that lets startups compete against the big companies. Imagine how fast you could move if your whole team could do even just a little bit of coding. That tedious repetitive task? Automate it. Communicating product requirements? Code an MVP. Etc. Etc.</p>
+
+	</div>
+	
+		<a href="/amplemarket" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/nix_dynamic_version">Dynamic version for Nix derivations</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jun 25 2021 by Guillaume St-Pierre
+	</h3>
+	<div class="post-content markdown">
+		<p><strong>UPDATE - 05/07/2021</strong> Thanks to <a href="https://www.extrema.is/">Travis Cardwell</a> for letting us know that Nix <em>requires</em> the <a href="https://nixos.org/manual/nixpkgs/stable/#sec-package-naming">version part of the derivation name to start with a digit</a>. The post has been upated from its original version to include this requirement. </p>
+
+	</div>
+	
+		<a href="/nix_dynamic_version" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/slackbot">How I learned to code by creating a simple Slack bot</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jun 25 2021 by Tala Awwad
+	</h3>
+	<div class="post-content markdown">
+		<p>Hi, my name is Tala👋 , and I have always been so inspired by engineers and their ability to create something out of basically nothing. So one goal of mine was to be able to create something just like they do every day. Mind you, in no way am I experienced in programming; I actually find it quite intimidating (my background is business). However, I wanted to challenge myself and start off small by creating a Slack bot that can automatically send our “Weekly Wins” thread. 
+<img src="https://blog.repl.it/images/slackbot/1.png" alt="Weekly Wins"></p>
+
+	</div>
+	
+		<a href="/slackbot" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/kobra">[RV0] How a team of high schoolers built a tool to make machine learning easy</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jun 24 2021 by Pranav Teegavarapu, Benjamin Smith, Makuza Mugabo Verite
+	</h3>
+	<div class="post-content markdown">
+		<p>Hello! Today, we&#39;re announcing the beta launch of Kobra, a visual programming language for machine learning.</p>
+
+	</div>
+	
+		<a href="/kobra" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/respect">Lessons on CS Equity from the RESPECT Conference</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jun 11 2021 by Lena Vu Sawyer
+	</h3>
+	<div class="post-content markdown">
+		<p>I had the pleasure of attending the <a href="http://respect2021.stcbp.org/">RESPECT conference</a> last month, convening with and hearing from a number of CS educators and researchers throughout the week. The focus of the conference was on equity in CS education.</p>
+
+	</div>
+	
+		<a href="/respect" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/nisawa">[RVO] How Nisawa is Enabling Reliable Delivery in African Cities</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jun 10 2021 by Francois Birori &amp; Anselme Mucunguzi
+	</h3>
+	<div class="post-content markdown">
+		<p>Can you imagine how you’d get a package or meal delivered to you if your house did not have a physical address? Now imagine how that would work if your local food delivery, postal, or parcel services were also ineffective, lacked the technology, or didn&#39;t exist at all. </p>
+
+	</div>
+	
+		<a href="/nisawa" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/petcode">[RV0] How we used focus and prioritization to transform our student-run startup</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jun 9 2021 by Karan Dalal and Arnuv Tandon
+	</h3>
+	<div class="post-content markdown">
+		<p>Running a successful startup is like driving a nail through a thick piece of wood. You can hammer as hard as you want, but without a sharp nail–extreme focus and a specific target–you’re not going anywhere.</p>
+
+	</div>
+	
+		<a href="/petcode" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/top-java-errors">Top 8 Common Java Errors for Beginners - and How to Solve Them</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jun 8 2021 by Matthew Wallace
+	</h3>
+	<div class="post-content markdown">
+		<p>Did you know that in Java&#39;s standard library, there are a total of more than 500 different exceptions! There lots of ways for programmers to make mistakes - each of them unique and complex. Luckily we&#39;ve taken the time to unwrap the meaning behind many of these errors, so you can spend less time debugging and more time coding. To begin with, let&#39;s have a look at the syntax errors!</p>
+
+	</div>
+	
+		<a href="/top-java-errors" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/executebig">[RV0] How we gameified exploratory CS with Tech Roulette</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jun 4 2021 by Mingjie Jiang, Megan Cui, Brian Xiang
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;re <a href="https://executebig.org/?utm_source=Replit_blog">Execute Big</a>, a CS education non-profit org, and as three-person strong team, our mission is to give every student the chance to explore and experience CS education. We&#39;ve been bringing unique programs to students across the country, and the move to virtual programs sparked a little creativity in us — after all, virtualization has made education more accessible than ever.</p>
+
+	</div>
+	
+		<a href="/executebig" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/nix">How we went from supporting 50 languages to all of them</a>
+	</h1>
+	<h3 class="post-author">
+		Mon May 24 2021 by Connor Brewster and Mason Clayton
+	</h3>
+	<div class="post-content markdown">
+		<p>At Replit, we want to give our users the most powerful, flexible, and easy-to-get-started coding environment. However, it has been limiting because we only support a fixed set of languages and OS packages, some of which are outdated. Ideally, users should be able to use any language and install any package with minimal fuss. That&#39;s why today, we&#39;re announcing that we&#39;ve incorporated <a href="https://nixos.org">Nix</a> in our infrastructure to give users access to over 30,000 OS packages instantly.</p>
+
+	</div>
+	
+		<a href="/nix" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/apps">Replit Apps</a>
+	</h1>
+	<h3 class="post-author">
+		Wed May 12 2021 by Tyler Angert
+	</h3>
+	<div class="post-content markdown">
+		<p><img src="https://static.replit.sh/images/apps/banner.png" alt="Apps"></p>
+
+	</div>
+	
+		<a href="/apps" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/url-shortener-16-lines">A URL Shortener in 16 Lines of Code with Node.js and nanoexpress</a>
+	</h1>
+	<h3 class="post-author">
+		Tue May 11 2021 by Piero Maddaleni
+	</h3>
+	<div class="post-content markdown">
+		<h2 id="the-backstory">The Backstory</h2>
+<p><img src="https://blog.replit.com/images/url-shortener-tutorial/slack.png" alt="The Slack message I received last October">
+In October of 2020, Meghan, our people person, messaged me asking if there was a professional-looking URL shortener. Over the next 48 hours, I created <a href="https://replit.sh">Replit.sh</a>, a URL shortener for use by the Replit team and <a href="https://github.com/replit-discord/Replit.sh/tree/4ea4d708d3d970a63e7dcf980127510ee0bcda75">published it on Github</a> for anyone to use. For the past few days, I have been working on rewriting the entire system from the ground up and so it just made sense for me to make a tutorial on how it is done.</p>
+
+	</div>
+	
+		<a href="/url-shortener-16-lines" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/eth">How to send $ETH in 19 lines of Python</a>
+	</h1>
+	<h3 class="post-author">
+		Wed May 5 2021 by Soren Rood
+	</h3>
+	<div class="post-content markdown">
+		<p>With the emergence of blockchain technology, people can get paid from anywhere in the world. This type of transaction is revolutionary because we are able to send value from one person to another with no bank.</p>
+
+	</div>
+	
+		<a href="/eth" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/nicknames">Team Nicknames</a>
+	</h1>
+	<h3 class="post-author">
+		Wed May 5 2021 by Lena Vu Sawyer
+	</h3>
+	<div class="post-content markdown">
+		<p>You can now give your team members nicknames in Replit Teams! This will help admins better organize and view their teammates.</p>
+
+	</div>
+	
+		<a href="/nicknames" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/Synctera">Replit Empowers Synctera to Find Hidden Talent</a>
+	</h1>
+	<h3 class="post-author">
+		Mon May 3 2021 by Obaida Albaroudi &amp; Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Talent is one of the most important factors in the success of a new business, and <a href="https://www.synctera.com/">Synctera</a> has been using Replit to run a technical interview process that effectively uncovers the best engineers, whether they have a stellar resume or a nontraditional background.</p>
+
+	</div>
+	
+		<a href="/Synctera" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/dns">Why We Built Our Own DNS Infrastructure</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Apr 29 2021 by Connor Brewster
+	</h3>
+	<div class="post-content markdown">
+		<p>This post is part of a series about the <a href="https://blog.replit.com/welcome-to-the-wonderful-world-of-clusters">wonderful world of clusters</a>. Check out the first post for an overview of what clusters are all about. In this post we will take a peek under the hood of our hosting infrastructure and walk through how we made hosting work in a multi-cluster world.</p>
+
+	</div>
+	
+		<a href="/dns" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/vite">Why We Switched From Webpack To Vite</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Apr 28 2021 by Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>At Replit, our mission is to make programming more accessible. We provide people with free compute in the cloud so that they can build apps on any device. Among the most popular ways to create apps on the web today is React. Historically, however, React tooling has been slow on Replit. While the JavaScript ecosystem has produced excellent tools for professional developers, many of the most popular ones, like Create React App and Webpack, have become increasingly complex and inefficient.</p>
+
+	</div>
+	
+		<a href="/vite" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/debuggest">Debug, Debugger, Debuggest!—A new Collaborative Comprehension Experience</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Apr 23 2021 by Luis Héctor Chávez
+	</h3>
+	<div class="post-content markdown">
+		<p>Earlier this year, we decided to close the #1 most requested entry in our <a href="https://replit.canny.io/">Canny</a> board, which requested to improve our previous <a href="https://blog.replit.com/python-debugger">debugger</a> so that it could also work with multiple files in a project. This was done because it became very clear that there is a need to have better tools to aid with <a href="https://en.wikipedia.org/wiki/Program_comprehension">program comprehension</a> built directly into Replit. <em>But</em> we also realized that we could go even further. Even though most of our users could be happy with a traditional debugger experience, our mission is to give people <a href="https://blog.replit.com/seriesa">computer superpowers</a>! So today we are announcing that we are working on a new, reimagined, collaborative debugging experience (or maybe we should call it a &quot;program comprehension experience?&quot;).</p>
+
+	</div>
+	
+		<a href="/debuggest" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/draw">A whiteboard for every repl</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Apr 23 2021 by Jeremy Press
+	</h3>
+	<div class="post-content markdown">
+		<p>Replit is a place where beginners, educators, and professionals alike can code and share their ideas collaboratively. Something that goes hand and hand with your source code is how you communicate it. We built <a href="https://blog.replit.com/threads">threads</a>, which allow you to leave contextual messages around code, and added better <a href="https://blog.replit.com/markdown-preview">markdown support</a> for READMEs and other guides. However, we were missing a visual way for people to explain and collaborate around code. Today we&#39;re excited to announce support for draw files, powered by <a href="https://excalidraw.com/">excalidraw</a>.</p>
+
+	</div>
+	
+		<a href="/draw" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/secrets">Announcing Secrets Management</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Apr 19 2021 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Replit is the go-to place for a lot of people to build their applications. People build chatbots, web applications, games, and so much more. Naturally, projects like this need to maintain sensitive information (secrets). Today we&#39;re announcing a new and improved way to manage secrets.</p>
+
+	</div>
+	
+		<a href="/secrets" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/blubbr">Meet the college students who used Replit to build a startup with $1,000 in monthly revenue in 3 weeks</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Apr 13 2021 by Soren Rood
+	</h3>
+	<div class="post-content markdown">
+		<p>Hi 👋🏻, I&#39;m <a href="https://twitter.com/roodsoren">Soren</a>. I&#39;m a 20 year old Computer Science student based in Seattle, Washington. I&#39;ve always been interested in the intersection of finance and computer science and I tend to find myself building things in the space. Before I was offered a position at Replit, I worked as a software engineer at a FinTech startup writing market-making systems for various crypto brokerages. While I was doing this, I was also working on a side-project with my close friends and co-founders <a href="https://twitter.com/Justin_A_Shaw">Justin</a> and <a href="https://twitter.com/stevenkotansky">Steven</a>. This project is called <a href="https://blubbr.io">Blubbr</a>.</p>
+
+	</div>
+	
+		<a href="/blubbr" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/ventures">Announcing Replit Ventures</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Apr 13 2021 by Søren Rood
+	</h3>
+	<div class="post-content markdown">
+		<img src="https://blog.repl.it/images/ventures/ventures.jpg" alt="ventures" width="100%" style="width:100%"/>
+	</div>
+	
+		<a href="/ventures" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/boosts">Boosts</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Apr 12 2021 by Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>Our <a href="https://replit.com/site/pricing">Hacker plan</a> has always been a great choice if you need more powerful repls. In addition to benefits like private repls, more storage, and <a href="https://blog.replit.com/alwayson">always on</a>, the Hacker plan gives all of your repls 4x the CPU and RAM compared to those in our free plan.</p>
+
+	</div>
+	
+		<a href="/boosts" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/system-audio">Introducing system audio</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Apr 8 2021 by Luis Héctor Chávez
+	</h3>
+	<div class="post-content markdown">
+		<p>We know that <a href="https://blog.replit.com/kaboom">games</a> are an important part of our commitment to making programming more accessible, more creative, and more fun. Back in February when we announced a significant revamp to our <a href="https://blog.replit.com/native-graphics-love#connect-with-us">graphics stack</a>, we also promised that we would also provide system audio integration. That support is finally available today, as an opt-in feature.</p>
+
+	</div>
+	
+		<a href="/system-audio" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/vnc-passwords">Securing your graphic repls</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Apr 7 2021 by Luis Héctor Chávez
+	</h3>
+	<div class="post-content markdown">
+		<p>Have you ever wished to be able to protect your graphic repls against prying eyes? Starting today, all VNC connections are automatically protected by the same token that keep your connection to the repl secure. There is nothing you need to do, since this is completely transparent.</p>
+
+	</div>
+	
+		<a href="/vnc-passwords" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/kaboom">Introducing Kaboom</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Apr 6 2021 by Tiga Wu
+	</h3>
+	<div class="post-content markdown">
+		<blockquote>
+<p>Games are awesome, making games is even more awesome. I love making games, making games makes me happy, being happy makes me make better games, i hope everyone can be happy and enjoy making games!
+-- me, today</p>
+</blockquote>
+
+	</div>
+	
+		<a href="/kaboom" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/welcome-to-the-wonderful-world-of-clusters">Welcome to the Wonderful World of Clusters</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Mar 26 2021 by Luis Héctor Chávez
+	</h3>
+	<div class="post-content markdown">
+		<p>Having <a href="https://blog.replit.com/quality">a solid foundation</a> is critical for us to be able to fulfill our mission of making programming more accessible, more creative, and more fun. We did a great job of making the platform more stable during last year, but every now and then we would still run into unforeseen problems that <a href="https://en.wikipedia.org/wiki/Cascading_failure">cascaded</a> into other parts of the platform, producing a bad experience for everyone. So back in October (just a few weeks after I joined the team) when we had 2 load-related site-wide outages within a week, we knew it was time to do a major overhaul of how our infrastructure handles traffic. And now today, we&#39;re announcing that as a side effect of that infrastructure change, <a href="https://replit.com/site/pricing">Hacker</a> repls now run in newer, more powerful machines, which means that we&#39;ll have more room to grow and experiment with more benefits for Hackers (and you might find that things feel a little bit snappier lately). This is the first of a three-part series of blogposts on how we rebuilt our infrastructure over the course of ~5 months.</p>
+
+	</div>
+	
+		<a href="/welcome-to-the-wonderful-world-of-clusters" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/fast-dev">Replit Case Study - Creating a 700+ User Web App in a Month</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Mar 23 2021 by Rishabh Anand
+	</h3>
+	<div class="post-content markdown">
+		<p>Hey there 👋🏻
+My name is <a href="https://twitter.com/rishabh16_">Rishabh Anand</a> and I am an ex-resident at the National University of Singapore&#39;s (NUS) <a href="https://nus.edu.sg/osa/raffleshall">Raffles Hall of residence</a>. It&#39;s one of the on-campus student accommodations that houses students from all levels of undergraduate education at NUS with the majority being freshmen and sophomores.</p>
+
+	</div>
+	
+		<a href="/fast-dev" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/python-package-cache">Introducing the Python package cache</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Mar 19 2021 by Luis Héctor Chávez
+	</h3>
+	<div class="post-content markdown">
+		<p>Figuring out how to install third-party libraries can derail people from learning to code or starting a new side project. We built the <a href="https://blog.replit.com/upm">Universal Package Manager</a> (UPM for short) to save people from having to think about package installation at all. Just import the library, press run, and UPM will install it into your repl!</p>
+
+	</div>
+	
+		<a href="/python-package-cache" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/case_study_catalyst">Replit Case Study - Catalyst Coding Club</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Mar 11 2021 by Aaryan Jain
+	</h3>
+	<div class="post-content markdown">
+		<p>Realizing the lack of exposure to STEM skills for younger students, a group of high school students started <a href="https://forcatalyst.weebly.com/">Catalyst</a>, a club to introduce students all ages to CS and making sure it is accessible for everyone. Located in Redmond WA, Catalyst strives to produce an environment in which students can thrive and become passionate about the technological world. It is our goal to help ensure students in our community get the exposure they need to computer science and make an informed decision about their future careers.</p>
+
+	</div>
+	
+		<a href="/case_study_catalyst" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/markdown-preview">Markdown Preview</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Mar 11 2021 by Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>It&#39;s always been super fast to start writing markdown in a repl. However, the more we used it, the more we realized there were some key features we were missing that would make our lives easier. Which is why we&#39;re excited to announce all of the new improvements we&#39;ve made to the markdown editing experience on Replit!</p>
+
+	</div>
+	
+		<a href="/markdown-preview" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/dotcom">Replit Dotcom</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Mar 10 2021 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p><em>tl;dr</em> <strong>In the next few days, we&#39;ll be moving domains from &quot;repl.it&quot; to &quot;replit.com.&quot; Nothing is required on your end -- all urls will automatically redirect and you&#39;ll remain logged-in (as if by magic)</strong>. Nothing else changes. We prefer if people referred to us as &quot;Replit&quot; (pronounced rep-lit 🔥). To understand the origins of our name and how we got here, it&#39;s useful to tell you the Replit genesis story:</p>
+
+	</div>
+	
+		<a href="/dotcom" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/intern-interview">Replit&#39;s Intern Interview Process</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Mar 10 2021 by Meghan Larson
+	</h3>
+	<div class="post-content markdown">
+		<p>Our team is blown away by the level of talent that applied to our 2021 internship programs. I read every official application (over 500!) and looked at countless projects. Our initial intention was to be open to community members that saw the post on our jobs page, applicants that I spoke with at college career fairs, and people that our teammates referred. However, our application link was quickly shared, and we had an avalanche of talented and passionate candidates applying.</p>
+
+	</div>
+	
+		<a href="/intern-interview" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/threads">Introducing Threads: Have Conversations Around Code</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Mar 9 2021 by Arnav Bansal
+	</h3>
+	<div class="post-content markdown">
+		<p>A few months ago, we announced <a href="https://blog.repl.it/annotations-for-education">Annotations</a> for our education users, a feature which lets Replit collaborators highlight code and discuss it in context.</p>
+
+	</div>
+	
+		<a href="/threads" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teams-for-edu-due-dates">Project Due Dates</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Mar 4 2021 by Alisa Chan
+	</h3>
+	<div class="post-content markdown">
+		<p>On Tuesday, we announced that <a href="https://blog.replit.com/teams_release">Teams for Education left beta</a>! We mentioned that we&#39;re continuing to roll out more features to help computer science educators empower the next generation of creators and builders. As promised, project due dates are here!</p>
+
+	</div>
+	
+		<a href="/teams-for-edu-due-dates" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/privacy_march_2021">March 2021 Privacy Update - better protection for you and your data</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Mar 3 2021 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>At Replit our mission is to make programming more accessible to everyone, everywhere, and as we&#39;ve been <a href="https://blog.repl.it/global">going global</a>, we know that we have to comply with various privacy laws and regulations around the world, so that you can focus on coding, not privacy compliance.</p>
+
+	</div>
+	
+		<a href="/privacy_march_2021" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teams_release">Replit Teams for Education is Leaving Beta!</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Mar 2 2021 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>At Replit we believe that computers give people superpowers. With computers, anyone who&#39;s willing to learn can spend more of their time on creative invention rather than tedious drudgery. They help us automate repetitive tasks and build on the collective knowledge of all the great thinkers, inventors, artists, and teachers who came before us. </p>
+
+	</div>
+	
+		<a href="/teams_release" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/unit-tests">No-setup Unit Testing</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Mar 1 2021 by Faris Masad &amp; Jeremy Press
+	</h3>
+	<div class="post-content markdown">
+		<p>Unit testing is a powerful way to verify that code works as intended and creates a quick feedback loop for development &amp; learning. However, setting up a reproducible unit-testing environment is a time-consuming and delicate affair. At Replit, our goal is to give people coding superpowers by demolishing barriers and democratizing access to expert tools. Today, we&#39;re launching our zero-setup unit testing environment.</p>
+
+	</div>
+	
+		<a href="/unit-tests" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/https">HTTPS by default</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Feb 26 2021 by Newman Hu and Sidney Kochman
+	</h3>
+	<div class="post-content markdown">
+		<p>The easiest, fastest way to put a server on the internet should also come with secure defaults. That&#39;s why we&#39;re excited to announce that Replit is now HTTPS-first, which brings additional privacy, integrity, and security benefits to servers hosted on our platform. This applies to every <a href="https://docs.repl.it/repls/http-servers">HTTP server repl</a> on Replit.</p>
+
+	</div>
+	
+		<a href="/https" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/seriesa">Series A to Revolutionize Computing</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Feb 18 2021 by Amjad Masad &amp; Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p>Our mission is to give everyone in the world <strong>computer superpowers</strong>. We build powerful yet approachable tools &amp; platforms for developers, students, and educators.</p>
+
+	</div>
+	
+		<a href="/seriesa" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/responsible">Responsible Disclosure</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Feb 12 2021 by Dan Stowell
+	</h3>
+	<div class="post-content markdown">
+		<p>On Sunday, January 31st, a vulnerability was disclosed to us by Replit users. People had been allowed to transfer repls they did not own to teams they did own. Within minutes of finding out, we disabled the affected endpoint. <strong>We have found no evidence that this vulnerability was exploited to transfer repls from any of our users. If we had found evidence, we would have contacted the affected community members immediately.</strong></p>
+
+	</div>
+	
+		<a href="/responsible" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/alwayson">Hosting Apps with Always On</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Feb 9 2021 by Mason Clayton, Connor Brewster, Sidney Kochman
+	</h3>
+	<div class="post-content markdown">
+		<p>Today we&#39;re excited to announce that Always On repls are available to all hackers! Anyone with <a href="https://repl.it/pricing">Hacker plan</a> can choose up to 5 repls and keep them running all the time. With Always On, you can for example spin up and host an app like a Discord bot in 30 seconds:</p>
+
+	</div>
+	
+		<a href="/alwayson" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/spotlight">Introducing Spotlight pages</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Feb 3 2021 by Tyler Angert and Moudy Elkammash
+	</h3>
+	<div class="post-content markdown">
+		<p>Replit has never been <em>just</em> about code.</p>
+
+	</div>
+	
+		<a href="/spotlight" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/internet-of-fun">The Internet of Fun</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Feb 2 2021 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Yesterday, I accidentally built a chat app. Surprisingly, it wasn&#39;t the first time it happened.</p>
+
+	</div>
+	
+		<a href="/internet-of-fun" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/classroom-end">A final farewell to Classroom and a hello to the future with Replit Teams</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Feb 1 2021 by Patrick Coleman, Tala Awwad
+	</h3>
+	<div class="post-content markdown">
+		<p>Hello teachers, and welcome back to another week of updates to <a href="https://repl.it/teams-for-education">Teams for Education</a>. We&#39;re continuing to invest heavily in the product, with over half of our engineers working on Teams right now, and are committed to education and to helping give computer science teachers super powers!</p>
+
+	</div>
+	
+		<a href="/classroom-end" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/killing-containers-at-scale">Killing Containers at Scale</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Feb 1 2021 by Connor Brewster
+	</h3>
+	<div class="post-content markdown">
+		<p>To make it so that anyone with a web browser can code on Replit, our backend infrastructures runs on preemptible VMs. That means the computer running your code can shutdown at any time! We&#39;ve made it really fast for repls to reconnect when that happens. Despite our best efforts, though, people had been seeing repls stuck connecting for a long time. After some profiling and digging into the Docker source code, we found and fixed the problem. Our session connection error rate dropped from 3% to under 0.5% and our 99th percentile session boot time dropped from 2 minutes to 15 seconds.</p>
+
+	</div>
+	
+		<a href="/killing-containers-at-scale" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/rails">Rails in 30 seconds</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Jan 30 2021 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Philosophically, Replit and Rails are incredibly aligned. We both exist to remove excessive configuration and complexity that stands in the way of building things. However, for a long time, it bothered me that Replit didn&#39;t work well with Rails because we focus on small and lightweight projects. Recently, our infrastructure has gotten much more powerful, and I decided to give Rails another spin. It turns out it&#39;s not only possible to do Rails on Replit; it&#39;s quite a delightful experience. It takes less than 30 seconds from starting a project to seeing the welcome screen:</p>
+
+	</div>
+	
+		<a href="/rails" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/global">Going Global</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jan 28 2021 by Amjad Masad &amp; Zach Anderson
+	</h3>
+	<div class="post-content markdown">
+		<p>We had the idea for Replit in Jordan, launched as a startup in New York, and incorporated as a company in San Mateo. The US gave us the infrastructure, the capital, and network to launch our business, and for that we&#39;re forever grateful. However, to us, the internet is a <a href="https://www.eff.org/cyberspace-independence">new country</a> and we want to make our citizenship official and our commitment real. We&#39;re joining our global community of hackers, students, teachers, and entrepreneurs and becoming a global company and service. Starting today:</p>
+<ul>
+<li>Our first two non-US compute regions are up --  Mumbai, India and London, England -- making us a global service</li>
+<li>We&#39;re hiring worldwide making us a globally distributed company</li>
+</ul>
+
+	</div>
+	
+		<a href="/global" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/ode-to-educators">Ode to Educators</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jan 28 2021 by Derrick McMillen
+	</h3>
+	<div class="post-content markdown">
+		<p>&quot;Why am I here? I don&#39;t even like computer science&quot;, Raul lingered by the door, his body language showing his discomfort. &quot;This is a mistake. I&#39;m not supposed to be here&quot;. Now fully within the classroom, Raul alternated between pacing in circles and eyeing the last few good seats left in our quickly filling classroom. Several minutes passed, and my students used the last remaining minutes of their passing period to trade stories from their summer and muse about the overwhelming sensation of the coming year. They were 11th graders now, after all; this was &quot;the most important year to appeal to colleges.&quot; </p>
+
+	</div>
+	
+		<a href="/ode-to-educators" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teamsforedu-01-22-2021">Check out Project Sharing, new to Teams, plus just 9 more days left in Classroom</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jan 22 2021 by Patrick Coleman, Tala Awwad
+	</h3>
+	<div class="post-content markdown">
+		<p>Hello teachers, we hope you&#39;re enjoying the new features we&#39;ve been adding  to Teams for Education! At Repl.it we are dedicated to empowering teachers and want to be the first tool you turn to when you&#39;re inspiring the next generation of engineers and builders.</p>
+
+	</div>
+	
+		<a href="/teamsforedu-01-22-2021" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/native-graphics-love">Native Graphics Love ❤️</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jan 15 2021 by Luis Héctor Chávez
+	</h3>
+	<div class="post-content markdown">
+		<p>We have reimagined the native graphics experience on Replit. Our community of educators and hackers have given us <a href="https://blog.repl.it/fix-gfx">immense feedback on graphics performance and reliability</a>.</p>
+
+	</div>
+	
+		<a href="/native-graphics-love" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teams-education-january-update">Classroom &amp; Teams for Education, January 2021 Update</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jan 14 2021 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Hello teachers, we hope your new year is off to a good start and your students have come back from the holidays engaged and excited to learn programming! If you&#39;ve been teaching with Replit for awhile, you know how committed we are to helping teachers create aha moments and inspire their students. To that end we&#39;ve been working hard to make Teams for Education the best CS education tool out there and want to share some updates.</p>
+
+	</div>
+	
+		<a href="/teams-education-january-update" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/fix-gfx">Improving Graphics</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Jan 9 2021 by Dan Stowell
+	</h3>
+	<div class="post-content markdown">
+		<p>Since we introduced <a href="https://blog.repl.it/gfx">native graphics in the browser</a> in 2019, our community has built awesome games and programs in <a href="https://love2d.org/">LÖVE</a>, <a href="https://www.pygame.org/news">Pygame</a>, and Java Swing. Being able to write some code and see the results right away is what Replit is all about. That and finding peace in a bouncing DVD logo:</p>
+
+	</div>
+	
+		<a href="/fix-gfx" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/tabbed-shell">Tabbed Shell</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Dec 29 2020 by Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>Among the many things that makes Repl.it special is our ability to provide free
+compute to millions of users. We&#39;ve built a platform that not only lets you
+write and run code, but also gives you access to a Linux container through which
+you can execute arbitrarily complex commands. Despite being such a powerful feature,
+we haven&#39;t done a great job of exposing that capability to its fullest.</p>
+
+	</div>
+	
+		<a href="/tabbed-shell" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/input-output-tests">Input/Outputing Testing &amp; Autograding</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Dec 16 2020 by Wade Bourne &amp; Derrick McMillen
+	</h3>
+	<div class="post-content markdown">
+		<p>Today, a highly requested feature has been released: <strong>Input/Output testing &amp; autograding</strong>.  The Input/Output Tests pane is embeded within all new and existing Teams for Education projects.</p>
+
+	</div>
+	
+		<a href="/input-output-tests" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/powerful-servers">Servers just got 4x more powerful</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Dec 15 2020 by Sidney Kochman
+	</h3>
+	<div class="post-content markdown">
+		<p>This week, we’ve rolled out a change for our Hacker plan subscribers: your servers have up to 4x the speed!</p>
+
+	</div>
+	
+		<a href="/powerful-servers" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anyone-can-code-week7">Anyone Can Code - Week 7</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Dec 14 2020 by Brittany Pirkle
+	</h3>
+	<div class="post-content markdown">
+		<p>I have come to the end of my journey and have to say I am pleased with the outcome. My knowledge level before this experiment was literally zero. My husband even told me that code was hard and it would be difficult to produce an entire website in a short period of time. I will admit there were several times of head scratching and google searches galore. I also had several experts I could go to when CSS was confusing me. However, overall, I feel I gained knowledge on a subject that was, formerly, completely foreign to me. Ironically, an associate of mine reached out looking for someone who could assist her in solving an HTML code issue on her website. I was able to successfully help her fix the problem and explain to her some of the basics of code. I wouldn’t go so far as saying the former teacher turned student has become the teacher again, but this new skill set is already coming in handy. </p>
+
+	</div>
+	
+		<a href="/anyone-can-code-week7" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/Top-8-JavaScript-Errors-career-karma">Top 8 JavaScript Errors with Solutions</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Dec 9 2020 by Kelly M.
+	</h3>
+	<div class="post-content markdown">
+		<p>According to the JavaScript MDN web docs there are six types of JavaScript errors, seven if we count warnings. However, the most common JavaScript errors triggered while coding are reference, syntax, and type errors. This article dives into the top eight of these errors, with examples and descriptive solutions on how to fix them.</p>
+
+	</div>
+	
+		<a href="/Top-8-JavaScript-Errors-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anyone-can-code-week6">Anyone Can Code - Week 6</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Dec 3 2020 by Brittany Pirkle
+	</h3>
+	<div class="post-content markdown">
+		<p>Here we are at week six and the web page is essentially done! That wasn’t so bad, was it? (Here is what I have done the last five weeks). The final step is to create a customized domain. This final step is optional because Repl.it does provide a domain name when a web page is created. However, for something more personalized, a customized domain name can be purchased. The cool part about this is when a domain name is purchased, you can call it whatever you want (as long as the name’s available), you own it, and no one else can use it.</p>
+
+	</div>
+	
+		<a href="/anyone-can-code-week6" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/pwnd">We&#39;ve Been Pwned</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Dec 3 2020 by Mason Clayton
+	</h3>
+	<div class="post-content markdown">
+		<p>As long as I can remember Replit has been receiving a large number of vulnerability reports. We&#39;re very grateful for these and take them extremely seriously. However, 99% of them stem from a misunderstanding of what we do. Our main product is RCE (remote code execution) and naturally this leads to a whole lot of RCE vulnerability reports.</p>
+
+	</div>
+	
+		<a href="/pwnd" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/how-far">How Far We&#39;ve Come</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Dec 1 2020 by Dan Stowell
+	</h3>
+	<div class="post-content markdown">
+		<p>In early September we set out <a href="https://blog.repl.it/quality">to simplify and stabilize Replit</a>. &quot;There&#39;s no better time to cut back than when you&#39;re growing,&quot; said Amjad. We&#39;ve been working on this project in earnest for 10 weeks now. When you&#39;re in the thick of improving things all you can see is what remains undone, so it&#39;s good to look at how far you&#39;ve come!</p>
+
+	</div>
+	
+		<a href="/how-far" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anyone-can-code-week5">Anyone Can Code - Week 5</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Nov 23 2020 by Brittany Pirkle
+	</h3>
+	<div class="post-content markdown">
+		<p>How are we already into week 5 of this project? It’s amazing how much I have learned in such a short time. (If you need a recap of the last four weeks, you can go <a href="https://blog.repl.it/">here</a>). When the basic foundational steps are broken down into small chunks, the world of code doesn’t seem as overwhelming as I thought it would be!</p>
+
+	</div>
+	
+		<a href="/anyone-can-code-week5" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/annotations-formatting">Markdown syntax for Annotations</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Nov 21 2020 by Arnav Bansal
+	</h3>
+	<div class="post-content markdown">
+		<p>Great news! We just made it a lot easier to have conversations about code. You can now use familiar markdown syntax in <a href="https://blog.repl.it/annotations-for-education">annotations</a> and chat.</p>
+
+	</div>
+	
+		<a href="/annotations-formatting" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teams-for-edu-fall-2020-improvements">Teams for Education, Fall 2020 Updates</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Nov 19 2020 by Arnav Bansal and Derrick McMillen
+	</h3>
+	<div class="post-content markdown">
+		<p>This Fall we will be shipping a series of small and large improvements to the Teams for Education product. We are laser-focused on making Repl.it the best solution for learning how to code; especially during extended periods of distance learning.</p>
+
+	</div>
+	
+		<a href="/teams-for-edu-fall-2020-improvements" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anyone-can-code-week4">Anyone Can Code - Week 4</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Nov 17 2020 by Brittany Pirkle
+	</h3>
+	<div class="post-content markdown">
+		<p>I am over halfway done with this project and I have learned so much. Coding intimidated me at first, but with Replit it has been extremely user friendly, fun, and attainable! </p>
+
+	</div>
+	
+		<a href="/anyone-can-code-week4" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/tech-to-Learn-to-Get-Into-Tech-career-karma">In-Demand Technologies to Learn to Get Into Tech Industry in 2020</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Nov 16 2020 by Christina Kopecky
+	</h3>
+	<div class="post-content markdown">
+		<p>It is no surprise that the information technology and software industries will continue to grow as an in-demand profession with many pathways that can be pursued. For software development alone, according to the <a href="https://www.bls.gov/ooh/computer-and-information-technology/software-developers.htm">U.S. Bureau of Labor Statistics</a> projects that the job outlook will increase by 22% by 2030.</p>
+
+	</div>
+	
+		<a href="/tech-to-Learn-to-Get-Into-Tech-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anyone-can-code-week3">Anyone Can Code - Week 3</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Nov 9 2020 by Brittany Pirkle
+	</h3>
+	<div class="post-content markdown">
+		<p>Remember how I said three weeks ago (see the first week of my journey <a href="https://blog.repl.it/anyone-can-code-week1">here</a>) that anyone can code? Well, it really is true. In fact, I am kind of impressed with myself in how quickly I have been able to figure out the basics of coding ;). Using <a href="https://repl.it/~">Replit,</a> <a href="https://www.w3schools.com/tags/tag_img.asp">online tutorials</a>, <a href="https://scrimba.com/learn/html/html-figure-image-elements-c42D8uv">videos</a>, and the guidance of a <a href="https://repl.it/talk/learn/Getting-Started-with-HTML-in-10-minutes/16821">few experts</a> (at Repl.it) has made the learning curve way less intimidating. But if you follow along with me, it can be easy for you too!</p>
+
+	</div>
+	
+		<a href="/anyone-can-code-week3" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anon">reCAPTCHA and the anonymous experience</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Nov 4 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>When we started Repl.it, we set out to remove all friction from getting started with programming. That also meant getting out of the way and letting you code as quickly as possible. As part of that, and for a long time, you could start coding on Repl.it without a user account. </p>
+
+	</div>
+	
+		<a href="/anon" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anyone-can-code-week2">Anyone Can Code - Week 2</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Nov 2 2020 by Brittany Pirkle
+	</h3>
+	<div class="post-content markdown">
+		<p>Now that I know WHAT I am going to do (<a href="https://blog.repl.it/anyone-can-code-week1">read last week’s blog post here</a>), I need to learn HOW to do it. The world of coding can be overwhelming if you try to learn too much at once. Like school, you have to learn the basics before you can learn more advanced concepts. In this instance, I need to learn basic languages, skills, and concepts first and not get consumed by the many, many advanced concepts of coding. </p>
+
+	</div>
+	
+		<a href="/anyone-can-code-week2" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/anyone-can-code-week1">Anyone Can Code - A 2nd Grade Teacher’s Journey into the Coding World (Week 1)</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Oct 26 2020 by Brittany Pirkle
+	</h3>
+	<div class="post-content markdown">
+		<p>What do you think of when you hear the word “code” or when someone says they are “coding”? No, I am not talking about speaking in code, morse code, or family code words. So, what is coding anyways? Coding is just giving computers and other machines instructions on actions to perform. Coding is how humans communicate with machines, and it allows for the creation of websites, computer programs, and apps. Today’s job market is full of tech careers that require this skill. But what about the novice like me without engineering experience or the skill set to create something out of essentially nothing but digits? Is it possible for me to create something out of nothing in just six weeks (and just a few hours each week)?</p>
+
+	</div>
+	
+		<a href="/anyone-can-code-week1" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/group-projects-teams-education">Group Projects on Teams for Education</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Oct 21 2020 by David Cako
+	</h3>
+	<div class="post-content markdown">
+		<p>Today we are excited to introduce <strong>Group Projects on Teams for Education</strong>.  <em>Group Projects</em> enables students to collaborate as groups on teacher-created lessons in 50+ programing languages via our familiar and powerful online IDE.</p>
+
+	</div>
+	
+		<a href="/group-projects-teams-education" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/pljamresults">Programming Language Jam Results</a>
+	</h1>
+	<h3 class="post-author">
+		Sun Oct 11 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;re thrilled to announce the <a href="https://repl.it/jam">PL Jam</a> results. Here are the criteria our judges used:</p>
+
+	</div>
+	
+		<a href="/pljamresults" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/Top-7-CSS-Interview-Questions-career-karma">Top 7 CSS Interview Questions</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Oct 9 2020 by Christina Kopecky
+	</h3>
+	<div class="post-content markdown">
+		<p>In web developer job interviews, you may come across some Cascading Style Sheets (CSS) questions when a hiring team assesses your knowledge of the differences between the main languages used in <a href="https://careerkarma.com/blog/best-web-developer-bootcamps/">web development</a>. The cool thing is CSS and HTML are used by all web developers ranging from <a href="careerkarma.com/careers/wordpress-developer/">Wordpress developers</a> to <a href="https://careerkarma.com/blog/how-to-learn-python/">Python developers</a>.</p>
+
+	</div>
+	
+		<a href="/Top-7-CSS-Interview-Questions-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/Top-7-HTML-Interview-Questions-career-karma">Top 7 CSS Interview Questions</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Oct 9 2020 by Christina Kopecky
+	</h3>
+	<div class="post-content markdown">
+		<p>As one the first topics a <a href="https://careerkarma.com/blog/full-stack-developer">full stack web developer</a> or <a href="https://careerkarma.com/careers/design/">web designer</a> learns, Hypertext Markup Language (<a href="https://careerkarma.com/blog/learn-html/">HTML</a>) is the basis of a website. It is one of the most popular languages to use in the construction of a web page, used by web developers and designers.</p>
+
+	</div>
+	
+		<a href="/Top-7-HTML-Interview-Questions-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/fig">How Fig Shipped an MVP in Two Weeks During YC</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Oct 6 2020 by Brendan Falk
+	</h3>
+	<div class="post-content markdown">
+		<p>My name is <a href="https://twitter.com/brendanfalk">Brendan Falk</a>. I am one of the co-founders of <a href="http://withfig.com?ref=replit">Fig</a> (YC S20). Fig adds visual apps and shortcuts to your Terminal. We make it easy for developers to build visual apps that streamline terminal workflows. We then let developers share apps with their team and the community. Our website gives a good demo.</p>
+
+	</div>
+	
+		<a href="/fig" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teams-transition">Classroom is Transitioning to Teams for Education</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Sep 29 2020 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p><em>Edit on Thursday, November 12:</em>
+<em>We&#39;ve prolonged the Classroom deprecation date to 1/31/2021 to give teachers whose fall classes carry over into the new year extra time to transition.</em></p>
+
+	</div>
+	
+		<a href="/teams-transition" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/annotations-for-education">Code Annotations (available now for Teams for Education!)</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Sep 29 2020 by Arnav Bansal
+	</h3>
+	<div class="post-content markdown">
+		<p>The future of programming is collaborative. To this end, we&#39;ve just added a new feature that unlocks a lot of potential for educators: the ability to annotate code.</p>
+
+	</div>
+	
+		<a href="/annotations-for-education" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/education-privacy">Education Privacy Update</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Sep 21 2020 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Teachers, educators, and administrators, we&#39;ve heard your concerns about privacy. We&#39;re excited to announce a new feature for <a href="https://repl.it/site/teams">Teams for Education</a>, Private Invites, designed specifically to keep students&#39; (including those under the age of 13) information private. Click here to <a href="https://repl.it/teams">create a team</a>.</p>
+
+	</div>
+	
+		<a href="/education-privacy" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/quality">Focusing on a solid foundation</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Sep 21 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it, our mission is to make programming more accessible, more creative, and more fun. A place away from the modern software development <a href="https://amasad.me/replit_ide">grind</a>. It’s an ambitious mission, and it&#39;s already resonated with millions of coders who followed their creative energy to build great apps, like <a href="https://repl.email">repl.email</a>, a free email service built and hosted entirely on Repl.it and available to anyone with a Repl.it account.</p>
+
+	</div>
+	
+		<a href="/quality" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/database">A database for every repl</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Sep 14 2020 by Sidney Kochman
+	</h3>
+	<div class="post-content markdown">
+		<p>Repl.it is already the best place to build your apps. But there was a missing piece: where do you store your data?</p>
+<p>We’re introducing Repl.it Database: a fast, free, and easy key-value store that’s built into every repl.</p>
+
+	</div>
+	
+		<a href="/database" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/land-python-developer-job-youteam">How to Land Your First Job as a Python Developer</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Sep 10 2020 by Galina Divakova
+	</h3>
+	<div class="post-content markdown">
+		<p>Python’s status as one of the world’s most widely used programming languages is well known. Some experts rank it to be<a href="https://redmonk.com/sogrady/2020/02/28/language-rankings-1-20/"> at par with JavaScript</a> in terms of simplicity, flexibility, and popularity. Its syntax is so straightforward and easy to read, custom-built software packages written in Python are the<a href="https://www.economist.com/graphic-detail/2018/07/26/python-is-becoming-the-worlds-most-popular-coding-language"> most shared</a> in top online repositories. From app development to Google using the language for crawling webpages — Python is everywhere and it’s an exciting time to be a Python Developer.</p>
+
+	</div>
+	
+		<a href="/land-python-developer-job-youteam" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/education-update">Fall 2020 Education Update</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Sep 5 2020 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Hey teachers! Back to school is here and we&#39;ve got an update on our education products and pricing.</p>
+
+	</div>
+	
+		<a href="/education-update" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/python-typeerrors-career-karma">Top 8 Python TypeErrors (and How to Solve Them)</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Sep 2 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>Encountering errors is a natural part of working in <a href="https://computersciencehero.com/">computer science</a>. Whether you are a seasoned coding expert or a newbie, seeing some red text in a console accompanied by an error message is an experience that you will have often.</p>
+
+	</div>
+	
+		<a href="/python-typeerrors-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/commandbar">CLUI Command bar and Search</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Aug 27 2020 by Moudy Elkammash and Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>One of the challenges of adding new functionality to any interface is balancing discoverability with visual clutter. We&#39;ve written before about how a <a href="https://blog.repl.it/clui">universal command bar</a> can be a great way to expose features without overloading the UI with buttons. This pattern already works well for us in our mobile interface, so now we&#39;re bringing it to desktop! Here&#39;s a demo of what it looks like:</p>
+
+	</div>
+	
+		<a href="/commandbar" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/python-interview-prep-career-karma">Prepare for a Python Interview with These 7 Questions</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Aug 25 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>How you respond to questions in a technical interview has a massive impact on whether you’re offered a job with an organization. If you can answer technical questions well and explain your reasoning, your chances of being offered a job is greatly improved.</p>
+
+	</div>
+	
+		<a href="/python-interview-prep-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/javascript-interview-career-karma">7 Questions to Help You Prepare for a JavaScript Interview</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Aug 14 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>Job interviews are stressful enough. Technical interviews take the process a step further. In a technical interview, knowing the answer to a question does not necessarily mean you’ll be able to answer it. You need to know how to articulate the complex technical topics that you’ve mastered.</p>
+
+	</div>
+	
+		<a href="/javascript-interview-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/codingai">The role of AI in coding</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Aug 8 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>In the past decade, we&#39;ve seen an explosion of innovation in AI and machine learning. However, coding itself was barely touched by AI. The most significant example of AI-powered coding tools is editor autocomplete extensions like Kite or Tabnine. </p>
+
+	</div>
+	
+		<a href="/codingai" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/beginner-python-errors-career-karma">Common Errors Python Beginners Encounter (with Solutions)</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Aug 4 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>Like English, Python has its own set of rules. Lines of code have to be written in a certain way, just like how sentences must follow a specific structure. Punctuation must be used within a set of guidelines when you’re writing in both English and <a href="https://careerkarma.com/blog/types-of-coding-languages/">Python code</a>.</p>
+
+	</div>
+	
+		<a href="/beginner-python-errors-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/langjam_signup">Language Jam Registration is Open</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Aug 1 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>You can now register your team to enter the <a href="https://repl.it/jam">programming language jam</a>! In addition to setting up your team you can start brainstorming ideas, but we ask you to wait until the 10th before you start hacking. </p>
+
+	</div>
+	
+		<a href="/langjam_signup" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/audio">Audio - Play sound in any language on the web</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jul 31 2020 by Wade Bourne
+	</h3>
+	<div class="post-content markdown">
+		<p>Audio brings games and projects to life! Web developers have it easy, they can publish their apps on the web and play audio using the browser API no problem. However, what about those of us that are command-line and graphics apps in other languages? Repl.it is a special place on the web where you can publish any app in any language, but so far it’s been missing audio capabilities because code executes in a container on the backend. This summer, for my internship I set out to solve this problem and make it possible to play audio in any repl in any language. In this post I’ll show you how to play audio in your repl and then I will chronicle the journey that got us here. </p>
+
+	</div>
+	
+		<a href="/audio" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/how-to-teach-yourself">New course - How to teach yourself coding with Quizlet Founder Andrew Sutherland</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jul 29 2020 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Like many of you, we’ve been stuck at home, trying out new hobbies, attempting to learn new things, and anxiously waiting until life “gets back to normal.” Well, regardless of how you’ve been spending your time during COVID, if you (or a friend or family member) have been wanting to learn how to code, we want to help!</p>
+
+	</div>
+	
+		<a href="/how-to-teach-yourself" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/shareable">Shareable Computing</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jul 29 2020 by GPT-3
+	</h3>
+	<div class="post-content markdown">
+		<p><em>This is a guest blogpost by GPT-3, the new AI software from OpenAI. We only gave it the title and &quot;Repl.it&quot; and it generated the following post for us</em></p>
+
+	</div>
+	
+		<a href="/shareable" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/beginner-sql-career-karma">A Beginner&#39;s Guide to SQL</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jul 28 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>Data is absolutely everywhere. When you visited this web page, you generated data. When you took a note of your to-dos for the day in your reminders, you generated data.</p>
+
+	</div>
+	
+		<a href="/beginner-sql-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/emmet">Emmet support</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jul 27 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Emmet is a plugin for many popular text editors which greatly improves HTML &amp; CSS workflow, it&#39;s also one that&#39;s been <a href="https://repl.it/feedback/p/add-emmet-support">requested</a> by many of our users.</p>
+
+	</div>
+	
+		<a href="/emmet" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/glitch">Dear users coming from Glitch</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 23 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>First, at Replit we&#39;re not motivated by competition. What we care about the most is making programming and computing more accessible. That means anyone who wants to code and build things should be able to do so without any hurdles.</p>
+
+	</div>
+	
+		<a href="/glitch" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/langjam">The Programming Language Jam &amp; Grant</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jul 21 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p><strong>UPDATE</strong>: The jam registration is now open. <a href="langjam_signup">Read the instructions</a>.</p>
+
+	</div>
+	
+		<a href="/langjam" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/html-concepts-career-karma">HTML Concepts to Start Your Web Development Journey</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jul 17 2020 by Christina Kopecky, Career Karma
+	</h3>
+	<div class="post-content markdown">
+		
+	</div>
+	
+		<a href="/html-concepts-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/java-concepts-career-karma">Java Concepts I Wish I Knew Years Ago</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jul 10 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>When I think about the <a href="https://careerkarma.com/blog/easiest-programming-languages-to-learn/">best programming languages to learn</a>, Java is near the top of the list. The language has a wide range of use cases and a beginner-friendly syntax that makes it a great language to learn. While Java may be older than some languages like Ruby or Python, it’s a valuable skill to have if you’re willing to devote the time to learning Java.</p>
+
+	</div>
+	
+		<a href="/java-concepts-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/css-concepts-career-karma">CSS Concepts I Wish I Had Known Years Ago</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jul 6 2020 by Christina Kopecky
+	</h3>
+	<div class="post-content markdown">
+		<p>When I think of web development, I like to think of it in terms of building a house. When we <a href="https://careerkarma.com/blog/learn-html/">learn HTML</a>, we are learning how to build the web page from the ground up, framing it with the lumber that will eventually become our end product.</p>
+
+	</div>
+	
+		<a href="/css-concepts-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/multitabs">Multitabs</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 2 2020 by Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>Repl.it is a great place for prototyping ideas and starting new projects. However as your projects get bigger, the editing experience starts feeling a little limited. That&#39;s why we&#39;re exciting to announce that we&#39;re adding support for tabs!</p>
+
+	</div>
+	
+		<a href="/multitabs" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teams-for-education">Teams for Education</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jun 30 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>We started Repl.it to break down what we thought of as needless barriers to start coding. Naturally, our first product was the repl -- a simple editor and console for evaluating code. Turns out that’s all our users needed to learn enough coding to make meaningful programs. From there, Repl.it started to grow incredibly fast among students, developers, and educators. As we watched what our most active users did with the platform, a pattern emerged around coding in the classroom: teachers would prepare a doc or a PDF with instructions and a base repl for their students to fork. Students then would open the PDF side-by-side with the repl and start coding. When finished, they would copy the link and email it back to their teachers. Finally, teachers would block off an afternoon to evaluate and give feedback on their students’ code. The process, while better than using a local IDE and passing around files, seemed tedious and we wanted to solve it -- that’s how <a href="https://repl.it/classroom">Repl.it Classroom</a> emerged.</p>
+
+	</div>
+	
+		<a href="/teams-for-education" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/git-introduction-beginners-career-karma">Git: An Introduction for Beginners</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jun 29 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>When you’re working on a software project, it’s crucial to keep a log of all the changes made to the project. This will help you see how your work has evolved over time. It will also allow other collaborators on a project to keep track of what changes have been made and by who. That’s where Git comes in.</p>
+
+	</div>
+	
+		<a href="/git-introduction-beginners-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/community-video-competition">Community Video Competition</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jun 23 2020 by Patrick Coleman
+	</h3>
+	<div class="post-content markdown">
+		<p>Over the past week, we ran a video competition for Replers. We got some great submissions from the community, and now it&#39;s time to announce the winners!</p>
+
+	</div>
+	
+		<a href="/community-video-competition" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/popular-beginner-javascript-career-karma">Popular Beginner JavaScript Concepts</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jun 22 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>JavaScript is behind nearly every modern website on the web. JavaScript powers most of the dynamic features you see on the web, such as buttons which change when they’re clicked or images with zoom capabilities.</p>
+
+	</div>
+	
+		<a href="/popular-beginner-javascript-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/popular-beginner-python-career-karma">Popular Beginner Python Concepts</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jun 15 2020 by James Gallagher
+	</h3>
+	<div class="post-content markdown">
+		<p>Python is a programming language that’s widely favored by beginners. It’s no wonder, really. Python has a simple syntax which many people say resembles English, so it’s easy to read and write. In addition, Python is used for a wide array of purposes, from data science to web development.</p>
+
+	</div>
+	
+		<a href="/popular-beginner-python-career-karma" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/github-classroom">Repl.it and GitHub Classroom</a>
+	</h1>
+	<h3 class="post-author">
+		Thu May 28 2020 by Tyler Angert &amp; Jeremy Press
+	</h3>
+	<div class="post-content markdown">
+		<p>Repl.it has always tried to make coding fast, easy, and work seamlessly with your other tools. That’s why we’re excited to announce that Repl.it has teamed up with GitHub Classroom to make learning how to code even easier.</p>
+
+	</div>
+	
+		<a href="/github-classroom" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/deeplinking">Deeplinking</a>
+	</h1>
+	<h3 class="post-author">
+		Fri May 22 2020 by Sergei Chestakov
+	</h3>
+	<div class="post-content markdown">
+		<p>Oftentimes when we&#39;re sharing a repl with a friend we want to link them to exactly where we are in our project. Well now you can with deeplinking!</p>
+
+	</div>
+	
+		<a href="/deeplinking" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/terminal-links">Terminal Links</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Apr 30 2020 by Arnav Bansal
+	</h3>
+	<div class="post-content markdown">
+		<p>Terminals make it hard to copy things: Selecting text works differently to what people are used to, and <code>^C</code> aborts the current program. Links are hard to use.</p>
+
+	</div>
+	
+		<a href="/terminal-links" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/mobile">Improving Repl.it&#39;s Mobile UX</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Apr 28 2020 by Moudy Elkammash
+	</h3>
+	<div class="post-content markdown">
+		<p>I like the process of writing because of how simple and portable the tools are. Regardless of time or place, a way to write things down is never far away. There&#39;s very little friction between inspiration and experimentation. I wish writing code was more like this.</p>
+
+	</div>
+	
+		<a href="/mobile" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/new_marketing">Bringing Repl.it&#39;s Marketing to the Modern Age</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Apr 17 2020 by Tyler Angert
+	</h3>
+	<div class="post-content markdown">
+		
+	</div>
+	
+		<a href="/new_marketing" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/termsearch">Terminal Search</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Apr 14 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>When you&#39;re deep into a debugging session printing a bunch of <code>here</code>, <code>there</code>, and <code>wat</code>, the output in the terminal can get hard to read. That&#39;s when search comes in handy, and that&#39;s why we&#39;re excited to announce our new terminal search functionality. </p>
+
+	</div>
+	
+		<a href="/termsearch" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/maven">Packaging Support for Java - Try Maven Packages in Your Browser</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Mar 25 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Java is one of the most popular languages on Repl.it, and the JVM powers many of our other languages (Java Swing, Clojure, Kotlin). We want to make it as easy as possible to code with other people and build new programs out of programs that already exist. So we&#39;ve added packaging support for Java!</p>
+
+	</div>
+	
+		<a href="/maven" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/cms">Using Repl.it as a CMS</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Mar 23 2020 by Tyler Angert
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it, we try to dogfood (use our own product) as much as we can. Parts of Repl.it are already developed on / hosted entirely on itself-- our blog, our docs, and even our new UI library is being developed almost entirely on Repl.it. But one interesting use case we’re exploring now is using Repl.it as a CMS for all of our new marketing pages.</p>
+
+	</div>
+	
+		<a href="/cms" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/interview">How to Conduct Remote Interviews</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Mar 20 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Remote interviews can be hard, especially if you’ve never done them before. With the COVID-19 crisis, we’re seeing a lot of teams forced to transition to remote interviewing. Luckily, we’ve done hundreds of remote phone screens, and more recently we’ve been doing what we’re calling “remote onsites.” In this post, we&#39;ll describe how we and some of our customers leverage <a href="https://repl.it">Repl.it</a> <a href="https://repl.it/site/multiplayer">Multiplayer</a> -- our realtime collaborative development environment -- and other tools to interview candidates remotely.</p>
+
+	</div>
+	
+		<a href="/interview" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/remote">Teach Coding Remotely - free for public schools and 80% discount for everyone else</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Mar 13 2020 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;ve been hearing from our teacher community that despite school closings they want to continue teaching their students remotely. Luckily Repl.it was designed to be remote-first and will be a perfect tool for this.  We have two products that serve different remote modes:</p>
+
+	</div>
+	
+		<a href="/remote" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/clui">CLUI: Building a Graphical Command Line</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Mar 5 2020 by Tyler Angert and Moudy Elkammash
+	</h3>
+	<div class="post-content markdown">
+		<blockquote>
+<p>“Command line interfaces. Once that was all we had. Then they disappeared, replaced by what we thought was a great advance: GUIs. GUIs were - and still are - valuable, but they fail to scale to the demands of today&#39;s systems. So now command line interfaces are back again, hiding under the name of search. Now you see them, now you don&#39;t. Now you see them again. And they will get better and better with time: mark my words, that is my prediction for the future of interfaces.” [1]</p>
+</blockquote>
+
+	</div>
+	
+		<a href="/clui" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/github">Repl from Repo</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Dec 10 2019 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>When I think of GitHub I imagine a vast network of people and code; a
+superorganism that changed how we make software. When I was getting into
+programming, starting a new project was daunting -- you had to imagine and
+build everything nearly from scratch. My version of code-sharing was calling my
+older cousin who was going to college for CS and getting code dictated to me
+over the phone. When the Internet arrived in my home town, it made hacking on new
+projects so much more fun. Starting a new project, at least initially, became
+about discovery:</p>
+
+	</div>
+	
+		<a href="/github" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/upm">Open-Sourcing the Universal Package Manager</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Oct 30 2019 by Radon Rosborough
+	</h3>
+	<div class="post-content markdown">
+		<img src="/images/upm_cover.png"/>
+	</div>
+	
+		<a href="/upm" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/student-offer">Free Hacker Plans for Eligible Students</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Sep 24 2019 by Bryan Byrne
+	</h3>
+	<div class="post-content markdown">
+		<p>We believe everyone should have instant access to a complete coding environment in their browser. That’s why Repl.it has joined the <a href="https://education.github.com/pack">GitHub Student Developer Pack</a>, giving eligible students free access to private repls, unlimited multiplayer sessions, and additional processing power. Students can now focus on learning and collaborating with their classmates in new ways, without the hassle of setting up a new environment each time.</p>
+
+	</div>
+	
+		<a href="/student-offer" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/collab">Making Repl.it Collaborative at Heart</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Sep 18 2019 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Coding, people believed, was an activity hackers did alone. While that might
+have been true in the past, the world is changing. New programmers come online
+every day and they want to effortlessly work and interact with others while
+writing code. Yet collaborative coding environments have remained troublesome to
+setup.</p>
+
+	</div>
+	
+		<a href="/collab" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/sqlite">SQLite, replified</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Aug 2 2019 by Sidney Kochman
+	</h3>
+	<div class="post-content markdown">
+		<p>SQLite is now a supported language <a href="https://repl.it/languages/sqlite">on Repl.it</a>! Our SQLite support brings the entire SQLite command-line interface right into your workspace. Now you have a simple way to experiment, prototype, or refine your data model with SQL.</p>
+
+	</div>
+	
+		<a href="/sqlite" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/markdown">Previewing Markdown in Repls</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Aug 2 2019 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>When our community members want to provide instructions within a repl,
+the most common pattern we&#39;ve seen is in a <code>.txt</code> file, or as a code
+comment. Users quickly figured out that while they could make markdown
+files, there was no way to render it in a more readable format. Today,
+that changes. We&#39;re happy to announce that you can now preview markdown
+in repls!</p>
+
+	</div>
+	
+		<a href="/markdown" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/chad-spotlight">Dev Spotlight with Chad Fowler: Build something useless, become a better developer.</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jul 1 2019 by Katya Delaney &amp; Katherine Huang
+	</h3>
+	<div class="post-content markdown">
+		<p>Last week, Kat and I were lucky enough to sit down with <a href="http://chadfowler.com">Chad Fowler</a>, programmer, author of The Passionate Programmer, start-up investor, founder of both <a href="http://rubyconf.org/">The International Ruby Conference</a> and <a href="http://railsconf.com/">RailsConf</a>, and <a href="https://vimeo.com/310799714">musician</a>. </p>
+
+	</div>
+	
+		<a href="/chad-spotlight" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/elisp">Adding a language to Repl.it: Emacs Lisp</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jun 24 2019 by Radon Rosborough
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it, we want to provide a top-tier online programming
+experience in as many languages as we can support. Today, we’ll show
+you just how we do that.</p>
+
+	</div>
+	
+		<a href="/elisp" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/music">Make coding your jam</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jun 20 2019 by Katherine Huang
+	</h3>
+	<div class="post-content markdown">
+		<h2 id="code--music-in-tune-with-each-other">Code + music: In tune with each other</h2>
+
+	</div>
+	
+		<a href="/music" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/ask">Repl.it Q&amp;A</a>
+	</h1>
+	<h3 class="post-author">
+		Tue May 14 2019 by Katya Delaney
+	</h3>
+	<div class="post-content markdown">
+		<h2 id="building-tools-for-a-helpful-community">Building tools for a helpful community</h2>
+<p>“Community” is one of the hardest concepts to define in the English language. Weird, right? It seems like it would be intuitive, but it’s actually something sociologists have struggled with for hundreds of years. Is a community defined by a shared space? A language? A goal? Something as nebulous as just a feeling or an attitude? The answer changes dramatically depending on who you ask.</p>
+
+	</div>
+	
+		<a href="/ask" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/gfx">Repl.it GFX: Native graphics development in the browser</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Mar 21 2019 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it we live and breathe making software creation easier. With our
+<a href="platform">programming environment</a>, you could start coding in your favorite language in
+seconds. With <a href="deploy">live deployments</a>, we made web hosting a breeze. With <a href="multi">Multiplayer</a>,
+we&#39;ve removed the drudgery from coding with friends. And today, we&#39;re excited to
+bring native GUI applications and game development to the browser.</p>
+
+	</div>
+	
+		<a href="/gfx" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/multi">Repl.it Multiplayer</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Dec 6 2018 by Faris &amp; Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Today we&#39;re announcing the most-significant evolution of our platform — something we&#39;ve been building towards for a long time that we&#39;re thrilled to share with you.</p>
+
+	</div>
+	
+		<a href="/multi" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/stderr">Colorizing Stderr: racing pipes, and libc monkey-patching</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Nov 2 2018 by Rob Blanckaert
+	</h3>
+	<div class="post-content markdown">
+		<p><em>Errors are red,</em><br/>
+<em>Outputs are white,</em><br/>
+<em>File descriptor injection is bold,</em><br/>
+<em>Let me tell you about</em> <code>LD_PRELOAD</code>.<br/></p>
+
+	</div>
+	
+		<a href="/stderr" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/a16z">Repl.it raises $4.5M, announces a million users</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Oct 22 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;re thrilled to announce that we have raised a Seed round led by Andreessen
+Horowitz, with Marc Andreessen and Andrew Chen championing the deal. We&#39;re also
+sharing that a million users are now using Repl.it. Moreover,
+our developers have shipped 250,000 websites/apps since our <a href="https://replit.com/site/blog/platform">hosting platform</a> launch in March.</p>
+
+	</div>
+	
+		<a href="/a16z" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/fileswitcher">File Switcher</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Oct 16 2018 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>A few days ago we shipped a simple feature that will save our users time in finding and opening files, especially for larger projects.  This can even be used without having the file tree visible.  Read on to see how to use it and to see a demonstration.</p>
+
+	</div>
+	
+		<a href="/fileswitcher" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/yc">Rejected Then Recruited: Our Journey into Y Combinator</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Sep 25 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>&quot;The intoxicating delight of sudden understanding&quot;<sup><a href="#fn1" id="ref1">1</a></sup> best describes what I felt the first time I derived the <a href="https://en.wikipedia.org/wiki/Fixed-point_combinator#Derivation_of_the_Y_combinator">Y Combinator</a> (guided by the Little Schemer book). Learning Lisp (by way of Scheme) is how I first came about Paul Graham&#39;s <a href="http://paulgraham.com/articles.html">essays</a>. Which was, of course, a gateway drug to startups.</p>
+
+	</div>
+	
+		<a href="/yc" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/codejam-db">Databases Built by Students</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Sep 24 2018 by Nathan Zilora
+	</h3>
+	<div class="post-content markdown">
+		<p>In case you weren&#39;t aware, the <a href="https://discord.gg/XadDsju">repl.it discord server</a> recently had a code jam, with the objective being to <strong>make a database</strong>. Over 14 people finished and submitted a design for the jam. However this jam was a bit different compared to our first and second jams. First of all, we have groups of 2, instead of individual people. This could be viewed and a boon or a bane, but we&#39;ll go over that in more detail later. The second set differences were the bonus points. In the past, we&#39;ve always graded on code quality, efficiency, and creativity.</p>
+
+	</div>
+	
+		<a href="/codejam-db" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/shell">Bash Shell Experiment</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Sep 14 2018 by Rob Blanckaert
+	</h3>
+	<div class="post-content markdown">
+		<p>Repl&#39;s now provide access to an experimental bash shell via the command palette (<kbd>F1</kbd>)</p>
+
+	</div>
+	
+		<a href="/shell" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/dark-theme">Dark Theme Released</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Sep 13 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>Dark Theme has long been one of the most highly request features on Repl.it.  We introduced a dark theme editor some time back, but as the rest of the workspace was still in &quot;Repl.it Light Mode&quot;, we knew our work wasn&#39;t done.  We are proud to announce the release of &quot;Repl.it Dark&quot; - a dark theme for the entire workspace!</p>
+
+	</div>
+	
+		<a href="/dark-theme" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/hackchicago">Hack Chicago</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Aug 10 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>On the weekend of July 21st, we sponsored and attended the Midwest&#39;s largest high school hackathon, Hack Chicago!</p>
+
+	</div>
+	
+		<a href="/hackchicago" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/code-jams">Community-Led Code Jams</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Aug 10 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>A few months ago, we created a new Discord channel - a real time chat app - for Repl.it.  We&#39;ve since expanded our user count to be well over 500.  Our Discord server is community-driven - we have a team of three users who help us moderate the server and facilitate a culture of friendly collaboration and sharing knowledge.  However, our favorite outcome of this community are the code jams.</p>
+
+	</div>
+	
+		<a href="/code-jams" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/firebase">Firebase</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 26 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>Today we&#39;re going to learn how to use Firebase as a database for a simple website using JavaScript!</p>
+
+	</div>
+	
+		<a href="/firebase" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/hotdog">Not Hotdog</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 19 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>Today we&#39;re going to write a program that tells you whether an image is a hotdog or not!</p>
+
+	</div>
+	
+		<a href="/hotdog" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/packager">Universal Package Manager</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 19 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Open-source has revolutionized software development -- it wouldn&#39;t be an
+overstatement to say that it&#39;s been the most significant productivity win for developers
+in the last decade or so. At Repl.it, our goal is to make programming more
+accessible and what better way to do that than make available to programmers the
+entirety of open-source packages available at their fingertips.</p>
+
+	</div>
+	
+		<a href="/packager" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/july-irl-recap">July Repl.it IRL Recap</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jul 16 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>On July 11th, we had our second Repl.it IRL and it was an amazing event!</p>
+
+	</div>
+	
+		<a href="/july-irl-recap" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/intel">Zero Setup VSCode Intelligence</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jul 2 2018 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it our goal is to provide state of the art in developer tools to
+everyone in the world, for free. When we started moving our product beyond a
+simple REPL and started adding IDE features, we had to invent standards and
+wrappers around every language tool for our frontend to consume. For every
+editor feature, say errors and warnings (linting), we had to extend our
+development protocol with a set of commands and data structures, and then teach
+our development containers how to wrap the given tool, say Pylint, and our
+frontend on how to consume it (say annotate the editor with errors and
+warnings). A similar thing has been happening with IDEs for the past few decades
+-- every editor had to come up with their in-house ad-hoc protocol, and every
+tool developer had to build adapters and wrappers for editors to consume.</p>
+
+	</div>
+	
+		<a href="/intel" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/pin-repls">Showcase Repls on your Profile</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jul 2 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>As you use Repl.it more and more, you often find yourself frequently creating repls for quick testing.  On your repls dashboard, you can mark important repls by starring them - allowing you to quickly access them.  However, there was no way to surface your best work on your profile - users would have to sift through all your repls to find the one they were looking for - until now.</p>
+
+	</div>
+	
+		<a href="/pin-repls" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/stuyhacks">Repl.it @ StuyHacks</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jun 27 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>I’m still in high school but I just flew from San Francisco to New York City to be a sponsor at a high school hackathon so, yeah, you already know that the whole experience was pretty awesome.</p>
+
+	</div>
+	
+		<a href="/stuyhacks" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/july-irl-info">July IRL Info</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jun 27 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>For the month of July, our Repl.it IRL will be taking place on July 11th from 4 to 7 PM at the <a href="https://goo.gl/maps/CQpvexqXKbn">Bradfield School of Computer Science</a>!</p>
+
+	</div>
+	
+		<a href="/july-irl-info" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/interactive-plots">Image Previews with Live Reloading</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jun 15 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>We recently added some changes to how <a href="https://replit.com/site/docs/files">eval mode/project mode</a> operates.  These changes allow you to interact with generated files through the console.</p>
+
+	</div>
+	
+		<a href="/interactive-plots" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/first-website">First Website Tutorial</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jun 14 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>While you can write web applications and text-based ensembles in Repl.it, sometimes it&#39;s nice to be able to just put together a simple HTML/CSS website using the same awesome editor!</p>
+
+	</div>
+	
+		<a href="/first-website" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/preboot">React Framework Preboot</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jun 13 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p><a href="react">Two days</a> ago we introduced our beta support for React frameworks, ranging from
+static-site generators like GatsbyJS, to fullstack frameworks like
+Next.js. Today we&#39;re launching a significant performance enhancement that we&#39;re
+calling <strong>preboot</strong>.</p>
+
+	</div>
+	
+		<a href="/preboot" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/first-irl">Repl.it IRL</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jun 13 2018 by Yev Barkalov
+	</h3>
+	<div class="post-content markdown">
+		<p>On Monday, June 11th, we had our first Repl.it Meetup and it was super awesome!</p>
+
+	</div>
+	
+		<a href="/first-irl" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/react">Repl.it ❤️  React</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jun 7 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Despite the <a href="https://twitter.com/cowboy/status/339858717451362304">negative press
+covfefe</a> around <a href="https://reactjs.org/">React.js</a>
+when it first came out, I instantly fell
+in love with it. The thing I liked the most about it was the component model. Until then
+the JavaScript community has been trying for years to come up with the correct
+abstraction for creating reusable modules, but it was always leaky. Because React
+components are essentially functions, and because functions are the undisputed
+champion of reusable code, it worked out extraordinarily well. You don&#39;t need
+dependency-injection, or any other modularity hacks, you simply pass props! Also,
+the virtual dom made it so that components are, by default,
+protected from other components prying into their internals.</p>
+
+	</div>
+	
+		<a href="/react" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/rot">Don&#39;t Let Your Development Environment Rot</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jun 4 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Most systems -- both natural and artificial -- decay, rot, and eventually
+die. Software is no different. A lot has been written about fighting
+<a href="https://en.wikipedia.org/wiki/Software_rot">&quot;software rot&quot;</a> but there&#39;s another
+type of rot related to software that&#39;s not talked about much -- the development
+environment rot.</p>
+
+	</div>
+	
+		<a href="/rot" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/guest-op-nn">Guest Blog Post: Neural Networks and Primes</a>
+	</h1>
+	<h3 class="post-author">
+		Thu May 3 2018 by Ollie Parish
+	</h3>
+	<div class="post-content markdown">
+		<p>Ollie Parish, also known as <a href="https://repl.it/@op">@op</a> on Repl.it, is an avid Repler and constantly pushes our systems to its limits (in the best way).  In this guest blog post, he describes his journey in using neural networks to generate large primes.  You can also check out the repl described in his research: <a href="https://repl.it/@op/DNN-3-1">https://repl.it/@op/DNN-3-1</a></p>
+
+	</div>
+	
+		<a href="/guest-op-nn" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/repls-search">A Better Way to Search Your Repls</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Mar 19 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>Along with the ability to star repls and tag repls, we now take repl organization one step further with the ability to search through your repls.</p>
+
+	</div>
+	
+		<a href="/repls-search" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/platform">Repl.it: the IDE That Grows—from Playgrounds to Fullstack Apps</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Mar 13 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it we come to work every day to explore a single idea—what if
+programming just worked? What if instead of fiddling around with packages,
+configurations, and mismatching versions, you just open your IDE and start
+coding. What if developers can go from an idea to coding and shipping software
+with no time in between. What if teachers who want to teach programming don&#39;t
+have to also work as IT administrators. What if students can just code their
+homework without having to set up the development environment on every computer
+they wanted to code on.</p>
+
+	</div>
+	
+		<a href="/platform" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/deploy">Live Server Development and Deployment (Beta)</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Mar 12 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Repl.it is becoming the platform where developers come to learn and
+build. With <a href="hosting">web hosting</a> we also made it possible to host websites and
+since then we&#39;ve seen an explosion of websites hosted on Repl.it. Today we&#39;re
+going further by making it possible to deploy servers on Repl.it.</p>
+
+	</div>
+	
+		<a href="/deploy" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/file-tree">File tree!</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Mar 9 2018 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Sometime in 2016 we in introduced the concept of &quot;files&quot; to Repl.it, you would click add file and a tab would appear on your Repl. As simple repls grew into full fledged applications and websites tabs started getting ugly and hard to manage.</p>
+
+	</div>
+	
+		<a href="/file-tree" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/ruby_gems">Require Ruby Gems</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Mar 8 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>On the heels of our Node.js npm support <a href="node_modules">announcement</a>, we&#39;re pleased to announce that we now
+support Ruby <a href="https://rubygems.org/">Gems</a> too. We&#39;re excited to have the Ruby
+community join the fun.</p>
+
+	</div>
+	
+		<a href="/ruby_gems" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/feb-2018-competition-results">I Built This - Feb 2018 Competition Summary</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Mar 8 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>As we released <a href="https://repl.it/ibuiltthis/">I Built This</a>, our community where users can post about their repl creations, we were exposed to many amazing projects created by our users.  To kick it off, we hosted a competition where users post their work and garner upvotes for prizes.  The projects shared in the competition spanned a wide range of skill levels, from beginner to advanced, from simple to complex.</p>
+
+	</div>
+	
+		<a href="/feb-2018-competition-results" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/node_modules">Introducing Node.js package support</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Mar 7 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Ever since we introduced third-party package support for Python we&#39;ve seen an
+explosion of exciting programs on Repl.it. Everything from games to
+machine-learning applications that just weren&#39;t possible before.</p>
+
+	</div>
+	
+		<a href="/node_modules" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/my_repls">New and improved repls page</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Feb 26 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>People use Repl.it in a variety of ways; some use it for building and shipping
+applications, while others use it for working on homework, and many others use
+it as a quick prototyping/experimentation tool. Supporting all these use cases
+(and more) is something we care a lot about, but up until now there wasn&#39;t an
+easy way to, for example, quickly go back to a project that you continue to work
+on every day.</p>
+
+	</div>
+	
+		<a href="/my_repls" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/ide">Modular, fast, small: how we built a server-rendered IDE</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Feb 14 2018 by Mason Clayton
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it our mission is to make programming more accessible, which means our
+coding environment needs to be lightweight, load fast, and work from anywhere in
+the world. However, as with so many software projects that evolve with time, we
+accumulated some bloat (luckily, we haven&#39;t included a <a href="http://www.catb.org/jargon/html/Z/Zawinskis-Law.html">mail client</a> yet) and
+quite a few ad-hoc hacks to glue everything together.  In this post, we&#39;ll go
+over how we designed our new IDE to have a small core (everything is a plugin),
+to be easily customizable (even on the fly), and to server-render.</p>
+
+	</div>
+	
+		<a href="/ide" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/internet-access">Internet access for all</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Feb 5 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>Repl.it is quickly becoming a tool that&#39;s used in everyday programming, and our
+users are building all sorts of amazing programs. One thing that&#39;s been missing
+for a long time is the ability to access the internet from repls. Being able to
+call APIs or remote servers is something programmers can&#39;t live without. That&#39;s
+why we&#39;re excited to announce that starting now we&#39;re openning internet access
+for all!</p>
+
+	</div>
+	
+		<a href="/internet-access" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/pricing-update-2018">Pricing update</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Feb 5 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it our mission is to make programming more accessible. We want to build
+the platform that will empower the next billion programmers to build the future
+of software. To accomplish this we needed to build a sustainable business that
+allows us to grow with our users.</p>
+
+	</div>
+	
+		<a href="/pricing-update-2018" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/cloning-assignments">Cloning Assignments</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jan 30 2018 by Tim Chen
+	</h3>
+	<div class="post-content markdown">
+		<p>You can now copy and clone an assignment from one classroom to another!  Many teachers have requested this feature, and we are happy to announce that it has been released!</p>
+
+	</div>
+	
+		<a href="/cloning-assignments" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/refugees">Teaching refugees how to code</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jan 26 2018 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it our mission is to make programming more accessible. We can’t do this
+alone so it’s great to partner with non-profits and hack clubs that share our
+mission. <a href="http://www.re-coded.com/">Re-coded</a> is one of those non-profits, they&#39;re
+teaching programming in the refugee camps in Iraq and Turkey. Today I’d like to share
+with you their story of how they found Repl.it useful in overcoming logistical challenges.</p>
+
+	</div>
+	
+		<a href="/refugees" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/hosting">Your websites hosted on Repl.it</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jan 22 2018 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>People in our community build awesome games, apps, and websites on Repl.it&#39;s web
+programming environment, but until now they didn&#39;t have any easy way of sharing
+these creations with other people.</p>
+
+	</div>
+	
+		<a href="/hosting" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/repl_history">Repl History</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Dec 11 2017 by Amjad &amp; Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it we focus on simplicity, speed, and, most importantly,
+reliability. If you&#39;re using Repl.it as your primary or secondary IDE we want
+you to be confident that the time you invest working on your code will never go
+to waste.</p>
+
+	</div>
+	
+		<a href="/repl_history" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/new_repls">New in Repls: autosave, custom urls, and more</a>
+	</h1>
+	<h3 class="post-author">
+		Sun Nov 12 2017 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p>We are always excited about launching new features and sharing with you, our
+dear users, what we’ve been up to. For the past few months, Amjad, Mason and I
+have been working hard and last night we quietly launched the new repl
+features. These features required a lot of infrastructure and data changes which
+is always tricky to execute. We ran into some technical difficulties last night
+with the data migration but was able to bring the site back up and things have
+been running relatively smoothly since then.</p>
+
+	</div>
+	
+		<a href="/new_repls" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/workspace-update">A Few Updates in the Workspace</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Sep 8 2017 by Mason Clayton
+	</h3>
+	<div class="post-content markdown">
+		<p>We strive to make the workspace as useful as possible while keeping it intuitive
+and approachable. We get a crazy number of requests for features every day, not
+to mention our own ideas. It becomes a challenging balance between feature creep
+and simplicity. Lately we&#39;ve added a few of these features that we hope you&#39;ll
+find useful and, if not, you won&#39;t even notice they&#39;re there.</p>
+
+	</div>
+	
+		<a href="/workspace-update" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/two_stories">Two Stories from Our Community</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Aug 23 2017 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p>Like any other startup, we go through ups and downs. However, we try to
+keep a positive energy, and you, my friends, contribute to that by sending your love,
+support, and thanks everyday. Above all, you inspire us with stories of how
+our product helped you learn, teach, and even develop a new skill to land a
+better job.</p>
+
+	</div>
+	
+		<a href="/two_stories" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/profile">Your Repl.it Profile</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jul 5 2017 by Amjad Masad, Haya Odeh, and Mason Clayton
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;re constantly surprised and delighted by the creativity of people in our
+community. Whether it be games, animations, utilities, or simply snippets to
+answer Stackoverflow questions -- it&#39;s always fascinating to see! However, we
+haven&#39;t done a good job giving credits to authors for their creations.</p>
+
+	</div>
+	
+		<a href="/profile" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/tabbed_console">One more console</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jun 1 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Debugging <a href="https://repl.it/languages/html">web projects</a> on Repl.it can
+be frustrating. Until today, there
+was no easy way to view your errors and console logs (unless you open your
+browsers&#39; developer tools). But that&#39;s changing because we&#39;re introducing our new tabbed
+console view for environments that has graphics output (like Web and Python Turtle).</p>
+
+	</div>
+	
+		<a href="/tabbed_console" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/changelog_5_30_17">Changelog (of imports and turtles)</a>
+	</h1>
+	<h3 class="post-author">
+		Tue May 30 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Some changes and fixes we make don&#39;t deserve their own blogpost. So we thought a
+good way to keep you up-to-date is to collect however many that could be of
+interest and write a <a href="https://en.wikipedia.org/wiki/Changelog">&quot;Changelog&quot;</a>.</p>
+
+	</div>
+	
+		<a href="/changelog_5_30_17" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/sessions-repls">Check out my Repl!</a>
+	</h1>
+	<h3 class="post-author">
+		Mon May 29 2017 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p>The label &quot;sessions&quot; is very near and dear to my heart. I vividly remember how
+Amjad came up with the name and why. After we learned that people would like to
+create accounts on Repl.it, we were trying to figure out what was the main value
+proposition for creating an account. Of course, it was saving code! But what do
+you call a list of code projects saved on your account?</p>
+
+	</div>
+	
+		<a href="/sessions-repls" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/kotlin">Introducing Kotlin REPL</a>
+	</h1>
+	<h3 class="post-author">
+		Thu May 18 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>On the heels of Google
+<a href="https://venturebeat.com/2017/05/17/android-now-supports-the-kotlin-programming-language/">announcing</a>
+native Kotlin support on Android yesterday, we thought it&#39;d be cool to get a
+<a href="https://replit.com/languages/kotlin">Kotlin REPL</a> up so that people can try it.</p>
+
+	</div>
+	
+		<a href="/kotlin" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/react_native">React Native</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Apr 25 2017 by Alek Hurst
+	</h3>
+	<div class="post-content markdown">
+		<p><em>We have discontinued support for react native</em></p>
+
+	</div>
+	
+		<a href="/react_native" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/model-solutions">Model solutions</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Apr 21 2017 by Vitaly Pavlenko
+	</h3>
+	<div class="post-content markdown">
+		<p>There is a special moment in learning: when a student runs their code against
+the unit tests and finally sees all of them turn green. This moment of
+enlightenment means the student has just managed to create their own working
+solution to a difficult problem, and has made a step towards becoming a great
+programmer! Wouldn&#39;t it be cool to further enhance the student&#39;s knowledge by
+showing the student different approaches to tackle the same problem?</p>
+
+	</div>
+	
+		<a href="/model-solutions" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/npm">Require any npm package</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Mar 28 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Last year we introduced support for importing <a href="python-import">any Python package from
+PyPi</a> and -- although we don&#39;t have perfect support for all
+packages -- it turned out to be a very popular feature. That&#39;s why today we&#39;re
+excited to continue the roll-out for the rest of our platform starting with
+web-based languages. </p>
+
+	</div>
+	
+		<a href="/npm" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/holistic">Building Towards a Holistic Development Service</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Mar 27 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Software development is one of the first -- if not the first -- examples of what
+J. C. Licklider called the <em><a href="https://groups.csail.mit.edu/medg/people/psz/Licklider.html">Man-Computer
+Symbiosis</a></em>. A
+<em>&quot;cooperative interaction&quot;</em> between people and computers where the person is
+concerned in what may be classified as the creative aspect of the work such as
+setting the goals, formulating the hypothesis and evaluating the results while
+the computer does all the <em>&quot;routinizable work&quot;</em>.</p>
+
+	</div>
+	
+		<a href="/holistic" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/youtube">YouTube tutorials using Repl.it</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Mar 20 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p><strong>EDIT - This article is now outdated</strong></p>
+<p>If you&#39;re looking for up-to-date videos about Replit, the best place to loook is <a href="https://www.youtube.com/channel/UCgoJjdR6-7AMu9fDitb6nVw">our Youtube channel</a>. The videos below may be inaccurate, or missing. </p>
+<hr>
+<p>We&#39;ve been seeing more and more coding video tutorials using YouTube and
+Twitch.tv. Today we&#39;re sharing some of our favorite YouTube videos that uses
+Repl.it </p>
+
+	</div>
+	
+		<a href="/youtube" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/clojure">Introducing Clojure</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Mar 3 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Earlier this week we introduced <a href="haskell">Haskell support</a>. And now, as promised,
+we&#39;re continuing to add more functional languages. So today we&#39;re excited to introduce
+<a href="https://clojure.org/">Clojure</a>. A Lisp dialect that runs on top of the Java
+Virtual Machine with a focus on immutability. </p>
+
+	</div>
+	
+		<a href="/clojure" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/haskell">Introducing Haskell</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Feb 27 2017 by Mason Clayton
+	</h3>
+	<div class="post-content markdown">
+		<p>We heard your requests for Haskell and today we&#39;re excited to finally announce
+Haskell as yet another language we support. We&#39;ve decided to put our focus on
+adding more functional languages, starting with Haskell, so you can expect more
+very soon.</p>
+
+	</div>
+	
+		<a href="/haskell" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/teacher-collaboration">Collaborate with Other Teachers in your Classrooms</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Feb 15 2017 by Alek Hurst
+	</h3>
+	<div class="post-content markdown">
+		<p>Hey teachers, we&#39;ve noticed that you have been teaching up a storm in your Replit classrooms, and with this feature we want to turn those storms into educational hurricanes! To do so, we implemented teacher collaboration, which allows you to add an additional teacher to your Replit classrooms. This additional teacher can do <em>almost</em> everything you can do, excluding a couple of small destructive things...</p>
+
+	</div>
+	
+		<a href="/teacher-collaboration" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/assignment-dependencies">Assignment Dependencies</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jan 27 2017 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<blockquote>
+<p>Fundementally, learning is about completing basic material before moving on to
+more advanced stuff.</p>
+</blockquote>
+
+	</div>
+	
+		<a href="/assignment-dependencies" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/infinite-loops">Infinite Loops</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Jan 23 2017 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it we aim to make the full power of programming easily accessible for
+everyone. That&#39;s why when we designed our <a href="https://replit.com/api">code execution service</a> we decided that
+we would not timebox users&#39; programs or sessions. </p>
+
+	</div>
+	
+		<a href="/infinite-loops" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/assignment-reordering">Assignment Reordering</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jan 19 2017 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p>At Repl.it our mission is to make programming more accessible, and the best way
+we found to achieve this is to support, you, the teachers on the ground doing
+working with students. That&#39;s why we want to make sure you control the student
+experience and today we&#39;re making it possible to control the assignments order
+from your classroom dashboard.</p>
+
+	</div>
+	
+		<a href="/assignment-reordering" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/file-updates">Live File Updates</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Dec 23 2016 by Mason Clayton
+	</h3>
+	<div class="post-content markdown">
+		<p>Today we&#39;re excited to release a feature which shows any files your program
+creates directly inside the REPL. And any time that file changes it will be
+updated live in the editor. This can be anything from a text file to a gif.</p>
+
+	</div>
+	
+		<a href="/file-updates" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/package-search">Python Package Search</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Dec 2 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>We recently made it possible to <a href="python-import">import</a> any package from
+PyPi. However, people who missed the announcement didn&#39;t know this was
+possible. There was also no good way to search and explore packages.</p>
+
+	</div>
+	
+		<a href="/package-search" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/python-debugger">Introducing Step Debugging for Python</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Nov 28 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<h2 id="debug-your-python3-programs-from-your-browser">Debug your Python3 programs from your browser</h2>
+<p>At Repl.it, our goal is to make programming more accessible, and as part of this
+we aim to provide the full power of popular programming environments with no
+setup time. And I don&#39;t think it&#39;s an understatement to say that debugging is
+the majority of what we, as programmers, do. </p>
+
+	</div>
+	
+		<a href="/python-debugger" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/aws-simple-guide">Learning Devops &amp; AWS on the Job: Building and Scaling a Service</a>
+	</h1>
+	<h3 class="post-author">
+		Mon Nov 14 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<h1 id="or-what-i-wish-you-i-knew-before-building-replits-code-execution-service">Or, what I wish you I knew before building Repl.it&#39;s code execution service</h1>
+
+	</div>
+	
+		<a href="/aws-simple-guide" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/pylint">Introducing Pylint Support</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Nov 12 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Today, we&#39;re excited to introduce
+<a href="https://en.wikipedia.org/wiki/Lint_%28software%29">lint</a> support for Python3.
+Where previously you had to run your code, look at the console for an error,
+find the line number of the error and then find that line in your editor. Now,
+we&#39;ll show you errors and potential mistakes live as you type!</p>
+
+	</div>
+	
+		<a href="/pylint" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/python-import">from PyPi import *</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Oct 25 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<h2 id="import-any-python-package">Import any Python Package</h2>
+<p>At Repl.it, our goal is to make programming more accessible, and as part of this
+we aim to provide the full power of popular programming environments with no
+setup time. And no modern programming language is complete without third-party
+packages. </p>
+
+	</div>
+	
+		<a href="/python-import" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/python-turtle">Introducing Turtle Graphics For Python</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Oct 4 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Ever since the <a href="https://en.wikipedia.org/wiki/Logo_programming_language">LOGO programming
+language</a> educators
+have been using <a href="https://en.wikipedia.org/wiki/Turtle_graphics">Turtle Graphics</a>
+to demonstrate the power of programming to their students while making it fun and
+interesting.</p>
+
+	</div>
+	
+		<a href="/python-turtle" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/assignment-due-date">Assignment Due Date</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Sep 30 2016 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>On Wednesday we announced <a href="https://repl.it/site/blog/scheduled-assignment">assignment scheduling</a>, and today we&#39;re releasing another date related feature—due dates. It&#39;s no secret that students can procrastinate, so sometimes it&#39;s useful to have deadlines for the assignments as a reminder.</p>
+
+	</div>
+	
+		<a href="/assignment-due-date" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/scheduled-assignment">Scheduled Assignments</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Sep 28 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Today, we&#39;re introducing scheduled assignments. Teachers using <a href="https://replit.com/classrooms">Repl.it
+Classroom</a> can now schedule
+assignments to be published in the future. You can imagine working on your
+assignment, schedule a publish date, go on vacation, and still have your
+students receive their assignments at the right time.</p>
+
+	</div>
+	
+		<a href="/scheduled-assignment" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/vagueness-clarity">Vagueness to Clarity</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 28 2016 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p><img src="https://replit.com/public/images/complex_clarity.jpg" alt="clarity"></p>
+<p>Simple design is not only how the product looks like, but more importantly, how
+the product functions; it’s about creating the easiest and simplest path for the
+user to accomplish their goal. Usually, simple design comes from complex
+requirements and a lot of ideas — in order to break it down I usually go through
+a process that I call <em>Vagueness to Clarity</em></p>
+
+	</div>
+	
+		<a href="/vagueness-clarity" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/project-repl">Every Project Should Have Its Own REPL</a>
+	</h1>
+	<h3 class="post-author">
+		Thu Jul 21 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>It&#39;s no secret we&#39;re big fans of REPLs. We believe that immediate access to the
+programming environment accelerates learning and is generally more
+productive. REPLs cut out the middleman -- no need to build UIs or scripts for
+every possible action you might want to take -- just talk to the interpreter
+directly.</p>
+
+	</div>
+	
+		<a href="/project-repl" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/evalbot">Evalbot: a bot that speaks code</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Jul 2 2016 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Arguments over programming language semantics, standard library behavior, or
+syntax can now be simply and immediately settled within the chatroom by talking
+to Evalbot. It is a bot that can speak over 10 programming languages and is
+ever-present on Messenger and can be added to your team chat on Slack.</p>
+
+	</div>
+	
+		<a href="/evalbot" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/classroomoverview">Classroom Overview</a>
+	</h1>
+	<h3 class="post-author">
+		Wed Jun 29 2016 by Haya Odeh
+	</h3>
+	<div class="post-content markdown">
+		<p>Before we decided to build <a href="https://repl.it/classrooms">repl.it classroom</a>, we paid a visit to one of the schools using us in the classroom. I felt excited and anxious at the same time; I was introduced to the teacher and students in the class, and then my job started as designer observing and paying attention to every single detail.</p>
+
+	</div>
+	
+		<a href="/classroomoverview" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/websocket-rate-limiting">Distributed Websocket Rate Limiting</a>
+	</h1>
+	<h3 class="post-author">
+		Sun Jun 26 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p><a href="https://en.wikipedia.org/wiki/Rate_limiting">Rate limiting</a> is standard
+practice for services offering an API. It&#39;s used for both protecting against bad
+actors, for example, attempting
+<a href="https://en.wikipedia.org/wiki/Denial-of-service_attack">DOS</a> attacks and to
+simply enforce limits on the service. There are many resources on the web on
+how to implement a rate limiter in your favorite language/stack. However, I
+couldn&#39;t find anything on how to rate limit Websocket connections (they differ in that they are persistent connections).</p>
+
+	</div>
+	
+		<a href="/websocket-rate-limiting" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/api-docs">API Docs</a>
+	</h1>
+	<h3 class="post-author">
+		Fri Jun 24 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Repl.it&#39;s code execution API is an HTTP and WebSocket endpoint that you connect
+to and send code to execute. You can connect from any device or browser and
+start executing code. This guide will describe the concepts behind the service,
+how it can be used, and provide a step-by-step guide for signing up and trying
+out the service!</p>
+
+	</div>
+	
+		<a href="/api-docs" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/autocomplete">Autocomplete</a>
+	</h1>
+	<h3 class="post-author">
+		Sat Jun 18 2016 by Faris Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>Autocomplete plays a big role in how we use software, imagine a world where you have to type full search terms without predictions into google search, ugh, the savagery! Many developers employ this technology when writing code in order to increase their productivity. So we decided to implement this feature to help you become the power user you want to be.</p>
+
+	</div>
+	
+		<a href="/autocomplete" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/helloworld">Hello World</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jun 14 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>We&#39;re excited to launch this new part of our site.</p>
+
+	</div>
+	
+		<a href="/helloworld" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	  
+      
+		<div class="post-seperator"></div>
+      
+	  
+	  <article class="post-item">
+	
+	
+	<h1 class="post-title">
+		<a href="/swift">A Swift REPL</a>
+	</h1>
+	<h3 class="post-author">
+		Tue Jun 14 2016 by Amjad Masad
+	</h3>
+	<div class="post-content markdown">
+		<p>In this age of containers it&#39;s much easier to run arbitrary code
+in the cloud. The harder parts are scaling the service, making it reliable, and
+—as in this case— creating cool and useful experiences. When we looked at
+existing Swift REPL implementations on the web we found that none
+delivered a stateful and interactive environment. Just an editor with a run
+button.</p>
+
+	</div>
+	
+		<a href="/swift" class="read-more">
+			Read more <span class ="arrow"> → </span>
+		</a>
+	
+</article>
+	  
+    
+	</div>
+	<script>
+		if (document.getElementById("post_container").children.length == 0) {
+			document.getElementById("post_container").innerHTML = "<br><br><br><br><p style=\"color: var(--text-color);\">Aw, there aren't any posts in this category yet 😔</p>";
+		}
+	</script>
+</section>
+  <footer>
+
+<section class="footer_wrapper">
+
+<div class="footer_links">
+<h4>Legal</h4>
+
+<a href="https://replit.com/site/terms">Terms and services</a>
+<a href="https://replit.com/site/privacy">Privacy</a>
+<a href="https://replit.com/site/subprocessors">Subprocessors</a>
+<a href="https://replit.com/site/dpa">DPA</a>
+<a href="https://docs.replit.com/Teams/US_Student_DPA">US Student DPA</a>
+</div>
+
+
+<div class="footer_links">
+<h4>Replit</h4>
+
+<a href="https://replit.com/blog">Blog</a>
+<a href="https://replit.com/about">About</a>
+<a href="https://replit.com/site/jobs">Jobs</a>
+<a href="https://replit.com/classrooms">Classrooms</a>
+<a href="https://replit.com/site/pricing">Pricing</a>
+</div>
+
+
+<div class="footer_links">
+<h4>Handy links</h4>
+
+<a href="https://replit.com/languages">Create a repl</a>
+<a href="https://replit.com/site/docs">Docs</a>
+<a href="https://replit.com/feedback">Feedback</a>
+<a href="https://replit.com/bugs">Bug reports</a>
+<a href="https://replit.com/language-requests">Language requests</a>
+<a href="https://status.replit.com">Status page</a>
+</div>
+
+<div class="footer_links">
+<h4>Social media</h4>
+<a href="https://facebook.com/repl.it">Facebook</a>
+<a href="https://twitter.com/replit">Twitter</a>
+<a href="https://instagram.com/repl.it">Instagram</a>
+<a href="https://repl.it/discord">Discord</a
+</div>
+</section>
+
+
+
+<section class="languages_wrapper">
+<h4>Languages</h4>
+
+<div class="languages">
+<a href="https://replit.com/languages/clojure">Clojure</a>
+<a href="https://replit.com/languages/haskell">Haskell</a>
+<a href="https://replit.com/languages/kotlin">Kotlin (beta)</a>
+<a href="https://replit.com/languages/qbasic">QBasic</a>
+<a href="https://replit.com/languages/forth">Forth</a>
+<a href="https://replit.com/languages/lolcode">LOLCODE</a>
+<a href="https://replit.com/languages/brainfuck">BrainF</a>
+<a href="https://replit.com/languages/emoticon">Emoticon</a>
+<a href="https://replit.com/languages/bloop">Bloop</a>
+<a href="https://replit.com/languages/unlambda">Unlambda</a>
+<a href="https://replit.com/languages/javascript">JavaScript</a>
+<a href="https://replit.com/languages/coffeescript">CoffeeScript</a>
+<a href="https://replit.com/languages/scheme">Scheme</a>
+<a href="https://replit.com/languages/apl">APL</a>
+<a href="https://replit.com/languages/lua">Lua</a>
+<a href="https://replit.com/languages/python">Python 2.7</a>
+<a href="https://replit.com/languages/ruby">Ruby</a>
+<a href="https://replit.com/languages/roy">Roy</a>
+<a href="https://replit.com/languages/python3">Python</a>
+<a href="https://replit.com/languages/nodejs">Nodejs</a>
+<a href="https://replit.com/languages/enzyme">Enzyme</a>
+<a href="https://replit.com/languages/go">Go</a>
+<a href="https://replit.com/languages/cpp">C++</a>
+<a href="https://replit.com/languages/cpp11">C++11</a>
+<a href="https://replit.com/languages/c">C</a>
+<a href="https://replit.com/languages/csharp">C#</a>
+<a href="https://replit.com/languages/fsharp">F#</a>
+<a href="https://replit.com/languages/html">HTML, CSS, JS</a>
+<a href="https://replit.com/languages/rust">Rust</a>
+<a href="https://replit.com/languages/swift">Swift</a>
+<a href="https://replit.com/languages/python_turtle">Python (with Turtle)</a>
+<a href="https://replit.com/languages/jest">Jest</a>
+<a href="https://replit.com/languages/django">Django</a>
+<a href="https://replit.com/languages/express">Express</a>
+<a href="https://replit.com/languages/sinatra">Sinatra</a>
+<a href="https://replit.com/languages/rails">Ruby on Rails</a>
+<a href="https://replit.com/languages/rlang">R</a>
+<a href="https://replit.com/languages/nextjs">Next.js</a>
+<a href="https://replit.com/languages/gatsbyjs">GatsbyJS</a>
+<a href="https://replit.com/languages/reactjs">React</a>
+<a href="https://replit.com/languages/reactts">React Typescript</a>
+<a href="https://replit.com/languages/reactre">React Reason</a>
+<a href="https://replit.com/languages/bash">Bash</a>
+<a href="https://replit.com/languages/quil">Quil</a>
+<a href="https://replit.com/languages/crystal">Crystal</a>
+<a href="https://replit.com/languages/julia">Julia</a>
+<a href="https://replit.com/languages/elixir">Elixir</a>
+<a href="https://replit.com/languages/nim">Nim</a>
+<a href="https://replit.com/languages/reason_nodejs">Reason NodeJs</a>
+<a href="https://replit.com/languages/erlang">Erlang</a>
+<a href="https://replit.com/languages/typescript">TypeScript</a>
+<a href="https://replit.com/languages/pygame">Pygame</a>
+<a href="https://replit.com/languages/love2d">Love2D</a>
+<a href="https://replit.com/languages/tkinter">Tkinter</a>
+<a href="https://replit.com/languages/java_swing">Java Swing</a>
+<a href="https://replit.com/languages/elisp">Emacs Lisp (Elisp)</a>
+<a href="https://replit.com/languages/php7">PHP Web Server</a>
+<a href="https://replit.com/languages/sqlite">SQLite</a>
+<a href="https://replit.com/languages/java10">Java</a>
+<a href="https://replit.com/languages/php_cli">PHP CLI</a>
+<a href="https://replit.com/languages/pyxel">Pyxel</a>
+</div>
+</section>
+
+<p class="copyright">
+Copyright © 2021 Replit, Inc. All rights reserved.
+</p>
+
+</footer>
+
+
+<style>
+
+/* Styling */
+
+footer {
+width: 100%;
+background-color: var(--light-grey600);
+display: flex;
+padding: var(--spacing-6) 0;
+flex-direction: column;
+margin: 140px 0 0 0;
+}
+
+footer a {
+font-size: 1em;
+text-decoration: none;
+color: var(--dark-grey300);
+transition: 150ms color ease-in-out;
+}
+
+footer a:hover {
+color: var(--text-color);
+}
+
+footer h4 {
+color: var(--dark-grey200);
+}
+
+footer .footer_wrapper {
+max-width: 1440px;
+margin: 0 auto;
+
+display: flex;
+justify-content: center;
+flex-wrap: wrap;
+}
+
+footer .footer_links {
+display: flex;
+flex-direction: column;
+margin: 0 var(--spacing-2);
+}
+
+
+footer .languages_wrapper {
+width: 70%;
+margin: var(--spacing-4) auto;
+padding: 0 0 0 var(--spacing-8);
+max-width: 1440px;
+
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+
+footer .languages {
+display: grid;
+grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+grid-gap: 0 var(--spacing-3);
+}
+
+.copyright {
+color: var(--dark-grey300);
+text-align: center;
+}
+
+
+
+
+/* Responsive Breakpoints */
+
+
+@media all and (max-width:1100px) {
+
+footer .languages_wrapper {
+padding: 0 0 0 var(--spacing-2);
+}
+
+footer .languages {
+grid-template-columns: 1fr 1fr 1fr 1fr;
+grid-gap: 0 var(--spacing-2);
+}
+
+}
+
+@media all and (max-width:850px) {
+
+footer a{
+display: inline;
+font-size: 14px;
+}
+
+footer .footer_wrapper {
+justify-content: start;
+}
+
+footer .languages_wrapper {
+width: 100%;
+margin: var(--spacing-6) auto;
+}
+
+footer .languages {
+grid-template-columns: 1fr 1fr 1fr;
+width: 100%;
+justify-content: space-between;
+}
+
+}
+
+@media all and (max-width:600px) {
+footer .footer_wrapper {
+display: grid;
+grid-template-columns: 1fr 1fr;
+width: 100%;
+justify-content: space-between;
+}
+
+footer a{
+font-size: 14px;
+}
+
+footer .languages_wrapper {
+align-items: start;
+}
+
+footer .languages {
+grid-template-columns: 1fr 1fr;
+}
+
+}
+
+</style>
+  </body>
+</html>

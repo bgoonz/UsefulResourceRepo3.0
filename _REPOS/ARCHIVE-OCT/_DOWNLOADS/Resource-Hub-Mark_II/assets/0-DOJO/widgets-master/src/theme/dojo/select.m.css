@@ -1,0 +1,94 @@
+.root {
+	font-size: var(--font-size-base);
+	display: flex;
+	flex-direction: column;
+	font-family: var(--font-family);
+}
+
+/* custom input styles */
+.trigger {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	font-size: inherit;
+
+	background-color: var(--color-background);
+	border: var(--border-width) solid var(--color-border);
+	border-bottom-color: var(--color-border-strong);
+	cursor: pointer;
+	line-height: var(--line-height-base);
+	min-height: calc(var(--spacing-regular) * 5 + 2);
+	outline: none;
+
+	width: 100%;
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border-radius: 0;
+	padding: 0;
+}
+
+.value {
+	padding: var(--spacing-regular) calc(var(--spacing-regular) * 3) var(--spacing-regular)
+		var(--spacing-regular);
+	color: var(--color-text-primary);
+}
+
+.trigger:focus {
+	border-color: var(--color-highlight);
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-highlight);
+}
+
+.placeholder {
+	color: var(--color-text-faded);
+}
+
+.arrow {
+	border-left: var(--border-width) solid var(--color-border);
+	bottom: var(--border-width);
+	color: var(--color-text-faded);
+	display: flex;
+	font-size: var(--font-size-icon);
+	line-height: var(--line-height-base);
+	padding: var(--spacing-regular);
+	pointer-events: none;
+}
+
+.menuWrapper {
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow);
+	pointer-events: all;
+}
+
+/* State classes */
+.disabled .trigger,
+.readonly .trigger {
+	background-color: var(--color-background-faded);
+}
+
+.invalid .trigger {
+	border-color: var(--color-border-invalid);
+	border-bottom-color: var(--color-error);
+}
+.invalid .trigger:focus {
+	border-color: var(--color-error);
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-invalid);
+}
+.invalid .arrow {
+	border-left-color: var(--color-border-invalid);
+	color: var(--color-error);
+}
+
+.valid .trigger {
+	border-color: var(--color-border-valid);
+	border-bottom-color: var(--color-success);
+}
+
+.valid .trigger:focus {
+	border-color: var(--color-success);
+	box-shadow: var(--box-shadow-dimensions-small) var(--color-box-shadow-valid);
+}
+
+.valid .arrow {
+	border-left-color: var(--color-border-valid);
+	color: var(--color-success);
+}

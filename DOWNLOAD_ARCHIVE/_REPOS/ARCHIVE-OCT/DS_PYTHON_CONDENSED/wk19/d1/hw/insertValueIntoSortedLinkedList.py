@@ -62,7 +62,6 @@ def insertValueIntoSortedLinkedList(l, value):
         return l
 
 
-
 # Test 1
 # Input:
 # l: [1, 3, 4, 6]

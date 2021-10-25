@@ -4,6 +4,7 @@
 #     self.value = x
 #     self.next = None
 
+
 def condense_linked_list(node):
 
     head = node

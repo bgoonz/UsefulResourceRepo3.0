@@ -9,6 +9,7 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution:
     def findTilt(self, root):
         """
@@ -18,10 +19,10 @@ class Solution:
         global ans
         ans = 0
         self.sumOfNode(root)
-        return ans 
-        
+        return ans
+
     def sumOfNode(self, root):
-        if (root == None):
+        if root == None:
             return 0
 
         left = self.sumOfNode(root.left)

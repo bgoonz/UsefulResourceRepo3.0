@@ -5,7 +5,7 @@
 # - integer division & modulo teaming up
 # - warning: watch for rounding errors
 
-x = 25    # integer
+x = 25  # integer
 y = 17.0  # float
 
 # print(x)
@@ -30,9 +30,9 @@ y = 17.0  # float
 
 # # rounding errors due to floats
 # # we can cast to int, round(num, digits), etc.
-# print(x * y) 
+# print(x * y)
 # print(int(x * y))
-# print(round(x * y, 2)) 
+# print(round(x * y, 2))
 
 # Casting will truncate (floor) our float
 print(int(17.2))

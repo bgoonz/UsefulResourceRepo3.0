@@ -1,6 +1,6 @@
 # some examples adapted from https://docs.python.org/2/library/doctest.html
 
-'''
+"""
 
 LAB_NAME = "First doctest lab"
 
@@ -13,7 +13,7 @@ This is my first **lab** in [markdown](https://daringfireball.net/projects/markd
 
 woohoo!
 
-'''
+"""
 
 
 # helper function written by student, not part of the lab
@@ -33,7 +33,6 @@ def slow_multiply(a, b):
 15
 
     """
-
 
     i = 0
     prod = 0

@@ -303,7 +303,6 @@ def digitsManipulations(n):
     return math.prod(nums) - sum(nums)
 
 
-
 # print(digitsManipulations(n))
 
 s = "abcde"

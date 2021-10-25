@@ -1,0 +1,35 @@
+:root {
+	--spacing: 16px;
+}
+
+.groupRoot {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	left: calc(-1 * var(--spacing));
+	position: relative;
+	width: calc(100% + (var(--spacing) * 2));
+}
+
+.groupRoot:last-child {
+	margin-bottom: 0;
+}
+
+.column {
+	flex-direction: column;
+}
+
+.column .fieldRoot {
+	margin-bottom: calc(var(--spacing) * 2);
+}
+
+.column .fieldRoot:last-child {
+	margin-bottom: 0;
+}
+
+.fieldRoot {
+	flex: 1;
+	margin-bottom: calc(var(--spacing) * 2);
+	min-width: calc(10 * var(--spacing));
+	padding: 0 var(--spacing);
+}

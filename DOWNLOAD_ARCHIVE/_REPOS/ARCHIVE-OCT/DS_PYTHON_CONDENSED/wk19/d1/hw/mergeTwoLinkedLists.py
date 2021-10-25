@@ -42,6 +42,7 @@
 #     self.value = x
 #     self.next = None
 
+
 def mergeTwoLinkedLists(l1, l2):
     em = None
 

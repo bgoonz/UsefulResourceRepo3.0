@@ -2,9 +2,8 @@ import random
 
 
 class Key:
-
-    def __init__(self, key=''):
-        if key == '':
+    def __init__(self, key=""):
+        if key == "":
             self.key = self.generate()
         else:
             self.key = key.lower()
@@ -13,7 +12,7 @@ class Key:
         score = 0
         check_digit = self.key[0]
         check_digit_count = 0
-        chunks = self.key.split('-')
+        chunks = self.key.split("-")
         for chunk in chunks:
             if len(chunk) != 4:
                 return False
@@ -26,26 +25,26 @@ class Key:
         return False
 
     def generate(self):
-        key = ''
-        chunk = ''
+        key = ""
+        chunk = ""
         check_digit_count = 0
-        alphabet = 'abcdefghijklmnopqrstuvwxyz1234567890'
+        alphabet = "abcdefghijklmnopqrstuvwxyz1234567890"
         while True:
             while len(key) < 25:
                 # (function) choice: (seq: Sequence[_T@choice]) -> _T@choice	.....			char = random.choice(alphabet)Choose a random element from a non-empty sequence.   #
                 key += char
                 chunk += char
                 if len(chunk) == 4:
-                    key += '-'
-                    chunk = ''
+                    key += "-"
+                    chunk = ""
             key = key[:-1]
             if Key(key).verify():
                 return key
             else:
-                key = ''
+                key = ""
 
     def __str__(self):
-        valid = 'Invalid'
+        valid = "Invalid"
         if self.verify():
-            valid = 'Valid'
-        return self.key.upper() + ':' + valid
+            valid = "Valid"
+        return self.key.upper() + ":" + valid

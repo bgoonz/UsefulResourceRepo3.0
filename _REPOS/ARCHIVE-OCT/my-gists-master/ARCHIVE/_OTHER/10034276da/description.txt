@@ -1,0 +1,1 @@
+bug with for-of iteration of traceur/es6fiddle?

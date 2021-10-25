@@ -1,0 +1,33 @@
+document.write("<div id='foo'></div>");
+
+// OR
+
+var div = document.createElement("div");
+div.id = "foo";
+document.body.appendChild(div);
+
+// keep in mind, body.appendChild will put this <div> at the end of the body, whereas document.write() will put it wherever it's called (probably in the middle of an element.
+// SO....
+
+<p id="bar"></p>
+<script>document.write("<div id='foo'></div>");</script>
+
+// is roughly the same as:
+
+<p id="bar"></p>
+<script>
+var bar = document.getElementById("bar");
+var div = document.createElement("div");
+div.id = "foo";
+bar.parentNode.insertAfter(div, bar);
+</script>
+
+// AND...
+
+document.write("<script src='...'></script>");
+
+// is roughly the same as:
+
+var script = document.createElement("script");
+script.src = "...";
+document.head.appendChild(script);

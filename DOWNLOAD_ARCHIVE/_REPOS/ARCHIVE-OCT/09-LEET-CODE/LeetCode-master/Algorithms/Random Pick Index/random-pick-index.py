@@ -3,8 +3,9 @@
 # Date   : 2017-04-23
 
 import random
-class Solution(object):
 
+
+class Solution(object):
     def __init__(self, nums):
         """
         

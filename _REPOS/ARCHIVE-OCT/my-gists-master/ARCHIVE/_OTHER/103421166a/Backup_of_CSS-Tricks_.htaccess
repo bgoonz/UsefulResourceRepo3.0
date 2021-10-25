@@ -1,0 +1,60 @@
+# BEGIN W3 Total Cache
+<IfModule mod_rewrite.c>
+    SetEnvIfNoCase Accept-Encoding (gzip) APPEND_EXT=.$1
+    RewriteEngine On
+    RewriteCond %{REQUEST_URI} !\/wp-admin\/|\/xmlrpc.php|\/wp-(app|cron|login|register).php|/video-feed/|/video-feed-iphone/ [OR]
+    RewriteCond %{REQUEST_URI} wp-comments-popup\.php|wp-links-opml\.php|wp-locations\.php [NC]
+    RewriteCond %{REQUEST_METHOD} !=POST
+    RewriteCond %{QUERY_STRING} =""
+    RewriteCond %{HTTP_COOKIE} !comment_author|wp-postpass|wordpress_\[a-f0-9\]\+|wordpress_logged_in [NC]
+    RewriteCond %{HTTP_USER_AGENT} !bot|ia_archive|slurp|crawl|spider [NC]
+    RewriteCond /var/www/vhosts/css-tricks.com/httpdocs/wp-content/w3tc/pgcache/%{HTTP_HOST}/$1/index.html%{ENV:APPEND_EXT} -f
+    RewriteRule (.*) wp-content/w3tc/pgcache/%{HTTP_HOST}/$1/index.html%{ENV:APPEND_EXT} [L]
+</IfModule>
+# END W3 Total Cache
+
+# REDIRECT FAVICON.ICO
+<ifmodule mod_rewrite.c>
+RewriteCond %{REQUEST_URI} !^/favicon\.ico [NC]
+RewriteCond %{REQUEST_URI} favicon\.ico    [NC]
+RewriteRule (.*) http://css-tricks.com/favicon.ico [R=301,L]
+</ifmodule>
+
+# REDIRECT AJAX-LOADER
+<ifmodule mod_rewrite.c>
+RewriteCond %{REQUEST_URI} !^/images/ajax\-loader\.gif [NC]
+RewriteCond %{REQUEST_URI} ajax\-loader\.gif           [NC]
+RewriteRule (.*) http://css-tricks.com/images/ajax-loader.gif [R=301,L]
+</ifmodule>
+
+# BEGIN WordPress
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+RewriteRule ^index\.php$ - [L]
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule . /index.php [L]
+</IfModule>
+# END WordPress
+
+# BEGIN GZIP
+<ifmodule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/text text/html text/plain text/xml text/css application/x-javascript application/javascript
+</ifmodule>
+# END GZIP
+
+# BEGIN EXPIRES
+<IfModule mod_expires.c>
+    ExpiresActive On
+    # ExpiresDefault "access plus 10 days"
+    ExpiresByType text/css "access plus 1 week"
+    ExpiresByType text/plain "access plus 1 month"
+    ExpiresByType image/gif "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType application/x-javascript "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 week"
+    ExpiresByType application/x-icon "access plus 1 year"
+</IfModule>
+# END EXPIRES

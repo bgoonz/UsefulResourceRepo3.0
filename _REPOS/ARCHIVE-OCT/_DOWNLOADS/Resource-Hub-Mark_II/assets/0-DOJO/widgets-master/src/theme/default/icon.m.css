@@ -1,0 +1,185 @@
+@font-face {
+	font-family: 'dojo';
+	src: url('./fonts/dojo.ttf?fkcsox') format('truetype'),
+		url('./fonts/dojo.woff?fkcsox') format('woff'),
+		url('./fonts/dojo.svg?fkcsox#dojo') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/* The root class of the Icon */
+.root {
+}
+
+.medium {
+	font-size: 24px;
+}
+
+.large {
+	font-size: 36px;
+}
+
+.small {
+	font-size: 18px;
+}
+
+/* Added to the icon */
+.icon {
+	/* use !important to prevent issues with browser extensions that change fonts */
+	font-family: 'dojo' !important;
+	speak: none;
+	font-style: normal;
+	font-weight: normal;
+	font-variant: normal;
+	text-transform: none;
+	font-size: inherit;
+	line-height: inherit;
+
+	/* Better Font Rendering =========== */
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/* A clock icon */
+.clockIcon:before {
+	content: '\e94e';
+}
+
+/* A down icon */
+.downIcon:before {
+	content: '\f078';
+}
+
+/* A left icon */
+.leftIcon:before {
+	content: '\f053';
+}
+
+/* A right icon */
+.rightIcon:before {
+	content: '\f054';
+}
+
+/* A close icon */
+.closeIcon:before {
+	content: '\f00d';
+}
+
+/* A plus icon */
+.plusIcon:before {
+	content: '\f067';
+}
+
+/* A minus icon */
+.minusIcon:before {
+	content: '\f068';
+}
+
+/* A checkmark icon */
+.checkIcon:before {
+	content: '\f00c';
+}
+
+/* An up icon */
+.upIcon:before {
+	content: '\f077';
+}
+
+/* An alternative up icon */
+.upAltIcon:before {
+	content: '\f0d8';
+}
+
+/* A down icon in the same styling as the alternative up icon */
+.downAltIcon:before {
+	content: '\f0d7';
+}
+
+/* A search icon */
+.searchIcon:before {
+	content: '\f002';
+}
+
+/* A bar icon */
+.barsIcon:before {
+	content: '\f0c9';
+}
+
+/* A settings icon */
+.settingsIcon:before {
+	content: '\f013';
+}
+
+/* An alert icon */
+.alertIcon:before {
+	content: '\f06a';
+}
+
+/* A help icon */
+.helpIcon:before {
+	content: '\f059';
+}
+
+/* An info icon */
+.infoIcon:before {
+	content: '\f05a';
+}
+
+/* A cancel icon */
+.cancelIcon:before {
+	content: '\ea0d';
+}
+/* A checked box icon */
+.checkedBoxIcon:before {
+	content: '\ea52';
+}
+
+/* A phone icon */
+.phoneIcon:before {
+	content: '\f095';
+}
+
+/* An edit icon */
+.editIcon:before {
+	content: '\f040';
+}
+
+/* A date icon */
+.dateIcon:before {
+	content: '\f133';
+}
+
+/* A link icon */
+.linkIcon:before {
+	content: '\f127';
+}
+
+/* A location icon */
+.locationIcon:before {
+	content: '\f041';
+}
+
+/* A secure icon */
+.secureIcon:before {
+	content: '\f023';
+}
+
+/* A mail icon */
+.mailIcon:before {
+	content: '\f0e0';
+}
+
+/* An eye icon */
+.eyeIcon:before {
+	content: '\f06e';
+}
+
+/* An eye icon with a slash through it (indicating not visible) */
+.eyeSlashIcon:before {
+	content: '\f070';
+}
+
+/* A star icon */
+.starIcon:before {
+	content: '\e900';
+}

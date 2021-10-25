@@ -1,12 +1,12 @@
 # set initialization by passing in a list
-myset = set([1,2,3,3,3])
+myset = set([1, 2, 3, 3, 3])
 
 # set initialization using {}
-myset = {1,2,3,3,3}
+myset = {1, 2, 3, 3, 3}
 
 # iteration of set
 for ele in myset:
-  print(ele)
+    print(ele)
 
 # check if ele in set:
 print(True if ele in myset else False)

@@ -1,0 +1,18 @@
+.root {
+	composes: mdc-linear-progress from '@material/linear-progress/dist/mdc.linear-progress.css';
+}
+
+.output {
+}
+
+.bar {
+	composes: mdc-linear-progress__buffer from '@material/linear-progress/dist/mdc.linear-progress.css';
+}
+
+.root .bar {
+	background-color: var(--mdc-theme-on-surface);
+}
+
+.progress {
+	composes: mdc-linear-progress__bar-inner from '@material/linear-progress/dist/mdc.linear-progress.css';
+}

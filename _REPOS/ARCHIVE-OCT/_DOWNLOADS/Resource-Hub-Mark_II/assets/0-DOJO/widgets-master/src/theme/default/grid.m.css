@@ -1,0 +1,19 @@
+/* The root class of the Grid */
+.root {
+	border-top: 1px solid var(--component-color);
+	border-bottom: 1px solid var(--component-color);
+	background: var(--component-background);
+}
+
+/* Contains the header */
+.header {
+	border-bottom: 1px solid var(--component-color);
+	background: var(--component-background);
+	color: var(--component-color);
+	height: 32px;
+}
+
+/* Added to the header container when there are filters */
+.filterGroup {
+	height: 64px;
+}

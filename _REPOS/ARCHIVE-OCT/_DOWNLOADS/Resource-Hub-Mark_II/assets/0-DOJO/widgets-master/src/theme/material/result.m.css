@@ -1,0 +1,64 @@
+.root {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	font-family: var(--mdc-theme-font-family);
+}
+
+.statusIcon {
+	font-size: calc(var(--mdc-theme-grid-base) * 9);
+	height: calc(var(--mdc-theme-grid-base) * 9);
+	width: calc(var(--mdc-theme-grid-base) * 9);
+}
+
+.iconIcon {
+	composes: icon from './icon.m.css';
+	font-size: calc(var(--mdc-theme-grid-base) * 9);
+}
+
+.actions {
+	display: flex;
+	flex-direction: row;
+	margin: var(--mdc-theme-grid-base);
+}
+
+.content {
+	display: flex;
+	flex-direction: column;
+}
+
+.contentWrapper {
+	margin: var(--mdc-theme-grid-base);
+	color: var(--mdc-text-color);
+}
+
+.titleWrapper {
+	text-align: center;
+	margin: var(--mdc-theme-grid-base);
+	color: var(--mdc-text-color);
+}
+
+.subtitle {
+	font-size: var(--mdc-theme-font-size-small);
+	font-weight: bold;
+	margin: 0;
+	color: var(--mdc-secondary-text-color);
+}
+
+/* Status Styles */
+
+.alert {
+	color: var(--mdc-theme-alert);
+}
+
+.error {
+	color: var(--mdc-theme-error);
+}
+
+.info {
+	color: var(--mdc-theme-info);
+}
+
+.success {
+	color: var(--mdc-theme-success);
+}

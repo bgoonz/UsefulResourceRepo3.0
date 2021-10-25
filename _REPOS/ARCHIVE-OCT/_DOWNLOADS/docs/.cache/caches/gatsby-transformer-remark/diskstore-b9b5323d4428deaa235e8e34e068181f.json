@@ -1,0 +1,474 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-html-ast-2b1da6ba569753108d43317d845ef685-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "element",
+        "tagName": "h1",
+        "properties": { "id": "npm-build1", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#npm-build1",
+              "aria-label": "npm build1 permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "npm-build(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 15, "offset": 15 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 15, "offset": 15 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+          "id": "build-a-package",
+          "style": "position:relative;"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#build-a-package",
+              "aria-label": "build a package permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Build a package",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 20 },
+              "end": { "line": 4, "column": 19, "offset": 35 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 17 },
+          "end": { "line": 4, "column": 19, "offset": 35 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "synopsis", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#synopsis",
+              "aria-label": "synopsis permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 41 },
+              "end": { "line": 6, "column": 13, "offset": 49 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 37 },
+          "end": { "line": 6, "column": 13, "offset": 49 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"shell\"><pre class=\"language-shell\"><code class=\"language-shell\"><span class=\"token function\">npm</span> build <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package-folder<span class=\"token operator\">></span><span class=\"token punctuation\">]</span></code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 51 },
+          "end": { "line": 10, "column": 4, "offset": 92 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">&lt;package-folder&gt;</code>",
+                "position": {
+                  "start": { "line": 12, "column": 3, "offset": 96 },
+                  "end": { "line": 12, "column": 21, "offset": 114 }
+                }
+              },
+              {
+                "type": "text",
+                "value": ":\nA folder containing a ",
+                "position": {
+                  "start": { "line": 12, "column": 21, "offset": 114 },
+                  "end": { "line": 13, "column": 25, "offset": 140 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">package.json</code>",
+                "position": {
+                  "start": { "line": 13, "column": 25, "offset": 140 },
+                  "end": { "line": 13, "column": 39, "offset": 154 }
+                }
+              },
+              {
+                "type": "text",
+                "value": " file in its root.",
+                "position": {
+                  "start": { "line": 13, "column": 39, "offset": 154 },
+                  "end": { "line": 13, "column": 57, "offset": 172 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 12, "column": 1, "offset": 94 },
+              "end": { "line": 13, "column": 57, "offset": 172 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 12, "column": 1, "offset": 94 },
+          "end": { "line": 13, "column": 57, "offset": 172 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "description", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#description",
+              "aria-label": "description permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 15, "column": 5, "offset": 178 },
+              "end": { "line": 15, "column": 16, "offset": 189 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 15, "column": 1, "offset": 174 },
+          "end": { "line": 15, "column": 16, "offset": 189 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "This is the plumbing command called by ",
+            "position": {
+              "start": { "line": 17, "column": 1, "offset": 191 },
+              "end": { "line": 17, "column": 40, "offset": 230 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm link</code>",
+            "position": {
+              "start": { "line": 17, "column": 40, "offset": 230 },
+              "end": { "line": 17, "column": 50, "offset": 240 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " and ",
+            "position": {
+              "start": { "line": 17, "column": 50, "offset": 240 },
+              "end": { "line": 17, "column": 55, "offset": 245 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm install</code>",
+            "position": {
+              "start": { "line": 17, "column": 55, "offset": 245 },
+              "end": { "line": 17, "column": 68, "offset": 258 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ".",
+            "position": {
+              "start": { "line": 17, "column": 68, "offset": 258 },
+              "end": { "line": 17, "column": 69, "offset": 259 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 17, "column": 1, "offset": 191 },
+          "end": { "line": 17, "column": 69, "offset": 259 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "It should generally be called during installation, but if you need to run it\ndirectly, run:",
+            "position": {
+              "start": { "line": 19, "column": 1, "offset": 261 },
+              "end": { "line": 20, "column": 15, "offset": 352 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 19, "column": 1, "offset": 261 },
+          "end": { "line": 20, "column": 15, "offset": 352 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">    <span class=\"token function\">npm</span> run-script build</code></pre></div>",
+        "position": {
+          "start": { "line": 22, "column": 1, "offset": 354 },
+          "end": { "line": 24, "column": 4, "offset": 390 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "see-also", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#see-also",
+              "aria-label": "see also permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 26, "column": 5, "offset": 396 },
+              "end": { "line": 26, "column": 13, "offset": 404 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 26, "column": 1, "offset": 392 },
+          "end": { "line": 26, "column": 13, "offset": 404 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-install" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm install",
+                    "position": {
+                      "start": { "line": 28, "column": 4, "offset": 409 },
+                      "end": { "line": 28, "column": 15, "offset": 420 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 28, "column": 3, "offset": 408 },
+                  "end": { "line": 28, "column": 43, "offset": 448 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 28, "column": 1, "offset": 406 },
+              "end": { "line": 28, "column": 43, "offset": 448 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-link" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm link",
+                    "position": {
+                      "start": { "line": 29, "column": 4, "offset": 452 },
+                      "end": { "line": 29, "column": 12, "offset": 460 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 29, "column": 3, "offset": 451 },
+                  "end": { "line": 29, "column": 37, "offset": 485 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 29, "column": 1, "offset": 449 },
+              "end": { "line": 29, "column": 37, "offset": 485 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/using-npm/scripts" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm scripts",
+                    "position": {
+                      "start": { "line": 30, "column": 4, "offset": 489 },
+                      "end": { "line": 30, "column": 15, "offset": 500 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 30, "column": 3, "offset": 488 },
+                  "end": { "line": 30, "column": 36, "offset": 521 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 30, "column": 1, "offset": 486 },
+              "end": { "line": 30, "column": 36, "offset": 521 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/configuring-npm/package-json" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "package.json",
+                    "position": {
+                      "start": { "line": 31, "column": 4, "offset": 525 },
+                      "end": { "line": 31, "column": 16, "offset": 537 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 31, "column": 3, "offset": 524 },
+                  "end": { "line": 31, "column": 48, "offset": 569 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 31, "column": 1, "offset": 522 },
+              "end": { "line": 31, "column": 48, "offset": 569 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 28, "column": 1, "offset": 406 },
+          "end": { "line": 31, "column": 48, "offset": 569 }
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 32, "column": 1, "offset": 570 }
+    }
+  }
+}

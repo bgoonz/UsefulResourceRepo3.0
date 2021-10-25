@@ -1,0 +1,171 @@
+/* the container */
+.circularCountdown {
+  position: relative;
+  text-align: center;
+}
+.logoDiv {
+  padding: 20px 0px;
+  margin: 10px auto;
+}
+
+.circularCountdown h2 {
+}
+.circularCountdown h3 {
+}
+.circularCountdown h4 {
+}
+.theCircles {
+  margin: 0 auto;
+  padding: 0;
+}
+
+.daysDiv {
+  position: relative;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: auto !important;
+}
+
+.canvasDays {
+  margin: 0;
+  padding: 0;
+}
+
+.daysDiv .innerText {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+
+.daysDiv .innerNumber {
+  display: none;
+  line-height: 100px;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+.hoursDiv {
+  position: relative;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: auto !important;
+}
+.canvasHours {
+  margin: 0;
+  padding: 0;
+}
+.hoursDiv .innerText {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.hoursDiv .innerNumber {
+  display: none;
+  line-height: inherit;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+.minutesDiv {
+  position: relative;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: auto !important;
+}
+.canvasMinutes {
+  margin: 0;
+  padding: 0;
+}
+.minutesDiv .innerText {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.minutesDiv .innerNumber {
+  display: none;
+  line-height: inherit;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+.secondsDiv {
+  position: relative;
+  float: left;
+  display: block;
+  padding: 0;
+  margin: 0;
+  height: auto !important;
+}
+.canvasSeconds {
+  margin: 0;
+  padding: 0;
+}
+.secondsDiv .innerText {
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.secondsDiv .innerNumber {
+  display: none;
+  line-height: inherit;
+  position: absolute;
+  padding: 0;
+  margin: 0;
+}
+
+.socialIconsDiv {
+  clear: both;
+  text-align: center;
+  margin: 0px auto;
+  padding: 5px 0px 20px 0px;
+}
+.socialIcons {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  line-height: 0;
+}
+.socialIcons img {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.socialIcons li {
+  margin: 0 3px;
+  display: inline-block;
+  *display: inline;
+  line-height: 0;
+}
+
+.xgroup:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.xgroup {
+  display: inline-block;
+  clear: both;
+}
+/* start commented backslash hack \*/
+* html .xgroup {
+  height: 1%;
+}
+.xgroup {
+  display: block;
+} /* close commented backslash hack */
+
+.hideElement {
+  display: none;
+}

@@ -1577,6 +1577,7 @@ reverseLinkedList(l) = [5, 4, 3, 2, 1].
 #     self.value = x
 #     self.next = None
 
+
 def reverseLinkedList(l):
     cur = l
     prev = None

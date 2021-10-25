@@ -1,0 +1,1 @@
+a better "async generator", where `return(..)` immediately tears it down? Insipired from: https://alinacierdem.com/the-problem-with-async-generators/

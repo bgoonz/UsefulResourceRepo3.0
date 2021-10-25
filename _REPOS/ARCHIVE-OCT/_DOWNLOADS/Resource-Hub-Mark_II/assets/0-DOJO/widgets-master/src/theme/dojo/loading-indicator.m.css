@@ -1,0 +1,35 @@
+.root {
+	background-color: var(--color-background-faded);
+	height: calc(var(--grid-base) / 2);
+	position: relative;
+	overflow: hidden;
+	font-family: var(--font-family);
+	width: 100%;
+}
+
+.buffer {
+}
+
+.bar {
+}
+
+.primary {
+	animation: progress 2s infinite linear;
+	background-color: var(--color-background-inverted);
+	height: 100%;
+	left: -25%;
+	position: relative;
+	width: 25%;
+}
+
+.inner {
+}
+
+@keyframes progress {
+	0% {
+		left: -25%;
+	}
+	100% {
+		left: 100%;
+	}
+}

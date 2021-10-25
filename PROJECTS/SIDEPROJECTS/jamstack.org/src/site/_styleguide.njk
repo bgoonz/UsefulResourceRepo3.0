@@ -1,0 +1,37 @@
+---
+title: Official Jamstack Styleguide
+layout: layouts/base.njk
+---
+
+
+<section>
+  <h1>Jamstack</h1>
+  <p class="text-xl leading-relaxed max-w-2xl">
+    Create fast and secure sites and dynamic apps with <span class="text-white font-bold">pre-rendered</span> resources served directly from a <a href="/glossary#cdn" title="Glossary: Content Delivery Network">CDN</a>, removing the requirement to manage or run web servers.
+  </p>
+</section>
+
+<h1 class="my-4 text-3xl text-gray-600 font-bold">Components and styleguide</h1>
+
+<div class="p-8 pt-16 mt-16 bg-gray-100 rounded-lg">
+  <h2 class=" text-2xl text-gray-600 font-bold">Post teaser</h2>
+  <p class="text-gray-500">
+    components/post-teaser.njk
+  </p>
+</div>
+
+{# {% for item in collections.posts.slice(0,2) %}
+{% include "component/post-teaser.njk" %}
+{% endfor %} #}
+
+<div class="p-8 pt-16 mt-16 bg-gray-100 rounded-lg">
+  <h2 class="text-2xl text-gray-600 font-bold">Condensed post teaser</h2>
+  <p class="text-gray-500">
+    components/post-teaser.njk (option = "condensed")
+  </p>
+</div>
+
+{# {% for item in collections.posts.slice(3,6) %}
+{% set option = "condensed" %}
+{% include "component/post-teaser.njk" %}
+{% endfor %} #}

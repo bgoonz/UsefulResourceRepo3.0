@@ -1,0 +1,32 @@
+LABEL		LABEL2		UNIQUE UA's	# OF USES
+(empty)		-		1		20553
+(unrecognized)	-		740		10789
+(bots)		-		354		111898
+Clients		-		513		1727
+Windows		(other)		39		166
+Windows		IE		12301		94162
+Windows		Chrome		770		23069
+Windows		Safari		99		541
+Windows		Opera		553		3645
+Windows		Firefox		2305		25653
+Mac		(other)		22		288
+Mac		Chrome		434		7760
+Mac		Safari		279		4616
+Mac		Opera		47		153
+Mac		Firefox		327		21905
+Linux		(other)		83		765
+Linux		Chrome		278		1739
+Linux		Safari		42		291
+Linux		Opera		59		130
+Linux		Firefox		373		3862
+Mobile		Opera		148		180
+Mobile		iOS		826		8211
+Mobile		Android		1053		4280
+Mobile		webOS		38		770
+Mobile		BlackBerry	102		149
+Mobile		Nokia		537		1777
+Mobile		SymbianOS	35		113
+Mobile		SonyEricsson	47		332
+Mobile		DoCoMo		248		1752
+				------------------------
+				22653		351276

@@ -1,0 +1,55 @@
+---
+title: Jamstack Resources
+description: Learn more about the Jamstack architecture that is changing modern web development. Watch videos and presentations, view articles, and other resources. Check it out!
+layout: layouts/base.njk
+---
+
+<section class="md:mt-20">
+  <h1>Learning Resources</h1>
+  <p>
+    Learn more about the architecture changing modern web development.
+  </p>
+  <p>
+    More and more people are talking about the Jamstack. We've curated some of our favorite resources here to help you get started, and to learn more about how people are using the Jamstack.
+  </p>
+  <p>
+    Here’s a few great starting points:
+    <ul class="list-disc my-4">
+      <li class="ml-8"><a href="/what-is-jamstack/">What is the Jamstack?</a></li>
+      <li class="ml-8"><a href="/why-jamstack/">Why Jamstack?</a></li>
+    </ul>
+  </p>
+</section>
+
+
+<section class="mt-12">
+  <h2>Videos and Presentations</h2>
+  <p>
+   These are great presentations to help understand what the Jamstack is, and how it can be used to great effect.
+  </p>
+  <div class="mt-12 mb-6 flex flex-wrap justify-around lg:justify-between">
+
+    {% for item in collections.resources | featured | whereData("type=video") | luckydip(6)  %}
+      <div class="md:w-1/2 lg:w-1/3 text-left mb-8 pr-10">
+      {% include "components/thumbnail-link.njk" %}
+      </div>
+    {% endfor %}
+  </div>
+  <a href="/resources/videos/" class="cta">More videos and presentations</a>
+</section>
+
+<section class="my-12 border-gray-400 border-b pb-20">
+  <h2 class="heading">Articles and resources</h2>
+  <p>
+    Selected articles and case studies of Jamstack implementations.
+  </p>
+  <ul class="my-12">
+  {% for item in collections.resources | featured | whereData("type=article") | luckydip(6)  %}
+    {% include "components/resource-link.njk" %}
+  {% endfor %}
+  </ul>
+  <a class="cta" href="/resources/articles/">More articles and resources</a>
+</section>
+
+
+{% include "components/join-the-movement.njk" %}

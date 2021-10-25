@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="styles.css">
+    <title>Test UI</title>
+</head>
+<body>
+    <header>
+        <h1>Battle System Test</h1>
+    </header>
+    <hr>
+    <div class="container">
+        <section class="player1">
+            <div class="player-weapper">
+                <button id="p1-atk" onclick="p1.uiAttack(p2, '0')">Attack</button>
+                <h1 id="player1-name">P1</h1>
+                <h2>Stats</h2>
+                <p>HP: <span id="p1-hp">300</span></p>
+                <p>STATUS: <span id="p1-status">is Alive</span></p>
+                <p id="p1-attack-message">>>>You can press attack to attack your enemy<<<</p>
+            </div>
+        </section>
+        <section class="player2">
+            <div class="player-weapper">
+                    <button id="p2-atk" onclick="p2.uiAttack(p1, '0')">Attack</button>
+                <h1 id="player2-name">P2</h1>
+                <h2>Stats</h2>
+                <p>HP: <span id="p2-hp">300</span></p>
+                <p>STATUS: <span id="p2-status">is Alive</span></p>
+                <p id="p2-attack-message">>>>You can press attack to attack your enemy<<<</p>
+            </div>
+        </section>
+    </div>
+    <footer>
+    </footer>
+    <script src="game.js"></script>
+</body>
+</html>

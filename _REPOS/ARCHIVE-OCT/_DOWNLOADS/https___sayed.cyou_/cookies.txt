@@ -1,0 +1,5 @@
+# HTTrack Website Copier Cookie File
+# This file format is compatible with Netscape cookies
+sayed.cyou	TRUE	/	FALSE	1999999999	PHPSESSID	885302944f92f0486d57b4feb1a56dc5
+sayed.cyou	TRUE	/	FALSE	1999999999	SameSite	None
+

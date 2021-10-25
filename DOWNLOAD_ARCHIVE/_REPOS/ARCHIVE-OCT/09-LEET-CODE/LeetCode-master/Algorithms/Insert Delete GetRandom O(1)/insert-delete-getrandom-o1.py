@@ -3,14 +3,14 @@
 # Date   : 2017-04-23
 
 import random
-class RandomizedSet(object):
 
+
+class RandomizedSet(object):
     def __init__(self):
         """
         Initialize your data structure here.
         """
         self.s = set()
-
 
     def insert(self, val):
         """
@@ -24,7 +24,6 @@ class RandomizedSet(object):
             self.s.add(val)
             return True
 
-
     def remove(self, val):
         """
         Removes a value from the set. Returns true if the set contained the specified element.
@@ -33,10 +32,9 @@ class RandomizedSet(object):
         """
         if val in self.s:
             self.s.remove(val)
-            return True 
+            return True
         else:
             return False
-
 
     def getRandom(self):
         """

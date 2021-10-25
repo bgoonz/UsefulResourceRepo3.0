@@ -6,4 +6,4 @@ a = False
 try:
     print(len(a))
 except:
-    print(f'{a} has no length')
+    print(f"{a} has no length")

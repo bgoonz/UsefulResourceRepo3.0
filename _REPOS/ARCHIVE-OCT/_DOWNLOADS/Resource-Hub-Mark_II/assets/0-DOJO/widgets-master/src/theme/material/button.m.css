@@ -1,0 +1,30 @@
+.nativeResetRoot {
+	background: none;
+	border: none;
+	color: inherit;
+	font-family: inherit;
+	font-size: inherit;
+	line-height: inherit;
+	padding: 0;
+}
+
+.root {
+	composes: mdc-button from '@material/button/dist/mdc.button.css';
+}
+
+.root:hover:not(:disabled)::after {
+	opacity: 0.04;
+}
+
+/* Styles taken from :active pseudo class */
+.pressed {
+}
+.pressed::after {
+	transition-duration: 75ms;
+	opacity: 0.12;
+}
+
+.root.disabled:disabled {
+	color: var(--mdc-disabled-text-color);
+	border-color: var(--mdc-disabled-text-color);
+}

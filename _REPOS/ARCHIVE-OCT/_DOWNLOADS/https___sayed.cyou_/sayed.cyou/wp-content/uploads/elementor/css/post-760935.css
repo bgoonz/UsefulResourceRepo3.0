@@ -1,0 +1,47 @@
+.elementor-76
+  .elementor-element.elementor-element-5844cd4
+  .elementor-search-form {
+  text-align: right;
+}
+.elementor-76
+  .elementor-element.elementor-element-5844cd4
+  .elementor-search-form__toggle
+  i {
+  font-size: 27px;
+  width: 27px;
+  height: 27px;
+}
+.elementor-76
+  .elementor-element.elementor-element-5844cd4.elementor-search-form--skin-full_screen
+  .elementor-search-form__container {
+  background-color: #000000ad;
+}
+.elementor-76
+  .elementor-element.elementor-element-5844cd4
+  .elementor-search-form__input,
+.elementor-76
+  .elementor-element.elementor-element-5844cd4
+  .elementor-search-form__icon,
+.elementor-76
+  .elementor-element.elementor-element-5844cd4
+  .elementor-lightbox
+  .dialog-lightbox-close-button,
+.elementor-76
+  .elementor-element.elementor-element-5844cd4
+  .elementor-lightbox
+  .dialog-lightbox-close-button:hover,
+.elementor-76
+  .elementor-element.elementor-element-5844cd4.elementor-search-form--skin-full_screen
+  input[type="search"].elementor-search-form__input {
+  color: #ffffff;
+}
+.elementor-76
+  .elementor-element.elementor-element-5844cd4:not(.elementor-search-form--skin-full_screen)
+  .elementor-search-form__container {
+  border-radius: 3px;
+}
+.elementor-76
+  .elementor-element.elementor-element-5844cd4.elementor-search-form--skin-full_screen
+  input[type="search"].elementor-search-form__input {
+  border-radius: 3px;
+}

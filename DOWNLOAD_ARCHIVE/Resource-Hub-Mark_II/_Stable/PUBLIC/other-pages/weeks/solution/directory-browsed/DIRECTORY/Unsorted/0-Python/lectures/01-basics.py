@@ -4,12 +4,14 @@
 # - printing variables
 # - None
 
-print('Hello, World')
+print("Hello, World")
 print("It's raining!")
-print('''
+print(
+    """
 Welcome to Python
 Have a great day!!!
-''')
+"""
+)
 
 a = None
 print(a)

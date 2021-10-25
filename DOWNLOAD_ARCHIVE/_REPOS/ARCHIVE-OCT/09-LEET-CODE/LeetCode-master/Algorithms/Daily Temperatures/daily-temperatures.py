@@ -4,6 +4,7 @@
 
 import sys
 
+
 class Solution:
     def dailyTemperatures(self, temperatures):
         """
@@ -17,9 +18,9 @@ class Solution:
             temperature = temperatures[i]
             for j in range(temperature + 1, 101):
                 if hash[j] and hash[j] - i < ans[i]:
-                    ans[i] = hash[j] - i 
+                    ans[i] = hash[j] - i
             if ans[i] == sys.maxsize:
                 ans[i] = 0
             hash[temperature] = i
-        
+
         return ans

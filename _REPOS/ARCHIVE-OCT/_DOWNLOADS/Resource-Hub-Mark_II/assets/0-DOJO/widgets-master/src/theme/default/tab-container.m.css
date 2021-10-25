@@ -1,0 +1,160 @@
+/* root class of a Tab */
+.tab {
+	position: relative;
+	border: 1px solid black;
+	background: #fff;
+}
+
+/* Added to the close control on a TabButton */
+.close {
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	right: 5px;
+	cursor: pointer;
+	font-size: 0;
+	border: none;
+	background: none;
+	padding: 1px 3px;
+}
+
+/* Styles the content of the close button */
+.close:after {
+	content: '✕';
+	display: block;
+	font-size: 14px;
+}
+
+/* Added to a closable TabButton */
+.closeable {
+}
+
+/* Added to a close indicator on a TabButton */
+.indicator {
+	display: none;
+}
+
+/* Added to an active TabButton */
+.indicatorActive {
+}
+/* Added to the contents of a TabButton indicator */
+.indicatorContent {
+}
+
+/* Contains the contents of a TabButton */
+.tabButtonContent {
+}
+
+/* Added to an active TabButton */
+.activeTabButton {
+	background: #fff;
+	border-color: black;
+	border-bottom-color: #fff;
+	z-index: 1;
+}
+
+/* The root class of the TabContainer */
+.root {
+	box-sizing: border-box;
+}
+
+/* The root class of the TabButton */
+.tabButton {
+	border: 1px solid transparent;
+	border-top: 2px solid transparent;
+	text-align: center;
+	display: inline-block;
+	vertical-align: top;
+	width: auto;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	cursor: pointer;
+	position: relative;
+	top: 1px;
+}
+
+/* Focus for a TabButton when not disabled */
+.tabButton:focus:not(.disabledTabButton) {
+	font-weight: bold;
+}
+
+/* Added to a disabled TabButton */
+.disabledTabButton {
+	font-style: italic;
+	cursor: default;
+	color: var(--disabled-color);
+}
+
+/* Added to align the tabs to the left */
+.alignLeft .tabs {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Contains left-aligned TabButtons */
+.alignLeft .tabButtons {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Added to a left-aligned TabButton */
+.alignLeft .tabButton {
+	border-top: 1px solid transparent;
+	border-left: 2px solid transparent;
+	border-bottom: 1px solid transparent;
+	border-right: 1px solid transparent;
+	display: block;
+	top: 0;
+	left: 1px;
+}
+
+/* Added to an active left-aligned TabButton */
+.alignLeft .activeTabButton {
+	border-top-color: var(--selected-background);
+	border-left-color: var(--selected-background);
+	border-bottom-color: var(--selected-background);
+	border-right: 1px solid #fff;
+}
+
+/* Added to a bottom-aligned TabButton */
+.alignBottom .tabButton {
+	border-top: none;
+	border-bottom: 2px solid transparent;
+	top: -1px;
+}
+
+/* Added to an active bottom-aligned TabButton */
+.alignBottom .activeTabButton {
+	border-bottom-color: var(--selected-background);
+}
+
+/* Contains right-aligned Tabs */
+.alignRight .tabs {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Contains right-aligned TabButtons */
+.alignRight .tabButtons {
+	display: inline-block;
+	vertical-align: top;
+}
+
+/* Added to a right-aligned TabButton */
+.alignRight .tabButton {
+	border-top: 1px solid transparent;
+	border-right: 2px solid transparent;
+	border-bottom: 1px solid transparent;
+	border-left: none;
+	display: block;
+	top: 0;
+	left: -1px;
+}
+
+/* Added to an active right-aligned TabButton */
+.alignRight .activeTabButton {
+	border-top-color: var(--selected-background);
+	border-right-color: var(--selected-background);
+	border-bottom-color: var(--selected-background);
+}

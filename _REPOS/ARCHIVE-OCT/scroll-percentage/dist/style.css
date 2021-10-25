@@ -1,0 +1,23 @@
+body {
+				background-image: url('https://subtlepatterns.com/patterns/crissXcross.png');
+				margin: 0px;
+				padding: 0px;
+			}
+
+			#fakeHeight {
+				height: 6000px;
+				width: 1px;
+			}
+
+			#scrollPercentLabel {
+				font-family: Impact;
+				font-size: 50px;
+				color: #2B2B2B;
+				background: rgba(255, 255, 255, 0.5);
+				padding: 20px;
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				box-shadow: 8px 8px 5px rgba(20, 20, 20, 1);
+				border-radius: 15px;
+			}

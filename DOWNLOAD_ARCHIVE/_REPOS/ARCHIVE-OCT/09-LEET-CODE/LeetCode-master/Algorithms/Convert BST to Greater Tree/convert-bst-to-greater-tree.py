@@ -9,12 +9,14 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def convertBST(self, root):
         """
         :type root: TreeNode
         :rtype: TreeNode
         """
+
         def dfs(node):
             if node == None:
                 return

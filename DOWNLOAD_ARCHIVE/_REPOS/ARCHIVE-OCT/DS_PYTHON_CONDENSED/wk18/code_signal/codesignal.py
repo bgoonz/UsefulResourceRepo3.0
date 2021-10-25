@@ -697,6 +697,7 @@ rearrangeLastN(l, n) = [7, 1, 2, 3, 4, 5, 6].
 #     self.value = x
 #     self.next = None
 
+
 def rearrangeLastN(l, n):
     if l is None:
         return l

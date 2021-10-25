@@ -1,0 +1,330 @@
+/*
+* Theme Name: BreezyCV - Resume / CV / vCard WordPress Theme
+* Author: lmpixels
+* Author URL: http://themeforest.net/user/lmpixels
+* Version: 1.5.1
+*/
+
+/* =============================================================================
+
+1. Main
+2. Tables
+
+============================================================================= */
+
+/* ============================================================================= 
+1. Main
+============================================================================= */
+@media only screen and (min-width: 1025px) {
+  ul.main-menu {
+    background-color: #444;
+    -webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.15);
+  }
+  ul.main-menu a {
+    color: #b5b6b7;
+  }
+}
+
+.lmpixels-arrows-nav {
+  background-color: #444;
+  -webkit-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.15);
+  -moz-box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.15);
+}
+
+.lmpixels-arrows-nav div {
+  color: #b5b6b7;
+}
+
+.btn-primary,
+.btn-secondary,
+button,
+input[type="button"],
+input[type="submit"],
+.wp-block-button .wp-block-button__link,
+.elementor .btn-primary,
+.elementor .btn-secondary {
+  background-color: transparent;
+  color: #f5f5f5;
+}
+
+.btn-secondary,
+.elementor .btn-secondary {
+  box-shadow: 0 10px 10px -8px rgba(0, 0, 0, 0.3);
+}
+
+.preloader,
+.preloader-portfolio {
+  background-color: #222;
+}
+
+.logo-text {
+  color: #fff;
+}
+
+.block-title h2:before,
+h3.comment-reply-title:before {
+  background-color: #353535;
+}
+
+.blog-sidebar {
+  background-color: #222;
+}
+
+.site-content .entry-meta.entry-meta-bottom {
+  background-color: #333;
+  border-color: #444;
+}
+
+blockquote {
+  border-color: #666;
+}
+
+.section-title-block.second-style .section-description {
+  color: #bbb;
+}
+
+.project-description {
+  background-color: #333;
+  border-color: #444;
+}
+
+.section-inner.start-page-full-width .hp-text-block .sp-subtitle {
+  color: #a5a5a5;
+}
+
+.section-title-block.first-style .section-description {
+  color: #b5b5b5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #fff;
+}
+
+p {
+  color: #e5e5e5;
+}
+
+.section-title {
+  color: #555;
+}
+
+input[type="submit"],
+input[type="button"],
+button,
+a.button {
+  color: #fff;
+}
+
+.btn-primary,
+.btn-secondary,
+button,
+input[type="button"],
+input[type="submit"],
+.wp-block-button .wp-block-button__link {
+  color: #fff;
+  background-color: #333;
+  box-shadow: 0px 10px 10px -8px rgba(0, 0, 0, 0.78);
+}
+
+.form-control,
+.form-control:focus,
+.has-error .form-control,
+.has-error .form-control:focus,
+input[type="search"],
+input[type="password"],
+input[type="text"] {
+  color: #eee;
+  background-color: transparent;
+  border-color: #555;
+}
+
+.info-block-w-icon .pe-7s-icon {
+  color: #aaa;
+}
+
+.home-page-block h2 {
+  color: #ff724c;
+}
+
+.home-page-description {
+  color: #888;
+}
+
+.share-buttons a {
+  background-color: #999;
+  color: #fff;
+  border: 1px solid transparent;
+}
+
+.mobile-header {
+  background-color: #222;
+  border-color: #444;
+}
+
+.mobile-header .mobile-site-title {
+  color: #fff;
+}
+
+.header-search input.form-control {
+  border-color: #555;
+  background-color: transparent;
+}
+
+.page-portfolio-loaded,
+.portfolio-page-content {
+  background-color: #222;
+}
+
+.site-content footer.entry-meta,
+.post-navigation a,
+.entry-meta .divider {
+  color: #555;
+}
+
+.post-navigation a {
+  color: #444;
+}
+
+.entry-meta .share-buttons a,
+.tags a,
+.tags li a,
+.tagcloud a {
+  background-color: #666;
+  border: 1px solid transparent;
+  color: #fff;
+}
+
+.blog-sidebar .sidebar-item {
+  border-color: #444;
+}
+
+.blog-sidebar a {
+  color: #e5e5e5;
+}
+
+.sidebar-toggle {
+  background-color: #222;
+  border-color: #444;
+}
+
+.calendar_wrap th {
+  color: #888;
+  background: #353535;
+}
+
+.calendar_wrap td {
+  background: #555;
+  color: #b3b3b3;
+}
+
+.calendar_wrap td a {
+  color: #fff;
+}
+
+.list-view .site-content article {
+  border-color: #555;
+}
+
+.archive-title,
+.page-title {
+  color: #777;
+}
+
+.paging-navigation a {
+  color: #555;
+}
+
+.entry-meta.entry-tags-share {
+  background-color: #333;
+}
+
+.comment-metadata {
+  border-color: #777;
+  color: #777;
+}
+
+.comment-list .trackback a,
+.comment-list .pingback a,
+.comment-metadata a {
+  color: #777;
+}
+
+.wp-block-separator {
+  border-color: #555;
+}
+
+.wp-block-button .wp-block-button__link,
+.wp-block-button:not(.is-style-outline) .wp-block-button__link:active,
+.wp-block-button:not(.is-style-outline) .wp-block-button__link:focus,
+.wp-block-button:not(.is-style-outline) .wp-block-button__link:hover,
+.wp-block-button:not(.is-style-outline)
+  .wp-block-button__link:not(.has-background):active,
+.wp-block-button:not(.is-style-outline)
+  .wp-block-button__link:not(.has-background):focus,
+.wp-block-button:not(.is-style-outline)
+  .wp-block-button__link:not(.has-background):hover {
+  color: #fff;
+}
+
+.sidebar-toggle span,
+.sidebar-toggle span:before {
+  background: #aaa;
+}
+
+.paging-navigation .page-numbers {
+  background-color: transparent;
+  color: #eee;
+}
+
+.paging-navigation .page-numbers.current,
+.paging-navigation .page-numbers.current:hover,
+.paging-navigation .page-numbers.current:focus {
+  color: #eee;
+}
+
+@media only screen and (max-width: 1170px) {
+  .content-page-with-sidebar .blog-sidebar {
+    background-color: #222;
+  }
+}
+
+@media only screen and (max-width: 1024px) {
+  .menu-toggle i,
+  .mobile-site-title a,
+  .mobile-site-title a:hover,
+  .mobile-site-title a:focus {
+    color: #f5f5f5;
+  }
+
+  .mobile-site-title a,
+  .mobile-site-title a:hover,
+  .mobile-site-title a:focus {
+    background-color: rgba(34, 34, 34, 0.8);
+  }
+}
+
+@media only screen and (min-width: 1024px) {
+  .list-view .site-content article:after {
+    background-color: #555;
+  }
+}
+
+/* ============================================================================= 
+2. Tables
+============================================================================= */
+
+.wp-block-table.is-style-stripes tr:nth-child(odd) {
+  background-color: #444;
+}
+
+.wp-block-table.is-style-stripes {
+  border-color: #444;
+}

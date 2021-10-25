@@ -1,0 +1,12 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+#copy-btn > i:active {
+  color: red;
+  cursor: default;
+}
+
+#result {
+  user-select: none;
+}

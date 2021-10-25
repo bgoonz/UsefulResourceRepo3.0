@@ -9,12 +9,14 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def getMinimumDifference(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
+
         def dfs(node):
             if node == None:
                 return
@@ -30,7 +32,7 @@ class Solution(object):
 
         ans = 99999999
         for i in range(len(res)):
-            if (i):
+            if i:
                 ans = min(ans, res[i] - res[i - 1])
 
         return ans

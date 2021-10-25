@@ -1,0 +1,129 @@
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Roboto", sans-serif;
+  color: #dfe2f2;
+}
+
+a {
+  color: #031641;
+  text-decoration: none;
+}
+
+button {
+  background: #a63c3c;
+  height: 40px;
+  width: 200px;
+  color: #ffffff !important;
+  cursor: pointer;
+  border: 1px solid #2c3b50;
+  font-size: 16px;
+}
+
+button:hover {
+  background: #fff;
+  color: #06336c !important;
+}
+
+button a {
+  color: #ffffff;
+}
+
+button a:visited {
+  color: #ffffff;
+}
+
+.container {
+  display: flex;
+  flex-direction: row;
+  width: 1000px;
+  margin: 20px auto;
+  font-family: "Raleway", sans-serif;
+  border: 1px solid #5ba1fd;
+  min-height: 600px;
+  color: #fff;
+}
+
+.main-container {
+  width: 750px;
+  background: #9598bf;
+  display: flex;
+  flex-direction: column;
+  padding: 20px 35px 20px 35px;
+}
+
+.main-container h2 {
+  font-size: 23px;
+}
+
+.main-container .form {
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container h2 {
+  margin-bottom: 20px;
+}
+
+.actions-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.actions-container h5 {
+  text-decoration: underline;
+  cursor: pointer;
+  margin: 0 0 0 20px;
+  font-size: 15px;
+  font-weight: bold;
+}
+.overlay {
+  background-color: rgba(34, 23, 23, 0.8);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transform: translate(65%, 120%);
+  width: 530px;
+  height: 175px;
+  border: 1px solid #979797;
+  background: #ffffff;
+}
+
+.modal:focus {
+  outline: none;
+}
+
+.modal-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.modal-buttons button:first-child {
+  background: #d0021b !important;
+  color: #fff !important;
+}
+
+.modal-buttons button:first-child:hover {
+  color: #d0021b !important;
+  background: #fff !important;
+}
+
+.modal-buttons button:last-child {
+  margin-left: 20px;
+  background: #fff;
+  color: #d0021b !important;
+}

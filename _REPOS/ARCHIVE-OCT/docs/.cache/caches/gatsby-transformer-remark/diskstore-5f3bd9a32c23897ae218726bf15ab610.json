@@ -1,0 +1,555 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-ast-c4a52cf471ac83d32bf31d0dd4e3d69c-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [
+          {
+            "type": "link",
+            "url": "#npm-org1",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "npm org1 permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "npm-org(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 13, "offset": 13 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 13, "offset": 13 },
+          "indent": []
+        },
+        "data": {
+          "id": "npm-org1",
+          "htmlAttributes": { "id": "npm-org1" },
+          "hProperties": { "id": "npm-org1", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "link",
+            "url": "#manage-orgs",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "manage orgs permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Manage orgs",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 18 },
+              "end": { "line": 4, "column": 15, "offset": 29 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 15 },
+          "end": { "line": 4, "column": 15, "offset": 29 },
+          "indent": []
+        },
+        "data": {
+          "id": "manage-orgs",
+          "htmlAttributes": { "id": "manage-orgs" },
+          "hProperties": { "id": "manage-orgs", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#synopsis",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "synopsis permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 35 },
+              "end": { "line": 6, "column": 13, "offset": 43 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 31 },
+          "end": { "line": 6, "column": 13, "offset": 43 },
+          "indent": []
+        },
+        "data": {
+          "id": "synopsis",
+          "htmlAttributes": { "id": "synopsis" },
+          "hProperties": { "id": "synopsis", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> org <span class=\"token builtin class-name\">set</span> <span class=\"token operator\">&lt;</span>orgname<span class=\"token operator\">></span> <span class=\"token operator\">&lt;</span>username<span class=\"token operator\">></span> <span class=\"token punctuation\">[</span>developer <span class=\"token operator\">|</span> admin <span class=\"token operator\">|</span> owner<span class=\"token punctuation\">]</span>\n<span class=\"token function\">npm</span> org <span class=\"token function\">rm</span> <span class=\"token operator\">&lt;</span>orgname<span class=\"token operator\">></span> <span class=\"token operator\">&lt;</span>username<span class=\"token operator\">></span>\n<span class=\"token function\">npm</span> org <span class=\"token function\">ls</span> <span class=\"token operator\">&lt;</span>orgname<span class=\"token operator\">></span> <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>username<span class=\"token operator\">></span><span class=\"token punctuation\">]</span></code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 45 },
+          "end": { "line": 12, "column": 4, "offset": 183 },
+          "indent": [1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#example",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "example permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Example",
+            "position": {
+              "start": { "line": 14, "column": 5, "offset": 189 },
+              "end": { "line": 14, "column": 12, "offset": 196 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 185 },
+          "end": { "line": 14, "column": 12, "offset": 196 },
+          "indent": []
+        },
+        "data": {
+          "id": "example",
+          "htmlAttributes": { "id": "example" },
+          "hProperties": { "id": "example", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Add a new developer to an org:",
+            "position": {
+              "start": { "line": 16, "column": 1, "offset": 198 },
+              "end": { "line": 16, "column": 31, "offset": 228 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 198 },
+          "end": { "line": 16, "column": 31, "offset": 228 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> org <span class=\"token builtin class-name\">set</span> my-org @mx-smith</code></pre></div>",
+        "position": {
+          "start": { "line": 18, "column": 1, "offset": 230 },
+          "end": { "line": 20, "column": 4, "offset": 272 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Add a new admin to an org (or change a developer to an admin):",
+            "position": {
+              "start": { "line": 22, "column": 1, "offset": 274 },
+              "end": { "line": 22, "column": 63, "offset": 336 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 22, "column": 1, "offset": 274 },
+          "end": { "line": 22, "column": 63, "offset": 336 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> org <span class=\"token builtin class-name\">set</span> my-org @mx-santos admin</code></pre></div>",
+        "position": {
+          "start": { "line": 24, "column": 1, "offset": 338 },
+          "end": { "line": 26, "column": 4, "offset": 387 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Remove a user from an org:",
+            "position": {
+              "start": { "line": 28, "column": 1, "offset": 389 },
+              "end": { "line": 28, "column": 27, "offset": 415 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 28, "column": 1, "offset": 389 },
+          "end": { "line": 28, "column": 27, "offset": 415 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> org <span class=\"token function\">rm</span> my-org mx-santos</code></pre></div>",
+        "position": {
+          "start": { "line": 30, "column": 1, "offset": 417 },
+          "end": { "line": 32, "column": 4, "offset": 458 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "List all users in an org:",
+            "position": {
+              "start": { "line": 34, "column": 1, "offset": 460 },
+              "end": { "line": 34, "column": 26, "offset": 485 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 34, "column": 1, "offset": 460 },
+          "end": { "line": 34, "column": 26, "offset": 485 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> org <span class=\"token function\">ls</span> my-org</code></pre></div>",
+        "position": {
+          "start": { "line": 36, "column": 1, "offset": 487 },
+          "end": { "line": 38, "column": 4, "offset": 518 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "List all users in JSON format:",
+            "position": {
+              "start": { "line": 40, "column": 1, "offset": 520 },
+              "end": { "line": 40, "column": 31, "offset": 550 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 40, "column": 1, "offset": 520 },
+          "end": { "line": 40, "column": 31, "offset": 550 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> org <span class=\"token function\">ls</span> my-org --json</code></pre></div>",
+        "position": {
+          "start": { "line": 42, "column": 1, "offset": 552 },
+          "end": { "line": 44, "column": 4, "offset": 590 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "See what role a user has in an org:",
+            "position": {
+              "start": { "line": 46, "column": 1, "offset": 592 },
+              "end": { "line": 46, "column": 36, "offset": 627 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 46, "column": 1, "offset": 592 },
+          "end": { "line": 46, "column": 36, "offset": 627 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> org <span class=\"token function\">ls</span> my-org @mx-santos</code></pre></div>",
+        "position": {
+          "start": { "line": 48, "column": 1, "offset": 629 },
+          "end": { "line": 50, "column": 4, "offset": 671 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#description",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "description permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 52, "column": 5, "offset": 677 },
+              "end": { "line": 52, "column": 16, "offset": 688 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 52, "column": 1, "offset": 673 },
+          "end": { "line": 52, "column": 16, "offset": 688 },
+          "indent": []
+        },
+        "data": {
+          "id": "description",
+          "htmlAttributes": { "id": "description" },
+          "hProperties": { "id": "description", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "You can use the ",
+            "position": {
+              "start": { "line": 54, "column": 1, "offset": 690 },
+              "end": { "line": 54, "column": 17, "offset": 706 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm org</code>",
+            "position": {
+              "start": { "line": 54, "column": 17, "offset": 706 },
+              "end": { "line": 54, "column": 26, "offset": 715 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " commands to manage and view users of an organization.\nIt supports adding and removing users, changing their roles, listing them, and\nfinding specific ones and their roles.",
+            "position": {
+              "start": { "line": 54, "column": 26, "offset": 715 },
+              "end": { "line": 56, "column": 39, "offset": 887 },
+              "indent": [1, 1]
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 54, "column": 1, "offset": 690 },
+          "end": { "line": 56, "column": 39, "offset": 887 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#see-also",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "see also permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 58, "column": 5, "offset": 893 },
+              "end": { "line": 58, "column": 13, "offset": 901 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 58, "column": 1, "offset": 889 },
+          "end": { "line": 58, "column": 13, "offset": 901 },
+          "indent": []
+        },
+        "data": {
+          "id": "see-also",
+          "htmlAttributes": { "id": "see-also" },
+          "hProperties": { "id": "see-also", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://docs.npmjs.com/orgs/",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "Documentation on npm Orgs",
+                        "position": {
+                          "start": { "line": 60, "column": 4, "offset": 906 },
+                          "end": { "line": 60, "column": 29, "offset": 931 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 60, "column": 3, "offset": 905 },
+                      "end": { "line": 60, "column": 60, "offset": 962 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 60, "column": 3, "offset": 905 },
+                  "end": { "line": 60, "column": 60, "offset": 962 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 60, "column": 1, "offset": 903 },
+              "end": { "line": 60, "column": 60, "offset": 962 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 60, "column": 1, "offset": 903 },
+          "end": { "line": 60, "column": 60, "offset": 962 },
+          "indent": []
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 61, "column": 1, "offset": 963 }
+    }
+  }
+}

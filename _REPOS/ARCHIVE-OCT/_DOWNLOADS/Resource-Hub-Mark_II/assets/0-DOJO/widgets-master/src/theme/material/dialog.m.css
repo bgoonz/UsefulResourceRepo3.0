@@ -1,0 +1,71 @@
+/* The root class for the Dialog */
+.root {
+}
+
+/* Added to `.root` for an open dialog */
+.open {
+	composes: mdc-dialog from '@material/dialog/dist/mdc.dialog.css';
+	composes: mdc-dialog--open from '@material/dialog/dist/mdc.dialog.css';
+}
+
+/* Contains the dialog */
+.main {
+	composes: mdc-dialog__container, mdc-dialog__surface from '@material/dialog/dist/mdc.dialog.css';
+	outline: 0;
+}
+
+.root .main {
+	background-color: var(--mdc-raised-surface-background);
+}
+
+/* Contains the title of the dialog */
+.title {
+	composes: mdc-dialog__title from '@material/dialog/dist/mdc.dialog.css';
+	padding-top: 20px;
+}
+
+.root .title {
+	color: var(--mdc-text-color);
+}
+
+.title:before {
+	display: none;
+}
+
+/* Contains the content of the dialog */
+.content {
+	composes: mdc-dialog__content from '@material/dialog/dist/mdc.dialog.css';
+}
+
+.root .content {
+	color: var(--mdc-secondary-text-color);
+}
+
+.close {
+	background: none;
+	border: none;
+	cursor: pointer;
+	font-size: 0;
+	padding: 8px;
+	position: absolute;
+	right: 16px;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.closeIcon {
+	font-size: 1.25rem;
+	color: var(--mdc-secondary-text-color);
+}
+
+.closeIcon:hover {
+	color: var(--mdc-text-color);
+}
+
+.underlayVisible {
+	composes: mdc-dialog__scrim from '@material/dialog/dist/mdc.dialog.css';
+}
+
+.actions {
+	composes: mdc-dialog__actions from '@material/dialog/dist/mdc.dialog.css';
+}

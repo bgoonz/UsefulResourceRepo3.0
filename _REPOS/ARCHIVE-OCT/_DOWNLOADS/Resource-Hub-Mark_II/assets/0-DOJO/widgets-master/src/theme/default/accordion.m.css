@@ -1,0 +1,11 @@
+/* The root class of the accordion pane */
+.root {
+}
+
+/* Class added to each child titlepane */
+.paneRoot {
+}
+
+/* Class added open child titlepanes */
+.paneOpen {
+}

@@ -1,0 +1,54 @@
+.root {
+	composes: mdc-list-item from '@material/list/dist/mdc.list.css';
+	color: var(--mdc-text-color);
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	height: 48px;
+}
+
+.root:hover {
+	background: var(--mdc-theme-on-surface);
+}
+
+.root.selected {
+	background: var(--mdc-theme-on-surface-hover);
+}
+
+.active {
+	border: none;
+	background: var(--mdc-theme-on-surface);
+	height: 48px;
+	box-shadow: none;
+}
+
+.collapsed {
+	height: 0 !important;
+	padding: 0 !important;
+	border: 0 !important;
+	min-height: 0 !important;
+}
+
+.movedUp {
+	padding-bottom: 62px;
+	height: auto;
+	padding-top: 10px;
+}
+
+.movedDown {
+	padding-top: 62px;
+	height: auto;
+	padding-bottom: 10px;
+}
+
+.root:before,
+.root:after {
+	display: none !important;
+}
+
+.dragIcon {
+	cursor: move;
+	opacity: 0.5;
+	position: absolute;
+	right: 16px;
+}

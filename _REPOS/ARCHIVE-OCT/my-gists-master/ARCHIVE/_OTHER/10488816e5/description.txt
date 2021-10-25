@@ -1,0 +1,1 @@
+how to not miss window.onload in dynamic script loading case

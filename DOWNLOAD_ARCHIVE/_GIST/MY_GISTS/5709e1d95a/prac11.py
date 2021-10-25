@@ -1,4 +1,3 @@
-
 # toeplitz matrix check function
 def checkToeplitz(matrix, m, n):
     for i in range(m - 1):

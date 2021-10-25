@@ -1,0 +1,1 @@
+Object.get() would be a useful helper

@@ -2,6 +2,7 @@
 # Author : Han Zichi
 # Date   : 2017-03-07
 
+
 class Solution(object):
     def updateBoard(self, board, click):
         """
@@ -21,24 +22,24 @@ class Solution(object):
                 _x, _y = x + dir[i][0], y + dir[i][1]
                 if isNotInMap(_x, _y):
                     continue
-                if board[_x][_y] == 'M':
+                if board[_x][_y] == "M":
                     num += 1
             if num == 0:
-                return 'B'
+                return "B"
             else:
                 return str(num)
 
         def dfs(x, y):
-            if board[x][y] == 'M':
-                board[x][y] = 'X'
+            if board[x][y] == "M":
+                board[x][y] = "X"
             else:
                 board[x][y] = getMineNum(x, y)
-                if board[x][y] == 'B':
+                if board[x][y] == "B":
                     for i in range(8):
                         _x, _y = x + dir[i][0], y + dir[i][1]
                         if isNotInMap(_x, _y):
                             continue
-                        if board[_x][_y] != 'E': # not an empty cell
+                        if board[_x][_y] != "E":  # not an empty cell
                             continue
                         dfs(_x, _y)
 

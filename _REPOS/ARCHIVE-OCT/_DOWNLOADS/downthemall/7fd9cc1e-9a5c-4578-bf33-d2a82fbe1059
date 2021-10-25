@@ -1,0 +1,70 @@
+![](https://miro.medium.com/max/1400/1*3kPOI1_HGuE0fPWBj_jnog.png)
+
+[![Doug Stevenson](https://miro.medium.com/fit/c/96/96/1*f87Jht4FrS90aEKRy8BjiA.jpeg)](https://medium.com/@CodingDoug?source=post_page-----57e268a7ff6f--------------------------------)
+
+If you’re a mobile app developer, I imagine there’s a good chance that you know something about Firebase, Google’s mobile application development platform. Or, if you’re an enterprise systems developer, you might know something about [Google Cloud Platform](https://cloud.google.com/products/) (GCP), a broad suite of products and services that host your data and code at planetary scale, and more. While both platforms can be used without knowledge of the other, there are some ways in which they overlap. Knowledge of this relationship is important in two circumstances:
+
+1.  You’re a Firebase app developer, and you need to expand your backend infrastructure beyond what Firebase provides by default.
+2.  You’re a Google Cloud developer, and you want to build a mobile (or web) app on top of your existing infrastructure in GCP.
+
+Even if these situations don’t (yet!) apply to you, understanding how the tools and services are related should help reduce the friction you might encounter with some tasks, especially regarding your Firebase app.
+
+So, what do you need to know? Let’s start with the most important detail.
+
+When you go to create a Firebase project, this fact is mostly hidden. To get started with Firebase, it’s simply not necessary to know anything about GCP. The onboarding path is optimized to get you to a working solution with minimal effort. I know that many developers appreciate this!
+
+Here’s a screenshot of the [Firebase console](https://console.firebase.google.com/) after you’ve created a new project:
+
+You can see a scrollable list of products on the left, organized by top-level categories that expand and collapse. In the middle, you have some buttons that help you get started adding your app to the project. It’s pretty clear what you’re expected to do next. Later, after you add an app and start using some of the products, the main area changes into a dashboard that shows you some stats on the products you use.
+
+By contrast, here’s a screenshot of the same newly-created project in the [Google Cloud console](https://console.cloud.google.com/):
+
+The look and feel is almost completely different. Here, I’ve also opened the hamburger menu in the upper top left, and it’s hovering over the main content. This menu also scrolls, and there are a LOT more products and options here than you see in the Firebase console.
+
+You can think of a GCP project as a virtual container for data, code, configuration, and services, regardless of how it was created**.** **When you create a** [**Firebase project**](https://support.google.com/firebase/answer/6399760)**, you are actually creating a Google Cloud project behind the scenes.** This means that you can view and manage many aspects of your Firebase project in the Cloud console.
+
+In some cases, the Firebase console actually delegates to the Cloud console in order to handle some common tasks, such as billing management and administrative user management (known as [Identity and Access Management, or IAM](https://cloud.google.com/iam/) in the Cloud console). So if you’re working with the Firebase console, then somehow click through to something with a blue and white UI theme, you’ve just been sent to the Cloud console. Same project, different console and UI. Here’s what it looks like if you try to click on a billing account from the Firebase console. It’s definitely the Cloud console, even if it says “Firebase” at the top:
+
+There’s one super-important thing to know about these project containers. Since the underlying project is the same for both Firebase and GCP, **if you delete the project using either Firebase or the Cloud console, you will delete everything in that container, no matter where it was configured or created.** So, if you created a project with the Cloud console, then add Firebase to it, then delete the project in the Firebase console, all your Cloud data will also be deleted.
+
+Now let’s imagine, instead, that you’ve created a project in the Cloud console. At the outset, your project won’t have anything directly related to Firebase configured in it. After all, the Cloud console doesn’t know if you intend to build a mobile app, so why set that up? But if you have an existing Cloud project, you can very easily add Firebase to it.
+
+To add Firebase services to an existing project, go to the Firebase console, click the “add” button. When it asks for your project name, you have the opportunity to choose an existing project from the dropdown that shows your existing projects that don’t have Firebase added.
+
+![](https://miro.medium.com/max/1400/1*0z_5Rhq3wcSrKrIiXk1d9w.png)
+
+When you select a project and proceed from this point, all the APIs and services that power Firebase products will be automatically enabled in your project, and you’ll be able to use the Firebase console to work with those products.
+
+If you’re wondering what exactly I mean by “[APIs and services](https://cloud.google.com/apis/docs/overview)”, this is a GCP concept that’s only visible in the Cloud console. Here’s a screenshot of the APIs and services dashboard from the Cloud console after Firebase has been added to a project:
+
+![](https://miro.medium.com/max/1400/0*DpxWGv6TawfcBLdQ)
+
+Here, you can see a number of APIs (enabled by default), along with some Firebase product APIs highlighted in the red box. This detail of enabled APIs is hidden from developers in the Firebase console, because it’s not really necessary to know. However, knowledge of GCP APIs and services gains importance as an app’s backend becomes more sophisticated. For example, an app developer might want to make use of the [Cloud Vision API](https://cloud.google.com/vision/) to extract text from images captured by the device camera. And then, go further and translate the text discovered in that image using the [Cloud Translation API](https://cloud.google.com/translate/). To use these APIs (and get billed for them), you have to enable them in the Cloud console. Once enabled, you can call them from your backend code (deployed to Cloud Functions, for example).
+
+As you dig around in each console, one thing you might notice is that the set of products you can manage in the Firebase console has three items in common with the set of products in the Cloud console. These products are Cloud Storage, Cloud Firestore, and Cloud Functions. While each product is the same at its core, regardless of where you’re viewing it, they are each organized and managed in very different ways between the Firebase console and the Cloud console. This leads me to my next point.
+
+As you might guess from their names, Cloud Storage, Cloud Firestore, and Cloud Functions are Google Cloud products. Technically, they are _not_ Firebase products, even though you can work with them in the Firebase console and manipulate them in your app using Firebase SDKs and tools. First, some quick definitions:
+
+-   Cloud Storage ([Firebase](https://firebase.google.com/docs/storage/), [GCP](https://cloud.google.com/storage/)) is a massively scalable file storage system.
+-   Cloud Firestore ([Firebase](https://firebase.google.com/docs/firestore/), [GCP](https://cloud.google.com/firestore/)) is a massively scalable realtime NoSQL database.
+-   Cloud Functions ([Firebase](https://firebase.google.com/docs/functions/), [GCP](https://cloud.google.com/functions/)) provides serverless compute infrastructure for event driven programming
+
+_Without Firebase in the picture_, these Cloud products are typically used in enterprise environments, where data and processes are mostly controlled within Google Cloud, or some other backend. To work with these products programmatically, [Google Cloud provides client APIs](https://cloud.google.com/apis/docs/cloud-client-libraries) meant for backend code, along with the command line tools [gcloud](https://cloud.google.com/sdk/gcloud/) and [gsutil](https://cloud.google.com/storage/docs/gsutil).
+
+_With Firebase in the picture_, these three products are enabled to work seamlessly with mobile apps by providing **additional SDKs** for mobile clients, **additional tooling** with the Firebase CLI, and a way to configure **security rules** to control access to data through the provided SDKs. I’ll talk about some of the specifics of these Firebase additions in future posts.
+
+(Since I mentioned Cloud IAM earlier, I should also mention that Firebase offers [additional IAM roles for some Firebase products](https://firebase.google.com/docs/projects/iam/roles) that give other members of your team granular access to those products, without the risk of them making a dangerous change elsewhere in your project.)
+
+Note that the names of these three Cloud products don’t change from a Firebase perspective. I know it’s tempting (and natural!) to say things like “Firebase Storage” and “Firebase Functions”, but these names aren’t accurate. Am I being pedantic about this? Perhaps, but you won’t find these names anywhere in formal documentation! However, you _will_ see names like “Cloud Storage for Firebase” and “Cloud Functions for Firebase” when dealing with the Firebase add-ons for these Cloud products.
+
+If you’re a Firebase app developer, you probably created your project in the Firebase console. But, at some point, you might need to jump over to the Cloud console for some administrative tasks, to expand your cloud infrastructure, or make use of Cloud APIs. The Firebase console is _just the beginning_ to build out the infrastructure of your mobile app.
+
+If you’re a Cloud infrastructure developer, and you want to build mobile or web apps against the data you’ve already stored, you’ll need to jump into the Firebase console to deal with configurations and tasks that are unique to the Firebase additions to some Cloud products.
+
+In fact, [Actions on Google projects are also GCP projects](https://dialogflow.com/docs/concepts/google-projects-faq) (if you’re working with DialogFlow). These projects [have Firebase enabled by default](https://developers.google.com/actions/console/terms-explanation), so that’s another way you could end up with a new perspective on a GCP project. In any case, no matter how your project came into existence, the console you started with might not end up being the only console you use. Thinking of a project primarily as a container for services and APIs makes this transition easier. Each console is just giving you a view of those services and APIs in a different way.
+
+Read more about the differences between Firebase and Google Cloud with respect to these products:
+
+-   [Cloud Functions](https://medium.com/google-developers/firebase-google-cloud-whats-different-with-cloud-functions-612d9e1e89cb?source=friends_link&sk=8ab047e16c045ac78a36b5f3495d788f)
+-   [Cloud Firestore](https://medium.com/@CodingDoug/firebase-google-cloud-whats-different-with-cloud-firestore-40f1fc3e6d1e)
+-   [Cloud Storage](https://medium.com/@CodingDoug/firebase-google-cloud-whats-different-with-cloud-storage-a33fad7c2b80?source=friends_link&sk=898877b708450403e318d82c821b7ef0)

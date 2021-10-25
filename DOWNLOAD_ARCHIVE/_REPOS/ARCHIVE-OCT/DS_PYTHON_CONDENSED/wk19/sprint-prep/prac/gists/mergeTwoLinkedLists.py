@@ -4,6 +4,7 @@
 #     self.value = x
 #     self.next = None
 
+
 def mergeTwoLinkedLists(l1, l2):
 
     if l1 == None and l2 == None:

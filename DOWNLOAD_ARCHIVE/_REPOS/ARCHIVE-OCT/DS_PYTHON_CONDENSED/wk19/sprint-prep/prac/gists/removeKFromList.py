@@ -4,6 +4,7 @@
 #     self.value = x
 #     self.next = None
 
+
 def removeKFromList(l, k):
     if l == None:
         return l

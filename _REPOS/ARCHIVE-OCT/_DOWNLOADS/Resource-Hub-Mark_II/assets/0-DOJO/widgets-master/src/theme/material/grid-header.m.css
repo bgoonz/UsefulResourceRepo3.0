@@ -1,0 +1,35 @@
+.root {
+}
+
+.cell {
+	font-size: var(--mdc-theme-font-size-small);
+	font-family: var(--mdc-theme-font-family);
+	display: table-cell;
+	border: none;
+	font-weight: var(--mdc-theme-heading-font-weight);
+	padding: 16px;
+	color: var(--mdc-text-color);
+}
+
+.sort {
+	composes: nativeResetRoot from './button.m.css';
+	display: flex;
+	align-items: center;
+	opacity: 0;
+}
+
+.sortable {
+	display: flex;
+}
+
+.sorted .sort {
+	opacity: 1;
+}
+
+.root .cell .filter .filterNoLabel .filterInput {
+	padding: 8px;
+}
+
+.root .filter .filterNoLabel {
+	height: auto;
+}

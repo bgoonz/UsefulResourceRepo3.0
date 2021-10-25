@@ -1,5 +1,6 @@
 from bson import ObjectId
 
+
 def serialize(items):
     listItem = {"id": "", "text": items["text"]}
     for index in items:

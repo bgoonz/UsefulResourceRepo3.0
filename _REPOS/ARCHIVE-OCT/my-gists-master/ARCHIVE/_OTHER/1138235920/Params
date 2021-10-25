@@ -1,0 +1,3 @@
+Action: Start|Stop
+Service: Service name
+Machine: Remote machine host

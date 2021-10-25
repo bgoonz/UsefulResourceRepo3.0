@@ -9,13 +9,13 @@
 #         self.left = None
 #         self.right = None
 
+
 class Solution(object):
     def diameterOfBinaryTree(self, root):
         """
         :type root: TreeNode
         :rtype: int
         """
-        
 
         def getHeight(node, depth):
             if node == None:
@@ -28,5 +28,5 @@ class Solution(object):
 
         getHeight.ans = 0
         getHeight(root, 0)
-        
+
         return getHeight.ans
