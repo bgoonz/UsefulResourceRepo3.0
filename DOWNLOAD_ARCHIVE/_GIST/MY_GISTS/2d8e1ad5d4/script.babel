@@ -1,0 +1,93 @@
+console.clear()
+/*--------------------
+Settings
+--------------------*/
+const settings = {
+  cols: 10,
+  rows: 6,
+  gap: 20,
+  width: 60,
+  height: 60,
+  backgroundColor: '#fff'
+}
+
+
+/*--------------------
+Setup
+--------------------*/
+const canvas = document.getElementById('canvas')
+const ctx = canvas.getContext('2d')
+const win = {
+  w: (settings.width + settings.gap) * settings.cols,
+  h: (settings.height + settings.gap) * settings.rows
+}
+console.log(win.w)
+const devicePixelRatio = window.devicePixelRatio || 1
+
+
+/*--------------------
+Resize
+--------------------*/
+const onResize = () => {
+  canvas.width = win.w * devicePixelRatio
+  canvas.height = win.h * devicePixelRatio
+  canvas.style.width = `${win.w}px`
+  canvas.style.height = `${win.h}px`
+  ctx.scale(devicePixelRatio, devicePixelRatio)
+}
+onResize()
+
+
+/*--------------------
+Listeners
+--------------------*/
+window.addEventListener('resize', onResize)
+
+
+/*--------------------
+Draw
+--------------------*/
+const draw = () => {
+  ctx.strokeStyle = 'black'
+  for (let i = 0; i < settings.rows; i++) {
+    for (let j = 0; j < settings.cols; j++) {
+      const index = j + i * settings.cols
+      console.log(index)
+      
+      let x = (settings.gap / 2) + j * (settings.gap + settings.width)
+      const y = (settings.gap / 2) + i * (settings.gap + settings.height)
+      
+      if (i % 2 === 1) {
+        x += settings.width / 2  
+      }
+      const width = settings.width
+      const height = settings.height
+      ctx.beginPath()
+      ctx.strokeStyle = 'black'
+      ctx.rect(x, y, width, height)
+      ctx.stroke()
+      ctx.fillStyle = "black"
+      ctx.textAlign = "center"
+      ctx.font = "10px Arial"
+      ctx.fillText(index, x + settings.width / 2, y + settings.height / 2 + 3)
+      
+      // Repeat last
+      if (j === settings.cols - 1 && i % 2 === 1) {
+        ctx.beginPath()
+        // ctx.strokeStyle = 'red'
+        ctx.rect(-settings.width / 2 - settings.gap / 2, y, width, height)
+        ctx.stroke()
+        ctx.fillStyle = "red"
+        ctx.textAlign = "center"
+        ctx.font = "10px Arial"
+        // ctx.fillText(index, 10, y + settings.height / 2 + 3)
+      }
+    } 
+  }
+  
+    ctx.strokeStyle = 'blue'
+    ctx.beginPath()
+    ctx.rect(0, 0, (settings.width + settings.gap) * settings.cols, (settings.height + settings.gap) * settings.rows)
+    ctx.stroke()
+}
+draw()

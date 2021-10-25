@@ -1,0 +1,15 @@
+* {
+  border-radius: 0 !important;
+}
+h1,
+textarea,
+button,
+p {
+  margin-top: 10px;
+}
+.left,
+.right {
+  padding: 10px 20px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+}
