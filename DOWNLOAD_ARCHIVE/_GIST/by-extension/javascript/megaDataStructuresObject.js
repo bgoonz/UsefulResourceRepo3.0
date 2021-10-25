@@ -3,16 +3,16 @@ function dataStructures() {
   !((t, r) => {
     (r.true = t),
       !((e) => {
-        if ("object" == typeof t && "undefined" != typeof module)
+        if ('object' == typeof t && 'undefined' != typeof module)
           module.exports = e();
-        else if ("function" == typeof define && define.amd) define([], e);
+        else if ('function' == typeof define && define.amd) define([], e);
         else {
           let n;
-          "undefined" != typeof window
+          'undefined' != typeof window
             ? (n = window)
-            : "undefined" != typeof r
+            : 'undefined' != typeof r
             ? (n = r)
-            : "undefined" != typeof self && (n = self),
+            : 'undefined' != typeof self && (n = self),
             (n.algorithms = e());
         }
       })(() => {
@@ -20,11 +20,11 @@ function dataStructures() {
           function i(s, a) {
             if (!e[s]) {
               if (!r[s]) {
-                const u = "function" == typeof require && require;
+                const u = 'function' == typeof require && require;
                 if (!a && u) return u(s, !0);
                 if (o) return o(s, !0);
                 const h = new Error("Cannot find module '" + s + "'");
-                throw ((h.code = "MODULE_NOT_FOUND"), h);
+                throw ((h.code = 'MODULE_NOT_FOUND'), h);
               }
               const c = (e[s] = {
                 exports: {},
@@ -46,7 +46,7 @@ function dataStructures() {
             return e[s].exports;
           }
           for (
-            var o = "function" == typeof require && require, s = 0;
+            var o = 'function' == typeof require && require, s = 0;
             s < n.length;
             s++
           )
@@ -56,7 +56,7 @@ function dataStructures() {
           {
             1: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t, r) {
                   const e = {};
                   const n = {};
@@ -103,7 +103,7 @@ function dataStructures() {
             ],
             2: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   const e = {};
                   const n = {};
@@ -150,8 +150,8 @@ function dataStructures() {
             ],
             3: [
               (t, r) => {
-                "use strict";
-                const e = t("./breadth_first_search"),
+                'use strict';
+                const e = t('./breadth_first_search'),
                   n = (t, r) => {
                     const n = {},
                       i = {};
@@ -171,13 +171,13 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "./breadth_first_search": 4,
+                './breadth_first_search': 4,
               },
             ],
             4: [
               (t, r) => {
-                "use strict";
-                const e = t("../../data_structure/queue"),
+                'use strict';
+                const e = t('../../data_structure/queue'),
                   n = (t, r) => {
                     (t = t || {}),
                       (t.allowTraversal =
@@ -218,12 +218,12 @@ function dataStructures() {
                 r.exports = i;
               },
               {
-                "../../data_structure/queue": 49,
+                '../../data_structure/queue': 49,
               },
             ],
             5: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                     (t = t || {}),
                       (t.allowTraversal =
@@ -267,7 +267,7 @@ function dataStructures() {
             ],
             6: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t, r) {
                   const e = {},
                     i = {},
@@ -292,18 +292,18 @@ function dataStructures() {
                     previous: i,
                   };
                 }
-                var n = t("../../data_structure/priority_queue");
+                var n = t('../../data_structure/priority_queue');
                 r.exports = e;
               },
               {
-                "../../data_structure/priority_queue": 48,
+                '../../data_structure/priority_queue': 48,
               },
             ],
             7: [
               (t, r) => {
-                "use strict";
-                const e = t("../../data_structure/graph"),
-                  n = t("../../algorithms/graph/depth_first_search"),
+                'use strict';
+                const e = t('../../data_structure/graph'),
+                  n = t('../../algorithms/graph/depth_first_search'),
                   i = (t) => {
                     const r = {};
                     if (
@@ -327,15 +327,15 @@ function dataStructures() {
                     return (
                       t.vertices.forEach((t) => {
                         if (1 == r[t]) {
-                          if (n) throw new Error("Duplicate start vertex.");
+                          if (n) throw new Error('Duplicate start vertex.');
                           n = t;
                         } else if (-1 == r[t]) {
-                          if (i) throw new Error("Duplicate finish vertex.");
+                          if (i) throw new Error('Duplicate finish vertex.');
                           i = t;
                         } else {
                           if (r[t])
                             throw new Error(
-                              "Unexpected vertex degree for " + t
+                              'Unexpected vertex degree for ' + t
                             );
                           o || (o = t);
                         }
@@ -368,7 +368,7 @@ function dataStructures() {
                       t.vertices.forEach((r) => {
                         if (s.neighbors(r).length < t.neighbors(r).length)
                           throw new Error(
-                            "There is no euler path for a disconnected graph."
+                            'There is no euler path for a disconnected graph.'
                           );
                       }),
                       o.reverse()
@@ -377,13 +377,13 @@ function dataStructures() {
                 r.exports = o;
               },
               {
-                "../../algorithms/graph/depth_first_search": 5,
-                "../../data_structure/graph": 44,
+                '../../algorithms/graph/depth_first_search': 5,
+                '../../data_structure/graph': 44,
               },
             ],
             8: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t) => {
                   const r = Object.create(null);
                   t.vertices.forEach((e) => {
@@ -412,7 +412,7 @@ function dataStructures() {
                     t.vertices.forEach((t) => {
                       if (r[t][t] < 0)
                         throw new Error(
-                          "The graph contains a negative-weighted cycle!"
+                          'The graph contains a negative-weighted cycle!'
                         );
                     });
                   const n = (t, n) => {
@@ -441,9 +441,9 @@ function dataStructures() {
             ],
             9: [
               (t, r) => {
-                "use strict";
-                const e = t("../../data_structure/disjoint_set_forest"),
-                  n = t("../../data_structure/graph"),
+                'use strict';
+                const e = t('../../data_structure/disjoint_set_forest'),
+                  n = t('../../data_structure/graph'),
                   i = (t) => {
                     if (t.directed)
                       throw new Error("Can't build MST of a directed graph.");
@@ -476,15 +476,15 @@ function dataStructures() {
                 r.exports = i;
               },
               {
-                "../../data_structure/disjoint_set_forest": 43,
-                "../../data_structure/graph": 44,
+                '../../data_structure/disjoint_set_forest': 43,
+                '../../data_structure/graph': 44,
               },
             ],
             10: [
               (t, r) => {
-                "use strict";
-                const e = t("../../data_structure/priority_queue"),
-                  n = t("../../data_structure/graph"),
+                'use strict';
+                const e = t('../../data_structure/priority_queue'),
+                  n = t('../../data_structure/graph'),
                   i = (t) => {
                     if (t.directed)
                       throw new Error("Can't build MST of a directed graph.");
@@ -514,15 +514,15 @@ function dataStructures() {
                 r.exports = i;
               },
               {
-                "../../data_structure/graph": 44,
-                "../../data_structure/priority_queue": 48,
+                '../../data_structure/graph': 44,
+                '../../data_structure/priority_queue': 48,
               },
             ],
             11: [
               (t, r) => {
-                "use strict";
-                const e = t("../../data_structure/stack"),
-                  n = t("../../algorithms/graph/depth_first_search"),
+                'use strict';
+                const e = t('../../data_structure/stack'),
+                  n = t('../../algorithms/graph/depth_first_search'),
                   i = (t) => {
                     const r = new e();
                     const i = {};
@@ -548,13 +548,13 @@ function dataStructures() {
                 r.exports = i;
               },
               {
-                "../../algorithms/graph/depth_first_search": 5,
-                "../../data_structure/stack": 51,
+                '../../algorithms/graph/depth_first_search': 5,
+                '../../data_structure/stack': 51,
               },
             ],
             12: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   for (
                     var e, n, i = 0, o = 1, s = 1, a = 0, u = r, h = t;
@@ -582,7 +582,7 @@ function dataStructures() {
             ],
             13: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                     return t * r;
                   },
@@ -592,12 +592,12 @@ function dataStructures() {
                       0 > r || Math.floor(r) != r)
                     )
                       throw new Error(
-                        "Power must be a positive integer or zero."
+                        'Power must be a positive integer or zero.'
                       );
                     if (!r) {
                       if (void 0 === i)
                         throw new Error(
-                          "The power is zero, but identity value not set."
+                          'The power is zero, but identity value not set.'
                         );
                       return i;
                     }
@@ -619,8 +619,8 @@ function dataStructures() {
             ],
             14: [
               (t, r) => {
-                "use strict";
-                const e = t("./fast_power"),
+                'use strict';
+                const e = t('./fast_power'),
                   n = (t) => {
                     return 2 > t ? t : n(t - 1) + n(t - 2);
                   },
@@ -672,12 +672,12 @@ function dataStructures() {
                   (r.exports = i);
               },
               {
-                "./fast_power": 13,
+                './fast_power': 13,
               },
             ],
             15: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t) => {
                   for (let r = t.length - 1; r > 0; r--) {
                     const e = Math.floor(Math.random() * (r + 1)),
@@ -691,7 +691,7 @@ function dataStructures() {
             ],
             16: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                     let e = t;
                     for (t = Math.max(t, r), r = Math.min(e, r); 0 !== r; )
@@ -717,7 +717,7 @@ function dataStructures() {
             ],
             17: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r, e) => {
                   (r = r || 1e-7), (e = e || 1e7);
                   let n,
@@ -740,8 +740,8 @@ function dataStructures() {
             ],
             18: [
               (t, r) => {
-                "use strict";
-                const e = t("../../util/comparator"),
+                'use strict';
+                const e = t('../../util/comparator'),
                   n = (t, r) => {
                     if (!t.length) return !1;
                     for (
@@ -767,12 +767,12 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../util/comparator": 58,
+                '../../util/comparator': 58,
               },
             ],
             19: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t) => {
                     if (0 === t.length) return [];
                     for (var r = [], e = [], n = 0; n < t.length; n++)
@@ -807,11 +807,11 @@ function dataStructures() {
             ],
             20: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   if (r > t.length)
                     throw new Error(
-                      "Sample size exceeds the total number of elements."
+                      'Sample size exceeds the total number of elements.'
                     );
                   for (var e = t.slice(0, r), n = r; n < t.length; ++n) {
                     const i = Math.floor(Math.random() * (n + 1));
@@ -825,7 +825,7 @@ function dataStructures() {
             ],
             21: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t) => {
                   const r = t.reduce((t, r) => {
                       return (t[r] = t[r] + 1 || 1), t;
@@ -845,8 +845,8 @@ function dataStructures() {
             ],
             22: [
               (t, r) => {
-                "use strict";
-                const e = t("../../data_structure/queue.js"),
+                'use strict';
+                const e = t('../../data_structure/queue.js'),
                   n = (t, r) => {
                     const n = new e();
                     n.push(t);
@@ -859,12 +859,12 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../data_structure/queue.js": 49,
+                '../../data_structure/queue.js': 49,
               },
             ],
             23: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   for (let e = 0, n = t.length - 1; n >= e; ) {
                     const i = ((n - e) >> 1) + e;
@@ -879,7 +879,7 @@ function dataStructures() {
             ],
             24: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                     t && (e(t.left, r), r(t.value), e(t.right, r));
                   },
@@ -895,8 +895,8 @@ function dataStructures() {
             ],
             25: [
               (t, r) => {
-                "use strict";
-                const e = t("../../util/comparator"),
+                'use strict';
+                const e = t('../../util/comparator'),
                   n = (t, r) => {
                     for (
                       let n = new e(r), i = t.length, o = i - 1, s = !1, a = 0;
@@ -916,12 +916,12 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../util/comparator": 58,
+                '../../util/comparator': 58,
               },
             ],
             26: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t) => {
                     for (
                       var r = n(t), e = [], i = t.length, o = 0;
@@ -950,8 +950,8 @@ function dataStructures() {
             ],
             27: [
               (t, r) => {
-                "use strict";
-                const e = t("../../data_structure/heap").MinHeap,
+                'use strict';
+                const e = t('../../data_structure/heap').MinHeap,
                   n = (t, r) => {
                     const n = new e(r);
                     n.heapify(t);
@@ -961,13 +961,13 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../data_structure/heap": 46,
+                '../../data_structure/heap': 46,
               },
             ],
             28: [
               (t, r) => {
-                "use strict";
-                const e = t("../../util/comparator"),
+                'use strict';
+                const e = t('../../util/comparator'),
                   n = (t, r) => {
                     for (let n = new e(r), i = 1, o = t.length; o > i; i++) {
                       for (
@@ -983,13 +983,13 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../util/comparator": 58,
+                '../../util/comparator': 58,
               },
             ],
             29: [
               (t, r) => {
-                "use strict";
-                const e = t("../../util/comparator"),
+                'use strict';
+                const e = t('../../util/comparator'),
                   n = (t, r) => {
                     const n = new e(r);
                     return (function t(r) {
@@ -1014,13 +1014,13 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../util/comparator": 58,
+                '../../util/comparator': 58,
               },
             ],
             30: [
               (t, r) => {
-                "use strict";
-                const e = t("../../util/comparator"),
+                'use strict';
+                const e = t('../../util/comparator'),
                   n = (t, r) => {
                     const n = new e(r);
                     return (function t(r, e, o) {
@@ -1044,12 +1044,12 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../util/comparator": 58,
+                '../../util/comparator': 58,
               },
             ],
             31: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t) => {
                     for (
                       let r = i(t),
@@ -1089,8 +1089,8 @@ function dataStructures() {
             ],
             32: [
               (t, r) => {
-                "use strict";
-                const e = t("../../util/comparator"),
+                'use strict';
+                const e = t('../../util/comparator'),
                   n = (t, r) => {
                     for (
                       let n = new e(r), i = t.length, o = 0;
@@ -1109,13 +1109,13 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../util/comparator": 58,
+                '../../util/comparator': 58,
               },
             ],
             33: [
               (t, r) => {
-                "use strict";
-                const e = t("../../util/comparator"),
+                'use strict';
+                const e = t('../../util/comparator'),
                   n = (t, r) => {
                     for (
                       let n = new e(r),
@@ -1144,15 +1144,15 @@ function dataStructures() {
                 r.exports = n;
               },
               {
-                "../../util/comparator": 58,
+                '../../util/comparator': 58,
               },
             ],
             34: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   if (t.length != r.length)
-                    throw new Error("Strings must be equal in length");
+                    throw new Error('Strings must be equal in length');
                   for (var e = 0, n = 0; n < t.length; n++) t[n] != r[n] && e++;
                   return e;
                 };
@@ -1162,7 +1162,7 @@ function dataStructures() {
             ],
             35: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = {},
                   n = (-1 >>> 0).toString(2).length,
                   i = (t) => {
@@ -1170,7 +1170,7 @@ function dataStructures() {
                     let e = 0;
                     let i = 0;
                     return (
-                      t.split("").forEach((t) => {
+                      t.split('').forEach((t) => {
                         (e = (e << 1) | t),
                           (i += 1),
                           i == n && (r.push(e), (e = i = 0));
@@ -1180,10 +1180,10 @@ function dataStructures() {
                     );
                   },
                   o = (t) => {
-                    if (!t.length) return "";
+                    if (!t.length) return '';
                     if (1 == t.length)
                       throw new Error(
-                        "Compressed array must be either empty or at least 2 blocks big."
+                        'Compressed array must be either empty or at least 2 blocks big.'
                       );
                     const r = new Array(n + 1).join(0);
 
@@ -1192,7 +1192,7 @@ function dataStructures() {
                       .map((t) => {
                         return (r + (t >>> 0).toString(2)).slice(-r.length);
                       })
-                      .join("");
+                      .join('');
 
                     const i = t.slice(-1)[0];
                     const o = t.slice(-2)[0];
@@ -1202,10 +1202,10 @@ function dataStructures() {
                   if (!t.length)
                     return {
                       encoding: {},
-                      value: r ? [] : "",
+                      value: r ? [] : '',
                     };
                   const e = {};
-                  t.split("").forEach((t) => {
+                  t.split('').forEach((t) => {
                     e[t] = (e[t] || 0) + 1;
                   });
                   const n = Object.keys(e).map((t) => {
@@ -1234,7 +1234,7 @@ function dataStructures() {
                   ) {
                     const l = c(),
                       p = c();
-                    (l.code = "0"), (p.code = "1");
+                    (l.code = '0'), (p.code = '1');
                     const g = {
                       count: l.count + p.count,
                       parts: [l, p],
@@ -1242,7 +1242,7 @@ function dataStructures() {
                     a.push(g);
                   }
                   const d = c();
-                  (d.code = n.length > 1 ? "" : "0"),
+                  (d.code = n.length > 1 ? '' : '0'),
                     (function t(r) {
                       if (r.parts) {
                         const e = r.parts[0],
@@ -1252,15 +1252,15 @@ function dataStructures() {
                     })(d);
                   const v = n.reduce((t, r) => {
                       return (
-                        (t[r.char] = r.code.split("").reverse().join("")), t
+                        (t[r.char] = r.code.split('').reverse().join('')), t
                       );
                     }, {}),
                     _ = t
-                      .split("")
+                      .split('')
                       .map((t) => {
                         return v[t];
                       })
-                      .join("");
+                      .join('');
                   return {
                     encoding: v,
                     value: r ? i(_) : _,
@@ -1272,13 +1272,13 @@ function dataStructures() {
                         return (r[t[e]] = e), r;
                       }, {}),
                       n = [],
-                      i = r.split("").reduce((t, r) => {
+                      i = r.split('').reduce((t, r) => {
                         t += r;
                         const i = e[t];
-                        return i && (n.push(i), (t = "")), t;
-                      }, "");
-                    if (i) throw new Error("Invalid string to decode.");
-                    return n.join("");
+                        return i && (n.push(i), (t = '')), t;
+                      }, '');
+                    if (i) throw new Error('Invalid string to decode.');
+                    return n.join('');
                   }),
                   (r.exports = e);
               },
@@ -1286,7 +1286,7 @@ function dataStructures() {
             ],
             36: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                     for (
                       var e = t.length, i = r.length, o = 0, s = 0, a = n(r);
@@ -1321,7 +1321,7 @@ function dataStructures() {
             ],
             37: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   let e;
                   let n;
@@ -1341,7 +1341,7 @@ function dataStructures() {
             ],
             38: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   let e;
                   let n;
@@ -1355,7 +1355,7 @@ function dataStructures() {
                           ? i[e - 1][n - 1] + 1
                           : Math.max(i[e][n - 1], i[e - 1][n]);
                   (e = t.length), (n = r.length);
-                  for (var o = ""; 0 !== i[e][n]; )
+                  for (var o = ''; 0 !== i[e][n]; )
                     t[e - 1] === r[n - 1]
                       ? ((o = t[e - 1] + o), e--, n--)
                       : i[e - 1][n] > i[e][n - 1]
@@ -1369,7 +1369,7 @@ function dataStructures() {
             ],
             39: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = (t, r) => {
                   let e;
                   let n;
@@ -1384,7 +1384,7 @@ function dataStructures() {
                         ? ((i[e][n] = i[e - 1][n - 1] + 1),
                           i[e][n] > s && ((o.i = e), (o.j = n), (s = i[e][n])))
                         : (i[e][n] = 0);
-                  let a = "";
+                  let a = '';
                   return s && (a = t.substring(o.i - s, o.i)), a;
                 };
                 r.exports = e;
@@ -1393,7 +1393,7 @@ function dataStructures() {
             ],
             40: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = 997,
                   n = (t, r) => {
                     if (0 === r.length) return 0;
@@ -1428,41 +1428,41 @@ function dataStructures() {
             ],
             41: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 r.exports = {
-                  BST: t("./data_structure/bst"),
-                  Graph: t("./data_structure/graph"),
-                  HashTable: t("./data_structure/hash_table"),
-                  Heap: t("./data_structure/heap"),
-                  LinkedList: t("./data_structure/linked_list"),
-                  PriorityQueue: t("./data_structure/priority_queue"),
-                  Queue: t("./data_structure/queue"),
-                  Stack: t("./data_structure/stack"),
-                  Set: t("./data_structure/set"),
-                  DisjointSetForest: t("./data_structure/disjoint_set_forest"),
+                  BST: t('./data_structure/bst'),
+                  Graph: t('./data_structure/graph'),
+                  HashTable: t('./data_structure/hash_table'),
+                  Heap: t('./data_structure/heap'),
+                  LinkedList: t('./data_structure/linked_list'),
+                  PriorityQueue: t('./data_structure/priority_queue'),
+                  Queue: t('./data_structure/queue'),
+                  Stack: t('./data_structure/stack'),
+                  Set: t('./data_structure/set'),
+                  DisjointSetForest: t('./data_structure/disjoint_set_forest'),
                 };
               },
               {
-                "./data_structure/bst": 42,
-                "./data_structure/disjoint_set_forest": 43,
-                "./data_structure/graph": 44,
-                "./data_structure/hash_table": 45,
-                "./data_structure/heap": 46,
-                "./data_structure/linked_list": 47,
-                "./data_structure/priority_queue": 48,
-                "./data_structure/queue": 49,
-                "./data_structure/set": 50,
-                "./data_structure/stack": 51,
+                './data_structure/bst': 42,
+                './data_structure/disjoint_set_forest': 43,
+                './data_structure/graph': 44,
+                './data_structure/hash_table': 45,
+                './data_structure/heap': 46,
+                './data_structure/linked_list': 47,
+                './data_structure/priority_queue': 48,
+                './data_structure/queue': 49,
+                './data_structure/set': 50,
+                './data_structure/stack': 51,
               },
             ],
             42: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t) {
                   (this.root = null),
                     (this._size = 0),
                     (this._comparator = new i(t)),
-                    Object.defineProperty(this, "size", {
+                    Object.defineProperty(this, 'size', {
                       get: () => {
                         return this._size;
                       },
@@ -1475,7 +1475,7 @@ function dataStructures() {
                     (this.left = null),
                     (this.right = null);
                 }
-                var i = t("../util/comparator");
+                var i = t('../util/comparator');
                 (e.prototype.insert = function (t, r) {
                   if (!r) {
                     if (!this.root)
@@ -1483,8 +1483,8 @@ function dataStructures() {
                     r = this.root;
                   }
                   const e = this._comparator.lessThan(t, r.value)
-                    ? "left"
-                    : "right";
+                    ? 'left'
+                    : 'right';
                   r[e]
                     ? this.insert(t, r[e])
                     : ((r[e] = new n(t, r)), this._size++);
@@ -1508,7 +1508,7 @@ function dataStructures() {
                   (e.prototype._replaceNodeInParent = function (t, r) {
                     const e = t.parent;
                     e
-                      ? ((e[t === e.left ? "left" : "right"] = r),
+                      ? ((e[t === e.left ? 'left' : 'right'] = r),
                         r && (r.parent = e))
                       : (this.root = r);
                   }),
@@ -1518,7 +1518,7 @@ function dataStructures() {
                   }),
                   (e.prototype.remove = function (t) {
                     const r = this._find(t);
-                    if (!r) throw new Error("Item not found in the tree");
+                    if (!r) throw new Error('Item not found in the tree');
                     if (r.left && r.right) {
                       const e = this._findMin(r.right);
                       this.remove(e.value), (r.value = e.value);
@@ -1529,12 +1529,12 @@ function dataStructures() {
                   (r.exports = e);
               },
               {
-                "../util/comparator": 58,
+                '../util/comparator': 58,
               },
             ],
             43: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e() {
                   (this._parents = {}), (this._ranks = {}), (this._sizes = {});
                 }
@@ -1587,16 +1587,16 @@ function dataStructures() {
             ],
             44: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t) {
                   (this.directed = void 0 === t ? !0 : !!t),
                     (this.adjList = Object.create(null)),
                     (this.vertices = new n());
                 }
-                var n = t("./set");
+                var n = t('./set');
 
                 const i = (t) => {
-                  return "" + t;
+                  return '' + t;
                 };
 
                 (e.prototype.addVertex = function (t) {
@@ -1625,29 +1625,29 @@ function dataStructures() {
                   (r.exports = e);
               },
               {
-                "./set": 50,
+                './set': 50,
               },
             ],
             45: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t) {
                   (this._table = new Array(t || 64)),
                     (this._items = 0),
-                    Object.defineProperty(this, "capacity", {
+                    Object.defineProperty(this, 'capacity', {
                       get() {
                         return this._table.length;
                       },
                     }),
-                    Object.defineProperty(this, "size", {
+                    Object.defineProperty(this, 'size', {
                       get() {
                         return this._items;
                       },
                     });
                 }
-                const n = t("./linked_list");
+                const n = t('./linked_list');
                 (e.prototype.hash = (t) => {
-                  "string" != typeof t && (t = JSON.stringify(t));
+                  'string' != typeof t && (t = JSON.stringify(t));
                   for (var r = 0, e = 0; e < t.length; e++)
                     (r = (r << 5) - r + t.charCodeAt(e)), (r &= r);
                   return r;
@@ -1713,16 +1713,16 @@ function dataStructures() {
                   (r.exports = e);
               },
               {
-                "./linked_list": 47,
+                './linked_list': 47,
               },
             ],
             46: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t) {
                   (this._elements = [null]),
                     (this._comparator = new i(t)),
-                    Object.defineProperty(this, "n", {
+                    Object.defineProperty(this, 'n', {
                       get: () => {
                         return this._elements.length - 1;
                       },
@@ -1732,7 +1732,7 @@ function dataStructures() {
                 function n(t) {
                   e.call(this, t), this._comparator.reverse();
                 }
-                var i = t("../util/comparator");
+                var i = t('../util/comparator');
                 (e.prototype._swap = function (t, r) {
                   const e = this._elements[t];
                   (this._elements[t] = this._elements[r]),
@@ -1803,17 +1803,17 @@ function dataStructures() {
                   });
               },
               {
-                "../util/comparator": 58,
+                '../util/comparator': 58,
               },
             ],
             47: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e() {
                   (this._length = 0),
                     (this.head = null),
                     (this.tail = null),
-                    Object.defineProperty(this, "length", {
+                    Object.defineProperty(this, 'length', {
                       get: () => {
                         return this._length;
                       },
@@ -1828,7 +1828,7 @@ function dataStructures() {
                 }),
                   (e.prototype.add = function (t, r) {
                     if (r > this.length || 0 > r)
-                      throw new Error("Index out of bounds");
+                      throw new Error('Index out of bounds');
                     const e = new n(t);
                     if (void 0 !== r && r < this.length) {
                       let i, o;
@@ -1852,13 +1852,13 @@ function dataStructures() {
                   }),
                   (e.prototype.getNode = function (t) {
                     if (t >= this.length || 0 > t)
-                      throw new Error("Index out of bounds");
+                      throw new Error('Index out of bounds');
                     for (var r = this.head, e = 1; t >= e; e++) r = r.next;
                     return r;
                   }),
                   (e.prototype.del = function (t) {
                     if (t >= this.length || 0 > t)
-                      throw new Error("Index out of bounds");
+                      throw new Error('Index out of bounds');
                     this.delNode(this.getNode(t));
                   }),
                   (e.prototype.delNode = function (t) {
@@ -1879,7 +1879,7 @@ function dataStructures() {
             ],
             48: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t) {
                   const r = this;
                   n.call(this, (t, e) => {
@@ -1891,7 +1891,7 @@ function dataStructures() {
                       r.insert(e, t[e]);
                     });
                 }
-                var n = t("./heap").MinHeap;
+                var n = t('./heap').MinHeap;
                 (e.prototype = new n()),
                   (e.prototype.insert = function (t, r) {
                     return void 0 !== this._priority[t]
@@ -1917,21 +1917,21 @@ function dataStructures() {
                   (r.exports = e);
               },
               {
-                "./heap": 46,
+                './heap': 46,
               },
             ],
             49: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e() {
                   (this._elements = new n()),
-                    Object.defineProperty(this, "length", {
+                    Object.defineProperty(this, 'length', {
                       get: () => {
                         return this._elements.length;
                       },
                     });
                 }
-                var n = t("./linked_list");
+                var n = t('./linked_list');
                 (e.prototype.isEmpty = function () {
                   return this._elements.isEmpty();
                 }),
@@ -1939,12 +1939,12 @@ function dataStructures() {
                     this._elements.add(t);
                   }),
                   (e.prototype.pop = function () {
-                    if (this.isEmpty()) throw new Error("Empty queue");
+                    if (this.isEmpty()) throw new Error('Empty queue');
                     const t = this._elements.get(0);
                     return this._elements.del(0), t;
                   }),
                   (e.prototype.peek = function () {
-                    if (this.isEmpty()) throw new Error("Empty queue");
+                    if (this.isEmpty()) throw new Error('Empty queue');
                     return this._elements.get(0);
                   }),
                   (e.prototype.forEach = function (t) {
@@ -1953,17 +1953,17 @@ function dataStructures() {
                   (r.exports = e);
               },
               {
-                "./linked_list": 47,
+                './linked_list': 47,
               },
             ],
             50: [
               (t, r) => {
-                "use strict";
-                const e = t("./hash_table"),
+                'use strict';
+                const e = t('./hash_table'),
                   n = function (...args) {
                     (this._elements = new e(args.length)),
                       this.add(...args),
-                      Object.defineProperty(this, "size", {
+                      Object.defineProperty(this, 'size', {
                         get() {
                           return this._elements.size;
                         },
@@ -1988,16 +1988,16 @@ function dataStructures() {
                   (r.exports = n);
               },
               {
-                "./hash_table": 45,
+                './hash_table': 45,
               },
             ],
             51: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e() {
                   n.call(this);
                 }
-                var n = t("./queue");
+                var n = t('./queue');
                 (e.prototype = new n()),
                   (e.prototype.push = function (t) {
                     this._elements.add(t, 0);
@@ -2005,165 +2005,165 @@ function dataStructures() {
                   (r.exports = e);
               },
               {
-                "./queue": 49,
+                './queue': 49,
               },
             ],
             52: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 r.exports = {
-                  topologicalSort: t("./algorithms/graph/topological_sort"),
-                  dijkstra: t("./algorithms/graph/dijkstra"),
-                  SPFA: t("./algorithms/graph/SPFA"),
-                  bellmanFord: t("./algorithms/graph/bellman_ford"),
-                  eulerPath: t("./algorithms/graph/euler_path"),
-                  depthFirstSearch: t("./algorithms/graph/depth_first_search"),
-                  kruskal: t("./algorithms/graph/kruskal"),
+                  topologicalSort: t('./algorithms/graph/topological_sort'),
+                  dijkstra: t('./algorithms/graph/dijkstra'),
+                  SPFA: t('./algorithms/graph/SPFA'),
+                  bellmanFord: t('./algorithms/graph/bellman_ford'),
+                  eulerPath: t('./algorithms/graph/euler_path'),
+                  depthFirstSearch: t('./algorithms/graph/depth_first_search'),
+                  kruskal: t('./algorithms/graph/kruskal'),
                   breadthFirstSearch: t(
-                    "./algorithms/graph/breadth_first_search"
+                    './algorithms/graph/breadth_first_search'
                   ),
-                  bfsShortestPath: t("./algorithms/graph/bfs_shortest_path"),
-                  prim: t("./algorithms/graph/prim"),
-                  floydWarshall: t("./algorithms/graph/floyd_warshall"),
+                  bfsShortestPath: t('./algorithms/graph/bfs_shortest_path'),
+                  prim: t('./algorithms/graph/prim'),
+                  floydWarshall: t('./algorithms/graph/floyd_warshall'),
                 };
               },
               {
-                "./algorithms/graph/SPFA": 1,
-                "./algorithms/graph/bellman_ford": 2,
-                "./algorithms/graph/bfs_shortest_path": 3,
-                "./algorithms/graph/breadth_first_search": 4,
-                "./algorithms/graph/depth_first_search": 5,
-                "./algorithms/graph/dijkstra": 6,
-                "./algorithms/graph/euler_path": 7,
-                "./algorithms/graph/floyd_warshall": 8,
-                "./algorithms/graph/kruskal": 9,
-                "./algorithms/graph/prim": 10,
-                "./algorithms/graph/topological_sort": 11,
+                './algorithms/graph/SPFA': 1,
+                './algorithms/graph/bellman_ford': 2,
+                './algorithms/graph/bfs_shortest_path': 3,
+                './algorithms/graph/breadth_first_search': 4,
+                './algorithms/graph/depth_first_search': 5,
+                './algorithms/graph/dijkstra': 6,
+                './algorithms/graph/euler_path': 7,
+                './algorithms/graph/floyd_warshall': 8,
+                './algorithms/graph/kruskal': 9,
+                './algorithms/graph/prim': 10,
+                './algorithms/graph/topological_sort': 11,
               },
             ],
             53: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 const e = {
-                  DataStructure: t("./data_structure"),
-                  Graph: t("./graph"),
-                  Math: t("./math"),
-                  Search: t("./search"),
-                  Sorting: t("./sorting"),
-                  String: t("./string"),
+                  DataStructure: t('./data_structure'),
+                  Graph: t('./graph'),
+                  Math: t('./math'),
+                  Search: t('./search'),
+                  Sorting: t('./sorting'),
+                  String: t('./string'),
                 };
                 r.exports = e;
               },
               {
-                "./data_structure": 41,
-                "./graph": 52,
-                "./math": 54,
-                "./search": 55,
-                "./sorting": 56,
-                "./string": 57,
+                './data_structure': 41,
+                './graph': 52,
+                './math': 54,
+                './search': 55,
+                './sorting': 56,
+                './string': 57,
               },
             ],
             54: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 r.exports = {
-                  fibonacci: t("./algorithms/math/fibonacci"),
-                  fisherYates: t("./algorithms/math/fisher_yates"),
-                  gcd: t("./algorithms/math/gcd"),
-                  extendedEuclidean: t("./algorithms/math/extended_euclidean"),
-                  newtonSqrt: t("./algorithms/math/newton_sqrt"),
-                  reservoirSampling: t("./algorithms/math/reservoir_sampling"),
-                  fastPower: t("./algorithms/math/fast_power"),
-                  nextPermutation: t("./algorithms/math/next_permutation"),
-                  powerSet: t("./algorithms/math/power_set"),
-                  shannonEntropy: t("./algorithms/math/shannon_entropy"),
+                  fibonacci: t('./algorithms/math/fibonacci'),
+                  fisherYates: t('./algorithms/math/fisher_yates'),
+                  gcd: t('./algorithms/math/gcd'),
+                  extendedEuclidean: t('./algorithms/math/extended_euclidean'),
+                  newtonSqrt: t('./algorithms/math/newton_sqrt'),
+                  reservoirSampling: t('./algorithms/math/reservoir_sampling'),
+                  fastPower: t('./algorithms/math/fast_power'),
+                  nextPermutation: t('./algorithms/math/next_permutation'),
+                  powerSet: t('./algorithms/math/power_set'),
+                  shannonEntropy: t('./algorithms/math/shannon_entropy'),
                 };
               },
               {
-                "./algorithms/math/extended_euclidean": 12,
-                "./algorithms/math/fast_power": 13,
-                "./algorithms/math/fibonacci": 14,
-                "./algorithms/math/fisher_yates": 15,
-                "./algorithms/math/gcd": 16,
-                "./algorithms/math/newton_sqrt": 17,
-                "./algorithms/math/next_permutation": 18,
-                "./algorithms/math/power_set": 19,
-                "./algorithms/math/reservoir_sampling": 20,
-                "./algorithms/math/shannon_entropy": 21,
+                './algorithms/math/extended_euclidean': 12,
+                './algorithms/math/fast_power': 13,
+                './algorithms/math/fibonacci': 14,
+                './algorithms/math/fisher_yates': 15,
+                './algorithms/math/gcd': 16,
+                './algorithms/math/newton_sqrt': 17,
+                './algorithms/math/next_permutation': 18,
+                './algorithms/math/power_set': 19,
+                './algorithms/math/reservoir_sampling': 20,
+                './algorithms/math/shannon_entropy': 21,
               },
             ],
             55: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 r.exports = {
-                  bfs: t("./algorithms/search/bfs"),
-                  binarySearch: t("./algorithms/search/binarysearch"),
-                  dfs: t("./algorithms/search/dfs"),
+                  bfs: t('./algorithms/search/bfs'),
+                  binarySearch: t('./algorithms/search/binarysearch'),
+                  dfs: t('./algorithms/search/dfs'),
                 };
               },
               {
-                "./algorithms/search/bfs": 22,
-                "./algorithms/search/binarysearch": 23,
-                "./algorithms/search/dfs": 24,
+                './algorithms/search/bfs': 22,
+                './algorithms/search/binarysearch': 23,
+                './algorithms/search/dfs': 24,
               },
             ],
             56: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 r.exports = {
-                  bubbleSort: t("./algorithms/sorting/bubble_sort"),
-                  countingSort: t("./algorithms/sorting/counting_sort"),
-                  heapSort: t("./algorithms/sorting/heap_sort"),
-                  mergeSort: t("./algorithms/sorting/merge_sort"),
-                  quicksort: t("./algorithms/sorting/quicksort"),
-                  selectionSort: t("./algorithms/sorting/selection_sort"),
-                  radixSort: t("./algorithms/sorting/radix_sort"),
-                  insertionSort: t("./algorithms/sorting/insertion_sort"),
-                  shellSort: t("./algorithms/sorting/shell_sort"),
+                  bubbleSort: t('./algorithms/sorting/bubble_sort'),
+                  countingSort: t('./algorithms/sorting/counting_sort'),
+                  heapSort: t('./algorithms/sorting/heap_sort'),
+                  mergeSort: t('./algorithms/sorting/merge_sort'),
+                  quicksort: t('./algorithms/sorting/quicksort'),
+                  selectionSort: t('./algorithms/sorting/selection_sort'),
+                  radixSort: t('./algorithms/sorting/radix_sort'),
+                  insertionSort: t('./algorithms/sorting/insertion_sort'),
+                  shellSort: t('./algorithms/sorting/shell_sort'),
                 };
               },
               {
-                "./algorithms/sorting/bubble_sort": 25,
-                "./algorithms/sorting/counting_sort": 26,
-                "./algorithms/sorting/heap_sort": 27,
-                "./algorithms/sorting/insertion_sort": 28,
-                "./algorithms/sorting/merge_sort": 29,
-                "./algorithms/sorting/quicksort": 30,
-                "./algorithms/sorting/radix_sort": 31,
-                "./algorithms/sorting/selection_sort": 32,
-                "./algorithms/sorting/shell_sort": 33,
+                './algorithms/sorting/bubble_sort': 25,
+                './algorithms/sorting/counting_sort': 26,
+                './algorithms/sorting/heap_sort': 27,
+                './algorithms/sorting/insertion_sort': 28,
+                './algorithms/sorting/merge_sort': 29,
+                './algorithms/sorting/quicksort': 30,
+                './algorithms/sorting/radix_sort': 31,
+                './algorithms/sorting/selection_sort': 32,
+                './algorithms/sorting/shell_sort': 33,
               },
             ],
             57: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 r.exports = {
-                  levenshtein: t("./algorithms/string/levenshtein"),
-                  rabinKarp: t("./algorithms/string/rabin_karp"),
-                  knuthMorrisPratt: t("./algorithms/string/knuth_morris_pratt"),
-                  huffman: t("./algorithms/string/huffman"),
-                  hamming: t("./algorithms/string/hamming"),
+                  levenshtein: t('./algorithms/string/levenshtein'),
+                  rabinKarp: t('./algorithms/string/rabin_karp'),
+                  knuthMorrisPratt: t('./algorithms/string/knuth_morris_pratt'),
+                  huffman: t('./algorithms/string/huffman'),
+                  hamming: t('./algorithms/string/hamming'),
                   longestCommonSubsequence: t(
-                    "./algorithms/string/longest_common_subsequence"
+                    './algorithms/string/longest_common_subsequence'
                   ),
                   longestCommonSubstring: t(
-                    "./algorithms/string/longest_common_substring"
+                    './algorithms/string/longest_common_substring'
                   ),
                 };
               },
               {
-                "./algorithms/string/hamming": 34,
-                "./algorithms/string/huffman": 35,
-                "./algorithms/string/knuth_morris_pratt": 36,
-                "./algorithms/string/levenshtein": 37,
-                "./algorithms/string/longest_common_subsequence": 38,
-                "./algorithms/string/longest_common_substring": 39,
-                "./algorithms/string/rabin_karp": 40,
+                './algorithms/string/hamming': 34,
+                './algorithms/string/huffman': 35,
+                './algorithms/string/knuth_morris_pratt': 36,
+                './algorithms/string/levenshtein': 37,
+                './algorithms/string/longest_common_subsequence': 38,
+                './algorithms/string/longest_common_substring': 39,
+                './algorithms/string/rabin_karp': 40,
               },
             ],
             58: [
               (t, r) => {
-                "use strict";
+                'use strict';
                 function e(t) {
                   t && (this.compare = t);
                 }

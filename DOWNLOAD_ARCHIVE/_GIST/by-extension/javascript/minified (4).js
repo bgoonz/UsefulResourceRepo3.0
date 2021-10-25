@@ -2,11 +2,11 @@ require = (function e(t, n, r) {
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        var a = typeof require == "function" && require;
+        var a = typeof require == 'function' && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         var f = new Error("Cannot find module '" + o + "'");
-        throw ((f.code = "MODULE_NOT_FOUND"), f);
+        throw ((f.code = 'MODULE_NOT_FOUND'), f);
       }
       var l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -25,7 +25,7 @@ require = (function e(t, n, r) {
     }
     return n[o].exports;
   }
-  var i = typeof require == "function" && require;
+  var i = typeof require == 'function' && require;
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -33,7 +33,7 @@ require = (function e(t, n, r) {
     jsynth: [
       function (require, module, exports) {
         module.exports = function (context, fn, bufSize) {
-          if (typeof context === "function") {
+          if (typeof context === 'function') {
             fn = context;
             context = new webkitAudioContext();
           }
@@ -94,7 +94,7 @@ require = (function e(t, n, r) {
             args[key] = opts[key];
           });
           return Object.keys(args).reduce(function (acc, key) {
-            var dash = key.length === 1 ? "-" : "--";
+            var dash = key.length === 1 ? '-' : '--';
             return acc.concat(dash + key, args[key]);
           }, []);
         }
@@ -116,11 +116,11 @@ require = (function e(t, n, r) {
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        var a = typeof require == "function" && require;
+        var a = typeof require == 'function' && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         var f = new Error("Cannot find module '" + o + "'");
-        throw ((f.code = "MODULE_NOT_FOUND"), f);
+        throw ((f.code = 'MODULE_NOT_FOUND'), f);
       }
       var l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -139,7 +139,7 @@ require = (function e(t, n, r) {
     }
     return n[o].exports;
   }
-  var i = typeof require == "function" && require;
+  var i = typeof require == 'function' && require;
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -163,8 +163,8 @@ require = (function e(t, n, r) {
     ],
     2: [
       function (require, module, exports) {
-        var amod = require("./amod.js");
-        var tnorm = require("normalize-time");
+        var amod = require('./amod.js');
+        var tnorm = require('normalize-time');
         module.exports = function (pts, durs) {
           pts = pts.map(amod);
           var t = 0;
@@ -209,7 +209,7 @@ require = (function e(t, n, r) {
           }
         };
       },
-      { "./amod.js": 1, "normalize-time": 3 },
+      { './amod.js': 1, 'normalize-time': 3 },
     ],
     3: [
       function (require, module, exports) {
@@ -223,7 +223,7 @@ require = (function e(t, n, r) {
             x = min + ((time - start) * r) / d;
             if (x > 1) {
               if (time < end)
-                x = Number("." + x.toString().split(".").join(""));
+                x = Number('.' + x.toString().split('.').join(''));
             }
             return x;
           };
@@ -233,16 +233,16 @@ require = (function e(t, n, r) {
     ],
     jmod: [
       function (require, module, exports) {
-        var nvelope = require("nvelope");
+        var nvelope = require('nvelope');
         module.exports = function (params) {
           var envelope = nvelope(params.curves, params.durations);
           var sustain, cutoff;
           if (params.sustain) {
             if (
               Object.prototype.toString.call(params.sustain) ===
-              "[object Object]"
+              '[object Object]'
             ) {
-              console.log("ehll;");
+              console.log('ehll;');
               var dur = params.sustain.durations.reduce(function (e, i) {
                 return e + i;
               }, 0);
@@ -300,11 +300,11 @@ require = (function e(t, n, r) {
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        var a = typeof require == "function" && require;
+        var a = typeof require == 'function' && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         var f = new Error("Cannot find module '" + o + "'");
-        throw ((f.code = "MODULE_NOT_FOUND"), f);
+        throw ((f.code = 'MODULE_NOT_FOUND'), f);
       }
       var l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -323,7 +323,7 @@ require = (function e(t, n, r) {
     }
     return n[o].exports;
   }
-  var i = typeof require == "function" && require;
+  var i = typeof require == 'function' && require;
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -341,14 +341,14 @@ require = (function e(t, n, r) {
         EventEmitter.defaultMaxListeners = 10;
         EventEmitter.prototype.setMaxListeners = function (n) {
           if (!isNumber(n) || n < 0 || isNaN(n))
-            throw TypeError("n must be a positive number");
+            throw TypeError('n must be a positive number');
           this._maxListeners = n;
           return this;
         };
         EventEmitter.prototype.emit = function (type) {
           var er, handler, len, args, i, listeners;
           if (!this._events) this._events = {};
-          if (type === "error") {
+          if (type === 'error') {
             if (
               !this._events.error ||
               (isObject(this._events.error) && !this._events.error.length)
@@ -392,11 +392,11 @@ require = (function e(t, n, r) {
         EventEmitter.prototype.addListener = function (type, listener) {
           var m;
           if (!isFunction(listener))
-            throw TypeError("listener must be a function");
+            throw TypeError('listener must be a function');
           if (!this._events) this._events = {};
           if (this._events.newListener)
             this.emit(
-              "newListener",
+              'newListener',
               type,
               isFunction(listener.listener) ? listener.listener : listener
             );
@@ -414,12 +414,12 @@ require = (function e(t, n, r) {
             if (m && m > 0 && this._events[type].length > m) {
               this._events[type].warned = true;
               console.error(
-                "(node) warning: possible EventEmitter memory " +
-                  "leak detected. %d listeners added. " +
-                  "Use emitter.setMaxListeners() to increase limit.",
+                '(node) warning: possible EventEmitter memory ' +
+                  'leak detected. %d listeners added. ' +
+                  'Use emitter.setMaxListeners() to increase limit.',
                 this._events[type].length
               );
-              if (typeof console.trace === "function") {
+              if (typeof console.trace === 'function') {
                 console.trace();
               }
             }
@@ -429,7 +429,7 @@ require = (function e(t, n, r) {
         EventEmitter.prototype.on = EventEmitter.prototype.addListener;
         EventEmitter.prototype.once = function (type, listener) {
           if (!isFunction(listener))
-            throw TypeError("listener must be a function");
+            throw TypeError('listener must be a function');
           var fired = false;
           function g() {
             this.removeListener(type, g);
@@ -445,7 +445,7 @@ require = (function e(t, n, r) {
         EventEmitter.prototype.removeListener = function (type, listener) {
           var list, position, length, i;
           if (!isFunction(listener))
-            throw TypeError("listener must be a function");
+            throw TypeError('listener must be a function');
           if (!this._events || !this._events[type]) return this;
           list = this._events[type];
           length = list.length;
@@ -456,7 +456,7 @@ require = (function e(t, n, r) {
           ) {
             delete this._events[type];
             if (this._events.removeListener)
-              this.emit("removeListener", type, listener);
+              this.emit('removeListener', type, listener);
           } else if (isObject(list)) {
             for (i = length; i-- > 0; ) {
               if (
@@ -475,7 +475,7 @@ require = (function e(t, n, r) {
               list.splice(position, 1);
             }
             if (this._events.removeListener)
-              this.emit("removeListener", type, listener);
+              this.emit('removeListener', type, listener);
           }
           return this;
         };
@@ -489,10 +489,10 @@ require = (function e(t, n, r) {
           }
           if (arguments.length === 0) {
             for (key in this._events) {
-              if (key === "removeListener") continue;
+              if (key === 'removeListener') continue;
               this.removeAllListeners(key);
             }
-            this.removeAllListeners("removeListener");
+            this.removeAllListeners('removeListener');
             this._events = {};
             return this;
           }
@@ -521,13 +521,13 @@ require = (function e(t, n, r) {
           return ret;
         };
         function isFunction(arg) {
-          return typeof arg === "function";
+          return typeof arg === 'function';
         }
         function isNumber(arg) {
-          return typeof arg === "number";
+          return typeof arg === 'number';
         }
         function isObject(arg) {
-          return typeof arg === "object" && arg !== null;
+          return typeof arg === 'object' && arg !== null;
         }
         function isUndefined(arg) {
           return arg === void 0;
@@ -535,9 +535,9 @@ require = (function e(t, n, r) {
       },
       {},
     ],
-    "jsynth-sync": [
+    'jsynth-sync': [
       function (require, module, exports) {
-        var emitter = require("events").EventEmitter;
+        var emitter = require('events').EventEmitter;
         module.exports = sync;
         var $ = module.exports;
         function sync(bpm, sampleRate) {
@@ -580,7 +580,7 @@ require = (function e(t, n, r) {
             skipNext = beat === 0 ? false : true;
           }
           var emit = new emitter();
-          emit.on("stop", off);
+          emit.on('stop', off);
           this.index.push(
             (function (b, fn, beats, off) {
               return function (t, a, f) {
@@ -597,7 +597,7 @@ require = (function e(t, n, r) {
                     }
                   }
                   fn.apply(fn, [t, ++b, off, swing]);
-                  emit.emit("beat", b);
+                  emit.emit('beat', b);
                 }
               };
             })(0, fn, beats, off)
@@ -618,11 +618,11 @@ require = (function e(t, n, r) {
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        var a = typeof require == "function" && require;
+        var a = typeof require == 'function' && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         var f = new Error("Cannot find module '" + o + "'");
-        throw ((f.code = "MODULE_NOT_FOUND"), f);
+        throw ((f.code = 'MODULE_NOT_FOUND'), f);
       }
       var l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -641,7 +641,7 @@ require = (function e(t, n, r) {
     }
     return n[o].exports;
   }
-  var i = typeof require == "function" && require;
+  var i = typeof require == 'function' && require;
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -690,11 +690,11 @@ require = (function e(t, n, r) {
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        var a = typeof require == "function" && require;
+        var a = typeof require == 'function' && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         var f = new Error("Cannot find module '" + o + "'");
-        throw ((f.code = "MODULE_NOT_FOUND"), f);
+        throw ((f.code = 'MODULE_NOT_FOUND'), f);
       }
       var l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -713,7 +713,7 @@ require = (function e(t, n, r) {
     }
     return n[o].exports;
   }
-  var i = typeof require == "function" && require;
+  var i = typeof require == 'function' && require;
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -722,7 +722,7 @@ require = (function e(t, n, r) {
       function (require, module, exports) {
         module.exports = function (obj, fn) {
           var f = function () {
-            if (typeof fn !== "function") return;
+            if (typeof fn !== 'function') return;
             return fn.apply(obj, arguments);
           };
           function C() {}
@@ -745,7 +745,7 @@ require = (function e(t, n, r) {
     ],
     jdelay: [
       function (require, module, exports) {
-        var funstance = require("funstance");
+        var funstance = require('funstance');
         module.exports = function (delay, feedback, mix, bufferSize) {
           var delay = Math.floor(delay);
           var feedback = feedback;
@@ -797,11 +797,11 @@ require = (function e(t, n, r) {
   []
 );
 master = new webkitAudioContext();
-jsynth = require("jsynth");
-nvelope = require("jmod");
-sync = require("jsynth-sync");
-oz = require("oscillators");
-jdelay = require("jdelay");
+jsynth = require('jsynth');
+nvelope = require('jmod');
+sync = require('jsynth-sync');
+oz = require('oscillators');
+jdelay = require('jdelay');
 sine = oz.sine;
 saw = oz.saw;
 sr = master.sampleRate;

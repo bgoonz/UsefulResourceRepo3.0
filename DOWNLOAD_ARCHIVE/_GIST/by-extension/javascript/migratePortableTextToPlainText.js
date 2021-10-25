@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import client from "part:@sanity/base/client";
+import client from 'part:@sanity/base/client';
 
 // Run this script with: `sanity exec --with-user-token migrations/migratePortableTextToPlainText.js`
 //
@@ -23,11 +23,11 @@ import client from "part:@sanity/base/client";
 
 function blocksToText(blocks) {
   return blocks
-    .filter((blk) => blk.type === "block")
+    .filter((blk) => blk.type === 'block')
     .map((block) => {
-      return block.children.map((child) => child.text).join("");
+      return block.children.map((child) => child.text).join('');
     })
-    .join("\n\n");
+    .join('\n\n');
 }
 
 const fetchDocuments = () =>
@@ -39,7 +39,7 @@ const buildPatches = (docs) =>
   docs.map((doc) => ({
     id: doc._id,
     patch: {
-      set: { bio: { text: blocksToText(doc.bio), _type: "text" } },
+      set: { bio: { text: blocksToText(doc.bio), _type: 'text' } },
       // this will cause the migration to fail if any of the documents has been
       // modified since it was fetched.
       ifRevisionID: doc._rev,
@@ -58,14 +58,14 @@ const migrateNextBatch = async () => {
   const documents = await fetchDocuments();
   const patches = buildPatches(documents);
   if (patches.length === 0) {
-    console.log("No more documents to migrate!");
+    console.log('No more documents to migrate!');
     return null;
   }
   console.log(
     `Migrating batch:\n %s`,
     patches
       .map((patch) => `${patch.id} => ${JSON.stringify(patch.patch)}`)
-      .join("\n")
+      .join('\n')
   );
   const transaction = createTransaction(patches);
   await commitTransaction(transaction);

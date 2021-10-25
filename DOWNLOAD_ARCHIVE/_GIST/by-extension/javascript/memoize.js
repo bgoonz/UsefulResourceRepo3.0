@@ -5,7 +5,7 @@ function memoize(f) {
 
   return function (...args) {
     // Create a string version of the arguments to use as a cache key.
-    let key = args.length + args.join("+");
+    let key = args.length + args.join('+');
     if (cache.has(key)) {
       return cache.get(key);
     } else {
