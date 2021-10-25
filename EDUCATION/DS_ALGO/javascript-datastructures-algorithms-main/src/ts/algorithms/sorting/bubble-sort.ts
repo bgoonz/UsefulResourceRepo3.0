@@ -1,4 +1,4 @@
-import { Compare, defaultCompare, swap } from "../../util";
+import { Compare, defaultCompare, swap } from '../../util';
 
 export function bubbleSort<T>(array: T[], compareFn = defaultCompare) {
   const { length } = array;

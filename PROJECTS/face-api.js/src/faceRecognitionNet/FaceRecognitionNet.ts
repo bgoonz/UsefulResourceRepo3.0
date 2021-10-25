@@ -1,28 +1,28 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   normalize,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { convDown } from "./convLayer";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { residual, residualDown } from "./residualLayer";
-import { NetParams } from "./types";
+import { convDown } from './convLayer';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { residual, residualDown } from './residualLayer';
+import { NetParams } from './types';
 
 export class FaceRecognitionNet extends NeuralNetwork<NetParams> {
   constructor() {
-    super("FaceRecognitionNet");
+    super('FaceRecognitionNet');
   }
 
   public forwardInput(input: NetInput): tf.Tensor2D {
     const { params } = this;
 
     if (!params) {
-      throw new Error("FaceRecognitionNet - load model before inference");
+      throw new Error('FaceRecognitionNet - load model before inference');
     }
 
     return tf.tidy(() => {
@@ -34,7 +34,7 @@ export class FaceRecognitionNet extends NeuralNetwork<NetParams> {
       ) as tf.Tensor4D;
 
       let out = convDown(normalized, params.conv32_down);
-      out = tf.maxPool(out, 3, 2, "valid");
+      out = tf.maxPool(out, 3, 2, 'valid');
 
       out = residual(out, params.conv32_1);
       out = residual(out, params.conv32_2);
@@ -86,7 +86,7 @@ export class FaceRecognitionNet extends NeuralNetwork<NetParams> {
   }
 
   protected getDefaultModelName(): string {
-    return "face_recognition_model";
+    return 'face_recognition_model';
   }
 
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap) {

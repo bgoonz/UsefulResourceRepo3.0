@@ -1,4 +1,4 @@
-import { findMaxValue } from "../search/min-max-search";
+import { findMaxValue } from '../search/min-max-search';
 
 export function countingSort(array) {
   if (array.length < 2) {

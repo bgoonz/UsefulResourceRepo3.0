@@ -1,0 +1,120 @@
+.tabPane {
+    position: relative;
+}
+
+.flexTab {
+    composes: tabPane;
+
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    border: 1px solid #e1e1e1;
+    border-top: none;
+
+    :global {
+        .CodeMirror, .CodeMirror-merge {
+            border-top: none;
+        }
+    }
+}
+
+.flexContent {
+    flex: 1;
+    position: relative;
+}
+
+.navItem {
+    border-radius: 2px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+    margin-bottom: -1px;
+    border-bottom: none;
+    border: 1px solid #e1e1e1;
+    padding: 0 30px;
+    line-height: 40px;
+    margin-right: 3px;
+    cursor: pointer;
+
+    &:hover {
+        color: #333;
+        border-top-color: #d0d0d0;
+        border-right-color: #d0d0d0;
+        border-left-color: #d0d0d0;
+    }
+}
+
+.activeNavItem {
+    border-bottom: 1px solid #fff;
+    background: #fff;
+}
+
+.help {
+    cursor: help;
+    position: relative;
+
+    .helpIcon {
+        &::after {
+          content: '(?)';
+          font-weight: bold;
+          display: inline-block;
+          margin-left: 0.5rem;
+          font-size: 10px;
+          color: #bbb;
+        }
+    }
+
+    .tooltip {
+        line-height: 20px;
+        text-align: center;
+        width: 170px;
+        left: -75px;
+        background: #3498DB;
+        bottom: 100%;
+        color: #fff;
+        display: block;
+        margin-bottom: 15px;
+        opacity: 0;
+        padding: 8px;
+        padding: .5rem;
+        pointer-events: none;
+        position: absolute;
+        -webkit-transform: translateY(10px);
+        transform: translateY(10px);
+        -webkit-transition: all .05s ease-out .05s;
+        transition: all .05s ease-out .05s;
+        border-radius: 2px;
+        font-size: 12px;
+    }
+
+
+  /* This bridges the gap so you can mouse into the tooltip without it disappearing */
+  .tooltip:before {
+    bottom: -20px;
+    content: " ";
+    display: block;
+    height: 20px;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+
+  /* CSS Triangles - see Trevor's post */
+  .tooltip:after {
+    border-left: solid transparent 10px;
+    border-right: solid transparent 10px;
+    border-top: solid #3498db 10px;
+    bottom: -10px;
+    content: " ";
+    height: 0;
+    left: 50%;
+    margin-left: -13px;
+    position: absolute;
+    width: 0;
+  }
+
+  &:hover .tooltip {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0px);
+  }
+}

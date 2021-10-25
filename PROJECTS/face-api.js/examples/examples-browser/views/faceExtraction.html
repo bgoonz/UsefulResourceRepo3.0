@@ -165,7 +165,7 @@
           return;
         }
 
-        const inputImgEl = $("#inputImg").get(0);
+        const inputImgEl = $('#inputImg').get(0);
         const options = getFaceDetectorOptions();
 
         const detections = await faceapi.detectAllFaces(inputImgEl, options);
@@ -175,11 +175,11 @@
       }
 
       function displayExtractedFaces(faceImages) {
-        const canvas = $("#overlay").get(0);
-        faceapi.matchDimensions(canvas, $("#inputImg").get(0));
+        const canvas = $('#overlay').get(0);
+        faceapi.matchDimensions(canvas, $('#inputImg').get(0));
 
-        $("#facesContainer").empty();
-        faceImages.forEach((canvas) => $("#facesContainer").append(canvas));
+        $('#facesContainer').empty();
+        faceImages.forEach((canvas) => $('#facesContainer').append(canvas));
       }
 
       async function run() {
@@ -191,7 +191,7 @@
       }
 
       $(document).ready(function () {
-        renderNavBar("#navbar", "face_extraction");
+        renderNavBar('#navbar', 'face_extraction');
         initImageSelectionControls();
         initFaceDetectionControls();
         run();

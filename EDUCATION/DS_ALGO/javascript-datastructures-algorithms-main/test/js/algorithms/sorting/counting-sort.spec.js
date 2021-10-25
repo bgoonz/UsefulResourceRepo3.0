@@ -1,4 +1,4 @@
-import { countingSort } from "../../../../src/js/index";
-import { testSortAlgorithm } from "./sort-algorithm-tests";
+import { countingSort } from '../../../../src/js/index';
+import { testSortAlgorithm } from './sort-algorithm-tests';
 
-testSortAlgorithm(countingSort, "Counting Sort", { reverseCompare: false });
+testSortAlgorithm(countingSort, 'Counting Sort', { reverseCompare: false });

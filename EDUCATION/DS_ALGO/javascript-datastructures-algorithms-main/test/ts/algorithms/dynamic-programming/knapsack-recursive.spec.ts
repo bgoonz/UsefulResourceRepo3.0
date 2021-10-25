@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { knapSackRecursive } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { knapSackRecursive } from '../../../../src/ts/index';
 
-describe("KnapSack Dynamic Programming - Recursive", () => {
-  it("works with recursive approach", () => {
+describe('KnapSack Dynamic Programming - Recursive', () => {
+  it('works with recursive approach', () => {
     const values = [3, 4, 5];
     const weights = [2, 3, 4];
     const capacity = 5;

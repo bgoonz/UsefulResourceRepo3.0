@@ -1,5 +1,5 @@
-import { Compare, defaultCompare, defaultEquals } from "../util";
-import LinkedList from "./linked-list";
+import { Compare, defaultCompare, defaultEquals } from '../util';
+import LinkedList from './linked-list';
 
 export default class SortedLinkedList extends LinkedList {
   constructor(equalsFn = defaultEquals, compareFn = defaultCompare) {

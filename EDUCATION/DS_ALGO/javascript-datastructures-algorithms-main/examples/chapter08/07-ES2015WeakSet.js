@@ -1,8 +1,8 @@
 const set = new WeakSet();
 
-const ob1 = { name: "Gandalf" };
-const ob2 = { name: "John" };
-const ob3 = { name: "Tyrion" };
+const ob1 = { name: 'Gandalf' };
+const ob2 = { name: 'John' };
+const ob3 = { name: 'Tyrion' };
 
 set.add(ob1);
 set.add(ob2);

@@ -1,21 +1,21 @@
-import { Colors } from "./../../../src/ts/data-structures/models/red-black-node";
-import "mocha";
-import { expect } from "chai";
-import { RedBlackTree } from "../../../src/ts/index";
-import { RedBlackNode } from "../../../src/ts/data-structures/models/red-black-node";
+import { Colors } from './../../../src/ts/data-structures/models/red-black-node';
+import 'mocha';
+import { expect } from 'chai';
+import { RedBlackTree } from '../../../src/ts/index';
+import { RedBlackNode } from '../../../src/ts/data-structures/models/red-black-node';
 
-describe("RedBlackTree", () => {
+describe('RedBlackTree', () => {
   let tree: RedBlackTree<number>;
 
   beforeEach(() => {
     tree = new RedBlackTree<number>();
   });
 
-  it("starts empty", () => {
+  it('starts empty', () => {
     expect(tree.getRoot()).to.equal(undefined);
   });
 
-  it("inserts elements in the RedBlackTree", () => {
+  it('inserts elements in the RedBlackTree', () => {
     expect(tree.getRoot()).to.equal(undefined);
 
     let node;

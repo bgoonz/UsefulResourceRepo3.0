@@ -1,4 +1,4 @@
-import { findMaxValue, findMinValue } from "../search/min-max-search";
+import { findMaxValue, findMinValue } from '../search/min-max-search';
 
 const getBucketIndex = (value, minValue, significantDigit, radixBase) =>
   Math.floor(((value - minValue) / significantDigit) % radixBase);

@@ -48,13 +48,13 @@
           faceapi.euclideanDistance(descriptors.desc1, descriptors.desc2)
         );
         let text = distance;
-        let bgColor = "#ffffff";
+        let bgColor = '#ffffff';
         if (distance > threshold) {
-          text += " (no match)";
-          bgColor = "#ce7575";
+          text += ' (no match)';
+          bgColor = '#ce7575';
         }
-        $("#distance").val(text);
-        $("#distance").css("background-color", bgColor);
+        $('#distance').val(text);
+        $('#distance').css('background-color', bgColor);
       }
 
       async function onSelectionChanged(which, uri) {
@@ -68,30 +68,30 @@
 
       async function run() {
         await faceapi.loadFaceRecognitionModel();
-        $("#loader").hide();
-        await onSelectionChanged(1, $("#selectList1 select").val());
-        await onSelectionChanged(2, $("#selectList2 select").val());
+        $('#loader').hide();
+        await onSelectionChanged(1, $('#selectList1 select').val());
+        await onSelectionChanged(2, $('#selectList2 select').val());
         updateResult();
       }
 
       $(document).ready(function () {
-        renderNavBar("#navbar", "bbt_face_similarity");
+        renderNavBar('#navbar', 'bbt_face_similarity');
         renderFaceImageSelectList(
-          "#selectList1",
+          '#selectList1',
           async (uri) => {
             await onSelectionChanged(1, uri);
             updateResult();
           },
-          { className: "sheldon", imageIdx: 1 }
+          { className: 'sheldon', imageIdx: 1 }
         );
 
         renderFaceImageSelectList(
-          "#selectList2",
+          '#selectList2',
           async (uri) => {
             await onSelectionChanged(2, uri);
             updateResult();
           },
-          { className: "howard", imageIdx: 1 }
+          { className: 'howard', imageIdx: 1 }
         );
         run();
       });

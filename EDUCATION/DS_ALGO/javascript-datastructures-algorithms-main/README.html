@@ -1,52 +1,202 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-</head>
-<body>
-<h1 id="learning-javascript-data-structures-and-algorithms">Learning JavaScript Data Structures and Algorithms</h1>
-<p><a href="https://travis-ci.org/loiane/javascript-datastructures-algorithms"><img src="https://travis-ci.org/loiane/javascript-datastructures-algorithms.svg?branch=master" alt="Build Status" /></a> <a href="https://codecov.io/gh/loiane/javascript-datastructures-algorithms"><img src="https://codecov.io/gh/loiane/javascript-datastructures-algorithms/branch/master/graph/badge.svg" alt="codecov" /></a> <a href="https://david-dm.org/loiane/javascript-datastructures-algorithms?type=dev"><img src="https://david-dm.org/loiane/javascript-datastructures-algorithms/dev-status.svg" alt="devDependencies Status" /></a> <a href="https://david-dm.org/loiane/javascript-datastructures-algorithms"><img src="https://david-dm.org/loiane/javascript-datastructures-algorithms/status.svg" alt="dependencies Status" /></a> <a href="https://greenkeeper.io/"><img src="https://badges.greenkeeper.io/loiane/javascript-datastructures-algorithms.svg" alt="Greenkeeper badge" /></a></p>
-<p>Source code of <strong>Learning JavaScript Data Structures and Algorithms</strong> book, third edition.</p>
-<h2 id="list-of-available-chapters">List of available chapters:</h2>
-<ul>
-<li>01: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter01_02">JavaScript: a quick overview</a></li>
-<li>02: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter01_02">ECMAScript and TypeScript Introduction</a></li>
-<li>03: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter03">Arrays</a></li>
-<li>04: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter04">Stacks</a></li>
-<li>05: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter05">Queues and Deques</a></li>
-<li>06: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter06">LinkedLists</a></li>
-<li>07: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter07">Sets</a></li>
-<li>08: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter08">Dictionaries and Hashes</a></li>
-<li>09: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter09">Recursion</a></li>
-<li>10: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter10">Trees</a></li>
-<li>11: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter11">Heap</a></li>
-<li>12: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter12">Graphs</a></li>
-<li>13: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter13">Sorting and Searching Algorithms</a></li>
-<li>14: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter14">Algorithm Design and Techniques</a></li>
-<li>15: <a href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter15">Algorithm Complexity</a></li>
-</ul>
-<h3 id="third-edition-updates">Third Edition Updates</h3>
-<ul>
-<li>Algorithms using ES2015+ (ES6+)</li>
-<li>New data structures and algorithms</li>
-<li>All chapters rewritten and reviewed</li>
-<li>Three (3) new chapters</li>
-<li>Creation of a Data Structures and Algorithms library that can be used in the browser or with Node.js</li>
-<li>Algorithms tested with Mocha + Chai (test code available in <code>test</code> directory)</li>
-<li><strong>TypeScript</strong> version of the source code included (library and tests)</li>
-</ul>
-<h2 id="project-structure">Project Structure</h2>
-<p><code>src/js/index.js</code> file contains all the data structures and algorithms listed by chapter.</p>
-<pre><code>|_examples (how to use each data structure and algorithm, organized by chapter)
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+  </head>
+  <body>
+    <h1 id="learning-javascript-data-structures-and-algorithms">
+      Learning JavaScript Data Structures and Algorithms
+    </h1>
+    <p>
+      <a
+        href="https://travis-ci.org/loiane/javascript-datastructures-algorithms"
+        ><img
+          src="https://travis-ci.org/loiane/javascript-datastructures-algorithms.svg?branch=master"
+          alt="Build Status"
+      /></a>
+      <a
+        href="https://codecov.io/gh/loiane/javascript-datastructures-algorithms"
+        ><img
+          src="https://codecov.io/gh/loiane/javascript-datastructures-algorithms/branch/master/graph/badge.svg"
+          alt="codecov"
+      /></a>
+      <a
+        href="https://david-dm.org/loiane/javascript-datastructures-algorithms?type=dev"
+        ><img
+          src="https://david-dm.org/loiane/javascript-datastructures-algorithms/dev-status.svg"
+          alt="devDependencies Status"
+      /></a>
+      <a href="https://david-dm.org/loiane/javascript-datastructures-algorithms"
+        ><img
+          src="https://david-dm.org/loiane/javascript-datastructures-algorithms/status.svg"
+          alt="dependencies Status"
+      /></a>
+      <a href="https://greenkeeper.io/"
+        ><img
+          src="https://badges.greenkeeper.io/loiane/javascript-datastructures-algorithms.svg"
+          alt="Greenkeeper badge"
+      /></a>
+    </p>
+    <p>
+      Source code of
+      <strong>Learning JavaScript Data Structures and Algorithms</strong> book,
+      third edition.
+    </p>
+    <h2 id="list-of-available-chapters">List of available chapters:</h2>
+    <ul>
+      <li>
+        01:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter01_02"
+          >JavaScript: a quick overview</a
+        >
+      </li>
+      <li>
+        02:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter01_02"
+          >ECMAScript and TypeScript Introduction</a
+        >
+      </li>
+      <li>
+        03:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter03"
+          >Arrays</a
+        >
+      </li>
+      <li>
+        04:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter04"
+          >Stacks</a
+        >
+      </li>
+      <li>
+        05:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter05"
+          >Queues and Deques</a
+        >
+      </li>
+      <li>
+        06:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter06"
+          >LinkedLists</a
+        >
+      </li>
+      <li>
+        07:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter07"
+          >Sets</a
+        >
+      </li>
+      <li>
+        08:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter08"
+          >Dictionaries and Hashes</a
+        >
+      </li>
+      <li>
+        09:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter09"
+          >Recursion</a
+        >
+      </li>
+      <li>
+        10:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter10"
+          >Trees</a
+        >
+      </li>
+      <li>
+        11:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter11"
+          >Heap</a
+        >
+      </li>
+      <li>
+        12:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter12"
+          >Graphs</a
+        >
+      </li>
+      <li>
+        13:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter13"
+          >Sorting and Searching Algorithms</a
+        >
+      </li>
+      <li>
+        14:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter14"
+          >Algorithm Design and Techniques</a
+        >
+      </li>
+      <li>
+        15:
+        <a
+          href="https://github.com/loiane/javascript-datastructures-algorithms/tree/third-edition/examples/chapter15"
+          >Algorithm Complexity</a
+        >
+      </li>
+    </ul>
+    <h3 id="third-edition-updates">Third Edition Updates</h3>
+    <ul>
+      <li>Algorithms using ES2015+ (ES6+)</li>
+      <li>New data structures and algorithms</li>
+      <li>All chapters rewritten and reviewed</li>
+      <li>Three (3) new chapters</li>
+      <li>
+        Creation of a Data Structures and Algorithms library that can be used in
+        the browser or with Node.js
+      </li>
+      <li>
+        Algorithms tested with Mocha + Chai (test code available in
+        <code>test</code> directory)
+      </li>
+      <li>
+        <strong>TypeScript</strong> version of the source code included (library
+        and tests)
+      </li>
+    </ul>
+    <h2 id="project-structure">Project Structure</h2>
+    <p>
+      <code>src/js/index.js</code> file contains all the data structures and
+      algorithms listed by chapter.
+    </p>
+    <pre><code>|_examples (how to use each data structure and algorithm, organized by chapter)
 |_src
 |___js (source code: JavaScript version)
 |_____data-structures
@@ -59,66 +209,160 @@
 |_test (unit tests with Mocha and Chai for src)
 |___js (tests for JavaScript code)
 |___ts (tests for TypeScript code)</code></pre>
-<h2 id="installing-and-running-the-book-examples-with-node">Installing and running the book examples With Node</h2>
-<ul>
-<li>Install <a href="https://nodejs.org">Node</a></li>
-<li>Open terminal/cmd and change directory to this project folder: <code>cd /Users/.../javascript-datastructures-algorithms</code> (Linux/Max) or <code>cd C:/.../javascript-datastructures-algorithms</code></li>
-<li>run <code>npm install</code> to install all dependencies</li>
-<li>To see the examples, run <code>http-server html</code> or <code>npm run serve</code>. Open your browser <code>http:\\localhost:8080</code> to see the book examples</li>
-<li>Or <code>cd html/chapter01</code> and run each javascript file with node: <code>node 02-Variables</code></li>
-</ul>
-<h2 id="running-the-examples-in-the-browser">Running the examples in the browser</h2>
-<ul>
-<li><p>Right click on the html file you would like to see the examples, right click and ‘Open with Chrome (or any other browser)’</p></li>
-<li><p>Or open the <code>examples/index.html</code> file to easily navigate through all examples:</p></li>
-<li><p>Demo: <a href="https://javascript-ds-algorithms-book.firebaseapp.com">https://javascript-ds-algorithms-book.firebaseapp.com</a></p></li>
-</ul>
-<p><img src="examples/examples-screenshot.png"></p>
-<p>Happy Coding!</p>
-<h2 id="other-editions">Other editions</h2>
-<table>
-<thead>
-<tr class="header">
-<th>1st edition</th>
-<th style="text-align: center;">2nd edition</th>
-<th style="text-align: center;">3rd edition</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><img src="https://images-na.ssl-images-amazon.com/images/I/51xXGv7QlBL._SX403_BO1,204,203,200_.jpg" alt="1st edition" /></td>
-<td style="text-align: center;"><img src="https://images-na.ssl-images-amazon.com/images/I/51PWJ%2BoKc2L._SX403_BO1,204,203,200_.jpg" alt="2nd edition" /></td>
-<td style="text-align: center;"><img src="https://images-na.ssl-images-amazon.com/images/I/41oSXp3VztL._SX404_BO1,204,203,200_.jpg" alt="3rd edition" /></td>
-</tr>
-<tr class="even">
-<td><a href="http://amzn.to/1Y1OWPx">Book link</a></td>
-<td style="text-align: center;"><a href="http://amzn.to/1TSkcA1">Book link</a></td>
-<td style="text-align: center;"><a href="http://a.co/cbMlYmJ">Book link</a></td>
-</tr>
-</tbody>
-</table>
-<p>Book link - first edition:</p>
-<ul>
-<li><a href="https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms">Packt</a></li>
-<li><a href="http://amzn.to/1Y1OWPx">Amazon</a></li>
-<li><a href="http://www.ituring.com.cn/book/1613">Chinese version</a></li>
-<li><a href="http://www.acornpub.co.kr/book/javascript-data-structure">Korean version</a></li>
-</ul>
-<p>Book link - second edition:</p>
-<ul>
-<li><a href="https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-second-edition">Packt</a></li>
-<li><a href="http://amzn.to/1TSkcA1">Amazon</a></li>
-<li><a href="http://www.ituring.com.cn/book/2029">Chinese version</a></li>
-<li><a href="https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript/">Brazilian Portuguese version</a></li>
-</ul>
-<p>Book link - third edition:</p>
-<ul>
-<li><a href="https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-third-edition">Packt</a></li>
-<li><a href="http://a.co/cbMlYmJ">Amazon</a></li>
-<li><a href="http://www.ituring.com.cn/book/2653">Chinese version</a></li>
-<li><a href="https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed/">Brazilian Portuguese version</a></li>
-</ul>
-<h3 id="found-an-issue-or-have-a-question">Found an issue or have a question?</h3>
-<p>Please create an <a href="https://github.com/loiane/javascript-datastructures-algorithms/issues">Issue</a> or <a href="https://github.com/loiane/javascript-datastructures-algorithms/pulls">Pull Request</a></p>
-</body>
+    <h2 id="installing-and-running-the-book-examples-with-node">
+      Installing and running the book examples With Node
+    </h2>
+    <ul>
+      <li>Install <a href="https://nodejs.org">Node</a></li>
+      <li>
+        Open terminal/cmd and change directory to this project folder:
+        <code>cd /Users/.../javascript-datastructures-algorithms</code>
+        (Linux/Max) or
+        <code>cd C:/.../javascript-datastructures-algorithms</code>
+      </li>
+      <li>run <code>npm install</code> to install all dependencies</li>
+      <li>
+        To see the examples, run <code>http-server html</code> or
+        <code>npm run serve</code>. Open your browser
+        <code>http:\\localhost:8080</code> to see the book examples
+      </li>
+      <li>
+        Or <code>cd html/chapter01</code> and run each javascript file with
+        node: <code>node 02-Variables</code>
+      </li>
+    </ul>
+    <h2 id="running-the-examples-in-the-browser">
+      Running the examples in the browser
+    </h2>
+    <ul>
+      <li>
+        <p>
+          Right click on the html file you would like to see the examples, right
+          click and ‘Open with Chrome (or any other browser)’
+        </p>
+      </li>
+      <li>
+        <p>
+          Or open the <code>examples/index.html</code> file to easily navigate
+          through all examples:
+        </p>
+      </li>
+      <li>
+        <p>
+          Demo:
+          <a href="https://javascript-ds-algorithms-book.firebaseapp.com"
+            >https://javascript-ds-algorithms-book.firebaseapp.com</a
+          >
+        </p>
+      </li>
+    </ul>
+    <p><img src="examples/examples-screenshot.png" /></p>
+    <p>Happy Coding!</p>
+    <h2 id="other-editions">Other editions</h2>
+    <table>
+      <thead>
+        <tr class="header">
+          <th>1st edition</th>
+          <th style="text-align: center">2nd edition</th>
+          <th style="text-align: center">3rd edition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="odd">
+          <td>
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/I/51xXGv7QlBL._SX403_BO1,204,203,200_.jpg"
+              alt="1st edition"
+            />
+          </td>
+          <td style="text-align: center">
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/I/51PWJ%2BoKc2L._SX403_BO1,204,203,200_.jpg"
+              alt="2nd edition"
+            />
+          </td>
+          <td style="text-align: center">
+            <img
+              src="https://images-na.ssl-images-amazon.com/images/I/41oSXp3VztL._SX404_BO1,204,203,200_.jpg"
+              alt="3rd edition"
+            />
+          </td>
+        </tr>
+        <tr class="even">
+          <td><a href="http://amzn.to/1Y1OWPx">Book link</a></td>
+          <td style="text-align: center">
+            <a href="http://amzn.to/1TSkcA1">Book link</a>
+          </td>
+          <td style="text-align: center">
+            <a href="http://a.co/cbMlYmJ">Book link</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <p>Book link - first edition:</p>
+    <ul>
+      <li>
+        <a
+          href="https://www.packtpub.com/application-development/learning-javascript-data-structures-and-algorithms"
+          >Packt</a
+        >
+      </li>
+      <li><a href="http://amzn.to/1Y1OWPx">Amazon</a></li>
+      <li><a href="http://www.ituring.com.cn/book/1613">Chinese version</a></li>
+      <li>
+        <a href="http://www.acornpub.co.kr/book/javascript-data-structure"
+          >Korean version</a
+        >
+      </li>
+    </ul>
+    <p>Book link - second edition:</p>
+    <ul>
+      <li>
+        <a
+          href="https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-second-edition"
+          >Packt</a
+        >
+      </li>
+      <li><a href="http://amzn.to/1TSkcA1">Amazon</a></li>
+      <li><a href="http://www.ituring.com.cn/book/2029">Chinese version</a></li>
+      <li>
+        <a
+          href="https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript/"
+          >Brazilian Portuguese version</a
+        >
+      </li>
+    </ul>
+    <p>Book link - third edition:</p>
+    <ul>
+      <li>
+        <a
+          href="https://www.packtpub.com/web-development/learning-javascript-data-structures-and-algorithms-third-edition"
+          >Packt</a
+        >
+      </li>
+      <li><a href="http://a.co/cbMlYmJ">Amazon</a></li>
+      <li><a href="http://www.ituring.com.cn/book/2653">Chinese version</a></li>
+      <li>
+        <a
+          href="https://novatec.com.br/livros/estruturas-de-dados-algoritmos-em-javascript-2ed/"
+          >Brazilian Portuguese version</a
+        >
+      </li>
+    </ul>
+    <h3 id="found-an-issue-or-have-a-question">
+      Found an issue or have a question?
+    </h3>
+    <p>
+      Please create an
+      <a
+        href="https://github.com/loiane/javascript-datastructures-algorithms/issues"
+        >Issue</a
+      >
+      or
+      <a
+        href="https://github.com/loiane/javascript-datastructures-algorithms/pulls"
+        >Pull Request</a
+      >
+    </p>
+  </body>
 </html>

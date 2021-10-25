@@ -1,16 +1,16 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { NetInput, NeuralNetwork } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { NetInput, NeuralNetwork } from 'tfjs-image-recognition-base';
 
-import { fullyConnectedLayer } from "../common/fullyConnectedLayer";
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
 import {
   FaceFeatureExtractorParams,
   IFaceFeatureExtractor,
   TinyFaceFeatureExtractorParams,
-} from "../faceFeatureExtractor/types";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { NetParams } from "./types";
-import { seperateWeightMaps } from "./util";
+} from '../faceFeatureExtractor/types';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { NetParams } from './types';
+import { seperateWeightMaps } from './util';
 
 export abstract class FaceProcessor<
   TExtractorParams extends

@@ -6,9 +6,9 @@ import {
   Rect,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes/FaceDetection";
+import { FaceDetection } from '../classes/FaceDetection';
 
 /**
  * Extracts the image regions containing the detected faces.
@@ -29,7 +29,7 @@ export async function extractFaces(
     const netInput = await toNetInput(input);
 
     if (netInput.batchSize > 1) {
-      throw new Error("extractFaces - batchSize > 1 not supported");
+      throw new Error('extractFaces - batchSize > 1 not supported');
     }
 
     const tensorOrCanvas = netInput.getInput(0);

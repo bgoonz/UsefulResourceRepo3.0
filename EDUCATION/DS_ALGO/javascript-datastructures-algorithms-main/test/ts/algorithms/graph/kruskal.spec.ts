@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { kruskal } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { kruskal } from '../../../../src/ts/index';
 
-describe("Kruskal Algorithm - Minimum Spanning Tree", () => {
-  it("Minimum Spanning Tree", () => {
+describe('Kruskal Algorithm - Minimum Spanning Tree', () => {
+  it('Minimum Spanning Tree', () => {
     const graph = [
       [0, 2, 4, 0, 0, 0],
       [2, 0, 2, 4, 2, 0],

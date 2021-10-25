@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { sudokuSolver } from "../../../../src/js/index";
+import 'mocha';
+import { expect } from 'chai';
+import { sudokuSolver } from '../../../../src/js/index';
 
-describe("Sudoku Solver", () => {
-  it("sudoku solver", () => {
+describe('Sudoku Solver', () => {
+  it('sudoku solver', () => {
     const grid = [
       [3, 0, 6, 5, 0, 8, 4, 0, 0],
       [5, 2, 0, 0, 0, 0, 0, 0, 0],
@@ -29,7 +29,7 @@ describe("Sudoku Solver", () => {
     expect(sudokuSolver(grid)).to.deep.equal(solution);
   });
 
-  it("sudoku solver 2", () => {
+  it('sudoku solver 2', () => {
     const grid = [
       [5, 3, 0, 0, 7, 0, 0, 0, 0],
       [6, 0, 0, 1, 9, 5, 0, 0, 0],

@@ -1,4 +1,4 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   Box,
   createCanvas,
@@ -6,9 +6,9 @@ import {
   env,
   getContext2dOrThrow,
   IDimensions,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { normalize } from "./normalize";
+import { normalize } from './normalize';
 
 export async function extractImagePatches(
   img: HTMLCanvasElement,

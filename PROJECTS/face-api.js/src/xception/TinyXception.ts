@@ -1,4 +1,4 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
@@ -7,24 +7,24 @@ import {
   TfjsImageRecognitionBase,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { depthwiseSeparableConv } from "../common/depthwiseSeparableConv";
-import { bgrToRgbTensor } from "../mtcnn/bgrToRgbTensor";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
+import { depthwiseSeparableConv } from '../common/depthwiseSeparableConv';
+import { bgrToRgbTensor } from '../mtcnn/bgrToRgbTensor';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
 import {
   MainBlockParams,
   ReductionBlockParams,
   TinyXceptionParams,
-} from "./types";
+} from './types';
 
 function conv(
   x: tf.Tensor4D,
   params: TfjsImageRecognitionBase.ConvParams,
   stride: [number, number]
 ): tf.Tensor4D {
-  return tf.add(tf.conv2d(x, params.filters, stride, "same"), params.bias);
+  return tf.add(tf.conv2d(x, params.filters, stride, 'same'), params.bias);
 }
 
 function reductionBlock(
@@ -35,7 +35,7 @@ function reductionBlock(
   let out = isActivateInput ? tf.relu(x) : x;
   out = depthwiseSeparableConv(out, params.separable_conv0, [1, 1]);
   out = depthwiseSeparableConv(tf.relu(out), params.separable_conv1, [1, 1]);
-  out = tf.maxPool(out, [3, 3], [2, 2], "same");
+  out = tf.maxPool(out, [3, 3], [2, 2], 'same');
   out = tf.add(out, conv(x, params.expansion_conv, [2, 2]));
   return out;
 }
@@ -52,7 +52,7 @@ export class TinyXception extends NeuralNetwork<TinyXceptionParams> {
   private _numMainBlocks: number;
 
   constructor(numMainBlocks: number) {
-    super("TinyXception");
+    super('TinyXception');
     this._numMainBlocks = numMainBlocks;
   }
 
@@ -60,7 +60,7 @@ export class TinyXception extends NeuralNetwork<TinyXceptionParams> {
     const { params } = this;
 
     if (!params) {
-      throw new Error("TinyXception - load model before inference");
+      throw new Error('TinyXception - load model before inference');
     }
 
     return tf.tidy(() => {
@@ -91,7 +91,7 @@ export class TinyXception extends NeuralNetwork<TinyXceptionParams> {
   }
 
   protected getDefaultModelName(): string {
-    return "tiny_xception_model";
+    return 'tiny_xception_model';
   }
 
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap) {

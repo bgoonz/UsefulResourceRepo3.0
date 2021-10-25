@@ -7,10 +7,10 @@ import {
   IRect,
   Point,
   Rect,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { minBbox } from "../minBbox";
-import { FaceDetection } from "./FaceDetection";
+import { minBbox } from '../minBbox';
+import { FaceDetection } from './FaceDetection';
 
 // face alignment constants
 const relX = 0.5;
@@ -143,6 +143,6 @@ export class FaceLandmarks implements IFaceLandmarks {
   }
 
   protected getRefPointsForAlignment(): Point[] {
-    throw new Error("getRefPointsForAlignment not implemented by base class");
+    throw new Error('getRefPointsForAlignment not implemented by base class');
   }
 }

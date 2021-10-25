@@ -1,6 +1,6 @@
-import { defaultCompare, ICompareFunction, Compare } from "../util";
-import BinarySearchTree from "./binary-search-tree";
-import { RedBlackNode, Colors } from "./models/red-black-node";
+import { defaultCompare, ICompareFunction, Compare } from '../util';
+import BinarySearchTree from './binary-search-tree';
+import { RedBlackNode, Colors } from './models/red-black-node';
 
 export default class RedBlackTree<T> extends BinarySearchTree<T> {
   protected root: RedBlackNode<T>;

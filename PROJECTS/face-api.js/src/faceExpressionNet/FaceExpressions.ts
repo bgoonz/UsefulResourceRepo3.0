@@ -1,11 +1,11 @@
 export const FACE_EXPRESSION_LABELS = [
-  "neutral",
-  "happy",
-  "sad",
-  "angry",
-  "fearful",
-  "disgusted",
-  "surprised",
+  'neutral',
+  'happy',
+  'sad',
+  'angry',
+  'fearful',
+  'disgusted',
+  'surprised',
 ];
 
 export class FaceExpressions {

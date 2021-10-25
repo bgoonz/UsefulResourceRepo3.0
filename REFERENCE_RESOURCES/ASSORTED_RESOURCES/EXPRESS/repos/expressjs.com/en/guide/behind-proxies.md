@@ -3,7 +3,7 @@ layout: page
 title: Express behind proxies
 menu: guide
 lang: en
-redirect_from: "/guide/behind-proxies.html"
+redirect_from: '/guide/behind-proxies.html'
 ---
 
 # Express behind proxies
@@ -43,10 +43,10 @@ An IP address, subnet, or an array of IP addresses and subnets to trust as being
 You can set IP addresses in any of the following ways:
 
 ```js
-app.set("trust proxy", "loopback"); // specify a single subnet
-app.set("trust proxy", "loopback, 123.123.123.123"); // specify a subnet and an address
-app.set("trust proxy", "loopback, linklocal, uniquelocal"); // specify multiple subnets as CSV
-app.set("trust proxy", ["loopback", "linklocal", "uniquelocal"]); // specify multiple subnets as an array
+app.set('trust proxy', 'loopback'); // specify a single subnet
+app.set('trust proxy', 'loopback, 123.123.123.123'); // specify a subnet and an address
+app.set('trust proxy', 'loopback, linklocal, uniquelocal'); // specify multiple subnets as CSV
+app.set('trust proxy', ['loopback', 'linklocal', 'uniquelocal']); // specify multiple subnets as an array
 ```
 
 When specified, the IP addresses or the subnets are excluded from the address determination process, and the untrusted IP address nearest to the application server is determined as the client's IP address. This works by checking if `req.socket.remoteAddress` is trusted. If so, then each address in `X-Forwarded-For` is checked from right to left until the first non-trusted address.
@@ -69,8 +69,8 @@ When using this setting, it is important to ensure there are not multiple, diffe
 Custom trust implementation.
 
 ```js
-app.set("trust proxy", function (ip) {
-  if (ip === "127.0.0.1" || ip === "123.123.123.123") return true;
+app.set('trust proxy', function (ip) {
+  if (ip === '127.0.0.1' || ip === '123.123.123.123') return true;
   // trusted IPs
   else return false;
 });

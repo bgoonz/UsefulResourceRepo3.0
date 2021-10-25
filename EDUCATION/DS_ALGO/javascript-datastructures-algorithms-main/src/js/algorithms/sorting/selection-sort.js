@@ -1,4 +1,4 @@
-import { Compare, defaultCompare, swap } from "../../util";
+import { Compare, defaultCompare, swap } from '../../util';
 
 export const selectionSort = (array, compareFn = defaultCompare) => {
   const { length } = array;

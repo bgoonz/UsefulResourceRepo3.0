@@ -3,7 +3,7 @@ layout: page
 title: Template Engines
 menu: resources
 lang: en
-redirect_from: "/resources/template-engines.html"
+redirect_from: '/resources/template-engines.html'
 ---
 
 # Template engines

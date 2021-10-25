@@ -1,8 +1,8 @@
-import "mocha";
-import { expect } from "chai";
-import { shuffle } from "../../../../src/js/index";
+import 'mocha';
+import { expect } from 'chai';
+import { shuffle } from '../../../../src/js/index';
 
-describe("Fisher-Yates Suffle", () => {
+describe('Fisher-Yates Suffle', () => {
   const SIZE = 100;
 
   function createSortedArray() {
@@ -13,16 +13,16 @@ describe("Fisher-Yates Suffle", () => {
     return array;
   }
 
-  it("works with empty arrays", () => {
+  it('works with empty arrays', () => {
     expect(shuffle([])).to.deep.equal([]);
   });
 
-  it("works with arrays with a single value", () => {
+  it('works with arrays with a single value', () => {
     const array = [1];
     expect(shuffle(array)).to.deep.equal(array);
   });
 
-  it("works with sorted arrays", () => {
+  it('works with sorted arrays', () => {
     let array = createSortedArray();
     const sortedArray = createSortedArray();
     array = shuffle(array);

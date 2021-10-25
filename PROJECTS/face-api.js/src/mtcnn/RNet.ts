@@ -1,9 +1,9 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
-import { fullyConnectedLayer } from "../common/fullyConnectedLayer";
-import { prelu } from "./prelu";
-import { sharedLayer } from "./sharedLayers";
-import { RNetParams } from "./types";
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
+import { prelu } from './prelu';
+import { sharedLayer } from './sharedLayers';
+import { RNetParams } from './types';
 
 export function RNet(
   x: tf.Tensor4D,

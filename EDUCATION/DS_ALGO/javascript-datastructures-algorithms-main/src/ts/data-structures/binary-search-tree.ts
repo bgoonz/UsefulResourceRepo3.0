@@ -1,5 +1,5 @@
-import { Compare, defaultCompare, ICompareFunction } from "../util";
-import { Node } from "./models/node";
+import { Compare, defaultCompare, ICompareFunction } from '../util';
+import { Node } from './models/node';
 
 export default class BinarySearchTree<T> {
   protected root: Node<T>;

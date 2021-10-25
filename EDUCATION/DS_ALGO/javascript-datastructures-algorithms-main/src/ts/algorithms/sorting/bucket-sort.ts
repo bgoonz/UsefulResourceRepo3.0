@@ -1,4 +1,4 @@
-import { insertionSort } from "./insertion-sort";
+import { insertionSort } from './insertion-sort';
 
 function createBuckets(array: number[], bucketSize: number): number[][] {
   let minValue = array[0];

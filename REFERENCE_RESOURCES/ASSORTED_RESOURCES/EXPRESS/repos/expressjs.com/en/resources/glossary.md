@@ -3,7 +3,7 @@ layout: page
 title: Express glossary
 menu: resources
 lang: en
-redirect_from: "/resources/glossary.html"
+redirect_from: '/resources/glossary.html'
 ---
 
 # Glossary

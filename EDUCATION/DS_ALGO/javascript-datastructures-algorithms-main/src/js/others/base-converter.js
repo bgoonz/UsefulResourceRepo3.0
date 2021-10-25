@@ -1,11 +1,11 @@
 // @ts-check
-import Stack from "../data-structures/stack";
+import Stack from '../data-structures/stack';
 
 export function decimalToBinary(decNumber) {
   const remStack = new Stack();
   let number = decNumber;
   let rem;
-  let binaryString = "";
+  let binaryString = '';
 
   while (number > 0) {
     rem = Math.floor(number % 2);
@@ -22,13 +22,13 @@ export function decimalToBinary(decNumber) {
 
 export function baseConverter(decNumber, base) {
   const remStack = new Stack();
-  const digits = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  const digits = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   let number = decNumber;
   let rem;
-  let baseString = "";
+  let baseString = '';
 
   if (!(base >= 2 && base <= 36)) {
-    return "";
+    return '';
   }
 
   while (number > 0) {

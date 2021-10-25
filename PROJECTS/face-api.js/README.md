@@ -1,7 +1,6 @@
 # face-api.js
 
-[![Build Status](https://travis-ci.org/justadudewhohacks/face-api.js.svg?branch=master)](https://travis-ci.org/justadudewhohacks/face-api.js)
-[![Slack](https://slack.bri.im/badge.svg)](https://slack.bri.im)
+[![Build Status](https://travis-ci.org/justadudewhohacks/face-api.js.svg?branch=master)](https://travis-ci.org/justadudewhohacks/face-api.js) [![Slack](https://slack.bri.im/badge.svg)](https://slack.bri.im)
 
 **JavaScript face recognition API for the browser and nodejs implemented on top of tensorflow.js core ([tensorflow/tfjs-core](https://github.com/tensorflow/tfjs-core))**
 
@@ -124,12 +123,12 @@ Now we simply monkey patch the environment to use the polyfills:
 ```javascript
 // import nodejs bindings to native tensorflow,
 // not required, but will speed up things drastically (python required)
-import "@tensorflow/tfjs-node";
+import '@tensorflow/tfjs-node';
 
 // implements nodejs wrappers for HTMLCanvasElement, HTMLImageElement, ImageData
-import * as canvas from "canvas";
+import * as canvas from 'canvas';
 
-import * as faceapi from "face-api.js";
+import * as faceapi from 'face-api.js';
 
 // patch nodejs environment, we need to provide an implementation of
 // HTMLCanvasElement and HTMLImageElement, additionally an implementation
@@ -166,7 +165,7 @@ To load a model, you have provide the corresponding manifest.json file as well a
 Assuming the models reside in **public/models**:
 
 ```javascript
-await faceapi.nets.ssdMobilenetv1.loadFromUri("/models");
+await faceapi.nets.ssdMobilenetv1.loadFromUri('/models');
 // accordingly for the other models:
 // await faceapi.nets.faceLandmark68Net.loadFromUri('/models')
 // await faceapi.nets.faceRecognitionNet.loadFromUri('/models')
@@ -176,7 +175,7 @@ await faceapi.nets.ssdMobilenetv1.loadFromUri("/models");
 In a nodejs environment you can furthermore load the models directly from disk:
 
 ```javascript
-await faceapi.nets.ssdMobilenetv1.loadFromDisk("./models");
+await faceapi.nets.ssdMobilenetv1.loadFromDisk('./models');
 ```
 
 You can also load the model from a tf.NamedTensorMap:
@@ -189,18 +188,18 @@ Alternatively, you can also create own instances of the neural nets:
 
 ```javascript
 const net = new faceapi.SsdMobilenetv1();
-await net.loadFromUri("/models");
+await net.loadFromUri('/models');
 ```
 
 You can also load the weights as a Float32Array (in case you want to use the uncompressed models):
 
 ```javascript
 // using fetch
-net.load(await faceapi.fetchNetWeights("/models/face_detection_model.weights"));
+net.load(await faceapi.fetchNetWeights('/models/face_detection_model.weights'));
 
 // using axios
-const res = await axios.get("/models/face_detection_model.weights", {
-  responseType: "arraybuffer",
+const res = await axios.get('/models/face_detection_model.weights', {
+  responseType: 'arraybuffer',
 });
 const weights = new Float32Array(res.data);
 net.load(weights);
@@ -219,7 +218,7 @@ In the following **input** can be an HTML img, video or canvas element or the id
 ```
 
 ```javascript
-const input = document.getElementById("myImg");
+const input = document.getElementById('myImg');
 // const input = document.getElementById('myVideo')
 // const input = document.getElementById('myCanvas')
 // or simply:
@@ -493,11 +492,11 @@ You can also create labeled reference descriptors as follows:
 
 ```javascript
 const labeledDescriptors = [
-  new faceapi.LabeledFaceDescriptors("obama", [
+  new faceapi.LabeledFaceDescriptors('obama', [
     descriptorObama1,
     descriptorObama2,
   ]),
-  new faceapi.LabeledFaceDescriptors("trump", [descriptorTrump]),
+  new faceapi.LabeledFaceDescriptors('trump', [descriptorTrump]),
 ];
 
 const faceMatcher = new faceapi.FaceMatcher(labeledDescriptors);
@@ -512,7 +511,7 @@ Preparing the overlay canvas:
 ```javascript
 const displaySize = { width: input.width, height: input.height };
 // resize the overlay canvas to the input dimensions
-const canvas = document.getElementById("overlay");
+const canvas = document.getElementById('overlay');
 faceapi.matchDimensions(canvas, displaySize);
 ```
 
@@ -563,11 +562,11 @@ You can also draw boxes with custom text ([DrawBox](https://github.com/justadude
 const box = { x: 50, y: 50, width: 100, height: 100 };
 // see DrawBoxOptions below
 const drawOptions = {
-  label: "Hello I am a box!",
+  label: 'Hello I am a box!',
   lineWidth: 2,
 };
 const drawBox = new faceapi.draw.DrawBox(box, drawOptions);
-drawBox.draw(document.getElementById("myCanvas"));
+drawBox.draw(document.getElementById('myCanvas'));
 ```
 
 DrawBox drawing options:
@@ -584,15 +583,15 @@ export interface IDrawBoxOptions {
 Finally you can draw custom text fields ([DrawTextField](https://github.com/justadudewhohacks/tfjs-image-recognition-base/blob/master/src/draw/DrawTextField.ts)):
 
 ```javascript
-const text = ["This is a textline!", "This is another textline!"];
+const text = ['This is a textline!', 'This is another textline!'];
 const anchor = { x: 200, y: 200 };
 // see DrawTextField below
 const drawOptions = {
-  anchorPosition: "TOP_LEFT",
-  backgroundColor: "rgba(0, 0, 0, 0.5)",
+  anchorPosition: 'TOP_LEFT',
+  backgroundColor: 'rgba(0, 0, 0, 0.5)',
 };
 const drawBox = new faceapi.draw.DrawTextField(text, anchor, drawOptions);
-drawBox.draw(document.getElementById("myCanvas"));
+drawBox.draw(document.getElementById('myCanvas'));
 ```
 
 DrawTextField drawing options:
@@ -837,19 +836,19 @@ const rightEyeBrow = landmarks.getRightEyeBrow();
 ```
 
 ```javascript
-const image = await faceapi.fetchImage("/images/example.png");
+const image = await faceapi.fetchImage('/images/example.png');
 
 console.log(image instanceof HTMLImageElement); // true
 
 // displaying the fetched image content
-const myImg = document.getElementById("myImg");
+const myImg = document.getElementById('myImg');
 myImg.src = image.src;
 ```
 
 ### Fetching JSON
 
 ```javascript
-const json = await faceapi.fetchJson("/files/example.json");
+const json = await faceapi.fetchJson('/files/example.json');
 ```
 
 ### Creating an Image Picker
@@ -866,10 +865,10 @@ const json = await faceapi.fetchJson("/files/example.json");
 
 ```javascript
 async function uploadImage() {
-  const imgFile = document.getElementById("myFileUpload").files[0];
+  const imgFile = document.getElementById('myFileUpload').files[0];
   // create an HTMLImageElement from a Blob
   const img = await faceapi.bufferToImage(imgFile);
-  document.getElementById("myImg").src = img.src;
+  document.getElementById('myImg').src = img.src;
 }
 ```
 
@@ -881,9 +880,9 @@ async function uploadImage() {
 ```
 
 ```javascript
-const canvas1 = faceapi.createCanvasFromMedia(document.getElementById("myImg"));
+const canvas1 = faceapi.createCanvasFromMedia(document.getElementById('myImg'));
 const canvas2 = faceapi.createCanvasFromMedia(
-  document.getElementById("myVideo")
+  document.getElementById('myVideo')
 );
 ```
 
@@ -957,14 +956,14 @@ Total Gender Accuracy: **95%**
 
 The `-` indicates, that there are no gender labels available for these databases.
 
-| Database        |  UTK | FGNET | Chalearn | Wiki | IMDB\* | CACD\* | MegaAge | MegaAge-Asian |
-| --------------- | ---: | ----: | -------: | ---: | -----: | -----: | ------: | ------------: |
-| MAE             | 5.25 |  4.23 |     6.24 | 6.54 |   3.63 |   3.20 |    6.23 |          4.21 |
-| Gender Accuracy | 0.93 |     - |     0.94 | 0.95 |      - |   0.97 |       - |             - |
+| Database | UTK | FGNET | Chalearn | Wiki | IMDB\* | CACD\* | MegaAge | MegaAge-Asian |
+| --- | --: | --: | --: | --: | --: | --: | --: | --: |
+| MAE | 5.25 | 4.23 | 6.24 | 6.54 | 3.63 | 3.20 | 6.23 | 4.21 |
+| Gender Accuracy | 0.93 | - | 0.94 | 0.95 | - | 0.97 | - | - |
 
 ### Test results for different age category groups
 
-| Age Range       | 0 - 3 | 4 - 8 | 9 - 18 | 19 - 28 | 29 - 40 | 41 - 60 | 60 - 80 |  80+ |
-| --------------- | ----: | ----: | -----: | ------: | ------: | ------: | ------: | ---: |
-| MAE             |  1.52 |  3.06 |   4.82 |    4.99 |    5.43 |    4.94 |    6.17 | 9.91 |
-| Gender Accuracy |  0.69 |  0.80 |   0.88 |    0.96 |    0.97 |    0.97 |    0.96 |  0.9 |
+| Age Range | 0 - 3 | 4 - 8 | 9 - 18 | 19 - 28 | 29 - 40 | 41 - 60 | 60 - 80 | 80+ |
+| --- | --: | --: | --: | --: | --: | --: | --: | --: |
+| MAE | 1.52 | 3.06 | 4.82 | 4.99 | 5.43 | 4.94 | 6.17 | 9.91 |
+| Gender Accuracy | 0.69 | 0.80 | 0.88 | 0.96 | 0.97 | 0.97 | 0.96 | 0.9 |

@@ -1,4 +1,4 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
@@ -6,26 +6,26 @@ import {
   Rect,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes/FaceDetection";
-import { FaceLandmarks5 } from "../classes/FaceLandmarks5";
-import { extendWithFaceDetection, extendWithFaceLandmarks } from "../factories";
-import { bgrToRgbTensor } from "./bgrToRgbTensor";
-import { CELL_SIZE } from "./config";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { getSizesForScale } from "./getSizesForScale";
-import { IMtcnnOptions, MtcnnOptions } from "./MtcnnOptions";
-import { pyramidDown } from "./pyramidDown";
-import { stage1 } from "./stage1";
-import { stage2 } from "./stage2";
-import { stage3 } from "./stage3";
-import { MtcnnResult, NetParams } from "./types";
+import { FaceDetection } from '../classes/FaceDetection';
+import { FaceLandmarks5 } from '../classes/FaceLandmarks5';
+import { extendWithFaceDetection, extendWithFaceLandmarks } from '../factories';
+import { bgrToRgbTensor } from './bgrToRgbTensor';
+import { CELL_SIZE } from './config';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { getSizesForScale } from './getSizesForScale';
+import { IMtcnnOptions, MtcnnOptions } from './MtcnnOptions';
+import { pyramidDown } from './pyramidDown';
+import { stage1 } from './stage1';
+import { stage2 } from './stage2';
+import { stage3 } from './stage3';
+import { MtcnnResult, NetParams } from './types';
 
 export class Mtcnn extends NeuralNetwork<NetParams> {
   constructor() {
-    super("Mtcnn");
+    super('Mtcnn');
   }
 
   public async forwardInput(
@@ -35,14 +35,14 @@ export class Mtcnn extends NeuralNetwork<NetParams> {
     const { params } = this;
 
     if (!params) {
-      throw new Error("Mtcnn - load model before inference");
+      throw new Error('Mtcnn - load model before inference');
     }
 
     const inputCanvas = input.canvases[0];
 
     if (!inputCanvas) {
       throw new Error(
-        "Mtcnn - inputCanvas is not defined, note that passing tensors into Mtcnn.forwardInput is not supported yet."
+        'Mtcnn - inputCanvas is not defined, note that passing tensors into Mtcnn.forwardInput is not supported yet.'
       );
     }
 
@@ -180,7 +180,7 @@ export class Mtcnn extends NeuralNetwork<NetParams> {
   }
 
   protected getDefaultModelName(): string {
-    return "mtcnn_model";
+    return 'mtcnn_model';
   }
 
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap) {

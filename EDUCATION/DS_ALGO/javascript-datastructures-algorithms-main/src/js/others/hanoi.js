@@ -1,5 +1,5 @@
 // @ts-check
-import Stack from "../data-structures/stack";
+import Stack from '../data-structures/stack';
 
 function towerOfHanoi(
   plates,
@@ -61,7 +61,7 @@ export function hanoiStack(plates) {
     source.push(i);
   }
 
-  return towerOfHanoi(plates, source, helper, dest, "source", "helper", "dest");
+  return towerOfHanoi(plates, source, helper, dest, 'source', 'helper', 'dest');
 }
 
 export function hanoi(plates, source, helper, dest, moves = []) {

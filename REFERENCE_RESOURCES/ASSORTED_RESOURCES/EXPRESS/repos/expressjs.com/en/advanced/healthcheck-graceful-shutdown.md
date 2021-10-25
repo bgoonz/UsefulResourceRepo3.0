@@ -3,7 +3,7 @@ layout: page
 title: Health Checks and Graceful Shutdown
 menu: advanced
 lang: en
-redirect_from: "/advanced/healthcheck-graceful-shutdown.html"
+redirect_from: '/advanced/healthcheck-graceful-shutdown.html'
 ---
 
 # Health Checks and Graceful Shutdown
@@ -17,10 +17,10 @@ When you deploy a new version of your application, you must replace the previous
 ```js
 const server = app.listen(port);
 
-process.on("SIGTERM", () => {
-  debug("SIGTERM signal received: closing HTTP server");
+process.on('SIGTERM', () => {
+  debug('SIGTERM signal received: closing HTTP server');
   server.close(() => {
-    debug("HTTP server closed");
+    debug('HTTP server closed');
   });
 });
 ```
@@ -49,20 +49,20 @@ npm i @godaddy/terminus --save
 Here's a basic template that illustrates using terminus. For more information, see <https://github.com/godaddy/terminus>.
 
 ```js
-const http = require("http");
-const express = require("express");
-const { createTerminus } = require("@godaddy/terminus");
+const http = require('http');
+const express = require('express');
+const { createTerminus } = require('@godaddy/terminus');
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("ok");
+app.get('/', (req, res) => {
+  res.send('ok');
 });
 
 const server = http.createServer(app);
 
 function onSignal() {
-  console.log("server is starting cleanup");
+  console.log('server is starting cleanup');
   // start cleanup of resource, like databases or file descriptors
 }
 
@@ -72,8 +72,8 @@ async function onHealthCheck() {
 }
 
 createTerminus(server, {
-  signal: "SIGINT",
-  healthChecks: { "/healthcheck": onHealthCheck },
+  signal: 'SIGINT',
+  healthChecks: { '/healthcheck': onHealthCheck },
   onSignal,
 });
 
@@ -94,17 +94,17 @@ npm install lightship
 Basic template that illustrates using Lightship:
 
 ```js
-const http = require("http");
-const express = require("express");
-const { createLightship } = require("lightship");
+const http = require('http');
+const express = require('express');
+const { createLightship } = require('lightship');
 
 // Lightship will start a HTTP service on port 9000.
 const lightship = createLightship();
 
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send("ok");
+app.get('/', (req, res) => {
+  res.send('ok');
 });
 
 app.listen(3000, () => {
@@ -132,8 +132,8 @@ npm install http-terminator
 Basic template that illustrates using http-terminator:
 
 ```js
-const express = require("express");
-const { createHttpTerminator } = require("http-terminator");
+const express = require('express');
+const { createHttpTerminator } = require('http-terminator');
 
 const app = express();
 
@@ -141,8 +141,8 @@ const server = app.listen(3000);
 
 const httpTerminator = createHttpTerminator({ server });
 
-app.get("/", (req, res) => {
-  res.send("ok");
+app.get('/', (req, res) => {
+  res.send('ok');
 });
 
 // A server will terminate after invoking `httpTerminator.terminate()`.
@@ -167,8 +167,8 @@ npm install --save express-actuator
 Basic template that illustrates using express-actuator:
 
 ```js
-const express = require("express");
-const actuator = require("express-actuator");
+const express = require('express');
+const actuator = require('express-actuator');
 
 const app = express();
 

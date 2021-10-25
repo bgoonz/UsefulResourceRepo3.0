@@ -1,19 +1,19 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   Point,
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes";
-import { BOX_ANCHORS, IOU_THRESHOLD, MEAN_RGB } from "./const";
+import { FaceDetection } from '../classes';
+import { BOX_ANCHORS, IOU_THRESHOLD, MEAN_RGB } from './const';
 
 export class TinyFaceDetector extends TfjsImageRecognitionBase.TinyYolov2 {
   constructor() {
     const config = {
       withSeparableConvs: true,
       iouThreshold: IOU_THRESHOLD,
-      classes: ["face"],
+      classes: ['face'],
       anchors: BOX_ANCHORS,
       meanRgb: MEAN_RGB,
       isFirstLayerConv2d: true,
@@ -42,7 +42,7 @@ export class TinyFaceDetector extends TfjsImageRecognitionBase.TinyYolov2 {
   }
 
   protected getDefaultModelName(): string {
-    return "tiny_face_detector_model";
+    return 'tiny_face_detector_model';
   }
 
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap): {

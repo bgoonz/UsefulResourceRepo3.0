@@ -1,4 +1,4 @@
-import { Compare, defaultCompare, swap } from "../../util";
+import { Compare, defaultCompare, swap } from '../../util';
 
 function partition(array, left, right, compareFn) {
   const pivot = array[Math.floor((right + left) / 2)];

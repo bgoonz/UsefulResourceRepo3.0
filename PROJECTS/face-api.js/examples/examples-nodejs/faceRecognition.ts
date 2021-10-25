@@ -1,19 +1,19 @@
-import * as faceapi from "face-api.js";
+import * as faceapi from 'face-api.js';
 
 import {
   canvas,
   faceDetectionNet,
   faceDetectionOptions,
   saveFile,
-} from "./commons";
+} from './commons';
 
-const REFERENCE_IMAGE = "../images/bbt1.jpg";
-const QUERY_IMAGE = "../images/bbt4.jpg";
+const REFERENCE_IMAGE = '../images/bbt1.jpg';
+const QUERY_IMAGE = '../images/bbt4.jpg';
 
 async function run() {
-  await faceDetectionNet.loadFromDisk("../../weights");
-  await faceapi.nets.faceLandmark68Net.loadFromDisk("../../weights");
-  await faceapi.nets.faceRecognitionNet.loadFromDisk("../../weights");
+  await faceDetectionNet.loadFromDisk('../../weights');
+  await faceapi.nets.faceLandmark68Net.loadFromDisk('../../weights');
+  await faceapi.nets.faceRecognitionNet.loadFromDisk('../../weights');
 
   const referenceImage = await canvas.loadImage(REFERENCE_IMAGE);
   const queryImage = await canvas.loadImage(QUERY_IMAGE);
@@ -37,7 +37,7 @@ async function run() {
   const outRef = faceapi.createCanvasFromMedia(referenceImage);
   refDrawBoxes.forEach((drawBox) => drawBox.draw(outRef));
 
-  saveFile("referenceImage.jpg", (outRef as any).toBuffer("image/jpeg"));
+  saveFile('referenceImage.jpg', (outRef as any).toBuffer('image/jpeg'));
 
   const queryDrawBoxes = resultsQuery.map((res) => {
     const bestMatch = faceMatcher.findBestMatch(res.descriptor);
@@ -47,8 +47,8 @@ async function run() {
   });
   const outQuery = faceapi.createCanvasFromMedia(queryImage);
   queryDrawBoxes.forEach((drawBox) => drawBox.draw(outQuery));
-  saveFile("queryImage.jpg", (outQuery as any).toBuffer("image/jpeg"));
-  console.log("done, saved results to out/queryImage.jpg");
+  saveFile('queryImage.jpg', (outQuery as any).toBuffer('image/jpeg'));
+  console.log('done, saved results to out/queryImage.jpg');
 }
 
 run();

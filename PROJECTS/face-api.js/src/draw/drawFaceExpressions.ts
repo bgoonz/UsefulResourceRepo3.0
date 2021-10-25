@@ -1,11 +1,11 @@
-import { draw, IPoint, Point, round } from "tfjs-image-recognition-base";
+import { draw, IPoint, Point, round } from 'tfjs-image-recognition-base';
 
-import { FaceExpressions } from "../faceExpressionNet";
-import { isWithFaceDetection } from "../factories/WithFaceDetection";
+import { FaceExpressions } from '../faceExpressionNet';
+import { isWithFaceDetection } from '../factories/WithFaceDetection';
 import {
   isWithFaceExpressions,
   WithFaceExpressions,
-} from "../factories/WithFaceExpressions";
+} from '../factories/WithFaceExpressions';
 
 export type DrawFaceExpressionsInput =
   | FaceExpressions
@@ -30,7 +30,7 @@ export function drawFaceExpressions(
         : undefined;
     if (!expr) {
       throw new Error(
-        "drawFaceExpressions - expected faceExpressions to be FaceExpressions | WithFaceExpressions<{}> or array thereof"
+        'drawFaceExpressions - expected faceExpressions to be FaceExpressions | WithFaceExpressions<{}> or array thereof'
       );
     }
 

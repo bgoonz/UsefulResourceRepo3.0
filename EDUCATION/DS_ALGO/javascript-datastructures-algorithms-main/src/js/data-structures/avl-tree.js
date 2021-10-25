@@ -1,6 +1,6 @@
-import { Compare, defaultCompare } from "../util";
-import BinarySearchTree from "./binary-search-tree";
-import { Node } from "./models/node";
+import { Compare, defaultCompare } from '../util';
+import BinarySearchTree from './binary-search-tree';
+import { Node } from './models/node';
 
 const BalanceFactor = {
   UNBALANCED_RIGHT: 1,

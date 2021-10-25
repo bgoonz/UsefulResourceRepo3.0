@@ -1,6 +1,6 @@
-import { defaultToString } from "../util";
-import LinkedList from "./linked-list";
-import { ValuePair } from "./models/value-pair";
+import { defaultToString } from '../util';
+import LinkedList from './linked-list';
+import { ValuePair } from './models/value-pair';
 
 export default class HashTableSeparateChaining {
   constructor(toStrFn = defaultToString) {
@@ -9,7 +9,7 @@ export default class HashTableSeparateChaining {
   }
 
   loseloseHashCode(key) {
-    if (typeof key === "number") {
+    if (typeof key === 'number') {
       return key;
     }
     const tableKey = this.toStrFn(key);
@@ -92,7 +92,7 @@ export default class HashTableSeparateChaining {
 
   toString() {
     if (this.isEmpty()) {
-      return "";
+      return '';
     }
     const keys = Object.keys(this.table);
     let objString = `{${keys[0]} => ${this.table[keys[0]].toString()}}`;

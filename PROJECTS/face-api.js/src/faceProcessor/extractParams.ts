@@ -1,6 +1,6 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
-import { NetParams } from "./types";
+import { NetParams } from './types';
 
 export function extractParams(
   weights: Float32Array,
@@ -20,7 +20,7 @@ export function extractParams(
     paramMappings
   );
 
-  const fc = extractFCParams(channelsIn, channelsOut, "fc");
+  const fc = extractFCParams(channelsIn, channelsOut, 'fc');
 
   if (getRemainingWeights().length !== 0) {
     throw new Error(

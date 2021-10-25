@@ -1,30 +1,30 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   normalize,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { denseBlock4 } from "./denseBlock";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { FaceFeatureExtractorParams, IFaceFeatureExtractor } from "./types";
+import { denseBlock4 } from './denseBlock';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { FaceFeatureExtractorParams, IFaceFeatureExtractor } from './types';
 
 export class FaceFeatureExtractor
   extends NeuralNetwork<FaceFeatureExtractorParams>
   implements IFaceFeatureExtractor<FaceFeatureExtractorParams>
 {
   constructor() {
-    super("FaceFeatureExtractor");
+    super('FaceFeatureExtractor');
   }
 
   public forwardInput(input: NetInput): tf.Tensor4D {
     const { params } = this;
 
     if (!params) {
-      throw new Error("FaceFeatureExtractor - load model before inference");
+      throw new Error('FaceFeatureExtractor - load model before inference');
     }
 
     return tf.tidy(() => {
@@ -38,7 +38,7 @@ export class FaceFeatureExtractor
       out = denseBlock4(out, params.dense1);
       out = denseBlock4(out, params.dense2);
       out = denseBlock4(out, params.dense3);
-      out = tf.avgPool(out, [7, 7], [2, 2], "valid");
+      out = tf.avgPool(out, [7, 7], [2, 2], 'valid');
 
       return out;
     });
@@ -49,7 +49,7 @@ export class FaceFeatureExtractor
   }
 
   protected getDefaultModelName(): string {
-    return "face_feature_extractor_model";
+    return 'face_feature_extractor_model';
   }
 
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap) {

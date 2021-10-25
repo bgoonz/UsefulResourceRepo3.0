@@ -1,4 +1,4 @@
-import { insertionSort } from "../../../../src/js/index";
-import { testSortAlgorithm } from "./sort-algorithm-tests";
+import { insertionSort } from '../../../../src/js/index';
+import { testSortAlgorithm } from './sort-algorithm-tests';
 
-testSortAlgorithm(insertionSort, "Insertion Sort");
+testSortAlgorithm(insertionSort, 'Insertion Sort');

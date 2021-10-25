@@ -3,7 +3,7 @@ layout: page
 title: Using Express middleware
 menu: guide
 lang: en
-redirect_from: "/guide/using-middleware.html"
+redirect_from: '/guide/using-middleware.html'
 ---
 
 # Using middleware
@@ -29,8 +29,7 @@ An Express application can use the following types of middleware:
 - [Built-in middleware](#middleware.built-in)
 - [Third-party middleware](#middleware.third-party)
 
-You can load application-level and router-level middleware with an optional mount path.
-You can also load a series of middleware functions together, which creates a sub-stack of the middleware system at a mount point.
+You can load application-level and router-level middleware with an optional mount path. You can also load a series of middleware functions together, which creates a sub-stack of the middleware system at a mount point.
 
 <h2 id='middleware.application'>Application-level middleware</h2>
 
@@ -39,21 +38,20 @@ Bind application-level middleware to an instance of the [app object](/{{ page.la
 This example shows a middleware function with no mount path. The function is executed every time the app receives a request.
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 
 app.use(function (req, res, next) {
-  console.log("Time:", Date.now());
+  console.log('Time:', Date.now());
   next();
 });
 ```
 
-This example shows a middleware function mounted on the `/user/:id` path. The function is executed for any type of
-HTTP request on the `/user/:id` path.
+This example shows a middleware function mounted on the `/user/:id` path. The function is executed for any type of HTTP request on the `/user/:id` path.
 
 ```js
-app.use("/user/:id", function (req, res, next) {
-  console.log("Request Type:", req.method);
+app.use('/user/:id', function (req, res, next) {
+  console.log('Request Type:', req.method);
   next();
 });
 ```
@@ -61,23 +59,22 @@ app.use("/user/:id", function (req, res, next) {
 This example shows a route and its handler function (middleware system). The function handles GET requests to the `/user/:id` path.
 
 ```js
-app.get("/user/:id", function (req, res, next) {
-  res.send("USER");
+app.get('/user/:id', function (req, res, next) {
+  res.send('USER');
 });
 ```
 
-Here is an example of loading a series of middleware functions at a mount point, with a mount path.
-It illustrates a middleware sub-stack that prints request info for any type of HTTP request to the `/user/:id` path.
+Here is an example of loading a series of middleware functions at a mount point, with a mount path. It illustrates a middleware sub-stack that prints request info for any type of HTTP request to the `/user/:id` path.
 
 ```js
 app.use(
-  "/user/:id",
+  '/user/:id',
   function (req, res, next) {
-    console.log("Request URL:", req.originalUrl);
+    console.log('Request URL:', req.originalUrl);
     next();
   },
   function (req, res, next) {
-    console.log("Request Type:", req.method);
+    console.log('Request Type:', req.method);
     next();
   }
 );
@@ -89,45 +86,44 @@ This example shows a middleware sub-stack that handles GET requests to the `/use
 
 ```js
 app.get(
-  "/user/:id",
+  '/user/:id',
   function (req, res, next) {
-    console.log("ID:", req.params.id);
+    console.log('ID:', req.params.id);
     next();
   },
   function (req, res, next) {
-    res.send("User Info");
+    res.send('User Info');
   }
 );
 
 // handler for the /user/:id path, which prints the user ID
-app.get("/user/:id", function (req, res, next) {
+app.get('/user/:id', function (req, res, next) {
   res.send(req.params.id);
 });
 ```
 
-To skip the rest of the middleware functions from a router middleware stack, call `next('route')` to pass control to the next route.
-**NOTE**: `next('route')` will work only in middleware functions that were loaded by using the `app.METHOD()` or `router.METHOD()` functions.
+To skip the rest of the middleware functions from a router middleware stack, call `next('route')` to pass control to the next route. **NOTE**: `next('route')` will work only in middleware functions that were loaded by using the `app.METHOD()` or `router.METHOD()` functions.
 
 This example shows a middleware sub-stack that handles GET requests to the `/user/:id` path.
 
 ```js
 app.get(
-  "/user/:id",
+  '/user/:id',
   function (req, res, next) {
     // if the user ID is 0, skip to the next route
-    if (req.params.id === "0") next("route");
+    if (req.params.id === '0') next('route');
     // otherwise pass the control to the next middleware function in this stack
     else next();
   },
   function (req, res, next) {
     // send a regular response
-    res.send("regular");
+    res.send('regular');
   }
 );
 
 // handler for the /user/:id path, which sends a special response
-app.get("/user/:id", function (req, res, next) {
-  res.send("special");
+app.get('/user/:id', function (req, res, next) {
+  res.send('special');
 });
 ```
 
@@ -137,18 +133,18 @@ This example shows an array with a middleware sub-stack that handles GET request
 
 ```js
 function logOriginalUrl(req, res, next) {
-  console.log("Request URL:", req.originalUrl);
+  console.log('Request URL:', req.originalUrl);
   next();
 }
 
 function logMethod(req, res, next) {
-  console.log("Request Type:", req.method);
+  console.log('Request Type:', req.method);
   next();
 }
 
 var logStuff = [logOriginalUrl, logMethod];
-app.get("/user/:id", logStuff, function (req, res, next) {
-  res.send("User Info");
+app.get('/user/:id', logStuff, function (req, res, next) {
+  res.send('User Info');
 });
 ```
 
@@ -165,76 +161,75 @@ Load router-level middleware by using the `router.use()` and `router.METHOD()` f
 The following example code replicates the middleware system that is shown above for application-level middleware, by using router-level middleware:
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 var router = express.Router();
 
 // a middleware function with no mount path. This code is executed for every request to the router
 router.use(function (req, res, next) {
-  console.log("Time:", Date.now());
+  console.log('Time:', Date.now());
   next();
 });
 
 // a middleware sub-stack shows request info for any type of HTTP request to the /user/:id path
 router.use(
-  "/user/:id",
+  '/user/:id',
   function (req, res, next) {
-    console.log("Request URL:", req.originalUrl);
+    console.log('Request URL:', req.originalUrl);
     next();
   },
   function (req, res, next) {
-    console.log("Request Type:", req.method);
+    console.log('Request Type:', req.method);
     next();
   }
 );
 
 // a middleware sub-stack that handles GET requests to the /user/:id path
 router.get(
-  "/user/:id",
+  '/user/:id',
   function (req, res, next) {
     // if the user ID is 0, skip to the next router
-    if (req.params.id === "0") next("route");
+    if (req.params.id === '0') next('route');
     // otherwise pass control to the next middleware function in this stack
     else next();
   },
   function (req, res, next) {
     // render a regular page
-    res.render("regular");
+    res.render('regular');
   }
 );
 
 // handler for the /user/:id path, which renders a special page
-router.get("/user/:id", function (req, res, next) {
+router.get('/user/:id', function (req, res, next) {
   console.log(req.params.id);
-  res.render("special");
+  res.render('special');
 });
 
 // mount the router on the app
-app.use("/", router);
+app.use('/', router);
 ```
 
-To skip the rest of the router's middleware functions, call `next('router')`
-to pass control back out of the router instance.
+To skip the rest of the router's middleware functions, call `next('router')` to pass control back out of the router instance.
 
 This example shows a middleware sub-stack that handles GET requests to the `/user/:id` path.
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 var router = express.Router();
 
 // predicate the router with a check and bail out when needed
 router.use(function (req, res, next) {
-  if (!req.headers["x-auth"]) return next("router");
+  if (!req.headers['x-auth']) return next('router');
   next();
 });
 
-router.get("/user/:id", function (req, res) {
-  res.send("hello, user!");
+router.get('/user/:id', function (req, res) {
+  res.send('hello, user!');
 });
 
 // use the router and 401 anything falling through
-app.use("/admin", router, function (req, res) {
+app.use('/admin', router, function (req, res) {
   res.sendStatus(401);
 });
 ```
@@ -250,7 +245,7 @@ Define error-handling middleware functions in the same way as other middleware f
 ```js
 app.use(function (err, req, res, next) {
   console.error(err.stack);
-  res.status(500).send("Something broke!");
+  res.status(500).send('Something broke!');
 });
 ```
 
@@ -258,8 +253,7 @@ For details about error-handling middleware, see: [Error handling](/{{ page.lang
 
 <h2 id='middleware.built-in'>Built-in middleware</h2>
 
-Starting with version 4.x, Express no longer depends on [Connect](https://github.com/senchalabs/connect). The middleware
-functions that were previously included with Express are now in separate modules; see [the list of middleware functions](https://github.com/senchalabs/connect#middleware).
+Starting with version 4.x, Express no longer depends on [Connect](https://github.com/senchalabs/connect). The middleware functions that were previously included with Express are now in separate modules; see [the list of middleware functions](https://github.com/senchalabs/connect#middleware).
 
 Express has the following built-in middleware functions:
 
@@ -280,9 +274,9 @@ $ npm install cookie-parser
 ```
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
-var cookieParser = require("cookie-parser");
+var cookieParser = require('cookie-parser');
 
 // load the cookie-parsing middleware
 app.use(cookieParser());

@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
 import {
   NetParams,
@@ -7,7 +7,7 @@ import {
   PNetParams,
   RNetParams,
   SharedParams,
-} from "./types";
+} from './types';
 
 function extractorsFactory(
   weightMap: any,
@@ -54,32 +54,32 @@ function extractorsFactory(
   }
 
   function extractPNetParams(): PNetParams {
-    const sharedParams = extractSharedParams("pnet");
-    const conv4_1 = extractConvParams("pnet/conv4_1");
-    const conv4_2 = extractConvParams("pnet/conv4_2");
+    const sharedParams = extractSharedParams('pnet');
+    const conv4_1 = extractConvParams('pnet/conv4_1');
+    const conv4_2 = extractConvParams('pnet/conv4_2');
 
     return { ...sharedParams, conv4_1, conv4_2 };
   }
 
   function extractRNetParams(): RNetParams {
-    const sharedParams = extractSharedParams("rnet");
-    const fc1 = extractFCParams("rnet/fc1");
-    const prelu4_alpha = extractPReluParams("rnet/prelu4_alpha");
-    const fc2_1 = extractFCParams("rnet/fc2_1");
-    const fc2_2 = extractFCParams("rnet/fc2_2");
+    const sharedParams = extractSharedParams('rnet');
+    const fc1 = extractFCParams('rnet/fc1');
+    const prelu4_alpha = extractPReluParams('rnet/prelu4_alpha');
+    const fc2_1 = extractFCParams('rnet/fc2_1');
+    const fc2_2 = extractFCParams('rnet/fc2_2');
 
     return { ...sharedParams, fc1, prelu4_alpha, fc2_1, fc2_2 };
   }
 
   function extractONetParams(): ONetParams {
-    const sharedParams = extractSharedParams("onet");
-    const conv4 = extractConvParams("onet/conv4");
-    const prelu4_alpha = extractPReluParams("onet/prelu4_alpha");
-    const fc1 = extractFCParams("onet/fc1");
-    const prelu5_alpha = extractPReluParams("onet/prelu5_alpha");
-    const fc2_1 = extractFCParams("onet/fc2_1");
-    const fc2_2 = extractFCParams("onet/fc2_2");
-    const fc2_3 = extractFCParams("onet/fc2_3");
+    const sharedParams = extractSharedParams('onet');
+    const conv4 = extractConvParams('onet/conv4');
+    const prelu4_alpha = extractPReluParams('onet/prelu4_alpha');
+    const fc1 = extractFCParams('onet/fc1');
+    const prelu5_alpha = extractPReluParams('onet/prelu5_alpha');
+    const fc2_1 = extractFCParams('onet/fc2_1');
+    const fc2_2 = extractFCParams('onet/fc2_2');
+    const fc2_3 = extractFCParams('onet/fc2_3');
 
     return {
       ...sharedParams,

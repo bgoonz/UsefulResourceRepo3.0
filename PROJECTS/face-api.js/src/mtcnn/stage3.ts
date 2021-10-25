@@ -1,15 +1,15 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   BoundingBox,
   Box,
   nonMaxSuppression,
   Point,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { extractImagePatches } from "./extractImagePatches";
-import { MtcnnBox } from "./MtcnnBox";
-import { ONet } from "./ONet";
-import { ONetParams } from "./types";
+import { extractImagePatches } from './extractImagePatches';
+import { MtcnnBox } from './MtcnnBox';
+import { ONet } from './ONet';
+import { ONetParams } from './types';
 
 export async function stage3(
   img: HTMLCanvasElement,

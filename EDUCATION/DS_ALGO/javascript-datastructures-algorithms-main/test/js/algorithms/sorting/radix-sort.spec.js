@@ -1,4 +1,4 @@
-import { radixSort } from "../../../../src/js/index";
-import { testSortAlgorithm } from "./sort-algorithm-tests";
+import { radixSort } from '../../../../src/js/index';
+import { testSortAlgorithm } from './sort-algorithm-tests';
 
-testSortAlgorithm(radixSort, "Radix Sort", { reverseCompare: false });
+testSortAlgorithm(radixSort, 'Radix Sort', { reverseCompare: false });

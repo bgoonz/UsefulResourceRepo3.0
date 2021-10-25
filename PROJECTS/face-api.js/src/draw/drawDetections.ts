@@ -4,13 +4,13 @@ import {
   IBoundingBox,
   IRect,
   round,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes/FaceDetection";
+import { FaceDetection } from '../classes/FaceDetection';
 import {
   isWithFaceDetection,
   WithFaceDetection,
-} from "../factories/WithFaceDetection";
+} from '../factories/WithFaceDetection';
 
 export type TDrawDetectionsInput =
   | IRect

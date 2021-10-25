@@ -1,4 +1,4 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
 export type ReductionBlockParams = {
   separable_conv0: TfjsImageRecognitionBase.SeparableConvParams;

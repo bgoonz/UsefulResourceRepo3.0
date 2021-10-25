@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { sieveOfEratosthenes } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { sieveOfEratosthenes } from '../../../../src/ts/index';
 
-describe("Sieve Of Eratosthene", () => {
-  it("returns the prime numbers", () => {
+describe('Sieve Of Eratosthene', () => {
+  it('returns the prime numbers', () => {
     expect(sieveOfEratosthenes(0)).to.deep.equal([]);
     expect(sieveOfEratosthenes(1)).to.deep.equal([]);
     expect(sieveOfEratosthenes(2)).to.deep.equal([2]);

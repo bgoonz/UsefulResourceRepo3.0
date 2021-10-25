@@ -1,35 +1,35 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   Rect,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes/FaceDetection";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { mobileNetV1 } from "./mobileNetV1";
-import { nonMaxSuppression } from "./nonMaxSuppression";
-import { outputLayer } from "./outputLayer";
-import { predictionLayer } from "./predictionLayer";
+import { FaceDetection } from '../classes/FaceDetection';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { mobileNetV1 } from './mobileNetV1';
+import { nonMaxSuppression } from './nonMaxSuppression';
+import { outputLayer } from './outputLayer';
+import { predictionLayer } from './predictionLayer';
 import {
   ISsdMobilenetv1Options,
   SsdMobilenetv1Options,
-} from "./SsdMobilenetv1Options";
-import { NetParams } from "./types";
+} from './SsdMobilenetv1Options';
+import { NetParams } from './types';
 
 export class SsdMobilenetv1 extends NeuralNetwork<NetParams> {
   constructor() {
-    super("SsdMobilenetv1");
+    super('SsdMobilenetv1');
   }
 
   public forwardInput(input: NetInput) {
     const { params } = this;
 
     if (!params) {
-      throw new Error("SsdMobilenetv1 - load model before inference");
+      throw new Error('SsdMobilenetv1 - load model before inference');
     }
 
     return tf.tidy(() => {
@@ -117,7 +117,7 @@ export class SsdMobilenetv1 extends NeuralNetwork<NetParams> {
   }
 
   protected getDefaultModelName(): string {
-    return "ssd_mobilenetv1_model";
+    return 'ssd_mobilenetv1_model';
   }
 
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap) {

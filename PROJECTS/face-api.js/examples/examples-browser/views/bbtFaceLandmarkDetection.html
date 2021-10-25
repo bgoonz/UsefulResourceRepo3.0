@@ -46,14 +46,14 @@
       let currentImg;
 
       function onChangeDrawLines(e) {
-        drawLines = $(e.target).prop("checked");
+        drawLines = $(e.target).prop('checked');
         redraw();
       }
 
       function redraw() {
         const canvas = faceapi.createCanvasFromMedia(currentImg);
-        $("#faceContainer").empty();
-        $("#faceContainer").append(canvas);
+        $('#faceContainer').empty();
+        $('#faceContainer').append(canvas);
         new faceapi.draw.DrawFaceLandmarks(landmarks, { drawLines }).draw(
           canvas
         );
@@ -66,15 +66,15 @@
       }
 
       async function run() {
-        await faceapi.loadFaceLandmarkModel("/");
-        $("#loader").hide();
-        await onSelectionChanged($("#selectList select").val());
+        await faceapi.loadFaceLandmarkModel('/');
+        $('#loader').hide();
+        await onSelectionChanged($('#selectList select').val());
       }
 
       $(document).ready(function () {
-        renderNavBar("#navbar", "bbt_face_landmark_detection");
-        renderFaceImageSelectList("#selectList", onSelectionChanged, {
-          className: "sheldon",
+        renderNavBar('#navbar', 'bbt_face_landmark_detection');
+        renderFaceImageSelectList('#selectList', onSelectionChanged, {
+          className: 'sheldon',
           imageIdx: 1,
         });
         run();

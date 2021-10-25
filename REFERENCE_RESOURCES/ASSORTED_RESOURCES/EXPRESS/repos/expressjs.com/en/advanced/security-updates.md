@@ -3,7 +3,7 @@ layout: page
 title: Express security updates
 menu: advanced
 lang: en
-redirect_from: "/advanced/security-updates.html"
+redirect_from: '/advanced/security-updates.html'
 ---
 
 # Security updates
@@ -14,8 +14,7 @@ Node.js vulnerabilities directly affect Express. Therefore [keep a watch on Node
 
 The list below enumerates the Express vulnerabilities that were fixed in the specified version update.
 
-**NOTE**: If you believe you have discovered a security vulnerability in Express, please see
-[Security Policies and Procedures](/{{page.lang}}/resources/contributing.html#security-policies-and-procedures).
+**NOTE**: If you believe you have discovered a security vulnerability in Express, please see [Security Policies and Procedures](/{{page.lang}}/resources/contributing.html#security-policies-and-procedures).
 
 ## 4.x
 

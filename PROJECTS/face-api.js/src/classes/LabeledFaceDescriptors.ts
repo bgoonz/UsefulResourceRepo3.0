@@ -3,9 +3,9 @@ export class LabeledFaceDescriptors {
   private _descriptors: Float32Array[];
 
   constructor(label: string, descriptors: Float32Array[]) {
-    if (!(typeof label === "string")) {
+    if (!(typeof label === 'string')) {
       throw new Error(
-        "LabeledFaceDescriptors - constructor expected label to be a string"
+        'LabeledFaceDescriptors - constructor expected label to be a string'
       );
     }
 
@@ -14,7 +14,7 @@ export class LabeledFaceDescriptors {
       descriptors.some((desc) => !(desc instanceof Float32Array))
     ) {
       throw new Error(
-        "LabeledFaceDescriptors - constructor expected descriptors to be an array of Float32Array"
+        'LabeledFaceDescriptors - constructor expected descriptors to be an array of Float32Array'
       );
     }
 

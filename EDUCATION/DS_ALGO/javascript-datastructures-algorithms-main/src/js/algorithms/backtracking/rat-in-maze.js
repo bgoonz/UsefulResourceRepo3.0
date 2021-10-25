@@ -37,5 +37,5 @@ export function ratInAMaze(maze) {
   if (findPath(maze, 0, 0, solution) === true) {
     return solution;
   }
-  return "NO PATH FOUND";
+  return 'NO PATH FOUND';
 }

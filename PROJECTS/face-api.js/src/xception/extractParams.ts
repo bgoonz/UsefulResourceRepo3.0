@@ -1,10 +1,10 @@
-import { range, TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { range, TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
 import {
   MainBlockParams,
   ReductionBlockParams,
   TinyXceptionParams,
-} from "./types";
+} from './types';
 
 function extractorsFactory(
   extractWeights: TfjsImageRecognitionBase.ExtractWeightsFunction,
@@ -95,16 +95,16 @@ export function extractParams(
     extractMainBlockParams,
   } = extractorsFactory(extractWeights, paramMappings);
 
-  const entry_flow_conv_in = extractConvParams(3, 32, 3, "entry_flow/conv_in");
+  const entry_flow_conv_in = extractConvParams(3, 32, 3, 'entry_flow/conv_in');
   const entry_flow_reduction_block_0 = extractReductionBlockParams(
     32,
     64,
-    "entry_flow/reduction_block_0"
+    'entry_flow/reduction_block_0'
   );
   const entry_flow_reduction_block_1 = extractReductionBlockParams(
     64,
     128,
-    "entry_flow/reduction_block_1"
+    'entry_flow/reduction_block_1'
   );
 
   const entry_flow = {
@@ -124,12 +124,12 @@ export function extractParams(
   const exit_flow_reduction_block = extractReductionBlockParams(
     128,
     256,
-    "exit_flow/reduction_block"
+    'exit_flow/reduction_block'
   );
   const exit_flow_separable_conv = extractSeparableConvParams(
     256,
     512,
-    "exit_flow/separable_conv"
+    'exit_flow/separable_conv'
   );
 
   const exit_flow = {

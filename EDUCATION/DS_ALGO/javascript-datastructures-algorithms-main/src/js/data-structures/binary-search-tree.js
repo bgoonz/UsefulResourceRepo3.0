@@ -1,5 +1,5 @@
-import { Compare, defaultCompare } from "../util";
-import { Node } from "./models/node";
+import { Compare, defaultCompare } from '../util';
+import { Node } from './models/node';
 
 export default class BinarySearchTree {
   constructor(compareFn = defaultCompare) {

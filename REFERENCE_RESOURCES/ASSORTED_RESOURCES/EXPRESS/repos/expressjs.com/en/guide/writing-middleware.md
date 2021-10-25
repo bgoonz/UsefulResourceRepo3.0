@@ -3,7 +3,7 @@ layout: page
 title: Writing middleware for use in Express apps
 menu: guide
 lang: en
-redirect_from: "/guide/writing-middleware.html"
+redirect_from: '/guide/writing-middleware.html'
 ---
 
 # Writing middleware for use in Express apps
@@ -46,17 +46,14 @@ Starting with Express 5, middleware functions that return a Promise will call `n
 
 <h2>Example</h2>
 
-Here is an example of a simple "Hello World" Express application.
-The remainder of this article will define and add three middleware functions to the application:
-one called `myLogger` that prints a simple log message, one called `requestTime` that
-displays the timestamp of the HTTP request, and one called `validateCookies` that validates incoming cookies.
+Here is an example of a simple "Hello World" Express application. The remainder of this article will define and add three middleware functions to the application: one called `myLogger` that prints a simple log message, one called `requestTime` that displays the timestamp of the HTTP request, and one called `validateCookies` that validates incoming cookies.
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
+app.get('/', function (req, res) {
+  res.send('Hello World!');
 });
 
 app.listen(3000);
@@ -67,7 +64,7 @@ Here is a simple example of a middleware function called "myLogger". This functi
 
 ```js
 var myLogger = function (req, res, next) {
-  console.log("LOGGED");
+  console.log('LOGGED');
   next();
 };
 ```
@@ -78,22 +75,21 @@ The `next()` function is not a part of the Node.js or Express API, but is the th
 To avoid confusion, always use this convention.
 </div>
 
-To load the middleware function, call `app.use()`, specifying the middleware function.
-For example, the following code loads the `myLogger` middleware function before the route to the root path (/).
+To load the middleware function, call `app.use()`, specifying the middleware function. For example, the following code loads the `myLogger` middleware function before the route to the root path (/).
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 
 var myLogger = function (req, res, next) {
-  console.log("LOGGED");
+  console.log('LOGGED');
   next();
 };
 
 app.use(myLogger);
 
-app.get("/", function (req, res) {
-  res.send("Hello World!");
+app.get('/', function (req, res) {
+  res.send('Hello World!');
 });
 
 app.listen(3000);
@@ -109,8 +105,7 @@ The middleware function `myLogger` simply prints a message, then passes on the r
 
 <h3>Middleware function requestTime</h3>
 
-Next, we'll create a middleware function called "requestTime" and add a property called `requestTime`
-to the request object.
+Next, we'll create a middleware function called "requestTime" and add a property called `requestTime` to the request object.
 
 ```js
 var requestTime = function (req, res, next) {
@@ -122,7 +117,7 @@ var requestTime = function (req, res, next) {
 The app now uses the `requestTime` middleware function. Also, the callback function of the root path route uses the property that the middleware function adds to `req` (the request object).
 
 ```js
-var express = require("express");
+var express = require('express');
 var app = express();
 
 var requestTime = function (req, res, next) {
@@ -132,9 +127,9 @@ var requestTime = function (req, res, next) {
 
 app.use(requestTime);
 
-app.get("/", function (req, res) {
-  var responseText = "Hello World!<br>";
-  responseText += "<small>Requested at: " + req.requestTime + "</small>";
+app.get('/', function (req, res) {
+  var responseText = 'Hello World!<br>';
+  responseText += '<small>Requested at: ' + req.requestTime + '</small>';
   res.send(responseText);
 });
 
@@ -154,7 +149,7 @@ async function cookieValidator(cookies) {
   try {
     await externallyValidateCookie(cookies.testCookie);
   } catch {
-    throw new Error("Invalid cookies");
+    throw new Error('Invalid cookies');
   }
 }
 ```
@@ -162,9 +157,9 @@ async function cookieValidator(cookies) {
 Here we use the [`cookie-parser`](/resources/middleware/cookie-parser.html) middleware to parse incoming cookies off the `req` object and pass them to our `cookieValidator` function. The `validateCookies` middleware returns a Promise that upon rejection will automatically trigger our error handler.
 
 ```js
-var express = require("express");
-var cookieParser = require("cookie-parser");
-var cookieValidator = require("./cookieValidator");
+var express = require('express');
+var cookieParser = require('cookie-parser');
+var cookieValidator = require('./cookieValidator');
 
 var app = express();
 
@@ -211,9 +206,9 @@ module.exports = function (options) {
 The middleware can now be used as shown below.
 
 ```js
-var mw = require("./my-middleware.js");
+var mw = require('./my-middleware.js');
 
-app.use(mw({ option1: "1", option2: "2" }));
+app.use(mw({ option1: '1', option2: '2' }));
 ```
 
 Refer to [cookie-session](https://github.com/expressjs/cookie-session) and [compression](https://github.com/expressjs/compression) for examples of configurable middleware.

@@ -1,4 +1,4 @@
-import { findMaxValue, findMinValue } from "../search/min-max-search";
+import { findMaxValue, findMinValue } from '../search/min-max-search';
 
 const countingSortForRadix = (
   array: number[],

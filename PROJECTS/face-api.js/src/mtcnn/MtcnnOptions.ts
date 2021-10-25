@@ -7,7 +7,7 @@ export interface IMtcnnOptions {
 }
 
 export class MtcnnOptions {
-  protected _name: string = "MtcnnOptions";
+  protected _name: string = 'MtcnnOptions';
 
   private _minFaceSize: number;
   private _scaleFactor: number;
@@ -28,14 +28,14 @@ export class MtcnnOptions {
     this._scoreThresholds = scoreThresholds || [0.6, 0.7, 0.7];
     this._scaleSteps = scaleSteps;
 
-    if (typeof this._minFaceSize !== "number" || this._minFaceSize < 0) {
+    if (typeof this._minFaceSize !== 'number' || this._minFaceSize < 0) {
       throw new Error(
         `${this._name} - expected minFaceSize to be a number > 0`
       );
     }
 
     if (
-      typeof this._scaleFactor !== "number" ||
+      typeof this._scaleFactor !== 'number' ||
       this._scaleFactor <= 0 ||
       this._scaleFactor >= 1
     ) {
@@ -44,7 +44,7 @@ export class MtcnnOptions {
       );
     }
 
-    if (typeof this._maxNumScales !== "number" || this._maxNumScales < 0) {
+    if (typeof this._maxNumScales !== 'number' || this._maxNumScales < 0) {
       throw new Error(
         `${this._name} - expected maxNumScales to be a number > 0`
       );
@@ -53,7 +53,7 @@ export class MtcnnOptions {
     if (
       !Array.isArray(this._scoreThresholds) ||
       this._scoreThresholds.length !== 3 ||
-      this._scoreThresholds.some((th) => typeof th !== "number")
+      this._scoreThresholds.some((th) => typeof th !== 'number')
     ) {
       throw new Error(
         `${this._name} - expected scoreThresholds to be an array of numbers of length 3`
@@ -63,7 +63,7 @@ export class MtcnnOptions {
     if (
       this._scaleSteps &&
       (!Array.isArray(this._scaleSteps) ||
-        this._scaleSteps.some((th) => typeof th !== "number"))
+        this._scaleSteps.some((th) => typeof th !== 'number'))
     ) {
       throw new Error(
         `${this._name} - expected scaleSteps to be an array of numbers`

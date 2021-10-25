@@ -1,8 +1,8 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   isTensor3D,
   TfjsImageRecognitionBase,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
 import {
   BoxPredictionParams,
@@ -10,7 +10,7 @@ import {
   NetParams,
   PointwiseConvParams,
   PredictionLayerParams,
-} from "./types";
+} from './types';
 
 function extractorsFactory(
   weightMap: any,
@@ -81,7 +81,7 @@ function extractorsFactory(
         batch_norm_variance,
       },
       pointwise_conv: extractPointwiseConvParams(
-        "MobilenetV1",
+        'MobilenetV1',
         idx,
         mappedPrefixPointwiseConv
       ),
@@ -91,9 +91,9 @@ function extractorsFactory(
   function extractMobilenetV1Params(): MobileNetV1.Params {
     return {
       conv_0: extractPointwiseConvParams(
-        "MobilenetV1",
+        'MobilenetV1',
         0,
-        "mobilenetv1/conv_0"
+        'mobilenetv1/conv_0'
       ),
       conv_1: extractConvPairParams(1),
       conv_2: extractConvPairParams(2),
@@ -145,44 +145,44 @@ function extractorsFactory(
   function extractPredictionLayerParams(): PredictionLayerParams {
     return {
       conv_0: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         0,
-        "prediction_layer/conv_0"
+        'prediction_layer/conv_0'
       ),
       conv_1: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         1,
-        "prediction_layer/conv_1"
+        'prediction_layer/conv_1'
       ),
       conv_2: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         2,
-        "prediction_layer/conv_2"
+        'prediction_layer/conv_2'
       ),
       conv_3: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         3,
-        "prediction_layer/conv_3"
+        'prediction_layer/conv_3'
       ),
       conv_4: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         4,
-        "prediction_layer/conv_4"
+        'prediction_layer/conv_4'
       ),
       conv_5: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         5,
-        "prediction_layer/conv_5"
+        'prediction_layer/conv_5'
       ),
       conv_6: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         6,
-        "prediction_layer/conv_6"
+        'prediction_layer/conv_6'
       ),
       conv_7: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         7,
-        "prediction_layer/conv_7"
+        'prediction_layer/conv_7'
       ),
       box_predictor_0: extractBoxPredictorParams(0),
       box_predictor_1: extractBoxPredictorParams(1),
@@ -208,10 +208,10 @@ export function extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap): {
   const { extractMobilenetV1Params, extractPredictionLayerParams } =
     extractorsFactory(weightMap, paramMappings);
 
-  const extra_dim = weightMap["Output/extra_dim"];
+  const extra_dim = weightMap['Output/extra_dim'];
   paramMappings.push({
-    originalPath: "Output/extra_dim",
-    paramPath: "output_layer/extra_dim",
+    originalPath: 'Output/extra_dim',
+    paramPath: 'output_layer/extra_dim',
   });
 
   if (!isTensor3D(extra_dim)) {

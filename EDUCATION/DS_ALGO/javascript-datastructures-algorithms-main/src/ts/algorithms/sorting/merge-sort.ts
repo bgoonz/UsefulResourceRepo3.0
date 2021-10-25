@@ -1,4 +1,4 @@
-import { Compare, defaultCompare, ICompareFunction } from "../../util";
+import { Compare, defaultCompare, ICompareFunction } from '../../util';
 
 function merge<T>(left: T[], right: T[], compareFn: ICompareFunction<T>) {
   let i = 0;

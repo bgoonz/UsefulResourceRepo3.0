@@ -1,8 +1,8 @@
-import "mocha";
-import { expect } from "chai";
-import { findMinValue, findMaxValue } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { findMinValue, findMaxValue } from '../../../../src/ts/index';
 
-describe("Min and Max Values Search", () => {
+describe('Min and Max Values Search', () => {
   const SIZE = 10;
 
   function createSortedArray() {
@@ -13,19 +13,19 @@ describe("Min and Max Values Search", () => {
     return array;
   }
 
-  it("min value - works with empty arrays", () => {
+  it('min value - works with empty arrays', () => {
     expect(findMinValue([])).to.equal(undefined);
   });
 
-  it("max value - works with empty arrays", () => {
+  it('max value - works with empty arrays', () => {
     expect(findMaxValue([])).to.equal(undefined);
   });
 
-  it("min value", () => {
+  it('min value', () => {
     expect(findMinValue(createSortedArray())).to.equal(1);
   });
 
-  it("max value", () => {
+  it('max value', () => {
     expect(findMaxValue(createSortedArray())).to.equal(SIZE);
   });
 });

@@ -15,7 +15,7 @@ function recursiveFunction2(someParam) {
 */
 
 function understandRecursion(doIunderstandRecursion) {
-  const recursionAnswer = confirm("Do you understand recursion?"); // function logic
+  const recursionAnswer = confirm('Do you understand recursion?'); // function logic
   if (recursionAnswer === true) {
     // base case or stop point
     return true;

@@ -1,15 +1,15 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   isTensor2D,
   TfjsImageRecognitionBase,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
 import {
   ConvLayerParams,
   NetParams,
   ResidualLayerParams,
   ScaleLayerParams,
-} from "./types";
+} from './types';
 
 function extractorsFactory(
   weightMap: any,
@@ -63,27 +63,27 @@ export function extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap): {
   const { extractConvLayerParams, extractResidualLayerParams } =
     extractorsFactory(weightMap, paramMappings);
 
-  const conv32_down = extractConvLayerParams("conv32_down");
-  const conv32_1 = extractResidualLayerParams("conv32_1");
-  const conv32_2 = extractResidualLayerParams("conv32_2");
-  const conv32_3 = extractResidualLayerParams("conv32_3");
+  const conv32_down = extractConvLayerParams('conv32_down');
+  const conv32_1 = extractResidualLayerParams('conv32_1');
+  const conv32_2 = extractResidualLayerParams('conv32_2');
+  const conv32_3 = extractResidualLayerParams('conv32_3');
 
-  const conv64_down = extractResidualLayerParams("conv64_down");
-  const conv64_1 = extractResidualLayerParams("conv64_1");
-  const conv64_2 = extractResidualLayerParams("conv64_2");
-  const conv64_3 = extractResidualLayerParams("conv64_3");
+  const conv64_down = extractResidualLayerParams('conv64_down');
+  const conv64_1 = extractResidualLayerParams('conv64_1');
+  const conv64_2 = extractResidualLayerParams('conv64_2');
+  const conv64_3 = extractResidualLayerParams('conv64_3');
 
-  const conv128_down = extractResidualLayerParams("conv128_down");
-  const conv128_1 = extractResidualLayerParams("conv128_1");
-  const conv128_2 = extractResidualLayerParams("conv128_2");
+  const conv128_down = extractResidualLayerParams('conv128_down');
+  const conv128_1 = extractResidualLayerParams('conv128_1');
+  const conv128_2 = extractResidualLayerParams('conv128_2');
 
-  const conv256_down = extractResidualLayerParams("conv256_down");
-  const conv256_1 = extractResidualLayerParams("conv256_1");
-  const conv256_2 = extractResidualLayerParams("conv256_2");
-  const conv256_down_out = extractResidualLayerParams("conv256_down_out");
+  const conv256_down = extractResidualLayerParams('conv256_down');
+  const conv256_1 = extractResidualLayerParams('conv256_1');
+  const conv256_2 = extractResidualLayerParams('conv256_2');
+  const conv256_down_out = extractResidualLayerParams('conv256_down_out');
 
-  const fc = weightMap["fc"];
-  paramMappings.push({ originalPath: "fc", paramPath: "fc" });
+  const fc = weightMap['fc'];
+  paramMappings.push({ originalPath: 'fc', paramPath: 'fc' });
 
   if (!isTensor2D(fc)) {
     throw new Error(

@@ -1,20 +1,20 @@
-import "mocha";
-import { expect } from "chai";
-import { HashTableSeparateChaining } from "../../../src/ts/index";
-import MyObj from "./my-obj";
+import 'mocha';
+import { expect } from 'chai';
+import { HashTableSeparateChaining } from '../../../src/ts/index';
+import MyObj from './my-obj';
 
-describe("HashTableSeparateChaining", () => {
-  const A = "Jonathan";
-  const B = "Jamie";
-  const C = "Sue";
+describe('HashTableSeparateChaining', () => {
+  const A = 'Jonathan';
+  const B = 'Jamie';
+  const C = 'Sue';
 
-  it("starts empty", () => {
+  it('starts empty', () => {
     const hashTable = new HashTableSeparateChaining<number, number>();
     expect(hashTable.size()).to.equal(0);
     expect(hashTable.isEmpty()).to.equal(true);
   });
 
-  it("generates hashcode", () => {
+  it('generates hashcode', () => {
     // numbers
     let hashTable: any = new HashTableSeparateChaining<number, number>();
     expect(hashTable.hashCode(1)).to.equal(1);
@@ -24,13 +24,13 @@ describe("HashTableSeparateChaining", () => {
 
     // strings
     hashTable = new HashTableSeparateChaining<string, number>();
-    expect(hashTable.hashCode("1")).to.equal(12);
-    expect(hashTable.hashCode("10")).to.equal(23);
-    expect(hashTable.hashCode("100")).to.equal(34);
-    expect(hashTable.hashCode("1000")).to.equal(8);
-    expect(hashTable.hashCode("a")).to.equal(23);
-    expect(hashTable.hashCode("A")).to.equal(28);
-    expect(hashTable.hashCode("Aba")).to.equal(1);
+    expect(hashTable.hashCode('1')).to.equal(12);
+    expect(hashTable.hashCode('10')).to.equal(23);
+    expect(hashTable.hashCode('100')).to.equal(34);
+    expect(hashTable.hashCode('1000')).to.equal(8);
+    expect(hashTable.hashCode('a')).to.equal(23);
+    expect(hashTable.hashCode('A')).to.equal(28);
+    expect(hashTable.hashCode('Aba')).to.equal(1);
 
     // objects
     hashTable = new HashTableSeparateChaining<MyObj, MyObj>();
@@ -45,20 +45,20 @@ describe("HashTableSeparateChaining", () => {
     expect(hashTable.hashCode(myObjList[4])).to.equal(9);
   });
 
-  it("puts undefined and null keys and values", () => {
+  it('puts undefined and null keys and values', () => {
     const hashTable = new HashTableSeparateChaining<string, number>();
 
-    expect(hashTable.put("undefined", undefined)).to.equal(false);
-    expect(hashTable.get("undefined")).to.equal(undefined);
+    expect(hashTable.put('undefined', undefined)).to.equal(false);
+    expect(hashTable.get('undefined')).to.equal(undefined);
 
-    expect(hashTable.put("undefined", 1)).to.equal(true);
-    expect(hashTable.get("undefined")).to.equal(1);
+    expect(hashTable.put('undefined', 1)).to.equal(true);
+    expect(hashTable.get('undefined')).to.equal(1);
 
-    expect(hashTable.put("null", null)).to.equal(false);
-    expect(hashTable.get("null")).to.equal(undefined);
+    expect(hashTable.put('null', null)).to.equal(false);
+    expect(hashTable.get('null')).to.equal(undefined);
 
-    expect(hashTable.put("null", 1)).to.equal(true);
-    expect(hashTable.get("null")).to.equal(1);
+    expect(hashTable.put('null', 1)).to.equal(true);
+    expect(hashTable.get('null')).to.equal(1);
 
     hashTable.clear();
     expect(hashTable.put(undefined, undefined)).to.equal(false);
@@ -74,7 +74,7 @@ describe("HashTableSeparateChaining", () => {
     expect(hashTable.get(null)).to.equal(undefined);
   });
 
-  it("puts values with number key without collisions", () => {
+  it('puts values with number key without collisions', () => {
     const min = 1;
     const max = 5;
     const size = max - min + 1;
@@ -95,42 +95,42 @@ describe("HashTableSeparateChaining", () => {
     }
   });
 
-  it("puts values with string key without collisions", () => {
+  it('puts values with string key without collisions', () => {
     const hashTable = new HashTableSeparateChaining<string, number>();
 
-    expect(hashTable.put("1", 1)).to.equal(true);
-    expect(hashTable.put("10", 10)).to.equal(true);
-    expect(hashTable.put("100", 100)).to.equal(true);
-    expect(hashTable.put("1000", 1000)).to.equal(true);
+    expect(hashTable.put('1', 1)).to.equal(true);
+    expect(hashTable.put('10', 10)).to.equal(true);
+    expect(hashTable.put('100', 100)).to.equal(true);
+    expect(hashTable.put('1000', 1000)).to.equal(true);
 
     const table = hashTable.getTable();
 
     let linkedList = table[12];
     expect(linkedList.size()).to.equal(1);
     let valuePair = linkedList.getHead();
-    expect(valuePair.element.key).to.equal("1");
+    expect(valuePair.element.key).to.equal('1');
     expect(valuePair.element.value).to.equal(1);
 
     linkedList = table[23];
     expect(linkedList.size()).to.equal(1);
     valuePair = linkedList.getHead();
-    expect(valuePair.element.key).to.equal("10");
+    expect(valuePair.element.key).to.equal('10');
     expect(valuePair.element.value).to.equal(10);
 
     linkedList = table[34];
     expect(linkedList.size()).to.equal(1);
     valuePair = linkedList.getHead();
-    expect(valuePair.element.key).to.equal("100");
+    expect(valuePair.element.key).to.equal('100');
     expect(valuePair.element.value).to.equal(100);
 
     linkedList = table[8];
     expect(linkedList.size()).to.equal(1);
     valuePair = linkedList.getHead();
-    expect(valuePair.element.key).to.equal("1000");
+    expect(valuePair.element.key).to.equal('1000');
     expect(valuePair.element.value).to.equal(1000);
   });
 
-  it("puts values with object key without collisions", () => {
+  it('puts values with object key without collisions', () => {
     const hashTable = new HashTableSeparateChaining<MyObj, MyObj>();
 
     const myObjList = [];
@@ -172,7 +172,7 @@ describe("HashTableSeparateChaining", () => {
     expect(valuePair.element.value).to.equal(myObjList[4]);
   });
 
-  it("puts values with collisions", () => {
+  it('puts values with collisions', () => {
     const min = 1;
     const max = 5;
     const size = max - min + 1;
@@ -212,7 +212,7 @@ describe("HashTableSeparateChaining", () => {
     }
   });
 
-  it("removes elements without collisions", () => {
+  it('removes elements without collisions', () => {
     const min = 1;
     const max = 5;
     const size = max - min + 1;
@@ -274,7 +274,7 @@ describe("HashTableSeparateChaining", () => {
     expect(hashTable.isEmpty()).to.equal(true);
   }
 
-  it("removes elements with collisions", () => {
+  it('removes elements with collisions', () => {
     // test all possibilities for removal
     removeWithCollision(A, B, C);
     removeWithCollision(A, C, B);
@@ -284,62 +284,62 @@ describe("HashTableSeparateChaining", () => {
     removeWithCollision(C, B, A);
   });
 
-  it("returns toString primitive types without collisions", () => {
+  it('returns toString primitive types without collisions', () => {
     const hashTable = new HashTableSeparateChaining<number, number>();
 
-    expect(hashTable.toString()).to.equal("");
+    expect(hashTable.toString()).to.equal('');
 
     hashTable.put(1, 1);
-    expect(hashTable.toString()).to.equal("{1 => [#1: 1]}");
+    expect(hashTable.toString()).to.equal('{1 => [#1: 1]}');
 
     hashTable.put(2, 2);
-    expect(hashTable.toString()).to.equal("{1 => [#1: 1]},{2 => [#2: 2]}");
+    expect(hashTable.toString()).to.equal('{1 => [#1: 1]},{2 => [#2: 2]}');
 
     hashTable.clear();
-    expect(hashTable.toString()).to.equal("");
+    expect(hashTable.toString()).to.equal('');
   });
 
-  it("returns toString primitive types without collisions", () => {
+  it('returns toString primitive types without collisions', () => {
     const hashTable = new HashTableSeparateChaining<string, number>();
 
-    hashTable.put("el1", 1);
-    expect(hashTable.toString()).to.equal("{36 => [#el1: 1]}");
+    hashTable.put('el1', 1);
+    expect(hashTable.toString()).to.equal('{36 => [#el1: 1]}');
 
-    hashTable.put("el2", 2);
-    expect(hashTable.toString()).to.equal("{0 => [#el2: 2]},{36 => [#el1: 1]}");
+    hashTable.put('el2', 2);
+    expect(hashTable.toString()).to.equal('{0 => [#el2: 2]},{36 => [#el1: 1]}');
   });
 
-  it("returns toString objects without collisions", () => {
+  it('returns toString objects without collisions', () => {
     const hashTable = new HashTableSeparateChaining<MyObj, MyObj>();
 
     let myObj = new MyObj(1, 2);
     hashTable.put(myObj, myObj);
-    expect(hashTable.toString()).to.equal("{1 => [#1|2: 1|2]}");
+    expect(hashTable.toString()).to.equal('{1 => [#1|2: 1|2]}');
 
     myObj = new MyObj(3, 4);
     hashTable.put(myObj, myObj);
     expect(hashTable.toString()).to.equal(
-      "{1 => [#1|2: 1|2]},{5 => [#3|4: 3|4]}"
+      '{1 => [#1|2: 1|2]},{5 => [#3|4: 3|4]}'
     );
   });
 
-  it("returns toString with collisions", () => {
+  it('returns toString with collisions', () => {
     const hashTable = new HashTableSeparateChaining<number, number>();
 
-    expect(hashTable.toString()).to.equal("");
+    expect(hashTable.toString()).to.equal('');
 
     hashTable.put(1, 1);
-    expect(hashTable.toString()).to.equal("{1 => [#1: 1]}");
+    expect(hashTable.toString()).to.equal('{1 => [#1: 1]}');
 
     hashTable.put(2, 2);
-    expect(hashTable.toString()).to.equal("{1 => [#1: 1]},{2 => [#2: 2]}");
+    expect(hashTable.toString()).to.equal('{1 => [#1: 1]},{2 => [#2: 2]}');
 
     hashTable.put(1, 10);
     expect(hashTable.toString()).to.equal(
-      "{1 => [#1: 1],[#1: 10]},{2 => [#2: 2]}"
+      '{1 => [#1: 1],[#1: 10]},{2 => [#2: 2]}'
     );
 
     hashTable.clear();
-    expect(hashTable.toString()).to.equal("");
+    expect(hashTable.toString()).to.equal('');
   });
 });

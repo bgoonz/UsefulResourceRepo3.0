@@ -4,10 +4,10 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2); // {3}
 }
 
-console.log("fibonacci(2)", fibonacci(2));
-console.log("fibonacci(3)", fibonacci(3));
-console.log("fibonacci(4)", fibonacci(4));
-console.log("fibonacci(5)", fibonacci(5));
+console.log('fibonacci(2)', fibonacci(2));
+console.log('fibonacci(3)', fibonacci(3));
+console.log('fibonacci(4)', fibonacci(4));
+console.log('fibonacci(5)', fibonacci(5));
 
 function fibonacciIterative(n) {
   let fibNMinus2 = 0;
@@ -22,10 +22,10 @@ function fibonacciIterative(n) {
   return fibN;
 }
 
-console.log("fibonacciIterative(2)", fibonacciIterative(2));
-console.log("fibonacciIterative(3)", fibonacciIterative(3));
-console.log("fibonacciIterative(4)", fibonacciIterative(4));
-console.log("fibonacciIterative(5)", fibonacciIterative(5));
+console.log('fibonacciIterative(2)', fibonacciIterative(2));
+console.log('fibonacciIterative(3)', fibonacciIterative(3));
+console.log('fibonacciIterative(4)', fibonacciIterative(4));
+console.log('fibonacciIterative(5)', fibonacciIterative(5));
 
 function fibonacciMemoization(n) {
   const memo = [0, 1];
@@ -36,9 +36,9 @@ function fibonacciMemoization(n) {
   return fibonacci(n);
 }
 
-console.log("fibonacciMemoization(2)", fibonacciMemoization(2));
-console.log("fibonacciMemoization(3)", fibonacciMemoization(3));
-console.log("fibonacciMemoization(4)", fibonacciMemoization(4));
-console.log("fibonacciMemoization(5)", fibonacciMemoization(5));
+console.log('fibonacciMemoization(2)', fibonacciMemoization(2));
+console.log('fibonacciMemoization(3)', fibonacciMemoization(3));
+console.log('fibonacciMemoization(4)', fibonacciMemoization(4));
+console.log('fibonacciMemoization(5)', fibonacciMemoization(5));
 
 // https://jsperf.com/fibonacci-comparison-jsbook

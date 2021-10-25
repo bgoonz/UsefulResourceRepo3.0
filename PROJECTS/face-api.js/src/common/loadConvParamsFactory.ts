@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
 export function loadConvParamsFactory(
   extractWeightEntry: <T>(originalPath: string, paramRank: number) => T

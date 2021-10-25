@@ -1,19 +1,19 @@
-import "mocha";
-import { expect } from "chai";
-import { AVLTree } from "../../../src/js/index";
+import 'mocha';
+import { expect } from 'chai';
+import { AVLTree } from '../../../src/js/index';
 
-describe("AVLTree", () => {
+describe('AVLTree', () => {
   let tree;
 
   beforeEach(() => {
     tree = new AVLTree();
   });
 
-  it("starts empty", () => {
+  it('starts empty', () => {
     expect(tree.getRoot()).to.equal(null);
   });
 
-  it("inserts elements in the AVLTree", () => {
+  it('inserts elements in the AVLTree', () => {
     expect(tree.getRoot()).to.equal(null);
 
     tree.insert(1);

@@ -1,23 +1,23 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { fullyConnectedLayer } from "../common/fullyConnectedLayer";
-import { seperateWeightMaps } from "../faceProcessor/util";
-import { TinyXception } from "../xception/TinyXception";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { AgeAndGenderPrediction, Gender, NetOutput, NetParams } from "./types";
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
+import { seperateWeightMaps } from '../faceProcessor/util';
+import { TinyXception } from '../xception/TinyXception';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { AgeAndGenderPrediction, Gender, NetOutput, NetParams } from './types';
 
 export class AgeGenderNet extends NeuralNetwork<NetParams> {
   private _faceFeatureExtractor: TinyXception;
 
   constructor(faceFeatureExtractor: TinyXception = new TinyXception(2)) {
-    super("AgeGenderNet");
+    super('AgeGenderNet');
     this._faceFeatureExtractor = faceFeatureExtractor;
   }
 
@@ -39,7 +39,7 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
           : input;
 
       const pooled = tf
-        .avgPool(bottleneckFeatures, [7, 7], [2, 2], "valid")
+        .avgPool(bottleneckFeatures, [7, 7], [2, 2], 'valid')
         .as2D(bottleneckFeatures.shape[0], -1);
       const age = fullyConnectedLayer(pooled, params.fc.age).as1D();
       const gender = fullyConnectedLayer(pooled, params.fc.gender);
@@ -91,7 +91,7 @@ export class AgeGenderNet extends NeuralNetwork<NetParams> {
   }
 
   protected getDefaultModelName(): string {
-    return "age_gender_model";
+    return 'age_gender_model';
   }
 
   public dispose(throwOnRedispose: boolean = true) {

@@ -1,4 +1,4 @@
-import { Compare, defaultCompare, ICompareFunction, swap } from "../../util";
+import { Compare, defaultCompare, ICompareFunction, swap } from '../../util';
 
 const partition = function (
   array: any[],

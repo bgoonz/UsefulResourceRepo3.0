@@ -1,11 +1,11 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   Point,
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes";
+import { FaceDetection } from '../classes';
 import {
   BOX_ANCHORS,
   BOX_ANCHORS_SEPARABLE,
@@ -13,7 +13,7 @@ import {
   DEFAULT_MODEL_NAME_SEPARABLE_CONV,
   IOU_THRESHOLD,
   MEAN_RGB_SEPARABLE,
-} from "./const";
+} from './const';
 
 export class TinyYolov2 extends TfjsImageRecognitionBase.TinyYolov2 {
   constructor(withSeparableConvs: boolean = true) {
@@ -22,7 +22,7 @@ export class TinyYolov2 extends TfjsImageRecognitionBase.TinyYolov2 {
       {
         withSeparableConvs,
         iouThreshold: IOU_THRESHOLD,
-        classes: ["face"],
+        classes: ['face'],
       },
       withSeparableConvs
         ? {

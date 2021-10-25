@@ -1,10 +1,10 @@
 // @ts-check
-import Stack from "../data-structures/stack";
+import Stack from '../data-structures/stack';
 
 export function parenthesesChecker(symbols) {
   const stack = new Stack();
-  const opens = "([{";
-  const closers = ")]}";
+  const opens = '([{';
+  const closers = ')]}';
   let balanced = true;
   let index = 0;
   let symbol;

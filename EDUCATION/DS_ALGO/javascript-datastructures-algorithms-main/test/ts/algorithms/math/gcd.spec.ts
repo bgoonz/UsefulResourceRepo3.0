@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { gcd } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { gcd } from '../../../../src/ts/index';
 
-describe("GCD", () => {
-  it("returns the gcd between two numbers", () => {
+describe('GCD', () => {
+  it('returns the gcd between two numbers', () => {
     expect(gcd(1, 0)).to.equal(0);
     expect(gcd(1, 1)).to.equal(1);
     expect(gcd(2, 2)).to.equal(2);

@@ -3,7 +3,7 @@ layout: page
 title: Open source using Express
 menu: resources
 lang: en
-redirect_from: "/resources/open-source-using-express.html"
+redirect_from: '/resources/open-source-using-express.html'
 ---
 
 # Open source projects using Express

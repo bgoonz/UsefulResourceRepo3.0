@@ -1,5 +1,5 @@
-import { Compare, defaultCompare, DOES_NOT_EXIST } from "../../util";
-import { quickSort } from "../sorting/quicksort";
+import { Compare, defaultCompare, DOES_NOT_EXIST } from '../../util';
+import { quickSort } from '../sorting/quicksort';
 
 export function binarySearch(array, value, compareFn = defaultCompare) {
   const sortedArray = quickSort(array);

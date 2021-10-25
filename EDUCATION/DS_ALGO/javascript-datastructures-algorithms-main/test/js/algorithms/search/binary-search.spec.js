@@ -1,4 +1,4 @@
-import { binarySearch } from "../../../../src/js/index";
-import { testSearchAlgorithm } from "./search-algorithms-tests";
+import { binarySearch } from '../../../../src/js/index';
+import { testSearchAlgorithm } from './search-algorithms-tests';
 
-testSearchAlgorithm(binarySearch, "Binary Search");
+testSearchAlgorithm(binarySearch, 'Binary Search');

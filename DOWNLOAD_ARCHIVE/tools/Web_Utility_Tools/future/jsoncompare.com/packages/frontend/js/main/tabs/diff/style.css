@@ -1,0 +1,24 @@
+@import '../tab/style.css';
+
+.flexContent {
+    composes: .flexContent from '../tab/style.css';
+
+    :global {
+        .CodeMirror {
+            height: 100%!important;
+        }
+
+        .CodeMirror-merge {
+            border-top: none;
+            width: 100%;
+            position: absolute;
+            border-left: none;
+            border-right: none;
+            border-bottom: none;
+        }
+
+        .CodeMirror-merge, .CodeMirror-merge-pane {
+            height: 100%!important;
+        }
+    }
+}

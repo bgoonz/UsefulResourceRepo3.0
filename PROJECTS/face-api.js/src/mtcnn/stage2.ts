@@ -1,10 +1,10 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { Box, nonMaxSuppression } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { Box, nonMaxSuppression } from 'tfjs-image-recognition-base';
 
-import { extractImagePatches } from "./extractImagePatches";
-import { MtcnnBox } from "./MtcnnBox";
-import { RNet } from "./RNet";
-import { RNetParams } from "./types";
+import { extractImagePatches } from './extractImagePatches';
+import { MtcnnBox } from './MtcnnBox';
+import { RNet } from './RNet';
+import { RNetParams } from './types';
 
 export async function stage2(
   img: HTMLCanvasElement,

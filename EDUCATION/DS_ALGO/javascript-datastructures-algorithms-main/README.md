@@ -1,10 +1,6 @@
 # Learning JavaScript Data Structures and Algorithms
 
-[![Build Status](https://travis-ci.org/loiane/javascript-datastructures-algorithms.svg?branch=master)](https://travis-ci.org/loiane/javascript-datastructures-algorithms)
-[![codecov](https://codecov.io/gh/loiane/javascript-datastructures-algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/loiane/javascript-datastructures-algorithms)
-[![devDependencies Status](https://david-dm.org/loiane/javascript-datastructures-algorithms/dev-status.svg)](https://david-dm.org/loiane/javascript-datastructures-algorithms?type=dev)
-[![dependencies Status](https://david-dm.org/loiane/javascript-datastructures-algorithms/status.svg)](https://david-dm.org/loiane/javascript-datastructures-algorithms)
-[![Greenkeeper badge](https://badges.greenkeeper.io/loiane/javascript-datastructures-algorithms.svg)](https://greenkeeper.io/)
+[![Build Status](https://travis-ci.org/loiane/javascript-datastructures-algorithms.svg?branch=master)](https://travis-ci.org/loiane/javascript-datastructures-algorithms) [![codecov](https://codecov.io/gh/loiane/javascript-datastructures-algorithms/branch/master/graph/badge.svg)](https://codecov.io/gh/loiane/javascript-datastructures-algorithms) [![devDependencies Status](https://david-dm.org/loiane/javascript-datastructures-algorithms/dev-status.svg)](https://david-dm.org/loiane/javascript-datastructures-algorithms?type=dev) [![dependencies Status](https://david-dm.org/loiane/javascript-datastructures-algorithms/status.svg)](https://david-dm.org/loiane/javascript-datastructures-algorithms) [![Greenkeeper badge](https://badges.greenkeeper.io/loiane/javascript-datastructures-algorithms.svg)](https://greenkeeper.io/)
 
 Source code of **Learning JavaScript Data Structures and Algorithms** book, third edition.
 
@@ -78,10 +74,10 @@ Happy Coding!
 
 ## Other editions
 
-| 1st edition                                                                                              |                                                2nd edition                                                 |                                               3rd edition                                                |
-| -------------------------------------------------------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------: |
+| 1st edition | 2nd edition | 3rd edition |
+| --- | :-: | :-: |
 | ![1st edition](https://images-na.ssl-images-amazon.com/images/I/51xXGv7QlBL._SX403_BO1,204,203,200_.jpg) | ![2nd edition](https://images-na.ssl-images-amazon.com/images/I/51PWJ%2BoKc2L._SX403_BO1,204,203,200_.jpg) | ![3rd edition](https://images-na.ssl-images-amazon.com/images/I/41oSXp3VztL._SX404_BO1,204,203,200_.jpg) |
-| [Book link](http://amzn.to/1Y1OWPx)                                                                      |                                    [Book link](http://amzn.to/1TSkcA1)                                     |                                     [Book link](http://a.co/cbMlYmJ)                                     |
+| [Book link](http://amzn.to/1Y1OWPx) | [Book link](http://amzn.to/1TSkcA1) | [Book link](http://a.co/cbMlYmJ) |
 
 Book link - first edition:
 

@@ -6,7 +6,7 @@ import {
   defaultDiff,
   DOES_NOT_EXIST,
   lesserEquals,
-} from "../../util";
+} from '../../util';
 
 export function interpolationSearch<T>(
   array: T[],

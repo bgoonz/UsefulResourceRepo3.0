@@ -1,4 +1,4 @@
-import { Point } from "tfjs-image-recognition-base";
+import { Point } from 'tfjs-image-recognition-base';
 
 export const IOU_THRESHOLD = 0.4;
 

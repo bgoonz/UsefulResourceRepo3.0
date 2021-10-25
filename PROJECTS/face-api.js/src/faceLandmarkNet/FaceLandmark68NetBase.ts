@@ -1,4 +1,4 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   IDimensions,
   isEven,
@@ -6,14 +6,14 @@ import {
   Point,
   TNetInput,
   toNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
 import {
   FaceFeatureExtractorParams,
   TinyFaceFeatureExtractorParams,
-} from "../faceFeatureExtractor/types";
-import { FaceProcessor } from "../faceProcessor/FaceProcessor";
+} from '../faceFeatureExtractor/types';
+import { FaceProcessor } from '../faceProcessor/FaceProcessor';
 
 export abstract class FaceLandmark68NetBase<
   TExtractorParams extends

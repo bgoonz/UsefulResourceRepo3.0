@@ -1,20 +1,20 @@
-import "mocha";
-import { expect } from "chai";
-import Queue from "../../../src/js/data-structures/queue";
+import 'mocha';
+import { expect } from 'chai';
+import Queue from '../../../src/js/data-structures/queue';
 
-describe("Queue", () => {
+describe('Queue', () => {
   let queue;
 
   beforeEach(() => {
     queue = new Queue();
   });
 
-  it("starts empty", () => {
+  it('starts empty', () => {
     expect(queue.size()).to.equal(0);
     expect(queue.isEmpty()).to.equal(true);
   });
 
-  it("enqueues elements", () => {
+  it('enqueues elements', () => {
     queue.enqueue(1);
     expect(queue.size()).to.equal(1);
     queue.enqueue(2);
@@ -25,7 +25,7 @@ describe("Queue", () => {
     expect(queue.isEmpty()).to.equal(false);
   });
 
-  it("dequeue elements", () => {
+  it('dequeue elements', () => {
     queue.enqueue(1);
     queue.enqueue(2);
     queue.enqueue(3);
@@ -36,7 +36,7 @@ describe("Queue", () => {
     expect(queue.dequeue()).to.equal(undefined);
   });
 
-  it("implements FIFO logic", () => {
+  it('implements FIFO logic', () => {
     queue.enqueue(1);
     expect(queue.peek()).to.equal(1);
     queue.enqueue(2);
@@ -50,7 +50,7 @@ describe("Queue", () => {
     expect(queue.dequeue()).to.equal(undefined);
   });
 
-  it("allows to peek at the front element in the queue without dequeuing it", () => {
+  it('allows to peek at the front element in the queue without dequeuing it', () => {
     expect(queue.peek()).to.equal(undefined);
 
     queue.enqueue(1);
@@ -63,7 +63,7 @@ describe("Queue", () => {
     expect(queue.peek()).to.equal(2);
   });
 
-  it("returns the correct size", () => {
+  it('returns the correct size', () => {
     expect(queue.size()).to.equal(0);
     queue.enqueue(1);
     expect(queue.size()).to.equal(1);
@@ -90,7 +90,7 @@ describe("Queue", () => {
     expect(queue.size()).to.equal(0);
   });
 
-  it("returns if it is empty", () => {
+  it('returns if it is empty', () => {
     expect(queue.isEmpty()).to.equal(true);
     queue.enqueue(1);
     expect(queue.isEmpty()).to.equal(false);
@@ -117,7 +117,7 @@ describe("Queue", () => {
     expect(queue.isEmpty()).to.equal(true);
   });
 
-  it("clears the queue", () => {
+  it('clears the queue', () => {
     queue.clear();
     expect(queue.isEmpty()).to.equal(true);
 
@@ -129,27 +129,27 @@ describe("Queue", () => {
     expect(queue.isEmpty()).to.equal(true);
   });
 
-  it("returns toString primitive types", () => {
-    expect(queue.toString()).to.equal("");
+  it('returns toString primitive types', () => {
+    expect(queue.toString()).to.equal('');
 
     queue.enqueue(1);
-    expect(queue.toString()).to.equal("1");
+    expect(queue.toString()).to.equal('1');
 
     queue.enqueue(2);
-    expect(queue.toString()).to.equal("1,2");
+    expect(queue.toString()).to.equal('1,2');
 
     queue.clear();
-    expect(queue.toString()).to.equal("");
+    expect(queue.toString()).to.equal('');
 
     const queueString = new Queue();
-    queueString.enqueue("el1");
-    expect(queueString.toString()).to.equal("el1");
+    queueString.enqueue('el1');
+    expect(queueString.toString()).to.equal('el1');
 
-    queueString.enqueue("el2");
-    expect(queueString.toString()).to.equal("el1,el2");
+    queueString.enqueue('el2');
+    expect(queueString.toString()).to.equal('el1,el2');
   });
 
-  it("returns toString objects", () => {
+  it('returns toString objects', () => {
     class MyObj {
       constructor(el1, el2) {
         this.el1 = el1;
@@ -161,12 +161,12 @@ describe("Queue", () => {
       }
     }
     const queueMyObj = new Queue();
-    expect(queueMyObj.toString()).to.equal("");
+    expect(queueMyObj.toString()).to.equal('');
 
     queueMyObj.enqueue(new MyObj(1, 2));
-    expect(queueMyObj.toString()).to.equal("1|2");
+    expect(queueMyObj.toString()).to.equal('1|2');
 
     queueMyObj.enqueue(new MyObj(3, 4));
-    expect(queueMyObj.toString()).to.equal("1|2,3|4");
+    expect(queueMyObj.toString()).to.equal('1|2,3|4');
   });
 });

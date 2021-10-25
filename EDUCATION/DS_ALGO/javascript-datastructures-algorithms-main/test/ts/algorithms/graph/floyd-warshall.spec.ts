@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { floydWarshall } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { floydWarshall } from '../../../../src/ts/index';
 
-describe("Floyd-Warshall Algorithm - All-Pairs Shortest Path", () => {
-  it("All-Pairs Shortest Path", () => {
+describe('Floyd-Warshall Algorithm - All-Pairs Shortest Path', () => {
+  it('All-Pairs Shortest Path', () => {
     const INF = Infinity;
     const graph = [
       [INF, 2, 4, INF, INF, INF],

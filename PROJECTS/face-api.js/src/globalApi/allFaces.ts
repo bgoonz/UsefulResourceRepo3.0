@@ -1,16 +1,16 @@
 import {
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
 import {
   WithFaceDescriptor,
   WithFaceDetection,
   WithFaceLandmarks,
-} from "../factories";
-import { IMtcnnOptions, MtcnnOptions } from "../mtcnn/MtcnnOptions";
-import { SsdMobilenetv1Options } from "../ssdMobilenetv1";
-import { detectAllFaces } from "./detectFaces";
+} from '../factories';
+import { IMtcnnOptions, MtcnnOptions } from '../mtcnn/MtcnnOptions';
+import { SsdMobilenetv1Options } from '../ssdMobilenetv1';
+import { detectAllFaces } from './detectFaces';
 
 // export allFaces API for backward compatibility
 

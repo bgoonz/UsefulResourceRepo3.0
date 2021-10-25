@@ -1,7 +1,7 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
-import { BoxPredictionParams } from "./types";
+import { BoxPredictionParams } from './types';
 
 export function boxPredictionLayer(
   x: tf.Tensor4D,

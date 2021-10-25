@@ -3,7 +3,7 @@ import {
   IDimensions,
   ObjectDetection,
   Rect,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
 export interface IFaceDetecion {
   score: number;
@@ -12,7 +12,7 @@ export interface IFaceDetecion {
 
 export class FaceDetection extends ObjectDetection implements IFaceDetecion {
   constructor(score: number, relativeBox: Rect, imageDims: IDimensions) {
-    super(score, score, "", relativeBox, imageDims);
+    super(score, score, '', relativeBox, imageDims);
   }
 
   public forSize(width: number, height: number): FaceDetection {

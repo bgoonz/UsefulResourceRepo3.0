@@ -1,7 +1,7 @@
-import { FaceDetection } from "../classes/FaceDetection";
-import { FaceLandmarks } from "../classes/FaceLandmarks";
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
-import { isWithFaceDetection, WithFaceDetection } from "./WithFaceDetection";
+import { FaceDetection } from '../classes/FaceDetection';
+import { FaceLandmarks } from '../classes/FaceLandmarks';
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
+import { isWithFaceDetection, WithFaceDetection } from './WithFaceDetection';
 
 export type WithFaceLandmarks<
   TSource extends WithFaceDetection<{}>,
@@ -17,9 +17,9 @@ export function isWithFaceLandmarks(
 ): obj is WithFaceLandmarks<WithFaceDetection<{}>, FaceLandmarks> {
   return (
     isWithFaceDetection(obj) &&
-    obj["landmarks"] instanceof FaceLandmarks &&
-    obj["unshiftedLandmarks"] instanceof FaceLandmarks &&
-    obj["alignedRect"] instanceof FaceDetection
+    obj['landmarks'] instanceof FaceLandmarks &&
+    obj['unshiftedLandmarks'] instanceof FaceLandmarks &&
+    obj['alignedRect'] instanceof FaceDetection
   );
 }
 

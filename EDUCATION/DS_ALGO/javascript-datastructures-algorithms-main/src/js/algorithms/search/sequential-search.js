@@ -1,4 +1,4 @@
-import { defaultEquals, DOES_NOT_EXIST } from "../../util";
+import { defaultEquals, DOES_NOT_EXIST } from '../../util';
 
 export function sequentialSearch(array, value, equalsFn = defaultEquals) {
   for (let i = 0; i < array.length; i++) {

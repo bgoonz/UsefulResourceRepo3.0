@@ -1,5 +1,5 @@
-import Graph from "../../data-structures/graph";
-import Queue from "../../data-structures/queue";
+import Graph from '../../data-structures/graph';
+import Queue from '../../data-structures/queue';
 
 enum Colors {
   WHITE = 0,

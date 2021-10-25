@@ -47,7 +47,7 @@ export default class Queue<T> {
 
   toString() {
     if (this.isEmpty()) {
-      return "";
+      return '';
     }
     let objString = `${this.items[this.lowestCount]}`;
     for (let i = this.lowestCount + 1; i < this.count; i++) {

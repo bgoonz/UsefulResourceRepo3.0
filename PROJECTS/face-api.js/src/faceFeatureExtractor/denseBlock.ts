@@ -1,8 +1,8 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
-import { depthwiseSeparableConv } from "../common/depthwiseSeparableConv";
-import { DenseBlock3Params, DenseBlock4Params } from "./types";
+import { depthwiseSeparableConv } from '../common/depthwiseSeparableConv';
+import { DenseBlock3Params, DenseBlock4Params } from './types';
 
 export function denseBlock3(
   x: tf.Tensor4D,
@@ -18,7 +18,7 @@ export function denseBlock3(
               (denseBlockParams.conv0 as TfjsImageRecognitionBase.ConvParams)
                 .filters,
               [2, 2],
-              "same"
+              'same'
             ),
             denseBlockParams.conv0.bias
           )
@@ -52,7 +52,7 @@ export function denseBlock4(
               (denseBlockParams.conv0 as TfjsImageRecognitionBase.ConvParams)
                 .filters,
               isScaleDown ? [2, 2] : [1, 1],
-              "same"
+              'same'
             ),
             denseBlockParams.conv0.bias
           )

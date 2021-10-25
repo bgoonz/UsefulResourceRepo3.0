@@ -1,4 +1,4 @@
-import { Compare, defaultCompare } from "../../util";
+import { Compare, defaultCompare } from '../../util';
 
 function merge(left, right, compareFn) {
   let i = 0;

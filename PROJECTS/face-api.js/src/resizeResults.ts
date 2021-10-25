@@ -1,15 +1,15 @@
-import { Dimensions, IDimensions } from "tfjs-image-recognition-base";
+import { Dimensions, IDimensions } from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "./classes/FaceDetection";
-import { FaceLandmarks } from "./classes/FaceLandmarks";
+import { FaceDetection } from './classes/FaceDetection';
+import { FaceLandmarks } from './classes/FaceLandmarks';
 import {
   extendWithFaceDetection,
   isWithFaceDetection,
-} from "./factories/WithFaceDetection";
+} from './factories/WithFaceDetection';
 import {
   extendWithFaceLandmarks,
   isWithFaceLandmarks,
-} from "./factories/WithFaceLandmarks";
+} from './factories/WithFaceLandmarks';
 
 export function resizeResults<T>(results: T, dimensions: IDimensions): T {
   const { width, height } = new Dimensions(dimensions.width, dimensions.height);

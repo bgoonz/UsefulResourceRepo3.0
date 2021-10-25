@@ -5,8 +5,8 @@ async function onSelectedImageChanged(uri) {
 }
 
 async function loadImageFromUrl(url) {
-  const img = await requestExternalImage($("#imgUrlInput").val());
-  $("#inputImg").get(0).src = img.src;
+  const img = await requestExternalImage($('#imgUrlInput').val());
+  $('#inputImg').get(0).src = img.src;
   updateResults();
 }
 
@@ -20,13 +20,13 @@ function renderImageSelectList(
 
   if (withFaceExpressionImages) {
     images = [
-      "happy.jpg",
-      "sad.jpg",
-      "angry.jpg",
-      "disgusted.jpg",
-      "surprised.jpg",
-      "fearful.jpg",
-      "neutral.jpg",
+      'happy.jpg',
+      'sad.jpg',
+      'angry.jpg',
+      'disgusted.jpg',
+      'surprised.jpg',
+      'fearful.jpg',
+      'neutral.jpg',
     ].concat(images);
   }
 
@@ -38,16 +38,16 @@ function renderImageSelectList(
 }
 
 function initImageSelectionControls(
-  initialValue = "bbt1.jpg",
+  initialValue = 'bbt1.jpg',
   withFaceExpressionImages = false
 ) {
   renderImageSelectList(
-    "#selectList",
+    '#selectList',
     async (uri) => {
       await onSelectedImageChanged(uri);
     },
     initialValue,
     withFaceExpressionImages
   );
-  onSelectedImageChanged($("#selectList select").val());
+  onSelectedImageChanged($('#selectList select').val());
 }

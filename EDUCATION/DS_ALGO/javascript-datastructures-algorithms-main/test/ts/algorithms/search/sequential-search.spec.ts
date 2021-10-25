@@ -1,4 +1,4 @@
-import { sequentialSearch } from "../../../../src/ts/index";
-import { testSearchAlgorithm } from "./search-algorithms-tests";
+import { sequentialSearch } from '../../../../src/ts/index';
+import { testSearchAlgorithm } from './search-algorithms-tests';
 
-testSearchAlgorithm(sequentialSearch, "Sequential Search");
+testSearchAlgorithm(sequentialSearch, 'Sequential Search');

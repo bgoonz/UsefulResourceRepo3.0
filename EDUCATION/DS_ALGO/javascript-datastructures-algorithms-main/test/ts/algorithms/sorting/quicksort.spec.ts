@@ -1,4 +1,4 @@
-import { quickSort } from "../../../../src/ts/index";
-import { testSortAlgorithm } from "./sort-algorithm-tests";
+import { quickSort } from '../../../../src/ts/index';
+import { testSortAlgorithm } from './sort-algorithm-tests';
 
-testSortAlgorithm(quickSort, "Quick Sort");
+testSortAlgorithm(quickSort, 'Quick Sort');

@@ -1,4 +1,4 @@
-import { shellSort } from "../../../../src/js/index";
-import { testSortAlgorithm } from "./sort-algorithm-tests";
+import { shellSort } from '../../../../src/js/index';
+import { testSortAlgorithm } from './sort-algorithm-tests';
 
-testSortAlgorithm(shellSort, "Shell Sort");
+testSortAlgorithm(shellSort, 'Shell Sort');

@@ -1,4 +1,4 @@
-import { gcd } from "./gcd";
+import { gcd } from './gcd';
 
 export const lcm = (num1: number, num2: number) => {
   if (num1 === 0 || num2 === 0) {

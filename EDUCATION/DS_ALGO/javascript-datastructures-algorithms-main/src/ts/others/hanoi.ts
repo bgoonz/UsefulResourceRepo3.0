@@ -1,4 +1,4 @@
-import Stack from "../data-structures/stack";
+import Stack from '../data-structures/stack';
 
 function towerOfHanoi(
   plates: number,
@@ -60,7 +60,7 @@ export function hanoiStack(plates: number) {
     source.push(i);
   }
 
-  return towerOfHanoi(plates, source, helper, dest, "source", "helper", "dest");
+  return towerOfHanoi(plates, source, helper, dest, 'source', 'helper', 'dest');
 }
 
 export function hanoi(

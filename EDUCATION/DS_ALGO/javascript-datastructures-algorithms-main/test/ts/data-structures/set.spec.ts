@@ -1,21 +1,21 @@
-import "mocha";
-import { expect } from "chai";
-import { Set } from "../../../src/ts/index";
-import MyObj from "./my-obj";
+import 'mocha';
+import { expect } from 'chai';
+import { Set } from '../../../src/ts/index';
+import MyObj from './my-obj';
 
-describe("Set", () => {
+describe('Set', () => {
   let set: Set<number>;
 
   beforeEach(() => {
     set = new Set<number>();
   });
 
-  it("starts empty", () => {
+  it('starts empty', () => {
     expect(set.size()).to.equal(0);
     expect(set.isEmpty()).to.equal(true);
   });
 
-  it("adds elements", () => {
+  it('adds elements', () => {
     for (let i = 1; i < 5; i++) {
       set.add(i);
       expect(set.size()).to.equal(i);
@@ -24,7 +24,7 @@ describe("Set", () => {
     expect(set.isEmpty()).to.equal(false);
   });
 
-  it("does not allow duplicated elements", () => {
+  it('does not allow duplicated elements', () => {
     let expected = true;
     for (let i = 1; i < 5; i++) {
       expect(set.add(i)).to.equal(expected);
@@ -36,7 +36,7 @@ describe("Set", () => {
     }
   });
 
-  it("deletes elements", () => {
+  it('deletes elements', () => {
     for (let i = 1; i < 5; i++) {
       set.add(i);
     }
@@ -53,7 +53,7 @@ describe("Set", () => {
     expect(set.isEmpty()).to.equal(true);
   });
 
-  it("returns if element exists", () => {
+  it('returns if element exists', () => {
     for (let i = 1; i < 5; i++) {
       set.add(i);
       expect(set.has(i)).to.equal(true);
@@ -65,7 +65,7 @@ describe("Set", () => {
     }
   });
 
-  it("returns the correct size", () => {
+  it('returns the correct size', () => {
     expect(set.size()).to.equal(0);
 
     for (let i = 1; i < 5; i++) {
@@ -83,7 +83,7 @@ describe("Set", () => {
     expect(set.isEmpty()).to.equal(true);
   });
 
-  it("returns if it is empty", () => {
+  it('returns if it is empty', () => {
     expect(set.isEmpty()).to.equal(true);
 
     for (let i = 1; i < 5; i++) {
@@ -100,7 +100,7 @@ describe("Set", () => {
     expect(set.isEmpty()).to.equal(true);
   });
 
-  it("clears the set", () => {
+  it('clears the set', () => {
     set.clear();
     expect(set.isEmpty()).to.equal(true);
 
@@ -121,7 +121,7 @@ describe("Set", () => {
     return set;
   }
 
-  it("union between empty sets", () => {
+  it('union between empty sets', () => {
     const set1 = new Set();
     const set2 = new Set();
 
@@ -132,7 +132,7 @@ describe("Set", () => {
     expect(setResult.isEmpty()).to.equal(true);
   });
 
-  it("union between equal sets", () => {
+  it('union between equal sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(1, 5);
 
@@ -147,7 +147,7 @@ describe("Set", () => {
     }
   });
 
-  it("union between different sets", () => {
+  it('union between different sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(6, 10);
 
@@ -162,7 +162,7 @@ describe("Set", () => {
     }
   });
 
-  it("union between sets with common values", () => {
+  it('union between sets with common values', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(3, 6);
 
@@ -177,7 +177,7 @@ describe("Set", () => {
     }
   });
 
-  it("intersection between empty sets", () => {
+  it('intersection between empty sets', () => {
     const set1 = new Set();
     const set2 = new Set();
 
@@ -188,7 +188,7 @@ describe("Set", () => {
     expect(setResult.isEmpty()).to.equal(true);
   });
 
-  it("intersection between equal sets", () => {
+  it('intersection between equal sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(1, 5);
 
@@ -203,7 +203,7 @@ describe("Set", () => {
     }
   });
 
-  it("intersection different sets", () => {
+  it('intersection different sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(6, 10);
 
@@ -214,7 +214,7 @@ describe("Set", () => {
     expect(setResult.isEmpty()).to.equal(true);
   });
 
-  it("intersection between sets with common values", () => {
+  it('intersection between sets with common values', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(3, 6);
 
@@ -229,7 +229,7 @@ describe("Set", () => {
     }
   });
 
-  it("difference between empty sets", () => {
+  it('difference between empty sets', () => {
     const set1 = new Set();
     const set2 = new Set();
 
@@ -240,7 +240,7 @@ describe("Set", () => {
     expect(setResult.isEmpty()).to.equal(true);
   });
 
-  it("difference between equal sets", () => {
+  it('difference between equal sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(1, 5);
 
@@ -251,7 +251,7 @@ describe("Set", () => {
     expect(setResult.isEmpty()).to.equal(true);
   });
 
-  it("difference different sets", () => {
+  it('difference different sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(6, 10);
 
@@ -266,7 +266,7 @@ describe("Set", () => {
     }
   });
 
-  it("difference between sets with common values", () => {
+  it('difference between sets with common values', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(3, 6);
 
@@ -281,7 +281,7 @@ describe("Set", () => {
     }
   });
 
-  it("isSubsetOf between empty sets", () => {
+  it('isSubsetOf between empty sets', () => {
     const set1 = new Set();
     const set2 = new Set();
 
@@ -289,7 +289,7 @@ describe("Set", () => {
     expect(set2.isSubsetOf(set1)).to.equal(true);
   });
 
-  it("isSubsetOf between equal sets", () => {
+  it('isSubsetOf between equal sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(1, 5);
 
@@ -297,7 +297,7 @@ describe("Set", () => {
     expect(set2.isSubsetOf(set1)).to.equal(true);
   });
 
-  it("isSubsetOf different sets", () => {
+  it('isSubsetOf different sets', () => {
     const set1 = addValues(1, 5);
     const set2 = addValues(6, 10);
 
@@ -305,7 +305,7 @@ describe("Set", () => {
     expect(set2.isSubsetOf(set1)).to.equal(false);
   });
 
-  it("isSubsetOf between sets with common values", () => {
+  it('isSubsetOf between sets with common values', () => {
     const set1 = addValues(1, 8);
     const set2 = addValues(3, 6);
     expect(set1.isSubsetOf(set2)).to.equal(false);
@@ -317,36 +317,36 @@ describe("Set", () => {
     expect(set4.isSubsetOf(set3)).to.equal(false);
   });
 
-  it("returns toString primitive types", () => {
-    expect(set.toString()).to.equal("");
+  it('returns toString primitive types', () => {
+    expect(set.toString()).to.equal('');
 
     set.add(1);
-    expect(set.toString()).to.equal("1");
+    expect(set.toString()).to.equal('1');
 
     set.add(2);
-    expect(set.toString()).to.equal("1,2");
+    expect(set.toString()).to.equal('1,2');
 
     set.clear();
-    expect(set.toString()).to.equal("");
+    expect(set.toString()).to.equal('');
   });
 
-  it("returns toString primitive types: string", () => {
+  it('returns toString primitive types: string', () => {
     const ds = new Set<string>();
-    ds.add("el1");
-    expect(ds.toString()).to.equal("el1");
+    ds.add('el1');
+    expect(ds.toString()).to.equal('el1');
 
-    ds.add("el2");
-    expect(ds.toString()).to.equal("el1,el2");
+    ds.add('el2');
+    expect(ds.toString()).to.equal('el1,el2');
   });
 
-  it("returns toString objects", () => {
+  it('returns toString objects', () => {
     const ds = new Set<MyObj>();
-    expect(ds.toString()).to.equal("");
+    expect(ds.toString()).to.equal('');
 
     ds.add(new MyObj(1, 2));
-    expect(ds.toString()).to.equal("1|2");
+    expect(ds.toString()).to.equal('1|2');
 
     ds.add(new MyObj(3, 4));
-    expect(ds.toString()).to.equal("1|2,3|4");
+    expect(ds.toString()).to.equal('1|2,3|4');
   });
 });

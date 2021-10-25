@@ -72,13 +72,13 @@
       }
 
       function displayTimeStats(timeNoBatch, timeBatch) {
-        $("#timeNoBatch").val(`${timeNoBatch} ms`);
-        $("#timeBatch").val(`${timeBatch} ms`);
+        $('#timeNoBatch').val(`${timeNoBatch} ms`);
+        $('#timeBatch').val(`${timeBatch} ms`);
       }
 
       function drawLandmarkCanvas(img, landmarks) {
         const canvas = faceapi.createCanvasFromMedia(img);
-        $("#faceContainer").append(canvas);
+        $('#faceContainer').append(canvas);
         new faceapi.draw.DrawFaceLandmarks(landmarks).draw(canvas);
       }
 
@@ -104,15 +104,15 @@
       async function measureTimingsAndDisplay() {
         const { timeNoBatch, timeBatch } = await measureTimings();
         displayTimeStats(timeNoBatch, timeBatch);
-        $("#faceContainer").empty();
+        $('#faceContainer').empty();
         landmarksByFace.forEach((landmarks, i) =>
           drawLandmarkCanvas(images[i], landmarks)
         );
       }
 
       async function run() {
-        await faceapi.loadFaceLandmarkModel("/");
-        $("#loader").hide();
+        await faceapi.loadFaceLandmarkModel('/');
+        $('#loader').hide();
         const allImgUris = classes
           .map((clazz) =>
             Array.from(Array(5), (_, idx) => getFaceImageUri(clazz, idx + 1))
@@ -129,8 +129,8 @@
       }
 
       $(document).ready(function () {
-        $("#numImages").on("change", onNumImagesChanged);
-        renderNavBar("#navbar", "batch_face_landmarks");
+        $('#numImages').on('change', onNumImagesChanged);
+        renderNavBar('#navbar', 'batch_face_landmarks');
         run();
       });
     </script>

@@ -1,20 +1,20 @@
-import "mocha";
-import { expect } from "chai";
-import { MinHeap, heapSort } from "../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { MinHeap, heapSort } from '../../../src/ts/index';
 
-describe("Heap", () => {
+describe('Heap', () => {
   let heap: MinHeap<number>;
 
   beforeEach(() => {
     heap = new MinHeap<number>();
   });
 
-  it("starts empty MinHeap", () => {
+  it('starts empty MinHeap', () => {
     expect(heap.size()).to.equal(0);
     expect(heap.isEmpty()).to.equal(true);
   });
 
-  it("inserts values in the MinHeap", () => {
+  it('inserts values in the MinHeap', () => {
     const resultArray = [];
     for (let i = 1; i < 10; i++) {
       resultArray.push(i);
@@ -23,7 +23,7 @@ describe("Heap", () => {
     }
   });
 
-  it("finds the min value from the MinHeap", () => {
+  it('finds the min value from the MinHeap', () => {
     const resultArray = [];
     for (let i = 10; i >= 1; i--) {
       resultArray.push(i);
@@ -32,7 +32,7 @@ describe("Heap", () => {
     }
   });
 
-  it("performs heapify in the MinHeap", () => {
+  it('performs heapify in the MinHeap', () => {
     const resultArray = [];
     for (let i = 10; i >= 1; i--) {
       resultArray.push(i);
@@ -40,7 +40,7 @@ describe("Heap", () => {
     expect(heap.heapify(resultArray)).to.deep.equal(resultArray);
   });
 
-  it("extracts the min value from the MinHeap", () => {
+  it('extracts the min value from the MinHeap', () => {
     let resultArray = [];
     for (let i = 1; i < 10; i++) {
       resultArray.push(i);
@@ -67,7 +67,7 @@ describe("Heap", () => {
     }
   });
 
-  it("Heap Sort", () => {
+  it('Heap Sort', () => {
     const array = [3, 2, 5, 6, 1, 7, 8, 9];
 
     expect(heapSort(array)).to.deep.equal([1, 2, 3, 5, 6, 7, 8, 9]);

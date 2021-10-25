@@ -1,6 +1,6 @@
-import { isValidProbablitiy } from "tfjs-image-recognition-base";
+import { isValidProbablitiy } from 'tfjs-image-recognition-base';
 
-import { Gender } from "../ageGenderNet/types";
+import { Gender } from '../ageGenderNet/types';
 
 export type WithGender<TSource> = TSource & {
   gender: Gender;
@@ -9,8 +9,8 @@ export type WithGender<TSource> = TSource & {
 
 export function isWithGender(obj: any): obj is WithGender<{}> {
   return (
-    (obj["gender"] === Gender.MALE || obj["gender"] === Gender.FEMALE) &&
-    isValidProbablitiy(obj["genderProbability"])
+    (obj['gender'] === Gender.MALE || obj['gender'] === Gender.FEMALE) &&
+    isValidProbablitiy(obj['genderProbability'])
   );
 }
 

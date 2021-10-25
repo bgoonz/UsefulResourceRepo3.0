@@ -1,13 +1,13 @@
-import { getContext2dOrThrow, IPoint } from "tfjs-image-recognition-base";
+import { getContext2dOrThrow, IPoint } from 'tfjs-image-recognition-base';
 
-import { FaceLandmarks } from "../classes/FaceLandmarks";
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
-import { WithFaceDetection } from "../factories/WithFaceDetection";
+import { FaceLandmarks } from '../classes/FaceLandmarks';
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
+import { WithFaceDetection } from '../factories/WithFaceDetection';
 import {
   isWithFaceLandmarks,
   WithFaceLandmarks,
-} from "../factories/WithFaceLandmarks";
-import { drawContour } from "./drawContour";
+} from '../factories/WithFaceLandmarks';
+import { drawContour } from './drawContour';
 
 export interface IDrawFaceLandmarksOptions {
   drawLines?: boolean;
@@ -39,8 +39,8 @@ export class DrawFaceLandmarksOptions {
     this.drawPoints = drawPoints;
     this.lineWidth = lineWidth || 1;
     this.pointSize = pointSize || 2;
-    this.lineColor = lineColor || "rgba(0, 255, 255, 1)";
-    this.pointColor = pointColor || "rgba(255, 0, 255, 1)";
+    this.lineColor = lineColor || 'rgba(0, 255, 255, 1)';
+    this.pointColor = pointColor || 'rgba(255, 0, 255, 1)';
   }
 }
 
@@ -114,7 +114,7 @@ export function drawFaceLandmarks(
         : undefined;
     if (!landmarks) {
       throw new Error(
-        "drawFaceLandmarks - expected faceExpressions to be FaceLandmarks | WithFaceLandmarks<WithFaceDetection<{}>> or array thereof"
+        'drawFaceLandmarks - expected faceExpressions to be FaceLandmarks | WithFaceLandmarks<WithFaceDetection<{}>> or array thereof'
       );
     }
 

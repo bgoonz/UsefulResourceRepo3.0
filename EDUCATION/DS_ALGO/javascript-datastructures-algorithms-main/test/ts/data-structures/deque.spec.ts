@@ -1,20 +1,20 @@
-import "mocha";
-import { expect } from "chai";
-import Deque from "../../../src/ts/data-structures/deque";
+import 'mocha';
+import { expect } from 'chai';
+import Deque from '../../../src/ts/data-structures/deque';
 
-describe("Deque", () => {
+describe('Deque', () => {
   let deque: Deque<number>;
 
   beforeEach(() => {
     deque = new Deque<number>();
   });
 
-  it("starts empty", () => {
+  it('starts empty', () => {
     expect(deque.size()).to.equal(0);
     expect(deque.isEmpty()).to.equal(true);
   });
 
-  it("add elements in the back", () => {
+  it('add elements in the back', () => {
     deque.addBack(1);
     expect(deque.size()).to.equal(1);
 
@@ -25,7 +25,7 @@ describe("Deque", () => {
     expect(deque.size()).to.equal(3);
   });
 
-  it("add elements in the front", () => {
+  it('add elements in the front', () => {
     deque.addFront(1);
     expect(deque.size()).to.equal(1);
 
@@ -40,7 +40,7 @@ describe("Deque", () => {
     expect(deque.size()).to.equal(3);
   });
 
-  it("remove elements from the back", () => {
+  it('remove elements from the back', () => {
     deque.addBack(1);
     deque.addBack(2);
     deque.addBack(3);
@@ -53,7 +53,7 @@ describe("Deque", () => {
     expect(deque.removeBack()).to.equal(undefined);
   });
 
-  it("remove elements from the front", () => {
+  it('remove elements from the front', () => {
     deque.addFront(1);
     deque.addBack(2);
     deque.addBack(3);
@@ -70,7 +70,7 @@ describe("Deque", () => {
     expect(deque.removeFront()).to.equal(undefined);
   });
 
-  it("allows to peek at the front element in the deque without removing it", () => {
+  it('allows to peek at the front element in the deque without removing it', () => {
     expect(deque.peekFront()).to.equal(undefined);
 
     deque.addFront(1);
@@ -87,7 +87,7 @@ describe("Deque", () => {
     expect(deque.peekFront()).to.equal(-2);
   });
 
-  it("allows to peek at the last element in the deque without removing it", () => {
+  it('allows to peek at the last element in the deque without removing it', () => {
     expect(deque.peekBack()).to.equal(undefined);
 
     deque.addFront(1);
@@ -104,7 +104,7 @@ describe("Deque", () => {
     expect(deque.peekBack()).to.equal(3);
   });
 
-  it("returns the correct size", () => {
+  it('returns the correct size', () => {
     expect(deque.size()).to.equal(0);
 
     deque.addFront(1);
@@ -132,7 +132,7 @@ describe("Deque", () => {
     expect(deque.size()).to.equal(0);
   });
 
-  it("returns if it is empty", () => {
+  it('returns if it is empty', () => {
     expect(deque.isEmpty()).to.equal(true);
 
     deque.addFront(1);
@@ -153,7 +153,7 @@ describe("Deque", () => {
     expect(deque.isEmpty()).to.equal(true);
   });
 
-  it("clears the queue", () => {
+  it('clears the queue', () => {
     deque.clear();
     expect(deque.isEmpty()).to.equal(true);
 
@@ -165,27 +165,27 @@ describe("Deque", () => {
     expect(deque.isEmpty()).to.equal(true);
   });
 
-  it("returns toString primitive types", () => {
-    expect(deque.toString()).to.equal("");
+  it('returns toString primitive types', () => {
+    expect(deque.toString()).to.equal('');
 
     deque.addFront(1);
-    expect(deque.toString()).to.equal("1");
+    expect(deque.toString()).to.equal('1');
 
     deque.addBack(2);
-    expect(deque.toString()).to.equal("1,2");
+    expect(deque.toString()).to.equal('1,2');
 
     deque.clear();
-    expect(deque.toString()).to.equal("");
+    expect(deque.toString()).to.equal('');
 
     const queueString = new Deque<string>();
-    queueString.addFront("el1");
-    expect(queueString.toString()).to.equal("el1");
+    queueString.addFront('el1');
+    expect(queueString.toString()).to.equal('el1');
 
-    queueString.addBack("el2");
-    expect(queueString.toString()).to.equal("el1,el2");
+    queueString.addBack('el2');
+    expect(queueString.toString()).to.equal('el1,el2');
   });
 
-  it("returns toString objects", () => {
+  it('returns toString objects', () => {
     class MyObj {
       constructor(public el1: any, public el2: any) {}
       toString() {
@@ -193,12 +193,12 @@ describe("Deque", () => {
       }
     }
     const dequeMyObj = new Deque<MyObj>();
-    expect(dequeMyObj.toString()).to.equal("");
+    expect(dequeMyObj.toString()).to.equal('');
 
     dequeMyObj.addFront(new MyObj(1, 2));
-    expect(dequeMyObj.toString()).to.equal("1|2");
+    expect(dequeMyObj.toString()).to.equal('1|2');
 
     dequeMyObj.addBack(new MyObj(3, 4));
-    expect(dequeMyObj.toString()).to.equal("1|2,3|4");
+    expect(dequeMyObj.toString()).to.equal('1|2,3|4');
   });
 });

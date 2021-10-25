@@ -3,7 +3,7 @@ layout: page
 title: Migrating to Express 5
 menu: guide
 lang: en
-redirect_from: "/guide/migrating-5.html"
+redirect_from: '/guide/migrating-5.html'
 ---
 
 # Moving to Express 5
@@ -24,8 +24,7 @@ You can then run your automated tests to see what fails, and fix problems accord
 
 <h2 id="changes">Changes in Express 5</h2>
 
-Here is the list of changes (as of the alpha 2 release ) that will affect you as a user of Express.
-See the [pull request](https://github.com/expressjs/express/pull/2237) for a list of all the planned features.
+Here is the list of changes (as of the alpha 2 release ) that will affect you as a user of Express. See the [pull request](https://github.com/expressjs/express/pull/2237) for a list of all the planned features.
 
 **Removed methods and properties**
 
@@ -104,8 +103,7 @@ Express 5 no longer supports the signature `res.send(obj, status)`. Instead, set
 
 <h4 id="res.send.status">res.send(status)</h4>
 
-Express 5 no longer supports the signature <code>res.send(<em>status</em>)</code>, where _`status`_ is a number. Instead, use the `res.sendStatus(statusCode)` function, which sets the HTTP response header status code and sends the text version of the code: "Not Found", "Internal Server Error", and so on.
-If you need to send a number by using the `res.send()` function, quote the number to convert it to a string, so that Express does not interpret it as an attempt to use the unsupported old signature.
+Express 5 no longer supports the signature <code>res.send(<em>status</em>)</code>, where _`status`_ is a number. Instead, use the `res.sendStatus(statusCode)` function, which sets the HTTP response header status code and sends the text version of the code: "Not Found", "Internal Server Error", and so on. If you need to send a number by using the `res.send()` function, quote the number to convert it to a string, so that Express does not interpret it as an attempt to use the unsupported old signature.
 
 <h4 id="res.sendfile">res.sendfile()</h4>
 

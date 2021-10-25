@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { findDivisors } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { findDivisors } from '../../../../src/ts/index';
 
-describe("Find Divisors", () => {
-  it("returns the divisors of the number", () => {
+describe('Find Divisors', () => {
+  it('returns the divisors of the number', () => {
     expect(findDivisors(-1)).to.deep.equal([]);
     expect(findDivisors(0)).to.deep.equal([]);
     expect(findDivisors(1)).to.deep.equal([1]);

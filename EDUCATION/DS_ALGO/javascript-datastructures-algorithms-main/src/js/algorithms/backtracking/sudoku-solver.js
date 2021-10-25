@@ -72,5 +72,5 @@ export function sudokuSolver(matrix) {
   if (solveSudoku(matrix) === true) {
     return matrix;
   }
-  return "NO SOLUTION EXISTS!";
+  return 'NO SOLUTION EXISTS!';
 }

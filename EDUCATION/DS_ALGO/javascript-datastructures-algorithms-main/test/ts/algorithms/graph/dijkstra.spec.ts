@@ -1,9 +1,9 @@
-import "mocha";
-import { expect } from "chai";
-import { dijkstra } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { dijkstra } from '../../../../src/ts/index';
 
 describe("Dijkstra's Algorithm - Shortest Path", () => {
-  it("Shortest Path", () => {
+  it('Shortest Path', () => {
     const graph = [
       [0, 2, 4, 0, 0, 0],
       [0, 0, 2, 4, 2, 0],

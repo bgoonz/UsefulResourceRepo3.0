@@ -1,4 +1,4 @@
-import { swap } from "../../util";
+import { swap } from '../../util';
 
 export function shuffle<T>(array: T[]) {
   for (let i = array.length - 1; i > 0; i--) {

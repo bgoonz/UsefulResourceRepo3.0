@@ -1,4 +1,4 @@
-import { TinyYolov2 } from "./TinyYolov2";
+import { TinyYolov2 } from './TinyYolov2';
 
 export { TinyYolov2 };
 

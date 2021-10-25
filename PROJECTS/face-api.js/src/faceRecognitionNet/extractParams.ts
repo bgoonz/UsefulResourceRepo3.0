@@ -1,12 +1,12 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { isFloat, TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { isFloat, TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
 import {
   ConvLayerParams,
   NetParams,
   ResidualLayerParams,
   ScaleLayerParams,
-} from "./types";
+} from './types';
 
 function extractorsFactory(
   extractWeights: TfjsImageRecognitionBase.ExtractWeightsFunction,
@@ -131,46 +131,46 @@ export function extractParams(weights: Float32Array): {
   const { extractConvLayerParams, extractResidualLayerParams } =
     extractorsFactory(extractWeights, paramMappings);
 
-  const conv32_down = extractConvLayerParams(4704, 32, 7, "conv32_down");
-  const conv32_1 = extractResidualLayerParams(9216, 32, 3, "conv32_1");
-  const conv32_2 = extractResidualLayerParams(9216, 32, 3, "conv32_2");
-  const conv32_3 = extractResidualLayerParams(9216, 32, 3, "conv32_3");
+  const conv32_down = extractConvLayerParams(4704, 32, 7, 'conv32_down');
+  const conv32_1 = extractResidualLayerParams(9216, 32, 3, 'conv32_1');
+  const conv32_2 = extractResidualLayerParams(9216, 32, 3, 'conv32_2');
+  const conv32_3 = extractResidualLayerParams(9216, 32, 3, 'conv32_3');
 
   const conv64_down = extractResidualLayerParams(
     36864,
     64,
     3,
-    "conv64_down",
+    'conv64_down',
     true
   );
-  const conv64_1 = extractResidualLayerParams(36864, 64, 3, "conv64_1");
-  const conv64_2 = extractResidualLayerParams(36864, 64, 3, "conv64_2");
-  const conv64_3 = extractResidualLayerParams(36864, 64, 3, "conv64_3");
+  const conv64_1 = extractResidualLayerParams(36864, 64, 3, 'conv64_1');
+  const conv64_2 = extractResidualLayerParams(36864, 64, 3, 'conv64_2');
+  const conv64_3 = extractResidualLayerParams(36864, 64, 3, 'conv64_3');
 
   const conv128_down = extractResidualLayerParams(
     147456,
     128,
     3,
-    "conv128_down",
+    'conv128_down',
     true
   );
-  const conv128_1 = extractResidualLayerParams(147456, 128, 3, "conv128_1");
-  const conv128_2 = extractResidualLayerParams(147456, 128, 3, "conv128_2");
+  const conv128_1 = extractResidualLayerParams(147456, 128, 3, 'conv128_1');
+  const conv128_2 = extractResidualLayerParams(147456, 128, 3, 'conv128_2');
 
   const conv256_down = extractResidualLayerParams(
     589824,
     256,
     3,
-    "conv256_down",
+    'conv256_down',
     true
   );
-  const conv256_1 = extractResidualLayerParams(589824, 256, 3, "conv256_1");
-  const conv256_2 = extractResidualLayerParams(589824, 256, 3, "conv256_2");
+  const conv256_1 = extractResidualLayerParams(589824, 256, 3, 'conv256_1');
+  const conv256_2 = extractResidualLayerParams(589824, 256, 3, 'conv256_2');
   const conv256_down_out = extractResidualLayerParams(
     589824,
     256,
     3,
-    "conv256_down_out"
+    'conv256_down_out'
   );
 
   const fc = tf.tidy(() =>

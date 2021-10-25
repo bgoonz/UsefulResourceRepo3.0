@@ -4,6 +4,6 @@ export class ComposableTask<T> {
   }
 
   public async run(): Promise<T> {
-    throw new Error("ComposableTask - run is not implemented");
+    throw new Error('ComposableTask - run is not implemented');
   }
 }

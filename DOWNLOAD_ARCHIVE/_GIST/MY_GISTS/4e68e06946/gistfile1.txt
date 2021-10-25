@@ -1,0 +1,1 @@
+#!bin/bashsudo apt install renamefind . -name "* *" -type d | rename 's/ /_/g' # do the directories firstfind . -name "* *" -type f | rename 's/ /_/g'

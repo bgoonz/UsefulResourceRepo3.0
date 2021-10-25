@@ -4,7 +4,7 @@ import {
   ICompareFunction,
   reverseCompare,
   swap,
-} from "../util";
+} from '../util';
 
 export class MinHeap<T> {
   protected heap: T[] = [];

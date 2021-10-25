@@ -1,4 +1,4 @@
-import Deque from "../data-structures/deque";
+import Deque from '../data-structures/deque';
 
 export function palindromeChecker(aString) {
   if (
@@ -9,7 +9,7 @@ export function palindromeChecker(aString) {
     return false;
   }
   const deque = new Deque();
-  const lowerString = aString.toLocaleLowerCase().split(" ").join("");
+  const lowerString = aString.toLocaleLowerCase().split(' ').join('');
   let firstChar;
   let lastChar;
 

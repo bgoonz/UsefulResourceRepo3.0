@@ -1,0 +1,104 @@
+@import '../tab/style.css';
+
+.batchContent {
+    overflow: auto;
+
+    min-height: 357px;
+
+    body[data-fullscreen="on"] & {
+        min-height: 100%;
+    }
+
+    background: #fff;
+    :global {
+        .CodeMirror {
+            height: 357px!important;
+            position: static;
+        }
+    }
+}
+
+.dragovered {
+    .dndMessage {
+        display: block;
+    }
+}
+
+.dndMessage {
+    font-size: 1.5rem;
+    z-index: 1000;
+    display: none;
+    position: absolute;
+    width: 500px;
+    left: 50%;
+    margin-left: -250px;
+    background: #eeeeee;
+    line-height: 200px;
+    text-align: center;
+    bottom: 40%;
+    border: 2px dashed #aaa;
+    pointer-events: none;
+}
+
+.batchButtons {
+    transition: bottom 0.5s ease-out 0s, left 0.5s ease-out 0s;
+    pointer-events: none;
+    text-align: center;
+    width: 380px;
+    z-index: 4;
+    padding-top: 75px;
+    margin: 0 auto 0;
+    left: calc(50% - 190px);
+    bottom: 50%;
+
+    body[data-fullscreen="on"] & {
+        position: fixed;
+    }
+
+    h3 {
+        padding-bottom: 15px;
+        transition: opacity 0.5s ease-out 0s;
+    }
+}
+
+.hasItems {
+    .batchButtons {
+        left: 20px;
+        bottom: 40px;
+        position: fixed;
+
+        body[data-fullscreen="on"] & {
+            left: 20px;
+            bottom: 40px;
+        }
+
+        h3 {
+            opacity: 0;
+        }
+    }
+}
+
+.addField {
+    pointer-events: all;
+    background: #fff;
+    margin-left: 5px;
+}
+
+.addFiles {
+    pointer-events: all;
+    background: #fff;
+    position: relative;
+    margin-right: 5px;
+
+    input {
+        cursor: pointer;
+        position: absolute;
+        z-index: 1;
+        height: 100%;
+        width: 100%;
+        left: 0;
+        top: 0;
+        font-size: 0;
+        opacity: 0;
+    }
+}

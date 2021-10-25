@@ -1,4 +1,4 @@
-import Queue from "../../data-structures/queue";
+import Queue from '../../data-structures/queue';
 
 const Colors = {
   WHITE: 0,

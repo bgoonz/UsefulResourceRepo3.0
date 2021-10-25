@@ -3,22 +3,19 @@ layout: page
 title: Debugging Express
 menu: guide
 lang: en
-redirect_from: "/guide/debugging.html"
+redirect_from: '/guide/debugging.html'
 ---
 
 # Debugging Express
 
-Express uses the [debug](https://www.npmjs.com/package/debug) module
-internally to log information about route matches, middleware functions that are in use, application mode,
-and the flow of the request-response cycle.
+Express uses the [debug](https://www.npmjs.com/package/debug) module internally to log information about route matches, middleware functions that are in use, application mode, and the flow of the request-response cycle.
 
 <div class="doc-box doc-info" markdown="1">
 `debug` is like an augmented version of `console.log`, but unlike `console.log`, you don't have to
 comment out `debug` logs in production code. Logging is turned off by default and can be conditionally turned on by using the `DEBUG` environment variable.
 </div>
 
-To see all the internal logs used in Express, set the `DEBUG` environment variable to
-`express:*` when launching your app.
+To see all the internal logs used in Express, set the `DEBUG` environment variable to `express:*` when launching your app.
 
 ```sh
 $ DEBUG=express:* node index.js
@@ -126,11 +123,7 @@ When running through Node.js, you can set a few environment variables that will 
 | `DEBUG_FD`          | File descriptor to write debug output to.         |
 | `DEBUG_SHOW_HIDDEN` | Shows hidden properties on inspected objects.     |
 
-**Note:** The environment variables beginning with `DEBUG_` end up being
-converted into an Options object that gets used with `%o`/`%O` formatters.
-See the Node.js documentation for
-[`util.inspect()`](https://nodejs.org/api/util.html#util_util_inspect_object_options)
-for the complete list.
+**Note:** The environment variables beginning with `DEBUG_` end up being converted into an Options object that gets used with `%o`/`%O` formatters. See the Node.js documentation for [`util.inspect()`](https://nodejs.org/api/util.html#util_util_inspect_object_options) for the complete list.
 
 ## Resources
 

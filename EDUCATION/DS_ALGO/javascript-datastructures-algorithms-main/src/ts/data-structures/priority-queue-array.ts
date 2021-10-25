@@ -1,4 +1,4 @@
-import { Compare, defaultCompare, ICompareFunction } from "../util";
+import { Compare, defaultCompare, ICompareFunction } from '../util';
 
 export default class PriorityQueue<T> {
   private items: T[];
@@ -51,7 +51,7 @@ export default class PriorityQueue<T> {
 
   toString() {
     if (this.isEmpty()) {
-      return "";
+      return '';
     }
     return this.items;
   }

@@ -1,17 +1,17 @@
-import "mocha";
-import { expect } from "chai";
-import { isPrime, testPrime, isPrime2 } from "../../../../src/ts/index";
+import 'mocha';
+import { expect } from 'chai';
+import { isPrime, testPrime, isPrime2 } from '../../../../src/ts/index';
 
-describe("Primality Tests", () => {
-  it("returns if the number is prime or not - isPrime", () => {
+describe('Primality Tests', () => {
+  it('returns if the number is prime or not - isPrime', () => {
     testIsPrime(isPrime);
   });
 
-  it("returns if the number is prime or not - testPrime", () => {
+  it('returns if the number is prime or not - testPrime', () => {
     testIsPrime(testPrime);
   });
 
-  it("returns if the number is prime or not - isPrime2", () => {
+  it('returns if the number is prime or not - isPrime2', () => {
     testIsPrime(isPrime2);
   });
 

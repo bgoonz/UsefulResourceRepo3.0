@@ -34,7 +34,7 @@ The above implementation completely changes the original signature of `res.sendS
 The overridden method may now be used this way:
 
 ```js
-res.sendStatus(404, "application/json", '{"error":"resource not found"}');
+res.sendStatus(404, 'application/json', '{"error":"resource not found"}');
 ```
 
 ## Properties
@@ -51,11 +51,11 @@ Properties under category 2 can be overwritten using the Express API extensions 
 The following code rewrites how the value of `req.ip` is to be derived. Now, it simply returns the value of the `Client-IP` request header.
 
 ```js
-Object.defineProperty(app.request, "ip", {
+Object.defineProperty(app.request, 'ip', {
   configurable: true,
   enumerable: true,
   get: function () {
-    return this.get("Client-IP");
+    return this.get('Client-IP');
   },
 });
 ```

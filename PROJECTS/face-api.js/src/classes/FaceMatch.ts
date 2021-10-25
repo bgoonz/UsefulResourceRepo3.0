@@ -1,4 +1,4 @@
-import { round } from "tfjs-image-recognition-base";
+import { round } from 'tfjs-image-recognition-base';
 
 export interface IFaceMatch {
   label: string;
@@ -22,6 +22,6 @@ export class FaceMatch implements IFaceMatch {
   }
 
   public toString(withDistance: boolean = true): string {
-    return `${this.label}${withDistance ? ` (${round(this.distance)})` : ""}`;
+    return `${this.label}${withDistance ? ` (${round(this.distance)})` : ''}`;
   }
 }

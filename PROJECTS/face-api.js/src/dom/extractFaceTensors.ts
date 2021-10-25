@@ -1,7 +1,7 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { isTensor4D, Rect, isTensor3D } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { isTensor4D, Rect, isTensor3D } from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes/FaceDetection";
+import { FaceDetection } from '../classes/FaceDetection';
 
 /**
  * Extracts the tensors of the image regions containing the detected faces.
@@ -19,12 +19,12 @@ export async function extractFaceTensors(
 ): Promise<tf.Tensor3D[]> {
   if (!isTensor3D(imageTensor) && !isTensor4D(imageTensor)) {
     throw new Error(
-      "extractFaceTensors - expected image tensor to be 3D or 4D"
+      'extractFaceTensors - expected image tensor to be 3D or 4D'
     );
   }
 
   if (isTensor4D(imageTensor) && imageTensor.shape[0] > 1) {
-    throw new Error("extractFaceTensors - batchSize > 1 not supported");
+    throw new Error('extractFaceTensors - batchSize > 1 not supported');
   }
 
   return tf.tidy(() => {

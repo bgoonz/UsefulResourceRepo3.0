@@ -1,14 +1,14 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
-import { scale } from "./scaleLayer";
-import { ConvLayerParams } from "./types";
+import { scale } from './scaleLayer';
+import { ConvLayerParams } from './types';
 
 function convLayer(
   x: tf.Tensor4D,
   params: ConvLayerParams,
   strides: [number, number],
   withRelu: boolean,
-  padding: "valid" | "same" = "same"
+  padding: 'valid' | 'same' = 'same'
 ): tf.Tensor4D {
   const { filters, bias } = params.conv;
 
@@ -27,5 +27,5 @@ export function convNoRelu(x: tf.Tensor4D, params: ConvLayerParams) {
 }
 
 export function convDown(x: tf.Tensor4D, params: ConvLayerParams) {
-  return convLayer(x, params, [2, 2], true, "valid");
+  return convLayer(x, params, [2, 2], true, 'valid');
 }

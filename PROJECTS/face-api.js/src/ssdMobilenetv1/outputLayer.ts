@@ -1,6 +1,6 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
-import { OutputLayerParams } from "./types";
+import { OutputLayerParams } from './types';
 
 function getCenterCoordinatesAndSizesLayer(x: tf.Tensor2D) {
   const vec = tf.unstack(tf.transpose(x, [1, 0]));

@@ -1,31 +1,31 @@
 import {
   TfjsImageRecognitionBase,
   TNetInput,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { FaceDetection } from "../classes/FaceDetection";
+import { FaceDetection } from '../classes/FaceDetection';
 import {
   extendWithFaceDetection,
   WithFaceDetection,
-} from "../factories/WithFaceDetection";
-import { MtcnnOptions } from "../mtcnn/MtcnnOptions";
-import { SsdMobilenetv1Options } from "../ssdMobilenetv1/SsdMobilenetv1Options";
-import { TinyFaceDetectorOptions } from "../tinyFaceDetector/TinyFaceDetectorOptions";
-import { ComposableTask } from "./ComposableTask";
+} from '../factories/WithFaceDetection';
+import { MtcnnOptions } from '../mtcnn/MtcnnOptions';
+import { SsdMobilenetv1Options } from '../ssdMobilenetv1/SsdMobilenetv1Options';
+import { TinyFaceDetectorOptions } from '../tinyFaceDetector/TinyFaceDetectorOptions';
+import { ComposableTask } from './ComposableTask';
 import {
   DetectAllFaceLandmarksTask,
   DetectSingleFaceLandmarksTask,
-} from "./DetectFaceLandmarksTasks";
-import { nets } from "./nets";
+} from './DetectFaceLandmarksTasks';
+import { nets } from './nets';
 import {
   PredictAllAgeAndGenderTask,
   PredictSingleAgeAndGenderTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 import {
   PredictAllFaceExpressionsTask,
   PredictSingleFaceExpressionsTask,
-} from "./PredictFaceExpressionsTask";
-import { FaceDetectionOptions } from "./types";
+} from './PredictFaceExpressionsTask';
+import { FaceDetectionOptions } from './types';
 
 export class DetectFacesTaskBase<TReturn> extends ComposableTask<TReturn> {
   constructor(
@@ -58,7 +58,7 @@ export class DetectAllFacesTask extends DetectFacesTaskBase<FaceDetection[]> {
 
     if (!faceDetectionFunction) {
       throw new Error(
-        "detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options"
+        'detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options'
       );
     }
 

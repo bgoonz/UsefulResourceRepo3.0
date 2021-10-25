@@ -1,4 +1,4 @@
-import { defaultEquals, DOES_NOT_EXIST, IEqualsFunction } from "../../util";
+import { defaultEquals, DOES_NOT_EXIST, IEqualsFunction } from '../../util';
 
 export function sequentialSearch<T>(
   array: T[],

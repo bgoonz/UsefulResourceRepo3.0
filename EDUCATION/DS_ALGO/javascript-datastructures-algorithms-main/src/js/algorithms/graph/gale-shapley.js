@@ -1,5 +1,5 @@
 class Person {
-  constructor(id, gender, ranks, rankIndex, status = "single") {
+  constructor(id, gender, ranks, rankIndex, status = 'single') {
     this.id = id;
     this.gender = gender;
     this.ranks = ranks;
@@ -16,15 +16,15 @@ function galeShapley(proposers, reviewers) {
       let rid = p.ranks[p.i];
       let r = reviewers.get(rid);
       p.i++;
-      if (r.status === "single") {
-        r.status = "engaged";
+      if (r.status === 'single') {
+        r.status = 'engaged';
         r.partner = p;
         p.partner = r;
         perfectMatching.set(pid, rid);
         proposers.delete(pid);
         break;
       } else if (
-        r.status === "engaged" &&
+        r.status === 'engaged' &&
         r.ranks.get(pid) < r.ranks.get(r.partner.id)
       ) {
         perfectMatching.delete(r.partner.id);
@@ -53,7 +53,7 @@ function createPeople(n, gender, set) {
     let p;
     for (let i = 0; i < n; i++) ranks[i] = i;
     shuffle(ranks);
-    if (gender == "w") {
+    if (gender == 'w') {
       let wRanks = new Map();
       for (let i = 0; i < n; i++) wRanks.set(i, ranks[i]);
       p = new Person(id, g, wRanks, null);
@@ -74,7 +74,7 @@ function shuffle(array) {
   }
 }
 
-createPeople(4, "m", men);
-createPeople(4, "w", women);
+createPeople(4, 'm', men);
+createPeople(4, 'w', women);
 let stableMatching = galeShapley(men, women);
 console.log(stableMatching);

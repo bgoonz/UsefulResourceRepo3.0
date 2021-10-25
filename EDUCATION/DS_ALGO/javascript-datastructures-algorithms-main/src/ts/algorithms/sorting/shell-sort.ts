@@ -1,4 +1,4 @@
-import { Compare, defaultCompare } from "../../util";
+import { Compare, defaultCompare } from '../../util';
 
 export function shellSort<T>(array: T[], compareFn = defaultCompare) {
   let increment = array.length / 2;

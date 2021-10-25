@@ -4,7 +4,7 @@ export function sudokuSolver(grid: Array<Array<number>>) {
   if (solveSudoku(grid) === true) {
     return grid;
   } else {
-    return "NO SOLUTION EXISTS!";
+    return 'NO SOLUTION EXISTS!';
   }
 }
 

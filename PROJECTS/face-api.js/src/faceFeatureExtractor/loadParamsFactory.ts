@@ -1,7 +1,7 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
-import { loadConvParamsFactory } from "../common/loadConvParamsFactory";
-import { DenseBlock3Params, DenseBlock4Params } from "./types";
+import { loadConvParamsFactory } from '../common/loadConvParamsFactory';
+import { DenseBlock3Params, DenseBlock4Params } from './types';
 
 export function loadParamsFactory(
   weightMap: any,

@@ -1,4 +1,4 @@
-import DoublyLinkedList from "./doubly-linked-list";
+import DoublyLinkedList from './doubly-linked-list';
 
 export default class StackLinkedList<T> {
   private items: DoublyLinkedList<T>;

@@ -3,7 +3,7 @@ layout: page
 title: Express database integration
 menu: guide
 lang: en
-redirect_from: "/guide/database-integration.html"
+redirect_from: '/guide/database-integration.html'
 ---
 
 # Database integration
@@ -42,10 +42,10 @@ $ npm install cassandra-driver
 ### Example
 
 ```js
-var cassandra = require("cassandra-driver");
-var client = new cassandra.Client({ contactPoints: ["localhost"] });
+var cassandra = require('cassandra-driver');
+var client = new cassandra.Client({ contactPoints: ['localhost'] });
 
-client.execute("select key from system.local", function (err, result) {
+client.execute('select key from system.local', function (err, result) {
   if (err) throw err;
   console.log(result.rows[0]);
 });
@@ -64,15 +64,15 @@ $ npm install couchbase
 ### Example
 
 ```js
-var couchbase = require("couchbase");
-var bucket = new couchbase.Cluster("http://localhost:8091").openBucket(
-  "bucketName"
+var couchbase = require('couchbase');
+var bucket = new couchbase.Cluster('http://localhost:8091').openBucket(
+  'bucketName'
 );
 
 // add a document to a bucket
 bucket.insert(
-  "document-key",
-  { name: "Matt", shoeSize: 13 },
+  'document-key',
+  { name: 'Matt', shoeSize: 13 },
   function (err, result) {
     if (err) {
       console.log(err);
@@ -83,7 +83,7 @@ bucket.insert(
 );
 
 // get all documents with shoe size 13
-var n1ql = "SELECT d.* FROM `bucketName` d WHERE shoeSize = $1";
+var n1ql = 'SELECT d.* FROM `bucketName` d WHERE shoeSize = $1';
 var query = N1qlQuery.fromString(n1ql);
 bucket.query(query, [13], function (err, result) {
   if (err) {
@@ -107,12 +107,12 @@ $ npm install nano
 ### Example
 
 ```js
-var nano = require("nano")("http://localhost:5984");
-nano.db.create("books");
-var books = nano.db.use("books");
+var nano = require('nano')('http://localhost:5984');
+nano.db.create('books');
+var books = nano.db.use('books');
 
 // Insert a book document in the books database
-books.insert({ name: "The Art of war" }, null, function (err, body) {
+books.insert({ name: 'The Art of war' }, null, function (err, body) {
   if (err) {
     console.log(err);
   } else {
@@ -143,16 +143,16 @@ $ npm install level levelup leveldown
 ### Example
 
 ```js
-var levelup = require("levelup");
-var db = levelup("./mydb");
+var levelup = require('levelup');
+var db = levelup('./mydb');
 
-db.put("name", "LevelUP", function (err) {
-  if (err) return console.log("Ooops!", err);
+db.put('name', 'LevelUP', function (err) {
+  if (err) return console.log('Ooops!', err);
 
-  db.get("name", function (err, value) {
-    if (err) return console.log("Ooops!", err);
+  db.get('name', function (err, value) {
+    if (err) return console.log('Ooops!', err);
 
-    console.log("name=" + value);
+    console.log('name=' + value);
   });
 });
 ```
@@ -170,20 +170,20 @@ $ npm install mysql
 ### Example
 
 ```js
-var mysql = require("mysql");
+var mysql = require('mysql');
 var connection = mysql.createConnection({
-  host: "localhost",
-  user: "dbuser",
-  password: "s3kreee7",
-  database: "my_db",
+  host: 'localhost',
+  user: 'dbuser',
+  password: 's3kreee7',
+  database: 'my_db',
 });
 
 connection.connect();
 
-connection.query("SELECT 1 + 1 AS solution", function (err, rows, fields) {
+connection.query('SELECT 1 + 1 AS solution', function (err, rows, fields) {
   if (err) throw err;
 
-  console.log("The solution is: ", rows[0].solution);
+  console.log('The solution is: ', rows[0].solution);
 });
 
 connection.end();
@@ -202,12 +202,12 @@ $ npm install mongodb
 ### Example (v2.\*)
 
 ```js
-var MongoClient = require("mongodb").MongoClient;
+var MongoClient = require('mongodb').MongoClient;
 
-MongoClient.connect("mongodb://localhost:27017/animals", function (err, db) {
+MongoClient.connect('mongodb://localhost:27017/animals', function (err, db) {
   if (err) throw err;
 
-  db.collection("mammals")
+  db.collection('mammals')
     .find()
     .toArray(function (err, result) {
       if (err) throw err;
@@ -220,16 +220,16 @@ MongoClient.connect("mongodb://localhost:27017/animals", function (err, db) {
 ### Example (v3.\*)
 
 ```js
-var MongoClient = require("mongodb").MongoClient;
+var MongoClient = require('mongodb').MongoClient;
 
 MongoClient.connect(
-  "mongodb://localhost:27017/animals",
+  'mongodb://localhost:27017/animals',
   function (err, client) {
     if (err) throw err;
 
-    var db = client.db("animals");
+    var db = client.db('animals');
 
-    db.collection("mammals")
+    db.collection('mammals')
       .find()
       .toArray(function (err, result) {
         if (err) throw err;
@@ -255,19 +255,19 @@ $ npm install neo4j-driver
 ### Example
 
 ```js
-var neo4j = require("neo4j-driver");
+var neo4j = require('neo4j-driver');
 var driver = neo4j.driver(
-  "neo4j://localhost:7687",
-  neo4j.auth.basic("neo4j", "letmein")
+  'neo4j://localhost:7687',
+  neo4j.auth.basic('neo4j', 'letmein')
 );
 
 var session = driver.session();
 
 session.readTransaction(function (tx) {
   return tx
-    .run("MATCH (n) RETURN count(n) AS count")
+    .run('MATCH (n) RETURN count(n) AS count')
     .then(function (res) {
-      console.log(res.records[0].get("count"));
+      console.log(res.records[0].get('count'));
     })
     .catch(function (error) {
       console.log(error);
@@ -290,11 +290,11 @@ $ npm install oracledb
 ### Example
 
 ```js
-const oracledb = require("oracledb");
+const oracledb = require('oracledb');
 const config = {
-  user: "<your db user>",
-  password: "<your db password>",
-  connectString: "localhost:1521/orcl",
+  user: '<your db user>',
+  password: '<your db password>',
+  connectString: 'localhost:1521/orcl',
 };
 
 async function getEmployee(empId) {
@@ -304,13 +304,13 @@ async function getEmployee(empId) {
     conn = await oracledb.getConnection(config);
 
     const result = await conn.execute(
-      "select * from employees where employee_id = :id",
+      'select * from employees where employee_id = :id',
       [empId]
     );
 
     console.log(result.rows[0]);
   } catch (err) {
-    console.log("Ouch!", err);
+    console.log('Ouch!', err);
   } finally {
     if (conn) {
       // conn assignment worked, need to close
@@ -335,15 +335,15 @@ $ npm install pg-promise
 ### Example
 
 ```js
-var pgp = require("pg-promise")(/* options */);
-var db = pgp("postgres://username:password@host:port/database");
+var pgp = require('pg-promise')(/* options */);
+var db = pgp('postgres://username:password@host:port/database');
 
-db.one("SELECT $1 AS value", 123)
+db.one('SELECT $1 AS value', 123)
   .then(function (data) {
-    console.log("DATA:", data.value);
+    console.log('DATA:', data.value);
   })
   .catch(function (error) {
-    console.log("ERROR:", error);
+    console.log('ERROR:', error);
   });
 ```
 
@@ -360,22 +360,22 @@ $ npm install redis
 ### Example
 
 ```js
-var redis = require("redis");
+var redis = require('redis');
 var client = redis.createClient();
 
-client.on("error", function (err) {
-  console.log("Error " + err);
+client.on('error', function (err) {
+  console.log('Error ' + err);
 });
 
-client.set("string key", "string val", redis.print);
-client.hset("hash key", "hashtest 1", "some value", redis.print);
-client.hset(["hash key", "hashtest 2", "some other value"], redis.print);
+client.set('string key', 'string val', redis.print);
+client.hset('hash key', 'hashtest 1', 'some value', redis.print);
+client.hset(['hash key', 'hashtest 2', 'some other value'], redis.print);
 
-client.hkeys("hash key", function (err, replies) {
-  console.log(replies.length + " replies:");
+client.hkeys('hash key', function (err, replies) {
+  console.log(replies.length + ' replies:');
 
   replies.forEach(function (reply, i) {
-    console.log("    " + i + ": " + reply);
+    console.log('    ' + i + ': ' + reply);
   });
 
   client.quit();
@@ -395,23 +395,23 @@ $ npm install tedious
 ### Example
 
 ```js
-var Connection = require("tedious").Connection;
-var Request = require("tedious").Request;
+var Connection = require('tedious').Connection;
+var Request = require('tedious').Request;
 
 var config = {
-  server: "localhost",
+  server: 'localhost',
   authentication: {
-    type: "default",
+    type: 'default',
     options: {
-      userName: "your_username", // update me
-      password: "your_password", // update me
+      userName: 'your_username', // update me
+      password: 'your_password', // update me
     },
   },
 };
 
 var connection = new Connection(config);
 
-connection.on("connect", function (err) {
+connection.on('connect', function (err) {
   if (err) {
     console.log(err);
   } else {
@@ -424,15 +424,15 @@ function executeStatement() {
     if (err) {
       console.log(err);
     } else {
-      console.log(rowCount + " rows");
+      console.log(rowCount + ' rows');
     }
     connection.close();
   });
 
-  request.on("row", function (columns) {
+  request.on('row', function (columns) {
     columns.forEach(function (column) {
       if (column.value === null) {
-        console.log("NULL");
+        console.log('NULL');
       } else {
         console.log(column.value);
       }
@@ -456,21 +456,21 @@ $ npm install sqlite3
 ### Example
 
 ```js
-var sqlite3 = require("sqlite3").verbose();
-var db = new sqlite3.Database(":memory:");
+var sqlite3 = require('sqlite3').verbose();
+var db = new sqlite3.Database(':memory:');
 
 db.serialize(function () {
-  db.run("CREATE TABLE lorem (info TEXT)");
-  var stmt = db.prepare("INSERT INTO lorem VALUES (?)");
+  db.run('CREATE TABLE lorem (info TEXT)');
+  var stmt = db.prepare('INSERT INTO lorem VALUES (?)');
 
   for (var i = 0; i < 10; i++) {
-    stmt.run("Ipsum " + i);
+    stmt.run('Ipsum ' + i);
   }
 
   stmt.finalize();
 
-  db.each("SELECT rowid AS id, info FROM lorem", function (err, row) {
-    console.log(row.id + ": " + row.info);
+  db.each('SELECT rowid AS id, info FROM lorem', function (err, row) {
+    console.log(row.id + ': ' + row.info);
   });
 });
 
@@ -490,20 +490,20 @@ $ npm install elasticsearch
 ### Example
 
 ```js
-var elasticsearch = require("elasticsearch");
+var elasticsearch = require('elasticsearch');
 var client = elasticsearch.Client({
-  host: "localhost:9200",
+  host: 'localhost:9200',
 });
 
 client
   .search({
-    index: "books",
-    type: "book",
+    index: 'books',
+    type: 'book',
     body: {
       query: {
         multi_match: {
-          query: "express js",
-          fields: ["title", "description"],
+          query: 'express js',
+          fields: ['title', 'description'],
         },
       },
     },

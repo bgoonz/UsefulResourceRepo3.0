@@ -1,5 +1,5 @@
-import { defaultEquals, IEqualsFunction } from "../util";
-import { Node } from "./models/linked-list-models";
+import { defaultEquals, IEqualsFunction } from '../util';
+import { Node } from './models/linked-list-models';
 
 export default class LinkedList<T> {
   protected count = 0;
@@ -110,7 +110,7 @@ export default class LinkedList<T> {
 
   toString() {
     if (this.head == null) {
-      return "";
+      return '';
     }
     let objString = `${this.head.element}`;
     let current = this.head.next;

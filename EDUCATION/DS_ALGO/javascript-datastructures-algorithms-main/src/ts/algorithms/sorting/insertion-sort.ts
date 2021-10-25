@@ -1,4 +1,4 @@
-import { Compare, defaultCompare } from "../../util";
+import { Compare, defaultCompare } from '../../util';
 
 export const insertionSort = (array: any[], compareFn = defaultCompare) => {
   const { length } = array;

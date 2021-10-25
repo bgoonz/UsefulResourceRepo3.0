@@ -1,5 +1,5 @@
-import "mocha";
-import { expect } from "chai";
+import 'mocha';
+import { expect } from 'chai';
 
 const customEquals = ({ key }, { key }) => key === key;
 
@@ -19,21 +19,21 @@ export function testSearchAlgorithm(
       return array;
     }
 
-    it("works with empty arrays", () => {
+    it('works with empty arrays', () => {
       expect(searchAlgorithm([], 1)).to.equal(-1);
     });
 
-    it("finds value at the first position", () => {
+    it('finds value at the first position', () => {
       const array = createSortedArray();
       expect(searchAlgorithm(array, 1)).to.equal(0);
     });
 
-    it("finds value at the last position", () => {
+    it('finds value at the last position', () => {
       const array = createSortedArray();
       expect(searchAlgorithm(array, SIZE)).to.equal(SIZE - 1);
     });
 
-    it("finds value at different positions", () => {
+    it('finds value at different positions', () => {
       const array = createSortedArray();
 
       for (let value = 1; value <= SIZE; value++) {
@@ -42,7 +42,7 @@ export function testSearchAlgorithm(
     });
 
     if (config.customEquals) {
-      it("finds value with custom equals function", () => {
+      it('finds value with custom equals function', () => {
         const array = [{ key: 1 }, { key: 2 }, { key: 3 }];
         expect(searchAlgorithm(array, { key: 2 }, customEquals)).to.equal(1);
       });

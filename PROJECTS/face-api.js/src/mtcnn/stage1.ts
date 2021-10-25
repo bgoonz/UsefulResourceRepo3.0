@@ -1,16 +1,16 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   BoundingBox,
   nonMaxSuppression,
   Point,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 
-import { CELL_SIZE, CELL_STRIDE } from "./config";
-import { getSizesForScale } from "./getSizesForScale";
-import { MtcnnBox } from "./MtcnnBox";
-import { normalize } from "./normalize";
-import { PNet } from "./PNet";
-import { PNetParams } from "./types";
+import { CELL_SIZE, CELL_STRIDE } from './config';
+import { getSizesForScale } from './getSizesForScale';
+import { MtcnnBox } from './MtcnnBox';
+import { normalize } from './normalize';
+import { PNet } from './PNet';
+import { PNetParams } from './types';
 
 function rescaleAndNormalize(x: tf.Tensor4D, scale: number): tf.Tensor4D {
   return tf.tidy(() => {

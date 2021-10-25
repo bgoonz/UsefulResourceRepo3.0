@@ -1,8 +1,8 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
-import { boxPredictionLayer } from "./boxPredictionLayer";
-import { pointwiseConvLayer } from "./pointwiseConvLayer";
-import { PredictionLayerParams } from "./types";
+import { boxPredictionLayer } from './boxPredictionLayer';
+import { pointwiseConvLayer } from './pointwiseConvLayer';
+import { PredictionLayerParams } from './types';
 
 export function predictionLayer(
   x: tf.Tensor4D,

@@ -73,33 +73,33 @@
 
       function onSlower() {
         interval = Math.min(interval + 100, 2000);
-        $("#interval").val(interval);
+        $('#interval').val(interval);
       }
 
       function onFaster() {
         interval = Math.max(interval - 100, 0);
-        $("#interval").val(interval);
+        $('#interval').val(interval);
       }
 
       function onToggleStop() {
         clearTimeout(to);
         isStop = !isStop;
-        document.getElementById("stop").innerHTML = isStop
-          ? "Continue"
-          : "Stop";
-        setStatusText(isStop ? "stopped" : "running face recognition:");
+        document.getElementById('stop').innerHTML = isStop
+          ? 'Continue'
+          : 'Stop';
+        setStatusText(isStop ? 'stopped' : 'running face recognition:');
         if (!isStop) {
           runFaceRecognition();
         }
       }
 
       function setStatusText(text) {
-        $("#status").val(text);
+        $('#status').val(text);
       }
 
       function displayTimeStats(timeInMs) {
-        $("#time").val(`${timeInMs} ms`);
-        $("#fps").val(`${faceapi.round(1000 / timeInMs)}`);
+        $('#time').val(`${timeInMs} ms`);
+        $('#fps').val(`${faceapi.round(1000 / timeInMs)}`);
       }
 
       function displayImage(src) {
@@ -111,7 +111,7 @@
           const input = await faceapi.fetchImage(
             getFaceImageUri(classes[currClassIdx], currImageIdx)
           );
-          const imgEl = $("#face").get(0);
+          const imgEl = $('#face').get(0);
           imgEl.src = input.src;
 
           const ts = Date.now();
@@ -119,7 +119,7 @@
           displayTimeStats(Date.now() - ts);
 
           const bestMatch = faceMatcher.findBestMatch(descriptor);
-          $("#prediction").val(bestMatch.toString());
+          $('#prediction').val(bestMatch.toString());
 
           currImageIdx =
             currClassIdx === classes.length - 1
@@ -135,14 +135,14 @@
 
       async function run() {
         try {
-          setStatusText("loading model file...");
+          setStatusText('loading model file...');
 
-          await faceapi.loadFaceRecognitionModel("/");
+          await faceapi.loadFaceRecognitionModel('/');
 
-          setStatusText("computing initial descriptors...");
+          setStatusText('computing initial descriptors...');
 
           faceMatcher = await createBbtFaceMatcher(1);
-          $("#loader").hide();
+          $('#loader').hide();
 
           runFaceRecognition();
         } catch (err) {
@@ -151,7 +151,7 @@
       }
 
       $(document).ready(function () {
-        renderNavBar("#navbar", "bbt_face_matching");
+        renderNavBar('#navbar', 'bbt_face_matching');
         run();
       });
     </script>

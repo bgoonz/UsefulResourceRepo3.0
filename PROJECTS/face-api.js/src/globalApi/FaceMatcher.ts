@@ -1,7 +1,7 @@
-import { FaceMatch } from "../classes/FaceMatch";
-import { LabeledFaceDescriptors } from "../classes/LabeledFaceDescriptors";
-import { euclideanDistance } from "../euclideanDistance";
-import { WithFaceDescriptor } from "../factories";
+import { FaceMatch } from '../classes/FaceMatch';
+import { LabeledFaceDescriptors } from '../classes/LabeledFaceDescriptors';
+import { euclideanDistance } from '../euclideanDistance';
+import { WithFaceDescriptor } from '../factories';
 
 export class FaceMatcher {
   private _labeledDescriptors: LabeledFaceDescriptors[];
@@ -83,6 +83,6 @@ export class FaceMatcher {
     const bestMatch = this.matchDescriptor(queryDescriptor);
     return bestMatch.distance < this.distanceThreshold
       ? bestMatch
-      : new FaceMatch("unknown", bestMatch.distance);
+      : new FaceMatch('unknown', bestMatch.distance);
   }
 }

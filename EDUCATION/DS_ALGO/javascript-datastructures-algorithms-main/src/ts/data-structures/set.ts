@@ -105,7 +105,7 @@ export default class Set<T> {
 
   toString() {
     if (this.isEmpty()) {
-      return "";
+      return '';
     }
     const values = this.values();
     let objString = `${values[0]}`;

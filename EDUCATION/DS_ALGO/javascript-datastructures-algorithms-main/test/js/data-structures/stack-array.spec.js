@@ -1,20 +1,20 @@
-import "mocha";
-import { expect } from "chai";
-import StackArray from "../../../src/js/data-structures/stack-array";
+import 'mocha';
+import { expect } from 'chai';
+import StackArray from '../../../src/js/data-structures/stack-array';
 
-describe("StackArray", () => {
+describe('StackArray', () => {
   let stack;
 
   beforeEach(() => {
     stack = new StackArray();
   });
 
-  it("starts empty", () => {
+  it('starts empty', () => {
     expect(stack.size()).to.equal(0);
     expect(stack.isEmpty()).to.equal(true);
   });
 
-  it("pushes elements", () => {
+  it('pushes elements', () => {
     stack.push(1);
     expect(stack.size()).to.equal(1);
     stack.push(2);
@@ -25,7 +25,7 @@ describe("StackArray", () => {
     expect(stack.isEmpty()).to.equal(false);
   });
 
-  it("pops elements", () => {
+  it('pops elements', () => {
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -36,7 +36,7 @@ describe("StackArray", () => {
     expect(stack.pop()).to.equal(undefined);
   });
 
-  it("implements LIFO logic", () => {
+  it('implements LIFO logic', () => {
     stack.push(1);
     stack.push(2);
     stack.push(3);
@@ -47,7 +47,7 @@ describe("StackArray", () => {
     expect(stack.pop()).to.equal(undefined);
   });
 
-  it("allows to peek at the top element in he stack without popping it", () => {
+  it('allows to peek at the top element in he stack without popping it', () => {
     expect(stack.peek()).to.equal(undefined);
 
     stack.push(1);
@@ -60,7 +60,7 @@ describe("StackArray", () => {
     expect(stack.peek()).to.equal(1);
   });
 
-  it("returns the correct size", () => {
+  it('returns the correct size', () => {
     expect(stack.size()).to.equal(0);
     stack.push(1);
     expect(stack.size()).to.equal(1);
@@ -86,7 +86,7 @@ describe("StackArray", () => {
     expect(stack.size()).to.equal(0);
   });
 
-  it("returns if it is empty", () => {
+  it('returns if it is empty', () => {
     expect(stack.isEmpty()).to.equal(true);
     stack.push(1);
     expect(stack.isEmpty()).to.equal(false);
@@ -112,7 +112,7 @@ describe("StackArray", () => {
     expect(stack.isEmpty()).to.equal(true);
   });
 
-  it("clears the stack", () => {
+  it('clears the stack', () => {
     stack.clear();
     expect(stack.isEmpty()).to.equal(true);
 
@@ -123,7 +123,7 @@ describe("StackArray", () => {
     expect(stack.isEmpty()).to.equal(true);
   });
 
-  it("returns an Array", () => {
+  it('returns an Array', () => {
     let stackArray = stack.toArray();
     expect(stackArray.length).to.equal(0);
 
@@ -140,26 +140,26 @@ describe("StackArray", () => {
     });
   });
 
-  it("returns toString primitive types", () => {
-    expect(stack.toString()).to.equal("");
+  it('returns toString primitive types', () => {
+    expect(stack.toString()).to.equal('');
 
     stack.push(1);
-    expect(stack.toString()).to.equal("1");
+    expect(stack.toString()).to.equal('1');
 
     stack.push(2);
-    expect(stack.toString()).to.equal("1,2");
+    expect(stack.toString()).to.equal('1,2');
 
     stack.clear();
-    expect(stack.toString()).to.equal("");
+    expect(stack.toString()).to.equal('');
 
-    stack.push("el1");
-    expect(stack.toString()).to.equal("el1");
+    stack.push('el1');
+    expect(stack.toString()).to.equal('el1');
 
-    stack.push("el2");
-    expect(stack.toString()).to.equal("el1,el2");
+    stack.push('el2');
+    expect(stack.toString()).to.equal('el1,el2');
   });
 
-  it("returns toString objects", () => {
+  it('returns toString objects', () => {
     class MyObj {
       constructor(el1, el2) {
         this.el1 = el1;
@@ -170,12 +170,12 @@ describe("StackArray", () => {
         return `${this.el1.toString()}|${this.el2.toString()}`;
       }
     }
-    expect(stack.toString()).to.equal("");
+    expect(stack.toString()).to.equal('');
 
     stack.push(new MyObj(1, 2));
-    expect(stack.toString()).to.equal("1|2");
+    expect(stack.toString()).to.equal('1|2');
 
     stack.push(new MyObj(3, 4));
-    expect(stack.toString()).to.equal("1|2,3|4");
+    expect(stack.toString()).to.equal('1|2,3|4');
   });
 });

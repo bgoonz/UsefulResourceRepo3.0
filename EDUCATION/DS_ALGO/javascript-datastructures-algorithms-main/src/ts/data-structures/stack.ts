@@ -48,7 +48,7 @@ export default class Stack<T> {
 
   toString() {
     if (this.isEmpty()) {
-      return "";
+      return '';
     }
     let objString = `${this.items[0]}`;
     for (let i = 1; i < this.count; i++) {

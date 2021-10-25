@@ -4,8 +4,8 @@ import {
   defaultEquals,
   ICompareFunction,
   IEqualsFunction,
-} from "../util";
-import LinkedList from "./linked-list";
+} from '../util';
+import LinkedList from './linked-list';
 
 export default class SortedLinkedList<T> extends LinkedList<T> {
   constructor(

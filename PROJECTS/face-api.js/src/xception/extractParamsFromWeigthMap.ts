@@ -1,12 +1,12 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase, range } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase, range } from 'tfjs-image-recognition-base';
 
-import { loadConvParamsFactory } from "../common/loadConvParamsFactory";
+import { loadConvParamsFactory } from '../common/loadConvParamsFactory';
 import {
   MainBlockParams,
   ReductionBlockParams,
   TinyXceptionParams,
-} from "./types";
+} from './types';
 
 function loadParamsFactory(
   weightMap: any,
@@ -73,12 +73,12 @@ export function extractParamsFromWeigthMap(
     extractMainBlockParams,
   } = loadParamsFactory(weightMap, paramMappings);
 
-  const entry_flow_conv_in = extractConvParams("entry_flow/conv_in");
+  const entry_flow_conv_in = extractConvParams('entry_flow/conv_in');
   const entry_flow_reduction_block_0 = extractReductionBlockParams(
-    "entry_flow/reduction_block_0"
+    'entry_flow/reduction_block_0'
   );
   const entry_flow_reduction_block_1 = extractReductionBlockParams(
-    "entry_flow/reduction_block_1"
+    'entry_flow/reduction_block_1'
   );
 
   const entry_flow = {
@@ -95,10 +95,10 @@ export function extractParamsFromWeigthMap(
   });
 
   const exit_flow_reduction_block = extractReductionBlockParams(
-    "exit_flow/reduction_block"
+    'exit_flow/reduction_block'
   );
   const exit_flow_separable_conv = extractSeparableConvParams(
-    "exit_flow/separable_conv"
+    'exit_flow/separable_conv'
   );
 
   const exit_flow = {

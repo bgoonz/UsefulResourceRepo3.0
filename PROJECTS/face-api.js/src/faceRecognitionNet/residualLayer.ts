@@ -1,7 +1,7 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
-import { conv, convDown, convNoRelu } from "./convLayer";
-import { ResidualLayerParams } from "./types";
+import { conv, convDown, convNoRelu } from './convLayer';
+import { ResidualLayerParams } from './types';
 
 export function residual(
   x: tf.Tensor4D,
@@ -21,7 +21,7 @@ export function residualDown(
   let out = convDown(x, params.conv1);
   out = convNoRelu(out, params.conv2);
 
-  let pooled = tf.avgPool(x, 2, 2, "valid") as tf.Tensor4D;
+  let pooled = tf.avgPool(x, 2, 2, 'valid') as tf.Tensor4D;
   const zeros = tf.zeros<tf.Rank.R4>(pooled.shape);
   const isPad = pooled.shape[3] !== out.shape[3];
   const isAdjustShape =

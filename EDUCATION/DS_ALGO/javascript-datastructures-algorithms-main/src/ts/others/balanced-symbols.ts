@@ -1,9 +1,9 @@
-import Stack from "../data-structures/stack";
+import Stack from '../data-structures/stack';
 
 export function parenthesesChecker(symbols: string) {
   const stack = new Stack<string>();
-  const opens = "([{";
-  const closers = ")]}";
+  const opens = '([{';
+  const closers = ')]}';
   let balanced = true;
   let index = 0;
   let symbol: string;

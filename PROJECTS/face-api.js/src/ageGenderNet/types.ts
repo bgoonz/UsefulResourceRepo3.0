@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 
 export type AgeAndGenderPrediction = {
   age: number;
@@ -8,8 +8,8 @@ export type AgeAndGenderPrediction = {
 };
 
 export enum Gender {
-  FEMALE = "female",
-  MALE = "male",
+  FEMALE = 'female',
+  MALE = 'male',
 }
 
 export type NetOutput = { age: tf.Tensor1D; gender: tf.Tensor2D };

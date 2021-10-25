@@ -1,4 +1,4 @@
-import Graph from "../../data-structures/graph";
+import Graph from '../../data-structures/graph';
 
 enum Colors {
   WHITE = 0,
@@ -20,7 +20,7 @@ const depthFirstSearchVisit = (
   adjList: any,
   callback: Function
 ) => {
-  color[u] = "grey";
+  color[u] = 'grey';
   if (callback) {
     callback(u);
   }

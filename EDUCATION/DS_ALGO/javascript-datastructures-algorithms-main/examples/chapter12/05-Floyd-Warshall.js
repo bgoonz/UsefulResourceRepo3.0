@@ -11,16 +11,16 @@ const graph = [
 ];
 
 console.log(
-  "********* Floyd-Warshall Algorithm - All-Pairs Shortest Path ***********"
+  '********* Floyd-Warshall Algorithm - All-Pairs Shortest Path ***********'
 );
 
 dist = floydWarshall(graph);
 
-let s = "";
+let s = '';
 for (let i = 0; i < dist.length; ++i) {
-  s = "";
+  s = '';
   for (let j = 0; j < dist.length; ++j) {
-    if (dist[i][j] === INF) s += "INF ";
+    if (dist[i][j] === INF) s += 'INF ';
     else s += `${dist[i][j]}   `;
   }
   console.log(s);

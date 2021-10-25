@@ -1,4 +1,4 @@
-import { Point } from "tfjs-image-recognition-base";
+import { Point } from 'tfjs-image-recognition-base';
 
 export const IOU_THRESHOLD = 0.4;
 
@@ -22,6 +22,6 @@ export const MEAN_RGB_SEPARABLE: [number, number, number] = [
   117.001, 114.697, 97.404,
 ];
 
-export const DEFAULT_MODEL_NAME = "tiny_yolov2_model";
+export const DEFAULT_MODEL_NAME = 'tiny_yolov2_model';
 export const DEFAULT_MODEL_NAME_SEPARABLE_CONV =
-  "tiny_yolov2_separable_conv_model";
+  'tiny_yolov2_separable_conv_model';

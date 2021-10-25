@@ -1,29 +1,29 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { TNetInput } from "tfjs-image-recognition-base";
+import * as tf from '@tensorflow/tfjs-core';
+import { TNetInput } from 'tfjs-image-recognition-base';
 
-import { FaceExpressions } from "../faceExpressionNet/FaceExpressions";
-import { WithFaceDetection } from "../factories/WithFaceDetection";
+import { FaceExpressions } from '../faceExpressionNet/FaceExpressions';
+import { WithFaceDetection } from '../factories/WithFaceDetection';
 import {
   extendWithFaceExpressions,
   WithFaceExpressions,
-} from "../factories/WithFaceExpressions";
-import { WithFaceLandmarks } from "../factories/WithFaceLandmarks";
-import { ComposableTask } from "./ComposableTask";
+} from '../factories/WithFaceExpressions';
+import { WithFaceLandmarks } from '../factories/WithFaceLandmarks';
+import { ComposableTask } from './ComposableTask';
 import {
   ComputeAllFaceDescriptorsTask,
   ComputeSingleFaceDescriptorTask,
-} from "./ComputeFaceDescriptorsTasks";
+} from './ComputeFaceDescriptorsTasks';
 import {
   extractAllFacesAndComputeResults,
   extractSingleFaceAndComputeResult,
-} from "./extractFacesAndComputeResults";
-import { nets } from "./nets";
+} from './extractFacesAndComputeResults';
+import { nets } from './nets';
 import {
   PredictAllAgeAndGenderTask,
   PredictAllAgeAndGenderWithFaceAlignmentTask,
   PredictSingleAgeAndGenderTask,
   PredictSingleAgeAndGenderWithFaceAlignmentTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 
 export class PredictFaceExpressionsTaskBase<
   TReturn,

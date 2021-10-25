@@ -1,4 +1,4 @@
-import { defaultCompare, Compare } from "../../util";
+import { defaultCompare, Compare } from '../../util';
 
 export function findMaxValue<T>(array: T[], compareFn = defaultCompare) {
   if (array && array.length > 0) {
