@@ -1,0 +1,1126 @@
+<html>
+
+<head>
+<meta http-equiv=Content-Type content="text/html; charset=windows-1252">
+<meta name=Generator content="Microsoft Word 15 (filtered)">
+<style>
+<!--
+ /* Font Definitions */
+ @font-face
+	{font-family:Wingdings;
+	panose-1:5 0 0 0 0 0 0 0 0 0;}
+@font-face
+	{font-family:"Cambria Math";
+	panose-1:2 4 5 3 5 4 6 3 2 4;}
+@font-face
+	{font-family:Calibri;
+	panose-1:2 15 5 2 2 2 4 3 2 4;}
+@font-face
+	{font-family:Kefa;}
+@font-face
+	{font-family:Consolas;
+	panose-1:2 11 6 9 2 2 4 3 2 4;}
+@font-face
+	{font-family:Menlo;}
+ /* Style Definitions */
+ p.MsoNormal, li.MsoNormal, div.MsoNormal
+	{margin:0in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+a:link, span.MsoHyperlink
+	{color:#0563C1;
+	text-decoration:underline;}
+p
+	{margin-right:0in;
+	margin-left:0in;
+	font-size:12.0pt;
+	font-family:"Times New Roman",serif;}
+code
+	{font-family:"Courier New";}
+pre
+	{mso-style-link:"HTML Preformatted Char";
+	margin:0in;
+	font-size:10.0pt;
+	font-family:"Courier New";}
+p.MsoListParagraph, li.MsoListParagraph, div.MsoListParagraph
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpFirst, li.MsoListParagraphCxSpFirst, div.MsoListParagraphCxSpFirst
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpMiddle, li.MsoListParagraphCxSpMiddle, div.MsoListParagraphCxSpMiddle
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+p.MsoListParagraphCxSpLast, li.MsoListParagraphCxSpLast, div.MsoListParagraphCxSpLast
+	{margin-top:0in;
+	margin-right:0in;
+	margin-bottom:0in;
+	margin-left:.5in;
+	font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+span.token
+	{mso-style-name:token;}
+span.HTMLPreformattedChar
+	{mso-style-name:"HTML Preformatted Char";
+	mso-style-link:"HTML Preformatted";
+	font-family:"Courier New";}
+.MsoChpDefault
+	{font-size:12.0pt;
+	font-family:"Calibri",sans-serif;}
+@page WordSection1
+	{size:8.5in 11.0in;
+	margin:.5in .5in .5in .5in;}
+div.WordSection1
+	{page:WordSection1;}
+ /* List Definitions */
+ ol
+	{margin-bottom:0in;}
+ul
+	{margin-bottom:0in;}
+-->
+</style>
+
+</head>
+
+<body lang=EN-US link="#0563C1" vlink="#954F72" style='word-wrap:break-word'>
+
+<div class=WordSection1>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'> </span><span style='font-size:20.0pt;
+font-family:Kefa'>Unit 2 Sprint 2</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'>React Components and Component States
+(Day 1)</span></u></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>React JS = a
+User Interface Component Library</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Not a framework
+but a library that renders UI really well</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>It is very
+scalable and reusable. Everything is a component</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Uses JSX that is
+a new language and is used to represent our HTML and can write JavaScript
+within it</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>In the
+package.json there are two react libraries; “react”: and “react-dom”:</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>“react”: is what
+we use to build react components; which is what we do 99% of the time</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>“react-dom”: is
+what we use to inject all of the react components into the div; only used once</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'><img width=308 height=103
+id="Picture 14" src="Unit%202%20Sprint%202_files/image001.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Install
+react to a fresh project:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+width=314 height=37 id="Picture 19"
+src="Unit%202%20Sprint%202_files/image002.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>In index.js
+you need to import react components and then attach the components to the DOM:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+width=315 height=56 id="Picture 15"
+src="Unit%202%20Sprint%202_files/image003.png"
+alt="A screenshot of a video game&#10;&#10;Description automatically generated with medium confidence"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'><img width=500 height=264
+id="Picture 16" src="Unit%202%20Sprint%202_files/image004.png"
+alt="Text, chat or text message&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'><img width=500 height=224
+id="Picture 23" src="Unit%202%20Sprint%202_files/image005.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><u><span style='font-size:10.0pt;font-family:Kefa'>Overview
+of the structure of React</span></u></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:10.0pt;font-family:Kefa'><span
+ style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+width=624 height=347 id="Picture 17"
+src="Unit%202%20Sprint%202_files/image006.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+width=624 height=323 id="Picture 22"
+src="Unit%202%20Sprint%202_files/image007.png"
+alt="Graphical user interface, text, application&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>The props are
+kind of like the parameters of a component. The component renders UI using
+props as raw material. Think of react as a library that helps you make
+functions that take data in the form of these props and return chunks of UI.</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:10.0pt;font-family:Kefa'>Ternary
+operators</span></u></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>            ? 
+is shorthand for if statement</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>            : 
+is the or</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Two ways to
+do the same if statement:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>1)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+width=375 height=68 id="Picture 33"
+src="Unit%202%20Sprint%202_files/image008.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated with medium confidence"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>2) Ternary
+Statement</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+width=240 height=42 id="Picture 34"
+src="Unit%202%20Sprint%202_files/image009.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated with medium confidence"></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:10.0pt;font-family:Kefa'>useState</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>A hook that
+allows you to have state variables in functional components</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Good practice to
+use the word “set” when naming the initial state of the component</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>The first
+parameter in the array is the current state value. The second parameter is the
+function that will allow you to update the state value.</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="https://reactjs.org/docs/hooks-state.html"><span
+style='font-size:10.0pt;font-family:Kefa'>More on state</span></a></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Using
+destructuring we can combine the top three lines into the bottom line:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=339 height=73 id="Picture 26"
+src="Unit%202%20Sprint%202_files/image010.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>So these are
+pieces of data that might change over time that are under the control of a
+component</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Adding a
+button event:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=471 height=38 id="Picture 28"
+src="Unit%202%20Sprint%202_files/image011.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=624 height=322 id="Picture 5"
+src="Unit%202%20Sprint%202_files/image012.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=459 height=310 id="Picture 31"
+src="Unit%202%20Sprint%202_files/image013.png"
+alt="A picture containing text, whiteboard&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>App needs to
+contain the bulk of the information so that it can flow to the children</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Flow of
+info:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>            Index.js
+contained an App component that rendered a Playground and into the Playground
+it injected a cohort number. Flowed from parent (App) to child (Playground). </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=312 height=176 id="Picture 29"
+src="Unit%202%20Sprint%202_files/image014.png"
+alt="Text&#10;&#10;Description automatically generated"><img border=0
+width=306 height=227 id="Picture 30"
+src="Unit%202%20Sprint%202_files/image015.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'>Composing React Components (Day 2)</span></u></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>Exporting
+Components</span></b></p>
+
+<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>A file can have
+any number of named exports but only one default</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=257 height=126 id="Picture 45"
+src="Unit%202%20Sprint%202_files/image016.png"
+alt="Text&#10;&#10;Description automatically generated"></span></b><b><span
+style='font-size:10.0pt;font-family:Kefa'>   </span></b><b><span
+style='font-size:10.0pt;font-family:Kefa'><img border=0 width=351 height=125
+id="Picture 44" src="Unit%202%20Sprint%202_files/image017.png"
+alt="Graphical user interface, text, application, chat or text message&#10;&#10;Description automatically generated"></span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=612 height=416 id="Picture 24"
+src="Unit%202%20Sprint%202_files/image018.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>You can pull
+everything from utils.js by using: <span style='background:yellow'>* as
+someWord</span>, then dot notate each item</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in'><span
+style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><u><span style='font-size:10.0pt;font-family:Kefa'>Props</span></u></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Props is an object
+and is used when we want to pass information held on state inside one component
+to another component</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Components
+rendered in a stateful component can receive state data via a props attribute</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>if we decide we
+want to make any change to our data&nbsp;we do not&nbsp;change the prop data
+itself. Instead, we send back what changes we should make to our state holding
+component; often, stored changes are sent back up to the parent container as
+enclosed information in a called function</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><a href="https://reactjs.org/docs/components-and-props.html"><span
+style='font-size:10.0pt;font-family:Kefa'>More on props</span></a></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal style='margin-left:.75in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>                 
+</span></p>
+
+<p class=MsoNormal style='line-height:150%'><span style='position:absolute;
+z-index:251661312;margin-left:166px;margin-top:415px;width:227px;height:48px'><img
+width=227 height=48 src="Unit%202%20Sprint%202_files/image019.png"
+alt="V   Function Executed Here"></span><span style='position:absolute;
+z-index:251662336;margin-left:366px;margin-top:130px;width:391px;height:181px'><img
+width=391 height=181 src="Unit%202%20Sprint%202_files/image020.png"
+alt="Flow of information&#13;&#10;Line #          Description                                                                                            .&#13;&#10;27	App component is rendered into an element&#13;&#10;8	App component, for specification, expects friends prop&#13;&#10;27	We inject the friends prop inside the instance&#13;&#10;11&amp;12	Greeter component is rendered into an element&#13;&#10;16	Greeter component, for specification, expects who prop&#13;&#10;19	We inject the who prop inside of the instance&#13;&#10;12	ThingEnumerator is rendered into an element&#13;&#10;22	ThingEnumerator, for specification, expects thing and count props&#13;&#10;23	We inject thing and count props inside the instance&#13;&#10;&#13;&#10;&#13;&#10;&#13;&#10;"></span><span
+style='position:absolute;z-index:251659264;margin-left:98px;margin-top:44px;
+width:225px;height:39px'><img width=225 height=39
+src="Unit%202%20Sprint%202_files/image021.png" alt="v   Function Declared Here"></span><span
+style='font-size:10.0pt;line-height:150%;font-family:Kefa'><img border=0
+width=720 height=468 id="Picture 35"
+src="Unit%202%20Sprint%202_files/image022.png"
+alt="Text&#10;&#10;Description automatically generated"></span><span
+style='font-size:10.0pt;line-height:150%;font-family:Kefa'>  </span></p>
+
+<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Using this
+attribute type syntax (where the function is executed) we inject any data into
+the App component (where function is declared)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Important to
+note the use of a component (left screen) and its declaration (right screen):</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'><img border=0 width=624 height=191
+id="Picture 38" src="Unit%202%20Sprint%202_files/image023.png"
+alt="A screenshot of a computer&#10;&#10;Description automatically generated with medium confidence"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>The word to the
+left of the = is going to be the word used in the declaration</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>*Try and
+keep your coding lines to 80 characters or less; if longer spit it into more
+lines</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Prop
+Drilling</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=335 height=269 id="Picture 61"
+src="Unit%202%20Sprint%202_files/image024.png"
+alt="Diagram&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoListParagraph style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>You can nest as
+far down as you want but ideally you only want to go about three levels deep
+(purples)</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Example of
+above picture:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=488 height=404 id="Picture 36"
+src="Unit%202%20Sprint%202_files/image025.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Copying a
+variable and then changing it:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=328 height=293 id="Picture 11"
+src="Unit%202%20Sprint%202_files/image026.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Highlighting
+the declared use and the executed use of friendObj: </span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=680 height=327 id="Picture 12"
+src="Unit%202%20Sprint%202_files/image027.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>If
+currentFriendId is truthy the details will run</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=624 height=38 id="Picture 74"
+src="Unit%202%20Sprint%202_files/image028.png"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'>Composing Side Effects (Day 3)</span></u></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>useEffect</span></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>It’s an effect
+hook that tells React that a component needs to run, or execute, some side
+effect after React has finished updating the DOM</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:1.0in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Add a dependency
+array to the effect hook when we want the effect to fire off once as the
+component mounts but not any other times during the life of the component</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=624 height=310 id="Picture 64"
+src="Unit%202%20Sprint%202_files/image029.png"
+alt="Graphical user interface, text, application, email&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Make an
+effect that happens to particular changes in the data:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=661 height=367 id="Picture 66"
+src="Unit%202%20Sprint%202_files/image030.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>This only
+renders the User component if the current state of number is less than 4:</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=383 height=111 id="Picture 37"
+src="Unit%202%20Sprint%202_files/image031.png"
+alt="Text&#10;&#10;Description automatically generated"></span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>Network
+request using hooks</span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Using effect
+(with [id] at the end) specifies that we only want it to pull all of the data
+when the id (in this case) changes:</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'><img border=0 width=337 height=219
+id="Picture 68" src="Unit%202%20Sprint%202_files/image032.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>You can pull
+the useEffect out of the User function so that it can be used anywhere within
+the App:</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'><img border=0 width=448 height=513
+id="Picture 39" src="Unit%202%20Sprint%202_files/image033.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>Cleanup
+after hooks</span></b></p>
+
+<p class=MsoListParagraphCxSpFirst style='text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>The Effect Hook
+has a built-in way to handle cleanups</span></p>
+
+<p class=MsoListParagraphCxSpLast style='text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Symbol'>·<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>To clean up an
+effect, we return a function from the effect hook’s callback function</span></p>
+
+<div style='border:solid #C7CDD1 1.0pt;padding:12.0pt 12.0pt 12.0pt 12.0pt;
+background:#F5F2F0;margin-left:1.0in;margin-right:0in'>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-size:8.0pt;font-family:Consolas;color:#DD4A68'>useEffect</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>(()</span><span
+style='font-size:8.0pt;font-family:Consolas;color:black'> </span><span
+style='font-size:8.0pt;font-family:Consolas;color:#9A6E3A'>=&gt;</span><span
+style='font-size:8.0pt;font-family:Consolas;color:black'> </span><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>{</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-size:8.0pt;font-family:Consolas;color:black'>  </span><span
+style='font-size:8.0pt;font-family:Consolas;color:slategray'>// We write our
+desired effect as before.</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-size:8.0pt;font-family:Consolas;color:black'>  console</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>.</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#DD4A68'>log</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>(</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#669900'>&quot;The Effect
+Hook has run.&quot;</span><span style='font-size:8.0pt;font-family:Consolas;
+color:#999999'>);</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-size:8.0pt;font-family:Consolas;color:black'>  </span><span
+style='font-size:8.0pt;font-family:Consolas;color:slategray'>// Returning a
+function will tell React that you want this</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-size:8.0pt;font-family:Consolas;color:black'>  </span><span
+style='font-size:8.0pt;font-family:Consolas;color:slategray'>// code to run
+when the component unmounts or re-renders</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-size:8.0pt;font-family:Consolas;color:black'>  </span><span
+style='font-size:8.0pt;font-family:Consolas;color:#0077AA'>return</span><span
+style='font-size:8.0pt;font-family:Consolas;color:black'> </span><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>()</span><span
+style='font-size:8.0pt;font-family:Consolas;color:black'> </span><span
+style='font-size:8.0pt;font-family:Consolas;color:#9A6E3A'>=&gt;</span><span
+style='font-size:8.0pt;font-family:Consolas;color:black'> console</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>.</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#DD4A68'>log</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>(</span><span
+style='font-size:8.0pt;font-family:Consolas;color:#669900'>&quot;The Effect
+Hook has been cleaned up.&quot;</span><span style='font-size:8.0pt;font-family:
+Consolas;color:#999999'>);</span></p>
+
+<p class=MsoNormal style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;
+margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-size:8.0pt;font-family:Consolas;color:#999999'>});</span></p>
+
+</div>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'>Advanced Styling Techniques (Day 4)</span></u></b></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'><span style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal><b><u><span style='font-size:10.0pt;font-family:Kefa'><span
+ style='text-decoration:none'>&nbsp;</span></span></u></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>Bootstrapping
+an App with Create React App</span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<div style='border:solid #C7CDD1 1.0pt;padding:12.0pt 12.0pt 12.0pt 12.0pt;
+background:#F5F2F0'><pre style='margin-top:6.0pt;margin-right:0in;margin-bottom:
+6.0pt;margin-left:0in;background:#F5F2F0;border:none;padding:0in'><span
+style='font-family:Kefa;color:black'>                                                             </span><code><span
+style='font-family:Consolas;color:black'>npx create-react-app animals --use-npm</span></code></pre></div>
+
+<p style='background:white'><span style='font-size:10.0pt;font-family:Kefa;
+color:black'>If npx does not work for you, you would need to install
+create-react-app globally and then execute it from the command line:</span></p>
+
+<div style='border:solid #C7CDD1 1.0pt;padding:12.0pt 12.0pt 12.0pt 12.0pt;
+background:#F5F2F0'><pre style='margin-top:6.0pt;margin-right:0in;margin-bottom:
+6.0pt;margin-left:0in;background:#F5F2F0;border:none;padding:0in'><code><span
+style='font-size:12.0pt;font-family:Consolas;color:black'>                           npm install -g create-react-app</span></code></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>                           create-react-app animals --use-npm</span></code></pre></div>
+
+<p style='background:white'><span style='font-size:10.0pt;font-family:Kefa;
+color:black'>Now we want to fire the app up:</span></p>
+
+<div style='border:solid #C7CDD1 1.0pt;padding:12.0pt 12.0pt 12.0pt 12.0pt;
+background:#F5F2F0;margin-left:183.2pt;margin-right:0in'><pre style='margin-top:
+6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><code><span style='font-size:12.0pt;font-family:Consolas;
+color:black'>// move into the project folder</span></code></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>cd animals</span></code></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>// start up the project</span></code></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-size:12.0pt;
+font-family:Consolas;color:black'>npm start</span></code></pre></div>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Import
+Styled Components</span></p>
+
+<p class=MsoNormal style='margin-left:.5in'><span style='font-size:10.0pt;
+font-family:Kefa'><img border=0 width=399 height=71 id="Picture 52"
+src="Unit%202%20Sprint%202_files/image034.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>Rules for
+Styled Components</span></p>
+
+<p class=MsoListParagraphCxSpFirst style='margin-left:.75in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Kefa'>1.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Styled Components
+are built outside of the component they serve</span></p>
+
+<p class=MsoListParagraphCxSpMiddle style='margin-left:.75in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Kefa'>2.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Capitalize the
+Styled Component</span></p>
+
+<p class=MsoListParagraphCxSpLast style='margin-left:.75in;text-indent:-.25in'><span
+style='font-size:10.0pt;font-family:Kefa'>3.<span style='font:7.0pt "Times New Roman"'>&nbsp;&nbsp;&nbsp;&nbsp;
+</span></span><span style='font-size:10.0pt;font-family:Kefa'>Don’t forget
+semicolons</span></p>
+
+<p class=MsoNormal style='text-indent:.5in'><span style='font-size:10.0pt;
+font-family:Kefa'><img border=0 width=325 height=83 id="Picture 54"
+src="Unit%202%20Sprint%202_files/image035.png"
+alt="Graphical user interface, text&#10;&#10;Description automatically generated with medium confidence"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>Using a
+wrapper to style and creating a constant to style a particular element:</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=396 height=259 id="Picture 40"
+src="Unit%202%20Sprint%202_files/image036.png"
+alt="Text&#10;&#10;Description automatically generated"></span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<div style='border:solid #C7CDD1 1.0pt;padding:12.0pt 12.0pt 12.0pt 12.0pt;
+background:#F5F2F0;margin-left:1.5in;margin-right:0in'><pre style='margin-top:
+6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:slategray'>// div</span></span></pre><pre style='margin-top:6.0pt;
+margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:#0077AA'>const</span></span><code><span style='font-family:Consolas;
+color:black'> StyledDiv </span></code><span class=token><span style='font-family:
+Consolas;color:#9A6E3A'>=</span></span><code><span style='font-family:Consolas;
+color:black'> styled</span></code><span class=token><span style='font-family:
+Consolas;color:#999999'>.</span></span><code><span style='font-family:Consolas;
+color:black'>div</span></code><span class=token><span style='font-family:Consolas;
+color:#669900'>``</span></span><span class=token><span style='font-family:Consolas;
+color:#999999'>;</span></span></pre><pre style='margin-top:6.0pt;margin-right:
+0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;border:none;
+padding:0in'><code><span style='font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><span class=token><span
+style='font-family:Consolas;color:slategray'>// paragraph</span></span></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><span class=token><span
+style='font-family:Consolas;color:#0077AA'>const</span></span><code><span
+style='font-family:Consolas;color:black'> StyledP </span></code><span
+class=token><span style='font-family:Consolas;color:#9A6E3A'>=</span></span><code><span
+style='font-family:Consolas;color:black'> styled</span></code><span
+class=token><span style='font-family:Consolas;color:#999999'>.</span></span><code><span
+style='font-family:Consolas;color:black'>p</span></code><span class=token><span
+style='font-family:Consolas;color:#669900'>``</span></span><span class=token><span
+style='font-family:Consolas;color:#999999'>;</span></span></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-family:
+Consolas;color:black'>&nbsp;</span></code></pre><pre style='margin-top:6.0pt;
+margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:slategray'>// section</span></span></pre><pre style='margin-top:6.0pt;
+margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:#0077AA'>const</span></span><code><span style='font-family:Consolas;
+color:black'> StyledSection </span></code><span class=token><span
+style='font-family:Consolas;color:#9A6E3A'>=</span></span><code><span
+style='font-family:Consolas;color:black'> styled</span></code><span
+class=token><span style='font-family:Consolas;color:#999999'>.</span></span><code><span
+style='font-family:Consolas;color:black'>section</span></code><span
+class=token><span style='font-family:Consolas;color:#669900'>``</span></span><span
+class=token><span style='font-family:Consolas;color:#999999'>;</span></span></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-family:
+Consolas;color:black'>&nbsp;</span></code></pre><pre style='margin-top:6.0pt;
+margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:slategray'>// headers h1 - h6</span></span></pre><pre style='margin-top:
+6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:#0077AA'>const</span></span><code><span style='font-family:Consolas;
+color:black'> StyledHeading </span></code><span class=token><span
+style='font-family:Consolas;color:#9A6E3A'>=</span></span><code><span
+style='font-family:Consolas;color:black'> styled</span></code><span
+class=token><span style='font-family:Consolas;color:#999999'>.</span></span><code><span
+style='font-family:Consolas;color:black'>h1</span></code><span class=token><span
+style='font-family:Consolas;color:#669900'>``</span></span><span class=token><span
+style='font-family:Consolas;color:#999999'>;</span></span></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><code><span style='font-family:
+Consolas;color:black'>&nbsp;</span></code></pre><pre style='margin-top:6.0pt;
+margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:slategray'>// a</span></span></pre><pre style='margin-top:6.0pt;
+margin-right:0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;
+border:none;padding:0in'><span class=token><span style='font-family:Consolas;
+color:#0077AA'>const</span></span><code><span style='font-family:Consolas;
+color:black'> StyledA </span></code><span class=token><span style='font-family:
+Consolas;color:#9A6E3A'>=</span></span><code><span style='font-family:Consolas;
+color:black'> styled</span></code><span class=token><span style='font-family:
+Consolas;color:#999999'>.</span></span><code><span style='font-family:Consolas;
+color:black'>a</span></code><span class=token><span style='font-family:Consolas;
+color:#669900'>``</span></span><span class=token><span style='font-family:Consolas;
+color:#999999'>;</span></span></pre><pre style='margin-top:6.0pt;margin-right:
+0in;margin-bottom:6.0pt;margin-left:0in;background:#F5F2F0;border:none;
+padding:0in'><code><span style='font-family:Consolas;color:black'>&nbsp;</span></code></pre><pre
+style='margin-top:6.0pt;margin-right:0in;margin-bottom:6.0pt;margin-left:0in;
+background:#F5F2F0;border:none;padding:0in'><span class=token><span
+style='font-family:Consolas;color:slategray'>// etc.....</span></span></pre></div>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></b></p>
+
+<p class=MsoNormal><b><span style='font-size:10.0pt;font-family:Kefa'>Transitions</span></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa;color:#F5D67B;
+background:#1B1B1B'>.example </span><span style='font-size:10.0pt;font-family:
+Kefa;color:#72E0D1;background:#1B1B1B'>{</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa;color:#F5D67B;
+background:#1B1B1B'>    </span><span style='font-size:10.0pt;font-family:Kefa;
+color:#72E0D1;background:#1B1B1B'>transition:</span><span style='font-size:
+10.0pt;font-family:Kefa;color:#F5D67B;background:#1B1B1B'>
+[transition-property] [transition-duration] [transition-timing-function]
+[transition-delay]</span><span style='font-size:10.0pt;font-family:Kefa;
+color:#72E0D1;background:#1B1B1B'>;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa;color:#72E0D1;
+background:#1B1B1B'>}</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><span
+style='font-size:10.0pt;font-family:Kefa'><img border=0 width=462 height=253
+id="Picture 59" src="Unit%202%20Sprint%202_files/image037.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center;text-indent:.5in'><span
+style='font-size:10.0pt;font-family:Kefa'><img border=0 width=228 height=115
+id="Picture 60" src="Unit%202%20Sprint%202_files/image038.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal align=center style='text-align:center'><b><u><span
+style='font-size:10.0pt;font-family:Kefa'>Miscellaneous Notes</span></u></b></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>If you
+aren’t able to run on port kill npm:</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'><img
+border=0 width=624 height=151 id="Picture 53"
+src="Unit%202%20Sprint%202_files/image039.png"
+alt="Text&#10;&#10;Description automatically generated"></span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>&nbsp;</span></p>
+
+<p class=MsoNormal><span style='font-size:10.0pt;font-family:Kefa'>A good
+programmer will use a lot of keyboard shortcuts. Try and memorize and use as
+many as you can. Helpful during interviews. There are some helpful ones in the
+“Reference” document.</span></p>
+
+<p class=MsoNormal>&nbsp;</p>
+
+</div>
+
+</body>
+
+</html>

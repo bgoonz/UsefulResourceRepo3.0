@@ -1,0 +1,13 @@
+function cacheFunction(cb) {
+    var cache = {};
+    return function(argument) {
+        if (cache.argument === cb(argument)) {
+            return;
+        }
+        else {
+            cb(argument);
+            cache.argument = cb(argument);
+            return cache.argument;
+        }
+    };
+}

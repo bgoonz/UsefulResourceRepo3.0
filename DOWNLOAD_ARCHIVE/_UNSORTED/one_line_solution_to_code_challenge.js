@@ -1,0 +1,1 @@
+const longestString = arr => arr.sort((a,b) => a.length < b.length)[0]
