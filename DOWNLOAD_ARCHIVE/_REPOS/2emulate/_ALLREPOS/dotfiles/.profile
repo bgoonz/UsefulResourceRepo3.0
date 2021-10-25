@@ -1,0 +1,3 @@
+echo ".profile"
+
+# not used
