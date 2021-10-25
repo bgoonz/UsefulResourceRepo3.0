@@ -2,11 +2,11 @@ require = (function e(t, n, r) {
   function s(o, u) {
     if (!n[o]) {
       if (!t[o]) {
-        var a = typeof require == "function" && require;
+        var a = typeof require == 'function' && require;
         if (!u && a) return a(o, !0);
         if (i) return i(o, !0);
         var f = new Error("Cannot find module '" + o + "'");
-        throw ((f.code = "MODULE_NOT_FOUND"), f);
+        throw ((f.code = 'MODULE_NOT_FOUND'), f);
       }
       var l = (n[o] = { exports: {} });
       t[o][0].call(
@@ -25,7 +25,7 @@ require = (function e(t, n, r) {
     }
     return n[o].exports;
   }
-  var i = typeof require == "function" && require;
+  var i = typeof require == 'function' && require;
   for (var o = 0; o < r.length; o++) s(r[o]);
   return s;
 })(
@@ -43,14 +43,14 @@ require = (function e(t, n, r) {
         EventEmitter.defaultMaxListeners = 10;
         EventEmitter.prototype.setMaxListeners = function (n) {
           if (!isNumber(n) || n < 0 || isNaN(n))
-            throw TypeError("n must be a positive number");
+            throw TypeError('n must be a positive number');
           this._maxListeners = n;
           return this;
         };
         EventEmitter.prototype.emit = function (type) {
           var er, handler, len, args, i, listeners;
           if (!this._events) this._events = {};
-          if (type === "error") {
+          if (type === 'error') {
             if (
               !this._events.error ||
               (isObject(this._events.error) && !this._events.error.length)
@@ -94,11 +94,11 @@ require = (function e(t, n, r) {
         EventEmitter.prototype.addListener = function (type, listener) {
           var m;
           if (!isFunction(listener))
-            throw TypeError("listener must be a function");
+            throw TypeError('listener must be a function');
           if (!this._events) this._events = {};
           if (this._events.newListener)
             this.emit(
-              "newListener",
+              'newListener',
               type,
               isFunction(listener.listener) ? listener.listener : listener
             );
@@ -116,12 +116,12 @@ require = (function e(t, n, r) {
             if (m && m > 0 && this._events[type].length > m) {
               this._events[type].warned = true;
               console.error(
-                "(node) warning: possible EventEmitter memory " +
-                  "leak detected. %d listeners added. " +
-                  "Use emitter.setMaxListeners() to increase limit.",
+                '(node) warning: possible EventEmitter memory ' +
+                  'leak detected. %d listeners added. ' +
+                  'Use emitter.setMaxListeners() to increase limit.',
                 this._events[type].length
               );
-              if (typeof console.trace === "function") {
+              if (typeof console.trace === 'function') {
                 console.trace();
               }
             }
@@ -131,7 +131,7 @@ require = (function e(t, n, r) {
         EventEmitter.prototype.on = EventEmitter.prototype.addListener;
         EventEmitter.prototype.once = function (type, listener) {
           if (!isFunction(listener))
-            throw TypeError("listener must be a function");
+            throw TypeError('listener must be a function');
           var fired = false;
           function g() {
             this.removeListener(type, g);
@@ -147,7 +147,7 @@ require = (function e(t, n, r) {
         EventEmitter.prototype.removeListener = function (type, listener) {
           var list, position, length, i;
           if (!isFunction(listener))
-            throw TypeError("listener must be a function");
+            throw TypeError('listener must be a function');
           if (!this._events || !this._events[type]) return this;
           list = this._events[type];
           length = list.length;
@@ -158,7 +158,7 @@ require = (function e(t, n, r) {
           ) {
             delete this._events[type];
             if (this._events.removeListener)
-              this.emit("removeListener", type, listener);
+              this.emit('removeListener', type, listener);
           } else if (isObject(list)) {
             for (i = length; i-- > 0; ) {
               if (
@@ -177,7 +177,7 @@ require = (function e(t, n, r) {
               list.splice(position, 1);
             }
             if (this._events.removeListener)
-              this.emit("removeListener", type, listener);
+              this.emit('removeListener', type, listener);
           }
           return this;
         };
@@ -191,10 +191,10 @@ require = (function e(t, n, r) {
           }
           if (arguments.length === 0) {
             for (key in this._events) {
-              if (key === "removeListener") continue;
+              if (key === 'removeListener') continue;
               this.removeAllListeners(key);
             }
-            this.removeAllListeners("removeListener");
+            this.removeAllListeners('removeListener');
             this._events = {};
             return this;
           }
@@ -223,13 +223,13 @@ require = (function e(t, n, r) {
           return ret;
         };
         function isFunction(arg) {
-          return typeof arg === "function";
+          return typeof arg === 'function';
         }
         function isNumber(arg) {
-          return typeof arg === "number";
+          return typeof arg === 'number';
         }
         function isObject(arg) {
-          return typeof arg === "object" && arg !== null;
+          return typeof arg === 'object' && arg !== null;
         }
         function isUndefined(arg) {
           return arg === void 0;
@@ -239,7 +239,7 @@ require = (function e(t, n, r) {
     ],
     2: [
       function (require, module, exports) {
-        var oz = require("oscillators");
+        var oz = require('oscillators');
         module.exports = function (c, r, t, f) {
           return c + r * oz.sine(t, f);
         };
@@ -268,7 +268,7 @@ require = (function e(t, n, r) {
     ],
     4: [
       function (require, module, exports) {
-        var funstance = require("funstance");
+        var funstance = require('funstance');
         module.exports = function (delay, feedback, mix, bufferSize) {
           var delay = Math.floor(delay);
           var feedback = feedback;
@@ -319,7 +319,7 @@ require = (function e(t, n, r) {
       function (require, module, exports) {
         module.exports = function (obj, fn) {
           var f = function () {
-            if (typeof fn !== "function") return;
+            if (typeof fn !== 'function') return;
             return fn.apply(obj, arguments);
           };
           function C() {}
@@ -342,7 +342,7 @@ require = (function e(t, n, r) {
     ],
     6: [
       function (require, module, exports) {
-        var nvelope = require("nvelope");
+        var nvelope = require('nvelope');
         module.exports = chrono;
         function chrono(_time) {
           if (!(this instanceof chrono)) return new chrono(_time);
@@ -389,7 +389,7 @@ require = (function e(t, n, r) {
     ],
     7: [
       function (require, module, exports) {
-        var sync = require("jsynth-sync");
+        var sync = require('jsynth-sync');
         module.exports = function (bpm, sampleRate) {
           var Timer = sync(bpm, sampleRate);
           Timer.beat = beat;
@@ -417,8 +417,8 @@ require = (function e(t, n, r) {
                     var intervaln = interval / yn;
                     var bat = eys(intervaln, i, fn);
                     bat._l = i.length;
-                    bat.on("beat", function (b) {
-                      if (b == bat._l) bat.emit("stop");
+                    bat.on('beat', function (b) {
+                      if (b == bat._l) bat.emit('stop');
                     });
                   } else {
                     fn(time, master.beat, xxx, swinger);
@@ -432,11 +432,11 @@ require = (function e(t, n, r) {
           }
         };
       },
-      { "jsynth-sync": 8 },
+      { 'jsynth-sync': 8 },
     ],
     8: [
       function (require, module, exports) {
-        var emitter = require("events").EventEmitter;
+        var emitter = require('events').EventEmitter;
         module.exports = sync;
         var $ = module.exports;
         function sync(bpm, sampleRate) {
@@ -479,7 +479,7 @@ require = (function e(t, n, r) {
             skipNext = beat === 0 ? false : true;
           }
           var emit = new emitter();
-          emit.on("stop", off);
+          emit.on('stop', off);
           this.index.push(
             (function (b, fn, beats, off) {
               return function (t, a, f) {
@@ -496,7 +496,7 @@ require = (function e(t, n, r) {
                     }
                   }
                   fn.apply(fn, [t, ++b, off, swing]);
-                  emit.emit("beat", b);
+                  emit.emit('beat', b);
                 }
               };
             })(0, fn, beats, off)
@@ -512,7 +512,7 @@ require = (function e(t, n, r) {
     9: [
       function (require, module, exports) {
         module.exports = function (context, fn, bufSize) {
-          if (typeof context === "function") {
+          if (typeof context === 'function') {
             fn = context;
             context = new webkitAudioContext();
           }
@@ -573,7 +573,7 @@ require = (function e(t, n, r) {
             args[key] = opts[key];
           });
           return Object.keys(args).reduce(function (acc, key) {
-            var dash = key.length === 1 ? "-" : "--";
+            var dash = key.length === 1 ? '-' : '--';
             return acc.concat(dash + key, args[key]);
           }, []);
         }
@@ -589,17 +589,17 @@ require = (function e(t, n, r) {
     ],
     10: [
       function (require, module, exports) {
-        var gus = require("jgauss");
-        var oz = require("oscillators");
+        var gus = require('jgauss');
+        var oz = require('oscillators');
         var sqrtau = Math.sqrt(Math.PI * 2);
         var defs = {};
         defs.m = 1 / 12;
         defs.f = 440;
-        defs.wave = "sine";
+        defs.wave = 'sine';
         module.exports = makeStrangles;
         function makeStrangles(opts) {
           if (!opts) opts = {};
-          if (typeof opts == "number") {
+          if (typeof opts == 'number') {
             opts = { f: opts };
           }
           for (var i in defs) {
@@ -657,8 +657,8 @@ require = (function e(t, n, r) {
     ],
     13: [
       function (require, module, exports) {
-        var amod = require("./amod.js");
-        var tnorm = require("normalize-time");
+        var amod = require('./amod.js');
+        var tnorm = require('normalize-time');
         module.exports = function (pts, durs) {
           pts = pts.map(amod);
           var t = 0;
@@ -703,7 +703,7 @@ require = (function e(t, n, r) {
           }
         };
       },
-      { "./amod.js": 12, "normalize-time": 14 },
+      { './amod.js': 12, 'normalize-time': 14 },
     ],
     14: [
       function (require, module, exports) {
@@ -717,7 +717,7 @@ require = (function e(t, n, r) {
             x = min + ((time - start) * r) / d;
             if (x > 1) {
               if (time < end)
-                x = Number("." + x.toString().split(".").join(""));
+                x = Number('.' + x.toString().split('.').join(''));
             }
             return x;
           };
@@ -764,7 +764,7 @@ require = (function e(t, n, r) {
     16: [
       function (require, module, exports) {
         (function teoriaScope() {
-          "use strict";
+          'use strict';
           var teoria = {};
           function add(note, interval) {
             return [note[0] + interval[0], note[1] + interval[1]];
@@ -773,7 +773,7 @@ require = (function e(t, n, r) {
             return [note[0] - interval[0], note[1] - interval[1]];
           }
           function mul(note, interval) {
-            if (typeof interval === "number")
+            if (typeof interval === 'number')
               return [note[0] * interval, note[1] * interval];
             else return [note[0] * interval[0], note[1] * interval[1]];
           }
@@ -801,83 +801,83 @@ require = (function e(t, n, r) {
             octave: [1, 0],
           };
           var intervalFromFifth = [
-            "second",
-            "sixth",
-            "third",
-            "seventh",
-            "fourth",
-            "unison",
-            "fifth",
+            'second',
+            'sixth',
+            'third',
+            'seventh',
+            'fourth',
+            'unison',
+            'fifth',
           ];
           var intervalsIndex = [
-            "unison",
-            "second",
-            "third",
-            "fourth",
-            "fifth",
-            "sixth",
-            "seventh",
-            "octave",
-            "ninth",
-            "tenth",
-            "eleventh",
-            "twelfth",
-            "thirteenth",
-            "fourteenth",
-            "fifteenth",
+            'unison',
+            'second',
+            'third',
+            'fourth',
+            'fifth',
+            'sixth',
+            'seventh',
+            'octave',
+            'ninth',
+            'tenth',
+            'eleventh',
+            'twelfth',
+            'thirteenth',
+            'fourteenth',
+            'fifteenth',
           ];
-          var fifths = ["f", "c", "g", "d", "a", "e", "b"];
-          var accidentals = ["bb", "b", "", "#", "x"];
+          var fifths = ['f', 'c', 'g', 'd', 'a', 'e', 'b'];
+          var accidentals = ['bb', 'b', '', '#', 'x'];
           var sharp = [-4, 7];
           var A4 = add(notes.a, [4, 0]);
           var kDurations = {
-            0.25: "longa",
-            0.5: "breve",
-            1: "whole",
-            2: "half",
-            4: "quarter",
-            8: "eighth",
-            16: "sixteenth",
-            32: "thirty-second",
-            64: "sixty-fourth",
-            128: "hundred-twenty-eighth",
+            0.25: 'longa',
+            0.5: 'breve',
+            1: 'whole',
+            2: 'half',
+            4: 'quarter',
+            8: 'eighth',
+            16: 'sixteenth',
+            32: 'thirty-second',
+            64: 'sixty-fourth',
+            128: 'hundred-twenty-eighth',
           };
           var kQualityLong = {
-            P: "perfect",
-            M: "major",
-            m: "minor",
-            A: "augmented",
-            AA: "doubly augmented",
-            d: "diminished",
-            dd: "doubly diminished",
+            P: 'perfect',
+            M: 'major',
+            m: 'minor',
+            A: 'augmented',
+            AA: 'doubly augmented',
+            d: 'diminished',
+            dd: 'doubly diminished',
           };
           var kAlterations = {
-            perfect: ["dd", "d", "P", "A", "AA"],
-            minor: ["dd", "d", "m", "M", "A", "AA"],
+            perfect: ['dd', 'd', 'P', 'A', 'AA'],
+            minor: ['dd', 'd', 'm', 'M', 'A', 'AA'],
           };
           var kSymbols = {
-            min: ["m3", "P5"],
-            m: ["m3", "P5"],
-            "-": ["m3", "P5"],
-            M: ["M3", "P5"],
-            "": ["M3", "P5"],
-            "+": ["M3", "A5"],
-            aug: ["M3", "A5"],
-            dim: ["m3", "d5"],
-            o: ["m3", "d5"],
-            maj: ["M3", "P5", "M7"],
-            dom: ["M3", "P5", "m7"],
-            ø: ["m3", "d5", "m7"],
-            5: ["P5"],
+            min: ['m3', 'P5'],
+            m: ['m3', 'P5'],
+            '-': ['m3', 'P5'],
+            M: ['M3', 'P5'],
+            '': ['M3', 'P5'],
+            '+': ['M3', 'A5'],
+            aug: ['M3', 'A5'],
+            dim: ['m3', 'd5'],
+            o: ['m3', 'd5'],
+            maj: ['M3', 'P5', 'M7'],
+            dom: ['M3', 'P5', 'm7'],
+            ø: ['m3', 'd5', 'm7'],
+            5: ['P5'],
           };
           var kChordShort = {
-            major: "M",
-            minor: "m",
-            augmented: "aug",
-            diminished: "dim",
-            "half-diminished": "7b5",
-            power: "5",
-            dominant: "7",
+            major: 'M',
+            minor: 'm',
+            augmented: 'aug',
+            diminished: 'dim',
+            'half-diminished': '7b5',
+            power: '5',
+            dominant: '7',
           };
           var kStepNumber = {
             unison: 1,
@@ -894,44 +894,44 @@ require = (function e(t, n, r) {
             thirteenth: 13,
           };
           var kIntervalSolfege = {
-            dd1: "daw",
-            d1: "de",
-            P1: "do",
-            A1: "di",
-            AA1: "dai",
-            d2: "raw",
-            m2: "ra",
-            M2: "re",
-            A2: "ri",
-            AA2: "rai",
-            d3: "maw",
-            m3: "me",
-            M3: "mi",
-            A3: "mai",
-            dd4: "faw",
-            d4: "fe",
-            P4: "fa",
-            A4: "fi",
-            AA4: "fai",
-            dd5: "saw",
-            d5: "se",
-            P5: "so",
-            A5: "si",
-            AA5: "sai",
-            d6: "law",
-            m6: "le",
-            M6: "la",
-            A6: "li",
-            AA6: "lai",
-            d7: "taw",
-            m7: "te",
-            M7: "ti",
-            A7: "tai",
-            dd8: "daw",
-            d8: "de",
-            P8: "do",
-            A8: "di",
-            AA8: "dai",
+            dd1: 'daw',
+            d1: 'de',
+            P1: 'do',
+            A1: 'di',
+            AA1: 'dai',
+            d2: 'raw',
+            m2: 'ra',
+            M2: 're',
+            A2: 'ri',
+            AA2: 'rai',
+            d3: 'maw',
+            m3: 'me',
+            M3: 'mi',
+            A3: 'mai',
+            dd4: 'faw',
+            d4: 'fe',
+            P4: 'fa',
+            A4: 'fi',
+            AA4: 'fai',
+            dd5: 'saw',
+            d5: 'se',
+            P5: 'so',
+            A5: 'si',
+            AA5: 'sai',
+            d6: 'law',
+            m6: 'le',
+            M6: 'la',
+            A6: 'li',
+            AA6: 'lai',
+            d7: 'taw',
+            m7: 'te',
+            M7: 'ti',
+            A7: 'tai',
+            dd8: 'daw',
+            d8: 'de',
+            P8: 'do',
+            A8: 'di',
+            AA8: 'dai',
           };
           function pad(str, ch, len) {
             for (; len > 0; len--) {
@@ -940,7 +940,7 @@ require = (function e(t, n, r) {
             return str;
           }
           teoria.note = function (name, duration) {
-            if (typeof name === "string")
+            if (typeof name === 'string')
               return teoria.note.fromString(name, duration);
             else return new TeoriaNote(name, duration);
           };
@@ -979,10 +979,10 @@ require = (function e(t, n, r) {
               noteName = parser[1];
               octave = +parser[3];
             } else {
-              name = name.replace(/\u2032/g, "'").replace(/\u0375/g, ",");
+              name = name.replace(/\u2032/g, "'").replace(/\u0375/g, ',');
               parser = name.match(helmholtz);
               if (!parser || name !== parser[0])
-                throw new Error("Invalid note format");
+                throw new Error('Invalid note format');
               noteName = parser[1];
               octave = parser[3];
               lower = noteName === noteName.toLowerCase();
@@ -991,9 +991,9 @@ require = (function e(t, n, r) {
                 octave = 3 + octave.length;
               else if (octave.match(/^,+$/) && !lower)
                 octave = 2 - octave.length;
-              else throw new Error("Format must respect the Helmholtz format");
+              else throw new Error('Format must respect the Helmholtz format');
             }
-            accidental = parser[2].length ? parser[2].toLowerCase() : "";
+            accidental = parser[2].length ? parser[2].toLowerCase() : '';
             noteName = noteName.toLowerCase();
             note = [notes[noteName][0], notes[noteName][1]];
             note = add(note, [octave, 0]);
@@ -1001,11 +1001,11 @@ require = (function e(t, n, r) {
             return new TeoriaNote(sub(note, A4), dur);
           };
           teoria.chord = function (name, symbol) {
-            if (typeof name === "string") {
+            if (typeof name === 'string') {
               var root, octave;
               root = name.match(/^([a-h])(x|#|bb|b?)/i);
               if (root && root[0]) {
-                octave = typeof symbol === "number" ? symbol.toString(10) : "4";
+                octave = typeof symbol === 'number' ? symbol.toString(10) : '4';
                 return new TeoriaChord(
                   teoria.note(root[0].toLowerCase() + octave),
                   name.substr(root[0].length)
@@ -1016,14 +1016,14 @@ require = (function e(t, n, r) {
             throw new Error("Invalid Chord. Couldn't find note name");
           };
           teoria.interval = function (from, to) {
-            if (typeof from === "string") return teoria.interval.toCoord(from);
-            if (typeof to === "string" && from instanceof TeoriaNote)
+            if (typeof from === 'string') return teoria.interval.toCoord(from);
+            if (typeof to === 'string' && from instanceof TeoriaNote)
               return teoria.interval.from(from, teoria.interval.toCoord(to));
             if (to instanceof TeoriaInterval && from instanceof TeoriaNote)
               return teoria.interval.from(from, to);
             if (to instanceof TeoriaNote && from instanceof TeoriaNote)
               return teoria.interval.between(from, to);
-            throw new Error("Invalid parameters");
+            throw new Error('Invalid parameters');
           };
           teoria.interval.toCoord = function (simple) {
             var pattern = /^(AA|A|P|M|m|d|dd)(-?\d+)$/,
@@ -1038,7 +1038,7 @@ require = (function e(t, n, r) {
               alt,
               down;
             parser = simple.match(pattern);
-            if (!parser) throw new Error("Invalid simple format interval");
+            if (!parser) throw new Error('Invalid simple format interval');
             quality = parser[1];
             number = +parser[2];
             down = number < 0;
@@ -1047,12 +1047,12 @@ require = (function e(t, n, r) {
             octaves = (number - lower) / 7;
             base = intervals[intervalsIndex[lower - 1]];
             coord = add(base, [octaves, 0]);
-            type = base[0] <= 1 ? "perfect" : "minor";
+            type = base[0] <= 1 ? 'perfect' : 'minor';
             if (
-              (type === "perfect" && (quality === "M" || quality === "m")) ||
-              (type === "minor" && quality === "P")
+              (type === 'perfect' && (quality === 'M' || quality === 'm')) ||
+              (type === 'minor' && quality === 'P')
             ) {
-              throw new Error("Invalid interval quality");
+              throw new Error('Invalid interval quality');
             }
             alt = kAlterations[type].indexOf(quality) - 2;
             coord = add(coord, mul(sharp, alt));
@@ -1138,7 +1138,7 @@ require = (function e(t, n, r) {
               var octave = this.octave();
               var name = this.name();
               name = octave < 3 ? name.toUpperCase() : name.toLowerCase();
-              var padchar = octave < 3 ? "," : "'";
+              var padchar = octave < 3 ? ',' : "'";
               var padcount = octave < 2 ? 2 - octave : octave - 3;
               return pad(name + this.accidental(), padchar, padcount);
             },
@@ -1150,7 +1150,7 @@ require = (function e(t, n, r) {
             enharmonics: function (oneaccidental) {
               var key = this.key(),
                 limit = oneaccidental ? 2 : 3;
-              return ["m3", "m2", "m-2", "m-3"]
+              return ['m3', 'm2', 'm-2', 'm-3']
                 .map(this.interval.bind(this))
                 .filter(function (note) {
                   var acc = note.accidentalValue();
@@ -1163,17 +1163,17 @@ require = (function e(t, n, r) {
             },
             solfege: function (scale, showOctaves) {
               if (!(scale instanceof TeoriaScale)) {
-                throw new Error("Invalid Scale");
+                throw new Error('Invalid Scale');
               }
               var interval = scale.tonic.interval(this),
                 solfege,
                 stroke,
                 count;
-              if (interval.direction() === "down") interval = interval.invert();
+              if (interval.direction() === 'down') interval = interval.invert();
               if (showOctaves) {
                 count = (this.key(true) - scale.tonic.key(true)) / 7;
                 count = count >= 0 ? Math.floor(count) : -Math.ceil(-count);
-                stroke = count >= 0 ? "'" : ",";
+                stroke = count >= 0 ? "'" : ',';
               }
               solfege = kIntervalSolfege[interval.simple(true).toString()];
               return showOctaves
@@ -1190,7 +1190,7 @@ require = (function e(t, n, r) {
             scaleDegree: function (scale) {
               var inter = scale.tonic.interval(this);
               if (
-                inter.direction() === "down" ||
+                inter.direction() === 'down' ||
                 (inter.coord[1] === 0 && inter.coord[0] !== 0)
               ) {
                 inter = inter.invert();
@@ -1205,7 +1205,7 @@ require = (function e(t, n, r) {
             },
             toString: function (dont) {
               return (
-                this.name() + this.accidental() + (dont ? "" : this.octave())
+                this.name() + this.accidental() + (dont ? '' : this.octave())
               );
             },
           };
@@ -1234,7 +1234,7 @@ require = (function e(t, n, r) {
               return val > 0 ? val : val - 2;
             },
             type: function () {
-              return intervals[this.base()][0] <= 1 ? "perfect" : "minor";
+              return intervals[this.base()][0] <= 1 ? 'perfect' : 'minor';
             },
             base: function () {
               var fifth = sub(this.coord, mul(sharp, this.qualityValue()))[1],
@@ -1242,21 +1242,21 @@ require = (function e(t, n, r) {
               fifth = this.value() > 0 ? fifth + 5 : -(fifth - 5) % 7;
               fifth = fifth < 0 ? intervalFromFifth.length + fifth : fifth;
               name = intervalFromFifth[fifth];
-              if (name === "unison" && this.number() >= 8) name = "octave";
+              if (name === 'unison' && this.number() >= 8) name = 'octave';
               return name;
             },
             direction: function (dir) {
               if (dir) {
-                var is = this.value() >= 1 ? "up" : "down";
+                var is = this.value() >= 1 ? 'up' : 'down';
                 if (is !== dir) this.coord = mul(this.coord, -1);
                 return this;
-              } else return this.value() >= 1 ? "up" : "down";
+              } else return this.value() >= 1 ? 'up' : 'down';
             },
             simple: function (ignore) {
               var simple = intervals[this.base()];
               simple = add(simple, mul(sharp, this.qualityValue()));
               if (!ignore)
-                simple = this.direction() === "down" ? mul(simple, -1) : simple;
+                simple = this.direction() === 'down' ? mul(simple, -1) : simple;
               return new TeoriaInterval(simple);
             },
             isCompound: function () {
@@ -1264,7 +1264,7 @@ require = (function e(t, n, r) {
             },
             octaves: function () {
               var without, octaves;
-              if (this.direction() === "up") {
+              if (this.direction() === 'up') {
                 without = sub(this.coord, mul(sharp, this.qualityValue()));
                 octaves = without[0] - intervals[this.base()][0];
               } else {
@@ -1276,7 +1276,7 @@ require = (function e(t, n, r) {
             invert: function () {
               var i = this.base();
               var qual = this.qualityValue();
-              var acc = this.type() === "minor" ? -(qual - 1) : -qual;
+              var acc = this.type() === 'minor' ? -(qual - 1) : -qual;
               var coord = intervals[intervalsIndex[9 - kStepNumber[i] - 1]];
               coord = add(coord, mul(sharp, acc));
               return new TeoriaInterval(coord);
@@ -1286,7 +1286,7 @@ require = (function e(t, n, r) {
               return lng ? kQualityLong[quality] : quality;
             },
             qualityValue: function () {
-              if (this.direction() === "down")
+              if (this.direction() === 'down')
                 return Math.floor((-this.coord[1] - 2) / 7) + 1;
               else return Math.floor((this.coord[1] - 2) / 7) + 1;
             },
@@ -1315,7 +1315,7 @@ require = (function e(t, n, r) {
             },
           };
           function TeoriaChord(root, name) {
-            name = name || "";
+            name = name || '';
             this.name = root.name().toUpperCase() + root.accidental() + name;
             this.symbol = name;
             this.root = root;
@@ -1325,9 +1325,9 @@ require = (function e(t, n, r) {
               length,
               c,
               shortQ,
-              parsing = "quality",
+              parsing = 'quality',
               additionals = [],
-              notes = ["P1", "M3", "P5", "m7", "M9", "P11", "M13"],
+              notes = ['P1', 'M3', 'P5', 'm7', 'M9', 'P11', 'M13'],
               chordLength = 2,
               bass,
               symbol;
@@ -1337,8 +1337,8 @@ require = (function e(t, n, r) {
               }
               chordLength = intervals.length;
             }
-            name = name.replace(/[,\s\(\)]/g, "");
-            bass = name.split("/");
+            name = name.replace(/[,\s\(\)]/g, '');
+            bass = name.split('/');
             if (bass.length === 2) {
               name = bass[0];
               bass = bass[1];
@@ -1350,39 +1350,39 @@ require = (function e(t, n, r) {
                 break;
               }
               switch (parsing) {
-                case "quality":
+                case 'quality':
                   shortQ =
                     i + 3 <= length ? name.substr(i, 3).toLowerCase() : null;
-                  symbol = shortQ in kSymbols ? shortQ : c in kSymbols ? c : "";
+                  symbol = shortQ in kSymbols ? shortQ : c in kSymbols ? c : '';
                   setChord(kSymbols[symbol]);
                   i += symbol.length - 1;
-                  parsing = "extension";
+                  parsing = 'extension';
                   break;
-                case "extension":
+                case 'extension':
                   c =
-                    c === "1" && name[i + 1]
+                    c === '1' && name[i + 1]
                       ? parseFloat(name.substr(i, 2))
                       : parseFloat(c);
                   if (!isNaN(c) && c !== 6) {
                     chordLength = (c - 1) / 2;
                     if (chordLength !== Math.round(chordLength)) {
                       throw new Error(
-                        "Invalid interval extension: " + c.toString(10)
+                        'Invalid interval extension: ' + c.toString(10)
                       );
                     }
-                    if (symbol === "o" || symbol === "dim") {
-                      notes[3] = "d7";
+                    if (symbol === 'o' || symbol === 'dim') {
+                      notes[3] = 'd7';
                     }
                     i += String(c).length - 1;
                   } else if (c === 6) {
-                    notes[3] = "M6";
+                    notes[3] = 'M6';
                     chordLength = chordLength < 3 ? 3 : chordLength;
                   } else {
                     i -= 1;
                   }
-                  parsing = "alterations";
+                  parsing = 'alterations';
                   break;
-                case "alterations":
+                case 'alterations':
                   var alterations = name
                       .substr(i)
                       .split(/(#|b|add|maj|sus|M)/i),
@@ -1390,7 +1390,7 @@ require = (function e(t, n, r) {
                     flat = false,
                     sharp = false;
                   if (alterations.length === 1) {
-                    throw new Error("Invalid alterations");
+                    throw new Error('Invalid alterations');
                   } else if (alterations[0].length !== 0) {
                     throw new Error("Invalid token: '" + alterations[0] + "'");
                   }
@@ -1401,43 +1401,43 @@ require = (function e(t, n, r) {
                   ) {
                     next = alterations[a + 1];
                     switch (alterations[a]) {
-                      case "M":
-                      case "Maj":
-                      case "maj":
+                      case 'M':
+                      case 'Maj':
+                      case 'maj':
                         chordLength = chordLength < 3 ? 3 : chordLength;
-                        if (next === "7") {
+                        if (next === '7') {
                           a++;
                         }
-                        notes[3] = "M7";
+                        notes[3] = 'M7';
                         break;
-                      case "Sus":
-                      case "sus":
-                        var type = "P4";
-                        if (next === "2" || next === "4") {
+                      case 'Sus':
+                      case 'sus':
+                        var type = 'P4';
+                        if (next === '2' || next === '4') {
                           a++;
-                          if (next === "2") {
-                            type = "M2";
+                          if (next === '2') {
+                            type = 'M2';
                           }
                         }
                         notes[1] = type;
                         break;
-                      case "Add":
-                      case "add":
+                      case 'Add':
+                      case 'add':
                         if (next && !isNaN(+next)) {
-                          if (next === "9") {
-                            additionals.push("M9");
-                          } else if (next === "11") {
-                            additionals.push("P11");
-                          } else if (next === "13") {
-                            additionals.push("M13");
+                          if (next === '9') {
+                            additionals.push('M9');
+                          } else if (next === '11') {
+                            additionals.push('P11');
+                          } else if (next === '13') {
+                            additionals.push('M13');
                           }
                           a += next.length;
                         }
                         break;
-                      case "b":
+                      case 'b':
                         flat = true;
                         break;
-                      case "#":
+                      case '#':
                         sharp = true;
                         break;
                       default:
@@ -1457,11 +1457,11 @@ require = (function e(t, n, r) {
                         }
                         if (token === 6) {
                           if (sharp) {
-                            notes[3] = "A6";
+                            notes[3] = 'A6';
                           } else if (flat) {
-                            notes[3] = "m6";
+                            notes[3] = 'm6';
                           } else {
-                            notes[3] = "M6";
+                            notes[3] = 'M6';
                           }
                           chordLength = chordLength < 3 ? 3 : chordLength;
                           continue;
@@ -1476,25 +1476,25 @@ require = (function e(t, n, r) {
                           intPos !== Math.round(intPos)
                         ) {
                           throw new Error(
-                            "Invalid interval alteration: " + token
+                            'Invalid interval alteration: ' + token
                           );
                         }
                         quality = notes[intPos][0];
                         if (sharp) {
-                          if (quality === "d") {
-                            quality = "m";
-                          } else if (quality === "m") {
-                            quality = "M";
-                          } else if (quality === "M" || quality === "P") {
-                            quality = "A";
+                          if (quality === 'd') {
+                            quality = 'm';
+                          } else if (quality === 'm') {
+                            quality = 'M';
+                          } else if (quality === 'M' || quality === 'P') {
+                            quality = 'A';
                           }
                         } else if (flat) {
-                          if (quality === "A") {
-                            quality = "M";
-                          } else if (quality === "M") {
-                            quality = "m";
-                          } else if (quality === "m" || quality === "P") {
-                            quality = "d";
+                          if (quality === 'A') {
+                            quality = 'M';
+                          } else if (quality === 'M') {
+                            quality = 'm';
+                          } else if (quality === 'm' || quality === 'P') {
+                            quality = 'd';
                           }
                         }
                         sharp = flat = false;
@@ -1502,15 +1502,15 @@ require = (function e(t, n, r) {
                         break;
                     }
                   }
-                  parsing = "ended";
+                  parsing = 'ended';
                   break;
               }
-              if (parsing === "ended") {
+              if (parsing === 'ended') {
                 break;
               }
             }
-            if (bass && bass === "9") {
-              additionals.push("M9");
+            if (bass && bass === '9') {
+              additionals.push('M9');
               bass = null;
             }
             this.intervals = notes
@@ -1530,7 +1530,7 @@ require = (function e(t, n, r) {
               bassInterval = teoria.interval.between(root, note);
               bass = bassInterval.simple();
               bassInterval = bassInterval.invert();
-              bassInterval.direction("down");
+              bassInterval.direction('down');
               this._voicing = [bassInterval];
               for (i = 0; i < length; i++) {
                 if (intervals[i].simple().equal(bass)) continue;
@@ -1561,27 +1561,27 @@ require = (function e(t, n, r) {
               this._voicing = this.intervals;
             },
             dominant: function (additional) {
-              additional = additional || "";
-              return new TeoriaChord(this.root.interval("P5"), additional);
+              additional = additional || '';
+              return new TeoriaChord(this.root.interval('P5'), additional);
             },
             subdominant: function (additional) {
-              additional = additional || "";
-              return new TeoriaChord(this.root.interval("P4"), additional);
+              additional = additional || '';
+              return new TeoriaChord(this.root.interval('P4'), additional);
             },
             parallel: function (additional) {
-              additional = additional || "";
+              additional = additional || '';
               var quality = this.quality();
               if (
-                this.chordType() !== "triad" ||
-                quality === "diminished" ||
-                quality === "augmented"
+                this.chordType() !== 'triad' ||
+                quality === 'diminished' ||
+                quality === 'augmented'
               ) {
-                throw new Error("Only major/minor triads have parallel chords");
+                throw new Error('Only major/minor triads have parallel chords');
               }
-              if (quality === "major") {
-                return new TeoriaChord(this.root.interval("m3", "down"), "m");
+              if (quality === 'major') {
+                return new TeoriaChord(this.root.interval('m3', 'down'), 'm');
               } else {
-                return new TeoriaChord(this.root.interval("m3", "up"));
+                return new TeoriaChord(this.root.interval('m3', 'up'));
               }
             },
             quality: function () {
@@ -1601,31 +1601,31 @@ require = (function e(t, n, r) {
               if (!third) {
                 return;
               }
-              third = third.direction() === "down" ? third.invert() : third;
+              third = third.direction() === 'down' ? third.invert() : third;
               third = third.simple().toString();
               if (fifth) {
-                fifth = fifth.direction === "down" ? fifth.invert() : fifth;
+                fifth = fifth.direction === 'down' ? fifth.invert() : fifth;
                 fifth = fifth.simple().toString();
               }
               if (seventh) {
                 seventh =
-                  seventh.direction === "down" ? seventh.invert() : seventh;
+                  seventh.direction === 'down' ? seventh.invert() : seventh;
                 seventh = seventh.simple().toString();
               }
-              if (third === "M3") {
-                if (fifth === "A5") {
-                  return "augmented";
-                } else if (fifth === "P5") {
-                  return seventh === "m7" ? "dominant" : "major";
+              if (third === 'M3') {
+                if (fifth === 'A5') {
+                  return 'augmented';
+                } else if (fifth === 'P5') {
+                  return seventh === 'm7' ? 'dominant' : 'major';
                 }
-                return "major";
-              } else if (third === "m3") {
-                if (fifth === "P5") {
-                  return "minor";
-                } else if (fifth === "d5") {
-                  return seventh === "m7" ? "half-diminished" : "diminished";
+                return 'major';
+              } else if (third === 'm3') {
+                if (fifth === 'P5') {
+                  return 'minor';
+                } else if (fifth === 'd5') {
+                  return seventh === 'm7' ? 'half-diminished' : 'diminished';
                 }
-                return "minor";
+                return 'minor';
               }
             },
             chordType: function () {
@@ -1636,7 +1636,7 @@ require = (function e(t, n, r) {
                 i,
                 name;
               if (length === 2) {
-                return "dyad";
+                return 'dyad';
               } else if (length === 3) {
                 has = { first: false, third: false, fifth: false };
                 for (i = 0; i < length; i++) {
@@ -1649,7 +1649,7 @@ require = (function e(t, n, r) {
                   }
                 }
                 name =
-                  has.first && has.third && has.fifth ? "triad" : "trichord";
+                  has.first && has.third && has.fifth ? 'triad' : 'trichord';
               } else if (length === 4) {
                 has = {
                   first: false,
@@ -1667,13 +1667,13 @@ require = (function e(t, n, r) {
                   }
                 }
                 if (has.first && has.third && has.fifth && has.seventh) {
-                  name = "tetrad";
+                  name = 'tetrad';
                 }
               }
-              return name || "unknown";
+              return name || 'unknown';
             },
             get: function (interval) {
-              if (typeof interval === "string" && interval in kStepNumber) {
+              if (typeof interval === 'string' && interval in kStepNumber) {
                 var intervals = this.intervals,
                   i,
                   length;
@@ -1685,7 +1685,7 @@ require = (function e(t, n, r) {
                 }
                 return null;
               } else {
-                throw new Error("Invalid interval name");
+                throw new Error('Invalid interval name');
               }
             },
             interval: function (interval) {
@@ -1706,12 +1706,12 @@ require = (function e(t, n, r) {
           function TeoriaScale(tonic, scale) {
             var scaleName, i;
             if (!(tonic instanceof TeoriaNote)) {
-              throw new Error("Invalid Tonic");
+              throw new Error('Invalid Tonic');
             }
-            if (typeof scale === "string") {
+            if (typeof scale === 'string') {
               scaleName = scale;
               scale = teoria.scale.scales[scale];
-              if (!scale) throw new Error("Invalid Scale");
+              if (!scale) throw new Error('Invalid Scale');
             } else {
               for (i in teoria.scale.scales) {
                 if (teoria.scale.scales.hasOwnProperty(i)) {
@@ -1743,15 +1743,15 @@ require = (function e(t, n, r) {
               var length = this.scale.length - 2;
               if (length < 8) {
                 return (
-                  ["di", "tri", "tetra", "penta", "hexa", "hepta", "octa"][
+                  ['di', 'tri', 'tetra', 'penta', 'hexa', 'hepta', 'octa'][
                     length
-                  ] + "tonic"
+                  ] + 'tonic'
                 );
               }
             },
             get: function (i) {
               i =
-                typeof i === "string" && i in kStepNumber ? kStepNumber[i] : i;
+                typeof i === 'string' && i in kStepNumber ? kStepNumber[i] : i;
               return this.tonic.interval(this.scale[i - 1]);
             },
             solfege: function (index, showOctaves) {
@@ -1771,95 +1771,95 @@ require = (function e(t, n, r) {
             },
           };
           teoria.scale.scales.ionian = teoria.scale.scales.major = [
-            "P1",
-            "M2",
-            "M3",
-            "P4",
-            "P5",
-            "M6",
-            "M7",
+            'P1',
+            'M2',
+            'M3',
+            'P4',
+            'P5',
+            'M6',
+            'M7',
           ];
           teoria.scale.scales.dorian = [
-            "P1",
-            "M2",
-            "m3",
-            "P4",
-            "P5",
-            "M6",
-            "m7",
+            'P1',
+            'M2',
+            'm3',
+            'P4',
+            'P5',
+            'M6',
+            'm7',
           ];
           teoria.scale.scales.phrygian = [
-            "P1",
-            "m2",
-            "m3",
-            "P4",
-            "P5",
-            "m6",
-            "m7",
+            'P1',
+            'm2',
+            'm3',
+            'P4',
+            'P5',
+            'm6',
+            'm7',
           ];
           teoria.scale.scales.lydian = [
-            "P1",
-            "M2",
-            "M3",
-            "A4",
-            "P5",
-            "M6",
-            "M7",
+            'P1',
+            'M2',
+            'M3',
+            'A4',
+            'P5',
+            'M6',
+            'M7',
           ];
           teoria.scale.scales.mixolydian = [
-            "P1",
-            "M2",
-            "M3",
-            "P4",
-            "P5",
-            "M6",
-            "m7",
+            'P1',
+            'M2',
+            'M3',
+            'P4',
+            'P5',
+            'M6',
+            'm7',
           ];
           teoria.scale.scales.aeolian = teoria.scale.scales.minor = [
-            "P1",
-            "M2",
-            "m3",
-            "P4",
-            "P5",
-            "m6",
-            "m7",
+            'P1',
+            'M2',
+            'm3',
+            'P4',
+            'P5',
+            'm6',
+            'm7',
           ];
           teoria.scale.scales.locrian = [
-            "P1",
-            "m2",
-            "m3",
-            "P4",
-            "d5",
-            "m6",
-            "m7",
+            'P1',
+            'm2',
+            'm3',
+            'P4',
+            'd5',
+            'm6',
+            'm7',
           ];
-          teoria.scale.scales.majorpentatonic = ["P1", "M2", "M3", "P5", "M6"];
-          teoria.scale.scales.minorpentatonic = ["P1", "m3", "P4", "P5", "m7"];
+          teoria.scale.scales.majorpentatonic = ['P1', 'M2', 'M3', 'P5', 'M6'];
+          teoria.scale.scales.minorpentatonic = ['P1', 'm3', 'P4', 'P5', 'm7'];
           teoria.scale.scales.chromatic =
             teoria.scale.scales.harmonicchromatic = [
-              "P1",
-              "m2",
-              "M2",
-              "m3",
-              "M3",
-              "P4",
-              "A4",
-              "P5",
-              "m6",
-              "M6",
-              "m7",
-              "M7",
+              'P1',
+              'm2',
+              'M2',
+              'm3',
+              'M3',
+              'P4',
+              'A4',
+              'P5',
+              'm6',
+              'M6',
+              'm7',
+              'M7',
             ];
           teoria.TeoriaNote = TeoriaNote;
           teoria.TeoriaChord = TeoriaChord;
           teoria.TeoriaScale = TeoriaScale;
           teoria.TeoriaInterval = TeoriaInterval;
-          if (typeof exports !== "undefined") {
-            if (typeof module !== "undefined" && module.exports)
+          if (typeof exports !== 'undefined') {
+            if (typeof module !== 'undefined' && module.exports)
               exports = module.exports = teoria;
             exports.teoria = teoria;
-          } else if (typeof this !== "undefined") this.teoria = teoria;
-          else if (typeof window !== "undefined") window.teoria = teoria;
+          } else if (typeof this !== 'undefined') this.teoria = teoria;
+          else if (typeof window !== 'undefined') window.teoria = teoria;
         })();
       },
       {},
@@ -1870,16 +1870,16 @@ require = (function e(t, n, r) {
         context = AudioContext;
         master = new context();
         SAMPLERATE = samplerate = master.sampleRate;
-        jsynth = require("jsynth");
-        nvelope = require("nvelope");
-        sync = require("jsynth-zerone");
-        oz = require("oscillators");
-        jdelay = require("jdelay");
-        amod = require("amod");
-        chronotrigger = require("jigger");
-        clang = require("meffisto");
-        beatmath = require("beatmath");
-        teoria = require("teoria");
+        jsynth = require('jsynth');
+        nvelope = require('nvelope');
+        sync = require('jsynth-zerone');
+        oz = require('oscillators');
+        jdelay = require('jdelay');
+        amod = require('amod');
+        chronotrigger = require('jigger');
+        clang = require('meffisto');
+        beatmath = require('beatmath');
+        teoria = require('teoria');
         specialX = function (t, s, i) {
           return 0;
         };
@@ -1905,7 +1905,7 @@ require = (function e(t, n, r) {
         jdelay: 4,
         jigger: 6,
         jsynth: 9,
-        "jsynth-zerone": 7,
+        'jsynth-zerone': 7,
         meffisto: 10,
         nvelope: 13,
         oscillators: 15,
@@ -1917,7 +1917,7 @@ require = (function e(t, n, r) {
   []
 );
 setTimeout(function () {
-  require("cheatcode");
+  require('cheatcode');
   synth.connect(master.destination);
   bpm = 74 / 2;
   basefq = 54 * 2;
@@ -1941,7 +1941,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -1972,7 +1972,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54;
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -1995,7 +1995,7 @@ setTimeout(function () {
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
       fleek = fq;
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -2025,7 +2025,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2053,9 +2053,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2076,7 +2076,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2107,7 +2107,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54;
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -2129,7 +2129,7 @@ setTimeout(function () {
       var fq =
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -2159,7 +2159,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2187,9 +2187,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 4, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2210,7 +2210,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2241,7 +2241,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54;
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -2263,7 +2263,7 @@ setTimeout(function () {
       var fq =
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -2293,7 +2293,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2321,9 +2321,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 8, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2344,7 +2344,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2375,7 +2375,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54;
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -2397,7 +2397,7 @@ setTimeout(function () {
       var fq =
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -2427,7 +2427,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2455,9 +2455,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2478,7 +2478,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2509,7 +2509,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54;
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -2531,7 +2531,7 @@ setTimeout(function () {
       var fq =
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -2561,7 +2561,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2589,9 +2589,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2612,7 +2612,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "triangle";
+    opts.wave = 'triangle';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2643,7 +2643,7 @@ setTimeout(function () {
       opts.c = 1;
       opts.m = Math.PI / 3;
       opts.f = 54;
-      opts.wave = "square";
+      opts.wave = 'square';
       var stringer = clang(opts);
       var fux = jdelay(480, 0.51, 0.2);
       var attack = [
@@ -2665,7 +2665,7 @@ setTimeout(function () {
       var fq =
         (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
       var synth = function (t, s, i) {
-        var wave = "";
+        var wave = '';
         return oz.sine(t, fq) * lope(t - _t);
         return stringer.ring(
           t,
@@ -2695,7 +2695,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2723,9 +2723,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2746,7 +2746,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2786,7 +2786,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2808,7 +2808,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2839,7 +2839,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2867,9 +2867,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -2890,7 +2890,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -2930,7 +2930,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -2952,7 +2952,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -2983,7 +2983,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3011,9 +3011,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3034,7 +3034,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3075,7 +3075,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3097,7 +3097,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3128,7 +3128,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3156,9 +3156,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3179,7 +3179,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3220,7 +3220,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3242,7 +3242,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3273,7 +3273,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3301,9 +3301,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3324,7 +3324,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3365,7 +3365,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3387,7 +3387,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3418,7 +3418,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3446,9 +3446,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3469,7 +3469,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3510,7 +3510,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3532,7 +3532,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3564,7 +3564,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3592,9 +3592,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3615,7 +3615,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3656,7 +3656,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3678,7 +3678,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3709,7 +3709,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3737,9 +3737,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3760,7 +3760,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3801,7 +3801,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3823,7 +3823,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3854,7 +3854,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3882,9 +3882,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -3905,7 +3905,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "saw_i";
+    opts.wave = 'saw_i';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -3946,7 +3946,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -3968,7 +3968,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -3999,7 +3999,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4027,9 +4027,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -4050,7 +4050,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4091,7 +4091,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4113,7 +4113,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -4144,7 +4144,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4172,9 +4172,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -4195,7 +4195,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4236,7 +4236,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4258,7 +4258,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -4289,7 +4289,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4317,9 +4317,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -4340,7 +4340,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4381,7 +4381,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4403,7 +4403,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -4434,7 +4434,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4462,9 +4462,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -4485,7 +4485,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4526,7 +4526,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4548,7 +4548,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -4579,7 +4579,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4607,9 +4607,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -4630,7 +4630,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4671,7 +4671,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4693,7 +4693,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -4725,7 +4725,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4753,9 +4753,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -4776,7 +4776,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4817,7 +4817,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4839,7 +4839,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -4871,7 +4871,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4899,9 +4899,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -4922,7 +4922,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -4963,7 +4963,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -4985,7 +4985,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -5017,7 +5017,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5045,9 +5045,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -5068,7 +5068,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5109,7 +5109,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -5131,7 +5131,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -5163,7 +5163,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5191,9 +5191,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -5214,7 +5214,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5254,7 +5254,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -5276,7 +5276,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -5308,7 +5308,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5336,9 +5336,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
     var attack = [
@@ -5359,7 +5359,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5399,7 +5399,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -5421,7 +5421,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -5453,7 +5453,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5481,9 +5481,9 @@ setTimeout(function () {
 setTimeout(function () {
   bpm = 74 / 2;
   basefq = 54 * 2;
-  t1.emit("stop");
-  t2.emit("stop");
-  gong.emit("stop");
+  t1.emit('stop');
+  t2.emit('stop');
+  gong.emit('stop');
   t1 = timer.beat(1 / 2, [1, , 1], function (_t, b) {
     var bpm = 74;
 
@@ -5505,7 +5505,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = Math.PI;
     opts.f = 1200;
-    opts.wave = "square";
+    opts.wave = 'square';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];
@@ -5545,7 +5545,7 @@ setTimeout(function () {
         opts.c = 1;
         opts.m = Math.PI / 3;
         opts.f = 54;
-        opts.wave = "square";
+        opts.wave = 'square';
         var stringer = clang(opts);
         var fux = jdelay(480, 0.51, 0.2);
         var attack = [
@@ -5567,7 +5567,7 @@ setTimeout(function () {
         var fq =
           (b % 8) % 5 === 0 ? ((basefq * Math.sqrt(2)) / 2) * (kx / 5) : basefq;
         var synth = function (t, s, i) {
-          var wave = "";
+          var wave = '';
           return oz.sine(t, fq) * lope(t - _t);
           return stringer.ring(
             t,
@@ -5599,7 +5599,7 @@ setTimeout(function () {
     opts.c = Math.sqrt(2);
     opts.m = 2 + (b % 4) / Math.PI;
     opts.f = 442 / 16 / 2;
-    opts.wave = "sine";
+    opts.wave = 'sine';
     var stringer = clang(opts);
     var zmod = {};
     zmod.curves = [attack, release];

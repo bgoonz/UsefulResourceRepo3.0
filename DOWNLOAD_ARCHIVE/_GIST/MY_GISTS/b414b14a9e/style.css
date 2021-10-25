@@ -1,0 +1,20 @@
+h3,
+a,
+p {
+  color: #1f2124;
+}
+h4 {
+  font-size: 1rem !important;
+  line-height: 1rem;
+}
+
+iframe {
+  height: 670px;
+  width: 98%;
+  zoom: 1.4;
+  box-shadow: 4px black;
+}
+body {
+  width: 95%;
+  margin: auto;
+}

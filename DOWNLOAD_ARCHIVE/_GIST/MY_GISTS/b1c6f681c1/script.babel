@@ -1,0 +1,450 @@
+console.clear()
+
+function randomColor(n='') {
+  const randomInt=(a=10,b=0)=>{
+    return Math.floor(Math.random()*a)+b
+  }
+  
+  const keys = Object.keys(COLOR)
+  const l = keys.length
+  const i = randomInt(l)
+  let k = keys[i]
+  if (typeof(n)==='string' && n.length>0) {
+    const j = keys.indexOf(n)
+    if (j>=0) {
+      k = keys[j]
+    }
+  }
+  
+  const colors = COLOR[k]
+  return colors[randomInt(colors.length)]
+}
+
+function ColorBox(props) {
+  const {className='',style={}} = props
+  const styles = {...style}
+  let found = false
+  let color = ''
+  Object.keys(props).forEach(e=>{
+    const keys = Object.keys(COLOR)
+    for (let i=0;i<keys.length;i++) {
+      const colors = COLOR[keys[i]]
+      for (let j=0;j<colors.length;j++) {
+        if (colors[j]===e) {
+          styles.backgroundColor = e
+          color = e
+          found = true
+          break
+        }
+      }
+      if (found) break
+    }
+  })
+  if (!found) {
+    color = randomColor('')
+    styles.backgroundColor = color
+  }
+  
+  const el = React.useRef()
+  const [rgb,setRgb] = React.useState()
+  const [hsl,setHsl] = React.useState()
+  const [hex,setHex] = React.useState()
+  const [lumin,setLumin] = React.useState()
+  
+  React.useEffect(()=>{
+    if (typeof(el)==='object'&&el!==null) {
+      const {current} = el
+      if (typeof(current)==='object'&&current!==null) {
+        const rgb = window.getComputedStyle(current).backgroundColor
+        setRgb(rgb)
+      }
+    }
+  })
+  
+  React.useEffect(()=>{
+    const c = new Color(rgb)
+    //const lumin = c.luminance()
+    const lumin = c.lumin()
+    setLumin(lumin)
+    setHex(c.toString('#'))
+    setHsl(c.toString('hsl'))
+  },[rgb])
+  
+  styles.color = lumin
+  
+  return (
+    <div ref={el} className={`ColorBox ${className}`} style={styles}>
+      <h6 className="text-center text-shadow">{color}</h6>
+    </div>
+  )
+}
+
+function App(props) {
+  const [loading,setLoading] = React.useState(false)
+  
+  const reload=e=>{
+    e.preventDefault()
+    setLoading(true)
+  }
+  
+  React.useEffect(()=>{
+    if (loading) {
+      setTimeout(()=>{
+        setLoading(false)
+      },0)
+    }
+  }, [loading])
+  
+  const [group,setGroup] = React.useState('')
+  
+  const selectGroup=e=>{
+    const {value} = e.target
+    if (typeof(value)==='string') {
+      setLoading(true)
+      setGroup(value)
+    }
+  }
+  
+  return (
+    <div className="container-fluid">
+      <div className="pt-2 text-center">
+        <Badge dark pill className="mr-2">React JS</Badge>
+        <Badge info pill className="mr-2">Bootstrap 4</Badge>
+        <Badge light pill>{todate()}</Badge>
+        <h3>ReactJS: Random ColorBox</h3>
+        <p className="lead">Random web colors</p>
+        <Button primary lg shadow className="mr-3 mb-3" onClick={reload}>{/*'\u27F3'*/} &#x27F3; Reload</Button>
+        <A light lg shadow blank href="https://codepen.io/mjunaidi/pen/pBpjyg" className="mb-3" data-tootik="Open Link in New Tab" data-tootik-conf="bottom">List of Web Colors &#x1F3A8;{/*&#x2630;*/}</A>
+        
+        {/*
+        <div className="text-center">
+          <div className="form-group">
+            <label>Color group <Badge light pill shadow>{group}</Badge></label>
+            <select className="form-control shadow" value={group} onChange={selectGroup}>
+              <option value="">All</option>
+              {
+                Object.keys(COLOR).map((e,i)=>(
+                  <option key={i}>{e}</option>
+                ))
+              }
+            </select>
+          </div>
+        </div>
+        */}
+        
+        <div>
+          <div><label>Color group <Badge light pill shadow>{group}</Badge></label></div>
+          <Button sm shadow className={`${group===''?'btn-dark':'btn-light'} m-1`} onClick={e=>{
+              setGroup('')
+              setLoading(true)
+            }}>All</Button>
+          {
+            Object.keys(COLOR).map((e,i)=>{
+              const style = {}
+              const handleClick =evt=>{
+                evt.preventDefault()
+                setGroup(e)
+                setLoading(true)
+              }
+              const el = {}
+              if (group===e) el.dark = true
+              else el.light = true
+              return (
+                <Button key={i} {...el} sm shadow className="m-1" onClick={handleClick}>{e}</Button>
+              )
+            })
+          }
+        </div>
+        
+      </div>
+      <hr/>
+      <div>
+        {
+          !loading&&
+          <div className="row">
+            {
+              (new Array(100)).fill(0).map((e,i)=>{
+                const color = randomColor(group)
+                const animationDelay = `${i*1/100}s`
+                return (
+                  <ColorBox {...{[color]:true}} className="col shadow animated faster bounceIn" style={{animationDelay}} />
+                )
+              })
+            }
+          </div>
+        }
+      </div>
+    </div>
+  )
+}
+
+/* Util */
+const COLOR = {
+  Pink: ['Pink', 'LightPink', 'HotPink', 'DeepPink', 'PaleVioletRed', 'MediumVioletRed',],
+  Red: ['LightSalmon', 'Salmon', 'DarkSalmon', 'LightCoral', 'IndianRed', 'Crimson', 'Firebrick', 'DarkRed', 'Red',
+  ],
+  Orange: ['OrangeRed', 'Tomato', 'Coral', 'DarkOrange', 'Orange',],
+  Yellow: ['Yellow', 'LightYellow', 'LemonChiffon', 'LightGoldenrodYellow', 'PapayaWhip', 'Moccasin', 'PeachPuff', 'PaleGoldenrod', 'Khaki', 'DarkKhaki', 'Gold',],
+  Brown: ['Cornsilk', 'BlanchedAlmond', 'Bisque', 'NavajoWhite', 'Wheat', 'Burlywood', 'Tan', 'RosyBrown', 'SandyBrown', 'Goldenrod', 'DarkGoldenrod', 'Peru', 'Chocolate', 'SaddleBrown', 'Sienna', 'Brown', 'Maroon',],
+  Green: ['DarkOliveGreen', 'Olive', 'OliveDrab', 'YellowGreen', 'LimeGreen', 'Lime', 'LawnGreen', 'Chartreuse', 'GreenYellow', 'SpringGreen', 'MediumSpringGreen', 'LightGreen', 'PaleGreen', 'DarkSeaGreen', 'MediumAquamarine', 'MediumSeaGreen', 'SeaGreen', 'ForestGreen', 'Green', 'DarkGreen',],
+  Cyan: ['Aqua', 'Cyan', 'LightCyan', 'PaleTurquoise', 'Aquamarine', 'Turquoise', 'MediumTurquoise', 'DarkTurquoise', 'LightSeaGreen', 'CadetBlue', 'DarkCyan', 'Teal'],
+  Blue: ['LightSteelBlue', 'PowderBlue', 'LightBlue', 'SkyBlue', 'LightSkyBlue', 'DeepSkyBlue', 'DodgerBlue', 'CornflowerBlue', 'SteelBlue', 'RoyalBlue', 'Blue', 'MediumBlue', 'DarkBlue', 'Navy', 'MidnightBlue'],
+  Purple: ['Lavender', 'Thistle', 'Plum', 'Violet', 'Orchid', 'Fuchsia', 'Magenta', 'MediumOrchid', 'MediumPurple', 'BlueViolet', 'DarkViolet', 'DarkOrchid', 'DarkMagenta', 'Purple', 'Indigo', 'DarkSlateBlue', 'SlateBlue', 'MediumSlateBlue'],
+  White: ['White', 'Snow', 'Honeydew', 'MintCream', 'Azure', 'AliceBlue', 'GhostWhite', 'WhiteSmoke', 'Seashell', 'Beige', 'OldLace', 'FloralWhite', 'Ivory', 'AntiqueWhite', 'Linen', 'LavenderBlush', 'MistyRose'],
+  Gray: ['Gainsboro', 'LightGray', 'Silver', 'DarkGray', 'Gray', 'DimGray', 'LightSlateGray', 'SlateGray', 'DarkSlateGray', 'Black'],
+}
+
+class Color {
+  static black = new Color('#000000')
+  static white = new Color('#ffffff')
+  constructor(value) {
+    if (typeof(value)==='string'&&value.length>0) {
+      this.fromString(value)
+    } else {
+      // rgb value is between 0-255, a (alpha) is between 0.0-1.0
+      this.r = 0
+      this.g = 0
+      this.b = 0
+      this.a = 1
+    }
+  }
+  inverse() {
+    const {r,g,b} = this
+    const max = 255
+    const rgb = [max-r,max-g,max-b]
+    return new Color(`rgb(${rgb.join(',')})`)
+  }
+  luminance() {
+    const {r,g,b} = this
+    const L = r*.299+g*.587+b*.114
+    if (L>186) return Color.black
+    return Color.white
+  }
+  lumin() {
+    //const {h,s,l} = this.toHsl()
+    //return s>50?Color.black:Color.white
+    return this.luminance()
+  }
+  fromString(s) {
+    if (typeof(s)==='string'&&s.length>0) {
+      if (s.charAt(0)==='#') {
+        const rgb = s.slice(1)
+        this.r = parseInt(rgb.slice(0,2),16)
+        this.g = parseInt(rgb.slice(2,4),16)
+        this.b = parseInt(rgb.slice(4,6),16)
+        if (typeof(this.a)!=='number') {
+          this.a = 1
+        }
+      } else if (s.startsWith('rgba')) {
+        const rgba = s.trim().slice(5,s.length-1).split(',')
+        const rgb = rgba.slice(0,rgba.length-1).map(e=>parseInt(e))
+        this.r = rgb[0]
+        this.g = rgb[1]
+        this.b = rgb[2]
+        this.a = parseFloat(rgba.slice(rgba.length-1))
+      } else if (s.startsWith('rgb')) {
+        const rgb = s.trim().slice(4,s.length-1).split(',').map(e=>parseInt(e))
+        this.r = rgb[0]
+        this.g = rgb[1]
+        this.b = rgb[2]
+        if (typeof(this.a)!=='number') {
+          this.a = 1
+        }
+      }
+    }
+    return this
+  }
+  toHsl() {
+    const r = parseFloat(this.r)/255
+    const g = parseFloat(this.g)/255
+    const b = parseFloat(this.b)/255
+    const max = Math.max(r, g, b)
+    const min = Math.min(r, g, b)
+    const diff = max - min
+    const add = max + min
+    const hue = min===max?0:r===max?((60*(g-b)/diff)+360)%360:g===max?(60*(b-r)/diff)+120:(60*(r-g)/diff)+240
+    const lum = 0.5*add
+    const sat = lum===0?0:lum===1?1:lum<=0.5?diff/add:diff/(2-add)
+    const h = Math.round(hue)
+    const s = Math.round(sat*100)
+    const l = Math.round(lum*100)
+    return {h,s,l}
+  }
+  hsl() {
+    const {h,s,l} = this.toHsl()
+    return `hsl(${h}, ${s}%, ${l}%)`
+  }
+  hsla() {
+    const {h,s,l} = this.toHsl()
+    const a = parseFloat(this.a)||1
+    return `hsla(${h}, ${s}%, ${l}%, ${a})`
+  }
+  toString(p) {
+    const {r,g,b,a} = this
+    if (p==='hex'||p==='#') {
+      const toHex=n=>{
+        const hex = n.toString(16)
+        if (hex.length===1) return `0${hex}`
+        return hex
+      }
+      return `#${toHex(r)}${toHex(g)}${toHex(b)}`
+    }
+    if (p==='rgb') {
+      return `rgb(${r},${g},${b})`  
+    }
+    if (p==='hsl') {
+      return this.hsl()
+    }
+    if (p==='hsla') {
+      return this.hsla()
+    }
+    return `rgba(${r},${g},${b},${a})`
+  }
+}
+
+function trace(value,size) {
+  if (typeof(size)==='number'&&size>0) {
+    console.log(JSON.stringify(value,null,size))
+  } else {
+    console.log(value)
+  }
+}
+
+function todate() {
+  return (new Date()).toISOString().split('T')[0]
+}
+
+function lipsum(n=10,dot=false) {
+  if (typeof(n)!=='number'||(typeof(n)==='number'&&n<1)) n=10
+  const words = ['lorem', 'ipsum', 'dolor', 'sit', 'amet', 'consectetur', 'adipiscing', 'elit', 'vivamus', 'et', 'accumsan', 'augue', 'duis', 'eget', 'nunc', 'id', 'sodales', 'finibus', 'vestibulum', 'sagittis', 'magna', 'nec', 'rutrum', 'volutpat', 'risus', 'tincidunt', 'justo', 'non', 'gravida', 'tortor', 'enim', 'in', 'urna', 'ut', 'vel', 'metus', 'pellentesque', 'porttitor', 'vitae', 'nisi', 'nullam', 'faucibus', 'condimentum', 'quam', 'imperdiet', 'class', 'aptent', 'taciti', 'sociosqu', 'ad', 'litora', 'torquent', 'per', 'conubia', 'nostra', 'inceptos', 'himenaeos', 'interdum', 'malesuada', 'fames', 'ac', 'ante', 'primis', 'curabitur', 'nibh', 'quis', 'iaculis', 'cras', 'mollis', 'eu', 'congue', 'leo']
+  const count = Math.floor(Math.random()*n+1)
+  const sentence = []
+  const indexes = (new Array(count)).fill(0).map(index=>Math.floor(Math.random()*words.length))
+  indexes.forEach((index,i)=>{
+    const word = words[index]
+    if (i===0)
+      sentence.push(word.charAt(0).toUpperCase()+word.substr(1))
+    else 
+      sentence.push(word)
+  })
+  if (dot) return sentence.join(' ').concat('.')
+  return sentence.join(' ')
+}
+
+function PreCode(props) {
+  const {children,value,size=2} = props
+  if (typeof(value)==='string') {
+    return (
+      <div><pre><code>{value.trim()}</code></pre></div>
+    ) 
+  }
+  if (typeof(value)==='object' || typeof(value)==='number' || typeof(value)==='boolean') {
+    return (
+      <div><pre><code>{JSON.stringify(value,null,size)}</code></pre></div>
+    )
+  }
+  if (typeof(children)==='string') {
+    return (
+      <div><pre><code>{children.trim()}</code></pre></div>
+    )
+  }
+  return (
+    <div><pre><code>{JSON.stringify(children,null,size)}</code></pre></div>
+  )
+}
+
+function Button(props) {
+  const {children, className='', outline=false, sm=false, lg=false, block=false, disabled=false, shadow=false, label='', title='', button=true, submit=false, reset=false, onClick} = props
+  const classNames = ['btn',className]
+  Object.keys(props).forEach(e=>{
+    if (['primary', 'secondary', 'info', 'success', 'warning', 'danger', 'light', 'dark', 'link'].indexOf(e)>=0) {
+      classNames.push(`btn-${outline?'outline-':''}${e}`)
+    }
+    if (['h1','h2','h3','h4','h5','h6'].indexOf(e)>=0) classNames.push(e)
+  })
+  if (sm) classNames.push('btn-sm')
+  if (lg) classNames.push('btn-lg')
+  if (block) classNames.push('btn-block')
+  if (shadow) classNames.push('shadow')
+  let type = 'button'
+  if (submit) type = 'submit'
+  else if (reset) type = 'reset'
+  return (
+    <button className={classNames.join(' ')} onClick={onClick} disabled={disabled} type={type} title={title}>{label||children}</button>
+  )
+}
+
+function Badge(props) {
+  const {children,className='',pill,title='',shadow=false} = props
+  const classNames = ['badge',className]
+  if (pill) {
+    classNames.push('badge-pill')
+  }
+  Object.keys(props).forEach(e=>{
+    if (['primary','secondary','info','success','warning','danger','light','dark'].indexOf(e)>=0) {
+      classNames.push(`badge-${e}`)
+    }
+    if (['h1','h2','h3','h4','h5','h6'].indexOf(e)>=0) {
+      classNames.push(e)
+    }
+  })
+  if (shadow) classNames.push('shadow')
+  return (
+    <span className={classNames.join(' ')} title={title}>{children}</span>
+  )
+}
+
+function A(props) {
+  const {href='',label='',className='',children,color,target='',title='',shadow=false,outline=false,sm=false,lg=false,blank=false} = props
+  const id = `link${Date.now()}${(new Array(6)).fill(0).map(e=>Math.floor(Math.random()*10)).join('')}`
+  const classNames = [id,className]
+  const style = {}
+  if (typeof(color)==='string'&&color.length>0) style.color = color
+  if (shadow) classNames.push('shadow')
+  let isBtn = false
+  Object.keys(props).forEach(e=>{
+    if (['primary','secondary','info','success','warning','danger','light','dark'].indexOf(e)>=0) {
+      if (outline) classNames.push(`btn btn-outline-${e}`)
+      else classNames.push(`btn btn-${e}`)
+      isBtn = true
+    }
+    if (['h1','h2','h3','h4','h5','h6'].indexOf(e)>=0) classNames.push(e)
+  })
+  if (isBtn) {
+    if (sm) classNames.push('btn-sm')
+    if (lg) classNames.push('btn-lg')
+  }
+  return (
+    <>
+      <style>{`#${id}{position:relative;text-decoration:none;}#${id}:hover{text-decoration:none;}#${id}:before{content:"";position:absolute;width:100%;height:.2rem;bottom:0;left:0;background-color:currentColor;visibility:hidden;transform:scaleX(0);transition:all 0.3s ease-in-out 0s;-webkit-transform:scaleX(0);-webkit-transition:all 0.3s ease-in-out 0s;}#${id}:hover:before{visibility:visible;-webkit-transform:scaleX(1);transform:scaleX(1);}`}</style>
+      <a id={id} href={href} className={classNames.join(' ')} style={style} target={target||blank?'_blank':''} title={title||!target&&blank?'Open in New Tab':''} data-tootik={props['data-tootik']} data-tootik-conf={props['data-tootik-conf']}>{label||children}</a>
+    </>
+  )
+}
+
+function Callout(props) {
+  const {title='',children,className='',shadow=false} = props
+  const classNames = ['callout']
+  Object.keys(props).forEach(e=>{
+    if (['primary','secondary','info','success','warning','danger','light','dark'].indexOf(e)>=0) {
+      classNames.push(`callout-${e}`)
+    }
+  })
+  if (shadow) {
+    classNames.push('shadow')
+  }
+  return (
+    <div className={classNames.join(' ')}>
+      {
+        typeof(title)==='string'&&title.length>0&&
+        <h5>{title}</h5>
+      }
+      <p>{children}</p>
+    </div>
+  )
+}
+
+ReactDOM.render(
+  <App/>,
+  document.getElementById('root')
+);

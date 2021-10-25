@@ -1,0 +1,97 @@
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One");
+
+html,
+body {
+  max-width: 100%;
+  overflow-x: hidden;
+  font-family: "Fredoka One", "Microsoft YaHei UI Light", "PingFangHK-Light",
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
+    Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+#root {
+  background: linear-gradient(to bottom, #a2ded0, #ffffff);
+  padding-bottom: 2.5rem;
+}
+
+.text-shadow {
+  /*
+  MediumVioletRed
+  DarkRed
+  Firebrick
+  */
+  text-shadow: 0 0.25rem 0.75rem DarkSlateGray;
+}
+
+.ColorBox {
+  width: 182px;
+  height: 96px;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  font-size: 0.75rem;
+  padding: 8px;
+}
+
+.ColorBox > p {
+  margin-bottom: 0;
+}
+
+pre {
+  background: FloralWhite;
+  padding: 1rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+}
+
+.shadow-inset,
+.shadow-inset:focus,
+textarea {
+  box-shadow: inset 0.25rem 0.25rem 0.5rem rgba(0, 0, 0, 0.5);
+}
+
+.callout {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  border: 1px solid #eee;
+  border-left-width: 0.25rem;
+  border-radius: 0.25rem;
+  background-color: white;
+}
+.callout p:last-child {
+  margin-bottom: 0;
+}
+.callout-primary {
+  border-left-color: #007bff;
+}
+.callout-secondary {
+  border-left-color: #6c757d;
+}
+.callout-info {
+  border-left-color: #5bc0de;
+}
+.callout-success {
+  border-left-color: #28a745;
+}
+.callout-warning {
+  /*border-left-color: #ffc107;*/
+  border-left-color: #f0ad4e;
+}
+.callout-danger {
+  /*border-left-color: #dc3545;*/
+  border-left-color: #d9534f;
+}
+.callout-light {
+  border-left-color: #f8f9fa;
+}
+.callout-dark {
+  border-left-color: #343a40;
+}
