@@ -19,8 +19,8 @@ function checkRepeats(str) {
 function makePermutations(n, arr, result) {
   if (n == 1) {
     // output a permutation if it has no repeats
-    if (!checkRepeats(arr.join(""))) {
-      result.push(arr.join(""));
+    if (!checkRepeats(arr.join(''))) {
+      result.push(arr.join(''));
     }
   } else {
     for (let i = 0; i < n - 1; i++) {
@@ -37,11 +37,11 @@ function makePermutations(n, arr, result) {
 }
 
 function permAlone(str) {
-  const input = str.split("");
+  const input = str.split('');
   const result = [];
   return makePermutations(input.length, input, result).length;
 }
 
-permAlone("aab");
+permAlone('aab');
 
-console.log(permAlone("aab"));
+console.log(permAlone('aab'));

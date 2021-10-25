@@ -2,8 +2,7 @@
 
 [FCC link](https://www.freecodecamp.org/learn/coding-interview-prep/project-euler/problem-11-largest-product-in-a-grid)
 
-In the 20×20 grid below, four numbers along a diagonal line have been marked in
-red.
+In the 20×20 grid below, four numbers along a diagonal line have been marked in red.
 
 08 02 22 97 38 15 00 40 00 75 04 05 07 78 52 12 50 77 91 08
 
@@ -47,5 +46,4 @@ red.
 
 The product of these numbers is 26 × 63 × 78 × 14 = 1788696.
 
-What is the greatest product of four adjacent numbers in the same direction (up,
-down, left, right, or diagonally) in a given `arr` grid?
+What is the greatest product of four adjacent numbers in the same direction (up, down, left, right, or diagonally) in a given `arr` grid?

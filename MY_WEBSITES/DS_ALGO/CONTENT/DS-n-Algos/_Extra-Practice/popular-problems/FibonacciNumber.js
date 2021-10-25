@@ -14,5 +14,5 @@ const fibonacci = (N) => {
 // testing
 (() => {
   const number = 5;
-  console.log(number + "th Fibonacci number is " + fibonacci(number));
+  console.log(number + 'th Fibonacci number is ' + fibonacci(number));
 })();

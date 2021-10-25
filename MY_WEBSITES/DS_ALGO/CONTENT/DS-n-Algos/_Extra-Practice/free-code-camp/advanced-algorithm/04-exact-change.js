@@ -9,7 +9,7 @@ function checkCashRegister(price, cash, cid) {
     FIVE: 5.0,
     TEN: 10.0,
     TWENTY: 20.0,
-    "ONE HUNDRED": 100.0,
+    'ONE HUNDRED': 100.0,
   };
   const change = [];
   let difference = cash - price;
@@ -19,7 +19,7 @@ function checkCashRegister(price, cash, cid) {
   cid.forEach((n) => cidVal.push(n[1]));
   const cidSum = cidVal.reduce((a, b) => a + b);
   if (difference === cidSum) {
-    return "Closed";
+    return 'Closed';
   } else {
     // loop backwards through cid highest to lowest
     for (let i = cid.length - 1; i >= 0; i--) {
@@ -46,21 +46,21 @@ function checkCashRegister(price, cash, cid) {
     }
     // if not all difference was accounted for
     else if (difference > 0) {
-      return "Insufficient Funds";
+      return 'Insufficient Funds';
     }
   }
 }
 
 console.log(
   checkCashRegister(3.26, 100.0, [
-    ["PENNY", 1.01],
-    ["NICKEL", 2.05],
-    ["DIME", 3.1],
-    ["QUARTER", 4.25],
-    ["ONE", 90.0],
-    ["FIVE", 55.0],
-    ["TEN", 20.0],
-    ["TWENTY", 60.0],
-    ["ONE HUNDRED", 100.0],
+    ['PENNY', 1.01],
+    ['NICKEL', 2.05],
+    ['DIME', 3.1],
+    ['QUARTER', 4.25],
+    ['ONE', 90.0],
+    ['FIVE', 55.0],
+    ['TEN', 20.0],
+    ['TWENTY', 60.0],
+    ['ONE HUNDRED', 100.0],
   ])
 );

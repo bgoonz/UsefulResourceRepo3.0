@@ -2,10 +2,7 @@
 
 [FCC link](https://www.freecodecamp.org/learn/coding-interview-prep/data-structures/create-and-add-to-sets-in-es6)
 
-Now that you have worked through ES5, you are going to perform something similar
-in ES6. This will be considerably easier. ES6 contains a built-in data structure
-`Set` so many of the operations you wrote by hand are now included for you.
-Let's take a look:
+Now that you have worked through ES5, you are going to perform something similar in ES6. This will be considerably easier. ES6 contains a built-in data structure `Set` so many of the operations you wrote by hand are now included for you. Let's take a look:
 
 To create a new empty set:
 
@@ -25,8 +22,7 @@ You can create a set with an array:
 var set = new Set([1, 2, 3]);
 ```
 
-Once you have created a set, you can add the values you wish using the `add`
-method:
+Once you have created a set, you can add the values you wish using the `add` method:
 
 ```js
 var set = new Set([1, 2, 3]);

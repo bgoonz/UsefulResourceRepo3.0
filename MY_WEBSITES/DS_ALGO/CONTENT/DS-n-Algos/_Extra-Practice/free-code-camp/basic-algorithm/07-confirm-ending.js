@@ -5,4 +5,4 @@ function confirmEnding(str, target) {
   } else return false;
 }
 
-console.log(confirmEnding("Bastian", "n"));
+console.log(confirmEnding('Bastian', 'n'));

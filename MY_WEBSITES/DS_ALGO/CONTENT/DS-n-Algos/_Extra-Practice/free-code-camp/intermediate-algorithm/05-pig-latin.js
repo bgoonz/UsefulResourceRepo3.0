@@ -1,6 +1,6 @@
 function translatePigLatin(str) {
   const first = str[0];
-  const vowels = ["a", "e", "i", "o", "u", "y"]; //ignores that 'y' is only sometimes a vowel...
+  const vowels = ['a', 'e', 'i', 'o', 'u', 'y']; //ignores that 'y' is only sometimes a vowel...
   if (!vowels.includes(first)) {
     //if the first letter is not a vowel
     const findVowel = [];
@@ -18,4 +18,4 @@ function translatePigLatin(str) {
   return `${str}way`;
 }
 
-console.log(translatePigLatin("glove"));
+console.log(translatePigLatin('glove'));

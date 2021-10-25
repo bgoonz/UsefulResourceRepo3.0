@@ -39,14 +39,14 @@ const main = () => {
     2 5
     2 3`;
 
-  input = input.trim().split("\n");
+  input = input.trim().split('\n');
   input.shift();
   const length = input.length;
 
   let i = 0;
   while (i < length) {
-    const cap = Number(input[i].trim().split(" ")[0]);
-    const currlen = Number(input[i].trim().split(" ")[1]);
+    const cap = Number(input[i].trim().split(' ')[0]);
+    const currlen = Number(input[i].trim().split(' ')[1]);
     let j = i + 1;
     const arr = [];
     while (j <= i + currlen) {
@@ -55,7 +55,7 @@ const main = () => {
     }
     const newArr = [];
     arr.map((e) => {
-      newArr.push(e.trim().split(" ").map(Number));
+      newArr.push(e.trim().split(' ').map(Number));
     });
     const cache = [];
     for (let i = 0; i <= currlen; i++) {

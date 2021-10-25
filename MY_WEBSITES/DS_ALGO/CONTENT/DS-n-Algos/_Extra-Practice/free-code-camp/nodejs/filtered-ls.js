@@ -1,4 +1,4 @@
-import fs from "fs";
+import fs from 'fs';
 
 const ext = process.argv[3].toString();
 

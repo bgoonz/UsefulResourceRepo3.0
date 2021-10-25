@@ -20,7 +20,7 @@ const main = () => {
   const number = 5;
 
   console.log(
-    "Number of ways to climb " + number + " stairs in " + climbStairs(number)
+    'Number of ways to climb ' + number + ' stairs in ' + climbStairs(number)
   );
 };
 

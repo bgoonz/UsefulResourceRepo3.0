@@ -21,7 +21,7 @@ function main() {
     }
   }
 
-  console.log("Length of Longest Increasing Subsequence is:", res);
+  console.log('Length of Longest Increasing Subsequence is:', res);
 }
 
 main();

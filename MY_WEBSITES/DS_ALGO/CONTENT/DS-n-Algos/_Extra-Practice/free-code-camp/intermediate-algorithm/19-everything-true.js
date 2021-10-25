@@ -13,4 +13,4 @@ function truthCheck(collection, pre) {
   }
 }
 
-console.log(truthCheck([{ single: "double" }, { single: NaN }], "single"));
+console.log(truthCheck([{ single: 'double' }, { single: NaN }], 'single'));

@@ -2,19 +2,19 @@
 
 function convertToRoman(num) {
   const rNums = {
-    1: "I",
-    4: "IV",
-    5: "V",
-    9: "IX",
-    10: "X",
-    40: "XL",
-    50: "L",
-    90: "XC",
-    100: "C",
-    400: "CD",
-    500: "D",
-    900: "CM",
-    1000: "M",
+    1: 'I',
+    4: 'IV',
+    5: 'V',
+    9: 'IX',
+    10: 'X',
+    40: 'XL',
+    50: 'L',
+    90: 'XC',
+    100: 'C',
+    400: 'CD',
+    500: 'D',
+    900: 'CM',
+    1000: 'M',
   };
 
   //iterate through rNums
@@ -36,11 +36,11 @@ function convertToRoman(num) {
   } else if (num < 4) {
     return rNums[1].repeat(num);
   }
-  console.log(magic, "magick");
+  console.log(magic, 'magick');
 
   //print symbols for base
   const decVal = Math.floor(num / magic);
-  console.log(decVal, "decVal");
+  console.log(decVal, 'decVal');
   //if decVal + 0 matches any rNums, we're halfway there...
   const byTen = decVal * 10;
   const byHundred = decVal * 100;
@@ -53,16 +53,16 @@ function convertToRoman(num) {
   //print the right number of decVal symbols
   //if num.length < 3, use X
   else if (num.length == 2 && num > 50) {
-    console.log("length less than 3");
+    console.log('length less than 3');
     romanBase = rNums[50] + rNums[magic].repeat(decVal - 5);
   }
   //if num.length >=3, use C
   else if (num.length >= 3) {
-    console.log("length greater than 3");
+    console.log('length greater than 3');
     romanBase = rNums[100] + rNums[magic].repeat(decVal - 5);
   } else {
     var romanBase = rNums[magic].repeat(decVal);
-    console.log(romanBase, "base");
+    console.log(romanBase, 'base');
   }
 
   //process base over 5, 50 or 500...
@@ -78,7 +78,7 @@ function convertToRoman(num) {
 
   //print symbols for the remainder
   const remainder = num - decVal * magic;
-  console.log(remainder, "remainder");
+  console.log(remainder, 'remainder');
   //iterate through rNums
   for (var key in rNums) {
     //see if remainder == any rNums, if so, we're done
@@ -104,10 +104,10 @@ function convertToRoman(num) {
   } else if (remainder < 10) {
     var leftovers = remainder;
   }
-  console.log(middleVal, "middleVal");
-  console.log(middle, "middle");
-  console.log(romanMid, "romanMid");
-  console.log(leftovers, "leftovers");
+  console.log(middleVal, 'middleVal');
+  console.log(middle, 'middle');
+  console.log(romanMid, 'romanMid');
+  console.log(leftovers, 'leftovers');
 
   //process mid over 5, 50 or 500...
   if (romanMid.length > 5) {
@@ -118,7 +118,7 @@ function convertToRoman(num) {
       var midStart = (magic / 10) * 5;
       var midEnd = rNums[magic / 10].repeat(decVal - 5);
       romanMid = rNums[midStart] + midEnd;
-      console.log(midStart, midEnd, "midstart and end");
+      console.log(midStart, midEnd, 'midstart and end');
     }
   } else if (romanMid.length == 4) {
     var midStart = rNums[magic / 10];
@@ -141,7 +141,7 @@ function convertToRoman(num) {
   } else if (leftovers < 4) {
     romanEnd = rNums[1].repeat(leftovers);
   }
-  console.log(romanEnd, "end");
+  console.log(romanEnd, 'end');
 
   if (num > 99) {
     return romanBase + romanMid + romanEnd;

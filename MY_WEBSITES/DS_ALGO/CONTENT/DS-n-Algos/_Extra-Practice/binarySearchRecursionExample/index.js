@@ -1,4 +1,4 @@
-import prompts from "prompts";
+import prompts from 'prompts';
 
 const binarySearchRecusionProject = (
   array,
@@ -40,12 +40,12 @@ const main = async () => {
   }
 
   let search = await prompts({
-    type: "number",
-    name: "value",
+    type: 'number',
+    name: 'value',
     message:
-      "The array has the values 1-100000 located inside of it \n" +
-      "Search for values that are, or are not located in the array, to see if \n" +
-      "They are found, and see how many iterations it took.",
+      'The array has the values 1-100000 located inside of it \n' +
+      'Search for values that are, or are not located in the array, to see if \n' +
+      'They are found, and see how many iterations it took.',
   });
 
   const { passed, iterations } = binarySearchRecusionProject(

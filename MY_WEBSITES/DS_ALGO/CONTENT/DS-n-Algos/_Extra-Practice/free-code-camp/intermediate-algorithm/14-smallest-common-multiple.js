@@ -7,7 +7,7 @@ function smallestCommons(arr) {
 
   for (let i = max; i >= min; i--) {
     //iterate down from max
-    console.log("i: ", i);
+    console.log('i: ', i);
     //if max is evenly divided, move on; if not, increase the multiple by one unit of max, then check i again
     if (mltple % i !== 0) {
       mltple += max; //check the next-up candidate for scm

@@ -15,7 +15,7 @@ const longestValidParentheses = (s) => {
   for (let i = 0; i < n; i++) {
     const bracket = s[i];
 
-    if (bracket === ")" && s[stack[stack.length - 1]] === "(") {
+    if (bracket === ')' && s[stack[stack.length - 1]] === '(') {
       res[i] = 1;
       res[stack[stack.length - 1]] = 1;
       stack.pop();
@@ -35,9 +35,9 @@ const longestValidParentheses = (s) => {
 };
 
 const main = () => {
-  console.log(longestValidParentheses(")()())")); // output -> 4
-  console.log(longestValidParentheses("")); // output -> 0
-  console.log(longestValidParentheses("(()")); // output -> 2
+  console.log(longestValidParentheses(')()())')); // output -> 4
+  console.log(longestValidParentheses('')); // output -> 0
+  console.log(longestValidParentheses('(()')); // output -> 2
 };
 
 main();

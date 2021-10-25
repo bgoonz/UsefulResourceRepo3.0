@@ -1,5 +1,5 @@
 function myReplace(str, before, after) {
-  const strArr = str.split(" "); //give me an array to work with
+  const strArr = str.split(' '); //give me an array to work with
   const index = strArr.indexOf(before); //set var for index of the word to swap
   if (strArr[index][0] == strArr[index][0].toUpperCase()) {
     //if word is uppercase...
@@ -10,7 +10,7 @@ function myReplace(str, before, after) {
     strArr.splice(index, 1, after);
   }
 
-  return strArr.join(" ");
+  return strArr.join(' ');
 }
 
-console.log(myReplace("He is Sleeping on the couch", "Sleeping", "sitting"));
+console.log(myReplace('He is Sleeping on the couch', 'Sleeping', 'sitting'));

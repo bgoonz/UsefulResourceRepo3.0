@@ -1,7 +1,7 @@
 function rot13(str) {
   // LBH QVQ VG!
   //take string, each character to unicode-13, push onto key string
-  let key = "";
+  let key = '';
   for (const char in str) {
     if (
       str.charCodeAt(char) > 90 ||
@@ -21,4 +21,4 @@ function rot13(str) {
   return key;
 }
 
-console.log(rot13("SERR PBQR PNZC!!"));
+console.log(rot13('SERR PBQR PNZC!!'));

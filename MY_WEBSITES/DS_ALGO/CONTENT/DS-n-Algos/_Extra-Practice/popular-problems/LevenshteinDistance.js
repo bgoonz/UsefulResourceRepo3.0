@@ -44,10 +44,10 @@ function calculate(x, y) {
 }
 
 function main() {
-  const x = ""; // enter your string here
-  const y = ""; // enter your string here
+  const x = ''; // enter your string here
+  const y = ''; // enter your string here
 
-  console.log("Levenshtein distance between " + x + " and " + y + " is: ");
+  console.log('Levenshtein distance between ' + x + ' and ' + y + ' is: ');
   console.log(calculate(x, y));
 }
 

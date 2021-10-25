@@ -14,8 +14,8 @@ function orbitalPeriod(arr) {
   for (let teapot = 0; teapot < arguments[0].length; teapot++) {
     const GM = 398600.4418;
     const earthRadius = 6367.4447;
-    const avgAlt = arguments[0][teapot]["avgAlt"];
-    const name = arguments[0][teapot]["name"];
+    const avgAlt = arguments[0][teapot]['avgAlt'];
+    const name = arguments[0][teapot]['name'];
     const orbitalPeriod =
       2 * Math.PI * Math.sqrt(Math.pow(earthRadius + avgAlt, 3) / GM);
     const result = {
@@ -30,8 +30,8 @@ function orbitalPeriod(arr) {
 
 console.log(
   orbitalPeriod([
-    { name: "iss", avgAlt: 413.6 },
-    { name: "hubble", avgAlt: 556.7 },
-    { name: "moon", avgAlt: 378632.553 },
+    { name: 'iss', avgAlt: 413.6 },
+    { name: 'hubble', avgAlt: 556.7 },
+    { name: 'moon', avgAlt: 378632.553 },
   ])
 );

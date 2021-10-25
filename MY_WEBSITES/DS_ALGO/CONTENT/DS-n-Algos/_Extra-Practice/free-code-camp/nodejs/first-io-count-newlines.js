@@ -1,5 +1,5 @@
-import fs from "fs";
+import fs from 'fs';
 
 const file = fs.readFileSync(process.argv[2]).toString();
 
-console.log(file.split("\n").length - 1);
+console.log(file.split('\n').length - 1);

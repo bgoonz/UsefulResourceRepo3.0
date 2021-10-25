@@ -33,9 +33,9 @@ const longestPalindromeSubsequence = (s) => {
 };
 
 const main = () => {
-  console.log(longestPalindromeSubsequence("bbbab")); // 4
-  console.log(longestPalindromeSubsequence("axbya")); // 3
-  console.log(longestPalindromeSubsequence("racexyzcxar")); // 7
+  console.log(longestPalindromeSubsequence('bbbab')); // 4
+  console.log(longestPalindromeSubsequence('axbya')); // 3
+  console.log(longestPalindromeSubsequence('racexyzcxar')); // 7
 };
 
 main();

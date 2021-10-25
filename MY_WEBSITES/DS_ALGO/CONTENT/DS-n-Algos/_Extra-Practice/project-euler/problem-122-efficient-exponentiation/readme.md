@@ -14,7 +14,6 @@ However it is yet possible to compute it in only five multiplications:
 
 n × n = n2n2 × n = n3n3 × n3 = n6n6 × n6 = n12n12 × n3 = n15
 
-We shall define m(k) to be the minimum number of multiplications to compute nk;
-for example m(15) = 5.
+We shall define m(k) to be the minimum number of multiplications to compute nk; for example m(15) = 5.
 
 For 1 ≤ k ≤ 200, find ∑ m(k).

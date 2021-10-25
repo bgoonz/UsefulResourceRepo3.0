@@ -52,10 +52,10 @@ const minimumEditDistance = (word1, word2) => {
 };
 
 const main = () => {
-  console.log(minimumEditDistance("horse", "ros"));
-  console.log(minimumEditDistance("cat", "cut"));
-  console.log(minimumEditDistance("", "abc"));
-  console.log(minimumEditDistance("google", "glgool"));
+  console.log(minimumEditDistance('horse', 'ros'));
+  console.log(minimumEditDistance('cat', 'cut'));
+  console.log(minimumEditDistance('', 'abc'));
+  console.log(minimumEditDistance('google', 'glgool'));
 };
 
 main();

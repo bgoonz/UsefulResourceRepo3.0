@@ -14,5 +14,4 @@ For `n` = 4 there are exactly three distinct solutions:
 
 1/8 + 1/8 = 1/4
 
-What is the least value of `n` for which the number of distinct solutions
-exceeds one-thousand?
+What is the least value of `n` for which the number of distinct solutions exceeds one-thousand?

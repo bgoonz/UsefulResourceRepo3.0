@@ -1,18 +1,18 @@
 function palindrome(str) {
   const strclean = str
-    .replace(/[^A-Za-z0-9]/g, "")
+    .replace(/[^A-Za-z0-9]/g, '')
     .toLowerCase()
-    .split("")
-    .join("");
+    .split('')
+    .join('');
   const strbackward = str
-    .replace(/[^A-Za-z0-9]/g, "")
+    .replace(/[^A-Za-z0-9]/g, '')
     .toLowerCase()
-    .split("")
+    .split('')
     .reverse()
-    .join("");
+    .join('');
   if (strclean === strbackward) {
     return true;
   } else return false;
 }
 
-console.log(palindrome("_nOpe"));
+console.log(palindrome('_nOpe'));
