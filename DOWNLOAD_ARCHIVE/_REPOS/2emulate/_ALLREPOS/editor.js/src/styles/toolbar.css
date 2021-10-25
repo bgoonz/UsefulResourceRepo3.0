@@ -1,0 +1,107 @@
+.ce-toolbar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  /*opacity: 0;*/
+  /*visibility: hidden;*/
+  transition: opacity 100ms ease;
+  will-change: opacity, transform;
+  display: none;
+
+  @media (--mobile) {
+    @apply --overlay-pane;
+    padding: 3px;
+    margin-top: 5px;
+  }
+
+  &--opened {
+    display: block;
+
+    @media (--mobile){
+      display: flex;
+    }
+  }
+
+  &__content {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    position: relative;
+
+    @media (--mobile){
+      display: flex;
+      align-content: center;
+      margin: 0;
+      max-width: calc(100% - 40px);
+    }
+  }
+
+  &__plus {
+    @apply --toolbox-button;
+
+    position: absolute;
+    left: calc(var(--toolbox-buttons-size) * -1);
+    flex-shrink: 0;
+
+    &--hidden {
+      display: none;
+    }
+
+    @media (--mobile){
+      display: inline-flex !important;
+      position: static;
+      transform: none !important;
+    }
+  }
+
+  &__plus,
+  .ce-toolbox {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /**
+   * Block actions Zone
+   * -------------------------
+   */
+  &__actions {
+    position: absolute;
+    right: 0;
+    top: 10px;
+    padding-right: 16px;
+    opacity: 0;
+
+    @media (--mobile){
+      position: static;
+      margin-left: auto;
+      padding-right: 10px;
+      display: flex;
+      align-items: center;
+    }
+
+    &--opened {
+      opacity: 1;
+    }
+
+    &-buttons {
+      text-align: right;
+    }
+  }
+
+  &__settings-btn {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    color: var(--grayText);
+    cursor: pointer;
+  }
+}
+
+/**
+ * Styles for Narrow mode
+ */
+.codex-editor--narrow .ce-toolbar__plus {
+  @media (--not-mobile) {
+    left: 5px;
+  }
+}
