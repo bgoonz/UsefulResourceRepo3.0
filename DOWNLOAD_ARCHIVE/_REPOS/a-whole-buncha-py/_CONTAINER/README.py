@@ -183,15 +183,7 @@ class UnitTests(unittest.TestCase):
             ValueError,
             "List must contain nine numbers.",
             calculate,
-            [
-                2,
-                6,
-                2,
-                8,
-                4,
-                0,
-                1,
-            ],
+            [2, 6, 2, 8, 4, 0, 1],
         )
 
 

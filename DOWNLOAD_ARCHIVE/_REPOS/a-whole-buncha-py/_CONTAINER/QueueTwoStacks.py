@@ -8,10 +8,12 @@ As you write your methods, you should optimize for time on the `enqueue()` and
 
 The Stack class that you will use has been provided to you.
 """
+
+
 class Stack:
     def __init__(self):
         self.data = []
-        
+
     def push(self, item):
         self.data.append(item)
 
@@ -20,17 +22,16 @@ class Stack:
             return self.data.pop()
         return "The stack is empty"
 
+
 class QueueTwoStacks:
     def __init__(self):
         # Your code here
         self.input_stack = Stack()
         self.output_stack = Stack()
 
-        
     def enqueue(self, item):
         # Always add to the input stack
         self.input_stack.push(item)
-
 
     def dequeue(self):
         # We are going to be returning values from the output stack
@@ -40,7 +41,7 @@ class QueueTwoStacks:
                 # pop from the input_stack and push onto the output_stack
                 current_item = self.input_stack.pop()
                 self.output_stack.push(current_item)
-        
+
         # if there are items in the output stack, lets pop one
         if len(self.output_stack.data) == 0:
             return None

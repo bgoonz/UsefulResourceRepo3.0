@@ -1349,8 +1349,7 @@ class TestSequenceFunctions(unittest.TestCase):
                 "EmbedManifest": "false",
                 "GenerateCatalogFiles": "true",
                 "InputResourceManifests": "asfsfdafs",
-                "ManifestResourceFile":
-                    "$(IntDir)\\$(TargetFileName).embed.manifest.resfdsf",
+                "ManifestResourceFile": "$(IntDir)\\$(TargetFileName).embed.manifest.resfdsf",
                 "OutputManifestFile": "$(TargetPath).manifestdfs",
                 "RegistrarScriptFile": "sdfsfd",
                 "ReplacementsFile": "sdffsd",
@@ -1534,8 +1533,7 @@ class TestSequenceFunctions(unittest.TestCase):
                 "LinkIncremental": "",
             },
             "ManifestResourceCompile": {
-                "ResourceOutputFileName":
-                    "$(IntDir)$(TargetFileName).embed.manifest.resfdsf"
+                "ResourceOutputFileName": "$(IntDir)$(TargetFileName).embed.manifest.resfdsf"
             },
         }
         self.maxDiff = 9999  # on failure display a long diff
