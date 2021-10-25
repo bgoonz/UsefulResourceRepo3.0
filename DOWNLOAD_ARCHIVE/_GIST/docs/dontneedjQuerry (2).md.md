@@ -12,56 +12,56 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $("selector");
+  $('selector');
 
   // Native
-  document.querySelectorAll("selector");
+  document.querySelectorAll('selector');
   ```
 
 - [1.1](#1.1) <a name='1.1'></a> Query by class
 
   ```js
   // jQuery
-  $(".class");
+  $('.class');
 
   // Native
-  document.querySelectorAll(".class");
+  document.querySelectorAll('.class');
 
   // or
-  document.getElementsByClassName("class");
+  document.getElementsByClassName('class');
   ```
 
 - [1.2](#1.2) <a name='1.2'></a> Query by id
 
   ```js
   // jQuery
-  $("#id");
+  $('#id');
 
   // Native
-  document.querySelector("#id");
+  document.querySelector('#id');
 
   // or
-  document.getElementById("id");
+  document.getElementById('id');
   ```
 
 - [1.3](#1.3) <a name='1.3'></a> Query by attribute
 
   ```js
   // jQuery
-  $("a[target=_blank]");
+  $('a[target=_blank]');
 
   // Native
-  document.querySelectorAll("a[target=_blank]");
+  document.querySelectorAll('a[target=_blank]');
   ```
 
 - [1.4](#1.4) <a name='1.4'></a> Query in descendents
 
   ```js
   // jQuery
-  $el.find("li");
+  $el.find('li');
 
   // Native
-  el.querySelectorAll("li");
+  el.querySelectorAll('li');
   ```
 
 - [1.5](#1.5) <a name='1.5'></a> Sibling/Previous/Next Elements
@@ -168,21 +168,21 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
     ```js
     // jQuery
-    $("#my-input").val();
+    $('#my-input').val();
 
     // Native
-    document.querySelector("#my-input").value;
+    document.querySelector('#my-input').value;
     ```
 
   - Get index of e.currentTarget between `.radio`
 
     ```js
     // jQuery
-    $(e.currentTarget).index(".radio");
+    $(e.currentTarget).index('.radio');
 
     // Native
     Array.prototype.indexOf.call(
-      document.querySelectorAll(".radio"),
+      document.querySelectorAll('.radio'),
       e.currentTarget
     );
     ```
@@ -205,17 +205,17 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
     ```js
     // jQuery
-    $iframe.contents().find(".css");
+    $iframe.contents().find('.css');
 
     // Native
-    iframe.contentDocument.querySelectorAll(".css");
+    iframe.contentDocument.querySelectorAll('.css');
     ```
 
 - [1.10](#1.10) <a name='1.10'></a> Get body
 
   ```js
   // jQuery
-  $("body");
+  $('body');
 
   // Native
   document.body;
@@ -227,33 +227,33 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
     ```js
     // jQuery
-    $el.attr("foo");
+    $el.attr('foo');
 
     // Native
-    el.getAttribute("foo");
+    el.getAttribute('foo');
     ```
 
   - Set an attribute
 
     ```js
     // jQuery, note that this works in memory without change the DOM
-    $el.attr("foo", "bar");
+    $el.attr('foo', 'bar');
 
     // Native
-    el.setAttribute("foo", "bar");
+    el.setAttribute('foo', 'bar');
     ```
 
   - Get a `data-` attribute
 
     ```js
     // jQuery
-    $el.data("foo");
+    $el.data('foo');
 
     // Native (use `getAttribute`)
-    el.getAttribute("data-foo");
+    el.getAttribute('data-foo');
 
     // Native (use `dataset` if only need to support IE 11+)
-    el.dataset["foo"];
+    el.dataset['foo'];
     ```
 
 **[⬆ back to top](#table-of-contents)**
@@ -266,7 +266,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
     ```js
     // jQuery
-    $el.css("color");
+    $el.css('color');
 
     // Native
     // NOTE: Known bug, will return 'auto' if style value is 'auto'
@@ -280,10 +280,10 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
     ```js
     // jQuery
-    $el.css({ color: "#f01" });
+    $el.css({ color: '#f01' });
 
     // Native
-    el.style.color = "#f01";
+    el.style.color = '#f01';
     ```
 
   - Get/Set Styles
@@ -511,7 +511,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $el.append('<div id="container">Hello World</div>');
 
   // Native (HTML string)
-  el.insertAdjacentHTML("beforeend", '<div id="container">Hello World</div>');
+  el.insertAdjacentHTML('beforeend', '<div id="container">Hello World</div>');
 
   // Native (Element)
   el.appendChild(newEl);
@@ -524,7 +524,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $el.prepend('<div id="container">Hello World</div>');
 
   // Native (HTML string)
-  el.insertAdjacentHTML("afterbegin", '<div id="container">Hello World</div>');
+  el.insertAdjacentHTML('afterbegin', '<div id="container">Hello World</div>');
 
   // Native (Element)
   el.insertBefore(newEl, el.firstChild);
@@ -540,7 +540,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   // Native (HTML string)
   el.insertAdjacentHTML(
-    "beforebegin ",
+    'beforebegin ',
     '<div id="container">Hello World</div>'
   );
 
@@ -560,7 +560,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $newEl.insertAfter(selector);
 
   // Native (HTML string)
-  el.insertAdjacentHTML("afterend", '<div id="container">Hello World</div>');
+  el.insertAdjacentHTML('afterend', '<div id="container">Hello World</div>');
 
   // Native (Element)
   const el = document.querySelector(selector);
@@ -604,7 +604,7 @@ In place of common selectors like class, id or attribute we can use `document.qu
   $el.empty();
 
   // Native
-  el.innerHTML = "";
+  el.innerHTML = '';
   ```
 
 - [3.11](#3.11) <a name='3.11'></a> wrap
@@ -613,12 +613,12 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $(".inner").wrap('<div class="wrapper"></div>');
+  $('.inner').wrap('<div class="wrapper"></div>');
 
   // Native
-  Array.prototype.forEach.call(document.querySelectorAll(".inner"), (el) => {
-    const wrapper = document.createElement("div");
-    wrapper.className = "wrapper";
+  Array.prototype.forEach.call(document.querySelectorAll('.inner'), (el) => {
+    const wrapper = document.createElement('div');
+    wrapper.className = 'wrapper';
     el.parentNode.insertBefore(wrapper, el);
     el.parentNode.removeChild(el);
     wrapper.appendChild(el);
@@ -631,10 +631,10 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $(".inner").unwrap();
+  $('.inner').unwrap();
 
   // Native
-  Array.prototype.forEach.call(document.querySelectorAll(".inner"), (el) => {
+  Array.prototype.forEach.call(document.querySelectorAll('.inner'), (el) => {
     Array.prototype.forEach.call(el.childNodes, (child) => {
       el.parentNode.insertBefore(child, el);
     });
@@ -648,12 +648,12 @@ In place of common selectors like class, id or attribute we can use `document.qu
 
   ```js
   // jQuery
-  $(".inner").replaceWith('<div class="outer"></div>');
+  $('.inner').replaceWith('<div class="outer"></div>');
 
   // Native
-  Array.prototype.forEach.call(document.querySelectorAll(".inner"), (el) => {
-    const outer = document.createElement("div");
-    outer.className = "outer";
+  Array.prototype.forEach.call(document.querySelectorAll('.inner'), (el) => {
+    const outer = document.createElement('div');
+    outer.className = 'outer';
     el.parentNode.insertBefore(outer, el);
     el.parentNode.removeChild(el);
   });
@@ -696,10 +696,10 @@ For a complete replacement with namespace and delegation, refer to https://githu
 
   // Native
   // Check if the DOMContentLoaded has already been completed
-  if (document.readyState === "complete" || document.readyState !== "loading") {
+  if (document.readyState === 'complete' || document.readyState !== 'loading') {
     eventHandler();
   } else {
-    document.addEventListener("DOMContentLoaded", eventHandler);
+    document.addEventListener('DOMContentLoaded', eventHandler);
   }
   ```
 
@@ -727,14 +727,14 @@ For a complete replacement with namespace and delegation, refer to https://githu
 
   ```js
   // jQuery
-  $(el).trigger("custom-event", { key1: "data" });
+  $(el).trigger('custom-event', { key1: 'data' });
 
   // Native
   if (window.CustomEvent) {
-    const event = new CustomEvent("custom-event", { detail: { key1: "data" } });
+    const event = new CustomEvent('custom-event', { detail: { key1: 'data' } });
   } else {
-    const event = document.createEvent("CustomEvent");
-    event.initCustomEvent("custom-event", true, true, { key1: "data" });
+    const event = document.createEvent('CustomEvent');
+    event.initCustomEvent('custom-event', true, true, { key1: 'data' });
   }
 
   el.dispatchEvent(event);
@@ -791,8 +791,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
   - isNumeric
 
-  Determine if the argument passed is numerical.
-  Use `typeof` to decide the type or the `type` example for better accuracy.
+  Determine if the argument passed is numerical. Use `typeof` to decide the type or the `type` example for better accuracy.
 
   ```js
   // jQuery
@@ -803,7 +802,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
     var type = typeof value;
 
     return (
-      (type === "number" || type === "string") &&
+      (type === 'number' || type === 'string') &&
       !Number.isNaN(value - Number.parseFloat(value))
     );
   }
@@ -819,12 +818,12 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
   // Native
   function isFunction(item) {
-    if (typeof item === "function") {
+    if (typeof item === 'function') {
       return true;
     }
     var type = Object.prototype.toString(item);
     return (
-      type === "[object Function]" || type === "[object GeneratorFunction]"
+      type === '[object Function]' || type === '[object GeneratorFunction]'
     );
   }
   ```
@@ -854,7 +853,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
   // Native
   function isPlainObject(obj) {
     if (
-      typeof obj !== "object" ||
+      typeof obj !== 'object' ||
       obj.nodeType ||
       (obj !== null && obj !== undefined && obj === obj.window)
     ) {
@@ -865,7 +864,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
       obj.constructor &&
       !Object.prototype.hasOwnProperty.call(
         obj.constructor.prototype,
-        "isPrototypeOf"
+        'isPrototypeOf'
       )
     ) {
       return false;
@@ -877,8 +876,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
   - extend
 
-  Merge the contents of two or more objects together into the first object.
-  object.assign is ES6 API, and you could use [polyfill](https://github.com/ljharb/object.assign) also.
+  Merge the contents of two or more objects together into the first object. object.assign is ES6 API, and you could use [polyfill](https://github.com/ljharb/object.assign) also.
 
   ```js
   // jQuery
@@ -949,7 +947,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
     const reTypeOf = /(?:^\[object\s(.*?)\]$)/;
     return Object.prototype.toString
       .call(item)
-      .replace(reTypeOf, "$1")
+      .replace(reTypeOf, '$1')
       .toLowerCase();
   }
   ```
@@ -1030,7 +1028,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
   // Native
   function Globaleval(code) {
-    const script = document.createElement("script");
+    const script = document.createElement('script');
     script.text = code;
 
     document.head.appendChild(script).parentNode.removeChild(script);
@@ -1056,7 +1054,7 @@ Most of utilities are found by native API. Others advanced functions could be ch
 
     // Set the base href for the created document so any parsed elements with URLs
     // are based on the document's URL
-    const base = context.createElement("base");
+    const base = context.createElement('base');
     base.href = document.location.href;
     context.head.appendChild(base);
 
@@ -1118,9 +1116,9 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
     const defer = new $.Deferred();
     setTimeout(() => {
       if (true) {
-        defer.resolve("some_value_computed_asynchronously");
+        defer.resolve('some_value_computed_asynchronously');
       } else {
-        defer.reject("failed");
+        defer.reject('failed');
       }
     }, 1000);
 
@@ -1132,9 +1130,9 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
     return new Promise((resolve, reject) => {
       setTimeout(() => {
         if (true) {
-          resolve("some_value_computed_asynchronously");
+          resolve('some_value_computed_asynchronously');
         } else {
-          reject("failed");
+          reject('failed');
         }
       }, 1000);
     });
@@ -1159,9 +1157,9 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
     const defer = defer();
     setTimeout(() => {
       if (true) {
-        defer.resolve("some_value_computed_asynchronously");
+        defer.resolve('some_value_computed_asynchronously');
       } else {
-        defer.reject("failed");
+        defer.reject('failed');
       }
     }, 1000);
 
@@ -1182,8 +1180,8 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
 
   // Native
   // More detail about show method, please refer to https://github.com/oneuijs/oui-dom-utils/blob/master/src/index.js#L363
-  el.style.display = "" | "inline" | "inline-block" | "inline-table" | "block";
-  el.style.display = "none";
+  el.style.display = '' | 'inline' | 'inline-block' | 'inline-table' | 'block';
+  el.style.display = 'none';
   ```
 
 - [8.2](#8.2) <a name='8.2'></a> Toggle
@@ -1196,12 +1194,12 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
 
   // Native
   if (
-    el.ownerDocument.defaultView.getComputedStyle(el, null).display === "none"
+    el.ownerDocument.defaultView.getComputedStyle(el, null).display === 'none'
   ) {
     el.style.display =
-      "" | "inline" | "inline-block" | "inline-table" | "block";
+      '' | 'inline' | 'inline-block' | 'inline-table' | 'block';
   } else {
-    el.style.display = "none";
+    el.style.display = 'none';
   }
   ```
 
@@ -1213,11 +1211,11 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.fadeOut(3000);
 
   // Native
-  el.style.transition = "opacity 3s";
+  el.style.transition = 'opacity 3s';
   // fadeIn
-  el.style.opacity = "1";
+  el.style.opacity = '1';
   // fadeOut
-  el.style.opacity = "0";
+  el.style.opacity = '0';
   ```
 
 - [8.4](#8.4) <a name='8.4'></a> FadeTo
@@ -1226,10 +1224,10 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
 
   ```js
   // jQuery
-  $el.fadeTo("slow", 0.15);
+  $el.fadeTo('slow', 0.15);
   // Native
-  el.style.transition = "opacity 3s"; // assume 'slow' equals 3 seconds
-  el.style.opacity = "0.15";
+  el.style.transition = 'opacity 3s'; // assume 'slow' equals 3 seconds
+  el.style.opacity = '0.15';
   ```
 
 - [8.5](#8.5) <a name='8.5'></a> FadeToggle
@@ -1241,12 +1239,12 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.fadeToggle();
 
   // Native
-  el.style.transition = "opacity 3s";
+  el.style.transition = 'opacity 3s';
   const { opacity } = el.ownerDocument.defaultView.getComputedStyle(el, null);
-  if (opacity === "1") {
-    el.style.opacity = "0";
+  if (opacity === '1') {
+    el.style.opacity = '0';
   } else {
-    el.style.opacity = "1";
+    el.style.opacity = '1';
   }
   ```
 
@@ -1258,10 +1256,10 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.slideDown();
 
   // Native
-  const originHeight = "100px";
-  el.style.transition = "height 3s";
+  const originHeight = '100px';
+  el.style.transition = 'height 3s';
   // slideUp
-  el.style.height = "0px";
+  el.style.height = '0px';
   // slideDown
   el.style.height = originHeight;
   ```
@@ -1275,13 +1273,13 @@ A promise represents the eventual result of an asynchronous operation. jQuery ha
   $el.slideToggle();
 
   // Native
-  const originHeight = "100px";
-  el.style.transition = "height 3s";
+  const originHeight = '100px';
+  el.style.transition = 'height 3s';
   const { height } = el.ownerDocument.defaultView.getComputedStyle(el, null);
   if (parseInt(height, 10) === 0) {
     el.style.height = originHeight;
   } else {
-    el.style.height = "0px";
+    el.style.height = '0px';
   }
   ```
 

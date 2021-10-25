@@ -8,8 +8,7 @@ A **Doubly Linked List (DLL)** contains an extra pointer, typically called previ
 
 - A DLL can be traversed in both forward and backward direction.
 - The delete operation in DLL is more efficient if pointer to the node to be deleted is given.
-- We can quickly insert a new node before a given node.
-  In singly linked list, to delete a node, pointer to the previous node is needed. To get this previous node, sometimes the list is traversed. In DLL, we can get the previous node using previous pointer.
+- We can quickly insert a new node before a given node. In singly linked list, to delete a node, pointer to the previous node is needed. To get this previous node, sometimes the list is traversed. In DLL, we can get the previous node using previous pointer.
 
 ### Disadvantages over singly linked list
 

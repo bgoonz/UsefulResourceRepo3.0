@@ -1,0 +1,114 @@
+{
+  "_from": "@stdlib/buffer-from-string@^0.0.x",
+  "_id": "@stdlib/buffer-from-string@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-2FgbWYZUZQ/KaG5/vvEwd5QL1u26qKP2FuxYPKBDjTHiIqR3n+3FAFvTEmxpw7PiS5rcA7kyz3ZwDrIZVlK76A==",
+  "_location": "/@stdlib/buffer-from-string",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/buffer-from-string@^0.0.x",
+    "name": "@stdlib/buffer-from-string",
+    "escapedName": "@stdlib%2fbuffer-from-string",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/process-read-stdin"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/buffer-from-string/-/buffer-from-string-0.0.6.tgz",
+  "_shasum": "80885649ee9865a26ab5402b2ae829405c70c303",
+  "_spec": "@stdlib/buffer-from-string@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/process-read-stdin",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/assert-is-function": "^0.0.x",
+    "@stdlib/assert-is-string": "^0.0.x",
+    "@stdlib/buffer-ctor": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Allocate a buffer containing a provided string.",
+  "devDependencies": {
+    "@stdlib/assert-is-buffer": "^0.0.x",
+    "@stdlib/bench": "^0.0.x",
+    "@stdlib/math-base-special-pow": "^0.0.x",
+    "@stdlib/random-base-discrete-uniform": "^0.0.x",
+    "@stdlib/random-base-randu": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "proxyquire": "^2.0.0",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdtypes",
+    "types",
+    "data",
+    "structure",
+    "buffer",
+    "buf",
+    "binary",
+    "octets",
+    "string",
+    "str",
+    "allocate"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/buffer-from-string",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/buffer-from-string.git"
+  },
+  "scripts": {
+    "benchmark": "make benchmark",
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.6"
+}

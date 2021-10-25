@@ -1,0 +1,121 @@
+{
+  "_from": "@stdlib/fs-write-file",
+  "_id": "@stdlib/fs-write-file@0.0.7",
+  "_inBundle": false,
+  "_integrity": "sha512-U/+QFGgVVbmnF3fvf/DzgM9aNQ54WA4LcSEr1Kmr1kP850Mqo+608az+QG3WA7Dqhw+wIhm3hBHUZrqoYf0weQ==",
+  "_location": "/@stdlib/fs-write-file",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "tag",
+    "registry": true,
+    "raw": "@stdlib/fs-write-file",
+    "name": "@stdlib/fs-write-file",
+    "escapedName": "@stdlib%2ffs-write-file",
+    "scope": "@stdlib",
+    "rawSpec": "",
+    "saveSpec": null,
+    "fetchSpec": "latest"
+  },
+  "_requiredBy": [
+    "#USER",
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/fs-write-file/-/fs-write-file-0.0.7.tgz",
+  "_shasum": "2316cba8ef0b6b5214db63ae8fb5110a3f1d9657",
+  "_spec": "@stdlib/fs-write-file",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bin": {
+    "write-file": "bin/cli"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/cli-ctor": "^0.0.x",
+    "@stdlib/fs-read-file": "^0.0.x",
+    "@stdlib/process-cwd": "^0.0.x",
+    "@stdlib/process-read-stdin": "^0.0.x",
+    "@stdlib/utils-define-nonenumerable-read-only-property": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Write data to a file.",
+  "devDependencies": {
+    "@stdlib/assert-is-browser": "^0.0.x",
+    "@stdlib/assert-is-windows": "^0.0.x",
+    "@stdlib/bench": "^0.0.x",
+    "@stdlib/buffer-from-string": "^0.0.x",
+    "@stdlib/process-exec-path": "^0.0.x",
+    "@stdlib/string-replace": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "proxyquire": "^2.0.0",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdfs",
+    "fs",
+    "writefile",
+    "writefilesync",
+    "path",
+    "async",
+    "sync",
+    "file",
+    "write",
+    "open",
+    "filesystem"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/fs-write-file",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/fs-write-file.git"
+  },
+  "scripts": {
+    "benchmark": "make benchmark",
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.7"
+}

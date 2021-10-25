@@ -1,0 +1,25 @@
+{
+  "name": "node-js-introduction",
+  "version": "1.0.0",
+  "description": "A sample codebase for introduction to Node.js (Ref. Medium Article)",
+  "main": "calculate.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "lodash": "^4.17.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thatisuday/node-js-introduction.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thatisuday/node-js-introduction/issues"
+  },
+  "homepage": "https://github.com/thatisuday/node-js-introduction#readme"
+}
