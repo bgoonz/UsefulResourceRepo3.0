@@ -1,0 +1,43 @@
+{
+  "name": "Abu Sayed",
+  "short_name": "Abu Sayed",
+  "description": "The Best Full Stack Web, Game, XR and Blockchain Developer in Bangladesh",
+  "icons": [
+    {
+      "src": "https://sayed.cyou/wp-content/uploads/2021/06/Sayed.Cyou-android-chrome-192x192-1.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://sayed.cyou/wp-content/uploads/2021/06/sayed.cyou-android-chrome-512x512-1.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ],
+  "background_color": "#ffffff",
+  "theme_color": "#1e1615",
+  "display": "fullscreen",
+  "orientation": "any",
+  "start_url": ".",
+  "scope": "/",
+  "shortcuts": [
+    {
+      "name": "vCard",
+      "short_name": "vCard",
+      "description": "vCard",
+      "url": "/",
+      "icons": [
+        {
+          "src": "https://sayed.cyou/wp-content/uploads/2021/06/Sayed.Cyou-android-chrome-192x192-1.png",
+          "sizes": "192x192"
+        }
+      ]
+    }
+  ],
+  "yandex": {
+    "manifest_version": 1,
+    "app_version": "2.1.13",
+    "cache": { "resources": ["/style.css"], "ignored_query_params": [] }
+  }
+}

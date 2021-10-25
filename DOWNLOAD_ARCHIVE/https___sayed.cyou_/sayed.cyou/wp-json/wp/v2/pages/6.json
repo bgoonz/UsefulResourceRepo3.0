@@ -1,0 +1,57 @@
+{
+  "id": 6,
+  "date": "2020-06-10T12:51:17",
+  "date_gmt": "2020-06-10T12:51:17",
+  "guid": { "rendered": "https://sayed.cyou/?page_id=6" },
+  "modified": "2021-07-08T18:17:20",
+  "modified_gmt": "2021-07-08T12:17:20",
+  "slug": "abu-sayed",
+  "status": "publish",
+  "type": "page",
+  "link": "https://sayed.cyou/",
+  "title": { "rendered": "vCard" },
+  "content": { "rendered": "", "protected": false },
+  "excerpt": { "rendered": "", "protected": false },
+  "author": 1,
+  "featured_media": 0,
+  "parent": 0,
+  "menu_order": 0,
+  "comment_status": "closed",
+  "ping_status": "closed",
+  "template": "page-templates/template-breezycv-vcard.php",
+  "meta": { "spay_email": "" },
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v15.9 - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Abu Sayed \u2013 Best Web, Game, XR | Developer | Engineer | BANGLADESH</title>\n<meta name=\"description\" content=\"Abu Sayed is a Bangladeshi Engineer and Entrepreneur. He is the Best Web, Cross-platform Software, Game, XR and Blockchain Developer in Bangladesh.\" />\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://sayed.cyou/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Abu Sayed \u2013 Best Web, Game, XR | Developer | Engineer | BANGLADESH\" />\n<meta property=\"og:description\" content=\"Abu Sayed is a Bangladeshi Engineer and Entrepreneur. He is the Best Web, Cross-platform Software, Game, XR and Blockchain Developer in Bangladesh.\" />\n<meta property=\"og:url\" content=\"https://sayed.cyou/\" />\n<meta property=\"og:site_name\" content=\"Abu Sayed\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/AbuSayed.TheCultOfPersonality/\" />\n<meta property=\"article:modified_time\" content=\"2021-07-08T12:17:20+00:00\" />\n<meta property=\"og:image\" content=\"https://sayed.cyou/wp-content/uploads/2021/06/1-min.png\" />\n\t<meta property=\"og:image:width\" content=\"1004\" />\n\t<meta property=\"og:image:height\" content=\"591\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:site\" content=\"@ImAbuSayed\" />\n<meta name=\"twitter:label1\" content=\"Est. reading time\">\n\t<meta name=\"twitter:data1\" content=\"8 minutes\">\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":[\"Organization\",\"Place\",\"ProfessionalService\"],\"@id\":\"https://sayed.cyou/#organization\",\"name\":\"Abu Sayed \\u2013 The Best Web, Game and Blockchain Developer\",\"url\":\"https://sayed.cyou/\",\"sameAs\":[\"https://www.facebook.com/AbuSayed.TheCultOfPersonality/\",\"https://instagram.com/imsayed__/\",\"https://bd.linkedin.com/in/imabusayed\",\"https://www.pinterest.co.uk/imAbuSayed/\",\"https://twitter.com/ImAbuSayed\"],\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://sayed.cyou/#logo\",\"inLanguage\":\"en-US\",\"url\":\"https://sayed.cyou/wp-content/uploads/2021/06/Abu-Sayed-Official.jpg\",\"width\":1002,\"height\":1002,\"caption\":\"Abu Sayed \\u2013 The Best Web, Game and Blockchain Developer\"},\"image\":{\"@id\":\"https://sayed.cyou/#logo\"},\"location\":{\"@id\":\"https://sayed.cyou/#local-place\"},\"address\":{\"@id\":\"https://sayed.cyou/#local-place-address\"},\"email\":\"dev@sayed.cyou\",\"telephone\":\"+8801925785462\"},{\"@type\":\"WebSite\",\"@id\":\"https://sayed.cyou/#website\",\"url\":\"https://sayed.cyou/\",\"name\":\"Abu Sayed\",\"description\":\"Best Web, Game, XR,  Blockchain Developer | BANGLADESH\",\"publisher\":{\"@id\":\"https://sayed.cyou/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":\"https://sayed.cyou/?s={search_term_string}\",\"query-input\":\"required name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"WebPage\",\"@id\":\"https://sayed.cyou/#webpage\",\"url\":\"https://sayed.cyou/\",\"name\":\"Abu Sayed \\u2013 Best Web, Game, XR | Developer | Engineer | BANGLADESH\",\"isPartOf\":{\"@id\":\"https://sayed.cyou/#website\"},\"datePublished\":\"2020-06-10T12:51:17+00:00\",\"dateModified\":\"2021-07-08T12:17:20+00:00\",\"description\":\"Abu Sayed is a Bangladeshi Engineer and Entrepreneur. He is the Best Web, Cross-platform Software, Game, XR and Blockchain Developer in Bangladesh.\",\"breadcrumb\":{\"@id\":\"https://sayed.cyou/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://sayed.cyou/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://sayed.cyou/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@type\":\"WebPage\",\"@id\":\"https://sayed.cyou/\",\"url\":\"https://sayed.cyou/\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@type\":\"WebPage\",\"@id\":\"https://sayed.cyou/\",\"url\":\"https://sayed.cyou/\",\"name\":\"vCard\"}}]},{\"@type\":\"Place\",\"@id\":\"https://sayed.cyou/#local-place\",\"address\":{\"@type\":\"PostalAddress\",\"@id\":\"https://sayed.cyou/#local-place-address\",\"streetAddress\":\"Sayed's Freelancing Center, E/11 3rd Colony Lalkuthi Basupara Mirpur-1\",\"addressLocality\":\"Dhaka\",\"postalCode\":\"1216\",\"addressRegion\":\"Dhaka\",\"addressCountry\":\"BD\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"\",\"longitude\":\"\"},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"09:00\",\"closes\":\"17:00\"}],\"telephone\":\"+8801925785462\"}]}</script>\n<meta name=\"geo.placename\" content=\"Dhaka\" />\n<meta name=\"geo.region\" content=\"Bangladesh\" />\n<!-- / Yoast SEO Premium plugin. -->",
+  "jetpack-related-posts": [],
+  "_links": {
+    "self": [{ "href": "https://sayed.cyou/wp-json/wp/v2/pages/6" }],
+    "collection": [{ "href": "https://sayed.cyou/wp-json/wp/v2/pages" }],
+    "about": [{ "href": "https://sayed.cyou/wp-json/wp/v2/types/page" }],
+    "author": [
+      { "embeddable": true, "href": "https://sayed.cyou/wp-json/wp/v2/users/1" }
+    ],
+    "replies": [
+      {
+        "embeddable": true,
+        "href": "https://sayed.cyou/wp-json/wp/v2/comments?post=6"
+      }
+    ],
+    "version-history": [
+      {
+        "count": 1,
+        "href": "https://sayed.cyou/wp-json/wp/v2/pages/6/revisions"
+      }
+    ],
+    "predecessor-version": [
+      {
+        "id": 1626,
+        "href": "https://sayed.cyou/wp-json/wp/v2/pages/6/revisions/1626"
+      }
+    ],
+    "wp:attachment": [
+      { "href": "https://sayed.cyou/wp-json/wp/v2/media?parent=6" }
+    ],
+    "curies": [
+      { "name": "wp", "href": "https://api.w.org/{rel}", "templated": true }
+    ]
+  }
+}

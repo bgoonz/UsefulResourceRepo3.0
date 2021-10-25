@@ -1,0 +1,55 @@
+{
+  "id": 452,
+  "date": "2021-06-26T22:36:40",
+  "date_gmt": "2021-06-26T16:36:40",
+  "guid": {
+    "rendered": "https://sayed.cyou/?post_type=fw-portfolio&#038;p=452"
+  },
+  "modified": "2021-06-26T22:52:57",
+  "modified_gmt": "2021-06-26T16:52:57",
+  "slug": "solar-system-simulation",
+  "status": "publish",
+  "type": "fw-portfolio",
+  "link": "https://sayed.cyou/project/solar-system-simulation/",
+  "title": { "rendered": "Solar System Simulation" },
+  "content": {
+    "rendered": "\n<div class=\"wp-block-image\"><figure class=\"aligncenter size-large\"><img loading=\"lazy\" width=\"1024\" height=\"468\" src=\"https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation-1024x468.jpg\" alt=\"\" class=\"wp-image-454\" srcset=\"https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation-1024x468.jpg 1024w, https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation-300x137.jpg 300w, https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation-768x351.jpg 768w, https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation-811x372.jpg 811w, https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation.jpg 1294w\" sizes=\"(max-width: 1024px) 100vw, 1024px\" /></figure></div>\n\n\n\n<h2 id=\"h-instruction-for-download-play\">Instruction for Download &amp; play</h2>\n\n\n\n<pre id=\"block-8669f3ae-2592-41f5-924e-67603c4189b0\" class=\"wp-block-preformatted\"># Solar-System-Simulation Vr. 0.1 Demo\n\nLatest Releases: <a href=\"https://github.com/ImAbuSayed/Solar-System-Simulation/releases\">https://github.com/ImAbuSayed/Solar-System-Simulation/releases</a>\n\nTo Play:-\n\nStep1:\nDownload Setup File (Solar Simulation Setup (x64).exe).\n\nStep2:\nSetup\nand \nPlay\n\nSimulation Instruction:\nYou can see a different view by click on a different planet.iew by click on planet.\nand\nClose game Alt+Ctrl+F4.\n\n<strong>Check My Latest <a href=\"https://sayed.cyou/blog\" target=\"_blank\" rel=\"noreferrer noopener\">Articles</a> and <a href=\"https://sayed.cyou/#portfolio\" target=\"_blank\" rel=\"noreferrer noopener\">Projects</a>.</strong></pre>\n",
+    "protected": false
+  },
+  "featured_media": 454,
+  "template": "",
+  "fw-portfolio-category": [29, 28],
+  "yoast_head": "<!-- This site is optimized with the Yoast SEO Premium plugin v15.9 - https://yoast.com/wordpress/plugins/seo/ -->\n<title>Project: Solar System Simulation - Abu Sayed&#039;s Portfolio</title>\n<meta name=\"description\" content=\"Solar System Simulation - Check out Abu Sayed&#039;s latest Web, Software, Game, XR, Blockchain development portfolio selected projects.\" />\n<meta name=\"robots\" content=\"index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1\" />\n<link rel=\"canonical\" href=\"https://sayed.cyou/project/solar-system-simulation/\" />\n<meta property=\"og:locale\" content=\"en_US\" />\n<meta property=\"og:type\" content=\"article\" />\n<meta property=\"og:title\" content=\"Project: Solar System Simulation - Abu Sayed&#039;s Portfolio\" />\n<meta property=\"og:description\" content=\"Solar System Simulation - Check out Abu Sayed&#039;s latest Web, Software, Game, XR, Blockchain development portfolio selected projects.\" />\n<meta property=\"og:url\" content=\"https://sayed.cyou/project/solar-system-simulation/\" />\n<meta property=\"og:site_name\" content=\"Abu Sayed\" />\n<meta property=\"article:publisher\" content=\"https://www.facebook.com/AbuSayed.TheCultOfPersonality/\" />\n<meta property=\"article:modified_time\" content=\"2021-06-26T16:52:57+00:00\" />\n<meta property=\"og:image\" content=\"https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation.jpg\" />\n\t<meta property=\"og:image:width\" content=\"1294\" />\n\t<meta property=\"og:image:height\" content=\"591\" />\n<meta name=\"twitter:card\" content=\"summary_large_image\" />\n<meta name=\"twitter:site\" content=\"@ImAbuSayed\" />\n<meta name=\"twitter:label1\" content=\"Est. reading time\">\n\t<meta name=\"twitter:data1\" content=\"1 minute\">\n<script type=\"application/ld+json\" class=\"yoast-schema-graph\">{\"@context\":\"https://schema.org\",\"@graph\":[{\"@type\":[\"Organization\",\"Place\",\"ProfessionalService\"],\"@id\":\"https://sayed.cyou/#organization\",\"name\":\"Abu Sayed \\u2013 The Best Web, Game and Blockchain Developer\",\"url\":\"https://sayed.cyou/\",\"sameAs\":[\"https://www.facebook.com/AbuSayed.TheCultOfPersonality/\",\"https://instagram.com/imsayed__/\",\"https://bd.linkedin.com/in/imabusayed\",\"https://www.pinterest.co.uk/imAbuSayed/\",\"https://twitter.com/ImAbuSayed\"],\"logo\":{\"@type\":\"ImageObject\",\"@id\":\"https://sayed.cyou/#logo\",\"inLanguage\":\"en-US\",\"url\":\"https://sayed.cyou/wp-content/uploads/2021/06/Abu-Sayed-Official.jpg\",\"width\":1002,\"height\":1002,\"caption\":\"Abu Sayed \\u2013 The Best Web, Game and Blockchain Developer\"},\"image\":{\"@id\":\"https://sayed.cyou/#logo\"},\"location\":{\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#local-place\"},\"address\":{\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#local-place-address\"},\"email\":\"dev@sayed.cyou\",\"telephone\":\"+8801925785462\"},{\"@type\":\"WebSite\",\"@id\":\"https://sayed.cyou/#website\",\"url\":\"https://sayed.cyou/\",\"name\":\"Abu Sayed\",\"description\":\"Best Web, Game, XR,  Blockchain Developer | BANGLADESH\",\"publisher\":{\"@id\":\"https://sayed.cyou/#organization\"},\"potentialAction\":[{\"@type\":\"SearchAction\",\"target\":\"https://sayed.cyou/?s={search_term_string}\",\"query-input\":\"required name=search_term_string\"}],\"inLanguage\":\"en-US\"},{\"@type\":\"ImageObject\",\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#primaryimage\",\"inLanguage\":\"en-US\",\"url\":\"https://sayed.cyou/wp-content/uploads/2021/06/Solar-System-Simulation.jpg\",\"width\":1294,\"height\":591,\"caption\":\"Solar System Simulation Unity Project by Abu Sayed\"},{\"@type\":\"WebPage\",\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#webpage\",\"url\":\"https://sayed.cyou/project/solar-system-simulation/\",\"name\":\"Project: Solar System Simulation - Abu Sayed's Portfolio\",\"isPartOf\":{\"@id\":\"https://sayed.cyou/#website\"},\"primaryImageOfPage\":{\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#primaryimage\"},\"datePublished\":\"2021-06-26T16:36:40+00:00\",\"dateModified\":\"2021-06-26T16:52:57+00:00\",\"description\":\"Solar System Simulation - Check out Abu Sayed's latest Web, Software, Game, XR, Blockchain development portfolio selected projects.\",\"breadcrumb\":{\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#breadcrumb\"},\"inLanguage\":\"en-US\",\"potentialAction\":[{\"@type\":\"ReadAction\",\"target\":[\"https://sayed.cyou/project/solar-system-simulation/\"]}]},{\"@type\":\"BreadcrumbList\",\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#breadcrumb\",\"itemListElement\":[{\"@type\":\"ListItem\",\"position\":1,\"item\":{\"@type\":\"WebPage\",\"@id\":\"https://sayed.cyou/\",\"url\":\"https://sayed.cyou/\",\"name\":\"Home\"}},{\"@type\":\"ListItem\",\"position\":2,\"item\":{\"@type\":\"WebPage\",\"@id\":\"https://sayed.cyou/project/\",\"url\":\"https://sayed.cyou/project/\",\"name\":\"Projects\"}},{\"@type\":\"ListItem\",\"position\":3,\"item\":{\"@type\":\"WebPage\",\"@id\":\"https://sayed.cyou/project/solar-system-simulation/\",\"url\":\"https://sayed.cyou/project/solar-system-simulation/\",\"name\":\"Solar System Simulation\"}}]},{\"@type\":\"Place\",\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#local-place\",\"address\":{\"@type\":\"PostalAddress\",\"@id\":\"https://sayed.cyou/project/solar-system-simulation/#local-place-address\",\"streetAddress\":\"Sayed's Freelancing Center, E/11 3rd Colony Lalkuthi Basupara Mirpur-1\",\"addressLocality\":\"Dhaka\",\"postalCode\":\"1216\",\"addressRegion\":\"Dhaka\",\"addressCountry\":\"BD\"},\"geo\":{\"@type\":\"GeoCoordinates\",\"latitude\":\"\",\"longitude\":\"\"},\"openingHoursSpecification\":[{\"@type\":\"OpeningHoursSpecification\",\"dayOfWeek\":[\"Sunday\",\"Monday\",\"Tuesday\",\"Wednesday\",\"Thursday\",\"Friday\",\"Saturday\"],\"opens\":\"09:00\",\"closes\":\"17:00\"}],\"telephone\":\"+8801925785462\"}]}</script>\n<meta name=\"geo.placename\" content=\"Dhaka\" />\n<meta name=\"geo.region\" content=\"Bangladesh\" />\n<!-- / Yoast SEO Premium plugin. -->",
+  "_links": {
+    "self": [{ "href": "https://sayed.cyou/wp-json/wp/v2/fw-portfolio/452" }],
+    "collection": [{ "href": "https://sayed.cyou/wp-json/wp/v2/fw-portfolio" }],
+    "about": [
+      { "href": "https://sayed.cyou/wp-json/wp/v2/types/fw-portfolio" }
+    ],
+    "version-history": [
+      {
+        "count": 0,
+        "href": "https://sayed.cyou/wp-json/wp/v2/fw-portfolio/452/revisions"
+      }
+    ],
+    "wp:featuredmedia": [
+      {
+        "embeddable": true,
+        "href": "https://sayed.cyou/wp-json/wp/v2/media/454"
+      }
+    ],
+    "wp:attachment": [
+      { "href": "https://sayed.cyou/wp-json/wp/v2/media?parent=452" }
+    ],
+    "wp:term": [
+      {
+        "taxonomy": "fw-portfolio-category",
+        "embeddable": true,
+        "href": "https://sayed.cyou/wp-json/wp/v2/fw-portfolio-category?post=452"
+      }
+    ],
+    "curies": [
+      { "name": "wp", "href": "https://api.w.org/{rel}", "templated": true }
+    ]
+  }
+}
