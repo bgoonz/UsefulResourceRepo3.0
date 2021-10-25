@@ -1,0 +1,24 @@
+{
+  "name": "@cubejs-backend/serverless-google",
+  "description": "Cube.js Serverless Google support",
+  "author": "Statsbot, Inc.",
+  "version": "0.10.24",
+  "engines": {
+    "node": ">=8.11.1"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "@cubejs-backend/serverless": "^0.10.24",
+    "@google-cloud/pubsub": "^0.28.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.14.0",
+    "eslint-plugin-node": "^5.2.1",
+    "mocha": "^5.2.0",
+    "should": "^13.2.3"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}

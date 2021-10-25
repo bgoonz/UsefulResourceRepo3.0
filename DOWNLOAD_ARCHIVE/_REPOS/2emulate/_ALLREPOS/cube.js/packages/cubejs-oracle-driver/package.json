@@ -1,0 +1,19 @@
+{
+  "name": "@cubejs-backend/oracle-driver",
+  "description": "Cube.js oracle database driver",
+  "author": "Trikoz I.",
+  "version": "0.10.24",
+  "engines": {
+    "node": ">=8.11.1"
+  },
+  "main": "driver/OracleDriver.js",
+  "dependencies": {
+    "@cubejs-backend/query-orchestrator": "^0.10.16",
+    "oracledb": "^3.1.2",
+    "ramda": "^0.26.1"
+  },
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
+}
