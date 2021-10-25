@@ -97,7 +97,7 @@ border-left-width => elem.style.borderLeftWidth
 For instance:
 
 ```js run
-document.body.style.backgroundColor = prompt("background color?", "green");
+document.body.style.backgroundColor = prompt('background color?', 'green');
 ```
 
 ````smart header="Prefixed properties"
@@ -121,9 +121,9 @@ Then later we may want to remove the `style.display` as if it were not set. Inst
 
 ```js run
 // if we run this code, the <body> will blink
-document.body.style.display = "none"; // hide
+document.body.style.display = 'none'; // hide
 
-setTimeout(() => (document.body.style.display = ""), 1000); // back to normal
+setTimeout(() => (document.body.style.display = ''), 1000); // back to normal
 ```
 
 If we set `style.display` to an empty string, then the browser applies CSS classes and its built-in styles normally, as if there were no such `style.display` property at all.

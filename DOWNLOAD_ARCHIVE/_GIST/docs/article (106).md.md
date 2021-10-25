@@ -95,7 +95,7 @@ Here's the improved code:
 
 ```js
 table.onclick = function (event) {
-  let td = event.target.closest("td"); // (1)
+  let td = event.target.closest('td'); // (1)
 
   if (!td) return; // (2)
 
@@ -197,7 +197,7 @@ Counter: <input type="button" value="1" data-counter /> One more counter:
 <input type="button" value="2" data-counter />
 
 <script>
-  document.addEventListener("click", function (event) {
+  document.addEventListener('click', function (event) {
     if (event.target.dataset.counter != undefined) {
       // if the attribute exists...
       event.target.value++;

@@ -1,10 +1,10 @@
-import { createReducer } from "redux-create-reducer";
-import * as types from "../constants/ActionTypes";
+import { createReducer } from 'redux-create-reducer';
+import * as types from '../constants/ActionTypes';
 
 import indexedListReducerGenerator, {
   LIST_UPSERT,
   LIST_DELETE,
-} from "./indexedListReducerGenerator";
+} from './indexedListReducerGenerator';
 
 const initialState = {
   items: { byId: {}, ids: [] },

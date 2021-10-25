@@ -1,7 +1,6 @@
 # 50 Git questions (with answers)
 
-A list of 50 frequently git questions with answers.
-Released under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
+A list of 50 frequently git questions with answers. Released under a [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/) license.
 
 **WARNING**: not yet finished...
 
@@ -33,8 +32,7 @@ $ git config --global core.editor "nano -w"
 
 #### 5. What is the staging area?
 
-The staging area is an intermediate storage for changes that will be part of the
-next commit.
+The staging area is an intermediate storage for changes that will be part of the next commit.
 
 #### 6. How to add a file to the staging area?
 
@@ -223,8 +221,7 @@ Create `~/.config/git/ignore` with a list of patterns.
 
 #### 44. What if the difference between `rm` and `git rm`?
 
-`git-rm` - Remove files from the working tree and from the index
-`rm` - remove files or directories
+`git-rm` - Remove files from the working tree and from the index `rm` - remove files or directories
 
 #### 45. How prevent a push if remote has extra commits?
 
@@ -238,9 +235,7 @@ You need to do that in the remote
 $ git config --global alias.THEALIASED "WHAT_GIT_COMMAND_TO_ALIAS"
 ```
 
-Note:
-If you want to alias a real command **not a git command** you need to use ! but your shell will try to find an event so you need to use a
-"\!echo 'Test'"
+Note: If you want to alias a real command **not a git command** you need to use ! but your shell will try to find an event so you need to use a "\!echo 'Test'"
 
 #### 47. How to undo a pushed commit?
 

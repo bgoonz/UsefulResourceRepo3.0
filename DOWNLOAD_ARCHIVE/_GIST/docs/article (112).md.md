@@ -210,7 +210,7 @@ thumb.onpointerdown = function (event) {
 thumb.onpointermove = function (event) {
   // moving the slider: listen on the thumb, as all pointer events are retargeted to it
   let newLeft = event.clientX - slider.getBoundingClientRect().left;
-  thumb.style.left = newLeft + "px";
+  thumb.style.left = newLeft + 'px';
 };
 
 // note: no need to call thumb.releasePointerCapture,

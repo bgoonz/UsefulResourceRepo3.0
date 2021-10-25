@@ -77,10 +77,7 @@
     - Text and box shadows
     - Opacity set to 0 can make an element completely transparent.
 
-      h2 {
-      border: 4px solid red;
-      text-shadow: 0px 2px 10px orange;
-      box-shadow: 5px 5px yellow;  
+      h2 { border: 4px solid red; text-shadow: 0px 2px 10px orange; box-shadow: 5px 5px yellow;  
        opacity: 0.5;  
       }
 

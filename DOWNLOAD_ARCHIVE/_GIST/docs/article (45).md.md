@@ -39,7 +39,7 @@ For instance:
 
 ```js
 let user = {
-  name: "John",
+  name: 'John',
   age: 30,
 };
 ```
@@ -52,7 +52,7 @@ Here's an example of using `Object.values` to loop over property values:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   age: 30,
 };
 

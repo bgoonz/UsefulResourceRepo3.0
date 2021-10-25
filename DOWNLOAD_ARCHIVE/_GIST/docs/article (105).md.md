@@ -174,13 +174,13 @@ Let's see both capturing and bubbling in action:
 </form>
 
 <script>
-  for (let elem of document.querySelectorAll("*")) {
+  for (let elem of document.querySelectorAll('*')) {
     elem.addEventListener(
-      "click",
+      'click',
       (e) => alert(`Capturing: ${elem.tagName}`),
       true
     );
-    elem.addEventListener("click", (e) => alert(`Bubbling: ${elem.tagName}`));
+    elem.addEventListener('click', (e) => alert(`Bubbling: ${elem.tagName}`));
   }
 </script>
 ```

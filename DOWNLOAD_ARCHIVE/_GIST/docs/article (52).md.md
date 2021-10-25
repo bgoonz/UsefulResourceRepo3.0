@@ -15,7 +15,7 @@ In the very first chapter about [variables](info:variables), we mentioned three 
 The `var` declaration is similar to `let`. Most of the time we can replace `let` by `var` or vice-versa and expect things to work:
 
 ```js run
-var message = "Hi";
+var message = 'Hi';
 alert(message); // Hi
 ```
 
@@ -74,7 +74,7 @@ If a code block is inside a function, then `var` becomes a function-level variab
 ```js run
 function sayHi() {
   if (true) {
-    var phrase = "Hello";
+    var phrase = 'Hello';
   }
 
   alert(phrase); // works
@@ -98,9 +98,9 @@ let user; // SyntaxError: 'user' has already been declared
 With `var`, we can redeclare a variable any number of times. If we use `var` with an already-declared variable, it's just ignored:
 
 ```js run
-var user = "Pete";
+var user = 'Pete';
 
-var user = "John"; // this "var" does nothing (already declared)
+var user = 'John'; // this "var" does nothing (already declared)
 // ...it doesn't trigger an error
 
 alert(user); // John
@@ -216,7 +216,7 @@ An IIFE looks like this:
 
 ```js run
 (function () {
-  var message = "Hello";
+  var message = 'Hello';
 
   alert(message); // Hello
 })();

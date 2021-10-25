@@ -4,8 +4,7 @@ Calculate the average of a list of numbers using mean.
 
 ## Applications
 
-Calculating the mean of a list of numbers is one of the most common ways to
-determine the average of those numbers.
+Calculating the mean of a list of numbers is one of the most common ways to determine the average of those numbers.
 
 Calculating a mean would be useful in these situations:
 

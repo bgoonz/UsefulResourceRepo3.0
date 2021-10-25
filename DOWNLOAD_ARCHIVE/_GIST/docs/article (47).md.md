@@ -8,16 +8,14 @@ For instance, we can use it to store creation/modification times, to measure tim
 
 To create a new `Date` object call `new Date()` with one of the following arguments:
 
-`new Date()`
-: Without arguments -- create a `Date` object for the current date and time:
+`new Date()` : Without arguments -- create a `Date` object for the current date and time:
 
     ```js run
     let now = new Date();
     alert( now ); // shows current date/time
     ```
 
-`new Date(milliseconds)`
-: Create a `Date` object with the time equal to number of milliseconds (1/1000 of a second) passed after the Jan 1st of 1970 UTC+0.
+`new Date(milliseconds)` : Create a `Date` object with the time equal to number of milliseconds (1/1000 of a second) passed after the Jan 1st of 1970 UTC+0.
 
     ```js run
     // 0 means 01.01.1970 UTC+0
@@ -40,8 +38,7 @@ To create a new `Date` object call `new Date()` with one of the following argume
     alert( Dec31_1969 );
     ```
 
-`new Date(datestring)`
-: If there is a single argument, and it's a string, then it is parsed automatically. The algorithm is the same as `Date.parse` uses, we'll cover it later.
+`new Date(datestring)` : If there is a single argument, and it's a string, then it is parsed automatically. The algorithm is the same as `Date.parse` uses, we'll cover it later.
 
     ```js run
     let date = new Date("2017-01-26");
@@ -54,8 +51,7 @@ To create a new `Date` object call `new Date()` with one of the following argume
     // Wed Jan 25 2017 16:00:00 GMT-0800 (Pacific Standard Time)
     ```
 
-`new Date(year, month, date, hours, minutes, seconds, ms)`
-: Create the date with the given components in the local time zone. Only the first two arguments are obligatory.
+`new Date(year, month, date, hours, minutes, seconds, ms)` : Create the date with the given components in the local time zone. Only the first two arguments are obligatory.
 
     - The `year` must have 4 digits: `2013` is okay, `98` is not.
     - The `month` count starts with `0` (Jan), up to `11` (Dec).
@@ -80,17 +76,13 @@ To create a new `Date` object call `new Date()` with one of the following argume
 
 There are methods to access the year, month and so on from the `Date` object:
 
-[getFullYear()](mdn:js/Date/getFullYear)
-: Get the year (4 digits)
+[getFullYear()](mdn:js/Date/getFullYear) : Get the year (4 digits)
 
-[getMonth()](mdn:js/Date/getMonth)
-: Get the month, **from 0 to 11**.
+[getMonth()](mdn:js/Date/getMonth) : Get the month, **from 0 to 11**.
 
-[getDate()](mdn:js/Date/getDate)
-: Get the day of month, from 1 to 31, the name of the method does look a little bit strange.
+[getDate()](mdn:js/Date/getDate) : Get the day of month, from 1 to 31, the name of the method does look a little bit strange.
 
-[getHours()](mdn:js/Date/getHours), [getMinutes()](mdn:js/Date/getMinutes), [getSeconds()](mdn:js/Date/getSeconds), [getMilliseconds()](mdn:js/Date/getMilliseconds)
-: Get the corresponding time components.
+[getHours()](mdn:js/Date/getHours), [getMinutes()](mdn:js/Date/getMinutes), [getSeconds()](mdn:js/Date/getSeconds), [getMilliseconds()](mdn:js/Date/getMilliseconds) : Get the corresponding time components.
 
 ```warn header="Not `getYear()`, but `getFullYear()`" Many JavaScript engines implement a non-standard method `getYear()`. This method is deprecated. It returns 2-digit year sometimes. Please never use it. There is `getFullYear()` for the year.
 
@@ -120,11 +112,9 @@ alert( date.getUTCHours() );
 
 Besides the given methods, there are two special ones that do not have a UTC-variant:
 
-[getTime()](mdn:js/Date/getTime)
-: Returns the timestamp for the date -- a number of milliseconds passed from the January 1st of 1970 UTC+0.
+[getTime()](mdn:js/Date/getTime) : Returns the timestamp for the date -- a number of milliseconds passed from the January 1st of 1970 UTC+0.
 
-[getTimezoneOffset()](mdn:js/Date/getTimezoneOffset)
-: Returns the difference between UTC and the local time zone, in minutes:
+[getTimezoneOffset()](mdn:js/Date/getTimezoneOffset) : Returns the difference between UTC and the local time zone, in minutes:
 
     ```js run
     // if you are in timezone UTC-1, outputs 60
@@ -308,8 +298,8 @@ function bench(f) {
   return Date.now() - start;
 }
 
-alert("Time of diffSubtract: " + bench(diffSubtract) + "ms");
-alert("Time of diffGetTime: " + bench(diffGetTime) + "ms");
+alert('Time of diffSubtract: ' + bench(diffSubtract) + 'ms');
+alert('Time of diffGetTime: ' + bench(diffGetTime) + 'ms');
 ```
 
 Wow! Using `getTime()` is so much faster! That's because there's no type conversion, it is much easier for engines to optimize.
@@ -397,7 +387,7 @@ The call to `Date.parse(str)` parses the string in the given format and returns 
 For instance:
 
 ```js run
-let ms = Date.parse("2012-01-26T13:51:50.417-07:00");
+let ms = Date.parse('2012-01-26T13:51:50.417-07:00');
 
 alert(ms); // 1327611110417  (timestamp)
 ```
@@ -405,7 +395,7 @@ alert(ms); // 1327611110417  (timestamp)
 We can instantly create a `new Date` object from the timestamp:
 
 ```js run
-let date = new Date(Date.parse("2012-01-26T13:51:50.417-07:00"));
+let date = new Date(Date.parse('2012-01-26T13:51:50.417-07:00'));
 
 alert(date);
 ```

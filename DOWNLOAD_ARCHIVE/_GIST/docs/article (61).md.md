@@ -28,8 +28,8 @@ For instance, we have a `user` object with `name` and `surname`:
 
 ```js
 let user = {
-  name: "John",
-  surname: "Smith",
+  name: 'John',
+  surname: 'Smith',
 };
 ```
 
@@ -164,17 +164,17 @@ let user = {
 
   set name(value) {
     if (value.length < 4) {
-      alert("Name is too short, need at least 4 characters");
+      alert('Name is too short, need at least 4 characters');
       return;
     }
     this._name = value;
   },
 };
 
-user.name = "Pete";
+user.name = 'Pete';
 alert(user.name); // Pete
 
-user.name = ""; // Name is too short...
+user.name = ''; // Name is too short...
 ```
 
 So, the name is stored in `_name` property, and the access is done via getter and setter.
@@ -193,7 +193,7 @@ function User(name, age) {
   this.age = age;
 }
 
-let john = new User("John", 25);
+let john = new User('John', 25);
 
 alert(john.age); // 25
 ```
@@ -206,7 +206,7 @@ function User(name, birthday) {
   this.birthday = birthday;
 }
 
-let john = new User("John", new Date(1992, 6, 1));
+let john = new User('John', new Date(1992, 6, 1));
 ```
 
 Now what to do with the old code that still uses `age` property?

@@ -168,12 +168,12 @@ Let's start with simple handlers that highlight the element under mouse:
 // let's highlight an element under the pointer
 table.onmouseover = function (event) {
   let target = event.target;
-  target.style.background = "pink";
+  target.style.background = 'pink';
 };
 
 table.onmouseout = function (event) {
   let target = event.target;
-  target.style.background = "";
+  target.style.background = '';
 };
 ```
 

@@ -19,15 +19,11 @@ let timerId = setTimeout(func|code, [delay], [arg1], [arg2], ...)
 
 Parameters:
 
-`func|code`
-: Function or a string of code to execute.
-Usually, that's a function. For historical reasons, a string of code can be passed, but that's not recommended.
+`func|code` : Function or a string of code to execute. Usually, that's a function. For historical reasons, a string of code can be passed, but that's not recommended.
 
-`delay`
-: The delay before run, in milliseconds (1000 ms = 1 second), by default 0.
+`delay` : The delay before run, in milliseconds (1000 ms = 1 second), by default 0.
 
-`arg1`, `arg2`...
-: Arguments for the function (not supported in IE9-)
+`arg1`, `arg2`... : Arguments for the function (not supported in IE9-)
 
 For instance, this code calls `sayHi()` after one second:
 
@@ -64,7 +60,7 @@ setTimeout("alert('Hello')", 1000);
 But using strings is not recommended, use arrow functions instead of them, like this:
 
 ```js run no-beautify
-setTimeout(() => alert("Hello"), 1000);
+setTimeout(() => alert('Hello'), 1000);
 ```
 
 ````smart header="Pass a function, but don't run it"
@@ -91,7 +87,7 @@ clearTimeout(timerId);
 In the code below, we schedule the function and then cancel it (changed our mind). As a result, nothing happens:
 
 ```js run no-beautify
-let timerId = setTimeout(() => alert("never happens"), 1000);
+let timerId = setTimeout(() => alert('never happens'), 1000);
 alert(timerId); // timer identifier
 
 clearTimeout(timerId);
@@ -120,12 +116,12 @@ The following example will show the message every 2 seconds. After 5 seconds, th
 
 ```js run
 // repeat with the interval of 2 seconds
-let timerId = setInterval(() => alert("tick"), 2000);
+let timerId = setInterval(() => alert('tick'), 2000);
 
 // after 5 seconds stop
 setTimeout(() => {
   clearInterval(timerId);
-  alert("stop");
+  alert('stop');
 }, 5000);
 ```
 
@@ -249,9 +245,9 @@ So the function is scheduled to run "right after" the current script.
 For instance, this outputs "Hello", then immediately "World":
 
 ```js run
-setTimeout(() => alert("World"));
+setTimeout(() => alert('World'));
 
-alert("Hello");
+alert('Hello');
 ```
 
 The first line "puts the call into calendar after 0ms". But the scheduler will only "check the calendar" after the current script is complete, so `"Hello"` is first, and `"World"` -- after it.

@@ -16,7 +16,7 @@ For instance, a function's name is accessible as the "name" property:
 
 ```js run
 function sayHi() {
-  alert("Hi");
+  alert('Hi');
 }
 
 alert(sayHi.name); // sayHi
@@ -26,7 +26,7 @@ What's kind of funny, the name-assigning logic is smart. It also assigns the cor
 
 ```js run
 let sayHi = function () {
-  alert("Hi");
+  alert('Hi');
 };
 
 alert(sayHi.name); // sayHi (there's a name!)
@@ -118,8 +118,8 @@ function ask(question, ...handlers) {
 // for positive answer, both handlers are called
 // for negative answer, only the second one
 ask(
-  "Question?",
-  () => alert("You said yes"),
+  'Question?',
+  () => alert('You said yes'),
   (result) => alert(result)
 );
 ```

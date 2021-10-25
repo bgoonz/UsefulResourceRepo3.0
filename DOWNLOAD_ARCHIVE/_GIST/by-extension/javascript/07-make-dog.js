@@ -24,11 +24,11 @@ console.log(dog2.name); // Jet
 
 function makeDog() {
   return {
-    name: "Jet",
+    name: 'Jet',
     // here we have to use an anonymous function to ensure the context
     // is set correctly when this method is invoked
     speak: function (word) {
-      return this.name + " says " + word;
+      return this.name + ' says ' + word;
     },
     changeName: function (newName) {
       this.name = newName;

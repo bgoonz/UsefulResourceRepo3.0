@@ -61,7 +61,7 @@ body {
 }
 
 h1 {
-  font-family: "trebuchet ms", verdana, arial;
+  font-family: 'trebuchet ms', verdana, arial;
   padding: 10px;
   padding-top: 12px;
   padding-bottom: 0px;
@@ -528,7 +528,7 @@ td.date {
 
 .export_chevron::after,
 .export_chevron::before {
-  content: "";
+  content: '';
   display: block;
   box-sizing: border-box;
   position: absolute;

@@ -80,8 +80,7 @@
 
 **Dijkstra’s Algorithm** - Create a program that finds the shortest path through a graph using its edges.
 
-**Minimum Spanning Tree** - Create a program which takes a connected, undirected graph with weights and outputs the minimum spanning tree of the graph i.e., a
-subgraph that is a tree, contains all the vertices, and the sum of its weights is the least possible.
+**Minimum Spanning Tree** - Create a program which takes a connected, undirected graph with weights and outputs the minimum spanning tree of the graph i.e., a subgraph that is a tree, contains all the vertices, and the sum of its weights is the least possible.
 
 ## Data Structures
 
@@ -135,8 +134,7 @@ subgraph that is a tree, contains all the vertices, and the sum of its weights i
 
 **Airline / Hotel Reservation System** - Create a reservation system which books airline seats or hotel rooms. It charges various rates for particular sections of the plane or hotel. Example, first class is going to cost more than coach. Hotel rooms have penthouse suites which cost more. Keep track of when rooms will be available and can be scheduled.
 
-**Company Manager** - Create an hierarchy of classes - abstract class Employee and subclasses HourlyEmployee, SalariedEmployee, Manager and Executive. Every one's pay is calculated differently, research a bit about it.
-After you've established an employee hierarchy, create a Company class that allows you to manage the employees. You should be able to hire, fire and raise employees.
+**Company Manager** - Create an hierarchy of classes - abstract class Employee and subclasses HourlyEmployee, SalariedEmployee, Manager and Executive. Every one's pay is calculated differently, research a bit about it. After you've established an employee hierarchy, create a Company class that allows you to manage the employees. You should be able to hire, fire and raise employees.
 
 **Bank Account Manager** - Create a class called Account which will be an abstract class for three other classes called CheckingAccount, SavingsAccount and BusinessAccount. Manage credits and debits from these accounts through an ATM style program.
 

@@ -21,17 +21,13 @@ Let's discuss them in more detail.
 
 The topmost tree nodes are available directly as `document` properties:
 
-`<html>` = `document.documentElement`
-: The topmost document node is `document.documentElement`. That's the DOM node of the `<html>` tag.
+`<html>` = `document.documentElement` : The topmost document node is `document.documentElement`. That's the DOM node of the `<html>` tag.
 
-`<body>` = `document.body`
-: Another widely used DOM node is the `<body>` element -- `document.body`.
+`<body>` = `document.body` : Another widely used DOM node is the `<body>` element -- `document.body`.
 
-`<head>` = `document.head`
-: The `<head>` tag is available as `document.head`.
+`<head>` = `document.head` : The `<head>` tag is available as `document.head`.
 
-````warn header="There's a catch: `document.body`can be`null`"
-A script cannot access an element that doesn't exist at the moment of running.
+````warn header="There's a catch: `document.body`can be`null`" A script cannot access an element that doesn't exist at the moment of running.
 
 In particular, if a script is inside `<head>`, then `document.body` is unavailable, because the browser did not read it yet.
 
@@ -49,7 +45,7 @@ So, in the example below the first `alert` shows `null`:
 
   <body>
     <script>
-      alert("From BODY: " + document.body); // HTMLBodyElement, now it exists
+      alert('From BODY: ' + document.body); // HTMLBodyElement, now it exists
     </script>
   </body>
 </html>

@@ -34,7 +34,7 @@ Here's the simplest example:
 ```js
 // user has a reference to the object
 let user = {
-  name: "John",
+  name: 'John',
 };
 ```
 
@@ -94,10 +94,10 @@ function marry(man, woman) {
 
 let family = marry(
   {
-    name: "John",
+    name: 'John',
   },
   {
-    name: "Ann",
+    name: 'Ann',
   }
 );
 ```

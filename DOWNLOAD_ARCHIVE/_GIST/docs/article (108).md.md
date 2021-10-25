@@ -38,7 +38,7 @@ In the example below the `click` event is initiated in JavaScript. The handler w
 <button id="elem" onclick="alert('Click!');">Autoclick</button>
 
 <script>
-  let event = new Event("click");
+  let event = new Event('click');
   elem.dispatchEvent(event);
 </script>
 ```
@@ -60,13 +60,13 @@ All we need is to set `bubbles` to `true`:
 
 <script>
   // catch on document...
-  document.addEventListener("hello", function (event) {
+  document.addEventListener('hello', function (event) {
     // (1)
-    alert("Hello from " + event.target.tagName); // Hello from H1
+    alert('Hello from ' + event.target.tagName); // Hello from H1
   });
 
   // ...dispatch on elem!
-  let event = new Event("hello", { bubbles: true }); // (2)
+  let event = new Event('hello', { bubbles: true }); // (2)
   elem.dispatchEvent(event);
 
   // the handler on document will activate and display the message.
@@ -188,18 +188,18 @@ Any handler can listen for that event with `rabbit.addEventListener('hide',...)`
 
 <script>
   function hide() {
-    let event = new CustomEvent("hide", {
+    let event = new CustomEvent('hide', {
       cancelable: true, // without that flag preventDefault doesn't work
     });
     if (!rabbit.dispatchEvent(event)) {
-      alert("The action was prevented by a handler");
+      alert('The action was prevented by a handler');
     } else {
       rabbit.hidden = true;
     }
   }
 
-  rabbit.addEventListener("hide", function (event) {
-    if (confirm("Call preventDefault?")) {
+  rabbit.addEventListener('hide', function (event) {
+    if (confirm('Call preventDefault?')) {
       event.preventDefault();
     }
   });
@@ -226,7 +226,7 @@ It's processed immediately, without waiting for `onclick` handler to end:
     alert(1);
 
     menu.dispatchEvent(
-      new CustomEvent("menu-open", {
+      new CustomEvent('menu-open', {
         bubbles: true,
       })
     );
@@ -235,7 +235,7 @@ It's processed immediately, without waiting for `onclick` handler to end:
   };
 
   // triggers between 1 and 2
-  document.addEventListener("menu-open", () => alert("nested"));
+  document.addEventListener('menu-open', () => alert('nested'));
 </script>
 ```
 
@@ -258,7 +258,7 @@ Then we can either put the `dispatchEvent` (or another event-triggering call) at
 
     setTimeout(() =>
       menu.dispatchEvent(
-        new CustomEvent("menu-open", {
+        new CustomEvent('menu-open', {
           bubbles: true,
         })
       )
@@ -267,7 +267,7 @@ Then we can either put the `dispatchEvent` (or another event-triggering call) at
     alert(2);
   };
 
-  document.addEventListener("menu-open", () => alert("nested"));
+  document.addEventListener('menu-open', () => alert('nested'));
 </script>
 ```
 

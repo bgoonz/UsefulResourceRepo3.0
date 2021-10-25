@@ -55,12 +55,12 @@ For example, this `<show-hello>` element hides its internal DOM in shadow tree:
 ```html run autorun height=60
 <script>
   customElements.define(
-    "show-hello",
+    'show-hello',
     class extends HTMLElement {
       connectedCallback() {
-        const shadow = this.attachShadow({ mode: "open" });
+        const shadow = this.attachShadow({ mode: 'open' });
         shadow.innerHTML = `<p>
-      Hello, ${this.getAttribute("name")}
+      Hello, ${this.getAttribute('name')}
     </p>`;
       }
     }

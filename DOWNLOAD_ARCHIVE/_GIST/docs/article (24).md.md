@@ -96,7 +96,7 @@ let str = `
 And, for `if` statements:
 
 ```js
-if (id === 123 && moonPhase === "Waning Gibbous" && zodiacSign === "Libra") {
+if (id === 123 && moonPhase === 'Waning Gibbous' && zodiacSign === 'Libra') {
   letTheSorceryBegin();
 }
 ```

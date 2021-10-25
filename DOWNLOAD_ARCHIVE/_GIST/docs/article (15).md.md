@@ -36,7 +36,7 @@ For instance, the number `1` is treated as `true`, the number `0` as `false`:
 ```js run
 if (1 || 0) {
   // works just like if( true || false )
-  alert("truthy!");
+  alert('truthy!');
 }
 ```
 
@@ -61,7 +61,7 @@ let hour = 12;
 let isWeekend = true;
 
 if (hour < 10 || hour > 18 || isWeekend) {
-  alert("The office is closed."); // it is the weekend
+  alert('The office is closed.'); // it is the weekend
 }
 ```
 
@@ -161,7 +161,7 @@ let hour = 12;
 let minute = 30;
 
 if (hour == 12 && minute == 30) {
-  alert("The time is 12:30");
+  alert('The time is 12:30');
 }
 ```
 
@@ -203,7 +203,7 @@ alert(1 && 5); // 5
 // if the first operand is falsy,
 // AND returns it. The second operand is ignored
 alert(null && 5); // null
-alert(0 && "no matter what"); // 0
+alert(0 && 'no matter what'); // 0
 ```
 
 We can also pass several values in a row. See how the first falsy one is returned:
@@ -273,7 +273,7 @@ alert(!0); // true
 A double NOT `!!` is sometimes used for converting a value to boolean type:
 
 ```js run
-alert(!!"non-empty string"); // true
+alert(!!'non-empty string'); // true
 alert(!!null); // false
 ```
 
@@ -282,7 +282,7 @@ That is, the first NOT converts the value to boolean and returns the inverse, an
 There's a little more verbose way to do the same thing -- a built-in `Boolean` function:
 
 ```js run
-alert(Boolean("non-empty string")); // true
+alert(Boolean('non-empty string')); // true
 alert(Boolean(null)); // false
 ```
 

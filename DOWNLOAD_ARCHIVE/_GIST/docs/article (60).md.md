@@ -26,11 +26,9 @@ The syntax is:
 let descriptor = Object.getOwnPropertyDescriptor(obj, propertyName);
 ```
 
-`obj`
-: The object to get information from.
+`obj` : The object to get information from.
 
-`propertyName`
-: The name of the property.
+`propertyName` : The name of the property.
 
 The returned value is a so-called "property descriptor" object: it contains the value and all the flags.
 
@@ -38,10 +36,10 @@ For instance:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
 };
 
-let descriptor = Object.getOwnPropertyDescriptor(user, "name");
+let descriptor = Object.getOwnPropertyDescriptor(user, 'name');
 
 alert(JSON.stringify(descriptor, null, 2));
 /* property descriptor:
@@ -62,11 +60,9 @@ The syntax is:
 Object.defineProperty(obj, propertyName, descriptor);
 ```
 
-`obj`, `propertyName`
-: The object and its property to apply the descriptor.
+`obj`, `propertyName` : The object and its property to apply the descriptor.
 
-`descriptor`
-: Property descriptor object to apply.
+`descriptor` : Property descriptor object to apply.
 
 If the property exists, `defineProperty` updates its flags. Otherwise, it creates the property with the given value and flags; in that case, if a flag is not supplied, it is assumed `false`.
 
@@ -152,7 +148,7 @@ Normally, a built-in `toString` for objects is non-enumerable, it does not show 
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   toString() {
     return this.name;
   },
@@ -199,7 +195,7 @@ A non-configurable property can not be deleted.
 For instance, `Math.PI` is non-writable, non-enumerable and non-configurable:
 
 ```js run
-let descriptor = Object.getOwnPropertyDescriptor(Math, "PI");
+let descriptor = Object.getOwnPropertyDescriptor(Math, 'PI');
 
 alert(JSON.stringify(descriptor, null, 2));
 /*
@@ -235,14 +231,14 @@ Here `user.name` is non-configurable, but we can still change it (as it's writab
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
 };
 
-Object.defineProperty(user, "name", {
+Object.defineProperty(user, 'name', {
   configurable: false,
 });
 
-user.name = "Pete"; // works fine
+user.name = 'Pete'; // works fine
 delete user.name; // Error
 ```
 
@@ -250,19 +246,19 @@ And here we make `user.name` a "forever sealed" constant:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
 };
 
-Object.defineProperty(user, "name", {
+Object.defineProperty(user, 'name', {
   writable: false,
   configurable: false,
 });
 
 // won't be able to change user.name or its flags
 // all this won't work:
-user.name = "Pete";
+user.name = 'Pete';
 delete user.name;
-Object.defineProperty(user, "name", { value: "Pete" });
+Object.defineProperty(user, 'name', { value: 'Pete' });
 ```
 
 ## Object.defineProperties
@@ -283,8 +279,8 @@ For instance:
 
 ```js
 Object.defineProperties(user, {
-  name: { value: "John", writable: false },
-  surname: { value: "Smith", writable: false },
+  name: { value: 'John', writable: false },
+  surname: { value: 'Smith', writable: false },
   // ...
 });
 ```
@@ -319,24 +315,18 @@ Property descriptors work at the level of individual properties.
 
 There are also methods that limit access to the _whole_ object:
 
-[Object.preventExtensions(obj)](mdn:js/Object/preventExtensions)
-: Forbids the addition of new properties to the object.
+[Object.preventExtensions(obj)](mdn:js/Object/preventExtensions) : Forbids the addition of new properties to the object.
 
-[Object.seal(obj)](mdn:js/Object/seal)
-: Forbids adding/removing of properties. Sets `configurable: false` for all existing properties.
+[Object.seal(obj)](mdn:js/Object/seal) : Forbids adding/removing of properties. Sets `configurable: false` for all existing properties.
 
-[Object.freeze(obj)](mdn:js/Object/freeze)
-: Forbids adding/removing/changing of properties. Sets `configurable: false, writable: false` for all existing properties.
+[Object.freeze(obj)](mdn:js/Object/freeze) : Forbids adding/removing/changing of properties. Sets `configurable: false, writable: false` for all existing properties.
 
 And also there are tests for them:
 
-[Object.isExtensible(obj)](mdn:js/Object/isExtensible)
-: Returns `false` if adding properties is forbidden, otherwise `true`.
+[Object.isExtensible(obj)](mdn:js/Object/isExtensible) : Returns `false` if adding properties is forbidden, otherwise `true`.
 
-[Object.isSealed(obj)](mdn:js/Object/isSealed)
-: Returns `true` if adding/removing properties is forbidden, and all existing properties have `configurable: false`.
+[Object.isSealed(obj)](mdn:js/Object/isSealed) : Returns `true` if adding/removing properties is forbidden, and all existing properties have `configurable: false`.
 
-[Object.isFrozen(obj)](mdn:js/Object/isFrozen)
-: Returns `true` if adding/removing/changing properties is forbidden, and all current properties are `configurable: false, writable: false`.
+[Object.isFrozen(obj)](mdn:js/Object/isFrozen) : Returns `true` if adding/removing/changing properties is forbidden, and all current properties are `configurable: false, writable: false`.
 
 These methods are rarely used in practice.

@@ -93,7 +93,7 @@ For instance:
 alert(JSON.stringify(1)); // 1
 
 // a string in JSON is still a string, but double-quoted
-alert(JSON.stringify("test")); // "test"
+alert(JSON.stringify('test')); // "test"
 
 alert(JSON.stringify(true)); // true
 
@@ -112,9 +112,9 @@ Namely:
 let user = {
   sayHi() {
     // ignored
-    alert("Hello");
+    alert('Hello');
   },
-  [Symbol("id")]: 123, // ignored
+  [Symbol('id')]: 123, // ignored
   something: undefined, // ignored
 };
 
@@ -181,14 +181,11 @@ The full syntax of `JSON.stringify` is:
 let json = JSON.stringify(value[, replacer, space])
 ```
 
-value
-: A value to encode.
+value : A value to encode.
 
-replacer
-: Array of properties to encode or a mapping function `function(key, value)`.
+replacer : Array of properties to encode or a mapping function `function(key, value)`.
 
-space
-: Amount of space to use for formatting
+space : Amount of space to use for formatting
 
 Most of the time, `JSON.stringify` is used with the first argument only. But if we need to fine-tune the replacement process, like to filter out circular references, we can use the second argument of `JSON.stringify`.
 
@@ -254,8 +251,8 @@ let room = {
 };
 
 let meetup = {
-  title: "Conference",
-  participants: [{ name: "John" }, { name: "Alice" }],
+  title: 'Conference',
+  participants: [{ name: 'John' }, { name: 'Alice' }],
   place: room, // meetup references room
 };
 
@@ -264,7 +261,7 @@ room.occupiedBy = meetup; // room references meetup
 alert(
   JSON.stringify(meetup, function replacer(key, value) {
     alert(`${key}: ${value}`);
-    return key == "occupiedBy" ? undefined : value;
+    return key == 'occupiedBy' ? undefined : value;
   })
 );
 
@@ -298,7 +295,7 @@ Here `space = 2` tells JavaScript to show nested objects on multiple lines, with
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   age: 25,
   roles: {
     isAdmin: false,
@@ -409,17 +406,15 @@ The syntax:
 let value = JSON.parse(str, [reviver]);
 ```
 
-str
-: JSON-string to parse.
+str : JSON-string to parse.
 
-reviver
-: Optional function(key,value) that will be called for each `(key, value)` pair and can transform the value.
+reviver : Optional function(key,value) that will be called for each `(key, value)` pair and can transform the value.
 
 For instance:
 
 ```js run
 // stringified array
-let numbers = "[0, 1, 2, 3]";
+let numbers = '[0, 1, 2, 3]';
 
 numbers = JSON.parse(numbers);
 

@@ -104,9 +104,7 @@ The **string** data type is a primitive data type that used to represent textual
 
 - <span id="e1b0">can be wrapped by either **single** or **double** quotation marks, _best to choose one and stick with it for consistency_.</span>
 - <span id="f8ad">If your string contains quotation marks inside, can layer single or double quotation marks to allow it to work.  
-   “That’s a great string”; (valid)
-  ‘Shakespeare wrote, “To be or not to be”’; (valid)
-  ‘That’s a bad string’; (invalid)</span>
+   “That’s a great string”; (valid) ‘Shakespeare wrote, “To be or not to be”’; (valid) ‘That’s a bad string’; (invalid)</span>
 - <span id="b2cb">Alt. way to add other quotes within strings is to use template literals.  
    \`This is a temp’l’ate literal ${function}\` // use ${} to invoke functions within.</span>
 - <span id="7b1a">**.length** : property that can be appended to data to return the length.</span>
@@ -5664,13 +5662,11 @@ both examples will only work if they are within functions declared async; a `for
 
 <a href="https://gist.github.com/bgoonz" class="markup--anchor markup--p-anchor"><strong>bgoonz’s</strong> gists · GitHub</a>
 
-<a href="https://github.com/bgoonz" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/bgoonz"><strong>bgoonz — Overview</strong><br />
-<em>Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…</em>github.com</a><a href="https://github.com/bgoonz" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
+<a href="https://github.com/bgoonz" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://github.com/bgoonz"><strong>bgoonz — Overview</strong><br /> <em>Web Developer, Electrical Engineer JavaScript | CSS | Bootstrap | Python | React | Node.js | Express | Sequelize…</em>github.com</a><a href="https://github.com/bgoonz" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
 
 Or checkout my personal resource site:
 
-<a href="https://goofy-euclid-1cd736.netlify.app/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://goofy-euclid-1cd736.netlify.app/"><strong>a/A-Student-Resources</strong><br />
-<em>Edit description</em>goofy-euclid-1cd736.netlify.app</a><a href="https://goofy-euclid-1cd736.netlify.app/" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
+<a href="https://goofy-euclid-1cd736.netlify.app/" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://goofy-euclid-1cd736.netlify.app/"><strong>a/A-Student-Resources</strong><br /> <em>Edit description</em>goofy-euclid-1cd736.netlify.app</a><a href="https://goofy-euclid-1cd736.netlify.app/" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
 
 By <a href="https://medium.com/@bryanguner" class="p-author h-card">Bryan Guner</a> on [March 8, 2021](https://medium.com/p/64306cd6b0db).
 

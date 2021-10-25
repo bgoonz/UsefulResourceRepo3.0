@@ -31,10 +31,10 @@ That's exactly what `:host` does:
 
 <script>
   customElements.define(
-    "custom-dialog",
+    'custom-dialog',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" }).append(
+        this.attachShadow({ mode: 'open' }).append(
           tmpl.content.cloneNode(true)
         );
       }
@@ -97,10 +97,10 @@ For example, we'd like to center the `<custom-dialog>` only if it has `centered`
 
 <script>
   customElements.define(
-    "custom-dialog",
+    'custom-dialog',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" }).append(
+        this.attachShadow({ mode: 'open' }).append(
           tmpl.content.cloneNode(true)
         );
       }
@@ -153,10 +153,10 @@ In the example below, slotted `<span>` is bold, as per document style, but does 
 
 <script>
   customElements.define(
-    "user-card",
+    'user-card',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
       <style>
 *!*
@@ -184,10 +184,10 @@ First, we can style the `<slot>` itself and rely on CSS inheritance:
 
 <script>
   customElements.define(
-    "user-card",
+    'user-card',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
       <style>
 *!*
@@ -220,10 +220,10 @@ In our example, `::slotted(div)` selects exactly `<div slot="username">`, but no
 
 <script>
   customElements.define(
-    "user-card",
+    'user-card',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
       <style>
 *!*
@@ -310,12 +310,12 @@ Here's the full example:
 
 <script>
   customElements.define(
-    "user-card",
+    'user-card',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.append(
-          document.getElementById("tmpl").content.cloneNode(true)
+          document.getElementById('tmpl').content.cloneNode(true)
         );
       }
     }

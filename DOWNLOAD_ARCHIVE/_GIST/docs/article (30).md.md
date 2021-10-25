@@ -9,7 +9,7 @@ Let's start with a primitive, such as a string.
 Here we put a copy of `message` into `phrase`:
 
 ```js
-let message = "Hello!";
+let message = 'Hello!';
 let phrase = message;
 ```
 
@@ -27,7 +27,7 @@ Let's look at an example of such a variable:
 
 ```js
 let user = {
-  name: "John",
+  name: 'John',
 };
 ```
 
@@ -48,7 +48,7 @@ Now here's why it's important.
 For instance:
 
 ```js no-beautify
-let user = { name: "John" };
+let user = { name: 'John' };
 
 let admin = user; // copy the reference
 ```
@@ -165,9 +165,9 @@ Object.assign(user, permissions1, permissions2);
 If the copied property name already exists, it gets overwritten:
 
 ```js run
-let user = { name: "John" };
+let user = { name: 'John' };
 
-Object.assign(user, { name: "Pete" });
+Object.assign(user, { name: 'Pete' });
 
 alert(user.name); // now user = { name: "Pete" }
 ```
@@ -197,7 +197,7 @@ Like this:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   sizes: {
     height: 182,
     width: 50,
@@ -213,7 +213,7 @@ Like this:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   sizes: {
     height: 182,
     width: 50,

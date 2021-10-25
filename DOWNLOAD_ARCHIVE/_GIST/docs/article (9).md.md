@@ -8,7 +8,7 @@ We can put any type in a variable. For example, a variable can at one moment be 
 
 ```js
 // no error
-let message = "hello";
+let message = 'hello';
 message = 123456;
 ```
 
@@ -44,13 +44,13 @@ Besides regular numbers, there are so-called "special numeric values" which also
 - `NaN` represents a computational error. It is a result of an incorrect or an undefined mathematical operation, for instance:
 
   ```js run
-  alert("not a number" / 2); // NaN, such division is erroneous
+  alert('not a number' / 2); // NaN, such division is erroneous
   ```
 
   `NaN` is sticky. Any further operation on `NaN` returns `NaN`:
 
   ```js run
-  alert("not a number" / 2 + 5); // NaN
+  alert('not a number' / 2 + 5); // NaN
   ```
 
   So, if there's a `NaN` somewhere in a mathematical expression, it propagates to the whole result.
@@ -93,8 +93,8 @@ You can check [_MDN_ BigInt compatibility table](https://developer.mozilla.org/e
 A string in JavaScript must be surrounded by quotes.
 
 ```js
-let str = "Hello";
-let str2 = "Single quotes are ok too";
+let str = 'Hello';
+let str2 = 'Single quotes are ok too';
 let phrase = `can embed another ${str}`;
 ```
 
@@ -109,7 +109,7 @@ Double and single quotes are "simple" quotes. There's practically no difference 
 Backticks are "extended functionality" quotes. They allow us to embed variables and expressions into a string by wrapping them in `${…}`, for example:
 
 ```js run
-let name = "John";
+let name = 'John';
 
 // embed a variable
 alert(`Hello, *!*${name}*/!*!`); // Hello, John!
@@ -123,7 +123,7 @@ The expression inside `${…}` is evaluated and the result becomes a part of the
 Please note that this can only be done in backticks. Other quotes don't have this embedding functionality!
 
 ```js run
-alert("the result is ${1 + 2}"); // the result is ${1 + 2} (double quotes do nothing)
+alert('the result is ${1 + 2}'); // the result is ${1 + 2} (double quotes do nothing)
 ```
 
 We'll cover strings more thoroughly in the chapter <info:string>.

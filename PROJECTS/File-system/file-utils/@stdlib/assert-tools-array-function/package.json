@@ -1,0 +1,113 @@
+{
+  "_from": "@stdlib/assert-tools-array-function@^0.0.x",
+  "_id": "@stdlib/assert-tools-array-function@0.0.6",
+  "_inBundle": false,
+  "_integrity": "sha512-46/b3X0tqtGUSWmqsl5GXoRKeiqeGTgqqXwYa5y3K2yHJWW4XNRbo+y9RqmyGAu4KIhr/D+fFqVk8wm/sYWgeQ==",
+  "_location": "/@stdlib/assert-tools-array-function",
+  "_phantomChildren": {},
+  "_requested": {
+    "type": "range",
+    "registry": true,
+    "raw": "@stdlib/assert-tools-array-function@^0.0.x",
+    "name": "@stdlib/assert-tools-array-function",
+    "escapedName": "@stdlib%2fassert-tools-array-function",
+    "scope": "@stdlib",
+    "rawSpec": "^0.0.x",
+    "saveSpec": null,
+    "fetchSpec": "^0.0.x"
+  },
+  "_requiredBy": [
+    "/@stdlib/assert-is-object-like"
+  ],
+  "_resolved": "https://registry.npmjs.org/@stdlib/assert-tools-array-function/-/assert-tools-array-function-0.0.6.tgz",
+  "_shasum": "f48f80b05f8385a95c653ee2f3317fa25753fce9",
+  "_spec": "@stdlib/assert-tools-array-function@^0.0.x",
+  "_where": "/mnt/c/Users/bryan/Downloads/File-system/node_modules/@stdlib/assert-is-object-like",
+  "author": {
+    "name": "The Stdlib Authors",
+    "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+  },
+  "bugs": {
+    "url": "https://github.com/stdlib-js/stdlib/issues"
+  },
+  "bundleDependencies": false,
+  "contributors": [
+    {
+      "name": "The Stdlib Authors",
+      "url": "https://github.com/stdlib-js/stdlib/graphs/contributors"
+    }
+  ],
+  "dependencies": {
+    "@stdlib/assert-is-array": "^0.0.x"
+  },
+  "deprecated": false,
+  "description": "Return a function which tests if every element in an array passes a test condition.",
+  "devDependencies": {
+    "@stdlib/assert-is-boolean": "^0.0.x",
+    "@stdlib/assert-is-even": "^0.0.x",
+    "@stdlib/bench": "^0.0.x",
+    "@stdlib/math-base-assert-is-even": "^0.0.x",
+    "@stdlib/math-base-special-pow": "^0.0.x",
+    "@stdlib/utils-noop": "^0.0.x",
+    "istanbul": "^0.4.1",
+    "tap-spec": "5.x.x",
+    "tape": "git+https://github.com/kgryte/tape.git#fix/globby"
+  },
+  "directories": {
+    "benchmark": "./benchmark",
+    "doc": "./docs",
+    "example": "./examples",
+    "lib": "./lib",
+    "test": "./test"
+  },
+  "engines": {
+    "node": ">=0.10.0",
+    "npm": ">2.7.0"
+  },
+  "funding": {
+    "type": "patreon",
+    "url": "https://www.patreon.com/athan"
+  },
+  "homepage": "https://stdlib.io",
+  "keywords": [
+    "stdlib",
+    "stdassert",
+    "tools",
+    "tool",
+    "valid",
+    "validate",
+    "assert",
+    "is",
+    "apply",
+    "array",
+    "test",
+    "check",
+    "function"
+  ],
+  "license": "Apache-2.0",
+  "main": "./lib",
+  "name": "@stdlib/assert-tools-array-function",
+  "os": [
+    "aix",
+    "darwin",
+    "freebsd",
+    "linux",
+    "macos",
+    "openbsd",
+    "sunos",
+    "win32",
+    "windows"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/stdlib-js/assert-tools-array-function.git"
+  },
+  "scripts": {
+    "benchmark": "make benchmark",
+    "examples": "make examples",
+    "test": "make test",
+    "test-cov": "make test-cov"
+  },
+  "types": "./docs/types",
+  "version": "0.0.6"
+}

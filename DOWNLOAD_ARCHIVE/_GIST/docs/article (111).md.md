@@ -25,7 +25,7 @@ Here's the implementation of dragging a ball:
 ```js
 ball.onmousedown = function (event) {
   // (1) prepare to moving: make absolute and on top by z-index
-  ball.style.position = "absolute";
+  ball.style.position = 'absolute';
   ball.style.zIndex = 1000;
 
   // move it out of any current parents directly into body
@@ -34,8 +34,8 @@ ball.onmousedown = function (event) {
 
   // centers the ball at (pageX, pageY) coordinates
   function moveAt(pageX, pageY) {
-    ball.style.left = pageX - ball.offsetWidth / 2 + "px";
-    ball.style.top = pageY - ball.offsetHeight / 2 + "px";
+    ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
+    ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
   }
 
   // move our absolutely positioned ball under the pointer
@@ -46,11 +46,11 @@ ball.onmousedown = function (event) {
   }
 
   // (2) move the ball on mousemove
-  document.addEventListener("mousemove", onMouseMove);
+  document.addEventListener('mousemove', onMouseMove);
 
   // (3) drop the ball, remove unneeded handlers
   ball.onmouseup = function () {
-    document.removeEventListener("mousemove", onMouseMove);
+    document.removeEventListener('mousemove', onMouseMove);
     ball.onmouseup = null;
   };
 };
@@ -95,8 +95,8 @@ So we should listen on `document` to catch it.
 In the examples above the ball is always moved so, that it's center is under the pointer:
 
 ```js
-ball.style.left = pageX - ball.offsetWidth / 2 + "px";
-ball.style.top = pageY - ball.offsetHeight / 2 + "px";
+ball.style.left = pageX - ball.offsetWidth / 2 + 'px';
+ball.style.top = pageY - ball.offsetHeight / 2 + 'px';
 ```
 
 Not bad, but there's a side-effect. To initiate the drag'n'drop, we can `mousedown` anywhere on the ball. But if "take" it from its edge, then the ball suddenly "jumps" to become centered under the mouse pointer.
@@ -255,7 +255,7 @@ function onMouseMove(event) {
   if (!elemBelow) return;
 
   // potential droppables are labeled with the class "droppable" (can be other logic)
-  let droppableBelow = elemBelow.closest(".droppable");
+  let droppableBelow = elemBelow.closest('.droppable');
 
   if (currentDroppable != droppableBelow) {
     // we're flying in or out...

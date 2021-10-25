@@ -20,7 +20,7 @@ How to delete an element from the array?
 The arrays are objects, so we can try to use `delete`:
 
 ```js run
-let arr = ["I", "go", "home"];
+let arr = ['I', 'go', 'home'];
 
 delete arr[1]; // remove "go"
 
@@ -87,12 +87,12 @@ alert( removed ); // "I", "study" <-- array of removed elements
 The `splice` method is also able to insert the elements without any removals. For that we need to set `deleteCount` to `0`:
 
 ```js run
-let arr = ["I", "study", "JavaScript"];
+let arr = ['I', 'study', 'JavaScript'];
 
 // from index 2
 // delete 0
 // then insert "complex" and "language"
-arr.splice(2, 0, "complex", "language");
+arr.splice(2, 0, 'complex', 'language');
 
 alert(arr); // "I", "study", "complex", "language", "JavaScript"
 ```
@@ -129,7 +129,7 @@ It's similar to a string method `str.slice`, but instead of substrings it makes 
 For instance:
 
 ```js run
-let arr = ["t", "e", "s", "t"];
+let arr = ['t', 'e', 's', 't'];
 
 alert(arr.slice(1, 3)); // e,s (copy from 1 to 3)
 
@@ -175,7 +175,7 @@ Normally, it only copies elements from arrays. Other objects, even if they look 
 let arr = [1, 2];
 
 let arrayLike = {
-  0: "something",
+  0: 'something',
   length: 1,
 };
 
@@ -215,13 +215,13 @@ For instance, this shows each element of the array:
 
 ```js run
 // for each element call alert
-["Bilbo", "Gandalf", "Nazgul"].forEach(alert);
+['Bilbo', 'Gandalf', 'Nazgul'].forEach(alert);
 ```
 
 And this code is more elaborate about their positions in the target array:
 
 ```js run
-["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+['Bilbo', 'Gandalf', 'Nazgul'].forEach((item, index, array) => {
   alert(`${item} is at index ${index} in ${array}`);
 });
 ```
@@ -291,9 +291,9 @@ For example, we have an array of users, each with the fields `id` and `name`. Le
 
 ```js run
 let users = [
-  { id: 1, name: "John" },
-  { id: 2, name: "Pete" },
-  { id: 3, name: "Mary" },
+  { id: 1, name: 'John' },
+  { id: 2, name: 'Pete' },
+  { id: 3, name: 'Mary' },
 ];
 
 let user = users.find((item) => item.id == 1);
@@ -326,9 +326,9 @@ For instance:
 
 ```js run
 let users = [
-  { id: 1, name: "John" },
-  { id: 2, name: "Pete" },
-  { id: 3, name: "Mary" },
+  { id: 1, name: 'John' },
+  { id: 2, name: 'Pete' },
+  { id: 3, name: 'Mary' },
 ];
 
 // returns array of the first two users
@@ -358,7 +358,7 @@ let result = arr.map(function (item, index, array) {
 For instance, here we transform each element into its length:
 
 ```js run
-let lengths = ["Bilbo", "Gandalf", "Nazgul"].map((item) => item.length);
+let lengths = ['Bilbo', 'Gandalf', 'Nazgul'].map((item) => item.length);
 alert(lengths); // 5,7,6
 ```
 
@@ -427,7 +427,7 @@ By the way, if we ever want to know which elements are compared -- nothing preve
 
 ```js run
 [1, -2, 15, 2, 0, 8].sort(function (a, b) {
-  alert(a + " <> " + b);
+  alert(a + ' <> ' + b);
   return a - b;
 });
 ```
@@ -458,15 +458,14 @@ arr.sort( (a, b) => a - b );
 This works exactly the same as the longer version above.
 ````
 
-````smart header="Use `localeCompare` for strings"
-Remember [strings](info:string#correct-comparisons) comparison algorithm? It compares letters by their codes by default.
+````smart header="Use `localeCompare` for strings" Remember [strings](info:string#correct-comparisons) comparison algorithm? It compares letters by their codes by default.
 
 For many alphabets, it's better to use `str.localeCompare` method to correctly sort letters, such as `Ö`.
 
 For example, let's sort a few countries in German:
 
 ```js run
-let countries = ["Österreich", "Andorra", "Vietnam"];
+let countries = ['Österreich', 'Andorra', 'Vietnam'];
 
 alert(countries.sort((a, b) => (a > b ? 1 : -1))); // Andorra, Vietnam, Österreich (wrong)
 
@@ -531,9 +530,9 @@ The call [arr.join(glue)](mdn:js/Array/join) does the reverse to `split`. It cre
 For instance:
 
 ```js run
-let arr = ["Bilbo", "Gandalf", "Nazgul"];
+let arr = ['Bilbo', 'Gandalf', 'Nazgul'];
 
-let str = arr.join(";"); // glue the array into a string using ;
+let str = arr.join(';'); // glue the array into a string using ;
 
 alert(str); // Bilbo;Gandalf;Nazgul
 ```

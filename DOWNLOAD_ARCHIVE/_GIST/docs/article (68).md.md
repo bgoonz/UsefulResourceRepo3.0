@@ -112,7 +112,7 @@ Static properties are also possible, they look like regular class properties, bu
 
 ```js run
 class Article {
-  static publisher = "Ilya Kantor";
+  static publisher = 'Ilya Kantor';
 }
 
 alert(Article.publisher); // Ilya Kantor
@@ -121,7 +121,7 @@ alert(Article.publisher); // Ilya Kantor
 That is the same as a direct assignment to `Article`:
 
 ```js
-Article.publisher = "Ilya Kantor";
+Article.publisher = 'Ilya Kantor';
 ```
 
 ## Inheritance of static properties and methods [#statics-and-inheritance]

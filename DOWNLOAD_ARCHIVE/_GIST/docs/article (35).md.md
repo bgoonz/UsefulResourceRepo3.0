@@ -19,7 +19,7 @@ Upon creation, we can give symbol a description (also called a symbol name), mos
 
 ```js
 // id is a symbol with the description "id"
-let id = Symbol("id");
+let id = Symbol('id');
 ```
 
 Symbols are guaranteed to be unique. Even if we create many symbols with the same description, they are different values. The description is just a label that doesn't affect anything.
@@ -80,10 +80,10 @@ Let's use a symbol key for it:
 ```js run
 let user = {
   // belongs to another code
-  name: "John",
+  name: 'John',
 };
 
-let id = Symbol("id");
+let id = Symbol('id');
 
 user[id] = 1;
 
@@ -100,9 +100,9 @@ Then that script can create its own `Symbol("id")`, like this:
 
 ```js
 // ...
-let id = Symbol("id");
+let id = Symbol('id');
 
-user[id] = "Their id value";
+user[id] = 'Their id value';
 ```
 
 There will be no conflict between our and their identifiers, because symbols are always different, even if they have the same name.
@@ -110,14 +110,14 @@ There will be no conflict between our and their identifiers, because symbols are
 ...But if we used a string `"id"` instead of a symbol for the same purpose, then there _would_ be a conflict:
 
 ```js
-let user = { name: "John" };
+let user = { name: 'John' };
 
 // Our script uses "id" property
-user.id = "Our id value";
+user.id = 'Our id value';
 
 // ...Another script also wants "id" for its purposes...
 
-user.id = "Their id value";
+user.id = 'Their id value';
 // Boom! overwritten by another script!
 ```
 
@@ -167,7 +167,7 @@ alert( "Direct: " + user[id] );
 In contrast, [Object.assign](mdn:js/Object/assign) copies both string and symbol properties:
 
 ```js run
-let id = Symbol("id");
+let id = Symbol('id');
 let user = {
   [id]: 123,
 };
@@ -193,10 +193,10 @@ For instance:
 
 ```js run
 // read from the global registry
-let id = Symbol.for("id"); // if the symbol did not exist, it is created
+let id = Symbol.for('id'); // if the symbol did not exist, it is created
 
 // read it again (maybe from another part of the code)
-let idAgain = Symbol.for("id");
+let idAgain = Symbol.for('id');
 
 // the same symbol
 alert(id === idAgain); // true
@@ -218,8 +218,8 @@ For instance:
 
 ```js run
 // get symbol by name
-let sym = Symbol.for("name");
-let sym2 = Symbol.for("id");
+let sym = Symbol.for('name');
+let sym2 = Symbol.for('id');
 
 // get name by symbol
 alert(Symbol.keyFor(sym)); // name
@@ -233,8 +233,8 @@ That said, any symbols have `description` property.
 For instance:
 
 ```js run
-let globalSymbol = Symbol.for("name");
-let localSymbol = Symbol("name");
+let globalSymbol = Symbol.for('name');
+let localSymbol = Symbol('name');
 
 alert(Symbol.keyFor(globalSymbol)); // name, global symbol
 alert(Symbol.keyFor(localSymbol)); // undefined, not global
@@ -268,8 +268,7 @@ Symbols are always different values, even if they have the same name. If we want
 
 Symbols have two main use cases:
 
-1. "Hidden" object properties.
-   If we want to add a property into an object that "belongs" to another script or a library, we can create a symbol and use it as a property key. A symbolic property does not appear in `for..in`, so it won't be accidentally processed together with other properties. Also it won't be accessed directly, because another script does not have our symbol. So the property will be protected from accidental use or overwrite.
+1. "Hidden" object properties. If we want to add a property into an object that "belongs" to another script or a library, we can create a symbol and use it as a property key. A symbolic property does not appear in `for..in`, so it won't be accidentally processed together with other properties. Also it won't be accessed directly, because another script does not have our symbol. So the property will be protected from accidental use or overwrite.
 
    So we can "covertly" hide something into objects that we need, but others should not see, using symbolic properties.
 

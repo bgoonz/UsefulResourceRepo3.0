@@ -30,15 +30,15 @@ For example, here we show `user` if defined, otherwise `Anonymous`:
 ```js run
 let user;
 
-alert(user ?? "Anonymous"); // Anonymous (user not defined)
+alert(user ?? 'Anonymous'); // Anonymous (user not defined)
 ```
 
 Here's the example with `user` assigned to a name:
 
 ```js run
-let user = "John";
+let user = 'John';
 
-alert(user ?? "Anonymous"); // John (user defined)
+alert(user ?? 'Anonymous'); // John (user defined)
 ```
 
 We can also use a sequence of `??` to select the first value from a list that isn't `null/undefined`.

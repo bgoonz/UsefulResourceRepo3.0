@@ -96,16 +96,16 @@ Possible values are described in the [Referrer Policy specification](https://w3c
 
 Here's a table with all combinations:
 
-| Value                                            | To same origin | To another origin | HTTPS→HTTP |
-| ------------------------------------------------ | -------------- | ----------------- | ---------- |
-| `"no-referrer"`                                  | -              | -                 | -          |
-| `"no-referrer-when-downgrade"` or `""` (default) | full           | full              | -          |
-| `"origin"`                                       | origin         | origin            | origin     |
-| `"origin-when-cross-origin"`                     | full           | origin            | origin     |
-| `"same-origin"`                                  | full           | -                 | -          |
-| `"strict-origin"`                                | origin         | origin            | -          |
-| `"strict-origin-when-cross-origin"`              | full           | origin            | -          |
-| `"unsafe-url"`                                   | full           | full              | full       |
+| Value | To same origin | To another origin | HTTPS→HTTP |
+| --- | --- | --- | --- |
+| `"no-referrer"` | - | - | - |
+| `"no-referrer-when-downgrade"` or `""` (default) | full | full | - |
+| `"origin"` | origin | origin | origin |
+| `"origin-when-cross-origin"` | full | origin | origin |
+| `"same-origin"` | full | - | - |
+| `"strict-origin"` | origin | origin | - |
+| `"strict-origin-when-cross-origin"` | full | origin | - |
+| `"unsafe-url"` | full | full | full |
 
 Let's say we have an admin zone with a URL structure that shouldn't be known from outside of the site.
 
@@ -116,9 +116,9 @@ E.g. `Referer: https://javascript.info/admin/secret/paths`.
 If we'd like other websites know only the origin part, not the URL-path, we can set the option:
 
 ```js
-fetch("https://another.com/page", {
+fetch('https://another.com/page', {
   // ...
-  referrerPolicy: "origin-when-cross-origin", // Referer: https://javascript.info
+  referrerPolicy: 'origin-when-cross-origin', // Referer: https://javascript.info
 });
 ```
 

@@ -43,7 +43,7 @@ alert(message); // shows the variable content
 To be concise, we can combine the variable declaration and assignment into a single line:
 
 ```js run
-let message = "Hello!"; // define the variable and assign the value
+let message = 'Hello!'; // define the variable and assign the value
 
 alert(message); // Hello!
 ```
@@ -51,9 +51,9 @@ alert(message); // Hello!
 We can also declare multiple variables in one line:
 
 ```js no-beautify
-let user = "John",
+let user = 'John',
   age = 25,
-  message = "Hello";
+  message = 'Hello';
 ```
 
 That might seem shorter, but we don't recommend it. For the sake of better readability, please use a single line per variable.
@@ -61,25 +61,25 @@ That might seem shorter, but we don't recommend it. For the sake of better reada
 The multiline variant is a bit longer, but easier to read:
 
 ```js
-let user = "John";
+let user = 'John';
 let age = 25;
-let message = "Hello";
+let message = 'Hello';
 ```
 
 Some people also define multiple variables in this multiline style:
 
 ```js no-beautify
-let user = "John",
+let user = 'John',
   age = 25,
-  message = "Hello";
+  message = 'Hello';
 ```
 
 ...Or even in the "comma-first" style:
 
 ```js no-beautify
-let user = "John",
+let user = 'John',
   age = 25,
-  message = "Hello";
+  message = 'Hello';
 ```
 
 Technically, all these variants do the same thing. So, it's a matter of personal taste and aesthetics.

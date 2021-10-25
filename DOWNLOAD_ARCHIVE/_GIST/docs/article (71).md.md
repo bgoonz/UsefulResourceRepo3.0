@@ -182,7 +182,7 @@ For instance:
 
 ```js run
 let user = {
-  [Symbol.toStringTag]: "User",
+  [Symbol.toStringTag]: 'User',
 };
 
 alert({}.toString.call(user)); // [object User]
@@ -209,11 +209,11 @@ We can use `{}.toString.call` instead of `instanceof` for built-in objects when 
 
 Let's summarize the type-checking methods that we know:
 
-|               | works for                                                       | returns    |
-| ------------- | --------------------------------------------------------------- | ---------- |
-| `typeof`      | primitives                                                      | string     |
-| `{}.toString` | primitives, built-in objects, objects with `Symbol.toStringTag` | string     |
-| `instanceof`  | objects                                                         | true/false |
+|  | works for | returns |
+| --- | --- | --- |
+| `typeof` | primitives | string |
+| `{}.toString` | primitives, built-in objects, objects with `Symbol.toStringTag` | string |
+| `instanceof` | objects | true/false |
 
 As we can see, `{}.toString` is technically a "more advanced" `typeof`.
 

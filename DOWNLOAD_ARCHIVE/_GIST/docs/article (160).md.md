@@ -7,7 +7,7 @@ The caret `pattern:^` matches at the beginning of the text, and the dollar `patt
 For instance, let's test if the text starts with `Mary`:
 
 ```js run
-let str1 = "Mary had a little lamb";
+let str1 = 'Mary had a little lamb';
 alert(/^Mary/.test(str1)); // true
 ```
 
@@ -31,8 +31,8 @@ Let's check whether or not a string is a time in `12:34` format. That is: two di
 In regular expressions language that's `pattern:\d\d:\d\d`:
 
 ```js run
-let goodInput = "12:34";
-let badInput = "12:345";
+let goodInput = '12:34';
+let badInput = '12:345';
 
 let regexp = /^\d\d:\d\d$/;
 alert(regexp.test(goodInput)); // true

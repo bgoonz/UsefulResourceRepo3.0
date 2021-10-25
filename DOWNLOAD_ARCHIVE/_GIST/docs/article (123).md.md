@@ -190,7 +190,7 @@ We need to create a range, that:
   let range = new Range();
 
   range.setStart(p.firstChild, 2);
-  range.setEnd(p.querySelector("b").firstChild, 3);
+  range.setEnd(p.querySelector('b').firstChild, 3);
 
   console.log(range); // ample: italic and bol
 
@@ -277,21 +277,21 @@ Click buttons to run methods on the selection, "resetExample" to reset it.
     },
     extractContents() {
       let content = range.extractContents();
-      result.innerHTML = "";
-      result.append("extracted: ", content);
+      result.innerHTML = '';
+      result.append('extracted: ', content);
     },
     cloneContents() {
       let content = range.cloneContents();
-      result.innerHTML = "";
-      result.append("cloned: ", content);
+      result.innerHTML = '';
+      result.append('cloned: ', content);
     },
     insertNode() {
-      let newNode = document.createElement("u");
-      newNode.innerHTML = "NEW NODE";
+      let newNode = document.createElement('u');
+      newNode.innerHTML = 'NEW NODE';
       range.insertNode(newNode);
     },
     surroundContents() {
-      let newNode = document.createElement("u");
+      let newNode = document.createElement('u');
       try {
         range.surroundContents(newNode);
       } catch (e) {
@@ -300,10 +300,10 @@ Click buttons to run methods on the selection, "resetExample" to reset it.
     },
     resetExample() {
       p.innerHTML = `Example: <i>italic</i> and <b>bold</b>`;
-      result.innerHTML = "";
+      result.innerHTML = '';
 
       range.setStart(p.firstChild, 2);
-      range.setEnd(p.querySelector("b").firstChild, 3);
+      range.setEnd(p.querySelector('b').firstChild, 3);
 
       window.getSelection().removeAllRanges();
       window.getSelection().addRange(range);
@@ -430,7 +430,7 @@ As text: <span id="astext"></span>
   document.onselectionchange = function () {
     let selection = document.getSelection();
 
-    cloned.innerHTML = astext.innerHTML = "";
+    cloned.innerHTML = astext.innerHTML = '';
 
     // Clone DOM nodes from ranges (we support multiselect here)
     for (let i = 0; i < selection.rangeCount; i++) {
@@ -618,9 +618,9 @@ In this example we find `"THIS"` in the input text, replace it and keep the repl
 
 <script>
   button.onclick = () => {
-    let pos = input.value.indexOf("THIS");
+    let pos = input.value.indexOf('THIS');
     if (pos >= 0) {
-      input.setRangeText("*THIS*", pos, pos + 4, "select");
+      input.setRangeText('*THIS*', pos, pos + 4, 'select');
       input.focus(); // focus to make selection visible
     }
   };
@@ -642,10 +642,10 @@ Here's a button that inserts `"HELLO"` at the cursor position and puts the curso
 <script>
   button.onclick = () => {
     input.setRangeText(
-      "HELLO",
+      'HELLO',
       input.selectionStart,
       input.selectionEnd,
-      "end"
+      'end'
     );
     input.focus();
   };

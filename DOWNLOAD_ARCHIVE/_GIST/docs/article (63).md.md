@@ -167,8 +167,8 @@ On regular objects the `prototype` is nothing special:
 
 ```js
 let user = {
-  name: "John",
-  prototype: "Bla-bla", // no magic at all
+  name: 'John',
+  prototype: 'Bla-bla', // no magic at all
 };
 ```
 

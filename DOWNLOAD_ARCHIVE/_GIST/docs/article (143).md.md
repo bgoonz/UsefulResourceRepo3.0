@@ -6,11 +6,11 @@ Similar to `WebSocket`, the connection is persistent.
 
 But there are several important differences:
 
-| `WebSocket`                                                  | `EventSource`                           |
-| ------------------------------------------------------------ | --------------------------------------- |
+| `WebSocket` | `EventSource` |
+| --- | --- |
 | Bi-directional: both client and server can exchange messages | One-directional: only server sends data |
-| Binary and text data                                         | Only text                               |
-| WebSocket protocol                                           | Regular HTTP                            |
+| Binary and text data | Only text |
+| WebSocket protocol | Regular HTTP |
 
 `EventSource` is a less-powerful way of communicating with the server than `WebSocket`.
 
@@ -54,10 +54,10 @@ data: {"user":"John","message":"First line*!*\n*/!* Second line"}
 For each such message, the `message` event is generated:
 
 ```js
-let eventSource = new EventSource("/events/subscribe");
+let eventSource = new EventSource('/events/subscribe');
 
 eventSource.onmessage = function (event) {
-  console.log("New message", event.data);
+  console.log('New message', event.data);
   // will log 3 times for the data stream above
 };
 
@@ -69,7 +69,7 @@ eventSource.onmessage = function (event) {
 `EventSource` supports cross-origin requests, like `fetch` and any other networking methods. We can use any URL:
 
 ```js
-let source = new EventSource("https://another-site.com/events");
+let source = new EventSource('https://another-site.com/events');
 ```
 
 The remote server will get the `Origin` header and must respond with `Access-Control-Allow-Origin` to proceed.
@@ -77,7 +77,7 @@ The remote server will get the `Origin` header and must respond with `Access-Con
 To pass credentials, we should set the additional option `withCredentials`, like this:
 
 ```js
-let source = new EventSource("https://another-site.com/events", {
+let source = new EventSource('https://another-site.com/events', {
   withCredentials: true,
 });
 ```
@@ -184,15 +184,15 @@ data: Bob
 To handle custom events, we must use `addEventListener`, not `onmessage`:
 
 ```js
-eventSource.addEventListener("join", (event) => {
+eventSource.addEventListener('join', (event) => {
   alert(`Joined ${event.data}`);
 });
 
-eventSource.addEventListener("message", (event) => {
+eventSource.addEventListener('message', (event) => {
   alert(`Said: ${event.data}`);
 });
 
-eventSource.addEventListener("leave", (event) => {
+eventSource.addEventListener('leave', (event) => {
   alert(`Left ${event.data}`);
 });
 ```
@@ -233,27 +233,21 @@ Overall cross-origin security is same as for `fetch` and other network methods.
 
 ### Properties of an `EventSource` object
 
-`readyState`
-: The current connection state: either `EventSource.CONNECTING (=0)`, `EventSource.OPEN (=1)` or `EventSource.CLOSED (=2)`.
+`readyState` : The current connection state: either `EventSource.CONNECTING (=0)`, `EventSource.OPEN (=1)` or `EventSource.CLOSED (=2)`.
 
-`lastEventId`
-: The last received `id`. Upon reconnection the browser sends it in the header `Last-Event-ID`.
+`lastEventId` : The last received `id`. Upon reconnection the browser sends it in the header `Last-Event-ID`.
 
 ### Methods
 
-`close()`
-: Closes the connection.
+`close()` : Closes the connection.
 
 ### Events
 
-`message`
-: Message received, the data is in `event.data`.
+`message` : Message received, the data is in `event.data`.
 
-`open`
-: The connection is established.
+`open` : The connection is established.
 
-`error`
-: In case of an error, including both lost connection (will auto-reconnect) and fatal errors. We can check `readyState` to see if the reconnection is being attempted.
+`error` : In case of an error, including both lost connection (will auto-reconnect) and fatal errors. We can check `readyState` to see if the reconnection is being attempted.
 
 The server may set a custom event name in `event:`. Such events should be handled using `addEventListener`, not `on<event>`.
 

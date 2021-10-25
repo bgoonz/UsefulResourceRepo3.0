@@ -35,7 +35,7 @@ Also, there's a global variable named by `id` that references the element:
 
 <script>
   // elem is a reference to DOM-element with id="elem"
-  elem.style.background = "red";
+  elem.style.background = 'red';
 
   // id="elem-content" has a hyphen inside, so it can't be a variable name
   // ...but we can access it using square brackets: window['elem-content']
@@ -159,12 +159,12 @@ For instance:
 </div>
 
 <script>
-  let chapter = document.querySelector(".chapter"); // LI
+  let chapter = document.querySelector('.chapter'); // LI
 
-  alert(chapter.closest(".book")); // UL
-  alert(chapter.closest(".contents")); // DIV
+  alert(chapter.closest('.book')); // UL
+  alert(chapter.closest('.contents')); // DIV
 
-  alert(chapter.closest("h1")); // null (because h1 is not an ancestor)
+  alert(chapter.closest('h1')); // null (because h1 is not an ancestor)
 </script>
 ```
 
@@ -184,7 +184,7 @@ For instance:
 
 ```js
 // get all divs in the document
-let divs = document.getElementsByTagName("div");
+let divs = document.getElementsByTagName('div');
 ```
 
 Let's find all `input` tags inside the table:
@@ -239,7 +239,7 @@ We should either iterate over the collection or get an element by its index, and
 
 ```js
 // should work (if there's an input)
-document.getElementsByTagName("input")[0].value = 5;
+document.getElementsByTagName('input')[0].value = 5;
 ```
 
 ````

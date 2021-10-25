@@ -82,8 +82,8 @@ switch (a) {
 In the example above we'll see sequential execution of three `alert`s:
 
 ```js
-alert("Exactly!");
-alert("Too big");
+alert('Exactly!');
+alert('Too big');
 alert("I don't know such values");
 ```
 

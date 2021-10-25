@@ -11,7 +11,7 @@ For the start, let's explore the "digit" class. It's written as `pattern:\d` and
 For instance, let's find the first digit in the phone number:
 
 ```js run
-let str = "+7(903)-123-45-67";
+let str = '+7(903)-123-45-67';
 
 let regexp = /\d/;
 
@@ -23,28 +23,25 @@ Without the flag `pattern:g`, the regular expression only looks for the first ma
 Let's add the `pattern:g` flag to find all digits:
 
 ```js run
-let str = "+7(903)-123-45-67";
+let str = '+7(903)-123-45-67';
 
 let regexp = /\d/g;
 
 alert(str.match(regexp)); // array of matches: 7,9,0,3,1,2,3,4,5,6,7
 
 // let's make the digits-only phone number of them:
-alert(str.match(regexp).join("")); // 79031234567
+alert(str.match(regexp).join('')); // 79031234567
 ```
 
 That was a character class for digits. There are other character classes as well.
 
 Most used are:
 
-`pattern:\d` ("d" is from "digit")
-: A digit: a character from `0` to `9`.
+`pattern:\d` ("d" is from "digit") : A digit: a character from `0` to `9`.
 
-`pattern:\s` ("s" is from "space")
-: A space symbol: includes spaces, tabs `\t`, newlines `\n` and few other rare characters, such as `\v`, `\f` and `\r`.
+`pattern:\s` ("s" is from "space") : A space symbol: includes spaces, tabs `\t`, newlines `\n` and few other rare characters, such as `\v`, `\f` and `\r`.
 
-`pattern:\w` ("w" is from "word")
-: A "wordly" character: either a letter of Latin alphabet or a digit or an underscore `_`. Non-Latin letters (like cyrillic or hindi) do not belong to `pattern:\w`.
+`pattern:\w` ("w" is from "word") : A "wordly" character: either a letter of Latin alphabet or a digit or an underscore `_`. Non-Latin letters (like cyrillic or hindi) do not belong to `pattern:\w`.
 
 For instance, `pattern:\d\s\w` means a "digit" followed by a "space character" followed by a "wordly character", such as `match:1 a`.
 
@@ -53,7 +50,7 @@ For instance, `pattern:\d\s\w` means a "digit" followed by a "space character" f
 For instance, `pattern:CSS\d` matches a string `match:CSS` with a digit after it:
 
 ```js run
-let str = "Is there CSS4?";
+let str = 'Is there CSS4?';
 let regexp = /CSS\d/;
 
 alert(str.match(regexp)); // CSS4
@@ -62,7 +59,7 @@ alert(str.match(regexp)); // CSS4
 Also we can use many character classes:
 
 ```js run
-alert("I love HTML5!".match(/\s\w\w\w\w\d/)); // ' HTML5'
+alert('I love HTML5!'.match(/\s\w\w\w\w\d/)); // ' HTML5'
 ```
 
 The match (each regexp character class has the corresponding result character):
@@ -75,29 +72,26 @@ For every character class there exists an "inverse class", denoted with the same
 
 The "inverse" means that it matches all other characters, for instance:
 
-`pattern:\D`
-: Non-digit: any character except `pattern:\d`, for instance a letter.
+`pattern:\D` : Non-digit: any character except `pattern:\d`, for instance a letter.
 
-`pattern:\S`
-: Non-space: any character except `pattern:\s`, for instance a letter.
+`pattern:\S` : Non-space: any character except `pattern:\s`, for instance a letter.
 
-`pattern:\W`
-: Non-wordly character: anything but `pattern:\w`, e.g a non-latin letter or a space.
+`pattern:\W` : Non-wordly character: anything but `pattern:\w`, e.g a non-latin letter or a space.
 
 In the beginning of the chapter we saw how to make a number-only phone number from a string like `subject:+7(903)-123-45-67`: find all digits and join them.
 
 ```js run
-let str = "+7(903)-123-45-67";
+let str = '+7(903)-123-45-67';
 
-alert(str.match(/\d/g).join("")); // 79031234567
+alert(str.match(/\d/g).join('')); // 79031234567
 ```
 
 An alternative, shorter way is to find non-digits `pattern:\D` and remove them from the string:
 
 ```js run
-let str = "+7(903)-123-45-67";
+let str = '+7(903)-123-45-67';
 
-alert(str.replace(/\D/g, "")); // 79031234567
+alert(str.replace(/\D/g, '')); // 79031234567
 ```
 
 ## A dot is "any character"
@@ -107,7 +101,7 @@ A dot `pattern:.` is a special character class that matches "any character excep
 For instance:
 
 ```js run
-alert("Z".match(/./)); // Z
+alert('Z'.match(/./)); // Z
 ```
 
 Or in the middle of a regexp:
@@ -115,15 +109,15 @@ Or in the middle of a regexp:
 ```js run
 let regexp = /CS.4/;
 
-alert("CSS4".match(regexp)); // CSS4
-alert("CS-4".match(regexp)); // CS-4
-alert("CS 4".match(regexp)); // CS 4 (space is also a character)
+alert('CSS4'.match(regexp)); // CSS4
+alert('CS-4'.match(regexp)); // CS-4
+alert('CS 4'.match(regexp)); // CS 4 (space is also a character)
 ```
 
 Please note that a dot means "any character", but not the "absence of a character". There must be a character to match it:
 
 ```js run
-alert("CS4".match(/CS.4/)); // null, no match because there's no character for the dot
+alert('CS4'.match(/CS.4/)); // null, no match because there's no character for the dot
 ```
 
 ### Dot as literally any character with "s" flag
@@ -133,7 +127,7 @@ By default, a dot doesn't match the newline character `\n`.
 For instance, the regexp `pattern:A.B` matches `match:A`, and then `match:B` with any character between them, except a newline `\n`:
 
 ```js run
-alert("A\nB".match(/A.B/)); // null (no match)
+alert('A\nB'.match(/A.B/)); // null (no match)
 ```
 
 There are many situations when we'd like a dot to mean literally "any character", newline included.
@@ -141,7 +135,7 @@ There are many situations when we'd like a dot to mean literally "any character"
 That's what flag `pattern:s` does. If a regexp has it, then a dot `pattern:.` matches literally any character:
 
 ```js run
-alert("A\nB".match(/A.B/s)); // A\nB (match!)
+alert('A\nB'.match(/A.B/s)); // A\nB (match!)
 ```
 
 ````warn header="Not supported in IE"

@@ -44,9 +44,9 @@ In other words, strings are compared letter-by-letter.
 For example:
 
 ```js run
-alert("Z" > "A"); // true
-alert("Glow" > "Glee"); // true
-alert("Bee" > "Be"); // true
+alert('Z' > 'A'); // true
+alert('Glow' > 'Glee'); // true
+alert('Bee' > 'Be'); // true
 ```
 
 The algorithm to compare two strings is simple:
@@ -78,8 +78,8 @@ When comparing values of different types, JavaScript converts the values to numb
 For example:
 
 ```js run
-alert("2" > 1); // true, string '2' becomes a number 2
-alert("01" == 1); // true, string '01' becomes a number 1
+alert('2' > 1); // true, string '2' becomes a number 2
+alert('01' == 1); // true, string '01' becomes a number 1
 ```
 
 For boolean values, `true` becomes `1` and `false` becomes `0`.
@@ -123,7 +123,7 @@ alert(0 == false); // true
 The same thing happens with an empty string:
 
 ```js run
-alert("" == false); // true
+alert('' == false); // true
 ```
 
 This happens because operands of different types are converted to numbers by the equality operator `==`. An empty string, just like `false`, becomes a zero.
@@ -148,22 +148,19 @@ The strict equality operator is a bit longer to write, but makes it obvious what
 
 There's a non-intuitive behavior when `null` or `undefined` are compared to other values.
 
-For a strict equality check `===`
-: These values are different, because each of them is a different type.
+For a strict equality check `===` : These values are different, because each of them is a different type.
 
     ```js run
     alert( null === undefined ); // false
     ```
 
-For a non-strict check `==`
-: There's a special rule. These two are a "sweet couple": they equal each other (in the sense of `==`), but not any other value.
+For a non-strict check `==` : There's a special rule. These two are a "sweet couple": they equal each other (in the sense of `==`), but not any other value.
 
     ```js run
     alert( null == undefined ); // true
     ```
 
-For maths and other comparisons `< > <= >=`
-: `null/undefined` are converted to numbers: `null` becomes `0`, while `undefined` becomes `NaN`.
+For maths and other comparisons `< > <= >=` : `null/undefined` are converted to numbers: `null` becomes `0`, while `undefined` becomes `NaN`.
 
 Now let's see some funny things that happen when we apply these rules. And, what's more important, how to not fall into a trap with them.
 

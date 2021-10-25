@@ -35,7 +35,7 @@ Now we can work with variables instead of array members.
 It looks great when combined with `split` or other array-returning methods:
 
 ```js run
-let [firstName, surname] = "John Smith".split(" ");
+let [firstName, surname] = 'John Smith'.split(' ');
 alert(firstName); // John
 alert(surname); // Smith
 ```
@@ -155,7 +155,7 @@ Usually, if the array is longer than the list at the left, the "extra" items are
 For example, here only two items are taken, and the rest is just ignored:
 
 ```js run
-let [name1, name2] = ["Julius", "Caesar", "Consul", "of the Roman Republic"];
+let [name1, name2] = ['Julius', 'Caesar', 'Consul', 'of the Roman Republic'];
 
 alert(name1); // Julius
 alert(name2); // Caesar
@@ -215,7 +215,7 @@ For instance, here we use the `prompt` function for two defaults:
 
 ```js run
 // runs only prompt for surname
-let [name = prompt("name?"), surname = prompt("surname?")] = ["Julius"];
+let [name = prompt('name?'), surname = prompt('surname?')] = ['Julius'];
 
 alert(name); // Julius (from array)
 alert(surname); // whatever prompt gets
@@ -259,7 +259,7 @@ The order does not matter. This works too:
 
 ```js
 // changed the order in let {...}
-let { height, width, title } = { title: "Menu", height: 200, width: 100 };
+let { height, width, title } = { title: 'Menu', height: 200, width: 100 };
 ```
 
 The pattern on the left side may be more complex and specify the mapping between properties and variables.
@@ -342,7 +342,7 @@ If we have a complex object with many properties, we can extract only what we ne
 
 ```js run
 let options = {
-  title: "Menu",
+  title: 'Menu',
   width: 100,
   height: 200,
 };
@@ -395,7 +395,7 @@ The problem is that JavaScript treats `{...}` in the main code flow (not inside 
 ```js run
 {
   // a code block
-  let message = "Hello";
+  let message = 'Hello';
   // ...
   alert(message);
 }

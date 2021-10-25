@@ -8,13 +8,7 @@
 
 - An Example: Comparing two functions that calculate the sum of all numbers from 1 up to n.
 
-  function addUpTo(n) {
-  let total = 0;
-  for (let i = 0; i <= n; i++) {
-  total += i;
-  }
-  return total;
-  }
+  function addUpTo(n) { let total = 0; for (let i = 0; i <= n; i++) { total += i; } return total; }
 
 > Number of operations will grow with n. Would be O(n) or Linear Time.
 
@@ -43,17 +37,7 @@
   - f(n) = 1 (Constant)
   - f(n) could be anything!
 
-  function countUpAndDown(n) {
-  console.log('going up!');
-  for (let i = 0; i < n; i++) {
-  console.log(i);
-  }
-  console.log('at the top, going down!');
-  for (let j = n - 1; j >=0; j--) {
-  console.log(j);
-  }
-  console.log('Back down, bye!);
-  }
+  function countUpAndDown(n) { console.log('going up!'); for (let i = 0; i < n; i++) { console.log(i); } console.log('at the top, going down!'); for (let j = n - 1; j >=0; j--) { console.log(j); } console.log('Back down, bye!); }
 
 > Both loops are O(n) but since we just want the big picture, this entire function would be O(n);
 
@@ -85,11 +69,7 @@
 
 - Additional Examples
 
-  function logAtLeast5(n) {
-  for (let i = 1; i <= Math.max(5, n); i++) {
-  console.log(i);
-  }
-  }
+  function logAtLeast5(n) { for (let i = 1; i <= Math.max(5, n); i++) { console.log(i); } }
 
 > O(n) Linear Time
 
@@ -160,96 +140,46 @@
 
   - The algorithm takes roughly the same number of steps for any input size.
 
-    // O(1)
-    function constant1(n) {
-    return n \* 2 + 1;
-    }
+    // O(1) function constant1(n) { return n \* 2 + 1; }
 
-    // O(1)
-    function constant2(n) {
-    for (let i = 1; i <= 100; i++) {
-    console.log(i);
-    }
-    }
+    // O(1) function constant2(n) { for (let i = 1; i <= 100; i++) { console.log(i); } }
 
 - **`O(log(n)) Logarithmic`**
 
   - In most cases our hidden base of Logarithmic time is 2, log complexity algo’s will typically display ‘halving’ the size of the input (like binary search!)
 
-    // O(log(n))
-    function logarithmic1(n) {
-    if (n <= 1) return;
-    logarithmic1(n / 2);
-    }
+    // O(log(n)) function logarithmic1(n) { if (n <= 1) return; logarithmic1(n / 2); }
 
-    // O(log(n))
-    function logarithmic2(n) {
-    let i = n;
-    while (i > 1) {
-    i /= 2;
-    }
-    }
+    // O(log(n)) function logarithmic2(n) { let i = n; while (i > 1) { i /= 2; } }
 
 - **`O(n) Linear`**
 
   - Linear algo’s will access each item of the input “once”.
 
-    // O(n)
-    function linear1(n) {
-    for (let i = 1; i <= n; i++) {
-    console.log(i);
-    }
-    }
+    // O(n) function linear1(n) { for (let i = 1; i <= n; i++) { console.log(i); } }
 
-    // O(n), where n is the length of the array
-    function linear2(array) {
-    for (let i = 0; i < array.length; i++) {
-    console.log(i);
-    }
-    }
+    // O(n), where n is the length of the array function linear2(array) { for (let i = 0; i < array.length; i++) { console.log(i); } }
 
-    // O(n)
-    function linear3(n) {
-    if (n === 1) return;
-    linear3(n - 1);
-    }
+    // O(n) function linear3(n) { if (n === 1) return; linear3(n - 1); }
 
 - **`O(nlog(n)) Log Linear Time`**
 
   - Combination of linear and logarithmic behavior, we will see features from both classes.
   - Algo’s that are log-linear will use both recursion AND iteration.
 
-  // O(n \* log(n))
-  function loglinear(n) {
-  if (n <= 1) return;
+  // O(n \* log(n)) function loglinear(n) { if (n <= 1) return;
 
-  for (let i = 1; i <= n; i++) {
-  console.log(i);
-  }
+  for (let i = 1; i <= n; i++) { console.log(i); }
 
-  loglinear(n / 2);
-  loglinear(n / 2);
-  }
+  loglinear(n / 2); loglinear(n / 2); }
 
 - **`O(nc) Polynomial`**
 
   - C is a fixed constant.
 
-  // O(n^2)
-  function quadratic(n) {
-  for (let i = 1; i <= n; i++) {
-  for (let j = 1; j <= n; j++) {}
-  }
-  }
+  // O(n^2) function quadratic(n) { for (let i = 1; i <= n; i++) { for (let j = 1; j <= n; j++) {} } }
 
-  // O(n^3)
-  function cubic(n) {
-  for (let i = 1; i <= n; i++) {
-  for (let j = 1; j <= n; j++) {
-  for (let k = 1; k <= n; k++) {}
-  }
-  }
-  }
+  // O(n^3) function cubic(n) { for (let i = 1; i <= n; i++) { for (let j = 1; j <= n; j++) { for (let k = 1; k <= n; k++) {} } } }
 
 - Example of Quadratic and Cubic runtime.
 
@@ -258,20 +188,9 @@
   - C is now the number of recursive calls made in each stack frame.
   - Algo’s with exponential time are VERY SLOW.
 
-  // O(2^n)
-  function exponential2n(n) {
-  if (n === 1) return;
-  exponential_2n(n - 1);
-  exponential_2n(n - 1);
-  }
+  // O(2^n) function exponential2n(n) { if (n === 1) return; exponential_2n(n - 1); exponential_2n(n - 1); }
 
-  // O(3^n)
-  function exponential3n(n) {
-  if (n === 0) return;
-  exponential_3n(n - 1);
-  exponential_3n(n - 1);
-  exponential_3n(n - 1);
-  }
+  // O(3^n) function exponential3n(n) { if (n === 0) return; exponential_3n(n - 1); exponential_3n(n - 1); exponential_3n(n - 1); }
 
 - **`O(n!) Factorial`**
   - The largest/ worst complexity (minus DTIME which is n^n);
@@ -359,18 +278,13 @@
     - The function is iterative and not recursive.
     - The accompanying DS is usually an array.
 
-  function fib(n) {
-  let mostRecentCalcs = [0, 1];
+  function fib(n) { let mostRecentCalcs = [0, 1];
 
   if (n === 0) return mostRecentCalcs[0];
 
-  for (let i = 2; i <= n; i++) {
-  const [secondLast, last] = mostRecentCalcs;
-  mostRecentCalcs = [last, secondLast + last];
-  }
+  for (let i = 2; i <= n; i++) { const [secondLast, last] = mostRecentCalcs; mostRecentCalcs = [last, secondLast + last]; }
 
-  return mostRecentCalcs[1];
-  }
+  return mostRecentCalcs[1]; }
 
 - Steps for tabulation
   - Create a table array based off the size of the input.
@@ -493,24 +407,7 @@
 
 - Bubble sort, sorts an array of integers by bubbling the largest integer to the top. ![bubble](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif)
 
-  // Bubble Sort
-  function bubble(array) {
-  let sorted = true;
-  for (let i = 0; i < array.length; i++) {
-  let num1 = array[i];
-  let num2 = array[i + 1];
-  if (num1 > num2) {
-  array[i + 1] = num1;
-  array[i] = num2;
-  sorted = false;
-  }
-  }
-  if (sorted) {
-  return array;
-  } else {
-  return bubble(array);
-  }
-  }
+  // Bubble Sort function bubble(array) { let sorted = true; for (let i = 0; i < array.length; i++) { let num1 = array[i]; let num2 = array[i + 1]; if (num1 > num2) { array[i + 1] = num1; array[i] = num2; sorted = false; } } if (sorted) { return array; } else { return bubble(array); } }
 
 ---
 
@@ -525,23 +422,7 @@
   4.  Increment Min to point to next element.
   5.  Repeat until list is sorted.
 
-  let selectionSort = (arr) => {
-  let len = arr.length;
-  for (let i = 0; i < len; i++) {
-  let min = i;
-  for (let j = i + 1; j < len; j++) {
-  if (arr[min] > arr[j]) {
-  min = j;
-  }
-  }
-  if (min !== i) {
-  let tmp = arr[i];
-  arr[i] = arr[min];
-  arr[min] = tmp;
-  }
-  }
-  return arr;
-  };
+  let selectionSort = (arr) => { let len = arr.length; for (let i = 0; i < len; i++) { let min = i; for (let j = i + 1; j < len; j++) { if (arr[min] > arr[j]) { min = j; } } if (min !== i) { let tmp = arr[i]; arr[i] = arr[min]; arr[min] = tmp; } } return arr; };
 
 ## **Selection Sort**
 
@@ -683,19 +564,15 @@
 
 - Our space complexity is linear O(n) because of the partition arrays we create. ![quick](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif) ![qs](https://www.w3resource.com/w3r_images/quick-sort-part-1.png)
 
-  function quickSort(array) {
-  if (array.length <= 1) return array;
+  function quickSort(array) { if (array.length <= 1) return array;
 
   let pivot = array.shift();
 
-  let left = array.filter((x) => x < pivot);
-  let right = array.filter((x) => x >= pivot);
+  let left = array.filter((x) => x < pivot); let right = array.filter((x) => x >= pivot);
 
-  let sortedLeft = quickSort(left);
-  let sortedRight = quickSort(right);
+  let sortedLeft = quickSort(left); let sortedRight = quickSort(right);
 
-  return [...sortedLeft, pivot, ...sortedRight];
-  }
+  return [...sortedLeft, pivot, ...sortedRight]; }
 
 ---
 
@@ -761,19 +638,7 @@
   5.  Insert the value
   6.  Repeat until list is sorted.
 
-  let insertionSort = (inputArr) => {
-  let length = inputArr.length;
-  for (let i = 1; i < length; i++) {
-  let key = inputArr[i];
-  let j = i - 1;
-  while (j >= 0 && inputArr[j] > key) {
-  inputArr[j + 1] = inputArr[j];
-  j = j - 1;
-  }
-  inputArr[j + 1] = key;
-  }
-  return inputArr;
-  };
+  let insertionSort = (inputArr) => { let length = inputArr.length; for (let i = 1; i < length; i++) { let key = inputArr[i]; let j = i - 1; while (j >= 0 && inputArr[j] > key) { inputArr[j + 1] = inputArr[j]; j = j - 1; } inputArr[j + 1] = key; } return inputArr; };
 
 ---
 
@@ -789,25 +654,15 @@
   2.  Otherwise, divide the list recursively into two halves until it can no longer be divided.
   3.  Merge the smallest lists into new list in a sorted order.
 
-  const merge = (arr1, arr2) => {
-  let sorted = [];
+  const merge = (arr1, arr2) => { let sorted = [];
 
-  while (arr1.length && arr2.length) {
-  if (arr1[0] < arr2[0]) sorted.push(arr1.shift());
-  else sorted.push(arr2.shift());
-  }
+  while (arr1.length && arr2.length) { if (arr1[0] < arr2[0]) sorted.push(arr1.shift()); else sorted.push(arr2.shift()); }
 
-  return sorted.concat(arr1.slice().concat(arr2.slice()));
-  };
+  return sorted.concat(arr1.slice().concat(arr2.slice())); };
 
-  const mergeSort = (arr) => {
-  if (arr.length <= 1) return arr;
-  let mid = Math.floor(arr.length / 2),
-  left = mergeSort(arr.slice(0, mid)),
-  right = mergeSort(arr.slice(mid));
+  const mergeSort = (arr) => { if (arr.length <= 1) return arr; let mid = Math.floor(arr.length / 2), left = mergeSort(arr.slice(0, mid)), right = mergeSort(arr.slice(mid));
 
-  return merge(left, right);
-  };
+  return merge(left, right); };
 
 ---
 
@@ -819,15 +674,7 @@
   - It is easy to sort elements of an array relative to a particular target value.
   - An array of 0 or 1 elements is already trivially sorted. ![quicksort](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
 
-  function quick_Sort(origArray) {
-  if (origArray.length <= 1) {
-  return origArray;
-  } else {
-  let left = [];
-  let right = [];
-  let newArray = [];
-  let pivot = origArray.pop();
-  let length = origArray.length;
+  function quick_Sort(origArray) { if (origArray.length <= 1) { return origArray; } else { let left = []; let right = []; let newArray = []; let pivot = origArray.pop(); let length = origArray.length;
 
       for (let i = 0; i < length; i++) {
         if (origArray[i] <= pivot) {
@@ -839,8 +686,7 @@
 
       return newArray.concat(quick_Sort(left), pivot, quick_Sort(right));
 
-  }
-  }
+  } }
 
 **binary search**
 

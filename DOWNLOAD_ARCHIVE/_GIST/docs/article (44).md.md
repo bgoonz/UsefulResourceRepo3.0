@@ -79,10 +79,10 @@ weakMap.set("test", "Whoops"); // Error, because "test" is not an object
 Now, if we use an object as the key in it, and there are no other references to that object -- it will be removed from memory (and from the map) automatically.
 
 ```js
-let john = { name: "John" };
+let john = { name: 'John' };
 
 let weakMap = new WeakMap();
-weakMap.set(john, "...");
+weakMap.set(john, '...');
 
 john = null; // overwrite the reference
 
@@ -115,7 +115,7 @@ If we're working with an object that "belongs" to another code, maybe even a thi
 We put the data to a `WeakMap`, using the object as the key, and when the object is garbage collected, that data will automatically disappear as well.
 
 ```js
-weakMap.set(john, "secret documents");
+weakMap.set(john, 'secret documents');
 // if john dies, secret documents will be destroyed automatically
 ```
 
@@ -140,7 +140,7 @@ And here's another part of the code, maybe another file using it:
 
 ```js
 // 📁 main.js
-let john = { name: "John" };
+let john = { name: 'John' };
 
 countUser(john); // count his visits
 
@@ -256,9 +256,9 @@ For instance, we can add users to `WeakSet` to keep track of those who visited o
 ```js run
 let visitedSet = new WeakSet();
 
-let john = { name: "John" };
-let pete = { name: "Pete" };
-let mary = { name: "Mary" };
+let john = { name: 'John' };
+let pete = { name: 'Pete' };
+let mary = { name: 'Mary' };
 
 visitedSet.add(john); // John visited us
 visitedSet.add(pete); // Then Pete

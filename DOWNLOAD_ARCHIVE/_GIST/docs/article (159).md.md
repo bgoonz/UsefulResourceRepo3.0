@@ -21,8 +21,8 @@ Long time ago, when JavaScript language was created, Unicode encoding was simple
 For instance, `length` thinks that here are two characters:
 
 ```js run
-alert("😄".length); // 2
-alert("𝒳".length); // 2
+alert('😄'.length); // 2
+alert('𝒳'.length); // 2
 ```
 
 ...But we can see that there's only one, right? The point is that `length` treats 4 bytes as two 2-byte characters. That's incorrect, because they must be considered only together (so-called "surrogate pair", you can read about them in the article <info:string>).
@@ -44,7 +44,7 @@ For instance, `\p{Letter}` denotes a letter in any language. We can also use `\p
 In the example below three kinds of letters will be found: English, Georgian and Korean.
 
 ```js run
-let str = "A ბ ㄱ";
+let str = 'A ბ ㄱ';
 
 alert(str.match(/\p{L}/gu)); // A,ბ,ㄱ
 alert(str.match(/\p{L}/g)); // null (no matches, \p doesn't work without the flag "u")
@@ -114,7 +114,7 @@ A hex digit can be denoted as `pattern:\p{Hex_Digit}`:
 ```js run
 let regexp = /x\p{Hex_Digit}\p{Hex_Digit}/u;
 
-alert("number: xAF".match(regexp)); // xAF
+alert('number: xAF'.match(regexp)); // xAF
 ```
 
 ### Example: Chinese hieroglyphs

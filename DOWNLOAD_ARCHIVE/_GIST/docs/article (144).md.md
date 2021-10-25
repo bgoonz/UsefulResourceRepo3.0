@@ -45,7 +45,7 @@ We can write to `document.cookie`. But it's not a data property, it's an accesso
 For instance, this call sets a cookie with the name `user` and value `John`:
 
 ```js run
-document.cookie = "user=John"; // update only cookie named 'user'
+document.cookie = 'user=John'; // update only cookie named 'user'
 alert(document.cookie); // show all cookies
 ```
 
@@ -55,11 +55,11 @@ Technically, name and value can have any characters. To keep the valid formattin
 
 ```js run
 // special characters (spaces), need encoding
-let name = "my name";
-let value = "John Smith";
+let name = 'my name';
+let value = 'John Smith';
 
 // encodes the cookie as my%20name=John%20Smith
-document.cookie = encodeURIComponent(name) + "=" + encodeURIComponent(value);
+document.cookie = encodeURIComponent(name) + '=' + encodeURIComponent(value);
 
 alert(document.cookie); // ...; my%20name=John%20Smith
 ```
@@ -75,7 +75,7 @@ Cookies have several options, many of them are important and should be set.
 The options are listed after `key=value`, delimited by `;`, like this:
 
 ```js run
-document.cookie = "user=John; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT";
+document.cookie = 'user=John; path=/; expires=Tue, 19 Jan 2038 03:14:07 GMT';
 ```
 
 ## path
@@ -100,7 +100,7 @@ By default, a cookie is accessible only at the domain that set it. So, if the co
 
 ```js
 // at site.com
-document.cookie = "user=John";
+document.cookie = 'user=John';
 
 // at forum.site.com
 alert(document.cookie); // no user
@@ -115,7 +115,7 @@ It's a safety restriction, to allow us to store sensitive data in cookies, that 
 ```js
 // at site.com
 // make the cookie accessible on any subdomain *.site.com:
-document.cookie = "user=John; domain=site.com";
+document.cookie = 'user=John; domain=site.com';
 
 // later
 
@@ -143,7 +143,7 @@ The date must be exactly in this format, in the GMT timezone. We can use `date.t
 // +1 day from now
 let date = new Date(Date.now() + 86400e3);
 date = date.toUTCString();
-document.cookie = "user=John; expires=" + date;
+document.cookie = 'user=John; expires=' + date;
 ```
 
 If we set `expires` to a date in the past, the cookie is deleted.
@@ -156,10 +156,10 @@ If set to zero or a negative value, the cookie is deleted:
 
 ```js
 // cookie will die in +1 hour from now
-document.cookie = "user=John; max-age=3600";
+document.cookie = 'user=John; max-age=3600';
 
 // delete cookie (let it expire right now)
-document.cookie = "user=John; max-age=0";
+document.cookie = 'user=John; max-age=0';
 ```
 
 ## secure
@@ -177,7 +177,7 @@ With this option, if a cookie is set by `https://site.com`, then it doesn't appe
 ```js
 // assuming we're on https:// now
 // set the cookie to be secure (only accessible over HTTPS)
-document.cookie = "user=John; secure";
+document.cookie = 'user=John; secure';
 ```
 
 ## samesite
@@ -286,9 +286,9 @@ The function `getCookie(name)` returns the cookie with the given `name`:
 function getCookie(name) {
   let matches = document.cookie.match(
     new RegExp(
-      "(?:^|; )" +
-        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, "\\$1") +
-        "=([^;]*)"
+      '(?:^|; )' +
+        name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') +
+        '=([^;]*)'
     )
   );
   return matches ? decodeURIComponent(matches[1]) : undefined;
@@ -306,7 +306,7 @@ Sets the cookie's `name` to the given `value` with `path=/` by default (can be m
 ```js run
 function setCookie(name, value, options = {}) {
   options = {
-    path: "/",
+    path: '/',
     // add other defaults here if necessary
     ...options,
   };
@@ -316,13 +316,13 @@ function setCookie(name, value, options = {}) {
   }
 
   let updatedCookie =
-    encodeURIComponent(name) + "=" + encodeURIComponent(value);
+    encodeURIComponent(name) + '=' + encodeURIComponent(value);
 
   for (let optionKey in options) {
-    updatedCookie += "; " + optionKey;
+    updatedCookie += '; ' + optionKey;
     let optionValue = options[optionKey];
     if (optionValue !== true) {
-      updatedCookie += "=" + optionValue;
+      updatedCookie += '=' + optionValue;
     }
   }
 
@@ -330,7 +330,7 @@ function setCookie(name, value, options = {}) {
 }
 
 // Example of use:
-setCookie("user", "John", { secure: true, "max-age": 3600 });
+setCookie('user', 'John', { secure: true, 'max-age': 3600 });
 ```
 
 ### deleteCookie(name)
@@ -339,8 +339,8 @@ To delete a cookie, we can call it with a negative expiration date:
 
 ```js
 function deleteCookie(name) {
-  setCookie(name, "", {
-    "max-age": -1,
+  setCookie(name, '', {
+    'max-age': -1,
   });
 }
 ```

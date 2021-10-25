@@ -150,7 +150,7 @@ if (!String.prototype.repeat) {
   };
 }
 
-alert("La".repeat(3)); // LaLaLa
+alert('La'.repeat(3)); // LaLaLa
 ```
 
 ## Borrowing from prototypes

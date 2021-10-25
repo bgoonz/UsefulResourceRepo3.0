@@ -1,13 +1,13 @@
-import shallowequal from "shallowequal";
-import _ from "lodash";
+import shallowequal from 'shallowequal';
+import _ from 'lodash';
 
-export const LIST_UPSERT = "@@list/LIST_UPSERT";
-export const LIST_DELETE = "@@list/LIST_DELETE";
+export const LIST_UPSERT = '@@list/LIST_UPSERT';
+export const LIST_DELETE = '@@list/LIST_DELETE';
 
 const ids = (state = [], { type, at, id }) => {
   switch (type) {
     case LIST_UPSERT: {
-      const hasAt = typeof at !== "undefined";
+      const hasAt = typeof at !== 'undefined';
       const includesItem = state.includes(id);
 
       if (includesItem && !hasAt) return state;

@@ -40,7 +40,7 @@ let timer = setInterval(function () {
 // as timePassed goes from 0 to 2000
 // left gets values from 0px to 400px
 function draw(timePassed) {
-  train.style.left = timePassed / 5 + "px";
+  train.style.left = timePassed / 5 + 'px';
 }
 ```
 
@@ -110,8 +110,8 @@ The code below shows the time between first 10 runs for `requestAnimationFrame`.
 
   requestAnimationFrame(function measure(time) {
     document.body.insertAdjacentHTML(
-      "beforeEnd",
-      Math.floor(time - prev) + " "
+      'beforeEnd',
+      Math.floor(time - prev) + ' '
     );
     prev = time;
 
@@ -147,11 +147,9 @@ function animate({ timing, draw, duration }) {
 
 Function `animate` accepts 3 parameters that essentially describes the animation:
 
-`duration`
-: Total time of animation. Like, `1000`.
+`duration` : Total time of animation. Like, `1000`.
 
-`timing(timeFraction)`
-: Timing function, like CSS-property `transition-timing-function` that gets the fraction of time that passed (`0` at start, `1` at the end) and returns the animation completion (like `y` on the Bezier curve).
+`timing(timeFraction)` : Timing function, like CSS-property `transition-timing-function` that gets the fraction of time that passed (`0` at start, `1` at the end) and returns the animation completion (like `y` on the Bezier curve).
 
     For instance, a linear function means that the animation goes on uniformly with the same speed:
 
@@ -166,8 +164,7 @@ Function `animate` accepts 3 parameters that essentially describes the animation
 
     That's just like `transition-timing-function: linear`. There are more interesting variants shown below.
 
-`draw(progress)`
-: The function that takes the animation completion state and draws it. The value `progress=0` denotes the beginning animation state, and `progress=1` -- the end state.
+`draw(progress)` : The function that takes the animation completion state and draws it. The value `progress=0` denotes the beginning animation state, and `progress=1` -- the end state.
 
     This is that function that actually draws out the animation.
 
@@ -195,7 +192,7 @@ animate({
     return timeFraction;
   },
   draw(progress) {
-    elem.style.width = progress * 100 + "%";
+    elem.style.width = progress * 100 + '%';
   },
 });
 ```
@@ -311,8 +308,7 @@ function elastic(x, timeFraction) {
 }
 ```
 
-**The graph for `x=1.5`:**
-![](elastic.svg)
+**The graph for `x=1.5`:** ![](elastic.svg)
 
 In action for `x=1.5`:
 

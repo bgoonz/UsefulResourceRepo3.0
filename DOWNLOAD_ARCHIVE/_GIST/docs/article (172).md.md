@@ -30,7 +30,7 @@ So, successive calls to `regexp.exec(str)` return matches one after another.
 Here's an example of such calls:
 
 ```js run
-let str = "let varName"; // Let's find all words in this string
+let str = 'let varName'; // Let's find all words in this string
 let regexp = /\w+/g;
 
 alert(regexp.lastIndex); // 0 (initially lastIndex=0)
@@ -51,7 +51,7 @@ alert(regexp.lastIndex); // 0 (resets at search end)
 We can get all matches in the loop:
 
 ```js run
-let str = "let varName";
+let str = 'let varName';
 let regexp = /\w+/g;
 
 let result;

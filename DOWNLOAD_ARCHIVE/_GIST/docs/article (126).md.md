@@ -91,7 +91,7 @@ Contrary to that, if the `<iframe>` has the same origin, we can do anything with
 <script>
   iframe.onload = function () {
     // just do anything
-    iframe.contentDocument.body.prepend("Hello, world!");
+    iframe.contentDocument.body.prepend('Hello, world!');
   };
 </script>
 ```
@@ -160,7 +160,7 @@ We can try to catch the moment earlier using checks in `setInterval`:
     let newDoc = iframe.contentDocument;
     if (newDoc == oldDoc) return;
 
-    alert("New document is here!");
+    alert('New document is here!');
 
     clearInterval(timer); // cancel setInterval, don't need it any more
   }, 100);
@@ -204,9 +204,9 @@ We can use the `top` property to check if the current document is open inside a 
 ```js run
 if (window == top) {
   // current window == window.top?
-  alert("The script is in the topmost window, not in a frame");
+  alert('The script is in the topmost window, not in a frame');
 } else {
-  alert("The script runs in a frame!");
+  alert('The script runs in a frame!');
 }
 ```
 
@@ -220,20 +220,15 @@ In other words, an empty `"sandbox"` attribute puts the strictest limitations po
 
 Here's a list of limitations:
 
-`allow-same-origin`
-: By default `"sandbox"` forces the "different origin" policy for the iframe. In other words, it makes the browser to treat the `iframe` as coming from another origin, even if its `src` points to the same site. With all implied restrictions for scripts. This option removes that feature.
+`allow-same-origin` : By default `"sandbox"` forces the "different origin" policy for the iframe. In other words, it makes the browser to treat the `iframe` as coming from another origin, even if its `src` points to the same site. With all implied restrictions for scripts. This option removes that feature.
 
-`allow-top-navigation`
-: Allows the `iframe` to change `parent.location`.
+`allow-top-navigation` : Allows the `iframe` to change `parent.location`.
 
-`allow-forms`
-: Allows to submit forms from `iframe`.
+`allow-forms` : Allows to submit forms from `iframe`.
 
-`allow-scripts`
-: Allows to run scripts from the `iframe`.
+`allow-scripts` : Allows to run scripts from the `iframe`.
 
-`allow-popups`
-: Allows to `window.open` popups from the `iframe`
+`allow-popups` : Allows to `window.open` popups from the `iframe`
 
 See [the manual](mdn:/HTML/Element/iframe) for more.
 
@@ -261,11 +256,9 @@ The window that wants to send a message calls [postMessage](mdn:api/Window.postM
 
 Arguments:
 
-`data`
-: The data to send. Can be any object, the data is cloned using the "structured serialization algorithm". IE supports only strings, so we should `JSON.stringify` complex objects to support that browser.
+`data` : The data to send. Can be any object, the data is cloned using the "structured serialization algorithm". IE supports only strings, so we should `JSON.stringify` complex objects to support that browser.
 
-`targetOrigin`
-: Specifies the origin for the target window, so that only a window from the given origin will get the message.
+`targetOrigin` : Specifies the origin for the target window, so that only a window from the given origin will get the message.
 
 The `targetOrigin` is a safety measure. Remember, if the target window comes from another origin, we can't read it's `location` in the sender window. So we can't be sure which site is open in the intended window right now: the user could navigate away, and the sender window has no idea about it.
 
@@ -278,7 +271,7 @@ For instance, here `win` will only receive the message if it has a document from
   <script>
     let win = window.frames.example;
 
-    win.postMessage("message", "http://example.com");
+    win.postMessage('message', 'http://example.com');
   </script></iframe
 >
 ```
@@ -303,27 +296,24 @@ To receive a message, the target window should have a handler on the `message` e
 
 The event object has special properties:
 
-`data`
-: The data from `postMessage`.
+`data` : The data from `postMessage`.
 
-`origin`
-: The origin of the sender, for instance `http://javascript.info`.
+`origin` : The origin of the sender, for instance `http://javascript.info`.
 
-`source`
-: The reference to the sender window. We can immediately `source.postMessage(...)` back if we want.
+`source` : The reference to the sender window. We can immediately `source.postMessage(...)` back if we want.
 
 To assign that handler, we should use `addEventListener`, a short syntax `window.onmessage` does not work.
 
 Here's an example:
 
 ```js
-window.addEventListener("message", function (event) {
-  if (event.origin != "http://javascript.info") {
+window.addEventListener('message', function (event) {
+  if (event.origin != 'http://javascript.info') {
     // something from an unknown domain, let's ignore it
     return;
   }
 
-  alert("received: " + event.data);
+  alert('received: ' + event.data);
 
   // can message back using event.source.postMessage(...)
 });

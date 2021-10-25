@@ -6,7 +6,7 @@ For instance, let's try fetching `http://example.com`:
 
 ```js run async
 try {
-  await fetch("http://example.com");
+  await fetch('http://example.com');
 } catch (err) {
   alert(err); // Failed to fetch
 }
@@ -77,7 +77,7 @@ Let's say we, at our site, need to get the data from `http://another.com`, such 
 2. Then we make a `<script>` tag with `src="http://another.com/weather.json?callback=gotWeather"`, using the name of our function as the `callback` URL-parameter.
 
    ```js
-   let script = document.createElement("script");
+   let script = document.createElement('script');
    script.src = `http://another.com/weather.json?callback=gotWeather`;
    document.body.append(script);
    ```
@@ -227,11 +227,11 @@ If the server agrees to serve the requests, then it should respond with empty bo
 Let's see how it works step-by-step on the example of a cross-origin `PATCH` request (this method is often used to update data):
 
 ```js
-let response = await fetch("https://site.com/service.json", {
-  method: "PATCH",
+let response = await fetch('https://site.com/service.json', {
+  method: 'PATCH',
   headers: {
-    "Content-Type": "application/json",
-    "API-Key": "secret",
+    'Content-Type': 'application/json',
+    'API-Key': 'secret',
   },
 });
 ```
@@ -334,8 +334,8 @@ Does the server really trust the script that much? Then it must explicitly allow
 To send credentials in `fetch`, we need to add the option `credentials: "include"`, like this:
 
 ```js
-fetch("http://another.com", {
-  credentials: "include",
+fetch('http://another.com', {
+  credentials: 'include',
 });
 ```
 

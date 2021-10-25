@@ -1,58 +1,38 @@
 ## Common Options
 
-`-#, --progress-bar`
-Make curl display a simple progress bar instead of the more informational standard meter.
+`-#, --progress-bar` Make curl display a simple progress bar instead of the more informational standard meter.
 
-`-b, --cookie <name=data>`
-Supply cookie with request. If no `=`, then specifies the cookie file to use (see `-c`).
+`-b, --cookie <name=data>` Supply cookie with request. If no `=`, then specifies the cookie file to use (see `-c`).
 
-`-c, --cookie-jar <file name>`
-File to save response cookies to.
+`-c, --cookie-jar <file name>` File to save response cookies to.
 
-`-d, --data <data>`
-Send specified data in POST request. Details provided below.
+`-d, --data <data>` Send specified data in POST request. Details provided below.
 
-`-f, --fail`
-Fail silently (don't output HTML error form if returned).
+`-f, --fail` Fail silently (don't output HTML error form if returned).
 
-`-F, --form <name=content>`
-Submit form data.
+`-F, --form <name=content>` Submit form data.
 
-`-H, --header <header>`
-Headers to supply with request.
+`-H, --header <header>` Headers to supply with request.
 
-`-i, --include`
-Include HTTP headers in the output.
+`-i, --include` Include HTTP headers in the output.
 
-`-I, --head`
-Fetch headers only.
+`-I, --head` Fetch headers only.
 
-`-k, --insecure`
-Allow insecure connections to succeed.
+`-k, --insecure` Allow insecure connections to succeed.
 
-`-L, --location`
-Follow redirects.
+`-L, --location` Follow redirects.
 
-`-o, --output <file>`
-Write output to <file>. Can use `--create-dirs` in conjunction with this to create any directories
-specified in the `-o` path.
+`-o, --output <file>` Write output to <file>. Can use `--create-dirs` in conjunction with this to create any directories specified in the `-o` path.
 
-`-O, --remote-name`
-Write output to file named like the remote file (only writes to current directory).
+`-O, --remote-name` Write output to file named like the remote file (only writes to current directory).
 
-`-s, --silent`
-Silent (quiet) mode. Use with `-S` to force it to show errors.
+`-s, --silent` Silent (quiet) mode. Use with `-S` to force it to show errors.
 
-`-v, --verbose`
-Provide more information (useful for debugging).
+`-v, --verbose` Provide more information (useful for debugging).
 
-`-w, --write-out <format>`
-Make curl display information on stdout after a completed transfer. See man page for more details on
-available variables. Convenient way to force curl to append a newline to output: `-w "\n"` (can add
-to `~/.curlrc`).
+`-w, --write-out <format>` Make curl display information on stdout after a completed transfer. See man page for more details on available variables. Convenient way to force curl to append a newline to output: `-w "\n"` (can add to `~/.curlrc`).
 
-`-X, --request`
-The request method to use.
+`-X, --request` The request method to use.
 
 ## POST
 

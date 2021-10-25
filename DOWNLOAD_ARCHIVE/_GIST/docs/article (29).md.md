@@ -28,7 +28,7 @@ We can immediately put some properties into `{...}` as "key: value" pairs:
 ```js
 let user = {
   // an object
-  name: "John", // by key "name" store value "John"
+  name: 'John', // by key "name" store value "John"
   age: 30, // by key "age" store value 30
 };
 ```
@@ -74,9 +74,9 @@ We can also use multiword property names, but then they must be quoted:
 
 ```js
 let user = {
-  name: "John",
+  name: 'John',
   age: 30,
-  "likes birds": true, // multiword property name must be quoted
+  'likes birds': true, // multiword property name must be quoted
 };
 ```
 
@@ -112,13 +112,13 @@ There's an alternative "square bracket notation" that works with any string:
 let user = {};
 
 // set
-user["likes birds"] = true;
+user['likes birds'] = true;
 
 // get
-alert(user["likes birds"]); // true
+alert(user['likes birds']); // true
 
 // delete
-delete user["likes birds"];
+delete user['likes birds'];
 ```
 
 Now everything is fine. Please note that the string inside the brackets is properly quoted (any type of quotes will do).
@@ -126,7 +126,7 @@ Now everything is fine. Please note that the string inside the brackets is prope
 Square brackets also provide a way to obtain the property name as the result of any expression -- as opposed to a literal string -- like from a variable as follows:
 
 ```js
-let key = "likes birds";
+let key = 'likes birds';
 
 // same as user["likes birds"] = true;
 user[key] = true;
@@ -138,11 +138,11 @@ For instance:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   age: 30,
 };
 
-let key = prompt("What do you want to know about the user?", "name");
+let key = prompt('What do you want to know about the user?', 'name');
 
 // access by variable
 alert(user[key]); // John (if enter "name")
@@ -152,11 +152,11 @@ The dot notation cannot be used in a similar way:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   age: 30,
 };
 
-let key = "name";
+let key = 'name';
 alert(user.key); // undefined
 ```
 
@@ -185,7 +185,7 @@ So, if a visitor enters `"apple"`, `bag` will become `{apple: 5}`.
 Essentially, that works the same as:
 
 ```js run
-let fruit = prompt("Which fruit to buy?", "apple");
+let fruit = prompt('Which fruit to buy?', 'apple');
 let bag = {};
 
 // take property name from the fruit variable
@@ -197,9 +197,9 @@ bag[fruit] = 5;
 We can use more complex expressions inside square brackets:
 
 ```js
-let fruit = "apple";
+let fruit = 'apple';
 let bag = {
-  [fruit + "Computers"]: 5, // bag.appleComputers = 5
+  [fruit + 'Computers']: 5, // bag.appleComputers = 5
 };
 ```
 
@@ -222,7 +222,7 @@ function makeUser(name, age) {
   };
 }
 
-let user = makeUser("John", 30);
+let user = makeUser('John', 30);
 alert(user.name); // John
 ```
 
@@ -276,11 +276,11 @@ For instance, a number `0` becomes a string `"0"` when used as a property key:
 
 ```js run
 let obj = {
-  0: "test", // same as "0": "test"
+  0: 'test', // same as "0": "test"
 };
 
 // both alerts access the same property (the number 0 is converted to string "0")
-alert(obj["0"]); // test
+alert(obj['0']); // test
 alert(obj[0]); // test (same property)
 ```
 
@@ -313,16 +313,16 @@ There's also a special operator `"in"` for that.
 The syntax is:
 
 ```js
-"key" in object;
+'key' in object;
 ```
 
 For instance:
 
 ```js run
-let user = { name: "John", age: 30 };
+let user = { name: 'John', age: 30 };
 
-alert("age" in user); // true, user.age exists
-alert("blabla" in user); // false, user.blabla doesn't exist
+alert('age' in user); // true, user.age exists
+alert('blabla' in user); // false, user.blabla doesn't exist
 ```
 
 Please note that on the left side of `in` there must be a _property name_. That's usually a quoted string.
@@ -349,7 +349,7 @@ let obj = {
 
 alert(obj.test); // it's undefined, so - no such property?
 
-alert("test" in obj); // true, the property does exist!
+alert('test' in obj); // true, the property does exist!
 ```
 
 In the code above, the property `obj.test` technically exists. So the `in` operator works right.
@@ -372,7 +372,7 @@ For instance, let's output all properties of `user`:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   age: 30,
   isAdmin: true,
 };
@@ -458,11 +458,11 @@ Like this:
 
 ```js run
 let codes = {
-  "+49": "Germany",
-  "+41": "Switzerland",
-  "+44": "Great Britain",
+  '+49': 'Germany',
+  '+41': 'Switzerland',
+  '+44': 'Great Britain',
   // ..,
-  "+1": "USA",
+  '+1': 'USA',
 };
 
 for (let code in codes) {

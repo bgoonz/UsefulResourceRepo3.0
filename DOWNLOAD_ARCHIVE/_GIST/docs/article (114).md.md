@@ -10,8 +10,8 @@ For instance:
 Here's a small function to show the current scroll:
 
 ```js autorun
-window.addEventListener("scroll", function () {
-  document.getElementById("showScroll").innerHTML = window.pageYOffset + "px";
+window.addEventListener('scroll', function () {
+  document.getElementById('showScroll').innerHTML = window.pageYOffset + 'px';
 });
 ```
 

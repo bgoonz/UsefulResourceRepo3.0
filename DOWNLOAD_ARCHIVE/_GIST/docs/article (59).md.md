@@ -92,11 +92,11 @@ function defer(f, ms) {
 }
 
 function sayHi(who) {
-  alert("Hello, " + who);
+  alert('Hello, ' + who);
 }
 
 let sayHiDeferred = defer(sayHi, 2000);
-sayHiDeferred("John"); // Hello, John after 2 seconds
+sayHiDeferred('John'); // Hello, John after 2 seconds
 ```
 
 The same without an arrow function would look like:

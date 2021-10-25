@@ -15,20 +15,20 @@ Here's a simple example:
 
 <script>
   customElements.define(
-    "user-card",
+    'user-card',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `<p>
       <button>Click me</button>
     </p>`;
         this.shadowRoot.firstElementChild.onclick = (e) =>
-          alert("Inner target: " + e.target.tagName);
+          alert('Inner target: ' + e.target.tagName);
       }
     }
   );
 
-  document.onclick = (e) => alert("Outer target: " + e.target.tagName);
+  document.onclick = (e) => alert('Outer target: ' + e.target.tagName);
 </script>
 ```
 
@@ -52,16 +52,16 @@ For example, if a user clicks on `<span slot="username">` in the example below, 
 
 <script>
   customElements.define(
-    "user-card",
+    'user-card',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `<div>
       <b>Name:</b> <slot name="username"></slot>
     </div>`;
 
         this.shadowRoot.firstElementChild.onclick = (e) =>
-          alert("Inner target: " + e.target.tagName);
+          alert('Inner target: ' + e.target.tagName);
       }
     }
   );

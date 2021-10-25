@@ -127,14 +127,11 @@ It must be sent exactly as HTTP-header: the browser will ignore it if found in H
 
 The header may have 3 values:
 
-`DENY`
-: Never ever show the page inside a frame.
+`DENY` : Never ever show the page inside a frame.
 
-`SAMEORIGIN`
-: Allow inside a frame if the parent document comes from the same origin.
+`SAMEORIGIN` : Allow inside a frame if the parent document comes from the same origin.
 
-`ALLOW-FROM domain`
-: Allow inside a frame if the parent document is from the given domain.
+`ALLOW-FROM domain` : Allow inside a frame if the parent document is from the given domain.
 
 For instance, Twitter uses `X-Frame-Options: SAMEORIGIN`.
 

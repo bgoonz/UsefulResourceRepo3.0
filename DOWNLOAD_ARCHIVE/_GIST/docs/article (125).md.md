@@ -5,7 +5,7 @@ A popup window is one of the oldest methods to show additional document to user.
 Basically, you just run:
 
 ```js
-window.open("https://javascript.info/");
+window.open('https://javascript.info/');
 ```
 
 ...And it will open a new window with given URL. Most modern browsers are configured to open url in new tabs instead of separate windows.
@@ -30,11 +30,11 @@ For example:
 
 ```js
 // popup blocked
-window.open("https://javascript.info");
+window.open('https://javascript.info');
 
 // popup allowed
 button.onclick = () => {
-  window.open("https://javascript.info");
+  window.open('https://javascript.info');
 };
 ```
 
@@ -46,7 +46,7 @@ Try this code:
 
 ```js run
 // open after 3 seconds
-setTimeout(() => window.open("http://google.com"), 3000);
+setTimeout(() => window.open('http://google.com'), 3000);
 ```
 
 The popup opens in Chrome, but gets blocked in Firefox.
@@ -55,7 +55,7 @@ The popup opens in Chrome, but gets blocked in Firefox.
 
 ```js run
 // open after 1 seconds
-setTimeout(() => window.open("http://google.com"), 1000);
+setTimeout(() => window.open('http://google.com'), 1000);
 ```
 
 The difference is that Firefox treats a timeout of 2000ms or less are acceptable, but after it -- removes the "trust", assuming that now it's "outside of the user action". So the first one is blocked, and the second one is not.
@@ -64,14 +64,11 @@ The difference is that Firefox treats a timeout of 2000ms or less are acceptable
 
 The syntax to open a popup is: `window.open(url, name, params)`:
 
-url
-: An URL to load into the new window.
+url : An URL to load into the new window.
 
-name
-: A name of the new window. Each window has a `window.name`, and here we can specify which window to use for the popup. If there's already a window with such name -- the given URL opens in it, otherwise a new window is opened.
+name : A name of the new window. Each window has a `window.name`, and here we can specify which window to use for the popup. If there's already a window with such name -- the given URL opens in it, otherwise a new window is opened.
 
-params
-: The configuration string for the new window. It contains settings, delimited by a comma. There must be no spaces in params, for instance: `width=200,height=100`.
+params : The configuration string for the new window. It contains settings, delimited by a comma. There must be no spaces in params, for instance: `width=200,height=100`.
 
 Settings for `params`:
 
@@ -96,7 +93,7 @@ Let's open a window with minimal set of features, just to see which of them brow
 let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
 width=0,height=0,left=-1000,top=-1000`;
 
-open("/", "test", params);
+open('/', 'test', params);
 ```
 
 Here most "window features" are disabled and window is positioned offscreen. Run it and see what really happens. Most browsers "fix" odd things like zero `width/height` and offscreen `left/top`. For instance, Chrome open such a window with full width/height, so that it occupies the full screen.
@@ -107,7 +104,7 @@ Let's add normal positioning options and reasonable `width`, `height`, `left`, `
 let params = `scrollbars=no,resizable=no,status=no,location=no,toolbar=no,menubar=no,
 width=600,height=300,left=100,top=100`;
 
-open("/", "test", params);
+open('/', 'test', params);
 ```
 
 Most browsers show the example above as required.
@@ -126,9 +123,9 @@ The `open` call returns a reference to the new window. It can be used to manipul
 In this example, we generate popup content from JavaScript:
 
 ```js
-let newWin = window.open("about:blank", "hello", "width=200,height=200");
+let newWin = window.open('about:blank', 'hello', 'width=200,height=200');
 
-newWin.document.write("Hello, world!");
+newWin.document.write('Hello, world!');
 ```
 
 And here we modify the contents after loading:
@@ -162,7 +159,7 @@ A popup may access the "opener" window as well using `window.opener` reference. 
 If you run the code below, it replaces the opener (current) window content with "Test":
 
 ```js run
-let newWin = window.open("about:blank", "hello", "width=200,height=200");
+let newWin = window.open('about:blank', 'hello', 'width=200,height=200');
 
 newWin.document.write(
   "<script>window.opener.document.body.innerHTML = 'Test'</script>"
@@ -184,7 +181,7 @@ The `closed` property is `true` if the window is closed. That's useful to check 
 This code loads and then closes the window:
 
 ```js run
-let newWindow = open("/", "example", "width=300,height=300");
+let newWindow = open('/', 'example', 'width=300,height=300');
 
 newWindow.onload = function () {
   newWindow.close();
@@ -196,17 +193,13 @@ newWindow.onload = function () {
 
 There are methods to move/resize a window:
 
-`win.moveBy(x,y)`
-: Move the window relative to current position `x` pixels to the right and `y` pixels down. Negative values are allowed (to move left/up).
+`win.moveBy(x,y)` : Move the window relative to current position `x` pixels to the right and `y` pixels down. Negative values are allowed (to move left/up).
 
-`win.moveTo(x,y)`
-: Move the window to coordinates `(x,y)` on the screen.
+`win.moveTo(x,y)` : Move the window to coordinates `(x,y)` on the screen.
 
-`win.resizeBy(width,height)`
-: Resize the window by given `width/height` relative to the current size. Negative values are allowed.
+`win.resizeBy(width,height)` : Resize the window by given `width/height` relative to the current size. Negative values are allowed.
 
-`win.resizeTo(width,height)`
-: Resize the window to the given size.
+`win.resizeTo(width,height)` : Resize the window to the given size.
 
 There's also `window.onresize` event.
 
@@ -224,14 +217,11 @@ Move/resize methods do not work for maximized/minimized windows.
 
 We already talked about scrolling a window in the chapter <info:size-and-scroll-window>.
 
-`win.scrollBy(x,y)`
-: Scroll the window `x` pixels right and `y` down relative the current scroll. Negative values are allowed.
+`win.scrollBy(x,y)` : Scroll the window `x` pixels right and `y` down relative the current scroll. Negative values are allowed.
 
-`win.scrollTo(x,y)`
-: Scroll the window to the given coordinates `(x,y)`.
+`win.scrollTo(x,y)` : Scroll the window to the given coordinates `(x,y)`.
 
-`elem.scrollIntoView(top = true)`
-: Scroll the window to make `elem` show up at the top (the default) or at the bottom for `elem.scrollIntoView(false)`.
+`elem.scrollIntoView(top = true)` : Scroll the window to make `elem` show up at the top (the default) or at the bottom for `elem.scrollIntoView(false)`.
 
 There's also `window.onscroll` event.
 

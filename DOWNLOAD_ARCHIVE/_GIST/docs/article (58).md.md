@@ -75,7 +75,7 @@ What if before `setTimeout` triggers (there's one second delay!) `user` changes 
 
 ```js run
 let user = {
-  firstName: "John",
+  firstName: 'John',
   sayHi() {
     alert(`Hello, ${this.firstName}!`);
   },
@@ -86,7 +86,7 @@ setTimeout(() => user.sayHi(), 1000);
 // ...the value of user changes within 1 second
 user = {
   sayHi() {
-    alert("Another user in setTimeout!");
+    alert('Another user in setTimeout!');
   },
 };
 
@@ -180,7 +180,7 @@ Here we can see that arguments are passed "as is", only `this` is fixed by `bind
 
 ```js run
 let user = {
-  firstName: "John",
+  firstName: 'John',
   say(phrase) {
     alert(`${phrase}, ${this.firstName}!`);
   },
@@ -188,16 +188,15 @@ let user = {
 
 let say = user.say.bind(user);
 
-say("Hello"); // Hello, John ("Hello" argument is passed to say)
-say("Bye"); // Bye, John ("Bye" is passed to say)
+say('Hello'); // Hello, John ("Hello" argument is passed to say)
+say('Bye'); // Bye, John ("Bye" is passed to say)
 ```
 
-````smart header="Convenience method: `bindAll`"
-If an object has many methods and we plan to actively pass it around, then we could bind them all in a loop:
+````smart header="Convenience method: `bindAll`" If an object has many methods and we plan to actively pass it around, then we could bind them all in a loop:
 
 ```js
 for (let key in user) {
-  if (typeof user[key] == "function") {
+  if (typeof user[key] == 'function') {
     user[key] = user[key].bind(user);
   }
 }

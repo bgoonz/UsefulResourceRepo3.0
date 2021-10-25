@@ -131,8 +131,7 @@ There are only two limitations:
 
 Also it may be obvious, but still: there can be only one `[[Prototype]]`. An object may not inherit from two others.
 
-```smart header="`**proto**`is a historical getter/setter for`[[Prototype]]`"
-It's a common mistake of novice developers not to know the difference between these two.
+```smart header="`**proto**`is a historical getter/setter for`[[Prototype]]`" It's a common mistake of novice developers not to know the difference between these two.
 
 Please note that `__proto__` is _not the same_ as the internal `[[Prototype]]` property. It's a getter/setter for `[[Prototype]]`. Later we'll see situations where it matters, for now let's just keep it in mind, as we build our understanding of JavaScript language.
 
@@ -183,11 +182,11 @@ For that reason `admin.fullName` works correctly in the code below:
 
 ```js run
 let user = {
-  name: "John",
-  surname: "Smith",
+  name: 'John',
+  surname: 'Smith',
 
   set fullName(value) {
-    [this.name, this.surname] = value.split(" ");
+    [this.name, this.surname] = value.split(' ');
   },
 
   get fullName() {
@@ -203,7 +202,7 @@ let admin = {
 alert(admin.fullName); // John Smith (*)
 
 // setter triggers!
-admin.fullName = "Alice Cooper"; // (**)
+admin.fullName = 'Alice Cooper'; // (**)
 
 alert(admin.fullName); // Alice Cooper, state of admin modified
 alert(user.fullName); // John Smith, state of user protected
@@ -241,7 +240,7 @@ let animal = {
 };
 
 let rabbit = {
-  name: "White Rabbit",
+  name: 'White Rabbit',
   __proto__: animal,
 };
 
