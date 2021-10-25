@@ -1,0 +1,837 @@
+[[# top]]//a side-by-side reference sheet//
+
+[#grammar-invocation grammar and invocation] | [#variables-expressions variables and expressions] | [#arithmetic-logic arithmetic and logic] | [#strings strings] | [#dates-time dates and time] | [#arrays arrays] | [#arith-seq arithmetic sequences] | [#functions functions] | [#execution-control execution control] | [#file-handles file handles] | [#processes-environment processes and environment]
+
+[#vectors vectors] | [#matrices matrices]
+
+||~ [[# general]]||~ [#fortran fortran]||~ [#apl apl]||
+||[[# version-used]][#version-used-note version used] _
+@<&nbsp;>@||##gray|//GNU Fortran 4.5 (Fortran 95)//##||##gray|//GNU APL 1.5//##||
+||[[# show-version]][#show-version-note show version] _
+@<&nbsp;>@||$ gfortran @@--@@version||$ apl @@--@@version||
+||||||~ [[# grammar-invocation]][#grammar-invocation-note grammar and invocation]||
+||~ ||~ fortran||~ apl||
+||[[# hello-world]][#hello-world-note hello word]||$ cat hello.f95 _
+program hello _
+@<&nbsp;&nbsp;>@write(*,*) 'Hello, World!' _
+end program hello _
+ _
+$ gfortran hello.f95 _
+ _
+$ ./a.out _
+@<&nbsp;>@Hello, World!||$ cat hello.apl _
+"Hello, World!" _
+)OFF _
+ _
+$ apl @@--@@script @@--@@noSV  -f hello.apl _
+Hello, World!||
+||[[# file-suffixes]][#file-suffixes-note file suffixes] _
+##gray|//source, header, object file//##||.f95 ##gray|//none//## .o|| ||
+||[[# block-delimiters]][#block-delimiters-note block delimiters]||program ##gray|//...//## end program _
+function ##gray|//...//## end function _
+subroutine ##gray|//...//##end subroutine _
+if ##gray|//...//## then ##gray|//...//## elseif ##gray|//...//## then ##gray|//...//## else ##gray|//...//## endif _
+do while ##gray|//...//## end do _
+do ##gray|//...//## end do|| ||
+||[[# stmt-terminator]][#stmt-terminator-note statement terminator]||##gray|//newline//## _
+ _
+##gray|//when a line ends with// & //the statement continues on the following line//##|| ||
+||[[# eol-comment]][#eol-comment-note end-of-line comment]||! ##gray|//comment//##||⍝ ##gray|//comment//## _
+ _
+##gray|//the standard name for// ⍝ //is "lamp"//##||
+||[[# multiple-line-comment]][#multiple-line-comment-note multiple line comment]||##gray|//none//##|| ||
+||||||~ [[# variables-expressions]][#variables-expressions-note variables and expressions]||
+||~ ||~ fortran||~ apl||
+||[[# case-sensitive]][#case-sensitive-note are identifiers case sensitive]||##gray|//no; Fortran 77 and earlier required all caps//##||##gray|//yes//##||
+||[[# var-types]][#var-types-note variable types]||integer real complex character logical|| ||
+||[[# var-declaration]][#var-declaration-note variable declaration]||integer :: n _
+real :: x = 3.7 _
+##gray|! variable declarations must appear before _
+! all other statements in a program or function body##|| ||
+||[[# undeclared-var-type]][#undeclared-var-type-note undeclared variable type]||##gray|inferred from first letter of name: _
+ _
+@<&nbsp;&nbsp;>@I-N: integer _
+@<&nbsp;&nbsp;>@A-H, O-Z: real##|| ||
+||[[# primitive-type-stack]][#primitive-type-stack-note declare primitive type on stack]||integer::i _
+integer::j = 3|| ||
+||[[# assignment]][#assignment-note assignment]||i = 3||##gray|⍝ leftarrow: ←## _
+ _
+i ←  3||
+||[[# null]][#null-note null] _
+@<&nbsp;>@||##gray|//used for pointers only://## _
+null()|| ||
+||[[# undefined-var-access]][#undefined-var-access-note undefined variable access]||##gray|//evaluate to 0 or 0.0, depending upon the first letter of the variable name//##||##gray|VALUE ERROR##||
+||||||~ [[# arithmetic-logic]][#arithmetic-logic-note arithmetic and logic]||
+||~ ||~ fortran||~ apl||
+||[[# boolean-type]][#boolean-type-note boolean type] _
+@<&nbsp;>@||logical||##gray|//all values have same type//##||
+||[[# true-false]][#true-false-note true and false] _
+@<&nbsp;>@||.true. .false.||1 0||
+||[[# falsehoods]][#falsehoods-note falsehoods] _
+@<&nbsp;>@||.false. _
+##gray|//no implicit conversion of values to booleans//##||0 0.0||
+||[[# logical-op]][#logical-op-note logical operators]||.and. .or. .not.||##gray|⍝ and: ∧ _
+⍝ or:@<&nbsp;&nbsp;>@∨ _
+⍝ not: ~## _
+ _
+∧ ∨ ~||
+||[[# relational-op]][#relational-op-note relational operators] _
+@<&nbsp;>@||== /= > < >= <=||##gray|⍝ match:@<&nbsp;&nbsp;&nbsp;>@≡ _
+⍝  unequal: ≠ _
+⍝ aft:@<&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;>@≥ _
+⍝ fore:@<&nbsp;&nbsp;&nbsp;&nbsp;>@≤## _
+ _
+≡ ≠ > < ≥ ≤||
+||[[# min-max]][#min-max-note min and max]||min(1, 2, 3) _
+max(1, 2, 3)||##gray|⍝ minimum: ⌊ _
+⍝ maximum: ⌈## _
+ _
+1 ⌊ 2 ⌊ 3 _
+1 ⌈ 2 ⌈ 3 _
+ _
+⌊  / 1 2 3 _
+⌈ / 1 2 3||
+||[[# int-type]][#int-type-note integer type] _
+@<&nbsp;>@||integer _
+ _
+##gray|//number of bytes can be specified://## _
+integer(kind=4)||##gray|//all values have same type//##||
+||[[# int-literal]][#int-literal-note integer literal]||-4||##gray|⍝ macron: ¯## _
+ _
+¯4||
+||[[# float-type]][#float-type-note float type]||real _
+double precision _
+ _
+##gray|//number of bytes can be specified://## _
+real(kind=4)||##gray|//all values have same type//##||
+||[[# arith-op]][#arith-op-note arithmetic operators] _
+@<&nbsp;>@||+ - * /||##gray|⍝ times: ×## _
+##gray|⍝ per:@<&nbsp;&nbsp;&nbsp;>@÷## _
+ _
+@@+ - × ÷@@||
+||[[# int-div]][#int-div-note integer division]||7 / 3 _
+mod(7, 3)|| ||
+||[[# int-div-zero]][#int-div-zero-note integer division by zero]||real :: x = 0.0 _
+integer :: i = 0 _
+ _
+##gray|! compiler error:## _
+1.0 / 0.0 _
+ _
+##gray|! +Infinity:## _
+1.0 / x _
+ _
+##gray|! floating point exception:## _
+1 / i||##gray|DOMAIN ERROR##||
+||[[# float-div]][#float-div-note float division] _
+@<&nbsp;>@||3 / float(7)||3 ÷ 7||
+||[[# float-div-zero]][#float-div-zero-note float division by zero]||real :: x = 0.0 _
+integer :: i = 0 _
+ _
+##gray|! compiler error:## _
+1.0 / 0.0 _
+ _
+##gray|! +Infinity:## _
+1.0 / x _
+ _
+##gray|! floating point exception:## _
+1 / i||##gray|DOMAIN ERROR##||
+||[[# power]][#power-note power]||2.0 ** 3.0||2 * 32||
+||[[# sqrt]][#sqrt-note sqrt]||sqrt(2)||2 * 0.5||
+||[[# sqrt-negative-one]][#sqrt-negative-one-note sqrt -1]||real :: x = -1.0 _
+complex :: z = (-1.0, 0.0) _
+ _
+##gray|! compiler error:## _
+sqrt(-1.0) _
+ _
+##gray|! NaN:## _
+sqrt(x) _
+ _
+##gray|! (0.000, 1.000)## _
+sqrt(z)||##gray|⍝ 0J1:## _
+ _
+¯1 * 0.5||
+||[[# transcendental-func]][#transcendental-func-note transcendental functions]||exp(2.0) _
+log(2.0) _
+log10(2.0) _
+sin(2.0) _
+cos(2.0) _
+tan(2.0) _
+asin(0.5) _
+acos(0.5) _
+atan(0.5) _
+atan2(1.0, 2.0)||##gray|⍝ log:@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@⍟ _
+⍝ circle: ○## _
+ _
+* 2 _
+⍟ 2 _
+10 ⍟ 2 _
+1 ○ 2 _
+2 ○ 2 _
+3 ○ 2 _
+¯1 ○ 0.5 _
+¯2 ○ 0.5 _
+¯3 ○ 0.5 _
+##gray|//??//##||
+||[[# transcendental-const]][#transcendental-const-note transcendental constants] _
+##gray|//e and pi//##||exp(1.0) _
+2.0 * asin(1.0)||* 1 _
+○ 1||
+||[[# float-truncation]][#float-truncation-note float truncation] _
+##gray|//truncate, round, ceiling, floor//##||int(3.7) _
+##gray|//none//## _
+ceiling(3.7) _
+floor(3.7)||##gray|//??//## _
+##gray|//??//## _
+⌈ 3.7 _
+⌊ 3.7 _
+ _
+##gray|⍝ ceiling: ⌈ _
+⍝ floor: ⌊##||
+||[[# absolute-val]][#absolute-val-note absolute value]||abs(-7) _
+abs(-7.77)||@@| ¯7@@ _
+@@| ¯7.77@@||
+||[[# complex-type]][#complex-type-note complex type]||complex _
+ _
+##gray|//uses 8 bytes://## _
+complex(kind=4)||##gray|//all values have same type//##||
+||[[# complex-construction]][#complex-construction-note complex construction]||(0.0, 1.0) _
+(0.0, 2.0) _
+(0.0, 3.0)||0J1 _
+0J2 _
+0J3||
+||[[# complex-decomposition]][#complex-decomposition-note complex decomposition] _
+##gray|//real and imaginary component, argument, absolute value, conjugate//##||real(z) _
+imag(z) _
+atan2(imag(z), real(z)) _
+abs(z) _
+conjg(z)||z ← 3J2 _
+ _
+(z + + z) ÷ 2 _
+| (z - + z) ÷ 2 _
+##gray|//??//## _
+| z _
+@@+@@ z||
+||[[# random-num]][#random-num-note random number]||real r _
+##gray|! random float from 0.0 to 1.0:## _
+call random_number(r)||##gray|⍝ random integer from 1 to 100:## _
+? 100||
+||[[# random-seed]][#random-seed-note random seed]||integer n _
+integer, allocatable :: seed(:) _
+ _
+call random_seed(size=n) _
+allocate(seed(n)) _
+do i = 1, n _
+@<&nbsp;&nbsp;>@seed(i) = i + 2 _
+end do _
+call random_seed(put=seed)||⎕RL ← 17||
+||[[# bit-op]][#bit-op-note bit operators]||##gray|//right shift if// pos //is positive://## _
+ishft(##gray|//i//, //pos//##) _
+iand(##gray|//i//##, ##gray|//j//##) _
+ior(##gray|//i//##, ##gray|//j//##) _
+ieor(##gray|//i//##, ##gray|//j//##) _
+not(##gray|//i//##)|| ||
+||||||~ [[# strings]][#strings-note strings]||
+||~ ||~ fortran||~ apl||
+||[[# str-type]][#str-type-note string type] _
+@<&nbsp;>@||characater(len=100) s|| ||
+||[[# str-literal]][#str-literal-note string literal] _
+@<&nbsp;>@||'don''t say "no"' _
+"don't say ""no"""||'don''t say "no"'||
+||[[# newline-in-str-literal]][#newline-in-str-literal-note newline in string literal]||"lorem" @@//@@ achar(10) @@//@@ "ipsum"|| ||
+||[[# str-literal-esc]][#str-literal-esc-note string escapes]||##gray|//none//##|| ||
+||[#string-to-number convert string to numeric]|| ||##gray|⍝ execute: ⍎## _
+ _
+⍎ '4'||
+||[#number-to-string convert numeric to string]|| || ||
+||[#split split]||##gray|//none//##|| ||
+||[#join join] _
+@<&nbsp;>@|| ||, / 'foo' 'bar' 'baz'||
+||[#string-concatenate concatenate]||'hello' @@//@@ ' world'||'hello' , ' world'||
+||[#str-replicate replicate]||character(len=80) :: hbar _
+hbar = repeat('-', 80)|| ||
+||[#substring substring]||"hello"(1:4)|| ||
+||[#index index]||##gray|//counts from one, returns zero if not found//## _
+index("hello", "el")|| ||
+||[#sprintf sprintf]||character(len=100) :: s _
+write(s,'(A A F9.3 I9)') 'foo', ':', 2.2, 7|| ||
+||[#uppercase uppercase]||##gray|//none//##|| ||
+||[#lowercase lowercase]||##gray|//none//##|| ||
+||[#trim trim]||##gray|//??//## _
+adjustl(' foo') _
+trim('foo ')|| ||
+||[#string-length length] _
+@<&nbsp;>@||len("hello")||⍴ 'hello'||
+||[#char-access character access]||"hello"(1:1)|| ||
+||[#chr-ord chr and ord]||achar(65) _
+iachar('A')|| ||
+||||||~ [[# dates-time]][#dates-time-note dates and time]||
+||~ ||~ fortran||~ apl||
+||[[# current-local-date-time]][#current-local-date-time-note current local date and time]||integer dt(8) _
+ _
+##gray|! yyyy, mm, dd, utf_offset_min, hh24, mi, ss, ms## _
+call date_and_time(values=dt)||##gray|⍝ array of 7 integers: yyyy, mm, dd, hh24, mi, ss, ms## _
+⎕TS||
+||[[# sleep]][#sleep-note sleep]||##gray|! gnu extension; sleep 10s:## _
+call sleep(10)||##gray|//none//##||
+||[[# cpu-usage]][#cpu-usage-note cpu usage]||real t1, t2 _
+call cpu_time(t1) _
+##gray|//...//## _
+call cpu_time(t2) _
+write(*, *) 'elapsed time: ', t2 - t1||##gray|//none//##||
+||||||~ [[# arrays]][#arrays-note arrays]||
+||~ ||~ fortran||~ apl||
+||[[# allocate-array-on-stack]][#allocate-array-on-stack-note allocate on stack]||##gray|! uninitialized values get zero values:## _
+integer, dimension(3) :: a _
+integer :: a2(3)||##gray|//none//##||
+||[[# allocate-array-on-heap]][#allocate-array-on-heap-note allocate on heap]||##gray|! unitialized values get zero values:## _
+integer, dimension(:), allocatable :: a _
+allocate(a(3))||##gray|//all data is stored on heap//##||
+||[[# free-array-on-heap]][#free-array-on-heap-note free heap]||##gray|! usually not necessary, since memory is freed _
+! when the variable goes out of scope.## _
+deallocate(a)||##gray|//none; memory is garbage collected//##||
+||[[# array-literal]][#array-literal-note literal]||integer::a(3) = (/ 1, 2, 3 /)||a ← 1 2 3||
+||[[# array-size]][#array-size-note size] _
+@<&nbsp;>@||size((/ 1, 2, 3 /))||##gray|⍝ rho: ⍴## _
+ _
+⍴ a||
+||[[# array-lookup]][#array-lookup-note lookup] _
+@<&nbsp;>@||##gray|! indices start at one## _
+integer :: a(4) _
+a = (/ 7, 8, 9, 10 /) _
+a(2)||a ← 7 8 9 10  _
+ _
+a[2] _
+(7 8 9 10)[2] _
+ _
+##gray|⍝ change index origin from 1 to 0:## _
+⎕IO ← 0||
+||[[# array-update]][#array-update-note update]||a(1) = 8||a[1] ← 8||
+||[[# array-out-of-bounds]][#array-out-of-bounds-note out-of-bounds behavior]||##gray|//If the array dimensions are set at compilation time (i.e. the array is stack allocated), then the code fails to compile.  _
+ _
+Out-of-bounds references to arrays with dimensions set at run time (i.e. the array is heap allocated) could segfault or return a memory value outside of the array.//##||INDEX ERROR||
+||[[# array-element-index]][#array-element-index-note element index]|| ||##gray|⍝ evaluates to 2:## _
+7 8 9 ⍳ 8||
+||[[# slice-array]][#slice-array-note slice]||##gray|! can't slice literal## _
+int::a1(3),a2(2) _
+ _
+a1 = (/1,2,3/) _
+a2 = a1(1:2)||##gray|⍝ 7 8:## _
+ _
+a ← 7 8 9 10 _
+1 ↓ 3 ↑ a||
+||[[# slice-array-to-end]][#slice-array-to-end-note slice to end]|| ||##gray|⍝ 8 9 10:## _
+ _
+a ← 7 8 9 10 _
+1 ↓ a||
+||[[# array-back]][#array-back-note manipulate back]|| ||a ← 7 8 9 10 _
+ _
+##gray|⍝ 10:## _
+¯1 ↑ a _
+ _
+##gray|⍝ set a to 7 8 9:## _
+a ← ¯1 ↓ a _
+ _
+##gray|⍝ set a to 7 8 9 11:## _
+a ← a , 11||
+||[[# array-front]][#array-front-note manipulate front]|| ||a ← 7 8 9 10 _
+ _
+##gray|⍝ 6:## _
+1 ↑ a _
+ _
+##gray|⍝ set a to 8 9 10:## _
+a ← 1 ↓ a _
+ _
+##gray|⍝ set a to 6 8 9 10:## _
+a ← 6 , a||
+||[[# concatenate-array]][#concatenate-array-note concatenate]|| ||1 2 3 , 4 5 6||
+||[[# array-replicate]][#array-replicate-note replicate]|| ||##gray|⍝ 10 zeros:## _
+10 / 0||
+||[[# copy-array]][#copy-array-note copy]|| ||a ← 1 2 3 _
+b ← a _
+##gray|⍝ does not modify a:## _
+b[1] ← 4||
+||[[# iterate-over-array]][#iterate-over-array-note iterate]|| || ||
+||[[# sort-array]][#sort-array-note sort]|| ||a ← 8 7 10 9 _
+a[⍋ a]||
+||[[# reduce]][#reduce-note reduce]|| ||+ / 1 2 3 _
+ _
+##gray|⍝ 2:## _
+- / 1 2 3||
+||||||~ [[# arith-seq]][#arith-seq-note arithmetic sequences]||
+||~ ||~ fortran||~ apl||
+||[[# arith-seq-diff-one]][#arith-seq-diff-one-note unit difference]|| ||##gray|⍝ iota: ⍳## _
+ _
+⍳ 100||
+||[[# arith-seq-diff-ten]][#arith-seq-diff-ten-note difference of 10]|| ||##gray|⍝ 0, 10, @@...@@, 100:## _
+ _
+10 × ( ⍳ 11 ) - 1||
+||[[# arith-seq-diff-tenth]][#arith-seq-diff-tenth-note difference of .1]|| ||##gray|⍝ 0.0, 0.1, @@...@@, 10.0## _
+ _
+.1 × ( ⍳ 101 ) - 1||
+||||||~ [[# functions]][#functions-note functions]||
+||~ ||~ fortran||~ apl||
+||[[# def-func]][#def-func-note define function]||integer function add(n, m) _
+@<&nbsp;&nbsp;>@integer, intent(in) :: n _
+@<&nbsp;&nbsp;>@integer, intent(in) :: m _
+@<&nbsp;&nbsp;>@add = n + m _
+end function add||##gray|⍝ define dyadic operator:## _
+∇r ← a add b _
+r ← a + b ∇ _
+ _
+##gray|⍝ define monadic operator:## _
+∇r ← double n _
+r ← 2 × n ∇||
+||[[# invoke-func]][#invoke-func-note invoke function] _
+@<&nbsp;>@||add(3, 7)||3 add 7 _
+double 7||
+||[[# forward-decl-func]][#forward-decl-func-note forward declaration of function]|| || ||
+||[[# overload-func]][#overload-func-note overload function]|| || ||
+||[[# nest-func]][#nest-func-note nest function]|| || ||
+||[[# missing-arg]][#missing-arg-note missing argument behavior]||##gray|//set to zero//##|| ||
+||[[# extra-arg]][#extra-arg-note extra argument behavior]||##gray|//ignored//##|| ||
+||[[# default-val-param]][#default-val-param-note default value for parameter]||real function mylog(x, base) _
+@<&nbsp;&nbsp;>@real :: x _
+@<&nbsp;&nbsp;>@real, optional :: base _
+@<&nbsp;&nbsp;>@if (present(base)) then _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@mylog = log(x) / log(base) _
+@<&nbsp;&nbsp;>@else _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@mylog = log(x) / log(10.0) _
+@<&nbsp;&nbsp;>@endif _
+end function mylog|| ||
+||[[# variable-num-arg]][#variable-num-arg-note variable number of arguments]||##gray|//none//##|| ||
+||[[# named-param]][#named-param-note named parameters]|| || ||
+||[[# pass-by-val]][#pass-by-val-note pass by value]|| || ||
+||[[# pass-by-addr]][#pass-by-addr-note pass by address]|| || ||
+||[[# pass-by-ref]][#pass-by-ref-note pass by reference]|| || ||
+||[[# retval]][#retval-note return value]||##gray|//assign to implicit variable with same name as function; can use return statement to terminate function execution//##|| ||
+||[[# no-retval]][#no-retval-note no return value]|| || ||
+||[[# multiple-retval]][#multiple-retval-note multiple return values]|| || ||
+||[[# named-retval]][#named-retval-note named return values]|| || ||
+||[[# anonymous-func-literal]][#anonymous-func-literal-note anonymous function literal]||##gray|//none//##|| ||
+||[[# func-private-state]][#func-private-state-note function with private state]|| || ||
+||[[# func-as-val]][#func-as-val-note function as value]||##gray|//none; function pointers added in Fortran 2003//##|| ||
+||||||~ [[# execution-control]][#execution-control-note execution control]||
+||~ ||~ fortran||~ apl||
+||[[# for]][#for-note for]||do n = 1, 10, 1 _
+@<&nbsp;&nbsp;>@write(*,*) n _
+end do|| ||
+||[[# if]][#if-note if]||if (n == 0) then _
+@<&nbsp;&nbsp;>@write(*,*) 'no hits' _
+elseif (n == 1) then _
+@<&nbsp;&nbsp;>@write(*,*) 'one hit' _
+else _
+@<&nbsp;&nbsp;>@write(*,*) n, 'hits' _
+endif|| ||
+||[[# while]][#while-note while]||n = 1 _
+do while ( n < 10 ) _
+@<&nbsp;&nbsp;>@write(*,*) n _
+@<&nbsp;&nbsp;>@n = n + 1 _
+end do|| ||
+||[[# switch]][#switch-note switch]|| || ||
+||[[# break-continue]][#break-continue-note break/continue] _
+@<&nbsp;>@||exit cycle|| ||
+||||||~ [[# file-handles]][#file-handles-note file handles]||
+||~ ||~ fortran||~ apl||
+||[[# std-file-handles]][#std-file-handles-note standard file handles]||##gray|! common unit identifiers for stdin, stdout, and stderr:## _
+5 6 0|| ||
+||[[# read-line-stdin]][#read-line-stdin-note read line from stdin]||character(len=100) line _
+ _
+read(*, fmt="(a)") line|| ||
+||[[# write-line-stdout]][#write-line-stdout-note write line to stdout]||write(*, *) 'Hello, World!'|| ||
+||[[# printf]][#printf-note write formatted string to stdout] _
+@<&nbsp;>@||write(6, fmt="('count: ', i7)") 7|| ||
+||[[# open-file]][#open-file-note open file for reading]||##gray|! the 'unit' integer is the file descriptor.  Use an unused _
+! number.  The standard file handles 0, 5, and 6 are already taken.## _
+open(unit=7, file='/etc/passwd', action='read')|| ||
+||[[# open-file-write]][#open-file-write-note open file for writing]||open(unit=7, file='/tmp/foo.txt', action='write')|| ||
+||[[# close-file]][#close-file-note close file]||close(7)|| ||
+||[[# io-err]][#io-err-note i/o errors]|| || ||
+||[[# read-line]][#read-line-note read line]|| || ||
+||[[# file-line-iterate]][#file-line-iterate-note iterate over file by line]|| || ||
+||[[# read-file-array]][#read-file-array-note read file into array of strings]|| || ||
+||[[# read-file-str]][#read-file-str-note read file into string]|| || ||
+||[[# write-str]][#write-str-note write string]|| || ||
+||[[# write-line]][#write-line-note write line]|| || ||
+||[[# flush]][#flush-note flush file handle]|| || ||
+||[[# eof-test]][#eof-test-note end-of-file test] _
+@<&nbsp;>@|| || ||
+||[[# seek]][#seek-note get and set file handle position]|| || ||
+||[[# tmp-file]][#tmp-file-note open unused file]|| || ||
+||||||~ [[# processes-environment]][#processes-environment-note processes and environment]||
+||~ ||~ fortran||~ apl||
+||[[# cmd-line-arg]][#cmd-line-arg-note command line arguments]||character(len=10) :: arg _
+integer arg_len _
+ _
+i = 1 _
+do while (i <= command_argument_count()) _
+@<&nbsp;&nbsp;>@call get_command_argument(i, arg, arg_len) _
+@<&nbsp;&nbsp;>@if (arg_len > 10) then _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@write(*,*) 'truncated argument: ', arg _
+@<&nbsp;&nbsp;>@else _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@write(*,*) 'full argument: ', arg _
+@<&nbsp;&nbsp;>@endif _
+@<&nbsp;&nbsp;>@i = i + 1 _
+end do||⎕ARG||
+||[[# env-var]][#env-var-note environment variable]||character(len=100) :: var _
+integer var_len _
+ _
+call get_environment_variable('HOME', var, var_len) _
+if (var_len > 100) then _
+@<&nbsp;&nbsp;>@write(*,*) 'truncated env var: ', var _
+else _
+@<&nbsp;&nbsp;>@write(*,*) 'full env var: ', var _
+endif||##gray|⍝ quad: ⎕## _
+ _
+⎕ENV 'HOME' _
+ _
+##gray|⍝ returns n by 2 array containing all environment _
+⍝ variable names and their values:## _
+⎕ENV ''||
+||[[# exit]][#exit-note exit]||stop _
+ _
+##gray|! nonzero status:## _
+error stop 1||)OFF||
+||||||~ [[# vectors]][#vectors-note vectors]||
+||~ ||~ fortran||~ apl||
+||[#vector-literal vector literal]||##gray|//same as array//##||##gray|⍝ same as array:## _
+1 2 3||
+||[#vector-element-wise element-wise arithmetic operators]||+ - * /||+ - × ÷||
+||[#vector-length-mismatch result of vector length mismatch]||##gray|//compilation error//##||LENGTH ERROR||
+||[#vector-scalar scalar multiplication]||3 * (/1,2,3/) _
+(/1,2,3/) * 3||3 × 1 2 3 _
+1 2 3 × 3||
+||[#vector-dot dot product]||dot_product((/1,1,1/),(/2,2,2/))||1 1 1 + . × 2 2 2||
+||||||~ [[# matrices]][#matrices-note matrices]||
+||~ ||~ fortran||~ apl||
+||[#matrix-literal-constructor matrix literal or constructor]||##gray|! column-major order:## _
+integer::A(2,2) = & _
+@<&nbsp;&nbsp;>@reshape((/ 1, 3, 2, 4 /), & _
+@<&nbsp;&nbsp;>@(/ 2, 2 /)) _
+ _
+integer::B(2,2) = & _
+@<&nbsp;&nbsp;>@reshape((/ 4, 2, 3, 1 /), & _
+@<&nbsp;&nbsp;>@(/ 2, 2 /))||##gray|⍝ row-major order:## _
+A ←  2 2 ⍴ 1 2 3 4 ||
+||[[# constant-matrices]][#constant-matrices-note constant matrices] _
+ _
+##gray|//all zeros, all ones//##|| ||3 3 ⍴ 0 _
+3 3 ⍴ 1||
+||[[# diagonal-matrices]][#diagonal-matrices-note diagonal matrices] _
+ _
+##gray|//and identity//##|| ||##gray|⍝ 3×3 identity:## _
+I ← 3 3 ⍴ 1 , 3 ⍴ 0 _
+D ← I  + . × 1 2 3||
+||[[# matrix-dim]][#matrix-dim-note dimensions]|| ||A ←  2 3 ⍴ 1 2 3 4 5 6 _
+ _
+⍴ A||
+||[[# matrix-elem-access]][#matrix-elem-access-note element access]|| ||A ←  2 2 ⍴ 1 2 3 4 _
+##gray|⍝ 1:## _
+A[1; 1]||
+||[[# matrix-row-access]][#matrix-row-access-note row access]|| ||A ←  2 2 ⍴ 1 2 3 4 _
+##gray|⍝ 1 2:## _
+A[1; ]||
+||[[# matrix-column-access]][#matrix-column-access-note column access]|| ||A ←  2 2 ⍴ 1 2 3 4 _
+##gray|⍝ 1 3:## _
+A[; 1]||
+||[[# matrix-scalar-multiplication]][#matrix-scalar-multiplication-note scalar multiplication]|| ||A ← 2 2 ⍴ 1 2 3 4 _
+3 × A _
+A × 3||
+||[[# matrix-elem-wise-op]][#matrix-elem-wise-op-note element-wise operators]|| ||+ - × ÷||
+||[[# marix-transpose]][#matrix-transpose-note transpose]|| || A ← 2 2 ⍴ 1 2 3 4 _
+ _
+##gray|⍝ cant: ⍉ _
+⍉ A||
+||[#matrix-multiplication multiplication]||matmul(A, B)||A ← 2 2 ⍴ 1 2 3 4 _
+B ← 2 2 ⍴ 4 3 2 1 _
+A + . × B||
+||[[# matrix-inverse]][#matrix-inverse-note inverse]|| ||A ←  2 2 ⍴ 1 2 3 4  _
+##gray|⍝ inverse: ⌹## _
+⌹ A||
+||~ ||~ ##EFEFEF|@@____________________________________________________________________________________________________@@##||~ ##EFEFEF|@@____________________________________________________________________________________________________@@##||
+
+
+[[# grammar-invocation-note]]
++ [#grammar-invocation Grammar and Invocation]
+
+[[# file-suffixes-note]]
+++ [#file-suffixes file suffixes]
+
+The suffixes used for source files, header files, and compiled object files.
+
+**fortran:**
+
+The gfortran compiler will treat files with {{.f}} and {{.f77}} suffixes as the older fixed format source code, and it will treat files with {{.f90}} and {{.f95}} suffixes as free format source code conforming to the 1990 and 1995 Fortran standards.
+
+Traditionally Fortran does not have header files.  The Fortran 90 standard introduced modules.  To support the feature the compiler will generate {{.mod}} files whenever a source file with a module definition is encountered.  They contain type declarations like C headers, but unlike C headers they are not intended to be edited by people.
+
+[[# block-delimiters-note]]
+++ [#block-delimiters block delimiters]
+
+**fortran:**
+
+The list of keywords is not exhaustive.
+
+[[# variables-expressions-note]]
++ [#variables-expressions Variables and Expressions]
+
+[[# undeclared-var-type-note]]
+++ [#undeclared-var-type undeclared variable type]
+
+**fortran:**
+
+This makes undeclared variables starting with 'q' integers:
+
+[[code]]
+implicit integer q
+[[/code]]
+
+[[# undefined-var-access-note]]
+++ [#undefined-var-access undefined variable access]
+
+**fortran:**
+
+It is possible to require that all variables are declared:
+
+[[code]]
+implicit none
+[[/code]]
+
+Variable which are declared but not initialized are assigned zero values.
+
+[[# arithmetic-logic-note]]
++ [#arithmetic-logic Arithmetic and Logic]
+
+[[# boolean-type-note]]
+++ [#boolean-type boolean type]
+
+The boolean type.
+
+[[# true-false-note]]
+++ [#true-false true and false]
+
+The literals for true and false.
+
+[[# falsehoods-note]]
+++ [#falsehoods falsehoods]
+
+Values which are false in a boolean context.
+
+[[# logical-op-note]]
+++ [#logical-op logical operators]
+
+The logical operators for conjunction, disjunction, and negation.
+
+**fortran:**
+
+[[code]]
+.eqv. .neqv.
+[[/code]]
+
+**apl:**
+
+APL also has operators for "nand" and "nor":
+
+[[code]]
+⍲ ⍱
+[[/code]]
+
+[[# relational-op-note]]
+++ [#relational-op relational operators]
+
+[[# min-max-note]]
+++ [#min-max min and max]
+
+[[# int-type-note]]
+++ [#int-type integer type]
+
+[[# int-literal-note]]
+++ [#int-literal integer literal]
+
+The syntax for integer literals.
+
+**apl:**
+
+The minus sign can be used as a unary operator, but applies to the entire array.  The following expressions are the same:
+
+[[code]]
+- 4 5 6
+¯4 ¯5 ¯6
+[[/code]]
+
+[[# unsigned-int-type-note]]
+++ [#unsigned-int-type unsigned integer type]
+
+[[# strings-note]]
++ [#strings Strings]
+
+[[# sprintf]]
+++ sprintf
+
+**fortran:**
+
+Fortran format strings use these expressions:
+
+||A||character||
+||D##gray|//width//##.##gray|//precision//##||double in scientific notation||
+||E##gray|//width//##.##gray|//precision//##||real in scientific notation||
+||F##gray|//width//##.##gray|//precision//##||real in fixed point notation||
+||I##gray|//width//##||integer||
+||X||space||
+||##gray|//n//##X||repeat following format expression ##gray|//n//## times||
+||/||newline||
+
+##gray|//width//## and ##gray|//precision//## are integers.  ##gray|//width//## is the field width in characters.  Other characters in the format string are ignored.
+
+[[# dates-time-note]]
++ [#dates-time Dates and Time]
+
+[[# current-local-date-time-note]]
+++ [#current-local-date-time current local date and time]
+
+[[# sleep-note]]
+++ [#sleep sleep]
+
+[[# cpu-usage-note]]
+++ [#cpu-usage cpu usage]
+
+[[# arrays-note]]
++ [#arrays Arrays]
+
+[[# arith-seq-note]]
++ [#arith-seq Arithmetic Sequences]
+
+[[# arith-seq-diff-one-note]]
+++ [#arith-seq-diff-one unit difference]
+
+[[# arith-seq-diff-ten-note]]
+++ [#arith-seq-diff-ten difference of 10]
+
+[[# arith-seq-diff-tenth-note]]
+++ [#arith-seq-diff-tenth difference of 0.1]
+
+[[# functions-note]]
++ [#functions Functions]
+
+[[# execution-control-note]]
++ [#execution-control Execution Control]
+
+[[# break-continue-note]]
+++ [#break-continue break/continue]
+
+**fortran:**
+
+Fortran has a {{continue}} statement which is a no-op statement used as a target for goto statements.
+
+Here is an example of using {{exit}} to terminate what would otherwise be an infinite loop:
+
+[[code]]
+n = 1
+do
+   if (n > 10) exit
+   write(*, *) n
+   n = n + 1
+end do
+[[/code]]
+
+Labels can be provided for nested do loops.  The labels can be provided as arguments to {{exit}} and {{cycle}}:
+
+[[code]]
+  foo: do
+     bar: do n = 1, 10, 1
+        write(*,*) n
+        exit foo
+     end do bar
+  end do foo
+[[/code]]
+
+[[# file-handles-note]]
++ [#file-handles File Handles]
+
+[[# std-file-handles-note]]
+++ [#std-file-handles standard file handles]
+
+The file handles for standard input, standard output, and standard error.
+
+**fortran:**
+
+Fortran uses integers which it calls //unit identifiers// for file descriptors.  The unit descriptors 5, 6, and 0 are often but not always used for stdin, stdout, and stderr.
+
+Unit descriptors are provided as the first argument to {{read}} and {{write}}.  If the first argument of {{read}} is an asterisk, it will use stdin.  If the first argument of {{write}} is an asterisk, it will use stdout.
+
+[[# printf-note]]
+++ [#printf write formatted string to stdout]
+
+How to print a formatted string to standard out.
+
+**fortran:**
+
+Notation used in [http://www.csee.umbc.edu/~squire/fortranclass/summary.shtml#Form Fortran format strings].
+
+[[# processes-environment-note]]
++ [#processes-environment Processes and Environment]
+
+[[# vectors-note]]
++ [#vectors Vectors]
+
+[[# matrices-note]]
++ [#matrices Matrices]
+
+[[# fortran]]
++ [#top Fortran]
+
+[http://gcc.gnu.org/onlinedocs/gcc-4.5.2/gfortran/ The GNU Fortran Compiler]
+[http://www-teaching.physics.ox.ac.uk/Unix+Prog/hargrove/tutorial_77/ Fortran 77 Tutorial]
+[http://www.cs.mtu.edu/~shene/COURSES/cs201/NOTES/fortran.html Fortran 90 Tutorial]
+[http://gcc.gnu.org/wiki/GFortranStandards Fortran Standards Documents]
+[http://www.netlib.org/blas/blasqr.pdf BLAS: A Quick Reference Guide (pdf)]
+
+Modern Fortran compilers support two source code formats: the traditional //fixed format// and the //free format// introduced with Fortran 90.
+
+If a Fortran source file has a {{.f}} suffix, the gfortran compiler expects the code to have fixed format.  If the suffix is {{.f90}} or {{.f95}} it expects free format code.
+
+Here is an example of fixed format code:
+
+[[code]]
+C Hello World
+* in Fortran 77
+
+      program hello
+10000 write(*,*) 'Hello,'
+     + , ' World!'
+      end program hello
+[[/code]]
+
+This first column can contain a 'C', 'c', or '*' to indicate the line is a comment.
+
+Columns 1 through 5 can contain an optional statement label.  A statement label consists of digits.  The statement label may contain leading zeros which are ignored.  A statement label cannot consist entirely of zeros.
+
+If column 6 contains a non-space character and columns 1 through 5 are blank, then the line is treated as a continuation of the previous line.  The continuation character is not itself part of the statement, so any non-space character can be used, but '+' is a common choice.
+
+Columns 7 through 72 contain the statement.
+
+Columns 73 through 80 can contain optional sequence numbers.  They were formerly used to help keep punch cards in the correct order.
+
+Here is an example of free format code:
+
+[[code]]
+! Hello World in Fortran 90
+
+program hello
+  write(*,*) 'Hello,' &
+       , ' World!'
+end program hello
+[[/code]]
+
+There are no special columns in free format code.  There is no limit on the length of lines or statements.  If it is desirable to split a statement up over multiple lines, the '&' character can be used to indicate the statement continues on the following line.
+
+[[# apl]]
++ [#top APL]
+
+[http://www.jsoftware.com/papers/APLDictionary1.htm A Dictionary of APL]
+[http://www.jsoftware.com/papers/APL.htm A Programming Language]
+
+The first issue one must resolve when getting started with APL is figuring out how to enter the special characters.
+
+One technique is to add a input method to your desktop environment.  Here are [https://github.com/clarkgrubb/latex-input/tree/master/apl APL input methods for Mac OS X and Windows].  The Windows input method uses AutoHotkey.  If you don't have AutoHotkey installed, you can use the {{.exe}} file that was generated using AutoHotkey.  Otherwise you can use the {{.ahk}} file.
+
+The notation in the above input methods is derived from the [http://www.jsoftware.com/papers/APLDictionary1.htm#tab4 standard names and synonyms] for the symbols in the APL community.  The standard name for {{⍋}} is "grade".    The above input methods use an ampersand prefix in front of the standard name.  Thus, to create a {{⍋}} character, one types "@grade" when the input method is in effect.

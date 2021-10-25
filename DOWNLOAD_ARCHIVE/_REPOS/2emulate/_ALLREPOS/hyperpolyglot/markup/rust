@@ -1,0 +1,2023 @@
+[#grammar-invocation grammar and invocation] | [#var-expr variables and expressions] | [#arithmetic-logic arithmetic and logic] | [#strings strings] | [#dates-time dates and time] | [#fixed-length-arrays fixed-length arrays] | [#resizable-arrays resizable arrays] | [#lists lists] | [#tuples tuples] | [#dictionaries dictionaries] | [#functions functions] | [#execution-control execution control] | [#exceptions exceptions] | [#concurrency concurrency] | [#file-handles file handles] | [#files files] | [#directories directories] | [#processes-environment processes and environment] | [#libraries-namespaces libraries and namespaces] | [#user-defined-types user-defined types] | [#objects objects] | [#inheritance-polymorphism inheritance and polymorphism] | [#unit-tests unit tests] | [#debugging-profiling debugging and profiling] | [#repl repl]
+
+||~ ||~ [#rust rust]||~ [#swift swift]||~ [#scala scala]||
+||[[# version-used]][#version-used-note version used] _
+@<&nbsp;>@||##gray|//1.13//##||##gray|//2.1//##||##gray|//2.11//##||
+||[[# version]][#version-note show version] _
+@<&nbsp;>@||$ rustc @@--@@version||$ swift @@--@@version||$ scala -version||
+||[[# implicit-prologue]][#implicit-prologue-note implicit prologue]||##gray|//none//##||import Foundation||##gray|//none; but these libraries always available:// _
+ _
+@<&nbsp;&nbsp;>@java.lang _
+@<&nbsp;&nbsp;>@scala _
+ _
+//as are methods in// Predef##||
+||||||||~ [[# grammar-invocation]][#grammar-invocation-note grammar and invocation]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# interpreter]][#interpreter-note interpreter] _
+@<&nbsp;>@||##gray|//none//##||##gray|//none//##||$ echo 'println("hello")' > Hello.scala _
+ _
+$ scala hello.scala||
+||[[# compiler]][#compiler-note compiler]||$ cat hello.rs _
+fn main() { _
+@<&nbsp;&nbsp;>@println!("Hello, world!"); _
+} _
+ _
+$ rustc hello.rs _
+ _
+$ ./hello _
+Hello, world!||$ cat hello.swift _
+print("Hello, World!") _
+ _
+$ swift hello.swift _
+ _
+$ ./hello _
+Hello, World!||$ cat hello.scala _
+object Hello { _
+@<&nbsp;&nbsp;>@def main(args: Array[String]) { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println("Hello, World!") _
+@<&nbsp;&nbsp;>@} _
+} _
+ _
+$ scalac Hello.scala _
+$ scala Hello||
+||[[# statement-terminator]][#statement-terminator-note statement terminator]||; _
+ _
+##gray|//Newlines are not statement terminators; they are permitted wherever spaces or tabs are permitted to separate tokens.//##||; ##gray|//or sometimes newline _
+ _
+A newline does not terminate a statement when: _
+@<&nbsp;&nbsp;>@(1) inside [ ] of an array literal, _
+@<&nbsp;&nbsp;>@(2) inside of ( ) parens, _
+@<&nbsp;&nbsp;>@(3) after a binary operator, _
+@<&nbsp;&nbsp;>@(4) other situations?//##||; ##gray|//or sometimes newline//## _
+ _
+##gray|//A newline does not terminate a statement: _
+@<&nbsp;&nbsp;>@(1) inside ( ) or [ ], _
+@<&nbsp;&nbsp;>@(2) if the preceding line is not a complete statement, _
+@<&nbsp;&nbsp;>@(3) if following token not legal at start of a statement.//##||
+||[[# blocks]][#blocks-note block delimiters] _
+@<&nbsp;>@||{ }||{ }||{ }||
+||[[# end-of-line-comment]][#end-of-line-comment-note end-of-line comment] _
+@<&nbsp;>@||@@//@@ ##gray|//comment//##||@@//@@ ##gray|//comment//##||@@//@@ ##gray|//comment//##||
+||[[# multiple-line-comment]][#multiple-line-comment-note multiple line comment] _
+@<&nbsp;>@||/* ##gray|//comment line//## _
+/* ##gray|//nested comment//## */ _
+*/||/* ##gray|//comment line//## _
+/* ##gray|//nested comment//## */ _
+*/||/* ##gray|//comment line//## _
+/* ##gray|//nested comment//## */ _
+*/||
+||||||||~ [[# var-expr]][#var-expr-note variables and expressions]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# value]][#value-note write-once variable] _
+@<&nbsp;>@||let pi: f64 = 3.14;||let Pi = 3.14||##gray|@@//@@ evaluates 1 + p immediately:## _
+val n = 1 + p _
+ _
+##gray|@@//@@ evaluated first time n is accessed:## _
+lazy val n = 1 + p||
+||[[# variable]][#variable-note modifiable variable]||let mut n: i32 = 3; _
+n += 1;||var n = 3 _
+n +=  1||var n = 3 _
+n += 1 _
+ _
+##gray|@@//@@ evaluates 1 + 2 each time n is used:## _
+def n = 1 + 2||
+||[[# assignment]][#assignment-note assignment]||let mut i: i32 = 0; _
+ _
+##gray|@@//@@ compiler warns if assignment value not used## _
+i = 3;||var i = 0 _
+ _
+i = 3|| ||
+||[[# parallel-assignment]][#parallel-assignment-note parallel assignment]||##gray|@@//@@ only in variable definition:## _
+let (m, n) = (3, 7);||var (m, n) = (3, 7)|| val (m, n) = (3, 7) ||
+||[[# swap]][#swap-note swap]||let tmp; _
+tmp = x; _
+x = y; _
+y = tmp;||(x, y) = (y, x)|| ||
+||[[# compound-assignment]][#compound-assignment-note compound assignment]||##gray|//arithmetic://## _
++= -= *= /= %= _
+ _
+##gray|//string//:## _
++=||##gray|//arithmetic://## _
++= -= *= /= %= _
+ _
+##gray|//string://## _
++= _
+ _
+##gray|//bit://## _
+@@<<= >>= &= |= ^=@@||##gray|//arithmetic://## _
++= -= *= /= %= _
+ _
+##gray|//string://## _
+##gray|//none//## _
+ _
+##gray|//bit://## _
+@@<<= >>= &= |= ^=@@||
+||[[# unit]][#unit-note unit type and value]||() _
+()||Void _
+()||Unit _
+()||
+||[[# conditional-expression]][#conditional-expression-note conditional expression]||if x > 0 { x } else { -x }||x > 0 ? x : -x||val n = -3 _
+if (n < 0) -n else n||
+||[[# branch-type-mismatch]][#branch-type-mismatch-note branch type mismatch]||##gray|@@//@@ does not compile:## _
+if true { "hello" } else { 3 }||##gray|@@//@@ syntax error:## _
+true ? "hello" : 3||##gray|// expression has type Any:## _
+if (true) { "hello" } else { 3 }||
+||[[# null]][#null-note null] _
+@<&nbsp;>@||##gray|@@//@@ Option types only:## _
+None||##gray|@@//@@ option types only:## _
+nil||null||
+||[[# nullable-type]][#nullable-type-note nullable type]|| let a: Vec<Option<i32@@>>@@ = _
+@<&nbsp;&nbsp;>@vec![Some(3_i32), None, Some(-4_i32)];|| ||val a = List(Some(3), null, Some(-4))||
+||[[# null-test]][#null-test-note null test]||let a = vec![Some(1_i32), None]; _
+ _
+match a[0] { _
+@<&nbsp;&nbsp;>@None => println!("a[0] is none"), _
+@<&nbsp;&nbsp;>@Some(i) => println!("a[0]: {}", i), _
+} _
+ _
+##gray|@@//@@ simple comparison also works:## _
+if a[1] == None { _
+@<&nbsp;&nbsp;>@println!("a[1] is none"); _
+}|| || ||
+||[[# coalesce]][#coalesce-note coalesce]||let a = vec![Some(1_i32), None]; _
+let i: i32 = a[1].unwrap_or(0_i32);|| || ||
+||[[# nullif]][#nullif-note nullif]|| || || ||
+||[[# expr-type-declaration]][#expr-type-decl-note expression type declaration]|| || ||1: Double||
+||||||||~ [[# arithmetic-logic]][#arithmetic-logic-note arithmetic and logic]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# boolean-type]][#boolean-type-note boolean type] _
+@<&nbsp;>@||bool||Bool||Boolean||
+||[[# true-false]][#true-false-note true and false] _
+@<&nbsp;>@||true false||true false||true false||
+||[[# falsehoods]][#falsehoods-note falsehoods]||false||false||false||
+||[[# logical-op]][#logical-op-note logical operators]||@@&& || !@@ _
+ _
+##gray|//@@&& and ||@@ are short-circuit operators.//##||@@&& || !@@||&& @@||@@ !||
+||[[# relational-op]][#relational-op-note relational operators]||== != < > <= >=||== != < > <= >=||== != < > <= >=||
+||[[# min-max]][#min-max-note min and max]|| || ||math.min 1 2 _
+math.max 1 2||
+||[[# int-type]][#int-type-note integer type]||i8 _
+i16 _
+i32 _
+i64||Int8 _
+Int16 _
+Int32 (Int) _
+Int64||##gray|//type of integer literals://## _
+Int _
+##gray|//other modular types://## _
+Byte Short Long _
+##gray|//arbitrary precision type://## _
+BigInt||
+||[[# unsigned-int-type]][#unsigned-int-type-note unsigned integer type]||u8 _
+u16 _
+u32 _
+u64||UInt8 _
+UInt16 _
+UInt32 _
+UInt64 (UInt)|| ||
+||[[# int-literal]][#int-literal-note integer literal]||-4 _
+ _
+##gray|@@//@@ specify size:## _
+-4_i32|| ||-4||
+||[[# float-type]][#float-type-note float type]||f32 _
+f64||Float _
+Double||##gray|//type of float literals://## _
+Double _
+##gray|//other types://## _
+Float||
+||[[# arith-op]][#arith-op-note arithmetic operators]||+ - * / %||+ - * / %||+ - * / %||
+||[[# add-int-float]][#add-int-float-note add integer and float]||let n: i32 = 3; _
+let x = n as f64; _
+let y = x + 0.5;|| ||3 + 7.0||
+||[[# int-div]][#int-div-note integer division] _
+##gray|//and remainder//##||7 / 3 _
+7 % 3||7 / 3 _
+7 % 3||7 / 3 _
+7 % 3||
+||[[# int-div-zero]][#int-div-zero-note integer division by zero]||##gray|//runtime error//##||##gray|//process sent a// SIGILL //signal//##||java.lang.ArithmeticException||
+||[[# float-div]][#float-div-note float division] _
+@<&nbsp;>@||7_f64 / 3_f64||Double(7) / 3||(7: Double) / 3||
+||[[# float-div-zero]][#float-div-zero-note float division by zero]||##gray|@@//@@ these are float values but not literals:## _
+inf, Nan, or -inf||##gray|@@//@@ these are float values but not literals:## _
++Inf, NaN, ##gray|//or//## -Inf||##gray|//evaluates to// Infinity, NaN, //or// -Infinity, //values which do not have literals//##||
+||[[# power]][#power-note power]||let n = 2_i64.pow(32_u32); _
+let x1 = 3.14_f64.powi(32_i32); _
+let x2 = 3.14_f64.powf(3.5_f64);||pow(2.0, 32.0)||math.pow(2, 32)||
+||[[# sqrt]][#sqrt-note sqrt] _
+@<&nbsp;>@||let x = 2_f64.sqrt();||sqrt(2.0)||math.sqrt(2)||
+||[[# sqrt-negative-one]][#sqrt-negative-one-note sqrt -1]||let x = (-1_f64).sqrt(); _
+ _
+##gray|@@//@@ No negative literals and unary negation has lower _
+@@//@@ precedence that a method, so this is -1:## _
+let y = -1_f64.sqrt();||##gray|// NaN:## _
+sqrt(-1)||##gray|math.sqrt(-1) //evaluates to// NaN, //a value which has no literal//##||
+||[[# transcendental-func]][#transcendental-func-note transcendental functions]||let x = 0.5_f64; _
+ _
+x.exp() x.ln() x.log2() x.log10() _
+x.sin() x.cos() x.tan() _
+x.asin() x.acos() x.atan() _
+x.atan2(3.1_f64)||exp log log2 log10 _
+sin cos tan _
+asin acos atan _
+atan2||math.exp math.log _
+math.sin math.cos math.tan _
+math.asin math.acos math.atan math.atan2||
+||[[# transcendental-const]][#transcendental-const-note transcendental constants]||std::f64::consts::PI _
+std::f64::consts::E|| ||math.Pi _
+math.E||
+||[[# float-truncation]][#float-truncation-note float truncation]||3.77_f64.trunc() _
+3.77_f64.round() _
+3.77_f64.floor() _
+3.77_f64.ceil()||Int(3.77) _
+Int(round(3.77)) _
+Int(floor(3.77)) _
+Int(ceil(3.77))||##gray|//??//## _
+3.14.round _
+3.14.floor ##gray|//returns Double//## _
+3.14.ceil ##gray|//returns Double//##||
+||[[# abs-val]][#abs-val-note absolute value] _
+##gray|//and signum//##||-7_i32.abs() _
+-7.1_f64.abs() _
+-7_i32.signum() _
+-7.1_f64.signum()||abs(-7) _
+fabs(-7.77)||math.abs(-7) _
+math.signum(-7)||
+||[[# int-overflow]][#int-overflow-note integer overflow]||##gray|//panic//##|| ||##gray|//modular arithmetic for all types except//## BigInt||
+||[[# float-overflow]][#float-overflow-note float overflow]||##gray|//evaluates to// std::f32::INFINITY //or// std::f64::INFINITY##|| ||##gray|//evaluates to// Infinity, //a value which has no literal//##||
+||[[# arbitrary-len-int]][#arbitrary-len-int-note arbitrary length integer]|| || ||val n = BigInt(7) _
+val m = BigInt(12)||
+||[[# arbitrary-len-int-op]][#arbitrary-len-int-op-note arbitrary length integer operators]|| || ||n + m _
+n - m _
+n * m _
+n / m _
+n % m _
+ _
+n == m _
+n < m _
+n < m _
+n <= m _
+n >= m||
+||[[# random-num]][#random-num-note random number] _
+##gray|//uniform int, uniform float, normal float//##||use std::rand; _
+ _
+let n =  rand::random::<uint>() % 100u; _
+let x = rand::random::<f64>(); _
+##gray|//??//##||let i = rand() _
+##gray|//??//##||import scala.util.Random _
+ _
+val rnd = Random _
+ _
+rnd.nextInt(100) _
+rnd.nextDouble _
+rnd.nextGaussian||
+||[[# random-seed]][#random-seed-note random seed] _
+##gray|//set, get, restore//##|| ||srand(17)||import scala.util.Random _
+ _
+val rnd = Random _
+ _
+rnd.setSeed(17) _
+##gray|//none//## _
+##gray|//none//##||
+||[[# bit-op]][#bit-op-note bit operators]||@<<< >> & | ^ !>@||@<<< >> & | ^ ~>@||1@@ << @@ 4 _
+1 @@ >> @@ 4 _
+1 & 3 _
+1 | 3 _
+1 ^ 3 _
+~ 1||
+||[[# binary-octal-hex-literals]][#binary-octal-hex-literals-note binary, octal, and hex literals]||0b101010 _
+0o52 _
+0x21|| ||##gray|//none//## _
+052 _
+0x2a||
+||[[# radix]][#radix-note radix]|| || ||Integer.toString(42, 7) _
+Integer.parseInt("60", 7)||
+||||||||~ [[# strings]][#strings-note strings]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# str-type]][#str-type-note string type] _
+@<&nbsp;>@||String _
+ _
+##gray|//string reference://## _
+&str||String||java.lang.String||
+||[[# str-literal]][#str-literal-note string literal] _
+@<&nbsp;>@||let s: &str = "don't say \"no\""; _
+let s2: String = "don't say \"no\"".to_string();||"hello"||"Hello, World!" _
+ _
+"""Hello, World!"""||
+||[[# newline-in-str-literal]][#newline-in-str-literal-note newline in literal]||let s: &str = "first line _
+second line"; _
+ _
+##gray|@@//@@ foobar:## _
+let s2: &str = "foo\ _
+@<&nbsp;&nbsp;>@bar";||##gray|//no//##||##gray|//in triple quote literal only//##||
+||[[# str-esc]][#str-esc-note literal escapes]||\0 \\ \t \n \r \" \\ _
+\x##gray|//hh//## \u##gray|//hhhh//## \U##gray|//hhhhhhhh//##||\0 \\ \t \n \r \" \' _
+\x##gray|//hh//## \u##gray|//hhhh//## \U##gray|//hhhhhhhh//##||\b \f \n \r \t \" \' _
+\u##gray|//hhhh//## \##gray|//o//## \##gray|//oo//## \##gray|//ooo//##||
+||[[# format-str]][#format-str-note format string]||let s = format!("foo {} {} {}", "bar", 7, 3.14_f32);||let n = 3, m = 5 _
+let msg =  "\(n) + \(m) is \(n + m)"||"foo %s %d %.2f".format("bar", 7, 3.1415) _
+ _
+val n = 3 _
+val m = 5 _
+val msg = s"$n + $m is ${n + m}"||
+||[[# str-concat]][#str-concat-note concatenate] _
+@<&nbsp;>@||let s1: String  = "hello".to_string(); _
+let s2: &str = " world"; _
+let s: String = s1 + s2;||"hello" + " world"||"Hello" + ", " + "World!"||
+||[[# str-replicate]][#str-replicate-note replicate] _
+@<&nbsp;>@|| ||let ch: Character = "-" _
+let hbar = String(count: 80, repeatedValue: ch)||val hbar = "-" * 80||
+||[[# translate-case]][#translate-case-note translate case] _
+##gray|//to upper, to lower//##||s.to_uppercase() _
+s.to_lowercase()||let s = "hello" _
+let s2 = s.uppercaseString _
+ _
+let s3 = "HELLO" _
+let s4 = s3.lowercaseString||"hello".toUpperCase _
+"HELLO".toLowerCase ||
+||[[# capitalize]][#capitalize-note capitalize] _
+@<&nbsp;>@|| || ||"hello".capitalize||
+||[[# trim]][#trim-note trim] _
+##gray|//both sides, left, right//##|| || ||" hello ".trim||
+||[[# pad]][#pad-note pad] _
+##gray|//on left, on right//##|| || ||##gray|//??//## _
+"hello".padTo(10, " ").mkString||
+||[[# num-to-str]][#num-to-str-note number to string]|| ||let n = String(17) _
+let x = String(17.3)||"two: " + 2.toString _
+"pi: " + 3.14.toString||
+||[[# str-to-num]][#str-to-num-note string to number]||let n = "12".parse::<i32>().unwrap(); _
+let x = ".037".parse::<f64>().unwrap(); _
+ _
+##gray|@@//@@ parse() returns an Option type. _
+@@//@@ unrwap() panics if parse() returns None.##||"17".toInt() _
+ _
+##gray|// evaluates to nil:## _
+"17foo".toInt() _
+ _
+##gray|// convert to float?##||7 + "12".toInt _
+73.9 + ".037".toFloat _
+##gray|//raises// NumberFormatException //if string doesn't completely parse//##||
+||[[# join]][#join-note join] _
+@<&nbsp;>@|| || || List("do", "re", "mi").mkString(" ")||
+||[[# split]][#split-note split] _
+@<&nbsp;>@|| || ||"do re mi".split(" ")||
+||[[# char-type]][#char-type-note character type] _
+@<&nbsp;>@|| ||Character||Char||
+||[[# char-literal]][#char-literal-note character literal]|| || ||'h'||
+||[[# str-len]][#str-len-note length] _
+@<&nbsp;>@|| ||countElements("hello")||"hello".length||
+||[[# index-substr]][#index-substr-note index of substring]|| || ||"hello".indexOf("hell")||
+||[[# substr]][#substr-note extract substring]|| || ||"hello".substring(0, 4)||
+||[[# extract-char]][#extract-char-note extract character]|| || ||"hello"(0)||
+||[[# chr-ord]][#chr-ord-note chr and ord]|| || ||'a'.toInt _
+97.toChar||
+||||||||~ [[# dates-time]][#dates-time-note dates and time]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# dates-time-types]][#dates-time-types-note date and time types]||extern crate chrono; _
+ _
+chrono::DateTime|| ||java.util.Date||
+||[[# current-date-time]][#current-date-time-note current date and time]||extern crate chrono; _
+ _
+let dt = Local::now(); _
+let dt_utc = UTC::now();|| ||import java.util.Date _
+ _
+val dt = new Date()||
+||[[# current-unix-epoch]][#current-unix-epoch-note current unix epoch]||extern crate chrono; _
+ _
+let dt = UTC::now(); _
+let t = dt.timestamp();|| ||dt.getTime / 1000||
+||to unix epoch, from unix epoch||extern crate chrono; _
+ _
+let t = dt.timestamp(); _
+let dt2 = chrono::NaiveDateTime::from_timestamp(t, 0);|| ||dt.getTime / 1000 _
+ _
+val dt2 = new Date(1451600610 * 1000)||
+||format date||dt.format("%Y-%m-%d %H:%M:%S")|| ||import java.text.SimpleDateFormat _
+ _
+val fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss") _
+val s = fmt.format(dt)||
+||parse date|| || ||import java.text.SimpleDateFormat _
+ _
+val fmt = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss") _
+val dt = fmt.parse("2011-05-03 17:00:00")||
+||date subtraction|| || ||##gray|@@//@@ difference in milliseconds as Long:## _
+dt2.getTime - dt.getTime||
+||add duration|| || ||##gray|@@//@@ add one day:## _
+val dt2 = new Date(dt.getTime + 86400 * 1000)||
+||date parts|| || ||import java.util.Date _
+import java.util.Calendar _
+import java.util.GregorianCalendar _
+ _
+al cal = new GregorianCalendar _
+cal.setTime(new Date) _
+ _
+cal.get(Calendar.YEAR) _
+cal.get(Calendar.MONTH) + 1 _
+cal.get(Calendar.DAY_OF_MONTH)||
+||time parts|| || ||import java.util.Date _
+import java.util.Calendar _
+import java.util.GregorianCalendar _
+ _
+al cal = new GregorianCalendar _
+cal.setTime(new Date) _
+ _
+cal.get(Calendar.HOUR_OF_DAY) _
+cal.get(Calendar.MINUTE) _
+cal.get(Calendar.SECOND)||
+||build broken-down datetime|| || ||import java.util.GregorianCalendar _
+ _
+val cal = new GregorianCalendar(2015, 12, 31, 23, 59, 59) _
+val dt = cal.getTime||
+||||||||~ [[# fixed-length-arrays]][#fixed-length-arrays-note fixed-length arrays]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# array-literal]][#array-literal-note literal]||let nums = [1i32, 2i32, 3i32];|| ||val a = Array(1, 2, 3)||
+||[[# array-size]][#array-size-note size]|| || ||a.size||
+||[[# array-lookup]][#array-lookup-note lookup]||nums[0]|| ||val n = a(0)||
+||[[# array-update]][#array-update-note update]||let mut nums = [1i32, 2i32, 3i32]; _
+ _
+a[2] = 4;|| ||a(2) = 4||
+||[[# array-out-of-bounds]][#array-out-of-bounds-notes out-of-bounds]||##gray|//compilation error//##|| ||##gray|//raises//## java.lang.ArrayIndexOutOfBounds||
+||||||||~ [[# resizable-arrays]][#resizable-arrays-note resizable arrays]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# declare-array]][#declare-array-note declare]||let mut a = Vec::new(); _
+let mut a2: Vec<i32> = Vec::new();||let a: Array<Int> = [] _
+let a2: Int[] = []|| ||
+||[[# array-literal]][#array-literal-note literal]||let mut a = vec![1, 2, 3];||##gray|@@//@@ array is mutable; variable is not:## _
+let a = [1, 2, 3]||import scala.collection.mutable.ArrayBuffer _
+ _
+val a = ArrayBuffer(1, 2, 3)||
+||[[# array-size]][#array-size-note size]||a.len()||a.count||a.length||
+||[[# array-lookup]][#array-lookup-note lookup]||a[0]||a[0]||a(0)||
+||[[# array-update]][#array-update-note update]||a[0] = 4;||a[0] = 4||a(0) = 4||
+||[[# array-out-of-bounds]][#array-out-of-bounds-notes out-of-bounds]||let mut a = vec![1, 2, 3]; _
+ _
+##gray|@@//@@ thread panics:## _
+let n = a[7]; _
+ _
+##gray|@@//@@ returns None:## _
+let n = a.get(7);||##gray|//raises// SIGILL##||##gray|//raises// java.lang.ArrayIndexOutOfBoundsException##||
+||[[# array-element-index]][#array-element-index-note element index]|| || ||a.indexOf(3)||
+||[[# slice-array]][#slice-array-note slice]|| ||var a = ["a", "b", "c", "d", "e"] _
+ _
+##gray|@@//@@ ["c", "d"]:## _
+a[2@@...@@3] _
+a[2..4]||val a = ArrayBuffer("a", "b", "c", "d", "e") _
+ _
+##gray|@@//@@ ArrayBuffer("c", "d"):## _
+a.slice(2, 4)||
+||[[# slice-array-to-end]][#slice-array-to-end-note slice to end]|| || ||##gray|@@//@@ ArrayBuffer("c", "d", "e"):## _
+a.drop(2)||
+||[[# array-back]][#array-back-note manipulate back]||let mut a: Vec<i32> = vec![1, 2, 3]; _
+a.push(4); _
+let n = a.pop();||let a = [1, 2, 3] _
+a.append(4) _
+##gray|@@//@@ sets num to 4:## _
+let num = a.removeLast()||##gray|@@//@@ two ways to append:## _
+a.append(4) _
+a += 4 _
+ _
+##gray|@@//@@ inspect last item:## _
+val x = a.last _
+ _
+##gray|@@//@@ pop last item:## _
+val y = a.remove(a.length - 1)||
+||[[# array-front]][#array-front-note manipulate front]|| ||let a = [1, 2, 3] _
+a.insert(0, atIndex: 0) _
+##gray|@@//@@ sets num to 0:## _
+let num = a.removeAtIndex(0)||val a = ArrayBuffer(7, 8, 9) _
+ _
+a.insert(0, 6) _
+ _
+##gray|@@//@@ inspect first element:## _
+val x = a.first _
+ _
+##gray|@@//@@ pop first element:## _
+val y = a.remove(0)||
+||[[# concatenate-array]][#concatenate-array-note concatenate]|| ||let a = [1, 2, 3] _
+a += [4, 5, 6] _
+ _
+let a3 = [1, 2, 3] + [4, 5, 6]||val a1 = ArrayBuffer(1, 2, 3) _
+val a2 = ArrayBuffer(4, 5, 6) _
+ _
+##gray|@@//@@ new ArrayBuffer:## _
+val a2 = a1 ++ a2 _
+ _
+##gray|@@//@@ add elements to a1:## _
+a1 ++= a2||
+||[[# copy-array]][#copy-array-note copy]||let a: Vec<i32> = vec![1, 2, 3]; _
+let mut a2 = a.clone(); _
+##gray|@@//@@ a[0] does not change:## _
+a2[0] = 4;||let a = [1, 2, 3] _
+ _
+let a2 = a _
+##gray|@@//@@ also modifies a[0]:## _
+a2[0] = 4 _
+ _
+a3 = Array(a) _
+##gray|@@//@@ a[0] remains 4:## _
+a3[0] = 5||val a = ArrayBuffer(1, 2, 3) _
+val a2 = ArrayBuffer[Int]() _
+a2 ++= a||
+||[[# iterate-over-array]][#iterate-over-array-note iterate over elements]||let a: Vec<i32> = vec![1, 2, 3]; _
+for i in a { _
+@<&nbsp;&nbsp;>@println!("i: {}", i); _
+}|| ||for (n <- a) _
+@<&nbsp;&nbsp;>@println(n)||
+||[[# iterate-indices-elem]][#iterate-indices-elem-note iterate over indices and elements]|| || ||for ((n, i) <- a.zipWithIndex) { _
+@<&nbsp;&nbsp;>@println(s"item: $n is at: $i") _
+}||
+||[[# reverse-array]][#reverse-array-note reverse]||let mut a: Vec<i32> = vec![1, 2, 3]; _
+a.reverse();||let a = [1, 2, 3] _
+let a2 = a.reverse()||val a2 = a.reverse||
+||[[# sort-array]][#sort-array-note sort]||let mut a: Vec<i32> = vec![3, 1, 4, 2]; _
+a.sort();||let a = [1, 3, 2, 4] _
+ _
+##gray|@@//@@ modifies a in-place and returns it:## _
+sort(a)||val a = ArrayBuffer(3, 1, 4, 2) _
+val a2 = a.sortWith(_ < _)||
+||[[# array-dedupe]][#array-dedupe-note dedupe]|| || ||ArrayBuffer(1, 2, 3, 3).distinct _
+ _
+##gray|@@//@@ scala.collection.immutable.Set[Int]:## _
+val set = a.toSet||
+||[[# array-membership]][#array-membership-note membership]||if a.contains(&7) { _
+@<&nbsp;&nbsp;>@println!("contains 7"); _
+}|| ||ArrayBuffer(1, 2, 3).contains(7)||
+||[[# array-intersection]][#array-intersection-note intersection]|| || ||val a1 = ArrayBuffer(1, 2) _
+val a2 = ArrayBuffer(2, 3, 4) _
+##gray|@@//@@ multiset intersection:## _
+a1.intersect(a2)||
+||[[# array-union]][#array-union-note union]|| || ||val a1 = ArrayBuffer(1, 2) _
+val a2 = ArrayBuffer(2, 3, 4) _
+##gray|@@//@@ multiset union:## _
+a1.union(a2)||
+||[[# array-relative-complement]][#array-relative-complement-note relative complement]|| || ||val a1 = ArrayBuffer(1, 2) _
+val a2 = ArrayBuffer(2, 3, 4) _
+##gray|@@//@@ multiset difference:## _
+a1.diff(a2)||
+||[[# map]][#map-note map]|| || ||a.map(x => x * x)||
+||[[# filter]][#filter-note filter]|| || ||a.filter(_ > 2)||
+||[[# array-fold-left]][#array-fold-left-note fold left]|| || ||##gray|@@//@@ -6:## _
+ArrayBuffer(1, 2, 3).foldLeft(0)(_ - _)||
+||[[# array-fold-right]][#array-fold-right-note fold right]|| || ||##gray|@@//@@ -2:## _
+ArrayBuffer(1, 2, 3).foldRight(0)(_ - _)||
+||[[# array-shuffle]][#array-shuffle-note shuffle]|| || ||val rand = scala.util.Random _
+val a = rand.shuffle(ArrayBuffer(1, 2, 3, 4))||
+||[[# array-flatten]][#array-flatten-note flatten]|| || ||val a = ArrayBuffer(ArrayBuffer(1, 2), ArrayBuffer(3, 4)) _
+val a2 = a.flatten||
+||[[# array-zip]][#array-zip-note zip]|| || ||ArrayBuffer(1, 2, 3).zip(ArrayBuffer("a", "b", "c"))||
+||||||||~ [[# lists]][#lists-note lists]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# list-literal]][#list-literal-note literal]|| || ||##gray|@@//@@ none; use constructor:## _
+List(1, 2, 3)||
+||[[# empty-list]][#empty-list-note empty list] _
+@<&nbsp;>@|| || ||Nil _
+List()||
+||[[# empty-list-test]][#empty-list-test-note empty list test]|| || ||val list = List(1, 2, 3) _
+ _
+list == Nil _
+list.isEmpty||
+||[[# cons]][#cons-note cons] _
+@<&nbsp;>@|| || || 1 :: List(2, 3)||
+||[[# head]][#head-note head] _
+@<&nbsp;>@|| || ||List(1, 2, 3).head||
+||[[# tail]][#tail-note tail] _
+@<&nbsp;>@|| || ||List(1, 2, 3).tail||
+||[[# head-tail-empty-list]][#head-tail-empty-list-note head and tail of empty list]|| || ||##gray|@@//@@ NoSuchElementException:## _
+Nil.head _
+ _
+##gray|@@//@@ UnsupportedOperationException:## _
+Nil.tail||
+||[[# list-length]][#list-length-note length] _
+@<&nbsp;>@|| || ||List(1, 2, 3).length||
+||[[# nth-elem-of-list]][#nth-elem-of-list-note nth element] _
+@<&nbsp;>@|| || ||List(1, 2, 3)(0)||
+||[[# list-elem-index]][#list-elem-index-note element index]|| || ||##gray|@@//@@ evaluates to 1:## _
+List(7, 8, 9).indexOf(8) _
+ _
+##gray|@@//@@ evaluates to -1:## _
+List(7, 8, 9).indexOf(10)||
+||[[# update-list]][#update-list-note update]|| || ||##gray|@@//@@ evaluates to List(1, 4, 3):## _
+List(1, 2, 3).updated(1, 4)||
+||[[# concat-list]][#concat-list-note concatenate] _
+##gray|//two lists, list of lists//##|| || ||List(1, 2) ::: List(3, 4) _
+List(1, 2) ++ List(3, 4) _
+ _
+List(List(1, 2), List(3, 4)).flatten||
+||[[# list-last]][#list-last-note last] _
+##gray|//and butlast//##|| || ||List(1, 2, 3).last _
+List(1, 2, 3).init||
+||[[# list-take]][#list-take-note take] _
+@<&nbsp;>@|| || ||List(1, 2, 3).take(2)||
+||[[# list-drop]][#list-drop-note drop] _
+@<&nbsp;>@|| || ||List(1, 2, 3).drop(2)||
+||[[# iterate-over-list]][#iterate-over-list-note iterate]|| || ||List(1, 2, 3).foreach(i => println(i)) _
+ _
+for (i <- List.range(1, 11).reverse) _
+@<&nbsp;&nbsp;>@println(i)||
+||[[# reverse-list]][#reverse-list-note reverse] _
+@<&nbsp;>@|| || ||List(1, 2, 3).reverse||
+||[[# sort-list]][#sort-list-note sort]|| || ||List(1, 3, 2, 4).sortWith((x, y) => x < y) _
+List(1, 3, 2, 4).sortWith(_ < _) _
+List(1, 3, 2, 4).sortWith((x, y) => x > y) _
+List(1, 3, 2, 4).sortWith(_ > _)||
+||[[# map-list]][#map-list-note map]|| || ||List(1, 2, 3).map(x => 2 * x) _
+List(1, 2, 3).map(2 * _)||
+||[[# filter-list]][#filter-list-note filter] _
+@<&nbsp;>@|| || ||List(1, 2, 3).filter(x => x > 2)||
+||[[# fold-list-left]][#fold-list-left-note fold from left]|| || ||List(1, 2, 3).foldLeft(0)(_ + _) _
+List(1, 2, 3).foldLeft(0)((x, y) => x + y)||
+||[[# fold-list-right]][#fold-list-right-note fold from right] _
+@<&nbsp;>@|| || ||List(1, 2, 3).foldRight(0)(_ - _)||
+||[[# list-member]][#list-member-note membership] _
+@<&nbsp;>@|| || ||List(1, 2, 3).contains(3)||
+||[[# universal-test-list]][#universal-test-list-note universal test] _
+@<&nbsp;>@|| || ||List(1, 2, 3).forall(_ > 2)||
+||[[# existential-test-list]][#existential-test-list-note existential test] _
+@<&nbsp;>@|| || ||List(1, 2, 3).exists(_ > 2)||
+||[[# zip-list]][#zip-list-note zip lists]|| || ||List(1, 2, 3).zip(List("a", "b", "c"))||
+||||||||~ [[# tuples]][#tuples-note tuples]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# tuple-literal]][#tuple-literal-note literal] _
+@<&nbsp;>@||(1, "hello", true)||(1, "hello", true)||(1, "hello", true)||
+||[[# tuple-type]][#tuple-type-note type] _
+@<&nbsp;>@|| let tup: (i32, &str, bool) = (1, "hello", true);||let tup: (Int, String, Bool) = (1, "hello", true)||val tup: (Int, String, Boolean) = (7, "foo", true)||
+||[[# tuple-lookup]][#tuple-lookup-note lookup]||let tup = (1, "hello", true); _
+let n: i32 = tup.0||let tup = (1, "hello", true) _
+let n: Int = tup.0||val tup = (1, "hello", true) _
+val n: Int = tup._1||
+||[[# deconstruct-tuple]][#deconstruct-tuple-note deconstruct]||let tup = (1, "hello", true); _
+let (n, s, b) = tup; _
+ _
+##gray|@@//@@ use underscores for unneeded elements:## _
+let (n, _, _) = tup;||let tup = (1, "hello", true) _
+let (n, s, b) = tup _
+ _
+##gray|@@//@@ use underscores for unneeded elements:## _
+let (n, _, _) = tup||val tup = (1, "hello", true) _
+tup match { _
+@<&nbsp;&nbsp;>@case (_, s, _) => println(s) _
+@<&nbsp;&nbsp;>@case _ => throw new Exception("bad tuple") _
+}||
+||||||||~ [[# dictionaries]][#dictionaries-note dictionaries]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# declare-dict]][#declare-dict-note declare]||let mut dict = std::collections::HashMap::new();||let dict = Dictionary<String, Int>()||import scala.collection.mutable _
+ _
+val dict = mutable.Map.empty[String, Int]||
+||[[# dict-literal]][#dict-literal-note literal]||##gray|@@//@@ no dict literal## _
+let mut dict = std::collections::HashMap::new(); _
+dict.insert("t", 1); _
+dict.insert("f", 0);||let dict = ["t": 1, "f": 0]||##gray|@@//@@ scala.collection.immutable.Map[String,Int]:## _
+val dict = Map("t" -> 1, "f" -> 0)||
+||[[# dict-size]][#dict-size-note size] _
+@<&nbsp;>@||dict.len()||dict.count||dict.size||
+||[[# dict-lookup]][#dict-lookup-note lookup]|| ||dict["t"]||dict("f") _
+ _
+##gray|@@//@@ returns Option[Int]:## _
+dict.get("f")||
+||[[# dict-update]][#dict-update-note update]|| ||dict["t"] = 2||##gray|@@//@@ mutable.Map only:## _
+dict("t") = 2||
+||[[# dict-out-of-bounds]][#dict-out-of-bounds-note out-of-bounds behavior] _
+@<&nbsp;>@|| ||##gray|//returns//## nil||##gray|//raises// java.util.NoSuchElementException##||
+||[[# dict-is-key-present]][#dict-is-key-present-note is key present]|| ||if dict["y"] { _
+@<&nbsp;&nbsp;>@println("key found") _
+} else { _
+@<&nbsp;&nbsp;>@println("no such key") _
+}||dict.exists(kv  => kv._1 == "t")||
+||[[# dict-delete]][#dict-delete-note delete]|| ||dict.removeValueForKey("t")||##gray|@@//@@ mutable.Map only:## _
+dict.delete("t")||
+||[[# dict-iterate]][#dict-iterate-note iterate]|| ||for (k, v) in dict { _
+@<&nbsp;&nbsp;>@println("\(k): \(v)") _
+}||for (kv <- dict) { _
+@<&nbsp;&nbsp;>@println(kv._1) _
+@<&nbsp;&nbsp;>@println(kv._2) _
+}||
+||[[# dict-key-val]][#dict-key-val-note keys and values as arrays]|| ||##gray|@@//@@ dict.keys and dict.values are iterable:## _
+Array(dict.keys) _
+Array(dict.values)||##gray|@@//@@ Iterable[String]:## _
+dict.keys _
+##gray|@@//@@ Array[String]:## _
+dict.keys.toArray _
+dict.values _
+dict.values.toArray||
+||||||||~ [[# functions]][#functions-note functions]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# def-func]][#def-func-note define function]||fn add(x: f64, y: f64) -> f64 { _
+@<&nbsp;&nbsp;>@x + y _
+}||func add(n: Int, m: Int) -> Int { _
+@<&nbsp;&nbsp;>@return n + m _
+}||##gray|@@//@@ argument types must be declared:## _
+def average(a: Double, b: Double) _
+@<&nbsp;&nbsp;>@= (a + b) / 2.0 _
+ _
+##gray|@@//@@ return value type must be declared if _
+@@//@@ function is recursive:## _
+def factorial(n: Int): Int = _
+@<&nbsp;&nbsp;>@if (n < 1) _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@1 _
+@<&nbsp;&nbsp;>@else _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@n * factorial(n - 1)||
+||[[# invoke-func]][#invoke-func-note invoke function]||add(3.7, 2.8)||add(3, 7)||##gray|@@//@@ 3.0:## _
+average(1, 2 + 3) _
+ _
+##gray|@@//@@ 4.5:## _
+average(1, 2) + 3 _
+ _
+##gray|@@//@@ parens can be omitted when a function _
+@@//@@ takes no arguments; by convention parens _
+@@//@@ are omitted when the function has no _
+@@//@@ side effects##||
+||define function with block body|| || ||##gray|@@//@@ braces must be used if body _
+@@//@@ not an expression:## _
+def print_numbers() = { _
+@<&nbsp;&nbsp;>@println("one") _
+@<&nbsp;&nbsp;>@println("two") _
+}||
+||[[# nest-func]][#nest-func-note nest function]||fn add_one(x: f64) -> f64 { _
+ _
+@<&nbsp;&nbsp;>@fn add(x1: f64, y1: f64) -> f64 { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@x1 + y1 _
+@<&nbsp;&nbsp;>@} _
+ _
+@<&nbsp;&nbsp;>@add(x, 1.0) _
+}||func add_one(n: Int) -> Int { _
+@<&nbsp;&nbsp;>@func add(a: Int, b: Int) -> Int { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@return a + b _
+@<&nbsp;&nbsp;>@} _
+@<&nbsp;&nbsp;>@return add(1, n) _
+}|| ||
+||[#named-parameter named parameter]|| ||func my_log(#exp: Double, #base: Double) -> Double {  _
+@<&nbsp;&nbsp;>@return log(exp) / log(base) _
+} _
+ _
+##gray|@@//@@ expose different parameter names:## _
+func my_log(exp e: Double, base b: Double) -> Double { _
+@<&nbsp;&nbsp;>@return log(e) / log(b) _
+} _
+ _
+my_log(exp: 8, base: 2)||def subtract(m: Int, s: Int) = m - s _
+ _
+subtract(s = 3, m = 7)||
+||[#default-value named parameter default value]|| ||func incr(n: Int, amount: Int = 1) -> Int { _
+@<&nbsp;&nbsp;>@return n + amount _
+} _
+ _
+##gray|@@//@@ 4:## _
+incr(3) _
+ _
+##gray|@@//@@ 5:## _
+incr(3, amount: 2)||def logarithm(x: Double, _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@base: Double = math.exp(1)) = _
+@<&nbsp;&nbsp;>@math.log(x) / math.log(base) _
+ _
+logarithm(2.718) _
+logarithm(10, base = 2)||
+||[[# variable-num-arg]][#variable-num-arg-note variable number of arguments]|| ||func concat(strings: String@@...@@) -> String { _
+@<&nbsp;&nbsp;>@var retval = "" _
+@<&nbsp;&nbsp;>@for string in strings { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@retval += string _
+@<&nbsp;&nbsp;>@} _
+@<&nbsp;&nbsp;>@return retval _
+}|| ||
+||overload function|| ||func add(a: String, b: String) -> String { _
+@<&nbsp;&nbsp;>@return a + b _
+}|| ||
+||[[# retval]][#retval-note return value]||##gray|return //arg; otherwise last expression evaluated and not followed by semicolon; otherwise unit ()//##||##gray|return //arg//##||##gray|//if function body is preceded by// = // the return value is the// return //arg or last expression evaluated.//## _
+ _
+##gray|//If function body not preceded by// = //the return value is// Unit.##||
+||[[# multiple-retval]][#multiple-retval-note multiple return values]|| ||func divmod(dividend: Int, divisor: Int) -> (Int, Int) { _
+@<&nbsp;&nbsp;>@return (dividend / divisor, dividend % divisor) _
+}|| ||
+||[#recursive-function recursive function]|| || || def range(a:Int, b:Int): List[Int] = _
+@<&nbsp;&nbsp;>@if (a > b) _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@List() _
+@<&nbsp;&nbsp;>@else _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@a :: range(a + 1, b)||
+||[#anonymous-func anonymous function]|| ||let add_one = {(n: Int) -> Int in n + 1}||(x: Double, y: Double) => (x + y) / 2.0||
+||[[# invoke-anonymous-func]][#invoke-anonymous-func-note invoke anonymous function]|| ||add_one(2)|| ||
+||[[# func-as-val]][#func-as-val-note function as value]|| ||func add(n: Int, m: Int) -> Int { _
+@<&nbsp;&nbsp;>@return n + m _
+} _
+ _
+let f = add|| ||
+||[#infix-prefix infix operator in prefix position]|| || ||##gray|//none//##||
+||[#function-infix function in infix position]|| || ||##gray|//unary methods can be used as binary operators//##||
+||[#currying currying]|| || ||def plus(x: Int)(y: Int) = x + y _
+plus(3)(7) _
+def plus2 = plus(2) _
+plus2(7)||
+||[#lazy-evaluation lazy evaluation]|| || ||def arg1(x: => Int, y: => Int): Int = x  _
+ _
+arg1(7, 1 / 0)||
+||||||||~ [[# execution-control]][#execution-control-note execution control]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# if]][#if-note if]||let signum: i32; _
+ _
+if i > 0 { _
+@<&nbsp;&nbsp;>@signum = 1 _
+} else if i == 0 { _
+@<&nbsp;&nbsp;>@signum = 0 _
+} else { _
+@<&nbsp;&nbsp;>@signum = -1 _
+}||var signum: Int _
+ _
+if i > 0 { _
+@<&nbsp;&nbsp;>@signum = 1 _
+} else if i == 0 { _
+@<&nbsp;&nbsp;>@signum = 0 _
+} else { _
+@<&nbsp;&nbsp;>@signum = -1 _
+}||if (x > 0) _
+@<&nbsp;&nbsp;>@println("pos") _
+else if (x < 0) _
+@<&nbsp;&nbsp;>@println("neg") _
+else _
+@<&nbsp;&nbsp;>@println("zero")||
+||[[# while]][#while-note while]||let mut i: i32 = 0; _
+ _
+while i < 10 { _
+@<&nbsp;&nbsp;>@i += 1 _
+}||var i = 0 _
+ _
+while i < 10 { _
+@<&nbsp;&nbsp;>@i += 1 _
+}||var i = 0 _
+while (i<10) { _
+@<&nbsp;&nbsp;>@printf("%d\n", i) _
+@<&nbsp;&nbsp;>@i = i+1 _
+}||
+||[[# for]][#for-note for]||let mut n: i32 = 1; _
+ _
+for i in range(1i, 11i) { _
+@<&nbsp;&nbsp;>@n *= i; _
+}||var n = 1 _
+ _
+for var i = 1; i <= 10; i++ { _
+@<&nbsp;&nbsp;>@n *= i _
+}||for (i <- 1 to 10) _
+@<&nbsp;&nbsp;>@println(i)||
+||[[# infinite-loop]][#infinite-loop-note infinite loop]||loop { _
+ _
+}|| ||while (true) { _
+ _
+}||
+||[[# break-continue]][#break-continue-note break and continue] _
+@<&nbsp;>@||break continue|| ||import scala.util.control.Breaks.break _
+ _
+for (i <- 1 to 10) _
+@<&nbsp;&nbsp;>@if (i > 5) _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@break _
+@<&nbsp;&nbsp;>@else _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println(i) _
+ _
+##gray|@@//@@ there is no continue statement##||
+||||||||~ [[# exceptions]][#exceptions-note exceptions]||
+||~ ||~ rust||~ swift||~ scala||
+||[#raise-error raise error]||panic!("bam!");|| ||throw new Exception("bam!")||
+||[#handle-error handle error]||##gray|@@//@@ does not catch all panics:## _
+let result = std::panic::catch_unwind(@@||@@ { _
+@<&nbsp;&nbsp;>@panic!("bam!"); _
+}); _
+ _
+if result.is_ok() { _
+@<&nbsp;&nbsp;>@println!("no panic"); _
+}|| ||import java.lang._ _
+@<&nbsp;>@ _
+val x = try { _
+@<&nbsp;&nbsp;>@1 / 0 _
+} _
+catch { _
+@<&nbsp;&nbsp;>@case e: ArithmeticException => 0 _
+}||
+||[#standard-exceptions standard exceptions]|| || ||##gray|//defined in// java.lang:## _
+ _
+Throwable _
+@<&nbsp;&nbsp;>@Error _
+@<&nbsp;&nbsp;>@Exception _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@IOException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@EOFException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@FileNotFoundException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@MalformedURLException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@UnknownHostException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@ClassNotFoundException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@CloneNotSupportedException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@RuntimeException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@ArithmeticException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@ClassCastException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@IllegalArgumentException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@IllegalStateException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@IndexOutOfBoundsException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@NoSuchElementException _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@NullPointerException _
+ _
+##gray|Error, RuntimeException, //and subclasses theoreof are normally unrecoverable//##||
+||[#assert assert]||assert!(1 == 0);|| ||assert(1 == 0)||
+||||||||~ [[# concurrency]][#concurrency-note concurrency]||
+||~ ||~ rust||~ swift||~ scala||
+||||||||~ [[# file-handles]][#file-handles-note file handles]||
+||~ ||~ rust||~ swift||~ scala||
+||standard file handles||use std::io; _
+ _
+io::stdin _
+io::stdout _
+io::stderr||let stdin = _
+@<&nbsp;&nbsp;>@NSFileHandle.fileHandleWithStandardInput() _
+let stdout = _
+@<&nbsp;&nbsp;>@NSFileHandle.fileHandleWithStandardOutput() _
+let stderr _
+@<&nbsp;&nbsp;>@NSFileHandle.fileHandleWithStandardError()||System.in _
+System.out _
+System.err||
+||read line from stdin||use std::io; _
+ _
+let s = io::stdin().read_line().ok().expect("Failed to read line");||##gray|//none//##||import scala.io.StdIn.readLine _
+ _
+##gray|@@//@@ newline is removed:## _
+val s = readLine()||
+||[#write-line-stdout write line to stdout]||println!("Hello, World!"); _
+ _
+##gray|@@//@@ argument of println! must be a literal. _
+@@//@@ To print a variable:## _
+let s = "Hello, World!"; _
+println!("{}", s);||print("Hello, World!")||println("lorem ipsum")||
+||write formatted string to stdout|| ||let s = "Spain" _
+let i = 17 _
+let x = 3.1415 _
+let fmtx = NSString(format: "%.2f", x) _
+ _
+print("\(s) \(i) \(fmtx)")||printf("%s %d %.2f", "Spain", 17, 3.1415)||
+||open file for reading|| ||import scala.io.Source _
+ _
+val path = "/etc/hosts" _
+val f = Source.fromFile(path)||import scala.io.Source _
+ _
+val path = "/etc/hosts" _
+val f = Source.fromFile(path)||
+||open file for writing|| ||let path = "/tmp/test" _
+NSFileManager().copyItemAtPath( _
+@<&nbsp;&nbsp;>@"/dev/null", _
+@<&nbsp;&nbsp;>@toPath: path, _
+@<&nbsp;&nbsp;>@error: nil) _
+let f = NSFileHandle( _
+@<&nbsp;&nbsp;>@forWritingAtPath: path)|| ||
+||open file for appending|| ||let f = NSFileHandle( _
+@<&nbsp;&nbsp;>@forWritingAtPath: "/tmp/err.log") _
+f.seekToEndOfFile()|| ||
+||close file|| ||f.closeFile()||import scala.io.Source _
+ _
+f.close||
+||[[# close-file-implicitly]][#close-file-implicitly-note close file implicitly]|| ||class Defer { _
+@<&nbsp;&nbsp;>@var fun: ()->() _
+@<&nbsp;&nbsp;>@init(fun: ()->()) { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@self.fun = fun _
+@<&nbsp;&nbsp;>@} _
+@<&nbsp;&nbsp;>@deinit { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fun() _
+@<&nbsp;&nbsp;>@} _
+} _
+var defer = Defer({()->() in f.closeFile()})|| ||
+||[#read-line read line]|| ||##gray|//none//##||import scala.io.Source _
+val src = Source.fromFile("/etc/passwd") _
+for (line <- src.getLines) _
+@<&nbsp;&nbsp;>@print(line)||
+||iterate over file by line|| ||##gray|//none//##|| ||
+||read file into array of strings|| ||##gray|//none//##|| ||
+||read file into string|| ||let data = f.readDataToEndOfFile() _
+let s = NSString( _
+@<&nbsp;&nbsp;>@data: data, _
+@<&nbsp;&nbsp;>@encoding: NSUTF8StringEncoding)|| ||
+||write string|| ||f.writeData("Hello, World!".dataUsingEncoding( _
+@<&nbsp;&nbsp;>@NSUTF8StringEncoding))|| ||
+||[#write-file write line]|| ||f.writeData("Hello, World!\n".dataUsingEncoding( _
+@<&nbsp;&nbsp;>@NSUTF8StringEncoding))||val out = new java.io.FileWriter("/tmp/test-scala") _
+out.write("hello out\n") _
+out.close||
+||flush file handle|| ||f.synchronizeFile()|| ||
+||get and set filehandle position|| ||let pos = f.offsetInFile _
+f.seekToFileOffset(0)|| ||
+||||||||~ [[# files]][#files-note files]||
+||~ ||~ rust||~ swift||~ scala||
+||file test, regular file test|| || ||import java.io.File _
+ _
+val f = new File("/etc/hosts") _
+f.exists _
+f.isFile||
+||file size|| || ||import java.io.File _
+ _
+val f = new File("/etc/hosts") _
+f.length||
+||is file readable, writable, executable|| || ||import java.io.File _
+ _
+val f = new File("/etc/hosts") _
+f.canRead _
+f.canWrite _
+f.canExecute||
+||set file permissions|| || ||mport java.io.File _
+ _
+val f = new File("/tmp/foo") _
+ _
+##gray|// sets owner perms; to turn perms off _
+// set arg to false:## _
+f.setReadable(true) _
+f.setWritable(true) _
+f.setExecutable(true) _
+ _
+##gray|// if 2nd arg is false, perms are _
+// for owner, group, and other:## _
+f.setReadable(true, false) _
+f.setWritable(true, false) _
+f.setExecutable(true, false)||
+||copy file, remove file, rename file|| || ||import java.nio.file.Files _
+import java.nio.file.Paths _
+ _
+val path = Paths.get("/tmp/foo") _
+##gray|@@//@@ possible java.nio.file.FileAlreadyExistsException:## _
+Files.copy(path, Paths.get("/tmp/bar")) _
+ _
+Files.deleteIfExists(path) _
+##gray|@@//@@ possible java.nio.file.NoSuchFileException:## _
+Files.delete(path) _
+ _
+Files.move(Paths.get("/tmp/bar", path)||
+||create symlink, symlink test, readlink|| || ||import java.nio.file.Files _
+import java.nio.file.Paths _
+ _
+val target = Paths.get("/etc/hosts") _
+val path = Paths.get("/tmp/hosts") _
+##gray|@@//@@ Possible java.nio.file.FileAlreadyExistsException:## _
+Files.createSymbolicLink(path, target) _
+Files.isSymbolicLink(path) _
+Files.readSymbolicLink(path)||
+||generate unused file name|| || ||import java.nio.file.Files _
+ _
+ val path = Files.createTempFile("foo", ".txt")||
+||||||||~ [[# directories]][#directories-note directories]||
+||~ ||~ rust||~ swift||~ scala||
+||build pathname|| || ||import java.io.File _
+ _
+val root = File.listRoots()(0) _
+val hosts = new File(new File(root, "etc"), "hosts") _
+val path = hosts.getPath||
+||dirname and basename|| || ||import java.io.File _
+ _
+val f = new File("/etc/hosts") _
+val dirn = f.getParent _
+val basen = f.getName||
+||iterate over directory by file|| || ||import java.io.File _
+ _
+val dir = new File("/etc") _
+ _
+##gray|@@//@@ Array[String]:## _
+dir.list _
+ _
+##gray|@@//@@ Array[java.io.File]:## _
+dir.listFiles||
+||make directory|| || ||import java.io.File _
+ _
+val dir = new File("/tmp/foo/dir") _
+dir.mkdirs||
+||remove empty directory|| || ||import java.io.File _
+ _
+val dir = new File("/tmp/foodir") _
+dir.delete||
+||remove directory and contents|| || ||##gray|@@//@@ libraryDependencies += "commons-io" % "commons-io" % "2.4"## _
+import org.apache.commons.io.FileUtils _
+import java.io.File _
+ _
+FileUtils.deleteDirectory(new File("/tmp/foo"))||
+||directory test|| || ||import java.io.File _
+ _
+val f = new File("/etc") _
+f.isDirectory||
+||temporary directory|| || ||import java.nio.file.Files _
+ _
+val dir = Files.createTempDirectory(null) _
+##gray|@@//@@ path as string:## _
+dir.toString _
+ _
+##gray|@@//@@ arrange for directory to be deleted:## _
+dir.toFile.deleteOnExit||
+||||||||~ [[# processes-environment]][#processes-environment-note processes and environment]||
+||~ ||~ rust||~ swift||~ scala||
+||[#command-line-arg command line arguments]|| || ||object Test { _
+@<&nbsp;&nbsp;>@def main(args: Array[String]) { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@for (arg <- args) _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println(arg) _
+@<&nbsp;&nbsp;>@} _
+}||
+||[[# program-name]][#program-name-note program name] _
+@<&nbsp;>@|| || ||##gray|//A scala program is run as// _
+ _
+@<&nbsp;&nbsp;>@scala CLASS [ARG ...] _
+ _
+//The VM then searches// CLASSPATH //for// CLASS.  CLASS //is the nearest analog to the program name and can be determined statically.//##||
+||[[# getopt]][#getopt-note getopt]|| || ||##gray|@@//@@ built.sbt: _
+@@//@@ _
+@@//@@@<&nbsp;&nbsp;&nbsp;>@libraryDependencies += "com.github.scopt" %% "scopt" % "3.3.0"## _
+ _
+case class Config( _
+@<&nbsp;&nbsp;>@foo: Int = 0, _
+@<&nbsp;&nbsp;>@bar: String = "" _
+) _
+ _
+val parser = new scopt.OptionParser[Config]("scopt") { _
+@<&nbsp;&nbsp;>@opt[Int]('f', "foo") action { (x, c) => _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@c.copy(foo = x) } text("foo is integer") _
+@<&nbsp;&nbsp;>@opt[String]('b', "bar") action{ (x, c) => _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@c.copy(bar = x) } text("bar is string") _
+} _
+ _
+parser.parse(args, Config()) match { _
+@<&nbsp;&nbsp;>@case Some(config) => _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println(config.foo) _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println(config.bar) _
+@<&nbsp;&nbsp;>@case None => _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@##gray|@@//@@ bad args; usage was displayed## _
+}||
+||[[# env-var]][#env-var-note get and set environment variable] _
+@<&nbsp;>@|| || ||##gray|@@//@@ java.util.NoSuchElementException if not defined:## _
+sys.env("HOME") _
+ _
+##gray|@@//@@ returns Option[String]:## _
+sys.env.get("HOME") _
+ _
+##gray|@@//@@ Environment variables are read only, but new values can be _
+@@//@@ set when creating child processes.##||
+||[[# pid]][#pid-note get pid, parent pid] _
+@<&nbsp;>@|| || ||##gray|@@//@@ no portable technique##||
+||[[# user-id-name]][#user-id-name-note get user id and name]|| || ||System.getProperty("user.name") _
+ _
+##gray|@@//@@ no property for uid##||
+||[[# exit]][#exit-note exit] _
+@<&nbsp;>@|| || ||System.exit(1)||
+||[[# signal-handler]][#signal-handler-note set signal handler] _
+@<&nbsp;>@|| || ||import sun.misc._ _
+ _
+Signal.handle(new Signal("INT"), new SignalHandler() { _
+@<&nbsp;&nbsp;>@val start = System.nanoTime() _
+@<&nbsp;&nbsp;>@def handle(sig: Signal) { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@val end = System.nanoTime() _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println(s"\n${(end - start) / 1e9f} seconds") _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@System.exit(0) _
+@<&nbsp;&nbsp;>@} _
+})||
+||[[# external-cmd]][#external-cmd-note external command] _
+@<&nbsp;>@|| || ||import scala.sys.process._ _
+ _
+val exitCode = "ls /tmp".!||
+||[[# escaped-external-cmd]][#escaped-external-cmd-note escaped external command] _
+@<&nbsp;>@|| || ||import scala.sys.process._ _
+import java.io.File _
+ _
+##gray|@@//@@ if args contain spaces, use List():## _
+val exitCode = List("touch", "/tmp/some file").! _
+ _
+##gray|@@//@@ there are operators for shell @@&&, ||, and |@@:## _
+(( "ls /tmp" #@@&&@@ "ls /etc") #| "grep ssh").! _
+ _
+##gray|@@//@@ redirection example:## _
+("ls" #> new File("/tmp/ls.out")).!||
+||[[# backticks]][#backticks-note backticks] _
+@<&nbsp;>@|| || ||import scala.sys.process._ _
+ _
+val s = "ls".@@!!@@||
+||||||||~ [[# libraries-namespaces]][#libraries-namespaces-note libraries and namespaces]||
+||~ ||~ rust||~ swift||~ scala||
+||define namespace|| || ||package foo { _
+@<&nbsp;&nbsp;>@class A _
+@<&nbsp;&nbsp;>@class B _
+} _
+ _
+##gray|@@//@@ Alternate syntax; must be first statement in file; _
+@@//@@ declares entire file to be in namespace## _
+package foo||
+||define child namespace|| || ||package foo.bar { _
+@<&nbsp;&nbsp;>@class A _
+} _
+ _
+##gray|@@//@@ Alternate nested syntax:## _
+package foo { _
+@<&nbsp;&nbsp;>@package bar { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@class A _
+@<&nbsp;&nbsp;>@} _
+} _
+ _
+##gray|@@//@@ Alternate syntax; must be first statement in file:## _
+package foo.bar||
+||reference identifier in another file|| || ||##gray|@@//@@ no import needed if identifier is fully qualified:## _
+val a = new foo.bar.A||
+||import definitions|| || ||import foo.A _
+ _
+val a = new A _
+ _
+##gray|@@//@@ imports A and B:## _
+import foo.{A, B} _
+ _
+##gray|@@//@@ Import statements can appear after or inside class definitions, _
+@@//@@ or inside methods.##||
+||import all definitions in namespace|| || ||import foo._ _
+ _
+val a = new A _
+val b = new B||
+||import namespace|| || ||import foo.bar _
+ _
+val a = new bar.A _
+val b = new bar.B||
+||shadow avoidance|| || ||import foo.bar.{A => LetterA} _
+ _
+val a = new LetterA||
+||library path environment variable|| || ||$ cat src/foo/bar/A.scala _
+package foo.bar _
+ _
+object A { _
+@<&nbsp;&nbsp;>@def main(args: Array[String]) { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println("Hello, World!") _
+@<&nbsp;&nbsp;>@} _
+} _
+ _
+$ scalac src/foo/bar/A.scala _
+ _
+$ dir=$(pwd) _
+ _
+$ cd / _
+ _
+$ CLASSPATH=$dir scala foo.bar.A _
+ _
+##gray|//The default CLASSPATH is the current directory.  Directories are separated by colons : on Unix and semicolons ; on Windows.  Jar files can also be put in the CLASSPATH.//##||
+||create package|| || ||$ cat src/foo/bar/A.scala _
+package foo.bar _
+ _
+object A { _
+@<&nbsp;&nbsp;>@def main(args: Array[String]) { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@println("Hello, World!") _
+@<&nbsp;&nbsp;>@} _
+} _
+ _
+$ mkdir target _
+ _
+$ scalac -d target src/foo/bar/A.scala _
+ _
+$ find target -name '*.class' | xargs jar cf App.jar _
+ _
+$ CLASSPATH=App.jar scala foo.bar.A||
+||inspect package|| || ||$ jar tf App.jar||
+||install package||$ cat Cargo.toml _
+[package] _
+name = "main" _
+version = "0.1.0" _
+authors = ["Bob @<<bob@foo.com>>@"] _
+[dependencies] _
+chrono = "0.2.25" _
+ _
+$ cat src/main.rs _
+extern crate chrono; _
+fn main() { _
+@<&nbsp;&nbsp;>@let t = chrono::UTC::now(); _
+@<&nbsp;&nbsp;>@println!("t: {}", t.format("%Y-%m-%d")); _
+} _
+ _
+$ cargo build|| ||$ cat build.sbt _
+libraryDependencies += "commons-io" % "commons-io" % "2.4" _
+ _
+$ sbt package||
+||list installed packages|| || ||$ find ~/.ivy2/cache -name '*.jar'||
+||||||||~ [[# user-defined-types]][#user-defined-types-note user-defined types]||
+||~ ||~ rust||~ swift||~ scala||
+||[[# type-synonym]]|| ||typealias CustomerId = Int _
+var customer_id: CustomerId = 3||type Name = String||
+||[[# sum-type]][#sum-type-note sum type]||enum DayOfWeek { _
+@<&nbsp;&nbsp;>@Mon, Tue, Wed, Thu, Fri, Sat, Sun _
+} _
+ _
+let dow: DayOfWeek = Mon;||enum DayOfWeek { _
+@<&nbsp;&nbsp;>@case Mon, Tue, Wed, Thu, Fri, Sat, Sun _
+} _
+let dow = DayOfWeek.Tue||abstract class Color _
+ _
+case object Red extends Color _
+case object Blue extends Color _
+case object Green extends Color _
+ _
+val col = Red _
+ _
+##gray|@@//@@ this won't compile:## _
+col < Green||
+||tuple product type with one field|| || ||class SpecialInt(x: Int) _
+ _
+val n = new SpecialInt(7)||
+||tuple product type with two fields|| || ||class IntPair(a: Int, b: Int) _
+ _
+val p = new IntPair(7, 11)||
+||record product type|| ||struct MedalCount { _
+@<&nbsp;&nbsp;>@var country: String _
+@<&nbsp;&nbsp;>@var gold: Int, _
+@<&nbsp;&nbsp;>@silver: Int, _
+@<&nbsp;&nbsp;>@bronze: Int _
+}||case class Customer( _
+@<&nbsp;&nbsp;>@id: Int, _
+@<&nbsp;&nbsp;>@name: String, _
+@<&nbsp;&nbsp;>@address: String _
+)||
+||record product type literal|| ||var spain = MedalCount( _
+@<&nbsp;&nbsp;>@country: "Spain", _
+@<&nbsp;&nbsp;>@gold: 3, _
+@<&nbsp;&nbsp;>@silver: 2, _
+@<&nbsp;&nbsp;>@bronze: 1 _
+)||Customer(7,"John","Topeka, KS") _
+ _
+Customer(id=7, name="John", address="Topeka, KS")||
+||[#struct-member-access product type member access]|| ||let france_total = france.gold + france.silver + france.bronze|| ||
+||[#struct-member-assignment product type member assignment]|| ||var france: MedalCount _
+france.country = "France" _
+france.gold = 7 _
+france.silver = 6 _
+france.bronze = 5|| ||
+||[[# generic-type]][#generic-type-note generic type]|| || ||class Twosome[A, B](a: A, b: B) _
+ _
+val p = new Twosome("pi", 3.14)||
+||[#recursive-type recursive type]|| || ||abstract class BinaryTree _
+case class Tree(left: BinaryTree, right: BinaryTree) extends BinaryTree _
+case class Leaf(x: Int) extends BinaryTree||
+||pattern match sum type||let msg = match col { _
+@<&nbsp;&nbsp;>@Red => "red", _
+@<&nbsp;&nbsp;>@Blue => "blue", _
+@<&nbsp;&nbsp;>@Green => "green", _
+};|| ||val c:Color = Red; _
+c match { case Red => "red"; case Green => "green"; case Blue => "blue" }||
+||pattern match product type|| || || ||
+||[#match-guard pattern match guard]|| || ||match { case i: Int if i < 0 => - i; case i: Int => i }||
+||[#match-catchall pattern match catchall]||let msg = match col { _
+@<&nbsp;&nbsp;>@Red => "red", _
+@<&nbsp;&nbsp;>@_ => "not red", _
+};|| ||val c : Color = Green _
+c match { case Red => "red"; case _ => "not red" }||
+||||||||~ [[# objects]][#objects-note objects]||
+||~ ||~ rust||~ swift||~ scala||
+||define class|| || ||##gray|@@//@@ Constructor takes optional  param of type Int. _
+@@//@@ _
+@@//@@ Precede param name by val or var _
+@@//@@ to implicitly define an instance variable## _
+class Counter(n: Int = 0) { _
+@<&nbsp;&nbsp;>@##gray|@@//@@ Executes when object is created. _
+@<&nbsp;&nbsp;>@@@//@@ _
+@<&nbsp;&nbsp;>@@@//@@ java.lang.IllegalArgumentException if false.## _
+@<&nbsp;&nbsp;>@require(n >= 0) _
+ _
+@<&nbsp;&nbsp;>@##gray|@@//@@ Instance variables public by default## _
+@<&nbsp;&nbsp;>@private var _n = n _
+ _
+@<&nbsp;&nbsp;>@##gray|@@//@@ Getter:## _
+@<&nbsp;&nbsp;>@def value = _n _
+ _
+@<&nbsp;&nbsp;>@##gray|@@//@@ Setter:## _
+@<&nbsp;&nbsp;>@def value_=(n: Int) { _n = n } _
+ _
+@<&nbsp;&nbsp;>@##gray|@@//@@ Object-mutating method:## _
+@<&nbsp;&nbsp;>@def incr { _n += 1 } _
+}||
+||create object|| || ||val c = new Counter _
+val c2 = new Counter(1)||
+||invoke method|| || ||c.incr() _
+c.value = c.value + 1||
+||define class variable and method|| || ||##gray|@@//@@ Define singleton object outside of class body:## _
+object Counter { _
+@<&nbsp;&nbsp;>@##gray|@@//@@ Class variables can be declared private; Counter constructor _
+@<&nbsp;&nbsp;>@@@//@@ and instance methods stil have access:## _
+@<&nbsp;&nbsp;>@var instances = 0 _
+ _
+@<&nbsp;&nbsp;>@def incrInstances { instances += 1 } _
+}||
+||invoke class method|| || ||Counter.incrInstances||
+||||||||~ [[# inheritance-polymorphism]][#inheritance-polymorphism-note inheritance and polymorphism]||
+||~ ||~ rust||~ swift||~ scala||
+||subclass|| || ||class Base { _
+@<&nbsp;&nbsp;>@println("instantiating Base") _
+@<&nbsp;&nbsp;>@ _
+@<&nbsp;&nbsp;>@def name = { "Base" } _
+} _
+ _
+class Derived extends Base { _
+@<&nbsp;&nbsp;>@println("instantiating Derived after Base") _
+@<&nbsp;&nbsp;>@ _
+@<&nbsp;&nbsp;>@##gray|@@//@@ Compilation error if override omitted or _
+@<&nbsp;&nbsp;>@@@//@@ if method with same name not defined in base class.## _
+@<&nbsp;&nbsp;>@override def name = { "Derived" } _
+}||
+||abstract base class|| || ||abstract class Base { _
+@<&nbsp;&nbsp;>@##gray|@@//@@ compilation error if derived class does not define name:## _
+@<&nbsp;&nbsp;>@def name: String _
+}||
+||mixin|| || || ||
+||||||||~ [[# unit-tests]][#unit-tests-note unit test]||
+||~ ||~ rust||~ swift||~ scala||
+||test class|| || ||import org.scalatest.FunSuite _
+ _
+class FooSuite extends FunSuite { _
+@<&nbsp;&nbsp;>@test("a simple test") { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@assert(0 == 0, "zero not equal to itself") _
+@<&nbsp;&nbsp;>@} _
+}||
+||run all tests, run test suite|| || ||$ cat build.sbt _
+libraryDependencies += _
+@<&nbsp;&nbsp;>@"org.scalatest" %% "scalatest" % "3.0.0-SNAP13" _
+ _
+$ sbt test _
+ _
+$ sbt _
+@@>@@ testOnly FooSuite||
+||exception assertion|| || ||intercept[IndexOutOfBoundsException] { _
+@<&nbsp;&nbsp;>@"val a = List(1, 2, 3) _
+@<&nbsp;&nbsp;>@"val n = a(4) _
+}||
+||setup|| || ||import org.scalatest.FunSuite _
+import org.scalatest.BeforeAndAfter _
+ _
+class FooSuite extends FunSuite with BeforeAndAfter { _
+@<&nbsp;&nbsp;>@before { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@print("before called\n") _
+@<&nbsp;&nbsp;>@} _
+ _
+@<&nbsp;&nbsp;>@test("zero equals self") { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@assert(0 == 0) _
+@<&nbsp;&nbsp;>@} _
+}||
+||teardown|| || ||import org.scalatest.FunSuite _
+import org.scalatest.BeforeAndAfter _
+ _
+class FooSuite extends FunSuite with BeforeAndAfter { _
+@<&nbsp;&nbsp;>@test("zero equals self") { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@assert(0 == 0) _
+@<&nbsp;&nbsp;>@} _
+ _
+@<&nbsp;&nbsp;>@after { _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@print("after called\n"); _
+@<&nbsp;&nbsp;>@} _
+}||
+||||||||~ [[# debugging-profiling]][#debugging-profiling-note debugging and profiling]||
+||~ ||~ rust||~ swift||~ scala||
+||lint|| || ||$ brew install scalastyle _
+$ scalastyle Hello.scala||
+||run debugger|| || ||##gray|//Scala IDE for Eclipse has a debugger//##||
+||profile code|| || ||##gray|//Runs app under a sampling profiler.  Profiling info is written to stdout.  HotSpot VM only.//## _
+$ JAVA_OPTS=-Xprof scala SomeApp||
+||memory tool|| || ||$ JAVA_OPTS=-XX:+PrintGCDetails scala SomeApp||
+||||||||~ [[# repl]][#repl-note repl]||
+||~ ||~ rust||~ swift||~ scala||
+||[#invoke-repl invoke repl]|| ||$ swift||$ scala||
+||[#repl-previous-values previous values]|| ||$R0, $R1, ...||res0, res1, ...||
+||[#help help]|| ||:help||:help||
+||[#quit quit]|| ||:quit||:quit||
+||[#inspect-type inspect type]|| || ||##gray|//repl displays the type of any expression entered//##||
+||~ ||~ ##EFEFEF|@@________________________________________________________________@@##||~ ##EFEFEF|@@_________________________________________________________________@@##||~ ##EFEFEF|@@_________________________________________________________________@@##||
+
+[[# version-used-note]]
+++ [#version-used version used]
+
+The version used for examples in this sheet.
+
+[[# version-note]]
+++ [#version show version]
+
+How to get the installed version.
+
+[[# implicit-prologue-note]]
+++ [#implicit-prologue implicit prologue]
+
+Boilerplate which is assumed to be present by examples in this sheet.
+
+[[# grammar-invocation-note]]
++ [#grammar-invocation Grammar and Invocation]
+
+[[# interpreter-note]]
+++ [#interpreter interpreter]
+
+How to run the interpreter on a file of source code.
+
+**scala:**
+
+Scala can be run "Perl style" like this:
+
+[[code]]
+scala foo.scala
+[[/code]]
+
+or "Java style" like this:
+
+[[code]]
+scala Foo
+[[/code]]
+
+When the code is run "Java style", the code to be executed must be in the //main// method of an object with the same name as the file.  When the code is run "Perl style" the statements o be executed should be at the top level outside of any object, class, or method.
+
+To use scala as a shebang, it is necessary to terminate the shell script portion of the script with !#
+
+[[code]]
+#!/bin/sh
+exec scala $0 $@
+!#
+println("hello world")
+[[/code]]
+
+[[# compiler-note]]
+++ [#compiler compiler]
+
+How to run the compiler.
+
+[[# statement-terminator-note]]
+++ [#statement-terminator statement terminator]
+
+**scala:**
+
+Scala infers the existence of a semicolon at the end of a newline terminated line if none of the following conditions hold:
+
+* the line ends with a infix operator, including a period
+* the following line begins with a word that is not legal at the start of a statement
+* the line ends inside parens or square brackets, neither of which can contain multiple statements
+
+[[# blocks-note]]
+++ [#blocks block delimiters]
+
+How blocks of statements are delimited.
+
+[[# end-of-line-comment-note]]
+++ [#end-of-line-comment end-of-line comment]
+
+The syntax for a comment which goes to the end of the line.
+
+[[# multiple-line-comment-note]]
+++ [#multiple-line-comment multiple line comment]
+
+The syntax for a comment which beginning and ending delimiters which can span multiple lines.
+
+[[# var-expr-note]]
++ [#var-expr Variables and Expressions]
+
+[[# let-in-note]]
+++ [#let-in let ... in ...]
+
+How to define local variables.
+
+**scala:**
+
+Blocks can be used in Scala exclusively to define scope.  Furthermore blocks are expressions and evaluate to their last statement.
+
+[[# arithmetic-logic-note]]
++ [#arithmetic-logic Arithmetic and Logic]
+
+[[# int-type-note]]
+++ [#int-type integer types]
+
+The most commonly used numeric types.
+
+**scala:**
+
+Arithmetic operators can be used on values of type //Char//, which then behaves as a 16 bit unsigned integer.  Integer literals are of type //Int// unless suffixed with //L//:
+
+[[code]]
+scala> 9223372036854775807L
+res24: Long = 9223372036854775807
+
+scala> 9223372036854775807 
+<console>:1: error: integer number too large
+[[/code]]
+
+[[# int-overflow-note]]
+++ [#int-overflow integer overflow]
+
+What happens when expression evaluates to an integer that is larger than what can be stored.
+
+**scala:**
+
+The largest integers are available in the constants //Int.MaxValue// and //Long.MaxValue//.
+
+[[# random-num-note]]
+++ [#random-num random number]
+
+How to generate a uniformly distributed random integer; how to generate a uniformly distributed float; how to generate a normally distributed float.
+
+**scala:**
+
+One can also use {{java.util.Random}}, which does not have to be imported.
+
+[[# random-seed-note]]
+++ [#random-seed random seed]
+
+How to set a random seed.  How to get and restore the state of a random number generator.
+
+**scala:**
+
+It looks like Scala 2.10 has modified the {{Random}} constructor so that it will accept an {{Int}} or {{Long}} as a seed argument.
+
+
+[[# strings-note]]
++ [#strings Strings]
+
+[[# str-type-note]]
+++ [#str-type string type]
+
+The types for strings and characters.
+
+[[# str-literal-note]]
+++ [#str-literal string literal]
+
+The syntax for a string literal.
+
+[[# newline-in-str-literal-note]]
+++ [#newline-in-str-literal newline in literal]
+
+[[# str-esc-note]]
+++ [#str-esc literal escapes]
+
+**scala:**
+
+Unicode escapes might not work when scala is installed on a Mac because the encoding is set by default to MacRoman:
+
+[[code]]
+scala> System.getProperty("file.encoding")
+res0: java.lang.String = MacRoman
+[[/code]]
+
+This can be fixed by passing the following flag to //java// in the //scala// shell script:
+
+[[code]]
+-Dfile.encoding=UTF-8
+[[/code]]
+
+[[# format-str-note]]
+++ [#format-str format string]
+
+[[# str-concat-note]]
+++ [#str-concat concatenate]
+
+How to concatenate strings.
+
+[[# str-replicate-note]]
+++ [#str-replicate replicate]
+
+[[# translate-case-note]]
+++ [#translate-case translate case]
+
+How to convert a string to uppercase; how to convert a string to lowercase; how to capitalize the first character.
+
+[[# capitalize-note]]
+++ [#capitalize capitalize]
+
+[[# trim-note]]
+++ [#trim trim]
+
+[[# pad-note]]
+++ [#pad pad]
+
+[[# num-to-str-note]]
+++ [#num-to-str number to string]
+
+[[# str-to-num-note]]
+++ [#str-to-num string to number]
+
+How to parse numeric types from string; how to convert numeric types to strings.
+
+**scala:**
+
+The + operator will convert a numeric type to a string if the other operand is a string.  Hence the following works:
+
+[[code]]
+"value: " + 8
+[[/code]]
+
+[[# join-note]]
+++ [#join join]
+
+[[# split-note]]
+++ [#split split]
+
+[[# char-type-note]]
+++ [#char-type character type]
+
+[[# char-literal-note]]
+++ [#char-literal character literal]
+
+[[# str-len-note]]
+++ [#str-len length]
+
+How to get the length of a string.
+
+[[# index-substr-note]]
+++ [#index-substr index of substring]
+
+How to get the index of a substring.
+
+[[# substr-note]]
+++ [#substr extract substring]
+
+How to extract a substring.
+
+[[# extract-char-note]]
+++ [#extract-char extract character]
+
+How to get the character at a specified index of a string.
+
+The syntax for a character literal.
+
+[[# chr-ord-note]]
+++ [#chr-ord chr and ord]
+
+How to convert a character to its ASCII code or Unicode point; how to convert an ASCII code or Unicode point to a character. 
+
+[[# dates-time-note]]
++ [#dates-time Dates and Time]
+
+[[# fixed-length-arrays-note]]
++ [#fixed-length-arrays Fixed-Length Arrays]
+
+[[# resizable-arrays-note]]
++ [#resizable-arrays Resizable Arrays]
+
+[[# lists-note]]
++ [#lists Lists]
+
+[[# list-literal-note]]
+++ list literal
+
+[[# list-element]]
+++ list element element
+
+[[# list-head]]
+++ list head
+
+[[# list-tail]]
+++ list-tail
+
+Supports //List.tl// (with a warning) to be compatible with OCaml.
+
+[[# tuples-note]]
++ [#tuples Tuples]
+
+[[# tuple-literal-note]]
+++ [#tuple-literal literal]
+
+The syntax for a tuple literal.
+
+[[# tuple-type-note]]
+++ [#tuple-type type]
+
+How to declare a variable with a tuple type.
+
+[[# tuple-lookup-note]]
+++ [#tuple-lookup lookup]
+
+How to lookup an element in a tuple.
+
+[[# deconstruct-tuple-note]]
+++ [#deconstruct-tuple deconstruct]
+
+How to extract all the elements in a tuple.
+
+[[# dictionaries-note]]
++ [#dictionaries Dictionaries]
+
+[[# functions-note]]
++ [#functions Functions]
+
+[[# function]]
+++ function
+
+How to define a function.
+
+**scala**
+
+Recursive functions must have their return type declared because the Scala compiler cannot infer it.
+
+[[# lambda]]
+++ lambda
+
+How to define an anonymous function.
+
+[[# piecewise-defined-function]]
+++ piecewise defined function
+
+How to define a function with multiple equations and matching on the arguments.
+
+[[# recursive-function]]
+++ recursive function
+
+How to define a recursive function.
+
+[[# mutually-recursive-functions]]
+++ mutually recursive functions
+
+How to define two functions which call each other.  Mutual recursion can be eliminated by inlining the second function inside the first function.  The first function is then recursive and can be defined independently of the second function.
+
+[[# named-parameter]]
+++ named parameter
+
+How to define and invoke a function with named parameters.
+
+[[# default-value]]
+++ named parameter default value
+
+How to make named parameters optional by providing a default value in the definition.
+
+[[# infix-prefix]]
+++ infix operator in prefix position
+
+How to invoke an infix operator in prefix position.
+
+[[# function-infix]]
+++ function in infix position
+
+How to invoke a function in infix position.
+
+[[# currying]]
+++ currying
+
+How to create a curried function by providing values for some of the arguments of a function.
+
+**scala:**
+
+Functions can only be curried if they are defined with special syntax.  Functions defined with this syntax must be invoked with a pair of parens for each argument.
+
+[[# function-composition]]
+++ function composition operator
+
+An operator which takes two functions as arguments and returns a function constructed from them by composition.
+
+[[# lazy-evaluation]]
+++ lazy evaluation
+
+How to evaluate the arguments to a function in a lazy manner.
+
+Lazy evaluation is also called //call-by-name//.
+
+**scala:**
+
+Functions can be defined to evaluate their arguments lazily by putting a {{=>}} operator between the colon and the type of the parameter in the function signature.
+
+We can define {{arg1}} so that the first argument is strict and the second argument is lazy:
+
+[[code]]
+def arg1(x: Int, y: => Int): Int = x
+
+arg1(7, 1 / 0)
+[[/code]]
+
+[[# strict-evaluation]]
+++ strict evaluation
+
+How to evaluate arguments before they are passed to a function.
+
+Strict evaluation is also called //call by-value//.
+
+[[# execution-control-note]]
++ [#execution-control Execution Control]
+
+[[# if-note]]
+++ [#if if]
+
+The {{if}} statement.
+
+[[# while-note]]
+++ [#while while]
+
+The {{while}} loop.
+
+[[# for-note]]
+++ [#for for]
+
+
+[[# infinite-loop-note]]
+++ [#infinite-loop infinite loop]
+
+An infinite loop.
+
+[[# break-continue-note]]
+++ [#break-continue break and continue]
+
+Statements for exiting a loop or ending an iteration of a loop.
+
+[[# exceptions-note]]
++ [#exceptions Exceptions]
+
+[[# raise-error]]
+++ raise error
+
+How to raise an error.
+
+[[# handle-error]]
+++ handle error
+
+How to handle an error.
+
+[[# concurrency-note]]
++ [#concurrency Concurrency]
+
+[[# file-handles-note]]
++ [#file-handles Filehandles]
+
+[[# files-note]]
++ [#files Files]
+
+[[# directories-note]]
++ [#directories Directories]
+
+[[# processes-environment-note]]
++ [#processes-environment Processes and Environment]
+
+[[# libraries-namespaces-note]]
++ [#libraries-namespaces Libraries and Namespaces]
+
+[[# namespace-example]]
+++ namespace example
+
+[[# namespaces]]
+++ namespaces
+
+[[# file-name]]
+++ file name restrictions
+
+[[# import]]
+++ import
+
+[[# namespace-creation]]
+++ namespace creation
+
+[[# namespace-alias]]
+++ namespace alias
+
+[[# namespace-separator]]
+++ namespace separator
+
+[[# subnamespace]]
+++ subnamespace
+
+[[# inspect-namespace]]
+++ inspect namespace
+
+[[# user-defined-types-note]]
++ [#user-defined-types User-Defined Types]
+
+[[# type-synonym-note]]
+++ [#type-synonym type synonym]
+
+[[# sum-type-note]]
+++ [#sum-type sum type]
+
+[[# generic-type-note]]
+++ [#generic-type generic type]
+
+[[# recursive-type-note]]
+++ [#recursive-type recursive type]
+
+[[# objects-note]]
++ [#objects Objects]
+
+[[# inheritance-polymorphism-note]]
++ [#inheritance-polymorphism Inheritance and Polymorphism]
+
+[[# repl-note]]
++ [#repl REPL]
+
+[[# invoke-repl]]
+++ repl
+
+[[# repl-limitations]]
+++ repl limitations
+
+[[# repl-last-value]]
+++ repl last value
+
+[[# help]]
+++ help
+
+[[# inspect-type]]
+++ inspect type
+
+[[# load-source]]
+++ load source file
+
+[[# search-path]]
+++ search path
+
+[[# search-path-command-line]]
+++ set search path on command line
+
+[[# rust]]
++ [#top Rust]
+
+[http://doc.rust-lang.org/0.12.0/reference.html The Rust Reference]
+[http://doc.rust-lang.org/std/index.html The Rust Standard Library]
+
+
+[[# scala]]
++ [#top Scala]
+
+[http://www.scala-lang.org/files/archive/nightly/pdfs/ScalaReference.pdf The Scala Language Specification: Version 2.9 (pdf)]
+[http://www.scala-lang.org/documentation/api.html Scala API Docs]
+
+[[# swift]]
++ [#top Swift]
+
+As of June 2014, to use Swift one must download and install a beta version of Xcode 6, then:
+
+[[code]]
+$ sudo xcode-select -s /Applications/Xcode6-Beta.app/Contents/Developer/
+
+$ xcrun swift
+[[/code]]

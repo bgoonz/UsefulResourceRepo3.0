@@ -1,0 +1,598 @@
+[[# top]][#coordinates coordinates] | [#paths paths] | [#shapes shapes] | [#color color] | [#text text] | [#groups groups] | [#masks-filters masks and filters] | [#raster-images raster images]
+
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#imagemagick imagemagick]||
+||[[# hello-world]][#hello-world-note hello world]||##gray|% hello.ps:## _
+ _
+/Helvetica-Bold 20 selectfont _
+72 72 moveto (Hello, World!) show||##gray|<!@@--@@ hello.html: @@-@@->## _
+ _
+<!DOCTYPE html> _
+<html> _
+@<&nbsp;&nbsp;>@<body> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<svg width="400" height="400"> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<text x="100" y="100"> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@Hello, World! _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@</text> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@</svg> _
+@<&nbsp;&nbsp;>@</body> _
+</html>||$ convert -size 400x400 xc:transparent \ _
+@<&nbsp;&nbsp;>@-draw "text 100,100 'Hello, World!'" hello.png||
+||[[# comment]][#comment-note comment]||##gray|% comment## _
+##gray|% another comment##||##gray|<!@@--@@ comment _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;&nbsp;>@another comment@@--@@>##|| ||
+||||||||~ [[# coordinates]][#coordinates-note coordinates]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#imagemagick imagemagick]||
+||[[# origin]][#origin-note origin] _
+@<&nbsp;>@||##gray|//lower left//##||##gray|//upper left//##||##gray|//upper left//##||
+||[[# unit-size]][#unit-size-note unit size]||##gray|//72 units per inch; i.e. each unit is the customary size of a point in the English-speaking world//##||##gray|//one pixel per unit//##|| ||
+||[[# change-coordinate-system]][#change-coordinate-system-note change coordinate system]||##gray|% move origin 72 units up and to the right:## _
+72 72 translate _
+ _
+##gray|% increase size of unit 72-fold:## _
+72 72 scale _
+ _
+##gray|% rotate coordinates 90 degrees counterclockwise:## _
+90 rotate||<g transform="translate(50, 100)"> _
+@<&nbsp;&nbsp;>@##gray|<!@@--@@ origin at (50, 100) @@--@@>## _
+</g> _
+ _
+<g transform="rotate(30)"> _
+@<&nbsp;&nbsp;>@##gray|<!@@--@@ rotate coordinates 30 degrees _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@clockwise @@--@@>## _
+</g> _
+ _
+<g transform="scale(2, 3)"> _
+@<&nbsp;&nbsp;>@##gray|<!@@--@@ double x-scale and triple _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@y-scale @@--@@>## _
+</g>|| ||
+||[[# canvas-size]][#canvas-size-note canvas size] _
+##gray|//get, set//##||##gray|% doesn't work on all devices:## _
+currentpagedevice /PageSize get aload pop _
+ _
+##gray|% canvas size determined by device##||<svg height="400px" width="400px"></svg>||$ convert -size 400x400 xc:white white.png||
+||||||||~ [[# paths]][#paths-note paths]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#mvg mvg]||
+||[[# line]][#line-note line]||newpath _
+15 25 moveto _
+70 90 lineto _
+stroke _
+ _
+##gray|% rlineto uses relative coordinates: ## _
+newpath _
+15 25 moveto _
+55 65 rlineto _
+stroke||<line x1="40" y1="20" x2="80" y2="20" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="stroke: black;"/> _
+ _
+<path d="M 40 20 L 80 20" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" fill="none"/> _
+ _
+##gray|<!@@--@@ use relative coordinates for 2nd point: @@--@@>## _
+<path d="M 40 20 l 40 0" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" fill="none"/>||$ convert -size 400x400 xc:transparent \ _
+@<&nbsp;&nbsp;>@-stroke black -draw "line 40,20 80,20" \ _
+@<&nbsp;&nbsp;>@line.png _
+  _
+convert -size 400x400 xc:transparent \ _
+@<&nbsp;&nbsp;>@-stroke black -draw "path 'M 40,20 L 80,20'" \ _
+@<&nbsp;&nbsp;>@line.png _
+ _
+convert -size 400x400 xc:transparent \ _
+@<&nbsp;&nbsp;>@-stroke black -draw "path 'M 40,20 l 40,0'" \ _
+@<&nbsp;&nbsp;>@line.png||
+||[[# stroke-width]][#stroke-width-note stroke width]||2 setlinewidth _
+newpath _
+15 25 moveto _
+70 90 lineto _
+stroke||<line x1="40" y1="20" x2="80" y2="20" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="stroke: black;" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke-width="4"/>||convert -size 400x400 xc:transparent \ _
+@<&nbsp;&nbsp;>@-stroke black -strokewidth 4 -draw "line 40,20 80,20" \ _
+@<&nbsp;&nbsp;>@line.png||
+||[[# line-cap]][#line-cap-note line cap] _
+##gray|//none, circle, square//##||0 setlinecap _
+1 setlinecap _
+2 setlinecap||<line x1="10" y1="15" x2="50" y2="15" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="stroke-linecap: butt;"/> _
+ _
+<line x1="10" y1="45" x2="50" y2="45" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="stroke-linecap: round;"/> _
+ _
+<line x1="10" y1="75" x2="50" y2="75" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="stroke-linecap: square;"/> || ||
+||[[# dashed-line]][#dashed-line-note dashed line]||##gray|//none//##||##gray|<!@@--@@ 10 pixel dash separated by 5 pixel space: @@-@@->## _
+<line stroke-dasharray="10, 5" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@x1="10" y1="10" x2="190" y2="10" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="stroke: black"/> _
+ _
+##gray|<!@@--@@ alternate 10 and 5 pixel dashes: @@-@@->## _
+<line stroke-dasharray="10, 5, 5, 5" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@x1="10" y1="10" x2="190" y2="10" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="stroke: black"/>|| ||
+||[[# polyline]][#polyline-note polyline]||newpath _
+10 10 moveto _
+20 20 lineto _
+30 10 lineto _
+40 20 lineto _
+stroke||<polyline points="10,10,20,20,30,10,40,20" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fill="none"/> _
+ _
+<path d="M 10 10 L 20 20 30 10 40 20" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" fill="none"/>|| ||
+||[[# line-join]][#line-join-note line join] _
+##gray|//miter, round, bevel//##||0 setlinejoin _
+1 setlinejoin _
+2 setlinejoin||##gray|<!@@--@@ stroke-linejoin can be "round" or "bevel": @@-@@->## _
+<polyline points="10,10,20,20,30,10,40,20" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke-linejoin="miter" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fill="none"/>|| ||
+||[[# miter-limit]][#miter-limit-note miter limit]||1 setmiterlimit||<polyline points="10,10,20,20,30,10,40,20" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke-miterlimit=1 _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fill="none"/>|| ||
+||[[# circular-arc]][#circular-arc-note circular arc]||##gray|% creates half-circular arc centered at _
+% (144,144) with radius 40:## _
+newpath _
+144 144 40 90 270 arc _
+stroke||<path d="M 144 104 A 40 40 0 1 1 144 184" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" fill="none"/>|| ||
+||[[# elliptic-arc]][#elliptic-arc-note elliptic arc]||gsave _
+2 1 scale _
+newpath _
+144 144 40 90 270 arc _
+stroke _
+grestore||<path d="M 144 104 A 80 40 0 1 1 144 184" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" fill="none"/>|| ||
+||[[# quadratic-bezier]][#quadratic-bezier-note quadratic bezier]||##gray|//None.  If the control points of a quadratic bezier are Q,,0,,, Q,,1,,, and Q,,2,,, the equivalent cubic bezier has control points C,,0,, = Q,,0,,, C,,1,, = Q,,0,, + 2Q,,1,,, C,,2,, = 2Q,,1,, + Q,,2,,, and C,,3,, = Q,,2,,.//##||<path d="M 144 144 Q 288 216 144 288" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" fill="none"/>|| ||
+||[[# cubic-bezier]][#cubic-bezier-note cubic bezier]||##gray|% control points are (144,144), (288,144), _
+% (288,288), and (144,288):## _
+newpath _
+144 144 moveto _
+288 144 288 288 144 288 curveto _
+stroke|| <path d="M 144 144 C 288 144 288 288 144 288" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="black" fill="none"/>|| ||
+||||||||~ [[# shapes]][#shapes-note shapes]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#mvg mvg]||
+||[[# outlined-polygon]][#outlined-polygon-note outlined polygon]||##gray|% creates outline of triangle:## _
+newpath _
+72 72 moveto _
+144 144 lineto _
+144 72 lineto _
+closepath _
+stroke|| <polygon points="72,72,72,144,144,144" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@stroke="black" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@fill="none"/>|| ||
+||[[# solid-polygon]][#solid-polygon-note solid polygon]|| ||<polygon points="72,72,72,144,144,144"/>|| ||
+||[[# outlined-rectangle]][#outlined-rectangle-note outlined rectangle]||##gray|% x y width height:## _
+200 100 40 20 rectstroke||<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="12" width="14"/>|| ||
+||[[# solid-rectangle]][#solid-rectangle-note solid rectangle]||##gray|% solid:## _
+200 100 40 20 rectfill||<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="12" width="14"/>|| ||
+||[[# solid-rounded-rectangle]][#solid-rounded-rectangle-note solid rounded rectangle]||##gray|//none//##||<rect x="200" y="200" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="150" width="120" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@rx="20" ry="20"/>|| ||
+||[[# solid-circle]][#solid-circle-note solid circle]||newpath _
+144 144 40 0 360 arc _
+stroke||<circle cx="300" cy="200" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@r="35" fill="green"/>|| ||
+||[[# solid-ellipse]][#solid-ellipse-note solid ellipse]||gsave _
+1 1.6666 scale _
+newpath _
+144 144 40 0 360 arc _
+stroke _
+grestore||<ellipse cx="300" cy="100" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@rx="30" ry="50" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@fill="red"/>|| ||
+||||||||~ [[# color]][#color-note color]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#mvg mvg]||
+||[[# grayscale]][#grayscale-note grayscale] _
+##gray|//black, white, gray//##||0 setgray _
+1 setgray _
+0.5 setgray||##gray|<!@@--@@ stroke attribute also takes rgb values @@-@@->## _
+<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" fill="#000"/> _
+ _
+<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" fill="#FFF"/> _
+ _
+<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" fill="#777"/>|| ||
+||[[# rgb-color]][#rgb-color-note rgb color]||##gray|% default color is black. Sets current color to red:## _
+1.0 0.0 0.0 setrgbcolor||<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" fill="#F00"/> _
+ _
+<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" fill="red"/>|| ||
+||[[# hsb-color]][#hsb-color-note hsb color]||sethsbcolor||<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@style="fill:hsl(0, 100%, 50%)"/>|| ||
+||[[# named-color]][#named-color-note named color]||##gray|//none//##||##gray|//HTML 4.1 defines 16 named colors, the same used by VGA; in practice most browsers recognize the X Windows color names//##|| ||
+||[[# background-color]][#background-color-note background color]||clippath 1 0.75 0.75 setrgbcolor fill _
+0 setgray||<svg width="400" height="400" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@style="background-color: pink"> _
+@<&nbsp;&nbsp;>@##gray|<!@@--@@ more elements here @@-@@->## _
+</svg>|| ||
+||[[# stroke-color]][#stroke-color-note stroke color]||##gray|//stroke and fill color are the same//##||<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@stroke="#F00" fill="none"/>|| ||
+||[[# fill-color]][#fill-color-note fill color]||##gray|//stroke and fill color are the same//##||<rect x="200" y="300" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="50" width="80" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fill="#F00"/>|| ||
+||[[# opacity]][#opacity-note opacity]||##gray|//no support for transparency//##||<rect x="80" y="180" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="120" width="140" fill="red" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fill-opacity="0.5"/> _
+<rect x="100" y="200" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="120" width="140" fill="blue" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fill-opacity="0.5"/>|| ||
+||||||||~ [[# text]][#text-note text]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#mvg mvg]||
+||[[# font]][#font-note font]||/Helvetica 20 selectfont _
+72 72 moveto (lorem ipsum) show||<text x="100" y="100" font-family="Arial"> _
+@<&nbsp;&nbsp;>@lorem ipsum _
+</text>|| ||
+||[[# built-in-fonts]][#built-in-fonts-note built-in fonts]||##gray|/Times-Roman /Times-Italic _
+/Times-Bold /Times-BoldItalic _
+/Helvetica /Helvetica-Oblique _
+/Helvetica-Bold /Helvetica-BoldOblique _
+/Courier /Courier-Bold _
+/Courier-Oblique /Courier-BoldOblique##||##gray|Andale Mono _
+Arial _
+Arial Black _
+Comic Sans MS _
+Courier New _
+Georgia _
+Impact _
+Times New Roman _
+Trebuchet MS _
+Verdana##||$ convert -list font||
+||[[# generic-fonts]][#generic-fonts-note generic fonts]||##gray|//none//##||##gray|serif _
+sans-serif _
+cursive _
+monospace _
+fantasy##|| ||
+||[[# font-size]][#font-size-note font size]||/Helvetica 20 selectfont _
+72 72 moveto (lorem ipsum) show||<text x="100" y="100" font-size="20"> _
+@<&nbsp;&nbsp;>@lorem ipsum _
+</text>|| ||
+||[[# font-weight]][#font-weight-note font weight] _
+##gray|//normal, bold//##||##gray|% must be separate font for weight:## _
+/Helvetica-Bold 20 selectfont _
+72 72 moveto (lorem ipsum) show||<text x="100" y="100" font-weight="bold"> _
+@<&nbsp;&nbsp;>@lorem ipsum _
+</text>|| ||
+||[[# font-style]][#font-style-note font style] _
+##gray|//normal, italic, oblique//##||##gray|% must be separate font for style:## _
+/Helvetica-Oblique 20 selectfont _
+72 72 moveto (lorem ipsum) show||<text x="100" y="100" font-style="italic"> _
+@<&nbsp;&nbsp;>@lorem ipsum _
+</text>|| ||
+||[[# utf-8]][#utf-8-note utf-8]||##gray|//PostScript is ASCII only. _
+ _
+One can use octal backslash sequences to put upper 8-bit characters in strings.  Each font has an encoding associated with it. _
+ _
+There are CID fonts for multibyte character encodings, but they require extra software.//##||##gray|//Make this first child of <head> element://## _
+<meta charset="UTF-8">|| ||
+||[[# text-path]][#text-path-note text path]|| ||<defs> _
+@<&nbsp;&nbsp;>@<path id="sine_path" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@d="M 100 200  _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@C 200 100 300   0 400 100 _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@C 500 200 600 300 700 200 _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@C 800 100 900 100 900 100" /> _
+</defs> _
+ _
+<text font-family="Helvetica" font-size="40"> _
+@<&nbsp;&nbsp;>@<textPath xlink:href="#sine_path"> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@This text is printed along a sine wave path. _
+@<&nbsp;&nbsp;>@</textPath> _
+</text>|| ||
+||||||||~ [[# groups]][#groups-note groups]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#mvg mvg]||
+||group||##gray|//similar in function to gsave and grestore?//##||<g id="group1" fill="red"> _
+@<&nbsp;&nbsp;>@<rect x="1cm" y="1cm" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@width="1cm" height="1cm"/> _
+@<&nbsp;&nbsp;>@<rect x="3cm" y="1cm" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@width="1cm" height="1cm"/> _
+</g>|| ||
+||definition|| ||<defs> _
+@<&nbsp;&nbsp;>@<linearGradient id="Gradient01"> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<stop offset="20%" stop-color="#39F"/> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<stop offset="90%" stop-color="#F3F"/> _
+@<&nbsp;&nbsp;>@</linearGradient> _
+</defs>|| ||
+||||||||~ [[# masks-filters]][#masks-filters-note masks and filters]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#mvg mvg]||
+||clip path|| ||<defs> _
+@<&nbsp;&nbsp;>@<clipPath id="clip"> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<rect x="0" y="0" width="200" height="100" /> _
+@<&nbsp;&nbsp;>@</clipPath> _
+</defs> _
+ _
+##gray|<!@@--@@ top half of circle renders: @@-@@->## _
+<circle cx="100" cy="100" r="100" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@clip-path="url(#clip)"/>|| ||
+||linear gradient|| ||<defs> _
+@<&nbsp;&nbsp;>@<linearGradient id="grad1"> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<stop offset="0%" stop-color="#FFF"/> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<stop offset="100%" stop-color="#000"/> _
+@<&nbsp;&nbsp;>@</linearGradient> _
+</defs> _
+ _
+<rect x="100" y="0" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@height="100" width="200" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@fill="url(#grad1)" />|| ||
+||radial gradient|| ||<defs> _
+@<&nbsp;&nbsp;>@<radialGradient id="grad2"> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<stop offset="0%" stop-color="white"/> _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@<stop offset="100%" stop-color="black"/> _
+@<&nbsp;&nbsp;>@</radialGradient> _
+</defs> _
+ _
+<circle fill="url(#grad2)" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@cx="60" cy="60" r="50"/>|| ||
+||||||||~ [[# raster-images]][#raster-images-note raster images]||
+||~ ||~ [#postscript postscript]||~ [#svg svg]||~ [#mvg mvg]||
+||raster image|| ||<image xlink:href="cat.jpg"  x="0" y="0" _
+@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;&nbsp;>@@<&nbsp;>@width="300px" height="300px"/>|| ||
+||~ ||~ ##EFEFEF|@@__________________________________________________________________@@##||~ ##EFEFEF|@@__________________________________________________________________@@##||~ ##EFEFEF|@@__________________________________________________________________@@##|| 
+
+
+[[# general-note]]
++ [#general General]
+
+[[# hello-world-note]]
+++ [#hello-world hello world]
+
+A complete program which renders "Hello, World!"
+
+[[# comment-note]]
+++ [#comment comment]
+
+The syntax for a comment.
+
+[[# debug-msg-note]]
+++ [#debug-msg debug message]
+
+How to print a debug message.
+
+[[# coordinates-note]]
++ [#coordinates Coordinates]
+
+[[# origin-note]]
+++ [#origin origin]
+
+[[# unit-siz-note]]
+++ [#unit-size unit size]
+
+In CSS, lengths the following units of length can be used:
+
+||~ abbrev||~ unit||
+||in||inch||
+||cm||centimeter||
+||mm||millimeter||
+||pc||pica (6 to an inch)||
+||pt||point (72 to an inch)||
+||px||pixel||
+
+Pixels are used if the unit of length is not specified explicitly.  High pixel density devices such as the Mac Retina display may nevertheless scale up the size of images specified in pixels.
+
+[[# change-coordinate-system-note]]
+++ [#change-coordinate-system change coordinate system]
+
+[[# canvas-size-note]]
+++ [#canvas-size canvas size]
+
+[[# paths-note]]
++ [#paths Paths]
+
+The SVG {{path}} element has a {{d}} attribute which can contain the following commands:
+
+||M ##gray|//X Y//##||move to (##gray|//X, Y//##)||
+||m ##gray|//DX DY//##||move relative to current location||
+||L ##gray|//X Y//##||draw line to (##gray|//X, Y//##)||
+||l ##gray|//DX DY//##||draw line to point defined relative to current location.||
+||H ##gray|//X//##||draw horizontal line to x-coordinate ##gray|//X//##.||
+||h ##gray|//DX//##||draw horizontal line of length ##gray|//DX//##.||
+||V ##gray|//Y//##||draw vertical line to y-coordinate ##gray|//Y//##.||
+||v ##gray|//DY//##||draw vertical line of length ##gray|//DY//##.||
+||C ##gray|//X1 Y1 X2 Y2 X Y//##||draw bezier curve to (##gray|//X, Y//##) with control points at (##gray|//X1, Y1//##) and (##gray|//X2, Y2//##).||
+||c ##gray|//X1 Y1 X2 Y2 DX DY//##||Like C, except that the end point is defined relative to the current location.||
+||S|| ||
+||s|| ||
+||Q|| ||
+||q|| ||
+||T|| ||
+||t|| ||
+||A ##gray|//RX RY ROT F1 F2 X Y//##||draw an arc along an ellipse with x-radius ##gray|//RX//## and y-radius ##gray|//RY//##.  The orientation of the ellipse is rotated ##gray|//ROT//## degrees.  The current location and the point (##gray|//X Y//##) define the start and end of the arc.  If ##gray|//F1//## and ##gray|//F2//## are both 0, the shorter distance along the ellipse is drawn.  If ##gray|//F1//## and ##gray|//F2//## are both 1, the longer distance along the ellipse is drawn.||
+||a ##gray|//RX RY ROT F1 F2 DX DY//##||Like A, except that the end of the arc is defined relative to the current location.||
+||Z||draw line from current location to starting location||
+||z||draw line from current location to starting location||
+
+[[# line-note]]
+++ [#line line]
+
+How to draw a straight line.
+
+[[# stroke-width-note]]
+++ [#stroke-width stroke width]
+
+How to set the stroke width for a path.
+
+[[# line-cap-note]]
+++ [#line-cap line cap]
+
+How the end of a line is terminated.
+
+If the line cap is "circle" or "square", the geometric figure with the same diameter or side length as the stroke width is drawn, centered at the vertex where the line terminates.
+
+The "none" and "square" options both give a squared-off end; in the later case the end extends beyond the vertex.
+
+Line segments which meet at a corner are handled by the line join property described below.
+
+[[# dashed-line-note]]
+++ [#dashed-line dashed line]
+
+How to draw a dashed line.
+
+[[# polyline-note]]
+++ [#polyline polyline]
+
+How to draw a path consisting of joined line segments.
+
+[[# line-join-note]]
+++ [#line-join line join]
+
+How to specify the line join property.
+
+The possibilities are "miter", "round", and bezel". 
+
+[[# miter-limit-note]]
+++ [#miter-limit miter limit]
+
+When the line join property is "miter", the miter limit truncates joins when extend beyond the vertex the specified amount.
+
+[[# circular-arc-note]]
+++ [#circular-arc circular arc]
+
+How to draw a circular arc.
+
+[[# elliptic-arc-note]]
+++ [#elliptic-arc elliptic arc]
+
+How to draw an elliptic arc.
+
+[[# quadratic-bezier-note]]
+++ [#quadratic-bezier quadratic bezier]
+
+[[# cubic-bezier-note]]
+++ [#cubic-bezier cubic bezier]
+
+[[# shapes-note]]
++ [#shapes Shapes]
+
+[[# outlined-polygon-note]]
+++ [#outlined-polygon outlined polygon]
+
+[[# solid-polygon-note]]
+++ [#solid-polygon solid polygon]
+
+[[# outlined-rectangle-note]]
+++ [#outlined-rectangle outlined rectangle]
+
+[[# solid-rectangle-note]]
+++ [#solid-rectangle solid rectangle]
+
+[[# solid-rounded-rectangle-note]]
+++ [#solid-rounded-rectangle solid rounded rectangle]
+
+[[# solid-circle-note]]
+++ [#solid-circle solid circle]
+
+[[# solid-ellipse-note]]
+++ [#solid-ellipse solid ellipse]
+
+[[# color-note]]
++ [#color Color]
+
+[[# grayscale-note]]
+++ [#grayscale grayscale]
+
+[[# rgb-color-note]]
+++ [#rgb-color rgb color]
+
+[[# hsb-color-note]]
+++ [#hsb-color hsb color]
+
+[[# named-color-note]]
+++ [#named-color named color]
+
+[[# background-color-note]]
+++ [#background-color background color]
+
+[[# stroke-color-note]]
+++ [#stroke-color stroke color]
+
+[[# fill-color-note]]
+++ [#fill-color fill color]
+
+[[# opacity-note]]
+++ [#opacity opacity]
+
+[[# text-note]]
++ [#text Text]
+
+SVG text elements use the same font properties as are used in CSS.
+
+* font-family: Andale Mono | Arial | Arial Black | Comic Sans MS | Courier New | Georgia | Impact | Times New Roman | Trebuchet MS | Verdana
+* font-family: serif | sans-serif | cursive | monospace | fantasy
+* font-size:
+* font-weight: normal | bold | bolder | lighter
+* font-style: normal | italic | oblique
+* font-variant: normal | small-caps
+
+The first list of fonts are "Core fonts for the Web" which Microsoft made publicly available from 1996 to 2002.  
+
+The second list of fonts are generic fonts.  They define categories, and the user agent will select from an available font in the category.
+
+Font size, if not specified, will be in pixels.
+
+SVG provides a mechanism for telling the user agent where to download the font.  It also has <font> and <glyph> tags for defining a font.
+
+[[# font-note]]
+++ [#font font]
+
+How to set select the font for text
+
+[[# built-in-fonts-note]]
+++ [#built-in-fonts built-in fonts]
+
+The fonts which are available.
+
+[[# generic-fonts-note]]
+++ [#generic-fonts generic fonts]
+
+[[# font-size-note]]
+++ [#font-size font size]
+
+[[# font-weight-note]]
+++ [#font-weight font weight]
+
+[[# font-style-note]]
+++ [#font-style font style]
+
+How to specify the font style.
+
+The standard font styles are "normal", "italic", and "oblique".
+
+The "italic" and "oblique" styles are not always different.  When they are different, the "italic" style is often specially designed by the font designer, whereas the "oblique" may have been given a slant by a simple linear transformation.
+
+[[# utf-8-note]]
+++ [#utf-8 utf-8]
+
+[[# text-path-note]]
+++ [#text-path text path]
+
+[[# groups-note]]
++ [#groups Groups]
+
+[[# masks-filters-note]]
++ [#masks-filters Masks and Filters]
+
+
+[[# postscript]]
++ [#top PostScript]
+
+[http://partners.adobe.com/public/developer/en/ps/PLRM.pdf PostScript Language Reference] (pdf)
+
+[[# svg]]
++ [#top SVG]
+
+[http://www.w3.org/TR/SVG/ Scalable Vector Graphics (SVG) 1.1]
+
+[[# imagemagick]]
++ [#top ImageMagick]
+
+[https://www.imagemagick.org/script/magick-vector-graphics.php Magic Vector Graphics]
