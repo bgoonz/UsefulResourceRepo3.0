@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 20.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" 
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:a="http://ns.adobe.com/AdobeSVGViewerExtensions/3.0/"
+	 x="0px" y="0px" width="40px" height="54px" viewBox="0 0 40 54" style="enable-background:new 0 0 40 54;" xml:space="preserve">
+<g id="FPO_Dark" style="display:none;">
+</g>
+<g id="FPO_Light" style="display:none;">
+	<g id="Menu_Component_1_" style="display:inline;">
+		<rect id="Background_1_" x="-37" y="-62" style="fill:#F7F7F7;" width="1000" height="160"/>
+	</g>
+</g>
+<g id="Spacing_Guide">
+</g>
+<g id="Artboard_Guides">
+</g>
+<g id="Dark">
+</g>
+<g id="Light">
+	<path id="iPad_Pro" style="fill-rule:evenodd;clip-rule:evenodd;fill:#ffffff;" d="M38.76,8H13.23C12.55,8,12,8.54,12,9.24v40.53
+		c0,0.7,0.55,1.24,1.23,1.24h25.53c0.68,0,1.24-0.54,1.24-1.24V9.24C40,8.54,39.45,8,38.76,8z M26,9.38c0.34,0,0.62,0.28,0.62,0.62
+		c0,0.34-0.28,0.62-0.62,0.62s-0.62-0.28-0.62-0.62C25.38,9.66,25.66,9.38,26,9.38z M26.02,50.01c-0.55,0-1-0.46-1-1
+		c0-0.54,0.45-1,1-1c0.55,0,1,0.46,1,1C27.01,49.55,26.56,50.01,26.02,50.01z M38,47H14V12h24V47z M12,50.93
+		c-0.57-0.12-1-0.59-1-1.21V47H2V7h32V4.5C34,3.65,33.33,3,32.5,3h-31C0.67,3,0,3.65,0,4.5v45C0,50.35,0.67,51,1.5,51H12V50.93z
+		 M17,4.25c0.41,0,0.75,0.34,0.75,0.75c0,0.41-0.34,0.75-0.75,0.75S16.25,5.41,16.25,5C16.25,4.59,16.59,4.25,17,4.25z"/>
+</g>
+</svg>

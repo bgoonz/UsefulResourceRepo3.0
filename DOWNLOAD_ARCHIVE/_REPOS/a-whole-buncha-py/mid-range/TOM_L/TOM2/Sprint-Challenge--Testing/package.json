@@ -1,0 +1,35 @@
+{
+	"name": "testing-challenge",
+	"version": "1.0.0",
+	"description": "Testing Sprint Challenge",
+	"main": "index.js",
+	"scripts": {
+		"test": "jest --watch --verbose",
+		"start": "nodemon index.js"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LambdaSchool/Sprint-Challenge--Testing.git"
+	},
+	"keywords": [],
+	"author": "Lambda School",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/LambdaSchool/Sprint-Challenge--Testing/issues"
+	},
+	"homepage": "https://github.com/LambdaSchool/Sprint-Challenge--Testing#readme",
+	"dependencies": {
+		"express": "^4.16.4",
+		"helmet": "^3.14.0",
+		"knex": "^0.15.2",
+		"morgan": "^1.9.1",
+		"sqlite3": "^4.0.3"
+	},
+	"devDependencies": {
+		"jest": "^23.6.0",
+		"supertest": "^3.3.0"
+	},
+	"jest": {
+		"testEnvironment": "node"
+	}
+}

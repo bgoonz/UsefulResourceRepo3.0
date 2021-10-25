@@ -1,0 +1,10 @@
+.wrapper {
+  width: 90%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 500px;
+  text-align: center;
+  margin: 20px auto;
+}

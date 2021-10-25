@@ -1,0 +1,37 @@
+future
+
+    - have a toFront and toBack method available on Connection (and on return value from jsPlumb.select method).
+    would require some notion of what the default zindex was. how best to do that?
+    - expose "rehomeEndpoint" method on jsPlumb (and 'rehome' on Endpoint); this takes an Endpoint and moves it
+    to a different parent. should take an optional second method to provide the Container to use.
+
+1.3.9
+    - do not set jsplumb scope on draggables when it's just some div you are making draggable. (issue 245) DONE
+
+1.3.5
+       
+    - refactor assigning endpoint styles into a common helper method    DONE    
+    - oncontextmenu event bind  DONE
+    
+1.3.6
+
+	- mix of standard anchors on one end and continuous on the other does not paint  (done)
+	- arrow overlay on flowchart sometimes jumps  (done)
+	- random drag log entries  (done)
+	- importDefaults({ some defaults })  method on jsPlumb (like a bulk import) DONE
+    - draggable by parent issue from google code DONE
+
+possible future enhancements
+
+    - beforeDrag interceptor
+    - straight connector with continuous anchors disappears when horizontal or vertical (fixed?)
+    - single SVG element/single VML group/single Canvas per page?
+    - qunit: add helper methods to simulate mousedown and drag.  then write some functional tests.
+    - image overlay?
+    - make AnchorManager the source of knowledge about connections (remove connections by scope etc)   
+
+    - z-index: make a highlighted connection or one which is connected to an element that is being dragged come to the top over other connections.  have a toFront and toBack method available on Connection (and on return value from jsPlumb.select method)
+
+    - jsPlumb should handle scope, dragActive etc. then can support multiple scopes.
+
+    - paint style "profiles": labelled paint styles, with inheritance. so hover, as an example, could extend from some normal state, and just override a couple of values.  or you might have different "types" of connections, the paint styles for which could extend some default.

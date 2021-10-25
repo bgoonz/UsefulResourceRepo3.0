@@ -1,0 +1,53 @@
+html {
+    font-family: sans-serif;
+    font-size: 62.5%;
+}
+
+h1 {
+    font-size: 4rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem
+}
+
+p {
+    font-size: 1.8rem;
+}
+
+header h1 {
+    font-size: 6rem;
+    color: rgb(60, 80, 237);
+    text-shadow: 2px 2px #ff0000;
+}
+
+section.player1 {
+    float: left;
+    text-align: center;
+    margin-left: 200px;
+}
+section {
+    background-color: #eee;
+    border: 2px solid cornflowerblue;
+}
+section h1 {
+    color: cornflowerblue;
+}
+
+section.player2 {
+    float: right;
+    text-align: center;
+    margin-right: 200px;
+}
+button {
+    background-color: cornflowerblue;
+    color: #fff;
+    font-size: 3rem;
+    width: 450px;
+    height: 100px;
+}
+
+button:hover {
+    background-color: rgb(67, 97, 153);
+}

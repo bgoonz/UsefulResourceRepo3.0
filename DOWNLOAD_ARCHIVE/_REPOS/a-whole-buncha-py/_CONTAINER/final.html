@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>final</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+</head>
+<body>
+<h2 id="devision-06---introducing-data-types-and-conditionals">Devision 06 - Introducing Data Types and Conditionals</h2>
+<p>Welcome to this section, where we will talk about numeric data types, and conditional program execution. After looking at the numeric and boolean data types, we will turn our attention to executing code, based on logical conditions.</p>
+<h3 id="step-01-numeric-data-types">Step 01: Numeric Data Types</h3>
+<p>In previous sections, we created variables of this kind: <code>number = 5</code> , <code>value = 2.5</code>, etc. The <code>5</code> here is an integer, and integers represent numbers, such as <code>1</code>, <code>2</code>, <code>6</code>, <code>-1</code> and <code>-2</code>. In Python, the <code>class</code> for this particular data type is <code>int</code>.</p>
+<p>If you write code like <code>type(5)</code>, you’d get <code>'int'</code> as the output.</p>
+<p>In Python, there are no primitive types. What does that mean? Every value that you see in a Python program, is an object, an instance of some <code>class</code>.</p>
+<p>In later sections, We’ll understand what is a <code>class</code>, and what is an object or an instance. For now, the most important thing for you to remember, is that behind every value, there is a <code>class</code>.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>Let’s look at <code>2.5</code>, which is a floating point value.</p>
+<p>If you go ahead and do <code>type(2.5)</code>, what would you see? You would see it’s of type `<code>float</code>.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(<span class="fl">2.5</span>)</a>
+<a class="sourceLine" id="cb1-2" title="2">    <span class="op">&lt;</span><span class="kw">class</span> <span class="st">&#39;float&#39;</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb1-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(<span class="fl">2.55</span>)</a>
+<a class="sourceLine" id="cb1-4" title="4">    <span class="op">&lt;</span><span class="kw">class</span> <span class="st">&#39;float&#39;</span><span class="op">&gt;</span></a></code></pre></div>
+<p>When you perform a division operation between two integers, there is a chance that the result of the operation is a <code>float</code>. If you do <code>5/2</code>, the result is <code>2.5</code>. If we were to do <code>4/2</code>, even then it’s of type <code>float</code>.</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(<span class="dv">5</span><span class="op">/</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-2" title="2">    <span class="op">&lt;</span><span class="kw">class</span> <span class="st">&#39;float&#39;</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(<span class="dv">4</span><span class="op">/</span><span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb2-4" title="4">    <span class="op">&lt;</span><span class="kw">class</span> <span class="st">&#39;float&#39;</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb2-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="dv">4</span><span class="op">/</span><span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-6" title="6">    <span class="fl">2.0</span></a>
+<a class="sourceLine" id="cb2-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb2-8" title="8">    <span class="dv">3</span></a></code></pre></div>
+<p>All the operations we looked at until now, can also be performed on floating point values.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" title="1">    <span class="op">&gt;&gt;&gt;</span> value1 <span class="op">=</span> <span class="fl">4.5</span></a>
+<a class="sourceLine" id="cb3-2" title="2">    <span class="op">&gt;&gt;&gt;</span> value2 <span class="op">=</span> <span class="fl">3.2</span></a>
+<a class="sourceLine" id="cb3-3" title="3">    <span class="op">&gt;&gt;&gt;</span> value1 <span class="op">+</span> value2</a>
+<a class="sourceLine" id="cb3-4" title="4">    <span class="fl">7.7</span></a>
+<a class="sourceLine" id="cb3-5" title="5">    <span class="op">&gt;&gt;&gt;</span> value1 <span class="op">-</span> value2</a>
+<a class="sourceLine" id="cb3-6" title="6">    <span class="fl">1.2999999999999998</span></a>
+<a class="sourceLine" id="cb3-7" title="7">    <span class="op">&gt;&gt;&gt;</span> value1 <span class="op">/</span> value2</a>
+<a class="sourceLine" id="cb3-8" title="8">    <span class="fl">1.40625</span></a>
+<a class="sourceLine" id="cb3-9" title="9">    <span class="op">&gt;&gt;&gt;</span> value1 <span class="op">%</span> value2</a>
+<a class="sourceLine" id="cb3-10" title="10">    <span class="fl">1.2999999999999998</span></a></code></pre></div>
+<p><code>value1 - value2</code> returns <code>1.299999999999998</code>. Why?</p>
+<p>Floating point numbers don’t really represent accurate values. That’s one of the things you need to always keep in mind.</p>
+<p>Typically, if you’re doing any highly sensitive financial calculations, don’t use <code>float</code>s to represent your values. Instead, use <code>Decimal</code>. More about it later.</p>
+<p>Operations can also be performed between <code>int</code> and <code>float</code>.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">+</span> value1</a>
+<a class="sourceLine" id="cb4-2" title="2">    <span class="fl">14.5</span></a>
+<a class="sourceLine" id="cb4-3" title="3">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">-</span> value1</a>
+<a class="sourceLine" id="cb4-4" title="4">    <span class="fl">5.5</span></a>
+<a class="sourceLine" id="cb4-5" title="5">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">/</span> value1</a>
+<a class="sourceLine" id="cb4-6" title="6">    <span class="fl">2.2222222222222223</span></a>
+<a class="sourceLine" id="cb4-7" title="7">    <span class="op">&gt;&gt;&gt;</span></a></code></pre></div>
+<p>Result of an operation between a <code>int</code> and a <code>float</code>, is always a <code>float</code>.</p>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at the two basic numeric types: <code>int</code> and <code>float</code>.</li>
+<li>Saw the basic operations you can do among <code>int</code>s, among <code>float</code>s, and also between <code>int</code>s and <code>float</code>s.</li>
+</ul>
+<h3 id="step-02-programming-exercise-pe-dt-01">Step 02: Programming Exercise PE-DT-01</h3>
+<p>In this step, let’s do a simple exercise with numeric values.</p>
+<p><strong>Exercises</strong></p>
+<ol type="1">
+<li>You need to create a method called <code>simple_interest</code>, and pass three parameters: <code>principal</code>, <code>interest</code> and <code>duration</code> (in years). You also want to calculate the amount after the specific duration, and return it back. Call this method with a few example values.</li>
+</ol>
+<p>For example, if you want to call <code>simple_interest</code> with <code>10000</code>, with an interest of <code>5</code> percent, for a duration of <code>5</code> years, the correct answer would be as follows: <code>10000</code> is the principal. In addition to <code>10000</code>, you get the interest. The interest for one year is <code>10000 * 0.05</code>, as the interest figure is in percentage.So that’s <code>500</code> a year, into <code>5</code> which is <code>2500</code>. The result would be <code>12500</code>, and this value should be printed.</p>
+<p><strong>Solution 1</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" title="1">    <span class="kw">def</span> calculate_simple_interest(principal, interest, duration) :</a>
+<a class="sourceLine" id="cb5-2" title="2">            <span class="cf">return</span> principal <span class="op">*</span> (<span class="dv">1</span> <span class="op">+</span> interest <span class="op">*</span> <span class="fl">0.01</span> <span class="op">*</span> duration)</a>
+<a class="sourceLine" id="cb5-3" title="3"></a>
+<a class="sourceLine" id="cb5-4" title="4">    <span class="bu">print</span>(calculate_simple_interest(<span class="dv">10000</span>,<span class="dv">5</span>,<span class="dv">5</span>))</a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Wrote a very simple method to do a simple interest calculation</li>
+</ul>
+<h3 id="step-03-puzzles-on-numeric-types">Step 03: Puzzles On Numeric Types</h3>
+<p>In this section, we are looking at numeric types. In this specific step, we would be looking at a few puzzles related to values of these types.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>Let’s create a simple variable <code>i = 1</code>. <code>i = i + 1</code>. What would be the value of <code>i</code> after that?</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb6-2" title="2">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb6-3" title="3">    <span class="op">&gt;&gt;&gt;</span> i</a>
+<a class="sourceLine" id="cb6-4" title="4">    <span class="dv">2</span></a></code></pre></div>
+<p>It would be <code>2</code>. There is a shortcut way of doing the same thing, by using the <code>+=</code> operator.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb7-2" title="2">    <span class="op">&gt;&gt;&gt;</span> i</a>
+<a class="sourceLine" id="cb7-3" title="3">    <span class="dv">3</span></a></code></pre></div>
+<p>Typically in other programming languages, you can do something of this kind: <code>i++</code>. There is no provision in Python to use increment operators like <code>++</code>, in either prefix or suffix mode, like <code>++i</code>, or <code>i++</code>.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb8-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i<span class="op">++</span></a>
+<a class="sourceLine" id="cb8-2" title="2">      File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">1</span></a>
+<a class="sourceLine" id="cb8-3" title="3">        i<span class="op">++</span></a>
+<a class="sourceLine" id="cb8-4" title="4">          <span class="op">^</span></a>
+<a class="sourceLine" id="cb8-5" title="5">    <span class="pp">SyntaxError</span>: invalid syntax</a>
+<a class="sourceLine" id="cb8-6" title="6">    <span class="op">&gt;&gt;&gt;</span> <span class="op">++</span>i</a>
+<a class="sourceLine" id="cb8-7" title="7">    <span class="dv">3</span></a></code></pre></div>
+<p>Let’s look at compound assignments.</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb9-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb9-2" title="2">    <span class="op">&gt;&gt;&gt;</span> i</a>
+<a class="sourceLine" id="cb9-3" title="3">    <span class="dv">4</span></a>
+<a class="sourceLine" id="cb9-4" title="4">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">-=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb9-5" title="5">    <span class="op">&gt;&gt;&gt;</span> i</a>
+<a class="sourceLine" id="cb9-6" title="6">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb9-7" title="7">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">/=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb9-8" title="8">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">*=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb9-9" title="9">    <span class="op">&gt;&gt;&gt;</span> i</a>
+<a class="sourceLine" id="cb9-10" title="10">    <span class="fl">6.0</span></a></code></pre></div>
+<p>What you see here, is Dynamic Typing in Python. The type of a variable can change during the lifetime of the program.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb10-1" title="1"><span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb10-2" title="2"><span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(i)</a>
+<a class="sourceLine" id="cb10-3" title="3"><span class="op">&lt;</span><span class="bu">type</span> <span class="st">&#39;int&#39;</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb10-4" title="4"><span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> i<span class="op">/</span><span class="fl">2.0</span></a>
+<a class="sourceLine" id="cb10-5" title="5"><span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(i)</a>
+<a class="sourceLine" id="cb10-6" title="6"><span class="op">&lt;</span><span class="bu">type</span> <span class="st">&#39;float&#39;</span><span class="op">&gt;</span></a></code></pre></div>
+<p>Let’s create a couple more numbers. <code>number1 = 5</code> and <code>number2 = 2</code>. What could be the result of <code>number1 / number2</code>? You know it, it’s <code>2.5</code> .</p>
+<p><code>number1 // nummber2</code> truncates the value of <code>2.5</code>, to <code>2</code>.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb11-1" title="1">    <span class="op">&gt;&gt;&gt;</span> number1<span class="op">//</span>number2</a>
+<a class="sourceLine" id="cb11-2" title="2">    <span class="dv">2</span></a></code></pre></div>
+<p>If you can do <code>number1 // number2</code>, can you also do this: <code>number1 //= number2</code>?</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb12-1" title="1">    <span class="op">&gt;&gt;&gt;</span> number1 <span class="op">//=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb12-2" title="2">    <span class="op">&gt;&gt;&gt;</span> number1</a>
+<a class="sourceLine" id="cb12-3" title="3">    <span class="dv">2</span></a></code></pre></div>
+<p><code>5 ** 3</code> is <code>5</code> ‘to the power of’ <code>3</code>, which is <code>5 * 5 * 5</code>, or <code>125</code>.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb13-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="dv">5</span> <span class="op">**</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb13-2" title="2">    <span class="dv">125</span></a>
+<a class="sourceLine" id="cb13-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">pow</span>(<span class="dv">5</span>,<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb13-4" title="4">    <span class="dv">125</span></a></code></pre></div>
+<p>This can also be achieved by invoking <code>pow(5, 3)</code>. We have an operator, as well as a method at our disposal.</p>
+<p>The last thing we will look at, are type conversion functions.</p>
+<p>If you need to convert an <code>int</code> value to a <code>float</code>, or a <code>float</code> to an <code>int</code>.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb14-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="fl">5.6</span>)</a>
+<a class="sourceLine" id="cb14-2" title="2">    <span class="dv">5</span></a></code></pre></div>
+<p>What if you want to round a value? <code>5.6</code> is nearer to <code>6</code> than <code>5</code>. You can use a function called <code>round()</code>, and here,<code>round(5.6)</code> gives the correct result <code>6</code>.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb15-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">round</span>(<span class="fl">5.6</span>)</a>
+<a class="sourceLine" id="cb15-2" title="2">    <span class="dv">6</span></a>
+<a class="sourceLine" id="cb15-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">round</span>(<span class="fl">5.4</span>)</a>
+<a class="sourceLine" id="cb15-4" title="4">    <span class="dv">5</span></a>
+<a class="sourceLine" id="cb15-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">round</span>(<span class="fl">5.5</span>)</a>
+<a class="sourceLine" id="cb15-6" title="6">    <span class="dv">6</span></a></code></pre></div>
+<p><code>round()</code> can also allows you to specify number of decimals in the result.</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb16-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">round</span>(<span class="fl">5.67</span>, <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb16-2" title="2">    <span class="fl">5.7</span></a>
+<a class="sourceLine" id="cb16-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">round</span>(<span class="fl">5.678</span>, <span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb16-4" title="4">    <span class="fl">5.68</span></a></code></pre></div>
+<p>You can also convert <code>int</code> to <code>float</code>, by using the function <code>float()</code>.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb17-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">float</span>(<span class="dv">5</span>)</a>
+<a class="sourceLine" id="cb17-2" title="2">    <span class="fl">5.0</span></a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at a few corner cases related to your numeric types.</li>
+<li>Examined the different operators available for use with values of numeric types</li>
+<li>Learned about the usage of type conversion functions</li>
+</ul>
+<h3 id="step-04-introducing-boolean-type">Step 04: Introducing Boolean Type</h3>
+<p>We will now shift our attention to the <code>bool</code> data type.</p>
+<p>A boolean value is something which can be either “true” or “false”.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>In Python, “true” is represented by <code>True</code>, and “false” by <code>False</code>. It’s important to remember that it’s <code>True</code> with a capital <code>'T'</code>, and <code>False</code> with a capital <code>'F'</code>.</p>
+<div class="sourceCode" id="cb18"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb18-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb18-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb18-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb18-4" title="4">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb18-5" title="5">    <span class="op">&gt;&gt;&gt;</span> true</a>
+<a class="sourceLine" id="cb18-6" title="6">    Traceback (most recent call last):</a>
+<a class="sourceLine" id="cb18-7" title="7">      File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">1</span>, <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb18-8" title="8">    <span class="pp">NameError</span>: name <span class="st">&#39;true&#39;</span> <span class="kw">is</span> <span class="kw">not</span> defined</a>
+<a class="sourceLine" id="cb18-9" title="9">    <span class="op">&gt;&gt;&gt;</span> false</a>
+<a class="sourceLine" id="cb18-10" title="10">    Traceback (most recent call last):</a>
+<a class="sourceLine" id="cb18-11" title="11">      File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">1</span>, <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb18-12" title="12">    <span class="pp">NameError</span>: name <span class="st">&#39;false&#39;</span> <span class="kw">is</span> <span class="kw">not</span> defined</a></code></pre></div>
+<p>The boolean variable <code>is_even</code> indicates whether a number is even or not.</p>
+<div class="sourceCode" id="cb19"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb19-1" title="1">    <span class="op">&gt;&gt;&gt;</span> is_even <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb19-2" title="2">    <span class="op">&gt;&gt;&gt;</span> is_odd <span class="op">=</span> <span class="va">False</span></a></code></pre></div>
+<p>Let’s create a variable <code>i = 10</code>. We want to find out if <code>i &gt; 15</code>. What do you think is the result? <code>False</code>.</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb20-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb20-2" title="2">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">&gt;</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb20-3" title="3">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb20-4" title="4">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">&lt;</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb20-5" title="5">    <span class="va">True</span></a></code></pre></div>
+<p>In general, boolean values can represent the result of logical conditions.</p>
+<p>Let’s look at other operations that can result in <code>bool</code> values. We looked at <code>&gt;</code> and <code>&lt;</code>. Another operation which you can perform, is <code>&gt;=</code>.</p>
+<div class="sourceCode" id="cb21"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb21-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">&gt;=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb21-2" title="2">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb21-3" title="3">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">&gt;=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb21-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb21-5" title="5">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">&gt;</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb21-6" title="6">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb21-7" title="7">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">&lt;=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb21-8" title="8">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb21-9" title="9">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">&lt;</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb21-10" title="10">    <span class="va">False</span></a></code></pre></div>
+<p><code>==</code> is the comparison operator. We are only comparing the value of <code>i</code> against <code>10</code>, not changing its value.</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb22-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">==</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb22-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb22-3" title="3">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">==</span> <span class="dv">11</span></a>
+<a class="sourceLine" id="cb22-4" title="4">    <span class="va">False</span></a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Were introduced to the <code>bool</code> data type</li>
+<li>Learned that <code>bool</code> variables are useful handy while testing logical conditions</li>
+</ul>
+<h3 id="step-05-introducing-conditionals">Step 05: Introducing Conditionals</h3>
+<p>In this step, let’s look at <code>if</code> statement.</p>
+<p>Sometimes you need to execute code only when certain conditions are true. You can use a <code>if</code> condition, which is the simplest conditional in Python. Let’s look at an example.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>Let’s say <code>i</code> has a value of <code>5</code>. You want to print something, only if <code>i</code> has a value greater than <code>3</code>. How do you do that?</p>
+<div class="sourceCode" id="cb23"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb23-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb23-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">&gt;</span><span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb23-3" title="3">    ...     <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{i}</span><span class="ss"> is greater than 3&quot;</span>)</a>
+<a class="sourceLine" id="cb23-4" title="4">    ...</a>
+<a class="sourceLine" id="cb23-5" title="5">    <span class="dv">5</span> <span class="kw">is</span> greater than <span class="dv">3</span></a></code></pre></div>
+<p>The syntax of the <code>if</code> is very simple: <code>if</code> followed by a condition; with the condition you want to check. It looks like: <code>if i&gt;3: ...</code> You need to indent the body of the <code>if</code> with <code>&lt;SPACE&gt;</code>s as usual.</p>
+<p>Let’s say <code>i</code> has a value of <code>2</code>. What would happen if we execute the same code again?</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb24-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb24-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">&gt;</span><span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb24-3" title="3">    ...     <span class="bu">print</span>(<span class="ss">f&quot;</span><span class="sc">{i}</span><span class="ss"> is greater than 3&quot;</span>)</a>
+<a class="sourceLine" id="cb24-4" title="4">    ...</a></code></pre></div>
+<p>You would see that nothing is printed to the console. Based on the value of <code>i</code> , either the statement is executed, or it’s not. That’s what an <code>if</code> helps us to do.</p>
+<p>The way you can think about an <code>if</code>, is the body of code under the <code>if</code> is executed only when this condition is <code>True</code>. If this condition is not <code>True</code>, that code is not executed at all.</p>
+<div class="sourceCode" id="cb25"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb25-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(<span class="va">False</span>):</a>
+<a class="sourceLine" id="cb25-2" title="2">    ...   <span class="bu">print</span>(<span class="st">&quot;False&quot;</span>)</a>
+<a class="sourceLine" id="cb25-3" title="3">    ...</a>
+<a class="sourceLine" id="cb25-4" title="4">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(<span class="va">True</span>):</a>
+<a class="sourceLine" id="cb25-5" title="5">    ...   <span class="bu">print</span>(<span class="st">&quot;True&quot;</span>)</a>
+<a class="sourceLine" id="cb25-6" title="6">    ...</a>
+<a class="sourceLine" id="cb25-7" title="7">    <span class="va">True</span></a></code></pre></div>
+<p>Let’s take two different numbers, say <code>a = 5</code>, and <code>b = 7</code>. We want to compare them, and predict if <code>a</code> is greater that <code>b</code> .</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb26-1" title="1">    <span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb26-2" title="2">    <span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> <span class="dv">7</span></a>
+<a class="sourceLine" id="cb26-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(a<span class="op">&gt;</span>b):</a>
+<a class="sourceLine" id="cb26-4" title="4">    ...   <span class="bu">print</span>(<span class="st">&quot;a is greater than b&quot;</span>)</a>
+<a class="sourceLine" id="cb26-5" title="5">    ...</a>
+<a class="sourceLine" id="cb26-6" title="6"></a>
+<a class="sourceLine" id="cb26-7" title="7">    <span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> <span class="dv">9</span></a>
+<a class="sourceLine" id="cb26-8" title="8">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(a<span class="op">&gt;</span>b):</a>
+<a class="sourceLine" id="cb26-9" title="9">    ...   <span class="bu">print</span>(<span class="st">&quot;a is greater than b&quot;</span>)</a>
+<a class="sourceLine" id="cb26-10" title="10">    ...</a>
+<a class="sourceLine" id="cb26-11" title="11">    a <span class="kw">is</span> greater than b</a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Were introduced to the <code>if</code> statement, the simplest Python conditional</li>
+<li>Understood how an <code>if</code> helps in implementing conditional program logic</li>
+</ul>
+<h3 id="step-06-classroom-exercise-ce-dt-01">Step 06: Classroom Exercise CE-DT-01</h3>
+<p>In this step, let’s look at a couple of exercises with the if statement.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>Let’s say we define four variables: <code>a = 1</code>, <code>b = 2</code> , <code>c = 3</code> and <code>d = 5</code>. we want to find out, if <code>a + b</code> is greater than <code>c + d</code>.</p>
+<div class="sourceCode" id="cb27"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb27-1" title="1">    <span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb27-2" title="2">    <span class="op">&gt;&gt;&gt;</span> b <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb27-3" title="3">    <span class="op">&gt;&gt;&gt;</span> c <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb27-4" title="4">    <span class="op">&gt;&gt;&gt;</span> d <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb27-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> a<span class="op">+</span>b <span class="op">&gt;</span> c<span class="op">+</span>d :</a>
+<a class="sourceLine" id="cb27-6" title="6">    ...    <span class="bu">print</span>(<span class="st">&quot;a+b &gt; c +d&quot;</span>)</a>
+<a class="sourceLine" id="cb27-7" title="7">    ...</a>
+<a class="sourceLine" id="cb27-8" title="8">    <span class="op">&gt;&gt;&gt;</span> a <span class="op">=</span> <span class="dv">9</span></a>
+<a class="sourceLine" id="cb27-9" title="9">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> a<span class="op">+</span>b <span class="op">&gt;</span> c<span class="op">+</span>d :</a>
+<a class="sourceLine" id="cb27-10" title="10">    ...    <span class="bu">print</span>(<span class="st">&quot;a+b &gt; c +d&quot;</span>)</a>
+<a class="sourceLine" id="cb27-11" title="11">    ...</a>
+<a class="sourceLine" id="cb27-12" title="12">    a<span class="op">+</span>b <span class="op">&gt;</span> c <span class="op">+</span>d</a></code></pre></div>
+<p>Let’s say we are given three values meant to be the angles of a triangle. Their values are <code>angle1 = 30</code>, <code>angle2 = 20</code> and <code>angle3 = 60</code>. You want to find out if these three angles actually form a valid triangle. You know that the sum of the angles of a triangle is always <code>180</code> degrees.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb28-1" title="1">    <span class="op">&gt;&gt;&gt;</span> angle1 <span class="op">=</span> <span class="dv">30</span></a>
+<a class="sourceLine" id="cb28-2" title="2">    <span class="op">&gt;&gt;&gt;</span> angle2 <span class="op">=</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb28-3" title="3">    <span class="op">&gt;&gt;&gt;</span> angle3 <span class="op">=</span> <span class="dv">60</span></a>
+<a class="sourceLine" id="cb28-4" title="4">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(angle1 <span class="op">+</span> angle2 <span class="op">+</span> angle3 <span class="op">==</span> <span class="dv">180</span>):</a>
+<a class="sourceLine" id="cb28-5" title="5">    ...      <span class="bu">print</span>(<span class="st">&quot;Valid Triangle&quot;</span>)</a>
+<a class="sourceLine" id="cb28-6" title="6">    ...</a>
+<a class="sourceLine" id="cb28-7" title="7">    <span class="op">&gt;&gt;&gt;</span> angle2 <span class="op">=</span> <span class="dv">90</span></a>
+<a class="sourceLine" id="cb28-8" title="8">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(angle1 <span class="op">+</span> angle2 <span class="op">+</span> angle3 <span class="op">==</span> <span class="dv">180</span>):</a>
+<a class="sourceLine" id="cb28-9" title="9">    ...      <span class="bu">print</span>(<span class="st">&quot;Valid Triangle&quot;</span>)</a>
+<a class="sourceLine" id="cb28-10" title="10">    ...</a>
+<a class="sourceLine" id="cb28-11" title="11">    Valid Triangle</a></code></pre></div>
+<p>The last exercise is to check if a number is even or not.</p>
+<p>Hint L you need to use one of the operators we talked about earlier. That’s right, use the modulo operator <code>%</code>.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb29-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb29-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb29-3" title="3">    ...   <span class="bu">print</span>(<span class="st">&quot;i is even&quot;</span>)</a>
+<a class="sourceLine" id="cb29-4" title="4">    ...</a>
+<a class="sourceLine" id="cb29-5" title="5">    i <span class="kw">is</span> even</a>
+<a class="sourceLine" id="cb29-6" title="6"></a>
+<a class="sourceLine" id="cb29-7" title="7">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb29-8" title="8">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>):</a>
+<a class="sourceLine" id="cb29-9" title="9">    ...   <span class="bu">print</span>(<span class="st">&quot;i is even&quot;</span>)</a>
+<a class="sourceLine" id="cb29-10" title="10">    ...</a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at a few exercises related to the if statement, for writing and testing conditions.</li>
+</ul>
+<h3 id="step-07---logical-operators---and-or-not">Step 07 - Logical Operators - and or not</h3>
+<p>In this step, let’s look at the different operators that can be used on <code>bool</code> values. These operators are called logical operators - <code>and</code>, <code>or</code> , <code>not</code> and <code>^</code> (xor).</p>
+<p>Let’s say we have a value <code>True</code>, and the other <code>False</code>, and we want to play around with them.</p>
+<p>Logical operator <code>and</code> returns true only when both operands are <code>True</code>.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb30-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb30-2" title="2">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb30-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb30-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb30-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="kw">and</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb30-6" title="6">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb30-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="kw">and</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb30-8" title="8">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb30-9" title="9">    <span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="kw">and</span> <span class="va">False</span></a></code></pre></div>
+<p>Logical operator <code>or</code> returns true when atleast one of the operands is <code>True</code>.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb31-1" title="1">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb31-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="kw">or</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb31-3" title="3">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb31-4" title="4">    <span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="kw">or</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb31-5" title="5">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb31-6" title="6">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="kw">or</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb31-7" title="7">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb31-8" title="8">    <span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="kw">or</span> <span class="va">False</span></a></code></pre></div>
+<p>Logical operator <code>not</code> returns negation.</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb32-1" title="1">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb32-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="kw">not</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb32-3" title="3">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb32-4" title="4">    <span class="op">&gt;&gt;&gt;</span> <span class="kw">not</span>(<span class="va">True</span>)</a>
+<a class="sourceLine" id="cb32-5" title="5">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb32-6" title="6">    <span class="op">&gt;&gt;&gt;</span> <span class="kw">not</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb32-7" title="7">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb32-8" title="8">    <span class="op">&gt;&gt;&gt;</span> <span class="kw">not</span>(<span class="va">False</span>)</a>
+<a class="sourceLine" id="cb32-9" title="9">    <span class="va">True</span></a></code></pre></div>
+<p>The XOR operation, denoted by the <code>^</code> operator, is <code>True</code> when operands have different boolean values.</p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb33-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="op">^</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb33-2" title="2">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb33-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="va">True</span> <span class="op">^</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb33-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb33-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="op">^</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb33-6" title="6">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb33-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="va">False</span> <span class="op">^</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb33-8" title="8">    <span class="va">False</span></a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at the logical operators that act on boolean values, such as <code>and</code>, <code>or</code>, <code>not</code> and <code>^</code></li>
+<li>Explored each of these operators, finding out when they return <code>True</code>, and when <code>False</code>.</li>
+</ul>
+<h3 id="step-08-puzzles-on-logical-operators">Step 08: Puzzles On Logical Operators</h3>
+<p>In this step, Let’s look at a few simple puzzles to look at the logical operators.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>Let’s say <code>i</code> has a value of <code>10</code>, and <code>j</code> has a value of <code>15</code>. You want to find out if both <code>i</code> and <code>j</code> are even. How do you do that?</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb34-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb34-2" title="2">    <span class="op">&gt;&gt;&gt;</span> j <span class="op">=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb34-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span> <span class="kw">and</span> j<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb34-4" title="4">    ...   <span class="bu">print</span>(<span class="st">&quot;i and j are even&quot;</span>)</a>
+<a class="sourceLine" id="cb34-5" title="5">    ...</a>
+<a class="sourceLine" id="cb34-6" title="6">    <span class="op">&gt;&gt;&gt;</span> j <span class="op">=</span> <span class="dv">14</span></a>
+<a class="sourceLine" id="cb34-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span> <span class="kw">and</span> j<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb34-8" title="8">    ...   <span class="bu">print</span>(<span class="st">&quot;i and j are even&quot;</span>)</a>
+<a class="sourceLine" id="cb34-9" title="9">    ...</a>
+<a class="sourceLine" id="cb34-10" title="10">    i <span class="kw">and</span> j are even</a>
+<a class="sourceLine" id="cb34-11" title="11"></a>
+<a class="sourceLine" id="cb34-12" title="12">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span> <span class="kw">or</span> j<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb34-13" title="13">    ...</a>
+<a class="sourceLine" id="cb34-14" title="14">      File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">2</span></a>
+<a class="sourceLine" id="cb34-15" title="15">        <span class="op">^</span></a>
+<a class="sourceLine" id="cb34-16" title="16">    <span class="pp">IndentationError</span>: expected an indented block</a>
+<a class="sourceLine" id="cb34-17" title="17">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span> <span class="kw">or</span> j<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb34-18" title="18">    ...   <span class="bu">print</span>(<span class="st">&quot;atleast one of i and j are even&quot;</span>)</a>
+<a class="sourceLine" id="cb34-19" title="19">    ...</a>
+<a class="sourceLine" id="cb34-20" title="20">    atleast one of i <span class="kw">and</span> j are even</a></code></pre></div>
+<p>If we want to find out if at least one of <code>i</code> and <code>j</code> is even, we can use the <code>or</code> operator.</p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb35-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb35-2" title="2">    <span class="op">&gt;&gt;&gt;</span> j</a>
+<a class="sourceLine" id="cb35-3" title="3">    <span class="dv">14</span></a>
+<a class="sourceLine" id="cb35-4" title="4">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span> <span class="kw">or</span> j<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb35-5" title="5">    ...   <span class="bu">print</span>(<span class="st">&quot;atleast one of i and j are even&quot;</span>)</a>
+<a class="sourceLine" id="cb35-6" title="6">    ...</a>
+<a class="sourceLine" id="cb35-7" title="7">    atleast one of i <span class="kw">and</span> j are even</a>
+<a class="sourceLine" id="cb35-8" title="8">    <span class="op">&gt;&gt;&gt;</span> j <span class="op">=</span> <span class="dv">23</span></a>
+<a class="sourceLine" id="cb35-9" title="9">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span> <span class="kw">or</span> j<span class="op">%</span><span class="dv">2</span><span class="op">==</span><span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb35-10" title="10">    ...   <span class="bu">print</span>(<span class="st">&quot;atleast one of i and j are even&quot;</span>)</a>
+<a class="sourceLine" id="cb35-11" title="11">    ...</a>
+<a class="sourceLine" id="cb35-12" title="12">    <span class="op">&gt;&gt;&gt;</span> i</a>
+<a class="sourceLine" id="cb35-13" title="13">    <span class="dv">15</span></a></code></pre></div>
+<p>Now try and guess the value of this. <code>if(True ^ False): print("Message")</code></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb36-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(<span class="va">True</span> <span class="op">^</span> <span class="va">False</span>):</a>
+<a class="sourceLine" id="cb36-2" title="2">    ...     <span class="bu">print</span>(<span class="st">&quot;This will Print&quot;</span>)</a>
+<a class="sourceLine" id="cb36-3" title="3">    ...</a>
+<a class="sourceLine" id="cb36-4" title="4">    This will Print</a>
+<a class="sourceLine" id="cb36-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(<span class="va">False</span> <span class="op">^</span> <span class="va">True</span>):</a>
+<a class="sourceLine" id="cb36-6" title="6">    ...     <span class="bu">print</span>(<span class="st">&quot;This will Print&quot;</span>)</a>
+<a class="sourceLine" id="cb36-7" title="7">    ...</a>
+<a class="sourceLine" id="cb36-8" title="8">    This will Print</a>
+<a class="sourceLine" id="cb36-9" title="9">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span>(<span class="va">True</span> <span class="op">^</span> <span class="va">True</span>):</a>
+<a class="sourceLine" id="cb36-10" title="10">    ...     <span class="bu">print</span>(<span class="st">&quot;This will Print&quot;</span>)</a>
+<a class="sourceLine" id="cb36-11" title="11">    ...</a></code></pre></div>
+<p>Xor operation using <code>^</code> - message will get printed if the operands are different.</p>
+<p>What would happen if both of them are <code>True</code>? No message is printed.</p>
+<p>So you would use <code>^</code> in situations, where you’d want one of the operands to be <code>True</code>, and the other to be <code>False</code>.</p>
+<p>Let’s say, <code>x = 5</code>, and you want to check <code>if not x == 6: print("This")</code>. What will be the result of running this code?</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb37-1" title="1">    <span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb37-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> <span class="kw">not</span> x <span class="op">==</span> <span class="dv">6</span>:</a>
+<a class="sourceLine" id="cb37-3" title="3">    ...   <span class="bu">print</span>(<span class="st">&quot;This&quot;</span>)</a>
+<a class="sourceLine" id="cb37-4" title="4">    ...</a>
+<a class="sourceLine" id="cb37-5" title="5">    This</a>
+<a class="sourceLine" id="cb37-6" title="6">    <span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> <span class="dv">6</span></a>
+<a class="sourceLine" id="cb37-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> <span class="kw">not</span> x <span class="op">==</span> <span class="dv">6</span>:</a>
+<a class="sourceLine" id="cb37-8" title="8">    ...   <span class="bu">print</span>(<span class="st">&quot;This&quot;</span>)</a>
+<a class="sourceLine" id="cb37-9" title="9">    ...</a></code></pre></div>
+<p>Actually, there is a shortcut for such a condition: <code>if x != 6 : print("This")</code>.</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb38-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> x<span class="op">!=</span><span class="dv">6</span>:</a>
+<a class="sourceLine" id="cb38-2" title="2">    ...   <span class="bu">print</span>(<span class="st">&quot;This&quot;</span>)</a>
+<a class="sourceLine" id="cb38-3" title="3">    ...</a>
+<a class="sourceLine" id="cb38-4" title="4">    <span class="op">&gt;&gt;&gt;</span> x<span class="op">=</span><span class="dv">5</span></a>
+<a class="sourceLine" id="cb38-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> x<span class="op">!=</span><span class="dv">6</span>:</a>
+<a class="sourceLine" id="cb38-6" title="6">    ...   <span class="bu">print</span>(<span class="st">&quot;This&quot;</span>)</a>
+<a class="sourceLine" id="cb38-7" title="7">    ...</a>
+<a class="sourceLine" id="cb38-8" title="8">    This</a></code></pre></div>
+<p><code>int()</code> is a conversion function, which when given say a <code>float</code> value, returns an <code>int</code> value. Consider <code>int(True)</code>, what would happen?</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb39-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="va">True</span>)</a>
+<a class="sourceLine" id="cb39-2" title="2">    <span class="dv">1</span></a>
+<a class="sourceLine" id="cb39-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="va">False</span>)</a>
+<a class="sourceLine" id="cb39-4" title="4">    <span class="dv">0</span></a></code></pre></div>
+<p><code>int(True)</code> returns 1. <code>int(False)</code> returns 0.</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb40-1" title="1">    <span class="op">&gt;&gt;&gt;</span> x <span class="op">=</span> <span class="dv">-6</span></a>
+<a class="sourceLine" id="cb40-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> x:</a>
+<a class="sourceLine" id="cb40-3" title="3">    ...   <span class="bu">print</span>(<span class="st">&quot;something&quot;</span>)</a>
+<a class="sourceLine" id="cb40-4" title="4">    ...</a>
+<a class="sourceLine" id="cb40-5" title="5">    something</a></code></pre></div>
+<p>One of the most interesting facts about boolean stuff, is anything which is non-zero, is considered to be <code>True</code>.</p>
+<p><code>0</code> is the only integer value which is considered to be <code>False</code>.</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb41-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb41-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb41-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="op">-</span><span class="dv">6</span>)</a>
+<a class="sourceLine" id="cb41-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb41-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="dv">0</span>)</a>
+<a class="sourceLine" id="cb41-6" title="6">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb41-7" title="7">    <span class="op">&gt;&gt;&gt;</span></a></code></pre></div>
+<p>So, if I have a value of <code>x = -6</code>, and execute <code>if x: print("something")</code> what do you think will happen?</p>
+<p><code>"something"</code> will be printed.</p>
+<p>You can use the function <code>bool()</code>, to convert <code>int</code> to a <code>bool</code> value.</p>
+<ul>
+<li><code>bool(6)</code> returns <code>True</code></li>
+<li><code>bool(-6)</code> returns <code>True</code></li>
+<li><code>bool(0)</code> returns <code>False</code>.</li>
+</ul>
+<p>Except for <code>bool(0)</code>, all the other results would be <code>True</code>.</p>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at a few puzzles related to the logical operators</li>
+<li>Looked at conversion functions such as <code>bool()</code> and <code>int()</code> to convert between boolean and integer data</li>
+</ul>
+<h3 id="step-09">Step 09:</h3>
+<p>In this step, let’s look at two other important components of an <code>if</code> statement: <code>else</code> and <code>elif</code>. Let’s start with <code>else</code>.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>Consider a scenario where <code>i</code> has a value of <code>2</code>. Let’s try to print a message <code>"i is even"</code> if <code>i</code> is an even number. Otherwise, print <code>"i is odd"</code>.</p>
+<p>Earlier we wrote code along these lines: <code>if i % 2 == 0 : print("i is even")</code>. However if this condition is not <code>True</code>, we would want to <code>print("i is odd")</code>. How do we accomplish that?</p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb42-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb42-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb42-3" title="3">    ...   <span class="bu">print</span>(<span class="st">&quot;i is even&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb42-4" title="4">    ... <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb42-5" title="5">    ...   <span class="bu">print</span>(<span class="st">&quot;i is odd&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb42-6" title="6">    ...</a>
+<a class="sourceLine" id="cb42-7" title="7">    i <span class="kw">is</span> even</a></code></pre></div>
+<p>An <code>else</code> clause provides an alternative code body to execute, if the <code>if</code> condition is <code>False</code>.</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb43-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb43-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">%</span><span class="dv">2</span> <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb43-3" title="3">    ...   <span class="bu">print</span>(<span class="st">&quot;i is even&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb43-4" title="4">    ... <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb43-5" title="5">    ...   <span class="bu">print</span>(<span class="st">&quot;i is odd&quot;</span>)<span class="op">;</span></a>
+<a class="sourceLine" id="cb43-6" title="6">    ...</a>
+<a class="sourceLine" id="cb43-7" title="7">    i <span class="kw">is</span> odd</a></code></pre></div>
+<p>Let’s look at <code>elif</code>.</p>
+<p>We want to do something if <code>i</code> has value of <code>3</code>, and something totally different if <code>i</code> has a value of <code>4</code>.</p>
+<p>In short, we want to specify 2 alternatives to the <code>if</code> condition. How can that be done?</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb44-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i<span class="op">==</span><span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb44-2" title="2">    ...   <span class="bu">print</span>(<span class="st">&quot;i is 1&quot;</span>)</a>
+<a class="sourceLine" id="cb44-3" title="3">    ... <span class="cf">elif</span> i<span class="op">==</span><span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb44-4" title="4">    ...   <span class="bu">print</span>(<span class="st">&quot;i is 2&quot;</span>)</a>
+<a class="sourceLine" id="cb44-5" title="5">    ... <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb44-6" title="6">    ...   <span class="bu">print</span>(<span class="st">&quot;i is not 1 or 2&quot;</span>)</a>
+<a class="sourceLine" id="cb44-7" title="7">    ...</a>
+<a class="sourceLine" id="cb44-8" title="8">    i <span class="kw">is</span> <span class="kw">not</span> <span class="dv">1</span> <span class="kw">or</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb44-9" title="9">    <span class="op">&gt;&gt;&gt;</span></a></code></pre></div>
+<p>That’s where the <strong><code>elif</code></strong> clause comes into the picture. The code in <code>elif</code> is executed if the previous conditions are false and the current <code>elif</code> condition is true.</p>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at two important components of the <code>if</code> statement: <code>else</code> and <code>elif</code>.</li>
+<li>Understood that the <code>elif</code> clauses and the final <code>else</code> clause provide alternative conditions to check, when earlier if conditions are true.</li>
+</ul>
+<h3 id="step-10-classroom-exercise-ce-dt-02">Step 10: Classroom Exercise CE-DT-02</h3>
+<p>In this step, let’s do a simple exercise with <code>if</code>, <code>else</code> and <code>elif</code>.</p>
+<p>Before getting to the exercise, let’s try and learn how to get console input from the user.</p>
+<p>Until now, we had been hard-coding all the data we were to use. Let’s make that part more dynamic now.</p>
+<p><strong>Snippet-01:</strong></p>
+<p>How do we get input from the user? We want to get input from the console, and assign it to a variable. The way we can do that, is by statement <code>value = input()</code></p>
+<div class="sourceCode" id="cb45"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb45-1" title="1">    value <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Enter a Value: &quot;</span>)</a>
+<a class="sourceLine" id="cb45-2" title="2">    <span class="bu">print</span>(<span class="st">&quot;you entered &quot;</span>, value)</a></code></pre></div>
+<p>We can call the <code>input()</code> method with a text ‘prompt’, such as <code>"Enter A Value: "</code>. What we can initially do here, is print the value which was entered, back to the console, by <code>print("you entered ", integer_value)</code>.</p>
+<p>An interesting point to explore here, is the type of data input at the console.</p>
+<p>Let’s do a <code>print(type(value))</code>.</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb46-1" title="1">    value <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Enter a Value: &quot;</span>)</a>
+<a class="sourceLine" id="cb46-2" title="2">    <span class="bu">print</span>(<span class="st">&quot;you entered &quot;</span>, value)</a>
+<a class="sourceLine" id="cb46-3" title="3">    <span class="bu">print</span>(<span class="bu">type</span>(value))</a></code></pre></div>
+<p>Input a value of <code>Test</code>. It has a class of <code>str</code>.</p>
+<p>Let’s run it again to see other possibilities. This time, let’s enter a numeric value, say <code>12</code>. what would happen?</p>
+<p>We again get <code>str</code>.</p>
+<p>We want to get an integer value from the input. How can we do it?</p>
+<p><code>int()</code> function converts string to int. Let’s use it.</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb47-1" title="1">value <span class="op">=</span> <span class="bu">input</span>(<span class="st">&quot;Enter a Value: &quot;</span>)</a>
+<a class="sourceLine" id="cb47-2" title="2">integer_value <span class="op">=</span> <span class="bu">int</span>(value)</a>
+<a class="sourceLine" id="cb47-3" title="3"><span class="bu">print</span>(<span class="st">&quot;you entered &quot;</span>, integer_value)</a>
+<a class="sourceLine" id="cb47-4" title="4"><span class="bu">print</span>(<span class="bu">type</span>(integer_value))</a></code></pre></div>
+<p>Let’s run our code once again.</p>
+<p><code>"Enter A Value: "</code> is prompted, and we enter <code>15</code>. And now, of it says <code>"You entered 15"</code>, and the type it indicates to us, is <code>int</code>.</p>
+<p><strong>Design a menu</strong></p>
+<ul>
+<li>Ask the User for input:
+<ul>
+<li>Enter two numbers</li>
+<li>Choose the Option:
+<ul>
+<li>1 - Add</li>
+<li>2 - Subtract</li>
+<li>3 - Multiply</li>
+<li>4 - Divide</li>
+</ul></li>
+</ul></li>
+<li>Perform the Operation</li>
+<li>Publish the Result</li>
+</ul>
+<p>Let’s design a menu, and then ask the user for input.</p>
+<p>We have codes for each of the operations : add is <code>1</code>, subtract is <code>2</code>, divide is <code>3</code>, and multiply is <code>4</code>.</p>
+<p>In the first version of the program let’s get all the inputs and print them out.</p>
+<p><strong>Solution</strong></p>
+<p>The first version of the program is simple to write</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb48-1" title="1">number1 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter Number1: &quot;</span>))</a>
+<a class="sourceLine" id="cb48-2" title="2">number2 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter Number2: &quot;</span>))</a>
+<a class="sourceLine" id="cb48-3" title="3"><span class="bu">print</span>(<span class="ss">f&quot;You entered </span><span class="sc">{</span>number1<span class="sc">}</span><span class="ss">&quot;</span>)</a>
+<a class="sourceLine" id="cb48-4" title="4"><span class="bu">print</span>(<span class="ss">f&quot;You entered </span><span class="sc">{</span>number2<span class="sc">}</span><span class="ss">&quot;</span>)</a>
+<a class="sourceLine" id="cb48-5" title="5"><span class="bu">print</span>(number1 <span class="op">+</span> number2)</a>
+<a class="sourceLine" id="cb48-6" title="6"><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">1 - Add&quot;</span>)</a>
+<a class="sourceLine" id="cb48-7" title="7"><span class="bu">print</span>(<span class="st">&quot;2 - Subtract&quot;</span>)</a>
+<a class="sourceLine" id="cb48-8" title="8"><span class="bu">print</span>(<span class="st">&quot;3 - Divide&quot;</span>)</a>
+<a class="sourceLine" id="cb48-9" title="9"><span class="bu">print</span>(<span class="st">&quot;4 - Multiply&quot;</span>)</a>
+<a class="sourceLine" id="cb48-10" title="10"><span class="bu">print</span>(<span class="st">&quot;5 - Exit&quot;</span>)</a>
+<a class="sourceLine" id="cb48-11" title="11">choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Choose Operation: &quot;</span>))</a>
+<a class="sourceLine" id="cb48-12" title="12"><span class="bu">print</span>(choice)</a></code></pre></div>
+<p>We will continue this exercise to complete it, in the next step.</p>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at the in-built <code>input()</code> function that can read console input</li>
+<li>Learned that <code>input()</code> always returns what the user enters, as a string</li>
+<li>We can convert the string from <code>input()</code>, to the data type we expect by invoking conversion functions</li>
+</ul>
+<h3 id="step-11-continued---classroom-exercise-ce-dt-02">Step 11: Continued - Classroom Exercise CE-DT-02</h3>
+<p><strong>Exercises</strong></p>
+<p>In the previous step, we got the input from the user. Let’s continue the exercise in this step. We want to write an if condition.</p>
+<p><strong>Solution (Continued)</strong></p>
+<p>Extending the solution is easy. Write appropriate <code>if</code>, <code>elif</code> and <code>else</code> conditions.</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb49-1" title="1">number1 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter Number1: &quot;</span>))</a>
+<a class="sourceLine" id="cb49-2" title="2">number2 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter Number2: &quot;</span>))</a>
+<a class="sourceLine" id="cb49-3" title="3"></a>
+<a class="sourceLine" id="cb49-4" title="4"><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">1 - Add&quot;</span>)</a>
+<a class="sourceLine" id="cb49-5" title="5"><span class="bu">print</span>(<span class="st">&quot;2 - Subtract&quot;</span>)</a>
+<a class="sourceLine" id="cb49-6" title="6"><span class="bu">print</span>(<span class="st">&quot;3 - Divide&quot;</span>)</a>
+<a class="sourceLine" id="cb49-7" title="7"><span class="bu">print</span>(<span class="st">&quot;4 - Multiply&quot;</span>)</a>
+<a class="sourceLine" id="cb49-8" title="8"></a>
+<a class="sourceLine" id="cb49-9" title="9">choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Choose Operation: &quot;</span>))</a>
+<a class="sourceLine" id="cb49-10" title="10"></a>
+<a class="sourceLine" id="cb49-11" title="11"><span class="co"># print(number1 + number2)</span></a>
+<a class="sourceLine" id="cb49-12" title="12"><span class="co"># print(choice)</span></a>
+<a class="sourceLine" id="cb49-13" title="13"><span class="cf">if</span> choice<span class="op">==</span><span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb49-14" title="14">    result <span class="op">=</span> number1 <span class="op">+</span> number2</a>
+<a class="sourceLine" id="cb49-15" title="15"><span class="cf">elif</span> choice<span class="op">==</span><span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb49-16" title="16">    result <span class="op">=</span> number1 <span class="op">-</span> number2</a>
+<a class="sourceLine" id="cb49-17" title="17"><span class="cf">elif</span> choice<span class="op">==</span><span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb49-18" title="18">    result <span class="op">=</span> number1 <span class="op">/</span> number2</a>
+<a class="sourceLine" id="cb49-19" title="19"><span class="cf">elif</span> choice<span class="op">==</span><span class="dv">4</span>:</a>
+<a class="sourceLine" id="cb49-20" title="20">    result <span class="op">=</span> number1 <span class="op">*</span> number2</a>
+<a class="sourceLine" id="cb49-21" title="21"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb49-22" title="22">    result <span class="op">=</span> <span class="st">&quot;Invalid Choice&quot;</span></a>
+<a class="sourceLine" id="cb49-23" title="23"></a>
+<a class="sourceLine" id="cb49-24" title="24"><span class="bu">print</span>(result)</a></code></pre></div>
+<p>We added the following code to account for invalid input.</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb50-1" title="1"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb50-2" title="2">    result <span class="op">=</span> <span class="st">&quot;Invalid Choice&quot;</span></a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Augmented the Menu Exercise to get all the input from the console, and compute a value from them</li>
+<li>Corrected the logic to handle incorrect input</li>
+</ul>
+<h3 id="step-12-puzzles-on-conditionals">Step 12: Puzzles On Conditionals</h3>
+<p>In this step, let’s look at a few puzzles related to these <code>if</code>, <code>elif</code> and <code>else</code> clauses.</p>
+<p><strong>Puzzle-01</strong></p>
+<p>Let’s start with the first puzzle. Guess the output.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb51-1" title="1">k <span class="op">=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb51-2" title="2"><span class="cf">if</span> (k <span class="op">&gt;</span> <span class="dv">20</span>):</a>
+<a class="sourceLine" id="cb51-3" title="3">  <span class="bu">print</span>(<span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb51-4" title="4"><span class="cf">elif</span> (k <span class="op">&gt;</span> <span class="dv">10</span>):</a>
+<a class="sourceLine" id="cb51-5" title="5">  <span class="bu">print</span>(<span class="dv">2</span>)</a>
+<a class="sourceLine" id="cb51-6" title="6"><span class="cf">elif</span> (k <span class="op">&lt;</span> <span class="dv">20</span>):</a>
+<a class="sourceLine" id="cb51-7" title="7">  <span class="bu">print</span>(<span class="dv">3</span>)</a>
+<a class="sourceLine" id="cb51-8" title="8"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb51-9" title="9">  <span class="bu">print</span>(<span class="dv">4</span>)</a></code></pre></div>
+<p>When we run it, you can see that the output is <code>2</code>.</p>
+<p><code>k</code> has a value of <code>15</code>, is it greater than <code>20</code>? No! Execution goes to the <code>elif</code>, is <code>k</code> greater then <code>10</code>? Yes. It prints <code>2</code> and goes out of the complete <code>if</code>-<code>else</code> block.</p>
+<p>Inside the <code>if</code> conditional, the <code>if</code>, <code>elif</code> and <code>else</code> clauses are all independent ones. Only one matching block is ever executed.</p>
+<p><strong>Puzzle-02</strong></p>
+<p>What do you think would be the output of this particular piece of code?</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb52-1" title="1">l <span class="op">=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb52-2" title="2">    <span class="cf">if</span> (l <span class="op">&lt;</span> <span class="dv">20</span>):</a>
+<a class="sourceLine" id="cb52-3" title="3">        <span class="bu">print</span>(<span class="st">&quot;l&lt;20&quot;</span>)</a>
+<a class="sourceLine" id="cb52-4" title="4"><span class="cf">if</span> (l <span class="op">&gt;</span> <span class="dv">20</span>):</a>
+<a class="sourceLine" id="cb52-5" title="5">    <span class="bu">print</span>(<span class="st">&quot;l&gt;20&quot;</span>)</a>
+<a class="sourceLine" id="cb52-6" title="6"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb52-7" title="7">    <span class="bu">print</span>(<span class="st">&quot;Who am I?&quot;</span>)</a></code></pre></div>
+<p>Note that there are two totally different <code>if</code> conditions in here : <code>if l &lt; 20: ...</code> immediately followed by<code>if l &gt; 20: ... else: ...</code>.</p>
+<p>The first <code>if</code> is true. <code>l&lt;20</code> is printed.</p>
+<p>The second <code>if</code> is a separate statement. The condition is false. So. <code>else</code> gets executed. Therefore, <code>"who am I"</code> gets printed.</p>
+<p><strong>Puzzle-03</strong></p>
+<p>Let’s run this code.</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb53-1" title="1">m <span class="op">=</span> <span class="dv">15</span></a>
+<a class="sourceLine" id="cb53-2" title="2"><span class="cf">if</span> m<span class="op">&gt;</span><span class="dv">20</span>:</a>
+<a class="sourceLine" id="cb53-3" title="3">    <span class="cf">if</span> m<span class="op">&lt;</span><span class="dv">20</span>:</a>
+<a class="sourceLine" id="cb53-4" title="4">        <span class="bu">print</span>(<span class="st">&quot;m&gt;20&quot;</span>)</a>
+<a class="sourceLine" id="cb53-5" title="5">    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb53-6" title="6">        <span class="bu">print</span>(<span class="st">&quot;Who am I?&quot;</span>)</a></code></pre></div>
+<p>You can see that nothing is printed.</p>
+<p>The most important thing to focus on here, is indentation.</p>
+<p>The second <code>if</code> block is executed only if the first <code>if</code> is true.</p>
+<p><strong>Puzzle-04</strong></p>
+<p>What would be the output?</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb54-1" title="1">number <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb54-2" title="2"><span class="cf">if</span> number <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb54-3" title="3">  number <span class="op">=</span> number <span class="op">+</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb54-4" title="4">number <span class="op">=</span> number <span class="op">+</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb54-5" title="5"><span class="bu">print</span>(number)</a></code></pre></div>
+<p><code>10</code> is printed.</p>
+<p>The most important thing to focus on here, is indentation.</p>
+<p>Only <code>number = number + 10</code> is part of <code>if</code> block. It is not executed because the condition is false.</p>
+<p><code>number = number + 5</code> is not part of <code>if</code>. So, it gets executed.</p>
+<p>Let’s add a couple of spaces before <code>number = number + 5</code>.</p>
+<p>What would be the output?</p>
+<div class="sourceCode" id="cb55"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb55-1" title="1">number <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb55-2" title="2"><span class="cf">if</span> number <span class="op">&lt;</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb55-3" title="3">  number <span class="op">=</span> number <span class="op">+</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb55-4" title="4">  number <span class="op">=</span> number <span class="op">+</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb55-5" title="5"><span class="bu">print</span>(number)</a></code></pre></div>
+<p><code>5</code> is printed.</p>
+<p>Both the statements <code>number = number + 10</code> and <code>number = number + 5</code> are part of <code>if</code> block. They are not executed because the condition is false.</p>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Looked at a few puzzles related to <code>if</code>, <code>elif</code> and <code>else</code></li>
+<li>Explored the importance of indentation and the different condition clauses inside an <code>if</code> statement</li>
+</ul>
+<h3 id="step-01-the-python-type-to-denote-text">Step 01: The Python Type To Denote Text</h3>
+<p>Let’s start looking at another important data type in Python, that’s used to represent strings. Not surprisingly, it is in fact named <code>str</code>!</p>
+<p>Let’s look at valid string representations.</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb56-1" title="1">    <span class="op">&gt;&gt;&gt;</span> message <span class="op">=</span> <span class="st">&quot;Hello World&quot;</span></a>
+<a class="sourceLine" id="cb56-2" title="2">    <span class="op">&gt;&gt;&gt;</span> message <span class="op">=</span> <span class="st">&#39;Hello World&#39;</span></a>
+<a class="sourceLine" id="cb56-3" title="3">    <span class="op">&gt;&gt;&gt;</span> message <span class="op">=</span> <span class="st">&#39;Hello World&quot;</span></a>
+<a class="sourceLine" id="cb56-4" title="4"><span class="st">      File &quot;&lt;stdin&gt;&quot;, line 1</span></a>
+<a class="sourceLine" id="cb56-5" title="5"><span class="st">        message = &#39;</span>Hello World<span class="st">&quot;                          ^</span></a>
+<a class="sourceLine" id="cb56-6" title="6"><span class="st">     SyntaxError: EOL while scanning string literal</span></a></code></pre></div>
+<p>In Python, you can use either ```<code>or</code>""` to delimit string values.</p>
+<p><code>type()</code> method can be used to find type of a variable.</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb57-1" title="1">    <span class="op">&gt;&gt;&gt;</span> message <span class="op">=</span> <span class="st">&quot;Hello World&quot;</span></a>
+<a class="sourceLine" id="cb57-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(message)</a>
+<a class="sourceLine" id="cb57-3" title="3">    <span class="op">&lt;</span><span class="kw">class</span> <span class="st">&#39;str&#39;</span><span class="op">&gt;</span></a></code></pre></div>
+<p>The <code>str</code> <code>class</code> provides a lot of utility methods.</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb58-1" title="1">    <span class="op">&gt;&gt;&gt;</span> message.upper()</a>
+<a class="sourceLine" id="cb58-2" title="2">    <span class="co">&#39;HELLO WORLD&#39;</span></a>
+<a class="sourceLine" id="cb58-3" title="3">    <span class="op">&gt;&gt;&gt;</span> message.lower()</a>
+<a class="sourceLine" id="cb58-4" title="4">    <span class="co">&#39;hello world&#39;</span></a>
+<a class="sourceLine" id="cb58-5" title="5">    <span class="op">&gt;&gt;&gt;</span> message <span class="op">=</span> <span class="st">&quot;hello&quot;</span></a></code></pre></div>
+<p><code>message.capitalize()</code> does init caps. Only first character is changed to uppercase.</p>
+<div class="sourceCode" id="cb59"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb59-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;hello&quot;</span>.capitalize()</a>
+<a class="sourceLine" id="cb59-2" title="2">    <span class="co">&#39;Hello&#39;</span></a>
+<a class="sourceLine" id="cb59-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;hello&#39;</span>.capitalize()</a>
+<a class="sourceLine" id="cb59-4" title="4">    <span class="co">&#39;Hello&#39;</span></a></code></pre></div>
+<p>You can also run this directly - <code>'hello'.capitalize()</code>. Isn’t that cool!</p>
+<p>That’s because each piece of text in python is an object of the <code>str</code> <code>class</code>, and we can directly call methods of that <code>class</code> on <code>str</code> objects.</p>
+<p>Now let’s shift our attention to methods, which gives us more information about the specific contents of a string.</p>
+<ul>
+<li>We want to find out if this string contains numeric values?</li>
+<li>Does it contain alphabets only?</li>
+<li>Does it contain alpha-numeric values?</li>
+<li>Is it lowercase?</li>
+<li>Is it uppercase?</li>
+</ul>
+<p>To find if a piece of text contains only lower case alphabets.</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb60-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;hello&#39;</span>.islower()</a>
+<a class="sourceLine" id="cb60-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb60-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello&#39;</span>.islower()</a>
+<a class="sourceLine" id="cb60-4" title="4">    <span class="va">False</span></a></code></pre></div>
+<p>If the first letter is in uppercase, then <code>istitle()</code> will return a <code>True</code> value.</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb61-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello&#39;</span>.istitle()</a>
+<a class="sourceLine" id="cb61-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb61-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;hello&#39;</span>.istitle()</a>
+<a class="sourceLine" id="cb61-4" title="4">    <span class="va">False</span></a></code></pre></div>
+<p>To find if a piece of text contains only upper case alphabets.</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb62-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;hello&#39;</span>.isupper()</a>
+<a class="sourceLine" id="cb62-2" title="2">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb62-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello&#39;</span>.isupper()</a>
+<a class="sourceLine" id="cb62-4" title="4">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb62-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;HELLO&#39;</span>.isupper()</a>
+<a class="sourceLine" id="cb62-6" title="6">    <span class="va">True</span></a></code></pre></div>
+<p><code>isdigit()</code> checks if a string is a numeric value.</p>
+<div class="sourceCode" id="cb63"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb63-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;123&#39;</span>.isdigit()</a>
+<a class="sourceLine" id="cb63-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb63-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;A23&#39;</span>.isdigit()</a>
+<a class="sourceLine" id="cb63-4" title="4">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb63-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;2 3&#39;</span>.isdigit()</a>
+<a class="sourceLine" id="cb63-6" title="6">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb63-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;23&#39;</span>.isdigit()</a>
+<a class="sourceLine" id="cb63-8" title="8">    <span class="va">True</span></a></code></pre></div>
+<p><code>isalpha()</code> checks if a string only contains alphabets.</p>
+<div class="sourceCode" id="cb64"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb64-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;23&#39;</span>.isalpha()</a>
+<a class="sourceLine" id="cb64-2" title="2">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb64-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;2A&#39;</span>.isalpha()</a>
+<a class="sourceLine" id="cb64-4" title="4">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb64-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;ABC&#39;</span>.isalpha()</a>
+<a class="sourceLine" id="cb64-6" title="6">    <span class="va">True</span></a></code></pre></div>
+<p><code>isalnum()</code> checks if a string only contains alphabets and/or numerals.</p>
+<div class="sourceCode" id="cb65"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb65-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;ABC123&#39;</span>.isalnum()</a>
+<a class="sourceLine" id="cb65-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb65-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;ABC 123&#39;</span>.isalnum()</a>
+<a class="sourceLine" id="cb65-4" title="4">    <span class="va">False</span></a></code></pre></div>
+<p>Lastly, we look at things which you can use, to check characters of a string.</p>
+<p><code>endswith</code> is self explanatory.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb66-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.endswith(<span class="st">&#39;World&#39;</span>)</a>
+<a class="sourceLine" id="cb66-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb66-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.endswith(<span class="st">&#39;ld&#39;</span>)</a>
+<a class="sourceLine" id="cb66-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb66-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.endswith(<span class="st">&#39;old&#39;</span>)</a>
+<a class="sourceLine" id="cb66-6" title="6">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb66-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.endswith(<span class="st">&#39;Wo&#39;</span>)</a>
+<a class="sourceLine" id="cb66-8" title="8">    <span class="va">False</span></a></code></pre></div>
+<p><code>startswith</code> is self explanatory as well.</p>
+<div class="sourceCode" id="cb67"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb67-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.startswith(<span class="st">&#39;Wo&#39;</span>)</a>
+<a class="sourceLine" id="cb67-2" title="2">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb67-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.startswith(<span class="st">&#39;He&#39;</span>)</a>
+<a class="sourceLine" id="cb67-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb67-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.startswith(<span class="st">&#39;Hell0&#39;</span>)</a>
+<a class="sourceLine" id="cb67-6" title="6">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb67-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.startswith(<span class="st">&#39;Hello&#39;</span>)</a>
+<a class="sourceLine" id="cb67-8" title="8">    <span class="va">True</span></a></code></pre></div>
+<p><code>find</code> method returns if a piece of text is present in another string. Returns the first match index.</p>
+<div class="sourceCode" id="cb68"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb68-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.find(<span class="st">&#39;Hello&#39;</span>)</a>
+<a class="sourceLine" id="cb68-2" title="2">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb68-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.find(<span class="st">&#39;ello&#39;</span>)</a>
+<a class="sourceLine" id="cb68-4" title="4">    <span class="dv">1</span></a></code></pre></div>
+<p>A value of <code>-1</code> is returned, if you’re searching for something which is not present in the string.</p>
+<p>If you are searching for <code>'Ello'</code> with a capital <code>'E'</code> ,you’ll not be able to find it. Search is case sensitive.</p>
+<div class="sourceCode" id="cb69"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb69-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.find(<span class="st">&#39;Ello&#39;</span>)</a>
+<a class="sourceLine" id="cb69-2" title="2">    <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb69-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.find(<span class="st">&#39;bello&#39;</span>)</a>
+<a class="sourceLine" id="cb69-4" title="4">    <span class="dv">-1</span></a>
+<a class="sourceLine" id="cb69-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;Hello World&#39;</span>.find(<span class="st">&#39;Ello&#39;</span>)</a>
+<a class="sourceLine" id="cb69-6" title="6">    <span class="dv">-1</span></a></code></pre></div>
+<h3 id="step-02-type-conversion-puzzles">Step 02: Type Conversion Puzzles</h3>
+<p>We’ll now try and convert values from one type to another, and try and play around with them.</p>
+<p><code>str</code> converts boolean value to a text value.</p>
+<div class="sourceCode" id="cb70"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb70-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span>(<span class="va">True</span>)</a>
+<a class="sourceLine" id="cb70-2" title="2">    <span class="co">&#39;True&#39;</span></a></code></pre></div>
+<p>All text value except for empty string represent True. So, <code>bool</code> returns True for everything except empty string.</p>
+<div class="sourceCode" id="cb71"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb71-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="st">&#39;True&#39;</span>)</a>
+<a class="sourceLine" id="cb71-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb71-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="st">&#39;true&#39;</span>)</a>
+<a class="sourceLine" id="cb71-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb71-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="st">&#39;tru&#39;</span>)</a>
+<a class="sourceLine" id="cb71-6" title="6">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb71-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="st">&#39;false&#39;</span>)</a>
+<a class="sourceLine" id="cb71-8" title="8">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb71-9" title="9">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="st">&#39;False&#39;</span>)</a>
+<a class="sourceLine" id="cb71-10" title="10">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb71-11" title="11">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">bool</span>(<span class="st">&#39;&#39;</span>)</a>
+<a class="sourceLine" id="cb71-12" title="12">    <span class="va">False</span></a></code></pre></div>
+<p>Let’s try and convert a few integer values to strings.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb72-1" title="1">    <span class="op">&gt;&gt;&gt;</span><span class="bu">str</span>(<span class="dv">123</span>)</a>
+<a class="sourceLine" id="cb72-2" title="2">    <span class="co">&#39;123&#39;</span></a>
+<a class="sourceLine" id="cb72-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span>(<span class="dv">12345</span>)</a>
+<a class="sourceLine" id="cb72-4" title="4">    <span class="co">&#39;12345&#39;</span></a>
+<a class="sourceLine" id="cb72-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span>(<span class="fl">12345.45678</span>)</a>
+<a class="sourceLine" id="cb72-6" title="6">    <span class="co">&#39;12345.45678&#39;</span></a></code></pre></div>
+<p>Let’s do the reverse.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb73-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;45&#39;</span>)</a>
+<a class="sourceLine" id="cb73-2" title="2">    <span class="dv">45</span></a>
+<a class="sourceLine" id="cb73-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;45.56&#39;</span>)</a>
+<a class="sourceLine" id="cb73-4" title="4">    <span class="pp">ValueError</span>: invalid literal <span class="cf">for</span> <span class="bu">int</span>()</a></code></pre></div>
+<p>if we do <code>int('45.56')</code>, you can see that it throws an error. It says “I cannot convert this to an <code>int</code>, as <code>45.56</code> is an invalid integer”.</p>
+<p>You can also pass an additional parameter to <code>int</code> indicating the numeric system - 16 for Hexa decimal, 8 for Octal etc. Default is 10 - Decimal.</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb74-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;45abc&#39;</span>,<span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb74-2" title="2">    <span class="dv">285372</span></a>
+<a class="sourceLine" id="cb74-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;a&#39;</span>,<span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb74-4" title="4">    <span class="dv">10</span></a>
+<a class="sourceLine" id="cb74-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;b&#39;</span>,<span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb74-6" title="6">    <span class="dv">11</span></a>
+<a class="sourceLine" id="cb74-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;c&#39;</span>,<span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb74-8" title="8">    <span class="dv">12</span></a>
+<a class="sourceLine" id="cb74-9" title="9">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;f&#39;</span>,<span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb74-10" title="10">    <span class="dv">15</span></a>
+<a class="sourceLine" id="cb74-11" title="11">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">int</span>(<span class="st">&#39;g&#39;</span>,<span class="dv">16</span>)</a>
+<a class="sourceLine" id="cb74-12" title="12">    <span class="pp">ValueError</span>: invalid literal <span class="cf">for</span> <span class="bu">int</span>() <span class="cf">with</span> base <span class="dv">16</span>: <span class="st">&#39;g&#39;</span></a></code></pre></div>
+<p>You can also convert string to float.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb75-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">float</span>(<span class="st">&quot;34.43&quot;</span>)</a>
+<a class="sourceLine" id="cb75-2" title="2">    <span class="fl">34.43</span></a>
+<a class="sourceLine" id="cb75-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">float</span>(<span class="st">&quot;34.43rer&quot;</span>)</a>
+<a class="sourceLine" id="cb75-4" title="4">    <span class="pp">ValueError</span>: could <span class="kw">not</span> convert string to <span class="bu">float</span>: <span class="st">&#39;34.43rer&#39;</span></a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this quick step, we looked at converting different types to strings, and converting strings to different types. So we looked at <code>int</code>, <code>bool</code> and <code>float</code> values, and we looked at how to convert them to string, and how to convert strings back to these specific types.</p>
+<h3 id="step-02-strings-are-immutable">Step 02: Strings Are Immutable</h3>
+<p>In this step, let’s learn an important fact about strings in Python.</p>
+<p>String values are immutable.</p>
+<p>What does immutability mean, and why do we say strings are immutable?</p>
+<p>Let’s create a very simple string: <code>message = 'Hello'</code>, and we’re saying <code>message.upper()</code>. But what does it do? It prints <code>'HELLO'</code>, with all characters in uppercase. Well, what would happen if you do <code>print(message)</code>? It says <code>'Hello'</code>.</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb76-1" title="1">    <span class="op">&gt;&gt;&gt;</span> message <span class="op">=</span> <span class="st">&quot;Hello&quot;</span></a>
+<a class="sourceLine" id="cb76-2" title="2">    <span class="op">&gt;&gt;&gt;</span> message.upper()</a>
+<a class="sourceLine" id="cb76-3" title="3">    <span class="co">&#39;HELLO&#39;</span></a>
+<a class="sourceLine" id="cb76-4" title="4">    <span class="op">&gt;&gt;&gt;</span> message</a>
+<a class="sourceLine" id="cb76-5" title="5">    <span class="co">&#39;Hello&#39;</span></a></code></pre></div>
+<p>You would see we tried change the content of message, but it has not changed.</p>
+<p>When we execute <code>message.upper()</code>, a new string is created, and it is returned back. Original string remained unchanged. This is called immutability.</p>
+<p>Once you define a string in Python, you’ll not be able to change the value of it.</p>
+<p>You can use - “OK. I can do something of this kind: <code>message = message.upper()</code>”.</p>
+<p>What would happen now?</p>
+<p>Will the value of <code>message</code> get changed? It prints <code>'HELLO'</code>, with all caps.</p>
+<p>Did the value of <code>message</code> change? Does this prove that strings are mutable?</p>
+<p>The important thing you need to understand about all this stuff, is how objects are stored inside Python.</p>
+<p>There are things called variables, and there are things called objects.</p>
+<p>When we run <code>message = 'Hello'</code></p>
+<ul>
+<li>We are creating one object of <code>str</code> class with a values <code>'Hello'</code>.</li>
+<li>We are creating one variable called <code>message</code></li>
+<li>The location of <code>'Hello'</code> is stored into <code>message</code></li>
+</ul>
+<p>In Python, your variables are nothing but a name.</p>
+<p>If location of <code>'Hello'</code> in memory is <code>A</code>, then the value stored in <code>message</code> is <code>A</code>. <code>message</code> is called a reference.</p>
+<p>What happens with <code>message = message.upper()</code>?</p>
+<p>A new object is created with value <code>'HELLO'</code> at a different location <code>B</code>.</p>
+<p>A reference ot location <code>B</code> is stored into <code>message</code> variable.</p>
+<p>Summary : The original value at location <code>A</code> has not changed and cannot be changed for <code>str</code> variables. Hence ‘str’ objects are immutable.</p>
+<p>Variables are just names referring to a location. They don’t really contain the value. Variables contain a reference to the location that contains the object.</p>
+<h3 id="step-03-python-has-no-separate-character-type">Step 03: Python Has No Separate Character Type</h3>
+<p>One of the things that surprises people new to Python, is that there is no character data type in Python.</p>
+<p>Typically we have text data types in all the languages, don’t we? <code>'Hello World'</code> for example, is text data, and we stored it in <code>message</code>. This is called a string.</p>
+<p>In other languages, you would have something to represent a single character symbol. For example in Java, you can have a <code>char</code> data type, to store a single character <code>ch</code>, in which <code>'h'</code> is one character. But in Python, there is no separate data type to store single characters.</p>
+<p>For example, let’s see how Python treats the first character of the following string <code>message</code>. The way you can access the first character of a string is by saying <code>message[0]</code>.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb77-1" title="1">    <span class="op">&gt;&gt;&gt;</span> message <span class="op">=</span> <span class="st">&quot;Hello World&quot;</span></a>
+<a class="sourceLine" id="cb77-2" title="2">    <span class="op">&gt;&gt;&gt;</span> message[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb77-3" title="3">    <span class="co">&#39;H&#39;</span></a>
+<a class="sourceLine" id="cb77-4" title="4">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(message[<span class="dv">0</span>])</a>
+<a class="sourceLine" id="cb77-5" title="5">    <span class="op">&lt;</span><span class="kw">class</span> <span class="st">&#39;str&#39;</span><span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb77-6" title="6">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">type</span>(message)</a>
+<a class="sourceLine" id="cb77-7" title="7">    <span class="op">&lt;</span><span class="kw">class</span> <span class="st">&#39;str&#39;</span><span class="op">&gt;</span></a></code></pre></div>
+<p><code>type(message[0])</code> and <code>type(message)</code> print the same type <code>str</code>. No difference.</p>
+<p>In Python, whether you’re talking about a string, or you’re talking about a single character symbol, they are all represented by the same <code>class</code>, <code>str</code>.</p>
+<p><code>message[100]</code> throws an <code>IndexError</code>.</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb78-1" title="1">    <span class="op">&gt;&gt;&gt;</span> message[<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb78-2" title="2">    <span class="co">&#39;H&#39;</span></a>
+<a class="sourceLine" id="cb78-3" title="3">    <span class="op">&gt;&gt;&gt;</span> message[<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb78-4" title="4">    <span class="co">&#39;e&#39;</span></a>
+<a class="sourceLine" id="cb78-5" title="5">    <span class="op">&gt;&gt;&gt;</span> message[<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb78-6" title="6">    <span class="co">&#39;l&#39;</span></a>
+<a class="sourceLine" id="cb78-7" title="7">    <span class="op">&gt;&gt;&gt;</span> message[<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb78-8" title="8">    <span class="co">&#39;l&#39;</span></a>
+<a class="sourceLine" id="cb78-9" title="9">    <span class="op">&gt;&gt;&gt;</span> message[<span class="dv">100</span>]</a>
+<a class="sourceLine" id="cb78-10" title="10">    <span class="pp">IndexError</span>: string index out of <span class="bu">range</span></a></code></pre></div>
+<p>It says: “The given index is out of the range of the value of that specific string”.</p>
+<p>Let’s say we would want to print all the characters in this string.</p>
+<p>The way you could do that, is by saying: <code>for ch in message: print(ch)</code>.</p>
+<p><strong>Summary</strong></p>
+<p>In this short step, we looked at the fact that there is no separate character class, or data type in Python. We also looked at how do we loop over a given string, and print all the characters present inside this string.</p>
+<h3 id="step-04-the-string-module">Step 04: The <code>string</code> <code>module</code></h3>
+<p>In this step, we will introduce you to the <code>string</code> <code>module</code>.</p>
+<p>If we would want to use anything from a module in Python, you need to import that specific <code>module</code> into your program.</p>
+<div class="sourceCode" id="cb79"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb79-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="im">import</span> string</a></code></pre></div>
+<p>If you do a <code>string.</code> and press , it would show the different things which are part of the <code>string</code> <code>module</code>.</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb80-1" title="1">    <span class="op">&gt;&gt;&gt;</span> string.</a>
+<a class="sourceLine" id="cb80-2" title="2">    string.Formatter(       string.ascii_uppercase  string.octdigits</a>
+<a class="sourceLine" id="cb80-3" title="3">    string.Template(        string.capwords(        string.printable</a>
+<a class="sourceLine" id="cb80-4" title="4">    string.ascii_letters    string.digits           string.punctuation</a>
+<a class="sourceLine" id="cb80-5" title="5">    string.ascii_lowercase  string.hexdigits        string.whitespace</a></code></pre></div>
+<p>Let’s explore some of these.</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb81-1" title="1">    <span class="op">&gt;&gt;&gt;</span> string.ascii_letters</a>
+<a class="sourceLine" id="cb81-2" title="2">    <span class="co">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span></a>
+<a class="sourceLine" id="cb81-3" title="3">    <span class="op">&gt;&gt;&gt;</span> string.ascii_lowercase</a>
+<a class="sourceLine" id="cb81-4" title="4">    <span class="co">&#39;abcdefghijklmnopqrstuvwxyz&#39;</span></a>
+<a class="sourceLine" id="cb81-5" title="5">    <span class="op">&gt;&gt;&gt;</span> string.ascii_uppercase</a>
+<a class="sourceLine" id="cb81-6" title="6">    <span class="co">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span></a>
+<a class="sourceLine" id="cb81-7" title="7">    <span class="op">&gt;&gt;&gt;</span> string.digits</a>
+<a class="sourceLine" id="cb81-8" title="8">    <span class="co">&#39;0123456789&#39;</span></a>
+<a class="sourceLine" id="cb81-9" title="9">    <span class="op">&gt;&gt;&gt;</span> string.hexdigits</a>
+<a class="sourceLine" id="cb81-10" title="10">    <span class="co">&#39;0123456789abcdefABCDEF&#39;</span></a>
+<a class="sourceLine" id="cb81-11" title="11">    <span class="op">&gt;&gt;&gt;</span> string.punctuation</a>
+<a class="sourceLine" id="cb81-12" title="12">    <span class="co">&#39;!&quot;#$%&amp;</span><span class="ch">\&#39;</span><span class="co">()*+,-./:;&lt;=&gt;?@[</span><span class="ch">\\</span><span class="co">]^_`{|}~&#39;</span></a>
+<a class="sourceLine" id="cb81-13" title="13">    <span class="op">&gt;&gt;&gt;</span> string.ascii_letters</a>
+<a class="sourceLine" id="cb81-14" title="14">    <span class="co">&#39;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span></a></code></pre></div>
+<p>You have a set of printable characters, punctuation characters and a lot more.</p>
+<p>You can check a text value against any of these</p>
+<div class="sourceCode" id="cb82"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb82-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;a&#39;</span> <span class="kw">in</span> string.ascii_letters</a>
+<a class="sourceLine" id="cb82-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb82-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;ab&#39;</span> <span class="kw">in</span> string.ascii_letters</a>
+<a class="sourceLine" id="cb82-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb82-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;abc&#39;</span> <span class="kw">in</span> string.ascii_letters</a>
+<a class="sourceLine" id="cb82-6" title="6">    <span class="va">True</span></a></code></pre></div>
+<p><code>in</code> operation on a string, checks if a given string.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb83-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;1&#39;</span> <span class="kw">in</span> <span class="st">&#39;13579&#39;</span></a>
+<a class="sourceLine" id="cb83-2" title="2">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb83-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;2&#39;</span> <span class="kw">in</span> <span class="st">&#39;13579&#39;</span></a>
+<a class="sourceLine" id="cb83-4" title="4">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb83-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;4&#39;</span> <span class="kw">in</span> <span class="st">&#39;13579&#39;</span></a>
+<a class="sourceLine" id="cb83-6" title="6">    <span class="va">False</span></a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we explored more exercises involving the <code>str</code> module of Python.</p>
+<h3 id="step-05-more-exercises-with-the-str-module">Step 05: More Exercises With The <code>str</code> Module</h3>
+<p>Let’s start with an Exercise - find if a specific character is a vowel or not.</p>
+<div class="sourceCode" id="cb84"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb84-1" title="1">    <span class="op">&gt;&gt;&gt;</span> char <span class="op">=</span> <span class="st">&#39;a&#39;</span></a>
+<a class="sourceLine" id="cb84-2" title="2">    <span class="op">&gt;&gt;&gt;</span> vowel_string <span class="op">=</span> <span class="st">&#39;aeiouAEIOU&#39;</span></a>
+<a class="sourceLine" id="cb84-3" title="3">    <span class="op">&gt;&gt;&gt;</span> char <span class="kw">in</span> vowel_string</a>
+<a class="sourceLine" id="cb84-4" title="4">    <span class="va">True</span></a>
+<a class="sourceLine" id="cb84-5" title="5">    <span class="op">&gt;&gt;&gt;</span> char <span class="op">=</span> <span class="st">&#39;b&#39;</span></a>
+<a class="sourceLine" id="cb84-6" title="6">    <span class="op">&gt;&gt;&gt;</span> char <span class="kw">in</span> vowel_string</a>
+<a class="sourceLine" id="cb84-7" title="7">    <span class="va">False</span></a></code></pre></div>
+<p>he other thing you can do, is just have the capital vowels, or just the lowercase versions.</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb85-1" title="1">    <span class="op">&gt;&gt;&gt;</span> vowel_string <span class="op">=</span> <span class="st">&#39;AEIOU&#39;</span></a>
+<a class="sourceLine" id="cb85-2" title="2">    <span class="op">&gt;&gt;&gt;</span> char.upper() <span class="kw">in</span> vowel_string</a>
+<a class="sourceLine" id="cb85-3" title="3">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb85-4" title="4">    <span class="op">&gt;&gt;&gt;</span> char <span class="op">=</span> <span class="st">&#39;a&#39;</span></a>
+<a class="sourceLine" id="cb85-5" title="5">    <span class="op">&gt;&gt;&gt;</span> char.upper() <span class="kw">in</span> vowel_string</a>
+<a class="sourceLine" id="cb85-6" title="6">    <span class="va">True</span></a></code></pre></div>
+<p>Now let’s move on to the next one.</p>
+<p>We want to find out and print all the capital alphabets, from <code>A</code> to <code>Z</code>.</p>
+<p>There was a small clue at the start of the previous step, regarding importing the <code>string</code> <code>module</code>. We did the <code>string</code> <code>module</code>, and we saw that <code>string</code> <code>module</code> contained a number of things.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb86-1" title="1">    <span class="op">&gt;&gt;&gt;</span> string.ascii_uppercase</a>
+<a class="sourceLine" id="cb86-2" title="2">    <span class="co">&#39;ABCDEFGHIJKLMNOPQRSTUVWXYZ&#39;</span></a>
+<a class="sourceLine" id="cb86-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> char <span class="kw">in</span> string.ascii_uppercase:</a>
+<a class="sourceLine" id="cb86-4" title="4">    ...   <span class="bu">print</span>(char)</a>
+<a class="sourceLine" id="cb86-5" title="5">    ...</a>
+<a class="sourceLine" id="cb86-6" title="6">    A</a>
+<a class="sourceLine" id="cb86-7" title="7">    B</a>
+<a class="sourceLine" id="cb86-8" title="8">    C</a>
+<a class="sourceLine" id="cb86-9" title="9">    D</a>
+<a class="sourceLine" id="cb86-10" title="10">    E</a>
+<a class="sourceLine" id="cb86-11" title="11">    F</a>
+<a class="sourceLine" id="cb86-12" title="12">    G</a>
+<a class="sourceLine" id="cb86-13" title="13">    H</a>
+<a class="sourceLine" id="cb86-14" title="14">    I</a>
+<a class="sourceLine" id="cb86-15" title="15">    J</a>
+<a class="sourceLine" id="cb86-16" title="16">    K</a>
+<a class="sourceLine" id="cb86-17" title="17">    L</a>
+<a class="sourceLine" id="cb86-18" title="18">    M</a>
+<a class="sourceLine" id="cb86-19" title="19">    N</a>
+<a class="sourceLine" id="cb86-20" title="20">    O</a>
+<a class="sourceLine" id="cb86-21" title="21">    P</a>
+<a class="sourceLine" id="cb86-22" title="22">    Q</a>
+<a class="sourceLine" id="cb86-23" title="23">    R</a>
+<a class="sourceLine" id="cb86-24" title="24">    S</a>
+<a class="sourceLine" id="cb86-25" title="25">    T</a>
+<a class="sourceLine" id="cb86-26" title="26">    U</a>
+<a class="sourceLine" id="cb86-27" title="27">    V</a>
+<a class="sourceLine" id="cb86-28" title="28">    W</a>
+<a class="sourceLine" id="cb86-29" title="29">    X</a>
+<a class="sourceLine" id="cb86-30" title="30">    Y</a>
+<a class="sourceLine" id="cb86-31" title="31">    Z</a></code></pre></div>
+<p>Try another easy exercise: print all the lower characters. Instead of <code>string.ascii_uppercase</code>, you have <code>string.ascii_lowercase</code>.</p>
+<div class="sourceCode" id="cb87"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb87-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> char <span class="kw">in</span> string.ascii_lowercase:</a>
+<a class="sourceLine" id="cb87-2" title="2">    ...   <span class="bu">print</span>(char)</a>
+<a class="sourceLine" id="cb87-3" title="3">    ...</a>
+<a class="sourceLine" id="cb87-4" title="4">    a</a>
+<a class="sourceLine" id="cb87-5" title="5">    b</a>
+<a class="sourceLine" id="cb87-6" title="6">    c</a>
+<a class="sourceLine" id="cb87-7" title="7">    d</a>
+<a class="sourceLine" id="cb87-8" title="8">    e</a>
+<a class="sourceLine" id="cb87-9" title="9">    f</a>
+<a class="sourceLine" id="cb87-10" title="10">    g</a>
+<a class="sourceLine" id="cb87-11" title="11">    h</a>
+<a class="sourceLine" id="cb87-12" title="12">    i</a>
+<a class="sourceLine" id="cb87-13" title="13">    j</a>
+<a class="sourceLine" id="cb87-14" title="14">    k</a>
+<a class="sourceLine" id="cb87-15" title="15">    l</a>
+<a class="sourceLine" id="cb87-16" title="16">    m</a>
+<a class="sourceLine" id="cb87-17" title="17">    n</a>
+<a class="sourceLine" id="cb87-18" title="18">    o</a>
+<a class="sourceLine" id="cb87-19" title="19">    p</a>
+<a class="sourceLine" id="cb87-20" title="20">    q</a>
+<a class="sourceLine" id="cb87-21" title="21">    r</a>
+<a class="sourceLine" id="cb87-22" title="22">    s</a>
+<a class="sourceLine" id="cb87-23" title="23">    t</a>
+<a class="sourceLine" id="cb87-24" title="24">    u</a>
+<a class="sourceLine" id="cb87-25" title="25">    v</a>
+<a class="sourceLine" id="cb87-26" title="26">    w</a>
+<a class="sourceLine" id="cb87-27" title="27">    x</a>
+<a class="sourceLine" id="cb87-28" title="28">    y</a>
+<a class="sourceLine" id="cb87-29" title="29">    z</a></code></pre></div>
+<p>An even easier exercise, would be to print all the digits.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb88-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> char <span class="kw">in</span> string.</a>
+<a class="sourceLine" id="cb88-2" title="2">    string.Formatter(       string.ascii_uppercase  string.octdigits</a>
+<a class="sourceLine" id="cb88-3" title="3">    string.Template(        string.capwords(        string.printable</a>
+<a class="sourceLine" id="cb88-4" title="4">    string.ascii_letters    string.digits           string.punctuation</a>
+<a class="sourceLine" id="cb88-5" title="5">    string.ascii_lowercase  string.hexdigits        string.whitespace</a>
+<a class="sourceLine" id="cb88-6" title="6">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> char <span class="kw">in</span> string.digits:</a>
+<a class="sourceLine" id="cb88-7" title="7">    ...   <span class="bu">print</span>(char)</a>
+<a class="sourceLine" id="cb88-8" title="8">    ...</a>
+<a class="sourceLine" id="cb88-9" title="9">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb88-10" title="10">    <span class="dv">1</span></a>
+<a class="sourceLine" id="cb88-11" title="11">    <span class="dv">2</span></a>
+<a class="sourceLine" id="cb88-12" title="12">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb88-13" title="13">    <span class="dv">4</span></a>
+<a class="sourceLine" id="cb88-14" title="14">    <span class="dv">5</span></a>
+<a class="sourceLine" id="cb88-15" title="15">    <span class="dv">6</span></a>
+<a class="sourceLine" id="cb88-16" title="16">    <span class="dv">7</span></a>
+<a class="sourceLine" id="cb88-17" title="17">    <span class="dv">8</span></a>
+<a class="sourceLine" id="cb88-18" title="18">    <span class="dv">9</span></a>
+<a class="sourceLine" id="cb88-19" title="19">    <span class="op">&gt;&gt;&gt;</span></a></code></pre></div>
+<p>The last exercise which we want to leave you with, is to check if something is a consonant.</p>
+<p>A consonant is an alphabet which is not a vowel, so any alphabet which is not in <code>'aeiou'</code> is a consonant. The simplest way of doing this is to say <code>consonant_string = 'bcdfghj...'</code> and so on. Looks like a very long solution? There is an easier way out.</p>
+<div class="sourceCode" id="cb89"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb89-1" title="1">    <span class="op">&gt;&gt;&gt;</span> vowel_string <span class="op">=</span> <span class="st">&#39;aeiou&#39;</span></a>
+<a class="sourceLine" id="cb89-2" title="2">    <span class="op">&gt;&gt;&gt;</span> char <span class="op">=</span> <span class="st">&#39;b&#39;</span></a>
+<a class="sourceLine" id="cb89-3" title="3">    <span class="op">&gt;&gt;&gt;</span> char.isalpha() <span class="kw">and</span> char.lower() <span class="kw">not</span> <span class="kw">in</span> vowel_string</a>
+<a class="sourceLine" id="cb89-4" title="4">    <span class="va">True</span></a></code></pre></div>
+<h3 id="step-06-more-exercises-on-strings">Step 06: More Exercises On Strings</h3>
+<p>In the step, let’s look at a few more puzzles and exercises related to strings. Let’s say we have a simple string, <code>string_example</code>, and this is contains an English sentence. <code>'This is a great thing.'</code></p>
+<p>Let’s try to to print each of the words present in this string, on a separate line.</p>
+<p>So we would want to print <code>'This'</code>, <code>'is'</code>, <code>'a'</code>, <code>'great'</code> and <code>'thing'</code> on individual lines.</p>
+<p>One of the clues we’ll give you is, try and do <code>string_example. &lt;TAB&gt;</code>. There are a huge list of methods, which would come up if you do that.</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb90-1" title="1">    <span class="op">&gt;&gt;&gt;</span> string_example <span class="op">=</span> <span class="st">&quot;This is a great thing&quot;</span></a>
+<a class="sourceLine" id="cb90-2" title="2">    <span class="op">&gt;&gt;&gt;</span> string_example.</a>
+<a class="sourceLine" id="cb90-3" title="3">    string_example.capitalize(    string_example.join(</a>
+<a class="sourceLine" id="cb90-4" title="4">    string_example.casefold(      string_example.ljust(</a>
+<a class="sourceLine" id="cb90-5" title="5">    string_example.center(        string_example.lower(</a>
+<a class="sourceLine" id="cb90-6" title="6">    string_example.count(         string_example.lstrip(</a>
+<a class="sourceLine" id="cb90-7" title="7">    string_example.encode(        string_example.maketrans(</a>
+<a class="sourceLine" id="cb90-8" title="8">    string_example.endswith(      string_example.partition(</a>
+<a class="sourceLine" id="cb90-9" title="9">    string_example.expandtabs(    string_example.replace(</a>
+<a class="sourceLine" id="cb90-10" title="10">    string_example.find(          string_example.rfind(</a>
+<a class="sourceLine" id="cb90-11" title="11">    string_example.<span class="bu">format</span>(        string_example.rindex(</a>
+<a class="sourceLine" id="cb90-12" title="12">    string_example.format_map(    string_example.rjust(</a>
+<a class="sourceLine" id="cb90-13" title="13">    string_example.index(         string_example.rpartition(</a>
+<a class="sourceLine" id="cb90-14" title="14">    string_example.isalnum(       string_example.rsplit(</a>
+<a class="sourceLine" id="cb90-15" title="15">    string_example.isalpha(       string_example.rstrip(</a>
+<a class="sourceLine" id="cb90-16" title="16">    string_example.isdecimal(     string_example.split(</a>
+<a class="sourceLine" id="cb90-17" title="17">    string_example.isdigit(       string_example.splitlines(</a>
+<a class="sourceLine" id="cb90-18" title="18">    string_example.isidentifier(  string_example.startswith(</a>
+<a class="sourceLine" id="cb90-19" title="19">    string_example.islower(       string_example.strip(</a>
+<a class="sourceLine" id="cb90-20" title="20">    string_example.isnumeric(     string_example.swapcase(</a>
+<a class="sourceLine" id="cb90-21" title="21">    string_example.isprintable(   string_example.title(</a>
+<a class="sourceLine" id="cb90-22" title="22">    string_example.isspace(       string_example.translate(</a>
+<a class="sourceLine" id="cb90-23" title="23">    string_example.istitle(       string_example.upper(</a>
+<a class="sourceLine" id="cb90-24" title="24">    string_example.isupper(       string_example.zfill(</a></code></pre></div>
+<p>One of the methods in the list is the <code>split()</code> method.</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb91-1" title="1">    <span class="op">&gt;&gt;&gt;</span> string_example.split()</a>
+<a class="sourceLine" id="cb91-2" title="2">    [<span class="st">&#39;This&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;great&#39;</span>, <span class="st">&#39;thing&#39;</span>]</a>
+<a class="sourceLine" id="cb91-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> word <span class="kw">in</span> string_example.split():</a>
+<a class="sourceLine" id="cb91-4" title="4">    ...    <span class="bu">print</span>(word)</a>
+<a class="sourceLine" id="cb91-5" title="5">    ...</a>
+<a class="sourceLine" id="cb91-6" title="6">    This</a>
+<a class="sourceLine" id="cb91-7" title="7">    <span class="kw">is</span></a>
+<a class="sourceLine" id="cb91-8" title="8">    a</a>
+<a class="sourceLine" id="cb91-9" title="9">    great</a>
+<a class="sourceLine" id="cb91-10" title="10">    thing</a></code></pre></div>
+<p><code>split_lines()</code> method looks for a <code>'\n'</code>, and it divides the string based on it. If you have a string which contains newlines, and you would want to divide it into a number of strings with each line as a new element, the method you can use is <code>split_lines()</code>.</p>
+<div class="sourceCode" id="cb92"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb92-1" title="1">    <span class="op">&gt;&gt;&gt;</span> string_example <span class="op">=</span> <span class="st">&quot;This</span><span class="ch">\n</span><span class="st">is</span><span class="ch">\n\n</span><span class="st">great</span><span class="ch">\n</span><span class="st">thing&quot;</span></a>
+<a class="sourceLine" id="cb92-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(string_example)</a>
+<a class="sourceLine" id="cb92-3" title="3">    This</a>
+<a class="sourceLine" id="cb92-4" title="4">    <span class="kw">is</span></a>
+<a class="sourceLine" id="cb92-5" title="5"></a>
+<a class="sourceLine" id="cb92-6" title="6">    great</a>
+<a class="sourceLine" id="cb92-7" title="7">    thing</a>
+<a class="sourceLine" id="cb92-8" title="8">    <span class="op">&gt;&gt;&gt;</span> string_example <span class="op">=</span> <span class="st">&quot;This</span><span class="ch">\n</span><span class="st">is</span><span class="ch">\n</span><span class="st">a</span><span class="ch">\n</span><span class="st">great</span><span class="ch">\n</span><span class="st">thing&quot;</span></a>
+<a class="sourceLine" id="cb92-9" title="9">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">print</span>(string_example)</a>
+<a class="sourceLine" id="cb92-10" title="10">    This</a>
+<a class="sourceLine" id="cb92-11" title="11">    <span class="kw">is</span></a>
+<a class="sourceLine" id="cb92-12" title="12">    a</a>
+<a class="sourceLine" id="cb92-13" title="13">    great</a>
+<a class="sourceLine" id="cb92-14" title="14">    thing</a>
+<a class="sourceLine" id="cb92-15" title="15">    <span class="op">&gt;&gt;&gt;</span> string_example.splitlines()</a>
+<a class="sourceLine" id="cb92-16" title="16">    [<span class="st">&#39;This&#39;</span>, <span class="st">&#39;is&#39;</span>, <span class="st">&#39;a&#39;</span>, <span class="st">&#39;great&#39;</span>, <span class="st">&#39;thing&#39;</span>]</a>
+<a class="sourceLine" id="cb92-17" title="17">    <span class="op">&gt;&gt;&gt;</span></a></code></pre></div>
+<p>The last thing which we look at, is <strong>concatenation operator</strong>.</p>
+<div class="sourceCode" id="cb93"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb93-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="dv">1</span> <span class="op">+</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb93-2" title="2">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb93-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;1&quot;</span> <span class="op">+</span> <span class="st">&quot;2&quot;</span></a>
+<a class="sourceLine" id="cb93-4" title="4">    <span class="co">&#39;12&#39;</span></a>
+<a class="sourceLine" id="cb93-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;1&quot;</span> <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb93-6" title="6">    <span class="pp">TypeError</span>: must be <span class="bu">str</span>, <span class="kw">not</span> <span class="bu">int</span></a>
+<a class="sourceLine" id="cb93-7" title="7">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&quot;ABC&quot;</span> <span class="op">+</span> <span class="st">&quot;DEF&quot;</span></a>
+<a class="sourceLine" id="cb93-8" title="8">    <span class="co">&#39;ABCDEF&#39;</span></a></code></pre></div>
+<p>In Python, you cannot do <code>+</code> operator between two different types. <code>+</code> with two strings is concatenation. <code>+</code> with two numbers is addition.</p>
+<p>One other interesting operator on strings is multiplication. If you do a <code>'1' * 20</code>, What do you think will be the output?</p>
+<div class="sourceCode" id="cb94"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb94-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="dv">1</span> <span class="op">*</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb94-2" title="2">    <span class="dv">20</span></a>
+<a class="sourceLine" id="cb94-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;1&#39;</span> <span class="op">*</span> <span class="dv">20</span></a>
+<a class="sourceLine" id="cb94-4" title="4">    <span class="co">&#39;11111111111111111111&#39;</span></a>
+<a class="sourceLine" id="cb94-5" title="5">    <span class="op">&gt;&gt;&gt;</span> <span class="st">&#39;A&#39;</span> <span class="op">*</span> <span class="dv">10</span></a>
+<a class="sourceLine" id="cb94-6" title="6">    <span class="co">&#39;AAAAAAAAAA&#39;</span></a></code></pre></div>
+<p>If you multiply a string with <code>number</code>, the string value is concatenated <code>number</code> times.</p>
+<p>The last thing which we look at in this step, is comparing strings.</p>
+<p>Let’s say we have a string with a value <code>str = 'test'</code>, and you have another string to with a value <code>str1 = 'test1'</code>.</p>
+<p>We want to check whether both these strings are the same.</p>
+<div class="sourceCode" id="cb95"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb95-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span> <span class="op">=</span> <span class="st">&quot;test&quot;</span></a>
+<a class="sourceLine" id="cb95-2" title="2">    <span class="op">&gt;&gt;&gt;</span> str2 <span class="op">=</span> <span class="st">&quot;test1&quot;</span></a>
+<a class="sourceLine" id="cb95-3" title="3">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span> <span class="op">==</span> str2</a>
+<a class="sourceLine" id="cb95-4" title="4">    <span class="va">False</span></a>
+<a class="sourceLine" id="cb95-5" title="5">    <span class="op">&gt;&gt;&gt;</span> str2 <span class="op">=</span> <span class="st">&quot;test&quot;</span></a>
+<a class="sourceLine" id="cb95-6" title="6">    <span class="op">&gt;&gt;&gt;</span> <span class="bu">str</span> <span class="op">==</span> str2</a>
+<a class="sourceLine" id="cb95-7" title="7">    <span class="va">True</span></a></code></pre></div>
+<p>You can compare strings using the <code>==</code> operator.</p>
+<p><strong>Summary</strong></p>
+<p>In this step, we explored a few exercises on strings, covering areas such as:</p>
+<ul>
+<li>Splitting a given sentence into individual words</li>
+<li>The concatenation operator, <code>+</code></li>
+<li>The string multiplication pattern, <code>*</code></li>
+<li>The use of the <code>==</code> operator to compare strings</li>
+</ul>
+<hr />
+<h2 id="devision-07---introducing-loops">Devision 07 - Introducing Loops</h2>
+<p>Welcome to the section on Loops. In this section, we will look at a variety of loops that are available in Python. We will look mainly at the <strong><code>for</code></strong> loop, and the <strong><code>while</code></strong> loop.</p>
+<h3 id="step-01-revisited-the-for-loop">Step 01: Revisited: The for Loop</h3>
+<p>Let’s start with revising the basics of the for loop, we have learned in the previous steps.</p>
+<p>We saw that a <code>for</code> loop helps us to loop around the same set of code statements, many times over.</p>
+<p>Let’s look at a few simple examples, once again.</p>
+<p><strong>Snippet-01</strong></p>
+<p>The syntax of a <code>for</code> loop is very simple.</p>
+<p>For example, this code snippet will tell you all about it: <code>for i in range(1, 11): print(i)</code>.</p>
+<p>What does this do? Very simple, it prints from <code>1</code> to <code>10</code>.</p>
+<p>In the call to the <code>range()</code> function, the second parameter is exclusive. We are actually looping from <code>1</code> to <code>10</code>, and this piece of code, <code>print(i)</code>, is being executed for different values of <code>i</code>.</p>
+<div class="sourceCode" id="cb96"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb96-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,<span class="dv">11</span>):</a>
+<a class="sourceLine" id="cb96-2" title="2">    ...   <span class="bu">print</span>(i)</a>
+<a class="sourceLine" id="cb96-3" title="3">    ...</a>
+<a class="sourceLine" id="cb96-4" title="4">    <span class="dv">1</span></a>
+<a class="sourceLine" id="cb96-5" title="5">    <span class="dv">2</span></a>
+<a class="sourceLine" id="cb96-6" title="6">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb96-7" title="7">    <span class="dv">4</span></a>
+<a class="sourceLine" id="cb96-8" title="8">    <span class="dv">5</span></a>
+<a class="sourceLine" id="cb96-9" title="9">    <span class="dv">6</span></a>
+<a class="sourceLine" id="cb96-10" title="10">    <span class="dv">7</span></a>
+<a class="sourceLine" id="cb96-11" title="11">    <span class="dv">8</span></a>
+<a class="sourceLine" id="cb96-12" title="12">    <span class="dv">9</span></a>
+<a class="sourceLine" id="cb96-13" title="13">    <span class="dv">10</span></a></code></pre></div>
+<p><code>for</code> loop can also be used to loop round the characters in a string.</p>
+<div class="sourceCode" id="cb97"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb97-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> ch <span class="kw">in</span> <span class="st">&quot;Hello World&quot;</span>:</a>
+<a class="sourceLine" id="cb97-2" title="2">    ...   <span class="bu">print</span>(ch)</a>
+<a class="sourceLine" id="cb97-3" title="3">    ...</a>
+<a class="sourceLine" id="cb97-4" title="4">    H</a>
+<a class="sourceLine" id="cb97-5" title="5">    e</a>
+<a class="sourceLine" id="cb97-6" title="6">    l</a>
+<a class="sourceLine" id="cb97-7" title="7">    l</a>
+<a class="sourceLine" id="cb97-8" title="8">    o</a>
+<a class="sourceLine" id="cb97-9" title="9">    W</a>
+<a class="sourceLine" id="cb97-10" title="10">    o</a>
+<a class="sourceLine" id="cb97-11" title="11">    r</a>
+<a class="sourceLine" id="cb97-12" title="12">    l</a>
+<a class="sourceLine" id="cb97-13" title="13">    d</a></code></pre></div>
+<p><code>for</code> loop can be used to loop around all the words in a given sentence.</p>
+<div class="sourceCode" id="cb98"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb98-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> word <span class="kw">in</span> <span class="st">&quot;Hello World&quot;</span>.split():</a>
+<a class="sourceLine" id="cb98-2" title="2">    ...   <span class="bu">print</span>(word)</a>
+<a class="sourceLine" id="cb98-3" title="3">    ...</a>
+<a class="sourceLine" id="cb98-4" title="4">    Hello</a>
+<a class="sourceLine" id="cb98-5" title="5">    World</a></code></pre></div>
+<p><code>for</code> loop can be used to loop around a specific list of values.</p>
+<div class="sourceCode" id="cb99"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb99-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> item <span class="kw">in</span> (<span class="dv">3</span>, <span class="dv">6</span>, <span class="dv">9</span>):</a>
+<a class="sourceLine" id="cb99-2" title="2">    ...   <span class="bu">print</span>(item)</a>
+<a class="sourceLine" id="cb99-3" title="3">    ...</a>
+<a class="sourceLine" id="cb99-4" title="4">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb99-5" title="5">    <span class="dv">6</span></a>
+<a class="sourceLine" id="cb99-6" title="6">    <span class="dv">9</span></a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we started with discussing and revising basic concepts about the <code>for</code> loop</p>
+<h3 id="step-02-programming-exercise-pe-lo-01">Step 02: Programming Exercise PE-LO-01</h3>
+<p>Welcome back to this step, where we would do a lot of exercises with the <code>for</code> loop.</p>
+<p><strong>Exercises</strong></p>
+<ol type="1">
+<li>The first exercise is to find out if a number is prime. We want to write a method, <code>is_prime()</code>, which accepts an integer value as parameter, and returns whether it’s a prime. (<strong>Hint</strong>: A prime number is something which is only divisible by <code>1</code> and itself).
+<ol type="1">
+<li><code>5</code> is only divisible by <code>1</code> and <code>5</code>. It is not divisible by any other number. Same is the case with <code>7</code> and <code>11</code>.</li>
+<li>However, <code>6</code> is divisible by <code>1</code>, <code>2</code>, <code>3</code> and <code>6</code>. So it’s not a prime number.</li>
+</ol></li>
+<li>The second exercise is to write a method to calculate the sum up to a given integer, starting from <code>1</code>. <strong>Hint</strong>: If I would want to find that the sum up to <code>6</code>. what’s needed is <code>1 + 2 + 3 + 4 + 5 + 6</code>.</li>
+<li>The third exercise is to find that the sum of divisors of a given integer. <strong>Hint</strong>: Let’s say we want to find out the sum of the divisors of <code>15</code>. The divisors of <code>15</code> are <code>1</code>, <code>3</code>, <code>5</code> and <code>15</code>. So I would want to calculate <code>1 + 3 + 5 + 15</code>, and return that value.</li>
+<li>Fourth exercise is to print a numbered triangle, when given a specific integer.</li>
+</ol>
+<p>Hint: Given an input <code>5</code>, we would want to print the number triangle of these kind:</p>
+<div class="sourceCode" id="cb100"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb100-1" title="1"><span class="dv">1</span></a>
+<a class="sourceLine" id="cb100-2" title="2"><span class="dv">1</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb100-3" title="3"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb100-4" title="4"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb100-5" title="5"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="fl">5.</span></a></code></pre></div>
+<p>These are the exercises for the <code>for</code> loop. We also test our skills, with creating method and executing them, in our IDE.</p>
+<p><strong>Solution 1</strong></p>
+<p>Let’s start with creating the <code>is_prime()</code> method, in a file named <code>for_exercises</code>.</p>
+<p>We would want to accept an <code>int</code> parameter, and find out if it is prime, or not.</p>
+<p>We need to check whether it’s divisible by any other number, other than <code>1</code> and itself. If we are passed in a value of <code>5</code>, you want to see if it’s divisible by any of <code>2</code>, <code>3</code> or <code>4</code>.</p>
+<div class="sourceCode" id="cb101"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb101-1" title="1"><span class="kw">def</span> is_prime(number):</a></code></pre></div>
+<p>We can use a <code>for</code> loop. We can structure it like this: <code>for divisor in range(1, number): ...</code>. We would not want to divide it with <code>1</code>, but start with <code>2</code> instead, and go up to <code>number-1</code>, which is <code>4</code>.</p>
+<div class="sourceCode" id="cb102"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb102-1" title="1"><span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,number):</a></code></pre></div>
+<p>How can we check if the <code>number</code> is divisible by <code>divisor</code>?</p>
+<p>By using the <code>%</code> operator. If <code>number</code> is divisible by <code>divisor</code> we return <code>False</code>.</p>
+<div class="sourceCode" id="cb103"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb103-1" title="1"><span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,number):</a>
+<a class="sourceLine" id="cb103-2" title="2">    <span class="cf">if</span> number <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb103-3" title="3">        <span class="cf">return</span> <span class="va">False</span></a></code></pre></div>
+<p>What happens if the code comes up to the end? It would mean we tried with <code>2</code>, <code>3</code> and <code>4</code>, but <code>number</code> was not divisible by all of them. In that case, <code>number</code> would be prime, and we can safely return <code>True</code>.</p>
+<div class="sourceCode" id="cb104"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb104-1" title="1"><span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,number):</a>
+<a class="sourceLine" id="cb104-2" title="2">    <span class="cf">if</span> number <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb104-3" title="3">        <span class="cf">return</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb104-4" title="4"></a>
+<a class="sourceLine" id="cb104-5" title="5"><span class="cf">return</span> <span class="va">True</span></a></code></pre></div>
+<p>For <code>1</code>, the rules are a little different, as it is neither a prime or composite. We will add an <code>if</code> condition to check if the number is <code>1</code>. <code>if(number &lt; 2):</code></p>
+<p>This <code>if</code> condition is called a guard check or a boundary check, to make sure that you are processing only the right input. If <code>number</code> has a value less than <code>2</code>, do nothing. OK, it’s not a prime.</p>
+<p>Here is the entire code at one place, for your reference:</p>
+<div class="sourceCode" id="cb105"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb105-1" title="1"><span class="kw">def</span> is_prime(number):</a>
+<a class="sourceLine" id="cb105-2" title="2">    <span class="cf">if</span>(number <span class="op">&lt;</span> <span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb105-3" title="3">        <span class="cf">return</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb105-4" title="4">    <span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">2</span>,number):</a>
+<a class="sourceLine" id="cb105-5" title="5">        <span class="cf">if</span> number <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb105-6" title="6">            <span class="cf">return</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb105-7" title="7">    <span class="cf">return</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb105-8" title="8"><span class="bu">print</span>(is_prime(<span class="dv">5</span>))<span class="op">;</span></a></code></pre></div>
+<h3 id="step-03-continued---programming-exercise-pe-lo-01">Step 03: Continued - Programming Exercise PE-LO-01</h3>
+<p>In the previous step, we looked at solving the <code>is_prime()</code> exercise. In this step, let’s look at an implementation of <code>sum_up_to_n()</code>. Here is the entire code for this exercise:</p>
+<div class="sourceCode" id="cb106"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb106-1" title="1"><span class="kw">def</span> sum_upto_n(number):</a>
+<a class="sourceLine" id="cb106-2" title="2">    <span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb106-3" title="3">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number<span class="op">+</span><span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb106-4" title="4">        <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> i</a>
+<a class="sourceLine" id="cb106-5" title="5">    <span class="cf">return</span> <span class="bu">sum</span></a>
+<a class="sourceLine" id="cb106-6" title="6"><span class="bu">print</span>(sum_upto_n(<span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb106-7" title="7"><span class="bu">print</span>(sum_upto_n(<span class="dv">10</span>))</a></code></pre></div>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Wrote a Python function to compute the sum of all integers, from <code>1</code>, up to the input integer <code>n</code>.</li>
+</ul>
+<h3 id="step-04-continued---programming-exercise-pe-lo-01">Step 04: Continued - Programming Exercise PE-LO-01</h3>
+<p>Let’s focus on the third exercise, <code>sum_of_divisors</code>.</p>
+<p>One of the clues we can give you, is that <code>sum_of_divisors()</code> is very similar to <code>is_prime()</code>.</p>
+<p>You want to find out if a number is dividing <code>15</code>, and if it’s dividing <code>15</code>, with the remainder of <code>0</code>, then you need to add that up.</p>
+<div class="sourceCode" id="cb107"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb107-1" title="1"><span class="kw">def</span> calculate_sum_of_divisors(number):</a>
+<a class="sourceLine" id="cb107-2" title="2">    <span class="bu">sum</span> <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb107-3" title="3">    <span class="cf">if</span>(number <span class="op">&lt;</span> <span class="dv">2</span>):</a>
+<a class="sourceLine" id="cb107-4" title="4">        <span class="cf">return</span> <span class="bu">sum</span></a>
+<a class="sourceLine" id="cb107-5" title="5">    <span class="cf">for</span> divisor <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>,number<span class="op">+</span><span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb107-6" title="6">        <span class="cf">if</span> number <span class="op">%</span> divisor <span class="op">==</span> <span class="dv">0</span>:</a>
+<a class="sourceLine" id="cb107-7" title="7">            <span class="bu">sum</span> <span class="op">=</span> <span class="bu">sum</span> <span class="op">+</span> divisor</a>
+<a class="sourceLine" id="cb107-8" title="8">    <span class="cf">return</span> <span class="bu">sum</span></a>
+<a class="sourceLine" id="cb107-9" title="9"><span class="bu">print</span>(calculate_sum_of_divisors(<span class="dv">6</span>))</a>
+<a class="sourceLine" id="cb107-10" title="10"><span class="bu">print</span>(calculate_sum_of_divisors(<span class="dv">15</span>))</a></code></pre></div>
+<h3 id="step-05-continued---programming-exercise-pe-lo-01">Step 05: Continued - Programming Exercise PE-LO-01</h3>
+<p>In this step, Let’s look at the last exercise - <code>print_a_number_triangle</code>.</p>
+<p>For example, if we call such a function with input <code>5</code>, the output needs to be:</p>
+<div class="sourceCode" id="cb108"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb108-1" title="1"><span class="dv">1</span></a>
+<a class="sourceLine" id="cb108-2" title="2"></a>
+<a class="sourceLine" id="cb108-3" title="3"><span class="dv">1</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb108-4" title="4"></a>
+<a class="sourceLine" id="cb108-5" title="5"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb108-6" title="6"></a>
+<a class="sourceLine" id="cb108-7" title="7"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb108-8" title="8"></a>
+<a class="sourceLine" id="cb108-9" title="9"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a></code></pre></div>
+<p>Let start with a simple thing. Let’s try and print <code>1 2 3 4 5</code> first, and then we would look at how to print the rest of the output. Lets proceed with defining this method.</p>
+<p>We can say <code>def print_a_number_triangle(number): ...</code> that takes a number as an input. You want to print a sequence of integers starting from <code>1</code>, up to that specific <code>number</code>. How can you do that? Let’s try this: <code>for i in range(1,number+1): print(i)</code> What would happen? Let’s call <code>print_a_number_triangle(5)</code> now. It prints:</p>
+<div class="sourceCode" id="cb109"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb109-1" title="1">    <span class="dv">1</span></a>
+<a class="sourceLine" id="cb109-2" title="2">    <span class="dv">2</span></a>
+<a class="sourceLine" id="cb109-3" title="3">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb109-4" title="4">    <span class="dv">4</span></a>
+<a class="sourceLine" id="cb109-5" title="5">    <span class="dv">5</span></a></code></pre></div>
+<p>on individual lines.</p>
+<p>To print this sequence on a single line, let’s delimit them with <code>&lt;SPACE&gt;</code> instead. Call <code>print()</code> like this instead: <code>for i in range(1,number+1): print(i, end=" ")</code>.</p>
+<p>Let’s see what would happen now. <code>1 2 3 4 5</code></p>
+<p>To solve our exercise, we want to repeat this again and again.</p>
+<p>Yes, we need another for loop around it!</p>
+<div class="sourceCode" id="cb110"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb110-1" title="1"><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number<span class="op">+</span><span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb110-2" title="2">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number <span class="op">+</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb110-3" title="3">        <span class="bu">print</span>(i, end<span class="op">=</span><span class="st">&quot; &quot;</span>)</a></code></pre></div>
+<p>Make sure that you have the indentation right. This is called <code>loop within a loop</code>.</p>
+<p>The output of above program is</p>
+<p><code>1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</code></p>
+<p>Let’s add <code>print("\n")</code>, so we have a new line at the end of each outer loop iteration.</p>
+<div class="sourceCode" id="cb111"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb111-1" title="1"><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number<span class="op">+</span><span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb111-2" title="2">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number <span class="op">+</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb111-3" title="3">        <span class="bu">print</span>(i, end<span class="op">=</span><span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb111-4" title="4">    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<p>Output</p>
+<div class="sourceCode" id="cb112"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb112-1" title="1"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb112-2" title="2"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb112-3" title="3"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb112-4" title="4"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb112-5" title="5"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a></code></pre></div>
+<p>We are printing a square, not a triangle.</p>
+<p>What we want to do is to print up to <code>1</code> in first line, upto <code>2</code> in second line and so on.</p>
+<p>How can we do that? Think about it.</p>
+<p>When you are inside this loop, you can see the variable <code>j</code>.</p>
+<p>Instead of <code>number+1</code>, let’s say <code>j + 1</code>.</p>
+<p>When <code>j</code> has a value of <code>1</code>, <code>for</code> will print from <code>1</code> to <code>1</code>. When <code>j</code> has a value of <code>2</code>, print from <code>1</code> to <code>2</code>, literally printing <code>1 2</code>. When j has a value of <code>3</code>, I’ll print from <code>1</code> to <code>3</code>. Let’s try this and see what would happen.</p>
+<div class="sourceCode" id="cb113"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb113-1" title="1"><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number<span class="op">+</span><span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb113-2" title="2">    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, j <span class="op">+</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb113-3" title="3">        <span class="bu">print</span>(i, end<span class="op">=</span><span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb113-4" title="4">    <span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">&quot;</span>)</a></code></pre></div>
+<p>You can see that our number triangle is ready!</p>
+<div class="sourceCode" id="cb114"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb114-1" title="1"><span class="dv">1</span></a>
+<a class="sourceLine" id="cb114-2" title="2"></a>
+<a class="sourceLine" id="cb114-3" title="3"><span class="dv">1</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb114-4" title="4"></a>
+<a class="sourceLine" id="cb114-5" title="5"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb114-6" title="6"></a>
+<a class="sourceLine" id="cb114-7" title="7"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb114-8" title="8"></a>
+<a class="sourceLine" id="cb114-9" title="9"><span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span> <span class="dv">4</span> <span class="dv">5</span></a></code></pre></div>
+<p>Here is the entire code for you:</p>
+<div class="sourceCode" id="cb115"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb115-1" title="1"><span class="kw">def</span> print_a_number_triangle(number):</a>
+<a class="sourceLine" id="cb115-2" title="2">    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, number <span class="op">+</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb115-3" title="3">        <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, j <span class="op">+</span> <span class="dv">1</span>):</a>
+<a class="sourceLine" id="cb115-4" title="4">            <span class="bu">print</span>(i, end<span class="op">=</span><span class="st">&#39; &#39;</span>)</a>
+<a class="sourceLine" id="cb115-5" title="5">        <span class="bu">print</span>()</a>
+<a class="sourceLine" id="cb115-6" title="6">print_a_number_triangle(<span class="dv">6</span>)</a></code></pre></div>
+<p>An important point to note is, a couple of these things can be done in a much simpler way. We will look at these options when we talk about functional programming.</p>
+<p><strong>Summary</strong></p>
+<p>In this step, we:</p>
+<ul>
+<li>Presented a solution to the exercise for printing a number triangle.</li>
+</ul>
+<h3 id="step-06-introducing-the-while-loop">Step 06: Introducing The while Loop</h3>
+<p>Let’s look at one of the other loops which is present in Python, called the <strong><code>while</code></strong> loop.</p>
+<p>In the <code>for</code> loop, we can specify the range of our iteration, by using the <code>range()</code> function.</p>
+<p>In a <code>while</code> loop, we specify a logical condition. While the condition is true, loop continues running.</p>
+<p>Do you remember one place where we use the condition until now? It was in an <code>if</code> statement.</p>
+<p>Let’s see how to use a simple <code>while</code> loop.</p>
+<p><strong>Snippet-01:</strong></p>
+<div class="sourceCode" id="cb116"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb116-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">5</span></a>
+<a class="sourceLine" id="cb116-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">if</span> i <span class="op">==</span> <span class="dv">5</span>:</a>
+<a class="sourceLine" id="cb116-3" title="3">    ...   <span class="bu">print</span>(<span class="st">&quot;i is 5&quot;</span>)</a>
+<a class="sourceLine" id="cb116-4" title="4">    ...</a>
+<a class="sourceLine" id="cb116-5" title="5">    i <span class="kw">is</span> <span class="dv">5</span></a></code></pre></div>
+<p>Let’s say <code>i</code> has a value of <code>0</code>, and we then do: <code>while i &lt; 5: print(i)</code>.</p>
+<div class="sourceCode" id="cb117"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb117-1" title="1">    <span class="op">&gt;&gt;&gt;</span> i <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-2" title="2">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</a>
+<a class="sourceLine" id="cb117-3" title="3">    ...   <span class="bu">print</span>(i)</a>
+<a class="sourceLine" id="cb117-4" title="4">    ...</a>
+<a class="sourceLine" id="cb117-5" title="5">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-6" title="6">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-7" title="7">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-8" title="8">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-9" title="9">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-10" title="10">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-11" title="11">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-12" title="12">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb117-13" title="13">    <span class="op">^</span>CTraceback (most recent call last):</a>
+<a class="sourceLine" id="cb117-14" title="14">      File <span class="st">&quot;&lt;stdin&gt;&quot;</span>, line <span class="dv">2</span>, <span class="kw">in</span> <span class="op">&lt;</span>module<span class="op">&gt;</span></a>
+<a class="sourceLine" id="cb117-15" title="15">    <span class="pp">KeyboardInterrupt</span></a>
+<a class="sourceLine" id="cb117-16" title="16">    <span class="op">&gt;&gt;&gt;</span></a>
+<a class="sourceLine" id="cb117-17" title="17">    <span class="pp">KeyboardInterrupt</span></a></code></pre></div>
+<p>If we leave it to run, you’d see that it continuously prints <code>0</code> again, and again. Let’s do a <code>&lt;CTRL-C&gt;</code> or <code>&lt;COMMAND-C&gt;</code> to interrupt this.</p>
+<p>What is happening here?</p>
+<p>Initially <code>i</code> is <code>0</code>, and the condition <code>i &lt; 5</code> is <code>True</code>, and <code>print(i)</code> is executed. Next iteration, it checks the condition, it is <code>True</code>, and <code>0</code> is printed. This continues to happen. What’s happening is an <strong>infinite loop</strong>.</p>
+<p>One of the important things to make sure in a <code>while</code> loop, is to increment the value of <code>i</code>. We need to say something like <code>i = i + 1</code>.</p>
+<div class="sourceCode" id="cb118"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb118-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">while</span> i <span class="op">&lt;</span> <span class="dv">5</span>:</a>
+<a class="sourceLine" id="cb118-2" title="2">    ...   <span class="bu">print</span>(i)</a>
+<a class="sourceLine" id="cb118-3" title="3">    ...   i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb118-4" title="4">    ...</a>
+<a class="sourceLine" id="cb118-5" title="5">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb118-6" title="6">    <span class="dv">1</span></a>
+<a class="sourceLine" id="cb118-7" title="7">    <span class="dv">2</span></a>
+<a class="sourceLine" id="cb118-8" title="8">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb118-9" title="9">    <span class="dv">4</span></a></code></pre></div>
+<p>So how does it work? *<code>i</code> initially had a value of <code>0</code>. First the condition is checked. It’s <code>True</code>, so <code>0</code> is printed and then the value of <code>i</code> is incremented to <code>1</code>.</p>
+<ul>
+<li><code>i</code> is still less than <code>5</code>, so the loop continues to execute, and this happens until <code>4</code> is printed. <code>i</code> again gets incremented to <code>4 + 1</code>, or <code>5</code>.</li>
+<li>Then we check the condition <code>i &lt; 5</code>. This is now <code>False</code>. Control goes out of the <code>while</code> loop, and terminates it.</li>
+</ul>
+<p>When executing a <code>while</code>, control flow is just based on a condition. As long as the condition is <code>True</code>, we keep executing the code. An important thing to remember, is to make sure the control variable is updated.</p>
+<div class="sourceCode" id="cb119"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb119-1" title="1">    <span class="op">&gt;&gt;&gt;</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">0</span>,<span class="dv">5</span>): <span class="bu">print</span>(i)</a>
+<a class="sourceLine" id="cb119-2" title="2">    ...</a>
+<a class="sourceLine" id="cb119-3" title="3">    <span class="dv">0</span></a>
+<a class="sourceLine" id="cb119-4" title="4">    <span class="dv">1</span></a>
+<a class="sourceLine" id="cb119-5" title="5">    <span class="dv">2</span></a>
+<a class="sourceLine" id="cb119-6" title="6">    <span class="dv">3</span></a>
+<a class="sourceLine" id="cb119-7" title="7">    <span class="dv">4</span></a></code></pre></div>
+<p>A <code>for</code> loop is much simpler to code than a <code>while</code>. With <code>while</code>, we have to write an expression statement, to increment the value.</p>
+<p>The question you might have is - What are the situations when you should use a while?</p>
+<p>We will look at that very soon.</p>
+<p><strong>Summary</strong></p>
+<p>In this video, we:</p>
+<ul>
+<li>Were introduced to the concept of a <code>while</code> loop in Python</li>
+<li>Understood the importance of a control variable being incremented inside the loop</li>
+<li>Observed differences between the working of a <code>while</code>, and a <code>for</code> loop</li>
+</ul>
+<h3 id="step-07-programming-exercise-pe-lo-02">Step 07: Programming Exercise PE-LO-02</h3>
+<p>In the previous step, we were introduced to <code>while</code> loop. In this step, let’s look at a couple of exercises using the <code>while</code> loop.</p>
+<p><strong>Exercises</strong></p>
+<ol type="1">
+<li><code>print_squares_upto_limit(30)</code>: We need to print all the squares of numbers, up to a limit of <code>30</code>. The output needs to be <code>1 4 9 16 25</code>.</li>
+<li><code>print_cubes_upto_limit(30)</code>: We need to print all the cubes of numbers, up to a limit of <code>30</code>.The output needs to be 1 8 27.</li>
+</ol>
+<p><strong>Exercise 1: Solution</strong></p>
+<p>Here is the entire code for your reference:</p>
+<div class="sourceCode" id="cb120"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb120-1" title="1"><span class="kw">def</span> print_squares_upto_limit(limit):</a>
+<a class="sourceLine" id="cb120-2" title="2">    i <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb120-3" title="3">    <span class="cf">while</span> i <span class="op">*</span> i <span class="op">&lt;</span> limit:</a>
+<a class="sourceLine" id="cb120-4" title="4">        <span class="bu">print</span>(i<span class="op">*</span>i, end <span class="op">=</span> <span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb120-5" title="5">        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></a></code></pre></div>
+<p>Now the next exercise, was to print cubes up to a limit.</p>
+<p>The expression in the <code>while</code> condition should now be <code>i*i*i &lt; 30</code>.</p>
+<div class="sourceCode" id="cb121"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb121-1" title="1"><span class="kw">def</span> print_cubes_upto_limit(limit):</a>
+<a class="sourceLine" id="cb121-2" title="2">    i <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb121-3" title="3">    <span class="cf">while</span> i <span class="op">*</span> i <span class="op">*</span> i <span class="op">&lt;</span> limit:</a>
+<a class="sourceLine" id="cb121-4" title="4">        <span class="bu">print</span>(i<span class="op">*</span>i<span class="op">*</span>i, end <span class="op">=</span> <span class="st">&quot; &quot;</span>)</a>
+<a class="sourceLine" id="cb121-5" title="5">        i <span class="op">=</span> i <span class="op">+</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb121-6" title="6">print_cubes_upto_limit(<span class="dv">80</span>)</a></code></pre></div>
+<p>Could we have implemented above two examples with <code>for</code> loop? It would’ve been a little more difficult.</p>
+<p>Typically, we use a <code>for</code> loop when we know how many times the loop will be executed is clear at the start.</p>
+<p>If we do not know, how many times a loop will run, <code>while</code> is a better option.</p>
+<h3 id="step-08-while-example">Step 08: While Example</h3>
+<p>Earlier we used <code>if</code> statement to implement a solution for this:</p>
+<ul>
+<li>Ask the User for input:
+<ul>
+<li>Enter two numbers</li>
+<li>Choose the Option:
+<ul>
+<li>1 - Add</li>
+<li>2 - Subtract</li>
+<li>3 - Multiply</li>
+<li>4 - Divide</li>
+</ul></li>
+</ul></li>
+<li>Perform the Operation</li>
+<li>Publish the Result</li>
+</ul>
+<p>We would want to enhance it to execute in a loop multiple times, until the user chooses to exit. We will add an option 5 - Exit.</p>
+<ul>
+<li>Ask the User for input:
+<ul>
+<li>Enter two numbers</li>
+<li>Choose the Option:
+<ul>
+<li>1 - Add</li>
+<li>2 - Subtract</li>
+<li>3 - Multiply</li>
+<li>4 - Divide</li>
+<li>5 - Exit</li>
+</ul></li>
+</ul></li>
+<li>Perform the Operation</li>
+<li>Publish the Result</li>
+<li>Repeat until Option 5 is chosen.</li>
+</ul>
+<p><strong>Snippet-01 Explained</strong></p>
+<p>Here’s the earlier code we wrote with if:</p>
+<div class="sourceCode" id="cb122"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb122-1" title="1">number1 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter Number1: &quot;</span>))</a>
+<a class="sourceLine" id="cb122-2" title="2">number2 <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Enter Number2: &quot;</span>))</a>
+<a class="sourceLine" id="cb122-3" title="3"></a>
+<a class="sourceLine" id="cb122-4" title="4"><span class="bu">print</span>(<span class="st">&quot;</span><span class="ch">\n\n</span><span class="st">1 - Add&quot;</span>)</a>
+<a class="sourceLine" id="cb122-5" title="5"><span class="bu">print</span>(<span class="st">&quot;2 - Subtract&quot;</span>)</a>
+<a class="sourceLine" id="cb122-6" title="6"><span class="bu">print</span>(<span class="st">&quot;3 - Divide&quot;</span>)</a>
+<a class="sourceLine" id="cb122-7" title="7"><span class="bu">print</span>(<span class="st">&quot;4 - Multiply&quot;</span>)</a>
+<a class="sourceLine" id="cb122-8" title="8"></a>
+<a class="sourceLine" id="cb122-9" title="9">choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;Choose Operation: &quot;</span>))</a>
+<a class="sourceLine" id="cb122-10" title="10"></a>
+<a class="sourceLine" id="cb122-11" title="11"><span class="co"># print(number1 + number2)</span></a>
+<a class="sourceLine" id="cb122-12" title="12"><span class="co"># print(choice)</span></a>
+<a class="sourceLine" id="cb122-13" title="13"><span class="cf">if</span> choice<span class="op">==</span><span class="dv">1</span>:</a>
+<a class="sourceLine" id="cb122-14" title="14">    result <span class="op">=</span> number1 <span class="op">+</span> number2</a>
+<a class="sourceLine" id="cb122-15" title="15"><span class="cf">elif</span> choice<span class="op">==</span><span class="dv">2</span>:</a>
+<a class="sourceLine" id="cb122-16" title="16">    result <span class="op">=</span> number1 <span class="op">-</span> number2</a>
+<a class="sourceLine" id="cb122-17" title="17"><span class="cf">elif</span> choice<span class="op">==</span><span class="dv">3</span>:</a>
+<a class="sourceLine" id="cb122-18" title="18">    result <span class="op">=</span> number1 <span class="op">/</span> number2</a>
+<a class="sourceLine" id="cb122-19" title="19"><span class="cf">elif</span> choice<span class="op">==</span><span class="dv">4</span>:</a>
+<a class="sourceLine" id="cb122-20" title="20">    result <span class="op">=</span> number1 <span class="op">*</span> number2</a>
+<a class="sourceLine" id="cb122-21" title="21"><span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb122-22" title="22">    result <span class="op">=</span> <span class="st">&quot;Invalid Choice&quot;</span></a>
+<a class="sourceLine" id="cb122-23" title="23"></a>
+<a class="sourceLine" id="cb122-24" title="24"><span class="bu">print</span>(result)</a></code></pre></div>
+</body>
+</html>

@@ -1,0 +1,383 @@
+<?xml version="1.0"?>
+<project default="build">
+	
+	<path id="yuicompressor.classpath">
+        <fileset dir="./lib">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+	
+	<target name="yui.minify">
+	    <java jar="./lib/yuicompressor-2.4.2.jar" fork="true" output="${output}">
+	    	<arg value="${input}"/>
+	    	<classpath>
+	            <path refid="yuicompressor.classpath"/>
+	        </classpath>
+	    </java>
+	</target>
+	
+	<!-- ant-contrib taskdefs -->
+	<taskdef resource="net/sf/antcontrib/antlib.xml">
+	  <classpath>
+	    <pathelement location="./lib/ant-contrib-0.6.jar"/>
+	  </classpath>
+	</taskdef>		
+
+
+	<!-- main build dir, inside which we have one dir per build number -->
+	<property name="build.dir" value="./build"/>		
+	<!--  create final version number -->
+	<propertyregex property="final.version"
+	              input="${version}"
+	              regexp="[0-9]+\.[0-9]+\.[0-9]+"
+	              select="\0"
+	              casesensitive="false" />
+	<!-- js input directory -->
+	<property name="dir" value="./js/${final.version}/"/>
+	<!-- input demo directory -->
+	<property name="demo.dir" value="./demo"/>
+	<!-- output directory -->
+	<property name="output.dir" value="${build.dir}/${final.version}"/>
+	<!-- output JS directory -->
+	<property name="output.js.dir" value="${build.dir}/${final.version}/js"/>
+	<!-- output demo directory -->
+	<property name="output.demo.dir" value="${build.dir}/${final.version}/demo"/>
+	<!-- output demo js directory -->
+	<property name="output.demo.js.dir" value="${build.dir}/${final.version}/demo/js"/>
+	<!-- output tests directory -->
+	<property name="output.tests.dir" value="${build.dir}/${final.version}/tests"/>
+
+	<!--
+		fails the build if no "version" parameter supplied.
+	-->
+	<target name="checkForVersion" unless="version">
+		<fail message="You must supply the version to bundle, eg. ant -Dversion=x.y.c-RCn"/>
+	</target>
+
+	<!-- fails if the desired build dir already exists and force was not specified on the command line. -->
+	<target name="checkForExistingBuildDir" unless="force">
+		<if>
+			<available file="${output.dir}" type="dir"/>
+			<then>
+				<echo>Output directory already exists and "-Dforce=true" was not specified - exiting.</echo>
+				<fail message="output directory already exists"/>
+			</then>
+    	</if>
+    </target>
+
+    <!-- creates the output dir, if necessary -->
+	<target name="init" depends="checkForExistingBuildDir,checkForVersion">
+		<!-- this will fail silently if the dir already exists; that's ok. it's because this is the first build this user has run. -->
+		<mkdir dir="${build.dir}"/>	
+		<!-- but these should not already exist; we will have bailed before here if that's the case, unless the user 
+		specified the '-Dforce=true' argument on the command line -->
+		<delete dir="${output.dir}"/>
+		<mkdir dir="${output.dir}"/>	
+		<mkdir dir="${output.dir}/doc"/>	
+		<mkdir dir="${output.js.dir}"/>	
+		<mkdir dir="${output.demo.dir}"/>		
+		<mkdir dir="${output.tests.dir}"/>				
+		<echo/>
+		<echo>Building Version         :    ${final.version} into directory ${output.dir}</echo>			
+	</target>
+	
+	<!-- 
+		concats a single library.
+		
+		expects "library" parameter to be set.
+	-->
+	<target name="concatLibrary">
+		<echo>Concatenating ${library}</echo>
+		<concat destfile="${output.js.dir}/${library}.jsPlumb-${final.version}-all.js">
+			<filelist dir="${dir}" files="jsPlumb-util-${version}.js,jsPlumb-${version}.js,jsPlumb-defaults-${version}.js,jsPlumb-connectors-statemachine-${version}.js, jsPlumb-renderers-vml-${version}.js, jsPlumb-renderers-svg-${version}.js, jsPlumb-renderers-canvas-${version}.js, ${library}.jsPlumb-${version}.js, ../lib/jsBezier-0.4-min.js"/>
+		</concat>		
+	</target>
+	
+	<!-- minifies a concatenated library -->
+	<target name="minLibrary" depends="concatLibrary">
+		<echo>Minifying ${library}</echo>
+		<antcall target="yui.minify">
+			<param name="input" value="${output.js.dir}/${library}.jsPlumb-${final.version}-all.js"/>
+			<param name="output" value="${output.js.dir}/${library}.jsPlumb-${final.version}-all-min.js"/>
+		</antcall>
+	</target>
+	
+	<!-- 
+		generates minified and concatenated scripts for supported libraries.
+	--> 
+	<target name="minAll">		
+		<antcall target="minLibrary">
+			<param name="library" value="jquery"/>
+		</antcall>
+		<antcall target="minLibrary">
+			<param name="library" value="mootools"/>
+		</antcall>
+		<antcall target="minLibrary">
+			<param name="library" value="yui"/>
+		</antcall>
+	</target>
+
+	<!-- replaces JS imports in HTML files with minified versions and with production links to dependencies -->
+	<target name="html">
+		<echo>Replacing Javascript imports for ${library}</echo>
+
+		<!-- replace JS dependency with the prod version -->
+		<replaceregexp>
+			<regexp pattern="(&lt;!-- DEP.*&gt;.*\n)(.*\n)*(.*/DEP --&gt;)"/>
+			<substitution expression="${dependencies}"/>
+			<fileset dir="${output.demo.dir}/${libraryDir}">
+				<include name="*.html"/>
+			</fileset>
+		</replaceregexp>
+
+		<!-- replace all JS with the minified file -->
+		<replaceregexp>						
+			<regexp pattern="(&lt;!-- JS.*&gt;.*\n)(.*\n)*(.*/JS --&gt;)"/>
+			<substitution expression="&lt;script type='text/javascript' src='../js/${library}.jsPlumb-${final.version}-all-min.js'&gt;&lt;/script&gt;"/>
+			<fileset dir="${output.demo.dir}/${libraryDir}">
+				<include name="*.html"/>
+			</fileset>
+		</replaceregexp>
+	</target>
+
+	<!-- copies the demos and replaces their JS imports with final versions -->
+	<target name="demo">
+		<echo>Processing demo code...</echo>
+		<copy todir="${output.demo.dir}">
+			<fileset dir="${demo.dir}"/>
+		</copy>
+		<!-- copy built JS -->
+		<copy todir="${output.demo.js.dir}">
+			<fileset dir="${output.js.dir}"/>
+		</copy>
+		<!-- replace dev JS imports with final versions -->
+		<antcall target="html">
+			<param name="libraryDir" value="jquery"/>
+			<param name="library" value="jquery"/>
+			<param name="dependencies" value="&lt;script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js'&gt;&lt;/script&gt;&lt;script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.13/jquery-ui.min.js'&gt;&lt;/script&gt;"/>
+		</antcall>
+
+		<antcall target="html">			
+			<param name="libraryDir" value="mootools"/>
+			<param name="library" value="mootools"/>
+			<param name="dependencies" value="&lt;script type='text/javascript' src='http://ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js'&gt;&lt;/script&gt;"/>
+		</antcall>
+
+		<antcall target="html">
+			<param name="libraryDir" value="yui3"/>
+			<param name="library" value="yui"/>
+		</antcall>
+	</target>
+
+	<!-- copies the jsPlumb documentation into the build area -->
+	<target name="copy-documentation">
+		<echo>Copying documentation...</echo>
+		<copy todir="${output.dir}/demo/doc">
+			<fileset dir="./demo/doc">
+				<include name="*.html"/>
+				<include name="*.css"/>
+			</fileset>
+		</copy>
+		<copy todir="${output.dir}/demo/doc">
+			<fileset dir="./demo/doc">
+				<include name="*.html"/>
+				<include name="*.css"/>
+			</fileset>
+		</copy>			
+	</target>
+
+	<!-- writes the final version of JS into the copies of test html, files replacing the dev imports -->
+	<target name="update-tests-js">
+		<replaceregexp>						
+			<regexp pattern="(&lt;!-- JS.*&gt;.*\n)(.*\n)*(.*/JS --&gt;)"/>
+			<substitution expression="&lt;script type='text/javascript' src='../js/${library}.jsPlumb-${final.version}-all-min.js'&gt;&lt;/script&gt;"/>
+			<fileset dir="${output.tests.dir}">
+				<include name="*${library}.html"/>
+				<include name="*${library}-instance.html"/>
+			</fileset>
+		</replaceregexp>		
+
+		<replaceregexp>						
+			<regexp pattern="(&lt;!-- TEST.*&gt;.*\n)(.*\n)*(.*/TEST --&gt;)"/>
+			<substitution expression="&lt;script type='text/javascript' src='../js/jsPlumb-${final.version}-tests.js'&gt;&lt;/script&gt;"/>
+			<fileset dir="${output.tests.dir}">
+				<include name="*${library}.html"/>
+				<include name="*${library}-instance.html"/>
+			</fileset>
+		</replaceregexp>
+
+	</target>
+
+	<!-- copies the tests directory into the build dir -->
+	<target name="copy-tests">
+		<copy todir="${output.js.dir}">
+			<fileset dir="js/${final.version}">
+				<include name="jsPlumb-${final.version}-tests.js"/>
+			</fileset>
+		</copy>
+		<copy todir="${output.tests.dir}">
+			<fileset dir="tests">
+				<include name="*.html"/>
+				<include name="*.css"/>
+			</fileset>
+		</copy>
+		<mkdir dir="${output.js.dir}/lib"/>
+		<copy todir="${output.js.dir}/lib">
+			<fileset dir="js/lib">
+				<include name="qunit.js"/>
+			</fileset>
+		</copy>
+		<!-- now replace the JS with minified ones! -->
+		<antcall target="update-tests-js">
+			<param name="library" value="jquery"/>
+		</antcall>
+		<antcall target="update-tests-js">
+			<param name="library" value="mootools"/>
+		</antcall>
+		<antcall target="update-tests-js">
+			<param name="library" value="yui"/>
+		</antcall>
+		
+	</target>
+	
+	<target name="doc-version" unless="final.version">
+		<fail message="You must supply the final version to build api docs from"/>
+	</target>
+	<!-- generates the API docs -->
+	<target name="docs" depends="doc-version">
+		<mkdir dir="js/TEMP"/>
+		<mkdir dir="js/TEMPOUT"/>
+		<copy todir="js/TEMP">
+			<fileset dir="build/${final.version}/js">
+				<include name="jquery.jsPlumb-${final.version}-all.js"/>
+			</fileset>
+		</copy>
+		<mkdir dir="apidocs"/>
+	    <exec executable="naturaldocs">
+	        <arg line="-i"/>
+	        <arg path="js/TEMP"/>
+	        <arg line="-o"/>
+	    	<arg line="HTML"/>
+	    	<arg line="js/TEMPOUT"/>
+	    	<arg line="-p"/>
+	    	<arg line="."/>
+	    </exec>
+
+	    <!-- replace the jquery.blah title stuff that apidocs comes up with -->
+	    <replace dir="js/TEMPOUT" token="&lt;wbr&gt;"/>
+	    <replace dir="js/TEMPOUT" token="jquery.jsPlumb-${final.version}-all.js" value="jsPlumb ${final.version}"/>
+
+	    <!-- get a copy of the version number with dashes not dots -->
+	    <propertyregex property="version.with.dashes"
+              input="${final.version}"
+              regexp="([0-9])\.([0-9])\.([0-9])"
+              replace="\1-\2-\3"/>
+
+	    <!-- write the index file -->
+	    <echo file="js/TEMPOUT/index.html" append="false">&lt;html&gt;&lt;head&gt;&lt;meta http-equiv="Refresh" CONTENT="0; URL=./files/jquery-jsPlumb-${version.with.dashes}-all-js.html"&gt;&lt;/head&gt;&lt;/html&gt;</echo>
+
+	    <delete dir="Data"/>
+		<delete dir="js/TEMP"/>
+		<delete>
+			<fileset dir="demo/apidocs">
+				<include name="**/*.html"/>
+			</fileset>
+		</delete>
+		<mkdir dir="demo/apidocs"/>
+		<copy todir="demo/apidocs">
+			<fileset dir="js/TEMPOUT">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<copy todir="build/${final.version}/demo/apidocs">
+			<fileset dir="demo/apidocs">
+				<include name="**/*"/>
+			</fileset>
+		</copy>
+		<delete dir="js/TEMPOUT"/>
+	</target>
+	
+	<!-- builds a version of jsplumb -->
+	<target name="build" depends="init">		
+		<antcall target="minAll"/>		
+		<antcall target="demo"/>
+		<antcall target="copy-documentation"/>
+		<antcall target="copy-tests"/>
+	</target>
+
+	<!-- builds a version of jsplumb and generates apidocs -->
+	<target name="build-all" depends="build">
+		<antcall target="docs"/>
+	</target>
+
+	<target name="new" unless="new">
+		<fail message="You must supply the new version, eg: ant -Dold=1.3.7 -Dnew=1.3.8"/>
+	</target>
+	<target name="old" unless="old">
+		<fail message="You must supply the old version, eg: ant -Dold=1.3.7 -Dnew=1.3.8"/>
+	</target>
+	<!-- creates/copies all the files needed for a new version -->
+	<target name="newversion" depends="old,new">
+
+		<propertyregex property="new.escaped"
+              input="${new}"
+              regexp="\."
+              replace="\\."/>
+
+        <propertyregex property="old.escaped"
+              input="${old}"
+              regexp="\."
+              replace="\\\."/>
+
+        <echo>${new.escaped}</echo>
+
+		<!-- create new js dir and copy previous version js into it -->
+		<mkdir dir="js/${new}"/>
+		<copy todir="js/${new}">
+			<fileset dir="js/${old}">
+				<include name="*.js"/>
+			</fileset>
+			<mapper type="regexp" from="(.*)${old.escaped}(.*)" to="\1${new.escaped}\2"/>
+		</copy>
+
+		<!-- create new dir in tests/archive and copy test html files in there -->
+		<mkdir dir="tests/archive/${old}"/>
+		<copy todir="tests/archive/${old}">
+			<fileset dir="tests">
+				<include name="*.html"/>
+				<include name="*.css"/>
+			</fileset>
+		</copy>
+
+		<!-- replace refs to old version in test html to new version -->
+		<replace dir="tests" token="${old}" value="${new}"/>
+
+		<!-- create new archive dir for docs -->
+		<mkdir dir="demo/doc/archive/${old}"/>
+		<copy todir="demo/doc/archive/${old}">
+			<fileset dir="demo/doc">
+				<include name="*.html"/>
+				<include name="*.css"/>
+			</fileset>
+		</copy>
+
+		<replace dir="demo/doc" token="${old}" value="${new}"/>		
+		
+		<!-- replace refs to old version in demo html to new version -->
+		<replace dir="demo/jquery" token="${old}" value="${new}"/>
+		<replace dir="demo/yui3" token="${old}" value="${new}"/>
+		<replace dir="demo/mootools" token="${old}" value="${new}"/>
+
+		<!-- replace in README >
+		<replace file="README.md" token="latest version is ${old}" value="latest version is ${new}"/-->
+
+	</target>
+
+	<target name="upgrade-jsbezier" depends="old,new">
+		<!-- replace refs to old version in demo html to new version -->
+		<replace dir="demo/jquery" token="jsBezier-${old}-min.js" value="jsBezier-${new}-min.js"/>
+		<replace dir="demo/yui3" token="jsBezier-${old}-min.js" value="jsBezier-${new}-min.js"/>
+		<replace dir="demo/mootools" token="jsBezier-${old}-min.js" value="jsBezier-${new}-min.js"/>
+	</target>
+	
+</project>

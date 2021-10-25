@@ -1,0 +1,35 @@
+{
+	"name": "testingserver",
+	"version": "1.0.0",
+	"description": "Server Testing Project",
+	"main": "server.js",
+	"scripts": {
+		"test": "jest --watch --verbose"
+	},
+	"jest": {
+		"testEnvironment": "node"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/LambdaSchool/Server-Testing.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/LambdaSchool/Server-Testing/issues"
+	},
+	"homepage": "https://github.com/LambdaSchool/Server-Testing#readme",
+	"devDependencies": {
+		"jest": "^23.6.0",
+		"supertest": "^3.3.0"
+	},
+	"dependencies": {
+		"cors": "^2.8.4",
+		"express": "^4.16.4",
+		"helmet": "^3.14.0",
+		"knex": "^0.15.2",
+		"morgan": "^1.9.1",
+		"sqlite3": "^4.0.3"
+	}
+}
