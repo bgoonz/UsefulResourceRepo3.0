@@ -4,8 +4,7 @@ Calculate the average of a list of numbers using mean.
 
 ## Applications
 
-Calculating the mean of a list of numbers is one of the most common ways to
-determine the average of those numbers.
+Calculating the mean of a list of numbers is one of the most common ways to determine the average of those numbers.
 
 Calculating a mean would be useful in these situations:
 
@@ -347,8 +346,7 @@ Given a value `N`, if we want to make change for `N` cents, and we have infinite
 
 #### Approach
 
-Let the `dp[i]` be the length of the coin change of prefix `N[1..i]`. Our answer is `dp[N]`.
-We fill `dp[0]` as 1 because there is only one way to get 0 coins (We pick no coins).
+Let the `dp[i]` be the length of the coin change of prefix `N[1..i]`. Our answer is `dp[N]`. We fill `dp[0]` as 1 because there is only one way to get 0 coins (We pick no coins).
 
 Now let's try calculate `dp[i]` for any `i`. `dp[0..i]` will store each sub problems from `0` to `N`. That's why the answer will be `dp[N]`. First, we need to iterate each coin types to pick them one-by-one. Then we iterate the sub problems from current coin that we pick before to `N` cents. That's why we must make dp table with `N` columns.
 
@@ -420,8 +418,7 @@ A **Doubly Linked List (DLL)** contains an extra pointer, typically called previ
 
 - A DLL can be traversed in both forward and backward direction.
 - The delete operation in DLL is more efficient if pointer to the node to be deleted is given.
-- We can quickly insert a new node before a given node.
-  In singly linked list, to delete a node, pointer to the previous node is needed. To get this previous node, sometimes the list is traversed. In DLL, we can get the previous node using previous pointer.
+- We can quickly insert a new node before a given node. In singly linked list, to delete a node, pointer to the previous node is needed. To get this previous node, sometimes the list is traversed. In DLL, we can get the previous node using previous pointer.
 
 ### Disadvantages over singly linked list
 
@@ -547,14 +544,10 @@ Given a sorted array of _n_ elements, write a function to search for the index o
 ```markdown
 arr = [1, 2, 3, 4, 5, 6, 7, ... 998, 999, 1_000]
 
-target = 998
-index = 0
+target = 998 index = 0
 
-1. SEARCHING FOR THE RANGE
-   index = 1, 2, 4, 8, 16, 32, 64, ..., 512, ..., 1_024
-   after 10 iteration we have the index at 1_024 and outside of the array
-2. BINARY SEARCH
-   Now we can apply the binary search on the subarray from 512 and 1_000.
+1. SEARCHING FOR THE RANGE index = 1, 2, 4, 8, 16, 32, 64, ..., 512, ..., 1_024 after 10 iteration we have the index at 1_024 and outside of the array
+2. BINARY SEARCH Now we can apply the binary search on the subarray from 512 and 1_000.
 ```
 
 **_Note_**: we apply the Binary Search from 512 to 1_000 because at `i = 2^10 = 1_024` the array is finisced and the target number is less than the latest index of the array ( 1_000 ).
@@ -596,11 +589,9 @@ In mathematics, the Fibonacci numbers commonly denoted F(n), form a sequence, ca
 
 ## Applications
 
-Finding
-`N-th` member of this sequence would be useful in many Applications:
+Finding `N-th` member of this sequence would be useful in many Applications:
 
-- Recently Fibonacci sequence and the golden ratio are of great interest to researchers in many fields of
-  science including high energy physics, quantum mechanics, Cryptography and Coding.
+- Recently Fibonacci sequence and the golden ratio are of great interest to researchers in many fields of science including high energy physics, quantum mechanics, Cryptography and Coding.
 
 ## Steps
 
@@ -709,8 +700,7 @@ Given an unsorted array of n elements, write a function to sort the array
 
 `O(n log n)` Worst case performance
 
-`O(n log n)` (distinct keys)
-or O(n) (equal keys) Best-case performance
+`O(n log n)` (distinct keys) or O(n) (equal keys) Best-case performance
 
 `O(n log n)` Average performance
 
@@ -748,7 +738,7 @@ The heapify procedure calls itself recursively to build heap
 in top down manner.
 ```
 
-![heap-image](https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif "Heap Sort")
+![heap-image](https://upload.wikimedia.org/wikipedia/commons/1/1b/Sorting_heapsort_anim.gif 'Heap Sort')
 
 #### Code Implementation Links
 
@@ -915,8 +905,7 @@ for i in range(1..N):
 
 #### Space Complexity
 
-`O(N * M)` - simple implementation
-`O(min {N, M})` - two-layers implementation (as `dp[i][j]` depends on only i-th and i-th layers, we coudld store only two layers).
+`O(N * M)` - simple implementation `O(min {N, M})` - two-layers implementation (as `dp[i][j]` depends on only i-th and i-th layers, we coudld store only two layers).
 
 #### Example
 
@@ -1103,19 +1092,15 @@ Radix Sort is the answer. The idea of Radix Sort is to do digit by digit sort st
 
 ## The Radix Sort Algorithm
 
-Do following for each digit i where i varies from least significant digit to the most significant digit.
-Sort input array using counting sort (or any stable sort) according to the i'th digit.
+Do following for each digit i where i varies from least significant digit to the most significant digit. Sort input array using counting sort (or any stable sort) according to the i'th digit.
 
 Example:
 
-Original, unsorted list:
-`170, 45, 75, 90, 802, 24, 2, 66`
+Original, unsorted list: `170, 45, 75, 90, 802, 24, 2, 66`
 
 Sorting by least significant digit (1s place) gives:
 
-[*Notice that we keep 802 before 2, because 802 occurred
-before 2 in the original list, and similarly for pairs
-170 & 90 and 45 & 75.]
+[*Notice that we keep 802 before 2, because 802 occurred before 2 in the original list, and similarly for pairs 170 & 90 and 45 & 75.]
 
 Sorting by next digit (10s place) gives:
 
@@ -1123,21 +1108,15 @@ Sorting by next digit (10s place) gives:
 
 `802, 2, 24, 45, 66, 170, 75, 90`
 
-Sorting by the most significant digit (100s place) gives:
-`2, 24, 45, 66, 75, 90, 170, 802`
+Sorting by the most significant digit (100s place) gives: `2, 24, 45, 66, 75, 90, 170, 802`
 
 ## What is the running time of Radix Sort?
 
-Let there be d digits in input integers. Radix Sort takes `O(d*(n+b))` time where b is the base for representing numbers, for example, for the decimal system, b is 10.
-What is the value of d? If `k` is the maximum possible value, then d would be `O(logb(k))`. So overall time complexity is `O((n+b) * logb(k))`. Which looks more than the
-time complexity of comparison-based sorting algorithms for a large k. Let us first limit k. Let k <= nc where c is a constant. In that case, the complexity becomes
-`O(n logb(n))`. But it still doesn't beat comparison-based sorting algorithms.
+Let there be d digits in input integers. Radix Sort takes `O(d*(n+b))` time where b is the base for representing numbers, for example, for the decimal system, b is 10. What is the value of d? If `k` is the maximum possible value, then d would be `O(logb(k))`. So overall time complexity is `O((n+b) * logb(k))`. Which looks more than the time complexity of comparison-based sorting algorithms for a large k. Let us first limit k. Let k <= nc where c is a constant. In that case, the complexity becomes `O(n logb(n))`. But it still doesn't beat comparison-based sorting algorithms.
 
 ## Is Radix Sort preferable to Comparison based sorting algorithms like Quick-Sort?
 
-If we have `log2n` bits for every digit, the running time of Radix appears to be better than Quick Sort for a wide range of input numbers. The constant factors hidden in
-asymptotic notation are higher for Radix Sort and Quick-Sort uses hardware caches more effectively. Also, Radix sort uses counting sort as a subroutine and counting sort
-takes extra space to sort numbers.
+If we have `log2n` bits for every digit, the running time of Radix appears to be better than Quick Sort for a wide range of input numbers. The constant factors hidden in asymptotic notation are higher for Radix Sort and Quick-Sort uses hardware caches more effectively. Also, Radix sort uses counting sort as a subroutine and counting sort takes extra space to sort numbers.
 
 Video reference: https://youtu.be/nu4gDuFabIM
 
@@ -1301,8 +1280,7 @@ Given an unsorted array of n elements, write a function to sort the array
 
 #### Time Complexity
 
-Time complexity is dependent on the gap sequences.
-Below time complexities are based on the gap sequences of n/2^k.
+Time complexity is dependent on the gap sequences. Below time complexities are based on the gap sequences of n/2^k.
 
 `O(n^2)` Worst case performance
 
@@ -1434,8 +1412,7 @@ The Caesar cipher is a simple cipher and one of the best known encryption algori
 
 1. Choose the alphabet that the message was encrypted with.
 2. Let `n` be the secret key the message is encoded in.
-3. For every letter in the cipher-text, replace it by a letter of the alphabet that is `n` letters behind in the alphabet from the letter.
-   `c` would be `b`, `a` would be `z` with a key of `1`.
+3. For every letter in the cipher-text, replace it by a letter of the alphabet that is `n` letters behind in the alphabet from the letter. `c` would be `b`, `a` would be `z` with a key of `1`.
 4. The message should now be decoded
 
 ## Example

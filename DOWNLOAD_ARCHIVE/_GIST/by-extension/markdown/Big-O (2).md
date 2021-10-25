@@ -47,8 +47,7 @@ function addUpTo(n) {
 }
 ```
 
-> Number of operations will grow with n.
-> Would be O(n) or Linear Time.
+> Number of operations will grow with n. Would be O(n) or Linear Time.
 
 ```js
 function addUpTo(n) {
@@ -56,8 +55,7 @@ function addUpTo(n) {
 }
 ```
 
-> Has three simple operations: 1 Multiplication 1 Addition 1 Division. (Regardless of n)
-> Would be O(1) or Constant Time.
+> Has three simple operations: 1 Multiplication 1 Addition 1 Division. (Regardless of n) Would be O(1) or Constant Time.
 
 - First we need to consider what makes one implementation better than the other?
 
@@ -103,8 +101,7 @@ function printAllPairs(n) {
 }
 ```
 
-> Nested loops are never a good thing when trying to write fast code.
-> O(n^2) or Quadratic Time.
+> Nested loops are never a good thing when trying to write fast code. O(n^2) or Quadratic Time.
 
 - Constants don't matter in big O & Smaller Terms don't matter
 
@@ -178,22 +175,9 @@ function logAtMost5(n) {
 - **`T(f)`** : unsimplified math function
 - **`O(f)`** : simplified math function.
 
-**`Simplifying a Product`**
-| Unsimplified | Big-O Simplified |
-| ------------------- | --------------------- |
-| T(5 _ n^2) | O(n^2) Quadratic |
-| T(100000 _ n) | O(n) Linear |
-| T( n / 12) | O (n) Linear |
-| T( 42 _ n _ log(n)) | O(nlog(n)) Log Linear |
-| T(12) | O(1) Constant |
+**`Simplifying a Product`** | Unsimplified | Big-O Simplified | | ------------------- | --------------------- | | T(5 _ n^2) | O(n^2) Quadratic | | T(100000 _ n) | O(n) Linear | | T( n / 12) | O (n) Linear | | T( 42 _ n _ log(n)) | O(nlog(n)) Log Linear | | T(12) | O(1) Constant |
 
-**`Simplifying a Sum`**
-| Unsimplified | Big-O Simplified |
-| ---------------- | ------------------ |
-| T( n3 + n2 + n ) | O(n^3) |
-| T( log(n) + 2n ) | O(2^n) Exponential |
-| T( n + log(n) ) | O(n) Linear |
-| T( n! + 10n ) | O(n!) Polynomial |
+**`Simplifying a Sum`** | Unsimplified | Big-O Simplified | | ---------------- | ------------------ | | T( n3 + n2 + n ) | O(n^3) | | T( log(n) + 2n ) | O(2^n) Exponential | | T( n + log(n) ) | O(n) Linear | | T( n! + 10n ) | O(n!) Polynomial |
 
 **`Putting it all together`**
 
@@ -392,8 +376,7 @@ memo; // => { '2': 2, '3': 6, '4': 24, '5': 120, '6': 720, '7': 5040 }
 - Our memo object is _mapping_ out our arguments of factorial to it's return value.
   - Keep in mind we didn't improve the speed of our algo.
 
-**Memoizing Fibonacci**
-![memofib](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/memoization/images/fib_memoized.png)
+**Memoizing Fibonacci** ![memofib](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/memoization/images/fib_memoized.png)
 
 - Our time complexity for fibonacci goes from O(2^n) to O(n) after applying memoization.
 
@@ -638,8 +621,7 @@ function bubbleSort(items) {
   - There is stigma attached to it
 - **`Bubbling Up`** : Term that infers that an item _is in motion_, _moving in some direction_, and _has some final resting destination_.
 
-- Bubble sort, sorts an array of integers by bubbling the largest integer to the top.
-  ![bubble](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif)
+- Bubble sort, sorts an array of integers by bubbling the largest integer to the top. ![bubble](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif)
 
 ```js
 // Bubble Sort
@@ -666,8 +648,7 @@ function bubble(array) {
 
 ## **Selection Sort**
 
-- Selection sort organizes the smallest elements to the start of the array.
-  ![selection](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif)
+- Selection sort organizes the smallest elements to the start of the array. ![selection](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif)
 - Summary of how Selection Sort should work:
   1. Set MIN to location 0
   2. Search the minimum element in the list.
@@ -709,8 +690,7 @@ let selectionSort = (arr) => {
 
 - Bubble Sort will always use the same amount of memory regardless of n.
 
-![bubble](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif)
-![bub](https://www.w3resource.com/w3r_images/bubble-short.png)
+![bubble](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/bubble_sort/images/BubbleSort.gif) ![bub](https://www.w3resource.com/w3r_images/bubble-short.png)
 
 > Class Solution
 
@@ -766,8 +746,7 @@ function bubbleSort(array) {
 
 - Selection Sort will always use the same amount of memory regardless of n.
 
-![selection](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif)
-![se](https://www.w3resource.com/w3r_images/selection-short.png)
+![selection](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/selection_sort/images/SelectionSort.gif) ![se](https://www.w3resource.com/w3r_images/selection-short.png)
 
 > Class Solution
 
@@ -824,8 +803,7 @@ function selectionSort(array) {
 
 - Because we are creating a subArray for each element in the original input, our Space Comlexity becomes linear.
 
-![insertion](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/insertion_sort/images/InsertionSort.gif)
-![insert](https://media.geeksforgeeks.org/wp-content/uploads/insertionsort.png)
+![insertion](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/naive_sorting_algorithms/insertion_sort/images/InsertionSort.gif) ![insert](https://media.geeksforgeeks.org/wp-content/uploads/insertionsort.png)
 
 > Class Solution
 
@@ -867,11 +845,8 @@ function insertionSort(arr) {
 
 **`Time Complexity`**: Log Linear O(nlog(n))
 
-- Since our array gets split in half every single time we contribute O(log(n)). The while loop contained in our helper merge function contributes O(n) therefore our time complexity is O(nlog(n));
-  **`Space Complexity`**: O(n)
-- We are linear O(n) time because we are creating subArrays.
-  ![nmer](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/merge_sort/images/MergeSort.gif)
-  ![dmwio](https://www.geeksforgeeks.org/wp-content/uploads/Merge-Sort-Tutorial.png)
+- Since our array gets split in half every single time we contribute O(log(n)). The while loop contained in our helper merge function contributes O(n) therefore our time complexity is O(nlog(n)); **`Space Complexity`**: O(n)
+- We are linear O(n) time because we are creating subArrays. ![nmer](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/merge_sort/images/MergeSort.gif) ![dmwio](https://www.geeksforgeeks.org/wp-content/uploads/Merge-Sort-Tutorial.png)
 
 > Class Solution
 
@@ -909,9 +884,7 @@ function mergeSort(arr) {
 
 **`Space Complexity`**: O(n)
 
-- Our space complexity is linear O(n) because of the partition arrays we create.
-  ![quick](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
-  ![qs](https://www.w3resource.com/w3r_images/quick-sort-part-1.png)
+- Our space complexity is linear O(n) because of the partition arrays we create. ![quick](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif) ![qs](https://www.w3resource.com/w3r_images/quick-sort-part-1.png)
 
 ```js
 function quickSort(array) {
@@ -935,8 +908,7 @@ function quickSort(array) {
 
 **`Time Complexity`**: Log Time O(log(n))
 
-**`Space Complexity`**: O(1)
-![bin](https://www.geeksforgeeks.org/wp-content/uploads/Binary-Search.png)
+**`Space Complexity`**: O(1) ![bin](https://www.geeksforgeeks.org/wp-content/uploads/Binary-Search.png)
 
 > Recursive Solution
 
@@ -1057,8 +1029,7 @@ const mergeSort = (arr) => {
 - QS is another Divide and Conquer strategy.
 - Some key ideas to keep in mind:
   - It is easy to sort elements of an array relative to a particular target value.
-  - An array of 0 or 1 elements is already trivially sorted.
-    ![quicksort](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
+  - An array of 0 or 1 elements is already trivially sorted. ![quicksort](https://s3-us-west-1.amazonaws.com/appacademy-open-assets/data_structures_algorithms/efficient_sorting_algorithms/quick_sort/images/QuickSort.gif)
 
 ```js
 function quick_Sort(origArray) {

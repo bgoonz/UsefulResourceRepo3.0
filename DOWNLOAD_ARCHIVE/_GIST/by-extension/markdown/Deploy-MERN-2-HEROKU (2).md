@@ -121,10 +121,7 @@ This will assume that you have both `client` and `server` running correctly and 
     - Add those versions that return to this `engines` property if they're different than mine.
     - I used `"14.x"` for `node` to say, "As long as the major version of Node is 14 then use the latest minor version. Major version releases are when they're likely to be _breaking changes_ which we want to avoid.
 
-      "engines": {
-      "node": "14.x",
-      "npm": "6.14.7"
-      },
+      "engines": { "node": "14.x", "npm": "6.14.7" },
 
 7.  We need to allow access to your MongoDB database now from a new IP address. For simplicity, I added all IP addresses to be allowed.
 8.  In development I had the express server listen to `localhost:5000` to run there and my react app ran on port `3000`. We must change what this Express server will listen for to `app.listen(process.env.PORT || 5000)`
@@ -135,9 +132,7 @@ This will assume that you have both `client` and `server` running correctly and 
 
       // server.js
 
-      /_
-      Other code...
-      _/
+      /_ Other code... _/
 
       app.listen(process.env.PORT || 3000);
 
@@ -165,9 +160,7 @@ This will assume that you have both `client` and `server` running correctly and 
 
         app.get('/', (req, res) => { res.send('Hello from Express!')
 
-    You can view your app by:
-    \- Copy and pasting the url that will appear in your Terminal after successfully pushing your code to the remote Heroku branch
-    \- Navigating to your project on [the Heroku website](http://heroku.com/) and there will be a button that says 'View App' - click it and it will take you there
+    You can view your app by: \- Copy and pasting the url that will appear in your Terminal after successfully pushing your code to the remote Heroku branch \- Navigating to your project on [the Heroku website](http://heroku.com/) and there will be a button that says 'View App' - click it and it will take you there
 
     - If you see the 'Hello from Express!' (or whatever test message you used) then that means your server is running correctly
 
@@ -175,9 +168,7 @@ This will assume that you have both `client` and `server` running correctly and 
 
 11. Now for our MongoDB connection to work we must define an environment variable for Heroku to store our MongoDB connection string.
 
-    > We want to keep our connection string secret as we don't want anybody able to connect to our database and change, delete, add things etc.
-    > In our local build the connection string, is stored in our `.env` file inside of `/server`. I named by connection string `MONGODB_URI`. You can do this next step on the Heroku CLI or on the Heroku website.
-    > I recommend the website it's more straightforward and you don't have to worry about escaping special characters. I'm going to describe the next steps going through the website.
+    > We want to keep our connection string secret as we don't want anybody able to connect to our database and change, delete, add things etc. In our local build the connection string, is stored in our `.env` file inside of `/server`. I named by connection string `MONGODB_URI`. You can do this next step on the Heroku CLI or on the Heroku website. I recommend the website it's more straightforward and you don't have to worry about escaping special characters. I'm going to describe the next steps going through the website.
 
     - Navigate to your dashboard on Heroku
     - Click on your project name that will be present from our previous steps where we created our remote branch and pushed the code
@@ -200,15 +191,11 @@ This will assume that you have both `client` and `server` running correctly and 
 
     - In my structure the requests were being made from `client/api/index.js` so navigate to that file and _any request that contains_ `http://localhost:5000` must be replaced by your Heroku URL.
 
-      // Before
-      const res = await fetch('http://localhost:5000/scores/'
+      // Before const res = await fetch('http://localhost:5000/scores/'
 
-      // After
-      const res = await fetch('https://my-project.herokuapp.com/scores/')
+      // After const res = await fetch('https://my-project.herokuapp.com/scores/')
 
-      // 'my-project' in the URL will either be the auto-generated
-      // name from Netlify or if you changed the name it will
-      // be the name you gave it
+      // 'my-project' in the URL will either be the auto-generated // name from Netlify or if you changed the name it will // be the name you gave it
 
 **Ensure that you push these changes up to GitHub.** Netlify will trigger a redeploy when they detect changes to your `master` branch. So for this to work you must make those changes apparent to Netlify essentially.
 

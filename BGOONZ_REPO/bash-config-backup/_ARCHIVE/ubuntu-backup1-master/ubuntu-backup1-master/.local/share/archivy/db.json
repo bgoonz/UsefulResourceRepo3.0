@@ -1,0 +1,10 @@
+{
+  "_default": {
+    "1": {
+      "username": "bryan",
+      "hashed_password": "pbkdf2:sha256:150000$qslxUc3g$fb6142b62e2f603a298e2530c1c534a582e69cce9a42fe78646056381c9da2fc",
+      "is_admin": true,
+      "type": "user"
+    }
+  }
+}

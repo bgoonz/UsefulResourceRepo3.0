@@ -337,8 +337,7 @@ fi
 | `$1`       | First argument                                  |
 | `$_`       | Last argument of the previous command           |
 
-**Note**: `$@` and `$*` must be quoted in order to perform as described.
-Otherwise, they do exactly the same thing (arguments as separate strings).
+**Note**: `$@` and `$*` must be quoted in order to perform as described. Otherwise, they do exactly the same thing (arguments as separate strings).
 
 See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_parameters_and_shell_variables).
 
@@ -552,8 +551,7 @@ shopt -s dotglob     # Wildcards match dotfiles ("*.sh" => ".foo.sh")
 shopt -s globstar    # Allow ** for recursive matches ('lib/**/*.rb' => 'lib/a/b/c.rb')
 ```
 
-Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob
-matches.
+Set `GLOBIGNORE` as a colon-separated list of patterns to be removed from glob matches.
 
 ## History
 
@@ -576,25 +574,25 @@ matches.
 
 ### Operations
 
-| Code                 | Description                                                           |
-| -------------------- | --------------------------------------------------------------------- |
-| `!!`                 | Execute last command again                                            |
-| `!!:s/<FROM>/<TO>/`  | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
-| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command  |
-| `!$:t`               | Expand only basename from last parameter of most recent command       |
-| `!$:h`               | Expand only directory from last parameter of most recent command      |
+| Code | Description |
+| --- | --- |
+| `!!` | Execute last command again |
+| `!!:s/<FROM>/<TO>/` | Replace first occurrence of `<FROM>` to `<TO>` in most recent command |
+| `!!:gs/<FROM>/<TO>/` | Replace all occurrences of `<FROM>` to `<TO>` in most recent command |
+| `!$:t` | Expand only basename from last parameter of most recent command |
+| `!$:h` | Expand only directory from last parameter of most recent command |
 
 `!!` and `!$` can be replaced with any valid expansion.
 
 ### Slices
 
-| Code     | Description                                                                              |
-| -------- | ---------------------------------------------------------------------------------------- |
-| `!!:n`   | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
-| `!^`     | Expand first argument from most recent command                                           |
-| `!$`     | Expand last token from most recent command                                               |
-| `!!:n-m` | Expand range of tokens from most recent command                                          |
-| `!!:n-$` | Expand `n`th token to last from most recent command                                      |
+| Code | Description |
+| --- | --- |
+| `!!:n` | Expand only `n`th token from most recent command (command is `0`; first argument is `1`) |
+| `!^` | Expand first argument from most recent command |
+| `!$` | Expand last token from most recent command |
+| `!!:n-m` | Expand range of tokens from most recent command |
+| `!!:n-$` | Expand `n`th token to last from most recent command |
 
 `!!` can be replaced with any valid expansion i.e. `!cat`, `!-2`, `!42`, etc.
 

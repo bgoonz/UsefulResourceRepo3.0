@@ -265,8 +265,7 @@ If you call `connect` without providing any arguments, your component will:
 - _not_ re-render when the store changes
 - receive `props.dispatch` that you may use to manually dispatch action
 
-  // ... Component
-  export default connect()(Component) // Component will receive `dispatch` (just like our <TodoList />!)
+  // ... Component export default connect()(Component) // Component will receive `dispatch` (just like our <TodoList />!)
 
 #### Subscribe to the store and do not inject action creators
 
@@ -275,9 +274,7 @@ If you call `connect` with only `mapStateToProps`, your component will:
 - subscribe to the values that `mapStateToProps` extracts from the store, and re-render only when those values have changed
 - receive `props.dispatch` that you may use to manually dispatch action
 
-  // ... Component
-  const mapStateToProps = (state) => state.partOfState
-  export default connect(mapStateToProps)(Component)
+  // ... Component const mapStateToProps = (state) => state.partOfState export default connect(mapStateToProps)(Component)
 
 #### Do not subscribe to the store and inject action creators
 
@@ -286,9 +283,7 @@ If you call `connect` with only `mapDispatchToProps`, your component will:
 - _not_ re-render when the store changes
 - receive each of the action creators you inject with `mapDispatchToProps` as props and automatically dispatch the actions upon being called
 
-  import { addTodo } from './actionCreators'
-  // ... Component
-  export default connect(null, { addTodo })(Component)
+  import { addTodo } from './actionCreators' // ... Component export default connect(null, { addTodo })(Component)
 
 #### Subscribe to the store and inject action creators
 
@@ -297,10 +292,7 @@ If you call `connect` with both `mapStateToProps` and `mapDispatchToProps`, your
 - subscribe to the values that `mapStateToProps` extracts from the store, and re-render only when those values have changed
 - receive all of the action creators you inject with `mapDispatchToProps` as props and automatically dispatch the actions upon being called.
 
-  import \* as actionCreators from './actionCreators'
-  // ... Component
-  const mapStateToProps = (state) => state.partOfState
-  export default connect(mapStateToProps, actionCreators)(Component)
+  import \* as actionCreators from './actionCreators' // ... Component const mapStateToProps = (state) => state.partOfState export default connect(mapStateToProps, actionCreators)(Component)
 
 These four cases cover the most basic usages of `connect`. To read more about `connect`, continue reading our [API section](../api/connect.md) that explains it in more detail.
 

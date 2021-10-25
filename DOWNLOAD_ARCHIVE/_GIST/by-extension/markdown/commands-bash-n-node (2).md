@@ -449,9 +449,9 @@ for d in ./*; do mv $d ${d:0:12}; done
 
 ```js
 //APPEND-DIR.js
-const fs = require("fs");
-let cat = require("child_process").execSync("cat *").toString("UTF-8");
-fs.writeFile("output.md", cat, (err) => {
+const fs = require('fs');
+let cat = require('child_process').execSync('cat *').toString('UTF-8');
+fs.writeFile('output.md', cat, (err) => {
   if (err) throw err;
 });
 ```
@@ -876,11 +876,9 @@ git filter-branch --index-filter 'git rm -r --cached --ignore-unmatch assets/_in
 
 ### Description:
 
-Important: If you have any local changes, they will be lost. With or without --hard option, any local commits that haven't been pushed will be lost.[*]
-If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.
+Important: If you have any local changes, they will be lost. With or without --hard option, any local commits that haven't been pushed will be lost.[*] If you have any files that are not tracked by Git (e.g. uploaded user content), these files will not be affected.
 
-> Notes:
-> First, run a fetch to update all origin/<branch> refs to latest:
+> Notes: First, run a fetch to update all origin/<branch> refs to latest:
 
 ###### code:
 
@@ -913,13 +911,7 @@ git reset --hard origin/master
 
 > Notes:
 
-> Delete the relevant section from the .gitmodules file.
-> Stage the .gitmodules changes git add .gitmodules
-> Delete the relevant section from .git/config.
-> Run git rm --cached path_to_submodule (no trailing slash).
-> Run rm -rf .git/modules/path_to_submodule (no trailing slash).
-> Commit git commit -m "Removed submodule "
-> Delete the now untracked submodule files rm -rf path_to_submodule
+> Delete the relevant section from the .gitmodules file. Stage the .gitmodules changes git add .gitmodules Delete the relevant section from .git/config. Run git rm --cached path_to_submodule (no trailing slash). Run rm -rf .git/modules/path_to_submodule (no trailing slash). Commit git commit -m "Removed submodule " Delete the now untracked submodule files rm -rf path_to_submodule
 
 ###### code:
 

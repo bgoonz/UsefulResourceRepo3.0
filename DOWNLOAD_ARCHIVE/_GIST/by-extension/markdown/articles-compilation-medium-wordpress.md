@@ -6,30 +6,30 @@ seo:
   title: ds-algo-overview
   description: A reference for suggested typographic treatment and styles for your content
   extra:
-    - name: "og:type"
+    - name: 'og:type'
       value: website
       keyName: property
-    - name: "og:title"
+    - name: 'og:title'
       value: ds-algo-overview
       keyName: property
-    - name: "og:description"
+    - name: 'og:description'
       value: >-
-        A reference for suggested typographic treatment and styles for your
-        content
+        A reference for suggested typographic treatment and styles for your content
+
       keyName: property
-    - name: "og:image"
+    - name: 'og:image'
       value: images/5.jpg
       keyName: property
       relativeUrl: true
-    - name: "twitter:card"
+    - name: 'twitter:card'
       value: summary_large_image
-    - name: "twitter:title"
+    - name: 'twitter:title'
       value: ds-algo-overview
-    - name: "twitter:description"
+    - name: 'twitter:description'
       value: >-
-        A reference for suggested typographic treatment and styles for your
-        content
-    - name: "twitter:image"
+        A reference for suggested typographic treatment and styles for your content
+
+    - name: 'twitter:image'
       value: images/5.jpg
       relativeUrl: true
 template: docs
@@ -120,14 +120,7 @@ OUTPUT
 
 INPUT
 
-\`\`\`mermaid
-stateDiagram
-\[\*\] --> First
-state First {
-\[\*\] --> second
-second --> \[\*\]
-}
-\`\`\`
+\`\`\`mermaid stateDiagram \[\*\] --> First state First { \[\*\] --> second second --> \[\*\] } \`\`\`
 
 OUTPUT
 
@@ -208,12 +201,7 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 - Multiple output formats support
 - Default: pdf
 
-  "markdown-pdf.type": [
-  "pdf",
-  "html",
-  "png",
-  "jpeg"
-  ],
+  "markdown-pdf.type": [ "pdf", "html", "png", "jpeg" ],
 
 #### `markdown-pdf.convertOnSave`
 
@@ -225,13 +213,7 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 
 - Excluded file name of convertOnSave option
 
-  "markdown-pdf.convertOnSaveExclude": [
-  "^work",
-  "work.md$",
-  "work|test",
-  "[0-9][0-9][0-9][0-9]-work",
-  "work\\test" // All '\' need to be written as '\\' (Windows)
-  ],
+  "markdown-pdf.convertOnSaveExclude": [ "^work", "work.md$", "work|test", "[0-9][0-9][0-9][0-9]-work", "work\\test" // All '\' need to be written as '\\' (Windows) ],
 
 #### `markdown-pdf.outputDirectory`
 
@@ -270,10 +252,7 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 - If the file does not exist, it will be skipped
 - All `\` need to be written as `\\` (Windows)
 
-  "markdown-pdf.styles": [
-  "C:\\Users\\<USERNAME>\\Documents\\markdown-pdf.css",
-  "/home/<USERNAME>/settings/markdown-pdf.css",
-  ],
+  "markdown-pdf.styles": [ "C:\\Users\\<USERNAME>\\Documents\\markdown-pdf.css", "/home/<USERNAME>/settings/markdown-pdf.css", ],
 
 - Relative path
 - If you open the `Markdown file`, it will be interpreted as a relative path from the file
@@ -281,22 +260,16 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 - If you open the `workspace`, it will be interpreted as a relative path from the each root folder
 - See [Multi-root Workspaces](https://code.visualstudio.com/docs/editor/multi-root-workspaces)
 
-  "markdown-pdf.styles": [
-  "markdown-pdf.css",
-  ],
+  "markdown-pdf.styles": [ "markdown-pdf.css", ],
 
 - Relative path (home directory)
 - If path starts with `~`, it will be interpreted as a relative path from the home directory
 
-  "markdown-pdf.styles": [
-  "~/.config/Code/User/markdown-pdf.css"
-  ],
+  "markdown-pdf.styles": [ "~/.config/Code/User/markdown-pdf.css" ],
 
 - Online CSS ([https://xxx/xxx.css](https://xxx/xxx.css)) is applied correctly for JPG and PNG, but problems occur with PDF [#67](https://github.com/yzane/vscode-markdown-pdf/issues/67)
 
-  "markdown-pdf.styles": [
-  "https://xxx/markdown-pdf.css"
-  ],
+  "markdown-pdf.styles": [ "https://xxx/markdown-pdf.css" ],
 
 #### `markdown-pdf.stylesRelativePathFile`
 
@@ -414,8 +387,7 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 - Paper width / height, accepts values labeled with units(mm, cm, in, px)
 - If it is set, it overrides the markdown-pdf.format option
 
-  "markdown-pdf.width": "10cm",
-  "markdown-pdf.height": "20cm",
+  "markdown-pdf.width": "10cm", "markdown-pdf.height": "20cm",
 
 #### `markdown-pdf.margin.top`
 
@@ -427,10 +399,7 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 
 - Paper margins.units(mm, cm, in, px)
 
-  "markdown-pdf.margin.top": "1.5cm",
-  "markdown-pdf.margin.bottom": "1cm",
-  "markdown-pdf.margin.right": "1cm",
-  "markdown-pdf.margin.left": "1cm",
+  "markdown-pdf.margin.top": "1.5cm", "markdown-pdf.margin.bottom": "1cm", "markdown-pdf.margin.right": "1cm", "markdown-pdf.margin.left": "1cm",
 
 ### PNG JPEG options
 
@@ -453,17 +422,13 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 - An object which specifies clipping region of the page
 - number
 
-  // x-coordinate of top-left corner of clip area
-  "markdown-pdf.clip.x": 0,
+  // x-coordinate of top-left corner of clip area "markdown-pdf.clip.x": 0,
 
-  // y-coordinate of top-left corner of clip area
-  "markdown-pdf.clip.y": 0,
+  // y-coordinate of top-left corner of clip area "markdown-pdf.clip.y": 0,
 
-  // width of clipping area
-  "markdown-pdf.clip.width": 1000,
+  // width of clipping area "markdown-pdf.clip.width": 1000,
 
-  // height of clipping area
-  "markdown-pdf.clip.height": 1000,
+  // height of clipping area "markdown-pdf.clip.height": 1000,
 
 #### `markdown-pdf.omitBackground`
 
@@ -510,9 +475,7 @@ CategoryOption name[Configuration scope](https://code.visualstudio.com/api/refer
 
 1.  Add the following to your stylesheet which was specified in the markdown-pdf.styles
 
-    .emoji {
-    height: 2em;
-    }
+    .emoji { height: 2em; }
 
 ### Auto guess encoding of files
 
@@ -948,7 +911,7 @@ Visual Studio Code plugin that autocompletes filenames.
 ![](https://webdevhubcom.files.wordpress.com/2021/04/ec634-0pcurf5a3ltjthek2.png)
 
 Eliminate context switching and costly distractions. Create and merge PRs and perform code reviews from inside your IDE while using jump-to-definition, your favorite keybindings, and other IDE tools.  
-[Learn more](https://sponsorlink.codestream.com/?utm_source=vscmarket&utm_campaign=pathintel&utm_medium=banner "Try CodeStream")
+[Learn more](https://sponsorlink.codestream.com/?utm_source=vscmarket&utm_campaign=pathintel&utm_medium=banner 'Try CodeStream')
 
 ### Installation
 
@@ -4280,7 +4243,7 @@ Graph
 ### Back and Forth
 
 - Adds backwards and forwards buttons to the toolbar in VSCode
-- [https://marketplace.visualstudio.com/items?itemName=nick-rudenko.back-n-forth](https://marketplace.visualstudio.com/items?itemName=nick-rudenko.back-n-forth "https://marketplace.visualstudio.com/items?itemName=nick-rudenko.back-n-forth")
+- [https://marketplace.visualstudio.com/items?itemName=nick-rudenko.back-n-forth](https://marketplace.visualstudio.com/items?itemName=nick-rudenko.back-n-forth 'https://marketplace.visualstudio.com/items?itemName=nick-rudenko.back-n-forth')
 
 ![](https://cdn-images-1.medium.com/max/800/0*hsbombFMlu6yICjz.gif)
 
@@ -4289,7 +4252,7 @@ Graph
 ### Bracket Pair Colorizer 2
 
 - Colors matching brackets so it’s easier to tell which brackets match.
-- [https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2 "https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2")
+- [https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2 'https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer-2')
 
 ![](https://cdn-images-1.medium.com/max/800/0*MT-BCptwnKGYk1Pk.png)
 
@@ -4298,7 +4261,7 @@ Graph
 ### Babel Javascript
 
 - A better syntax highlighter for JavaScript code
-- [https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel "https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel")
+- [https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel](https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel 'https://marketplace.visualstudio.com/items?itemName=mgmcdermott.vscode-language-babel')
 
 ![](https://cdn-images-1.medium.com/max/800/0*b5t9hd_8soPq26pq.png)
 
@@ -4307,7 +4270,7 @@ Graph
 ### Code Runner
 
 - Puts a “Play” button in your toolbar and let’s you run code files by pressing it.
-- [https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner "https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner")
+- [https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner](https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner 'https://marketplace.visualstudio.com/items?itemName=formulahendry.code-runner')
 
 ### Code Runner
 
@@ -4364,14 +4327,14 @@ Graph
 ### Color Highlight
 
 - Changes the background color of hex colors in your code to show you what color it actually is
-- [https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight "https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight")
+- [https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight](https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight 'https://marketplace.visualstudio.com/items?itemName=naumovs.color-highlight')
 
 ![](https://cdn-images-1.medium.com/max/800/0*9K5_QPPvfozmuTWH)
 
 ### Git Graph
 
 - Shows you a graphical representation of your git branches and commits
-- [https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph "https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph")
+- [https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph](https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph 'https://marketplace.visualstudio.com/items?itemName=mhutchie.git-graph')
 
 ![](https://cdn-images-1.medium.com/max/800/0*eAKBnl6yXJgXZXvZ.gif)
 
@@ -4380,41 +4343,41 @@ Graph
 ### GitLens
 
 - Adds tons of cool features to vscode, like viewing commits inline inside the editor
-- [https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens "https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens")
+- [https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens 'https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens')
 
 Here are just some of the **features** that GitLens provides,
 
-- effortless [**revision navigation**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#revision-navigation- "Jump to Revision Navigation") (backwards and forwards) through the history of a file
-- an unobtrusive [**current line blame**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#current-line-blame- "Jump to Current Line Blame") annotation at the end of the line showing the commit and author who last modified the line, with more detailed blame information accessible on [**hover**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#hovers- "Jump to Hovers")
-- [**authorship code lens**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#git-code-lens- "Jump to Git Code Lens") showing the most recent commit and number of authors at the top of files and/or on code blocks
-- a [**status bar blame**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#status-bar-blame- "Jump to Status Bar Blame") annotation showing the commit and author who last modified the current line
+- effortless [**revision navigation**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#revision-navigation- 'Jump to Revision Navigation') (backwards and forwards) through the history of a file
+- an unobtrusive [**current line blame**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#current-line-blame- 'Jump to Current Line Blame') annotation at the end of the line showing the commit and author who last modified the line, with more detailed blame information accessible on [**hover**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#hovers- 'Jump to Hovers')
+- [**authorship code lens**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#git-code-lens- 'Jump to Git Code Lens') showing the most recent commit and number of authors at the top of files and/or on code blocks
+- a [**status bar blame**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#status-bar-blame- 'Jump to Status Bar Blame') annotation showing the commit and author who last modified the current line
 - on-demand **file annotations** in the editor gutter, including
-- [**blame**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#gutter-blame- "Jump to Gutter Blame") — shows the commit and author who last modified each line of a file
-- [**changes**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#gutter-changes- "Jump to Gutter Changes") — highlights any local (unpublished) changes or lines changed by the most recent commit
-- [**heatmap**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#gutter-heatmap- "Jump to Gutter Heatmap") — shows how recently lines were changed, relative to all the other changes in the file and to now (hot vs. cold)
+- [**blame**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#gutter-blame- 'Jump to Gutter Blame') — shows the commit and author who last modified each line of a file
+- [**changes**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#gutter-changes- 'Jump to Gutter Changes') — highlights any local (unpublished) changes or lines changed by the most recent commit
+- [**heatmap**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#gutter-heatmap- 'Jump to Gutter Heatmap') — shows how recently lines were changed, relative to all the other changes in the file and to now (hot vs. cold)
 - many rich **Side Bar views**
-- a [**_Commits_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#commits-view- "Jump to the Commits view") to visualize, explore, and manage Git commits
-- a [**_Repositories_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#repositories-view- "Jump to the Repositories view") to visualize, explore, and manage Git repositories
-- a [**_File History_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#file-history-view- "Jump to the File History view") to visualize, navigate, and explore the revision history of the current file or just the selected lines of the current file
-- a [**_Line History_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#line-history-view- "Jump to the Line History view") to visualize, navigate, and explore the revision history of the selected lines of the current file
-- a [**_Branches_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#branches-view- "Jump to the Branches view") to visualize, explore, and manage Git branches
-- a [**_Remotes_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#remotes-view- "Jump to the Remotes view") to visualize, explore, and manage Git remotes and remote branches
-- a [**_Stashes_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#stashes-view- "Jump to the Stashes view") to visualize, explore, and manage Git stashes
-- a [**_Tags_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#tags-view- "Jump to the Tags view") to visualize, explore, and manage Git tags
-- a [**_Contributors_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#contributors-view- "Jump to the Contributors view") to visualize, navigate, and explore contributors
-- a [**_Search & Compare_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#search--compare-view- "Jump to the Search & Compare view") to search and explore commit histories by message, author, files, id, etc, or visualize comparisons between branches, tags, commits, and more
-- a [**Git Command Palette**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#git-command-palette- "Jump to the Git Command Palette") to provide guided (step-by-step) access to many common Git commands, as well as quick access to
-- [commits](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#quick-commit-access- "Jump to Quick Commit Access") — history and search
-- [stashes](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#quick-stash-access- "Jump to Quick Stash Access")
-- [status](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#quick-status-access- "Jump to Quick Status Access") — current branch and working tree status
-- a user-friendly [**interactive rebase editor**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#interactive-rebase-editor- "Jump to the Interactive Rebase Editor") to easily configure an interactive rebase session
-- [**terminal links**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#terminal-links- "Jump to Terminal Links") — `ctrl+click` on autolinks in the integrated terminal to quickly jump to more details for commits, branches, tags, and more
-- rich [**remote provider integrations**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#remote-provider-integrations- "Jump to Remote Provider Integrations") — GitHub, GitLab, Bitbucket, Azure DevOps
+- a [**_Commits_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#commits-view- 'Jump to the Commits view') to visualize, explore, and manage Git commits
+- a [**_Repositories_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#repositories-view- 'Jump to the Repositories view') to visualize, explore, and manage Git repositories
+- a [**_File History_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#file-history-view- 'Jump to the File History view') to visualize, navigate, and explore the revision history of the current file or just the selected lines of the current file
+- a [**_Line History_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#line-history-view- 'Jump to the Line History view') to visualize, navigate, and explore the revision history of the selected lines of the current file
+- a [**_Branches_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#branches-view- 'Jump to the Branches view') to visualize, explore, and manage Git branches
+- a [**_Remotes_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#remotes-view- 'Jump to the Remotes view') to visualize, explore, and manage Git remotes and remote branches
+- a [**_Stashes_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#stashes-view- 'Jump to the Stashes view') to visualize, explore, and manage Git stashes
+- a [**_Tags_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#tags-view- 'Jump to the Tags view') to visualize, explore, and manage Git tags
+- a [**_Contributors_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#contributors-view- 'Jump to the Contributors view') to visualize, navigate, and explore contributors
+- a [**_Search & Compare_ view**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#search--compare-view- 'Jump to the Search & Compare view') to search and explore commit histories by message, author, files, id, etc, or visualize comparisons between branches, tags, commits, and more
+- a [**Git Command Palette**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#git-command-palette- 'Jump to the Git Command Palette') to provide guided (step-by-step) access to many common Git commands, as well as quick access to
+- [commits](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#quick-commit-access- 'Jump to Quick Commit Access') — history and search
+- [stashes](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#quick-stash-access- 'Jump to Quick Stash Access')
+- [status](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#quick-status-access- 'Jump to Quick Status Access') — current branch and working tree status
+- a user-friendly [**interactive rebase editor**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#interactive-rebase-editor- 'Jump to the Interactive Rebase Editor') to easily configure an interactive rebase session
+- [**terminal links**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#terminal-links- 'Jump to Terminal Links') — `ctrl+click` on autolinks in the integrated terminal to quickly jump to more details for commits, branches, tags, and more
+- rich [**remote provider integrations**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#remote-provider-integrations- 'Jump to Remote Provider Integrations') — GitHub, GitLab, Bitbucket, Azure DevOps
 - issue and pull request auto-linking
 - rich hover information provided for linked issues and pull requests (GitHub only)
 - associates pull requests with branches and commits (GitHub only)
-- many [**powerful commands**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#powerful-commands- "Jump to Powerful Commands") for navigating and comparing revisions, and more
-- user-defined [**modes**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#modes- "Jump to Modes") for quickly toggling between sets of settings
+- many [**powerful commands**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#powerful-commands- 'Jump to Powerful Commands') for navigating and comparing revisions, and more
+- user-defined [**modes**](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens#modes- 'Jump to Modes') for quickly toggling between sets of settings
 - and so much more ![😁](https://s0.wp.com/wp-content/mu-plugins/wpcom-smileys/twemoji/2/svg/1f601.svg)
 
 ### Features
@@ -4428,7 +4391,7 @@ Here are just some of the **features** that GitLens provides,
 ### Markdown All in One
 
 - Everything you need to help you write markdown files in VSCode
-- [https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one "https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one")
+- [https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one 'https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one')
 
 ### Features
 
@@ -4509,7 +4472,7 @@ Tip: also support the option `completion.root`
 ### Mocah Test Explorer
 
 - Lets you run mocha tests in the VSCode sidebar
-- [https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter "https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter")
+- [https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter](https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter 'https://marketplace.visualstudio.com/items?itemName=hbenl.vscode-mocha-test-adapter')
 
 ### Features
 
@@ -4530,7 +4493,7 @@ Tip: also support the option `completion.root`
 ### NPM Intellisense
 
 - Autocomlpetes npm module names when you are typing require or import.
-- [https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense "https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense")
+- [https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense 'https://marketplace.visualstudio.com/items?itemName=christian-kohler.npm-intellisense')
 
 ### Features
 
@@ -4557,7 +4520,7 @@ Npm intellisense scans only dependencies by default. Set scanDevDependencies to 
 ### Path Intellisense
 
 - Auto completes filesystem paths when you are typing them
-- [https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense "https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense")
+- [https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense](https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense 'https://marketplace.visualstudio.com/items?itemName=christian-kohler.path-intellisense')
 
 ### Usage
 
@@ -4568,7 +4531,7 @@ Npm intellisense scans only dependencies by default. Set scanDevDependencies to 
 ### Quokka.js
 
 - A paid extension that does amazing things by showing the results of your javascript inline inside the editor window
-- [https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode "https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode")
+- [https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode](https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode 'https://marketplace.visualstudio.com/items?itemName=WallabyJs.quokka-vscode')
 
 ### [Quokka.js](https://quokkajs.com/) Visual Studio Code Extension
 
@@ -9344,7 +9307,7 @@ Resources:
 
 ![](https://cdn-images-1.medium.com/max/800/0*OBVdK39aaS5sjV9B.png)
 
-### [Components of HTTP-based systems](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview#components_of_http-based_systems "Permalink to Components of HTTP-based systems")
+### [Components of HTTP-based systems](https://developer.mozilla.org/en-US/docs/Web/HTTP/Overview#components_of_http-based_systems 'Permalink to Components of HTTP-based systems')
 
 HTTP is a client-server protocol: requests are sent by one entity, the user-agent (or a proxy on behalf of it). Most of the time the user-agent is a Web browser, but it can be anything, for example a robot that crawls the Web to populate and maintain a search engine index.
 
@@ -13334,7 +13297,7 @@ You can access and query the data using the findByPk, findOne, and findAll metho
 - [PostgreSQL](https://www.postgresql.org/docs/9.5/static/index.html) This is a powerful open-source database that we re going to use. I ve attached an article I published on the setup below!
 
 [**PostgreSQL Setup For Windows & WSL/Ubuntu**  
-_If you follow this guide to a tee you will install PostgreSQL itself on your Windows installation. Then, you will_ bryanguner.medium.com](https://bryanguner.medium.com/postgresql-setup-for-windows-wsl-ubuntu-801672ab7089 "https://bryanguner.medium.com/postgresql-setup-for-windows-wsl-ubuntu-801672ab7089")
+_If you follow this guide to a tee you will install PostgreSQL itself on your Windows installation. Then, you will_ bryanguner.medium.com](https://bryanguner.medium.com/postgresql-setup-for-windows-wsl-ubuntu-801672ab7089 'https://bryanguner.medium.com/postgresql-setup-for-windows-wsl-ubuntu-801672ab7089')
 
 - However, if you face issues while installing PostgreSQL, or you don t want to dive into installing it, you can opt for a version of PostgreSQL hosted online. I recommend [ElephantSQL](https://www.elephantsql.com/). I found it s pretty easy to get started with. However, the free version will only give you a 20MB allowance.
 - [Sequelize](http://docs.sequelizejs.com/en/latest/) In addition, we re going to use Sequelize, which is a database [ORM](https://en.wikipedia.org/wiki/Object-relational_mapping) that will interface with the Postgres database for us.
@@ -22687,17 +22650,17 @@ If you follow this guide to a tee… you will install PostgreSQL itself on your 
 
 ### Important Distinction: PSQL is the frontend interface for PostgreSQL … they are not synonymous!
 
-**Postgres**, is a [free and open-source](https://en.wikipedia.org/wiki/Free_and_open-source_software "Free and open-source software") [relational database management system](https://en.wikipedia.org/wiki/Relational_database_management_system "Relational database management system") (RDBMS)
+**Postgres**, is a [free and open-source](https://en.wikipedia.org/wiki/Free_and_open-source_software 'Free and open-source software') [relational database management system](https://en.wikipedia.org/wiki/Relational_database_management_system 'Relational database management system') (RDBMS)
 
 **PSQL:**
 
-The primary [front-end](https://en.wikipedia.org/wiki/Front_and_back_ends "Front and back ends") for PostgreSQL is the `**psql**` [command-line program](https://en.wikipedia.org/wiki/Command-line_program "Command-line program"), which can be used to enter SQL queries directly, or execute them from a file.
+The primary [front-end](https://en.wikipedia.org/wiki/Front_and_back_ends 'Front and back ends') for PostgreSQL is the `**psql**` [command-line program](https://en.wikipedia.org/wiki/Command-line_program 'Command-line program'), which can be used to enter SQL queries directly, or execute them from a file.
 
 In addition, psql provides a number of meta-commands and various shell-like features to facilitate writing scripts and automating a wide variety of tasks; for example tab completion of object names and SQL syntax.
 
 **pgAdmin:**
 
-The pgAdmin package is a free and open-source [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface "Graphical user interface") (GUI) administration tool for PostgreSQL.
+The pgAdmin package is a free and open-source [graphical user interface](https://en.wikipedia.org/wiki/Graphical_user_interface 'Graphical user interface') (GUI) administration tool for PostgreSQL.
 
 When you read “installation”, that means the actual OS that’s running on your machine. So, you have a Windows installation, Windows 10, that’s running when you boot your computer. Then, when you start the Ubuntu installation, it’s as if there’s a completely separate computer running inside your computer. It’s like having two completely different laptops.
 

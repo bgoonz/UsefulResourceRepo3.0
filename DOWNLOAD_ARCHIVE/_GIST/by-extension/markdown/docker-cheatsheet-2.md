@@ -251,8 +251,7 @@ $ docker container exec -it mysql bash
 $ docker container run -it alpine sh
 ```
 
-(use sh because it does not include bash)
-(alpine uses apk for its package manager - can install bash if you want)
+(use sh because it does not include bash) (alpine uses apk for its package manager - can install bash if you want)
 
 # NETWORKING
 

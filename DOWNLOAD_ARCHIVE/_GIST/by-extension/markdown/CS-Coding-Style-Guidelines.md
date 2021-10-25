@@ -21,15 +21,9 @@ We’ll use a variant of [K&R style](https://en.wikipedia.org/wiki/Indentation_s
 
   #include <stdio.h>
 
-  int mul2(int x)
-  {
-  return x \* 2;
-  }
+  int mul2(int x) { return x \* 2; }
 
-  int main(void)
-  {
-  int i, j;
-  char *p, *q;
+  int main(void) { int i, j; char *p, *q;
 
       for (i = 0; i < 20; i++) {
           if (i > 10) {

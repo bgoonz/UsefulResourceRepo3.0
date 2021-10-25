@@ -2,15 +2,7 @@
 
     - the `Document Object Model` is the hierarchy/representation of the objects that comprise a document on the web (i.e. how all elements in a document are organized). The DOM is a part of the `Browser Object Model`, the hierarchy/representation of all browser objects associated with the web browser.
 
-**Browser Diagram**
-User Interface
-v
-Browser Engine ---> Data Persistence
-v
-Rendering Engine
-v v v
-Networking JS interpreter UI backend
-====================================== - `User Interface`: everything in browser interface except requested page content - `Browser Engine`: manages interactions btwen UI and rendering engine - `Rendering Engine`: renders requested page content, parsing HTML & CSS - `Networking`: handles network calls, i.e. HTTP requests - `JS Interpreter`: parses & executes JS code - `UI Backend`: used for drawing basic widgets, using operating system UI methods - `Data Persistence`: persistence of data stored in browser, i.e. cookies
+**Browser Diagram** User Interface v Browser Engine ---> Data Persistence v Rendering Engine v v v Networking JS interpreter UI backend ====================================== - `User Interface`: everything in browser interface except requested page content - `Browser Engine`: manages interactions btwen UI and rendering engine - `Rendering Engine`: renders requested page content, parsing HTML & CSS - `Networking`: handles network calls, i.e. HTTP requests - `JS Interpreter`: parses & executes JS code - `UI Backend`: used for drawing basic widgets, using operating system UI methods - `Data Persistence`: persistence of data stored in browser, i.e. cookies
 
     - A browser's main role in the request/response cycle is:
         1. Parsing HTML, CSS, JS
@@ -31,7 +23,7 @@ Networking JS interpreter UI backend
 
   ```js
   //opens a new window
-  newWindow = window.open("url", "name", "width=100, height=100");
+  newWindow = window.open('url', 'name', 'width=100, height=100');
   //resizes new window
   newWindow.resizeTo(500, 500);
   //also resizes by given amount; use `-` to shrink
@@ -54,15 +46,15 @@ Networking JS interpreter UI backend
   ```
 - Run the script on DOMContentLoaded (when the doc has been loaded, but without waiting for stylesheets, images, and subframes):
   ```js
-  window.addEventListener("DOMContentLoaded", (event) => {
-    console.log("This script loaded when the DOM was ready.");
+  window.addEventListener('DOMContentLoaded', (event) => {
+    console.log('This script loaded when the DOM was ready.');
   });
   ```
 - Run the script on page load using window.onload (wait for EVERYTHING to load):
   ```js
   window.onload = () => {
     console.log(
-      "This script loaded when all the resources and the DOM were ready."
+      'This script loaded when all the resources and the DOM were ready.'
     );
   };
   ```
@@ -81,24 +73,24 @@ Networking JS interpreter UI backend
 
 - Create a cookie:
   ```js
-  const firstCookie = "favoriteCat=million";
+  const firstCookie = 'favoriteCat=million';
   document.cookie = firstCookie;
-  const secondCookie = "favoriteDog=bambi";
+  const secondCookie = 'favoriteDog=bambi';
   document.cookie = secondCookie;
   document.cookie; // Returns "favoriteCat=million; favoriteDog=bambi"
   ```
 - Delete a cookie by setting a cookie's expiration date to the past (or delete in Developer Tools):
   ```js
-  document.cookie = "favoriteCat=; expires = Thu, 01 Jan 1970 00:00:00 GMT";
+  document.cookie = 'favoriteCat=; expires = Thu, 01 Jan 1970 00:00:00 GMT';
   document.cookie; // Returns "favoriteDog=bambi"
   ```
 - Create localStorage data:
 
   ```js
   //set new localStorage item
-  localStorage.setItem("firstThing", "firstValue");
+  localStorage.setItem('firstThing', 'firstValue');
   //retrieve that localStorage item
-  localSTorage.getItem("firstThing");
+  localSTorage.getItem('firstThing');
   ```
 
 - When to use the Web Storage API?
@@ -134,13 +126,13 @@ _ELEMENT SELECTION_
 1. Given HTML that includes `<div id="catch-me-if-you-can>HI!</div>`, write a JS statement that stores a reference to the HTMLDivElement with the id "catch-me-if-you-can" in a variable named "divOfInterest".
 
    ```js
-   let divOfInterest = document.getElementById("catch-me-if-you-can");
+   let divOfInterest = document.getElementById('catch-me-if-you-can');
    ```
 
 2. Given HTML that includes seven SPAN elements each with the class "cloudy", write a JS statement that stores a reference to a NodeList filled with references to the seven HTMLSpanElements in a variable named "cloud
 
    ```js
-   let cloudyNodes = document.querySelectorAll("span.cloudy");
+   let cloudyNodes = document.querySelectorAll('span.cloudy');
    ```
 
 3. Given an HTML file with HTML, HEAD, TITLE, and BODY elements, create and reference a JS file that in which the JS will create and attach to the BODY element an H1 element with the id "sleeping-giant" with the content "Jell-O, Burled!".
@@ -150,9 +142,9 @@ _ELEMENT SELECTION_
    ```
 
    ```js
-   let newHeader = document.createElement("h1");
-   newHeader.setAttribute("id", "sleeping-giant");
-   newHeader.innerHTML = "Jell-O, Burled!";
+   let newHeader = document.createElement('h1');
+   newHeader.setAttribute('id', 'sleeping-giant');
+   newHeader.innerHTML = 'Jell-O, Burled!';
    //const newContent = document.createTextNode("Jell-O, Burled!");
    document.body.appendChild(newHeader);
    ```
@@ -164,8 +156,8 @@ _ELEMENT SELECTION_
    ```
 
    ```js
-   let newDiv = document.createElement("div");
-   newDiv.setAttribute("id", "lickable-frog");
+   let newDiv = document.createElement('div');
+   newDiv.setAttribute('id', 'lickable-frog');
    document.body.appendChild(newDiv);
    ```
 
@@ -173,9 +165,9 @@ _ELEMENT SELECTION_
 
    ```html
    <script type="text/javascript">
-     let newList = document.createElement("ul");
-     let newItem = document.createElement("li");
-     newItem.setAttribute("id", "dreamy-eyes");
+     let newList = document.createElement('ul');
+     let newItem = document.createElement('li');
+     newItem.setAttribute('id', 'dreamy-eyes');
      newList.appendChild(newItem);
      document.body.prepend(newList);
    </script>
@@ -184,15 +176,15 @@ _ELEMENT SELECTION_
 6. Write JS to add the CSS class "i-got-loaded" to the BODY element when the window fires the DOMContentLoaded event.
 
    ```js
-   document.addEventListener("DOMContentLoaded", (event) => {
-     document.body.className("i-got-loaded");
+   document.addEventListener('DOMContentLoaded', (event) => {
+     document.body.className('i-got-loaded');
    });
    ```
 
 7. Given an HTML file with a UL element with the id "your-best-friend" that has six non-empty ILs as its children, write JS to write the content of each LI to the console.
 
    ```js
-   let parentList = document.getElementById("your-best-friend");
+   let parentList = document.getElementById('your-best-friend');
    let childNodes = parent.childNodes;
    for (let value of childNodes.values()) {
      console.log(value);
@@ -221,7 +213,7 @@ _ELEMENT SELECTION_
    ```
 
    ```js
-   const title = document.getElementById("title");
+   const title = document.getElementById('title');
    const time = () => {
      const date = new Date();
      const seconds = date.getSeconds();
@@ -238,10 +230,10 @@ _EVENT HANDLING_
 1. Given an HTML page that includes `<button id="increment-count">I have been clicked <span id="clicked-count">0</span> times</button>`, write JS that increases the value of the content of `span#clicked-count` by 1 every time `button#increment-count` is clicked.
 
    ```js
-   let incrementButton = document.getElementById("increment-count");
-   let incrementSpan = document.getElementById("clicked-count");
+   let incrementButton = document.getElementById('increment-count');
+   let incrementSpan = document.getElementById('clicked-count');
    let count = 0;
-   incrementButton.addEventListener("click", (event) => {
+   incrementButton.addEventListener('click', (event) => {
      count++;
      incrementSpan.innerHTML = count;
    });
@@ -250,13 +242,13 @@ _EVENT HANDLING_
 2. Given an HTML page that includes `<input type="checkbox" id="on-off"><div id="now-you-see-me">Now you see me</div>`, write JS that sets the display of div#now-you-see-me to "none" when input#on-off is checked and "block" when input#on-off is not checked.
 
    ```js
-   let inputBox = document.getElementById("checkbox");
-   let divSee = document.getElementById("now-you-see-me");
-   inputBox.addEventListener("click", (event) => {
+   let inputBox = document.getElementById('checkbox');
+   let divSee = document.getElementById('now-you-see-me');
+   inputBox.addEventListener('click', (event) => {
      if (inputBox.checked) {
-       divSee.style.display = "block";
+       divSee.style.display = 'block';
      } else {
-       divSee.style.display = "none";
+       divSee.style.display = 'none';
      }
    });
    ```
@@ -264,10 +256,10 @@ _EVENT HANDLING_
 3. Given an HTML file that includes `<input id="stopper" type="text" placeholder="Quick! Type STOP">`, write JS that will change the background color of the page to cyan five seconds after a page loads unless the field input#stopper contains only the text "STOP".
 
    ```js
-   let inputStopper = document.getElementById("stopper");
+   let inputStopper = document.getElementById('stopper');
    const stopCyanMadness = () => {
-     if (inputStopper.value !== "STOP") {
-       document.body.style.backgroundColor = "cyan";
+     if (inputStopper.value !== 'STOP') {
+       document.body.style.backgroundColor = 'cyan';
      }
    };
    setTimeout(stopCyanMadness, 5000);
@@ -276,12 +268,12 @@ _EVENT HANDLING_
 4. Given an HTML page that includes `<input type="text" id="fancypants">`, write JS that changes the background color of the textbox to #E8F5E9 when the caret is in the textbox and turns it back to its normal color when focus is elsewhere.
 
    ```js
-   const input = document.getElementById("fancypands");
-   input.addEventListener("focus", (event) => {
-     event.target.style.backgroundColor = "#E8F5E9";
+   const input = document.getElementById('fancypands');
+   input.addEventListener('focus', (event) => {
+     event.target.style.backgroundColor = '#E8F5E9';
    });
-   input.addEventListener("blur", (event) => {
-     event.target.style.backgroundColor = "initial";
+   input.addEventListener('blur', (event) => {
+     event.target.style.backgroundColor = 'initial';
    });
    ```
 
@@ -311,7 +303,7 @@ _EVENT HANDLING_
 7. Given HTML page that has 300 DIVs, create one click event subscription that will print the id of the element clicked on to the console.
 
    ```js
-   document.body.addEventListener("click", (event) => {
+   document.body.addEventListener('click', (event) => {
      console.log(event.target.id);
    });
    ```
@@ -324,8 +316,7 @@ _JSON_
 
 1. Identify and generate valid JSON-formatted strings.
 
-   String in JS: `'this is "text"'`
-   String in JSON: `"this is \"text\""`
+   String in JS: `'this is "text"'` String in JSON: `"this is \"text\""`
 
    - use \n for line breaks
    - keys in JSON objects must be surrounded by \" quotes

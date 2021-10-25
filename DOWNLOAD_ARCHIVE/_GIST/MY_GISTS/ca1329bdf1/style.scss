@@ -1,0 +1,415 @@
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+
+$color-body-bg: #435158;
+$color-product-bg: white;
+$color-price-bg: lighten($color-body-bg, 30%);
+$color-price-text: white;
+$color-button-bg: #e5467e;
+$color-button-text: white;
+$color-nav-bg: darken($color-body-bg, 20%);
+
+$wrapper: 1000px;
+$margin-region: 48px;
+$pad: 24px;
+
+@mixin pos-center {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+
+@mixin clearfix {
+  &:before,
+  &:after {
+    content: "";
+    display: table;
+  }
+
+  &:after {
+    clear: both;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  height: 100%;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: $color-body-bg;
+  font-family: "Open Sans", sans-serif;
+}
+
+.wrapper {
+  max-width: $wrapper;
+  margin: 0 auto $margin-region;
+  padding: 0 12px;
+  @include clearfix;
+}
+
+// Navigation
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: $color-nav-bg;
+  transform: translateZ(0);
+  z-index: 2;
+  .wrapper {
+    margin-bottom: 0;
+  }
+}
+
+.menu {
+  position: relative;
+  width: 60px;
+  height: 48px;
+  float: left;
+  border-left: 1px solid lighten($color-nav-bg, 6%);
+  border-right: 1px solid lighten($color-nav-bg, 6%);
+  &__icon,
+  &__icon:before,
+  &__icon:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 24px;
+    height: 2px;
+    background-color: white;
+  }
+  &__icon:before {
+    top: -14px;
+  }
+  &__icon:after {
+    bottom: -14px;
+  }
+}
+
+// Cart
+.cart {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  p {
+    display: inline-block;
+    position: relative;
+    margin-bottom: 0;
+    color: white;
+    padding: 12px;
+  }
+  &__price,
+  &__items {
+    display: flex;
+    .text {
+      font-size: 12px;
+      line-height: 24px;
+      text-transform: uppercase;
+      padding-right: 0;
+    }
+    .total {
+      font-size: 20px;
+      font-weight: 700;
+    }
+  }
+  &__price {
+    .total {
+      padding-left: 10px;
+      margin-left: 6px;
+      &:before {
+        content: "$";
+        position: absolute;
+        top: 8px;
+        left: 0;
+        font-size: 12px;
+        font-weight: normal;
+        margin-right: 2px;
+      }
+    }
+  }
+  &__items {
+    background-color: $color-button-bg;
+  }
+}
+
+// Introduction
+.introduction {
+  color: white;
+  padding-top: 110px;
+}
+
+h1 {
+  font-size: 36px;
+  line-height: 40px;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+// Product Cards
+.products {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  padding: 0 6px;
+  max-width: $wrapper;
+  margin: 0 auto $margin-region;
+}
+
+.product {
+  position: relative;
+  display: flex;
+  padding: 6px;
+  white-space: normal;
+  transition: transform 0.1s ease-out;
+  width: 100%;
+  @media (min-width: 550px) {
+    width: 50%;
+  }
+  @media (min-width: 850px) {
+    width: 33.33%;
+  }
+  &:hover {
+    box-shadow: rgba(black, 0.4) 0 0 48px -24px;
+  }
+  &__content {
+    position: relative;
+    padding: $pad $pad $pad + 50px;
+    background: $color-product-bg;
+    white-space: normal;
+    transition: transform 0.1s ease-out;
+    &:before {
+      content: "";
+      display: block;
+      @include pos-center;
+      width: 100%;
+      height: 100%;
+      background-color: lighten($color-body-bg, 55%);
+      opacity: 0;
+      transition: opacity 0.2s ease-out;
+    }
+    &.is-purchased {
+      &:before {
+        opacity: 0.9;
+      }
+    }
+  }
+}
+
+h2 {
+  position: relative;
+  font-size: 22px;
+  line-height: 24px;
+  margin-bottom: 8px;
+}
+
+p {
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 12px;
+  &.price {
+    position: relative;
+    display: inline-block;
+    font-size: 12px;
+    line-height: 16px;
+    padding: 2px 8px;
+    color: $color-price-text;
+    background-color: $color-price-bg;
+    border-radius: 2px;
+    .is-purchased & {
+      background-color: darken($color-button-bg, 10%);
+    }
+  }
+}
+
+.features {
+  list-style-type: disc;
+  margin-left: 18px;
+  font-size: 16px;
+  line-height: 22px;
+  li {
+    margin-bottom: 6px;
+  }
+}
+
+button {
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: $pad;
+  left: 0;
+  margin: auto;
+  padding: 12px 20px;
+  width: calc(100% - #{$pad * 2});
+  color: $color-button-text;
+  background-color: $color-button-bg;
+  font-size: 14px;
+  text-align: left;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  outline: none;
+  box-shadow: lighten($color-button-bg, 20%) 0 1px 0,
+    darken($color-button-bg, 30%) 0 4px 0;
+  overflow: hidden;
+  user-select: none;
+  transform: translateZ(0);
+  &:before,
+  &:after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    width: 40px;
+    height: 100%;
+  }
+  &:before {
+    border-left: 1px solid lighten($color-button-bg, 10%);
+    background-color: darken($color-button-bg, 10%);
+    border-radius: 0 6px 6px 0;
+  }
+  &:after {
+    content: "×";
+    font-size: 30px;
+    text-align: center;
+    transform: rotate(135deg);
+    transition: transform 0.2s ease-out;
+  }
+  &:hover {
+    transform: translateY(1px);
+    box-shadow: lighten($color-button-bg, 20%) 0 1px 0,
+      darken($color-button-bg, 30%) 0 3px 0;
+  }
+  &:active {
+    transform: translateY(4px);
+    box-shadow: lighten($color-button-bg, 20%) 0 1px 0,
+      darken($color-button-bg, 30%) 0 0 0;
+  }
+  .is-purchased & {
+    transform: translateY(2px);
+    overflow: hidden;
+    background-color: darken($color-button-bg, 10%);
+    box-shadow: lighten($color-button-bg, 20%) 0 1px 0,
+      darken($color-button-bg, 30%) 0 2px 0;
+    &:before {
+      border-left: 1px solid lighten($color-button-bg, 20%);
+      background-color: darken($color-button-bg, 20%);
+    }
+    &:after {
+      transform: rotate(0);
+    }
+    &:active {
+      transform: translateY(4px);
+      box-shadow: lighten($color-button-bg, 20%) 0 1px 0,
+        darken($color-button-bg, 30%) 0 0 0;
+    }
+  }
+}
+
+.icon__check {
+  @include pos-center;
+  top: -24px;
+  width: 80px;
+  height: 80px;
+  background-color: $color-product-bg;
+  border: 8px solid $color-body-bg;
+  border-radius: 100%;
+  transform: scale(0);
+  &:before {
+    content: "";
+    @include pos-center;
+    top: -6px;
+    width: 12px;
+    height: 28px;
+    border-right: 8px solid $color-body-bg;
+    border-bottom: 8px solid $color-body-bg;
+    transform: rotate(45deg);
+  }
+  .is-purchased & {
+    animation: bounceIn 0.4s ease-out forwards;
+  }
+}
+
+.big-spender {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba($color-button-bg, 0.9);
+  color: white;
+  text-align: center;
+  transform: translateZ(0);
+  opacity: 0;
+  transition: opacity 0.2s 0.21s ease-out;
+  z-index: 1;
+  .wrapper {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.2s ease-out, transform 0.2s ease-out;
+  }
+  h1 {
+    display: inline-block;
+  }
+  .close {
+    display: inline-block;
+    margin-top: 24px;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    background-color: darken($color-button-bg, 10%);
+    border-radius: 4px;
+    &:hover {
+      background-color: darken($color-button-bg, 20%);
+    }
+  }
+  &.is-visible {
+    opacity: 1;
+    top: 0;
+    .wrapper {
+      opacity: 1;
+      transform: translateY(0);
+      transition-delay: 0.41s;
+    }
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    transform: scale(0.8);
+  }
+  20% {
+    transform: scale(2);
+  }
+  40% {
+    transform: scale(0.9);
+  }
+  60% {
+    transform: scale(1.05);
+  }
+  80% {
+    transform: scale(0.96);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

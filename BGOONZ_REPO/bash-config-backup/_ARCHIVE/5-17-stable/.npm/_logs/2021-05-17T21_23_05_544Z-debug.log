@@ -1,0 +1,38 @@
+0 info it worked if it ends with ok
+1 verbose cli [
+1 verbose cli   '/home/bryan/.nvm/versions/node/v14.17.0/bin/node',
+1 verbose cli   '/home/bryan/.nvm/versions/node/v14.17.0/bin/npm',
+1 verbose cli   'audit',
+1 verbose cli   'fix',
+1 verbose cli   '-f'
+1 verbose cli ]
+2 info using npm@6.14.13
+3 info using node@v14.17.0
+4 verbose config Skipping project config: /home/bryan/.npmrc. (matches userconfig)
+5 warn using --force I sure hope you know what you are doing.
+6 verbose npm-session fb74eea765e715bf
+7 verbose stack Error: No package.json found: Cannot audit a project without a package.json
+7 verbose stack     at /home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/lib/audit.js:164:19
+7 verbose stack     at tryCatcher (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/util.js:16:23)
+7 verbose stack     at Promise._settlePromiseFromHandler (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:514:35)
+7 verbose stack     at Promise._settlePromise (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:574:18)
+7 verbose stack     at Promise._settlePromise0 (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:619:10)
+7 verbose stack     at Promise._settlePromises (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:699:18)
+7 verbose stack     at Promise._fulfill (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:643:18)
+7 verbose stack     at PromiseArray._resolve (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise_array.js:126:19)
+7 verbose stack     at PromiseArray._promiseFulfilled (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise_array.js:144:14)
+7 verbose stack     at PromiseArray._iterate (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise_array.js:114:31)
+7 verbose stack     at PromiseArray.init [as _init] (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise_array.js:78:10)
+7 verbose stack     at Promise._settlePromise (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:571:21)
+7 verbose stack     at Promise._settlePromise0 (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:619:10)
+7 verbose stack     at Promise._settlePromises (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:699:18)
+7 verbose stack     at Promise._fulfill (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise.js:643:18)
+7 verbose stack     at PromiseArray._resolve (/home/bryan/.nvm/versions/node/v14.17.0/lib/node_modules/npm/node_modules/bluebird/js/release/promise_array.js:126:19)
+8 verbose cwd /home/bryan
+9 verbose Linux 5.4.72-microsoft-standard-WSL2
+10 verbose argv "/home/bryan/.nvm/versions/node/v14.17.0/bin/node" "/home/bryan/.nvm/versions/node/v14.17.0/bin/npm" "audit" "fix" "-f"
+11 verbose node v14.17.0
+12 verbose npm  v6.14.13
+13 error code EAUDITNOPJSON
+14 error audit No package.json found: Cannot audit a project without a package.json
+15 verbose exit [ 1, true ]

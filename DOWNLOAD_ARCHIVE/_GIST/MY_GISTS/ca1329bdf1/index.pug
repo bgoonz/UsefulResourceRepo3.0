@@ -1,0 +1,45 @@
+mixin product(name, price)
+  li.product 
+    .product__content
+      h2 #{name}
+      p.price #{price}
+      p A great description that explains what this product is all about. Here's what you get!
+      ul.features
+        li This thing
+        li That thing
+        li And of course the other thing that's really essential
+      button(value=price) Add This Product
+      .icon__check
+
+nav
+  .wrapper
+    .menu
+      .menu__icon
+    .cart
+      .cart__price
+        p.text Cart Total
+        p.total 0.00
+      .cart__items
+        p.text Items
+        p.total 0
+
+.introduction
+  .wrapper
+    h1 Fabulous Products
+    p Welcome to our super sweet products page. You like it, you buy it! Click the "Add this product" button to add it to your cart. If you got that fliff, why not buy them all? You're worth it! Treat yourself!
+
+ul.products
+  +product('Kazaam on VHS', 6.99)
+  +product('Saucer of Milk', 2.99)
+  +product('Used Coffee Filter', .99)
+  +product('Piece of Chain Link Fence', 3.99)
+  +product('Elevator Music Compact Disc', 12.99)
+  +product('GoPro Video of A Possum\'s Day', 8.99)
+  +product('Tour of Jerry\'s Backyard', 24.99)
+  +product('Kung Fu Lessons', 69.99)
+  
+.big-spender
+  .wrapper
+    h1 Well hello big spender!
+    p You have purchased all the things!
+    a.close(href="#") Cool, take me back

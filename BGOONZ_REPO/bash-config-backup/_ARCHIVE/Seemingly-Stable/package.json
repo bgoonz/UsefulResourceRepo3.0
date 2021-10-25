@@ -1,0 +1,10 @@
+{
+  "name": "y",
+  "version": "y",
+  "description": "hi",
+  "main": "./",
+  "repository": "https://github.com/bgoonz/bgoonz",
+  "author": "bryan",
+  "license": "yes",
+  "private": false
+}

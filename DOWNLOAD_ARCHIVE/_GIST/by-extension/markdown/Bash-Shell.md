@@ -4,28 +4,19 @@
 
 # bash - GNU Bourne-Again SHell
 
-SYNOPSIS
-bash [options] [command_string | file]
+SYNOPSIS bash [options] [command_string | file]
 
 <details>
 <summary>Click To Expand</summary>
 
-DESCRIPTION
-Bash is an sh-compatible command language interpreter that exe‐
-cutes commands read from the standard input or from a file. Bash
-also incorporates useful features from the Korn and C shells (ksh
-and csh).
+DESCRIPTION Bash is an sh-compatible command language interpreter that exe‐ cutes commands read from the standard input or from a file. Bash also incorporates useful features from the Korn and C shells (ksh and csh).
 
        Bash  is  intended  to be a conformant implementation of the Shell
        and Utilities portion of the IEEE POSIX specification (IEEE  Stan‐
        dard  1003.1).   Bash  can be configured to be POSIX-conformant by
        default.
 
-OPTIONS
-All of the single-character shell options documented in the
-description of the set builtin command, including -o, can be used
-as options when the shell is invoked. In addition, bash inter‐
-prets the following options when it is invoked:
+OPTIONS All of the single-character shell options documented in the description of the set builtin command, including -o, can be used as options when the shell is invoked. In addition, bash inter‐ prets the following options when it is invoked:
 
 ```sh
 
@@ -131,22 +122,9 @@ prets the following options when it is invoked:
               standard output and exit successfully.
 ```
 
-ARGUMENTS
-If arguments remain after option processing, and neither the -c
-nor the -s option has been supplied, the first argument is assumed
-to be the name of a file containing shell commands. If bash is
-invoked in this fashion, $0 is set to the name of the file, and
-the positional parameters are set to the remaining arguments.
-Bash reads and executes commands from this file, then exits.
-Bash's exit status is the exit status of the last command executed
-in the script. If no commands are executed, the exit status is 0.
-An attempt is first made to open the file in the current direc‐
-tory, and, if no file is found, then the shell searches the direc‐
-tories in PATH for the script.
+ARGUMENTS If arguments remain after option processing, and neither the -c nor the -s option has been supplied, the first argument is assumed to be the name of a file containing shell commands. If bash is invoked in this fashion, $0 is set to the name of the file, and the positional parameters are set to the remaining arguments. Bash reads and executes commands from this file, then exits. Bash's exit status is the exit status of the last command executed in the script. If no commands are executed, the exit status is 0. An attempt is first made to open the file in the current direc‐ tory, and, if no file is found, then the shell searches the direc‐ tories in PATH for the script.
 
-INVOCATION
-A login shell is one whose first character of argument zero is a
--, or one started with the --login option.
+INVOCATION A login shell is one whose first character of argument zero is a -, or one started with the --login option.
 
        An interactive shell is one started without  non-option  arguments
        (unless  -s is specified) and without the -c option whose standard
@@ -231,47 +209,19 @@ A login shell is one whose first character of argument zero is a
        the -p option is supplied at invocation, the startup  behavior  is
        the same, but the effective user id is not reset.
 
-DEFINITIONS
-The following definitions are used throughout the rest of this
-document.
-blank A space or tab.
-word A sequence of characters considered as a single unit by the
-shell. Also known as a token.
-name A word consisting only of alphanumeric characters and
-underscores, and beginning with an alphabetic character or
-an underscore. Also referred to as an identifier.
-metacharacter
-A character that, when unquoted, separates words. One of
-the following:
-| & ; ( ) < > space tab newline
-control operator
-A token that performs a control function. It is one of the
-following symbols:
-|| & && ; ;; ;& ;;& ( ) | |& <newline>
+DEFINITIONS The following definitions are used throughout the rest of this document. blank A space or tab. word A sequence of characters considered as a single unit by the shell. Also known as a token. name A word consisting only of alphanumeric characters and underscores, and beginning with an alphabetic character or an underscore. Also referred to as an identifier. metacharacter A character that, when unquoted, separates words. One of the following: | & ; ( ) < > space tab newline control operator A token that performs a control function. It is one of the following symbols: || & && ; ;; ;& ;;& ( ) | |& <newline>
 
-RESERVED WORDS
-Reserved words are words that have a special meaning to the shell.
-The following words are recognized as reserved when unquoted and
-either the first word of a simple command (see SHELL GRAMMAR
-below) or the third word of a case or for command:
+RESERVED WORDS Reserved words are words that have a special meaning to the shell. The following words are recognized as reserved when unquoted and either the first word of a simple command (see SHELL GRAMMAR below) or the third word of a case or for command:
 
        ! case  coproc  do done elif else  esac  fi  for  function  if  in
        select then until while { } time [[ ]]
 
-SHELL GRAMMAR
-Simple Commands
-A simple command is a sequence of optional variable assignments
-followed by blank-separated words and redirections, and terminated
-by a control operator. The first word specifies the command to be
-executed, and is passed as argument zero. The remaining words are
-passed as arguments to the invoked command.
+SHELL GRAMMAR Simple Commands A simple command is a sequence of optional variable assignments followed by blank-separated words and redirections, and terminated by a control operator. The first word specifies the command to be executed, and is passed as argument zero. The remaining words are passed as arguments to the invoked command.
 
        The  return value of a simple command is its exit status, or 128+n
        if the command is terminated by signal n.
 
-Pipelines
-A pipeline is a sequence of one or more commands separated by one
-of the control operators | or |&. The format for a pipeline is:
+Pipelines A pipeline is a sequence of one or more commands separated by one of the control operators | or |&. The format for a pipeline is:
 
 ```sh
               [time [-p]] [ ! ] command [ [|⎪|&] command2 ... ]
@@ -317,10 +267,7 @@ of the control operators | or |&. The format for a pipeline is:
        below), the last element of a pipeline may be  run  by  the  shell
        process.
 
-Lists
-A list is a sequence of one or more pipelines separated by one of
-the operators ;, &, &&, or ||, and optionally terminated by one of
-;, &, or <newline>.
+Lists A list is a sequence of one or more pipelines separated by one of the operators ;, &, &&, or ||, and optionally terminated by one of ;, &, or <newline>.
 
        Of these list operators, && and || have equal precedence, followed
        by ; and &, which have equal precedence.
@@ -354,11 +301,7 @@ the operators ;, &, &&, or ||, and optionally terminated by one of
        exit status.  The return status of AND and OR lists  is  the  exit
        status of the last command executed in the list.
 
-Compound Commands
-A compound command is one of the following. In most cases a list
-in a command's description may be separated from the rest of the
-command by one or more newlines, and may be followed by a newline
-in place of a semicolon.
+Compound Commands A compound command is one of the following. In most cases a list in a command's description may be separated from the rest of the command by one or more newlines, and may be followed by a newline in place of a semicolon.
 
        (list) list is executed in a  subshell  environment  (see  COMMAND
               EXECUTION  ENVIRONMENT  below).   Variable  assignments and
@@ -539,12 +482,7 @@ in place of a semicolon.
               until commands is the exit status of the last command  exe‐
               cuted in list-2, or zero if none was executed.
 
-Coprocesses
-A coprocess is a shell command preceded by the coproc reserved
-word. A coprocess is executed asynchronously in a subshell, as if
-the command had been terminated with the & control operator, with
-a two-way pipe established between the executing shell and the
-coprocess.
+Coprocesses A coprocess is a shell command preceded by the coproc reserved word. A coprocess is executed asynchronously in a subshell, as if the command had been terminated with the & control operator, with a two-way pipe established between the executing shell and the coprocess.
 
        The format for a coprocess is:
 
@@ -576,10 +514,7 @@ coprocess.
        coproc command always returns success.  The  return  status  of  a
        coprocess is the exit status of command.
 
-Shell Function Definitions
-A shell function is an object that is called like a simple command
-and executes a compound command with a new set of positional
-parameters. Shell functions are declared as follows:
+Shell Function Definitions A shell function is an object that is called like a simple command and executes a compound command with a new set of positional parameters. Shell functions are declared as follows:
 
        name () compound-command [redirection]
        function name [()] compound-command [redirection]
@@ -603,20 +538,9 @@ parameters. Shell functions are declared as follows:
               the exit status of the last command executed in  the  body.
               (See FUNCTIONS below.)
 
-COMMENTS
-In a non-interactive shell, or an interactive shell in which the
-interactive_comments option to the shopt builtin is enabled (see
-SHELL BUILTIN COMMANDS below), a word beginning with # causes that
-word and all remaining characters on that line to be ignored. An
-interactive shell without the interactive_comments option enabled
-does not allow comments. The interactive_comments option is on by
-default in interactive shells.
+COMMENTS In a non-interactive shell, or an interactive shell in which the interactive_comments option to the shopt builtin is enabled (see SHELL BUILTIN COMMANDS below), a word beginning with # causes that word and all remaining characters on that line to be ignored. An interactive shell without the interactive_comments option enabled does not allow comments. The interactive_comments option is on by default in interactive shells.
 
-QUOTING
-Quoting is used to remove the special meaning of certain charac‐
-ters or words to the shell. Quoting can be used to disable spe‐
-cial treatment for special characters, to prevent reserved words
-from being recognized as such, and to prevent parameter expansion.
+QUOTING Quoting is used to remove the special meaning of certain charac‐ ters or words to the shell. Quoting can be used to disable spe‐ cial treatment for special characters, to prevent reserved words from being recognized as such, and to prevent parameter expansion.
 
        Each of the metacharacters listed above under DEFINITIONS has spe‐
        cial meaning to the shell and must be quoted if it is to represent
@@ -694,13 +618,7 @@ from being recognized as such, and to prevent parameter expansion.
        If the string is translated and replaced, the replacement is  dou‐
        ble-quoted.
 
-PARAMETERS
-A parameter is an entity that stores values. It can be a name, a
-number, or one of the special characters listed below under Spe‐
-cial Parameters. A variable is a parameter denoted by a name. A
-variable has a value and zero or more attributes. Attributes are
-assigned using the declare builtin command (see declare below in
-SHELL BUILTIN COMMANDS).
+PARAMETERS A parameter is an entity that stores values. It can be a name, a number, or one of the special characters listed below under Spe‐ cial Parameters. A variable is a parameter denoted by a name. A variable has a value and zero or more attributes. Attributes are assigned using the declare builtin command (see declare below in SHELL BUILTIN COMMANDS).
 
        A parameter is set if it has been  assigned  a  value.   The  null
        string  is a valid value.  Once a variable is set, it may be unset
@@ -770,30 +688,12 @@ SHELL BUILTIN COMMANDS).
        nameref  variable  as  an argument, the variable referenced by the
        nameref variable will be unset.
 
-Positional Parameters
-A positional parameter is a parameter denoted by one or more dig‐
-its, other than the single digit 0. Positional parameters are
-assigned from the shell's arguments when it is invoked, and may be
-reassigned using the set builtin command. Positional parameters
-may not be assigned to with assignment statements. The positional
-parameters are temporarily replaced when a shell function is exe‐
-cuted (see FUNCTIONS below).
+Positional Parameters A positional parameter is a parameter denoted by one or more dig‐ its, other than the single digit 0. Positional parameters are assigned from the shell's arguments when it is invoked, and may be reassigned using the set builtin command. Positional parameters may not be assigned to with assignment statements. The positional parameters are temporarily replaced when a shell function is exe‐ cuted (see FUNCTIONS below).
 
        When a positional parameter consisting of more than a single digit
        is expanded, it must be enclosed in braces (see EXPANSION below).
 
-Special Parameters
-The shell treats several parameters specially. These parameters
-may only be referenced; assignment to them is not allowed.
-_ Expands to the positional parameters, starting from one.
-When the expansion is not within double quotes, each posi‐
-tional parameter expands to a separate word. In contexts
-where it is performed, those words are subject to further
-word splitting and pathname expansion. When the expansion
-occurs within double quotes, it expands to a single word
-with the value of each parameter separated by the first
-character of the IFS special variable. That is, "$_" is
-equivalent to "$1c$2c...", where c is the  first  character
+Special Parameters The shell treats several parameters specially. These parameters may only be referenced; assignment to them is not allowed. _ Expands to the positional parameters, starting from one. When the expansion is not within double quotes, each posi‐ tional parameter expands to a separate word. In contexts where it is performed, those words are subject to further word splitting and pathname expansion. When the expansion occurs within double quotes, it expands to a single word with the value of each parameter separated by the first character of the IFS special variable. That is, "$_" is equivalent to "$1c$2c...", where c is the  first  character
               of  the  value  of  the IFS variable.  If IFS is unset, the
               parameters are separated by spaces.  If IFS  is  null,  the
               parameters are joined without intervening separators.
@@ -816,31 +716,9 @@ nothing (i.e., they are removed). # Expands to the number of positional paramete
 foreground pipeline. - Expands to the current option flags as specified upon invo‐
 cation, by the set builtin command, or those set by the
 shell itself (such as the -i option).
-$ Expands to the process ID of the shell. In a () subshell,
-it expands to the process ID of the current shell, not the
-subshell.
-! Expands to the process ID of the job most recently placed
-into the background, whether executed as an asynchronous
-command or using the bg builtin (see JOB CONTROL below).
-0 Expands to the name of the shell or shell script. This is
-set at shell initialization. If bash is invoked with a
-file of commands, $0 is set to the name of that file. If
-bash is started with the -c option, then $0 is set to the
-first argument after the string to be executed, if one is
-present. Otherwise, it is set to the filename used to
-invoke bash, as given by argument zero.
-\_ At shell startup, set to the absolute pathname used to
-invoke the shell or shell script being executed as passed
-in the environment or argument list. Subsequently, expands
-to the last argument to the previous simple command exe‐
-cuted in the foreground, after expansion. Also set to the
-full pathname used to invoke each command executed and
-placed in the environment exported to that command. When
-checking mail, this parameter holds the name of the mail
-file currently being checked.
+$ Expands to the process ID of the shell. In a () subshell, it expands to the process ID of the current shell, not the subshell. ! Expands to the process ID of the job most recently placed into the background, whether executed as an asynchronous command or using the bg builtin (see JOB CONTROL below). 0 Expands to the name of the shell or shell script. This is set at shell initialization. If bash is invoked with a file of commands, $0 is set to the name of that file. If bash is started with the -c option, then $0 is set to the first argument after the string to be executed, if one is present. Otherwise, it is set to the filename used to invoke bash, as given by argument zero. \_ At shell startup, set to the absolute pathname used to invoke the shell or shell script being executed as passed in the environment or argument list. Subsequently, expands to the last argument to the previous simple command exe‐ cuted in the foreground, after expansion. Also set to the full pathname used to invoke each command executed and placed in the environment exported to that command. When checking mail, this parameter holds the name of the mail file currently being checked.
 
-Shell Variables
-The following variables are set by the shell:
+Shell Variables The following variables are set by the shell:
 
        BASH   Expands to the full filename used to invoke  this  instance
               of bash.
@@ -1491,16 +1369,7 @@ The following variables are set by the shell:
               words on the line.  It does not necessarily cause the shell
               parser to treat the rest of the line as a comment.
 
-Arrays
-Bash provides one-dimensional indexed and associative array vari‐
-ables. Any variable may be used as an indexed array; the declare
-builtin will explicitly declare an array. There is no maximum
-limit on the size of an array, nor any requirement that members be
-indexed or assigned contiguously. Indexed arrays are referenced
-using integers (including arithmetic expressions) and are zero-
-based; associative arrays are referenced using arbitrary strings.
-Unless otherwise noted, indexed array indices must be non-negative
-integers.
+Arrays Bash provides one-dimensional indexed and associative array vari‐ ables. Any variable may be used as an indexed array; the declare builtin will explicitly declare an array. There is no maximum limit on the size of an array, nor any requirement that members be indexed or assigned contiguously. Indexed arrays are referenced using integers (including arithmetic expressions) and are zero- based; associative arrays are referenced using arbitrary strings. Unless otherwise noted, indexed array indices must be non-negative integers.
 
        An indexed array is  created  automatically  if  any  variable  is
        assigned to using the syntax name[subscript]=value.  The subscript
@@ -1592,12 +1461,7 @@ integers.
        builtins  display  array  values  in  a way that allows them to be
        reused as assignments.
 
-EXPANSION
-Expansion is performed on the command line after it has been split
-into words. There are seven kinds of expansion performed: brace
-expansion, tilde expansion, parameter and variable expansion, com‐
-mand substitution, arithmetic expansion, word splitting, and path‐
-name expansion.
+EXPANSION Expansion is performed on the command line after it has been split into words. There are seven kinds of expansion performed: brace expansion, tilde expansion, parameter and variable expansion, com‐ mand substitution, arithmetic expansion, word splitting, and path‐ name expansion.
 
        The order of expansions  is:  brace  expansion;  tilde  expansion,
        parameter  and  variable expansion, arithmetic expansion, and com‐
@@ -1619,16 +1483,7 @@ name expansion.
        this  are  the  expansions  of "$@" and "${name[@]}", and, in most
        cases, $* and ${name[*]} as explained above (see PARAMETERS).
 
-Brace Expansion
-Brace expansion is a mechanism by which arbitrary strings may be
-generated. This mechanism is similar to pathname expansion, but
-the filenames generated need not exist. Patterns to be brace
-expanded take the form of an optional preamble, followed by either
-a series of comma-separated strings or a sequence expression
-between a pair of braces, followed by an optional postscript. The
-preamble is prefixed to each string contained within the braces,
-and the postscript is then appended to each resulting string,
-expanding left to right.
+Brace Expansion Brace expansion is a mechanism by which arbitrary strings may be generated. This mechanism is similar to pathname expansion, but the filenames generated need not exist. Patterns to be brace expanded take the form of an optional preamble, followed by either a series of comma-separated strings or a sequence expression between a pair of braces, followed by an optional postscript. The preamble is prefixed to each string contained within the braces, and the postscript is then appended to each resulting string, expanding left to right.
 
        Brace expansions may be nested.   The  results  of  each  expanded
        string  are  not  sorted;  left  to right order is preserved.  For
@@ -1682,18 +1537,7 @@ expanding left to right.
        expansion with the +B option to the set command (see SHELL BUILTIN
        COMMANDS below).
 
-Tilde Expansion
-If a word begins with an unquoted tilde character (`~'), all of
-the characters preceding the first unquoted slash (or all charac‐
-ters, if there is no unquoted slash) are considered a tilde-pre‐
-fix. If none of the characters in the tilde-prefix are quoted,
-the characters in the tilde-prefix following the tilde are treated
-as a possible login name. If this login name is the null string,
-the tilde is replaced with the value of the shell parameter HOME.
-If HOME is unset, the home directory of the user executing the
-shell is substituted instead. Otherwise, the tilde-prefix is
-replaced with the home directory associated with the specified
-login name.
+Tilde Expansion If a word begins with an unquoted tilde character (`~'), all of the characters preceding the first unquoted slash (or all charac‐ ters, if there is no unquoted slash) are considered a tilde-pre‐ fix. If none of the characters in the tilde-prefix are quoted, the characters in the tilde-prefix following the tilde are treated as a possible login name. If this login name is the null string, the tilde is replaced with the value of the shell parameter HOME. If HOME is unset, the home directory of the user executing the shell is substituted instead. Otherwise, the tilde-prefix is replaced with the home directory associated with the specified login name.
 
        If the tilde-prefix is a `~+', the value of the shell variable PWD
        replaces  the  tilde-prefix.   If  the tilde-prefix is a `~-', the
@@ -1721,13 +1565,7 @@ login name.
        not  do  this,  except  for the declaration commands listed above,
        when in posix mode.
 
-Parameter Expansion
-The `$' character introduces parameter expansion, command substi‐
-tution, or arithmetic expansion. The parameter name or symbol to
-be expanded may be enclosed in braces, which are optional but
-serve to protect the variable to be expanded from characters imme‐
-diately following it which could be interpreted as part of the
-name.
+Parameter Expansion The `$' character introduces parameter expansion, command substi‐ tution, or arithmetic expansion. The parameter name or symbol to be expanded may be enclosed in braces, which are optional but serve to protect the variable to be expanded from characters imme‐ diately following it which could be interpreted as part of the name.
 
        When  braces  are used, the matching ending brace is the first `}'
        not escaped by a backslash or within  a  quoted  string,  and  not
@@ -1968,9 +1806,7 @@ name.
               The  result  of  the expansion is subject to word splitting
               and pathname expansion as described below.
 
-Command Substitution
-Command substitution allows the output of a command to replace the
-command name. There are two forms:
+Command Substitution Command substitution allows the output of a command to replace the command name. There are two forms:
 
               $(command)
        or
@@ -1996,10 +1832,7 @@ command name. There are two forms:
        If the substitution appears within double quotes,  word  splitting
        and pathname expansion are not performed on the results.
 
-Arithmetic Expansion
-Arithmetic expansion allows the evaluation of an arithmetic
-expression and the substitution of the result. The format for
-arithmetic expansion is:
+Arithmetic Expansion Arithmetic expansion allows the evaluation of an arithmetic expression and the substitution of the result. The format for arithmetic expansion is:
 
               $((expression))
 
@@ -2014,25 +1847,13 @@ arithmetic expansion is:
        under  ARITHMETIC  EVALUATION.   If  expression  is  invalid, bash
        prints a message indicating failure and no substitution occurs.
 
-Process Substitution
-Process substitution allows a process's input or output to be
-referred to using a filename. It takes the form of <(list) or >(list). The process list is run asynchronously, and its input or
-output appears as a filename. This filename is passed as an argu‐
-ment to the current command as the result of the expansion. If
-the >(list) form is used, writing to the file will provide input
-for list. If the <(list) form is used, the file passed as an
-argument should be read to obtain the output of list. Process
-substitution is supported on systems that support named pipes
-(FIFOs) or the /dev/fd method of naming open files.
+Process Substitution Process substitution allows a process's input or output to be referred to using a filename. It takes the form of <(list) or >(list). The process list is run asynchronously, and its input or output appears as a filename. This filename is passed as an argu‐ ment to the current command as the result of the expansion. If the >(list) form is used, writing to the file will provide input for list. If the <(list) form is used, the file passed as an argument should be read to obtain the output of list. Process substitution is supported on systems that support named pipes (FIFOs) or the /dev/fd method of naming open files.
 
        When  available,  process substitution is performed simultaneously
        with parameter and variable expansion, command  substitution,  and
        arithmetic expansion.
 
-Word Splitting
-The shell scans the results of parameter expansion, command sub‐
-stitution, and arithmetic expansion that did not occur within dou‐
-ble quotes for word splitting.
+Word Splitting The shell scans the results of parameter expansion, command sub‐ stitution, and arithmetic expansion that did not occur within dou‐ ble quotes for word splitting.
 
        The  shell treats each character of IFS as a delimiter, and splits
        the results of the other expansions into words using these charac‐
@@ -2062,26 +1883,7 @@ ble quotes for word splitting.
 
        Note that if no expansion occurs, no splitting is performed.
 
-Pathname Expansion
-After word splitting, unless the -f option has been set, bash
-scans each word for the characters \*, ?, and [. If one of these
-characters appears, then the word is regarded as a pattern, and
-replaced with an alphabetically sorted list of filenames matching
-the pattern (see Pattern Matching below). If no matching file‐
-names are found, and the shell option nullglob is not enabled, the
-word is left unchanged. If the nullglob option is set, and no
-matches are found, the word is removed. If the failglob shell
-option is set, and no matches are found, an error message is
-printed and the command is not executed. If the shell option
-nocaseglob is enabled, the match is performed without regard to
-the case of alphabetic characters. When a pattern is used for
-pathname expansion, the character `.'' at the start of a name or immediately following a slash must be matched explicitly, unless the shell option dotglob is set. The filenames `.'' and `..'' must always be matched explicitly, even if dotglob is set. In other cases, the `.'' character is not treated specially. When
-matching a pathname, the slash character must always be matched
-explicitly by a slash in the pattern, but in other matching con‐
-texts it can be matched by a special pattern character as
-described below under Pattern Matching. See the description of
-shopt below under SHELL BUILTIN COMMANDS for a description of the
-nocaseglob, nullglob, failglob, and dotglob shell options.
+Pathname Expansion After word splitting, unless the -f option has been set, bash scans each word for the characters \*, ?, and [. If one of these characters appears, then the word is regarded as a pattern, and replaced with an alphabetically sorted list of filenames matching the pattern (see Pattern Matching below). If no matching file‐ names are found, and the shell option nullglob is not enabled, the word is left unchanged. If the nullglob option is set, and no matches are found, the word is removed. If the failglob shell option is set, and no matches are found, an error message is printed and the command is not executed. If the shell option nocaseglob is enabled, the match is performed without regard to the case of alphabetic characters. When a pattern is used for pathname expansion, the character `.'' at the start of a name or immediately following a slash must be matched explicitly, unless the shell option dotglob is set. The filenames `.'' and `..'' must always be matched explicitly, even if dotglob is set. In other cases, the `.'' character is not treated specially. When matching a pathname, the slash character must always be matched explicitly by a slash in the pattern, but in other matching con‐ texts it can be matched by a special pattern character as described below under Pattern Matching. See the description of shopt below under SHELL BUILTIN COMMANDS for a description of the nocaseglob, nullglob, failglob, and dotglob shell options.
 
        The  GLOBIGNORE  shell variable may be used to restrict the set of
        file names matching a pattern.  If GLOBIGNORE is set, each  match‐
@@ -2178,22 +1980,9 @@ nocaseglob, nullglob, failglob, and dotglob shell options.
        shorter strings, or using arrays of strings instead  of  a  single
        long string, may be faster.
 
-Quote Removal
-After the preceding expansions, all unquoted occurrences of the
-characters \, ', and " that did not result from one of the above
-expansions are removed.
+Quote Removal After the preceding expansions, all unquoted occurrences of the characters \, ', and " that did not result from one of the above expansions are removed.
 
-REDIRECTION
-Before a command is executed, its input and output may be redi‐
-rected using a special notation interpreted by the shell. Redi‐
-rection allows commands' file handles to be duplicated, opened,
-closed, made to refer to different files, and can change the files
-the command reads from and writes to. Redirection may also be
-used to modify file handles in the current shell execution envi‐
-ronment. The following redirection operators may precede or
-appear anywhere within a simple command or may follow a command.
-Redirections are processed in the order they appear, from left to
-right.
+REDIRECTION Before a command is executed, its input and output may be redi‐ rected using a special notation interpreted by the shell. Redi‐ rection allows commands' file handles to be duplicated, opened, closed, made to refer to different files, and can change the files the command reads from and writes to. Redirection may also be used to modify file handles in the current shell execution envi‐ ronment. The following redirection operators may precede or appear anywhere within a simple command or may follow a command. Redirections are processed in the order they appear, from left to right.
 
        Each redirection that may be preceded by a file descriptor  number
        may  instead be preceded by a word of the form {varname}.  In this
@@ -2262,21 +2051,13 @@ right.
        with  care,  as  they may conflict with file descriptors the shell
        uses internally.
 
-Redirecting Input
-Redirection of input causes the file whose name results from the
-expansion of word to be opened for reading on file descriptor n,
-or the standard input (file descriptor 0) if n is not specified.
+Redirecting Input Redirection of input causes the file whose name results from the expansion of word to be opened for reading on file descriptor n, or the standard input (file descriptor 0) if n is not specified.
 
        The general format for redirecting input is:
 
               [n]<word
 
-Redirecting Output
-Redirection of output causes the file whose name results from the
-expansion of word to be opened for writing on file descriptor n,
-or the standard output (file descriptor 1) if n is not specified.
-If the file does not exist it is created; if it does exist it is
-truncated to zero size.
+Redirecting Output Redirection of output causes the file whose name results from the expansion of word to be opened for writing on file descriptor n, or the standard output (file descriptor 1) if n is not specified. If the file does not exist it is created; if it does exist it is truncated to zero size.
 
        The general format for redirecting output is:
 
@@ -2290,20 +2071,13 @@ truncated to zero size.
        mand is not enabled, the redirection is attempted even if the file
        named by word exists.
 
-Appending Redirected Output
-Redirection of output in this fashion causes the file whose name
-results from the expansion of word to be opened for appending on
-file descriptor n, or the standard output (file descriptor 1) if n
-is not specified. If the file does not exist it is created.
+Appending Redirected Output Redirection of output in this fashion causes the file whose name results from the expansion of word to be opened for appending on file descriptor n, or the standard output (file descriptor 1) if n is not specified. If the file does not exist it is created.
 
        The general format for appending output is:
 
               [n]>>word
 
-Redirecting Standard Output and Standard Error
-This construct allows both the standard output (file descriptor 1)
-and the standard error output (file descriptor 2) to be redirected
-to the file whose name is the expansion of word.
+Redirecting Standard Output and Standard Error This construct allows both the standard output (file descriptor 1) and the standard error output (file descriptor 2) to be redirected to the file whose name is the expansion of word.
 
        There are two formats for redirecting standard output and standard
        error:
@@ -2321,10 +2095,7 @@ to the file whose name is the expansion of word.
        If it does, other redirection  operators  apply  (see  Duplicating
        File Descriptors below) for compatibility reasons.
 
-Appending Standard Output and Standard Error
-This construct allows both the standard output (file descriptor 1)
-and the standard error output (file descriptor 2) to be appended
-to the file whose name is the expansion of word.
+Appending Standard Output and Standard Error This construct allows both the standard output (file descriptor 1) and the standard error output (file descriptor 2) to be appended to the file whose name is the expansion of word.
 
        The format for appending standard output and standard error is:
 
@@ -2336,12 +2107,7 @@ to the file whose name is the expansion of word.
 
        (see Duplicating File Descriptors below).
 
-Here Documents
-This type of redirection instructs the shell to read input from
-the current source until a line containing only delimiter (with no
-trailing blanks) is seen. All of the lines read up to that point
-are then used as the standard input (or file descriptor n if n is
-specified) for a command.
+Here Documents This type of redirection instructs the shell to read input from the current source until a line containing only delimiter (with no trailing blanks) is seen. All of the lines read up to that point are then used as the standard input (or file descriptor n if n is specified) for a command.
 
        The format of here-documents is:
 
@@ -2363,8 +2129,7 @@ specified) for a command.
        iter.  This allows  here-documents  within  shell  scripts  to  be
        indented in a natural fashion.
 
-Here Strings
-A variant of here documents, the format is:
+Here Strings A variant of here documents, the format is:
 
               [n]<<<word
 
@@ -2375,8 +2140,7 @@ A variant of here documents, the format is:
        appended, to the command on its standard input (or file descriptor
        n if n is specified).
 
-Duplicating File Descriptors
-The redirection operator
+Duplicating File Descriptors The redirection operator
 
               [n]<&word
 
@@ -2400,8 +2164,7 @@ The redirection operator
        word does not expand to one or more digits or -, the standard out‐
        put and standard error are redirected as described previously.
 
-Moving File Descriptors
-The redirection operator
+Moving File Descriptors The redirection operator
 
               [n]<&digit-
 
@@ -2416,8 +2179,7 @@ The redirection operator
        moves the file descriptor digit to file descriptor n, or the stan‐
        dard output (file descriptor 1) if n is not specified.
 
-Opening File Descriptors for Reading and Writing
-The redirection operator
+Opening File Descriptors for Reading and Writing The redirection operator
 
               [n]<>word
 
@@ -2426,24 +2188,7 @@ The redirection operator
        descriptor  0  if n is not specified.  If the file does not exist,
        it is created.
 
-ALIASES
-Aliases allow a string to be substituted for a word when it is
-used as the first word of a simple command. The shell maintains a
-list of aliases that may be set and unset with the alias and una‐
-lias builtin commands (see SHELL BUILTIN COMMANDS below). The
-first word of each simple command, if unquoted, is checked to see
-if it has an alias. If so, that word is replaced by the text of
-the alias. The characters /, $, `, and = and any of the shell
-metacharacters or quoting characters listed above may not appear
-in an alias name. The replacement text may contain any valid
-shell input, including shell metacharacters. The first word of
-the replacement text is tested for aliases, but a word that is
-identical to an alias being expanded is not expanded a second
-time. This means that one may alias ls to ls -F, for instance,
-and bash does not try to recursively expand the replacement text.
-If the last character of the alias value is a blank, then the next
-command word following the alias is also checked for alias expan‐
-sion.
+ALIASES Aliases allow a string to be substituted for a word when it is used as the first word of a simple command. The shell maintains a list of aliases that may be set and unset with the alias and una‐ lias builtin commands (see SHELL BUILTIN COMMANDS below). The first word of each simple command, if unquoted, is checked to see if it has an alias. If so, that word is replaced by the text of the alias. The characters /, $, `, and = and any of the shell metacharacters or quoting characters listed above may not appear in an alias name. The replacement text may contain any valid shell input, including shell metacharacters. The first word of the replacement text is tested for aliases, but a word that is identical to an alias being expanded is not expanded a second time. This means that one may alias ls to ls -F, for instance, and bash does not try to recursively expand the replacement text. If the last character of the alias value is a blank, then the next command word following the alias is also checked for alias expan‐ sion.
 
        Aliases are created and listed with the alias command, and removed
        with the unalias command.
@@ -2476,19 +2221,7 @@ sion.
        For almost every purpose, aliases are superseded  by  shell  func‐
        tions.
 
-FUNCTIONS
-A shell function, defined as described above under SHELL GRAMMAR,
-stores a series of commands for later execution. When the name of
-a shell function is used as a simple command name, the list of
-commands associated with that function name is executed. Func‐
-tions are executed in the context of the current shell; no new
-process is created to interpret them (contrast this with the exe‐
-cution of a shell script). When a function is executed, the argu‐
-ments to the function become the positional parameters during its
-execution. The special parameter # is updated to reflect the
-change. Special parameter 0 is unchanged. The first element of
-the FUNCNAME variable is set to the name of the function while the
-function is executing.
+FUNCTIONS A shell function, defined as described above under SHELL GRAMMAR, stores a series of commands for later execution. When the name of a shell function is used as a simple command name, the list of commands associated with that function name is executed. Func‐ tions are executed in the context of the current shell; no new process is created to interpret them (contrast this with the exe‐ cution of a shell script). When a function is executed, the argu‐ ments to the function become the positional parameters during its execution. The special parameter # is updated to reflect the change. Special parameter 0 is unchanged. The first element of the FUNCNAME variable is set to the name of the function while the function is executing.
 
        All other aspects of the shell execution environment are identical
        between a function and its caller with these exceptions: the DEBUG
@@ -2564,16 +2297,7 @@ function is executing.
        of  function  invocations.  By default, no limit is imposed on the
        number of recursive calls.
 
-ARITHMETIC EVALUATION
-The shell allows arithmetic expressions to be evaluated, under
-certain circumstances (see the let and declare builtin commands,
-the (( compound command, and Arithmetic Expansion). Evaluation is
-done in fixed-width integers with no check for overflow, though
-division by 0 is trapped and flagged as an error. The operators
-and their precedence, associativity, and values are the same as in
-the C language. The following list of operators is grouped into
-levels of equal-precedence operators. The levels are listed in
-order of decreasing precedence.
+ARITHMETIC EVALUATION The shell allows arithmetic expressions to be evaluated, under certain circumstances (see the let and declare builtin commands, the (( compound command, and Arithmetic Expansion). Evaluation is done in fixed-width integers with no check for overflow, though division by 0 is trapped and flagged as an error. The operators and their precedence, associativity, and values are the same as in the C language. The following list of operators is grouped into levels of equal-precedence operators. The levels are listed in order of decreasing precedence.
 
        id++ id--
               variable post-increment and post-decrement
@@ -2627,13 +2351,7 @@ order of decreasing precedence.
        in parentheses are evaluated first and may override the precedence
        rules above.
 
-CONDITIONAL EXPRESSIONS
-Conditional expressions are used by the [[ compound command and
-the test and [ builtin commands to test file attributes and per‐
-form string and arithmetic comparisons. The test abd [ commands
-determine their behavior based on the number of arguments; see the
-descriptions of those commands for any other command-specific
-actions.
+CONDITIONAL EXPRESSIONS Conditional expressions are used by the [[ compound command and the test and [ builtin commands to test file attributes and per‐ form string and arithmetic comparisons. The test abd [ commands determine their behavior based on the number of arguments; see the descriptions of those commands for any other command-specific actions.
 
        Expressions are formed from the following  unary  or  binary  pri‐
        maries.   Bash  handles  several filenames specially when they are
@@ -2746,9 +2464,7 @@ actions.
               the  [[  command, Arg1 and Arg2 are evaluated as arithmetic
               expressions  (see ARITHMETIC EVALUATION above).
 
-SIMPLE COMMAND EXPANSION
-When a simple command is executed, the shell performs the follow‐
-ing expansions, assignments, and redirections, from left to right.
+SIMPLE COMMAND EXPANSION When a simple command is executed, the shell performs the follow‐ ing expansions, assignments, and redirections, from left to right.
 
        1.     The  words  that  the parser has marked as variable assign‐
               ments (those preceding the command name)  and  redirections
@@ -2785,10 +2501,7 @@ ing expansions, assignments, and redirections, from left to right.
        tution  performed.   If  there  were no command substitutions, the
        command exits with a status of zero.
 
-COMMAND EXECUTION
-After a command has been split into words, if it results in a sim‐
-ple command and an optional list of arguments, the following
-actions are taken.
+COMMAND EXECUTION After a command has been split into words, if it results in a sim‐ ple command and an optional list of arguments, the following actions are taken.
 
        If the command name contains no slashes,  the  shell  attempts  to
        locate  it.   If  there exists a shell function by that name, that
@@ -2835,9 +2548,7 @@ actions are taken.
        the name of the program, followed by  the  command  arguments,  if
        any.
 
-COMMAND EXECUTION ENVIRONMENT
-The shell has an execution environment, which consists of the fol‐
-lowing:
+COMMAND EXECUTION ENVIRONMENT The shell has an execution environment, which consists of the fol‐ lowing:
 
        -      open files inherited by the shell at invocation,  as  modi‐
               fied by redirections supplied to the exec builtin
@@ -2908,10 +2619,7 @@ lowing:
        /dev/null.  Otherwise,  the  invoked  command  inherits  the  file
        descriptors of the calling shell as modified by redirections.
 
-ENVIRONMENT
-When a program is invoked it is given an array of strings called
-the environment. This is a list of name-value pairs, of the form
-name=value.
+ENVIRONMENT When a program is invoked it is given an array of strings called the environment. This is a list of name-value pairs, of the form name=value.
 
        The shell provides several ways to manipulate the environment.  On
        invocation, the shell scans its  own  environment  and  creates  a
@@ -2939,14 +2647,7 @@ name=value.
        the full filename of the command and passed to that command in its
        environment.
 
-EXIT STATUS
-The exit status of an executed command is the value returned by
-the waitpid system call or equivalent function. Exit statuses
-fall between 0 and 255, though, as explained below, the shell may
-use values above 125 specially. Exit statuses from shell builtins
-and compound commands are also limited to this range. Under cer‐
-tain circumstances, the shell will use special values to indicate
-specific failure modes.
+EXIT STATUS The exit status of an executed command is the value returned by the waitpid system call or equivalent function. Exit statuses fall between 0 and 255, though, as explained below, the shell may use values above 125 specially. Exit statuses from shell builtins and compound commands are also limited to this range. Under cer‐ tain circumstances, the shell will use special values to indicate specific failure modes.
 
        For  the  shell's purposes, a command which exits with a zero exit
        status has succeeded.  An exit status of zero  indicates  success.
@@ -2970,12 +2671,7 @@ specific failure modes.
        unless a syntax error occurs, in which case it exits with  a  non-
        zero value.  See also the exit builtin command below.
 
-SIGNALS
-When bash is interactive, in the absence of any traps, it ignores
-SIGTERM (so that kill 0 does not kill an interactive shell), and
-SIGINT is caught and handled (so that the wait builtin is inter‐
-ruptible). In all cases, bash ignores SIGQUIT. If job control is
-in effect, bash ignores SIGTTIN, SIGTTOU, and SIGTSTP.
+SIGNALS When bash is interactive, in the absence of any traps, it ignores SIGTERM (so that kill 0 does not kill an interactive shell), and SIGINT is caught and handled (so that the wait builtin is inter‐ ruptible). In all cases, bash ignores SIGQUIT. If job control is in effect, bash ignores SIGTTIN, SIGTTOU, and SIGTSTP.
 
        Non-builtin  commands  run by bash have signal handlers set to the
        values inherited by the shell from its parent.  When  job  control
@@ -3003,12 +2699,7 @@ in effect, bash ignores SIGTTIN, SIGTTOU, and SIGTSTP.
        ately with an exit status  greater  than  128,  immediately  after
        which the trap is executed.
 
-JOB CONTROL
-Job control refers to the ability to selectively stop (suspend)
-the execution of processes and continue (resume) their execution
-at a later point. A user typically employs this facility via an
-interactive interface supplied jointly by the operating system
-kernel's terminal driver and bash.
+JOB CONTROL Job control refers to the ability to selectively stop (suspend) the execution of processes and continue (resume) their execution at a later point. A user typically employs this facility via an interactive interface supplied jointly by the operating system kernel's terminal driver and bash.
 
        The  shell  associates a job with each pipeline.  It keeps a table
        of currently executing jobs, which may be  listed  with  the  jobs
@@ -3095,31 +2786,7 @@ kernel's terminal driver and bash.
        changes state. The -f option will force wait to wait until the job
        or process terminates before returning.
 
-PROMPTING
-When executing interactively, bash displays the primary prompt PS1
-when it is ready to read a command, and the secondary prompt PS2
-when it needs more input to complete a command. Bash displays PS0
-after it reads a command but before executing it. Bash displays
-PS4 as described above before tracing each command when the -x
-option is enabled. Bash allows these prompt strings to be custom‐
-ized by inserting a number of backslash-escaped special characters
-that are decoded as follows:
-\a an ASCII bell character (07)
-\d the date in "Weekday Month Date" format (e.g., "Tue
-May 26")
-\D{format}
-the format is passed to strftime(3) and the result
-is inserted into the prompt string; an empty format
-results in a locale-specific time representation.
-The braces are required
-\e an ASCII escape character (033)
-\h the hostname up to the first `.'
-\H the hostname
-\j the number of jobs currently managed by the shell
-\l the basename of the shell's terminal device name
-\n newline
-\r carriage return
-\s the name of the shell, the basename of $0 (the por‐
+PROMPTING When executing interactively, bash displays the primary prompt PS1 when it is ready to read a command, and the secondary prompt PS2 when it needs more input to complete a command. Bash displays PS0 after it reads a command but before executing it. Bash displays PS4 as described above before tracing each command when the -x option is enabled. Bash allows these prompt strings to be custom‐ ized by inserting a number of backslash-escaped special characters that are decoded as follows: \a an ASCII bell character (07) \d the date in "Weekday Month Date" format (e.g., "Tue May 26") \D{format} the format is passed to strftime(3) and the result is inserted into the prompt string; an empty format results in a locale-specific time representation. The braces are required \e an ASCII escape character (033) \h the hostname up to the first `.' \H the hostname \j the number of jobs currently managed by the shell \l the basename of the shell's terminal device name \n newline \r carriage return \s the name of the shell, the basename of $0 (the por‐
 tion following the final slash)
 \t the current time in 24-hour HH:MM:SS format
 \T the current time in 12-hour HH:MM:SS format
@@ -3133,16 +2800,7 @@ tion following the final slash)
 ated with a tilde (uses the value of the PROMPT_DIR‐
 TRIM variable)
 \W the basename of the current working directory, with
-$HOME abbreviated with a tilde
-\! the history number of this command
-\# the command number of this command
-\$ if the effective UID is 0, a #, otherwise a $
-\nnn the character corresponding to the octal number nnn
-\\ a backslash
-\[ begin a sequence of non-printing characters, which
-could be used to embed a terminal control sequence
-into the prompt
-\] end a sequence of non-printing characters
+$HOME abbreviated with a tilde \! the history number of this command \# the command number of this command \$ if the effective UID is 0, a #, otherwise a $ \nnn the character corresponding to the octal number nnn \\ a backslash \[ begin a sequence of non-printing characters, which could be used to embed a terminal control sequence into the prompt \] end a sequence of non-printing characters
 
        The command number and the history number are  usually  different:
        the  history  number  of  a command is its position in the history
@@ -3155,25 +2813,9 @@ into the prompt
        the description of the shopt command under SHELL BUILTIN  COMMANDS
        below).
 
-READLINE
-This is the library that handles reading input when using an
-interactive shell, unless the --noediting option is given at shell
-invocation. Line editing is also used when using the -e option to
-the read builtin. By default, the line editing commands are simi‐
-lar to those of Emacs. A vi-style line editing interface is also
-available. Line editing can be enabled at any time using the -o
-emacs or -o vi options to the set builtin (see SHELL BUILTIN COM‐
-MANDS below). To turn off line editing after the shell is run‐
-ning, use the +o emacs or +o vi options to the set builtin.
+READLINE This is the library that handles reading input when using an interactive shell, unless the --noediting option is given at shell invocation. Line editing is also used when using the -e option to the read builtin. By default, the line editing commands are simi‐ lar to those of Emacs. A vi-style line editing interface is also available. Line editing can be enabled at any time using the -o emacs or -o vi options to the set builtin (see SHELL BUILTIN COM‐ MANDS below). To turn off line editing after the shell is run‐ ning, use the +o emacs or +o vi options to the set builtin.
 
-Readline Notation
-In this section, the Emacs-style notation is used to denote key‐
-strokes. Control keys are denoted by C-key, e.g., C-n means Con‐
-trol-N. Similarly, meta keys are denoted by M-key, so M-x means
-Meta-X. (On keyboards without a meta key, M-x means ESC x, i.e.,
-press the Escape key then the x key. This makes ESC the meta pre‐
-fix. The combination M-C-x means ESC-Control-x, or press the
-Escape key then hold the Control key while pressing the x key.)
+Readline Notation In this section, the Emacs-style notation is used to denote key‐ strokes. Control keys are denoted by C-key, e.g., C-n means Con‐ trol-N. Similarly, meta keys are denoted by M-key, so M-x means Meta-X. (On keyboards without a meta key, M-x means ESC x, i.e., press the Escape key then the x key. This makes ESC the meta pre‐ fix. The combination M-C-x means ESC-Control-x, or press the Escape key then hold the Control key while pressing the x key.)
 
        Readline  commands  may be given numeric arguments, which normally
        act as a repeat count.  Sometimes, however, it is the sign of  the
@@ -3189,17 +2831,7 @@ Escape key then hold the Control key while pressing the x key.)
        mands which do not kill text separate the chunks of  text  on  the
        kill ring.
 
-Readline Initialization
-Readline is customized by putting commands in an initialization
-file (the inputrc file). The name of this file is taken from the
-value of the INPUTRC variable. If that variable is unset, the
-default is ~/.inputrc. When a program which uses the readline
-library starts up, the initialization file is read, and the key
-bindings and variables are set. There are only a few basic con‐
-structs allowed in the readline initialization file. Blank lines
-are ignored. Lines beginning with a # are comments. Lines begin‐
-ning with a $ indicate conditional constructs. Other lines denote
-key bindings and variable settings.
+Readline Initialization Readline is customized by putting commands in an initialization file (the inputrc file). The name of this file is taken from the value of the INPUTRC variable. If that variable is unset, the default is ~/.inputrc. When a program which uses the readline library starts up, the initialization file is read, and the key bindings and variables are set. There are only a few basic con‐ structs allowed in the readline initialization file. Blank lines are ignored. Lines beginning with a # are comments. Lines begin‐ ning with a $ indicate conditional constructs. Other lines denote key bindings and variable settings.
 
        The default key-bindings may be  changed  with  an  inputrc  file.
        Other  programs  that  use this library may add their own commands
@@ -3219,13 +2851,7 @@ key bindings and variable settings.
        In addition to command names, readline allows keys to be bound  to
        a string that is inserted when the key is pressed (a macro).
 
-Readline Key Bindings
-The syntax for controlling key bindings in the inputrc file is
-simple. All that is required is the name of the command or the
-text of a macro and a key sequence to which it should be bound.
-The name may be specified in one of two ways: as a symbolic key
-name, possibly with Meta- or Control- prefixes, or as a key
-sequence.
+Readline Key Bindings The syntax for controlling key bindings in the inputrc file is simple. All that is required is the name of the command or the text of a macro and a key sequence to which it should be bound. The name may be specified in one of two ways: as a symbolic key name, possibly with Meta- or Control- prefixes, or as a key sequence.
 
        When using the form keyname:function-name or macro, keyname is the
        name of a key spelled out in English.  For example:
@@ -3288,10 +2914,7 @@ sequence.
        switched during interactive use by using the -o option to the  set
        builtin command (see SHELL BUILTIN COMMANDS below).
 
-Readline Variables
-Readline has variables that can be used to further customize its
-behavior. A variable may be set in the inputrc file with a state‐
-ment of the form
+Readline Variables Readline has variables that can be used to further customize its behavior. A variable may be set in the inputrc file with a state‐ ment of the form
 
               set variable-name value
 
@@ -3543,11 +3166,7 @@ ment of the form
               reported  by stat(2) is appended to the filename when list‐
               ing possible completions.
 
-Readline Conditional Constructs
-Readline implements a facility similar in spirit to the condi‐
-tional compilation features of the C preprocessor which allows key
-bindings and variable settings to be performed as the result of
-tests. There are four parser directives used.
+Readline Conditional Constructs Readline implements a facility similar in spirit to the condi‐ tional compilation features of the C preprocessor which allows key bindings and variable settings to be performed as the result of tests. There are four parser directives used.
 
        $if    The  $if  construct allows bindings to be made based on the
               editing mode, the terminal being used, or  the  application
@@ -3624,10 +3243,7 @@ tests. There are four parser directives used.
 
               $include  /etc/inputrc
 
-Searching
-Readline provides commands for searching through the command his‐
-tory (see HISTORY below) for lines containing a specified string.
-There are two search modes: incremental and non-incremental.
+Searching Readline provides commands for searching through the command his‐ tory (see HISTORY below) for lines containing a specified string. There are two search modes: incremental and non-incremental.
 
        Incremental searches begin before the user has finished typing the
        search  string.   As each character of the search string is typed,
@@ -3659,288 +3275,19 @@ There are two search modes: incremental and non-incremental.
        may be typed by the user or be part of the contents of the current
        line.
 
-Readline Command Names
-The following is a list of the names of the commands and the
-default key sequences to which they are bound. Command names
-without an accompanying key sequence are unbound by default. In
-the following descriptions, point refers to the current cursor
-position, and mark refers to a cursor position saved by the
-set-mark command. The text between the point and mark is referred
-to as the region.
+Readline Command Names The following is a list of the names of the commands and the default key sequences to which they are bound. Command names without an accompanying key sequence are unbound by default. In the following descriptions, point refers to the current cursor position, and mark refers to a cursor position saved by the set-mark command. The text between the point and mark is referred to as the region.
 
-Commands for Moving
-beginning-of-line (C-a)
-Move to the start of the current line.
-end-of-line (C-e)
-Move to the end of the line.
-forward-char (C-f)
-Move forward a character.
-backward-char (C-b)
-Move back a character.
-forward-word (M-f)
-Move forward to the end of the next word. Words are com‐
-posed of alphanumeric characters (letters and digits).
-backward-word (M-b)
-Move back to the start of the current or previous word.
-Words are composed of alphanumeric characters (letters and
-digits).
-shell-forward-word
-Move forward to the end of the next word. Words are delim‐
-ited by non-quoted shell metacharacters.
-shell-backward-word
-Move back to the start of the current or previous word.
-Words are delimited by non-quoted shell metacharacters.
-previous-screen-line
-Attempt to move point to the same physical screen column on
-the previous physical screen line. This will not have the
-desired effect if the current Readline line does not take
-up more than one physical line or if point is not greater
-than the length of the prompt plus the screen width.
-next-screen-line
-Attempt to move point to the same physical screen column on
-the next physical screen line. This will not have the
-desired effect if the current Readline line does not take
-up more than one physical line or if the length of the cur‐
-rent Readline line is not greater than the length of the
-prompt plus the screen width.
-clear-screen (C-l)
-Clear the screen leaving the current line at the top of the
-screen. With an argument, refresh the current line without
-clearing the screen.
-redraw-current-line
-Refresh the current line.
+Commands for Moving beginning-of-line (C-a) Move to the start of the current line. end-of-line (C-e) Move to the end of the line. forward-char (C-f) Move forward a character. backward-char (C-b) Move back a character. forward-word (M-f) Move forward to the end of the next word. Words are com‐ posed of alphanumeric characters (letters and digits). backward-word (M-b) Move back to the start of the current or previous word. Words are composed of alphanumeric characters (letters and digits). shell-forward-word Move forward to the end of the next word. Words are delim‐ ited by non-quoted shell metacharacters. shell-backward-word Move back to the start of the current or previous word. Words are delimited by non-quoted shell metacharacters. previous-screen-line Attempt to move point to the same physical screen column on the previous physical screen line. This will not have the desired effect if the current Readline line does not take up more than one physical line or if point is not greater than the length of the prompt plus the screen width. next-screen-line Attempt to move point to the same physical screen column on the next physical screen line. This will not have the desired effect if the current Readline line does not take up more than one physical line or if the length of the cur‐ rent Readline line is not greater than the length of the prompt plus the screen width. clear-screen (C-l) Clear the screen leaving the current line at the top of the screen. With an argument, refresh the current line without clearing the screen. redraw-current-line Refresh the current line.
 
-Commands for Manipulating the History
-accept-line (Newline, Return)
-Accept the line regardless of where the cursor is. If this
-line is non-empty, add it to the history list according to
-the state of the HISTCONTROL variable. If the line is a
-modified history line, then restore the history line to its
-original state.
-previous-history (C-p)
-Fetch the previous command from the history list, moving
-back in the list.
-next-history (C-n)
-Fetch the next command from the history list, moving for‐
-ward in the list.
-beginning-of-history (M-<)
-Move to the first line in the history.
-end-of-history (M->)
-Move to the end of the input history, i.e., the line cur‐
-rently being entered.
-reverse-search-history (C-r)
-Search backward starting at the current line and moving
-`up' through the history as necessary. This is an incre‐ mental search. forward-search-history (C-s) Search forward starting at the current line and moving `down' through the history as necessary. This is an incre‐
-mental search.
-non-incremental-reverse-search-history (M-p)
-Search backward through the history starting at the current
-line using a non-incremental search for a string supplied
-by the user.
-non-incremental-forward-search-history (M-n)
-Search forward through the history using a non-incremental
-search for a string supplied by the user.
-history-search-forward
-Search forward through the history for the string of char‐
-acters between the start of the current line and the point.
-This is a non-incremental search.
-history-search-backward
-Search backward through the history for the string of char‐
-acters between the start of the current line and the point.
-This is a non-incremental search.
-history-substring-search-backward
-Search backward through the history for the string of char‐
-acters between the start of the current line and the cur‐
-rent cursor position (the point). The search string may
-match anywhere in a history line. This is a non-incremen‐
-tal search.
-history-substring-search-forward
-Search forward through the history for the string of char‐
-acters between the start of the current line and the point.
-The search string may match anywhere in a history line.
-This is a non-incremental search.
-yank-nth-arg (M-C-y)
-Insert the first argument to the previous command (usually
-the second word on the previous line) at point. With an
-argument n, insert the nth word from the previous command
-(the words in the previous command begin with word 0). A
-negative argument inserts the nth word from the end of the
-previous command. Once the argument n is computed, the
-argument is extracted as if the "!n" history expansion had
-been specified.
-yank-last-arg (M-., M-_)
-Insert the last argument to the previous command (the last
-word of the previous history entry). With a numeric argu‐
-ment, behave exactly like yank-nth-arg. Successive calls
-to yank-last-arg move back through the history list,
-inserting the last word (or the word specified by the argu‐
-ment to the first call) of each line in turn. Any numeric
-argument supplied to these successive calls determines the
-direction to move through the history. A negative argument
-switches the direction through the history (back or for‐
-ward). The history expansion facilities are used to
-extract the last word, as if the "!$" history expansion had
-been specified.
-shell-expand-line (M-C-e)
-Expand the line as the shell does. This performs alias and
-history expansion as well as all of the shell word expan‐
-sions. See HISTORY EXPANSION below for a description of
-history expansion.
-history-expand-line (M-^)
-Perform history expansion on the current line. See HISTORY
-EXPANSION below for a description of history expansion.
-magic-space
-Perform history expansion on the current line and insert a
-space. See HISTORY EXPANSION below for a description of
-history expansion.
-alias-expand-line
-Perform alias expansion on the current line. See ALIASES
-above for a description of alias expansion.
-history-and-alias-expand-line
-Perform history and alias expansion on the current line.
-insert-last-argument (M-., M-_)
-A synonym for yank-last-arg.
-operate-and-get-next (C-o)
-Accept the current line for execution and fetch the next
-line relative to the current line from the history for
-editing. A numeric argument, if supplied, specifies the
-history entry to use instead of the current line.
-edit-and-execute-command (C-x C-e)
-Invoke an editor on the current command line, and execute
-the result as shell commands. Bash attempts to invoke
-$VISUAL, $EDITOR, and emacs as the editor, in that order.
+Commands for Manipulating the History accept-line (Newline, Return) Accept the line regardless of where the cursor is. If this line is non-empty, add it to the history list according to the state of the HISTCONTROL variable. If the line is a modified history line, then restore the history line to its original state. previous-history (C-p) Fetch the previous command from the history list, moving back in the list. next-history (C-n) Fetch the next command from the history list, moving for‐ ward in the list. beginning-of-history (M-<) Move to the first line in the history. end-of-history (M->) Move to the end of the input history, i.e., the line cur‐ rently being entered. reverse-search-history (C-r) Search backward starting at the current line and moving `up' through the history as necessary. This is an incre‐ mental search. forward-search-history (C-s) Search forward starting at the current line and moving `down' through the history as necessary. This is an incre‐ mental search. non-incremental-reverse-search-history (M-p) Search backward through the history starting at the current line using a non-incremental search for a string supplied by the user. non-incremental-forward-search-history (M-n) Search forward through the history using a non-incremental search for a string supplied by the user. history-search-forward Search forward through the history for the string of char‐ acters between the start of the current line and the point. This is a non-incremental search. history-search-backward Search backward through the history for the string of char‐ acters between the start of the current line and the point. This is a non-incremental search. history-substring-search-backward Search backward through the history for the string of char‐ acters between the start of the current line and the cur‐ rent cursor position (the point). The search string may match anywhere in a history line. This is a non-incremen‐ tal search. history-substring-search-forward Search forward through the history for the string of char‐ acters between the start of the current line and the point. The search string may match anywhere in a history line. This is a non-incremental search. yank-nth-arg (M-C-y) Insert the first argument to the previous command (usually the second word on the previous line) at point. With an argument n, insert the nth word from the previous command (the words in the previous command begin with word 0). A negative argument inserts the nth word from the end of the previous command. Once the argument n is computed, the argument is extracted as if the "!n" history expansion had been specified. yank-last-arg (M-., M-_) Insert the last argument to the previous command (the last word of the previous history entry). With a numeric argu‐ ment, behave exactly like yank-nth-arg. Successive calls to yank-last-arg move back through the history list, inserting the last word (or the word specified by the argu‐ ment to the first call) of each line in turn. Any numeric argument supplied to these successive calls determines the direction to move through the history. A negative argument switches the direction through the history (back or for‐ ward). The history expansion facilities are used to extract the last word, as if the "!$" history expansion had been specified. shell-expand-line (M-C-e) Expand the line as the shell does. This performs alias and history expansion as well as all of the shell word expan‐ sions. See HISTORY EXPANSION below for a description of history expansion. history-expand-line (M-^) Perform history expansion on the current line. See HISTORY EXPANSION below for a description of history expansion. magic-space Perform history expansion on the current line and insert a space. See HISTORY EXPANSION below for a description of history expansion. alias-expand-line Perform alias expansion on the current line. See ALIASES above for a description of alias expansion. history-and-alias-expand-line Perform history and alias expansion on the current line. insert-last-argument (M-., M-_) A synonym for yank-last-arg. operate-and-get-next (C-o) Accept the current line for execution and fetch the next line relative to the current line from the history for editing. A numeric argument, if supplied, specifies the history entry to use instead of the current line. edit-and-execute-command (C-x C-e) Invoke an editor on the current command line, and execute the result as shell commands. Bash attempts to invoke $VISUAL, $EDITOR, and emacs as the editor, in that order.
 
-Commands for Changing Text
-end-of-file (usually C-d)
-The character indicating end-of-file as set, for example,
-by ``stty''. If this character is read when there are no
-characters on the line, and point is at the beginning of
-the line, Readline interprets it as the end of input and
-returns EOF.
-delete-char (C-d)
-Delete the character at point. If this function is bound
-to the same character as the tty EOF character, as C-d com‐
-monly is, see above for the effects.
-backward-delete-char (Rubout)
-Delete the character behind the cursor. When given a
-numeric argument, save the deleted text on the kill ring.
-forward-backward-delete-char
-Delete the character under the cursor, unless the cursor is
-at the end of the line, in which case the character behind
-the cursor is deleted.
-quoted-insert (C-q, C-v)
-Add the next character typed to the line verbatim. This is
-how to insert characters like C-q, for example.
-tab-insert (C-v TAB)
-Insert a tab character.
-self-insert (a, b, A, 1, !, ...)
-Insert the character typed.
-transpose-chars (C-t)
-Drag the character before point forward over the character
-at point, moving point forward as well. If point is at the
-end of the line, then this transposes the two characters
-before point. Negative arguments have no effect.
-transpose-words (M-t)
-Drag the word before point past the word after point, mov‐
-ing point over that word as well. If point is at the end
-of the line, this transposes the last two words on the
-line.
-upcase-word (M-u)
-Uppercase the current (or following) word. With a negative
-argument, uppercase the previous word, but do not move
-point.
-downcase-word (M-l)
-Lowercase the current (or following) word. With a negative
-argument, lowercase the previous word, but do not move
-point.
-capitalize-word (M-c)
-Capitalize the current (or following) word. With a nega‐
-tive argument, capitalize the previous word, but do not
-move point.
-overwrite-mode
-Toggle overwrite mode. With an explicit positive numeric
-argument, switches to overwrite mode. With an explicit
-non-positive numeric argument, switches to insert mode.
-This command affects only emacs mode; vi mode does over‐
-write differently. Each call to readline() starts in
-insert mode. In overwrite mode, characters bound to
-self-insert replace the text at point rather than pushing
-the text to the right. Characters bound to back‐
-ward-delete-char replace the character before point with a
-space. By default, this command is unbound.
+Commands for Changing Text end-of-file (usually C-d) The character indicating end-of-file as set, for example, by ``stty''. If this character is read when there are no characters on the line, and point is at the beginning of the line, Readline interprets it as the end of input and returns EOF. delete-char (C-d) Delete the character at point. If this function is bound to the same character as the tty EOF character, as C-d com‐ monly is, see above for the effects. backward-delete-char (Rubout) Delete the character behind the cursor. When given a numeric argument, save the deleted text on the kill ring. forward-backward-delete-char Delete the character under the cursor, unless the cursor is at the end of the line, in which case the character behind the cursor is deleted. quoted-insert (C-q, C-v) Add the next character typed to the line verbatim. This is how to insert characters like C-q, for example. tab-insert (C-v TAB) Insert a tab character. self-insert (a, b, A, 1, !, ...) Insert the character typed. transpose-chars (C-t) Drag the character before point forward over the character at point, moving point forward as well. If point is at the end of the line, then this transposes the two characters before point. Negative arguments have no effect. transpose-words (M-t) Drag the word before point past the word after point, mov‐ ing point over that word as well. If point is at the end of the line, this transposes the last two words on the line. upcase-word (M-u) Uppercase the current (or following) word. With a negative argument, uppercase the previous word, but do not move point. downcase-word (M-l) Lowercase the current (or following) word. With a negative argument, lowercase the previous word, but do not move point. capitalize-word (M-c) Capitalize the current (or following) word. With a nega‐ tive argument, capitalize the previous word, but do not move point. overwrite-mode Toggle overwrite mode. With an explicit positive numeric argument, switches to overwrite mode. With an explicit non-positive numeric argument, switches to insert mode. This command affects only emacs mode; vi mode does over‐ write differently. Each call to readline() starts in insert mode. In overwrite mode, characters bound to self-insert replace the text at point rather than pushing the text to the right. Characters bound to back‐ ward-delete-char replace the character before point with a space. By default, this command is unbound.
 
-Killing and Yanking
-kill-line (C-k)
-Kill the text from point to the end of the line.
-backward-kill-line (C-x Rubout)
-Kill backward to the beginning of the line.
-unix-line-discard (C-u)
-Kill backward from point to the beginning of the line. The
-killed text is saved on the kill-ring.
-kill-whole-line
-Kill all characters on the current line, no matter where
-point is.
-kill-word (M-d)
-Kill from point to the end of the current word, or if
-between words, to the end of the next word. Word bound‐
-aries are the same as those used by forward-word.
-backward-kill-word (M-Rubout)
-Kill the word behind point. Word boundaries are the same
-as those used by backward-word.
-shell-kill-word
-Kill from point to the end of the current word, or if
-between words, to the end of the next word. Word bound‐
-aries are the same as those used by shell-forward-word.
-shell-backward-kill-word
-Kill the word behind point. Word boundaries are the same
-as those used by shell-backward-word.
-unix-word-rubout (C-w)
-Kill the word behind point, using white space as a word
-boundary. The killed text is saved on the kill-ring.
-unix-filename-rubout
-Kill the word behind point, using white space and the slash
-character as the word boundaries. The killed text is saved
-on the kill-ring.
-delete-horizontal-space (M-\)
-Delete all spaces and tabs around point.
-kill-region
-Kill the text in the current region.
-copy-region-as-kill
-Copy the text in the region to the kill buffer.
-copy-backward-word
-Copy the word before point to the kill buffer. The word
-boundaries are the same as backward-word.
-copy-forward-word
-Copy the word following point to the kill buffer. The word
-boundaries are the same as forward-word.
-yank (C-y)
-Yank the top of the kill ring into the buffer at point.
-yank-pop (M-y)
-Rotate the kill ring, and yank the new top. Only works
-following yank or yank-pop.
+Killing and Yanking kill-line (C-k) Kill the text from point to the end of the line. backward-kill-line (C-x Rubout) Kill backward to the beginning of the line. unix-line-discard (C-u) Kill backward from point to the beginning of the line. The killed text is saved on the kill-ring. kill-whole-line Kill all characters on the current line, no matter where point is. kill-word (M-d) Kill from point to the end of the current word, or if between words, to the end of the next word. Word bound‐ aries are the same as those used by forward-word. backward-kill-word (M-Rubout) Kill the word behind point. Word boundaries are the same as those used by backward-word. shell-kill-word Kill from point to the end of the current word, or if between words, to the end of the next word. Word bound‐ aries are the same as those used by shell-forward-word. shell-backward-kill-word Kill the word behind point. Word boundaries are the same as those used by shell-backward-word. unix-word-rubout (C-w) Kill the word behind point, using white space as a word boundary. The killed text is saved on the kill-ring. unix-filename-rubout Kill the word behind point, using white space and the slash character as the word boundaries. The killed text is saved on the kill-ring. delete-horizontal-space (M-\) Delete all spaces and tabs around point. kill-region Kill the text in the current region. copy-region-as-kill Copy the text in the region to the kill buffer. copy-backward-word Copy the word before point to the kill buffer. The word boundaries are the same as backward-word. copy-forward-word Copy the word following point to the kill buffer. The word boundaries are the same as forward-word. yank (C-y) Yank the top of the kill ring into the buffer at point. yank-pop (M-y) Rotate the kill ring, and yank the new top. Only works following yank or yank-pop.
 
-Numeric Arguments
-digit-argument (M-0, M-1, ..., M--)
-Add this digit to the argument already accumulating, or
-start a new argument. M-- starts a negative argument.
-universal-argument
-This is another way to specify an argument. If this com‐
-mand is followed by one or more digits, optionally with a
-leading minus sign, those digits define the argument. If
-the command is followed by digits, executing univer‐
-sal-argument again ends the numeric argument, but is other‐
-wise ignored. As a special case, if this command is imme‐
-diately followed by a character that is neither a digit nor
-minus sign, the argument count for the next command is mul‐
-tiplied by four. The argument count is initially one, so
-executing this function the first time makes the argument
-count four, a second time makes the argument count sixteen,
-and so on.
+Numeric Arguments digit-argument (M-0, M-1, ..., M--) Add this digit to the argument already accumulating, or start a new argument. M-- starts a negative argument. universal-argument This is another way to specify an argument. If this com‐ mand is followed by one or more digits, optionally with a leading minus sign, those digits define the argument. If the command is followed by digits, executing univer‐ sal-argument again ends the numeric argument, but is other‐ wise ignored. As a special case, if this command is imme‐ diately followed by a character that is neither a digit nor minus sign, the argument count for the next command is mul‐ tiplied by four. The argument count is initially one, so executing this function the first time makes the argument count four, a second time makes the argument count sixteen, and so on.
 
-Completing
-complete (TAB)
-Attempt to perform completion on the text before point.
-Bash attempts completion treating the text as a variable
-(if the text begins with $), username (if the  text  begins
+Completing complete (TAB) Attempt to perform completion on the text before point. Bash attempts completion treating the text as a variable (if the text begins with $), username (if the  text  begins
               with  ~),  hostname (if the text begins with @), or command
               (including aliases and functions)  in  turn.   If  none  of
               these produces a match, filename completion is attempted.
@@ -3981,153 +3328,13 @@ Bash attempts completion treating the text as a variable
        possible-username-completions (C-x ~)
               List  the  possible  completions  of the text before point,
               treating it as a username.
-       complete-variable (M-$)
-Attempt completion on the text before point, treating it as
-a shell variable.
-possible-variable-completions (C-x $)
-List the possible completions of the text before point,
-treating it as a shell variable.
-complete-hostname (M-@)
-Attempt completion on the text before point, treating it as
-a hostname.
-possible-hostname-completions (C-x @)
-List the possible completions of the text before point,
-treating it as a hostname.
-complete-command (M-!)
-Attempt completion on the text before point, treating it as
-a command name. Command completion attempts to match the
-text against aliases, reserved words, shell functions,
-shell builtins, and finally executable filenames, in that
-order.
-possible-command-completions (C-x !)
-List the possible completions of the text before point,
-treating it as a command name.
-dynamic-complete-history (M-TAB)
-Attempt completion on the text before point, comparing the
-text against lines from the history list for possible com‐
-pletion matches.
-dabbrev-expand
-Attempt menu completion on the text before point, comparing
-the text against lines from the history list for possible
-completion matches.
-complete-into-braces (M-{)
-Perform filename completion and insert the list of possible
-completions enclosed within braces so the list is available
-to the shell (see Brace Expansion above).
+       complete-variable (M-$) Attempt completion on the text before point, treating it as a shell variable. possible-variable-completions (C-x $) List the possible completions of the text before point, treating it as a shell variable. complete-hostname (M-@) Attempt completion on the text before point, treating it as a hostname. possible-hostname-completions (C-x @) List the possible completions of the text before point, treating it as a hostname. complete-command (M-!) Attempt completion on the text before point, treating it as a command name. Command completion attempts to match the text against aliases, reserved words, shell functions, shell builtins, and finally executable filenames, in that order. possible-command-completions (C-x !) List the possible completions of the text before point, treating it as a command name. dynamic-complete-history (M-TAB) Attempt completion on the text before point, comparing the text against lines from the history list for possible com‐ pletion matches. dabbrev-expand Attempt menu completion on the text before point, comparing the text against lines from the history list for possible completion matches. complete-into-braces (M-{) Perform filename completion and insert the list of possible completions enclosed within braces so the list is available to the shell (see Brace Expansion above).
 
-Keyboard Macros
-start-kbd-macro (C-x ()
-Begin saving the characters typed into the current keyboard
-macro.
-end-kbd-macro (C-x ))
-Stop saving the characters typed into the current keyboard
-macro and store the definition.
-call-last-kbd-macro (C-x e)
-Re-execute the last keyboard macro defined, by making the
-characters in the macro appear as if typed at the keyboard.
-print-last-kbd-macro ()
-Print the last keyboard macro defined in a format suitable
-for the inputrc file.
+Keyboard Macros start-kbd-macro (C-x () Begin saving the characters typed into the current keyboard macro. end-kbd-macro (C-x )) Stop saving the characters typed into the current keyboard macro and store the definition. call-last-kbd-macro (C-x e) Re-execute the last keyboard macro defined, by making the characters in the macro appear as if typed at the keyboard. print-last-kbd-macro () Print the last keyboard macro defined in a format suitable for the inputrc file.
 
-Miscellaneous
-re-read-init-file (C-x C-r)
-Read in the contents of the inputrc file, and incorporate
-any bindings or variable assignments found there.
-abort (C-g)
-Abort the current editing command and ring the terminal's
-bell (subject to the setting of bell-style).
-do-lowercase-version (M-A, M-B, M-x, ...)
-If the metafied character x is uppercase, run the command
-that is bound to the corresponding metafied lowercase char‐
-acter. The behavior is undefined if x is already lower‐
-case.
-prefix-meta (ESC)
-Metafy the next character typed. ESC f is equivalent to
-Meta-f.
-undo (C-\_, C-x C-u)
-Incremental undo, separately remembered for each line.
-revert-line (M-r)
-Undo all changes made to this line. This is like executing
-the undo command enough times to return the line to its
-initial state.
-tilde-expand (M-&)
-Perform tilde expansion on the current word.
-set-mark (C-@, M-<space>)
-Set the mark to the point. If a numeric argument is sup‐
-plied, the mark is set to that position.
-exchange-point-and-mark (C-x C-x)
-Swap the point with the mark. The current cursor position
-is set to the saved position, and the old cursor position
-is saved as the mark.
-character-search (C-])
-A character is read and point is moved to the next occur‐
-rence of that character. A negative count searches for
-previous occurrences.
-character-search-backward (M-C-])
-A character is read and point is moved to the previous
-occurrence of that character. A negative count searches
-for subsequent occurrences.
-skip-csi-sequence
-Read enough characters to consume a multi-key sequence such
-as those defined for keys like Home and End. Such
-sequences begin with a Control Sequence Indicator (CSI),
-usually ESC-[. If this sequence is bound to "\[", keys
-producing such sequences will have no effect unless explic‐
-itly bound to a readline command, instead of inserting
-stray characters into the editing buffer. This is unbound
-by default, but usually bound to ESC-[.
-insert-comment (M-#)
-Without a numeric argument, the value of the readline com‐
-ment-begin variable is inserted at the beginning of the
-current line. If a numeric argument is supplied, this com‐
-mand acts as a toggle: if the characters at the beginning
-of the line do not match the value of comment-begin, the
-value is inserted, otherwise the characters in com‐
-ment-begin are deleted from the beginning of the line. In
-either case, the line is accepted as if a newline had been
-typed. The default value of comment-begin causes this com‐
-mand to make the current line a shell comment. If a
-numeric argument causes the comment character to be
-removed, the line will be executed by the shell.
-glob-complete-word (M-g)
-The word before point is treated as a pattern for pathname
-expansion, with an asterisk implicitly appended. This pat‐
-tern is used to generate a list of matching filenames for
-possible completions.
-glob-expand-word (C-x \*)
-The word before point is treated as a pattern for pathname
-expansion, and the list of matching filenames is inserted,
-replacing the word. If a numeric argument is supplied, an
-asterisk is appended before pathname expansion.
-glob-list-expansions (C-x g)
-The list of expansions that would have been generated by
-glob-expand-word is displayed, and the line is redrawn. If
-a numeric argument is supplied, an asterisk is appended
-before pathname expansion.
-dump-functions
-Print all of the functions and their key bindings to the
-readline output stream. If a numeric argument is supplied,
-the output is formatted in such a way that it can be made
-part of an inputrc file.
-dump-variables
-Print all of the settable readline variables and their val‐
-ues to the readline output stream. If a numeric argument
-is supplied, the output is formatted in such a way that it
-can be made part of an inputrc file.
-dump-macros
-Print all of the readline key sequences bound to macros and
-the strings they output. If a numeric argument is sup‐
-plied, the output is formatted in such a way that it can be
-made part of an inputrc file.
-display-shell-version (C-x C-v)
-Display version information about the current instance of
-bash.
+Miscellaneous re-read-init-file (C-x C-r) Read in the contents of the inputrc file, and incorporate any bindings or variable assignments found there. abort (C-g) Abort the current editing command and ring the terminal's bell (subject to the setting of bell-style). do-lowercase-version (M-A, M-B, M-x, ...) If the metafied character x is uppercase, run the command that is bound to the corresponding metafied lowercase char‐ acter. The behavior is undefined if x is already lower‐ case. prefix-meta (ESC) Metafy the next character typed. ESC f is equivalent to Meta-f. undo (C-\_, C-x C-u) Incremental undo, separately remembered for each line. revert-line (M-r) Undo all changes made to this line. This is like executing the undo command enough times to return the line to its initial state. tilde-expand (M-&) Perform tilde expansion on the current word. set-mark (C-@, M-<space>) Set the mark to the point. If a numeric argument is sup‐ plied, the mark is set to that position. exchange-point-and-mark (C-x C-x) Swap the point with the mark. The current cursor position is set to the saved position, and the old cursor position is saved as the mark. character-search (C-]) A character is read and point is moved to the next occur‐ rence of that character. A negative count searches for previous occurrences. character-search-backward (M-C-]) A character is read and point is moved to the previous occurrence of that character. A negative count searches for subsequent occurrences. skip-csi-sequence Read enough characters to consume a multi-key sequence such as those defined for keys like Home and End. Such sequences begin with a Control Sequence Indicator (CSI), usually ESC-[. If this sequence is bound to "\[", keys producing such sequences will have no effect unless explic‐ itly bound to a readline command, instead of inserting stray characters into the editing buffer. This is unbound by default, but usually bound to ESC-[. insert-comment (M-#) Without a numeric argument, the value of the readline com‐ ment-begin variable is inserted at the beginning of the current line. If a numeric argument is supplied, this com‐ mand acts as a toggle: if the characters at the beginning of the line do not match the value of comment-begin, the value is inserted, otherwise the characters in com‐ ment-begin are deleted from the beginning of the line. In either case, the line is accepted as if a newline had been typed. The default value of comment-begin causes this com‐ mand to make the current line a shell comment. If a numeric argument causes the comment character to be removed, the line will be executed by the shell. glob-complete-word (M-g) The word before point is treated as a pattern for pathname expansion, with an asterisk implicitly appended. This pat‐ tern is used to generate a list of matching filenames for possible completions. glob-expand-word (C-x \*) The word before point is treated as a pattern for pathname expansion, and the list of matching filenames is inserted, replacing the word. If a numeric argument is supplied, an asterisk is appended before pathname expansion. glob-list-expansions (C-x g) The list of expansions that would have been generated by glob-expand-word is displayed, and the line is redrawn. If a numeric argument is supplied, an asterisk is appended before pathname expansion. dump-functions Print all of the functions and their key bindings to the readline output stream. If a numeric argument is supplied, the output is formatted in such a way that it can be made part of an inputrc file. dump-variables Print all of the settable readline variables and their val‐ ues to the readline output stream. If a numeric argument is supplied, the output is formatted in such a way that it can be made part of an inputrc file. dump-macros Print all of the readline key sequences bound to macros and the strings they output. If a numeric argument is sup‐ plied, the output is formatted in such a way that it can be made part of an inputrc file. display-shell-version (C-x C-v) Display version information about the current instance of bash.
 
-Programmable Completion
-When word completion is attempted for an argument to a command for
-which a completion specification (a compspec) has been defined
-using the complete builtin (see SHELL BUILTIN COMMANDS below), the
-programmable completion facilities are invoked.
+Programmable Completion When word completion is attempted for an argument to a command for which a completion specification (a compspec) has been defined using the complete builtin (see SHELL BUILTIN COMMANDS below), the programmable completion facilities are invoked.
 
        First, the command name is identified.  If the command word is the
        empty  string  (completion  attempted at the beginning of an empty
@@ -4263,16 +3470,7 @@ programmable completion facilities are invoked.
        }
        complete -D -F _completion_loader -o bashdefault -o default
 
-HISTORY
-When the -o history option to the set builtin is enabled, the
-shell provides access to the command history, the list of commands
-previously typed. The value of the HISTSIZE variable is used as
-the number of commands to save in a history list. The text of the
-last HISTSIZE commands (default 500) is saved. The shell stores
-each command in the history list prior to parameter and variable
-expansion (see EXPANSION above) but after history expansion is
-performed, subject to the values of the shell variables HISTIGNORE
-and HISTCONTROL.
+HISTORY When the -o history option to the set builtin is enabled, the shell provides access to the command history, the list of commands previously typed. The value of the HISTSIZE variable is used as the number of commands to save in a history list. The text of the last HISTSIZE commands (default 500) is saved. The shell stores each command in the history list prior to parameter and variable expansion (see EXPANSION above) but after history expansion is performed, subject to the values of the shell variables HISTIGNORE and HISTCONTROL.
 
        On startup, the history is initialized from the file named by  the
        variable  HISTFILE  (default  ~/.bash_history).  The file named by
@@ -4318,13 +3516,7 @@ and HISTCONTROL.
        description  of  the  shopt builtin below under SHELL BUILTIN COM‐
        MANDS for information on setting and unsetting shell options.
 
-HISTORY EXPANSION
-The shell supports a history expansion feature that is similar to
-the history expansion in csh. This section describes what syntax
-features are available. This feature is enabled by default for
-interactive shells, and can be disabled using the +H option to the
-set builtin command (see SHELL BUILTIN COMMANDS below). Non-
-interactive shells do not perform history expansion by default.
+HISTORY EXPANSION The shell supports a history expansion feature that is similar to the history expansion in csh. This section describes what syntax features are available. This feature is enabled by default for interactive shells, and can be disabled using the +H option to the set builtin command (see SHELL BUILTIN COMMANDS below). Non- interactive shells do not perform history expansion by default.
 
        History  expansions introduce words from the history list into the
        input stream, making it easy to repeat commands, insert the  argu‐
@@ -4375,10 +3567,7 @@ interactive shells do not perform history expansion by default.
        character  to  mark  history  timestamps  when writing the history
        file.
 
-Event Designators
-An event designator is a reference to a command line entry in the
-history list. Unless the reference is absolute, events are rela‐
-tive to the current position in the history list.
+Event Designators An event designator is a reference to a command line entry in the history list. Unless the reference is absolute, events are rela‐ tive to the current position in the history list.
 
        !      Start a history substitution, except  when  followed  by  a
               blank,  newline,  carriage return, = or ( (when the extglob
@@ -4401,13 +3590,7 @@ tive to the current position in the history list.
               ``!!:s/string1/string2/'' (see Modifiers below).
        !#     The entire command line typed so far.
 
-Word Designators
-Word designators are used to select desired words from the event.
-A : separates the event specification from the word designator.
-It may be omitted if the word designator begins with a ^, $, \*, -,
-or %. Words are numbered from the beginning of the line, with the
-first word being denoted by 0 (zero). Words are inserted into the
-current line separated by single spaces.
+Word Designators Word designators are used to select desired words from the event. A : separates the event specification from the word designator. It may be omitted if the word designator begins with a ^, $, \*, -, or %. Words are numbered from the beginning of the line, with the first word being denoted by 0 (zero). Words are inserted into the current line separated by single spaces.
 
        0 (zero)
               The zeroth word.  For the shell, this is the command word.
@@ -4428,9 +3611,7 @@ current line separated by single spaces.
        If  a  word designator is supplied without an event specification,
        the previous command is used as the event.
 
-Modifiers
-After the optional word designator, there may appear a sequence of
-one or more of the following modifiers, each preceded by a `:'.
+Modifiers After the optional word designator, there may appear a sequence of one or more of the following modifiers, each preceded by a `:'.
 
        h      Remove  a  trailing  filename  component,  leaving only the
               head.
@@ -4463,20 +3644,7 @@ one or more of the following modifiers, each preceded by a `:'.
        G      Apply the following `s' modifier once to each word  in  the
               event line.
 
-SHELL BUILTIN COMMANDS
-Unless otherwise noted, each builtin command documented in this
-section as accepting options preceded by - accepts -- to signify
-the end of the options. The :, true, false, and test/[ builtins
-do not accept options and do not treat -- specially. The exit,
-logout, return, break, continue, let, and shift builtins accept
-and process arguments beginning with - without requiring --.
-Other builtins that accept arguments but are not specified as
-accepting options interpret arguments beginning with - as invalid
-options and require -- to prevent this interpretation.
-: [arguments]
-No effect; the command does nothing beyond expanding argu‐
-ments and performing any specified redirections. The
-return status is zero.
+SHELL BUILTIN COMMANDS Unless otherwise noted, each builtin command documented in this section as accepting options preceded by - accepts -- to signify the end of the options. The :, true, false, and test/[ builtins do not accept options and do not treat -- specially. The exit, logout, return, break, continue, let, and shift builtins accept and process arguments beginning with - without requiring --. Other builtins that accept arguments but are not specified as accepting options interpret arguments beginning with - as invalid options and require -- to prevent this interpretation. : [arguments] No effect; the command does nothing beyond expanding argu‐ ments and performing any specified redirections. The return status is zero.
 
         .  filename [arguments]
        source filename [arguments]
@@ -6423,12 +5591,7 @@ return status is zero.
               127.   Otherwise,  the  return status is the exit status of
               the last process or job waited for.
 
-RESTRICTED SHELL
-If bash is started with the name rbash, or the -r option is sup‐
-plied at invocation, the shell becomes restricted. A restricted
-shell is used to set up an environment more controlled than the
-standard shell. It behaves identically to bash with the exception
-that the following are disallowed or not performed:
+RESTRICTED SHELL If bash is started with the name rbash, or the -r option is sup‐ plied at invocation, the shell becomes restricted. A restricted shell is used to set up an environment more controlled than the standard shell. It behaves identically to bash with the exception that the following are disallowed or not performed:
 
        -      changing directories with cd
 
@@ -6472,50 +5635,16 @@ that the following are disallowed or not performed:
        COMMAND  EXECUTION above), rbash turns off any restrictions in the
        shell spawned to execute the script.
 
-SEE ALSO
-Bash Reference Manual, Brian Fox and Chet Ramey
-The Gnu Readline Library, Brian Fox and Chet Ramey
-The Gnu History Library, Brian Fox and Chet Ramey
-Portable Operating System Interface (POSIX) Part 2: Shell and
-Utilities, IEEE --
-http://pubs.opengroup.org/onlinepubs/9699919799/
-http://tiswww.case.edu/~chet/bash/POSIX -- a description of posix
-mode
-sh(1), ksh(1), csh(1)
-emacs(1), vi(1)
-readline(3)
+SEE ALSO Bash Reference Manual, Brian Fox and Chet Ramey The Gnu Readline Library, Brian Fox and Chet Ramey The Gnu History Library, Brian Fox and Chet Ramey Portable Operating System Interface (POSIX) Part 2: Shell and Utilities, IEEE -- http://pubs.opengroup.org/onlinepubs/9699919799/ http://tiswww.case.edu/~chet/bash/POSIX -- a description of posix mode sh(1), ksh(1), csh(1) emacs(1), vi(1) readline(3)
 
-FILES
-/bin/bash
-The bash executable
-/etc/profile
-The systemwide initialization file, executed for login
-shells
-/etc/bash.bash_logout
-The systemwide login shell cleanup file, executed when a
-login shell exits
-~/.bash_profile
-The personal initialization file, executed for login shells
-~/.bashrc
-The individual per-interactive-shell startup file
-~/.bash_logout
-The individual login shell cleanup file, executed when a
-login shell exits
-~/.inputrc
-Individual readline initialization file
+FILES /bin/bash The bash executable /etc/profile The systemwide initialization file, executed for login shells /etc/bash.bash_logout The systemwide login shell cleanup file, executed when a login shell exits ~/.bash_profile The personal initialization file, executed for login shells ~/.bashrc The individual per-interactive-shell startup file ~/.bash_logout The individual login shell cleanup file, executed when a login shell exits ~/.inputrc Individual readline initialization file
 
-AUTHORS
-Brian Fox, Free Software Foundation
-bfox@gnu.org
+AUTHORS Brian Fox, Free Software Foundation bfox@gnu.org
 
        Chet Ramey, Case Western Reserve University
        chet.ramey@case.edu
 
-BUG REPORTS
-If you find a bug in bash, you should report it. But first, you
-should make sure that it really is a bug, and that it appears in
-the latest version of bash. The latest version is always avail‐
-able from ftp://ftp.gnu.org/pub/gnu/bash/.
+BUG REPORTS If you find a bug in bash, you should report it. But first, you should make sure that it really is a bug, and that it appears in the latest version of bash. The latest version is always avail‐ able from ftp://ftp.gnu.org/pub/gnu/bash/.
 
        Once you have determined that a bug actually exists, use the bash‐
        bug  command  to  submit a bug report.  If you have a fix, you are
@@ -6537,8 +5666,7 @@ able from ftp://ftp.gnu.org/pub/gnu/bash/.
        Comments  and  bug  reports  concerning this manual page should be
        directed to chet.ramey@case.edu.
 
-BUGS
-It's too big and too slow.
+BUGS It's too big and too slow.
 
        There are some subtle differences  between  bash  and  traditional
        versions of sh, mostly because of the POSIX specification.

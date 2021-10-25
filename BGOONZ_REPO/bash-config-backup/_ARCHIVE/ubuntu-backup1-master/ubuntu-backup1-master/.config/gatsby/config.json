@@ -1,0 +1,15 @@
+{
+  "telemetry": {
+    "machineId": "f73a3d74-1f0d-4f56-95c6-8399ab1a8772",
+    "enabled": true
+  },
+  "cli": {
+    "packageManager": "npm"
+  },
+  "lastExperimentNotice": {
+    "Preserve webpack's Cache": 1618208839607
+  },
+  "feedback": {
+    "firstCheckDate": 1618211843885
+  }
+}

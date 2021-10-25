@@ -23,8 +23,7 @@ You can use Emmet in two ways:
 
 ### Generating HTML 5 DOCTYPE
 
-`html:5`
-Will generate
+`html:5` Will generate
 
 ```HTML
 <!DOCTYPE html>
@@ -158,8 +157,7 @@ Attributes can be added using `[]`
 
 ### Numbering
 
-Numbering can be done using `$`
-You can use this inside tag or contents.
+Numbering can be done using `$` You can use this inside tag or contents.
 
 `h${This is so awesome $}*6`
 

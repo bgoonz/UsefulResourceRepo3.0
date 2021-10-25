@@ -6,7 +6,7 @@ Write a function reverseString(str) that takes in a string. The function should 
 
 ```js
 function reverseString(str) {
-  let newStr = "";
+  let newStr = '';
   for (let i = str.length - 1; i > -1; i--) {
     newStr += str[i];
   }
@@ -84,12 +84,12 @@ Write a function initials(name) that accepts a full name as an arg. The function
 
 ```js
 function initials(name) {
-  let arr = name.split(" ");
+  let arr = name.split(' ');
   let initials = [];
   for (let i = 0; i < arr.length; i++) {
     initials.push(arr[i][0]);
   }
-  return initials.join("").toUpperCase();
+  return initials.join('').toUpperCase();
 }
 ```
 
@@ -152,7 +152,7 @@ Vowels are the letters "a", "e", "i", "o", "u".
 
 ```js
 function countVowels(word) {
-  const VOWEL = "aeiou";
+  const VOWEL = 'aeiou';
   let count = 0;
   for (let i = 0; i < word.length; i++) {
     if (VOWEL.indexOf(word[i]) > -1) {
@@ -171,7 +171,7 @@ Write a function hasVowel(str) that takes in a string. The function should retur
 
 ```js
 function hasVowel(str) {
-  const VOWEL = "aeiou";
+  const VOWEL = 'aeiou';
   for (let i = 0; i < str.length; i++) {
     if (VOWEL.indexOf(str[i]) > -1) {
       return true;
@@ -189,15 +189,7 @@ Write a function oddNumbers(min, max) that takes in two numbers as args. The fun
 
 Define this function using function expression syntax.
 
-let oddNumbers = function (min, max) {
-let result = [];
-for (let i = min + 1; i < max; i++) {
-if (Math.abs(i % 2) === 1) {
-result.push(i);
-}
-}
-return result;
-};
+let oddNumbers = function (min, max) { let result = []; for (let i = min + 1; i < max; i++) { if (Math.abs(i % 2) === 1) { result.push(i); } } return result; };
 
 ````
 * * * * *
@@ -226,7 +218,7 @@ Write a function firstVowel(str) that takes in a string and returns the first vo
 
 ```js
 function firstVowel(str) {
-  const VOWEL = "aeiou";
+  const VOWEL = 'aeiou';
   str = str.toLowerCase(); // for edge cases
   for (let i = 0; i < str.length; i++) {
     if (VOWEL.indexOf(str[i]) > -1) {
@@ -245,13 +237,7 @@ Write a function evenNumbers(max) that takes in a number as an arg. The function
 
 Define this function using function expression syntax.
 
-let evenNumbers = function (max) {
-let result = [];
-for (let i = 2; i < max; i += 2) {
-result.push(i);
-}
-return result;
-};
+let evenNumbers = function (max) { let result = []; for (let i = 2; i < max; i += 2) { result.push(i); } return result; };
 
 ````
 * * * * *
@@ -282,7 +268,7 @@ Hint: You may find the String#toLowerCase or String#toUpperCase methods useful
 ```js
 function lastVowel(str) {
   let newStr = str.toLowerCase();
-  const VOWEL = "aeiou";
+  const VOWEL = 'aeiou';
   for (let i = str.length - 1; i > -1; i--) {
     if (VOWEL.indexOf(newStr[i]) > -1) {
       return str[i];
@@ -318,12 +304,12 @@ Write a function removeLastVowel(word) that takes in a string and returns the st
 
 ```js
 function removeLastVowel(word) {
-  const VOWEL = "aeiou";
-  let wordArr = word.split("");
+  const VOWEL = 'aeiou';
+  let wordArr = word.split('');
   for (let i = wordArr.length - 1; i > -1; i--) {
     if (VOWEL.indexOf(wordArr[i]) > -1) {
       wordArr.splice(i, 1);
-      return wordArr.join("");
+      return wordArr.join('');
     }
   }
   return word;
@@ -451,11 +437,11 @@ Hint: Remember the String#includes method!
 
 ```js
 function pigLatinWord(word) {
-  const VOWEL = "aeiou";
-  if (VOWEL.indexOf(word[0]) > -1) return word + "yay";
+  const VOWEL = 'aeiou';
+  if (VOWEL.indexOf(word[0]) > -1) return word + 'yay';
   for (let i = 0; i < word.length; i++) {
     if (VOWEL.indexOf(word[i]) > -1) {
-      return word.slice(i) + word.slice(0, i) + "ay";
+      return word.slice(i) + word.slice(0, i) + 'ay';
     }
   }
 }

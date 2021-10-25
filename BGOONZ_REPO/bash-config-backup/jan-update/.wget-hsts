@@ -1,0 +1,29 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+id.atlassian.com	0	0	1609931139	63072000
+mkvtoolnix.download	0	0	1610508095	63072000
+docs.emmet.io	0	0	1610586770	15768000
+github.com	0	1	1610725096	31536000
+www.atlassian.com	0	0	1610917053	63072000
+zulip.com	0	0	1610070777	15768000
+nickguner.atlassian.net	0	1	1609931139	315360000
+packages.microsoft.com	0	1	1608176460	31536000
+developer.mozilla.org	0	0	1608783412	63072000
+www.vickielasher.com	0	0	1610440446	120
+www.postgresql.org	0	0	1610146845	31536000
+www.facebook.com	0	0	1610753995	15552000
+update.code.visualstudio.com	0	0	1607740069	31536000
+medium.com	0	1	1609977104	15552000
+blobserve.ws-us03.gitpod.io	0	0	1609485381	31557600
+timmyomahony.com	0	1	1609823220	63072000
+en.wikipedia.org	0	1	1610586771	106384710
+www.instagram.com	0	0	1610094569	31536000
+pierre.io	0	0	1609822973	31536000
+www.strchr.com	0	1	1610585846	86400
+victoria.dev	0	0	1610963814	31556952
+fa71dcae-f502-45c0-a64e-4c0c6c6beedd.ws-us03.gitpod.io	0	0	1609485381	31557600
+bryanguner.wixsite.com	0	0	1610441611	120
+dc84e733-2a6e-497b-96cc-1001db8e9c10.ws-us03.gitpod.io	0	0	1609587028	31557600
+www.beamjobs.com	0	0	1610724680	31536000
+raw.githubusercontent.com	0	0	1610724999	31536000

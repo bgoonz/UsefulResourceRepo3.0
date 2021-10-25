@@ -1,0 +1,16 @@
+* {
+  resize: both;
+  width: 97%;
+  margin: auto;
+}
+iframe {
+  resize: both;
+  border: 4px solid gold;
+  box-shadow: 2px gold;
+}
+h1 {
+  color: red;
+  font-weight: 900;
+  font-size: xx-large;
+  font-family: "Gill Sans Extrabold", sans-serif;
+}

@@ -1,0 +1,5 @@
+{
+  "messages": ["Node Debug Console"],
+  "keys": ["node.console.title"],
+  "filePath": "targets/node/terminalProgramLauncher"
+}

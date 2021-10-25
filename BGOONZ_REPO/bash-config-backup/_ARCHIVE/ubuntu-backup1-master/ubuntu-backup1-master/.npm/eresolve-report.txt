@@ -1,0 +1,483 @@
+# npm resolution error report
+
+2021-03-29T18:28:58.216Z
+
+Found: @babel/core@7.4.3
+node_modules/@babel/core
+  @babel/core@"7.4.3" from react-scripts@3.0.1
+  node_modules/react-scripts
+    react-scripts@"3.0.1" from the root project
+  @babel/core@"^7.1.6" from @svgr/webpack@4.1.0
+  node_modules/@svgr/webpack
+    @svgr/webpack@"4.1.0" from react-scripts@3.0.1
+    node_modules/react-scripts
+      react-scripts@"3.0.1" from the root project
+  peer @babel/core@"^7.0.0" from babel-jest@24.9.0
+  node_modules/babel-jest
+    babel-jest@"^24.8.0" from react-scripts@3.0.1
+    node_modules/react-scripts
+      react-scripts@"3.0.1" from the root project
+  peer @babel/core@"^7.0.0" from babel-loader@8.0.5
+  node_modules/babel-loader
+    babel-loader@"8.0.5" from react-scripts@3.0.1
+    node_modules/react-scripts
+      react-scripts@"3.0.1" from the root project
+  peer @babel/core@"^7.1.0" from babel-plugin-named-asset-import@0.3.7
+  node_modules/babel-plugin-named-asset-import
+    babel-plugin-named-asset-import@"^0.3.2" from react-scripts@3.0.1
+    node_modules/react-scripts
+      react-scripts@"3.0.1" from the root project
+  peer @babel/core@"^7.0.0-0" from @babel/plugin-transform-react-constant-elements@7.13.13
+  node_modules/@babel/plugin-transform-react-constant-elements
+    @babel/plugin-transform-react-constant-elements@"^7.0.0" from @svgr/webpack@4.1.0
+    node_modules/@svgr/webpack
+      @svgr/webpack@"4.1.0" from react-scripts@3.0.1
+      node_modules/react-scripts
+        react-scripts@"3.0.1" from the root project
+  peer @babel/core@"^7.0.0-0" from @babel/preset-env@7.13.12
+  node_modules/@babel/preset-env
+    @babel/preset-env@"^7.1.6" from @svgr/webpack@4.1.0
+    node_modules/@svgr/webpack
+      @svgr/webpack@"4.1.0" from react-scripts@3.0.1
+      node_modules/react-scripts
+        react-scripts@"3.0.1" from the root project
+  peer @babel/core@"^7.0.0-0" from @babel/preset-react@7.13.13
+  node_modules/@babel/preset-react
+    @babel/preset-react@"^7.0.0" from @svgr/webpack@4.1.0
+    node_modules/@svgr/webpack
+      @svgr/webpack@"4.1.0" from react-scripts@3.0.1
+      node_modules/react-scripts
+        react-scripts@"3.0.1" from the root project
+  peer @babel/core@"^7.0.0" from @babel/helper-compilation-targets@7.13.13
+  node_modules/@babel/helper-compilation-targets
+    @babel/helper-compilation-targets@"^7.13.10" from @babel/preset-env@7.13.12
+    node_modules/@babel/preset-env
+      @babel/preset-env@"^7.1.6" from @svgr/webpack@4.1.0
+      node_modules/@svgr/webpack
+        @svgr/webpack@"4.1.0" from react-scripts@3.0.1
+        node_modules/react-scripts
+          react-scripts@"3.0.1" from the root project
+
+Could not resolve dependency:
+peer @babel/core@"^7.13.0" from @babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@7.13.12
+node_modules/@babel/preset-env/node_modules/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining
+  @babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining@"^7.13.12" from @babel/preset-env@7.13.12
+  node_modules/@babel/preset-env
+    @babel/preset-env@"^7.1.6" from @svgr/webpack@4.1.0
+    node_modules/@svgr/webpack
+      @svgr/webpack@"4.1.0" from react-scripts@3.0.1
+      node_modules/react-scripts
+        react-scripts@"3.0.1" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force, or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.
+
+Raw JSON explanation object:
+
+{
+  "code": "ERESOLVE",
+  "current": {
+    "name": "@babel/core",
+    "version": "7.4.3",
+    "location": "node_modules/@babel/core",
+    "dependents": [
+      {
+        "type": "prod",
+        "name": "@babel/core",
+        "spec": "7.4.3",
+        "from": {
+          "name": "react-scripts",
+          "version": "3.0.1",
+          "location": "node_modules/react-scripts",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "react-scripts",
+              "spec": "3.0.1",
+              "from": {
+                "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "prod",
+        "name": "@babel/core",
+        "spec": "^7.1.6",
+        "from": {
+          "name": "@svgr/webpack",
+          "version": "4.1.0",
+          "location": "node_modules/@svgr/webpack",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@svgr/webpack",
+              "spec": "4.1.0",
+              "from": {
+                "name": "react-scripts",
+                "version": "3.0.1",
+                "location": "node_modules/react-scripts",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "react-scripts",
+                    "spec": "3.0.1",
+                    "from": {
+                      "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@babel/core",
+        "spec": "^7.0.0",
+        "from": {
+          "name": "babel-jest",
+          "version": "24.9.0",
+          "location": "node_modules/babel-jest",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "babel-jest",
+              "spec": "^24.8.0",
+              "from": {
+                "name": "react-scripts",
+                "version": "3.0.1",
+                "location": "node_modules/react-scripts",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "react-scripts",
+                    "spec": "3.0.1",
+                    "from": {
+                      "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@babel/core",
+        "spec": "^7.0.0",
+        "from": {
+          "name": "babel-loader",
+          "version": "8.0.5",
+          "location": "node_modules/babel-loader",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "babel-loader",
+              "spec": "8.0.5",
+              "from": {
+                "name": "react-scripts",
+                "version": "3.0.1",
+                "location": "node_modules/react-scripts",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "react-scripts",
+                    "spec": "3.0.1",
+                    "from": {
+                      "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@babel/core",
+        "spec": "^7.1.0",
+        "from": {
+          "name": "babel-plugin-named-asset-import",
+          "version": "0.3.7",
+          "location": "node_modules/babel-plugin-named-asset-import",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "babel-plugin-named-asset-import",
+              "spec": "^0.3.2",
+              "from": {
+                "name": "react-scripts",
+                "version": "3.0.1",
+                "location": "node_modules/react-scripts",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "react-scripts",
+                    "spec": "3.0.1",
+                    "from": {
+                      "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@babel/core",
+        "spec": "^7.0.0-0",
+        "from": {
+          "name": "@babel/plugin-transform-react-constant-elements",
+          "version": "7.13.13",
+          "location": "node_modules/@babel/plugin-transform-react-constant-elements",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@babel/plugin-transform-react-constant-elements",
+              "spec": "^7.0.0",
+              "from": {
+                "name": "@svgr/webpack",
+                "version": "4.1.0",
+                "location": "node_modules/@svgr/webpack",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@svgr/webpack",
+                    "spec": "4.1.0",
+                    "from": {
+                      "name": "react-scripts",
+                      "version": "3.0.1",
+                      "location": "node_modules/react-scripts",
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "react-scripts",
+                          "spec": "3.0.1",
+                          "from": {
+                            "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@babel/core",
+        "spec": "^7.0.0-0",
+        "from": {
+          "name": "@babel/preset-env",
+          "version": "7.13.12",
+          "location": "node_modules/@babel/preset-env",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@babel/preset-env",
+              "spec": "^7.1.6",
+              "from": {
+                "name": "@svgr/webpack",
+                "version": "4.1.0",
+                "location": "node_modules/@svgr/webpack",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@svgr/webpack",
+                    "spec": "4.1.0",
+                    "from": {
+                      "name": "react-scripts",
+                      "version": "3.0.1",
+                      "location": "node_modules/react-scripts",
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "react-scripts",
+                          "spec": "3.0.1",
+                          "from": {
+                            "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@babel/core",
+        "spec": "^7.0.0-0",
+        "from": {
+          "name": "@babel/preset-react",
+          "version": "7.13.13",
+          "location": "node_modules/@babel/preset-react",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@babel/preset-react",
+              "spec": "^7.0.0",
+              "from": {
+                "name": "@svgr/webpack",
+                "version": "4.1.0",
+                "location": "node_modules/@svgr/webpack",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@svgr/webpack",
+                    "spec": "4.1.0",
+                    "from": {
+                      "name": "react-scripts",
+                      "version": "3.0.1",
+                      "location": "node_modules/react-scripts",
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "react-scripts",
+                          "spec": "3.0.1",
+                          "from": {
+                            "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "type": "peer",
+        "name": "@babel/core",
+        "spec": "^7.0.0",
+        "from": {
+          "name": "@babel/helper-compilation-targets",
+          "version": "7.13.13",
+          "location": "node_modules/@babel/helper-compilation-targets",
+          "dependents": [
+            {
+              "type": "prod",
+              "name": "@babel/helper-compilation-targets",
+              "spec": "^7.13.10",
+              "from": {
+                "name": "@babel/preset-env",
+                "version": "7.13.12",
+                "location": "node_modules/@babel/preset-env",
+                "dependents": [
+                  {
+                    "type": "prod",
+                    "name": "@babel/preset-env",
+                    "spec": "^7.1.6",
+                    "from": {
+                      "name": "@svgr/webpack",
+                      "version": "4.1.0",
+                      "location": "node_modules/@svgr/webpack",
+                      "dependents": [
+                        {
+                          "type": "prod",
+                          "name": "@svgr/webpack",
+                          "spec": "4.1.0",
+                          "from": {
+                            "name": "react-scripts",
+                            "version": "3.0.1",
+                            "location": "node_modules/react-scripts",
+                            "dependents": [
+                              {
+                                "type": "prod",
+                                "name": "react-scripts",
+                                "spec": "3.0.1",
+                                "from": {
+                                  "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                                }
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      }
+    ]
+  },
+  "edge": {
+    "type": "peer",
+    "name": "@babel/core",
+    "spec": "^7.13.0",
+    "error": "INVALID",
+    "from": {
+      "name": "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining",
+      "version": "7.13.12",
+      "location": "node_modules/@babel/preset-env/node_modules/@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining",
+      "dependents": [
+        {
+          "type": "prod",
+          "name": "@babel/plugin-bugfix-v8-spread-parameters-in-optional-chaining",
+          "spec": "^7.13.12",
+          "from": {
+            "name": "@babel/preset-env",
+            "version": "7.13.12",
+            "location": "node_modules/@babel/preset-env",
+            "dependents": [
+              {
+                "type": "prod",
+                "name": "@babel/preset-env",
+                "spec": "^7.1.6",
+                "from": {
+                  "name": "@svgr/webpack",
+                  "version": "4.1.0",
+                  "location": "node_modules/@svgr/webpack",
+                  "dependents": [
+                    {
+                      "type": "prod",
+                      "name": "@svgr/webpack",
+                      "spec": "4.1.0",
+                      "from": {
+                        "name": "react-scripts",
+                        "version": "3.0.1",
+                        "location": "node_modules/react-scripts",
+                        "dependents": [
+                          {
+                            "type": "prod",
+                            "name": "react-scripts",
+                            "spec": "3.0.1",
+                            "from": {
+                              "location": "/mnt/c/MY-WEB-DEV/10-React-V3/react-translator"
+                            }
+                          }
+                        ]
+                      }
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    }
+  },
+  "peerConflict": null,
+  "strictPeerDeps": false,
+  "force": false
+}

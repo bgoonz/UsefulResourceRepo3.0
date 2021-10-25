@@ -1,0 +1,50 @@
+body {
+  font-family: Georgia, sans-serif;
+
+  h1 {
+    text-align: center;
+  }
+
+  details {
+    background: whitesmoke;
+
+    summary {
+      cursor: pointer;
+    }
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  img,
+  details > svg {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
+#pdfs {
+  input {
+    display: none;
+  }
+
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 2em;
+
+  font-size: 2em;
+  text-align: center;
+  color: white;
+  background: dodgerblue;
+  border: 0.25em dashed lightskyblue;
+
+  cursor: pointer;
+}
+
+svg {
+  image {
+    cursor: pointer;
+  }
+}

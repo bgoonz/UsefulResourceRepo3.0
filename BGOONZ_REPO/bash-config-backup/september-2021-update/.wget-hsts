@@ -1,0 +1,34 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+fontawesome.com	0	1	1629505450	31536000
+hostingfacts.com	0	1	1629505434	31536000
+tools.analog.com	0	1	1631139238	63072000
+clickhelp.com	0	0	1629505611	31536000
+policy.medium.com	0	1	1629505365	15552000
+bradley-nice.medium.com	0	1	1629505368	15552000
+devdocs.io	0	1	1629304475	31536000
+bootcamp42.gitbook.io	0	1	1629313142	31536000
+websitesetup.org	0	1	1629505371	31536000
+spark.adobe.com	0	1	1629271236	31536000
+webdevhub42.notion.site	0	1	1630553338	5184000
+careers.analog.com	0	0	1631117169	31536000
+update.code.visualstudio.com	0	0	1621069350	31536000
+www.analog.com	0	1	1631148933	31536000
+golden-lobe-519.notion.site	0	1	1630753746	5184000
+everything.curl.dev	0	1	1630392889	31536000
+medium.com	0	1	1629505363	15552000
+www.hostinger.com	0	0	1629505434	2592000
+www.giovanniscala.com	0	0	1629505463	31536000
+bgoonz42.gitbook.io	0	1	1631119332	31536000
+oscarotero.com	0	1	1629505453	31536000
+api.github.com	0	1	1630672230	31536000
+gist.githubusercontent.com	0	0	1630672232	31536000
+wiki.analog.com	0	1	1631117162	63072000
+medium-4.gitbook.io	0	1	1629878285	31536000
+ez.analog.com	0	1	1631125929	31536000
+investor.analog.com	0	0	1631125912	15768000
+www.notion.so	0	1	1630553440	5184000
+form.analog.com	0	1	1631126511	31536000
+bryan-guner.gitbook.io	0	1	1629874980	31536000
+www.python.org	0	1	1621072240	63072000

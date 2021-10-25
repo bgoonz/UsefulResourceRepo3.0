@@ -1,0 +1,16 @@
+{
+  "telemetryDisabled": false,
+  "cliId": "b8fd95ed-bfe0-4b77-9ae8-bc18de9649da",
+  "userId": "5fced560c3f9090119601b2a",
+  "users": {
+    "5fced560c3f9090119601b2a": {
+      "id": "5fced560c3f9090119601b2a",
+      "name": "Bryan",
+      "email": "bryan.guner@gmail.com",
+      "auth": {
+        "token": "YRz6UITMDfj7DfM7t5g-dqPZBDNH6R4KqEcekmzER28",
+        "github": {}
+      }
+    }
+  }
+}

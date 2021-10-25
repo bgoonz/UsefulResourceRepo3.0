@@ -688,9 +688,9 @@ This command will generate a file in your root folder called `knexfile.js`. It 
 ```js
 module.exports = {
   development: {
-    client: "sqlite3",
+    client: 'sqlite3',
     connection: {
-      filename: "./dev.sqlite3",
+      filename: './dev.sqlite3',
     },
   },
 };
@@ -702,10 +702,10 @@ We'll need to update the location (or desired location) of the database as well 
 module.exports = {
   development: {
     // our DBMS driver
-    client: "sqlite3",
+    client: 'sqlite3',
     // the location of our db
     connection: {
-      filename: "./data/database_file.db3",
+      filename: './data/database_file.db3',
     },
     // necessary when using sqlite3
     useNullAsDefault: true,
@@ -716,9 +716,9 @@ module.exports = {
 Now, wherever we configure our database, we may use the following syntax instead of hardcoding in a config object.
 
 ```js
-const knex = require("knex");
+const knex = require('knex');
 
-const config = require("../knexfile.js");
+const config = require('../knexfile.js');
 
 // we must select the development object from our knexfile
 const db = knex(config.development);
@@ -760,19 +760,19 @@ The migration file should have both an `up` and a `down` function. Within th
 ```js
 exports.up = function (knex, Promise) {
   // don't forget the return statement
-  return knex.schema.createTable("accounts", (tbl) => {
+  return knex.schema.createTable('accounts', (tbl) => {
     // creates a primary key called id
     tbl.increments();
     // creates a text field called name which is both required and unique
-    tbl.text("name", 128).unique().notNullable();
+    tbl.text('name', 128).unique().notNullable();
     // creates a numeric field called budget which is required
-    tbl.decimal("budget").notNullable();
+    tbl.decimal('budget').notNullable();
   });
 };
 
 exports.down = function (knex, Promise) {
   // drops the entire table
-  return knex.schema.dropTableIfExists("accounts");
+  return knex.schema.dropTableIfExists('accounts');
 };
 ```
 
@@ -843,13 +843,13 @@ A file will appear in the designated seed folder.
 exports.seed = function (knex, Promise) {
   // we want to remove all data before seeding
   // truncate will reset the primary key each time
-  return knex("accounts")
+  return knex('accounts')
     .truncate()
     .then(function () {
       // add data into insert
-      return knex("accounts").insert([
-        { name: "Stephenson", budget: 10000 },
-        { name: "Gordon & Gale", budget: 40400 },
+      return knex('accounts').insert([
+        { name: 'Stephenson', budget: 10000 },
+        { name: 'Gordon & Gale', budget: 40400 },
       ]);
     });
 };
@@ -923,9 +923,9 @@ There are several ways of writing joins, but the one shown here should work on a
 The syntax for performing a similar join using Knex is as follows:
 
 ```js
-db("employees as e")
-  .join("departments as d", "e.department_id", "d.id")
-  .select("d.id", "d.name", "e.first_name", "e.last_name", "e.salary");
+db('employees as e')
+  .join('departments as d', 'e.department_id', 'd.id')
+  .select('d.id', 'd.name', 'e.first_name', 'e.last_name', 'e.salary');
 ```
 
 ## **Follow Along**
@@ -1067,7 +1067,7 @@ Each of these functions would use Knex logic to perform the necessary database 
 
 ```js
 function find() {
-  return db("users");
+  return db('users');
 }
 ```
 
@@ -1084,7 +1084,7 @@ We can also use existing methods like `findById()` to help `add()` return th
 
 ```js
 function add(user) {
-  db("users")
+  db('users')
     .insert(user)
     .then((ids) => {
       return findById(ids[0]);
@@ -1284,22 +1284,22 @@ Let's look at how we might track our `farms` and `ranchers` using Knex. In o
 exports.up = function (knex, Promise) {
   return (
     knex.schema
-      .createTable("farms", (tbl) => {
+      .createTable('farms', (tbl) => {
         tbl.increments();
-        tbl.string("farm_name", 128).notNullable();
+        tbl.string('farm_name', 128).notNullable();
       })
       // we can chain together createTable
-      .createTable("ranchers", (tbl) => {
+      .createTable('ranchers', (tbl) => {
         tbl.increments();
-        tbl.string("rancher_name", 128);
+        tbl.string('rancher_name', 128);
         tbl
-          .integer("farm_id")
+          .integer('farm_id')
           // forces integer to be positive
           .unsigned()
           .notNullable()
-          .references("id")
+          .references('id')
           // this table must exist already
-          .inTable("farms");
+          .inTable('farms');
       })
   );
 };
@@ -1312,7 +1312,7 @@ In the down function, the opposite is true. We always want to drop a table with 
 ```js
 exports.down = function (knex, Promise) {
   // drop in the opposite order
-  return knex.schema.dropTableIfExists("ranchers").dropTableIfExists("farms");
+  return knex.schema.dropTableIfExists('ranchers').dropTableIfExists('farms');
 };
 ```
 

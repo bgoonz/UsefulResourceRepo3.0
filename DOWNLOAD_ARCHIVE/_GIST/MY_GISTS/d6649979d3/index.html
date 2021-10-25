@@ -1,0 +1,50 @@
+<script>
+  console.clear();
+</script>
+<script src="https://unpkg.com/pdfjs-dist@2/build/pdf.js"></script>
+<script src="https://unpkg.com/pdfjs-dist@2/build/pdf.worker.js"></script>
+<script src="https://unpkg.com/vue@2"></script>
+<script src="https://unpkg.com/abo-utils@0.3"></script>
+
+<script type="text/x-template" id="templ-page">
+  <div>
+      <details v-if="p.svg.doc" @click="handleSVG" ref="svgContainer">
+          <summary>Page {{p.number}} (click for SVG rendered version)</summary>
+      </details>
+      <h4 v-else>Page {{p.number}}</h4>
+      <ul>
+          <li v-for="image in p.images">
+              <figure>
+                  <a :href="image.url" :download="image.name"><img :src="image.url" :alt="image.name"></a>
+                  <figcaption>{{image.name}}</figcaption>
+              </figure>
+          </li>
+      </ul>
+  </div>
+</script>
+
+<header>
+  <h1>Extract PDF images</h1>
+</header>
+
+<main id="app">
+  <label id="pdfs">
+    <input type="file" multiple :accept="mime" />
+    <span>Open PDFs</span>
+  </label>
+
+  <h2 v-if="docs.length">(Click the images to download)</h2>
+
+  <section v-for="doc in docs">
+    <h3>{{doc.name}}</h3>
+    <ul>
+      <li v-for="page in doc.pages">
+        <page :p="page" />
+      </li>
+    </ul>
+  </section>
+  <pre>
+    {{ /* docs */ }}
+    </pre
+  >
+</main>

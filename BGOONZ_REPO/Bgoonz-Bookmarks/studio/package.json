@@ -1,0 +1,26 @@
+{
+  "name": "superb-celery-8533b-studio",
+  "private": true,
+  "version": "1.0.0",
+  "scripts": {
+    "start": "sanity start",
+    "deploy": "sanity deploy",
+    "clean": "rm -rf node_modules && rm -rf dist",
+    "test": "sanity check"
+  },
+  "dependencies": {
+    "@sanity/base": "2.21.4",
+    "@sanity/components": "2.14.0",
+    "@sanity/core": "2.21.4",
+    "@sanity/default-layout": "2.21.4",
+    "@sanity/default-login": "2.21.4",
+    "@sanity/desk-tool": "2.21.4",
+    "prop-types": "15.7.2",
+    "react": "16.14.0",
+    "react-dom": "16.14.0",
+    "@sanity/cli": "2.21.4",
+    "@sanity/color-input": "2.21.4",
+    "sanity-plugin-markdown": "2.0.3"
+  },
+  "devDependencies": {}
+}

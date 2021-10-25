@@ -1,0 +1,12 @@
+[user]
+	name = bryan
+	email = bryan.guner@gmail.com
+	signingkey = 6D9FA68D68E977E5
+[credential]
+	helper = /mnt/c/Program\\ Files/Git/mingw64/libexec/git-core/git-credential-manager.exe
+[http]
+	postBuffer = 957286400
+[commit]
+	gpgsign = true
+[gpg]
+	program =C:/Program Files/Git/usr/bin/gpg.exe

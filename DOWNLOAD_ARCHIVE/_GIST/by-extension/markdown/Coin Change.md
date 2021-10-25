@@ -6,8 +6,7 @@ Given a value `N`, if we want to make change for `N` cents, and we have infinite
 
 #### Approach
 
-Let the `dp[i]` be the length of the coin change of prefix `N[1..i]`. Our answer is `dp[N]`.
-We fill `dp[0]` as 1 because there is only one way to get 0 coins (We pick no coins).
+Let the `dp[i]` be the length of the coin change of prefix `N[1..i]`. Our answer is `dp[N]`. We fill `dp[0]` as 1 because there is only one way to get 0 coins (We pick no coins).
 
 Now let's try calculate `dp[i]` for any `i`. `dp[0..i]` will store each sub problems from `0` to `N`. That's why the answer will be `dp[N]`. First, we need to iterate each coin types to pick them one-by-one. Then we iterate the sub problems from current coin that we pick before to `N` cents. That's why we must make dp table with `N` columns.
 

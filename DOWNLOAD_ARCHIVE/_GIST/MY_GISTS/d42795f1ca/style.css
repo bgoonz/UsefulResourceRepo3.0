@@ -1,0 +1,14 @@
+h3,
+a,
+p {
+  color: #1f2124;
+}
+h4 {
+  font-size: 1rem !important;
+  line-height: 1rem;
+}
+
+iframe {
+  height: 1200px;
+  width: 100%;
+}

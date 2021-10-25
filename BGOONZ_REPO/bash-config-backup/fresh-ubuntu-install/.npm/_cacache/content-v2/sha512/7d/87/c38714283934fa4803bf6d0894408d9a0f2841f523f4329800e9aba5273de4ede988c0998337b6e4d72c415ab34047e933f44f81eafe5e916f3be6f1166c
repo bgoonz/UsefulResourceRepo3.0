@@ -1,0 +1,1 @@
+{"name":"fast-bind","dist-tags":{"latest":"1.0.0"},"versions":{"1.0.0":{"name":"fast-bind","version":"1.0.0","devDependencies":{"benchmark":"^1.0.0","expect":"^0.1.1","microtime":"^1.0.1","mocha":"^2.0.1"},"dist":{"shasum":"7fa9652cb3325f5cd1e252d6cb4f160de1a76e75","tarball":"https://registry.npmjs.org/fast-bind/-/fast-bind-1.0.0.tgz"}}},"modified":"2014-11-03T18:31:14.072Z"}

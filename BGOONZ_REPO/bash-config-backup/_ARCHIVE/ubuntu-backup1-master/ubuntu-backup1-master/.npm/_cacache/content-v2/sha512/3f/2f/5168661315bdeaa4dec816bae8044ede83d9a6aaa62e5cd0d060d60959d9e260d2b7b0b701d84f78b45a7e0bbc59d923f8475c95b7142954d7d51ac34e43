@@ -1,0 +1,1 @@
+{"name":"the-argv","dist-tags":{"latest":"1.0.0"},"versions":{"1.0.0":{"name":"the-argv","version":"1.0.0","devDependencies":{"tape":"^4.0.3","xo":"^0.5.2"},"dist":{"shasum":"0084705005730dd84db755253c931ae398db9522","tarball":"https://registry.npmjs.org/the-argv/-/the-argv-1.0.0.tgz"}}},"modified":"2017-05-22T14:20:31.297Z"}

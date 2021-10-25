@@ -1,0 +1,7 @@
+# HSTS 1.0 Known Hosts database for GNU Wget.
+# Edit at your own risk.
+# <hostname>	<port>	<incl. subdomains>	<created>	<max-age>
+update.code.visualstudio.com	0	0	1621069350	31536000
+www.python.org	0	1	1621072240	63072000
+golden-lobe-519.notion.site	0	1	1629198774	5184000
+spark.adobe.com	0	1	1629271236	31536000

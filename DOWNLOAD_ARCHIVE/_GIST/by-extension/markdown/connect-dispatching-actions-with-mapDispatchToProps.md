@@ -152,18 +152,9 @@ Your `mapDispatchToProps` function should return a plain object:
 - Each field in the object will become a separate prop for your own component, and the value should normally be a function that dispatches an action when called.
 - If you use action creators ( as oppose to plain object actions ) inside `dispatch`, it is a convention to simply name the field key the same name as the action creator:
 
-  const increment = () => ({ type: 'INCREMENT' })
-  const decrement = () => ({ type: 'DECREMENT' })
-  const reset = () => ({ type: 'RESET' })
+  const increment = () => ({ type: 'INCREMENT' }) const decrement = () => ({ type: 'DECREMENT' }) const reset = () => ({ type: 'RESET' })
 
-  const mapDispatchToProps = (dispatch) => {
-  return {
-  // dispatching actions returned by action creators
-  increment: () => dispatch(increment()),
-  decrement: () => dispatch(decrement()),
-  reset: () => dispatch(reset()),
-  }
-  }
+  const mapDispatchToProps = (dispatch) => { return { // dispatching actions returned by action creators increment: () => dispatch(increment()), decrement: () => dispatch(decrement()), reset: () => dispatch(reset()), } }
 
 The return of the `mapDispatchToProps` function will be merged to your connected component as props. You may call them directly to dispatch its action.
 
@@ -254,8 +245,7 @@ Note that:
 - Each field of the `mapDispatchToProps` object is assumed to be an action creator
 - Your component will no longer receive `dispatch` as a prop
 
-  // React Redux does this for you automatically:
-  ;(dispatch) => bindActionCreators(mapDispatchToProps, dispatch)
+  // React Redux does this for you automatically: ;(dispatch) => bindActionCreators(mapDispatchToProps, dispatch)
 
 Therefore, our `mapDispatchToProps` can simply be:
 

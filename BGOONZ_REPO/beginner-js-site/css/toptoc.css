@@ -1,0 +1,102 @@
+#page {
+  flex-direction: column;
+  overflow: none;
+}
+
+#main {
+  flex: 1;
+  min-height: 0;
+}
+
+#toc {
+  background-color: inherit;
+  padding: 10px 0 0 0;
+  height: auto;
+  width: 100vw;
+  z-index: 10;
+  max-width: 100%;
+  flex-shrink: 0;
+  border: none;
+}
+
+#toc > ul {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+#toc::before {
+  position: absolute;
+  top: 16px;
+  left: 0;
+  right: 0;
+  content: " ";
+  height: 0;
+  border: 1px solid #EFEFEF;
+  z-index: 0;
+}
+
+#toc ul,
+#toc li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+#toc .slides {
+  padding: 0;
+}
+
+#toc > ul > .slide,
+#toc > ul > .chapter {
+  margin: 0;
+  padding: 0 20px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  z-index: 10;
+}
+
+#toc > ul > .chapter > .title {
+  color: #666;
+  font-size: 0.9em;
+  font-weight: normal;
+  margin-top: 2px;
+  text-align: center;
+}
+
+#toc > ul > .chapter > .slides {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+#toc .slide > a {
+  display: block;
+  background-color: #DDD;
+  width: 15px;
+  height: 15px;
+  border-radius: 100%;
+  outline: none;
+}
+
+#toc .slide.javascriptExercise > a {
+  background-color: #ffba3d
+}
+
+#toc .slide.javascriptExercise.error > a {
+  background-color: red;
+}
+
+#toc .slide.javascriptExercise.completed > a {
+  background-color: green;
+}
+
+#toc .slide.active > a {
+  background-color: #3c5bff;
+}
+
+#toc .slide .title {
+  display: none;
+}

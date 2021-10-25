@@ -1,6 +1,4 @@
-Pipes---
-1.Download the contents of "Harry Potter and the Goblet of fire" using the command line from here
-wget https://raw.githubusercontent.com/bobdeng/owlreader/master/ERead/assets/books/Harry%20Potter%20and%20the%20Goblet%20of%20Fire.txt
+Pipes--- 1.Download the contents of "Harry Potter and the Goblet of fire" using the command line from here wget https://raw.githubusercontent.com/bobdeng/owlreader/master/ERead/assets/books/Harry%20Potter%20and%20the%20Goblet%20of%20Fire.txt
 
 1. Print the first three lines in the book
 
@@ -12,8 +10,7 @@ wget https://raw.githubusercontent.com/bobdeng/owlreader/master/ERead/assets/boo
 
 5. How many unique words are present in the book?
 
-Processes, ports------
-1-List your browser's process ids (pid) and parent process ids(ppid)
+Processes, ports------ 1-List your browser's process ids (pid) and parent process ids(ppid)
 
 2-Stop the browser application from the command line
 
@@ -23,16 +20,13 @@ Processes, ports------
 
 5-Start a Python HTTP server on port 8000
 
-6- Open another tab. Stop the process you started in the previous step
-open another tab :-
-stop process:-
+6- Open another tab. Stop the process you started in the previous step open another tab :- stop process:-
 
 7-Start a Python HTTP server on port 90
 
 8- Display all active connections and the corresponding TCP / UDP ports.
 
-9- Find the pid of the process that is listening on port 5432
-start server:-  
+9- Find the pid of the process that is listening on port 5432 start server:-  
  find pid :-  
  stop server:-
 

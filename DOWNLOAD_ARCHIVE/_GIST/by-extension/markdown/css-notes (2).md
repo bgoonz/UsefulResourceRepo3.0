@@ -2,8 +2,7 @@
 
     - A CSS rule consists of a selector and curly braces around property-value combinations.
 
-1.  How to import other CSS files into your CSS file
-    How to link a stylesheet into an HTML page - css into css : with use of the `@import` tag!
+1.  How to import other CSS files into your CSS file How to link a stylesheet into an HTML page - css into css : with use of the `@import` tag!
 
         - css into html : by using the `link` HTML element.
             - The link element has to have the `rel` and `href` attributes configured like so:
@@ -38,15 +37,14 @@
 
       ```css
       a:hover {
-        font-family: "Roboto Condensed", sans-serif;
+        font-family: 'Roboto Condensed', sans-serif;
         color: #4fc3f7;
         text-decoration: none;
         border-bottom: 2px solid #4fc3f7;
       }
       ```
 
-    - The **not** pseudo-class selector:
-      html:
+    - The **not** pseudo-class selector: html:
 
       ```html
       <div class="hello">Hello</div>
@@ -78,7 +76,7 @@
       p::after {
         background-color: lightblue;
         border-right: 1px solid violet;
-        content: ":-D";
+        content: ':-D';
         margin-right: 4px;
         margin-left: 4px;
       }
@@ -226,8 +224,7 @@
 
 1. Explain how grid layout lays out elements
 
-   - Sections off your document into smaller sections that can be organized and customised via the
-     css grid layout properties.
+   - Sections off your document into smaller sections that can be organized and customised via the css grid layout properties.
 
 1. Explain and use the shorthand versions of `grid-column` and `grid-row` to define how an element will span a grid layout
 

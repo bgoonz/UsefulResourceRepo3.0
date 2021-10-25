@@ -4,7 +4,7 @@
 
 [Recommendations: 6](https://sureoak.websiteauditserver.com/bgoonz-blog.netlify.app#recommendation)
 
-[](https://sureoak.websiteauditserver.com/bgoonz-blog.netlify.app# "Screenshot-1")
+[](https://sureoak.websiteauditserver.com/bgoonz-blog.netlify.app# 'Screenshot-1')
 
 [On-Page SEO](https://sureoak.websiteauditserver.com/bgoonz-blog.netlify.app#seo)
 
@@ -173,18 +173,7 @@ Moz Domain Authority
 These are the highest value external pages we have found linking to your site.
 
 | Domain\
-Authority | URL | Source Page Title | Anchor Text |
-| --- | --- | --- | --- |
-| 96 | github.com/bgoonz | bgoonz (Bryan C Guner) - GitHub | https://bgoonz-blog.netlify.app/ |
-| 96 | gist.github.com/bgoonz | bgoonz's gists - GitHub | https://bgoonz-blog.netlify.app/ |
-| 95 | bryanguner.medium.com/a-collection-of-my-most-useful-gist-entries-f4314f3ba3ab | A Collection of my most useful Gist Entries - Bryan Guner - Medium | web-dev-hubmemoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app |
-| 85 | blog-w-comments.vercel.app/ | Bryan Guner Blog Using CMS: Sanity | blog home |
-| 85 | octolinker-demo.vercel.app/bgoonz | bgoonz (Bryan C Guner) - GitHub | https://bgoonz-blog.netlify.app/ |
-| 79 | dev.to/bgoonz/all-of-my-articles-combined-284m | All Of My Articles Combined - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app |
-| 79 | dev.to/bgoonz/the-expressjs-way-to-write-apis-3g0 | The ExpressJS Way To Write APIs - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app |
-| 79 | dev.to/bgoonz/quick-guide-to-big-o-523g | Quick Guide To Big O - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app |
-| 79 | dev.to/bgoonz/data-structures-explained-js-38ll | Data Structures Explained JS - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app |
-| 79 | dev.to/bgoonz/all-of-my-articles-part-2-59pb | All Of My Articles Part 2 - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app |
+Authority | URL | Source Page Title | Anchor Text | | --- | --- | --- | --- | | 96 | github.com/bgoonz | bgoonz (Bryan C Guner) - GitHub | https://bgoonz-blog.netlify.app/ | | 96 | gist.github.com/bgoonz | bgoonz's gists - GitHub | https://bgoonz-blog.netlify.app/ | | 95 | bryanguner.medium.com/a-collection-of-my-most-useful-gist-entries-f4314f3ba3ab | A Collection of my most useful Gist Entries - Bryan Guner - Medium | web-dev-hubmemoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app | | 85 | blog-w-comments.vercel.app/ | Bryan Guner Blog Using CMS: Sanity | blog home | | 85 | octolinker-demo.vercel.app/bgoonz | bgoonz (Bryan C Guner) - GitHub | https://bgoonz-blog.netlify.app/ | | 79 | dev.to/bgoonz/all-of-my-articles-combined-284m | All Of My Articles Combined - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app | | 79 | dev.to/bgoonz/the-expressjs-way-to-write-apis-3g0 | The ExpressJS Way To Write APIs - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app | | 79 | dev.to/bgoonz/quick-guide-to-big-o-523g | Quick Guide To Big O - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app | | 79 | dev.to/bgoonz/data-structures-explained-js-38ll | Data Structures Explained JS - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app | | 79 | dev.to/bgoonz/all-of-my-articles-part-2-59pb | All Of My Articles Part 2 - DEV Community | web-dev-hub memoization, tabulation, and sorting algorithms by example why is looking at runtime not a reliable method of...bgoonz-blog.netlify.app |
 
 #### On-Page Link Structure
 

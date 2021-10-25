@@ -5,33 +5,33 @@ Consider the following schema, where we describe a route with a gpx map file of 
 ## The schema
 
 ```javascript
-import RouteFileInput from "../components/RouteFileInput";
+import RouteFileInput from '../components/RouteFileInput';
 export default {
-  name: "route",
-  title: "Route",
-  type: "document",
+  name: 'route',
+  title: 'Route',
+  type: 'document',
   fields: [
     {
-      name: "title",
-      title: "Title",
-      type: "string",
+      name: 'title',
+      title: 'Title',
+      type: 'string',
     },
     {
-      title: "Map",
-      name: "map",
-      type: "object",
+      title: 'Map',
+      name: 'map',
+      type: 'object',
       inputComponent: RouteFileInput,
       fields: [
         {
-          title: "GPX file",
-          name: "mapfile",
-          type: "file",
+          title: 'GPX file',
+          name: 'mapfile',
+          type: 'file',
         },
         {
-          name: "bounds",
-          title: "Bounds",
-          description: "Will be populated by file upload",
-          type: "string",
+          name: 'bounds',
+          title: 'Bounds',
+          description: 'Will be populated by file upload',
+          type: 'string',
         },
       ],
     },
@@ -42,22 +42,22 @@ export default {
 ## The input component
 
 ```javascript
-import PropTypes from "prop-types";
-import React from "react";
-import Fieldset from "part:@sanity/components/fieldsets/default";
+import PropTypes from 'prop-types';
+import React from 'react';
+import Fieldset from 'part:@sanity/components/fieldsets/default';
 import {
   setIfMissing,
   set,
   unset,
-} from "part:@sanity/form-builder/patch-event";
-import { FormBuilderInput } from "part:@sanity/form-builder";
-import { withDocument } from "part:@sanity/form-builder";
-import sanityClient from "part:@sanity/base/client";
-import { PatchEvent } from "part:@sanity/form-builder";
+} from 'part:@sanity/form-builder/patch-event';
+import { FormBuilderInput } from 'part:@sanity/form-builder';
+import { withDocument } from 'part:@sanity/form-builder';
+import sanityClient from 'part:@sanity/base/client';
+import { PatchEvent } from 'part:@sanity/form-builder';
 
 function computeBounds(asset) {
   return sanityClient.getDocument(asset._ref).then((asset) => {
-    console.log("Computing bounds for map file", asset.url);
+    console.log('Computing bounds for map file', asset.url);
     const { url } = asset;
     // Fetch file, and compute bounds here then return the result
     // (let's pretend it's done here for the sake of the example)
@@ -89,15 +89,15 @@ class CustomObjectInput extends React.PureComponent {
     // If we see a set patch that sets the asset, use the file to compute the bounds
     const setAssetPatch = fieldPatchEvent.patches.find(
       (patch) =>
-        patch.type === "set" &&
+        patch.type === 'set' &&
         patch.path.length === 1 &&
-        patch.path[0] === "asset" &&
+        patch.path[0] === 'asset' &&
         patch.value &&
         patch.value._ref
     );
-    if (field.name === "mapfile" && setAssetPatch) {
+    if (field.name === 'mapfile' && setAssetPatch) {
       computeBounds(setAssetPatch.value).then((bounds) => {
-        onChange(PatchEvent.from([set(JSON.stringify(bounds), ["bounds"])]));
+        onChange(PatchEvent.from([set(JSON.stringify(bounds), ['bounds'])]));
       });
     }
 
@@ -105,12 +105,12 @@ class CustomObjectInput extends React.PureComponent {
     if (
       fieldPatchEvent.patches.find(
         (patch) =>
-          patch.type === "unset" &&
+          patch.type === 'unset' &&
           patch.path.length === 1 &&
-          patch.path[0] === "asset"
+          patch.path[0] === 'asset'
       )
     ) {
-      onChange(PatchEvent.from([unset(["bounds"])]));
+      onChange(PatchEvent.from([unset(['bounds'])]));
     }
 
     onChange(

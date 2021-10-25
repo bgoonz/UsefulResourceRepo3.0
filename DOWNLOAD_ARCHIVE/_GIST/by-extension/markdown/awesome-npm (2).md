@@ -1104,16 +1104,15 @@ This section contains awesome lists that you may find useful if you use or write
 
 ## Small modules rockstars to follow
 
-These people are used to develop awesome NPM modules that follows the single responsibility philosophy.
-Follow them to discover new great modules:
+These people are used to develop awesome NPM modules that follows the single responsibility philosophy. Follow them to discover new great modules:
 
 | [![Sindre Sorhus](https://avatars.githubusercontent.com/u/170270?s=130)](https://github.com/sindresorhus) | [![James Halliday](https://avatars1.githubusercontent.com/u/12631?s=130)](https://github.com/substack) | [![Eugene Sharygin](https://avatars3.githubusercontent.com/u/4472489?s=130)](https://github.com/eush77) | [![Isaac Z. Schlueter](https://avatars3.githubusercontent.com/u/9287?s=130)](https://github.com/isaacs) | [![Jon Schlinkert](https://avatars1.githubusercontent.com/u/383994?s=130)](https://github.com/jonschlinkert) | [![Dominic Tarr](https://avatars3.githubusercontent.com/u/259374?s=130)](https://github.com/dominictarr) |
-| --------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------- |
-| [Sindre Sorhus](https://github.com/sindresorhus)                                                          | [James Halliday](https://github.com/substack)                                                          | [Eugene Sharygin](https://github.com/eush77)                                                            | [Isaac Z. Schlueter](https://github.com/isaacs)                                                         | [Jon Schlinkert](https://github.com/jonschlinkert)                                                           | [Dominic Tarr](https://github.com/dominictarr)                                                           |
+| --- | --- | --- | --- | --- | --- |
+| [Sindre Sorhus](https://github.com/sindresorhus) | [James Halliday](https://github.com/substack) | [Eugene Sharygin](https://github.com/eush77) | [Isaac Z. Schlueter](https://github.com/isaacs) | [Jon Schlinkert](https://github.com/jonschlinkert) | [Dominic Tarr](https://github.com/dominictarr) |
 
 | [![Rod Vagg](https://avatars0.githubusercontent.com/u/495647?s=130)](https://github.com/rvagg) | [![Max Ogden](https://avatars3.githubusercontent.com/u/39759?s=130)](https://github.com/maxogden) | [![Brian Woodward](https://avatars1.githubusercontent.com/u/995160?s=130)](https://github.com/doowb) |
-| ---------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [Rod Vagg](https://github.com/rvagg)                                                           | [Max Ogden](https://github.com/maxogden)                                                          | [Brian Woodward](https://github.com/doowb)                                                           |
+| --- | --- | --- |
+| [Rod Vagg](https://github.com/rvagg) | [Max Ogden](https://github.com/maxogden) | [Brian Woodward](https://github.com/doowb) |
 
 ## ---Contents
 

@@ -21,8 +21,7 @@ The Caesar cipher is a simple cipher and one of the best known encryption algori
 
 1. Choose the alphabet that the message was encrypted with.
 2. Let `n` be the secret key the message is encoded in.
-3. For every letter in the cipher-text, replace it by a letter of the alphabet that is `n` letters behind in the alphabet from the letter.
-   `c` would be `b`, `a` would be `z` with a key of `1`.
+3. For every letter in the cipher-text, replace it by a letter of the alphabet that is `n` letters behind in the alphabet from the letter. `c` would be `b`, `a` would be `z` with a key of `1`.
 4. The message should now be decoded
 
 ## Example

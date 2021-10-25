@@ -11,27 +11,21 @@ History / Genesis
 
 - [Introducing Markdown](http://daringfireball.net/2004/03/introducing_markdown) by John Gruber - March 15, 2004
 
-  > I've written a text-to-HTML formatting tool called Markdown, which is now available for download.
-  > Markdown allows web writers to compose text using a simple, readable, plain text formatting syntax;
-  > Markdown takes care of translating it to valid XHTML (or, if you prefer, HTML).
+  > I've written a text-to-HTML formatting tool called Markdown, which is now available for download. Markdown allows web writers to compose text using a simple, readable, plain text formatting syntax; Markdown takes care of translating it to valid XHTML (or, if you prefer, HTML).
 
 - [Dive into Markdown](http://daringfireball.net/2004/03/dive_into_markdown) by John Gruber - March 19, 2004
 
   > You don't need to "preview" an email before you send it -- you write it, you read it, you edit it, right there.
   >
-  > In fact, I love writing email. Email is my favorite writing medium. I've sent over 16,000 emails in the last five years.
-  > The conventions of plain text email allow me to express myself clearly and precisely, without ever getting in my way.
+  > In fact, I love writing email. Email is my favorite writing medium. I've sent over 16,000 emails in the last five years. The conventions of plain text email allow me to express myself clearly and precisely, without ever getting in my way.
   >
   > Thus, Markdown. Email-style writing for the web.
 
 - [Markdown](http://www.aaronsw.com/weblog/001189) by Aaron Swartz - March 22, 2004
 
-  > For months I've been working with John Gruber on a new project. The idea was to make writing simple web pages,
-  > and especially weblog entries, as easy as writing an email, by allowing you to use much the same syntax and converting it
-  > automatically into HTML.
+  > For months I've been working with John Gruber on a new project. The idea was to make writing simple web pages, and especially weblog entries, as easy as writing an email, by allowing you to use much the same syntax and converting it automatically into HTML.
   >
-  > Together we pored over the syntax details from top to bottom, trying to develop the perfect format,
-  > and I think we've got something pretty darn great. We've tested it extensively: on our blogs, in my comments form, in our emails.
+  > Together we pored over the syntax details from top to bottom, trying to develop the perfect format, and I think we've got something pretty darn great. We've tested it extensively: on our blogs, in my comments form, in our emails.
 
 <!--
 - [**Talk**](https://pairlist6.pair.net/mailman/listinfo/markdown-discuss) - markdown-discuss mailing list
@@ -73,11 +67,7 @@ Documentation
 
 _Free book format for Markdown_
 
-**Manuscripts**
-(web: [`manuscripts.github.io`](http://manuscripts.github.io),
-github: [`manuscripts`](https://github.com/manuscripts)) -
-adds book.yml for book (meta) info e.g. title, author, publisher, year etc.
-and contents.yml for table of contents and file structure
+**Manuscripts** (web: [`manuscripts.github.io`](http://manuscripts.github.io), github: [`manuscripts`](https://github.com/manuscripts)) - adds book.yml for book (meta) info e.g. title, author, publisher, year etc. and contents.yml for table of contents and file structure
 
 - Manuscripts Book Starter Kit (github: [`manuscripts/book-starter`](https://github.com/manuscripts/book-starter))
 
@@ -85,8 +75,7 @@ and contents.yml for table of contents and file structure
 
 _A strongly specified, highly compatible implementation of Markdown_
 
-**CommonMark**
-(web: [`commonmark.org`](http://commonmark.org))
+**CommonMark** (web: [`commonmark.org`](http://commonmark.org))
 
 - Spec (web: [`spec.commonmark.org`](http://spec.commonmark.org)) - Edited by John MacFarlane
 - Dingus (web: [`spec.commonmark.org/dingus`](http://spec.commonmark.org/dingus)) - try CommonMark in your browser
@@ -104,31 +93,20 @@ _CommonMark with GitHub Extensions_
 
 Extensions include:
 
-Leaf Blocks: Tables ++
-Container Blocks: Task list items ++
-Inlines: Strikethrough; Autolinks; Disallowed Raw HTML
+Leaf Blocks: Tables ++ Container Blocks: Task list items ++ Inlines: Strikethrough; Autolinks; Disallowed Raw HTML
 
 ## Vanilla Flavored Markdown (VFMD)
 
 _A variant of Markdown with an unambiguous specification of its syntax_
 
-**Vanilla Flavored Markdown (VFMD)**
-(web: [`vfmd.org`](http://www.vfmd.org), github: [`vfmd`](https://github.com/vfmd))
+**Vanilla Flavored Markdown (VFMD)** (web: [`vfmd.org`](http://www.vfmd.org), github: [`vfmd`](https://github.com/vfmd))
 
 - Spec (web: [vfmd.org/vfmd-spec/specification](http://www.vfmd.org/vfmd-spec/specification)) - Edited by Roopesh Chander
 - Code (github: [`vfmd/vfmd-src`](https://github.com/vfmd/vfmd-src)) - reference code in C++
 
 Differences include:
 
-Intra-word emphasis;
-Simplified reference link/image syntax;
-Lists and the 4-space rule;
-Better automatic link detection;
-Double blank lines as end of blocks;
-Starting number in lists;
-Misnested constructs;
-Including raw HTML;
-Character encoding
+Intra-word emphasis; Simplified reference link/image syntax; Lists and the 4-space rule; Better automatic link detection; Double blank lines as end of blocks; Starting number in lists; Misnested constructs; Including raw HTML; Character encoding
 
 ## Markdown Documentation
 
@@ -149,35 +127,23 @@ Character encoding
 
 <a name="pandoc"></a>
 
-**Pandoc**
-(web: [`pandoc.org`](http://pandoc.org),
-github: [github.com/jgm/pandoc](https://github.com/jgm/pandoc)) -
-a universal document converter (in Haskell)
+**Pandoc** (web: [`pandoc.org`](http://pandoc.org), github: [github.com/jgm/pandoc](https://github.com/jgm/pandoc)) - a universal document converter (in Haskell)
 
-**kramdown**
-(web: [`kramdown.gettalong.org`](http://kramdown.gettalong.org),
-github: [`gettalong/kramdown`](https://github.com/gettalong/kramdown),
-gem: [`kramdown`](https://rubygems.org/gems/kramdown)) -
-markdown library & command line tool (in Ruby)
+**kramdown** (web: [`kramdown.gettalong.org`](http://kramdown.gettalong.org), github: [`gettalong/kramdown`](https://github.com/gettalong/kramdown), gem: [`kramdown`](https://rubygems.org/gems/kramdown)) - markdown library & command line tool (in Ruby)
 
-**Markdown Extended (MDE)**
-(github: [`e-picas/markdown-extended`](https://github.com/e-picas/markdown-extended)
+**Markdown Extended (MDE)** (github: [`e-picas/markdown-extended`](https://github.com/e-picas/markdown-extended)
 
 - transform plain text input (strings or files) in various output formats (in PHP)
 
 <a name="marked"></a>
 
-**marked**
-(web: [`marked.js.org`](https://marked.js.org), github: [marked :octocat:](https://github.com/markedjs/marked)) a markdown parser and compiler. Built for speed. (In Javascript)
+**marked** (web: [`marked.js.org`](https://marked.js.org), github: [marked :octocat:](https://github.com/markedjs/marked)) a markdown parser and compiler. Built for speed. (In Javascript)
 
 <a name="markdown-it"></a>
 
-**markdown-it**
-(web: [`markdown-it.github.io`](https://markdown-it.github.io/), github: [markdown-it :octocat:](https://github.com/markdown-it/markdown-it)) Javascript markdown parser. 100% CommonMark support, extensions, syntax plugins & high speed.
-Is extensible with [plugins](https://www.npmjs.com/search?q=keywords:markdown-it-plugin).
+**markdown-it** (web: [`markdown-it.github.io`](https://markdown-it.github.io/), github: [markdown-it :octocat:](https://github.com/markdown-it/markdown-it)) Javascript markdown parser. 100% CommonMark support, extensions, syntax plugins & high speed. Is extensible with [plugins](https://www.npmjs.com/search?q=keywords:markdown-it-plugin).
 
-**concat-md**
-([npm](https://www.npmjs.com/package/concat-md), [github](https://github.com/ozum/concat-md#readme)) CLI and API to concatenate markdown files and modify as necessary. Also adds titles from FrontMatter, file names and directory names, decreases level of existing titles to comply with added titles.
+**concat-md** ([npm](https://www.npmjs.com/package/concat-md), [github](https://github.com/ozum/concat-md#readme)) CLI and API to concatenate markdown files and modify as necessary. Also adds titles from FrontMatter, file names and directory names, decreases level of existing titles to comply with added titles.
 
 ### Babelmark
 
@@ -201,17 +167,9 @@ to be done
 
 ### Markdown to Website / Blog
 
-**Jekyll**
-(web: [`jekyllrb.com`](http://jekyllrb.com),
-github: [`jekyll/jekyll` :octocat:](https://github.com/jekyll/jekyll),
-gem: [`jekyll` :gem:](https://rubygems.org/gems/jekyll)) -
-transform your plain text into static websites and blogs (in Ruby)
+**Jekyll** (web: [`jekyllrb.com`](http://jekyllrb.com), github: [`jekyll/jekyll` :octocat:](https://github.com/jekyll/jekyll), gem: [`jekyll` :gem:](https://rubygems.org/gems/jekyll)) - transform your plain text into static websites and blogs (in Ruby)
 
-**Middleman**
-(web: [`middlemanapp.com`](https://middlemanapp.com),
-github: [`middleman/middleman` :octocat:](https://github.com/middleman/middleman),
-gem: [`middleman` :gem:](https://rubygems.org/gems/middleman)) -
-makes developing websites simple (in Ruby)
+**Middleman** (web: [`middlemanapp.com`](https://middlemanapp.com), github: [`middleman/middleman` :octocat:](https://github.com/middleman/middleman), gem: [`middleman` :gem:](https://rubygems.org/gems/middleman)) - makes developing websites simple (in Ruby)
 
 **Slate** (github: [lord/slate :octocat:](https://github.com/lord/slate)) - beautiful API documentation, based on **Middleman**
 
@@ -221,20 +179,11 @@ makes developing websites simple (in Ruby)
 
 ### Markdown to Email
 
-**Markdown Here**
-(web: [`markdown-here.com`](http://markdown-here.com),
-github: [`adam-p/markdown-here`](https://github.com/adam-p/markdown-here)) -
-a browser extension for rendering email written in Markdown;
-available for Chrome, Firefox, Safari, Thunderbird, and more;
-besides email also works with Evernote, Google Groups, Blogger, and more
+**Markdown Here** (web: [`markdown-here.com`](http://markdown-here.com), github: [`adam-p/markdown-here`](https://github.com/adam-p/markdown-here)) - a browser extension for rendering email written in Markdown; available for Chrome, Firefox, Safari, Thunderbird, and more; besides email also works with Evernote, Google Groups, Blogger, and more
 
 ### Markdown to Presentation / Slideshow
 
-**Slide Show (S9)**
-(web: [`slideshow-s9.github.io`](http://slideshow-s9.github.io),
-github: [`slideshow-s9/slideshow`](https://github.com/slideshow-s9),
-gem: [`slideshow`](https://rubygems.org/gems/slideshow)) -
-a free web alternative to PowerPoint and Keynote in Ruby
+**Slide Show (S9)** (web: [`slideshow-s9.github.io`](http://slideshow-s9.github.io), github: [`slideshow-s9/slideshow`](https://github.com/slideshow-s9), gem: [`slideshow`](https://rubygems.org/gems/slideshow)) - a free web alternative to PowerPoint and Keynote in Ruby
 
 - Templates (github: [`slideshow-templates`](https://github.com/slideshow-templates))
 
@@ -254,13 +203,11 @@ a free web alternative to PowerPoint and Keynote in Ruby
 
 ### Markdown Styles / Documents / Pages
 
-**The Zen of Page Designs**
-(github: [`pagedesigns`](https://github.com/pagedesigns))
+**The Zen of Page Designs** (github: [`pagedesigns`](https://github.com/pagedesigns))
 
 ### Markdown to Books
 
-**The Zen of Book Designs**
-(github: [`bookdesigns`](https://github.com/bookdesigns))
+**The Zen of Book Designs** (github: [`bookdesigns`](https://github.com/bookdesigns))
 
 **Hyper Book (H9)** [:octocat:](https://github.com/hybook), [:gem:](https://rubygems.org/gems/hybook)
 
@@ -268,8 +215,7 @@ a free web alternative to PowerPoint and Keynote in Ruby
 
 ### Markdown to Table of Contents (TOC)
 
-- **Generate a markdown table of contents (TOC) with [remarkable](https://github.com/jonschlinkert/remarkable)**
-  (github: [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc))
+- **Generate a markdown table of contents (TOC) with [remarkable](https://github.com/jonschlinkert/remarkable)** (github: [`markdown-toc`](https://github.com/jonschlinkert/markdown-toc))
 - [markedpp](#markedpp) Markdown to Markdown Pre-Processor
 - [mdtoc :octocat:](https://github.com/tallclair/mdtoc) - Standalone TOC generator designed for CI
 
