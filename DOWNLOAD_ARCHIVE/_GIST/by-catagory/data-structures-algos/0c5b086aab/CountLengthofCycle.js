@@ -13,7 +13,7 @@
  *  4) If time permits, try to improve your implementation.
  */
 
-const _ = require("lodash");
+const _ = require('lodash');
 
 /**
  * countLengthOfCycle(arr, startIndex)
@@ -120,7 +120,7 @@ const doTestsPass = () => {
  * Main execution entry.
  */
 if (doTestsPass()) {
-  console.log("All tests pass!");
+  console.log('All tests pass!');
 } else {
-  console.log("There are test failures.");
+  console.log('There are test failures.');
 }

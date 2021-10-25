@@ -49,7 +49,7 @@ html {
 }
 
 body::before {
-  --monochromatic: var(--flags__usemonochromatic) "";
+  --monochromatic: var(--flags__usemonochromatic) '';
   content: var(--monochromatic, none);
   backdrop-filter: sepia(1) saturate(8)
     hue-rotate(calc((var(--mono-hue) - 37) * 1deg));
@@ -65,7 +65,7 @@ body::before {
 body::after {
   --pxmasksize: 8px;
   --pxmaskimg: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAQAAADZc7J/AAABi0lEQVRIx+3UTW9SQRSA4WcucAENDbWKrRuSGhcmLvr/f4UbY+KCqIlG8IO2WL4uzHXB5UIjlLhywyxmMZk5c85535wgyoz09bz13hd3ml547cpL51pSAeTI5SAIrM4TBBWpphOnzjx15okTTalK+TgXLcxNTUzNZKIoJ4iWpm709Xw0MNHwTNelc6caKoJYPJ+Zi4JUXaomEYIolxm7MdB3ba6mraOj7VFRwFJmYmRkLFPVdKK1yjGI5YXfbo0tVDW11hcoPrg2MDA0k2rreL76IIh/pZiobVKkKPGbnk/6Juo6ui5daGuuApCLouWqMSoSlaLBuYU73332zgdfjTVceOWNro7HCQWYREWqrq6hpiopYJEXJd4a+umHX4ZGJjJL+TqAkvV6373WQcuVbHFeykxNzcwt1pwPebKrifc4l03c48k2xp2cS4x7PNmItIfzlkg7PdmovIfzDpXveRLEhzmrPexJcojzIU+SQ5wPefIv82CnJ8d5cJwHx3nwH+ZBVaquoVE2OPAH4PLAAI/m8L8AAAAASUVORK5CYII=);
-  --useretropx: var(--flags__useretropx) "";
+  --useretropx: var(--flags__useretropx) '';
   content: var(--useretropx, none);
   pointer-events: none;
   position: fixed;
@@ -470,7 +470,7 @@ button {
 }
 
 ul::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   bottom: 0;
@@ -509,7 +509,7 @@ h3 {
 }
 
 h3::after {
-  content: "make the screen wider to see the Fibonacci Carousel!";
+  content: 'make the screen wider to see the Fibonacci Carousel!';
   --fs: var(--media-gte-md) 0;
   font-size: var(--fs, 1.75rem);
 }

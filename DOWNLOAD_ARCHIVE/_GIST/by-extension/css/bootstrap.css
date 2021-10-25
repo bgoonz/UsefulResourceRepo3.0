@@ -994,7 +994,7 @@ body {
 .container-fluid:after,
 .row:before,
 .row:after {
-  content: " ";
+  content: ' ';
   display: table;
 }
 

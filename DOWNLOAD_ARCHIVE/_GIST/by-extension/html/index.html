@@ -28,18 +28,18 @@
 
     <script>
       require([
-        "esri/Map",
-        "esri/views/MapView",
-        "esri/layers/FeatureLayer",
+        'esri/Map',
+        'esri/views/MapView',
+        'esri/layers/FeatureLayer',
       ], function (Map, MapView, FeatureLayer) {
         // Create an arrow symbol using an SVG path
         // Since the arrow points downward, we set
         // the angle to 180 degrees to point to
         // 0 geographic degrees north
         const symbol = {
-          type: "simple-marker", // autocasts as new SimpleMarkerSymbol()
-          path: "M14.5,29 23.5,0 14.5,9 5.5,0z",
-          color: "#ffff00",
+          type: 'simple-marker', // autocasts as new SimpleMarkerSymbol()
+          path: 'M14.5,29 23.5,0 14.5,9 5.5,0z',
+          color: '#ffff00',
           outline: {
             color: [0, 0, 0, 0.7],
             width: 0.5,
@@ -61,17 +61,17 @@
          *
          *******************************************************/
         const rotationRenderer = {
-          type: "simple", // autocasts as new SimpleRenderer()
+          type: 'simple', // autocasts as new SimpleRenderer()
           symbol: symbol,
           visualVariables: [
             {
-              type: "rotation",
-              field: "WIND_DIRECT",
-              rotationType: "geographic",
+              type: 'rotation',
+              field: 'WIND_DIRECT',
+              rotationType: 'geographic',
             },
             {
-              type: "size",
-              field: "WIND_SPEED",
+              type: 'size',
+              field: 'WIND_SPEED',
               minDataValue: 0,
               maxDataValue: 60,
               minSize: 8,
@@ -81,15 +81,15 @@
         };
         // Construct the layer and add it to the map
         const layer = new FeatureLayer({
-          url: "https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/weather_stations_010417/FeatureServer/0",
+          url: 'https://services.arcgis.com/V6ZHFr6zdgNZuVG0/arcgis/rest/services/weather_stations_010417/FeatureServer/0',
           renderer: rotationRenderer,
         });
         const map = new Map({
-          basemap: "satellite",
+          basemap: 'satellite',
           layers: [layer],
         });
         const view = new MapView({
-          container: "viewDiv",
+          container: 'viewDiv',
           map: map,
           extent: {
             spatialReference: {

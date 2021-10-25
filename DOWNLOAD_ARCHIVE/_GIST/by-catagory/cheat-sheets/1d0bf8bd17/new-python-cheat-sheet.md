@@ -169,8 +169,7 @@ Evaluates to the integer value of the number of characters in a string:
 len('hello')
 ```
 
-Note: test of emptiness of strings, lists, dictionary, etc, should **not** use len, but prefer direct
-boolean evaluation.
+Note: test of emptiness of strings, lists, dictionary, etc, should **not** use len, but prefer direct boolean evaluation.
 
 ```python
 a = [1, 2, 3]
@@ -251,8 +250,7 @@ Examples:
 
 ### Boolean evaluation
 
-Never use `==` or `!=` operator to evaluate boolean operation. Use the `is` or `is not` operators,
-or use implicit boolean evaluation.
+Never use `==` or `!=` operator to evaluate boolean operation. Use the `is` or `is not` operators, or use implicit boolean evaluation.
 
 NO (even if they are valid Python):
 
@@ -453,8 +451,7 @@ for i in range(5, -1, -1):
 
 ### For else statement
 
-This allows to specify a statement to execute in case of the full loop has been executed. Only
-useful when a `break` condition can occur in the loop:
+This allows to specify a statement to execute in case of the full loop has been executed. Only useful when a `break` condition can occur in the loop:
 
 ```python
 for i in [1, 2, 3, 4, 5]:
@@ -613,8 +610,7 @@ print(spam(1))
 
 ### Final code in exception handling
 
-Code inside the `finally` section is always executed, no matter if an exception has been raised or
-not, and even if an exception is not caught.
+Code inside the `finally` section is always executed, no matter if an exception has been raised or not, and even if an exception is not caught.
 
 ```python
 def spam(divideBy):
@@ -1989,8 +1985,7 @@ The official [Python 3.x documentation](https://docs.python.org/3/library/stdtyp
 
 ### Lazy string formatting
 
-You would only use `%s` string formatting on functions that can do lazy parameters evaluation,
-the most common being logging:
+You would only use `%s` string formatting on functions that can do lazy parameters evaluation, the most common being logging:
 
 Prefer:
 
@@ -2329,23 +2324,23 @@ newline_regex.search('Serve the public trust.\nProtect the innocent.\nUphold the
 
 ### Review of Regex Symbols
 
-| Symbol                   | Matches                                                      |
-| ------------------------ | ------------------------------------------------------------ |
-| `?`                      | zero or one of the preceding group.                          |
-| `*`                      | zero or more of the preceding group.                         |
-| `+`                      | one or more of the preceding group.                          |
-| `{n}`                    | exactly n of the preceding group.                            |
-| `{n,}`                   | n or more of the preceding group.                            |
-| `{,m}`                   | 0 to m of the preceding group.                               |
-| `{n,m}`                  | at least n and at most m of the preceding p.                 |
-| `{n,m}?` or `*?` or `+?` | performs a nongreedy match of the preceding p.               |
-| `^spam`                  | means the string must begin with spam.                       |
-| `spam$`                  | means the string must end with spam.                         |
-| `.`                      | any character, except newline characters.                    |
-| `\d`, `\w`, and `\s`     | a digit, word, or space character, resectively.              |
-| `\D`, `\W`, and `\S`     | anything except a digit, word, or space acter, respectively. |
-| `[abc]`                  | any character between the brackets (such as a, b, ).         |
-| `[^abc]`                 | any character that isn’t between the brackets.               |
+| Symbol | Matches |
+| --- | --- |
+| `?` | zero or one of the preceding group. |
+| `*` | zero or more of the preceding group. |
+| `+` | one or more of the preceding group. |
+| `{n}` | exactly n of the preceding group. |
+| `{n,}` | n or more of the preceding group. |
+| `{,m}` | 0 to m of the preceding group. |
+| `{n,m}` | at least n and at most m of the preceding p. |
+| `{n,m}?` or `*?` or `+?` | performs a nongreedy match of the preceding p. |
+| `^spam` | means the string must begin with spam. |
+| `spam$` | means the string must end with spam. |
+| `.` | any character, except newline characters. |
+| `\d`, `\w`, and `\s` | a digit, word, or space character, resectively. |
+| `\D`, `\W`, and `\S` | anything except a digit, word, or space acter, respectively. |
+| `[abc]` | any character between the brackets (such as a, b, ). |
+| `[^abc]` | any character that isn’t between the brackets. |
 
 ### Case-Insensitive Matching
 
@@ -2410,20 +2405,13 @@ phone_regex = re.compile(r'''(
 
 ## Handling File and Directory Paths
 
-There are two main modules in Python that deals with path manipulation.
-One is the `os.path` module and the other is the `pathlib` module.
-The `pathlib` module was added in Python 3.4, offering an object-oriented way
-to handle file system paths.
+There are two main modules in Python that deals with path manipulation. One is the `os.path` module and the other is the `pathlib` module. The `pathlib` module was added in Python 3.4, offering an object-oriented way to handle file system paths.
 
 ### Backslash on Windows and Forward Slash on OS X and Linux
 
-On Windows, paths are written using backslashes (\) as the separator between
-folder names. On Unix based operating system such as macOS, Linux, and BSDs,
-the forward slash (/) is used as the path separator. Joining paths can be
-a headache if your code needs to work on different platforms.
+On Windows, paths are written using backslashes (\) as the separator between folder names. On Unix based operating system such as macOS, Linux, and BSDs, the forward slash (/) is used as the path separator. Joining paths can be a headache if your code needs to work on different platforms.
 
-Fortunately, Python provides easy ways to handle this. We will showcase
-how to deal with this with both `os.path.join` and `pathlib.Path.joinpath`
+Fortunately, Python provides easy ways to handle this. We will showcase how to deal with this with both `os.path.join` and `pathlib.Path.joinpath`
 
 Using `os.path.join` on Windows:
 
@@ -2449,12 +2437,9 @@ from pathlib import Path
 print(Path('usr') / 'bin' / 'spam')
 ```
 
-Notice the path separator is different between Windows and Unix based operating
-system, that's why you want to use one of the above methods instead of
-adding strings together to join paths together.
+Notice the path separator is different between Windows and Unix based operating system, that's why you want to use one of the above methods instead of adding strings together to join paths together.
 
-Joining paths is helpful if you need to create different file paths under
-the same directory.
+Joining paths is helpful if you need to create different file paths under the same directory.
 
 Using `os.path.join` on Windows:
 
@@ -2521,9 +2506,7 @@ cwd = Path.cwd()
 (cwd / 'delicious' / 'walnut' / 'waffles').mkdir()
 ```
 
-Oh no, we got a nasty error! The reason is that the 'delicious' directory does
-not exist, so we cannot make the 'walnut' and the 'waffles' directories under
-it. To fix this, do:
+Oh no, we got a nasty error! The reason is that the 'delicious' directory does not exist, so we cannot make the 'walnut' and the 'waffles' directories under it. To fix this, do:
 
 ```python
 from pathlib import Path
@@ -2763,8 +2746,7 @@ for f in Path('/usr/bin').iterdir():
 
 To find the total size of all the files in this directory:
 
-**WARNING**: Directories themselves also have a size! So you might want to
-check for whether a path is a file or directory using the methods in the methods discussed in the above section!
+**WARNING**: Directories themselves also have a size! So you might want to check for whether a path is a file or directory using the methods in the methods discussed in the above section!
 
 Using `os.path.getsize()` and `os.listdir()` together on Windows:
 
@@ -2874,18 +2856,13 @@ for folder_name, subfolders, filenames in os.walk('C:\\delicious'):
     print('')
 ```
 
-`pathlib` provides a lot more functionality than the ones listed above,
-like getting file name, getting file extension, reading/writing a file without
-manually opening it, etc. Check out the
-[official documentation](https://docs.python.org/3/library/pathlib.html)
-if you want to know more!
+`pathlib` provides a lot more functionality than the ones listed above, like getting file name, getting file extension, reading/writing a file without manually opening it, etc. Check out the [official documentation](https://docs.python.org/3/library/pathlib.html) if you want to know more!
 
 ## Reading and Writing Files
 
 ### The File Reading/Writing Process
 
-To read/write to a file in Python, you will want to use the `with`
-statement, which will close the file for you after you are done.
+To read/write to a file in Python, you will want to use the `with` statement, which will close the file for you after you are done.
 
 ### Opening and reading files with the open function
 
@@ -3042,8 +3019,7 @@ with open("filename.json", "w") as f:
 
 ### YAML
 
-Compared to JSON, YAML allows a much better humain maintainance and gives ability to add comments.
-It is a convinient choice for configuration files where human will have to edit.
+Compared to JSON, YAML allows a much better humain maintainance and gives ability to add comments. It is a convinient choice for configuration files where human will have to edit.
 
 There are two main librairies allowing to access to YAML files:
 
@@ -3052,8 +3028,7 @@ There are two main librairies allowing to access to YAML files:
 
 Install them using `pip install` in your virtual environment.
 
-The first one it easier to use but the second one, Ruamel, implements much better the YAML
-specification, and allow for example to modify a YAML content without altering comments.
+The first one it easier to use but the second one, Ruamel, implements much better the YAML specification, and allow for example to modify a YAML content without altering comments.
 
 Open a YAML file with:
 
@@ -3208,13 +3183,13 @@ logging.debug('End of program')
 
 Logging levels provide a way to categorize your log messages by importance. There are five logging levels, described in Table 10-1 from least to most important. Messages can be logged at each level using a different logging function.
 
-| Level      | Logging Function     | Description                                                                                                                    |
-| ---------- | -------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `DEBUG`    | `logging.debug()`    | The lowest level. Used for small details. Usually you care about these messages only when diagnosing problems.                 |
-| `INFO`     | `logging.info()`     | Used to record information on general events in your program or confirm that things are working at their point in the program. |
-| `WARNING`  | `logging.warning()`  | Used to indicate a potential problem that doesn’t prevent the program from working but might do so in the future.              |
-| `ERROR`    | `logging.error()`    | Used to record an error that caused the program to fail to do something.                                                       |
-| `CRITICAL` | `logging.critical()` | The highest level. Used to indicate a fatal error that has caused or is about to cause the program to stop running entirely.   |
+| Level | Logging Function | Description |
+| --- | --- | --- |
+| `DEBUG` | `logging.debug()` | The lowest level. Used for small details. Usually you care about these messages only when diagnosing problems. |
+| `INFO` | `logging.info()` | Used to record information on general events in your program or confirm that things are working at their point in the program. |
+| `WARNING` | `logging.warning()` | Used to indicate a potential problem that doesn’t prevent the program from working but might do so in the future. |
+| `ERROR` | `logging.error()` | Used to record an error that caused the program to fail to do something. |
+| `CRITICAL` | `logging.critical()` | The highest level. Used to indicate a fatal error that has caused or is about to cause the program to stop running entirely. |
 
 ### Disabling Logging
 
@@ -3426,8 +3401,7 @@ with context_manager(2) as cm:
 
 ## `__main__` Top-level script environment
 
-`__main__` is the name of the scope in which top-level code executes.
-A module’s **name** is set equal to `__main__` when read from standard input, a script, or from an interactive prompt.
+`__main__` is the name of the scope in which top-level code executes. A module’s **name** is set equal to `__main__` when read from standard input, a script, or from an interactive prompt.
 
 A module can discover whether or not it is running in the main scope by checking its own `__name__`, which allows a common idiom for conditionally executing code in a module when it is run as a script or with `python -m` but not when it is imported:
 
@@ -3500,8 +3474,7 @@ Find more information visit [http://docs.python.org/install/index.html](http://d
 
 ## Dataclasses
 
-`Dataclasses` are python classes but are suited for storing data objects.
-This module provides a decorator and functions for automatically adding generated special methods such as `__init__()` and `__repr__()` to user-defined classes.
+`Dataclasses` are python classes but are suited for storing data objects. This module provides a decorator and functions for automatically adding generated special methods such as `__init__()` and `__repr__()` to user-defined classes.
 
 ### Features
 

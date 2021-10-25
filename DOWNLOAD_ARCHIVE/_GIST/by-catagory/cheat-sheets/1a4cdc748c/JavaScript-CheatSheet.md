@@ -15,15 +15,15 @@ multi-line comment */
 
 JavaScript provides seven different data types:
 
-| Data Types  | Examples                                                              |
-| ----------- | --------------------------------------------------------------------- |
+| Data Types | Examples |
+| --- | --- |
 | `undefined` | A variable that has not been assigned a value is of type `undefined`. |
-| `null`      | no value.                                                             |
-| `string`    | `'a', 'aa', 'aaa', 'Hello!', '11 cats'`                               |
-| `number`    | `12, -1, 0.4`                                                         |
-| `boolean`   | `true, false`                                                         |
-| `object`    | A collection of properties.                                           |
-| `symbol`    | Represents a unique identifier.                                       |
+| `null` | no value. |
+| `string` | `'a', 'aa', 'aaa', 'Hello!', '11 cats'` |
+| `number` | `12, -1, 0.4` |
+| `boolean` | `true, false` |
+| `object` | A collection of properties. |
+| `symbol` | Represents a unique identifier. |
 
 ## Variables
 
@@ -35,7 +35,7 @@ var ourName;
 
 // store values
 myNumber = 5;
-myString = "myVar";
+myString = 'myVar';
 
 // declare variables with the assignment operator
 var myNum = 0;
@@ -65,13 +65,13 @@ To ensure your data doesn't change, JavaScript provides a function Object.freeze
 
 ```javascript
 let obj = {
-  name: "FreeCodeCamp",
-  review: "Awesome",
+  name: 'FreeCodeCamp',
+  review: 'Awesome',
 };
 
 Object.freeze(obj);
-obj.review = "bad"; //will be ignored. Mutation not allowed
-obj.newProp = "Test"; // will be ignored. Mutation not allowed
+obj.review = 'bad'; //will be ignored. Mutation not allowed
+obj.newProp = 'Test'; // will be ignored. Mutation not allowed
 console.log(obj);
 // { name: "FreeCodeCamp", review:"Awesome"}
 ```
@@ -86,19 +86,19 @@ var sampleStr = 'Alan said, "Peter is learning JavaScript".';
 // this prints: Alan said, "Peter is learning JavaScript".
 
 // concatenating strings
-var ourStr = "I come first. " + "I come second.";
+var ourStr = 'I come first. ' + 'I come second.';
 
 // concatenating strings with +=
-var ourStr = "I come first. ";
-ourStr += "I come second.";
+var ourStr = 'I come first. ';
+ourStr += 'I come second.';
 
 // constructing strings with variables
-var ourName = "freeCodeCamp";
-var ourStr = "Hello, our name is " + ourName + ", how are you?";
+var ourName = 'freeCodeCamp';
+var ourStr = 'Hello, our name is ' + ourName + ', how are you?';
 
 // appending variables to strings
-var anAdjective = "awesome!";
-var ourStr = "freeCodeCamp is ";
+var anAdjective = 'awesome!';
+var ourStr = 'freeCodeCamp is ';
 ourStr += anAdjective;
 ```
 
@@ -118,17 +118,17 @@ ourStr += anAdjective;
 ### The length of a string
 
 ```javascript
-"Alan Peter".length; // 10
+'Alan Peter'.length; // 10
 ```
 
 ### Split and Join
 
 ```javascript
-let str = "a string";
-let splittedStr = str.split("");
+let str = 'a string';
+let splittedStr = str.split('');
 // ​​​​​[ 'a', ' ', 's', 't', 'r', 'i', 'n', 'g' ]​​​​​
 
-let joinedStr = splittedStr.join("");
+let joinedStr = splittedStr.join('');
 // a string​​​​​
 ```
 
@@ -136,12 +136,12 @@ let joinedStr = splittedStr.join("");
 
 ```javascript
 //first element has an index of 0
-var firstLetterOfFirstName = "";
-var firstName = "Ada";
+var firstLetterOfFirstName = '';
+var firstName = 'Ada';
 firstLetterOfFirstName = firstName[0]; // A
 
 // find the las character of a string
-var firstName = "Ada";
+var firstName = 'Ada';
 var lastLetterOfFirstName = firstName[firstName.length - 1]; // a
 ```
 
@@ -149,7 +149,7 @@ var lastLetterOfFirstName = firstName[firstName.length - 1]; // a
 
 ```javascript
 const person = {
-  name: "Zodiac Hasbro",
+  name: 'Zodiac Hasbro',
   age: 56,
 };
 
@@ -167,9 +167,9 @@ console.log(greeting);
 ### Example
 
 ```javascript
-var sandwich = ["peanut butter", "jelly", "bread"][
+var sandwich = ['peanut butter', 'jelly', 'bread'][
   // nested arrays
-  (["Bulls", 23], ["White Sox", 45])
+  (['Bulls', 23], ['White Sox', 45])
 ];
 ```
 
@@ -199,7 +199,7 @@ arr[3][0][1]; // 11
 
 ```javascript
 // reverse an array
-[1, "two", 3].reverse(); // ​​​​​[ 3, 'two', 1 ]
+[1, 'two', 3].reverse(); // ​​​​​[ 3, 'two', 1 ]
 
 // push() to append data to the end of an array
 var arr = [1, 2, 3];
@@ -217,22 +217,22 @@ var removedFromOurArray = ourArray.shift();
 // removedFromOurArray now equals 1 and ourArray now equals [2, [3]].
 
 // unshift() adds the element at the beginning of the array
-var ourArray = ["Stimpson", "J", "cat"];
+var ourArray = ['Stimpson', 'J', 'cat'];
 ourArray.shift(); // ourArray now equals ["J", "cat"]
-ourArray.unshift("Happy"); // ourArray now equals ["Happy", "J", "cat"]
+ourArray.unshift('Happy'); // ourArray now equals ["Happy", "J", "cat"]
 ```
 
 ### Remove any element with splice
 
 ```javascript
 // first parameter is the index, the second indicates the number of elements to delete.
-let array = ["today", "was", "not", "so", "great"];
+let array = ['today', 'was', 'not', 'so', 'great'];
 array.splice(2, 2);
 // remove 2 elements beginning with the 3rd element
 // array now equals ['today', 'was', 'great']
 
 // also returns a new array containing the value of the removed elements
-let array = ["I", "am", "feeling", "really", "happy"];
+let array = ['I', 'am', 'feeling', 'really', 'happy'];
 let newArray = array.splice(3, 2);
 // newArray equals ['really', 'happy']
 
@@ -241,8 +241,8 @@ function colorChange(arr, index, newColor) {
   arr.splice(index, 1, newColor);
   return arr;
 }
-let colorScheme = ["#878787", "#a08794", "#bb7e8c", "#c9b6be", "#d1becf"];
-colorScheme = colorChange(colorScheme, 2, "#332327");
+let colorScheme = ['#878787', '#a08794', '#bb7e8c', '#c9b6be', '#d1becf'];
+colorScheme = colorChange(colorScheme, 2, '#332327');
 // we have removed '#bb7e8c' and added '#332327' in its place
 // colorScheme now equals ['#878787', '#a08794', '#332327', '#c9b6be', '#d1becf']
 ```
@@ -251,7 +251,7 @@ colorScheme = colorChange(colorScheme, 2, "#332327");
 
 ```javascript
 // Copies a given number of elements to a new array and leaves the original array untouched
-let weatherConditions = ["rain", "snow", "sleet", "hail", "clear"];
+let weatherConditions = ['rain', 'snow', 'sleet', 'hail', 'clear'];
 let todaysWeather = weatherConditions.slice(1, 3);
 // todaysWeather equals ['snow', 'sleet'];
 // weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
@@ -260,10 +260,10 @@ let todaysWeather = weatherConditions.slice(1, 3);
 ### indexOf
 
 ```javascript
-let fruits = ["apples", "pears", "oranges", "peaches", "pears"];
-fruits.indexOf("dates"); // -1
-fruits.indexOf("oranges"); // 2
-fruits.indexOf("pears"); // 1, the first index at which the element exists
+let fruits = ['apples', 'pears', 'oranges', 'peaches', 'pears'];
+fruits.indexOf('dates'); // -1
+fruits.indexOf('oranges'); // 2
+fruits.indexOf('pears'); // 1, the first index at which the element exists
 ```
 
 ### Accessing Nested Arrays
@@ -271,12 +271,12 @@ fruits.indexOf("pears"); // 1, the first index at which the element exists
 ```javascript
 var ourPets = [
   {
-    animalType: "cat",
-    names: ["Meowzer", "Fluffy", "Kit-Cat"],
+    animalType: 'cat',
+    names: ['Meowzer', 'Fluffy', 'Kit-Cat'],
   },
   {
-    animalType: "dog",
-    names: ["Spot", "Bowser", "Frankie"],
+    animalType: 'dog',
+    names: ['Spot', 'Bowser', 'Frankie'],
   },
 ];
 ourPets[0].names[1]; // "Fluffy"
@@ -286,8 +286,8 @@ ourPets[1].names[0]; // "Spot"
 ### ES6 Includes to Determine if an Array Contains an Element
 
 ```javascript
-let fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.includes("Mango"); // true
+let fruits = ['Banana', 'Orange', 'Apple', 'Mango'];
+fruits.includes('Mango'); // true
 ```
 
 ### ES6 The Spread Operator
@@ -312,8 +312,8 @@ let thatArray = [...thisArray];
 // thisArray remains unchanged, and is identical to thatArray
 
 // combine arrays
-let thisArray = ["sage", "rosemary", "parsley", "thyme"];
-let thatArray = ["basil", "cilantro", ...thisArray, "coriander"];
+let thisArray = ['sage', 'rosemary', 'parsley', 'thyme'];
+let thatArray = ['basil', 'cilantro', ...thisArray, 'coriander'];
 // thatArray now equals ['basil', 'cilantro', 'sage', 'rosemary', 'parsley', 'thyme', 'coriander']
 ```
 
@@ -340,24 +340,24 @@ console.log(arr); // [3, 4, 5, 7]
 ```javascript
 var watchList = [
   {
-    Title: "Inception",
-    imdbRating: "8.8",
-    Type: "movie",
+    Title: 'Inception',
+    imdbRating: '8.8',
+    Type: 'movie',
   },
   {
-    Title: "Interstellar",
-    imdbRating: "8.6",
-    Type: "movie",
+    Title: 'Interstellar',
+    imdbRating: '8.6',
+    Type: 'movie',
   },
   {
-    Title: "The Dark Knight",
-    imdbRating: "9.0",
-    Type: "movie",
+    Title: 'The Dark Knight',
+    imdbRating: '9.0',
+    Type: 'movie',
   },
   {
-    Title: "Batman Begins",
-    imdbRating: "7.9",
-    Type: "movie",
+    Title: 'Batman Begins',
+    imdbRating: '7.9',
+    Type: 'movie',
   },
 ];
 
@@ -386,10 +386,10 @@ const rating = watchList.map((movie) => ({
 
 ```javascript
 var cat = {
-  name: "Whiskers",
+  name: 'Whiskers',
   legs: 4,
   tails: 1,
-  enemies: ["Water", "Dogs"],
+  enemies: ['Water', 'Dogs'],
 };
 ```
 
@@ -399,8 +399,8 @@ Accessing with dot (`.`) notation
 
 ```javascript
 var myObj = {
-  prop1: "val1",
-  prop2: "val2",
+  prop1: 'val1',
+  prop2: 'val2',
 };
 
 var prop1val = myObj.prop1; // val1
@@ -411,26 +411,26 @@ Accessing with bracket (`[]`) notation
 
 ```javascript
 var myObj = {
-  "Space Name": "Kirk",
-  "More Space": "Spock",
-  NoSpace: "USS Enterprise",
+  'Space Name': 'Kirk',
+  'More Space': 'Spock',
+  NoSpace: 'USS Enterprise',
 };
 
-myObj["Space Name"]; // Kirk
-myObj["More Space"]; // Spock
-myObj["NoSpace"]; // USS Enterprise
+myObj['Space Name']; // Kirk
+myObj['More Space']; // Spock
+myObj['NoSpace']; // USS Enterprise
 ```
 
 Accessing with variables
 
 ```javascript
 var dogs = {
-  Fido: "Mutt",
-  Hunter: "Doberman",
-  Snoopie: "Beagle",
+  Fido: 'Mutt',
+  Hunter: 'Doberman',
+  Snoopie: 'Beagle',
 };
 
-var myDog = "Hunter";
+var myDog = 'Hunter';
 var myBreed = dogs[myDog];
 console.log(myBreed); // "Doberman"
 ```
@@ -440,7 +440,7 @@ Accessing and modifying Nested Objects
 ```javascript
 let userActivity = {
   id: 23894201352,
-  date: "January 1, 2017",
+  date: 'January 1, 2017',
   data: {
     totalUsers: 51,
     online: 42,
@@ -448,8 +448,8 @@ let userActivity = {
 };
 
 userActivity.data.online = 45; // or
-userActivity["data"].online = 45; // or
-userActivity["data"]["online"] = 45;
+userActivity['data'].online = 45; // or
+userActivity['data']['online'] = 45;
 ```
 
 Creating an array from the keys of an object
@@ -488,18 +488,18 @@ function getArrayOfUsers(obj) {
 ```javascript
 // Updating object properties
 var ourDog = {
-  name: "Camper",
+  name: 'Camper',
   legs: 4,
   tails: 1,
-  friends: ["everything!"],
+  friends: ['everything!'],
 };
 
-ourDog.name = "Happy Camper"; // or
-ourDog["name"] = "Happy Camper";
+ourDog.name = 'Happy Camper'; // or
+ourDog['name'] = 'Happy Camper';
 
 // add new properties
-ourDog.bark = "bow-wow"; // or
-ourDog["bark"] = "bow-wow";
+ourDog.bark = 'bow-wow'; // or
+ourDog['bark'] = 'bow-wow';
 
 // delete properties
 delete ourDog.bark;
@@ -529,12 +529,12 @@ alpha[value]; // "Y"
 
 ```javascript
 var myObj = {
-  top: "hat",
-  bottom: "pants",
+  top: 'hat',
+  bottom: 'pants',
 };
 
-myObj.hasOwnProperty("top"); // true
-myObj.hasOwnProperty("middle"); // false
+myObj.hasOwnProperty('top'); // true
+myObj.hasOwnProperty('middle'); // false
 ```
 
 ### Accessing Nested Objects
@@ -542,18 +542,18 @@ myObj.hasOwnProperty("middle"); // false
 ```javascript
 var ourStorage = {
   desk: {
-    drawer: "stapler",
+    drawer: 'stapler',
   },
   cabinet: {
-    "top drawer": {
-      folder1: "a file",
-      folder2: "secrets",
+    'top drawer': {
+      folder1: 'a file',
+      folder2: 'secrets',
     },
-    "bottom drawer": "soda",
+    'bottom drawer': 'soda',
   },
 };
 
-ourStorage.cabinet["top drawer"].folder2; // "secrets"
+ourStorage.cabinet['top drawer'].folder2; // "secrets"
 ourStorage.desk.drawer; // "stapler"
 ```
 
@@ -616,8 +616,7 @@ const getMousePosition = (x, y) => ({ x, y });
 
 ### Basics
 
-Booleans may only be one of two values: true or false. They are basically little on-off switches,
-where true is "on" and false is "off". These two states are mutually exclusive.
+Booleans may only be one of two values: true or false. They are basically little on-off switches, where true is "on" and false is "off". These two states are mutually exclusive.
 
 ```javascript
 true;
@@ -638,9 +637,9 @@ if (condition is true) {
 
 ```javascript
 if (num > 10) {
-  return "Bigger than 10";
+  return 'Bigger than 10';
 } else {
-  return "10 or Less";
+  return '10 or Less';
 }
 ```
 
@@ -648,11 +647,11 @@ if (num > 10) {
 
 ```javascript
 if (num > 15) {
-  return "Bigger than 15";
+  return 'Bigger than 15';
 } else if (num < 5) {
-  return "Smaller than 5";
+  return 'Smaller than 5';
 } else {
-  return "Between 5 and 15";
+  return 'Between 5 and 15';
 }
 ```
 
@@ -662,15 +661,15 @@ if (num > 15) {
 // this if statement...
 function findGreater(a, b) {
   if (a > b) {
-    return "a is greater";
+    return 'a is greater';
   } else {
-    return "b is greater";
+    return 'b is greater';
   }
 }
 
 // is equivalent to this ternary operator
 function findGreater(a, b) {
-  return a > b ? "a is greater" : "b is greater";
+  return a > b ? 'a is greater' : 'b is greater';
 }
 ```
 
@@ -680,21 +679,21 @@ function findGreater(a, b) {
 // this if statement...
 function findGreaterOrEqual(a, b) {
   if (a === b) {
-    return "a and b are equal";
+    return 'a and b are equal';
   } else if (a > b) {
-    return "a is greater";
+    return 'a is greater';
   } else {
-    return "b is greater";
+    return 'b is greater';
   }
 }
 
 // is equivalent to this ternary operator
 function findGreaterOrEqual(a, b) {
   return a === b
-    ? "a and b are equal"
+    ? 'a and b are equal'
     : a > b
-    ? "a is greater"
-    : "b is greater";
+    ? 'a is greater'
+    : 'b is greater';
 }
 ```
 
@@ -741,10 +740,10 @@ switch (val) {
   case 1:
   case 2:
   case 3:
-    result = "1, 2, or 3";
+    result = '1, 2, or 3';
     break;
   case 4:
-    result = "4 alone";
+    result = '4 alone';
 }
 ```
 
@@ -840,7 +839,7 @@ for (let value of myArray) {
 
 ```javascript
 function functionName() {
-  console.log("Hello World");
+  console.log('Hello World');
 }
 
 functionName(); // call the function
@@ -868,7 +867,7 @@ var answer = plusThree(5); // 8
 
 ```javascript
 (function () {
-  console.log("A cozy nest is ready");
+  console.log('A cozy nest is ready');
 })();
 ```
 
@@ -876,18 +875,18 @@ var answer = plusThree(5); // 8
 
 ```javascript
 const myFunc = function () {
-  const myVar = "value";
+  const myVar = 'value';
   return myVar;
 };
 
 // can be rewritten like this
 const myFunc = () => {
-  const myVar = "value";
+  const myVar = 'value';
   return myVar;
 };
 
 // and if there is no function body, and only a return value
-const myFunc = () => "value";
+const myFunc = () => 'value';
 
 // to pass parameters to an arrow function
 const doubler = (item) => item * 2;
@@ -912,10 +911,10 @@ With the rest operator, you can create functions that take a variable number of 
 
 ```javascript
 function howMany(...args) {
-  return "You have passed " + args.length + " arguments.";
+  return 'You have passed ' + args.length + ' arguments.';
 }
 console.log(howMany(0, 1, 2)); // You have passed 3 arguments
-console.log(howMany("string", null, [1, 2, 3], {})); // You have passed 4 arguments.
+console.log(howMany('string', null, [1, 2, 3], {})); // You have passed 4 arguments.
 ```
 
 ### ES6 Declarative Functions within Objects
@@ -923,7 +922,7 @@ console.log(howMany("string", null, [1, 2, 3], {})); // You have passed 4 argume
 ```javascript
 // When defining functions within objects in ES5, we have to use the keyword function
 const person = {
-  name: "Taylor",
+  name: 'Taylor',
   sayHello: function () {
     return `Hello! My name is ${this.name}.`;
   },
@@ -931,7 +930,7 @@ const person = {
 
 // With ES6, You can remove the function keyword and colon
 const person = {
-  name: "Taylor",
+  name: 'Taylor',
   sayHello() {
     return `Hello! My name is ${this.name}.`;
   },
@@ -942,33 +941,33 @@ const person = {
 
 ### Resume Table
 
-| Character  | Description                                                                                        |
-| ---------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ | ----- |
-| `\`        | Escapes a special character.                                                                       |
-| `          | `                                                                                                  | Search for multiple patterns. To match "yes" or "no", the regex is `/yes | no/`. |
-| `i`        | This flag is used to ignore upper and lowercase. `/ignorecase/i`.                                  |
-| `g`        | Search or extract a pattern more than once.                                                        |
-| `.`        | The wildcard character `.` will match any character except new lines.                              |
-| `[]`       | Allow you to define the characters to match. `/b[au]g/` will match "bag", "bug" but not "bog".     |
-| `[a-z]`    | Match all the characters between a and z.                                                          |
-| `[1-9]`    | Match all the numbers between 1 and 9.                                                             |
-| `[a-z1-9]` | Match all the character between a and z, and the numbers between 1 and 9.                          |
-| `[^]`      | Match the characters not in the set. `[^a-e]` match all other characters except A, B, C, D, and E. |
-| `+`        | Match 1 or more occurrences of the previous character in a row.                                    |
-| `*`        | Match 0 or more occurrences of the previous character.                                             |
-| `?`        | Match 0 or 1 occurrence of the previous character. Useful for Lazy matching.                       |
-| `^`        | Search for patterns at the beginning of strings.                                                   |
-| `$`        | Search for patterns at the end of a string.                                                        |
-| `\w`       | Equal to `[A-Za-z0-9_]`. Matches upper, lowercase, numbers the and underscore character (-).       |
-| `\W`       | Matches any nonword character. Equivalent to `[^a-za-z0-9_]`.                                      |
-| `\d`       | Equal to `[0-9]`. Match one digit.                                                                 |
-| `\D`       | Equal to `[^0-9]`. Match one non digit.                                                            |
-| `\s`       | Match a whitespace.                                                                                |
-| `\S`       | Match everything except whitespace.                                                                |
-| `a{2,5}`   | Match the letter `a` between 3 and 5 times.                                                        |
-| `a{2,}`    | Specify only the lower number of matches.                                                          |
-| `a{5}`     | Specify the exact number of matches.                                                               |
-| `(...)`    | Specify a group that can be acceded with number (from 1)                                           |
+| Character | Description |
+| --- | --- | --- | --- |
+| `\` | Escapes a special character. |
+| ` | ` | Search for multiple patterns. To match "yes" or "no", the regex is `/yes | no/`. |
+| `i` | This flag is used to ignore upper and lowercase. `/ignorecase/i`. |
+| `g` | Search or extract a pattern more than once. |
+| `.` | The wildcard character `.` will match any character except new lines. |
+| `[]` | Allow you to define the characters to match. `/b[au]g/` will match "bag", "bug" but not "bog". |
+| `[a-z]` | Match all the characters between a and z. |
+| `[1-9]` | Match all the numbers between 1 and 9. |
+| `[a-z1-9]` | Match all the character between a and z, and the numbers between 1 and 9. |
+| `[^]` | Match the characters not in the set. `[^a-e]` match all other characters except A, B, C, D, and E. |
+| `+` | Match 1 or more occurrences of the previous character in a row. |
+| `*` | Match 0 or more occurrences of the previous character. |
+| `?` | Match 0 or 1 occurrence of the previous character. Useful for Lazy matching. |
+| `^` | Search for patterns at the beginning of strings. |
+| `$` | Search for patterns at the end of a string. |
+| `\w` | Equal to `[A-Za-z0-9_]`. Matches upper, lowercase, numbers the and underscore character (-). |
+| `\W` | Matches any nonword character. Equivalent to `[^a-za-z0-9_]`. |
+| `\d` | Equal to `[0-9]`. Match one digit. |
+| `\D` | Equal to `[^0-9]`. Match one non digit. |
+| `\s` | Match a whitespace. |
+| `\S` | Match everything except whitespace. |
+| `a{2,5}` | Match the letter `a` between 3 and 5 times. |
+| `a{2,}` | Specify only the lower number of matches. |
+| `a{5}` | Specify the exact number of matches. |
+| `(...)` | Specify a group that can be acceded with number (from 1) |
 
 ### Regex Methods
 
@@ -982,7 +981,7 @@ const person = {
 
 ```javascript
 // test method returns true or false if the pattern match a string or not
-let myString = "Hello, World!";
+let myString = 'Hello, World!';
 let myRegex = /Hello/;
 let result = myRegex.test(myString);
 
@@ -992,22 +991,22 @@ let codingRegex = /coding/;
 let result = extractStr.match(codingRegex);
 
 // Search and replace
-let wrongText = "The sky is silver.";
+let wrongText = 'The sky is silver.';
 let silverRegex = /silver/;
-wrongText.replace(silverRegex, "blue"); // Returns "The sky is blue."
+wrongText.replace(silverRegex, 'blue'); // Returns "The sky is blue."
 
 // search for multiple patterns using the alternation or OR operator: |
-let petString = "James has a pet cat.";
+let petString = 'James has a pet cat.';
 let petRegex = /dog|cat|bird|fish/;
 let result = petRegex.test(petString);
 
 // ignore upper or lowercase
-let myString = "freeCodeCamp";
+let myString = 'freeCodeCamp';
 let fccRegex = /freeCodeCamp/i; // flag i
 let result = fccRegex.test(myString);
 
 // Search or extract a pattern more than once
-let twinkleStar = "Twinkle, twinkle, little star";
+let twinkleStar = 'Twinkle, twinkle, little star';
 let starRegex = /Twinkle/gi; // a regex can have multiple flags
 let result = twinkleStar.match(starRegex);
 
@@ -1018,69 +1017,69 @@ let result = unRegex.test(exampleStr);
 
 // define the characters to match, in this example all the vowels in quoteSample
 let quoteSample =
-  "Beware of bugs in the above code; I have only proved it correct, not tried it.";
+  'Beware of bugs in the above code; I have only proved it correct, not tried it.';
 let vowelRegex = /[aeiou]/gi;
 let result = quoteSample.match(vowelRegex);
 
 // Match all the characters in quoteSample (between a and z)
-let quoteSample = "The quick brown fox jumps over the lazy dog.";
+let quoteSample = 'The quick brown fox jumps over the lazy dog.';
 let alphabetRegex = /[a-z]/gi;
 let result = quoteSample.match(alphabetRegex);
 
 // Match all the character between two characters and numbers
-let quoteSample = "Blueberry 3.141592653s are delicious.";
+let quoteSample = 'Blueberry 3.141592653s are delicious.';
 let myRegex = /[h-s2-6]/gi;
 let result = quoteSample.match(myRegex);
 
 // Match all that is not a number or a vowel
-let quoteSample = "3 blind mice.";
+let quoteSample = '3 blind mice.';
 let myRegex = /[^aeiou0-9]/gi;
 let result = quoteSample.match(myRegex);
 
 // Match 1 or more occurrences of the previous character (* for 0 or more)
-let difficultSpelling = "Mississippi";
+let difficultSpelling = 'Mississippi';
 let myRegex = /s+/g;
 let result = difficultSpelling.match(myRegex);
 
 // ? Match 0 or 1 occurrence of the previous character. Useful for Lazy matching
-let text = "titanic";
+let text = 'titanic';
 let myRegex = /t[a-z]*?i/;
 let result = text.match(myRegex);
 
 // Search for patterns at the beginning of strings
-let rickyAndCal = "Cal and Ricky both like racing.";
+let rickyAndCal = 'Cal and Ricky both like racing.';
 let calRegex = /^Cal/;
 let result = calRegex.test(rickyAndCal);
 
 // Search for patterns at the end of a string
-let caboose = "The last car on a train is the caboose";
+let caboose = 'The last car on a train is the caboose';
 let lastRegex = /caboose$/;
 let result = lastRegex.test(caboose);
 
 // \w is equal to [A-Za-z0-9_]
-let quoteSample = "The five boxing wizards jump quickly.";
+let quoteSample = 'The five boxing wizards jump quickly.';
 let alphabetRegexV2 = /\w/g;
 let result = quoteSample.match(alphabetRegexV2).length;
 
 // Match only 3 to 6 letter h's in the word "Oh no"
-let ohStr = "Ohhh no";
+let ohStr = 'Ohhh no';
 let ohRegex = /Oh{3,6} no/;
 let result = ohRegex.test(ohStr);
 
 // Match both the American English (favorite) and the British English (favorite) version of the word
-let favWord = "favorite";
+let favWord = 'favorite';
 let favRegex = /favou?rite/;
 let result = favRegex.test(favWord);
 
 // Groups () let you reuse patterns
-let repeatNum = "42 42 42";
+let repeatNum = '42 42 42';
 let reRegex = /^(\d+)\s\1\s\1$/; // every 1 represent the group (\d+)
 let result = reRegex.test(repeatNum);
 
 // Remove all the spaces at the beginning an end of a string
-let hello = "   Hello, World!  ";
+let hello = '   Hello, World!  ';
 let wsRegex = /^\s+(.*\S)\s+$/;
-let result = hello.replace(wsRegex, "$1"); // returns 'Hello, World!'
+let result = hello.replace(wsRegex, '$1'); // returns 'Hello, World!'
 ```
 
 ## Object Oriented
@@ -1089,10 +1088,10 @@ let result = hello.replace(wsRegex, "$1"); // returns 'Hello, World!'
 
 ```javascript
 let duck = {
-  name: "Aflac",
+  name: 'Aflac',
   numLegs: 2,
   sayName: function () {
-    return "The name of this duck is " + this.name + ".";
+    return 'The name of this duck is ' + this.name + '.';
   },
 };
 
@@ -1115,8 +1114,8 @@ function Bird(name, color) {
 }
 
 // create a new instance of Bird
-let cardinal = new Bird("Bruce", "red");
-let duck = new Bird("Donald", "blue");
+let cardinal = new Bird('Bruce', 'red');
+let duck = new Bird('Donald', 'blue');
 
 // access and modify blueBird object
 cardinal.name; // Bruce
@@ -1129,8 +1128,8 @@ cardinal instanceof Bird; // true
 crow instanceof Bird; // false
 
 // check an objects own (name, color, numLegs) properties
-cardinal.hasOwnProperty("color"); // true
-cardinal.hasOwnProperty("age"); // false
+cardinal.hasOwnProperty('color'); // true
+cardinal.hasOwnProperty('age'); // false
 
 //check an objects properties with the constructor property
 cardinal.constructor === Bird; // true
@@ -1147,16 +1146,16 @@ Bird.prototype = {
 
   eat: function () {
     // new method
-    console.log("nom nom nom");
+    console.log('nom nom nom');
   },
 
   describe: function () {
     // new method
-    console.log("My name is " + this.name);
+    console.log('My name is ' + this.name);
   },
 };
 
-let chicken = new Bird("Dinner", "brown");
+let chicken = new Bird('Dinner', 'brown');
 chicken.numLegs; // 2
 chicken.eat(); // nom nom nom
 chicken.describe(); // My name is Dinner
@@ -1170,7 +1169,7 @@ function Animal() {}
 Animal.prototype = {
   constructor: Animal,
   eat: function () {
-    console.log("nom nom nom");
+    console.log('nom nom nom');
   },
 };
 
@@ -1181,7 +1180,7 @@ function Cat(name) {
 // make the Cat constructor inherit the eat function from Animal
 Cat.prototype = Object.create(Animal.prototype);
 
-let myCat = new Cat("charles");
+let myCat = new Cat('charles');
 myCat.eat(); // nom nom nom
 ```
 
@@ -1190,7 +1189,7 @@ Add methods after Inheritance and override them
 ```javascript
 function Animal() {}
 Animal.prototype.eat = function () {
-  console.log("nom nom nom");
+  console.log('nom nom nom');
 };
 
 // Dog constructor
@@ -1201,7 +1200,7 @@ Dog.prototype = Object.create(Animal.prototype);
 Dog.prototype.constructor = Dog;
 
 Dog.prototype.bark = function () {
-  console.log("wof wof!");
+  console.log('wof wof!');
 };
 
 // the new object will have both, the inherited eat() and its own bark() method
@@ -1211,7 +1210,7 @@ beagle.bark(); // "Woof!"
 
 // override an inherited method
 Dog.prototype.eat = function () {
-  return "nice meeeeat!";
+  return 'nice meeeeat!';
 };
 
 let doberman = new Dog();
@@ -1224,19 +1223,19 @@ A mixin allows unrelated objects to use a collection of functions.
 
 ```javascript
 let bird = {
-  name: "Donald",
+  name: 'Donald',
   numLegs: 2,
 };
 
 let boat = {
-  name: "Warrior",
-  type: "race-boat",
+  name: 'Warrior',
+  type: 'race-boat',
 };
 
 // this mixin contain the glide method
 const glideMixin = function (obj) {
   obj.glide = function () {
-    console.log("gliding...");
+    console.log('gliding...');
   };
 };
 
@@ -1283,7 +1282,7 @@ let funModule = (function () {
 
     singMixin: function (obj) {
       obj.sing = function () {
-        console.log("Singing to an awesome tune");
+        console.log('Singing to an awesome tune');
       };
     },
   };
@@ -1301,9 +1300,7 @@ goodBoy.sing(); // Singing to an awesome tune
 
 ### Basics
 
-ES6 provides a new syntax to help create objects, the keyword `class`.The class syntax
-is just a syntax, and not a full-fledged class based implementation of object oriented paradigm,
-unlike in languages like Java, or Python, or Ruby etc.
+ES6 provides a new syntax to help create objects, the keyword `class`.The class syntax is just a syntax, and not a full-fledged class based implementation of object oriented paradigm, unlike in languages like Java, or Python, or Ruby etc.
 
 ### ES6 Classes
 
@@ -1325,7 +1322,7 @@ class Book {
   }
 }
 
-book = new Book("Book One", "John Doe", 2016);
+book = new Book('Book One', 'John Doe', 2016);
 book.getSummary(); // Book One was written by John Doe in 2016
 book.getAge(); // Book One is 3 years old
 ```
@@ -1346,9 +1343,9 @@ class Book {
     this._author = updatedAuthor;
   }
 }
-const lol = new Book("anonymous");
+const lol = new Book('anonymous');
 console.log(lol.writer); // anonymous
-lol.writer = "wut";
+lol.writer = 'wut';
 console.log(lol.writer); // wut
 ```
 
@@ -1365,7 +1362,7 @@ class Book {
   }
 
   static sayHi() {
-    return "Hi!";
+    return 'Hi!';
   }
 }
 
@@ -1394,11 +1391,11 @@ class Magazine extends Book {
   }
 
   sayHi() {
-    return "Hi!";
+    return 'Hi!';
   }
 }
 
-mag = new Magazine("Mag", "People", 2019, "jan");
+mag = new Magazine('Mag', 'People', 2019, 'jan');
 mag.getSummary(); // Mag was written by People in 2019
 mag.sayHi(); // Hi!
 ```
@@ -1407,8 +1404,7 @@ mag.sayHi(); // Hi!
 
 ### Basics
 
-> The lessons in this section handle non-browser features. import won't work on a browser directly.
-> However, we can use various tools to create code out of this to make it work in browser.
+> The lessons in this section handle non-browser features. import won't work on a browser directly. However, we can use various tools to create code out of this to make it work in browser.
 
 ### import
 
@@ -1423,21 +1419,20 @@ import * as name_of_your_choice from "file_path";
 
 ### export
 
-In order for `import` to work, though, we must first `export` the functions or variables we need.
-Like import, export is a non-browser feature.
+In order for `import` to work, though, we must first `export` the functions or variables we need. Like import, export is a non-browser feature.
 
 ```javascript
 const capitalizeString = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
 export { capitalizeString }; //How to export functions.
-export const foo = "bar"; //How to export variables.
+export const foo = 'bar'; //How to export variables.
 
 // Alternatively, if you would like to compact all your export statements into one line, you can take this approach
 const capitalizeString = (string) => {
   return string.charAt(0).toUpperCase() + string.slice(1);
 };
-const foo = "bar";
+const foo = 'bar';
 export { capitalizeString, foo };
 
 // use export default if only one value is being exported from a file.
@@ -1446,7 +1441,7 @@ export default function add(x, y) {
   return x + y;
 }
 // and to import
-import add from "math_functions";
+import add from 'math_functions';
 add(5, 4); //Will return 9
 ```
 
@@ -1454,8 +1449,7 @@ add(5, 4); //Will return 9
 
 ### JavaScript is a synchronous language!
 
-> This means only one operation can be carried out at a time. Also There are many ways JavaScript provides us with the ability to make it behave like an
-> asynchronous language. One of them is with the Async-Await clause.
+> This means only one operation can be carried out at a time. Also There are many ways JavaScript provides us with the ability to make it behave like an asynchronous language. One of them is with the Async-Await clause.
 
 ### What is async-await?
 
@@ -1520,7 +1514,7 @@ For example:
 async function sequence() {
   await promise1(50); // Wait 50ms…
   await promise2(50); // …then wait another 50ms.
-  return "done!";
+  return 'done!';
 }
 ```
 
@@ -1539,7 +1533,7 @@ According to MDN:
 ```javascript
 async function sequence() {
   await Promise.all([promise1(), promise2()]);
-  return "done!";
+  return 'done!';
 }
 ```
 
@@ -1560,7 +1554,7 @@ async function parallel() {
   // …by which time this timer has already finished.
   await wait2;
 
-  return "done!";
+  return 'done!';
 }
 ```
 

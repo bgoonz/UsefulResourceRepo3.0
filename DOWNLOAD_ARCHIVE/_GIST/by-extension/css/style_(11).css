@@ -6,7 +6,7 @@ body {
   margin: 0;
   padding: 0;
   overflow-x: hidden;
-  font-family: "Avenir Next", Avenir, sans-serif;
+  font-family: 'Avenir Next', Avenir, sans-serif;
   font-weight: 500;
   font-size: 20px;
   color: #555;
@@ -42,7 +42,7 @@ canvas {
 }
 
 .button {
-  font-family: "Avenir Next", Avenir, sans-serif;
+  font-family: 'Avenir Next', Avenir, sans-serif;
   font-weight: 500;
   font-size: 20px;
   padding: 5px 15px;

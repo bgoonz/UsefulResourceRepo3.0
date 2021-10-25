@@ -1,0 +1,76 @@
+h1 {
+  font-family: "Trebuchet MS", sans-serif;
+  font-size: 2em;
+  letter-spacing: -2px;
+  border-bottom: 2px solid black;
+  text-transform: uppercase;
+  color: #fbfeff;
+  text-shadow: 0 0 5px #119fb8, 0 0 10px #b4a5ff, 0 0 20px #fdffa5,
+    0 0 30px #a5acff, 0 0 40px #a5a8ff;
+}
+
+body {
+  padding: 20px;
+  text-align: center;
+  overflow: scroll;
+  /* background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite; */
+  zoom: 0.95;
+}
+#app_header {
+  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
+}
+#list_footer {
+  background: linear-gradient(-45deg, #da0000, #0008ffe5, #23d5a2d8, #2f2fbce5);
+  background-size: 400% 400%;
+  -webkit-animation: gradient 15s ease infinite;
+  animation: gradient 15s ease infinite;
+}
+@-webkit-keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+#list_footer_open_export {
+  color: black;
+}
+
+iframe {
+  resize: both !important;
+  color:white!important;
+  font-size:larger!important;
+  border: 4px solid silver;
+  border-radius: 25px;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+}
+* {
+  border-radius: 10px;
+  font-weight: bold;
+}

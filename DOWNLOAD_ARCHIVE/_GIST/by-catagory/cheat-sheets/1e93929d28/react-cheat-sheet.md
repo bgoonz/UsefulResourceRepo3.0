@@ -173,7 +173,7 @@ React.Children.map(this.props.children, (child, i) => {
 
 ```js
 React.Children.forEach(this.props.children, (child, i) => {
-  console.log(child + " at index: " + i);
+  console.log(child + ' at index: ' + i);
 });
 ```
 
@@ -200,7 +200,7 @@ React.Children.toArray(this.props.children);
 ```js
 // requires 'prop-types' library
 
-import { string } from "prop-types";
+import { string } from 'prop-types';
 
 class Cowboy extends React.Component {
   childContextTypes: {
@@ -208,7 +208,7 @@ class Cowboy extends React.Component {
   };
 
   getChildContext() {
-    return { salutation: "Howdy" };
+    return { salutation: 'Howdy' };
   }
 
   render() {
@@ -271,8 +271,8 @@ Greeting.contextTypes = {
 ### Components
 
 ```js
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
 
 class Hello extends React.Component {
   render() {
@@ -370,7 +370,7 @@ class Info extends Component {
 As of React v16.2.0, fragments can be used to return multiple children without adding extra wrapping nodes to the DOM.
 
 ```js
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment } from 'react';
 
 class Info extends Component {
   render() {
@@ -412,7 +412,7 @@ Children are passed as the `children` property.
 
 ```js
 Hello.defaultProps = {
-  color: "blue",
+  color: 'blue',
 };
 ```
 
@@ -493,25 +493,25 @@ See: [Component API](https://facebook.github.io/react/docs/component-api.html)
 
 ### Mounting
 
-| Method                   | Description                                                                                          |
-| ------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `constructor` _(props)_  | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor)                      |
-| `componentWillMount()`   | _Don’t use this_ [#](https://reactjs.org/docs/react-component.html#componentwillmount)               |
-| `render()`               | Render [#](https://reactjs.org/docs/react-component.html#render)                                     |
-| `componentDidMount()`    | After rendering (DOM available) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
-| `componentWillUnmount()` | Before DOM removal [#](https://reactjs.org/docs/react-component.html#componentwillunmount)           |
-| `componentDidCatch()`    | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)          |
+| Method | Description |
+| --- | --- |
+| `constructor` _(props)_ | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor) |
+| `componentWillMount()` | _Don’t use this_ [#](https://reactjs.org/docs/react-component.html#componentwillmount) |
+| `render()` | Render [#](https://reactjs.org/docs/react-component.html#render) |
+| `componentDidMount()` | After rendering (DOM available) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
+| `componentWillUnmount()` | Before DOM removal [#](https://reactjs.org/docs/react-component.html#componentwillunmount) |
+| `componentDidCatch()` | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html) |
 
 Set initial the state on `constructor()`. Add DOM event handlers, timers (etc) on `componentDidMount()`, then remove them on `componentWillUnmount()`.
 
 ### Updating
 
-| Method                                                  | Description                                          |
-| ------------------------------------------------------- | ---------------------------------------------------- |
+| Method | Description |
+| --- | --- |
 | `componentDidUpdate` _(prevProps, prevState, snapshot)_ | Use `setState()` here, but remember to compare props |
-| `shouldComponentUpdate` _(newProps, newState)_          | Skips `render()` if returns false                    |
-| `render()`                                              | Render                                               |
-| `componentDidUpdate` _(prevProps, prevState)_           | Operate on the DOM here                              |
+| `shouldComponentUpdate` _(newProps, newState)_ | Skips `render()` if returns false |
+| `render()` | Render |
+| `componentDidUpdate` _(prevProps, prevState)_ | Operate on the DOM here |
 
 Called when parents change properties and `.setState()`. These are not called for initial renders.
 
@@ -522,7 +522,7 @@ See: [Component specs](https://facebook.github.io/react/docs/component-specs.htm
 ### State Hook
 
 ```js
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
@@ -545,15 +545,15 @@ See: [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
 ```js
 function ExampleWithManyStates() {
   const [age, setAge] = useState(42);
-  const [fruit, setFruit] = useState("banana");
-  const [todos, setTodos] = useState([{ text: "Learn Hooks" }]);
+  const [fruit, setFruit] = useState('banana');
+  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
 }
 ```
 
 ### Effect hook
 
 ```js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function Example() {
   const [count, setCount] = useState(0);
@@ -580,7 +580,7 @@ By default, React runs the effects after every render — including the first re
 #### Define FriendStatus
 
 ```js
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 function FriendStatus(props) {
   const [isOnline, setIsOnline] = useState(null);
@@ -597,9 +597,9 @@ function FriendStatus(props) {
   }, [props.friend.id]);
 
   if (isOnline === null) {
-    return "Loading...";
+    return 'Loading...';
   }
-  return isOnline ? "Online" : "Offline";
+  return isOnline ? 'Online' : 'Offline';
 }
 ```
 
@@ -612,9 +612,9 @@ function FriendStatus(props) {
   const isOnline = useFriendStatus(props.friend.id);
 
   if (isOnline === null) {
-    return "Loading...";
+    return 'Loading...';
   }
-  return isOnline ? "Online" : "Offline";
+  return isOnline ? 'Online' : 'Offline';
 }
 ```
 
@@ -636,15 +636,15 @@ Full details: [Basic Hooks](https://reactjs.org/docs/hooks-reference.html#basic-
 
 #### Additional Hooks
 
-| Hook                                      | Description                                                                  |
-| ----------------------------------------- | ---------------------------------------------------------------------------- |
-| `useReducer`_(reducer, initialArg, init)_ |                                                                              |
-| `useCallback`_(() => { … })_              |                                                                              |
-| `useMemo`_(() => { … })_                  |                                                                              |
-| `useRef`_(initialValue)_                  |                                                                              |
-| `useImperativeHandle`_(ref, () => { … })_ |                                                                              |
-| `useLayoutEffect`                         | identical to `useEffect`, but it fires synchronously after all DOM mutations |
-| `useDebugValue`_(value)_                  | display a label for custom hooks in React DevTools                           |
+| Hook | Description |
+| --- | --- |
+| `useReducer`_(reducer, initialArg, init)_ |  |
+| `useCallback`_(() => { … })_ |  |
+| `useMemo`_(() => { … })_ |  |
+| `useRef`_(initialValue)_ |  |
+| `useImperativeHandle`_(ref, () => { … })_ |  |
+| `useLayoutEffect` | identical to `useEffect`, but it fires synchronously after all DOM mutations |
+| `useDebugValue`_(value)_ | display a label for custom hooks in React DevTools |
 
 Full details: [Additional Hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks)
 
@@ -749,7 +749,7 @@ See: [Inline styles](https://reactjs.org/tips/inline-styles.html)
 
 ```js
 function markdownify() {
-  return "<p>...</p>";
+  return '<p>...</p>';
 }
 <div dangerouslySetInnerHTML={{ __html: markdownify() }} />;
 ```
@@ -875,7 +875,7 @@ See: [Portals](https://reactjs.org/docs/portals.html)
 ### Hydration
 
 ```js
-const el = document.getElementById("app");
+const el = document.getElementById('app');
 ReactDOM.hydrate(<App />, el);
 ```
 
@@ -888,7 +888,7 @@ See: [Hydrate](https://reactjs.org/docs/react-dom.html#hydrate)
 ### PropTypes
 
 ```js
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 ```
 
 See: [Typechecking with PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
@@ -976,7 +976,7 @@ MyCo.propTypes = {
 
 ```js
 MyCo.propTypes = {
-  direction: PropTypes.oneOf(["left", "right"]),
+  direction: PropTypes.oneOf(['left', 'right']),
 };
 ```
 
@@ -1007,7 +1007,7 @@ Use `.array[Of]`, `.object[Of]`, `.instanceOf`, `.shape`.
 MyCo.propTypes = {
   customProp: (props, key, componentName) => {
     if (!/matchme/.test(props[key])) {
-      return new Error("Validation failed!");
+      return new Error('Validation failed!');
     }
   },
 };

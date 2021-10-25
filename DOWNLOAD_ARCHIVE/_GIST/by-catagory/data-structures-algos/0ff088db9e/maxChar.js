@@ -8,7 +8,7 @@
 function maxChar(str) {
   const charMap = {};
   let max = 0;
-  let maxChar = "";
+  let maxChar = '';
 
   for (let char of str) {
     if (charMap[char]) {

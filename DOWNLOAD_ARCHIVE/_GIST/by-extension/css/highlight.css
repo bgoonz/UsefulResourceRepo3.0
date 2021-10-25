@@ -6,12 +6,12 @@ https://prismjs.com/download.html#themes=prism-dark&languages=markup+css+clike+j
  * @author Lea Verou
  */
 
-code[class*="language-"],
-pre[class*="language-"] {
+code[class*='language-'],
+pre[class*='language-'] {
   color: white;
   background: none;
   text-shadow: 0 -0.1em 0.2em black;
-  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   font-size: 1em;
   text-align: left;
   white-space: pre;
@@ -31,19 +31,19 @@ pre[class*="language-"] {
 }
 
 @media print {
-  code[class*="language-"],
-  pre[class*="language-"] {
+  code[class*='language-'],
+  pre[class*='language-'] {
     text-shadow: none;
   }
 }
 
-pre[class*="language-"],
-:not(pre) > code[class*="language-"] {
+pre[class*='language-'],
+:not(pre) > code[class*='language-'] {
   background: hsl(30, 20%, 25%);
 }
 
 /* Code blocks */
-pre[class*="language-"] {
+pre[class*='language-'] {
   padding: 1em;
   margin: 0.5em 0;
   overflow: auto;
@@ -53,7 +53,7 @@ pre[class*="language-"] {
 }
 
 /* Inline code */
-:not(pre) > code[class*="language-"] {
+:not(pre) > code[class*='language-'] {
   padding: 0.15em 0.2em 0.05em;
   border-radius: 0.3em;
   border: 0.13em solid hsl(30, 20%, 40%);

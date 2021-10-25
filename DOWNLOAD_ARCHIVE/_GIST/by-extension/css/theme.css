@@ -1,8 +1,8 @@
 html,
 body {
   color: #333;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
-    Helvetica, Arial, sans-serif, "Segoe UI Emoji", "Apple Color Emoji";
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+    Helvetica, Arial, sans-serif, 'Segoe UI Emoji', 'Apple Color Emoji';
   font-size: 17px;
   -webkit-font-smoothing: antialiased;
   height: 100%;
@@ -41,8 +41,8 @@ h6,
 .content-title {
   color: #555;
   font-weight: bold;
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans";
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans';
   margin-top: 1.2em;
   margin-bottom: 0.4em;
 }
@@ -206,7 +206,7 @@ figure figcaption {
 
 code {
   padding: 2px 5px;
-  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier,
+  font-family: 'SFMono-Regular', Consolas, 'Liberation Mono', Menlo, Courier,
     monospace;
   border-radius: 3px;
   font-weight: 600;
@@ -374,20 +374,20 @@ code.line-highlight {
 
 .NOTE h5:before,
 .TIP h5:before {
-  content: "\f05a";
+  content: '\f05a';
   font-family: FontAwesome;
   padding-right: 6px;
 }
 
 .WARNING h5:before,
 .CAUTION h5:before {
-  content: "\f071";
+  content: '\f071';
   font-family: FontAwesome;
   padding-right: 6px;
 }
 
 .IMPORTANT h5:before {
-  content: "\f06a";
+  content: '\f06a';
   font-family: FontAwesome;
   padding-right: 6px;
 }
