@@ -1,0 +1,131 @@
+{
+  "name": "@common-utilities/root",
+  "version": "0.0.1",
+  "description": "Common utilities for javascript development 🧰",
+  "repository": "git@github.com:yowainwright/common-utilities.git",
+  "author": "Jeff Wainwright <yowainwright@gmail.com>",
+  "license": "MIT",
+  "main": "README.md",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "devDependencies": {
+    "@commitlint/cli": "^13.1.0",
+    "@commitlint/config-lerna-scopes": "^13.1.0",
+    "@commitlint/prompt": "^13.1.0",
+    "@heartly/eslint-config-typescript": "1.0.4",
+    "@heartly/prettier-config": "^0.0.1",
+    "@types/jest": "^27.0.0",
+    "@types/node": "^16.0.0",
+    "commitizen": "^4.0.3",
+    "eslint": "8.0.1",
+    "husky": "4.2.1",
+    "jest": "^26.6.3",
+    "lerna": "^4.0.0",
+    "lint-staged": "^11.0.0",
+    "prettier": "^2.0.2",
+    "rimraf": "^3.0.2",
+    "ts-jest": "^26.5.4",
+    "tsconfig-paths": "^3.9.0",
+    "tslib": "^2.0.1",
+    "typescript": "^4.0.3"
+  },
+  "scripts": {
+    "build": "yarn clean:dist && yarn build:dist",
+    "build:dist": "lerna run build",
+    "clean": "lerna clean",
+    "clean:dist": "lerna run clean",
+    "ci": "run-s lint:ci tsc test:ci",
+    "lint": "yarn lint:cmd --fix",
+    "lint:ci": "yarn lint:cmd",
+    "lint:cmd": "eslint . --ext '.ts'",
+    "test": "yarn test:cmd",
+    "test:ci": "yarn test:cmd --ci",
+    "test:cmd": "jest --maxWorkers=4 --noStackTrace --collectCoverage=true",
+    "commit": "git-cz",
+    "commit:retry": "git-cz --retry",
+    "commitmsg": "commitlint -e",
+    "deploy": "yarn build && lerna publish from-package",
+    "refresh": "rm -rf node_modules yarn.lock && yarn && yarn build",
+    "tsc": "tsc -p ./tsconfig.test.json"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/@commitlint/prompt"
+    }
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-lerna-scopes"
+    ],
+    "rules": {
+      "header-max-length": [
+        2,
+        "always",
+        120
+      ],
+      "scope-enum": [
+        2,
+        "always",
+        [
+          "root",
+          "compose",
+          "debounce",
+          "head",
+          "pipe",
+          "repeat",
+          "trace",
+          "filter-array",
+          "merge-objects",
+          "is-object",
+          "string-interpolation",
+          "kebab-to-camel-string",
+          "throttle",
+          "trim-whitespace",
+          "wait-until-defined"
+        ]
+      ],
+      "type-enum": [
+        2,
+        "always",
+        [
+          "chore",
+          "feat",
+          "fix",
+          "docs",
+          "style",
+          "refactor",
+          "test",
+          "release",
+          "revert"
+        ]
+      ]
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "post-checkout": "if [[ $HUSKY_GIT_PARAMS =~ 1$ ]]; then yarn; fi",
+      "post-merge": "yarn",
+      "post-rewrite": "yarn",
+      "pre-commit": "yarn tsc && lint-staged "
+    }
+  },
+  "jest": {
+    "resetMocks": true,
+    "testEnvironment": "node",
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,js,jsx,json,md}": [
+      "yarn lint"
+    ],
+    "*.{ts,tsx}": [
+      "jest --bail --findRelatedTests"
+    ]
+  },
+  "prettier": "@heartly/eslint-config-typescript/dist/prettier"
+}
