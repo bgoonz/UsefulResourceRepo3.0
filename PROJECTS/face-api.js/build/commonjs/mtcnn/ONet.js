@@ -1,18 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var fullyConnectedLayer_1 = require("../common/fullyConnectedLayer");
-var prelu_1 = require("./prelu");
-var sharedLayers_1 = require("./sharedLayers");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var fullyConnectedLayer_1 = require('../common/fullyConnectedLayer');
+var prelu_1 = require('./prelu');
+var sharedLayers_1 = require('./sharedLayers');
 function ONet(x, params) {
   return tf.tidy(function () {
     var out = sharedLayers_1.sharedLayer(x, params);
-    out = tf.maxPool(out, [2, 2], [2, 2], "same");
+    out = tf.maxPool(out, [2, 2], [2, 2], 'same');
     out = tfjs_image_recognition_base_1.TfjsImageRecognitionBase.convLayer(
       out,
       params.conv4,
-      "valid"
+      'valid'
     );
     out = prelu_1.prelu(out, params.prelu4_alpha);
     var vectorized = tf.reshape(out, [

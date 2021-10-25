@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 exports.IOU_THRESHOLD = 0.4;
 exports.BOX_ANCHORS = [
   new tfjs_image_recognition_base_1.Point(1.603231, 2.094468),

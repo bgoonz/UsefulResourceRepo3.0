@@ -19,11 +19,11 @@ let increasingNums2dAry3X3 = [
   [4, 5, 6],
   [7, 8, 9],
 ];
-console.log("increasingNums2dAry3X3", increasingNums2dAry3X2);
+console.log('increasingNums2dAry3X3', increasingNums2dAry3X2);
 
 let increasingNums2dAry3X2 = [
   [1, 2, 3],
   [4, 5, 6],
   [7, 8, 9],
 ];
-console.log("increasingNums2dAry3X2", increasingNums2dAry3X2);
+console.log('increasingNums2dAry3X2', increasingNums2dAry3X2);

@@ -33,7 +33,7 @@ function appleCounter(appleObj) {
 
   for (let key in appleObj) {
     key = key.toLowerCase();
-    if (key.indexOf("apple") > -1) {
+    if (key.indexOf('apple') > -1) {
       counter += 1;
     }
   }

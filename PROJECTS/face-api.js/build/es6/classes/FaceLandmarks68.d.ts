@@ -1,5 +1,5 @@
-import { Point } from "tfjs-image-recognition-base";
-import { FaceLandmarks } from "../classes/FaceLandmarks";
+import { Point } from 'tfjs-image-recognition-base';
+import { FaceLandmarks } from '../classes/FaceLandmarks';
 export declare class FaceLandmarks68 extends FaceLandmarks {
   getJawOutline(): Point[];
   getLeftEyeBrow(): Point[];

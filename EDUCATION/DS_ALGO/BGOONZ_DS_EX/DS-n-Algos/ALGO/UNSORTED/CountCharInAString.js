@@ -10,5 +10,5 @@ function countchar(string, ch) {
   return count;
 }
 
-console.log(countchar("BBBC", "b"));
-console.log(countchar("kakkerlak", "k"));
+console.log(countchar('BBBC', 'b'));
+console.log(countchar('kakkerlak', 'k'));

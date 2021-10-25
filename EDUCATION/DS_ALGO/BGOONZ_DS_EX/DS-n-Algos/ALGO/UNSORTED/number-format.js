@@ -1,5 +1,5 @@
 export function iterative(number) {
-  const string = `${number}`.split(".");
+  const string = `${number}`.split('.');
   let length = string[0].length;
   let places = 0;
 
@@ -11,13 +11,13 @@ export function iterative(number) {
     }
   }
 
-  return string.join(".");
+  return string.join('.');
 }
 
 export function regexp(number) {
-  const string = `${number}`.split(".");
+  const string = `${number}`.split('.');
 
-  string[0] = string[0].replace(/(\d)(?=(?:\d{3})+(?:\.|$))/g, "$1,");
+  string[0] = string[0].replace(/(\d)(?=(?:\d{3})+(?:\.|$))/g, '$1,');
 
-  return string.join(".");
+  return string.join('.');
 }

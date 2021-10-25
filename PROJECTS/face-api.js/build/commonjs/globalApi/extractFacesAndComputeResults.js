@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var dom_1 = require("../dom");
-var WithFaceLandmarks_1 = require("../factories/WithFaceLandmarks");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var dom_1 = require('../dom');
+var WithFaceLandmarks_1 = require('../factories/WithFaceLandmarks');
 function extractAllFacesAndComputeResults(
   parentResults,
   input,

@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var Mtcnn_1 = require("./Mtcnn");
-tslib_1.__exportStar(require("./Mtcnn"), exports);
-tslib_1.__exportStar(require("./MtcnnOptions"), exports);
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var Mtcnn_1 = require('./Mtcnn');
+tslib_1.__exportStar(require('./Mtcnn'), exports);
+tslib_1.__exportStar(require('./MtcnnOptions'), exports);
 function createMtcnn(weights) {
   var net = new Mtcnn_1.Mtcnn();
   net.extractWeights(weights);

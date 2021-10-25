@@ -1,20 +1,20 @@
-var after = require("after");
-var should = require("should");
-var express = require("../"),
+var after = require('after');
+var should = require('should');
+var express = require('../'),
   Route = express.Route,
-  methods = require("methods");
+  methods = require('methods');
 
-describe("Route", function () {
-  it("should work without handlers", function (done) {
-    var req = { method: "GET", url: "/" };
-    var route = new Route("/foo");
+describe('Route', function () {
+  it('should work without handlers', function (done) {
+    var req = { method: 'GET', url: '/' };
+    var route = new Route('/foo');
     route.dispatch(req, {}, done);
   });
 
-  describe(".all", function () {
-    it("should add handler", function (done) {
-      var req = { method: "GET", url: "/" };
-      var route = new Route("/foo");
+  describe('.all', function () {
+    it('should add handler', function (done) {
+      var req = { method: 'GET', url: '/' };
+      var route = new Route('/foo');
 
       route.all(function (req, res, next) {
         req.called = true;
@@ -28,9 +28,9 @@ describe("Route", function () {
       });
     });
 
-    it("should handle VERBS", function (done) {
+    it('should handle VERBS', function (done) {
       var count = 0;
-      var route = new Route("/foo");
+      var route = new Route('/foo');
       var cb = after(methods.length, function (err) {
         if (err) return done(err);
         count.should.equal(methods.length);
@@ -43,14 +43,14 @@ describe("Route", function () {
       });
 
       methods.forEach(function testMethod(method) {
-        var req = { method: method, url: "/" };
+        var req = { method: method, url: '/' };
         route.dispatch(req, {}, cb);
       });
     });
 
-    it("should stack", function (done) {
-      var req = { count: 0, method: "GET", url: "/" };
-      var route = new Route("/foo");
+    it('should stack', function (done) {
+      var req = { count: 0, method: 'GET', url: '/' };
+      var route = new Route('/foo');
 
       route.all(function (req, res, next) {
         req.count++;
@@ -70,10 +70,10 @@ describe("Route", function () {
     });
   });
 
-  describe(".VERB", function () {
-    it("should support .get", function (done) {
-      var req = { method: "GET", url: "/" };
-      var route = new Route("");
+  describe('.VERB', function () {
+    it('should support .get', function (done) {
+      var req = { method: 'GET', url: '/' };
+      var route = new Route('');
 
       route.get(function (req, res, next) {
         req.called = true;
@@ -87,12 +87,12 @@ describe("Route", function () {
       });
     });
 
-    it("should limit to just .VERB", function (done) {
-      var req = { method: "POST", url: "/" };
-      var route = new Route("");
+    it('should limit to just .VERB', function (done) {
+      var req = { method: 'POST', url: '/' };
+      var route = new Route('');
 
       route.get(function (req, res, next) {
-        throw new Error("not me!");
+        throw new Error('not me!');
       });
 
       route.post(function (req, res, next) {
@@ -107,96 +107,96 @@ describe("Route", function () {
       });
     });
 
-    it("should allow fallthrough", function (done) {
-      var req = { order: "", method: "GET", url: "/" };
-      var route = new Route("");
+    it('should allow fallthrough', function (done) {
+      var req = { order: '', method: 'GET', url: '/' };
+      var route = new Route('');
 
       route.get(function (req, res, next) {
-        req.order += "a";
+        req.order += 'a';
         next();
       });
 
       route.all(function (req, res, next) {
-        req.order += "b";
+        req.order += 'b';
         next();
       });
 
       route.get(function (req, res, next) {
-        req.order += "c";
+        req.order += 'c';
         next();
       });
 
       route.dispatch(req, {}, function (err) {
         if (err) return done(err);
-        req.order.should.equal("abc");
+        req.order.should.equal('abc');
         done();
       });
     });
   });
 
-  describe("errors", function () {
-    it("should handle errors via arity 4 functions", function (done) {
-      var req = { order: "", method: "GET", url: "/" };
-      var route = new Route("");
+  describe('errors', function () {
+    it('should handle errors via arity 4 functions', function (done) {
+      var req = { order: '', method: 'GET', url: '/' };
+      var route = new Route('');
 
       route.all(function (req, res, next) {
-        next(new Error("foobar"));
+        next(new Error('foobar'));
       });
 
       route.all(function (req, res, next) {
-        req.order += "0";
+        req.order += '0';
         next();
       });
 
       route.all(function (err, req, res, next) {
-        req.order += "a";
+        req.order += 'a';
         next(err);
       });
 
       route.dispatch(req, {}, function (err) {
         should(err).be.ok();
-        should(err.message).equal("foobar");
-        req.order.should.equal("a");
+        should(err.message).equal('foobar');
+        req.order.should.equal('a');
         done();
       });
     });
 
-    it("should handle throw", function (done) {
-      var req = { order: "", method: "GET", url: "/" };
-      var route = new Route("");
+    it('should handle throw', function (done) {
+      var req = { order: '', method: 'GET', url: '/' };
+      var route = new Route('');
 
       route.all(function (req, res, next) {
-        throw new Error("foobar");
+        throw new Error('foobar');
       });
 
       route.all(function (req, res, next) {
-        req.order += "0";
+        req.order += '0';
         next();
       });
 
       route.all(function (err, req, res, next) {
-        req.order += "a";
+        req.order += 'a';
         next(err);
       });
 
       route.dispatch(req, {}, function (err) {
         should(err).be.ok();
-        should(err.message).equal("foobar");
-        req.order.should.equal("a");
+        should(err.message).equal('foobar');
+        req.order.should.equal('a');
         done();
       });
     });
 
-    it("should handle throwing inside error handlers", function (done) {
-      var req = { method: "GET", url: "/" };
-      var route = new Route("");
+    it('should handle throwing inside error handlers', function (done) {
+      var req = { method: 'GET', url: '/' };
+      var route = new Route('');
 
       route.get(function (req, res, next) {
-        throw new Error("boom!");
+        throw new Error('boom!');
       });
 
       route.get(function (err, req, res, next) {
-        throw new Error("oops");
+        throw new Error('oops');
       });
 
       route.get(function (err, req, res, next) {
@@ -206,29 +206,29 @@ describe("Route", function () {
 
       route.dispatch(req, {}, function (err) {
         if (err) return done(err);
-        should(req.message).equal("oops");
+        should(req.message).equal('oops');
         done();
       });
     });
 
-    it("should handle throw in .all", function (done) {
-      var req = { method: "GET", url: "/" };
-      var route = new Route("");
+    it('should handle throw in .all', function (done) {
+      var req = { method: 'GET', url: '/' };
+      var route = new Route('');
 
       route.all(function (req, res, next) {
-        throw new Error("boom!");
+        throw new Error('boom!');
       });
 
       route.dispatch(req, {}, function (err) {
         should(err).be.ok();
-        err.message.should.equal("boom!");
+        err.message.should.equal('boom!');
         done();
       });
     });
 
-    it("should handle single error handler", function (done) {
-      var req = { method: "GET", url: "/" };
-      var route = new Route("");
+    it('should handle single error handler', function (done) {
+      var req = { method: 'GET', url: '/' };
+      var route = new Route('');
 
       route.all(function (err, req, res, next) {
         // this should not execute

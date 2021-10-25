@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Password protection using .htaccess and .htpasswd
-=================================================
+# Password protection using .htaccess and .htpasswd
 
 April 29, 2007 • 2 min read
 
@@ -15,8 +14,7 @@ Heads up! This post was written in 2007, so it may contain information that is n
 
 The simplest way I know to password protect files and directories using Apache's `.htaccess` and `.htpasswd` files.
 
-.htpasswd <a href="#.htpasswd" class="direct-link">#</a>
---------------------------------------------------------
+## .htpasswd <a href="#.htpasswd" class="direct-link">#</a>
 
 Create a text file with the following text:
 
@@ -45,8 +43,7 @@ If you get an error message, you'll have to navigate to the directory containing
 
 The program will output something like: `username:password`. Copy this into your `.htpasswd` file and save it as `.htpasswd` (windows users will have to save it as `htpasswd.txt` and rename it to `.htpasswd` after uploading).
 
-.htaccess <a href="#.htaccess" class="direct-link">#</a>
---------------------------------------------------------
+## .htaccess <a href="#.htaccess" class="direct-link">#</a>
 
 Now you're ready to write your `.htaccess` file. This will let Apache know that you want it to use your `.htpasswd` file for authentication. You can protect one or more directories and/or files this way. To create your `.htaccess` file, create a new text file:
 
@@ -69,13 +66,11 @@ Now you're ready to write your `.htaccess` file. This will let Apache know that 
 
 Save it as `.htaccess` (windows users will have to save it as `htaccess.txt` and rename it to `.htaccess` after uploading).
 
-Uploading <a href="#uploading" class="direct-link">#</a>
---------------------------------------------------------
+## Uploading <a href="#uploading" class="direct-link">#</a>
 
 Upload both of the files to the appropriate directories on your webserver. Open a browser and navigate to the respective URL. You should get a login dialog that prompts you for a username and password.
 
-Troubleshooting <a href="#troubleshooting" class="direct-link">#</a>
---------------------------------------------------------------------
+## Troubleshooting <a href="#troubleshooting" class="direct-link">#</a>
 
 If the authentication doesn't work, I would suggest:
 
@@ -87,7 +82,7 @@ Good luck!
 
 <a href="../../tags/apache/index.html" class="post-tag">apache</a> <a href="../../tags/development/index.html" class="post-tag">development</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -95,6 +90,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../gif-jpeg-or-png-using-images-on-the-web/index.html" class="post-nav-previous"><span class="small">Previous post</span> GIF, JPEG or PNG? Using images on the web</a> <a href="../using-javascript-to-prevent-comment-spam/index.html" class="post-nav-next"><span class="small">Up next</span> Using JavaScript to prevent comment spam</a>

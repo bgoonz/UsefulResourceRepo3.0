@@ -1,20 +1,12 @@
-Write a function named intersection(firstArr) that takes in an array and
-returns a function. When the function returned by intersection is invoked
-passing in an array (secondArr) it returns a new array containing the elements
-common to both firstArr and secondArr.
+Write a function named intersection(firstArr) that takes in an array and returns a function. When the function returned by intersection is invoked passing in an array (secondArr) it returns a new array containing the elements common to both firstArr and secondArr.
 
-Example 1:
-let abc = intersection(["a", "b", "c"]); // returns a function
-console.log(abc(["b", "d", "c"])); // returns [ 'b', 'c' ]
+Example 1: let abc = intersection(["a", "b", "c"]); // returns a function console.log(abc(["b", "d", "c"])); // returns [ 'b', 'c' ]
 
-Example 2:
-let fame = intersection(["f", "a", "m", "e"]); // returns a function
-console.log(fame(["a", "f", "z", "b"])); // returns [ 'f', 'a' ]
+Example 2: let fame = intersection(["f", "a", "m", "e"]); // returns a function console.log(fame(["a", "f", "z", "b"])); // returns [ 'f', 'a' ]
 
 **\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***\*\***\*\*\*\***/
 
-function intersection(firstArr) {
-return (secondArr) => {
+function intersection(firstArr) { return (secondArr) => {
 
     let common = [];
 
@@ -27,5 +19,4 @@ return (secondArr) => {
 
     return common;
 
-};
-}
+}; }

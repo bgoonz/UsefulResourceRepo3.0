@@ -1,8 +1,8 @@
 function findLongestWordLength(string) {
-  return Math.max(...string.split(" ").map(({ length }) => length));
+  return Math.max(...string.split(' ').map(({ length }) => length));
 }
 console.log(
-  findLongestWordLength("The quick brown fox jumped over the lazy dog")
+  findLongestWordLength('The quick brown fox jumped over the lazy dog')
 );
 
 //DESCRIPTION

@@ -12,7 +12,7 @@ module.exports = (array, compare) => {
   };
 
   // Create a compare func if not passed in
-  if (typeof compare !== "function") {
+  if (typeof compare !== 'function') {
     compare = (a, b) => {
       return a > b ? 1 : -1;
     };

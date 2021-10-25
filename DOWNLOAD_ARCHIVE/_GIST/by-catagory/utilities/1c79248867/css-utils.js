@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-var _interopRequireDefault = require("@babel/runtime/helpers/interopRequireDefault");
+var _interopRequireDefault = require('@babel/runtime/helpers/interopRequireDefault');
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.isUnitless = isUnitless;
@@ -14,7 +14,7 @@ exports.fontGrid = fontGrid;
 exports.responsiveProperty = responsiveProperty;
 
 var _defineProperty2 = _interopRequireDefault(
-  require("@babel/runtime/helpers/defineProperty")
+  require('@babel/runtime/helpers/defineProperty')
 );
 
 function isUnitless(value) {
@@ -24,7 +24,7 @@ function isUnitless(value) {
 // Emulate the sass function "unit"
 
 function getUnit(input) {
-  return String(input).match(/[\d.\-+]*\s*(.*)/)[1] || "";
+  return String(input).match(/[\d.\-+]*\s*(.*)/)[1] || '';
 } // Emulate the sass function "unitless"
 
 function toUnitless(length) {
@@ -42,10 +42,10 @@ function convertLength(baseFontSize) {
 
     var pxLength = toUnitless(length);
 
-    if (fromUnit !== "px") {
-      if (fromUnit === "em") {
+    if (fromUnit !== 'px') {
+      if (fromUnit === 'em') {
         pxLength = toUnitless(length) * toUnitless(baseFontSize);
-      } else if (fromUnit === "rem") {
+      } else if (fromUnit === 'rem') {
         pxLength = toUnitless(length) * toUnitless(baseFontSize);
         return length;
       }
@@ -53,10 +53,10 @@ function convertLength(baseFontSize) {
 
     var outputLength = pxLength;
 
-    if (toUnit !== "px") {
-      if (toUnit === "em") {
+    if (toUnit !== 'px') {
+      if (toUnit === 'em') {
         outputLength = pxLength / toUnitless(baseFontSize);
-      } else if (toUnit === "rem") {
+      } else if (toUnit === 'rem') {
         outputLength = pxLength / toUnitless(baseFontSize);
       } else {
         return length;
@@ -121,7 +121,7 @@ function responsiveProperty(_ref3) {
     min = _ref3.min,
     max = _ref3.max,
     _ref3$unit = _ref3.unit,
-    unit = _ref3$unit === void 0 ? "rem" : _ref3$unit,
+    unit = _ref3$unit === void 0 ? 'rem' : _ref3$unit,
     _ref3$breakpoints = _ref3.breakpoints,
     breakpoints =
       _ref3$breakpoints === void 0 ? [600, 960, 1280] : _ref3$breakpoints,
@@ -130,7 +130,7 @@ function responsiveProperty(_ref3) {
   var output = (0, _defineProperty2.default)(
     {},
     cssProperty,
-    "".concat(min).concat(unit)
+    ''.concat(min).concat(unit)
   );
   var factor = (max - min) / breakpoints[breakpoints.length - 1];
   breakpoints.forEach(function (breakpoint) {
@@ -140,11 +140,11 @@ function responsiveProperty(_ref3) {
       value = transform(value);
     }
 
-    output["@media (min-width:".concat(breakpoint, "px)")] = (0,
+    output['@media (min-width:'.concat(breakpoint, 'px)')] = (0,
     _defineProperty2.default)(
       {},
       cssProperty,
-      "".concat(Math.round(value * 10000) / 10000).concat(unit)
+      ''.concat(Math.round(value * 10000) / 10000).concat(unit)
     );
   });
   return output;

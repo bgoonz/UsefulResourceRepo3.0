@@ -1,14 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var dom_1 = require("../dom");
-var WithFaceLandmarks_1 = require("../factories/WithFaceLandmarks");
-var ComposableTask_1 = require("./ComposableTask");
-var ComputeFaceDescriptorsTasks_1 = require("./ComputeFaceDescriptorsTasks");
-var nets_1 = require("./nets");
-var PredictAgeAndGenderTask_1 = require("./PredictAgeAndGenderTask");
-var PredictFaceExpressionsTask_1 = require("./PredictFaceExpressionsTask");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var dom_1 = require('../dom');
+var WithFaceLandmarks_1 = require('../factories/WithFaceLandmarks');
+var ComposableTask_1 = require('./ComposableTask');
+var ComputeFaceDescriptorsTasks_1 = require('./ComputeFaceDescriptorsTasks');
+var nets_1 = require('./nets');
+var PredictAgeAndGenderTask_1 = require('./PredictAgeAndGenderTask');
+var PredictFaceExpressionsTask_1 = require('./PredictFaceExpressionsTask');
 var DetectFaceLandmarksTaskBase = /** @class */ (function (_super) {
   tslib_1.__extends(DetectFaceLandmarksTaskBase, _super);
   function DetectFaceLandmarksTaskBase(parentTask, input, useTinyLandmarkNet) {
@@ -18,7 +18,7 @@ var DetectFaceLandmarksTaskBase = /** @class */ (function (_super) {
     _this.useTinyLandmarkNet = useTinyLandmarkNet;
     return _this;
   }
-  Object.defineProperty(DetectFaceLandmarksTaskBase.prototype, "landmarkNet", {
+  Object.defineProperty(DetectFaceLandmarksTaskBase.prototype, 'landmarkNet', {
     get: function () {
       return this.useTinyLandmarkNet
         ? nets_1.nets.faceLandmark68TinyNet

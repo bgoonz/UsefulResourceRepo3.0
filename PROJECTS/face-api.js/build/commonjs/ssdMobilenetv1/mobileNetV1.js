@@ -1,11 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tf = require("@tensorflow/tfjs-core");
-var pointwiseConvLayer_1 = require("./pointwiseConvLayer");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tf = require('@tensorflow/tfjs-core');
+var pointwiseConvLayer_1 = require('./pointwiseConvLayer');
 var epsilon = 0.0010000000474974513;
 function depthwiseConvLayer(x, params, strides) {
   return tf.tidy(function () {
-    var out = tf.depthwiseConv2d(x, params.filters, strides, "same");
+    var out = tf.depthwiseConv2d(x, params.filters, strides, 'same');
     out = tf.batchNorm(
       out,
       params.batch_norm_mean,
@@ -57,7 +57,7 @@ function mobileNetV1(x, params) {
       }
     });
     if (conv11 === null) {
-      throw new Error("mobileNetV1 - output of conv layer 11 is null");
+      throw new Error('mobileNetV1 - output of conv layer 11 is null');
     }
     return {
       out: out,

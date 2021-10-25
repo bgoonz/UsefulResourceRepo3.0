@@ -1,12 +1,12 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var config_1 = require("./config");
-var getSizesForScale_1 = require("./getSizesForScale");
-var MtcnnBox_1 = require("./MtcnnBox");
-var normalize_1 = require("./normalize");
-var PNet_1 = require("./PNet");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var config_1 = require('./config');
+var getSizesForScale_1 = require('./getSizesForScale');
+var MtcnnBox_1 = require('./MtcnnBox');
+var normalize_1 = require('./normalize');
+var PNet_1 = require('./PNet');
 function rescaleAndNormalize(x, scale) {
   return tf.tidy(function () {
     var _a = getSizesForScale_1.getSizesForScale(scale, x.shape.slice(1)),

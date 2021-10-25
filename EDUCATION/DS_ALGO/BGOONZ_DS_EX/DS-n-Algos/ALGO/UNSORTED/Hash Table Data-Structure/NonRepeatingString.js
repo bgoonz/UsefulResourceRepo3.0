@@ -16,5 +16,5 @@ function FirstNonRepeatingStr(s) {
 // }
 // return null
 // }
-console.log(FirstNonRepeatingStr("abcdefg")); //a
-console.log(FirstNonRepeatingStr("hellohiworld")); //e
+console.log(FirstNonRepeatingStr('abcdefg')); //a
+console.log(FirstNonRepeatingStr('hellohiworld')); //e

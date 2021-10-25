@@ -5,19 +5,19 @@ class TreeNode {
     this.right = null;
   }
 }
-let a = new TreeNode("a");
-let b = new TreeNode("b");
-let c = new TreeNode("c");
-let d = new TreeNode("d");
-let e = new TreeNode("e");
-let f = new TreeNode("f");
-let g = new TreeNode("g");
-let h = new TreeNode("h");
-let i = new TreeNode("i");
-let j = new TreeNode("j");
-let k = new TreeNode("k");
-let l = new TreeNode("l");
-let m = new TreeNode("m");
+let a = new TreeNode('a');
+let b = new TreeNode('b');
+let c = new TreeNode('c');
+let d = new TreeNode('d');
+let e = new TreeNode('e');
+let f = new TreeNode('f');
+let g = new TreeNode('g');
+let h = new TreeNode('h');
+let i = new TreeNode('i');
+let j = new TreeNode('j');
+let k = new TreeNode('k');
+let l = new TreeNode('l');
+let m = new TreeNode('m');
 a.left = b;
 a.right = c;
 b.left = d;
@@ -31,11 +31,11 @@ k.left = l;
 l.right = m;
 console.log(a);
 console.log(h);
-console.log("a.val: ", a.val);
-console.log("b.val: ", b.val);
-console.log("a.left: ", a.left);
-console.log("a.right: ", a.right);
-console.log("h.left: ", h.left);
+console.log('a.val: ', a.val);
+console.log('b.val: ', b.val);
+console.log('a.left: ', a.left);
+console.log('a.right: ', a.right);
+console.log('h.left: ', h.left);
 
 function buildTree(preorder, inorder) {
   if (!preorder.length && !inorder.length) return null;
@@ -51,7 +51,7 @@ function buildTree(preorder, inorder) {
 }
 const preO = [3, 9, 20, 15, 7];
 const inO = [9, 3, 15, 20, 7];
-console.log("builcTree( (preO,inO): ", `${buildTree(preO, inO)}`);
+console.log('builcTree( (preO,inO): ', `${buildTree(preO, inO)}`);
 
 /*
 node 105 - Construct\ Binary\ Tree\ from\ Preorder\ and\ Inorder\ Traversal.js

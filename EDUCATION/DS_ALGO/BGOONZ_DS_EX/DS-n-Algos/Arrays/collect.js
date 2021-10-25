@@ -22,21 +22,21 @@ function createIterate(src, thisObj) {
     return identity;
   }
   switch (typeof src) {
-    case "function":
+    case 'function':
       // function is the first to improve perf (most common case)
       // also avoid using `Function#call` if not needed, which boosts
       // perf a lot in some cases
-      return typeof thisObj !== "undefined"
+      return typeof thisObj !== 'undefined'
         ? function (val, i, arr) {
             return src.call(thisObj, val, i, arr);
           }
         : src;
-    case "object":
+    case 'object':
       return function (val) {
         return deepMatches(val, src);
       };
-    case "string":
-    case "number":
+    case 'string':
+    case 'number':
       return prop(src);
   }
 }
@@ -82,7 +82,7 @@ let result = collect(
   },
   thisObj
 );
-console.log("result: ", result);
+console.log('result: ', result);
 //-----------------------------------------------(Results)------------------------------------------------------------:
 
 /*

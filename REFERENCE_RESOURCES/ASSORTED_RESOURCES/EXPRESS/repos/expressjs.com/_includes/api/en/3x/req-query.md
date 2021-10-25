@@ -1,7 +1,6 @@
 <h3 id='req.query'>req.query</h3>
 
-This property is an object containing the parsed query-string,
-defaulting to `{}`.
+This property is an object containing the parsed query-string, defaulting to `{}`.
 
 ```js
 // GET /search?q=tobi+ferret

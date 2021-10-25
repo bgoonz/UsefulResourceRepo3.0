@@ -1,12 +1,12 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   TNetInput,
-} from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes/FaceDetection";
-import { ISsdMobilenetv1Options } from "./SsdMobilenetv1Options";
-import { NetParams } from "./types";
+} from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes/FaceDetection';
+import { ISsdMobilenetv1Options } from './SsdMobilenetv1Options';
+import { NetParams } from './types';
 export declare class SsdMobilenetv1 extends NeuralNetwork<NetParams> {
   constructor();
   forwardInput(input: NetInput): {
@@ -24,10 +24,10 @@ export declare class SsdMobilenetv1 extends NeuralNetwork<NetParams> {
   protected getDefaultModelName(): string;
   protected extractParamsFromWeigthMap(weightMap: tf.NamedTensorMap): {
     params: NetParams;
-    paramMappings: import("tfjs-image-recognition-base/build/commonjs/common").ParamMapping[];
+    paramMappings: import('tfjs-image-recognition-base/build/commonjs/common').ParamMapping[];
   };
   protected extractParams(weights: Float32Array): {
     params: NetParams;
-    paramMappings: import("tfjs-image-recognition-base/build/commonjs/common").ParamMapping[];
+    paramMappings: import('tfjs-image-recognition-base/build/commonjs/common').ParamMapping[];
   };
 }

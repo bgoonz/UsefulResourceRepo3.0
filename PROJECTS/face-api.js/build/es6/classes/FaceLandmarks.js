@@ -4,9 +4,9 @@ import {
   getCenterPoint,
   Point,
   Rect,
-} from "tfjs-image-recognition-base";
-import { minBbox } from "../minBbox";
-import { FaceDetection } from "./FaceDetection";
+} from 'tfjs-image-recognition-base';
+import { minBbox } from '../minBbox';
+import { FaceDetection } from './FaceDetection';
 // face alignment constants
 var relX = 0.5;
 var relY = 0.43;
@@ -24,35 +24,35 @@ var FaceLandmarks = /** @class */ (function () {
       return pt.mul(new Point(width, height)).add(shift);
     });
   }
-  Object.defineProperty(FaceLandmarks.prototype, "shift", {
+  Object.defineProperty(FaceLandmarks.prototype, 'shift', {
     get: function () {
       return new Point(this._shift.x, this._shift.y);
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "imageWidth", {
+  Object.defineProperty(FaceLandmarks.prototype, 'imageWidth', {
     get: function () {
       return this._imgDims.width;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "imageHeight", {
+  Object.defineProperty(FaceLandmarks.prototype, 'imageHeight', {
     get: function () {
       return this._imgDims.height;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "positions", {
+  Object.defineProperty(FaceLandmarks.prototype, 'positions', {
     get: function () {
       return this._positions;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceLandmarks.prototype, "relativePositions", {
+  Object.defineProperty(FaceLandmarks.prototype, 'relativePositions', {
     get: function () {
       var _this = this;
       return this._positions.map(function (pt) {
@@ -141,7 +141,7 @@ var FaceLandmarks = /** @class */ (function () {
     return box.pad(box.width * padding, box.height * padding);
   };
   FaceLandmarks.prototype.getRefPointsForAlignment = function () {
-    throw new Error("getRefPointsForAlignment not implemented by base class");
+    throw new Error('getRefPointsForAlignment not implemented by base class');
   };
   return FaceLandmarks;
 })();

@@ -1,6 +1,6 @@
-import { IPoint } from "tfjs-image-recognition-base";
-import { FaceExpressions } from "../faceExpressionNet";
-import { WithFaceExpressions } from "../factories/WithFaceExpressions";
+import { IPoint } from 'tfjs-image-recognition-base';
+import { FaceExpressions } from '../faceExpressionNet';
+import { WithFaceExpressions } from '../factories/WithFaceExpressions';
 export declare type DrawFaceExpressionsInput =
   | FaceExpressions
   | WithFaceExpressions<{}>;

@@ -2,7 +2,7 @@ function bouncer(arr) {
   return arr.filter(Boolean);
 }
 console.log(
-  bouncer([8, "Hello", "", false, null, undefined, 9, NaN, "World", 0])
+  bouncer([8, 'Hello', '', false, null, undefined, 9, NaN, 'World', 0])
 );
 
 //Boolean is a funciton that returns truthy when true and falsy when false.

@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
 function getSizesForScale(scale, _a) {
   var height = _a[0],
     width = _a[1];

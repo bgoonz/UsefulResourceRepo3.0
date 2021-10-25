@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { BoxPredictionParams } from "./types";
+import * as tf from '@tensorflow/tfjs-core';
+import { BoxPredictionParams } from './types';
 export declare function boxPredictionLayer(
   x: tf.Tensor4D,
   params: BoxPredictionParams

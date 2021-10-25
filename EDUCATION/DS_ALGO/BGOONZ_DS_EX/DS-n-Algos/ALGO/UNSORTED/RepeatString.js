@@ -1,13 +1,13 @@
 //Question: Repeat a given string str (first argument) for num times (second argument). Return an empty string if num is not a positive number.
 function repeatStringNumTimes(str, num) {
-  let string = " ";
+  let string = ' ';
   while (num > 0) {
     string += str;
     num--;
   }
   return string;
 }
-console.log(repeatStringNumTimes("repeat", 5));
+console.log(repeatStringNumTimes('repeat', 5));
 
 //Solution-2: Using ternary operator and recursive function
 // function repeatStringNumTimes(str,num){

@@ -26,4 +26,4 @@ function flatten(array) {
   return newArray;
 }
 
-console.log(flatten([1, "a", ["hello", ["world", "1"]]])); // [1, "a", "hello", "world", "1"]
+console.log(flatten([1, 'a', ['hello', ['world', '1']]])); // [1, "a", "hello", "world", "1"]

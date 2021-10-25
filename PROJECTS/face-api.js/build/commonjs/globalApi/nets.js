@@ -1,14 +1,14 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var AgeGenderNet_1 = require("../ageGenderNet/AgeGenderNet");
-var FaceExpressionNet_1 = require("../faceExpressionNet/FaceExpressionNet");
-var FaceLandmark68Net_1 = require("../faceLandmarkNet/FaceLandmark68Net");
-var FaceLandmark68TinyNet_1 = require("../faceLandmarkNet/FaceLandmark68TinyNet");
-var FaceRecognitionNet_1 = require("../faceRecognitionNet/FaceRecognitionNet");
-var Mtcnn_1 = require("../mtcnn/Mtcnn");
-var SsdMobilenetv1_1 = require("../ssdMobilenetv1/SsdMobilenetv1");
-var TinyFaceDetector_1 = require("../tinyFaceDetector/TinyFaceDetector");
-var tinyYolov2_1 = require("../tinyYolov2");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var AgeGenderNet_1 = require('../ageGenderNet/AgeGenderNet');
+var FaceExpressionNet_1 = require('../faceExpressionNet/FaceExpressionNet');
+var FaceLandmark68Net_1 = require('../faceLandmarkNet/FaceLandmark68Net');
+var FaceLandmark68TinyNet_1 = require('../faceLandmarkNet/FaceLandmark68TinyNet');
+var FaceRecognitionNet_1 = require('../faceRecognitionNet/FaceRecognitionNet');
+var Mtcnn_1 = require('../mtcnn/Mtcnn');
+var SsdMobilenetv1_1 = require('../ssdMobilenetv1/SsdMobilenetv1');
+var TinyFaceDetector_1 = require('../tinyFaceDetector/TinyFaceDetector');
+var tinyYolov2_1 = require('../tinyYolov2');
 exports.nets = {
   ssdMobilenetv1: new SsdMobilenetv1_1.SsdMobilenetv1(),
   tinyFaceDetector: new TinyFaceDetector_1.TinyFaceDetector(),

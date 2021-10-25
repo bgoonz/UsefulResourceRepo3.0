@@ -1,16 +1,16 @@
-import { TNetInput } from "tfjs-image-recognition-base";
-import { WithFaceDescriptor } from "../factories/WithFaceDescriptor";
-import { WithFaceDetection } from "../factories/WithFaceDetection";
-import { WithFaceLandmarks } from "../factories/WithFaceLandmarks";
-import { ComposableTask } from "./ComposableTask";
+import { TNetInput } from 'tfjs-image-recognition-base';
+import { WithFaceDescriptor } from '../factories/WithFaceDescriptor';
+import { WithFaceDetection } from '../factories/WithFaceDetection';
+import { WithFaceLandmarks } from '../factories/WithFaceLandmarks';
+import { ComposableTask } from './ComposableTask';
 import {
   PredictAllAgeAndGenderWithFaceAlignmentTask,
   PredictSingleAgeAndGenderWithFaceAlignmentTask,
-} from "./PredictAgeAndGenderTask";
+} from './PredictAgeAndGenderTask';
 import {
   PredictAllFaceExpressionsWithFaceAlignmentTask,
   PredictSingleFaceExpressionsWithFaceAlignmentTask,
-} from "./PredictFaceExpressionsTask";
+} from './PredictFaceExpressionsTask';
 export declare class ComputeFaceDescriptorsTaskBase<
   TReturn,
   TParentReturn

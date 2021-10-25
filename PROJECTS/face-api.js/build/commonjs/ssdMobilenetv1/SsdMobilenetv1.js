@@ -1,25 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceDetection_1 = require("../classes/FaceDetection");
-var extractParams_1 = require("./extractParams");
-var extractParamsFromWeigthMap_1 = require("./extractParamsFromWeigthMap");
-var mobileNetV1_1 = require("./mobileNetV1");
-var nonMaxSuppression_1 = require("./nonMaxSuppression");
-var outputLayer_1 = require("./outputLayer");
-var predictionLayer_1 = require("./predictionLayer");
-var SsdMobilenetv1Options_1 = require("./SsdMobilenetv1Options");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceDetection_1 = require('../classes/FaceDetection');
+var extractParams_1 = require('./extractParams');
+var extractParamsFromWeigthMap_1 = require('./extractParamsFromWeigthMap');
+var mobileNetV1_1 = require('./mobileNetV1');
+var nonMaxSuppression_1 = require('./nonMaxSuppression');
+var outputLayer_1 = require('./outputLayer');
+var predictionLayer_1 = require('./predictionLayer');
+var SsdMobilenetv1Options_1 = require('./SsdMobilenetv1Options');
 var SsdMobilenetv1 = /** @class */ (function (_super) {
   tslib_1.__extends(SsdMobilenetv1, _super);
   function SsdMobilenetv1() {
-    return _super.call(this, "SsdMobilenetv1") || this;
+    return _super.call(this, 'SsdMobilenetv1') || this;
   }
   SsdMobilenetv1.prototype.forwardInput = function (input) {
     var params = this.params;
     if (!params) {
-      throw new Error("SsdMobilenetv1 - load model before inference");
+      throw new Error('SsdMobilenetv1 - load model before inference');
     }
     return tf.tidy(function () {
       var batchTensor = input.toBatchTensor(512, false).toFloat();
@@ -162,7 +162,7 @@ var SsdMobilenetv1 = /** @class */ (function (_super) {
     });
   };
   SsdMobilenetv1.prototype.getDefaultModelName = function () {
-    return "ssd_mobilenetv1_model";
+    return 'ssd_mobilenetv1_model';
   };
   SsdMobilenetv1.prototype.extractParamsFromWeigthMap = function (weightMap) {
     return extractParamsFromWeigthMap_1.extractParamsFromWeigthMap(weightMap);

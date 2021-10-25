@@ -26,7 +26,7 @@ export function regexp(element, className) {
   // getting all elements straight up using the asterisk selector.
   const found = [];
   const regex = new RegExp(`(^| )${className}($| )`);
-  const elements = element.getElementsByTagName("*");
+  const elements = element.getElementsByTagName('*');
 
   // Loop through all the elements checking the class names against the
   // regular expression - when it suceeds just push it into the output array.

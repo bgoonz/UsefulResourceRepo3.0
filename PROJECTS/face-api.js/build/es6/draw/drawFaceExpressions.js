@@ -1,7 +1,7 @@
-import { draw, Point, round } from "tfjs-image-recognition-base";
-import { FaceExpressions } from "../faceExpressionNet";
-import { isWithFaceDetection } from "../factories/WithFaceDetection";
-import { isWithFaceExpressions } from "../factories/WithFaceExpressions";
+import { draw, Point, round } from 'tfjs-image-recognition-base';
+import { FaceExpressions } from '../faceExpressionNet';
+import { isWithFaceDetection } from '../factories/WithFaceDetection';
+import { isWithFaceExpressions } from '../factories/WithFaceExpressions';
 export function drawFaceExpressions(
   canvasArg,
   faceExpressions,
@@ -23,7 +23,7 @@ export function drawFaceExpressions(
         : undefined;
     if (!expr) {
       throw new Error(
-        "drawFaceExpressions - expected faceExpressions to be FaceExpressions | WithFaceExpressions<{}> or array thereof"
+        'drawFaceExpressions - expected faceExpressions to be FaceExpressions | WithFaceExpressions<{}> or array thereof'
       );
     }
     var sorted = expr.asSortedArray();
@@ -35,7 +35,7 @@ export function drawFaceExpressions(
       : textFieldAnchor || new Point(0, 0);
     var drawTextField = new draw.DrawTextField(
       resultsToDisplay.map(function (expr) {
-        return expr.expression + " (" + round(expr.probability) + ")";
+        return expr.expression + ' (' + round(expr.probability) + ')';
       }),
       anchor
     );

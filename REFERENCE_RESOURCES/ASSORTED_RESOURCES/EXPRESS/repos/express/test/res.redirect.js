@@ -1,20 +1,20 @@
-var assert = require("assert");
-var express = require("..");
-var request = require("supertest");
-var utils = require("./support/utils");
+var assert = require('assert');
+var express = require('..');
+var request = require('supertest');
+var utils = require('./support/utils');
 
-describe("res", function () {
-  describe(".redirect(url)", function () {
-    it("should default to a 302 redirect", function (done) {
+describe('res', function () {
+  describe('.redirect(url)', function () {
+    it('should default to a 302 redirect', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("http://google.com");
+        res.redirect('http://google.com');
       });
 
       request(app)
-        .get("/")
-        .expect("location", "http://google.com")
+        .get('/')
+        .expect('location', 'http://google.com')
         .expect(302, done);
     });
 
@@ -22,12 +22,12 @@ describe("res", function () {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("https://google.com?q=\u2603 §10");
+        res.redirect('https://google.com?q=\u2603 §10');
       });
 
       request(app)
-        .get("/")
-        .expect("Location", "https://google.com?q=%E2%98%83%20%C2%A710")
+        .get('/')
+        .expect('Location', 'https://google.com?q=%E2%98%83%20%C2%A710')
         .expect(302, done);
     });
 
@@ -35,76 +35,76 @@ describe("res", function () {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("https://google.com?q=%A710");
+        res.redirect('https://google.com?q=%A710');
       });
 
       request(app)
-        .get("/")
-        .expect("Location", "https://google.com?q=%A710")
+        .get('/')
+        .expect('Location', 'https://google.com?q=%A710')
         .expect(302, done);
     });
   });
 
-  describe(".redirect(status, url)", function () {
-    it("should set the response status", function (done) {
+  describe('.redirect(status, url)', function () {
+    it('should set the response status', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect(303, "http://google.com");
+        res.redirect(303, 'http://google.com');
       });
 
       request(app)
-        .get("/")
-        .expect("Location", "http://google.com")
+        .get('/')
+        .expect('Location', 'http://google.com')
         .expect(303, done);
     });
   });
 
-  describe(".redirect(url, status)", function () {
-    it("should set the response status", function (done) {
+  describe('.redirect(url, status)', function () {
+    it('should set the response status', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("http://google.com", 303);
+        res.redirect('http://google.com', 303);
       });
 
       request(app)
-        .get("/")
-        .expect("Location", "http://google.com")
+        .get('/')
+        .expect('Location', 'http://google.com')
         .expect(303, done);
     });
   });
 
-  describe("when the request method is HEAD", function () {
-    it("should ignore the body", function (done) {
+  describe('when the request method is HEAD', function () {
+    it('should ignore the body', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("http://google.com");
+        res.redirect('http://google.com');
       });
 
       request(app)
-        .head("/")
+        .head('/')
         .expect(302)
-        .expect("Location", "http://google.com")
+        .expect('Location', 'http://google.com')
         .expect(shouldNotHaveBody())
         .end(done);
     });
   });
 
-  describe("when accepting html", function () {
-    it("should respond with html", function (done) {
+  describe('when accepting html', function () {
+    it('should respond with html', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("http://google.com");
+        res.redirect('http://google.com');
       });
 
       request(app)
-        .get("/")
-        .set("Accept", "text/html")
-        .expect("Content-Type", /html/)
-        .expect("Location", "http://google.com")
+        .get('/')
+        .set('Accept', 'text/html')
+        .expect('Content-Type', /html/)
+        .expect('Location', 'http://google.com')
         .expect(
           302,
           '<p>Found. Redirecting to <a href="http://google.com">http://google.com</a></p>',
@@ -112,7 +112,7 @@ describe("res", function () {
         );
     });
 
-    it("should escape the url", function (done) {
+    it('should escape the url', function (done) {
       var app = express();
 
       app.use(function (req, res) {
@@ -120,11 +120,11 @@ describe("res", function () {
       });
 
       request(app)
-        .get("/")
-        .set("Host", "http://example.com")
-        .set("Accept", "text/html")
-        .expect("Content-Type", /html/)
-        .expect("Location", "%3Cla'me%3E")
+        .get('/')
+        .set('Host', 'http://example.com')
+        .set('Accept', 'text/html')
+        .expect('Content-Type', /html/)
+        .expect('Location', "%3Cla'me%3E")
         .expect(
           302,
           '<p>Found. Redirecting to <a href="%3Cla&#39;me%3E">%3Cla&#39;me%3E</a></p>',
@@ -132,18 +132,18 @@ describe("res", function () {
         );
     });
 
-    it("should include the redirect type", function (done) {
+    it('should include the redirect type', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect(301, "http://google.com");
+        res.redirect(301, 'http://google.com');
       });
 
       request(app)
-        .get("/")
-        .set("Accept", "text/html")
-        .expect("Content-Type", /html/)
-        .expect("Location", "http://google.com")
+        .get('/')
+        .set('Accept', 'text/html')
+        .expect('Content-Type', /html/)
+        .expect('Location', 'http://google.com')
         .expect(
           301,
           '<p>Moved Permanently. Redirecting to <a href="http://google.com">http://google.com</a></p>',
@@ -152,23 +152,23 @@ describe("res", function () {
     });
   });
 
-  describe("when accepting text", function () {
-    it("should respond with text", function (done) {
+  describe('when accepting text', function () {
+    it('should respond with text', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("http://google.com");
+        res.redirect('http://google.com');
       });
 
       request(app)
-        .get("/")
-        .set("Accept", "text/plain, */*")
-        .expect("Content-Type", /plain/)
-        .expect("Location", "http://google.com")
-        .expect(302, "Found. Redirecting to http://google.com", done);
+        .get('/')
+        .set('Accept', 'text/plain, */*')
+        .expect('Content-Type', /plain/)
+        .expect('Location', 'http://google.com')
+        .expect(302, 'Found. Redirecting to http://google.com', done);
     });
 
-    it("should encode the url", function (done) {
+    it('should encode the url', function (done) {
       var app = express();
 
       app.use(function (req, res) {
@@ -178,56 +178,56 @@ describe("res", function () {
       });
 
       request(app)
-        .get("/")
-        .set("Host", "http://example.com")
-        .set("Accept", "text/plain, */*")
-        .expect("Content-Type", /plain/)
+        .get('/')
+        .set('Host', 'http://example.com')
+        .set('Accept', 'text/plain, */*')
+        .expect('Content-Type', /plain/)
         .expect(
-          "Location",
-          "http://example.com/?param=%3Cscript%3Ealert(%22hax%22);%3C/script%3E"
+          'Location',
+          'http://example.com/?param=%3Cscript%3Ealert(%22hax%22);%3C/script%3E'
         )
         .expect(
           302,
-          "Found. Redirecting to http://example.com/?param=%3Cscript%3Ealert(%22hax%22);%3C/script%3E",
+          'Found. Redirecting to http://example.com/?param=%3Cscript%3Ealert(%22hax%22);%3C/script%3E',
           done
         );
     });
 
-    it("should include the redirect type", function (done) {
+    it('should include the redirect type', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect(301, "http://google.com");
+        res.redirect(301, 'http://google.com');
       });
 
       request(app)
-        .get("/")
-        .set("Accept", "text/plain, */*")
-        .expect("Content-Type", /plain/)
-        .expect("Location", "http://google.com")
+        .get('/')
+        .set('Accept', 'text/plain, */*')
+        .expect('Content-Type', /plain/)
+        .expect('Location', 'http://google.com')
         .expect(
           301,
-          "Moved Permanently. Redirecting to http://google.com",
+          'Moved Permanently. Redirecting to http://google.com',
           done
         );
     });
   });
 
-  describe("when accepting neither text or html", function () {
-    it("should respond with an empty body", function (done) {
+  describe('when accepting neither text or html', function () {
+    it('should respond with an empty body', function (done) {
       var app = express();
 
       app.use(function (req, res) {
-        res.redirect("http://google.com");
+        res.redirect('http://google.com');
       });
 
       request(app)
-        .get("/")
-        .set("Accept", "application/octet-stream")
+        .get('/')
+        .set('Accept', 'application/octet-stream')
         .expect(302)
-        .expect("location", "http://google.com")
-        .expect("content-length", "0")
-        .expect(utils.shouldNotHaveHeader("Content-Type"))
+        .expect('location', 'http://google.com')
+        .expect('content-length', '0')
+        .expect(utils.shouldNotHaveHeader('Content-Type'))
         .expect(shouldNotHaveBody())
         .end(done);
     });
@@ -236,6 +236,6 @@ describe("res", function () {
 
 function shouldNotHaveBody() {
   return function (res) {
-    assert.ok(res.text === "" || res.text === undefined);
+    assert.ok(res.text === '' || res.text === undefined);
   };
 }

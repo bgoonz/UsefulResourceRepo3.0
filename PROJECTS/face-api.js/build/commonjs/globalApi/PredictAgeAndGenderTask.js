@@ -1,13 +1,13 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var WithAge_1 = require("../factories/WithAge");
-var WithGender_1 = require("../factories/WithGender");
-var ComposableTask_1 = require("./ComposableTask");
-var ComputeFaceDescriptorsTasks_1 = require("./ComputeFaceDescriptorsTasks");
-var extractFacesAndComputeResults_1 = require("./extractFacesAndComputeResults");
-var nets_1 = require("./nets");
-var PredictFaceExpressionsTask_1 = require("./PredictFaceExpressionsTask");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var WithAge_1 = require('../factories/WithAge');
+var WithGender_1 = require('../factories/WithGender');
+var ComposableTask_1 = require('./ComposableTask');
+var ComputeFaceDescriptorsTasks_1 = require('./ComputeFaceDescriptorsTasks');
+var extractFacesAndComputeResults_1 = require('./extractFacesAndComputeResults');
+var nets_1 = require('./nets');
+var PredictFaceExpressionsTask_1 = require('./PredictFaceExpressionsTask');
 var PredictAgeAndGenderTaskBase = /** @class */ (function (_super) {
   tslib_1.__extends(PredictAgeAndGenderTaskBase, _super);
   function PredictAgeAndGenderTaskBase(parentTask, input, extractedFaces) {

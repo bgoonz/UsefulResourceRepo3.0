@@ -1,16 +1,16 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var WithFaceDetection_1 = require("../factories/WithFaceDetection");
-var MtcnnOptions_1 = require("../mtcnn/MtcnnOptions");
-var SsdMobilenetv1Options_1 = require("../ssdMobilenetv1/SsdMobilenetv1Options");
-var TinyFaceDetectorOptions_1 = require("../tinyFaceDetector/TinyFaceDetectorOptions");
-var ComposableTask_1 = require("./ComposableTask");
-var DetectFaceLandmarksTasks_1 = require("./DetectFaceLandmarksTasks");
-var nets_1 = require("./nets");
-var PredictAgeAndGenderTask_1 = require("./PredictAgeAndGenderTask");
-var PredictFaceExpressionsTask_1 = require("./PredictFaceExpressionsTask");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var WithFaceDetection_1 = require('../factories/WithFaceDetection');
+var MtcnnOptions_1 = require('../mtcnn/MtcnnOptions');
+var SsdMobilenetv1Options_1 = require('../ssdMobilenetv1/SsdMobilenetv1Options');
+var TinyFaceDetectorOptions_1 = require('../tinyFaceDetector/TinyFaceDetectorOptions');
+var ComposableTask_1 = require('./ComposableTask');
+var DetectFaceLandmarksTasks_1 = require('./DetectFaceLandmarksTasks');
+var nets_1 = require('./nets');
+var PredictAgeAndGenderTask_1 = require('./PredictAgeAndGenderTask');
+var PredictFaceExpressionsTask_1 = require('./PredictFaceExpressionsTask');
 var DetectFacesTaskBase = /** @class */ (function (_super) {
   tslib_1.__extends(DetectFacesTaskBase, _super);
   function DetectFacesTaskBase(input, options) {
@@ -74,7 +74,7 @@ var DetectAllFacesTask = /** @class */ (function (_super) {
                 : null;
             if (!faceDetectionFunction) {
               throw new Error(
-                "detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options"
+                'detectFaces - expected options to be instance of TinyFaceDetectorOptions | SsdMobilenetv1Options | MtcnnOptions | TinyYolov2Options'
               );
             }
             return [2 /*return*/, faceDetectionFunction(input)];

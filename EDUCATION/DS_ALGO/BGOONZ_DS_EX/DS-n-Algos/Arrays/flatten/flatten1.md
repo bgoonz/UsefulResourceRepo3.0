@@ -20,14 +20,14 @@ function flatten(array) {
   return newArray;
 }
 
-console.log(flatten([1, "a", ["hello", ["world", "1"]]])); // [1, "a", "hello", "world", "1"]
+console.log(flatten([1, 'a', ['hello', ['world', '1']]])); // [1, "a", "hello", "world", "1"]
 ```
 
 ---
 
 ```js
 // Tracing the call stack:
-flatten([1, "a", ["hello", ["world", "1"]]]);
+flatten([1, 'a', ['hello', ['world', '1']]]);
 // create newArray = []
 // iterate through each element:
 // current element: 1
@@ -38,7 +38,7 @@ flatten([1, "a", ["hello", ["world", "1"]]]);
 // newArray is now [1, "a"]
 // current element: ["hello", ["world", "1"]]
 // element is an array, call flatten on it:
-flatten(["hello", ["world", "1"]]);
+flatten(['hello', ['world', '1']]);
 // create newArray = []
 // iterate through each element:
 // current element: "hello"
@@ -46,7 +46,7 @@ flatten(["hello", ["world", "1"]]);
 // newArray is now ["hello"]
 // current element: ["world", "1"]
 // element is an array, call flatten on it:
-flatten(["world", "1"]);
+flatten(['world', '1']);
 // create newArray = []
 // iterate through each element:
 // current element: "world"

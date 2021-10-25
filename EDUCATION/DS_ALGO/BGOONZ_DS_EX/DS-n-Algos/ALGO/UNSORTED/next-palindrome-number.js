@@ -9,7 +9,7 @@ export default function nextPalindrome(number) {
   let reverseString;
 
   reverseString = (string) => {
-    return string.length > 1 ? string.split("").reverse().join("") : string;
+    return string.length > 1 ? string.split('').reverse().join('') : string;
   };
 
   if (oddDigits) {
@@ -24,7 +24,7 @@ export default function nextPalindrome(number) {
     return newNumber;
   }
 
-  if (middleNumber === "9") {
+  if (middleNumber === '9') {
     return nextPalindrome(+numberString[0] * 10 ** numberLength);
   } else {
     return newNumber + increment;

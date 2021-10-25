@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var TinyYolov2_1 = require("./TinyYolov2");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var TinyYolov2_1 = require('./TinyYolov2');
 exports.TinyYolov2 = TinyYolov2_1.TinyYolov2;
 function createTinyYolov2(weights, withSeparableConvs) {
   if (withSeparableConvs === void 0) {

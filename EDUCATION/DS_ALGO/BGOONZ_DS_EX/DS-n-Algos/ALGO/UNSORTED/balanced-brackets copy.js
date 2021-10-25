@@ -1,8 +1,8 @@
 // Use an object to map sets of brackets to their opposites
 const brackets = {
-  "(": ")",
-  "{": "}",
-  "[": "]",
+  '(': ')',
+  '{': '}',
+  '[': ']',
 };
 
 // On each input string, process it using the balance checker

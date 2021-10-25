@@ -20,7 +20,7 @@ let maxSubArray = (nums) => {
   }
   return max;
 };
-console.log("maxSubArray(testArr): ", maxSubArray(testArr));
+console.log('maxSubArray(testArr): ', maxSubArray(testArr));
 /*
 node 53max-sub-arr.js
 maxSubArray(testArr):  6

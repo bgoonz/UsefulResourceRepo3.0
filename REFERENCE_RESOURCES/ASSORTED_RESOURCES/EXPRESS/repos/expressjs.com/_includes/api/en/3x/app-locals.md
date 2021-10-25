@@ -1,23 +1,19 @@
 <h3 id='app.locals'>app.locals</h3>
 
-Application local variables are provided to all templates
-rendered within the application. This is useful for providing
-helper functions to templates, as well as app-level data.
+Application local variables are provided to all templates rendered within the application. This is useful for providing helper functions to templates, as well as app-level data.
 
 ```js
-app.locals.title = "My App";
-app.locals.strftime = require("strftime");
+app.locals.title = 'My App';
+app.locals.strftime = require('strftime');
 ```
 
-The `app.locals` object is a JavaScript `Function`,
-which when invoked with an object will merge properties into itself, providing
-a simple way to expose existing objects as local variables.
+The `app.locals` object is a JavaScript `Function`, which when invoked with an object will merge properties into itself, providing a simple way to expose existing objects as local variables.
 
 ```js
 app.locals({
-  title: "My App",
-  phone: "1-250-858-9990",
-  email: "me@myapp.com",
+  title: 'My App',
+  phone: '1-250-858-9990',
+  email: 'me@myapp.com',
 });
 
 console.log(app.locals.title);
@@ -30,7 +26,7 @@ console.log(app.locals.email);
 A consequence of the `app.locals` Object being ultimately a Javascript Function Object is that you must not reuse existing (native) named properties for your own variable names, such as `name, apply, bind, call, arguments, length, constructor`.
 
 ```js
-app.locals({ name: "My App" });
+app.locals({ name: 'My App' });
 
 console.log(app.locals.name);
 // => return 'app.locals' in place of 'My App' (app.locals is a Function !)
@@ -42,6 +38,6 @@ The full list of native named properties can be found in many specifications. Th
 By default Express exposes only a single app-level local variable, `settings`.
 
 ```js
-app.set("title", "My App");
+app.set('title', 'My App');
 // use settings.title in a view
 ```

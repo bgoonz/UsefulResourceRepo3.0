@@ -7,9 +7,9 @@ function checkUsername(name) {
   let userCheck = /^[a-z]([0-9][0-9]+|[a-z]+\d*)$/i;
   return userCheck.test(name);
 }
-console.log(checkUsername("Oceans11"));
-console.log(checkUsername("RegexGuru"));
-console.log(checkUsername("AA"));
+console.log(checkUsername('Oceans11'));
+console.log(checkUsername('RegexGuru'));
+console.log(checkUsername('AA'));
 
 // checks start of the index
 //[a-z] checks the first character is a letter

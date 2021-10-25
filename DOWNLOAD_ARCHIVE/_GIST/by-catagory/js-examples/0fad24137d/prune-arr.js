@@ -14,4 +14,4 @@ const removeValInstances = (arr, val) => {
   }
   return newArrLength;
 };
-removeValInstances(["i", "e", "d"], "i"); //2
+removeValInstances(['i', 'e', 'd'], 'i'); //2

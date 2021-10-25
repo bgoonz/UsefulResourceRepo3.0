@@ -1,16 +1,16 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { toNetInput } from "tfjs-image-recognition-base";
-import { FaceFeatureExtractor } from "../faceFeatureExtractor/FaceFeatureExtractor";
-import { FaceProcessor } from "../faceProcessor/FaceProcessor";
-import { FaceExpressions } from "./FaceExpressions";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { toNetInput } from 'tfjs-image-recognition-base';
+import { FaceFeatureExtractor } from '../faceFeatureExtractor/FaceFeatureExtractor';
+import { FaceProcessor } from '../faceProcessor/FaceProcessor';
+import { FaceExpressions } from './FaceExpressions';
 var FaceExpressionNet = /** @class */ (function (_super) {
   tslib_1.__extends(FaceExpressionNet, _super);
   function FaceExpressionNet(faceFeatureExtractor) {
     if (faceFeatureExtractor === void 0) {
       faceFeatureExtractor = new FaceFeatureExtractor();
     }
-    return _super.call(this, "FaceExpressionNet", faceFeatureExtractor) || this;
+    return _super.call(this, 'FaceExpressionNet', faceFeatureExtractor) || this;
   }
   FaceExpressionNet.prototype.forwardInput = function (input) {
     var _this = this;
@@ -84,7 +84,7 @@ var FaceExpressionNet = /** @class */ (function (_super) {
     });
   };
   FaceExpressionNet.prototype.getDefaultModelName = function () {
-    return "face_expression_model";
+    return 'face_expression_model';
   };
   FaceExpressionNet.prototype.getClassifierChannelsIn = function () {
     return 256;

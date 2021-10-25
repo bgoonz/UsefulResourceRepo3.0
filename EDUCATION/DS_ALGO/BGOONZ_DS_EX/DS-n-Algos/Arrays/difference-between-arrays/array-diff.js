@@ -1,4 +1,4 @@
-var flatten = require("arr-flatten");
+var flatten = require('arr-flatten');
 var slice = [].slice;
 
 /*

@@ -15,11 +15,11 @@ function flatten(arr, depth = 1) {
     }
   }, []);
 }
-console.log("flatten([1, [2], 3, 4], 3): ", flatten([1, [2], 3, 4], 3));
+console.log('flatten([1, [2], 3, 4], 3): ', flatten([1, [2], 3, 4], 3));
 ```
 
 ```js
-flatten([1, "a", ["hello", ["world", "1"]]]);
+flatten([1, 'a', ['hello', ['world', '1']]]);
 flatten([1, [2], 3, 4]); // [1, 2, 3, 4]
 flatten([1, [2, [3, [4, 5], 6], 7], 8], 2); // [1, 2, 3, [4, 5], 6, 7, 8]
 ```

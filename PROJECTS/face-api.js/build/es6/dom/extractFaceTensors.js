@@ -1,7 +1,7 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
-import { isTensor4D, isTensor3D } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes/FaceDetection";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
+import { isTensor4D, isTensor3D } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes/FaceDetection';
 /**
  * Extracts the tensors of the image regions containing the detected faces.
  * Useful if you want to compute the face descriptors for the face images.
@@ -17,11 +17,11 @@ export function extractFaceTensors(imageTensor, detections) {
     return tslib_1.__generator(this, function (_a) {
       if (!isTensor3D(imageTensor) && !isTensor4D(imageTensor)) {
         throw new Error(
-          "extractFaceTensors - expected image tensor to be 3D or 4D"
+          'extractFaceTensors - expected image tensor to be 3D or 4D'
         );
       }
       if (isTensor4D(imageTensor) && imageTensor.shape[0] > 1) {
-        throw new Error("extractFaceTensors - batchSize > 1 not supported");
+        throw new Error('extractFaceTensors - batchSize > 1 not supported');
       }
       return [
         2 /*return*/,

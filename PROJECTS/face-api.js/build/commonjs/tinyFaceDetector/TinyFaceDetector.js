@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var classes_1 = require("../classes");
-var const_1 = require("./const");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var classes_1 = require('../classes');
+var const_1 = require('./const');
 var TinyFaceDetector = /** @class */ (function (_super) {
   tslib_1.__extends(TinyFaceDetector, _super);
   function TinyFaceDetector() {
@@ -11,7 +11,7 @@ var TinyFaceDetector = /** @class */ (function (_super) {
     var config = {
       withSeparableConvs: true,
       iouThreshold: const_1.IOU_THRESHOLD,
-      classes: ["face"],
+      classes: ['face'],
       anchors: const_1.BOX_ANCHORS,
       meanRgb: const_1.MEAN_RGB,
       isFirstLayerConv2d: true,
@@ -20,7 +20,7 @@ var TinyFaceDetector = /** @class */ (function (_super) {
     _this = _super.call(this, config) || this;
     return _this;
   }
-  Object.defineProperty(TinyFaceDetector.prototype, "anchors", {
+  Object.defineProperty(TinyFaceDetector.prototype, 'anchors', {
     get: function () {
       return this.config.anchors;
     },
@@ -50,7 +50,7 @@ var TinyFaceDetector = /** @class */ (function (_super) {
     });
   };
   TinyFaceDetector.prototype.getDefaultModelName = function () {
-    return "tiny_face_detector_model";
+    return 'tiny_face_detector_model';
   };
   TinyFaceDetector.prototype.extractParamsFromWeigthMap = function (weightMap) {
     return _super.prototype.extractParamsFromWeigthMap.call(this, weightMap);

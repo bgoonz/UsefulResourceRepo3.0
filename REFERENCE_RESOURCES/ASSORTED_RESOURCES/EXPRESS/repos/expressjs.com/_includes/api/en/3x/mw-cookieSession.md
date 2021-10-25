@@ -1,7 +1,6 @@
 <h3 id='cookieSession'>cookieSession()</h3>
 
-Provides cookie-based sessions, and populates `req.session`.
-This middleware takes the following options:
+Provides cookie-based sessions, and populates `req.session`. This middleware takes the following options:
 
 - `key` cookie name defaulting to `connect.sess`
 - `secret` prevents cookie tampering

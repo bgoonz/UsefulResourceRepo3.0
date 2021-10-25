@@ -2,7 +2,7 @@
 export default (csv) => {
   let isNumber = false;
   let isInput = false;
-  let curr = "";
+  let curr = '';
   const stack = [];
   let i = 0;
   let char;
@@ -13,7 +13,7 @@ export default (csv) => {
   pushStack = (input) => {
     isNumber && (input = +input);
     // Resets
-    curr = "";
+    curr = '';
     isInput = false;
     isNumber = false;
     stack.push(input);
@@ -22,7 +22,7 @@ export default (csv) => {
   while ((char = csv.charAt(i++))) {
     if (char === '"') {
       isInput = !curr;
-    } else if (char === ",") {
+    } else if (char === ',') {
       if (isInput && !isNumber) {
         curr += char;
       } else {
@@ -34,7 +34,7 @@ export default (csv) => {
       isNumber = true;
     } else {
       if (isNumber || !isInput) {
-        throw new Error("Unexpected character");
+        throw new Error('Unexpected character');
       }
       curr += char;
     }

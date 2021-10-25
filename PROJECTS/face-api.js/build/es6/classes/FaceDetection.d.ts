@@ -3,7 +3,7 @@ import {
   IDimensions,
   ObjectDetection,
   Rect,
-} from "tfjs-image-recognition-base";
+} from 'tfjs-image-recognition-base';
 export interface IFaceDetecion {
   score: number;
   box: Box;

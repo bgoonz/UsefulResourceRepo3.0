@@ -6,7 +6,7 @@ function array(arr1, arr2, n) {
   return array2;
 }
 console.log(array([3, 4], [2, 5, 6, 7, 8], 1));
-console.log(array([1, 2], ["a", "b"], 2));
+console.log(array([1, 2], ['a', 'b'], 2));
 
 //slice() method to create a copy of arr2 so not to mutate original array
 //splice() to alter array and add the arr1 contents into array2 at starting index n, and not to delete any elements next arg is 0

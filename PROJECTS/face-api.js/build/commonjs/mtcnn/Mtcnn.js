@@ -1,25 +1,25 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceDetection_1 = require("../classes/FaceDetection");
-var FaceLandmarks5_1 = require("../classes/FaceLandmarks5");
-var factories_1 = require("../factories");
-var bgrToRgbTensor_1 = require("./bgrToRgbTensor");
-var config_1 = require("./config");
-var extractParams_1 = require("./extractParams");
-var extractParamsFromWeigthMap_1 = require("./extractParamsFromWeigthMap");
-var getSizesForScale_1 = require("./getSizesForScale");
-var MtcnnOptions_1 = require("./MtcnnOptions");
-var pyramidDown_1 = require("./pyramidDown");
-var stage1_1 = require("./stage1");
-var stage2_1 = require("./stage2");
-var stage3_1 = require("./stage3");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceDetection_1 = require('../classes/FaceDetection');
+var FaceLandmarks5_1 = require('../classes/FaceLandmarks5');
+var factories_1 = require('../factories');
+var bgrToRgbTensor_1 = require('./bgrToRgbTensor');
+var config_1 = require('./config');
+var extractParams_1 = require('./extractParams');
+var extractParamsFromWeigthMap_1 = require('./extractParamsFromWeigthMap');
+var getSizesForScale_1 = require('./getSizesForScale');
+var MtcnnOptions_1 = require('./MtcnnOptions');
+var pyramidDown_1 = require('./pyramidDown');
+var stage1_1 = require('./stage1');
+var stage2_1 = require('./stage2');
+var stage3_1 = require('./stage3');
 var Mtcnn = /** @class */ (function (_super) {
   tslib_1.__extends(Mtcnn, _super);
   function Mtcnn() {
-    return _super.call(this, "Mtcnn") || this;
+    return _super.call(this, 'Mtcnn') || this;
   }
   Mtcnn.prototype.forwardInput = function (input, forwardParams) {
     if (forwardParams === void 0) {
@@ -52,12 +52,12 @@ var Mtcnn = /** @class */ (function (_super) {
           case 0:
             params = this.params;
             if (!params) {
-              throw new Error("Mtcnn - load model before inference");
+              throw new Error('Mtcnn - load model before inference');
             }
             inputCanvas = input.canvases[0];
             if (!inputCanvas) {
               throw new Error(
-                "Mtcnn - inputCanvas is not defined, note that passing tensors into Mtcnn.forwardInput is not supported yet."
+                'Mtcnn - inputCanvas is not defined, note that passing tensors into Mtcnn.forwardInput is not supported yet.'
               );
             }
             stats = {};
@@ -240,7 +240,7 @@ var Mtcnn = /** @class */ (function (_super) {
     });
   };
   Mtcnn.prototype.getDefaultModelName = function () {
-    return "mtcnn_model";
+    return 'mtcnn_model';
   };
   Mtcnn.prototype.extractParamsFromWeigthMap = function (weightMap) {
     return extractParamsFromWeigthMap_1.extractParamsFromWeigthMap(weightMap);

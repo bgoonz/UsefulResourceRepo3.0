@@ -20,25 +20,25 @@
 //     }
 //     return null;
 //     }
-console.log(longestPalindrome("hellosanasmith")); //saanaas
-console.log(longestPalindrome("abcdef")); //null
+console.log(longestPalindrome('hellosanasmith')); //saanaas
+console.log(longestPalindrome('abcdef')); //null
 function longestPalindrome(str) {
-  const arr = str.split("");
+  const arr = str.split('');
   const endArr = [];
   for (var i = 0; i < arr.length; i++) {
-    let temp = "";
+    let temp = '';
     temp = arr[i];
 
     for (let j = i + 1; j < arr.length; j++) {
       temp += arr[j];
-      if (temp.length > 2 && temp === temp.split("").reverse().join("")) {
+      if (temp.length > 2 && temp === temp.split('').reverse().join('')) {
         endArr.push(temp);
       }
     }
   }
 
   let count = 0;
-  let longestPalindrome = "";
+  let longestPalindrome = '';
   for (var i = 0; i < endArr.length; i++) {
     if (count >= endArr[i].length) {
       longestPalindrome = endArr[i - 1];

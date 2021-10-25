@@ -21,12 +21,12 @@ class TreeNode {
   }
 }
 
-let a = new TreeNode("a");
-let b = new TreeNode("b");
-let c = new TreeNode("c");
-let d = new TreeNode("d");
-let e = new TreeNode("e");
-let f = new TreeNode("f");
+let a = new TreeNode('a');
+let b = new TreeNode('b');
+let c = new TreeNode('c');
+let d = new TreeNode('d');
+let e = new TreeNode('e');
+let f = new TreeNode('f');
 
 a.left = b;
 a.right = c;
@@ -54,8 +54,7 @@ c.right = f;
 
 - Breadth First Search - Check all nodes at a level before moving down a level
   - Think of this of searching horizontally in rows
-- Depth First Search - Check the depth as far as it goes for one child, before
-  moving on to the next child.
+- Depth First Search - Check the depth as far as it goes for one child, before moving on to the next child.
   - Think of this as searching vertically in diagonals
   - Pre-Order Traversal - Access the data of the current node, recursively visit the left sub tree, recursively visit the right sub tree
     - All the way to the left, top down, going right after other options have already been logged.

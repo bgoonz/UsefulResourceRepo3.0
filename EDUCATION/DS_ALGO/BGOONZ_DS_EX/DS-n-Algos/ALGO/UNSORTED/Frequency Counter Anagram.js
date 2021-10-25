@@ -22,9 +22,9 @@ function anagram(st1, st2) {
   }
   return true;
 }
-console.log(anagram(" ", " "));
-console.log(anagram("texttwisttime", "timetexttwist"));
-console.log(anagram("hello", "eloh"));
+console.log(anagram(' ', ' '));
+console.log(anagram('texttwisttime', 'timetexttwist'));
+console.log(anagram('hello', 'eloh'));
 
 //OR
 // function anagram(st1,st2){

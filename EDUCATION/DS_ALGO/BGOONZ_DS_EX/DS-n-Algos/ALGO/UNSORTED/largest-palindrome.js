@@ -20,5 +20,5 @@ export default (str) => {
 
   return palindromes.reduce((memo, str) => {
     return str.length > memo.length ? str : memo;
-  }, "");
+  }, '');
 };

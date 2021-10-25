@@ -1,7 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var SsdMobilenetv1Options_1 = require("../ssdMobilenetv1/SsdMobilenetv1Options");
-var DetectFacesTasks_1 = require("./DetectFacesTasks");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var SsdMobilenetv1Options_1 = require('../ssdMobilenetv1/SsdMobilenetv1Options');
+var DetectFacesTasks_1 = require('./DetectFacesTasks');
 function detectSingleFace(input, options) {
   if (options === void 0) {
     options = new SsdMobilenetv1Options_1.SsdMobilenetv1Options();

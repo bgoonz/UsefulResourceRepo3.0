@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 function extractorsFactory(weightMap, paramMappings) {
   var extractWeightEntry =
     tfjs_image_recognition_base_1.TfjsImageRecognitionBase.extractWeightEntryFactory(
@@ -9,46 +9,46 @@ function extractorsFactory(weightMap, paramMappings) {
     );
   function extractPointwiseConvParams(prefix, idx, mappedPrefix) {
     var filters = extractWeightEntry(
-      prefix + "/Conv2d_" + idx + "_pointwise/weights",
+      prefix + '/Conv2d_' + idx + '_pointwise/weights',
       4,
-      mappedPrefix + "/filters"
+      mappedPrefix + '/filters'
     );
     var batch_norm_offset = extractWeightEntry(
-      prefix + "/Conv2d_" + idx + "_pointwise/convolution_bn_offset",
+      prefix + '/Conv2d_' + idx + '_pointwise/convolution_bn_offset',
       1,
-      mappedPrefix + "/batch_norm_offset"
+      mappedPrefix + '/batch_norm_offset'
     );
     return { filters: filters, batch_norm_offset: batch_norm_offset };
   }
   function extractConvPairParams(idx) {
-    var mappedPrefix = "mobilenetv1/conv_" + idx;
-    var prefixDepthwiseConv = "MobilenetV1/Conv2d_" + idx + "_depthwise";
-    var mappedPrefixDepthwiseConv = mappedPrefix + "/depthwise_conv";
-    var mappedPrefixPointwiseConv = mappedPrefix + "/pointwise_conv";
+    var mappedPrefix = 'mobilenetv1/conv_' + idx;
+    var prefixDepthwiseConv = 'MobilenetV1/Conv2d_' + idx + '_depthwise';
+    var mappedPrefixDepthwiseConv = mappedPrefix + '/depthwise_conv';
+    var mappedPrefixPointwiseConv = mappedPrefix + '/pointwise_conv';
     var filters = extractWeightEntry(
-      prefixDepthwiseConv + "/depthwise_weights",
+      prefixDepthwiseConv + '/depthwise_weights',
       4,
-      mappedPrefixDepthwiseConv + "/filters"
+      mappedPrefixDepthwiseConv + '/filters'
     );
     var batch_norm_scale = extractWeightEntry(
-      prefixDepthwiseConv + "/BatchNorm/gamma",
+      prefixDepthwiseConv + '/BatchNorm/gamma',
       1,
-      mappedPrefixDepthwiseConv + "/batch_norm_scale"
+      mappedPrefixDepthwiseConv + '/batch_norm_scale'
     );
     var batch_norm_offset = extractWeightEntry(
-      prefixDepthwiseConv + "/BatchNorm/beta",
+      prefixDepthwiseConv + '/BatchNorm/beta',
       1,
-      mappedPrefixDepthwiseConv + "/batch_norm_offset"
+      mappedPrefixDepthwiseConv + '/batch_norm_offset'
     );
     var batch_norm_mean = extractWeightEntry(
-      prefixDepthwiseConv + "/BatchNorm/moving_mean",
+      prefixDepthwiseConv + '/BatchNorm/moving_mean',
       1,
-      mappedPrefixDepthwiseConv + "/batch_norm_mean"
+      mappedPrefixDepthwiseConv + '/batch_norm_mean'
     );
     var batch_norm_variance = extractWeightEntry(
-      prefixDepthwiseConv + "/BatchNorm/moving_variance",
+      prefixDepthwiseConv + '/BatchNorm/moving_variance',
       1,
-      mappedPrefixDepthwiseConv + "/batch_norm_variance"
+      mappedPrefixDepthwiseConv + '/batch_norm_variance'
     );
     return {
       depthwise_conv: {
@@ -59,7 +59,7 @@ function extractorsFactory(weightMap, paramMappings) {
         batch_norm_variance: batch_norm_variance,
       },
       pointwise_conv: extractPointwiseConvParams(
-        "MobilenetV1",
+        'MobilenetV1',
         idx,
         mappedPrefixPointwiseConv
       ),
@@ -68,9 +68,9 @@ function extractorsFactory(weightMap, paramMappings) {
   function extractMobilenetV1Params() {
     return {
       conv_0: extractPointwiseConvParams(
-        "MobilenetV1",
+        'MobilenetV1',
         0,
-        "mobilenetv1/conv_0"
+        'mobilenetv1/conv_0'
       ),
       conv_1: extractConvPairParams(1),
       conv_2: extractConvPairParams(2),
@@ -89,25 +89,25 @@ function extractorsFactory(weightMap, paramMappings) {
   }
   function extractConvParams(prefix, mappedPrefix) {
     var filters = extractWeightEntry(
-      prefix + "/weights",
+      prefix + '/weights',
       4,
-      mappedPrefix + "/filters"
+      mappedPrefix + '/filters'
     );
     var bias = extractWeightEntry(
-      prefix + "/biases",
+      prefix + '/biases',
       1,
-      mappedPrefix + "/bias"
+      mappedPrefix + '/bias'
     );
     return { filters: filters, bias: bias };
   }
   function extractBoxPredictorParams(idx) {
     var box_encoding_predictor = extractConvParams(
-      "Prediction/BoxPredictor_" + idx + "/BoxEncodingPredictor",
-      "prediction_layer/box_predictor_" + idx + "/box_encoding_predictor"
+      'Prediction/BoxPredictor_' + idx + '/BoxEncodingPredictor',
+      'prediction_layer/box_predictor_' + idx + '/box_encoding_predictor'
     );
     var class_predictor = extractConvParams(
-      "Prediction/BoxPredictor_" + idx + "/ClassPredictor",
-      "prediction_layer/box_predictor_" + idx + "/class_predictor"
+      'Prediction/BoxPredictor_' + idx + '/ClassPredictor',
+      'prediction_layer/box_predictor_' + idx + '/class_predictor'
     );
     return {
       box_encoding_predictor: box_encoding_predictor,
@@ -117,44 +117,44 @@ function extractorsFactory(weightMap, paramMappings) {
   function extractPredictionLayerParams() {
     return {
       conv_0: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         0,
-        "prediction_layer/conv_0"
+        'prediction_layer/conv_0'
       ),
       conv_1: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         1,
-        "prediction_layer/conv_1"
+        'prediction_layer/conv_1'
       ),
       conv_2: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         2,
-        "prediction_layer/conv_2"
+        'prediction_layer/conv_2'
       ),
       conv_3: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         3,
-        "prediction_layer/conv_3"
+        'prediction_layer/conv_3'
       ),
       conv_4: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         4,
-        "prediction_layer/conv_4"
+        'prediction_layer/conv_4'
       ),
       conv_5: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         5,
-        "prediction_layer/conv_5"
+        'prediction_layer/conv_5'
       ),
       conv_6: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         6,
-        "prediction_layer/conv_6"
+        'prediction_layer/conv_6'
       ),
       conv_7: extractPointwiseConvParams(
-        "Prediction",
+        'Prediction',
         7,
-        "prediction_layer/conv_7"
+        'prediction_layer/conv_7'
       ),
       box_predictor_0: extractBoxPredictorParams(0),
       box_predictor_1: extractBoxPredictorParams(1),
@@ -174,10 +174,10 @@ function extractParamsFromWeigthMap(weightMap) {
   var _a = extractorsFactory(weightMap, paramMappings),
     extractMobilenetV1Params = _a.extractMobilenetV1Params,
     extractPredictionLayerParams = _a.extractPredictionLayerParams;
-  var extra_dim = weightMap["Output/extra_dim"];
+  var extra_dim = weightMap['Output/extra_dim'];
   paramMappings.push({
-    originalPath: "Output/extra_dim",
-    paramPath: "output_layer/extra_dim",
+    originalPath: 'Output/extra_dim',
+    paramPath: 'output_layer/extra_dim',
   });
   if (!tfjs_image_recognition_base_1.isTensor3D(extra_dim)) {
     throw new Error(

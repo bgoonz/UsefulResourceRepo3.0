@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var config_1 = require("./config");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var config_1 = require('./config');
 function pyramidDown(minFaceSize, scaleFactor, dims) {
   var height = dims[0],
     width = dims[1];

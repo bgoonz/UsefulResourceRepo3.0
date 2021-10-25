@@ -1,13 +1,8 @@
 <h3 id='req.files'>req.files</h3>
 
-This property is an object of the files uploaded. This feature
-is provided by the `bodyParser()` middleware, though other body
-parsing middleware may follow this convention as well. This property
-defaults to `{}` when `bodyParser()` is used.
+This property is an object of the files uploaded. This feature is provided by the `bodyParser()` middleware, though other body parsing middleware may follow this convention as well. This property defaults to `{}` when `bodyParser()` is used.
 
-For example if a <strong>file</strong> field was named "image",
-and a file was uploaded, `req.files.image` would contain
-the following `File` object:
+For example if a <strong>file</strong> field was named "image", and a file was uploaded, `req.files.image` would contain the following `File` object:
 
 ```
 { size: 74643,
@@ -33,13 +28,8 @@ the following `File` object:
   mime: [Getter] }
 ```
 
-The `bodyParser()` middleware utilizes the
-<a href="https://github.com/felixge/node-formidable">node-formidable</a>
-module internally, and accepts the same options. An example of this
-is the `keepExtensions` formidable option, defaulting to <strong>false</strong>
-which in this case gives you the filename "/tmp/8ef9c52abe857867fd0a4e9a819d1876" void of
-the ".png" extension. To enable this, and others you may pass them to `bodyParser()`:
+The `bodyParser()` middleware utilizes the <a href="https://github.com/felixge/node-formidable">node-formidable</a> module internally, and accepts the same options. An example of this is the `keepExtensions` formidable option, defaulting to <strong>false</strong> which in this case gives you the filename "/tmp/8ef9c52abe857867fd0a4e9a819d1876" void of the ".png" extension. To enable this, and others you may pass them to `bodyParser()`:
 
 ```js
-app.use(express.bodyParser({ keepExtensions: true, uploadDir: "/my/files" }));
+app.use(express.bodyParser({ keepExtensions: true, uploadDir: '/my/files' }));
 ```

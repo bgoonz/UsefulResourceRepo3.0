@@ -14,7 +14,7 @@ export default (root) => {
         queue = queue.concat(node.children || []);
         return node.value;
       })
-      .join(" ");
+      .join(' ');
 
     // Log the output at each level.
     console.log(output);

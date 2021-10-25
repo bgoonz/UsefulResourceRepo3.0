@@ -18,7 +18,7 @@ const climbStairs = (n) => {
   return dp[n];
 };
 
-console.log("climbStairs(20): ", climbStairs(20));
+console.log('climbStairs(20): ', climbStairs(20));
 /*
 node leet_code_70.js
 climbStairs(20):  10946

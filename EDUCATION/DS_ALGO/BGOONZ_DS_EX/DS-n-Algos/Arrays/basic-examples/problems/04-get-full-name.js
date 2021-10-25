@@ -11,7 +11,7 @@ getFullName(p2); // => 'Charlie Brown'
 ***********************************************************************/
 
 function getFullName(person) {
-  let name = person.firstName + " " + person.lastName;
+  let name = person.firstName + ' ' + person.lastName;
   return name;
 }
 

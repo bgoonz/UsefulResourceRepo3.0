@@ -53,7 +53,7 @@ let nXmGrid = [
   [4, 2, 1],
 ];
 // minPathSum(nXmGrid)
-console.log("minPathSum(nXmGrid): ", minPathSum(nXmGrid));
+console.log('minPathSum(nXmGrid): ', minPathSum(nXmGrid));
 
 /*
 node leet_code_64.JS

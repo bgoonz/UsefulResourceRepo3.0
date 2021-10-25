@@ -1,17 +1,17 @@
-import { round } from "tfjs-image-recognition-base";
+import { round } from 'tfjs-image-recognition-base';
 var FaceMatch = /** @class */ (function () {
   function FaceMatch(label, distance) {
     this._label = label;
     this._distance = distance;
   }
-  Object.defineProperty(FaceMatch.prototype, "label", {
+  Object.defineProperty(FaceMatch.prototype, 'label', {
     get: function () {
       return this._label;
     },
     enumerable: true,
     configurable: true,
   });
-  Object.defineProperty(FaceMatch.prototype, "distance", {
+  Object.defineProperty(FaceMatch.prototype, 'distance', {
     get: function () {
       return this._distance;
     },
@@ -23,7 +23,7 @@ var FaceMatch = /** @class */ (function () {
       withDistance = true;
     }
     return (
-      "" + this.label + (withDistance ? " (" + round(this.distance) + ")" : "")
+      '' + this.label + (withDistance ? ' (' + round(this.distance) + ')' : '')
     );
   };
   return FaceMatch;

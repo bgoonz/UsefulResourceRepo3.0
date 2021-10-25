@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 exports.IOU_THRESHOLD = 0.4;
 exports.BOX_ANCHORS = [
   new tfjs_image_recognition_base_1.Point(0.738768, 0.874946),
@@ -17,6 +17,6 @@ exports.BOX_ANCHORS_SEPARABLE = [
   new tfjs_image_recognition_base_1.Point(9.041765, 10.66308),
 ];
 exports.MEAN_RGB_SEPARABLE = [117.001, 114.697, 97.404];
-exports.DEFAULT_MODEL_NAME = "tiny_yolov2_model";
-exports.DEFAULT_MODEL_NAME_SEPARABLE_CONV = "tiny_yolov2_separable_conv_model";
+exports.DEFAULT_MODEL_NAME = 'tiny_yolov2_model';
+exports.DEFAULT_MODEL_NAME_SEPARABLE_CONV = 'tiny_yolov2_separable_conv_model';
 //# sourceMappingURL=const.js.map

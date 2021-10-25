@@ -1,7 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 function boxPredictionLayer(x, params) {
   return tf.tidy(function () {
     var batchSize = x.shape[0];

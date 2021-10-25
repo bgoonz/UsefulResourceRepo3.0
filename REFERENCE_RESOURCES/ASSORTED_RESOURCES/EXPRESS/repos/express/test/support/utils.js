@@ -3,8 +3,8 @@
  * @private
  */
 
-var assert = require("assert");
-var Buffer = require("safe-buffer").Buffer;
+var assert = require('assert');
+var Buffer = require('safe-buffer').Buffer;
 
 /**
  * Module exports.
@@ -25,8 +25,8 @@ exports.shouldNotHaveHeader = shouldNotHaveHeader;
 function shouldHaveBody(buf) {
   return function (res) {
     var body = !Buffer.isBuffer(res.body) ? Buffer.from(res.text) : res.body;
-    assert.ok(body, "response has body");
-    assert.strictEqual(body.toString("hex"), buf.toString("hex"));
+    assert.ok(body, 'response has body');
+    assert.strictEqual(body.toString('hex'), buf.toString('hex'));
   };
 }
 
@@ -38,7 +38,7 @@ function shouldHaveBody(buf) {
 
 function shouldNotHaveBody() {
   return function (res) {
-    assert.ok(res.text === "" || res.text === undefined);
+    assert.ok(res.text === '' || res.text === undefined);
   };
 }
 
@@ -52,7 +52,7 @@ function shouldNotHaveHeader(header) {
   return function (res) {
     assert.ok(
       !(header.toLowerCase() in res.headers),
-      "should not have header " + header
+      'should not have header ' + header
     );
   };
 }

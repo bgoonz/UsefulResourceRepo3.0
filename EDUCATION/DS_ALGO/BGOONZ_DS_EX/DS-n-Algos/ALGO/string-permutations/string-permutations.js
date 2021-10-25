@@ -17,7 +17,7 @@ module.exports = (string) => {
         remaining.substr(0, i) + remaining.substr(i + 1)
       );
     }
-  })("", string);
+  })('', string);
 
   // Using the ES5 Object.keys to grab the all the keys as an array.
   return Object.keys(result);

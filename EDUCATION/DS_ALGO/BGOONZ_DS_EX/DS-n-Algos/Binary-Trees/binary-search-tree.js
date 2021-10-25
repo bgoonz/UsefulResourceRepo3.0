@@ -33,9 +33,9 @@ add = function (num) {
     this.value = num;
   } else {
     if (num < this.value) {
-      addSubNode(this, "left", num);
+      addSubNode(this, 'left', num);
     } else if (num > this.value) {
-      addSubNode(this, "right", num);
+      addSubNode(this, 'right', num);
     }
   }
   return root;

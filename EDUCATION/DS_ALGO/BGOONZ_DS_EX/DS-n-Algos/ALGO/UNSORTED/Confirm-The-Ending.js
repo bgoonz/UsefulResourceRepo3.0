@@ -3,11 +3,11 @@ function confirmTheEnd(str, target) {
 }
 console.log(
   confirmTheEnd(
-    "Walking on water and developing software from a specification are easy if both are frozen",
-    "specification"
+    'Walking on water and developing software from a specification are easy if both are frozen',
+    'specification'
   )
 );
-console.log(confirmTheEnd("Congratulation", "on"));
+console.log(confirmTheEnd('Congratulation', 'on'));
 
 //Solution-2: Using Regular Expressions
 

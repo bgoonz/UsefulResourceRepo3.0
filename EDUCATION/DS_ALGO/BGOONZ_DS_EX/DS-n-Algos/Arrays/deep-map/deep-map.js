@@ -10,7 +10,7 @@
 @return {Array | Matrix} res
 */
 export function deepMap(array, callback, skipZeros) {
-  if (array && typeof array.map === "function") {
+  if (array && typeof array.map === 'function') {
     return array.map(function (x) {
       return deepMap(x, callback, skipZeros);
     });

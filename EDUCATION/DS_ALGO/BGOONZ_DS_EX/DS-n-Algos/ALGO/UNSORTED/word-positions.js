@@ -4,12 +4,12 @@ export default (text) => {
   let active = trie;
 
   // Suffix a space after the text to make life easier
-  text += " ";
+  text += ' ';
 
   // Loop through the input text adding it to the trie structure
   for (let i = 0; i < text.length; i++) {
     // When the character is a space, restart
-    if (text[i] === " ") {
+    if (text[i] === ' ') {
       // If the current active doesn't equal the root, set the position
       if (active !== trie) {
         (active.positions = active.positions || []).push(pos);

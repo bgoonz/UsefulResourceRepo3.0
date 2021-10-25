@@ -1,6 +1,6 @@
-import { Box, draw, round } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes/FaceDetection";
-import { isWithFaceDetection } from "../factories/WithFaceDetection";
+import { Box, draw, round } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes/FaceDetection';
+import { isWithFaceDetection } from '../factories/WithFaceDetection';
 export function drawDetections(canvasArg, detections) {
   var detectionsArray = Array.isArray(detections) ? detections : [detections];
   detectionsArray.forEach(function (det) {
@@ -16,7 +16,7 @@ export function drawDetections(canvasArg, detections) {
         : isWithFaceDetection(det)
         ? det.detection.box
         : new Box(det);
-    var label = score ? "" + round(score) : undefined;
+    var label = score ? '' + round(score) : undefined;
     new draw.DrawBox(box, { label: label }).draw(canvasArg);
   });
 }

@@ -1,20 +1,20 @@
 function convertToRoman(num) {
   const romans = [
-    ["I", "V"], // 10^0
-    ["X", "L"], // 10^1
-    ["C", "D"], // 10^2
-    ["M"], // 10^3
+    ['I', 'V'], // 10^0
+    ['X', 'L'], // 10^1
+    ['C', 'D'], // 10^2
+    ['M'], // 10^3
   ];
 
   const digits = num
     .toString()
-    .split("")
+    .split('')
     .reverse()
     .map((item, index) => {
       return parseInt(item);
     });
 
-  let numeral = "";
+  let numeral = '';
 
   // Loop through each digit, starting with the ones place
   for (let i = 0; i < digits.length; i++) {

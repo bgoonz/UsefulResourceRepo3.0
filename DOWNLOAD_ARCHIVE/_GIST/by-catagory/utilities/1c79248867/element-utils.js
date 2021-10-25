@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = function (options) {
   var getState = options.stateHandler.getState;

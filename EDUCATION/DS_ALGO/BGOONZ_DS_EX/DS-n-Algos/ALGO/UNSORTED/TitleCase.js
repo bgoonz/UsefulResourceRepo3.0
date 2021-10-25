@@ -1,11 +1,11 @@
 //Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case
 function titleCase(str) {
-  let lowercasearray = str.toLowerCase().split(" "); //gives array
+  let lowercasearray = str.toLowerCase().split(' '); //gives array
   return lowercasearray
     .map((value) =>
       value.replace(value.charAt(0), value.charAt(0).toUpperCase())
     )
-    .join(" ");
+    .join(' ');
 }
 console.log(titleCase("I'm a title case string"));
 

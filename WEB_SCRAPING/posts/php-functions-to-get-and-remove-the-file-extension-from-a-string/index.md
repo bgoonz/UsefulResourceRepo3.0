@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-PHP functions to get and remove the file extension from a string
-================================================================
+# PHP functions to get and remove the file extension from a string
 
 March 12, 2009 • 1 min read
 
@@ -34,7 +33,7 @@ You can also use the built-in [`pathinfo`](http://php.net/manual/en/function.pat
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/php/index.html" class="post-tag">php</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -42,6 +41,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../prevent-white-noise-from-appearing-in-images-after-fading/index.html" class="post-nav-previous"><span class="small">Previous post</span> Prevent white noise from appearing in images after fading</a> <a href="../images-display-in-firefox-and-safari-but-not-in-internet-explorer/index.html" class="post-nav-next"><span class="small">Up next</span> Images display in Firefox and Safari, but not in Internet Explorer</a>

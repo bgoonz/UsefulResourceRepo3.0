@@ -30,7 +30,7 @@ const smoothieMachine = (...ingredients) => {
     addIngredients: function (...moreIngredients) {
       this.ingredients.push(...moreIngredients);
 
-      return "I'm having a smoothie with " + this.ingredients.join(" and ");
+      return "I'm having a smoothie with " + this.ingredients.join(' and ');
     },
   };
 };

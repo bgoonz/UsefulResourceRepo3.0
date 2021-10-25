@@ -1,6 +1,6 @@
-import { SsdMobilenetv1 } from "./SsdMobilenetv1";
-export * from "./SsdMobilenetv1";
-export * from "./SsdMobilenetv1Options";
+import { SsdMobilenetv1 } from './SsdMobilenetv1';
+export * from './SsdMobilenetv1';
+export * from './SsdMobilenetv1Options';
 export declare function createSsdMobilenetv1(
   weights: Float32Array
 ): SsdMobilenetv1;

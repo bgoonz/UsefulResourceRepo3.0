@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 function minBbox(pts) {
   var xs = pts.map(function (pt) {
     return pt.x;

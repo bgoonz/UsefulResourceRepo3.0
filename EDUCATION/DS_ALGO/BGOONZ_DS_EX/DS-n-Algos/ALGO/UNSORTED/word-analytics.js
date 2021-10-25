@@ -1,5 +1,5 @@
 process.stdin.resume();
-process.stdin.setEncoding("utf8");
+process.stdin.setEncoding('utf8');
 
 // Use an object to map the characters to their count
 const characters = {};
@@ -40,9 +40,9 @@ const isWordChar = (char) => {
 };
 
 // On each input data chunk, process it using the balance checker
-process.stdin.on("data", (chunk) => {
-  let word = "";
-  let prevSymbol = "\n";
+process.stdin.on('data', (chunk) => {
+  let word = '';
+  let prevSymbol = '\n';
 
   for (let i = 0; i < chunk.length; i++) {
     const char = chunk[i].toUpperCase();
@@ -54,10 +54,10 @@ process.stdin.on("data", (chunk) => {
       if (word) {
         words[word] = (words[word] || 0) + 1;
 
-        if (prevSymbol === "\n") {
+        if (prevSymbol === '\n') {
           wordsParagraph[word] = (wordsParagraph[word] || 0) + 1;
         }
-        word = ""; // Reset the current word
+        word = ''; // Reset the current word
       }
       prevSymbol = char;
     } else {
@@ -66,9 +66,9 @@ process.stdin.on("data", (chunk) => {
   }
 });
 
-process.stdin.on("end", () => {
+process.stdin.on('end', () => {
   const sortedWords = sortByCount(words);
-  const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
   const sortedLetters = sortByCount(
     filterObject(characters, (_, char) => {
@@ -102,14 +102,14 @@ process.stdin.on("end", () => {
   console.log(`${totalLetters} letters`);
   console.log(`${totalSymbols} symbols`);
   console.log(
-    `Top three most common words: ${sortedWords.slice(0, 3).join(", ")}`
+    `Top three most common words: ${sortedWords.slice(0, 3).join(', ')}`
   );
   console.log(
-    `Top three most common letters: ${sortedLetters.slice(0, 3).join(", ")}`
+    `Top three most common letters: ${sortedLetters.slice(0, 3).join(', ')}`
   );
   console.log(
     `${sortedWordsParagraph[0]} is the most common first word of all paragraphs`
   );
-  console.log(`Words only used once: ${onceWords.join(", ")}`);
-  console.log(`Letters not used in the document: ${unusedLetters.join(", ")}`);
+  console.log(`Words only used once: ${onceWords.join(', ')}`);
+  console.log(`Letters not used in the document: ${unusedLetters.join(', ')}`);
 });

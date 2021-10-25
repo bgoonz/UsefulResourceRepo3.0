@@ -1,7 +1,7 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
 var MtcnnBox = /** @class */ (function (_super) {
   tslib_1.__extends(MtcnnBox, _super);
   function MtcnnBox(left, top, right, bottom) {

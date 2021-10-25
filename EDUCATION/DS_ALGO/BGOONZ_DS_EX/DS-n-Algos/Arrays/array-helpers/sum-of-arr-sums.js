@@ -11,18 +11,18 @@ function memoize(fn) {
     let args = Array.prototype.slice.call(arguments);
     fn.cache = fn.cache || {};
     if (fn.cache[args]) {
-      console.log("cached");
-      console.log("fn.cache: ", fn.cache);
-      console.log("objSum( fn.cache[ args ] ): ", objSum(fn.cache[args]));
+      console.log('cached');
+      console.log('fn.cache: ', fn.cache);
+      console.log('objSum( fn.cache[ args ] ): ', objSum(fn.cache[args]));
       return objSum(fn.cache);
     } else {
-      console.log("calculated");
+      console.log('calculated');
       console.log(
-        " fn.cache[ args ] = fn.apply( this, args ): ",
+        ' fn.cache[ args ] = fn.apply( this, args ): ',
         (fn.cache[args] = fn.apply(this, args))
       );
       fn.cache[args] = fn.apply(this, args);
-      console.log("calculated : fn.cache: ", fn.cache);
+      console.log('calculated : fn.cache: ', fn.cache);
       return fn.cache;
     }
   };
@@ -35,11 +35,11 @@ let reduce2Sum = (arr) => {
 };
 const memoizedArrSum = memoize(reduce2Sum);
 memoizedArrSum(m);
-console.log("memoizedArrSum(m): ", memoizedArrSum(m));
+console.log('memoizedArrSum(m): ', memoizedArrSum(m));
 memoizedArrSum(n);
-console.log("memoizedArrSum( n): ", memoizedArrSum(n));
+console.log('memoizedArrSum( n): ', memoizedArrSum(n));
 memoizedArrSum(q);
-console.log("memoizedArrSum( q ): ", memoizedArrSum(q));
+console.log('memoizedArrSum( q ): ', memoizedArrSum(q));
 
 //--------------------------(output)---------------------------------------
 

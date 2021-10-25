@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { PNetParams } from "./types";
+import * as tf from '@tensorflow/tfjs-core';
+import { PNetParams } from './types';
 export declare function PNet(
   x: tf.Tensor4D,
   params: PNetParams

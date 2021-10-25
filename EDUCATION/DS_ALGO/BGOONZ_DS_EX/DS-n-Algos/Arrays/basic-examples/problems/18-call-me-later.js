@@ -37,7 +37,7 @@ const callCenter = (name) => {
   return {
     name: name,
     sayHello: function () {
-      console.log("Hello this is " + this.name);
+      console.log('Hello this is ' + this.name);
     },
     callMeLater: function (time) {
       return setTimeout(this.sayHello.bind(this), time);

@@ -36,15 +36,15 @@ console.log(callOnTarget(dog.chase, cat, dog)); // "Woof, my name is Breakfast a
 ***********************************************************************/
 
 const cat = {
-  name: "Breakfast",
+  name: 'Breakfast',
 };
 
 const mouse = {
-  name: "Jerry",
+  name: 'Jerry',
 };
 
 function greet(other) {
-  return "I'm " + this.name + ". Nice to meet you, " + other.name;
+  return "I'm " + this.name + '. Nice to meet you, ' + other.name;
 }
 
 function callOnTarget(func, obj1, obj2) {

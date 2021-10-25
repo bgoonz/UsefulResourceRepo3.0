@@ -1,6 +1,6 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-const tmp = require("tmp");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+const tmp = require('tmp');
 function createTempFileWithPostfix(postfix) {
   return new Promise((resolve, reject) => {
     tmp.file({ postfix }, (err, path, fd, cleanupCallback) => {

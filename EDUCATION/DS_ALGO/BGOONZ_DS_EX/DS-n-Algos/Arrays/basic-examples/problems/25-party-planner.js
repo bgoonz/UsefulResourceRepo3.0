@@ -39,9 +39,9 @@ function partyPlanner() {
     guestList: [],
     throwParty: function () {
       if (this.guestList.length > 0) {
-        return "Welcome to the party " + this.guestList.join(" and ");
+        return 'Welcome to the party ' + this.guestList.join(' and ');
       } else {
-        return "gotta add people to the guest list";
+        return 'gotta add people to the guest list';
       }
     },
     addToGuestList: function (name) {

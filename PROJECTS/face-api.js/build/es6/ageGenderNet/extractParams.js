@@ -1,4 +1,4 @@
-import { TfjsImageRecognitionBase } from "tfjs-image-recognition-base";
+import { TfjsImageRecognitionBase } from 'tfjs-image-recognition-base';
 export function extractParams(weights) {
   var paramMappings = [];
   var _a = TfjsImageRecognitionBase.extractWeightsFactory(weights),
@@ -8,11 +8,11 @@ export function extractParams(weights) {
     extractWeights,
     paramMappings
   );
-  var age = extractFCParams(512, 1, "fc/age");
-  var gender = extractFCParams(512, 2, "fc/gender");
+  var age = extractFCParams(512, 1, 'fc/age');
+  var gender = extractFCParams(512, 2, 'fc/gender');
   if (getRemainingWeights().length !== 0) {
     throw new Error(
-      "weights remaing after extract: " + getRemainingWeights().length
+      'weights remaing after extract: ' + getRemainingWeights().length
     );
   }
   return {

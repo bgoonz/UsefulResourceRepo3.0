@@ -1,8 +1,8 @@
-import { getContext2dOrThrow } from "tfjs-image-recognition-base";
-import { FaceLandmarks } from "../classes/FaceLandmarks";
-import { FaceLandmarks68 } from "../classes/FaceLandmarks68";
-import { isWithFaceLandmarks } from "../factories/WithFaceLandmarks";
-import { drawContour } from "./drawContour";
+import { getContext2dOrThrow } from 'tfjs-image-recognition-base';
+import { FaceLandmarks } from '../classes/FaceLandmarks';
+import { FaceLandmarks68 } from '../classes/FaceLandmarks68';
+import { isWithFaceLandmarks } from '../factories/WithFaceLandmarks';
+import { drawContour } from './drawContour';
 var DrawFaceLandmarksOptions = /** @class */ (function () {
   function DrawFaceLandmarksOptions(options) {
     if (options === void 0) {
@@ -20,8 +20,8 @@ var DrawFaceLandmarksOptions = /** @class */ (function () {
     this.drawPoints = drawPoints;
     this.lineWidth = lineWidth || 1;
     this.pointSize = pointSize || 2;
-    this.lineColor = lineColor || "rgba(0, 255, 255, 1)";
-    this.pointColor = pointColor || "rgba(255, 0, 255, 1)";
+    this.lineColor = lineColor || 'rgba(0, 255, 255, 1)';
+    this.pointColor = pointColor || 'rgba(255, 0, 255, 1)';
   }
   return DrawFaceLandmarksOptions;
 })();
@@ -81,7 +81,7 @@ export function drawFaceLandmarks(canvasArg, faceLandmarks) {
         : undefined;
     if (!landmarks) {
       throw new Error(
-        "drawFaceLandmarks - expected faceExpressions to be FaceLandmarks | WithFaceLandmarks<WithFaceDetection<{}>> or array thereof"
+        'drawFaceLandmarks - expected faceExpressions to be FaceLandmarks | WithFaceLandmarks<WithFaceDetection<{}>> or array thereof'
       );
     }
     new DrawFaceLandmarks(landmarks).draw(canvasArg);

@@ -1,5 +1,5 @@
 // insertion-sort
-"use strict";
+'use strict';
 
 export default (array, compare) => {
   // Not an array, empty or array of 1 is already sorted
@@ -16,7 +16,7 @@ export default (array, compare) => {
   };
 
   // Create a compare function if one is not passed in
-  if (typeof compare !== "function") {
+  if (typeof compare !== 'function') {
     compare = (a, b) => {
       return a > b ? 1 : -1;
     };

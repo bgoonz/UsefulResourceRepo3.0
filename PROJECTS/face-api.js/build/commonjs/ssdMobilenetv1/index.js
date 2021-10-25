@@ -1,9 +1,9 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var SsdMobilenetv1_1 = require("./SsdMobilenetv1");
-tslib_1.__exportStar(require("./SsdMobilenetv1"), exports);
-tslib_1.__exportStar(require("./SsdMobilenetv1Options"), exports);
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var SsdMobilenetv1_1 = require('./SsdMobilenetv1');
+tslib_1.__exportStar(require('./SsdMobilenetv1'), exports);
+tslib_1.__exportStar(require('./SsdMobilenetv1Options'), exports);
 function createSsdMobilenetv1(weights) {
   var net = new SsdMobilenetv1_1.SsdMobilenetv1();
   net.extractWeights(weights);

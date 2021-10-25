@@ -1,27 +1,27 @@
-import * as tslib_1 from "tslib";
-import * as tf from "@tensorflow/tfjs-core";
+import * as tslib_1 from 'tslib';
+import * as tf from '@tensorflow/tfjs-core';
 import {
   NetInput,
   NeuralNetwork,
   toNetInput,
-} from "tfjs-image-recognition-base";
-import { fullyConnectedLayer } from "../common/fullyConnectedLayer";
-import { seperateWeightMaps } from "../faceProcessor/util";
-import { TinyXception } from "../xception/TinyXception";
-import { extractParams } from "./extractParams";
-import { extractParamsFromWeigthMap } from "./extractParamsFromWeigthMap";
-import { Gender } from "./types";
+} from 'tfjs-image-recognition-base';
+import { fullyConnectedLayer } from '../common/fullyConnectedLayer';
+import { seperateWeightMaps } from '../faceProcessor/util';
+import { TinyXception } from '../xception/TinyXception';
+import { extractParams } from './extractParams';
+import { extractParamsFromWeigthMap } from './extractParamsFromWeigthMap';
+import { Gender } from './types';
 var AgeGenderNet = /** @class */ (function (_super) {
   tslib_1.__extends(AgeGenderNet, _super);
   function AgeGenderNet(faceFeatureExtractor) {
     if (faceFeatureExtractor === void 0) {
       faceFeatureExtractor = new TinyXception(2);
     }
-    var _this = _super.call(this, "AgeGenderNet") || this;
+    var _this = _super.call(this, 'AgeGenderNet') || this;
     _this._faceFeatureExtractor = faceFeatureExtractor;
     return _this;
   }
-  Object.defineProperty(AgeGenderNet.prototype, "faceFeatureExtractor", {
+  Object.defineProperty(AgeGenderNet.prototype, 'faceFeatureExtractor', {
     get: function () {
       return this._faceFeatureExtractor;
     },
@@ -32,7 +32,7 @@ var AgeGenderNet = /** @class */ (function (_super) {
     var _this = this;
     var params = this.params;
     if (!params) {
-      throw new Error(this._name + " - load model before inference");
+      throw new Error(this._name + ' - load model before inference');
     }
     return tf.tidy(function () {
       var bottleneckFeatures =
@@ -40,7 +40,7 @@ var AgeGenderNet = /** @class */ (function (_super) {
           ? _this.faceFeatureExtractor.forwardInput(input)
           : input;
       var pooled = tf
-        .avgPool(bottleneckFeatures, [7, 7], [2, 2], "valid")
+        .avgPool(bottleneckFeatures, [7, 7], [2, 2], 'valid')
         .as2D(bottleneckFeatures.shape[0], -1);
       var age = fullyConnectedLayer(pooled, params.fc.age).as1D();
       var gender = fullyConnectedLayer(pooled, params.fc.gender);
@@ -142,7 +142,7 @@ var AgeGenderNet = /** @class */ (function (_super) {
     });
   };
   AgeGenderNet.prototype.getDefaultModelName = function () {
-    return "age_gender_model";
+    return 'age_gender_model';
   };
   AgeGenderNet.prototype.dispose = function (throwOnRedispose) {
     if (throwOnRedispose === void 0) {

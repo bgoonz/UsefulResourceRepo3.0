@@ -1,5 +1,5 @@
-import * as tf from "@tensorflow/tfjs-core";
-import { PredictionLayerParams } from "./types";
+import * as tf from '@tensorflow/tfjs-core';
+import { PredictionLayerParams } from './types';
 export declare function predictionLayer(
   x: tf.Tensor4D,
   conv11: tf.Tensor4D,

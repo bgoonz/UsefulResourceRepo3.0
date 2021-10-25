@@ -1,6 +1,6 @@
-import { IBoundingBox, IRect } from "tfjs-image-recognition-base";
-import { FaceDetection } from "../classes/FaceDetection";
-import { WithFaceDetection } from "../factories/WithFaceDetection";
+import { IBoundingBox, IRect } from 'tfjs-image-recognition-base';
+import { FaceDetection } from '../classes/FaceDetection';
+import { WithFaceDetection } from '../factories/WithFaceDetection';
 export declare type TDrawDetectionsInput =
   | IRect
   | IBoundingBox

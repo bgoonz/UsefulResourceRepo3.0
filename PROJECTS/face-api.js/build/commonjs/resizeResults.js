@@ -1,10 +1,10 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var FaceDetection_1 = require("./classes/FaceDetection");
-var FaceLandmarks_1 = require("./classes/FaceLandmarks");
-var WithFaceDetection_1 = require("./factories/WithFaceDetection");
-var WithFaceLandmarks_1 = require("./factories/WithFaceLandmarks");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var FaceDetection_1 = require('./classes/FaceDetection');
+var FaceLandmarks_1 = require('./classes/FaceLandmarks');
+var WithFaceDetection_1 = require('./factories/WithFaceDetection');
+var WithFaceLandmarks_1 = require('./factories/WithFaceLandmarks');
 function resizeResults(results, dimensions) {
   var _a = new tfjs_image_recognition_base_1.Dimensions(
       dimensions.width,
@@ -14,7 +14,7 @@ function resizeResults(results, dimensions) {
     height = _a.height;
   if (width <= 0 || height <= 0) {
     throw new Error(
-      "resizeResults - invalid dimensions: " +
+      'resizeResults - invalid dimensions: ' +
         JSON.stringify({ width: width, height: height })
     );
   }

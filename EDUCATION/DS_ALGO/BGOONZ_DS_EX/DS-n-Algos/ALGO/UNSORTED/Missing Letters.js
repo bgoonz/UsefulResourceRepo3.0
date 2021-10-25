@@ -6,8 +6,8 @@ function missingLetter(str) {
     }
   }
 }
-console.log(missingLetter("abcdefghjklmno"));
-console.log(missingLetter("abce"));
-console.log(missingLetter("abcdefg"));
+console.log(missingLetter('abcdefghjklmno'));
+console.log(missingLetter('abce'));
+console.log(missingLetter('abcdefg'));
 //("acd").charCodeAt(0)-> 97
 //String.fromCharCode(("acd").charCodeAt(0)) -> "a"

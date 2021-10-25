@@ -8,4 +8,4 @@ function CopyMachine(arr, num) {
   return newArr;
 }
 
-console.log(CopyMachine(["hello", "world"], 2));
+console.log(CopyMachine(['hello', 'world'], 2));

@@ -1,11 +1,11 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
-var tf = require("@tensorflow/tfjs-core");
-var tfjs_image_recognition_base_1 = require("tfjs-image-recognition-base");
-var extractImagePatches_1 = require("./extractImagePatches");
-var MtcnnBox_1 = require("./MtcnnBox");
-var ONet_1 = require("./ONet");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
+var tf = require('@tensorflow/tfjs-core');
+var tfjs_image_recognition_base_1 = require('tfjs-image-recognition-base');
+var extractImagePatches_1 = require('./extractImagePatches');
+var MtcnnBox_1 = require('./MtcnnBox');
+var ONet_1 = require('./ONet');
 function stage3(img, inputBoxes, scoreThreshold, params, stats) {
   return tslib_1.__awaiter(this, void 0, void 0, function () {
     var ts,

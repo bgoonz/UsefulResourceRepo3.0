@@ -1,18 +1,18 @@
 export var FACE_EXPRESSION_LABELS = [
-  "neutral",
-  "happy",
-  "sad",
-  "angry",
-  "fearful",
-  "disgusted",
-  "surprised",
+  'neutral',
+  'happy',
+  'sad',
+  'angry',
+  'fearful',
+  'disgusted',
+  'surprised',
 ];
 var FaceExpressions = /** @class */ (function () {
   function FaceExpressions(probabilities) {
     var _this = this;
     if (probabilities.length !== 7) {
       throw new Error(
-        "FaceExpressions.constructor - expected probabilities.length to be 7, have: " +
+        'FaceExpressions.constructor - expected probabilities.length to be 7, have: ' +
           probabilities.length
       );
     }

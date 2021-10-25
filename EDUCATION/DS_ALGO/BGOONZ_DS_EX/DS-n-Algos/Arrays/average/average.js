@@ -9,10 +9,10 @@ function average(...nums) {
   );
 }
 console.log(
-  "average(...[1, 2, 3, 10, 20, 6]) <==> average(1, 2, 3, 10, 20, 6): ",
+  'average(...[1, 2, 3, 10, 20, 6]) <==> average(1, 2, 3, 10, 20, 6): ',
   average(...[1, 2, 3, 10, 20, 6])
 );
-console.log("average(1, 2, 3, 4, 5, 6): ", average(1, 2, 3, 4, 5, 6));
+console.log('average(1, 2, 3, 4, 5, 6): ', average(1, 2, 3, 4, 5, 6));
 
 /*
 average(...[1, 2, 3, 10, 20, 6]) <==> average(1, 2, 3, 10, 20, 6):  7

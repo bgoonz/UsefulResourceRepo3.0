@@ -1,5 +1,5 @@
 export default (value, precision) => {
-  const suffixes = ["B", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
+  const suffixes = ['B', 'KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'];
   const factor = 10 ** (precision > 0 ? precision : 2);
   let suffix = 0;
 

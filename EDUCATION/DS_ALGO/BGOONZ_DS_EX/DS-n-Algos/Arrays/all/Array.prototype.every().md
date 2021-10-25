@@ -191,9 +191,9 @@ The following examples tests the behaviour of the `every` method when the array 
 
 ## Specifications
 
-| Specification                                                                                                         |
-| --------------------------------------------------------------------------------------------------------------------- |
-| [ECMAScript (ECMA-262)                                                                                                |
+| Specification |
+| --- |
+| [ECMAScript (ECMA-262) |
 | The definition of 'Array.prototype.every' in that specification.](https://tc39.es/ecma262/#sec-array.prototype.every) |
 
 ## Browser compatibility
@@ -202,10 +202,10 @@ The compatibility table in this page is generated from structured data. If you'd
 
 [Update compatibility data on GitHub](https://github.com/mdn/browser-compat-data)
 
-|         | Desktop               | Mobile               | Server                   |
-| ------- | --------------------- | -------------------- | ------------------------ | ----------------- | ---------------------- | --------------------- | -------------------------------- | ------------------------------ | ------------------------------ | ------------------------------- | ------------------------- | ----------------------------------------- | --------------------------- |
-|         | Chrome                | Edge                 | Firefox                  | Internet Explorer | Opera                  | Safari                | Android webview                  | Chrome for Android             | Firefox for Android            | Opera for Android               | Safari on iOS             | Samsung Internet                          | Node.js                     |
-| ---     | ---                   | ---                  | ---                      | ---               | ---                    | ---                   | ---                              | ---                            | ---                            | ---                             | ---                       | ---                                       | ---                         |
+|  | Desktop | Mobile | Server |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+|  | Chrome | Edge | Firefox | Internet Explorer | Opera | Safari | Android webview | Chrome for Android | Firefox for Android | Opera for Android | Safari on iOS | Samsung Internet | Node.js |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | `every` | Chrome Full support 1 | Edge Full support 12 | Firefox Full support 1.5 | IE Full support 9 | Opera Full support 9.5 | Safari Full support 3 | WebView Android Full support ≤37 | Chrome Android Full support 18 | Firefox Android Full support 4 | Opera Android Full support 10.1 | Safari iOS Full support 1 | Samsung Internet Android Full support 1.0 | nodejs Full support 0.1.100 |
 
 #### What happens next?
