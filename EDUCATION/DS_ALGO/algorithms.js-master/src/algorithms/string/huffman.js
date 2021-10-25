@@ -18,7 +18,7 @@ const compress = (string) => {
   let currentBlock = 0;
   let currentBlockSize = 0;
 
-  string.split("").forEach((char) => {
+  string.split('').forEach((char) => {
     currentBlock = (currentBlock << 1) | char;
     currentBlockSize += 1;
 
@@ -46,10 +46,10 @@ const compress = (string) => {
  */
 const decompress = (array) => {
   if (!array.length) {
-    return "";
+    return '';
   } else if (array.length === 1) {
     throw new Error(
-      "Compressed array must be either empty " + "or at least 2 blocks big."
+      'Compressed array must be either empty ' + 'or at least 2 blocks big.'
     );
   }
 
@@ -60,7 +60,7 @@ const decompress = (array) => {
     .map((block) =>
       (padding + (block >>> 0).toString(2)).slice(-padding.length)
     )
-    .join("");
+    .join('');
 
   // Append the last block.
   const lastBlockSize = array.slice(-1)[0];
@@ -81,12 +81,12 @@ huffman.encode = (string, compressed) => {
   if (!string.length) {
     return {
       encoding: {},
-      value: compressed ? [] : "",
+      value: compressed ? [] : '',
     };
   }
 
   const counter = {};
-  string.split("").forEach((char) => {
+  string.split('').forEach((char) => {
     counter[char] = (counter[char] || 0) + 1;
   });
 
@@ -115,8 +115,8 @@ huffman.encode = (string, compressed) => {
   for (let numLetters = letters.length; numLetters > 1; --numLetters) {
     const a = extractMinimum();
     const b = extractMinimum();
-    a.code = "0";
-    b.code = "1";
+    a.code = '0';
+    b.code = '1';
     const union = {
       count: a.count + b.count,
       parts: [a, b],
@@ -126,7 +126,7 @@ huffman.encode = (string, compressed) => {
 
   // At this point there is a single letter left.
   const root = extractMinimum();
-  root.code = letters.length > 1 ? "" : "0";
+  root.code = letters.length > 1 ? '' : '0';
 
   // Unroll the code recursively in reverse.
   (function unroll(parent) {
@@ -141,15 +141,15 @@ huffman.encode = (string, compressed) => {
   })(root);
 
   const encoding = letters.reduce((acc, { char, code }) => {
-    acc[char] = code.split("").reverse().join("");
+    acc[char] = code.split('').reverse().join('');
     return acc;
   }, {});
 
   // Finally, apply the encoding to the given string.
   const result = string
-    .split("")
+    .split('')
     .map((char) => encoding[char])
-    .join("");
+    .join('');
 
   return {
     encoding,
@@ -178,21 +178,21 @@ huffman.decode = (encoding, encodedString) => {
 
   const decodedLetters = [];
 
-  const unresolved = encodedString.split("").reduce((code, char) => {
+  const unresolved = encodedString.split('').reduce((code, char) => {
     code += char;
     const letter = letterByCode[code];
     if (letter) {
       decodedLetters.push(letter);
-      code = "";
+      code = '';
     }
     return code;
-  }, "");
+  }, '');
 
   if (unresolved) {
-    throw new Error("Invalid string to decode.");
+    throw new Error('Invalid string to decode.');
   }
 
-  return decodedLetters.join("");
+  return decodedLetters.join('');
 };
 
 export default huffman;

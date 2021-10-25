@@ -53,7 +53,7 @@ _click on the question to navigate to its' answer. Click on the "back to" link f
 sayHello(); // OUTPUT: "Hello";
 
 function sayHello() {
-  return "Hello";
+  return 'Hello';
 }
 ```
 
@@ -171,14 +171,14 @@ _click on the question to navigate to its' answer. Click on the "back to" link f
 ```js
 function foo1() {
   return {
-    bar: "hello",
+    bar: 'hello',
   };
 }
 
 function foo2() {
   return;
   {
-    bar: "hello";
+    bar: 'hello';
   }
 }
 ```
@@ -196,13 +196,11 @@ function foo2() {
 
 ##### Why do you need doctype?
 
-- Doctype is an instruction to the browser to inform about the version of the html document and how browser should render it.
-  [Back to Round One qs](#round-one)
+- Doctype is an instruction to the browser to inform about the version of the html document and how browser should render it. [Back to Round One qs](#round-one)
 
 ##### What is the use of the data-\* attribute?
 
-- It allows you to store extra information/ data in the DOM. You can write valid html with embedded private data. You can easily access the data attribute by using javascript and hence a lot of libraries like knockout use it.
-  [Back to Round One qs](#round-one)
+- It allows you to store extra information/ data in the DOM. You can write valid html with embedded private data. You can easily access the data attribute by using javascript and hence a lot of libraries like knockout use it. [Back to Round One qs](#round-one)
 
 ##### <a name='document-fragment'></a> What is createDocumentFragment?
 
@@ -376,13 +374,13 @@ function foo2() {
 - This has to do with the topic of hoisting. The temporal deadzone is the time between entering a scope where a variable is declared (i.e. an `if` statement or `while` loop), and the actual declaration and initialization of that variable. During this period, `let` and `const` variables cannot be accessed (you will get a `Reference Error`), even though they have been hoisted. Example:
 
 ```js
-console.log("out of scope");
+console.log('out of scope');
 
 if (true) {
   // Enter temporal deadzone. `x` is created and hoisted as soon as we enter scope.
-  console.log("In the scope!"); // TEMPORAL DEADZONE
+  console.log('In the scope!'); // TEMPORAL DEADZONE
   // TEMPORAL DEADZONE
-  let x = "Test Variable"; // No longer in the temporal deadzone
+  let x = 'Test Variable'; // No longer in the temporal deadzone
 }
 ```
 
@@ -550,8 +548,7 @@ is read as:
 
 - `<article>` , represents a complete, or self-contained, composition in a document, page, application, or site and that is, in principle, independently distributable or reusable, e.g. in syndication. This could be a forum post, a magazine or newspaper article, a blog entry, a user-submitted comment, an interactive widget or gadget, or any other independent item of content.
 
-- `<div>` , on the other hand, does not convey any meaning, aside from any found in its class, lang and title attributes.
-  [Back to Round Four qs](#round-four)
+- `<div>` , on the other hand, does not convey any meaning, aside from any found in its class, lang and title attributes. [Back to Round Four qs](#round-four)
 
 ##### What is the difference between a canvas element and an SVG?
 
@@ -559,8 +556,7 @@ is read as:
 
 - SVG: Object Model-based (SVG elements are similar to HTML elements). Graphical elements become part of the DOM. Visual presentation created with markup and modified by CSS or script. API supports accessibility. API does not support accessibility; markup-based techniques must be used in addition to canvas.
 
-- Canvas: Pixel-based (canvas is essentially an image element with a drawing API). Single HTML element similar to <img> in behavior. Visual presentation created and modified programmatically through script.
-  [Back to Round Four qs](#round-four)
+- Canvas: Pixel-based (canvas is essentially an image element with a drawing API). Single HTML element similar to <img> in behavior. Visual presentation created and modified programmatically through script. [Back to Round Four qs](#round-four)
 
 ##### Do padding-left, padding-right, margin-left, or margin-right effect inline elements?
 
@@ -810,8 +806,7 @@ is read as:
 
 ##### What is a semantic tag?
 
-- Semantic HTML, or "semantically-correct HTML", is HTML where the tags used to structure content are selected and applied appropriately to the meaning of the content.
-  For example, <b></b> (for bold), and <i></i> (for italic) should never be used, because they’re to do with formatting, not with the meaning or structure of the content. Instead, use the replacements <strong></strong> and <em></em> (meaning emphasis), which by default will turn text bold and italic (but don’t have to do so in all browsers), while adding meaning to the structure of the content. [Back to Extra qs](#extra)
+- Semantic HTML, or "semantically-correct HTML", is HTML where the tags used to structure content are selected and applied appropriately to the meaning of the content. For example, <b></b> (for bold), and <i></i> (for italic) should never be used, because they’re to do with formatting, not with the meaning or structure of the content. Instead, use the replacements <strong></strong> and <em></em> (meaning emphasis), which by default will turn text bold and italic (but don’t have to do so in all browsers), while adding meaning to the structure of the content. [Back to Extra qs](#extra)
 
 ##### Why would you use semantic tags?
 

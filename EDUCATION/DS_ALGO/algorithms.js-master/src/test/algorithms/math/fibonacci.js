@@ -1,6 +1,6 @@
-import { Math as math } from "../../..";
+import { Math as math } from '../../..';
 const fib = math.fibonacci;
-import assert from "assert";
+import assert from 'assert';
 
 const testFibonacciSequence = (fib) => {
   assert.equal(0, fib(0));
@@ -18,33 +18,33 @@ const testFibonacciSequence = (fib) => {
   assert.equal(144, fib(12));
 };
 
-describe("Fibonacci", () => {
-  describe("#exponential()", () => {
-    it("returns the right value for fibonacci sequence", () => {
+describe('Fibonacci', () => {
+  describe('#exponential()', () => {
+    it('returns the right value for fibonacci sequence', () => {
       testFibonacciSequence(fib.exponential);
     });
   });
 
-  describe("#linear()", () => {
-    it("returns the right value for fibonacci sequence", () => {
+  describe('#linear()', () => {
+    it('returns the right value for fibonacci sequence', () => {
       testFibonacciSequence(fib);
     });
   });
 
-  describe("#withMemoization()", () => {
-    it("returns the right value for fibonacci sequence", () => {
+  describe('#withMemoization()', () => {
+    it('returns the right value for fibonacci sequence', () => {
       testFibonacciSequence(fib.withMemoization);
     });
   });
 
-  describe("#direct()", () => {
-    it("returns the right value for fibonacci sequence", () => {
+  describe('#direct()', () => {
+    it('returns the right value for fibonacci sequence', () => {
       testFibonacciSequence(fib.direct);
     });
   });
 
-  describe("#logarithmic()", () => {
-    it("returns the right value for fibonacci sequence", () => {
+  describe('#logarithmic()', () => {
+    it('returns the right value for fibonacci sequence', () => {
       testFibonacciSequence(fib.logarithmic);
     });
   });

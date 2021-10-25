@@ -68,14 +68,11 @@ How can it be concurrent and single threaded??? We'll get to that.
 
 ## Note: Can anyone describe these terms?
 
-- **Concurrency**:
-  processes can run independently of one another, but they do not necessarily run at the same time.
+- **Concurrency**: processes can run independently of one another, but they do not necessarily run at the same time.
 
-- **Parallelism**:
-  multiple processes can run at exactly the same time.
+- **Parallelism**: multiple processes can run at exactly the same time.
 
-Note:
-Parallel environments can be described as concurrent, but not all concurrent environments are parallel.
+Note: Parallel environments can be described as concurrent, but not all concurrent environments are parallel.
 
 ---
 
@@ -95,8 +92,7 @@ Parallel environments can be described as concurrent, but not all concurrent env
 
 </div>
 
-Note:
-Which term did we use to describe JS before? How does JavaScript execute code concurrently?
+Note: Which term did we use to describe JS before? How does JavaScript execute code concurrently?
 
 ---
 
@@ -106,19 +102,15 @@ Which term did we use to describe JS before? How does JavaScript execute code co
 
 ## The JavaScript Runtime Environment
 
-Note:
-Can anyone describe these?
+Note: Can anyone describe these?
 
 ---
 
-- **JavaScript Engine**:
-  interprets your JS code and turns it into runnable commands.
+- **JavaScript Engine**: interprets your JS code and turns it into runnable commands.
 
-- **JavaScript Runtime Environemnt**:
-  supports your JavaScript by providing it with common objects and ways to communicate with the world outside your code
+- **JavaScript Runtime Environemnt**: supports your JavaScript by providing it with common objects and ways to communicate with the world outside your code
 
-Note:
-These two things make up the JS we use everyday.
+Note: These two things make up the JS we use everyday.
 
 ---
 
@@ -126,8 +118,7 @@ Which pieces belong to which parts?
 
 <img style='height: 600px;' src='https://camo.githubusercontent.com/bd3cc88e02a70dbd46694ef8ad2f0b5741725d7e/68747470733a2f2f63646e2d696d616765732d312e6d656469756d2e636f6d2f6d61782f3830302f312a4641394e47784e42362d76316f4932714745746c52512e706e67'/>
 
-Note:
-Walk step by step through the flow of the e-loop. Define each part.
+Note: Walk step by step through the flow of the e-loop. Define each part.
 
 ---
 
@@ -139,8 +130,7 @@ How it all comes together:
 
 # Asynchronicity
 
-Note:
-What does this mean?
+Note: What does this mean?
 
 ---
 
@@ -149,8 +139,7 @@ What does this mean?
 - Callbacks
 - Promises
 
-Note:
-The combination of callbacks and promises on top of the task queue and event loop are what give us asynchronicity in JS.
+Note: The combination of callbacks and promises on top of the task queue and event loop are what give us asynchronicity in JS.
 
 ---
 
@@ -158,8 +147,7 @@ The combination of callbacks and promises on top of the task queue and event loo
 
 ---
 
-###**Callback:**
-a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+###**Callback:** a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 
 ---
 
@@ -167,11 +155,9 @@ a function passed into another function as an argument, which is then invoked in
 
 ---
 
-###**Promise:**
-an object that represents the eventual completion (or failure) of an asynchronous operation
+###**Promise:** an object that represents the eventual completion (or failure) of an asynchronous operation
 
-Note:
-Promises allow us to wait for asynchronous code and then execute other code upon completion.
+Note: Promises allow us to wait for asynchronous code and then execute other code upon completion.
 
 ---
 
@@ -183,8 +169,7 @@ and
 
 Note:
 
-Who has experience with these?
-switch to code demo
+Who has experience with these? switch to code demo
 
 ---
 

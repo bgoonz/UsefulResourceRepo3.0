@@ -4,17 +4,17 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  */
 
-var bytes = require("bytes");
-var contentType = require("content-type");
-var debug = require("debug")("body-parser:text");
-var read = require("../read");
-var typeis = require("type-is");
+var bytes = require('bytes');
+var contentType = require('content-type');
+var debug = require('debug')('body-parser:text');
+var read = require('../read');
+var typeis = require('type-is');
 
 /**
  * Module exports.
@@ -33,21 +33,21 @@ module.exports = text;
 function text(options) {
   var opts = options || {};
 
-  var defaultCharset = opts.defaultCharset || "utf-8";
+  var defaultCharset = opts.defaultCharset || 'utf-8';
   var inflate = opts.inflate !== false;
   var limit =
-    typeof opts.limit !== "number"
-      ? bytes.parse(opts.limit || "100kb")
+    typeof opts.limit !== 'number'
+      ? bytes.parse(opts.limit || '100kb')
       : opts.limit;
-  var type = opts.type || "text/plain";
+  var type = opts.type || 'text/plain';
   var verify = opts.verify || false;
 
-  if (verify !== false && typeof verify !== "function") {
-    throw new TypeError("option verify must be function");
+  if (verify !== false && typeof verify !== 'function') {
+    throw new TypeError('option verify must be function');
   }
 
   // create the appropriate type checking function
-  var shouldParse = typeof type !== "function" ? typeChecker(type) : type;
+  var shouldParse = typeof type !== 'function' ? typeChecker(type) : type;
 
   function parse(buf) {
     return buf;
@@ -55,7 +55,7 @@ function text(options) {
 
   return function textParser(req, res, next) {
     if (req._body) {
-      debug("body already parsed");
+      debug('body already parsed');
       next();
       return;
     }
@@ -64,16 +64,16 @@ function text(options) {
 
     // skip requests without bodies
     if (!typeis.hasBody(req)) {
-      debug("skip empty body");
+      debug('skip empty body');
       next();
       return;
     }
 
-    debug("content-type %j", req.headers["content-type"]);
+    debug('content-type %j', req.headers['content-type']);
 
     // determine if request should be parsed
     if (!shouldParse(req)) {
-      debug("skip parsing");
+      debug('skip parsing');
       next();
       return;
     }
@@ -100,7 +100,7 @@ function text(options) {
 
 function getCharset(req) {
   try {
-    return (contentType.parse(req).parameters.charset || "").toLowerCase();
+    return (contentType.parse(req).parameters.charset || '').toLowerCase();
   } catch (e) {
     return undefined;
   }

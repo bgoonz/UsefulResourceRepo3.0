@@ -1,11 +1,11 @@
-import root from "../../../";
+import root from '../../../';
 const BezierCurve = root.Geometry.BezierCurve;
-import assert from "assert";
+import assert from 'assert';
 
 // Testing with http://pomax.github.io/bezierjs/
 
-describe("Bézier-Curve Algorithm", () => {
-  it("gets a linear Bézier-curve", () => {
+describe('Bézier-Curve Algorithm', () => {
+  it('gets a linear Bézier-curve', () => {
     const b = new BezierCurve([
       { x: 0, y: 0 },
       { x: 10, y: 3 },
@@ -22,7 +22,7 @@ describe("Bézier-Curve Algorithm", () => {
     assert.deepEqual(b.get(0.25), { x: 2.5, y: 0.75 });
     assert.deepEqual(b.get(0.75), { x: 7.5, y: 2.25 });
   });
-  it("gets a quadratic Bézier-curve", () => {
+  it('gets a quadratic Bézier-curve', () => {
     const b = new BezierCurve([
       { x: 150, y: 40 },
       { x: 80, y: 30 },
@@ -32,7 +32,7 @@ describe("Bézier-Curve Algorithm", () => {
     assert.deepEqual(b.get(0.5), { x: 103.75, y: 62.5 });
     assert.deepEqual(b.get(0.25), { x: 120.9375, y: 43.125 });
   });
-  it("gets a cubic Bézier-curve", () => {
+  it('gets a cubic Bézier-curve', () => {
     const b = new BezierCurve([
       { x: 150, y: 40 },
       { x: 80, y: 30 },

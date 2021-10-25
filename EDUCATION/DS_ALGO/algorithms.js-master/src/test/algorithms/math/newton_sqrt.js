@@ -1,9 +1,9 @@
-import { Math as math } from "../../..";
+import { Math as math } from '../../..';
 const newtonSqrt = math.newtonSqrt;
-import assert from "assert";
+import assert from 'assert';
 
-describe("Newton square root", () => {
-  it("calculates the exact root of square numbers", () => {
+describe('Newton square root', () => {
+  it('calculates the exact root of square numbers', () => {
     assert.strictEqual(newtonSqrt(0), 0);
     assert.strictEqual(newtonSqrt(1), 1);
     assert.strictEqual(newtonSqrt(4), 2);
@@ -17,7 +17,7 @@ describe("Newton square root", () => {
     assert.strictEqual(newtonSqrt(100), 10);
   });
 
-  it("calculates an approximated root for every number", () => {
+  it('calculates an approximated root for every number', () => {
     for (let i = 0; i < 1000; i++) {
       const newton = newtonSqrt(i);
       const nativeJS = Math.sqrt(i);

@@ -1,7 +1,7 @@
-import grahamScan from "../../../algorithms/geometry/graham_scan";
-import assert from "assert";
+import grahamScan from '../../../algorithms/geometry/graham_scan';
+import assert from 'assert';
 
-describe("Graham s Scan algorithm", () => {
+describe('Graham s Scan algorithm', () => {
   /* we have to ensure the order before using deepEqual. */
   let pointComparison;
   before(() => {
@@ -10,7 +10,7 @@ describe("Graham s Scan algorithm", () => {
     };
   });
 
-  it("ConvexHull of set 0", () => {
+  it('ConvexHull of set 0', () => {
     const P = [
       { x: 3, y: 4 },
       { x: 5, y: 2 },
@@ -36,7 +36,7 @@ describe("Graham s Scan algorithm", () => {
     assert.deepEqual(computedConvexHull, convexHullOfP);
   });
 
-  it("ConvexHull of set 1", () => {
+  it('ConvexHull of set 1', () => {
     const P = [
       { x: 2.8, y: 3.6 },
       { x: 4.2, y: 3.7 },
@@ -68,7 +68,7 @@ describe("Graham s Scan algorithm", () => {
     assert.deepEqual(computedConvexHull, convexHullOfP);
   });
 
-  it("ConvexHull of set 2", () => {
+  it('ConvexHull of set 2', () => {
     const P = [
       { x: 1.7, y: 2.4 },
       { x: 2.8, y: 2 },
@@ -100,7 +100,7 @@ describe("Graham s Scan algorithm", () => {
     assert.deepEqual(computedConvexHull, convexHullOfP);
   });
 
-  it("ConvexHull of set 3", () => {
+  it('ConvexHull of set 3', () => {
     const P = [
       { x: 2, y: 1 },
       { x: 3, y: 2 },
@@ -125,7 +125,7 @@ describe("Graham s Scan algorithm", () => {
     assert.deepEqual(computedConvexHull, convexHullOfP);
   });
 
-  it("ConvexHull of set 4", () => {
+  it('ConvexHull of set 4', () => {
     const P = [
       { x: 2, y: 1 },
       { x: 3, y: 2 },

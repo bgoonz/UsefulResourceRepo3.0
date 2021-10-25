@@ -1,4 +1,4 @@
-import HashSet from "./set";
+import HashSet from './set';
 
 // Normalize vertex labels as strings
 const _ = (v) => String(v);
@@ -9,7 +9,7 @@ const _ = (v) => String(v);
  */
 class Graph {
   constructor(directed) {
-    this.directed = typeof directed === "undefined" || Boolean(directed);
+    this.directed = typeof directed === 'undefined' || Boolean(directed);
     this.adjList = Object.create(null);
     this.vertices = new HashSet();
   }

@@ -1,2 +1,2 @@
-var chai = require("chai");
+var chai = require('chai');
 chai.should();

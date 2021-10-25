@@ -161,7 +161,7 @@ class AVLTree {
   rightRight(x, y, z) {
     // pass z parent to y and move y's left to z's right
     if (z.parent) {
-      const orientation = z.parent.left === z ? "left" : "right";
+      const orientation = z.parent.left === z ? 'left' : 'right';
       z.parent[orientation] = y;
       y.parent = z.parent;
     } else {
@@ -190,7 +190,7 @@ class AVLTree {
   leftLeft(x, y, z) {
     // pass z parent to y and move y's right to z's left
     if (z.parent) {
-      const orientation = z.parent.left === z ? "left" : "right";
+      const orientation = z.parent.left === z ? 'left' : 'right';
       z.parent[orientation] = y;
       y.parent = z.parent;
     } else {
@@ -218,7 +218,7 @@ class AVLTree {
   rightLeft(x, y, z) {
     // pass z parent to x
     if (z.parent) {
-      const orientation = z.parent.left === z ? "left" : "right";
+      const orientation = z.parent.left === z ? 'left' : 'right';
       z.parent[orientation] = x;
       x.parent = z.parent;
     } else {
@@ -254,7 +254,7 @@ class AVLTree {
   leftRight(x, y, z) {
     // pass z parent to x
     if (z.parent) {
-      const orientation = z.parent.left === z ? "left" : "right";
+      const orientation = z.parent.left === z ? 'left' : 'right';
       z.parent[orientation] = x;
       x.parent = z.parent;
     } else {
@@ -297,9 +297,9 @@ class AVLTree {
     let insertKey;
     current = current || this.root;
     if (current.value > value) {
-      insertKey = "left";
+      insertKey = 'left';
     } else {
-      insertKey = "right";
+      insertKey = 'right';
     }
 
     if (current[insertKey]) {
@@ -318,7 +318,7 @@ class AVLTree {
       return;
     }
     this.inOrder(current.left, callback);
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this.inOrder(current.right, callback);
@@ -334,7 +334,7 @@ class AVLTree {
 
     this.postOrder(current.left, callback);
     this.postOrder(current.right, callback);
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
   }
@@ -346,7 +346,7 @@ class AVLTree {
     if (!current) {
       return;
     }
-    if (typeof callback === "function") {
+    if (typeof callback === 'function') {
       callback(current);
     }
     this.preOrder(current.left, callback);

@@ -2,12 +2,12 @@ const http = new customAJAX();
 
 const data = {
   userId: 101,
-  title: "Custom post",
-  body: "This is a custom post",
+  title: 'Custom post',
+  body: 'This is a custom post',
 };
 
 // GET request
-posts = http.get("https://jsonplaceholder.typicode.com/posts", (err, posts) => {
+posts = http.get('https://jsonplaceholder.typicode.com/posts', (err, posts) => {
   if (err) {
     console.log(err);
   } else {
@@ -16,7 +16,7 @@ posts = http.get("https://jsonplaceholder.typicode.com/posts", (err, posts) => {
 });
 
 // POST request
-http.post("https://jsonplaceholder.typicode.com/posts", data, (err, post) => {
+http.post('https://jsonplaceholder.typicode.com/posts', data, (err, post) => {
   if (err) {
     console.log(err);
   } else {
@@ -25,7 +25,7 @@ http.post("https://jsonplaceholder.typicode.com/posts", data, (err, post) => {
 });
 
 // PUT request
-http.put("https://jsonplaceholder.typicode.com/posts/1", data, (err, post) => {
+http.put('https://jsonplaceholder.typicode.com/posts/1', data, (err, post) => {
   if (err) {
     console.log(err);
   } else {
@@ -35,7 +35,7 @@ http.put("https://jsonplaceholder.typicode.com/posts/1", data, (err, post) => {
 
 // DELETE request
 posts = http.delete(
-  "https://jsonplaceholder.typicode.com/posts/1",
+  'https://jsonplaceholder.typicode.com/posts/1',
   (err, response) => {
     if (err) {
       console.log(err);

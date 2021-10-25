@@ -9,7 +9,7 @@
     color: transparent;
     -webkit-background-clip: text;
     background-clip: text;
-    background-image: url("reveal_background.jpg");
+    background-image: url('reveal_background.jpg');
     background-repeat: repeat-x;
     animation: reveal-background 2s ease-in-out;
     animation-fill-mode: forwards;

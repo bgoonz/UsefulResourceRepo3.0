@@ -78,7 +78,7 @@ body {
 
 .switch-label::before,
 .switch-label::after {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   cursor: pointer;

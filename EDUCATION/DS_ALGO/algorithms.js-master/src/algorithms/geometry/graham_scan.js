@@ -1,4 +1,4 @@
-import vectorOp from "./vector_operations2d.js";
+import vectorOp from './vector_operations2d.js';
 
 /**
  * Given an array p with N points on a two dimensional space,

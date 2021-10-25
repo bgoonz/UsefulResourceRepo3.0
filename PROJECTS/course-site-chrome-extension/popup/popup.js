@@ -1,10 +1,10 @@
-import { STORAGE_KEYS } from "../globals.js";
-import { setStorageItem, getStorageItem } from "../utils/chromeStorage.js";
+import { STORAGE_KEYS } from '../globals.js';
+import { setStorageItem, getStorageItem } from '../utils/chromeStorage.js';
 
 const INPUTS = [
   {
-    selector: "#autoplay-checkbox",
-    valueProperty: "checked",
+    selector: '#autoplay-checkbox',
+    valueProperty: 'checked',
     key: STORAGE_KEYS.AUTOPLAY,
   },
 ];
@@ -16,7 +16,7 @@ function setupInputs() {
       element[input.valueProperty] = value;
     });
 
-    element.addEventListener("change", () => {
+    element.addEventListener('change', () => {
       setStorageItem(input.key, element[input.valueProperty]);
     });
   });
@@ -24,8 +24,8 @@ function setupInputs() {
 
 setupInputs();
 
-document.querySelectorAll("a").forEach((link) => {
-  link.addEventListener("click", () => {
+document.querySelectorAll('a').forEach((link) => {
+  link.addEventListener('click', () => {
     chrome.tabs.create({ active: true, url: link.href });
   });
 });

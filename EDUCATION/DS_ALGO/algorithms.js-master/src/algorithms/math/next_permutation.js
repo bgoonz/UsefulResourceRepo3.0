@@ -1,4 +1,4 @@
-import Comparator from "../../util/comparator";
+import Comparator from '../../util/comparator';
 
 /**
  * Narayana's algorithm computes the subsequent permutation

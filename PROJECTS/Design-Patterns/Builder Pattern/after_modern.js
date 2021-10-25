@@ -6,7 +6,7 @@ class Address {
 }
 
 class User {
-  constructor(name, { age, phone = "123-456-7890", address } = {}) {
+  constructor(name, { age, phone = '123-456-7890', address } = {}) {
     this.name = name;
     this.age = age;
     this.phone = phone;
@@ -14,4 +14,4 @@ class User {
   }
 }
 
-let user = new User("Bob", { address: new Address("12345", "Main St.") });
+let user = new User('Bob', { address: new Address('12345', 'Main St.') });

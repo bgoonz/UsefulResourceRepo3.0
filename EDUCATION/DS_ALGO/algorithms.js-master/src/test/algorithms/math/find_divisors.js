@@ -1,10 +1,10 @@
-import { Math as math } from "../../..";
+import { Math as math } from '../../..';
 const findDivisors = math.findDivisors;
-import assert from "assert";
+import assert from 'assert';
 
-describe("Find divisors", () => {
-  describe("#Generic()", () => {
-    it("returns the divisors of the number", () => {
+describe('Find divisors', () => {
+  describe('#Generic()', () => {
+    it('returns the divisors of the number', () => {
       assert.deepStrictEqual(findDivisors(-2), []);
       assert.deepStrictEqual(findDivisors(0), []);
       assert.deepStrictEqual(findDivisors(1), [1]);
@@ -20,8 +20,8 @@ describe("Find divisors", () => {
     });
   });
 
-  describe("#PairingUnsorted()", () => {
-    it("returns the divisors of the number", () => {
+  describe('#PairingUnsorted()', () => {
+    it('returns the divisors of the number', () => {
       assert.deepStrictEqual(findDivisors.pairingUnsorted(-2), []);
       assert.deepStrictEqual(findDivisors.pairingUnsorted(0), []);
       assert.deepStrictEqual(findDivisors.pairingUnsorted(1), [1]);
@@ -40,8 +40,8 @@ describe("Find divisors", () => {
     });
   });
 
-  describe("#PairingSorted()", () => {
-    it("returns the divisors of the number", () => {
+  describe('#PairingSorted()', () => {
+    it('returns the divisors of the number', () => {
       assert.deepStrictEqual(findDivisors.pairingSorted(-2), []);
       assert.deepStrictEqual(findDivisors.pairingSorted(0), []);
       assert.deepStrictEqual(findDivisors.pairingSorted(1), [1]);

@@ -2,24 +2,24 @@
  * Module dependencies.
  */
 
-var express = require("../../");
+var express = require('../../');
 var app = (module.exports = express());
-var logger = require("morgan");
-var cookieParser = require("cookie-parser");
+var logger = require('morgan');
+var cookieParser = require('cookie-parser');
 
 // custom log format
-if (process.env.NODE_ENV !== "test") app.use(logger(":method :url"));
+if (process.env.NODE_ENV !== 'test') app.use(logger(':method :url'));
 
 // parses request cookies, populating
 // req.cookies and req.signedCookies
 // when the secret is passed, used
 // for signing the cookies.
-app.use(cookieParser("my secret here"));
+app.use(cookieParser('my secret here'));
 
 // parses x-www-form-urlencoded
 app.use(express.urlencoded({ extended: false }));
 
-app.get("/", function (req, res) {
+app.get('/', function (req, res) {
   if (req.cookies.remember) {
     res.send('Remembered :). Click to <a href="/forget">forget</a>!.');
   } else {
@@ -31,19 +31,19 @@ app.get("/", function (req, res) {
   }
 });
 
-app.get("/forget", function (req, res) {
-  res.clearCookie("remember");
-  res.redirect("back");
+app.get('/forget', function (req, res) {
+  res.clearCookie('remember');
+  res.redirect('back');
 });
 
-app.post("/", function (req, res) {
+app.post('/', function (req, res) {
   var minute = 60000;
-  if (req.body.remember) res.cookie("remember", 1, { maxAge: minute });
-  res.redirect("back");
+  if (req.body.remember) res.cookie('remember', 1, { maxAge: minute });
+  res.redirect('back');
 });
 
 /* istanbul ignore next */
 if (!module.parent) {
   app.listen(3000);
-  console.log("Express started on port 3000");
+  console.log('Express started on port 3000');
 }

@@ -1,7 +1,7 @@
-import { Math as math } from "../../..";
+import { Math as math } from '../../..';
 const nextPermutation = math.nextPermutation;
-import Comparator from "../../../util/comparator";
-import assert from "assert";
+import Comparator from '../../../util/comparator';
+import assert from 'assert';
 
 const range = (begin, end) => {
   if (end === undefined) {
@@ -13,7 +13,7 @@ const range = (begin, end) => {
   }
   return new Array(end - begin + 1)
     .join(0)
-    .split("")
+    .split('')
     .map((_, index) => begin + index);
 };
 
@@ -29,8 +29,8 @@ const permutations = (start, compareFn) => {
   return permutations;
 };
 
-describe("Next Permutation", () => {
-  it("returns immediately following permutation", () => {
+describe('Next Permutation', () => {
+  it('returns immediately following permutation', () => {
     assert.deepEqual(permutations([1, 2]), [
       [1, 2],
       [2, 1],
@@ -44,7 +44,7 @@ describe("Next Permutation", () => {
     assert.deepEqual(permutations([]), [[]]);
   });
 
-  it("generate all N! permutations if the elements are distinct", () => {
+  it('generate all N! permutations if the elements are distinct', () => {
     [4, 5, 6].forEach((size) => {
       let count = 0;
       const perm = range(size);
@@ -55,7 +55,7 @@ describe("Next Permutation", () => {
     });
   });
 
-  it("supports custom compare functions", () => {
+  it('supports custom compare functions', () => {
     const reverseComparator = new Comparator();
     reverseComparator.reverse();
     const reverseCompareFn = reverseComparator.compare;

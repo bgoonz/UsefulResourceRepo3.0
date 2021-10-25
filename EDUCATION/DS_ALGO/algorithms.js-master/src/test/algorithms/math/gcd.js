@@ -1,9 +1,9 @@
-import root from "../../..";
+import root from '../../..';
 const gcd = root.Math.gcd;
-import assert from "assert";
+import assert from 'assert';
 
-describe("GCD", () => {
-  it("calculates the GCD between two numbers", () => {
+describe('GCD', () => {
+  it('calculates the GCD between two numbers', () => {
     assert.equal(gcd(1, 0), 1);
     assert.equal(gcd(2, 2), 2);
     assert.equal(gcd(2, 4), 2);
@@ -16,7 +16,7 @@ describe("GCD", () => {
     assert.equal(gcd(35, 49), 7);
   });
 
-  it("calculates the GCD between two numbers using the binary method", () => {
+  it('calculates the GCD between two numbers using the binary method', () => {
     const gcdb = gcd.binary;
     assert.equal(gcdb(1, 0), 1);
     assert.equal(gcdb(0, 1), 1);

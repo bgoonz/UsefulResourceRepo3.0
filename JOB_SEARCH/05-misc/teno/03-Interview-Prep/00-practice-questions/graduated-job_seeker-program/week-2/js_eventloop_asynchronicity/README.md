@@ -2,8 +2,7 @@
 
 ### Resources:
 
-- 🎥 ["What the heck is the event loop anyway?"](https://www.youtube.com/watch?v=8aGhZQkoFbQ)
-  (an oldie but a goodie)
+- 🎥 ["What the heck is the event loop anyway?"](https://www.youtube.com/watch?v=8aGhZQkoFbQ) (an oldie but a goodie)
 - 📖 [Asynchronous Adventures in JavaScript](https://medium.com/dailyjs/asynchronous-adventures-in-javascript-understanding-the-event-loop-fc6f968d5f72)
 - 📖 [Overview of the Engine, Runtime, and the Call Stack](https://blog.sessionstack.com/how-does-javascript-actually-work-part-1-b0bacc073cf)
 - 📖 [Event Loop and Async Programming](https://blog.sessionstack.com/how-javascript-works-event-loop-and-the-rise-of-async-programming-5-ways-to-better-coding-with-2f077c4438b5)
@@ -15,16 +14,11 @@
 
 ## How do we talk about JavaScript?
 
-There is often a lot of confusion surrounding how to talk about JavaScript.
-There are many opinions, ideas, and misconceptions about the pieces that make
-up the JavaScript we use and how they all tie together. Today's goal is to better understand
-what JavaScript is (and isn't) so that we can speak confidently and knowledgeably
-about JS as software engineers.
+There is often a lot of confusion surrounding how to talk about JavaScript. There are many opinions, ideas, and misconceptions about the pieces that make up the JavaScript we use and how they all tie together. Today's goal is to better understand what JavaScript is (and isn't) so that we can speak confidently and knowledgeably about JS as software engineers.
 
 ### JavaScript
 
-JavaScript is a high level interpreted programming language. It can be characterized
-by the following terms:
+JavaScript is a high level interpreted programming language. It can be characterized by the following terms:
 
 - **Dynamic** (it can execute many common behaviors at runtime rather than having to be compiled)
 - **Weakly Typed** (types are not declared or firmly adhered to making things like type coercion possible)
@@ -34,16 +28,9 @@ by the following terms:
 - **Concurrent** (capable of delegating multiple tasks simultaneously)\*
 - **Never Blocking** (I/O does not interfere with user input and activity)
 
-  \***_NB_**: _Although this seems contrary to JS being single threaded, concurrency is achieved by relying
-  on the host environment to execute certain tasks and then organizing the return values/callbacks of those tasks back into
-  JavaScript's single thread via the Event Loop._
+  \***_NB_**: _Although this seems contrary to JS being single threaded, concurrency is achieved by relying on the host environment to execute certain tasks and then organizing the return values/callbacks of those tasks back into JavaScript's single thread via the Event Loop._
 
-**What about ECMAScript?**
-ECMAScript is the standardized specification that forms the basis for JavaScript.
-Think of it as a blueprint from which various JavaScript engines, such as
-Chrome's V8, are built. From 2009-2015, the most recent _stable_ version of
-ECMAScript was ECMAScript 6, or ES6 for short. Additionally, ECMAScript 7
-has been released, but browser support is not yet standard.
+**What about ECMAScript?** ECMAScript is the standardized specification that forms the basis for JavaScript. Think of it as a blueprint from which various JavaScript engines, such as Chrome's V8, are built. From 2009-2015, the most recent _stable_ version of ECMAScript was ECMAScript 6, or ES6 for short. Additionally, ECMAScript 7 has been released, but browser support is not yet standard.
 
 ### Parallel vs Concurrent
 
@@ -119,11 +106,11 @@ Example:
 
 ```javascript
 function greeting(name) {
-  alert("Hello " + name);
+  alert('Hello ' + name);
 }
 
 function processUserInput(callback) {
-  var name = prompt("Please enter your name.");
+  var name = prompt('Please enter your name.');
   callback(name);
 }
 
@@ -148,7 +135,7 @@ Check out the [MDN docs on using promises](https://developer.mozilla.org/en-US/d
 const promise1 = Promise.resolve(3);
 const promise2 = 42;
 const promise3 = new Promise(function (resolve, reject) {
-  setTimeout(resolve, 100, "foo");
+  setTimeout(resolve, 100, 'foo');
 });
 
 Promise.all([promise1, promise2, promise3]).then(function (values) {
@@ -184,13 +171,13 @@ As of ECMAScript2017, we now have two very useful tools for declaring async oper
 function resolveAfter2Seconds() {
   return new Promise((resolve) => {
     setTimeout(() => {
-      resolve("resolved");
+      resolve('resolved');
     }, 2000);
   });
 }
 
 async function asyncCall() {
-  console.log("calling");
+  console.log('calling');
   var result = await resolveAfter2Seconds();
   console.log(result);
   // expected output: "resolved"

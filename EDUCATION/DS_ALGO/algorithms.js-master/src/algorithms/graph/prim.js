@@ -1,5 +1,5 @@
-import PriorityQueue from "../../data_structures/priority_queue";
-import Graph from "../../data_structures/graph";
+import PriorityQueue from '../../data_structures/priority_queue';
+import Graph from '../../data_structures/graph';
 
 /**
  * Prim's minimum spanning tree (forest) algorithm.

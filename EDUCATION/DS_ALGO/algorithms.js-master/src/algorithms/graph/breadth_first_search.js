@@ -1,4 +1,4 @@
-import Queue from "../../data_structures/queue";
+import Queue from '../../data_structures/queue';
 
 /**
  * @typedef {Object} Callbacks

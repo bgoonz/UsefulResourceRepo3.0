@@ -1,20 +1,20 @@
-var express = require("../../");
+var express = require('../../');
 var app = (module.exports = express());
-var users = require("./db");
+var users = require('./db');
 
 // so either you can deal with different types of formatting
 // for expected response in index.js
-app.get("/", function (req, res) {
+app.get('/', function (req, res) {
   res.format({
     html: function () {
       res.send(
-        "<ul>" +
+        '<ul>' +
           users
             .map(function (user) {
-              return "<li>" + user.name + "</li>";
+              return '<li>' + user.name + '</li>';
             })
-            .join("") +
-          "</ul>"
+            .join('') +
+          '</ul>'
       );
     },
 
@@ -22,9 +22,9 @@ app.get("/", function (req, res) {
       res.send(
         users
           .map(function (user) {
-            return " - " + user.name + "\n";
+            return ' - ' + user.name + '\n';
           })
-          .join("")
+          .join('')
       );
     },
 
@@ -45,10 +45,10 @@ function format(path) {
   };
 }
 
-app.get("/users", format("./users"));
+app.get('/users', format('./users'));
 
 /* istanbul ignore next */
 if (!module.parent) {
   app.listen(3000);
-  console.log("Express started on port 3000");
+  console.log('Express started on port 3000');
 }

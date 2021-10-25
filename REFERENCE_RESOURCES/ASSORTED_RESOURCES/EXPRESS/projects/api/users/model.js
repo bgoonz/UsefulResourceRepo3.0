@@ -1,11 +1,11 @@
 // DO NOT MAKE CHANGES TO THIS FILE
 // DO NOT MAKE CHANGES TO THIS FILE
 // DO NOT MAKE CHANGES TO THIS FILE
-const shortid = require("shortid");
+const shortid = require('shortid');
 
 const initializeUsers = () => [
-  { id: shortid.generate(), name: "Ed Carter", bio: "hero" },
-  { id: shortid.generate(), name: "Mary Edwards", bio: "super hero" },
+  { id: shortid.generate(), name: 'Ed Carter', bio: 'hero' },
+  { id: shortid.generate(), name: 'Mary Edwards', bio: 'super hero' },
 ];
 
 // FAKE IN-MEMORY USERS "TABLE"

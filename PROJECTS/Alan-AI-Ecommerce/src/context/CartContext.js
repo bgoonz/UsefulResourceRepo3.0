@@ -1,6 +1,6 @@
-import React, { useContext, useEffect, useState } from "react";
-import useLocalStorage from "../hooks/useLocalStorage.js";
-import storeItems from "../items.json";
+import React, { useContext, useEffect, useState } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage.js';
+import storeItems from '../items.json';
 
 const CartContext = React.createContext();
 
@@ -9,7 +9,7 @@ export function useCart() {
 }
 
 export function CartProvider({ children }) {
-  const [cart, setCart] = useLocalStorage("cart", []);
+  const [cart, setCart] = useLocalStorage('cart', []);
   const [showCartItems, setShowCartItems] = useState(false);
   const formattedCart = cart.map((entry) => {
     return {
@@ -45,7 +45,7 @@ export function CartProvider({ children }) {
 
   function checkout() {
     setCart([]);
-    alert("Thank you for your purchase");
+    alert('Thank you for your purchase');
   }
 
   const value = {

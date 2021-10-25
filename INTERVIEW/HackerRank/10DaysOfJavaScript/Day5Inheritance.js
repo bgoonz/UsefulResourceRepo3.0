@@ -25,7 +25,7 @@ class Square extends Rectangle {
 
 if (
   JSON.stringify(Object.getOwnPropertyNames(Square.prototype)) ===
-  JSON.stringify(["constructor"])
+  JSON.stringify(['constructor'])
 ) {
   const rec = new Rectangle(3, 4);
   const sqr = new Square(3);

@@ -27,7 +27,7 @@
 }
 
 .custom-select-value::after {
-  content: "";
+  content: '';
   display: inline-block;
   border: 4px solid transparent;
   border-top-color: black;

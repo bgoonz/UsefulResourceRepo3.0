@@ -21,22 +21,22 @@ Sample Output 0
 HackerRank is the best place to learn and practice coding!
 */
 
-"use strict";
+'use strict';
 
 process.stdin.resume();
-process.stdin.setEncoding("utf-8");
+process.stdin.setEncoding('utf-8');
 
-let inputString = "";
+let inputString = '';
 let currentLine = 0;
 
-process.stdin.on("data", (inputStdin) => {
+process.stdin.on('data', (inputStdin) => {
   inputString += inputStdin;
 });
 
-process.stdin.on("end", (_) => {
+process.stdin.on('end', (_) => {
   inputString = inputString
     .trim()
-    .split("\n")
+    .split('\n')
     .map((string) => {
       return string.trim();
     });
@@ -68,7 +68,7 @@ function performOperation(secondInteger, secondDecimal, secondString) {
   const firstDecimal = 4.0;
 
   // Declare a variable named 'firstString' and initialize with the string "HackerRank".
-  const firstString = "HackerRank ";
+  const firstString = 'HackerRank ';
 
   // Write code that uses console.log to print the sum of the 'firstInteger' and 'secondInteger' (converted to a Number        type) on a new line.
 

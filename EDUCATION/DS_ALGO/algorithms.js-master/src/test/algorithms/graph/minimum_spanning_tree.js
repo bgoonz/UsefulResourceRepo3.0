@@ -1,11 +1,11 @@
-import root from "../../../";
+import root from '../../../';
 const kruskal = root.Graph.kruskal;
 const prim = root.Graph.prim;
 const depthFirstSearch = root.Graph.depthFirstSearch;
 const Graph = root.DataStructures.Graph;
-import assert from "assert";
+import assert from 'assert';
 
-describe("Minimum Spanning Tree", () => {
+describe('Minimum Spanning Tree', () => {
   /**
    * @param {Graph} graph - Undirected graph.
    * @return {number}
@@ -114,7 +114,7 @@ describe("Minimum Spanning Tree", () => {
   };
 
   const testMstAlgorithm = (mst) => {
-    it("finds a minimum spanning tree", () => {
+    it('finds a minimum spanning tree', () => {
       const graph = new Graph(false);
       graph.addEdge(1, 2, 1);
       graph.addEdge(1, 4, 2);
@@ -152,7 +152,7 @@ describe("Minimum Spanning Tree", () => {
       assert(isMinimumSpanningForest(mst(graph), graph, -100));
     });
 
-    it("finds a minimum spaning forest if the graph is not connected", () => {
+    it('finds a minimum spaning forest if the graph is not connected', () => {
       const graph = new Graph(false);
       graph.addVertex(1);
       graph.addVertex(2);
@@ -177,9 +177,9 @@ describe("Minimum Spanning Tree", () => {
       assert(isMinimumSpanningForest(mst(graph), graph, -200, 2));
     });
 
-    it("throws an error if the graph is directed", () => {
+    it('throws an error if the graph is directed', () => {
       const directedGraph = new Graph(true);
-      directedGraph.addEdge("Rock", "Hard Place");
+      directedGraph.addEdge('Rock', 'Hard Place');
       assert.throws(mst.bind(null, directedGraph));
     });
   };

@@ -24,8 +24,8 @@ const server = express();
 
 
 server.get('/', (req, res) => {
-  
-  
+
+
   res.send('Hello World');
 });
 
@@ -38,15 +38,15 @@ server.listen(8000, () => console.log('API running on port 8000'));
 
 We are using the `express` npm module in our code, so we need to add it as a dependency to our project. To do this:
 
--   Open a terminal/console/command prompt window and navigate to the root of our project.
--   Add express to our `package.json` file by typing `npm install express`.
+- Open a terminal/console/command prompt window and navigate to the root of our project.
+- Add express to our `package.json` file by typing `npm install express`.
 
 Now we're ready to test our API!
 
 In the terminal, still at the root of our project:
 
--   Type: `npm run server` to run our API. The message _"Api running on port 8000"_ should appear on the terminal.
--   Open a web browser and navigate to "http://localhost:8000".
+- Type: `npm run server` to run our API. The message _"Api running on port 8000"_ should appear on the terminal.
+- Open a web browser and navigate to "http://localhost:8000".
 
 There we have it, our first API!
 
@@ -78,7 +78,7 @@ The first step is to define a new _route handler_ to respond to `GET` requests a
 
 ```
 server.get('/hobbits', (req, res) => {
-  
+
 });
 ```
 

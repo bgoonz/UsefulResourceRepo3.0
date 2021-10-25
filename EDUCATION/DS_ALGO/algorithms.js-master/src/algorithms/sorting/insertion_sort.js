@@ -1,4 +1,4 @@
-import Comparator from "../../util/comparator";
+import Comparator from '../../util/comparator';
 
 /**
  * Insertion sort algorithm O(n + d)

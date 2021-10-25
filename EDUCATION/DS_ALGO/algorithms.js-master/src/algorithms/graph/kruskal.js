@@ -1,5 +1,5 @@
-import DisjointSetForest from "../../data_structures/disjoint_set_forest";
-import Graph from "../../data_structures/graph";
+import DisjointSetForest from '../../data_structures/disjoint_set_forest';
+import Graph from '../../data_structures/graph';
 
 /**
  * Kruskal's minimum spanning tree (forest) algorithm.

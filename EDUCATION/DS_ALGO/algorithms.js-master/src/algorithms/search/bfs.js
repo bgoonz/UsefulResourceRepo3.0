@@ -1,4 +1,4 @@
-import Queue from "../../data_structures/queue.js";
+import Queue from '../../data_structures/queue.js';
 
 /**
  * Breadth-first search for binary trees

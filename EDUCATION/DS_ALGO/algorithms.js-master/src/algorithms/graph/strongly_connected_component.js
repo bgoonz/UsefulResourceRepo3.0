@@ -1,5 +1,5 @@
-import Stack from "../../data_structures/stack";
-import depthFirstSearch from "../../algorithms/graph/depth_first_search";
+import Stack from '../../data_structures/stack';
+import depthFirstSearch from '../../algorithms/graph/depth_first_search';
 
 /**
  * Kosaraju's Strongly Connected Component algorithm, https://en.wikipedia.org/wiki/Kosaraju%27s_algorithm

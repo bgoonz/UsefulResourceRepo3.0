@@ -1,4 +1,4 @@
-import { MinHeap } from "./heap";
+import { MinHeap } from './heap';
 
 /**
  * Extends the MinHeap with the only difference that

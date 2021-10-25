@@ -1,9 +1,9 @@
-import root from "../../..";
+import root from '../../..';
 const lcm = root.Math.lcm;
-import assert from "assert";
+import assert from 'assert';
 
-describe("LCM", () => {
-  it("calculates the LCM between two numbers using Euclidean algorithm", () => {
+describe('LCM', () => {
+  it('calculates the LCM between two numbers using Euclidean algorithm', () => {
     assert.equal(lcm(2, 3), 6);
     assert.equal(lcm(0, 1), 0);
     assert.equal(lcm(4, 9), 36);
@@ -20,7 +20,7 @@ describe("LCM", () => {
     assert.equal(lcm(-7, -9), 63);
   });
 
-  it("calculates the LCM between two numbers using the binary method", () => {
+  it('calculates the LCM between two numbers using the binary method', () => {
     const lcmb = lcm.binary;
     assert.equal(lcmb(2, 3), 6);
     assert.equal(lcmb(0, 1), 0);

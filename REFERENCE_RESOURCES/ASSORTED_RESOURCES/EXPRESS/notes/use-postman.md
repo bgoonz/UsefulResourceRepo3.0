@@ -12,4 +12,4 @@ We recommend installing the native application for your Operating System.
 
 ## Additional Resources
 
--   [Postman Documentation Site. (Links to an external site.)](https://www.getpostman.com/docs/v6/)
+- [Postman Documentation Site. (Links to an external site.)](https://www.getpostman.com/docs/v6/)

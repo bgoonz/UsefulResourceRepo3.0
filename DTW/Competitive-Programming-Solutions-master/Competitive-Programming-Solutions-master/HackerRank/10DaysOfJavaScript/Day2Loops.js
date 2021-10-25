@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
 process.stdin.resume();
-process.stdin.setEncoding("utf-8");
+process.stdin.setEncoding('utf-8');
 
-let inputString = "";
+let inputString = '';
 let currentLine = 0;
 
-process.stdin.on("data", (inputStdin) => {
+process.stdin.on('data', (inputStdin) => {
   inputString += inputStdin;
 });
 
-process.stdin.on("end", (_) => {
+process.stdin.on('end', (_) => {
   inputString = inputString
     .trim()
-    .split("\n")
+    .split('\n')
     .map((string) => {
       return string.trim();
     });
@@ -30,8 +30,8 @@ function readLine() {
  * Print your output using 'console.log()'.
  */
 function vowelsAndConsonants(s) {
-  var vowels = "aeiou";
-  var consonants = "bcdfghjklmnpqrstvwxyz";
+  var vowels = 'aeiou';
+  var consonants = 'bcdfghjklmnpqrstvwxyz';
   for (var j = 0; j < s.length; j++) {
     for (var i = 0; i < vowels.length; i++) {
       if (s[j] === vowels[i]) {

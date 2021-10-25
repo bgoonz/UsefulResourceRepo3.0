@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-A free HTML, CSS, and JavaScript beautifier
-===========================================
+# A free HTML, CSS, and JavaScript beautifier
 
 May 22, 2019 • 1 min read
 
@@ -23,7 +22,7 @@ If you’re interested in how I built it, [I posted a write-up here](https://www
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/news/index.html" class="post-tag">news</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -31,6 +30,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../lets-encrypt-renews-but-browsers-still-seeing-oldexpired-ssl-certificate/index.html" class="post-nav-previous"><span class="small">Previous post</span> Let's Encrypt renews but browsers still seeing old/expired SSL certificate</a> <a href="../corys-amazing-dot-paper/index.html" class="post-nav-next"><span class="small">Up next</span> Cory's amazing dot paper</a>

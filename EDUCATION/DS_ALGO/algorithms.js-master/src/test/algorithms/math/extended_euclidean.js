@@ -1,8 +1,8 @@
-import { Math as math } from "../../..";
+import { Math as math } from '../../..';
 const extEuclid = math.extendedEuclidean;
-import assert from "assert";
+import assert from 'assert';
 
-describe("extEuclid", () => {
+describe('extEuclid', () => {
   it("calculates the solve to Bézout's identity", () => {
     let solve = extEuclid(1, 0);
     assert.equal(solve.x, 1);

@@ -4,13 +4,13 @@ function customAJAX() {
 
 // HTTP GET Request
 customAJAX.prototype.get = function (url, callback) {
-  this.http.open("GET", url, true);
+  this.http.open('GET', url, true);
 
   this.http.onload = () => {
     if (this.http.status === 200) {
       callback(null, this.http.responseText);
     } else {
-      callback("Error: " + this.http.status);
+      callback('Error: ' + this.http.status);
     }
   };
   this.http.send();
@@ -18,8 +18,8 @@ customAJAX.prototype.get = function (url, callback) {
 
 // HTTP POST Request
 customAJAX.prototype.post = function (url, data, callback) {
-  this.http.open("POST", url, true);
-  this.http.setRequestHeader("Content-type", "application/json");
+  this.http.open('POST', url, true);
+  this.http.setRequestHeader('Content-type', 'application/json');
 
   this.http.onload = () => {
     callback(null, this.http.responseText);
@@ -29,8 +29,8 @@ customAJAX.prototype.post = function (url, data, callback) {
 
 // HTTP PUT Request
 customAJAX.prototype.put = function (url, data, callback) {
-  this.http.open("PUT", url, true);
-  this.http.setRequestHeader("Content-type", "application/json");
+  this.http.open('PUT', url, true);
+  this.http.setRequestHeader('Content-type', 'application/json');
 
   this.http.onload = () => {
     callback(null, this.http.responseText);
@@ -40,13 +40,13 @@ customAJAX.prototype.put = function (url, data, callback) {
 
 // HTTP DELETE Request
 customAJAX.prototype.delete = function (url, callback) {
-  this.http.open("DELETE", url, true);
+  this.http.open('DELETE', url, true);
 
   this.http.onload = () => {
     if (this.http.status === 200) {
-      callback(null, "Post Deleted!");
+      callback(null, 'Post Deleted!');
     } else {
-      callback("Error: " + this.http.status);
+      callback('Error: ' + this.http.status);
     }
   };
   this.http.send();

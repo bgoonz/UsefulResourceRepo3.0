@@ -1,4 +1,4 @@
-import { MinHeap } from "../../data_structures/heap";
+import { MinHeap } from '../../data_structures/heap';
 
 /**
  * Heap sort first creates a valid heap data structure. Next it

@@ -1,5 +1,5 @@
-import { STORAGE_KEYS } from "../globals.js";
-import { getStorageItem } from "../utils/chromeStorage.js";
+import { STORAGE_KEYS } from '../globals.js';
+import { getStorageItem } from '../utils/chromeStorage.js';
 
 let startVideo = false;
 
@@ -17,7 +17,7 @@ export default async function setupAutoplay() {
 
   startVideo = false;
   const video = await getVideo();
-  video.addEventListener("ended", () => {
+  video.addEventListener('ended', () => {
     startVideo = true;
     nextButton.click();
   });
@@ -25,12 +25,12 @@ export default async function setupAutoplay() {
 
 function getNextButton() {
   const courseButtons = [
-    ...document.querySelectorAll(".user-course-pager a[data-block-id]"),
+    ...document.querySelectorAll('.user-course-pager a[data-block-id]'),
   ];
 
   return courseButtons.find((button) => {
     return (
-      button.textContent.includes("Next") || button.textContent.includes("→")
+      button.textContent.includes('Next') || button.textContent.includes('→')
     );
   });
 }
@@ -49,25 +49,25 @@ function getStartButton() {
     const observer = new MutationObserver((mutationList, o) => {
       mutationList.forEach((mutation) => {
         if (
-          mutation.type === "childList" &&
-          (mutation.target.matches(".w-big-play-button") ||
-            mutation.target.querySelector(".w-big-play-button"))
+          mutation.type === 'childList' &&
+          (mutation.target.matches('.w-big-play-button') ||
+            mutation.target.querySelector('.w-big-play-button'))
         ) {
           o.disconnect();
-          if (mutation.target.matches(".w-big-play-button")) {
+          if (mutation.target.matches('.w-big-play-button')) {
             resolve(mutation.target);
           } else {
-            resolve(mutation.target.querySelector(".w-big-play-button"));
+            resolve(mutation.target.querySelector('.w-big-play-button'));
           }
         }
       });
     });
-    observer.observe(document.querySelector(".wistia_embed"), {
+    observer.observe(document.querySelector('.wistia_embed'), {
       subtree: true,
       childList: true,
     });
 
-    const button = document.querySelector(".w-big-play-button");
+    const button = document.querySelector('.w-big-play-button');
     if (button) {
       observer.disconnect();
       resolve(button);
@@ -80,28 +80,28 @@ function getResumeButton() {
     const observer = new MutationObserver((mutationList, o) => {
       mutationList.forEach((mutation) => {
         if (
-          mutation.type === "childList" &&
-          mutation.target.textContent.includes("Skip to where you left off")
+          mutation.type === 'childList' &&
+          mutation.target.textContent.includes('Skip to where you left off')
         ) {
           o.disconnect();
-          if (mutation.target.matches("a")) return resolve(mutation.target);
-          const buttons = [...mutation.target.querySelectorAll("a")];
+          if (mutation.target.matches('a')) return resolve(mutation.target);
+          const buttons = [...mutation.target.querySelectorAll('a')];
           const resumeButton = buttons.find((button) => {
-            return button.textContent.includes("Skip to where you left off");
+            return button.textContent.includes('Skip to where you left off');
           });
           if (resumeButton) resolve(resumeButton);
         }
       });
     });
 
-    observer.observe(document.querySelector(".wistia_embed"), {
+    observer.observe(document.querySelector('.wistia_embed'), {
       subtree: true,
       childList: true,
     });
 
-    const buttons = [...document.querySelectorAll(".w-chrome a")];
+    const buttons = [...document.querySelectorAll('.w-chrome a')];
     const resumeButton = buttons.find((button) => {
-      return button.textContent.includes("Skip to where you left off");
+      return button.textContent.includes('Skip to where you left off');
     });
     if (resumeButton) {
       observer.disconnect();
@@ -114,18 +114,18 @@ function getVideo() {
   return new Promise((resolve) => {
     const observer = new MutationObserver((mutationList, o) => {
       mutationList.forEach((mutation) => {
-        if (mutation.type === "childList" && mutation.target.matches("video")) {
+        if (mutation.type === 'childList' && mutation.target.matches('video')) {
           o.disconnect();
           resolve(mutation.target);
         }
       });
     });
-    observer.observe(document.querySelector(".wistia_embed"), {
+    observer.observe(document.querySelector('.wistia_embed'), {
       subtree: true,
       childList: true,
     });
 
-    const video = document.querySelector(".w-video-wrapper > video");
+    const video = document.querySelector('.w-video-wrapper > video');
     if (video) {
       observer.disconnect();
       resolve(video);
@@ -134,17 +134,17 @@ function getVideo() {
 }
 
 function getWistiaId() {
-  const wistiaEmbed = document.querySelector(".wistia_embed");
+  const wistiaEmbed = document.querySelector('.wistia_embed');
   const wistiaIdClass = Array.from(wistiaEmbed.classList).find((c) => {
-    return c.startsWith("wistia_async_");
+    return c.startsWith('wistia_async_');
   });
 
-  if (wistiaIdClass != null) return wistiaIdClass.replace(/^wistia_async_/, "");
-  return wistiaEmbed.id.replace(/-1$/, "");
+  if (wistiaIdClass != null) return wistiaIdClass.replace(/^wistia_async_/, '');
+  return wistiaEmbed.id.replace(/-1$/, '');
 }
 
 function getWistiaData() {
-  const localWistiaData = JSON.parse(localStorage.getItem("wistia")) || {};
+  const localWistiaData = JSON.parse(localStorage.getItem('wistia')) || {};
   const currentWistiaVideo = localWistiaData[window.location] || {};
   return currentWistiaVideo[getWistiaId()] || { resume_time: 0 };
 }

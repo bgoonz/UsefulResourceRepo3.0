@@ -5,19 +5,19 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var bytes = require("bytes");
-var contentType = require("content-type");
-var createError = require("http-errors");
-var debug = require("debug")("body-parser:json");
-var read = require("../read");
-var typeis = require("type-is");
+var bytes = require('bytes');
+var contentType = require('content-type');
+var createError = require('http-errors');
+var debug = require('debug')('body-parser:json');
+var read = require('../read');
+var typeis = require('type-is');
 
 /**
  * Module exports.
@@ -51,21 +51,21 @@ function json(options) {
   var opts = options || {};
 
   var limit =
-    typeof opts.limit !== "number"
-      ? bytes.parse(opts.limit || "100kb")
+    typeof opts.limit !== 'number'
+      ? bytes.parse(opts.limit || '100kb')
       : opts.limit;
   var inflate = opts.inflate !== false;
   var reviver = opts.reviver;
   var strict = opts.strict !== false;
-  var type = opts.type || "application/json";
+  var type = opts.type || 'application/json';
   var verify = opts.verify || false;
 
-  if (verify !== false && typeof verify !== "function") {
-    throw new TypeError("option verify must be function");
+  if (verify !== false && typeof verify !== 'function') {
+    throw new TypeError('option verify must be function');
   }
 
   // create the appropriate type checking function
-  var shouldParse = typeof type !== "function" ? typeChecker(type) : type;
+  var shouldParse = typeof type !== 'function' ? typeChecker(type) : type;
 
   function parse(body) {
     if (body.length === 0) {
@@ -77,14 +77,14 @@ function json(options) {
     if (strict) {
       var first = firstchar(body);
 
-      if (first !== "{" && first !== "[") {
-        debug("strict violation");
+      if (first !== '{' && first !== '[') {
+        debug('strict violation');
         throw createStrictSyntaxError(body, first);
       }
     }
 
     try {
-      debug("parse json");
+      debug('parse json');
       return JSON.parse(body, reviver);
     } catch (e) {
       throw normalizeJsonSyntaxError(e, {
@@ -96,7 +96,7 @@ function json(options) {
 
   return function jsonParser(req, res, next) {
     if (req._body) {
-      debug("body already parsed");
+      debug('body already parsed');
       next();
       return;
     }
@@ -105,31 +105,31 @@ function json(options) {
 
     // skip requests without bodies
     if (!typeis.hasBody(req)) {
-      debug("skip empty body");
+      debug('skip empty body');
       next();
       return;
     }
 
-    debug("content-type %j", req.headers["content-type"]);
+    debug('content-type %j', req.headers['content-type']);
 
     // determine if request should be parsed
     if (!shouldParse(req)) {
-      debug("skip parsing");
+      debug('skip parsing');
       next();
       return;
     }
 
     // assert charset per RFC 7159 sec 8.1
-    var charset = getCharset(req) || "utf-8";
-    if (charset.substr(0, 4) !== "utf-") {
-      debug("invalid charset");
+    var charset = getCharset(req) || 'utf-8';
+    if (charset.substr(0, 4) !== 'utf-') {
+      debug('invalid charset');
       next(
         createError(
           415,
           'unsupported charset "' + charset.toUpperCase() + '"',
           {
             charset: charset,
-            type: "charset.unsupported",
+            type: 'charset.unsupported',
           }
         )
       );
@@ -157,14 +157,14 @@ function json(options) {
 
 function createStrictSyntaxError(str, char) {
   var index = str.indexOf(char);
-  var partial = str.substring(0, index) + "#";
+  var partial = str.substring(0, index) + '#';
 
   try {
     JSON.parse(partial);
-    /* istanbul ignore next */ throw new SyntaxError("strict violation");
+    /* istanbul ignore next */ throw new SyntaxError('strict violation');
   } catch (e) {
     return normalizeJsonSyntaxError(e, {
-      message: e.message.replace("#", char),
+      message: e.message.replace('#', char),
       stack: e.stack,
     });
   }
@@ -191,7 +191,7 @@ function firstchar(str) {
 
 function getCharset(req) {
   try {
-    return (contentType.parse(req).parameters.charset || "").toLowerCase();
+    return (contentType.parse(req).parameters.charset || '').toLowerCase();
   } catch (e) {
     return undefined;
   }
@@ -210,7 +210,7 @@ function normalizeJsonSyntaxError(error, obj) {
 
   for (var i = 0; i < keys.length; i++) {
     var key = keys[i];
-    if (key !== "stack" && key !== "message") {
+    if (key !== 'stack' && key !== 'message') {
       delete error[key];
     }
   }

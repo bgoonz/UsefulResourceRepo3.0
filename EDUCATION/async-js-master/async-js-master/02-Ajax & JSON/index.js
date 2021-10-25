@@ -1,17 +1,17 @@
-document.getElementById("button1").addEventListener("click", loadCustomer);
+document.getElementById('button1').addEventListener('click', loadCustomer);
 
-document.getElementById("button2").addEventListener("click", loadCustomers);
+document.getElementById('button2').addEventListener('click', loadCustomers);
 
 function loadCustomer(e) {
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET", "customer.json", true);
+  xhr.open('GET', 'customer.json', true);
 
   xhr.onload = function () {
     if (this.status === 200) {
       const customer = JSON.parse(this.responseText);
 
-      const list = document.getElementById("customer");
+      const list = document.getElementById('customer');
 
       let output = `
         <tr>
@@ -25,7 +25,7 @@ function loadCustomer(e) {
     }
   };
   xhr.onerror = () => {
-    console.log("404, customer not found!");
+    console.log('404, customer not found!');
   };
   xhr.send();
 }
@@ -33,15 +33,15 @@ function loadCustomer(e) {
 function loadCustomers(e) {
   const xhr = new XMLHttpRequest();
 
-  xhr.open("GET", "customers.json", true);
+  xhr.open('GET', 'customers.json', true);
 
   xhr.onload = function () {
     if (this.status === 200) {
       const customers = JSON.parse(this.responseText);
 
-      const list = document.getElementById("customers");
+      const list = document.getElementById('customers');
 
-      let output = "";
+      let output = '';
       customers.map((customer) => {
         output += `
         <tr>
@@ -56,7 +56,7 @@ function loadCustomers(e) {
     }
   };
   xhr.onerror = () => {
-    console.log("404, customers not found!");
+    console.log('404, customers not found!');
   };
   xhr.send();
 }

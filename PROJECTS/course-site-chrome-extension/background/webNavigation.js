@@ -1,15 +1,15 @@
 let tabId;
-let currentUrl = "";
+let currentUrl = '';
 
 chrome.webRequest.onCompleted.addListener(
   (details) => {
     const parsedUrl = new URL(details.url);
 
     if (currentUrl && currentUrl.indexOf(parsedUrl.pathname) > -1 && tabId) {
-      chrome.tabs.sendMessage(tabId, { type: "page-changed" });
+      chrome.tabs.sendMessage(tabId, { type: 'page-changed' });
     }
   },
-  { urls: ["https://courses.webdevsimplified.com/courses/*"] }
+  { urls: ['https://courses.webdevsimplified.com/courses/*'] }
 );
 
 chrome.webNavigation.onHistoryStateUpdated.addListener(
@@ -20,8 +20,8 @@ chrome.webNavigation.onHistoryStateUpdated.addListener(
   {
     url: [
       {
-        hostEquals: "courses.webdevsimplified.com",
-        pathPrefix: "/courses/",
+        hostEquals: 'courses.webdevsimplified.com',
+        pathPrefix: '/courses/',
       },
     ],
   }

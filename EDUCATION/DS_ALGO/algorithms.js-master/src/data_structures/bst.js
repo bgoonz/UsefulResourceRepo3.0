@@ -1,4 +1,4 @@
-import Comparator from "../util/comparator";
+import Comparator from '../util/comparator';
 
 /**
  * Binary Search Tree
@@ -15,7 +15,7 @@ class BST {
     /**
      * Read-only property for the size of the tree
      */
-    Object.defineProperty(this, "size", {
+    Object.defineProperty(this, 'size', {
       get: () => this._size,
     });
   }
@@ -36,8 +36,8 @@ class BST {
     }
 
     const child = this._comparator.lessThan(value, parent.value)
-      ? "left"
-      : "right";
+      ? 'left'
+      : 'right';
     if (parent[child]) {
       this.insert(value, parent[child]);
     } else {
@@ -76,7 +76,7 @@ class BST {
   _replaceNodeInParent(currNode, newNode) {
     const parent = currNode.parent;
     if (parent) {
-      parent[currNode === parent.left ? "left" : "right"] = newNode;
+      parent[currNode === parent.left ? 'left' : 'right'] = newNode;
       if (newNode) newNode.parent = parent;
     } else {
       this.root = newNode;
@@ -100,7 +100,7 @@ class BST {
   remove(e) {
     const node = this._find(e);
     if (!node) {
-      throw new Error("Item not found in the tree");
+      throw new Error('Item not found in the tree');
     }
 
     if (node.left && node.right) {

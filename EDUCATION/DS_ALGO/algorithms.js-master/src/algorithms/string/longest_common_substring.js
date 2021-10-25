@@ -34,7 +34,7 @@ const longestCommonSubstring = (s1, s2) => {
     }
   }
 
-  let lcs = "";
+  let lcs = '';
   if (lcsLength) {
     lcs = s1.substring(lcsPosition.i - lcsLength, lcsPosition.i);
   }

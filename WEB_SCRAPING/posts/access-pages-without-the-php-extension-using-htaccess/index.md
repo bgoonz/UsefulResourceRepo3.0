@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Access pages without the php extension using .htaccess
-======================================================
+# Access pages without the php extension using .htaccess
 
 February 03, 2012 • 1 min read
 
@@ -29,7 +28,7 @@ Of course, the caveat is that you don't have "clean querystrings", but it's a re
 
 <a href="../../tags/php/index.html" class="post-tag">php</a> <a href="../../tags/tips/index.html" class="post-tag">tips</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -37,6 +36,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../detecting-mobile-devices-with-javascript/index.html" class="post-nav-previous"><span class="small">Previous post</span> Detecting mobile devices with JavaScript</a> <a href="../feature-detection-for-css-transitions-via-jquery-support/index.html" class="post-nav-next"><span class="small">Up next</span> Feature detection for CSS transitions via jQuery $.support</a>

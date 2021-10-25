@@ -1,11 +1,6 @@
 # express-paginate
 
-[![NPM Version][npm-image]][npm-url]
-[![NPM Downloads][downloads-image]][downloads-url]
-[![Build Status][travis-image]][travis-url]
-[![Test Coverage][coveralls-image]][coveralls-url]
-[![MIT License][license-image]][license-url]
-[![Slack][slack-image]][slack-url]
+[![NPM Version][npm-image]][npm-url] [![NPM Downloads][downloads-image]][downloads-url] [![Build Status][travis-image]][travis-url] [![Test Coverage][coveralls-image]][coveralls-url] [![MIT License][license-image]][license-url] [![Slack][slack-image]][slack-url]
 
 > Node.js pagination middleware and view helpers.
 
@@ -30,7 +25,7 @@ npm install -S express-paginate
 ## API
 
 ```js
-const paginate = require("express-paginate");
+const paginate = require('express-paginate');
 ```
 
 ### paginate
@@ -97,8 +92,7 @@ When executed with `req`, it will return a function that accepts two required ar
 
 ### paginate.getArrayPages(req)
 
-Get all the page urls with limit.
-![petronas contest 2015-10-29 12-35-52](https://cloud.githubusercontent.com/assets/3213579/10810997/a5b0b190-7e39-11e5-9cca-fb00a2142640.png)
+Get all the page urls with limit. ![petronas contest 2015-10-29 12-35-52](https://cloud.githubusercontent.com/assets/3213579/10810997/a5b0b190-7e39-11e5-9cca-fb00a2142640.png)
 
 #### Arguments
 
@@ -115,14 +109,14 @@ Get all the page urls with limit.
 ```js
 // # app.js
 
-const express = require("express");
-const paginate = require("express-paginate");
+const express = require('express');
+const paginate = require('express-paginate');
 const app = express();
 
 // keep this before all routes that will use pagination
 app.use(paginate.middleware(10, 50));
 
-app.get("/users", async (req, res, next) => {
+app.get('/users', async (req, res, next) => {
   // This example assumes you've previously defined `Users`
   // as `const Users = db.model('Users')` if you are using `mongoose`
   // and that you are using Node v7.6.0+ which has async/await support
@@ -134,15 +128,15 @@ app.get("/users", async (req, res, next) => {
 
     const pageCount = Math.ceil(itemCount / req.query.limit);
 
-    if (req.accepts("json")) {
+    if (req.accepts('json')) {
       // inspired by Stripe's API response for list objects
       res.json({
-        object: "list",
+        object: 'list',
         has_more: paginate.hasNextPages(req)(pageCount),
         data: results,
       });
     } else {
-      res.render("users", {
+      res.render('users', {
         users: results,
         pageCount,
         itemCount,
@@ -162,24 +156,24 @@ app.listen(3000);
 ```js
 // # app.js
 
-const express = require("express");
-const paginate = require("express-paginate");
+const express = require('express');
+const paginate = require('express-paginate');
 const app = express();
 
 // keep this before all routes that will use pagination
 app.use(paginate.middleware(10, 50));
 
-app.get("/users", async (req, res, next) => {
+app.get('/users', async (req, res, next) => {
   // This example assumes you've previously defined `Users`
   // as `const Users = sequelize.define('Users',{})` if you are using `Sequelize`
   // and that you are using Node v7.6.0+ which has async/await support
 
-  router.get("/all_users", (req, res, next) => {
+  router.get('/all_users', (req, res, next) => {
     db.User.findAndCountAll({ limit: req.query.limit, offset: req.skip })
       .then((results) => {
         const itemCount = results.count;
         const pageCount = Math.ceil(results.count / req.query.limit);
-        res.render("users/all_users", {
+        res.render('users/all_users', {
           users: results.rows,
           pageCount,
           itemCount,

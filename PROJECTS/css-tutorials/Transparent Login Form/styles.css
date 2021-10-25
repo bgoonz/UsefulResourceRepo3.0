@@ -1,6 +1,6 @@
 * {
   box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
+  font-family: 'Quicksand', sans-serif;
 }
 
 html,
@@ -9,7 +9,7 @@ body {
 }
 
 .full-screen-container {
-  background-image: url("background_image.jpg");
+  background-image: url('background_image.jpg');
   height: 100vh;
   width: 100vw;
   background-size: cover;

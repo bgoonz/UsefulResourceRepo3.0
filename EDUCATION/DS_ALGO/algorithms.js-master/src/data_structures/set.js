@@ -1,4 +1,4 @@
-import HashTable from "./hash_table";
+import HashTable from './hash_table';
 
 /**
  * Typical representation of a mathematical set
@@ -10,7 +10,7 @@ class HashSet {
     this._elements = new HashTable(args.length);
     this.add(...args);
 
-    Object.defineProperty(this, "size", {
+    Object.defineProperty(this, 'size', {
       get() {
         return this._elements.size;
       },
@@ -32,7 +32,7 @@ class HashSet {
   }
 
   contains(e) {
-    return typeof this._elements.get(e) !== "undefined";
+    return typeof this._elements.get(e) !== 'undefined';
   }
 
   forEach(fn) {

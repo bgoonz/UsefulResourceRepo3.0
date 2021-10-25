@@ -1,4 +1,4 @@
-import Comparator from "../../util/comparator";
+import Comparator from '../../util/comparator';
 /**
  * shell sort  worst:O(n lg n)  best:O(n)
  */

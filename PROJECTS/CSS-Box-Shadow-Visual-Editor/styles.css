@@ -49,7 +49,7 @@ body {
     var(--shadow-color, #000);
 }
 
-input:not([type="color"]) {
+input:not([type='color']) {
   padding: 0.25em 0.5em;
   font-family: inherit;
   font-size: inherit;
@@ -58,11 +58,11 @@ input:not([type="color"]) {
   outline: none;
 }
 
-input:not([type="color"]):focus {
+input:not([type='color']):focus {
   border-color: #0af;
 }
 
-input[type="color"] {
+input[type='color'] {
   width: 100%;
   border-radius: 0.3em;
   background-color: white;

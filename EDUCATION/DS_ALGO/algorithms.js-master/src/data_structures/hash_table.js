@@ -1,4 +1,4 @@
-import LinkedList from "./linked_list";
+import LinkedList from './linked_list';
 
 /**
  * HashTable constructor
@@ -9,13 +9,13 @@ class HashTable {
     this._table = new Array(initialCapacity || 64);
     this._items = 0;
 
-    Object.defineProperty(this, "capacity", {
+    Object.defineProperty(this, 'capacity', {
       get() {
         return this._table.length;
       },
     });
 
-    Object.defineProperty(this, "size", {
+    Object.defineProperty(this, 'size', {
       get() {
         return this._items;
       },
@@ -31,7 +31,7 @@ class HashTable {
    * (The hash value of the empty string is zero.)
    */
   hash(s) {
-    if (typeof s !== "string") s = JSON.stringify(s);
+    if (typeof s !== 'string') s = JSON.stringify(s);
     let hash = 0;
     for (let i = 0; i < s.length; i++) {
       hash = (hash << 5) - hash + s.charCodeAt(i);

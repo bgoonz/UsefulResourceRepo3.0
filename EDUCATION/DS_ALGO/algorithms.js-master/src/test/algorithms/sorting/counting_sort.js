@@ -1,18 +1,18 @@
-const countingSort = require("../../..").Sorting.countingSort;
-import assert from "assert";
+const countingSort = require('../../..').Sorting.countingSort;
+import assert from 'assert';
 
 const firstObject = {
-  someProperty: "The",
+  someProperty: 'The',
   key: 12,
 };
 
 const secondObject = {
-  someProperty: "chosen",
+  someProperty: 'chosen',
   key: 66,
 };
 
 const thirdObject = {
-  someProperty: "one!",
+  someProperty: 'one!',
   key: 43,
 };
 
@@ -25,8 +25,8 @@ let array = [
   firstObject,
 ];
 
-describe("Counting Sort", () => {
-  it("sorts the given array", () => {
+describe('Counting Sort', () => {
+  it('sorts the given array', () => {
     array = countingSort(array);
 
     // Asserts that the array is truly sorted

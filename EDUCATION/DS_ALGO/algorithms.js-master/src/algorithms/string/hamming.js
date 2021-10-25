@@ -8,7 +8,7 @@
  */
 const hamming = (a, b) => {
   if (a.length !== b.length) {
-    throw new Error("Strings must be equal in length");
+    throw new Error('Strings must be equal in length');
   }
 
   let dist = 0;

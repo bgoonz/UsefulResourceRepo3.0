@@ -1,4 +1,4 @@
-import Comparator from "../../util/comparator";
+import Comparator from '../../util/comparator';
 
 /**
  * Swaps two elements in the array

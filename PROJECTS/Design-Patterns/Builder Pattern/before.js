@@ -15,8 +15,8 @@ class User {
 }
 
 const user = new User(
-  "Bob",
+  'Bob',
   undefined,
   undefined,
-  new Address("12345", "Main St.")
+  new Address('12345', 'Main St.')
 );

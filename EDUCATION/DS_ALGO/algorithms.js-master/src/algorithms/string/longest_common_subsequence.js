@@ -30,7 +30,7 @@ const longestCommonSubsequence = (s1, s2) => {
   // Build LCS from cache
   i = s1.length;
   j = s2.length;
-  let lcs = "";
+  let lcs = '';
 
   while (cache[i][j] !== 0) {
     if (s1[i - 1] === s2[j - 1]) {

@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-Detecting mobile devices with JavaScript
-========================================
+# Detecting mobile devices with JavaScript
 
 November 23, 2011 • 1 min read
 
@@ -42,10 +41,9 @@ While I understand and value the concept of feature detection over browser detec
       }
     };
 
-While this doesn't account for *all* mobile platforms, it will pick up the most popular ones out there.
+While this doesn't account for _all_ mobile platforms, it will pick up the most popular ones out there.
 
-Examples <a href="#examples" class="direct-link">#</a>
-------------------------------------------------------
+## Examples <a href="#examples" class="direct-link">#</a>
 
 To check to see if the user is on any of the supported mobile devices:
 
@@ -61,7 +59,7 @@ To check to see if the user is on a specific mobile device:
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -69,6 +67,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../redirecting-to-and-from-the-www-subdomain-with-htaccess/index.html" class="post-nav-previous"><span class="small">Previous post</span> Redirecting to and from the www subdomain with .htaccess</a> <a href="../access-pages-without-the-php-extension-using-htaccess/index.html" class="post-nav-next"><span class="small">Up next</span> Access pages without the php extension using .htaccess</a>

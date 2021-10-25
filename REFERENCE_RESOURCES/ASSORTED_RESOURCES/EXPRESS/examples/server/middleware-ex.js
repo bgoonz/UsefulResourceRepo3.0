@@ -1,10 +1,10 @@
-var express = require("express");
+var express = require('express');
 var app = express();
 var port = 8000;
 
 app.use(log);
 
-app.get("/", log, hello);
+app.get('/', log, hello);
 
 function log(req, res, next) {
   console.log(new Date(), req.method, req.url);
@@ -12,11 +12,11 @@ function log(req, res, next) {
 }
 
 function hello(req, res) {
-  res.write("Hello \n" + "World");
+  res.write('Hello \n' + 'World');
   res.end();
   // next();
 }
 
 app.listen(port, function () {
-  console.log("server started on port 8000 ");
+  console.log('server started on port 8000 ');
 });

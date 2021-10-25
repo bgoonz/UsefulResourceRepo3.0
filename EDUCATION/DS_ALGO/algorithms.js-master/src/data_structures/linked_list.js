@@ -29,7 +29,7 @@ class LinkedList {
    */
   add(n, index) {
     if (index > this.length || index < 0) {
-      throw new Error("Index out of bounds");
+      throw new Error('Index out of bounds');
     }
 
     const node = new Node(n);
@@ -82,7 +82,7 @@ class LinkedList {
    */
   getNode(index) {
     if (index >= this.length || index < 0) {
-      throw new Error("Index out of bounds");
+      throw new Error('Index out of bounds');
     }
 
     let node = this.head;
@@ -100,7 +100,7 @@ class LinkedList {
    */
   del(index) {
     if (index >= this.length || index < 0) {
-      throw new Error("Index out of bounds");
+      throw new Error('Index out of bounds');
     }
 
     this.delNode(this.getNode(index));

@@ -1,4 +1,4 @@
-import StoreItem from "./StoreItem";
+import StoreItem from './StoreItem';
 
 export default function Store({ items }) {
   return (

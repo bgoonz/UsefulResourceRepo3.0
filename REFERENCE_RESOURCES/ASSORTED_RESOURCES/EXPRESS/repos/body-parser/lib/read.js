@@ -4,18 +4,18 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var createError = require("http-errors");
-var getBody = require("raw-body");
-var iconv = require("iconv-lite");
-var onFinished = require("on-finished");
-var zlib = require("zlib");
+var createError = require('http-errors');
+var getBody = require('raw-body');
+var iconv = require('iconv-lite');
+var onFinished = require('on-finished');
+var zlib = require('zlib');
 
 /**
  * Module exports.
@@ -69,25 +69,25 @@ function read(req, res, next, parse, debug, options) {
     return next(
       createError(415, 'unsupported charset "' + encoding.toUpperCase() + '"', {
         charset: encoding.toLowerCase(),
-        type: "charset.unsupported",
+        type: 'charset.unsupported',
       })
     );
   }
 
   // read body
-  debug("read body");
+  debug('read body');
   getBody(stream, opts, function (error, body) {
     if (error) {
       var _error;
 
-      if (error.type === "encoding.unsupported") {
+      if (error.type === 'encoding.unsupported') {
         // echo back charset
         _error = createError(
           415,
           'unsupported charset "' + encoding.toUpperCase() + '"',
           {
             charset: encoding.toLowerCase(),
-            type: "charset.unsupported",
+            type: 'charset.unsupported',
           }
         );
       } else {
@@ -106,13 +106,13 @@ function read(req, res, next, parse, debug, options) {
     // verify
     if (verify) {
       try {
-        debug("verify body");
+        debug('verify body');
         verify(req, res, body, encoding);
       } catch (err) {
         next(
           createError(403, err, {
             body: body,
-            type: err.type || "entity.verify.failed",
+            type: err.type || 'entity.verify.failed',
           })
         );
         return;
@@ -122,9 +122,9 @@ function read(req, res, next, parse, debug, options) {
     // parse
     var str = body;
     try {
-      debug("parse body");
+      debug('parse body');
       str =
-        typeof body !== "string" && encoding !== null
+        typeof body !== 'string' && encoding !== null
           ? iconv.decode(body, encoding)
           : body;
       req.body = parse(str);
@@ -132,7 +132,7 @@ function read(req, res, next, parse, debug, options) {
       next(
         createError(400, err, {
           body: str,
-          type: err.type || "entity.parse.failed",
+          type: err.type || 'entity.parse.failed',
         })
       );
       return;
@@ -153,31 +153,31 @@ function read(req, res, next, parse, debug, options) {
  */
 
 function contentstream(req, debug, inflate) {
-  var encoding = (req.headers["content-encoding"] || "identity").toLowerCase();
-  var length = req.headers["content-length"];
+  var encoding = (req.headers['content-encoding'] || 'identity').toLowerCase();
+  var length = req.headers['content-length'];
   var stream;
 
   debug('content-encoding "%s"', encoding);
 
-  if (inflate === false && encoding !== "identity") {
-    throw createError(415, "content encoding unsupported", {
+  if (inflate === false && encoding !== 'identity') {
+    throw createError(415, 'content encoding unsupported', {
       encoding: encoding,
-      type: "encoding.unsupported",
+      type: 'encoding.unsupported',
     });
   }
 
   switch (encoding) {
-    case "deflate":
+    case 'deflate':
       stream = zlib.createInflate();
-      debug("inflate body");
+      debug('inflate body');
       req.pipe(stream);
       break;
-    case "gzip":
+    case 'gzip':
       stream = zlib.createGunzip();
-      debug("gunzip body");
+      debug('gunzip body');
       req.pipe(stream);
       break;
-    case "identity":
+    case 'identity':
       stream = req;
       stream.length = length;
       break;
@@ -187,7 +187,7 @@ function contentstream(req, debug, inflate) {
         'unsupported content encoding "' + encoding + '"',
         {
           encoding: encoding,
-          type: "encoding.unsupported",
+          type: 'encoding.unsupported',
         }
       );
   }

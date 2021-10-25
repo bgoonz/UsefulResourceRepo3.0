@@ -1,4 +1,4 @@
-import breadthFirstSearch from "./breadth_first_search";
+import breadthFirstSearch from './breadth_first_search';
 
 /**
  * Shortest-path algorithm based on Breadth-First Search.

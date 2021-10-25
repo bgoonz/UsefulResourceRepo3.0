@@ -6,17 +6,17 @@ We will use Node to write server code. Specifically, **web services** that can c
 
 Some of the advantages of using Node.js for writing server-side code are:
 
--   Uses the same programming language (JavaScript) and paradigm for both client and server. Using the same language, we minimize context switching and make it easy to share code between the client and the server.
--   JavaScript is single-threaded, which removes the complexity involved in handling multiple threads.
--   JavaScript is asynchronous, which allows us to take full advantage of the processor it's running on. Taking full advantage of the processor is crucial because the node process will be running on a single CPU.
--   Using JavaScript gives us access to the npm repository. This repository is the largest ecosystem of useful libraries (most of them free to use) in **npm modules**.
+- Uses the same programming language (JavaScript) and paradigm for both client and server. Using the same language, we minimize context switching and make it easy to share code between the client and the server.
+- JavaScript is single-threaded, which removes the complexity involved in handling multiple threads.
+- JavaScript is asynchronous, which allows us to take full advantage of the processor it's running on. Taking full advantage of the processor is crucial because the node process will be running on a single CPU.
+- Using JavaScript gives us access to the npm repository. This repository is the largest ecosystem of useful libraries (most of them free to use) in **npm modules**.
 
 Some of the disadvantages of using Node.js for writing server-side code are:
 
--   By strictly using JavaScript on the server, we lose the ability to use the right tool (a particular language) for the job.
--   Because JavaScript is single-threaded, we can't take advantage of servers with multiple cores/processors.
--   Because JavaScript is asynchronous, it is harder to learn for developers that have only worked with languages that default to synchronous operations that block the execution thread.
--   In the npm repository, there are often too many packages that do the same thing. This excess of packages makes it harder to choose one and, in some cases, may introduce vulnerabilities into our code.
+- By strictly using JavaScript on the server, we lose the ability to use the right tool (a particular language) for the job.
+- Because JavaScript is single-threaded, we can't take advantage of servers with multiple cores/processors.
+- Because JavaScript is asynchronous, it is harder to learn for developers that have only worked with languages that default to synchronous operations that block the execution thread.
+- In the npm repository, there are often too many packages that do the same thing. This excess of packages makes it harder to choose one and, in some cases, may introduce vulnerabilities into our code.
 
 To write a simple web server with `Node.js`:
 
@@ -34,20 +34,20 @@ Using only Node.js, let's write a simple web server that returns a message. Crea
 Next, add the following code to the `index.js` file:
 
 ```
-const http = require("http"); 
+const http = require("http");
 
-const hostname = "127.0.0.1"; 
-const port = 3000; 
+const hostname = "127.0.0.1";
+const port = 3000;
 
 const server = http.createServer((req, res) => {
-    
-    res.statusCode = 200; 
-    res.setHeader("Content-Type", "text/plain"); 
-    res.end("Hello World from Node\n"); 
+
+    res.statusCode = 200;
+    res.setHeader("Content-Type", "text/plain");
+    res.end("Hello World from Node\n");
 });
 
 server.listen(port, hostname, () => {
-    
+
     console.log(`Server running at http://${hostname}:${port}/`);
 });
 ```

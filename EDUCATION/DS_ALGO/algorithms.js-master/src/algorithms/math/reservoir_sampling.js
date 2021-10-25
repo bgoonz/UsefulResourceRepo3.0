@@ -7,7 +7,7 @@
  */
 const reservoirSampling = (array, sampleSize) => {
   if (sampleSize > array.length) {
-    throw new Error("Sample size exceeds the total number of elements.");
+    throw new Error('Sample size exceeds the total number of elements.');
   }
   const reservoir = array.slice(0, sampleSize);
   for (let i = sampleSize; i < array.length; ++i) {

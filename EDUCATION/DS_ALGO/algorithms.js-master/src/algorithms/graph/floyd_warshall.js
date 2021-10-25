@@ -48,7 +48,7 @@ const floydWarshall = (graph) => {
   graph.vertices.forEach((vertex) => {
     if (distance[vertex][vertex] < 0) {
       // Negative-weighted cycle found.
-      throw new Error("The graph contains a negative-weighted cycle!");
+      throw new Error('The graph contains a negative-weighted cycle!');
     }
   });
 

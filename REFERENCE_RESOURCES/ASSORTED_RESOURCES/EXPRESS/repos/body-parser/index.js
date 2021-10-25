@@ -4,14 +4,14 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var deprecate = require("depd")("body-parser");
+var deprecate = require('depd')('body-parser');
 
 /**
  * Cache of loaded parsers.
@@ -36,7 +36,7 @@ var parsers = Object.create(null);
 
 exports = module.exports = deprecate.function(
   bodyParser,
-  "bodyParser: use individual json/urlencoded middlewares"
+  'bodyParser: use individual json/urlencoded middlewares'
 );
 
 /**
@@ -44,10 +44,10 @@ exports = module.exports = deprecate.function(
  * @public
  */
 
-Object.defineProperty(exports, "json", {
+Object.defineProperty(exports, 'json', {
   configurable: true,
   enumerable: true,
-  get: createParserGetter("json"),
+  get: createParserGetter('json'),
 });
 
 /**
@@ -55,10 +55,10 @@ Object.defineProperty(exports, "json", {
  * @public
  */
 
-Object.defineProperty(exports, "raw", {
+Object.defineProperty(exports, 'raw', {
   configurable: true,
   enumerable: true,
-  get: createParserGetter("raw"),
+  get: createParserGetter('raw'),
 });
 
 /**
@@ -66,10 +66,10 @@ Object.defineProperty(exports, "raw", {
  * @public
  */
 
-Object.defineProperty(exports, "text", {
+Object.defineProperty(exports, 'text', {
   configurable: true,
   enumerable: true,
-  get: createParserGetter("text"),
+  get: createParserGetter('text'),
 });
 
 /**
@@ -77,10 +77,10 @@ Object.defineProperty(exports, "text", {
  * @public
  */
 
-Object.defineProperty(exports, "urlencoded", {
+Object.defineProperty(exports, 'urlencoded', {
   configurable: true,
   enumerable: true,
-  get: createParserGetter("urlencoded"),
+  get: createParserGetter('urlencoded'),
 });
 
 /**
@@ -98,7 +98,7 @@ function bodyParser(options) {
   // exclude type option
   if (options) {
     for (var prop in options) {
-      if (prop !== "type") {
+      if (prop !== 'type') {
         opts[prop] = options[prop];
       }
     }
@@ -140,17 +140,17 @@ function loadParser(parserName) {
 
   // this uses a switch for static require analysis
   switch (parserName) {
-    case "json":
-      parser = require("./lib/types/json");
+    case 'json':
+      parser = require('./lib/types/json');
       break;
-    case "raw":
-      parser = require("./lib/types/raw");
+    case 'raw':
+      parser = require('./lib/types/raw');
       break;
-    case "text":
-      parser = require("./lib/types/text");
+    case 'text':
+      parser = require('./lib/types/text');
       break;
-    case "urlencoded":
-      parser = require("./lib/types/urlencoded");
+    case 'urlencoded':
+      parser = require('./lib/types/urlencoded');
       break;
   }
 

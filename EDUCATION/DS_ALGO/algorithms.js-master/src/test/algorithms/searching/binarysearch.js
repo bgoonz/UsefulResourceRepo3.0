@@ -1,9 +1,9 @@
-const binarySearch = require("../../..").Search.binarySearch;
-const lowerBound = require("../../..").Search.lowerBound;
-import assert from "assert";
+const binarySearch = require('../../..').Search.binarySearch;
+const lowerBound = require('../../..').Search.lowerBound;
+import assert from 'assert';
 
-describe("Binary Search", () => {
-  it("finds elements in the sorted array", () => {
+describe('Binary Search', () => {
+  it('finds elements in the sorted array', () => {
     assert.equal(binarySearch([1, 2, 3, 4, 5], 3), 2);
     assert.equal(binarySearch([1, 2, 3, 4, 5], 1), 0);
     assert.equal(binarySearch([1, 2, 3, 4, 5], 2), 1);
@@ -15,8 +15,8 @@ describe("Binary Search", () => {
   });
 });
 
-describe("Lower Bound", () => {
-  it("finds the first element greater than search key", () => {
+describe('Lower Bound', () => {
+  it('finds the first element greater than search key', () => {
     let arr = [1, 2, 3, 4, 5];
 
     assert.equal(lowerBound(arr, 0), 0);
@@ -28,7 +28,7 @@ describe("Lower Bound", () => {
     assert.equal(lowerBound(arr, 6), 5);
   });
 
-  it("ignores duplicate values", () => {
+  it('ignores duplicate values', () => {
     let duplicates = [1, 1, 2, 2, 3, 3];
 
     assert.equal(lowerBound(duplicates, 1), 2);

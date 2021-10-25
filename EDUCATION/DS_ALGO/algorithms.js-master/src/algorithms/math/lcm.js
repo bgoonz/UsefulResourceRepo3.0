@@ -1,4 +1,4 @@
-import gcd from "./gcd.js";
+import gcd from './gcd.js';
 
 /**
  * Calcule the Least Common Multiple with a given Greatest Common Denominator

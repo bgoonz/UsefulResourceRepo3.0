@@ -16,7 +16,7 @@ body {
   width: 100px;
   height: 100px;
   border-radius: 50%;
-  background-image: url("https://source.unsplash.com/nKC772R_qog");
+  background-image: url('https://source.unsplash.com/nKC772R_qog');
   background-size: cover;
   background-position: center;
   position: relative;
@@ -58,7 +58,7 @@ body {
 .avatar::after {
   --translate-y: calc(-1 * var(--arrow-size));
 
-  content: "";
+  content: '';
   border: var(--arrow-size) solid transparent;
   border-top-color: var(--tooltip-color);
   transform-origin: top center;

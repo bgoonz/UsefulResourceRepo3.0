@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-External popup links using jQuery
-=================================
+# External popup links using jQuery
 
 November 15, 2007 • 1 min read
 
@@ -34,7 +33,7 @@ I use `rel="external"` because it's generally a good practice to limit popup lin
 
 <a href="../../tags/development/index.html" class="post-tag">development</a> <a href="../../tags/javascript/index.html" class="post-tag">javascript</a> <a href="../../tags/jquery/index.html" class="post-tag">jquery</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -42,6 +41,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../convert-arrays-to-csv-with-php/index.html" class="post-nav-previous"><span class="small">Previous post</span> Convert arrays to CSV with PHP</a> <a href="../jquery-checkboxes-select-all-select-none-and-invert-selection/index.html" class="post-nav-next"><span class="small">Up next</span> Select all, select none, and invert selection with jQuery</a>

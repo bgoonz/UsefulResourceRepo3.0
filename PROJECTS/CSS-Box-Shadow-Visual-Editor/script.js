@@ -1,5 +1,5 @@
-document.querySelectorAll("input").forEach((input) => {
-  input.addEventListener("input", inputChanged);
+document.querySelectorAll('input').forEach((input) => {
+  input.addEventListener('input', inputChanged);
 });
 
 function inputChanged(e) {

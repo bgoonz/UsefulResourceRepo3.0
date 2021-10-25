@@ -1,4 +1,4 @@
-import Comparator from "../../util/comparator";
+import Comparator from '../../util/comparator';
 
 /**
  * Bubble sort algorithm O(n^2)

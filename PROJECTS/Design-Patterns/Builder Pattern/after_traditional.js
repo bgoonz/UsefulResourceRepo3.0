@@ -36,5 +36,5 @@ class UserBuilder {
   }
 }
 
-const builder = new UserBuilder("Bob");
-const user = builder.setAddress(new Address("12345", "Main St.")).build();
+const builder = new UserBuilder('Bob');
+const user = builder.setAddress(new Address('12345', 'Main St.')).build();

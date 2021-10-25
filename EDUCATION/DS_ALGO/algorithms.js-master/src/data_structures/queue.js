@@ -1,4 +1,4 @@
-import LinkedList from "./linked_list";
+import LinkedList from './linked_list';
 
 /**
  * Queue (FIFO) using a Linked List as basis
@@ -7,7 +7,7 @@ class Queue {
   constructor() {
     this._elements = new LinkedList();
 
-    Object.defineProperty(this, "length", {
+    Object.defineProperty(this, 'length', {
       get: () => this._elements.length,
     });
   }
@@ -28,7 +28,7 @@ class Queue {
    */
   pop() {
     if (this.isEmpty()) {
-      throw new Error("Empty queue");
+      throw new Error('Empty queue');
     }
     const e = this._elements.head;
     this._elements.delNode(e);
@@ -37,7 +37,7 @@ class Queue {
 
   peek() {
     if (this.isEmpty()) {
-      throw new Error("Empty queue");
+      throw new Error('Empty queue');
     }
 
     return this._elements.get(0);

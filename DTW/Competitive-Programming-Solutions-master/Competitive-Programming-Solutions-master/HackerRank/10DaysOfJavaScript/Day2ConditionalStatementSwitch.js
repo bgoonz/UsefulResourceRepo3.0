@@ -1,19 +1,19 @@
-"use strict";
+'use strict';
 
 process.stdin.resume();
-process.stdin.setEncoding("utf-8");
+process.stdin.setEncoding('utf-8');
 
-let inputString = "";
+let inputString = '';
 let currentLine = 0;
 
-process.stdin.on("data", (inputStdin) => {
+process.stdin.on('data', (inputStdin) => {
   inputString += inputStdin;
 });
 
-process.stdin.on("end", (_) => {
+process.stdin.on('end', (_) => {
   inputString = inputString
     .trim()
-    .split("\n")
+    .split('\n')
     .map((string) => {
       return string.trim();
     });
@@ -29,17 +29,17 @@ function getLetter(s) {
   let letter;
   // Write your code here
   switch (true) {
-    case "aeiou".includes(s[0]):
-      letter = "A";
+    case 'aeiou'.includes(s[0]):
+      letter = 'A';
       break;
-    case "bcdfg".includes(s[0]):
-      letter = "B";
+    case 'bcdfg'.includes(s[0]):
+      letter = 'B';
       break;
-    case "hjklm".includes(s[0]):
-      letter = "C";
+    case 'hjklm'.includes(s[0]):
+      letter = 'C';
       break;
-    case "npqrstvwxyz".includes(s[0]):
-      letter = "D";
+    case 'npqrstvwxyz'.includes(s[0]):
+      letter = 'D';
       break;
   }
 

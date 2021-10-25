@@ -2,7 +2,7 @@
  * Different implementations of the Fibonacci sequence
  */
 
-import power from "./fast_power";
+import power from './fast_power';
 
 /**
  * Regular fibonacci implementation following the definition:

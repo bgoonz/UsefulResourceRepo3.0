@@ -1,9 +1,9 @@
-import root from "../../../";
+import root from '../../../';
 const breadthFirstSearch = root.Graph.breadthFirstSearch;
 const Graph = root.DataStructures.Graph;
-import assert from "assert";
+import assert from 'assert';
 
-describe("Breadth-First Search", () => {
+describe('Breadth-First Search', () => {
   let graph;
 
   before(() => {
@@ -16,10 +16,10 @@ describe("Breadth-First Search", () => {
     graph.addEdge(6, 3);
     graph.addEdge(3, 2);
     graph.addEdge(2, 4);
-    graph.addEdge("alpha", "omega");
+    graph.addEdge('alpha', 'omega');
   });
 
-  it("visits reachable vertices in a breadth-first manner", () => {
+  it('visits reachable vertices in a breadth-first manner', () => {
     const enter = [];
     const leave = [];
     let lastEntered = null;
@@ -51,7 +51,7 @@ describe("Breadth-First Search", () => {
     assert.equal(enter[5], 3);
   });
 
-  it("allows user-defined allowTraversal rules", () => {
+  it('allows user-defined allowTraversal rules', () => {
     const seen = new Graph(graph.directed);
     graph.vertices.forEach(seen.addVertex.bind(seen));
     const indegrees = { 1: -1 };

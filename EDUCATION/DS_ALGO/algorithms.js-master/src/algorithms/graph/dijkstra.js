@@ -1,4 +1,4 @@
-import PriorityQueue from "../../data_structures/priority_queue";
+import PriorityQueue from '../../data_structures/priority_queue';
 
 /**
  * Calculates the shortest paths in a graph to every node from the node s

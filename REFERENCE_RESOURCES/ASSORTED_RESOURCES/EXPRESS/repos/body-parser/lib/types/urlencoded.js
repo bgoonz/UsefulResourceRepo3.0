@@ -5,20 +5,20 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var bytes = require("bytes");
-var contentType = require("content-type");
-var createError = require("http-errors");
-var debug = require("debug")("body-parser:urlencoded");
-var deprecate = require("depd")("body-parser");
-var read = require("../read");
-var typeis = require("type-is");
+var bytes = require('bytes');
+var contentType = require('content-type');
+var createError = require('http-errors');
+var debug = require('debug')('body-parser:urlencoded');
+var deprecate = require('depd')('body-parser');
+var read = require('../read');
+var typeis = require('type-is');
 
 /**
  * Module exports.
@@ -45,27 +45,27 @@ function urlencoded(options) {
 
   // notice because option default will flip in next major
   if (opts.extended === undefined) {
-    deprecate("undefined extended: provide extended option");
+    deprecate('undefined extended: provide extended option');
   }
 
   var extended = opts.extended !== false;
   var inflate = opts.inflate !== false;
   var limit =
-    typeof opts.limit !== "number"
-      ? bytes.parse(opts.limit || "100kb")
+    typeof opts.limit !== 'number'
+      ? bytes.parse(opts.limit || '100kb')
       : opts.limit;
-  var type = opts.type || "application/x-www-form-urlencoded";
+  var type = opts.type || 'application/x-www-form-urlencoded';
   var verify = opts.verify || false;
 
-  if (verify !== false && typeof verify !== "function") {
-    throw new TypeError("option verify must be function");
+  if (verify !== false && typeof verify !== 'function') {
+    throw new TypeError('option verify must be function');
   }
 
   // create the appropriate query parser
   var queryparse = extended ? extendedparser(opts) : simpleparser(opts);
 
   // create the appropriate type checking function
-  var shouldParse = typeof type !== "function" ? typeChecker(type) : type;
+  var shouldParse = typeof type !== 'function' ? typeChecker(type) : type;
 
   function parse(body) {
     return body.length ? queryparse(body) : {};
@@ -73,7 +73,7 @@ function urlencoded(options) {
 
   return function urlencodedParser(req, res, next) {
     if (req._body) {
-      debug("body already parsed");
+      debug('body already parsed');
       next();
       return;
     }
@@ -82,31 +82,31 @@ function urlencoded(options) {
 
     // skip requests without bodies
     if (!typeis.hasBody(req)) {
-      debug("skip empty body");
+      debug('skip empty body');
       next();
       return;
     }
 
-    debug("content-type %j", req.headers["content-type"]);
+    debug('content-type %j', req.headers['content-type']);
 
     // determine if request should be parsed
     if (!shouldParse(req)) {
-      debug("skip parsing");
+      debug('skip parsing');
       next();
       return;
     }
 
     // assert charset
-    var charset = getCharset(req) || "utf-8";
-    if (charset !== "utf-8") {
-      debug("invalid charset");
+    var charset = getCharset(req) || 'utf-8';
+    if (charset !== 'utf-8') {
+      debug('invalid charset');
       next(
         createError(
           415,
           'unsupported charset "' + charset.toUpperCase() + '"',
           {
             charset: charset,
-            type: "charset.unsupported",
+            type: 'charset.unsupported',
           }
         )
       );
@@ -133,10 +133,10 @@ function urlencoded(options) {
 function extendedparser(options) {
   var parameterLimit =
     options.parameterLimit !== undefined ? options.parameterLimit : 1000;
-  var parse = parser("qs");
+  var parse = parser('qs');
 
   if (isNaN(parameterLimit) || parameterLimit < 1) {
-    throw new TypeError("option parameterLimit must be a positive number");
+    throw new TypeError('option parameterLimit must be a positive number');
   }
 
   if (isFinite(parameterLimit)) {
@@ -147,15 +147,15 @@ function extendedparser(options) {
     var paramCount = parameterCount(body, parameterLimit);
 
     if (paramCount === undefined) {
-      debug("too many parameters");
-      throw createError(413, "too many parameters", {
-        type: "parameters.too.many",
+      debug('too many parameters');
+      throw createError(413, 'too many parameters', {
+        type: 'parameters.too.many',
       });
     }
 
     var arrayLimit = Math.max(100, paramCount);
 
-    debug("parse extended urlencoding");
+    debug('parse extended urlencoding');
     return parse(body, {
       allowPrototypes: true,
       arrayLimit: arrayLimit,
@@ -174,7 +174,7 @@ function extendedparser(options) {
 
 function getCharset(req) {
   try {
-    return (contentType.parse(req).parameters.charset || "").toLowerCase();
+    return (contentType.parse(req).parameters.charset || '').toLowerCase();
   } catch (e) {
     return undefined;
   }
@@ -192,7 +192,7 @@ function parameterCount(body, limit) {
   var count = 0;
   var index = 0;
 
-  while ((index = body.indexOf("&", index)) !== -1) {
+  while ((index = body.indexOf('&', index)) !== -1) {
     count++;
     index++;
 
@@ -221,11 +221,11 @@ function parser(name) {
 
   // this uses a switch for static require analysis
   switch (name) {
-    case "qs":
-      mod = require("qs");
+    case 'qs':
+      mod = require('qs');
       break;
-    case "querystring":
-      mod = require("querystring");
+    case 'querystring':
+      mod = require('querystring');
       break;
   }
 
@@ -244,10 +244,10 @@ function parser(name) {
 function simpleparser(options) {
   var parameterLimit =
     options.parameterLimit !== undefined ? options.parameterLimit : 1000;
-  var parse = parser("querystring");
+  var parse = parser('querystring');
 
   if (isNaN(parameterLimit) || parameterLimit < 1) {
-    throw new TypeError("option parameterLimit must be a positive number");
+    throw new TypeError('option parameterLimit must be a positive number');
   }
 
   if (isFinite(parameterLimit)) {
@@ -258,13 +258,13 @@ function simpleparser(options) {
     var paramCount = parameterCount(body, parameterLimit);
 
     if (paramCount === undefined) {
-      debug("too many parameters");
-      throw createError(413, "too many parameters", {
-        type: "parameters.too.many",
+      debug('too many parameters');
+      throw createError(413, 'too many parameters', {
+        type: 'parameters.too.many',
       });
     }
 
-    debug("parse urlencoding");
+    debug('parse urlencoding');
     return parse(body, undefined, undefined, { maxKeys: parameterLimit });
   };
 }

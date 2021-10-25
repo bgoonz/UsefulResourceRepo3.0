@@ -1,5 +1,5 @@
-import Graph from "../../data_structures/graph";
-import depthFirstSearch from "../../algorithms/graph/depth_first_search";
+import Graph from '../../data_structures/graph';
+import depthFirstSearch from '../../algorithms/graph/depth_first_search';
 
 /** Examine a graph and compute pair of end vertices of the existing Euler path.
  * Return pair of undefined values if there is no specific choice of end points.
@@ -47,12 +47,12 @@ const eulerEndpoints = (graph) => {
   graph.vertices.forEach((vertex) => {
     if (rank[vertex] === 1) {
       if (start) {
-        throw new Error("Duplicate start vertex.");
+        throw new Error('Duplicate start vertex.');
       }
       start = vertex;
     } else if (rank[vertex] === -1) {
       if (finish) {
-        throw new Error("Duplicate finish vertex.");
+        throw new Error('Duplicate finish vertex.');
       }
       finish = vertex;
     } else if (rank[vertex]) {
@@ -107,7 +107,7 @@ const eulerPath = (graph) => {
 
   graph.vertices.forEach((vertex) => {
     if (seen.neighbors(vertex).length < graph.neighbors(vertex).length) {
-      throw new Error("There is no euler path for a disconnected graph.");
+      throw new Error('There is no euler path for a disconnected graph.');
     }
   });
   return route.reverse();

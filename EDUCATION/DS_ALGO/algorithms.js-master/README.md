@@ -1,11 +1,6 @@
 # algorithms.js
 
-[![Build Status](https://travis-ci.org/felipernb/algorithms.js.svg?branch=master)](https://travis-ci.org/felipernb/algorithms.js)
-[![Coverage Status](https://coveralls.io/repos/github/felipernb/algorithms.js/badge.svg?branch=master)](https://coveralls.io/github/felipernb/algorithms.js?branch=master)
-[![Dependency Status](https://david-dm.org/felipernb/algorithms.js.svg)](https://david-dm.org/felipernb/algorithms.js)
-[![devDependency Status](https://david-dm.org/felipernb/algorithms.js/dev-status.svg)](https://david-dm.org/felipernb/algorithms.js#info=devDependencies)
-[![Inline docs](http://inch-ci.org/github/felipernb/algorithms.js.svg?branch=master)](http://inch-ci.org/github/felipernb/algorithms.js)
-[![npm](https://img.shields.io/npm/dt/algorithms.svg?maxAge=2592000)](https://www.npmjs.com/package/algorithms)
+[![Build Status](https://travis-ci.org/felipernb/algorithms.js.svg?branch=master)](https://travis-ci.org/felipernb/algorithms.js) [![Coverage Status](https://coveralls.io/repos/github/felipernb/algorithms.js/badge.svg?branch=master)](https://coveralls.io/github/felipernb/algorithms.js?branch=master) [![Dependency Status](https://david-dm.org/felipernb/algorithms.js.svg)](https://david-dm.org/felipernb/algorithms.js) [![devDependency Status](https://david-dm.org/felipernb/algorithms.js/dev-status.svg)](https://david-dm.org/felipernb/algorithms.js#info=devDependencies) [![Inline docs](http://inch-ci.org/github/felipernb/algorithms.js.svg?branch=master)](http://inch-ci.org/github/felipernb/algorithms.js) [![npm](https://img.shields.io/npm/dt/algorithms.svg?maxAge=2592000)](https://www.npmjs.com/package/algorithms)
 
 ![](http://www.quickmeme.com/img/8d/8d30a19413145512ad5a05c46ec0da545df5ed79e113fcf076dc03c7514eb631.jpg)
 
@@ -24,9 +19,9 @@ npm install --save algorithms
 #### Data Structures
 
 ```javascript
-require("algorithms/data_structures");
+require('algorithms/data_structures');
 // or
-require("algorithms").DataStructures;
+require('algorithms').DataStructures;
 ```
 
 - AVLTree
@@ -48,9 +43,9 @@ require("algorithms").DataStructures;
 #### Geometry algorithms
 
 ```javascript
-require("algorithms/geometry");
+require('algorithms/geometry');
 // or
-require("algorithms").Geometry;
+require('algorithms').Geometry;
 ```
 
 - BezierCurve
@@ -58,9 +53,9 @@ require("algorithms").Geometry;
 #### Graph algorithms
 
 ```javascript
-require("algorithms/graph");
+require('algorithms/graph');
 // or
-require("algorithms").Graph;
+require('algorithms').Graph;
 ```
 
 - breadthFirstSearch
@@ -84,9 +79,9 @@ require("algorithms").Graph;
 #### Math algorithms
 
 ```javascript
-require("algorithms/math");
+require('algorithms/math');
 // or
-require("algorithms").Math;
+require('algorithms').Math;
 ```
 
 - collatzConjecture
@@ -107,9 +102,9 @@ require("algorithms").Math;
 #### Search algorithms
 
 ```javascript
-require("algorithms/search");
+require('algorithms/search');
 // or
-require("algorithms").Search;
+require('algorithms').Search;
 ```
 
 - bfs (breadth-first search for binary trees)
@@ -122,9 +117,9 @@ require("algorithms").Search;
 #### Sorting algorithms
 
 ```javascript
-require("algorithms/sorting");
+require('algorithms/sorting');
 // or
-require("algorithms").Sorting;
+require('algorithms').Sorting;
 ```
 
 - bubbleSort
@@ -140,9 +135,9 @@ require("algorithms").Sorting;
 #### String algorithms
 
 ```javascript
-require("algorithms/string");
+require('algorithms/string');
 // or
-require("algorithms").String;
+require('algorithms').String;
 ```
 
 - hamming

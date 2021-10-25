@@ -1,6 +1,6 @@
-import root from "../../..";
+import root from '../../..';
 const primalityTests = root.Math.primalityTests;
-import assert from "assert";
+import assert from 'assert';
 
 const validate = (primalityTest) => {
   assert.equal(primalityTest(1), false);
@@ -15,14 +15,14 @@ const validate = (primalityTest) => {
   assert.equal(primalityTest(211), true);
 };
 
-describe("Primality Tests", () => {
-  describe("#naiveTest()", () => {
-    it("determines whether a number is prime", () => {
+describe('Primality Tests', () => {
+  describe('#naiveTest()', () => {
+    it('determines whether a number is prime', () => {
       validate(primalityTests.naiveTest);
     });
   });
-  describe("#trialDivisionTest()", () => {
-    it("determines whether a number is prime", () => {
+  describe('#trialDivisionTest()', () => {
+    it('determines whether a number is prime', () => {
       validate(primalityTests.trialDivisionTest);
     });
   });

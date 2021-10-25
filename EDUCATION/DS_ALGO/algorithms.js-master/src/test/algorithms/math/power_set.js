@@ -1,6 +1,6 @@
-import { Math as math } from "../../..";
+import { Math as math } from '../../..';
 const powerSet = math.powerSet;
-import assert from "assert";
+import assert from 'assert';
 
 /**
  * Deep equal for arrays
@@ -28,9 +28,9 @@ function testArrayInArray(a, b) {
   return arrayInArray;
 }
 
-describe("Power set", () => {
-  describe("#iterative()", () => {
-    it("returns the right elements of power set", () => {
+describe('Power set', () => {
+  describe('#iterative()', () => {
+    it('returns the right elements of power set', () => {
       const zeroElementTest = powerSet([]);
       assert(zeroElementTest.length === 0);
 
@@ -79,8 +79,8 @@ describe("Power set", () => {
     });
   });
 
-  describe("#recursive()", () => {
-    it("returns the right elements of power set", () => {
+  describe('#recursive()', () => {
+    it('returns the right elements of power set', () => {
       const zeroElementTest = powerSet.recursive([]);
       assert(zeroElementTest.length === 0);
 

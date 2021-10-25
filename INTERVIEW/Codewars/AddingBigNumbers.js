@@ -1,5 +1,5 @@
-"use strict";
-const reverseArr = (s) => s.split("").reverse();
+'use strict';
+const reverseArr = (s) => s.split('').reverse();
 
 function add(a, b) {
   [a, b] = [reverseArr(a), reverseArr(b)];
@@ -12,5 +12,5 @@ function add(a, b) {
     arr.unshift(sm);
   });
   if (carry) arr.unshift(carry);
-  return arr.join("").replace(/^(0+)/, "");
+  return arr.join('').replace(/^(0+)/, '');
 }

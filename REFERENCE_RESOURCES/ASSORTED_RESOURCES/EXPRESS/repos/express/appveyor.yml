@@ -1,26 +1,26 @@
 environment:
   matrix:
-    - nodejs_version: "0.10"
-    - nodejs_version: "0.12"
-    - nodejs_version: "1.8"
-    - nodejs_version: "2.5"
-    - nodejs_version: "3.3"
-    - nodejs_version: "4.9"
-    - nodejs_version: "5.12"
-    - nodejs_version: "6.17"
-    - nodejs_version: "7.10"
-    - nodejs_version: "8.16"
-    - nodejs_version: "9.11"
-    - nodejs_version: "10.23"
-    - nodejs_version: "11.15"
-    - nodejs_version: "12.18"
+    - nodejs_version: '0.10'
+    - nodejs_version: '0.12'
+    - nodejs_version: '1.8'
+    - nodejs_version: '2.5'
+    - nodejs_version: '3.3'
+    - nodejs_version: '4.9'
+    - nodejs_version: '5.12'
+    - nodejs_version: '6.17'
+    - nodejs_version: '7.10'
+    - nodejs_version: '8.16'
+    - nodejs_version: '9.11'
+    - nodejs_version: '10.23'
+    - nodejs_version: '11.15'
+    - nodejs_version: '12.18'
 cache:
   - node_modules
 install:
   # Install Node.js
   - ps: >-
-      try { Install-Product node $env:nodejs_version -ErrorAction Stop }
-      catch { Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version) }
+      try { Install-Product node $env:nodejs_version -ErrorAction Stop } catch { Update-NodeJsInstallation (Get-NodeJsLatestBuild $env:nodejs_version) }
+
   # Configure npm
   - ps: |
       # Skip updating shrinkwrap / lock
@@ -73,4 +73,4 @@ test_script:
   - npm run test-ci
   # Run linting
   - npm run lint
-version: "{build}"
+version: '{build}'

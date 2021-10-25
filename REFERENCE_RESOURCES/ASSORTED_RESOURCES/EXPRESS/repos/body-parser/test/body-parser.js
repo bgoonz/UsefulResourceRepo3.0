@@ -1,35 +1,35 @@
-var http = require("http");
-var methods = require("methods");
-var request = require("supertest");
+var http = require('http');
+var methods = require('methods');
+var request = require('supertest');
 
-var bodyParser = require("..");
+var bodyParser = require('..');
 
-describe("bodyParser()", function () {
+describe('bodyParser()', function () {
   before(function () {
     this.server = createServer();
   });
 
-  it("should default to {}", function (done) {
-    request(this.server).post("/").expect(200, "{}", done);
+  it('should default to {}', function (done) {
+    request(this.server).post('/').expect(200, '{}', done);
   });
 
-  it("should parse JSON", function (done) {
+  it('should parse JSON', function (done) {
     request(this.server)
-      .post("/")
-      .set("Content-Type", "application/json")
+      .post('/')
+      .set('Content-Type', 'application/json')
       .send('{"user":"tobi"}')
       .expect(200, '{"user":"tobi"}', done);
   });
 
-  it("should parse x-www-form-urlencoded", function (done) {
+  it('should parse x-www-form-urlencoded', function (done) {
     request(this.server)
-      .post("/")
-      .set("Content-Type", "application/x-www-form-urlencoded")
-      .send("user=tobi")
+      .post('/')
+      .set('Content-Type', 'application/x-www-form-urlencoded')
+      .send('user=tobi')
       .expect(200, '{"user":"tobi"}', done);
   });
 
-  it("should handle duplicated middleware", function (done) {
+  it('should handle duplicated middleware', function (done) {
     var _bodyParser = bodyParser();
     var server = http.createServer(function (req, res) {
       _bodyParser(req, res, function (err0) {
@@ -42,13 +42,13 @@ describe("bodyParser()", function () {
     });
 
     request(server)
-      .post("/")
-      .set("Content-Type", "application/json")
+      .post('/')
+      .set('Content-Type', 'application/json')
       .send('{"user":"tobi"}')
       .expect(200, '{"user":"tobi"}', done);
   });
 
-  describe("http methods", function () {
+  describe('http methods', function () {
     before(function () {
       var _bodyParser = bodyParser();
 
@@ -61,8 +61,8 @@ describe("bodyParser()", function () {
           }
 
           res.statusCode =
-            req.headers["x-expect-method"] === req.method
-              ? req.body.user === "tobi"
+            req.headers['x-expect-method'] === req.method
+              ? req.body.user === 'tobi'
                 ? 201
                 : 400
               : 405;
@@ -75,19 +75,19 @@ describe("bodyParser()", function () {
       .slice()
       .sort()
       .forEach(function (method) {
-        if (method === "connect") {
+        if (method === 'connect') {
           // except CONNECT
           return;
         }
 
         it(
-          "should support " + method.toUpperCase() + " requests",
+          'should support ' + method.toUpperCase() + ' requests',
           function (done) {
             request(this.server)
-              [method]("/")
-              .set("Content-Type", "application/json")
-              .set("Content-Length", "15")
-              .set("X-Expect-Method", method.toUpperCase())
+              [method]('/')
+              .set('Content-Type', 'application/json')
+              .set('Content-Length', '15')
+              .set('X-Expect-Method', method.toUpperCase())
               .send('{"user":"tobi"}')
               .expect(201, done);
           }
@@ -95,58 +95,58 @@ describe("bodyParser()", function () {
       });
   });
 
-  describe("with type option", function () {
+  describe('with type option', function () {
     before(function () {
       this.server = createServer({
-        limit: "1mb",
-        type: "application/octet-stream",
+        limit: '1mb',
+        type: 'application/octet-stream',
       });
     });
 
-    it("should parse JSON", function (done) {
+    it('should parse JSON', function (done) {
       request(this.server)
-        .post("/")
-        .set("Content-Type", "application/json")
+        .post('/')
+        .set('Content-Type', 'application/json')
         .send('{"user":"tobi"}')
         .expect(200, '{"user":"tobi"}', done);
     });
 
-    it("should parse x-www-form-urlencoded", function (done) {
+    it('should parse x-www-form-urlencoded', function (done) {
       request(this.server)
-        .post("/")
-        .set("Content-Type", "application/x-www-form-urlencoded")
-        .send("user=tobi")
+        .post('/')
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .send('user=tobi')
         .expect(200, '{"user":"tobi"}', done);
     });
   });
 
-  describe("with verify option", function () {
-    it("should apply to json", function (done) {
+  describe('with verify option', function () {
+    it('should apply to json', function (done) {
       var server = createServer({
         verify: function (req, res, buf) {
-          if (buf[0] === 0x20) throw new Error("no leading space");
+          if (buf[0] === 0x20) throw new Error('no leading space');
         },
       });
 
       request(server)
-        .post("/")
-        .set("Content-Type", "application/json")
+        .post('/')
+        .set('Content-Type', 'application/json')
         .send(' {"user":"tobi"}')
-        .expect(403, "no leading space", done);
+        .expect(403, 'no leading space', done);
     });
 
-    it("should apply to urlencoded", function (done) {
+    it('should apply to urlencoded', function (done) {
       var server = createServer({
         verify: function (req, res, buf) {
-          if (buf[0] === 0x20) throw new Error("no leading space");
+          if (buf[0] === 0x20) throw new Error('no leading space');
         },
       });
 
       request(server)
-        .post("/")
-        .set("Content-Type", "application/x-www-form-urlencoded")
-        .send(" user=tobi")
-        .expect(403, "no leading space", done);
+        .post('/')
+        .set('Content-Type', 'application/x-www-form-urlencoded')
+        .send(' user=tobi')
+        .expect(403, 'no leading space', done);
     });
   });
 });

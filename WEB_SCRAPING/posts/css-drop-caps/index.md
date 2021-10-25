@@ -1,9 +1,8 @@
 <a href="../../index.html" class="header-link"><img src="../../images/logos/wordmark.svg" alt="A Beautiful Site" class="wordmark" /></a> <a href="../../index.html" class="nav-item">Home</a> <a href="../../tags/index.html" class="nav-item">Tags</a> <a href="../index.html" class="nav-item">Archive</a> <a href="../../about/index.html" class="nav-item">About</a>
 
-------------------------------------------------------------------------
+---
 
-CSS drop caps
-=============
+# CSS drop caps
 
 May 23, 2007 • 1 min read
 
@@ -17,8 +16,7 @@ Traditionally found in printed media, drop caps are created by emphasizing the s
 
 ![Drop cap example](../../images/drop-cap-example.png)
 
-Writing the styles <a href="#writing-the-styles" class="direct-link">#</a>
---------------------------------------------------------------------------
+## Writing the styles <a href="#writing-the-styles" class="direct-link">#</a>
 
 Let's start by creating a class called `drop-cap` and adding a bit of style to it:
 
@@ -33,8 +31,7 @@ As you can see, the size of the first letter will be significantly larger then t
 
 You'll also notice that the `first-letter` is floated. This allows the letter to sink into the text instead of remaining inline.
 
-Applying the class <a href="#applying-the-class" class="direct-link">#</a>
---------------------------------------------------------------------------
+## Applying the class <a href="#applying-the-class" class="direct-link">#</a>
 
 Now that we've created the CSS `drop-cap` class, it's easy to apply it to any paragraph element:
 
@@ -50,7 +47,7 @@ Which produces something like the image above.
 
 <a href="../../tags/design/index.html" class="post-tag">design</a> <a href="../../tags/css/index.html" class="post-tag">css</a>
 
-------------------------------------------------------------------------
+---
 
 <img src="http://0.gravatar.com/avatar/bf1b3b95fd5b096a3592247c29667b33?s=512" alt="Photo of Cory" class="avatar avatar-small" />
 
@@ -58,6 +55,6 @@ Written by [Cory LaViska](../../index-4.html), a software engineer and UX archit
 
 You can follow Cory on [Twitter](https://twitter.com/bgooonz) and [GitHub](https://github.com/claviska).
 
-------------------------------------------------------------------------
+---
 
 <a href="../find-and-replace-hyperlinks-and-email-addresses-in-php/index.html" class="post-nav-previous"><span class="small">Previous post</span> Find and replace hyperlinks and email addresses in PHP</a> <a href="../creating-a-printable-website-using-print-stylesheets/index.html" class="post-nav-next"><span class="small">Up next</span> Creating a printable website using print stylesheets</a>

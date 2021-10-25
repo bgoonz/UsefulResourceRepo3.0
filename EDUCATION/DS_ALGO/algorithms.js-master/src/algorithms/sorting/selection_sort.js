@@ -1,4 +1,4 @@
-import Comparator from "../../util/comparator";
+import Comparator from '../../util/comparator';
 /**
  * Selection sort algorithm O(n^2)
  */

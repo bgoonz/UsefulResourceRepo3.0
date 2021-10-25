@@ -1,6 +1,6 @@
-import React from "react";
-import formatCurrency from "../util/formatCurrency";
-import { useCart } from "../context/CartContext";
+import React from 'react';
+import formatCurrency from '../util/formatCurrency';
+import { useCart } from '../context/CartContext';
 
 export default function CartItem({ entry }) {
   const { removeFromCart } = useCart();

@@ -1,4 +1,4 @@
-import Comparator from "../util/comparator";
+import Comparator from '../util/comparator';
 
 /**
  * Basic Heap structure
@@ -8,7 +8,7 @@ class MinHeap {
     this._elements = [null];
     this._comparator = new Comparator(compareFn);
 
-    Object.defineProperty(this, "n", {
+    Object.defineProperty(this, 'n', {
       get: () => this._elements.length - 1,
     });
   }

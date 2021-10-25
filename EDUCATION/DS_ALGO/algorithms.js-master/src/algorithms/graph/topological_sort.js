@@ -1,5 +1,5 @@
-import Stack from "../../data_structures/stack";
-import depthFirstSearch from "../../algorithms/graph/depth_first_search";
+import Stack from '../../data_structures/stack';
+import depthFirstSearch from '../../algorithms/graph/depth_first_search';
 
 /**
  * Sorts the edges of the DAG topologically

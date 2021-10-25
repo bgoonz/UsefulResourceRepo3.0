@@ -1,10 +1,10 @@
-import root from "../../../";
+import root from '../../../';
 const bfsShortestPath = root.Graph.bfsShortestPath;
 const Graph = root.DataStructures.Graph;
-import assert from "assert";
+import assert from 'assert';
 
-describe("BFS Shortest Path Algorithm", () => {
-  it("returns the shortest paths to all nodes from a given origin", () => {
+describe('BFS Shortest Path Algorithm', () => {
+  it('returns the shortest paths to all nodes from a given origin', () => {
     const graph = new Graph();
     graph.addEdge(0, 1);
     graph.addEdge(1, 2);
@@ -17,7 +17,7 @@ describe("BFS Shortest Path Algorithm", () => {
     graph.addEdge(4, 6);
     graph.addEdge(4, 5);
     graph.addEdge(5, 0);
-    graph.addEdge("a", "b");
+    graph.addEdge('a', 'b');
 
     const shortestPath = bfsShortestPath(graph, 0);
 
