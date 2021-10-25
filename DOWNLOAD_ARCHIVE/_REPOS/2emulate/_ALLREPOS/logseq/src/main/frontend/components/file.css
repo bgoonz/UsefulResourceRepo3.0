@@ -1,0 +1,7 @@
+.file {
+  max-width: 86vw;
+
+  textarea, pre {
+    margin: 0;
+  }
+}

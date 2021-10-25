@@ -1,0 +1,217 @@
+:root {
+  scrollbar-width: thin;
+  scrollbar-color: var(--ls-scrollbar-foreground-color) var(--ls-scrollbar-background-color);
+
+  --ls-z-index-level-0: 0;
+  --ls-z-index-level-1: 9;
+  --ls-z-index-level-2: 99;
+  --ls-z-index-level-3: 999;
+  --ls-z-index-level-4: 9999;
+  --ls-z-index-level-5: 99999;
+
+  --ls-right-sidebar-width: 40%;
+}
+
+html {
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--ls-scrollbar-foreground-color);
+  }
+
+  ::-webkit-scrollbar {
+    background-color: var(--ls-scrollbar-background-color);
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background-color: var(--ls-scrollbar-thumb-hover-color);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    -webkit-border-radius: 100px;
+  }
+
+  ::-webkit-scrollbar-corner {
+    background: transparent;
+  }
+}
+
+.form-checkbox {
+  color: var(--ls-page-checkbox-color, #6093a0);
+  background-color: var(--ls-page-checkbox-color, #6093a0);
+  border-color: var(--ls-page-checkbox-border-color, #6093a0);
+  border: none;
+}
+
+.form-checkbox:hover {
+  transform: scale(1.1);
+}
+
+html[data-theme=dark] {
+  background-color: var(--ls-primary-background-color);
+
+  input.form-input {
+    background: none;
+  }
+}
+
+html[data-theme=light] {
+  .form-checkbox {
+    &:focus {
+      border-color: var(--ls-page-checkbox-border-color);
+    }
+  }
+
+  .cp__header {
+    a {
+      color: var(--ls-primary-text-color);
+    }
+  }
+
+  a.right-sidebar-button {
+    color: var(--ls-primary-text-color);
+  }
+
+  a.right-sidebar-button:hover {
+    color: var(--ls-link-text-hover-color);
+  }
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none !important; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+html.is-electron {
+  --frame-top-height: 24px;
+
+  .theme-inner {
+  }
+
+  .cp__header {
+    height: 2.6rem;
+    background-color: var(--ls-primary-background-color);
+    top: 0;
+  }
+
+  &.is-mac {
+    .cp__header {
+      height: calc(2.2rem + var(--frame-top-height));
+      padding-top: var(--frame-top-height);
+
+      &-logo {
+        height: var(--frame-top-height);
+      }
+
+      &:before {
+        content: " ";
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 8;
+        -webkit-app-region: drag;
+        width: 100%;
+        height: var(--frame-top-height);
+      }
+    }
+
+    .cp__right-sidebar {
+      top: 4rem;
+    }
+
+    &.is-fullscreen {
+      .cp__header {
+        padding-top: 0;
+        height: 2.6rem;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  #search {
+    -webkit-app-region: drag;
+
+    #search-wrapper {
+      -webkit-app-region: no-drag;
+    }
+  }
+
+  .ls-window-frame-title-bar {
+    background-color: var(--ls-primary-background-color);
+    position: fixed;
+    left: 0;
+    right: 0;
+    z-index: 9;
+    height: var(--frame-top-height);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    user-select: none;
+    -webkit-app-region: drag;
+
+    & > .l {
+      display: flex;
+    }
+
+    & > .r {
+      & > .inner {
+        display: flex;
+      }
+    }
+
+    & > .c {
+      font-size: .7rem;
+    }
+
+    a.it {
+      padding: 0 2px;
+      cursor: pointer;
+      -webkit-app-region: no-drag;
+
+      &:hover {
+        background-color: var(--ls-secondary-background-color);
+      }
+
+      &:active {
+        background-color: var(--ls-primary-background-color);
+      }
+
+      svg {
+        transform: scale(.6);
+        color: var(--ls-primary-text-color);
+        cursor: pointer;
+      }
+
+      &.maximize {
+        svg {
+          transform: scale(.5) translateY(2px) translateX(1px);
+          opacity: .7;
+        }
+      }
+    }
+  }
+}
+
+html.locked-scroll {
+  overflow: hidden !important;
+}
+
+html.is-resizing-buf {
+  #right-sidebar {
+    transition: none;
+  }
+}
