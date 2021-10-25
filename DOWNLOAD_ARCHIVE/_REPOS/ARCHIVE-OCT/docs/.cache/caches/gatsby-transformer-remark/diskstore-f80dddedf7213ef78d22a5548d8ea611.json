@@ -1,0 +1,532 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-html-ast-3d6bb2bafada6c8b86f183fceae04c6f-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "element",
+        "tagName": "h1",
+        "properties": {
+          "id": "npm-help-search1",
+          "style": "position:relative;"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#npm-help-search1",
+              "aria-label": "npm help search1 permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "npm-help-search(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 21, "offset": 21 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 21, "offset": 21 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+          "id": "search-npm-help-documentation",
+          "style": "position:relative;"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#search-npm-help-documentation",
+              "aria-label": "search npm help documentation permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Search npm help documentation",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 26 },
+              "end": { "line": 4, "column": 33, "offset": 55 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 23 },
+          "end": { "line": 4, "column": 33, "offset": 55 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "synopsis", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#synopsis",
+              "aria-label": "synopsis permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 61 },
+              "end": { "line": 6, "column": 13, "offset": 69 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 57 },
+          "end": { "line": 6, "column": 13, "offset": 69 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> help-search <span class=\"token operator\">&lt;</span>text<span class=\"token operator\">></span></code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 71 },
+          "end": { "line": 10, "column": 4, "offset": 105 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "description", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#description",
+              "aria-label": "description permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 12, "column": 5, "offset": 111 },
+              "end": { "line": 12, "column": 16, "offset": 122 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 12, "column": 1, "offset": 107 },
+          "end": { "line": 12, "column": 16, "offset": 122 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "This command will search the npm markdown documentation files for the\nterms provided, and then list the results, sorted by relevance.",
+            "position": {
+              "start": { "line": 14, "column": 1, "offset": 124 },
+              "end": { "line": 15, "column": 64, "offset": 257 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 124 },
+          "end": { "line": 15, "column": 64, "offset": 257 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If only one result is found, then it will show that help topic.",
+            "position": {
+              "start": { "line": 17, "column": 1, "offset": 259 },
+              "end": { "line": 17, "column": 64, "offset": 322 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 17, "column": 1, "offset": 259 },
+          "end": { "line": 17, "column": 64, "offset": 322 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If the argument to ",
+            "position": {
+              "start": { "line": 19, "column": 1, "offset": 324 },
+              "end": { "line": 19, "column": 20, "offset": 343 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm help</code>",
+            "position": {
+              "start": { "line": 19, "column": 20, "offset": 343 },
+              "end": { "line": 19, "column": 30, "offset": 353 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " is not a known help topic, then it will\ncall ",
+            "position": {
+              "start": { "line": 19, "column": 30, "offset": 353 },
+              "end": { "line": 20, "column": 6, "offset": 399 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">help-search</code>",
+            "position": {
+              "start": { "line": 20, "column": 6, "offset": 399 },
+              "end": { "line": 20, "column": 19, "offset": 412 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ". It is rarely if ever necessary to call this\ncommand directly.",
+            "position": {
+              "start": { "line": 20, "column": 19, "offset": 412 },
+              "end": { "line": 21, "column": 18, "offset": 475 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 19, "column": 1, "offset": 324 },
+          "end": { "line": 21, "column": 18, "offset": 475 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "configuration", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#configuration",
+              "aria-label": "configuration permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Configuration",
+            "position": {
+              "start": { "line": 23, "column": 5, "offset": 481 },
+              "end": { "line": 23, "column": 18, "offset": 494 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 23, "column": 1, "offset": 477 },
+          "end": { "line": 23, "column": 18, "offset": 494 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h4",
+        "properties": { "id": "long", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#long",
+              "aria-label": "long permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "long",
+            "position": {
+              "start": { "line": 25, "column": 6, "offset": 501 },
+              "end": { "line": 25, "column": 10, "offset": 505 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 25, "column": 1, "offset": 496 },
+          "end": { "line": 25, "column": 10, "offset": 505 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "Type: Boolean",
+                "position": {
+                  "start": { "line": 27, "column": 3, "offset": 509 },
+                  "end": { "line": 27, "column": 16, "offset": 522 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 27, "column": 1, "offset": 507 },
+              "end": { "line": 27, "column": 16, "offset": 522 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "Default: false",
+                "position": {
+                  "start": { "line": 28, "column": 3, "offset": 525 },
+                  "end": { "line": 28, "column": 17, "offset": 539 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 28, "column": 1, "offset": 523 },
+              "end": { "line": 28, "column": 17, "offset": 539 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 27, "column": 1, "offset": 507 },
+          "end": { "line": 28, "column": 17, "offset": 539 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If true, the \"long\" flag will cause help-search to output context around\nwhere the terms were found in the documentation.",
+            "position": {
+              "start": { "line": 30, "column": 1, "offset": 541 },
+              "end": { "line": 31, "column": 49, "offset": 662 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 30, "column": 1, "offset": 541 },
+          "end": { "line": 31, "column": 49, "offset": 662 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If false, then help-search will just list out the help topics found.",
+            "position": {
+              "start": { "line": 33, "column": 1, "offset": 664 },
+              "end": { "line": 33, "column": 69, "offset": 732 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 33, "column": 1, "offset": 664 },
+          "end": { "line": 33, "column": 69, "offset": 732 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "see-also", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#see-also",
+              "aria-label": "see also permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 35, "column": 5, "offset": 738 },
+              "end": { "line": 35, "column": 13, "offset": 746 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 35, "column": 1, "offset": 734 },
+          "end": { "line": 35, "column": 13, "offset": 746 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm",
+                    "position": {
+                      "start": { "line": 37, "column": 4, "offset": 751 },
+                      "end": { "line": 37, "column": 7, "offset": 754 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 37, "column": 3, "offset": 750 },
+                  "end": { "line": 37, "column": 27, "offset": 774 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 37, "column": 1, "offset": 748 },
+              "end": { "line": 37, "column": 27, "offset": 774 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-help" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm help",
+                    "position": {
+                      "start": { "line": 38, "column": 4, "offset": 778 },
+                      "end": { "line": 38, "column": 12, "offset": 786 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 38, "column": 3, "offset": 777 },
+                  "end": { "line": 38, "column": 37, "offset": 811 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 38, "column": 1, "offset": 775 },
+              "end": { "line": 38, "column": 37, "offset": 811 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 37, "column": 1, "offset": 748 },
+          "end": { "line": 38, "column": 37, "offset": 811 }
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 39, "column": 1, "offset": 812 }
+    }
+  }
+}

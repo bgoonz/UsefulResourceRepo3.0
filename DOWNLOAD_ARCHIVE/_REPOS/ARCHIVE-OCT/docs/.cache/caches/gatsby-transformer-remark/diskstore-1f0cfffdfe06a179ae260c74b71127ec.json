@@ -1,0 +1,1021 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-html-ast-a9012ea116800861cbcb49398c0c2cd2-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "element",
+        "tagName": "h1",
+        "properties": { "id": "npm-access1", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#npm-access1",
+              "aria-label": "npm access1 permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "npm-access(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 16, "offset": 16 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 16, "offset": 16 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+          "id": "set-access-level-on-published-packages",
+          "style": "position:relative;"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#set-access-level-on-published-packages",
+              "aria-label": "set access level on published packages permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Set access level on published packages",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 21 },
+              "end": { "line": 4, "column": 42, "offset": 59 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 18 },
+          "end": { "line": 4, "column": 42, "offset": 59 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "synopsis", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#synopsis",
+              "aria-label": "synopsis permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 65 },
+              "end": { "line": 6, "column": 13, "offset": 73 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 61 },
+          "end": { "line": 6, "column": 13, "offset": 73 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> access public <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n<span class=\"token function\">npm</span> access restricted <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n\n<span class=\"token function\">npm</span> access grant <span class=\"token operator\">&lt;</span>read-only<span class=\"token operator\">|</span>read-write<span class=\"token operator\">></span> <span class=\"token operator\">&lt;</span>scope:team<span class=\"token operator\">></span> <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n<span class=\"token function\">npm</span> access revoke <span class=\"token operator\">&lt;</span>scope:team<span class=\"token operator\">></span> <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n\n<span class=\"token function\">npm</span> access 2fa-required <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n<span class=\"token function\">npm</span> access 2fa-not-required <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n\n<span class=\"token function\">npm</span> access ls-packages <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>user<span class=\"token operator\">>|</span><span class=\"token operator\">&lt;</span>scope<span class=\"token operator\">>|</span><span class=\"token operator\">&lt;</span>scope:team<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n<span class=\"token function\">npm</span> access ls-collaborators <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span> <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>user<span class=\"token operator\">></span><span class=\"token punctuation\">]</span><span class=\"token punctuation\">]</span>\n<span class=\"token function\">npm</span> access edit <span class=\"token punctuation\">[</span><span class=\"token operator\">&lt;</span>package<span class=\"token operator\">></span><span class=\"token punctuation\">]</span></code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 75 },
+          "end": { "line": 21, "column": 4, "offset": 467 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "description", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#description",
+              "aria-label": "description permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 23, "column": 5, "offset": 473 },
+              "end": { "line": 23, "column": 16, "offset": 484 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 23, "column": 1, "offset": 469 },
+          "end": { "line": 23, "column": 16, "offset": 484 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Used to set access controls on private packages.",
+            "position": {
+              "start": { "line": 25, "column": 1, "offset": 486 },
+              "end": { "line": 25, "column": 49, "offset": 534 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 25, "column": 1, "offset": 486 },
+          "end": { "line": 25, "column": 49, "offset": 534 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "For all of the subcommands, ",
+            "position": {
+              "start": { "line": 27, "column": 1, "offset": 536 },
+              "end": { "line": 27, "column": 29, "offset": 564 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm access</code>",
+            "position": {
+              "start": { "line": 27, "column": 29, "offset": 564 },
+              "end": { "line": 27, "column": 41, "offset": 576 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " will perform actions on the packages\nin the current working directory if no package name is passed to the\nsubcommand.",
+            "position": {
+              "start": { "line": 27, "column": 41, "offset": 576 },
+              "end": { "line": 29, "column": 12, "offset": 694 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 27, "column": 1, "offset": 536 },
+          "end": { "line": 29, "column": 12, "offset": 694 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "public / restricted:\nSet a package to be either publicly accessible or restricted.",
+                "position": {
+                  "start": { "line": 31, "column": 3, "offset": 698 },
+                  "end": { "line": 32, "column": 64, "offset": 782 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 31, "column": 1, "offset": 696 },
+              "end": { "line": 33, "column": 1, "offset": 783 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "grant / revoke:\nAdd or remove the ability of users and teams to have read-only or read-write\naccess to a package.",
+                "position": {
+                  "start": { "line": 34, "column": 3, "offset": 786 },
+                  "end": { "line": 36, "column": 23, "offset": 903 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 34, "column": 1, "offset": 784 },
+              "end": { "line": 37, "column": 1, "offset": 904 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "2fa-required / 2fa-not-required:\nConfigure whether a package requires that anyone publishing it have two-factor\nauthentication enabled on their account.",
+                "position": {
+                  "start": { "line": 38, "column": 3, "offset": 907 },
+                  "end": { "line": 40, "column": 43, "offset": 1063 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 38, "column": 1, "offset": 905 },
+              "end": { "line": 41, "column": 1, "offset": 1064 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "ls-packages:\nShow all of the packages a user or a team is able to access, along with the\naccess level, except for read-only public packages (it won't print the whole\nregistry listing)",
+                "position": {
+                  "start": { "line": 42, "column": 3, "offset": 1067 },
+                  "end": { "line": 45, "column": 20, "offset": 1256 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 42, "column": 1, "offset": 1065 },
+              "end": { "line": 46, "column": 1, "offset": 1257 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "ls-collaborators:\nShow all of the access privileges for a package. Will only show permissions\nfor packages to which you have at least read access. If ",
+                "position": {
+                  "start": { "line": 47, "column": 3, "offset": 1260 },
+                  "end": { "line": 49, "column": 59, "offset": 1414 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">&lt;user&gt;</code>",
+                "position": {
+                  "start": { "line": 49, "column": 59, "offset": 1414 },
+                  "end": { "line": 49, "column": 67, "offset": 1422 }
+                }
+              },
+              {
+                "type": "text",
+                "value": " is passed in,\nthe list is filtered only to teams ",
+                "position": {
+                  "start": { "line": 49, "column": 67, "offset": 1422 },
+                  "end": { "line": 50, "column": 38, "offset": 1474 }
+                }
+              },
+              {
+                "type": "element",
+                "tagName": "em",
+                "properties": {},
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "that",
+                    "position": {
+                      "start": { "line": 50, "column": 39, "offset": 1475 },
+                      "end": { "line": 50, "column": 43, "offset": 1479 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 50, "column": 38, "offset": 1474 },
+                  "end": { "line": 50, "column": 44, "offset": 1480 }
+                }
+              },
+              {
+                "type": "text",
+                "value": " user happens to belong to.",
+                "position": {
+                  "start": { "line": 50, "column": 44, "offset": 1480 },
+                  "end": { "line": 50, "column": 71, "offset": 1507 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 47, "column": 1, "offset": 1258 },
+              "end": { "line": 51, "column": 1, "offset": 1508 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "edit:\nSet the access privileges for a package at once using ",
+                "position": {
+                  "start": { "line": 52, "column": 3, "offset": 1511 },
+                  "end": { "line": 53, "column": 57, "offset": 1573 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">$EDITOR</code>",
+                "position": {
+                  "start": { "line": 53, "column": 57, "offset": 1573 },
+                  "end": { "line": 53, "column": 66, "offset": 1582 }
+                }
+              },
+              {
+                "type": "text",
+                "value": ".",
+                "position": {
+                  "start": { "line": 53, "column": 66, "offset": 1582 },
+                  "end": { "line": 53, "column": 67, "offset": 1583 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 52, "column": 1, "offset": 1509 },
+              "end": { "line": 53, "column": 67, "offset": 1583 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 31, "column": 1, "offset": 696 },
+          "end": { "line": 53, "column": 67, "offset": 1583 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "details", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#details",
+              "aria-label": "details permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Details",
+            "position": {
+              "start": { "line": 55, "column": 5, "offset": 1589 },
+              "end": { "line": 55, "column": 12, "offset": 1596 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 55, "column": 1, "offset": 1585 },
+          "end": { "line": 55, "column": 12, "offset": 1596 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm access</code>",
+            "position": {
+              "start": { "line": 57, "column": 1, "offset": 1598 },
+              "end": { "line": 57, "column": 13, "offset": 1610 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " always operates directly on the current registry, configurable\nfrom the command line using ",
+            "position": {
+              "start": { "line": 57, "column": 13, "offset": 1610 },
+              "end": { "line": 58, "column": 29, "offset": 1702 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">--registry=&lt;registry url&gt;</code>",
+            "position": {
+              "start": { "line": 58, "column": 29, "offset": 1702 },
+              "end": { "line": 58, "column": 56, "offset": 1729 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ".",
+            "position": {
+              "start": { "line": 58, "column": 56, "offset": 1729 },
+              "end": { "line": 58, "column": 57, "offset": 1730 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 57, "column": 1, "offset": 1598 },
+          "end": { "line": 58, "column": 57, "offset": 1730 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Unscoped packages are ",
+            "position": {
+              "start": { "line": 60, "column": 1, "offset": 1732 },
+              "end": { "line": 60, "column": 23, "offset": 1754 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "em",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "always public",
+                "position": {
+                  "start": { "line": 60, "column": 24, "offset": 1755 },
+                  "end": { "line": 60, "column": 37, "offset": 1768 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 60, "column": 23, "offset": 1754 },
+              "end": { "line": 60, "column": 38, "offset": 1769 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ".",
+            "position": {
+              "start": { "line": 60, "column": 38, "offset": 1769 },
+              "end": { "line": 60, "column": 39, "offset": 1770 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 60, "column": 1, "offset": 1732 },
+          "end": { "line": 60, "column": 39, "offset": 1770 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Scoped packages ",
+            "position": {
+              "start": { "line": 62, "column": 1, "offset": 1772 },
+              "end": { "line": 62, "column": 17, "offset": 1788 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "em",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "default to restricted",
+                "position": {
+                  "start": { "line": 62, "column": 18, "offset": 1789 },
+                  "end": { "line": 62, "column": 39, "offset": 1810 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 62, "column": 17, "offset": 1788 },
+              "end": { "line": 62, "column": 40, "offset": 1811 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ", but you can either publish them as\npublic using ",
+            "position": {
+              "start": { "line": 62, "column": 40, "offset": 1811 },
+              "end": { "line": 63, "column": 14, "offset": 1861 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm publish --access=public</code>",
+            "position": {
+              "start": { "line": 63, "column": 14, "offset": 1861 },
+              "end": { "line": 63, "column": 43, "offset": 1890 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ", or set their access as public using\n",
+            "position": {
+              "start": { "line": 63, "column": 43, "offset": 1890 },
+              "end": { "line": 64, "column": 1, "offset": 1928 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm access public</code>",
+            "position": {
+              "start": { "line": 64, "column": 1, "offset": 1928 },
+              "end": { "line": 64, "column": 20, "offset": 1947 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " after the initial publish.",
+            "position": {
+              "start": { "line": 64, "column": 20, "offset": 1947 },
+              "end": { "line": 64, "column": 47, "offset": 1974 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 62, "column": 1, "offset": 1772 },
+          "end": { "line": 64, "column": 47, "offset": 1974 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "You must have privileges to set the access of a package:",
+            "position": {
+              "start": { "line": 66, "column": 1, "offset": 1976 },
+              "end": { "line": 66, "column": 57, "offset": 2032 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 66, "column": 1, "offset": 1976 },
+          "end": { "line": 66, "column": 57, "offset": 2032 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "You are an owner of an unscoped or scoped package.",
+                "position": {
+                  "start": { "line": 68, "column": 3, "offset": 2036 },
+                  "end": { "line": 68, "column": 53, "offset": 2086 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 68, "column": 1, "offset": 2034 },
+              "end": { "line": 68, "column": 53, "offset": 2086 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "You are a member of the team that owns a scope.",
+                "position": {
+                  "start": { "line": 69, "column": 3, "offset": 2089 },
+                  "end": { "line": 69, "column": 50, "offset": 2136 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 69, "column": 1, "offset": 2087 },
+              "end": { "line": 69, "column": 50, "offset": 2136 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "You have been given read-write privileges for a package, either as a member\nof a team or directly as an owner.",
+                "position": {
+                  "start": { "line": 70, "column": 3, "offset": 2139 },
+                  "end": { "line": 71, "column": 37, "offset": 2251 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 70, "column": 1, "offset": 2137 },
+              "end": { "line": 71, "column": 37, "offset": 2251 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 68, "column": 1, "offset": 2034 },
+          "end": { "line": 71, "column": 37, "offset": 2251 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If you have two-factor authentication enabled then you'll have to pass in an\notp with ",
+            "position": {
+              "start": { "line": 73, "column": 1, "offset": 2253 },
+              "end": { "line": 74, "column": 10, "offset": 2339 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">--otp</code>",
+            "position": {
+              "start": { "line": 74, "column": 10, "offset": 2339 },
+              "end": { "line": 74, "column": 17, "offset": 2346 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " when making access changes.",
+            "position": {
+              "start": { "line": 74, "column": 17, "offset": 2346 },
+              "end": { "line": 74, "column": 45, "offset": 2374 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 73, "column": 1, "offset": 2253 },
+          "end": { "line": 74, "column": 45, "offset": 2374 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If your account is not paid, then attempts to publish scoped packages will fail\nwith an HTTP 402 status code (logically enough), unless you use\n",
+            "position": {
+              "start": { "line": 76, "column": 1, "offset": 2376 },
+              "end": { "line": 78, "column": 1, "offset": 2520 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">--access=public</code>",
+            "position": {
+              "start": { "line": 78, "column": 1, "offset": 2520 },
+              "end": { "line": 78, "column": 18, "offset": 2537 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ".",
+            "position": {
+              "start": { "line": 78, "column": 18, "offset": 2537 },
+              "end": { "line": 78, "column": 19, "offset": 2538 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 76, "column": 1, "offset": 2376 },
+          "end": { "line": 78, "column": 19, "offset": 2538 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Management of teams and team memberships is done with the ",
+            "position": {
+              "start": { "line": 80, "column": 1, "offset": 2540 },
+              "end": { "line": 80, "column": 59, "offset": 2598 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm team</code>",
+            "position": {
+              "start": { "line": 80, "column": 59, "offset": 2598 },
+              "end": { "line": 80, "column": 69, "offset": 2608 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " command.",
+            "position": {
+              "start": { "line": 80, "column": 69, "offset": 2608 },
+              "end": { "line": 80, "column": 78, "offset": 2617 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 80, "column": 1, "offset": 2540 },
+          "end": { "line": 80, "column": 78, "offset": 2617 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "see-also", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#see-also",
+              "aria-label": "see also permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 82, "column": 5, "offset": 2623 },
+              "end": { "line": 82, "column": 13, "offset": 2631 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 82, "column": 1, "offset": 2619 },
+          "end": { "line": 82, "column": 13, "offset": 2631 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "https://npm.im/libnpmaccess" },
+                "children": [
+                  {
+                    "type": "raw",
+                    "value": "<code class=\"language-text\">libnpmaccess</code>",
+                    "position": {
+                      "start": { "line": 84, "column": 4, "offset": 2636 },
+                      "end": { "line": 84, "column": 18, "offset": 2650 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 84, "column": 3, "offset": 2635 },
+                  "end": { "line": 84, "column": 48, "offset": 2680 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 84, "column": 1, "offset": 2633 },
+              "end": { "line": 84, "column": 48, "offset": 2680 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-team" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm team",
+                    "position": {
+                      "start": { "line": 85, "column": 4, "offset": 2684 },
+                      "end": { "line": 85, "column": 12, "offset": 2692 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 85, "column": 3, "offset": 2683 },
+                  "end": { "line": 85, "column": 37, "offset": 2717 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 85, "column": 1, "offset": 2681 },
+              "end": { "line": 85, "column": 37, "offset": 2717 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-publish" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm publish",
+                    "position": {
+                      "start": { "line": 86, "column": 4, "offset": 2721 },
+                      "end": { "line": 86, "column": 15, "offset": 2732 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 86, "column": 3, "offset": 2720 },
+                  "end": { "line": 86, "column": 43, "offset": 2760 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 86, "column": 1, "offset": 2718 },
+              "end": { "line": 86, "column": 43, "offset": 2760 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-config" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm config",
+                    "position": {
+                      "start": { "line": 87, "column": 4, "offset": 2764 },
+                      "end": { "line": 87, "column": 14, "offset": 2774 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 87, "column": 3, "offset": 2763 },
+                  "end": { "line": 87, "column": 41, "offset": 2801 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 87, "column": 1, "offset": 2761 },
+              "end": { "line": 87, "column": 41, "offset": 2801 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/using-npm/registry" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm registry",
+                    "position": {
+                      "start": { "line": 88, "column": 4, "offset": 2805 },
+                      "end": { "line": 88, "column": 16, "offset": 2817 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 88, "column": 3, "offset": 2804 },
+                  "end": { "line": 88, "column": 38, "offset": 2839 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 88, "column": 1, "offset": 2802 },
+              "end": { "line": 88, "column": 38, "offset": 2839 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 84, "column": 1, "offset": 2633 },
+          "end": { "line": 88, "column": 38, "offset": 2839 }
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 89, "column": 1, "offset": 2840 }
+    }
+  }
+}

@@ -1,0 +1,555 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-ast-cf9c1bf3ad382911c8fd437218dd3b24-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [
+          {
+            "type": "link",
+            "url": "#npm-token1",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "npm token1 permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "npm-token(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 15, "offset": 15 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 15, "offset": 15 },
+          "indent": []
+        },
+        "data": {
+          "id": "npm-token1",
+          "htmlAttributes": { "id": "npm-token1" },
+          "hProperties": { "id": "npm-token1", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "link",
+            "url": "#manage-your-authentication-tokens",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "manage your authentication tokens permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Manage your authentication tokens",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 20 },
+              "end": { "line": 4, "column": 37, "offset": 53 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 17 },
+          "end": { "line": 4, "column": 37, "offset": 53 },
+          "indent": []
+        },
+        "data": {
+          "id": "manage-your-authentication-tokens",
+          "htmlAttributes": { "id": "manage-your-authentication-tokens" },
+          "hProperties": {
+            "id": "manage-your-authentication-tokens",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#synopsis",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "synopsis permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 59 },
+              "end": { "line": 6, "column": 13, "offset": 67 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 55 },
+          "end": { "line": 6, "column": 13, "offset": 67 },
+          "indent": []
+        },
+        "data": {
+          "id": "synopsis",
+          "htmlAttributes": { "id": "synopsis" },
+          "hProperties": { "id": "synopsis", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">  <span class=\"token function\">npm</span> token list <span class=\"token punctuation\">[</span>--json<span class=\"token operator\">|</span>--parseable<span class=\"token punctuation\">]</span>\n  <span class=\"token function\">npm</span> token create <span class=\"token punctuation\">[</span>--read-only<span class=\"token punctuation\">]</span> <span class=\"token punctuation\">[</span>--cidr<span class=\"token operator\">=</span><span class=\"token number\">1.1</span>.1.1/24,2.2.2.2/16<span class=\"token punctuation\">]</span>\n  <span class=\"token function\">npm</span> token revoke <span class=\"token operator\">&lt;</span>id<span class=\"token operator\">|</span>token<span class=\"token operator\">></span></code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 69 },
+          "end": { "line": 12, "column": 4, "offset": 212 },
+          "indent": [1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#description",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "description permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 14, "column": 5, "offset": 218 },
+              "end": { "line": 14, "column": 16, "offset": 229 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 214 },
+          "end": { "line": 14, "column": 16, "offset": 229 },
+          "indent": []
+        },
+        "data": {
+          "id": "description",
+          "htmlAttributes": { "id": "description" },
+          "hProperties": { "id": "description", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "This lets you list, create and revoke authentication tokens.",
+            "position": {
+              "start": { "line": 16, "column": 1, "offset": 231 },
+              "end": { "line": 16, "column": 61, "offset": 291 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 231 },
+          "end": { "line": 16, "column": 61, "offset": 291 },
+          "indent": []
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm token list</code>",
+                    "position": {
+                      "start": { "line": 18, "column": 3, "offset": 295 },
+                      "end": { "line": 18, "column": 19, "offset": 311 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ":\nShows a table of all active authentication tokens. You can request this as\nJSON with ",
+                    "position": {
+                      "start": { "line": 18, "column": 19, "offset": 311 },
+                      "end": { "line": 20, "column": 13, "offset": 402 },
+                      "indent": [3, 3]
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">--json</code>",
+                    "position": {
+                      "start": { "line": 20, "column": 13, "offset": 402 },
+                      "end": { "line": 20, "column": 21, "offset": 410 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " or tab-separated values with ",
+                    "position": {
+                      "start": { "line": 20, "column": 21, "offset": 410 },
+                      "end": { "line": 20, "column": 51, "offset": 440 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">--parseable</code>",
+                    "position": {
+                      "start": { "line": 20, "column": 51, "offset": 440 },
+                      "end": { "line": 20, "column": 64, "offset": 453 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ".",
+                    "position": {
+                      "start": { "line": 20, "column": 64, "offset": 453 },
+                      "end": { "line": 20, "column": 65, "offset": 454 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 18, "column": 3, "offset": 295 },
+                  "end": { "line": 20, "column": 65, "offset": 454 },
+                  "indent": [3, 3]
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 18, "column": 1, "offset": 293 },
+              "end": { "line": 20, "column": 65, "offset": 454 },
+              "indent": [1, 1]
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 18, "column": 1, "offset": 293 },
+          "end": { "line": 20, "column": 65, "offset": 454 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> <span class=\"token function\">id</span>     <span class=\"token operator\">|</span> token   <span class=\"token operator\">|</span> created    <span class=\"token operator\">|</span> read-only <span class=\"token operator\">|</span> CIDR whitelist <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> 7f3134 <span class=\"token operator\">|</span> 1fa9ba… <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-10-02 <span class=\"token operator\">|</span> <span class=\"token function\">yes</span>      <span class=\"token operator\">|</span>                <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> c03241 <span class=\"token operator\">|</span> af7aef… <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-10-02 <span class=\"token operator\">|</span> no       <span class=\"token operator\">|</span> <span class=\"token number\">192.168</span>.0.1/24 <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> e0cf92 <span class=\"token operator\">|</span> 3a436a… <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-10-02 <span class=\"token operator\">|</span> no       <span class=\"token operator\">|</span>                <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> 63eb9d <span class=\"token operator\">|</span> 74ef35… <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-09-28 <span class=\"token operator\">|</span> no       <span class=\"token operator\">|</span>                <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> 2daaa8 <span class=\"token operator\">|</span> cbad5f… <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-09-26 <span class=\"token operator\">|</span> no       <span class=\"token operator\">|</span>                <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> 68c2fe <span class=\"token operator\">|</span> 127e51… <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-09-23 <span class=\"token operator\">|</span> no       <span class=\"token operator\">|</span>                <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+\n<span class=\"token operator\">|</span> 6334e1 <span class=\"token operator\">|</span> 1dadd1… <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-09-23 <span class=\"token operator\">|</span> no       <span class=\"token operator\">|</span>                <span class=\"token operator\">|</span>\n+--------+---------+------------+----------+----------------+</code></pre></div>",
+        "position": {
+          "start": { "line": 22, "column": 1, "offset": 456 },
+          "end": { "line": 40, "column": 4, "offset": 1522 },
+          "indent": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm token create [--read-only] [--cidr=&lt;cidr-ranges&gt;]</code>",
+                    "position": {
+                      "start": { "line": 42, "column": 3, "offset": 1526 },
+                      "end": { "line": 42, "column": 58, "offset": 1581 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ":\nCreate a new authentication token. It can be ",
+                    "position": {
+                      "start": { "line": 42, "column": 58, "offset": 1581 },
+                      "end": { "line": 43, "column": 48, "offset": 1630 },
+                      "indent": [3]
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">--read-only</code>",
+                    "position": {
+                      "start": { "line": 43, "column": 48, "offset": 1630 },
+                      "end": { "line": 43, "column": 61, "offset": 1643 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " or accept a list of\n",
+                    "position": {
+                      "start": { "line": 43, "column": 61, "offset": 1643 },
+                      "end": { "line": 44, "column": 3, "offset": 1666 },
+                      "indent": [3]
+                    }
+                  },
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "CIDR",
+                        "position": {
+                          "start": { "line": 44, "column": 4, "offset": 1667 },
+                          "end": { "line": 44, "column": 8, "offset": 1671 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 44, "column": 3, "offset": 1666 },
+                      "end": { "line": 44, "column": 71, "offset": 1734 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " ranges to\nlimit use of this token to. This will prompt you for your password, and, if you have\ntwo-factor authentication enabled, an otp.",
+                    "position": {
+                      "start": { "line": 44, "column": 71, "offset": 1734 },
+                      "end": { "line": 46, "column": 45, "offset": 1876 },
+                      "indent": [3, 3]
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 42, "column": 3, "offset": 1526 },
+                  "end": { "line": 46, "column": 45, "offset": 1876 },
+                  "indent": [3, 3, 3, 3]
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 42, "column": 1, "offset": 1524 },
+              "end": { "line": 46, "column": 45, "offset": 1876 },
+              "indent": [1, 1, 1, 1]
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 42, "column": 1, "offset": 1524 },
+          "end": { "line": 46, "column": 45, "offset": 1876 },
+          "indent": [1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">+----------------+--------------------------------------+\n<span class=\"token operator\">|</span> token          <span class=\"token operator\">|</span> a73c9572-f1b9-8983-983d-ba3ac3cc913d <span class=\"token operator\">|</span>\n+----------------+--------------------------------------+\n<span class=\"token operator\">|</span> cidr_whitelist <span class=\"token operator\">|</span>                                      <span class=\"token operator\">|</span>\n+----------------+--------------------------------------+\n<span class=\"token operator\">|</span> <span class=\"token builtin class-name\">readonly</span>       <span class=\"token operator\">|</span> <span class=\"token boolean\">false</span>                                <span class=\"token operator\">|</span>\n+----------------+--------------------------------------+\n<span class=\"token operator\">|</span> created        <span class=\"token operator\">|</span> <span class=\"token number\">2017</span>-10-02T07:52:24.838Z             <span class=\"token operator\">|</span>\n+----------------+--------------------------------------+</code></pre></div>",
+        "position": {
+          "start": { "line": 48, "column": 1, "offset": 1878 },
+          "end": { "line": 58, "column": 4, "offset": 2411 },
+          "indent": [1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm token revoke &lt;token|id&gt;</code>",
+                    "position": {
+                      "start": { "line": 60, "column": 3, "offset": 2415 },
+                      "end": { "line": 60, "column": 32, "offset": 2444 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ":\nThis removes an authentication token, making it immediately unusable. This can accept\nboth complete tokens (as you get back from ",
+                    "position": {
+                      "start": { "line": 60, "column": 32, "offset": 2444 },
+                      "end": { "line": 62, "column": 46, "offset": 2579 },
+                      "indent": [3, 3]
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm token create</code>",
+                    "position": {
+                      "start": { "line": 62, "column": 46, "offset": 2579 },
+                      "end": { "line": 62, "column": 64, "offset": 2597 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " and will\nfind in your ",
+                    "position": {
+                      "start": { "line": 62, "column": 64, "offset": 2597 },
+                      "end": { "line": 63, "column": 16, "offset": 2622 },
+                      "indent": [3]
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">.npmrc</code>",
+                    "position": {
+                      "start": { "line": 63, "column": 16, "offset": 2622 },
+                      "end": { "line": 63, "column": 24, "offset": 2630 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ") and ids as seen in the ",
+                    "position": {
+                      "start": { "line": 63, "column": 24, "offset": 2630 },
+                      "end": { "line": 63, "column": 49, "offset": 2655 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm token list</code>",
+                    "position": {
+                      "start": { "line": 63, "column": 49, "offset": 2655 },
+                      "end": { "line": 63, "column": 65, "offset": 2671 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " output.\nThis will NOT accept the truncated token found in ",
+                    "position": {
+                      "start": { "line": 63, "column": 65, "offset": 2671 },
+                      "end": { "line": 64, "column": 53, "offset": 2732 },
+                      "indent": [3]
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm token list</code>",
+                    "position": {
+                      "start": { "line": 64, "column": 53, "offset": 2732 },
+                      "end": { "line": 64, "column": 69, "offset": 2748 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " output.",
+                    "position": {
+                      "start": { "line": 64, "column": 69, "offset": 2748 },
+                      "end": { "line": 64, "column": 77, "offset": 2756 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 60, "column": 3, "offset": 2415 },
+                  "end": { "line": 64, "column": 77, "offset": 2756 },
+                  "indent": [3, 3, 3, 3]
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 60, "column": 1, "offset": 2413 },
+              "end": { "line": 64, "column": 77, "offset": 2756 },
+              "indent": [1, 1, 1, 1]
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 60, "column": 1, "offset": 2413 },
+          "end": { "line": 64, "column": 77, "offset": 2756 },
+          "indent": [1, 1, 1, 1]
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 65, "column": 1, "offset": 2757 }
+    }
+  }
+}

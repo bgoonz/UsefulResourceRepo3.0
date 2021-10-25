@@ -1,0 +1,519 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-html-ast-1ce2507f3a708e08faf36f621ddb65e2-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "element",
+        "tagName": "h1",
+        "properties": { "id": "npm-dedupe1", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#npm-dedupe1",
+              "aria-label": "npm dedupe1 permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "npm-dedupe(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 16, "offset": 16 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 16, "offset": 16 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+          "id": "reduce-duplication",
+          "style": "position:relative;"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#reduce-duplication",
+              "aria-label": "reduce duplication permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Reduce duplication",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 21 },
+              "end": { "line": 4, "column": 22, "offset": 39 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 18 },
+          "end": { "line": 4, "column": 22, "offset": 39 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "synopsis", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#synopsis",
+              "aria-label": "synopsis permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 45 },
+              "end": { "line": 6, "column": 13, "offset": 53 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 41 },
+          "end": { "line": 6, "column": 13, "offset": 53 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> dedupe\n<span class=\"token function\">npm</span> ddp\n\naliases: find-dupes, ddp</code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 55 },
+          "end": { "line": 13, "column": 4, "offset": 111 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "description", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#description",
+              "aria-label": "description permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 15, "column": 5, "offset": 117 },
+              "end": { "line": 15, "column": 16, "offset": 128 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 15, "column": 1, "offset": 113 },
+          "end": { "line": 15, "column": 16, "offset": 128 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Searches the local package tree and attempts to simplify the overall\nstructure by moving dependencies further up the tree, where they can\nbe more effectively shared by multiple dependent packages.",
+            "position": {
+              "start": { "line": 17, "column": 1, "offset": 130 },
+              "end": { "line": 19, "column": 59, "offset": 326 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 17, "column": 1, "offset": 130 },
+          "end": { "line": 19, "column": 59, "offset": 326 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "For example, consider this dependency graph:",
+            "position": {
+              "start": { "line": 21, "column": 1, "offset": 328 },
+              "end": { "line": 21, "column": 45, "offset": 372 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 21, "column": 1, "offset": 328 },
+          "end": { "line": 21, "column": 45, "offset": 372 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">a\n+-- b <span class=\"token operator\">&lt;</span>-- depends on c@1.0.x\n<span class=\"token operator\">|</span>   <span class=\"token variable\"><span class=\"token variable\">`</span>-- c@1.0.3\n<span class=\"token variable\">`</span></span>-- d <span class=\"token operator\">&lt;</span>-- depends on c@~1.0.9\n    `-- c@1.0.10</code></pre></div>",
+        "position": {
+          "start": { "line": 23, "column": 1, "offset": 374 },
+          "end": { "line": 29, "column": 4, "offset": 479 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "In this case, ",
+            "position": {
+              "start": { "line": 31, "column": 1, "offset": 481 },
+              "end": { "line": 31, "column": 15, "offset": 495 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm dedupe</code>",
+            "position": {
+              "start": { "line": 31, "column": 15, "offset": 495 },
+              "end": { "line": 31, "column": 27, "offset": 507 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " will transform the tree to:",
+            "position": {
+              "start": { "line": 31, "column": 27, "offset": 507 },
+              "end": { "line": 31, "column": 55, "offset": 535 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 31, "column": 1, "offset": 481 },
+          "end": { "line": 31, "column": 55, "offset": 535 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">a\n+-- b\n+-- d\n`-- c@1.0.10</code></pre></div>",
+        "position": {
+          "start": { "line": 33, "column": 1, "offset": 537 },
+          "end": { "line": 38, "column": 4, "offset": 575 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Because of the hierarchical nature of node's module lookup, b and d\nwill both get their dependency met by the single c package at the root\nlevel of the tree.",
+            "position": {
+              "start": { "line": 40, "column": 1, "offset": 577 },
+              "end": { "line": 42, "column": 19, "offset": 734 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 40, "column": 1, "offset": 577 },
+          "end": { "line": 42, "column": 19, "offset": 734 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "The deduplication algorithm walks the tree, moving each dependency as far\nup in the tree as possible, even if duplicates are not found. This will\nresult in both a flat and deduplicated tree.",
+            "position": {
+              "start": { "line": 44, "column": 1, "offset": 736 },
+              "end": { "line": 46, "column": 45, "offset": 926 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 44, "column": 1, "offset": 736 },
+          "end": { "line": 46, "column": 45, "offset": 926 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If a suitable version exists at the target location in the tree\nalready, then it will be left untouched, but the other duplicates will\nbe deleted.",
+            "position": {
+              "start": { "line": 48, "column": 1, "offset": 928 },
+              "end": { "line": 50, "column": 12, "offset": 1074 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 48, "column": 1, "offset": 928 },
+          "end": { "line": 50, "column": 12, "offset": 1074 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Arguments are ignored. Dedupe always acts on the entire tree.",
+            "position": {
+              "start": { "line": 52, "column": 1, "offset": 1076 },
+              "end": { "line": 52, "column": 62, "offset": 1137 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 52, "column": 1, "offset": 1076 },
+          "end": { "line": 52, "column": 62, "offset": 1137 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Modules",
+            "position": {
+              "start": { "line": 54, "column": 1, "offset": 1139 },
+              "end": { "line": 54, "column": 8, "offset": 1146 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 54, "column": 1, "offset": 1139 },
+          "end": { "line": 54, "column": 8, "offset": 1146 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Note that this operation transforms the dependency tree, but will never\nresult in new modules being installed.",
+            "position": {
+              "start": { "line": 56, "column": 1, "offset": 1148 },
+              "end": { "line": 57, "column": 39, "offset": 1258 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 56, "column": 1, "offset": 1148 },
+          "end": { "line": 57, "column": 39, "offset": 1258 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "see-also", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#see-also",
+              "aria-label": "see also permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 59, "column": 5, "offset": 1264 },
+              "end": { "line": 59, "column": 13, "offset": 1272 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 59, "column": 1, "offset": 1260 },
+          "end": { "line": 59, "column": 13, "offset": 1272 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-ls" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm ls",
+                    "position": {
+                      "start": { "line": 61, "column": 4, "offset": 1277 },
+                      "end": { "line": 61, "column": 10, "offset": 1283 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 61, "column": 3, "offset": 1276 },
+                  "end": { "line": 61, "column": 33, "offset": 1306 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 61, "column": 1, "offset": 1274 },
+              "end": { "line": 61, "column": 33, "offset": 1306 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-update" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm update",
+                    "position": {
+                      "start": { "line": 62, "column": 4, "offset": 1310 },
+                      "end": { "line": 62, "column": 14, "offset": 1320 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 62, "column": 3, "offset": 1309 },
+                  "end": { "line": 62, "column": 41, "offset": 1347 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 62, "column": 1, "offset": 1307 },
+              "end": { "line": 62, "column": 41, "offset": 1347 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-install" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm install",
+                    "position": {
+                      "start": { "line": 63, "column": 4, "offset": 1351 },
+                      "end": { "line": 63, "column": 15, "offset": 1362 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 63, "column": 3, "offset": 1350 },
+                  "end": { "line": 63, "column": 43, "offset": 1390 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 63, "column": 1, "offset": 1348 },
+              "end": { "line": 63, "column": 43, "offset": 1390 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 61, "column": 1, "offset": 1274 },
+          "end": { "line": 63, "column": 43, "offset": 1390 }
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 64, "column": 1, "offset": 1391 }
+    }
+  }
+}

@@ -1,0 +1,963 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-ast-d4930d5f8a44ef64028be8aa4f367779-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [
+          {
+            "type": "link",
+            "url": "#npm-ci1",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "npm ci1 permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "npm-ci(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 12, "offset": 12 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 12, "offset": 12 },
+          "indent": []
+        },
+        "data": {
+          "id": "npm-ci1",
+          "htmlAttributes": { "id": "npm-ci1" },
+          "hProperties": { "id": "npm-ci1", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "link",
+            "url": "#install-a-project-with-a-clean-slate",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "install a project with a clean slate permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Install a project with a clean slate",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 17 },
+              "end": { "line": 4, "column": 40, "offset": 53 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 14 },
+          "end": { "line": 4, "column": 40, "offset": 53 },
+          "indent": []
+        },
+        "data": {
+          "id": "install-a-project-with-a-clean-slate",
+          "htmlAttributes": { "id": "install-a-project-with-a-clean-slate" },
+          "hProperties": {
+            "id": "install-a-project-with-a-clean-slate",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#synopsis",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "synopsis permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 59 },
+              "end": { "line": 6, "column": 13, "offset": 67 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 55 },
+          "end": { "line": 6, "column": 13, "offset": 67 },
+          "indent": []
+        },
+        "data": {
+          "id": "synopsis",
+          "htmlAttributes": { "id": "synopsis" },
+          "hProperties": { "id": "synopsis", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> ci</code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 69 },
+          "end": { "line": 10, "column": 4, "offset": 87 },
+          "indent": [1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#example",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "example permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Example",
+            "position": {
+              "start": { "line": 12, "column": 5, "offset": 93 },
+              "end": { "line": 12, "column": 12, "offset": 100 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 12, "column": 1, "offset": 89 },
+          "end": { "line": 12, "column": 12, "offset": 100 },
+          "indent": []
+        },
+        "data": {
+          "id": "example",
+          "htmlAttributes": { "id": "example" },
+          "hProperties": { "id": "example", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Make sure you have a package-lock and an up-to-date install:",
+            "position": {
+              "start": { "line": 14, "column": 1, "offset": 102 },
+              "end": { "line": 14, "column": 61, "offset": 162 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 102 },
+          "end": { "line": 14, "column": 61, "offset": 162 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token builtin class-name\">cd</span> ./my/npm/project\n$ <span class=\"token function\">npm</span> <span class=\"token function\">install</span>\nadded <span class=\"token number\">154</span> packages <span class=\"token keyword\">in</span> 10s\n$ <span class=\"token function\">ls</span> <span class=\"token operator\">|</span> <span class=\"token function\">grep</span> package-lock</code></pre></div>",
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 164 },
+          "end": { "line": 21, "column": 4, "offset": 262 },
+          "indent": [1, 1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Run ",
+            "position": {
+              "start": { "line": 23, "column": 1, "offset": 264 },
+              "end": { "line": 23, "column": 5, "offset": 268 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm ci</code>",
+            "position": {
+              "start": { "line": 23, "column": 5, "offset": 268 },
+              "end": { "line": 23, "column": 13, "offset": 276 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " in that project",
+            "position": {
+              "start": { "line": 23, "column": 13, "offset": 276 },
+              "end": { "line": 23, "column": 29, "offset": 292 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 23, "column": 1, "offset": 264 },
+          "end": { "line": 23, "column": 29, "offset": 292 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">$ <span class=\"token function\">npm</span> ci\nadded <span class=\"token number\">154</span> packages <span class=\"token keyword\">in</span> 5s</code></pre></div>",
+        "position": {
+          "start": { "line": 25, "column": 1, "offset": 294 },
+          "end": { "line": 28, "column": 4, "offset": 339 },
+          "indent": [1, 1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "Configure Travis to build using ",
+            "position": {
+              "start": { "line": 30, "column": 1, "offset": 341 },
+              "end": { "line": 30, "column": 33, "offset": 373 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm ci</code>",
+            "position": {
+              "start": { "line": 30, "column": 33, "offset": 373 },
+              "end": { "line": 30, "column": 41, "offset": 381 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " instead of ",
+            "position": {
+              "start": { "line": 30, "column": 41, "offset": 381 },
+              "end": { "line": 30, "column": 53, "offset": 393 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm install</code>",
+            "position": {
+              "start": { "line": 30, "column": 53, "offset": 393 },
+              "end": { "line": 30, "column": 66, "offset": 406 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ":",
+            "position": {
+              "start": { "line": 30, "column": 66, "offset": 406 },
+              "end": { "line": 30, "column": 67, "offset": 407 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 30, "column": 1, "offset": 341 },
+          "end": { "line": 30, "column": 67, "offset": 407 },
+          "indent": []
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token comment\"># .travis.yml</span>\ninstall:\n- <span class=\"token function\">npm</span> ci\n<span class=\"token comment\"># keep the npm cache around to speed up installs</span>\ncache:\n  directories:\n  - <span class=\"token string\">\"<span class=\"token environment constant\">$HOME</span>/.npm\"</span></code></pre></div>",
+        "position": {
+          "start": { "line": 32, "column": 1, "offset": 409 },
+          "end": { "line": 40, "column": 4, "offset": 540 },
+          "indent": [1, 1, 1, 1, 1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#description",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "description permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 42, "column": 5, "offset": 546 },
+              "end": { "line": 42, "column": 16, "offset": 557 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 42, "column": 1, "offset": 542 },
+          "end": { "line": 42, "column": 16, "offset": 557 },
+          "indent": []
+        },
+        "data": {
+          "id": "description",
+          "htmlAttributes": { "id": "description" },
+          "hProperties": { "id": "description", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "This command is similar to ",
+            "position": {
+              "start": { "line": 44, "column": 1, "offset": 559 },
+              "end": { "line": 44, "column": 28, "offset": 586 },
+              "indent": []
+            }
+          },
+          {
+            "type": "link",
+            "title": null,
+            "url": "/cli-commands/npm-install",
+            "children": [
+              {
+                "type": "html",
+                "value": "<code class=\"language-text\">npm install</code>",
+                "position": {
+                  "start": { "line": 44, "column": 29, "offset": 587 },
+                  "end": { "line": 44, "column": 42, "offset": 600 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 44, "column": 28, "offset": 586 },
+              "end": { "line": 44, "column": 70, "offset": 628 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": ", except it's meant to be used in\nautomated environments such as test platforms, continuous integration, and\ndeployment -- or any situation where you want to make sure you're doing a clean\ninstall of your dependencies. It can be significantly faster than a regular npm\ninstall by skipping certain user-oriented features. It is also more strict than\na regular install, which can help catch errors or inconsistencies caused by the\nincrementally-installed local environments of most npm users.",
+            "position": {
+              "start": { "line": 44, "column": 70, "offset": 628 },
+              "end": { "line": 50, "column": 62, "offset": 1118 },
+              "indent": [1, 1, 1, 1, 1, 1]
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 44, "column": 1, "offset": 559 },
+          "end": { "line": 50, "column": 62, "offset": 1118 },
+          "indent": [1, 1, 1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "In short, the main differences between using ",
+            "position": {
+              "start": { "line": 52, "column": 1, "offset": 1120 },
+              "end": { "line": 52, "column": 46, "offset": 1165 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm install</code>",
+            "position": {
+              "start": { "line": 52, "column": 46, "offset": 1165 },
+              "end": { "line": 52, "column": 59, "offset": 1178 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " and ",
+            "position": {
+              "start": { "line": 52, "column": 59, "offset": 1178 },
+              "end": { "line": 52, "column": 64, "offset": 1183 },
+              "indent": []
+            }
+          },
+          {
+            "type": "html",
+            "value": "<code class=\"language-text\">npm ci</code>",
+            "position": {
+              "start": { "line": 52, "column": 64, "offset": 1183 },
+              "end": { "line": 52, "column": 72, "offset": 1191 },
+              "indent": []
+            }
+          },
+          {
+            "type": "text",
+            "value": " are:",
+            "position": {
+              "start": { "line": 52, "column": 72, "offset": 1191 },
+              "end": { "line": 52, "column": 77, "offset": 1196 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 52, "column": 1, "offset": 1120 },
+          "end": { "line": 52, "column": 77, "offset": 1196 },
+          "indent": []
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "The project ",
+                    "position": {
+                      "start": { "line": 54, "column": 3, "offset": 1200 },
+                      "end": { "line": 54, "column": 15, "offset": 1212 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "strong",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "must",
+                        "position": {
+                          "start": { "line": 54, "column": 17, "offset": 1214 },
+                          "end": { "line": 54, "column": 21, "offset": 1218 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 54, "column": 15, "offset": 1212 },
+                      "end": { "line": 54, "column": 23, "offset": 1220 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " have an existing ",
+                    "position": {
+                      "start": { "line": 54, "column": 23, "offset": 1220 },
+                      "end": { "line": 54, "column": 41, "offset": 1238 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">package-lock.json</code>",
+                    "position": {
+                      "start": { "line": 54, "column": 41, "offset": 1238 },
+                      "end": { "line": 54, "column": 60, "offset": 1257 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " or ",
+                    "position": {
+                      "start": { "line": 54, "column": 60, "offset": 1257 },
+                      "end": { "line": 54, "column": 64, "offset": 1261 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm-shrinkwrap.json</code>",
+                    "position": {
+                      "start": { "line": 54, "column": 64, "offset": 1261 },
+                      "end": { "line": 54, "column": 85, "offset": 1282 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ".",
+                    "position": {
+                      "start": { "line": 54, "column": 85, "offset": 1282 },
+                      "end": { "line": 54, "column": 86, "offset": 1283 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 54, "column": 3, "offset": 1200 },
+                  "end": { "line": 54, "column": 86, "offset": 1283 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 54, "column": 1, "offset": 1198 },
+              "end": { "line": 54, "column": 86, "offset": 1283 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "If dependencies in the package lock do not match those in ",
+                    "position": {
+                      "start": { "line": 55, "column": 3, "offset": 1286 },
+                      "end": { "line": 55, "column": 61, "offset": 1344 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">package.json</code>",
+                    "position": {
+                      "start": { "line": 55, "column": 61, "offset": 1344 },
+                      "end": { "line": 55, "column": 75, "offset": 1358 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": ", ",
+                    "position": {
+                      "start": { "line": 55, "column": 75, "offset": 1358 },
+                      "end": { "line": 55, "column": 77, "offset": 1360 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm ci</code>",
+                    "position": {
+                      "start": { "line": 55, "column": 77, "offset": 1360 },
+                      "end": { "line": 55, "column": 85, "offset": 1368 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " will exit with an error, instead of updating the package lock.",
+                    "position": {
+                      "start": { "line": 55, "column": 85, "offset": 1368 },
+                      "end": { "line": 55, "column": 148, "offset": 1431 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 55, "column": 3, "offset": 1286 },
+                  "end": { "line": 55, "column": 148, "offset": 1431 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 55, "column": 1, "offset": 1284 },
+              "end": { "line": 55, "column": 148, "offset": 1431 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm ci</code>",
+                    "position": {
+                      "start": { "line": 56, "column": 3, "offset": 1434 },
+                      "end": { "line": 56, "column": 11, "offset": 1442 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " can only install entire projects at a time: individual dependencies cannot be added with this command.",
+                    "position": {
+                      "start": { "line": 56, "column": 11, "offset": 1442 },
+                      "end": { "line": 56, "column": 114, "offset": 1545 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 56, "column": 3, "offset": 1434 },
+                  "end": { "line": 56, "column": 114, "offset": 1545 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 56, "column": 1, "offset": 1432 },
+              "end": { "line": 56, "column": 114, "offset": 1545 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "If a ",
+                    "position": {
+                      "start": { "line": 57, "column": 3, "offset": 1548 },
+                      "end": { "line": 57, "column": 8, "offset": 1553 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">node_modules</code>",
+                    "position": {
+                      "start": { "line": 57, "column": 8, "offset": 1553 },
+                      "end": { "line": 57, "column": 22, "offset": 1567 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " is already present, it will be automatically removed before ",
+                    "position": {
+                      "start": { "line": 57, "column": 22, "offset": 1567 },
+                      "end": { "line": 57, "column": 83, "offset": 1628 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">npm ci</code>",
+                    "position": {
+                      "start": { "line": 57, "column": 83, "offset": 1628 },
+                      "end": { "line": 57, "column": 91, "offset": 1636 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " begins its install.",
+                    "position": {
+                      "start": { "line": 57, "column": 91, "offset": 1636 },
+                      "end": { "line": 57, "column": 111, "offset": 1656 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 57, "column": 3, "offset": 1548 },
+                  "end": { "line": 57, "column": 111, "offset": 1656 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 57, "column": 1, "offset": 1546 },
+              "end": { "line": 57, "column": 111, "offset": 1656 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "It will never write to ",
+                    "position": {
+                      "start": { "line": 58, "column": 3, "offset": 1659 },
+                      "end": { "line": 58, "column": 26, "offset": 1682 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "html",
+                    "value": "<code class=\"language-text\">package.json</code>",
+                    "position": {
+                      "start": { "line": 58, "column": 26, "offset": 1682 },
+                      "end": { "line": 58, "column": 40, "offset": 1696 },
+                      "indent": []
+                    }
+                  },
+                  {
+                    "type": "text",
+                    "value": " or any of the package-locks: installs are essentially frozen.",
+                    "position": {
+                      "start": { "line": 58, "column": 40, "offset": 1696 },
+                      "end": { "line": 58, "column": 102, "offset": 1758 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 58, "column": 3, "offset": 1659 },
+                  "end": { "line": 58, "column": 102, "offset": 1758 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 58, "column": 1, "offset": 1657 },
+              "end": { "line": 58, "column": 102, "offset": 1758 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 54, "column": 1, "offset": 1198 },
+          "end": { "line": 58, "column": 102, "offset": 1758 },
+          "indent": [1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#see-also",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "see also permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 60, "column": 5, "offset": 1764 },
+              "end": { "line": 60, "column": 13, "offset": 1772 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 60, "column": 1, "offset": 1760 },
+          "end": { "line": 60, "column": 13, "offset": 1772 },
+          "indent": []
+        },
+        "data": {
+          "id": "see-also",
+          "htmlAttributes": { "id": "see-also" },
+          "hProperties": { "id": "see-also", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/cli-commands/npm-install",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm install",
+                        "position": {
+                          "start": { "line": 62, "column": 4, "offset": 1777 },
+                          "end": { "line": 62, "column": 15, "offset": 1788 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 62, "column": 3, "offset": 1776 },
+                      "end": { "line": 62, "column": 43, "offset": 1816 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 62, "column": 3, "offset": 1776 },
+                  "end": { "line": 62, "column": 43, "offset": 1816 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 62, "column": 1, "offset": 1774 },
+              "end": { "line": 62, "column": 43, "offset": 1816 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/configuring-npm/package-locks",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "package-locks",
+                        "position": {
+                          "start": { "line": 63, "column": 4, "offset": 1820 },
+                          "end": { "line": 63, "column": 17, "offset": 1833 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 63, "column": 3, "offset": 1819 },
+                      "end": { "line": 63, "column": 50, "offset": 1866 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 63, "column": 3, "offset": 1819 },
+                  "end": { "line": 63, "column": 50, "offset": 1866 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 63, "column": 1, "offset": 1817 },
+              "end": { "line": 63, "column": 50, "offset": 1866 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 62, "column": 1, "offset": 1774 },
+          "end": { "line": 63, "column": 50, "offset": 1866 },
+          "indent": [1]
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 64, "column": 1, "offset": 1867 }
+    }
+  }
+}

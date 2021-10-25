@@ -1,0 +1,489 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-ast-072f737f2d58f4c7e85ad8944ffb62a1-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "heading",
+        "depth": 1,
+        "children": [
+          {
+            "type": "link",
+            "url": "#npm-test1",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "npm test1 permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "npm-test(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 14, "offset": 14 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 14, "offset": 14 },
+          "indent": []
+        },
+        "data": {
+          "id": "npm-test1",
+          "htmlAttributes": { "id": "npm-test1" },
+          "hProperties": { "id": "npm-test1", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 2,
+        "children": [
+          {
+            "type": "link",
+            "url": "#test-a-package",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "test a package permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Test a package",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 19 },
+              "end": { "line": 4, "column": 18, "offset": 33 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 16 },
+          "end": { "line": 4, "column": 18, "offset": 33 },
+          "indent": []
+        },
+        "data": {
+          "id": "test-a-package",
+          "htmlAttributes": { "id": "test-a-package" },
+          "hProperties": {
+            "id": "test-a-package",
+            "style": "position:relative;"
+          }
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#synopsis",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "synopsis permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 39 },
+              "end": { "line": 6, "column": 13, "offset": 47 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 35 },
+          "end": { "line": 6, "column": 13, "offset": 47 },
+          "indent": []
+        },
+        "data": {
+          "id": "synopsis",
+          "htmlAttributes": { "id": "synopsis" },
+          "hProperties": { "id": "synopsis", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "html",
+        "lang": "bash",
+        "meta": null,
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> <span class=\"token builtin class-name\">test</span> <span class=\"token punctuation\">[</span>-- <span class=\"token operator\">&lt;</span>args<span class=\"token operator\">></span><span class=\"token punctuation\">]</span>\n\naliases: t, tst</code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 49 },
+          "end": { "line": 12, "column": 4, "offset": 98 },
+          "indent": [1, 1, 1, 1]
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#description",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "description permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 14, "column": 5, "offset": 104 },
+              "end": { "line": 14, "column": 16, "offset": 115 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 100 },
+          "end": { "line": 14, "column": 16, "offset": 115 },
+          "indent": []
+        },
+        "data": {
+          "id": "description",
+          "htmlAttributes": { "id": "description" },
+          "hProperties": { "id": "description", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "paragraph",
+        "children": [
+          {
+            "type": "text",
+            "value": "This runs a package's \"test\" script, if one was provided.",
+            "position": {
+              "start": { "line": 16, "column": 1, "offset": 117 },
+              "end": { "line": 16, "column": 58, "offset": 174 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 117 },
+          "end": { "line": 16, "column": 58, "offset": 174 },
+          "indent": []
+        }
+      },
+      {
+        "type": "heading",
+        "depth": 3,
+        "children": [
+          {
+            "type": "link",
+            "url": "#see-also",
+            "title": null,
+            "children": [],
+            "data": {
+              "hProperties": {
+                "aria-label": "see also permalink",
+                "class": "header-link-class before"
+              },
+              "hChildren": [
+                {
+                  "type": "raw",
+                  "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+                }
+              ]
+            }
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 18, "column": 5, "offset": 180 },
+              "end": { "line": 18, "column": 13, "offset": 188 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 18, "column": 1, "offset": 176 },
+          "end": { "line": 18, "column": 13, "offset": 188 },
+          "indent": []
+        },
+        "data": {
+          "id": "see-also",
+          "htmlAttributes": { "id": "see-also" },
+          "hProperties": { "id": "see-also", "style": "position:relative;" }
+        }
+      },
+      {
+        "type": "list",
+        "ordered": false,
+        "start": null,
+        "spread": false,
+        "children": [
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/cli-commands/npm-run-script",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm run-script",
+                        "position": {
+                          "start": { "line": 20, "column": 4, "offset": 193 },
+                          "end": { "line": 20, "column": 18, "offset": 207 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 20, "column": 3, "offset": 192 },
+                      "end": { "line": 20, "column": 49, "offset": 238 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 20, "column": 3, "offset": 192 },
+                  "end": { "line": 20, "column": 49, "offset": 238 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 20, "column": 1, "offset": 190 },
+              "end": { "line": 20, "column": 49, "offset": 238 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/using-npm/scripts",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm scripts",
+                        "position": {
+                          "start": { "line": 21, "column": 4, "offset": 242 },
+                          "end": { "line": 21, "column": 15, "offset": 253 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 21, "column": 3, "offset": 241 },
+                      "end": { "line": 21, "column": 36, "offset": 274 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 21, "column": 3, "offset": 241 },
+                  "end": { "line": 21, "column": 36, "offset": 274 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 21, "column": 1, "offset": 239 },
+              "end": { "line": 21, "column": 36, "offset": 274 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/cli-commands/npm-start",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm start",
+                        "position": {
+                          "start": { "line": 22, "column": 4, "offset": 278 },
+                          "end": { "line": 22, "column": 13, "offset": 287 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 22, "column": 3, "offset": 277 },
+                      "end": { "line": 22, "column": 39, "offset": 313 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 22, "column": 3, "offset": 277 },
+                  "end": { "line": 22, "column": 39, "offset": 313 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 22, "column": 1, "offset": 275 },
+              "end": { "line": 22, "column": 39, "offset": 313 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/cli-commands/npm-restart",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm restart",
+                        "position": {
+                          "start": { "line": 23, "column": 4, "offset": 317 },
+                          "end": { "line": 23, "column": 15, "offset": 328 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 23, "column": 3, "offset": 316 },
+                      "end": { "line": 23, "column": 43, "offset": 356 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 23, "column": 3, "offset": 316 },
+                  "end": { "line": 23, "column": 43, "offset": 356 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 23, "column": 1, "offset": 314 },
+              "end": { "line": 23, "column": 43, "offset": 356 },
+              "indent": []
+            }
+          },
+          {
+            "type": "listItem",
+            "spread": false,
+            "checked": null,
+            "children": [
+              {
+                "type": "paragraph",
+                "children": [
+                  {
+                    "type": "link",
+                    "title": null,
+                    "url": "/cli-commands/npm-stop",
+                    "children": [
+                      {
+                        "type": "text",
+                        "value": "npm stop",
+                        "position": {
+                          "start": { "line": 24, "column": 4, "offset": 360 },
+                          "end": { "line": 24, "column": 12, "offset": 368 },
+                          "indent": []
+                        }
+                      }
+                    ],
+                    "position": {
+                      "start": { "line": 24, "column": 3, "offset": 359 },
+                      "end": { "line": 24, "column": 37, "offset": 393 },
+                      "indent": []
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 24, "column": 3, "offset": 359 },
+                  "end": { "line": 24, "column": 37, "offset": 393 },
+                  "indent": []
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 24, "column": 1, "offset": 357 },
+              "end": { "line": 24, "column": 37, "offset": 393 },
+              "indent": []
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 20, "column": 1, "offset": 190 },
+          "end": { "line": 24, "column": 37, "offset": 393 },
+          "indent": [1, 1, 1, 1]
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 25, "column": 1, "offset": 394 }
+    }
+  }
+}

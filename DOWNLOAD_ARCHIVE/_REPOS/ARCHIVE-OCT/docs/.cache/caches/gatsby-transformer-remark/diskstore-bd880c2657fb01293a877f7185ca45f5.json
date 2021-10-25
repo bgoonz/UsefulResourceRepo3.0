@@ -1,0 +1,1326 @@
+{
+  "expireTime": 9007200887118514000,
+  "key": "transformer-remark-markdown-html-ast-0e9b9a58fdd1073b86cacdc99d0e9eb3-gatsby-remark-autolink-headersgatsby-remark-prismjs-",
+  "val": {
+    "type": "root",
+    "children": [
+      {
+        "type": "element",
+        "tagName": "h1",
+        "properties": { "id": "npm-adduser1", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#npm-adduser1",
+              "aria-label": "npm adduser1 permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "npm-adduser(1)",
+            "position": {
+              "start": { "line": 2, "column": 3, "offset": 3 },
+              "end": { "line": 2, "column": 17, "offset": 17 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 2, "column": 1, "offset": 1 },
+          "end": { "line": 2, "column": 17, "offset": 17 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h2",
+        "properties": {
+          "id": "add-a-registry-user-account",
+          "style": "position:relative;"
+        },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#add-a-registry-user-account",
+              "aria-label": "add a registry user account permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Add a registry user account",
+            "position": {
+              "start": { "line": 4, "column": 4, "offset": 22 },
+              "end": { "line": 4, "column": 31, "offset": 49 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 4, "column": 1, "offset": 19 },
+          "end": { "line": 4, "column": 31, "offset": 49 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "synopsis", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#synopsis",
+              "aria-label": "synopsis permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Synopsis",
+            "position": {
+              "start": { "line": 6, "column": 5, "offset": 55 },
+              "end": { "line": 6, "column": 13, "offset": 63 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 6, "column": 1, "offset": 51 },
+          "end": { "line": 6, "column": 13, "offset": 63 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\"><span class=\"token function\">npm</span> adduser <span class=\"token punctuation\">[</span>--registry<span class=\"token operator\">=</span>url<span class=\"token punctuation\">]</span> <span class=\"token punctuation\">[</span>--scope<span class=\"token operator\">=</span>@orgname<span class=\"token punctuation\">]</span> <span class=\"token punctuation\">[</span>--always-auth<span class=\"token punctuation\">]</span> <span class=\"token punctuation\">[</span>--auth-type<span class=\"token operator\">=</span>legacy<span class=\"token punctuation\">]</span>\n\naliases: login, add-user</code></pre></div>",
+        "position": {
+          "start": { "line": 8, "column": 1, "offset": 65 },
+          "end": { "line": 12, "column": 4, "offset": 187 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "description", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#description",
+              "aria-label": "description permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Description",
+            "position": {
+              "start": { "line": 14, "column": 5, "offset": 193 },
+              "end": { "line": 14, "column": 16, "offset": 204 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 14, "column": 1, "offset": 189 },
+          "end": { "line": 14, "column": 16, "offset": 204 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Create or verify a user named ",
+            "position": {
+              "start": { "line": 16, "column": 1, "offset": 206 },
+              "end": { "line": 16, "column": 31, "offset": 236 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">&lt;username&gt;</code>",
+            "position": {
+              "start": { "line": 16, "column": 31, "offset": 236 },
+              "end": { "line": 16, "column": 43, "offset": 248 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " in the specified registry, and\nsave the credentials to the ",
+            "position": {
+              "start": { "line": 16, "column": 43, "offset": 248 },
+              "end": { "line": 17, "column": 29, "offset": 308 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">.npmrc</code>",
+            "position": {
+              "start": { "line": 17, "column": 29, "offset": 308 },
+              "end": { "line": 17, "column": 37, "offset": 316 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " file. If no registry is specified,\nthe default registry will be used (see ",
+            "position": {
+              "start": { "line": 17, "column": 37, "offset": 316 },
+              "end": { "line": 18, "column": 40, "offset": 391 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": { "href": "/using-npm/config" },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">config</code>",
+                "position": {
+                  "start": { "line": 18, "column": 41, "offset": 392 },
+                  "end": { "line": 18, "column": 49, "offset": 400 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 18, "column": 40, "offset": 391 },
+              "end": { "line": 18, "column": 69, "offset": 420 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ").",
+            "position": {
+              "start": { "line": 18, "column": 69, "offset": 420 },
+              "end": { "line": 18, "column": 71, "offset": 422 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 16, "column": 1, "offset": 206 },
+          "end": { "line": 18, "column": 71, "offset": 422 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "The username, password, and email are read in from prompts.",
+            "position": {
+              "start": { "line": 20, "column": 1, "offset": 424 },
+              "end": { "line": 20, "column": 60, "offset": 483 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 20, "column": 1, "offset": 424 },
+          "end": { "line": 20, "column": 60, "offset": 483 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "To reset your password, go to ",
+            "position": {
+              "start": { "line": 22, "column": 1, "offset": 485 },
+              "end": { "line": 22, "column": 31, "offset": 515 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": { "href": "https://www.npmjs.com/forgot" },
+            "children": [
+              {
+                "type": "text",
+                "value": "https://www.npmjs.com/forgot",
+                "position": {
+                  "start": { "line": 22, "column": 32, "offset": 516 },
+                  "end": { "line": 22, "column": 60, "offset": 544 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 22, "column": 31, "offset": 515 },
+              "end": { "line": 22, "column": 61, "offset": 545 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 22, "column": 1, "offset": 485 },
+          "end": { "line": 22, "column": 61, "offset": 545 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "To change your email address, go to ",
+            "position": {
+              "start": { "line": 24, "column": 1, "offset": 547 },
+              "end": { "line": 24, "column": 37, "offset": 583 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": { "href": "https://www.npmjs.com/email-edit" },
+            "children": [
+              {
+                "type": "text",
+                "value": "https://www.npmjs.com/email-edit",
+                "position": {
+                  "start": { "line": 24, "column": 38, "offset": 584 },
+                  "end": { "line": 24, "column": 70, "offset": 616 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 24, "column": 37, "offset": 583 },
+              "end": { "line": 24, "column": 71, "offset": 617 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 24, "column": 1, "offset": 547 },
+          "end": { "line": 24, "column": 71, "offset": 617 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "You may use this command multiple times with the same user account to\nauthorize on a new machine. When authenticating on a new machine,\nthe username, password and email address must all match with\nyour existing record.",
+            "position": {
+              "start": { "line": 26, "column": 1, "offset": 619 },
+              "end": { "line": 29, "column": 22, "offset": 837 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 26, "column": 1, "offset": 619 },
+          "end": { "line": 29, "column": 22, "offset": 837 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">npm login</code>",
+            "position": {
+              "start": { "line": 31, "column": 1, "offset": 839 },
+              "end": { "line": 31, "column": 12, "offset": 850 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " is an alias to ",
+            "position": {
+              "start": { "line": 31, "column": 12, "offset": 850 },
+              "end": { "line": 31, "column": 28, "offset": 866 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">adduser</code>",
+            "position": {
+              "start": { "line": 31, "column": 28, "offset": 866 },
+              "end": { "line": 31, "column": 37, "offset": 875 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " and behaves exactly the same way.",
+            "position": {
+              "start": { "line": 31, "column": 37, "offset": 875 },
+              "end": { "line": 31, "column": 71, "offset": 909 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 31, "column": 1, "offset": 839 },
+          "end": { "line": 31, "column": 71, "offset": 909 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "configuration", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#configuration",
+              "aria-label": "configuration permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "Configuration",
+            "position": {
+              "start": { "line": 33, "column": 5, "offset": 915 },
+              "end": { "line": 33, "column": 18, "offset": 928 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 33, "column": 1, "offset": 911 },
+          "end": { "line": 33, "column": 18, "offset": 928 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h4",
+        "properties": { "id": "registry", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#registry",
+              "aria-label": "registry permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "registry",
+            "position": {
+              "start": { "line": 35, "column": 6, "offset": 935 },
+              "end": { "line": 35, "column": 14, "offset": 943 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 35, "column": 1, "offset": 930 },
+          "end": { "line": 35, "column": 14, "offset": 943 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Default: ",
+            "position": {
+              "start": { "line": 37, "column": 1, "offset": 945 },
+              "end": { "line": 37, "column": 10, "offset": 954 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": { "href": "https://registry.npmjs.org/" },
+            "children": [
+              {
+                "type": "text",
+                "value": "https://registry.npmjs.org/",
+                "position": {
+                  "start": { "line": 37, "column": 10, "offset": 954 },
+                  "end": { "line": 37, "column": 37, "offset": 981 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 37, "column": 10, "offset": 954 },
+              "end": { "line": 37, "column": 37, "offset": 981 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 37, "column": 1, "offset": 945 },
+          "end": { "line": 37, "column": 37, "offset": 981 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "The base URL of the npm package registry. If ",
+            "position": {
+              "start": { "line": 39, "column": 1, "offset": 983 },
+              "end": { "line": 39, "column": 46, "offset": 1028 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">scope</code>",
+            "position": {
+              "start": { "line": 39, "column": 46, "offset": 1028 },
+              "end": { "line": 39, "column": 53, "offset": 1035 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " is also specified,\nthis registry will only be used for packages with that scope. ",
+            "position": {
+              "start": { "line": 39, "column": 53, "offset": 1035 },
+              "end": { "line": 40, "column": 63, "offset": 1117 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">scope</code>",
+            "position": {
+              "start": { "line": 40, "column": 63, "offset": 1117 },
+              "end": { "line": 40, "column": 70, "offset": 1124 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " defaults\nto the scope of the project directory you're currently in, if any. See ",
+            "position": {
+              "start": { "line": 40, "column": 70, "offset": 1124 },
+              "end": { "line": 41, "column": 72, "offset": 1205 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": { "href": "/using-npm/scope" },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">scope</code>",
+                "position": {
+                  "start": { "line": 41, "column": 73, "offset": 1206 },
+                  "end": { "line": 41, "column": 80, "offset": 1213 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 41, "column": 72, "offset": 1205 },
+              "end": { "line": 41, "column": 99, "offset": 1232 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ".",
+            "position": {
+              "start": { "line": 41, "column": 99, "offset": 1232 },
+              "end": { "line": 41, "column": 100, "offset": 1233 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 39, "column": 1, "offset": 983 },
+          "end": { "line": 41, "column": 100, "offset": 1233 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h4",
+        "properties": { "id": "scope", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#scope",
+              "aria-label": "scope permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "scope",
+            "position": {
+              "start": { "line": 43, "column": 6, "offset": 1240 },
+              "end": { "line": 43, "column": 11, "offset": 1245 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 43, "column": 1, "offset": 1235 },
+          "end": { "line": 43, "column": 11, "offset": 1245 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Default: none",
+            "position": {
+              "start": { "line": 45, "column": 1, "offset": 1247 },
+              "end": { "line": 45, "column": 14, "offset": 1260 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 45, "column": 1, "offset": 1247 },
+          "end": { "line": 45, "column": 14, "offset": 1260 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If specified, the user and login credentials given will be associated\nwith the specified scope. See ",
+            "position": {
+              "start": { "line": 47, "column": 1, "offset": 1262 },
+              "end": { "line": 48, "column": 31, "offset": 1362 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": { "href": "/using-npm/scope" },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">scope</code>",
+                "position": {
+                  "start": { "line": 48, "column": 32, "offset": 1363 },
+                  "end": { "line": 48, "column": 39, "offset": 1370 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 48, "column": 31, "offset": 1362 },
+              "end": { "line": 48, "column": 58, "offset": 1389 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ". You can use both at the same time,\ne.g.",
+            "position": {
+              "start": { "line": 48, "column": 58, "offset": 1389 },
+              "end": { "line": 49, "column": 5, "offset": 1430 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 47, "column": 1, "offset": 1262 },
+          "end": { "line": 49, "column": 5, "offset": 1430 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">    <span class=\"token function\">npm</span> adduser --registry<span class=\"token operator\">=</span>http://myregistry.example.com --scope<span class=\"token operator\">=</span>@myco</code></pre></div>",
+        "position": {
+          "start": { "line": 51, "column": 1, "offset": 1432 },
+          "end": { "line": 53, "column": 4, "offset": 1514 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "This will set a registry for the given scope and login or create a user for\nthat registry at the same time.",
+            "position": {
+              "start": { "line": 55, "column": 1, "offset": 1516 },
+              "end": { "line": 56, "column": 32, "offset": 1623 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 55, "column": 1, "offset": 1516 },
+          "end": { "line": 56, "column": 32, "offset": 1623 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h4",
+        "properties": { "id": "always-auth", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#always-auth",
+              "aria-label": "always auth permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "always-auth",
+            "position": {
+              "start": { "line": 58, "column": 6, "offset": 1630 },
+              "end": { "line": 58, "column": 17, "offset": 1641 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 58, "column": 1, "offset": 1625 },
+          "end": { "line": 58, "column": 17, "offset": 1641 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "Default: false",
+            "position": {
+              "start": { "line": 60, "column": 1, "offset": 1643 },
+              "end": { "line": 60, "column": 15, "offset": 1657 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 60, "column": 1, "offset": 1643 },
+          "end": { "line": 60, "column": 15, "offset": 1657 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "If specified, save configuration indicating that all requests to the given\nregistry should include authorization information. Useful for private\nregistries. Can be used with ",
+            "position": {
+              "start": { "line": 62, "column": 1, "offset": 1659 },
+              "end": { "line": 64, "column": 30, "offset": 1833 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">--registry</code>",
+            "position": {
+              "start": { "line": 64, "column": 30, "offset": 1833 },
+              "end": { "line": 64, "column": 42, "offset": 1845 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " and / or ",
+            "position": {
+              "start": { "line": 64, "column": 42, "offset": 1845 },
+              "end": { "line": 64, "column": 52, "offset": 1855 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">--scope</code>",
+            "position": {
+              "start": { "line": 64, "column": 52, "offset": 1855 },
+              "end": { "line": 64, "column": 61, "offset": 1864 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ", e.g.",
+            "position": {
+              "start": { "line": 64, "column": 61, "offset": 1864 },
+              "end": { "line": 64, "column": 67, "offset": 1870 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 62, "column": 1, "offset": 1659 },
+          "end": { "line": 64, "column": 67, "offset": 1870 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "raw",
+        "value": "<div class=\"gatsby-highlight\" data-language=\"bash\"><pre class=\"language-bash\"><code class=\"language-bash\">    <span class=\"token function\">npm</span> adduser --registry<span class=\"token operator\">=</span>http://private-registry.example.com --always-auth</code></pre></div>",
+        "position": {
+          "start": { "line": 66, "column": 1, "offset": 1872 },
+          "end": { "line": 68, "column": 4, "offset": 1960 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "This will ensure that all requests to that registry (including for tarballs)\ninclude an authorization header. This setting may be necessary for use with\nprivate registries where metadata and package tarballs are stored on hosts with\ndifferent hostnames. See ",
+            "position": {
+              "start": { "line": 70, "column": 1, "offset": 1962 },
+              "end": { "line": 73, "column": 26, "offset": 2220 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">always-auth</code>",
+            "position": {
+              "start": { "line": 73, "column": 26, "offset": 2220 },
+              "end": { "line": 73, "column": 39, "offset": 2233 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " in ",
+            "position": {
+              "start": { "line": 73, "column": 39, "offset": 2233 },
+              "end": { "line": 73, "column": 43, "offset": 2237 }
+            }
+          },
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": { "href": "/using-npm/config" },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">config</code>",
+                "position": {
+                  "start": { "line": 73, "column": 44, "offset": 2238 },
+                  "end": { "line": 73, "column": 52, "offset": 2246 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 73, "column": 43, "offset": 2237 },
+              "end": { "line": 73, "column": 72, "offset": 2266 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " for more details on always-auth. Registry-specific configuration of ",
+            "position": {
+              "start": { "line": 73, "column": 72, "offset": 2266 },
+              "end": { "line": 73, "column": 141, "offset": 2335 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">always-auth</code>",
+            "position": {
+              "start": { "line": 73, "column": 141, "offset": 2335 },
+              "end": { "line": 73, "column": 154, "offset": 2348 }
+            }
+          },
+          {
+            "type": "text",
+            "value": " takes precedence over any global configuration.",
+            "position": {
+              "start": { "line": 73, "column": 154, "offset": 2348 },
+              "end": { "line": 73, "column": 202, "offset": 2396 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 70, "column": 1, "offset": 1962 },
+          "end": { "line": 73, "column": 202, "offset": 2396 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h4",
+        "properties": { "id": "auth-type", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#auth-type",
+              "aria-label": "auth type permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "auth-type",
+            "position": {
+              "start": { "line": 75, "column": 6, "offset": 2403 },
+              "end": { "line": 75, "column": 15, "offset": 2412 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 75, "column": 1, "offset": 2398 },
+          "end": { "line": 75, "column": 15, "offset": 2412 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "Default: ",
+                "position": {
+                  "start": { "line": 77, "column": 3, "offset": 2416 },
+                  "end": { "line": 77, "column": 12, "offset": 2425 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">&#39;legacy&#39;</code>",
+                "position": {
+                  "start": { "line": 77, "column": 12, "offset": 2425 },
+                  "end": { "line": 77, "column": 22, "offset": 2435 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 77, "column": 1, "offset": 2414 },
+              "end": { "line": 77, "column": 22, "offset": 2435 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "text",
+                "value": "Type: ",
+                "position": {
+                  "start": { "line": 78, "column": 3, "offset": 2438 },
+                  "end": { "line": 78, "column": 9, "offset": 2444 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">&#39;legacy&#39;</code>",
+                "position": {
+                  "start": { "line": 78, "column": 9, "offset": 2444 },
+                  "end": { "line": 78, "column": 19, "offset": 2454 }
+                }
+              },
+              {
+                "type": "text",
+                "value": ", ",
+                "position": {
+                  "start": { "line": 78, "column": 19, "offset": 2454 },
+                  "end": { "line": 78, "column": 21, "offset": 2456 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">&#39;sso&#39;</code>",
+                "position": {
+                  "start": { "line": 78, "column": 21, "offset": 2456 },
+                  "end": { "line": 78, "column": 28, "offset": 2463 }
+                }
+              },
+              {
+                "type": "text",
+                "value": ", ",
+                "position": {
+                  "start": { "line": 78, "column": 28, "offset": 2463 },
+                  "end": { "line": 78, "column": 30, "offset": 2465 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">&#39;saml&#39;</code>",
+                "position": {
+                  "start": { "line": 78, "column": 30, "offset": 2465 },
+                  "end": { "line": 78, "column": 38, "offset": 2473 }
+                }
+              },
+              {
+                "type": "text",
+                "value": ", ",
+                "position": {
+                  "start": { "line": 78, "column": 38, "offset": 2473 },
+                  "end": { "line": 78, "column": 40, "offset": 2475 }
+                }
+              },
+              {
+                "type": "raw",
+                "value": "<code class=\"language-text\">&#39;oauth&#39;</code>",
+                "position": {
+                  "start": { "line": 78, "column": 40, "offset": 2475 },
+                  "end": { "line": 78, "column": 49, "offset": 2484 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 78, "column": 1, "offset": 2436 },
+              "end": { "line": 78, "column": 49, "offset": 2484 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 77, "column": 1, "offset": 2414 },
+          "end": { "line": 78, "column": 49, "offset": 2484 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "p",
+        "properties": {},
+        "children": [
+          {
+            "type": "text",
+            "value": "What authentication strategy to use with ",
+            "position": {
+              "start": { "line": 80, "column": 1, "offset": 2486 },
+              "end": { "line": 80, "column": 42, "offset": 2527 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">adduser</code>",
+            "position": {
+              "start": { "line": 80, "column": 42, "offset": 2527 },
+              "end": { "line": 80, "column": 51, "offset": 2536 }
+            }
+          },
+          {
+            "type": "text",
+            "value": "/",
+            "position": {
+              "start": { "line": 80, "column": 51, "offset": 2536 },
+              "end": { "line": 80, "column": 52, "offset": 2537 }
+            }
+          },
+          {
+            "type": "raw",
+            "value": "<code class=\"language-text\">login</code>",
+            "position": {
+              "start": { "line": 80, "column": 52, "offset": 2537 },
+              "end": { "line": 80, "column": 59, "offset": 2544 }
+            }
+          },
+          {
+            "type": "text",
+            "value": ". Some npm registries\n(for example, npmE) might support alternative auth strategies besides classic\nusername/password entry in legacy npm.",
+            "position": {
+              "start": { "line": 80, "column": 59, "offset": 2544 },
+              "end": { "line": 82, "column": 39, "offset": 2682 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 80, "column": 1, "offset": 2486 },
+          "end": { "line": 82, "column": 39, "offset": 2682 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "h3",
+        "properties": { "id": "see-also", "style": "position:relative;" },
+        "children": [
+          {
+            "type": "element",
+            "tagName": "a",
+            "properties": {
+              "href": "#see-also",
+              "aria-label": "see also permalink",
+              "class": "header-link-class before"
+            },
+            "children": [
+              {
+                "type": "raw",
+                "value": "<svg aria-hidden=\"true\" height=\"20\" version=\"1.1\" viewBox=\"0 0 16 16\" width=\"20\"><path fill-rule=\"evenodd\" d=\"M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z\"></path></svg>"
+              }
+            ]
+          },
+          {
+            "type": "text",
+            "value": "See Also",
+            "position": {
+              "start": { "line": 84, "column": 5, "offset": 2688 },
+              "end": { "line": 84, "column": 13, "offset": 2696 }
+            }
+          }
+        ],
+        "position": {
+          "start": { "line": 84, "column": 1, "offset": 2684 },
+          "end": { "line": 84, "column": 13, "offset": 2696 }
+        }
+      },
+      { "type": "text", "value": "\n" },
+      {
+        "type": "element",
+        "tagName": "ul",
+        "properties": {},
+        "children": [
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/using-npm/registry" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm registry",
+                    "position": {
+                      "start": { "line": 86, "column": 4, "offset": 2701 },
+                      "end": { "line": 86, "column": 16, "offset": 2713 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 86, "column": 3, "offset": 2700 },
+                  "end": { "line": 86, "column": 38, "offset": 2735 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 86, "column": 1, "offset": 2698 },
+              "end": { "line": 86, "column": 38, "offset": 2735 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-config" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm config",
+                    "position": {
+                      "start": { "line": 87, "column": 4, "offset": 2739 },
+                      "end": { "line": 87, "column": 14, "offset": 2749 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 87, "column": 3, "offset": 2738 },
+                  "end": { "line": 87, "column": 41, "offset": 2776 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 87, "column": 1, "offset": 2736 },
+              "end": { "line": 87, "column": 41, "offset": 2776 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/configuring-npm/npmrc" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npmrc",
+                    "position": {
+                      "start": { "line": 88, "column": 4, "offset": 2780 },
+                      "end": { "line": 88, "column": 9, "offset": 2785 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 88, "column": 3, "offset": 2779 },
+                  "end": { "line": 88, "column": 34, "offset": 2810 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 88, "column": 1, "offset": 2777 },
+              "end": { "line": 88, "column": 34, "offset": 2810 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-owner" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm owner",
+                    "position": {
+                      "start": { "line": 89, "column": 4, "offset": 2814 },
+                      "end": { "line": 89, "column": 13, "offset": 2823 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 89, "column": 3, "offset": 2813 },
+                  "end": { "line": 89, "column": 39, "offset": 2849 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 89, "column": 1, "offset": 2811 },
+              "end": { "line": 89, "column": 39, "offset": 2849 }
+            }
+          },
+          { "type": "text", "value": "\n" },
+          {
+            "type": "element",
+            "tagName": "li",
+            "properties": {},
+            "children": [
+              {
+                "type": "element",
+                "tagName": "a",
+                "properties": { "href": "/cli-commands/npm-whoami" },
+                "children": [
+                  {
+                    "type": "text",
+                    "value": "npm whoami",
+                    "position": {
+                      "start": { "line": 90, "column": 4, "offset": 2853 },
+                      "end": { "line": 90, "column": 14, "offset": 2863 }
+                    }
+                  }
+                ],
+                "position": {
+                  "start": { "line": 90, "column": 3, "offset": 2852 },
+                  "end": { "line": 90, "column": 41, "offset": 2890 }
+                }
+              }
+            ],
+            "position": {
+              "start": { "line": 90, "column": 1, "offset": 2850 },
+              "end": { "line": 90, "column": 41, "offset": 2890 }
+            }
+          },
+          { "type": "text", "value": "\n" }
+        ],
+        "position": {
+          "start": { "line": 86, "column": 1, "offset": 2698 },
+          "end": { "line": 90, "column": 41, "offset": 2890 }
+        }
+      }
+    ],
+    "position": {
+      "start": { "line": 1, "column": 1, "offset": 0 },
+      "end": { "line": 91, "column": 1, "offset": 2891 }
+    }
+  }
+}
