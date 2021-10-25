@@ -1,0 +1,23 @@
+{
+  "name": "log4js-appender-ratelimit-filter",
+  "version": "2.0.0",
+  "description": "Appender for log4js. Filter logs by rate limiting.",
+  "main": "./lib/filter.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lajonat/log4js-appender-ratelimit-filter"
+  },
+  "author": "lajonat",
+  "keywords": [
+    "log4js",
+    "appender"
+  ],
+  "license": "GPLv3",
+  "dependencies": {
+    "log4js": "^3.0.6"
+  },
+  "devDependencies": {
+    "assert": "^1.4.1",
+    "mocha": "^5.2.0"
+  }
+}
