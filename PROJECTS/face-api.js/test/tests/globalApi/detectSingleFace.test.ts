@@ -1,24 +1,24 @@
-import * as faceapi from "../../../src";
-import { WithAge } from "../../../src/factories/WithAge";
-import { WithFaceExpressions } from "../../../src/factories/WithFaceExpressions";
-import { WithGender } from "../../../src/factories/WithGender";
-import { loadImage } from "../../env";
-import { expectedTinyFaceDetectorBoxes } from "../../expectedTinyFaceDetectorBoxes";
-import { expectFaceDetectionsWithLandmarks } from "../../expectFaceDetectionsWithLandmarks";
-import { expectFullFaceDescriptions } from "../../expectFullFaceDescriptions";
+import * as faceapi from '../../../src';
+import { WithAge } from '../../../src/factories/WithAge';
+import { WithFaceExpressions } from '../../../src/factories/WithFaceExpressions';
+import { WithGender } from '../../../src/factories/WithGender';
+import { loadImage } from '../../env';
+import { expectedTinyFaceDetectorBoxes } from '../../expectedTinyFaceDetectorBoxes';
+import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks';
+import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions';
 import {
   assembleExpectedFullFaceDescriptions,
   describeWithBackend,
   describeWithNets,
   expectAllTensorsReleased,
   ExpectedFullFaceDescription,
-} from "../../utils";
+} from '../../utils';
 import {
   deltas,
   expectedScores,
   faceDetectorOptions,
   withNetArgs,
-} from "./consts";
+} from './consts';
 
 function expectFaceExpressions(result: WithFaceExpressions<{}> | undefined) {
   expect(!!result).toBeTruthy();
@@ -36,17 +36,17 @@ function expectAgeAndGender(
     const { age, gender, genderProbability } = result;
     const expectedAge = aligned ? 41 : 37;
     expect(Math.abs(age - expectedAge)).toBeLessThanOrEqual(5);
-    expect(gender).toEqual("male");
+    expect(gender).toEqual('male');
     expect(genderProbability).toBeGreaterThanOrEqual(0.9);
   }
 }
 
-describeWithBackend("globalApi", () => {
+describeWithBackend('globalApi', () => {
   let imgEl: HTMLImageElement;
   let expectedFullFaceDescriptions: ExpectedFullFaceDescription[];
 
   beforeAll(async () => {
-    imgEl = await loadImage("test/images/faces.jpg");
+    imgEl = await loadImage('test/images/faces.jpg');
     expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(
       expectedTinyFaceDetectorBoxes
     );
@@ -84,9 +84,9 @@ describeWithBackend("globalApi", () => {
     }
   }
 
-  describeWithNets("detectSingleFace", withNetArgs, () => {
-    describe("without face alignment", () => {
-      it("detectSingleFace.withFaceExpressions()", async () => {
+  describeWithNets('detectSingleFace', withNetArgs, () => {
+    describe('without face alignment', () => {
+      it('detectSingleFace.withFaceExpressions()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceExpressions();
@@ -94,7 +94,7 @@ describeWithBackend("globalApi", () => {
         expectFaceExpressions(result);
       });
 
-      it("detectSingleFace.withAgeAndGender()", async () => {
+      it('detectSingleFace.withAgeAndGender()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withAgeAndGender();
@@ -102,7 +102,7 @@ describeWithBackend("globalApi", () => {
         expectAgeAndGender(result, false);
       });
 
-      it("detectSingleFace.withFaceExpressions().withAgeAndGender()", async () => {
+      it('detectSingleFace.withFaceExpressions().withAgeAndGender()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceExpressions()
@@ -112,7 +112,7 @@ describeWithBackend("globalApi", () => {
         expectAgeAndGender(result, false);
       });
 
-      it("detectSingleFace.withAgeAndGender().withFaceExpressions()", async () => {
+      it('detectSingleFace.withAgeAndGender().withFaceExpressions()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withAgeAndGender()
@@ -123,8 +123,8 @@ describeWithBackend("globalApi", () => {
       });
     });
 
-    describe("with face alignment", () => {
-      it("detectSingleFace.withFaceLandmarks().withFaceExpressions()", async () => {
+    describe('with face alignment', () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceExpressions()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -134,7 +134,7 @@ describeWithBackend("globalApi", () => {
         expectFaceDetectionWithLandmarks(result);
       });
 
-      it("detectSingleFace.withFaceLandmarks().withAgeAndGender()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withAgeAndGender()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -144,7 +144,7 @@ describeWithBackend("globalApi", () => {
         expectFaceDetectionWithLandmarks(result);
       });
 
-      it("detectSingleFace.withFaceLandmarks().withFaceDescriptor()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -153,7 +153,7 @@ describeWithBackend("globalApi", () => {
         expectFullFaceDescription(result);
       });
 
-      it("detectSingleFace.withFaceLandmarks().withFaceExpressions().withAgeAndGender()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceExpressions().withAgeAndGender()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -165,7 +165,7 @@ describeWithBackend("globalApi", () => {
         expectFaceDetectionWithLandmarks(result);
       });
 
-      it("detectSingleFace.withFaceLandmarks().withAgeAndGender().withFaceExpressions()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withAgeAndGender().withFaceExpressions()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -177,7 +177,7 @@ describeWithBackend("globalApi", () => {
         expectFaceDetectionWithLandmarks(result);
       });
 
-      it("detectSingleFace.withFaceLandmarks().withFaceExpressions().withFaceDescriptor()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceExpressions().withFaceDescriptor()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -188,7 +188,7 @@ describeWithBackend("globalApi", () => {
         expectFullFaceDescription(result);
       });
 
-      it("detectSingleFace.withFaceLandmarks().withAgeAndGender().withFaceDescriptor()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withAgeAndGender().withFaceDescriptor()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -199,7 +199,7 @@ describeWithBackend("globalApi", () => {
         expectFullFaceDescription(result);
       });
 
-      it("detectSingleFace.withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor()', async () => {
         const result = await faceapi
           .detectSingleFace(imgEl, faceDetectorOptions)
           .withFaceLandmarks()
@@ -213,8 +213,8 @@ describeWithBackend("globalApi", () => {
       });
     });
 
-    describe("no memory leaks", () => {
-      it("detectSingleFace.withFaceLandmarks().withFaceDescriptor()", async () => {
+    describe('no memory leaks', () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
         await expectAllTensorsReleased(async () => {
           await faceapi
             .detectSingleFace(imgEl, faceDetectorOptions)
@@ -223,7 +223,7 @@ describeWithBackend("globalApi", () => {
         });
       });
 
-      it("detectSingleFace.withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceExpressions().withAgeAndGender().withFaceDescriptor()', async () => {
         await expectAllTensorsReleased(async () => {
           await faceapi
             .detectSingleFace(imgEl, faceDetectorOptions)

@@ -1,32 +1,32 @@
-import * as faceapi from "../../../src";
+import * as faceapi from '../../../src';
 import {
   describeWithNets,
   expectAllTensorsReleased,
   assembleExpectedFullFaceDescriptions,
   ExpectedFullFaceDescription,
   describeWithBackend,
-} from "../../utils";
-import { SsdMobilenetv1Options } from "../../../src";
-import { expectFaceDetections } from "../../expectFaceDetections";
-import { expectFullFaceDescriptions } from "../../expectFullFaceDescriptions";
-import { expectFaceDetectionsWithLandmarks } from "../../expectFaceDetectionsWithLandmarks";
-import { expectedSsdBoxes } from "./expectedBoxes";
-import { loadImage } from "../../env";
+} from '../../utils';
+import { SsdMobilenetv1Options } from '../../../src';
+import { expectFaceDetections } from '../../expectFaceDetections';
+import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions';
+import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks';
+import { expectedSsdBoxes } from './expectedBoxes';
+import { loadImage } from '../../env';
 
-describeWithBackend("ssdMobilenetv1", () => {
+describeWithBackend('ssdMobilenetv1', () => {
   let imgEl: HTMLImageElement;
   let expectedFullFaceDescriptions: ExpectedFullFaceDescription[];
   const expectedScores = [0.54, 0.81, 0.97, 0.88, 0.84, 0.61];
 
   beforeAll(async () => {
-    imgEl = await loadImage("test/images/faces.jpg");
+    imgEl = await loadImage('test/images/faces.jpg');
     expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(
       expectedSsdBoxes
     );
   });
 
-  describeWithNets("globalApi", { withAllFacesSsdMobilenetv1: true }, () => {
-    it("detectAllFaces", async () => {
+  describeWithNets('globalApi', { withAllFacesSsdMobilenetv1: true }, () => {
+    it('detectAllFaces', async () => {
       const options = new SsdMobilenetv1Options({
         minConfidence: 0.5,
       });
@@ -45,7 +45,7 @@ describeWithBackend("ssdMobilenetv1", () => {
       );
     });
 
-    it("detectAllFaces.withFaceLandmarks()", async () => {
+    it('detectAllFaces.withFaceLandmarks()', async () => {
       const options = new SsdMobilenetv1Options({
         minConfidence: 0.5,
       });
@@ -68,7 +68,7 @@ describeWithBackend("ssdMobilenetv1", () => {
       );
     });
 
-    it("detectAllFaces.withFaceLandmarks().withFaceDescriptors()", async () => {
+    it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
       const options = new SsdMobilenetv1Options({
         minConfidence: 0.5,
       });
@@ -93,7 +93,7 @@ describeWithBackend("ssdMobilenetv1", () => {
       );
     });
 
-    it("detectSingleFace.withFaceLandmarks().withFaceDescriptor()", async () => {
+    it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
       const options = new SsdMobilenetv1Options({
         minConfidence: 0.5,
       });
@@ -119,7 +119,7 @@ describeWithBackend("ssdMobilenetv1", () => {
       );
     });
 
-    it("no memory leaks", async () => {
+    it('no memory leaks', async () => {
       await expectAllTensorsReleased(async () => {
         await faceapi
           .detectAllFaces(imgEl, new SsdMobilenetv1Options())

@@ -1,17 +1,17 @@
-process.env.NO_DEPRECATION = "morgan";
+process.env.NO_DEPRECATION = 'morgan';
 
-var assert = require("assert");
-var fs = require("fs");
-var http = require("http");
-var https = require("https");
-var join = require("path").join;
-var morgan = require("..");
-var request = require("supertest");
-var split = require("split");
+var assert = require('assert');
+var fs = require('fs');
+var http = require('http');
+var https = require('https');
+var join = require('path').join;
+var morgan = require('..');
+var request = require('supertest');
+var split = require('split');
 
-describe("morgan()", function () {
-  describe("arguments", function () {
-    it("should use default format", function (done) {
+describe('morgan()', function () {
+  describe('arguments', function () {
+    it('should use default format', function (done) {
       var cb = after(2, function (err, res, line) {
         if (err) return done(err);
         assert(res.text.length > 0);
@@ -24,12 +24,12 @@ describe("morgan()", function () {
       });
 
       request(createServer(undefined, { stream: stream }))
-        .get("/")
+        .get('/')
         .expect(200, cb);
     });
 
-    describe("format", function () {
-      it("should accept format as format name", function (done) {
+    describe('format', function () {
+      it('should accept format as format name', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert(/^GET \/ 200 - - \d+\.\d{3} ms$/.test(line));
@@ -40,15 +40,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer("tiny", { stream: stream }))
-          .get("/")
+        request(createServer('tiny', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should accept format as format string", function (done) {
+      it('should accept format as format string', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "GET /");
+          assert.strictEqual(line, 'GET /');
           done();
         });
 
@@ -56,15 +56,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":method :url", { stream: stream }))
-          .get("/")
+        request(createServer(':method :url', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should accept format as function", function (done) {
+      it('should accept format as function', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "GET / 200");
+          assert.strictEqual(line, 'GET / 200');
           done();
         });
 
@@ -73,20 +73,20 @@ describe("morgan()", function () {
         });
 
         function format(tokens, req, res) {
-          return [req.method, req.url, res.statusCode].join(" ");
+          return [req.method, req.url, res.statusCode].join(' ');
         }
 
         request(createServer(format, { stream: stream }))
-          .get("/")
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should reject format as bool", function () {
+      it('should reject format as bool', function () {
         assert.throws(createServer.bind(null, true), /argument format/);
       });
 
-      describe("back-compat", function () {
-        it("should accept options object", function (done) {
+      describe('back-compat', function () {
+        it('should accept options object', function (done) {
           var cb = after(2, function (err, res, line) {
             if (err) return done(err);
             assert(res.text.length > 0);
@@ -99,14 +99,14 @@ describe("morgan()", function () {
           });
 
           request(createServer({ stream: stream }))
-            .get("/")
+            .get('/')
             .expect(200, cb);
         });
 
-        it("should accept format in options for back-compat", function (done) {
+        it('should accept format in options for back-compat', function (done) {
           var cb = after(2, function (err, res, line) {
             if (err) return done(err);
-            assert.strictEqual(line, "GET /");
+            assert.strictEqual(line, 'GET /');
             done();
           });
 
@@ -114,15 +114,15 @@ describe("morgan()", function () {
             cb(null, null, line);
           });
 
-          request(createServer({ format: ":method :url", stream: stream }))
-            .get("/")
+          request(createServer({ format: ':method :url', stream: stream }))
+            .get('/')
             .expect(200, cb);
         });
 
-        it("should accept format function in options for back-compat", function (done) {
+        it('should accept format function in options for back-compat', function (done) {
           var cb = after(2, function (err, res, line) {
             if (err) return done(err);
-            assert.strictEqual(line, "apple");
+            assert.strictEqual(line, 'apple');
             done();
           });
 
@@ -131,28 +131,28 @@ describe("morgan()", function () {
           });
 
           function format() {
-            return "apple";
+            return 'apple';
           }
 
           request(createServer({ format: format, stream: stream }))
-            .get("/")
+            .get('/')
             .expect(200, cb);
         });
       });
     });
 
-    describe("stream", function () {
+    describe('stream', function () {
       beforeEach(function () {
         this.stdout = process.stdout;
       });
 
       afterEach(function () {
-        Object.defineProperty(process, "stdout", {
+        Object.defineProperty(process, 'stdout', {
           value: this.stdout,
         });
       });
 
-      it("should default to process.stdout", function (done) {
+      it('should default to process.stdout', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert(res.text.length > 0);
@@ -164,16 +164,16 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        Object.defineProperty(process, "stdout", {
+        Object.defineProperty(process, 'stdout', {
           value: stream,
         });
 
         request(createServer(undefined, { stream: undefined }))
-          .get("/")
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should set stream to write logs to", function (done) {
+      it('should set stream to write logs to', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert(res.text.length > 0);
@@ -186,14 +186,14 @@ describe("morgan()", function () {
         });
 
         request(createServer(undefined, { stream: stream }))
-          .get("/")
+          .get('/')
           .expect(200, cb);
       });
     });
   });
 
-  describe("tokens", function () {
-    describe(":date", function () {
+  describe('tokens', function () {
+    describe(':date', function () {
       it('should get current date in "web" format by default', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
@@ -207,8 +207,8 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":date", { stream: stream }))
-          .get("/")
+        request(createServer(':date', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
@@ -225,8 +225,8 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":date[clf]", { stream: stream }))
-          .get("/")
+        request(createServer(':date[clf]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
@@ -243,8 +243,8 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":date[iso]", { stream: stream }))
-          .get("/")
+        request(createServer(':date[iso]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
@@ -261,15 +261,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":date[web]", { stream: stream }))
-          .get("/")
+        request(createServer(':date[web]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should be blank for unknown format", function (done) {
+      it('should be blank for unknown format', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -277,14 +277,14 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":date[bogus]", { stream: stream }))
-          .get("/")
+        request(createServer(':date[bogus]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
     });
 
-    describe(":http-version", function () {
-      it("should be 1.0 or 1.1", function (done) {
+    describe(':http-version', function () {
+      it('should be 1.0 or 1.1', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(/^1\.[01]$/.test(line));
@@ -295,17 +295,17 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":http-version", { stream: stream }))
-          .get("/")
+        request(createServer(':http-version', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
     });
 
-    describe(":req", function () {
-      it("should get request properties", function (done) {
+    describe(':req', function () {
+      it('should get request properties', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "me");
+          assert.strictEqual(line, 'me');
           done();
         });
 
@@ -313,16 +313,16 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":req[x-from-string]", { stream: stream }))
-          .get("/")
-          .set("x-from-string", "me")
+        request(createServer(':req[x-from-string]', { stream: stream }))
+          .get('/')
+          .set('x-from-string', 'me')
           .expect(200, cb);
       });
 
-      it("should display all values of array headers", function (done) {
+      it('should display all values of array headers', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "foo=bar, fizz=buzz");
+          assert.strictEqual(line, 'foo=bar, fizz=buzz');
           done();
         });
 
@@ -330,18 +330,18 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":req[set-cookie]", { stream: stream }))
-          .get("/")
-          .set("Set-Cookie", ["foo=bar", "fizz=buzz"])
+        request(createServer(':req[set-cookie]', { stream: stream }))
+          .get('/')
+          .set('Set-Cookie', ['foo=bar', 'fizz=buzz'])
           .expect(200, cb);
       });
     });
 
-    describe(":res", function () {
-      it("should get response properties", function (done) {
+    describe(':res', function () {
+      it('should get response properties', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "true");
+          assert.strictEqual(line, 'true');
           done();
         });
 
@@ -349,15 +349,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":res[x-sent]", { stream: stream }))
-          .get("/")
+        request(createServer(':res[x-sent]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should display all values of array headers", function (done) {
+      it('should display all values of array headers', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "foo, bar");
+          assert.strictEqual(line, 'foo, bar');
           done();
         });
 
@@ -366,20 +366,20 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":res[x-keys]",
+          ':res[x-keys]',
           { stream: stream },
           function (req, res, next) {
-            res.setHeader("X-Keys", ["foo", "bar"]);
+            res.setHeader('X-Keys', ['foo', 'bar']);
             next();
           }
         );
 
-        request(server).get("/").expect("X-Keys", "foo, bar").expect(200, cb);
+        request(server).get('/').expect('X-Keys', 'foo, bar').expect(200, cb);
       });
     });
 
-    describe(":remote-addr", function () {
-      it("should get remote address", function (done) {
+    describe(':remote-addr', function () {
+      it('should get remote address', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(res.text.length > 0);
@@ -391,15 +391,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":remote-addr", { stream: stream }))
-          .get("/")
+        request(createServer(':remote-addr', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should use req.ip if there", function (done) {
+      it('should use req.ip if there', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "10.0.0.1");
+          assert.strictEqual(line, '10.0.0.1');
           done();
         });
 
@@ -408,18 +408,18 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":remote-addr",
+          ':remote-addr',
           { stream: stream },
           null,
           function (req) {
-            req.ip = "10.0.0.1";
+            req.ip = '10.0.0.1';
           }
         );
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should work on https server", function (done) {
+      it('should work on https server', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(res.text.length > 0);
@@ -431,12 +431,12 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        var server = createSecureServer(":remote-addr", { stream: stream });
+        var server = createSecureServer(':remote-addr', { stream: stream });
 
-        request(server).get("/").ca(server.cert).expect(200, cb);
+        request(server).get('/').ca(server.cert).expect(200, cb);
       });
 
-      it("should work when connection: close", function (done) {
+      it('should work when connection: close', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(res.text.length > 0);
@@ -448,13 +448,13 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":remote-addr", { stream: stream }))
-          .get("/")
-          .set("Connection", "close")
+        request(createServer(':remote-addr', { stream: stream }))
+          .get('/')
+          .set('Connection', 'close')
           .expect(200, cb);
       });
 
-      it("should work when connection: keep-alive", function (done) {
+      it('should work when connection: keep-alive', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(res.text.length > 0);
@@ -469,7 +469,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":remote-addr",
+          ':remote-addr',
           { stream: stream },
           function (req, res, next) {
             delete req._remoteAddress;
@@ -478,15 +478,15 @@ describe("morgan()", function () {
         );
 
         request(server.listen())
-          .get("/")
-          .set("Connection", "keep-alive")
+          .get('/')
+          .set('Connection', 'keep-alive')
           .expect(200, cb);
       });
 
-      it("should work when req.ip is a getter", function (done) {
+      it('should work when req.ip is a getter', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "10.0.0.1");
+          assert.strictEqual(line, '10.0.0.1');
           done();
         });
 
@@ -495,22 +495,22 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":remote-addr",
+          ':remote-addr',
           { stream: stream },
           null,
           function (req) {
-            Object.defineProperty(req, "ip", {
+            Object.defineProperty(req, 'ip', {
               get: function () {
-                return req.connection.remoteAddress ? "10.0.0.1" : undefined;
+                return req.connection.remoteAddress ? '10.0.0.1' : undefined;
               },
             });
           }
         );
 
-        request(server).get("/").set("Connection", "close").expect(200, cb);
+        request(server).get('/').set('Connection', 'close').expect(200, cb);
       });
 
-      it("should not fail if req.connection missing", function (done) {
+      it('should not fail if req.connection missing', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(res.text.length > 0);
@@ -525,7 +525,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":remote-addr",
+          ':remote-addr',
           { stream: stream },
           null,
           function (req) {
@@ -534,17 +534,17 @@ describe("morgan()", function () {
         );
 
         request(server.listen())
-          .get("/")
-          .set("Connection", "keep-alive")
+          .get('/')
+          .set('Connection', 'keep-alive')
           .expect(200, cb);
       });
     });
 
-    describe(":remote-user", function () {
-      it("should be empty if none present", function (done) {
+    describe(':remote-user', function () {
+      it('should be empty if none present', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -552,15 +552,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":remote-user", { stream: stream }))
-          .get("/")
+        request(createServer(':remote-user', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should support Basic authorization", function (done) {
+      it('should support Basic authorization', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "tj");
+          assert.strictEqual(line, 'tj');
           done();
         });
 
@@ -568,16 +568,16 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":remote-user", { stream: stream }))
-          .get("/")
-          .set("Authorization", "Basic dGo6")
+        request(createServer(':remote-user', { stream: stream }))
+          .get('/')
+          .set('Authorization', 'Basic dGo6')
           .expect(200, cb);
       });
 
-      it("should be empty for empty Basic authorization user", function (done) {
+      it('should be empty for empty Basic authorization user', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -585,15 +585,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":remote-user", { stream: stream }))
-          .get("/")
-          .set("Authorization", "Basic Og==")
+        request(createServer(':remote-user', { stream: stream }))
+          .get('/')
+          .set('Authorization', 'Basic Og==')
           .expect(200, cb);
       });
     });
 
-    describe(":response-time", function () {
-      it("should be in milliseconds", function (done) {
+    describe(':response-time', function () {
+      it('should be in milliseconds', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           var end = Date.now();
@@ -609,12 +609,12 @@ describe("morgan()", function () {
 
         var start = Date.now();
 
-        request(createServer(":response-time", { stream: stream }))
-          .get("/")
+        request(createServer(':response-time', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should have three digits by default", function (done) {
+      it('should have three digits by default', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(/^[0-9]+\.[0-9]{3}$/.test(line));
@@ -625,8 +625,8 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":response-time", { stream: stream }))
-          .get("/")
+        request(createServer(':response-time', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
@@ -641,8 +641,8 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":response-time[5]", { stream: stream }))
-          .get("/")
+        request(createServer(':response-time[5]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
@@ -657,12 +657,12 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":response-time[0]", { stream: stream }))
-          .get("/")
+        request(createServer(':response-time[0]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should not include response write time", function (done) {
+      it('should not include response write time', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           var end = Date.now();
@@ -678,14 +678,14 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":response-time",
+          ':response-time',
           { stream: stream },
           function (req, res) {
-            res.write("hello, ");
+            res.write('hello, ');
             write = Date.now();
 
             setTimeout(function () {
-              res.end("world!");
+              res.end('world!');
             }, 50);
           }
         );
@@ -693,13 +693,13 @@ describe("morgan()", function () {
         var start = Date.now();
         var write = null;
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should be empty without hidden property", function (done) {
+      it('should be empty without hidden property', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -708,7 +708,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":response-time",
+          ':response-time',
           { stream: stream },
           function (req, res, next) {
             delete req._startAt;
@@ -716,13 +716,13 @@ describe("morgan()", function () {
           }
         );
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should be empty before response", function (done) {
+      it('should be empty before response', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -730,18 +730,18 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        var server = createServer(":response-time", {
+        var server = createServer(':response-time', {
           immediate: true,
           stream: stream,
         });
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should be empty if morgan invoked after response sent", function (done) {
+      it('should be empty if morgan invoked after response sent', function (done) {
         var cb = after(3, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -749,7 +749,7 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        var logger = morgan(":response-time", {
+        var logger = morgan(':response-time', {
           immediate: true,
           stream: stream,
         });
@@ -762,12 +762,12 @@ describe("morgan()", function () {
           res.end();
         });
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
     });
 
-    describe(":status", function () {
-      it("should get response status", function (done) {
+    describe(':status', function () {
+      it('should get response status', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.strictEqual(line, String(res.statusCode));
@@ -778,15 +778,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":status", { stream: stream }))
-          .get("/")
+        request(createServer(':status', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should not exist before response sent", function (done) {
+      it('should not exist before response sent', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -794,31 +794,31 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        var server = createServer(":status", {
+        var server = createServer(':status', {
           immediate: true,
           stream: stream,
         });
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should not exist for aborted request", function (done) {
+      it('should not exist for aborted request', function (done) {
         var stream = createLineStream(function (line) {
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           server.close(done);
         });
 
-        var server = createServer(":status", { stream: stream }, function () {
+        var server = createServer(':status', { stream: stream }, function () {
           test.abort();
         });
 
-        var test = request(server).post("/");
-        test.write("0");
+        var test = request(server).post('/');
+        test.write('0');
       });
     });
 
-    describe(":total-time", function () {
-      it("should be in milliseconds", function (done) {
+    describe(':total-time', function () {
+      it('should be in milliseconds', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           var end = Date.now();
@@ -834,12 +834,12 @@ describe("morgan()", function () {
 
         var start = Date.now();
 
-        request(createServer(":total-time", { stream: stream }))
-          .get("/")
+        request(createServer(':total-time', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should have three digits by default", function (done) {
+      it('should have three digits by default', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.ok(/^[0-9]+\.[0-9]{3}$/.test(line));
@@ -850,8 +850,8 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":total-time", { stream: stream }))
-          .get("/")
+        request(createServer(':total-time', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
@@ -866,8 +866,8 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":total-time[5]", { stream: stream }))
-          .get("/")
+        request(createServer(':total-time[5]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
@@ -882,12 +882,12 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":total-time[0]", { stream: stream }))
-          .get("/")
+        request(createServer(':total-time[0]', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should include response write time", function (done) {
+      it('should include response write time', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           var end = Date.now();
@@ -903,14 +903,14 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":total-time",
+          ':total-time',
           { stream: stream },
           function (req, res) {
-            res.write("hello, ");
+            res.write('hello, ');
             write = Date.now();
 
             setTimeout(function () {
-              res.end("world!");
+              res.end('world!');
             }, 50);
           }
         );
@@ -918,13 +918,13 @@ describe("morgan()", function () {
         var start = Date.now();
         var write = null;
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should be empty without hidden property", function (done) {
+      it('should be empty without hidden property', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -933,7 +933,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":total-time",
+          ':total-time',
           { stream: stream },
           function (req, res, next) {
             delete req._startAt;
@@ -941,13 +941,13 @@ describe("morgan()", function () {
           }
         );
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should be empty before response", function (done) {
+      it('should be empty before response', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -955,18 +955,18 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        var server = createServer(":total-time", {
+        var server = createServer(':total-time', {
           immediate: true,
           stream: stream,
         });
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should be empty if morgan invoked after response sent", function (done) {
+      it('should be empty if morgan invoked after response sent', function (done) {
         var cb = after(3, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           done();
         });
 
@@ -974,7 +974,7 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        var logger = morgan(":total-time", {
+        var logger = morgan(':total-time', {
           immediate: true,
           stream: stream,
         });
@@ -987,15 +987,15 @@ describe("morgan()", function () {
           res.end();
         });
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
     });
 
-    describe(":url", function () {
-      it("should get request URL", function (done) {
+    describe(':url', function () {
+      it('should get request URL', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "/foo");
+          assert.strictEqual(line, '/foo');
           done();
         });
 
@@ -1003,15 +1003,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":url", { stream: stream }))
-          .get("/foo")
+        request(createServer(':url', { stream: stream }))
+          .get('/foo')
           .expect(200, cb);
       });
 
-      it("should use req.originalUrl if exists", function (done) {
+      it('should use req.originalUrl if exists', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "/bar");
+          assert.strictEqual(line, '/bar');
           done();
         });
 
@@ -1020,39 +1020,39 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          ":url",
+          ':url',
           { stream: stream },
           function (req, res, next) {
-            req.originalUrl = "/bar";
+            req.originalUrl = '/bar';
             next();
           }
         );
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should not exist for aborted request", function (done) {
+      it('should not exist for aborted request', function (done) {
         var stream = createLineStream(function (line) {
-          assert.strictEqual(line, "-");
+          assert.strictEqual(line, '-');
           server.close(done);
         });
 
-        var server = createServer(":status", { stream: stream }, function () {
+        var server = createServer(':status', { stream: stream }, function () {
           test.abort();
         });
 
-        var test = request(server).post("/");
-        test.write("0");
+        var test = request(server).post('/');
+        test.write('0');
       });
     });
   });
 
-  describe("formats", function () {
-    describe("a function", function () {
-      it("should log result of function", function (done) {
+  describe('formats', function () {
+    describe('a function', function () {
+      it('should log result of function', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "GET / 200");
+          assert.strictEqual(line, 'GET / 200');
           done();
         });
 
@@ -1061,17 +1061,17 @@ describe("morgan()", function () {
         });
 
         function format(tokens, req, res) {
-          return [req.method, req.url, res.statusCode].join(" ");
+          return [req.method, req.url, res.statusCode].join(' ');
         }
 
         request(createServer(format, { stream: stream }))
-          .get("/")
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should not log for undefined return", function (done) {
+      it('should not log for undefined return', function (done) {
         var stream = createLineStream(function () {
-          throw new Error("should not log line");
+          throw new Error('should not log line');
         });
 
         function format(tokens, req, res) {
@@ -1079,13 +1079,13 @@ describe("morgan()", function () {
         }
 
         request(createServer(format, { stream: stream }))
-          .get("/")
+          .get('/')
           .expect(200, done);
       });
 
-      it("should not log for null return", function (done) {
+      it('should not log for null return', function (done) {
         var stream = createLineStream(function () {
-          throw new Error("should not log line");
+          throw new Error('should not log line');
         });
 
         function format(tokens, req, res) {
@@ -1093,16 +1093,16 @@ describe("morgan()", function () {
         }
 
         request(createServer(format, { stream: stream }))
-          .get("/")
+          .get('/')
           .expect(200, done);
       });
     });
 
-    describe("a string", function () {
-      it("should accept format as format string of tokens", function (done) {
+    describe('a string', function () {
+      it('should accept format as format string of tokens', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "GET /");
+          assert.strictEqual(line, 'GET /');
           done();
         });
 
@@ -1110,15 +1110,15 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer(":method :url", { stream: stream }))
-          .get("/")
+        request(createServer(':method :url', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should accept text mixed with tokens", function (done) {
+      it('should accept text mixed with tokens', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          assert.strictEqual(line, "method=GET url=/");
+          assert.strictEqual(line, 'method=GET url=/');
           done();
         });
 
@@ -1126,12 +1126,12 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer("method=:method url=:url", { stream: stream }))
-          .get("/")
+        request(createServer('method=:method url=:url', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
 
-      it("should accept special characters", function (done) {
+      it('should accept special characters', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.strictEqual(line, 'LOCAL\\tobi "GET /" 200');
@@ -1147,19 +1147,19 @@ describe("morgan()", function () {
             stream: stream,
           })
         )
-          .get("/")
-          .set("Authorization", "Basic dG9iaTpsb2tp")
+          .get('/')
+          .set('Authorization', 'Basic dG9iaTpsb2tp')
           .expect(200, cb);
       });
     });
 
-    describe("combined", function () {
-      it("should match expectations", function (done) {
+    describe('combined', function () {
+      it('should match expectations', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           var masked = line.replace(
             /\d{2}\/\w{3}\/\d{4}:\d{2}:\d{2}:\d{2} \+0000/,
-            "_timestamp_"
+            '_timestamp_'
           );
           assert.strictEqual(
             masked,
@@ -1173,22 +1173,22 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer("combined", { stream: stream }))
-          .get("/")
-          .set("Authorization", "Basic dGo6")
-          .set("Referer", "http://localhost/")
-          .set("User-Agent", "my-ua")
+        request(createServer('combined', { stream: stream }))
+          .get('/')
+          .set('Authorization', 'Basic dGo6')
+          .set('Referer', 'http://localhost/')
+          .set('User-Agent', 'my-ua')
           .expect(200, cb);
       });
     });
 
-    describe("common", function () {
-      it("should match expectations", function (done) {
+    describe('common', function () {
+      it('should match expectations', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           var masked = line.replace(
             /\d{2}\/\w{3}\/\d{4}:\d{2}:\d{2}:\d{2} \+0000/,
-            "_timestamp_"
+            '_timestamp_'
           );
           assert.strictEqual(
             masked,
@@ -1201,20 +1201,20 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer("common", { stream: stream }))
-          .get("/")
-          .set("Authorization", "Basic dGo6")
+        request(createServer('common', { stream: stream }))
+          .get('/')
+          .set('Authorization', 'Basic dGo6')
           .expect(200, cb);
       });
     });
 
-    describe("default", function () {
-      it("should match expectations", function (done) {
+    describe('default', function () {
+      it('should match expectations', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           var masked = line.replace(
             /\w+, \d+ \w+ \d+ \d+:\d+:\d+ \w+/,
-            "_timestamp_"
+            '_timestamp_'
           );
           assert.strictEqual(
             masked,
@@ -1228,24 +1228,24 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer("default", { stream: stream }))
-          .get("/")
-          .set("Authorization", "Basic dGo6")
-          .set("Referer", "http://localhost/")
-          .set("User-Agent", "my-ua")
+        request(createServer('default', { stream: stream }))
+          .get('/')
+          .set('Authorization', 'Basic dGo6')
+          .set('Referer', 'http://localhost/')
+          .set('User-Agent', 'my-ua')
           .expect(200, cb);
       });
     });
 
-    describe("dev", function () {
-      it("should not color 1xx", function (done) {
+    describe('dev', function () {
+      it('should not color 1xx', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.strictEqual(
             line.substr(0, 36),
-            "_color_0_GET / _color_0_102_color_0_"
+            '_color_0_GET / _color_0_102_color_0_'
           );
-          assert.strictEqual(line.substr(-9), "_color_0_");
+          assert.strictEqual(line.substr(-9), '_color_0_');
           done();
         });
 
@@ -1254,7 +1254,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          "dev",
+          'dev',
           { stream: stream },
           function (req, res, next) {
             res.statusCode = 102;
@@ -1263,9 +1263,9 @@ describe("morgan()", function () {
         );
 
         request(server)
-          .get("/")
+          .get('/')
           .expect(102, function (err, res) {
-            if (err && err.code === "ECONNRESET") {
+            if (err && err.code === 'ECONNRESET') {
               // finishing response with 1xx is invalid http
               // but node.js server lets the server do this, so
               // morgan needs to test in this condition even if
@@ -1276,14 +1276,14 @@ describe("morgan()", function () {
           });
       });
 
-      it("should color 2xx green", function (done) {
+      it('should color 2xx green', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.strictEqual(
             line.substr(0, 37),
-            "_color_0_GET / _color_32_200_color_0_"
+            '_color_0_GET / _color_32_200_color_0_'
           );
-          assert.strictEqual(line.substr(-9), "_color_0_");
+          assert.strictEqual(line.substr(-9), '_color_0_');
           done();
         });
 
@@ -1292,7 +1292,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          "dev",
+          'dev',
           { stream: stream },
           function (req, res, next) {
             res.statusCode = 200;
@@ -1300,17 +1300,17 @@ describe("morgan()", function () {
           }
         );
 
-        request(server).get("/").expect(200, cb);
+        request(server).get('/').expect(200, cb);
       });
 
-      it("should color 3xx cyan", function (done) {
+      it('should color 3xx cyan', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.strictEqual(
             line.substr(0, 37),
-            "_color_0_GET / _color_36_300_color_0_"
+            '_color_0_GET / _color_36_300_color_0_'
           );
-          assert.strictEqual(line.substr(-9), "_color_0_");
+          assert.strictEqual(line.substr(-9), '_color_0_');
           done();
         });
 
@@ -1319,7 +1319,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          "dev",
+          'dev',
           { stream: stream },
           function (req, res, next) {
             res.statusCode = 300;
@@ -1327,17 +1327,17 @@ describe("morgan()", function () {
           }
         );
 
-        request(server).get("/").expect(300, cb);
+        request(server).get('/').expect(300, cb);
       });
 
-      it("should color 4xx yelow", function (done) {
+      it('should color 4xx yelow', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.strictEqual(
             line.substr(0, 37),
-            "_color_0_GET / _color_33_400_color_0_"
+            '_color_0_GET / _color_33_400_color_0_'
           );
-          assert.strictEqual(line.substr(-9), "_color_0_");
+          assert.strictEqual(line.substr(-9), '_color_0_');
           done();
         });
 
@@ -1346,7 +1346,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          "dev",
+          'dev',
           { stream: stream },
           function (req, res, next) {
             res.statusCode = 400;
@@ -1354,17 +1354,17 @@ describe("morgan()", function () {
           }
         );
 
-        request(server).get("/").expect(400, cb);
+        request(server).get('/').expect(400, cb);
       });
 
-      it("should color 5xx red", function (done) {
+      it('should color 5xx red', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
           assert.strictEqual(
             line.substr(0, 37),
-            "_color_0_GET / _color_31_500_color_0_"
+            '_color_0_GET / _color_31_500_color_0_'
           );
-          assert.strictEqual(line.substr(-9), "_color_0_");
+          assert.strictEqual(line.substr(-9), '_color_0_');
           done();
         });
 
@@ -1373,7 +1373,7 @@ describe("morgan()", function () {
         });
 
         var server = createServer(
-          "dev",
+          'dev',
           { stream: stream },
           function (req, res, next) {
             res.statusCode = 500;
@@ -1381,16 +1381,16 @@ describe("morgan()", function () {
           }
         );
 
-        request(server).get("/").expect(500, cb);
+        request(server).get('/').expect(500, cb);
       });
 
       describe('with "immediate: true" option', function () {
-        it("should not have color or response values", function (done) {
+        it('should not have color or response values', function (done) {
           var cb = after(2, function (err, res, line) {
             if (err) return done(err);
             assert.strictEqual(
               line,
-              "_color_0_GET / _color_0_-_color_0_ - ms - -_color_0_"
+              '_color_0_GET / _color_0_-_color_0_ - ms - -_color_0_'
             );
             done();
           });
@@ -1399,24 +1399,24 @@ describe("morgan()", function () {
             cb(null, null, line);
           });
 
-          var server = createServer("dev", {
+          var server = createServer('dev', {
             immediate: true,
             stream: stream,
           });
 
-          request(server).get("/").expect(200, cb);
+          request(server).get('/').expect(200, cb);
         });
       });
     });
 
-    describe("short", function () {
-      it("should match expectations", function (done) {
+    describe('short', function () {
+      it('should match expectations', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          var masked = line.replace(/\d+\.\d{3} ms/, "_timer_");
+          var masked = line.replace(/\d+\.\d{3} ms/, '_timer_');
           assert.strictEqual(
             masked,
-            res.text + " tj GET / HTTP/1.1 200 - - _timer_"
+            res.text + ' tj GET / HTTP/1.1 200 - - _timer_'
           );
           done();
         });
@@ -1425,19 +1425,19 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer("short", { stream: stream }))
-          .get("/")
-          .set("Authorization", "Basic dGo6")
+        request(createServer('short', { stream: stream }))
+          .get('/')
+          .set('Authorization', 'Basic dGo6')
           .expect(200, cb);
       });
     });
 
-    describe("tiny", function () {
-      it("should match expectations", function (done) {
+    describe('tiny', function () {
+      it('should match expectations', function (done) {
         var cb = after(2, function (err, res, line) {
           if (err) return done(err);
-          var masked = line.replace(/\d+\.\d{3} ms/, "_timer_");
-          assert.strictEqual(masked, "GET / 200 - - _timer_");
+          var masked = line.replace(/\d+\.\d{3} ms/, '_timer_');
+          assert.strictEqual(masked, 'GET / 200 - - _timer_');
           done();
         });
 
@@ -1445,23 +1445,23 @@ describe("morgan()", function () {
           cb(null, null, line);
         });
 
-        request(createServer("tiny", { stream: stream }))
-          .get("/")
+        request(createServer('tiny', { stream: stream }))
+          .get('/')
           .expect(200, cb);
       });
     });
   });
 
-  describe("with buffer option", function () {
-    it("should flush log periodically", function (done) {
+  describe('with buffer option', function () {
+    it('should flush log periodically', function (done) {
       var cb = after(2, function (err, res, log) {
         if (err) return done(err);
-        assert.strictEqual(log, "GET /first\nGET /second\n");
+        assert.strictEqual(log, 'GET /first\nGET /second\n');
         assert.ok(Date.now() - time >= 1000);
         assert.ok(Date.now() - time <= 1100);
         done();
       });
-      var server = createServer(":method :url", {
+      var server = createServer(':method :url', {
         buffer: true,
         stream: { write: writeLog },
       });
@@ -1472,22 +1472,22 @@ describe("morgan()", function () {
       }
 
       request(server)
-        .get("/first")
+        .get('/first')
         .expect(200, function (err) {
           if (err) return cb(err);
-          request(server).get("/second").expect(200, cb);
+          request(server).get('/second').expect(200, cb);
         });
     });
 
-    it("should accept custom interval", function (done) {
+    it('should accept custom interval', function (done) {
       var cb = after(2, function (err, res, log) {
         if (err) return done(err);
-        assert.strictEqual(log, "GET /first\nGET /second\n");
+        assert.strictEqual(log, 'GET /first\nGET /second\n');
         assert.ok(Date.now() - time >= 200);
         assert.ok(Date.now() - time <= 300);
         done();
       });
-      var server = createServer(":method :url", {
+      var server = createServer(':method :url', {
         buffer: 200,
         stream: { write: writeLog },
       });
@@ -1498,19 +1498,19 @@ describe("morgan()", function () {
       }
 
       request(server)
-        .get("/first")
+        .get('/first')
         .expect(200, function (err) {
           if (err) return cb(err);
-          request(server).get("/second").expect(200, cb);
+          request(server).get('/second').expect(200, cb);
         });
     });
   });
 
-  describe("with immediate option", function () {
-    it("should not have value for :res", function (done) {
+  describe('with immediate option', function () {
+    it('should not have value for :res', function (done) {
       var cb = after(2, function (err, res, line) {
         if (err) return done(err);
-        assert.strictEqual(line, "GET / -");
+        assert.strictEqual(line, 'GET / -');
         done();
       });
 
@@ -1518,18 +1518,18 @@ describe("morgan()", function () {
         cb(null, null, line);
       });
 
-      var server = createServer(":method :url :res[x-sent]", {
+      var server = createServer(':method :url :res[x-sent]', {
         immediate: true,
         stream: stream,
       });
 
-      request(server).get("/").expect(200, cb);
+      request(server).get('/').expect(200, cb);
     });
 
-    it("should not have value for :response-time", function (done) {
+    it('should not have value for :response-time', function (done) {
       var cb = after(2, function (err, res, line) {
         if (err) return done(err);
-        assert.strictEqual(line, "GET / -");
+        assert.strictEqual(line, 'GET / -');
         done();
       });
 
@@ -1537,18 +1537,18 @@ describe("morgan()", function () {
         cb(null, null, line);
       });
 
-      var server = createServer(":method :url :response-time", {
+      var server = createServer(':method :url :response-time', {
         immediate: true,
         stream: stream,
       });
 
-      request(server).get("/").expect(200, cb);
+      request(server).get('/').expect(200, cb);
     });
 
-    it("should not have value for :status", function (done) {
+    it('should not have value for :status', function (done) {
       var cb = after(2, function (err, res, line) {
         if (err) return done(err);
-        assert.strictEqual(line, "GET / -");
+        assert.strictEqual(line, 'GET / -');
         done();
       });
 
@@ -1556,19 +1556,19 @@ describe("morgan()", function () {
         cb(null, null, line);
       });
 
-      var server = createServer(":method :url :status", {
+      var server = createServer(':method :url :status', {
         immediate: true,
         stream: stream,
       });
 
-      request(server).get("/").expect(200, cb);
+      request(server).get('/').expect(200, cb);
     });
 
-    it("should log before response", function (done) {
+    it('should log before response', function (done) {
       var lineLogged = false;
       var cb = after(2, function (err, res, line) {
         if (err) return done(err);
-        assert.strictEqual(line, "GET / -");
+        assert.strictEqual(line, 'GET / -');
         done();
       });
 
@@ -1578,7 +1578,7 @@ describe("morgan()", function () {
       });
 
       var server = createServer(
-        ":method :url :res[x-sent]",
+        ':method :url :res[x-sent]',
         { immediate: true, stream: stream },
         function (req, res, next) {
           assert.ok(lineLogged);
@@ -1586,63 +1586,63 @@ describe("morgan()", function () {
         }
       );
 
-      request(server).get("/").expect(200, cb);
+      request(server).get('/').expect(200, cb);
     });
   });
 
-  describe("with skip option", function () {
-    it("should be able to skip based on request", function (done) {
+  describe('with skip option', function () {
+    it('should be able to skip based on request', function (done) {
       var stream = createLineStream(function () {
-        throw new Error("should not log line");
+        throw new Error('should not log line');
       });
 
       function skip(req) {
-        return req.url.indexOf("skip=true") !== -1;
+        return req.url.indexOf('skip=true') !== -1;
       }
 
-      request(createServer({ format: "default", skip: skip, stream: stream }))
-        .get("/?skip=true")
-        .set("Connection", "close")
+      request(createServer({ format: 'default', skip: skip, stream: stream }))
+        .get('/?skip=true')
+        .set('Connection', 'close')
         .expect(200, done);
     });
 
-    it("should be able to skip based on response", function (done) {
+    it('should be able to skip based on response', function (done) {
       var stream = createLineStream(function () {
-        throw new Error("should not log line");
+        throw new Error('should not log line');
       });
 
       function skip(req, res) {
         return res.statusCode === 200;
       }
 
-      request(createServer({ format: "default", skip: skip, stream: stream }))
-        .get("/")
+      request(createServer({ format: 'default', skip: skip, stream: stream }))
+        .get('/')
         .expect(200, done);
     });
   });
 });
 
-describe("morgan.compile(format)", function () {
-  describe("arguments", function () {
-    describe("format", function () {
-      it("should be required", function () {
+describe('morgan.compile(format)', function () {
+  describe('arguments', function () {
+    describe('format', function () {
+      it('should be required', function () {
         assert.throws(morgan.compile.bind(morgan), /argument format/);
       });
 
-      it("should reject functions", function () {
+      it('should reject functions', function () {
         assert.throws(
           morgan.compile.bind(morgan, function () {}),
           /argument format/
         );
       });
 
-      it("should reject numbers", function () {
+      it('should reject numbers', function () {
         assert.throws(morgan.compile.bind(morgan, 42), /argument format/);
       });
 
-      it("should compile a string into a function", function () {
-        var fn = morgan.compile(":method");
-        assert.ok(typeof fn === "function");
+      it('should compile a string into a function', function () {
+        var fn = morgan.compile(':method');
+        assert.ok(typeof fn === 'function');
         assert.ok(fn.length === 3);
       });
     });
@@ -1654,7 +1654,7 @@ function after(count, callback) {
   var i = 0;
 
   return function (err, arg1, arg2) {
-    assert.ok(i++ < count, "callback called " + count + " times");
+    assert.ok(i++ < count, 'callback called ' + count + ' times');
 
     args[0] = args[0] || err;
     args[1] = args[1] || arg1;
@@ -1673,7 +1673,7 @@ function createColorLineStream(callback) {
 }
 
 function createLineStream(callback) {
-  return split().on("data", callback);
+  return split().on('data', callback);
 }
 
 function createRequestListener(format, opts, fn, fn1) {
@@ -1694,8 +1694,8 @@ function createRequestListener(format, opts, fn, fn1) {
           res.end(err.message);
         }
 
-        res.setHeader("X-Sent", "true");
-        res.end((req.connection && req.connection.remoteAddress) || "-");
+        res.setHeader('X-Sent', 'true');
+        res.end((req.connection && req.connection.remoteAddress) || '-');
       });
     });
   };
@@ -1703,25 +1703,25 @@ function createRequestListener(format, opts, fn, fn1) {
 
 function createSecureServer(format, opts, fn, fn1) {
   var cert = fs.readFileSync(
-    join(__dirname, "fixtures", "server.crt"),
-    "ascii"
+    join(__dirname, 'fixtures', 'server.crt'),
+    'ascii'
   );
-  var key = fs.readFileSync(join(__dirname, "fixtures", "server.key"), "ascii");
+  var key = fs.readFileSync(join(__dirname, 'fixtures', 'server.key'), 'ascii');
 
   return https
     .createServer({ cert: cert, key: key })
-    .on("request", createRequestListener(format, opts, fn, fn1));
+    .on('request', createRequestListener(format, opts, fn, fn1));
 }
 
 function createServer(format, opts, fn, fn1) {
   return http
     .createServer()
-    .on("request", createRequestListener(format, opts, fn, fn1));
+    .on('request', createRequestListener(format, opts, fn, fn1));
 }
 
 function expandColorCharacters(str) {
   // eslint-disable-next-line no-control-regex
-  return str.replace(/\x1b\[(\d+)m/g, "_color_$1_");
+  return str.replace(/\x1b\[(\d+)m/g, '_color_$1_');
 }
 
 function noopMiddleware(req, res, next) {

@@ -1,155 +1,408 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
-<head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README</title>
-  <style type="text/css">
-      code{white-space: pre-wrap;}
-      span.smallcaps{font-variant: small-caps;}
-      span.underline{text-decoration: underline;}
-      div.column{display: inline-block; vertical-align: top; width: 50%;}
-  </style>
-  <style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
-}
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(title);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-    color: #aaaaaa;
-  }
-pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-div.sourceCode
-  {  }
-@media screen {
-a.sourceLine::before { text-decoration: underline; }
-}
-code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code span.at { color: #7d9029; } /* Attribute */
-code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
-code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code span.ch { color: #4070a0; } /* Char */
-code span.cn { color: #880000; } /* Constant */
-code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code span.dt { color: #902000; } /* DataType */
-code span.dv { color: #40a070; } /* DecVal */
-code span.er { color: #ff0000; font-weight: bold; } /* Error */
-code span.ex { } /* Extension */
-code span.fl { color: #40a070; } /* Float */
-code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
-code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code span.op { color: #666666; } /* Operator */
-code span.ot { color: #007020; } /* Other */
-code span.pp { color: #bc7a00; } /* Preprocessor */
-code span.sc { color: #4070a0; } /* SpecialChar */
-code span.ss { color: #bb6688; } /* SpecialString */
-code span.st { color: #4070a0; } /* String */
-code span.va { color: #19177c; } /* Variable */
-code span.vs { color: #4070a0; } /* VerbatimString */
-code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-</head>
-<body>
-<figure>
-<img src="https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png" alt="logo_ironhack_blue 7" /><figcaption>logo_ironhack_blue 7</figcaption>
-</figure>
-<h1 id="lab-js-basic-algorithms">LAB | JS Basic Algorithms</h1>
-<p>Welcome to your first bootcamp exercise at Ironhack!</p>
-<p>The goal of this exercise is to get you familiarized with the primitive data structures in JavaScript, which we just covered in the class. Feel free to reference lesson materials and don’t limit yourself but be curious and use Google to explore multiple solutions.</p>
-<p>Ready?</p>
-<h2 id="introduction">Introduction</h2>
-<p>For this <strong>pair-programming</strong> activity we are going to use a <a href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop">REPL</a>. You can find a REPL that runs in the browser for programming languages as JavaScript in <a href="https://repl.it/languages/babel">https://repl.it/languages/babel</a>.</p>
-<p>Ready to start?</p>
-<h2 id="requirements">Requirements</h2>
-<ul>
-<li>Fork this repo</li>
-<li>Clone this repo</li>
-<li>Go to <a href="https://repl.it/languages/nodejs">repl.it</a> and create an account (or login if you have one)</li>
-<li><p>Type this in the <em>Code Editor</em> (left panel)</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode javascript"><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;I&#39;m ready!&quot;</span>)<span class="op">;</span></a></code></pre></div></li>
-<li>Press <code>run ►</code></li>
-<li><p>If you can see the message in the right side panel, you are really ready!</p>
-<!-- ![](https://i.imgur.com/4TQislb.png) -->
-<p><img src="https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_17f095b9bb4fa4bd1bee1c017c043327.png" /></p></li>
-<li><p><strong>When you are done completely or at any point after the first iteration, copy your code into the <code>js/index.js</code> file and follow the steps for submission.</strong></p></li>
-</ul>
-<h2 id="submission">Submission</h2>
-<p>Upon completion, run the following commands:</p>
-<pre><code>$ git add .
+  <head>
+    <meta charset="utf-8" />
+    <meta name="generator" content="pandoc" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, user-scalable=yes"
+    />
+    <title>README</title>
+    <style type="text/css">
+      code {
+        white-space: pre-wrap;
+      }
+      span.smallcaps {
+        font-variant: small-caps;
+      }
+      span.underline {
+        text-decoration: underline;
+      }
+      div.column {
+        display: inline-block;
+        vertical-align: top;
+        width: 50%;
+      }
+    </style>
+    <style type="text/css">
+      a.sourceLine {
+        display: inline-block;
+        line-height: 1.25;
+      }
+      a.sourceLine {
+        pointer-events: none;
+        color: inherit;
+        text-decoration: inherit;
+      }
+      a.sourceLine:empty {
+        height: 1.2em;
+      }
+      .sourceCode {
+        overflow: visible;
+      }
+      code.sourceCode {
+        white-space: pre;
+        position: relative;
+      }
+      div.sourceCode {
+        margin: 1em 0;
+      }
+      pre.sourceCode {
+        margin: 0;
+      }
+      @media screen {
+        div.sourceCode {
+          overflow: auto;
+        }
+      }
+      @media print {
+        code.sourceCode {
+          white-space: pre-wrap;
+        }
+        a.sourceLine {
+          text-indent: -1em;
+          padding-left: 1em;
+        }
+      }
+      pre.numberSource a.sourceLine {
+        position: relative;
+        left: -4em;
+      }
+      pre.numberSource a.sourceLine::before {
+        content: attr(title);
+        position: relative;
+        left: -1em;
+        text-align: right;
+        vertical-align: baseline;
+        border: none;
+        pointer-events: all;
+        display: inline-block;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        padding: 0 4px;
+        width: 4em;
+        color: #aaaaaa;
+      }
+      pre.numberSource {
+        margin-left: 3em;
+        border-left: 1px solid #aaaaaa;
+        padding-left: 4px;
+      }
+      div.sourceCode {
+      }
+      @media screen {
+        a.sourceLine::before {
+          text-decoration: underline;
+        }
+      }
+      code span.al {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Alert */
+      code span.an {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Annotation */
+      code span.at {
+        color: #7d9029;
+      } /* Attribute */
+      code span.bn {
+        color: #40a070;
+      } /* BaseN */
+      code span.bu {
+      } /* BuiltIn */
+      code span.cf {
+        color: #007020;
+        font-weight: bold;
+      } /* ControlFlow */
+      code span.ch {
+        color: #4070a0;
+      } /* Char */
+      code span.cn {
+        color: #880000;
+      } /* Constant */
+      code span.co {
+        color: #60a0b0;
+        font-style: italic;
+      } /* Comment */
+      code span.cv {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* CommentVar */
+      code span.do {
+        color: #ba2121;
+        font-style: italic;
+      } /* Documentation */
+      code span.dt {
+        color: #902000;
+      } /* DataType */
+      code span.dv {
+        color: #40a070;
+      } /* DecVal */
+      code span.er {
+        color: #ff0000;
+        font-weight: bold;
+      } /* Error */
+      code span.ex {
+      } /* Extension */
+      code span.fl {
+        color: #40a070;
+      } /* Float */
+      code span.fu {
+        color: #06287e;
+      } /* Function */
+      code span.im {
+      } /* Import */
+      code span.in {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Information */
+      code span.kw {
+        color: #007020;
+        font-weight: bold;
+      } /* Keyword */
+      code span.op {
+        color: #666666;
+      } /* Operator */
+      code span.ot {
+        color: #007020;
+      } /* Other */
+      code span.pp {
+        color: #bc7a00;
+      } /* Preprocessor */
+      code span.sc {
+        color: #4070a0;
+      } /* SpecialChar */
+      code span.ss {
+        color: #bb6688;
+      } /* SpecialString */
+      code span.st {
+        color: #4070a0;
+      } /* String */
+      code span.va {
+        color: #19177c;
+      } /* Variable */
+      code span.vs {
+        color: #4070a0;
+      } /* VerbatimString */
+      code span.wa {
+        color: #60a0b0;
+        font-weight: bold;
+        font-style: italic;
+      } /* Warning */
+    </style>
+  </head>
+  <body>
+    <figure>
+      <img
+        src="https://user-images.githubusercontent.com/23629340/40541063-a07a0a8a-601a-11e8-91b5-2f13e4e6b441.png"
+        alt="logo_ironhack_blue 7"
+      />
+      <figcaption>logo_ironhack_blue 7</figcaption>
+    </figure>
+    <h1 id="lab-js-basic-algorithms">LAB | JS Basic Algorithms</h1>
+    <p>Welcome to your first bootcamp exercise at Ironhack!</p>
+    <p>
+      The goal of this exercise is to get you familiarized with the primitive
+      data structures in JavaScript, which we just covered in the class. Feel
+      free to reference lesson materials and don’t limit yourself but be curious
+      and use Google to explore multiple solutions.
+    </p>
+    <p>Ready?</p>
+    <h2 id="introduction">Introduction</h2>
+    <p>
+      For this <strong>pair-programming</strong> activity we are going to use a
+      <a
+        href="https://en.wikipedia.org/wiki/Read%E2%80%93eval%E2%80%93print_loop"
+        >REPL</a
+      >. You can find a REPL that runs in the browser for programming languages
+      as JavaScript in
+      <a href="https://repl.it/languages/babel"
+        >https://repl.it/languages/babel</a
+      >.
+    </p>
+    <p>Ready to start?</p>
+    <h2 id="requirements">Requirements</h2>
+    <ul>
+      <li>Fork this repo</li>
+      <li>Clone this repo</li>
+      <li>
+        Go to <a href="https://repl.it/languages/nodejs">repl.it</a> and create
+        an account (or login if you have one)
+      </li>
+      <li>
+        <p>Type this in the <em>Code Editor</em> (left panel)</p>
+        <div class="sourceCode" id="cb1">
+          <pre
+            class="sourceCode javascript"
+          ><code class="sourceCode javascript"><a class="sourceLine" id="cb1-1" title="1"><span class="va">console</span>.<span class="at">log</span>(<span class="st">&quot;I&#39;m ready!&quot;</span>)<span class="op">;</span></a></code></pre>
+        </div>
+      </li>
+      <li>Press <code>run ►</code></li>
+      <li>
+        <p>
+          If you can see the message in the right side panel, you are really
+          ready!
+        </p>
+        <!-- ![](https://i.imgur.com/4TQislb.png) -->
+        <p>
+          <img
+            src="https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_17f095b9bb4fa4bd1bee1c017c043327.png"
+          />
+        </p>
+      </li>
+      <li>
+        <p>
+          <strong
+            >When you are done completely or at any point after the first
+            iteration, copy your code into the <code>js/index.js</code> file and
+            follow the steps for submission.</strong
+          >
+        </p>
+      </li>
+    </ul>
+    <h2 id="submission">Submission</h2>
+    <p>Upon completion, run the following commands:</p>
+    <pre><code>$ git add .
 $ git commit -m &quot;done&quot;
 $ git push origin master</code></pre>
-<p>Create Pull Request so your TAs can check up your work.</p>
-<p><em>You should make a PR (stands for Pull Request) as soon as you make any significant change. You shouldn’t have to wait until you’re completely done with this or any other exercise to make the PR. After you do the first PR, any other time you push the changes (following the previous three steps), your change will appear automatically on the PR and your TAs will be able to check it.</em></p>
-<!-- ## Submission -->
-<!-- When you are done and you have checked that everything works fine, click on the **Share** button and copy the link from the *Share Link* field. Send this link to your TAs so they can check up your work.
+    <p>Create Pull Request so your TAs can check up your work.</p>
+    <p>
+      <em
+        >You should make a PR (stands for Pull Request) as soon as you make any
+        significant change. You shouldn’t have to wait until you’re completely
+        done with this or any other exercise to make the PR. After you do the
+        first PR, any other time you push the changes (following the previous
+        three steps), your change will appear automatically on the PR and your
+        TAs will be able to check it.</em
+      >
+    </p>
+    <!-- ## Submission -->
+    <!-- When you are done and you have checked that everything works fine, click on the **Share** button and copy the link from the *Share Link* field. Send this link to your TAs so they can check up your work.
 ![](https://s3-eu-west-1.amazonaws.com/ih-materials/uploads/upload_b2aa98f91affe5d4c5f12f216b069184.png) -->
-<h2 id="instructions">Instructions</h2>
-<h3 id="iteration-1-names-and-input">Iteration 1: Names and Input</h3>
-<pre><code>1.1 Create a variable `hacker1` with the driver&#39;s name.
+    <h2 id="instructions">Instructions</h2>
+    <h3 id="iteration-1-names-and-input">Iteration 1: Names and Input</h3>
+    <pre><code>1.1 Create a variable `hacker1` with the driver&#39;s name.
 
 1.2 Print `&quot;The driver&#39;s name is XXXX&quot;`.</code></pre>
-<p>1.3 Create a variable <code>hacker2</code> with the navigator’s name.</p>
-<p>1.4 Print <code>"The navigator's name is YYYY"</code>.</p>
-<h3 id="iteration-2-conditionals">Iteration 2: Conditionals</h3>
-<p>2.1. Depending on which name <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length">is longer</a>, print: <br> - <code>The driver has the longest name, it has XX characters.</code> or <br> - <code>It seems that the navigator has the longest name, it has XX characters.</code> or <br> - <code>Wow, you both have equally long names, XX characters!</code>.</p>
-<h3 id="iteration-3-loops">Iteration 3: Loops</h3>
-<p>3.1 Print all the characters of the driver’s name, separated by a space and <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase">in capitals</a> i.e. <code>"J O H N"</code></p>
-<p>3.2 Print all the characters of the navigator’s name, in reverse order. i.e. <code>"nhoJ"</code></p>
-<p>3.3 Depending on the <a href="https://en.wikipedia.org/wiki/Lexicographical_order">lexicographic order</a> of the strings, print: <br> - <code>The driver's name goes first.</code> <br> - <code>Yo, the navigator goes first definitely.</code> <br> - <code>What?! You both have the same name?</code></p>
-<h3 id="bonus-time">Bonus Time!</h3>
-<h4 id="bonus-1">Bonus 1:</h4>
-<p>Go to <a href="http://www.lipsum.com/">lorem ipsum generator</a> and:</p>
-<ul>
-<li>Generate 3 paragraphs. Store the text in a variable type of string.</li>
-<li>Make your program count the number of words in the string.</li>
-<li>Make your program count the number of times the Latin word <a href="https://en.wiktionary.org/wiki/et#Latin"><code>et</code></a> appears.</li>
-</ul>
-<h4 id="bonus-2">Bonus 2:</h4>
-<p>Create a new variable <code>phraseToCheck</code> and have it contain some string value. Write a code that will check if the value we assigned to this variable is a <a href="https://en.wikipedia.org/wiki/Palindrome">Palindrome</a>. Here are some examples of palindromes:</p>
-<ul>
-<li>“A man, a plan, a canal, Panama!”</li>
-<li>“Amor, Roma”</li>
-<li>“race car”</li>
-<li>“stack cats”</li>
-<li>“step on no pets”</li>
-<li>“taco cat”</li>
-<li>“put it up”</li>
-<li>“Was it a car or a cat I saw?” and “No ‘x’ in Nixon”.</li>
-</ul>
-<p><strong>Hint</strong>: If you use Google to help you to find solution to this iteration, you might run into some solutions that use advanced string or array methods (such as <em>join()</em>, <em>reverse()</em>, etc.). However, try to apply the knowledge you currently have since you can build pretty nice solution with just using <code>for</code> loop, <code>if-else</code> statements with some <code>break</code> and <code>continue</code>… Just sayin’ :smiley:</p>
-<h2 id="extra-resources">Extra Resources</h2>
-<ul>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">String - MDN</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else">if - MDN</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while">while - MDN</a></li>
-<li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for">for - MDN</a></li>
-</ul>
-<p><strong>Happy coding!</strong> :heart:</p>
-</body>
+    <p>1.3 Create a variable <code>hacker2</code> with the navigator’s name.</p>
+    <p>1.4 Print <code>"The navigator's name is YYYY"</code>.</p>
+    <h3 id="iteration-2-conditionals">Iteration 2: Conditionals</h3>
+    <p>
+      2.1. Depending on which name
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length"
+        >is longer</a
+      >, print: <br />
+      - <code>The driver has the longest name, it has XX characters.</code> or
+      <br />
+      -
+      <code
+        >It seems that the navigator has the longest name, it has XX
+        characters.</code
+      >
+      or <br />
+      - <code>Wow, you both have equally long names, XX characters!</code>.
+    </p>
+    <h3 id="iteration-3-loops">Iteration 3: Loops</h3>
+    <p>
+      3.1 Print all the characters of the driver’s name, separated by a space
+      and
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase"
+        >in capitals</a
+      >
+      i.e. <code>"J O H N"</code>
+    </p>
+    <p>
+      3.2 Print all the characters of the navigator’s name, in reverse order.
+      i.e. <code>"nhoJ"</code>
+    </p>
+    <p>
+      3.3 Depending on the
+      <a href="https://en.wikipedia.org/wiki/Lexicographical_order"
+        >lexicographic order</a
+      >
+      of the strings, print: <br />
+      - <code>The driver's name goes first.</code> <br />
+      - <code>Yo, the navigator goes first definitely.</code> <br />
+      - <code>What?! You both have the same name?</code>
+    </p>
+    <h3 id="bonus-time">Bonus Time!</h3>
+    <h4 id="bonus-1">Bonus 1:</h4>
+    <p>Go to <a href="http://www.lipsum.com/">lorem ipsum generator</a> and:</p>
+    <ul>
+      <li>
+        Generate 3 paragraphs. Store the text in a variable type of string.
+      </li>
+      <li>Make your program count the number of words in the string.</li>
+      <li>
+        Make your program count the number of times the Latin word
+        <a href="https://en.wiktionary.org/wiki/et#Latin"><code>et</code></a>
+        appears.
+      </li>
+    </ul>
+    <h4 id="bonus-2">Bonus 2:</h4>
+    <p>
+      Create a new variable <code>phraseToCheck</code> and have it contain some
+      string value. Write a code that will check if the value we assigned to
+      this variable is a
+      <a href="https://en.wikipedia.org/wiki/Palindrome">Palindrome</a>. Here
+      are some examples of palindromes:
+    </p>
+    <ul>
+      <li>“A man, a plan, a canal, Panama!”</li>
+      <li>“Amor, Roma”</li>
+      <li>“race car”</li>
+      <li>“stack cats”</li>
+      <li>“step on no pets”</li>
+      <li>“taco cat”</li>
+      <li>“put it up”</li>
+      <li>“Was it a car or a cat I saw?” and “No ‘x’ in Nixon”.</li>
+    </ul>
+    <p>
+      <strong>Hint</strong>: If you use Google to help you to find solution to
+      this iteration, you might run into some solutions that use advanced string
+      or array methods (such as <em>join()</em>, <em>reverse()</em>, etc.).
+      However, try to apply the knowledge you currently have since you can build
+      pretty nice solution with just using <code>for</code> loop,
+      <code>if-else</code> statements with some <code>break</code> and
+      <code>continue</code>… Just sayin’ :smiley:
+    </p>
+    <h2 id="extra-resources">Extra Resources</h2>
+    <ul>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String"
+          >String - MDN</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/if...else"
+          >if - MDN</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/while"
+          >while - MDN</a
+        >
+      </li>
+      <li>
+        <a
+          href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/for"
+          >for - MDN</a
+        >
+      </li>
+    </ul>
+    <p><strong>Happy coding!</strong> :heart:</p>
+  </body>
 </html>

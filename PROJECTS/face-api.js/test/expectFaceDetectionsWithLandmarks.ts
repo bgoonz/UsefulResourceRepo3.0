@@ -1,13 +1,13 @@
-import { FaceLandmarks } from "../src/classes/FaceLandmarks";
-import { FaceLandmarks68 } from "../src/classes/FaceLandmarks68";
-import { WithFaceDetection } from "../src/factories/WithFaceDetection";
-import { WithFaceLandmarks } from "../src/factories/WithFaceLandmarks";
+import { FaceLandmarks } from '../src/classes/FaceLandmarks';
+import { FaceLandmarks68 } from '../src/classes/FaceLandmarks68';
+import { WithFaceDetection } from '../src/factories/WithFaceDetection';
+import { WithFaceLandmarks } from '../src/factories/WithFaceLandmarks';
 import {
   ExpectedFaceDetectionWithLandmarks,
   expectPointsClose,
   expectRectClose,
   sortByFaceDetection,
-} from "./utils";
+} from './utils';
 
 export type BoxAndLandmarksDeltas = {
   maxScoreDelta: number;

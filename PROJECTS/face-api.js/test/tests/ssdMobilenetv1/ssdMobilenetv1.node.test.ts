@@ -1,26 +1,26 @@
-import * as faceapi from "../../../src";
+import * as faceapi from '../../../src';
 import {
   describeWithNets,
   expectAllTensorsReleased,
   assembleExpectedFullFaceDescriptions,
   ExpectedFullFaceDescription,
-} from "../../utils";
-import { SsdMobilenetv1Options, createCanvasFromMedia } from "../../../src";
-import { expectFaceDetections } from "../../expectFaceDetections";
-import { expectFullFaceDescriptions } from "../../expectFullFaceDescriptions";
-import { expectFaceDetectionsWithLandmarks } from "../../expectFaceDetectionsWithLandmarks";
-import { expectedSsdBoxes } from "./expectedBoxes";
-import { loadImage } from "../../env";
-import * as tf from "@tensorflow/tfjs-core";
+} from '../../utils';
+import { SsdMobilenetv1Options, createCanvasFromMedia } from '../../../src';
+import { expectFaceDetections } from '../../expectFaceDetections';
+import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions';
+import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks';
+import { expectedSsdBoxes } from './expectedBoxes';
+import { loadImage } from '../../env';
+import * as tf from '@tensorflow/tfjs-core';
 
-describe("ssdMobilenetv1 - node", () => {
+describe('ssdMobilenetv1 - node', () => {
   let imgTensor: faceapi.tf.Tensor3D;
   let expectedFullFaceDescriptions: ExpectedFullFaceDescription[];
   const expectedScores = [0.54, 0.81, 0.97, 0.88, 0.84, 0.61];
 
   beforeAll(async () => {
     imgTensor = tf.browser.fromPixels(
-      createCanvasFromMedia(await loadImage("test/images/faces.jpg"))
+      createCanvasFromMedia(await loadImage('test/images/faces.jpg'))
     );
     expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(
       expectedSsdBoxes
@@ -28,10 +28,10 @@ describe("ssdMobilenetv1 - node", () => {
   });
 
   describeWithNets(
-    "globalApi, tensor inputs",
+    'globalApi, tensor inputs',
     { withAllFacesSsdMobilenetv1: true },
     () => {
-      it("detectAllFaces", async () => {
+      it('detectAllFaces', async () => {
         const options = new SsdMobilenetv1Options({
           minConfidence: 0.5,
         });
@@ -50,7 +50,7 @@ describe("ssdMobilenetv1 - node", () => {
         );
       });
 
-      it("detectAllFaces.withFaceLandmarks()", async () => {
+      it('detectAllFaces.withFaceLandmarks()', async () => {
         const options = new SsdMobilenetv1Options({
           minConfidence: 0.5,
         });
@@ -73,7 +73,7 @@ describe("ssdMobilenetv1 - node", () => {
         );
       });
 
-      it("detectAllFaces.withFaceLandmarks().withFaceDescriptors()", async () => {
+      it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
         const options = new SsdMobilenetv1Options({
           minConfidence: 0.5,
         });
@@ -98,7 +98,7 @@ describe("ssdMobilenetv1 - node", () => {
         );
       });
 
-      it("detectSingleFace.withFaceLandmarks().withFaceDescriptor()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
         const options = new SsdMobilenetv1Options({
           minConfidence: 0.5,
         });
@@ -124,7 +124,7 @@ describe("ssdMobilenetv1 - node", () => {
         );
       });
 
-      it("no memory leaks", async () => {
+      it('no memory leaks', async () => {
         await expectAllTensorsReleased(async () => {
           await faceapi
             .detectAllFaces(imgTensor, new SsdMobilenetv1Options())

@@ -67,16 +67,13 @@ _You should make a PR (stands for Pull Request) as soon as you make any signific
 
 ### Iteration 2: Conditionals
 
-2.1. Depending on which name [is longer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length), print:
-<br> - `The driver has the longest name, it has XX characters.` or <br> - `It seems that the navigator has the longest name, it has XX characters.` or <br> - `Wow, you both have equally long names, XX characters!`.
+2.1. Depending on which name [is longer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/length), print: <br> - `The driver has the longest name, it has XX characters.` or <br> - `It seems that the navigator has the longest name, it has XX characters.` or <br> - `Wow, you both have equally long names, XX characters!`.
 
 ### Iteration 3: Loops
 
-3.1 Print all the characters of the driver's name, separated by a space and [in capitals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase)
-i.e. `"J O H N"`
+3.1 Print all the characters of the driver's name, separated by a space and [in capitals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toUpperCase) i.e. `"J O H N"`
 
-3.2 Print all the characters of the navigator's name, in reverse order.
-i.e. `"nhoJ"`
+3.2 Print all the characters of the navigator's name, in reverse order. i.e. `"nhoJ"`
 
 3.3 Depending on the [lexicographic order](https://en.wikipedia.org/wiki/Lexicographical_order) of the strings, print: <br> - `The driver's name goes first.` <br> - `Yo, the navigator goes first definitely.` <br> - `What?! You both have the same name?`
 

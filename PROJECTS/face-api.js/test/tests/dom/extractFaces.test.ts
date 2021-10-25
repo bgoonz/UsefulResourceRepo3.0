@@ -1,19 +1,19 @@
-import { createCanvasFromMedia, env, extractFaces, Rect } from "../../../src";
-import { loadImage } from "../../env";
+import { createCanvasFromMedia, env, extractFaces, Rect } from '../../../src';
+import { loadImage } from '../../env';
 
-describe("extractFaces", () => {
+describe('extractFaces', () => {
   let imgEl: HTMLImageElement,
     canvasEl: HTMLCanvasElement,
     Canvas: typeof HTMLCanvasElement;
 
   beforeAll(async () => {
-    imgEl = await loadImage("test/images/face1.png");
+    imgEl = await loadImage('test/images/face1.png');
     canvasEl = createCanvasFromMedia(imgEl);
     Canvas = env.getEnv().Canvas;
   });
 
-  describe("extracts canvases", () => {
-    it("HTMLImageElement, single box", async () => {
+  describe('extracts canvases', () => {
+    it('HTMLImageElement, single box', async () => {
       const rect = new Rect(0, 0, 50, 60);
       const canvases = await extractFaces(imgEl, [rect]);
 
@@ -23,7 +23,7 @@ describe("extractFaces", () => {
       expect(canvases[0].height).toEqual(60);
     });
 
-    it("HTMLImageElement, multiple boxes", async () => {
+    it('HTMLImageElement, multiple boxes', async () => {
       const rects = [new Rect(0, 0, 50, 60), new Rect(50, 50, 70, 80)];
       const canvases = await extractFaces(imgEl, rects);
 
@@ -36,7 +36,7 @@ describe("extractFaces", () => {
       expect(canvases[1].height).toEqual(80);
     });
 
-    it("HTMLCanvasElement, single box", async () => {
+    it('HTMLCanvasElement, single box', async () => {
       const rect = new Rect(0, 0, 50, 60);
       const canvases = await extractFaces(canvasEl, [rect]);
 
@@ -46,7 +46,7 @@ describe("extractFaces", () => {
       expect(canvases[0].height).toEqual(60);
     });
 
-    it("HTMLCanvasElement, multiple boxes", async () => {
+    it('HTMLCanvasElement, multiple boxes', async () => {
       const rects = [new Rect(0, 0, 50, 60), new Rect(50, 50, 70, 80)];
       const canvases = await extractFaces(canvasEl, rects);
 
@@ -60,8 +60,8 @@ describe("extractFaces", () => {
     });
   });
 
-  describe("box out of image borders", () => {
-    it("clips upper left corner", async () => {
+  describe('box out of image borders', () => {
+    it('clips upper left corner', async () => {
       const rect = new Rect(-10, -10, 110, 110);
       const canvases = await extractFaces(imgEl, [rect]);
 
@@ -69,7 +69,7 @@ describe("extractFaces", () => {
       expect(canvases[0].height).toEqual(100);
     });
 
-    it("clips bottom right corner", async () => {
+    it('clips bottom right corner', async () => {
       const rect = new Rect(imgEl.width - 100, imgEl.height - 100, 110, 110);
       const canvases = await extractFaces(imgEl, [rect]);
 
@@ -77,7 +77,7 @@ describe("extractFaces", () => {
       expect(canvases[0].height).toEqual(100);
     });
 
-    it("clips upper left and bottom right corners", async () => {
+    it('clips upper left and bottom right corners', async () => {
       const rect = new Rect(-10, -10, imgEl.width + 20, imgEl.height + 20);
       const canvases = await extractFaces(imgEl, [rect]);
 

@@ -1,5 +1,5 @@
-import { IRect } from "../../../src";
-import { sortBoxes } from "../../utils";
+import { IRect } from '../../../src';
+import { sortBoxes } from '../../utils';
 
 export const expectedSsdBoxes: IRect[] = sortBoxes([
   { x: 48, y: 253, width: 104, height: 129 },

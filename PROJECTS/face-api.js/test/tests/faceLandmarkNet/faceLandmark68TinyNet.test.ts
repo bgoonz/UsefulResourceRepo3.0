@@ -1,4 +1,4 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
 import {
   createCanvasFromMedia,
@@ -8,15 +8,15 @@ import {
   Point,
   TMediaElement,
   toNetInput,
-} from "../../../src";
-import { FaceLandmarks68 } from "../../../src/classes/FaceLandmarks68";
-import { loadImage, loadJson } from "../../env";
+} from '../../../src';
+import { FaceLandmarks68 } from '../../../src/classes/FaceLandmarks68';
+import { loadImage, loadJson } from '../../env';
 import {
   describeWithBackend,
   describeWithNets,
   expectAllTensorsReleased,
   expectPointClose,
-} from "../../utils";
+} from '../../utils';
 
 function getInputDims(input: tf.Tensor | TMediaElement): IDimensions {
   if (input instanceof tf.Tensor) {
@@ -26,7 +26,7 @@ function getInputDims(input: tf.Tensor | TMediaElement): IDimensions {
   return input;
 }
 
-describeWithBackend("faceLandmark68TinyNet", () => {
+describeWithBackend('faceLandmark68TinyNet', () => {
   let imgEl1: HTMLImageElement;
   let imgEl2: HTMLImageElement;
   let imgElRect: HTMLImageElement;
@@ -35,25 +35,25 @@ describeWithBackend("faceLandmark68TinyNet", () => {
   let faceLandmarkPositionsRect: Point[];
 
   beforeAll(async () => {
-    imgEl1 = await loadImage("test/images/face1.png");
-    imgEl2 = await loadImage("test/images/face2.png");
-    imgElRect = await loadImage("test/images/face_rectangular.png");
+    imgEl1 = await loadImage('test/images/face1.png');
+    imgEl2 = await loadImage('test/images/face2.png');
+    imgElRect = await loadImage('test/images/face_rectangular.png');
     faceLandmarkPositions1 = await loadJson<Point[]>(
-      "test/data/faceLandmarkPositions1Tiny.json"
+      'test/data/faceLandmarkPositions1Tiny.json'
     );
     faceLandmarkPositions2 = await loadJson<Point[]>(
-      "test/data/faceLandmarkPositions2Tiny.json"
+      'test/data/faceLandmarkPositions2Tiny.json'
     );
     faceLandmarkPositionsRect = await loadJson<Point[]>(
-      "test/data/faceLandmarkPositionsRectTiny.json"
+      'test/data/faceLandmarkPositionsRectTiny.json'
     );
   });
 
   describeWithNets(
-    "quantized weights",
+    'quantized weights',
     { withFaceLandmark68TinyNet: { quantized: true } },
     ({ faceLandmark68TinyNet }) => {
-      it("computes face landmarks for squared input", async () => {
+      it('computes face landmarks for squared input', async () => {
         const { width, height } = imgEl1;
 
         const result = (await faceLandmark68TinyNet.detectLandmarks(
@@ -69,7 +69,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
         });
       });
 
-      it("computes face landmarks for rectangular input", async () => {
+      it('computes face landmarks for rectangular input', async () => {
         const { width, height } = imgElRect;
 
         const result = (await faceLandmark68TinyNet.detectLandmarks(
@@ -88,10 +88,10 @@ describeWithBackend("faceLandmark68TinyNet", () => {
   );
 
   describeWithNets(
-    "batch inputs",
+    'batch inputs',
     { withFaceLandmark68TinyNet: { quantized: true } },
     ({ faceLandmark68TinyNet }) => {
-      it("computes face landmarks for batch of image elements", async () => {
+      it('computes face landmarks for batch of image elements', async () => {
         const inputs = [imgEl1, imgEl2, imgElRect];
 
         const faceLandmarkPositions = [
@@ -118,7 +118,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
         });
       });
 
-      it("computes face landmarks for batch of tf.Tensor3D", async () => {
+      it('computes face landmarks for batch of tf.Tensor3D', async () => {
         const inputs = [imgEl1, imgEl2, imgElRect].map((el) =>
           tf.browser.fromPixels(createCanvasFromMedia(el))
         );
@@ -147,7 +147,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
         });
       });
 
-      it("computes face landmarks for batch of mixed inputs", async () => {
+      it('computes face landmarks for batch of mixed inputs', async () => {
         const inputs = [
           imgEl1,
           tf.browser.fromPixels(createCanvasFromMedia(imgEl2)),
@@ -181,11 +181,11 @@ describeWithBackend("faceLandmark68TinyNet", () => {
   );
 
   describeWithNets(
-    "no memory leaks",
+    'no memory leaks',
     { withFaceLandmark68TinyNet: { quantized: true } },
     ({ faceLandmark68TinyNet }) => {
-      describe("forwardInput", () => {
-        it("single image element", async () => {
+      describe('forwardInput', () => {
+        it('single image element', async () => {
           await expectAllTensorsReleased(async () => {
             const netInput = new NetInput([imgEl1]);
             const outTensor = await faceLandmark68TinyNet.forwardInput(
@@ -195,7 +195,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           });
         });
 
-        it("multiple image elements", async () => {
+        it('multiple image elements', async () => {
           await expectAllTensorsReleased(async () => {
             const netInput = new NetInput([imgEl1, imgEl1, imgEl1]);
             const outTensor = await faceLandmark68TinyNet.forwardInput(
@@ -205,7 +205,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           });
         });
 
-        it("single tf.Tensor3D", async () => {
+        it('single tf.Tensor3D', async () => {
           const tensor = tf.browser.fromPixels(createCanvasFromMedia(imgEl1));
 
           await expectAllTensorsReleased(async () => {
@@ -219,7 +219,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           tensor.dispose();
         });
 
-        it("multiple tf.Tensor3Ds", async () => {
+        it('multiple tf.Tensor3Ds', async () => {
           const tensors = [imgEl1, imgEl1, imgEl1].map((el) =>
             tf.browser.fromPixels(createCanvasFromMedia(el))
           );
@@ -235,7 +235,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           tensors.forEach((t) => t.dispose());
         });
 
-        it("single batch size 1 tf.Tensor4Ds", async () => {
+        it('single batch size 1 tf.Tensor4Ds', async () => {
           const tensor = tf.tidy(() =>
             tf.browser.fromPixels(createCanvasFromMedia(imgEl1)).expandDims()
           ) as tf.Tensor4D;
@@ -250,7 +250,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           tensor.dispose();
         });
 
-        it("multiple batch size 1 tf.Tensor4Ds", async () => {
+        it('multiple batch size 1 tf.Tensor4Ds', async () => {
           const tensors = [imgEl1, imgEl1, imgEl1].map((el) =>
             tf.tidy(() =>
               tf.browser.fromPixels(createCanvasFromMedia(el)).expandDims()
@@ -268,14 +268,14 @@ describeWithBackend("faceLandmark68TinyNet", () => {
         });
       });
 
-      describe("detectLandmarks", () => {
-        it("single image element", async () => {
+      describe('detectLandmarks', () => {
+        it('single image element', async () => {
           await expectAllTensorsReleased(async () => {
             await faceLandmark68TinyNet.detectLandmarks(imgEl1);
           });
         });
 
-        it("multiple image elements", async () => {
+        it('multiple image elements', async () => {
           await expectAllTensorsReleased(async () => {
             await faceLandmark68TinyNet.detectLandmarks([
               imgEl1,
@@ -285,7 +285,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           });
         });
 
-        it("single tf.Tensor3D", async () => {
+        it('single tf.Tensor3D', async () => {
           const tensor = tf.browser.fromPixels(createCanvasFromMedia(imgEl1));
 
           await expectAllTensorsReleased(async () => {
@@ -295,7 +295,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           tensor.dispose();
         });
 
-        it("multiple tf.Tensor3Ds", async () => {
+        it('multiple tf.Tensor3Ds', async () => {
           const tensors = [imgEl1, imgEl1, imgEl1].map((el) =>
             tf.browser.fromPixels(createCanvasFromMedia(el))
           );
@@ -307,7 +307,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           tensors.forEach((t) => t.dispose());
         });
 
-        it("single batch size 1 tf.Tensor4Ds", async () => {
+        it('single batch size 1 tf.Tensor4Ds', async () => {
           const tensor = tf.tidy(() =>
             tf.browser.fromPixels(createCanvasFromMedia(imgEl1)).expandDims()
           ) as tf.Tensor4D;
@@ -319,7 +319,7 @@ describeWithBackend("faceLandmark68TinyNet", () => {
           tensor.dispose();
         });
 
-        it("multiple batch size 1 tf.Tensor4Ds", async () => {
+        it('multiple batch size 1 tf.Tensor4Ds', async () => {
           const tensors = [imgEl1, imgEl1, imgEl1].map((el) =>
             tf.tidy(() =>
               tf.browser.fromPixels(createCanvasFromMedia(el)).expandDims()

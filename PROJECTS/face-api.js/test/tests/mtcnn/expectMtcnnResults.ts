@@ -1,12 +1,12 @@
-import { IPoint, IRect } from "../../../src";
-import { FaceLandmarks5 } from "../../../src/classes/FaceLandmarks5";
-import { WithFaceDetection } from "../../../src/factories/WithFaceDetection";
-import { WithFaceLandmarks } from "../../../src/factories/WithFaceLandmarks";
+import { IPoint, IRect } from '../../../src';
+import { FaceLandmarks5 } from '../../../src/classes/FaceLandmarks5';
+import { WithFaceDetection } from '../../../src/factories/WithFaceDetection';
+import { WithFaceLandmarks } from '../../../src/factories/WithFaceLandmarks';
 import {
   BoxAndLandmarksDeltas,
   expectFaceDetectionsWithLandmarks,
-} from "../../expectFaceDetectionsWithLandmarks";
-import { sortBoxes, sortByDistanceToOrigin } from "../../utils";
+} from '../../expectFaceDetectionsWithLandmarks';
+import { sortBoxes, sortByDistanceToOrigin } from '../../utils';
 
 export const expectedMtcnnBoxes: IRect[] = sortBoxes([
   { x: 70, y: 21, width: 112, height: 112 },

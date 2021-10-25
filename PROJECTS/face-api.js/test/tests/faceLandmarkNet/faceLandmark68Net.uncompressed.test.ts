@@ -1,34 +1,34 @@
-import { Point } from "../../../src";
-import { FaceLandmarks68 } from "../../../src/classes/FaceLandmarks68";
-import { loadImage, loadJson } from "../../env";
+import { Point } from '../../../src';
+import { FaceLandmarks68 } from '../../../src/classes/FaceLandmarks68';
+import { loadImage, loadJson } from '../../env';
 import {
   describeWithBackend,
   describeWithNets,
   expectPointClose,
-} from "../../utils";
+} from '../../utils';
 
-describeWithBackend("faceLandmark68Net, uncompressed", () => {
+describeWithBackend('faceLandmark68Net, uncompressed', () => {
   let imgEl1: HTMLImageElement;
   let imgElRect: HTMLImageElement;
   let faceLandmarkPositions1: Point[];
   let faceLandmarkPositionsRect: Point[];
 
   beforeAll(async () => {
-    imgEl1 = await loadImage("test/images/face1.png");
-    imgElRect = await loadImage("test/images/face_rectangular.png");
+    imgEl1 = await loadImage('test/images/face1.png');
+    imgElRect = await loadImage('test/images/face_rectangular.png');
     faceLandmarkPositions1 = await loadJson<Point[]>(
-      "test/data/faceLandmarkPositions1.json"
+      'test/data/faceLandmarkPositions1.json'
     );
     faceLandmarkPositionsRect = await loadJson<Point[]>(
-      "test/data/faceLandmarkPositionsRect.json"
+      'test/data/faceLandmarkPositionsRect.json'
     );
   });
 
   describeWithNets(
-    "uncompressed weights",
+    'uncompressed weights',
     { withFaceLandmark68Net: { quantized: false } },
     ({ faceLandmark68Net }) => {
-      it("computes face landmarks for squared input", async () => {
+      it('computes face landmarks for squared input', async () => {
         const { width, height } = imgEl1;
 
         const result = (await faceLandmark68Net.detectLandmarks(
@@ -44,7 +44,7 @@ describeWithBackend("faceLandmark68Net, uncompressed", () => {
         });
       });
 
-      it("computes face landmarks for rectangular input", async () => {
+      it('computes face landmarks for rectangular input', async () => {
         const { width, height } = imgElRect;
 
         const result = (await faceLandmark68Net.detectLandmarks(

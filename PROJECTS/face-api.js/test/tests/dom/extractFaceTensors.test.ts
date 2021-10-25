@@ -3,21 +3,21 @@ import {
   extractFaceTensors,
   Rect,
   tf,
-} from "../../../src";
-import { loadImage } from "../../env";
-import { describeWithBackend } from "../../utils";
+} from '../../../src';
+import { loadImage } from '../../env';
+import { describeWithBackend } from '../../utils';
 
-describeWithBackend("extractFaceTensors", () => {
+describeWithBackend('extractFaceTensors', () => {
   let imgTensor: tf.Tensor3D;
 
   beforeAll(async () => {
     imgTensor = tf.browser.fromPixels(
-      createCanvasFromMedia(await loadImage("test/images/face1.png"))
+      createCanvasFromMedia(await loadImage('test/images/face1.png'))
     );
   });
 
-  describe("extracts tensors", () => {
-    it("single box", async () => {
+  describe('extracts tensors', () => {
+    it('single box', async () => {
       const rect = new Rect(0, 0, 50, 60);
       const tensors = await extractFaceTensors(imgTensor, [rect]);
 
@@ -26,7 +26,7 @@ describeWithBackend("extractFaceTensors", () => {
       tensors[0].dispose();
     });
 
-    it("multiple boxes", async () => {
+    it('multiple boxes', async () => {
       const rects = [new Rect(0, 0, 50, 60), new Rect(50, 50, 70, 80)];
       const tensors = await extractFaceTensors(imgTensor, rects);
 
@@ -38,8 +38,8 @@ describeWithBackend("extractFaceTensors", () => {
     });
   });
 
-  describe("box out of image borders", () => {
-    it("clips upper left corner", async () => {
+  describe('box out of image borders', () => {
+    it('clips upper left corner', async () => {
       const rect = new Rect(-10, -10, 110, 110);
       const tensors = await extractFaceTensors(imgTensor, [rect]);
 
@@ -47,7 +47,7 @@ describeWithBackend("extractFaceTensors", () => {
       tensors[0].dispose();
     });
 
-    it("clips bottom right corner", async () => {
+    it('clips bottom right corner', async () => {
       const rect = new Rect(
         imgTensor.shape[1] - 100,
         imgTensor.shape[0] - 100,
@@ -60,7 +60,7 @@ describeWithBackend("extractFaceTensors", () => {
       tensors[0].dispose();
     });
 
-    it("clips upper left and bottom right corners", async () => {
+    it('clips upper left and bottom right corners', async () => {
       const rect = new Rect(
         -10,
         -10,

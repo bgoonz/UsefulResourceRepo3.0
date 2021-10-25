@@ -3,7 +3,7 @@ layout: home
 title: Express - Node.js web application framework
 menu: home
 lang: en
-redirect_from: "/en/index.html"
+redirect_from: '/en/index.html'
 ---
 
 <section id="home-content">

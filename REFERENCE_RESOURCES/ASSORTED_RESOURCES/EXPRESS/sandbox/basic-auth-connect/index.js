@@ -1,4 +1,4 @@
-var http = require("http");
+var http = require('http');
 
 /*!
  * Connect - basicAuth
@@ -47,18 +47,18 @@ module.exports = function basicAuth(callback, realm) {
   var username, password;
 
   // user / pass strings
-  if ("string" == typeof callback) {
+  if ('string' == typeof callback) {
     username = callback;
     password = realm;
-    if ("string" != typeof password)
-      throw new Error("password argument required");
+    if ('string' != typeof password)
+      throw new Error('password argument required');
     realm = arguments[2];
     callback = function (user, pass) {
       return user == username && pass == password;
     };
   }
 
-  realm = realm || "Authorization Required";
+  realm = realm || 'Authorization Required';
 
   return function (req, res, next) {
     var authorization = req.headers.authorization;
@@ -66,15 +66,15 @@ module.exports = function basicAuth(callback, realm) {
     if (req.user) return next();
     if (!authorization) return unauthorized(res, realm);
 
-    var parts = authorization.split(" ");
+    var parts = authorization.split(' ');
 
     if (parts.length !== 2) return next(error(400));
 
     var scheme = parts[0],
-      credentials = new Buffer(parts[1], "base64").toString(),
-      index = credentials.indexOf(":");
+      credentials = new Buffer(parts[1], 'base64').toString(),
+      index = credentials.indexOf(':');
 
-    if ("Basic" != scheme || index < 0) return next(error(400));
+    if ('Basic' != scheme || index < 0) return next(error(400));
 
     var user = credentials.slice(0, index),
       pass = credentials.slice(index + 1);
@@ -108,8 +108,8 @@ module.exports = function basicAuth(callback, realm) {
 
 function unauthorized(res, realm) {
   res.statusCode = 401;
-  res.setHeader("WWW-Authenticate", 'Basic realm="' + realm + '"');
-  res.end("Unauthorized");
+  res.setHeader('WWW-Authenticate', 'Basic realm="' + realm + '"');
+  res.end('Unauthorized');
 }
 
 /**

@@ -1,14 +1,14 @@
-import { euclideanDistance } from "../src/euclideanDistance";
-import { WithFaceDescriptor } from "../src/factories/WithFaceDescriptor";
-import { WithFaceDetection } from "../src/factories/WithFaceDetection";
-import { WithFaceLandmarks } from "../src/factories/WithFaceLandmarks";
-import { BoxAndLandmarksDeltas } from "./expectFaceDetectionsWithLandmarks";
+import { euclideanDistance } from '../src/euclideanDistance';
+import { WithFaceDescriptor } from '../src/factories/WithFaceDescriptor';
+import { WithFaceDetection } from '../src/factories/WithFaceDetection';
+import { WithFaceLandmarks } from '../src/factories/WithFaceLandmarks';
+import { BoxAndLandmarksDeltas } from './expectFaceDetectionsWithLandmarks';
 import {
   ExpectedFullFaceDescription,
   expectPointClose,
   expectRectClose,
   sortByFaceDetection,
-} from "./utils";
+} from './utils';
 
 export type FullFaceDescriptionDeltas = BoxAndLandmarksDeltas & {
   maxDescriptorDelta: number;

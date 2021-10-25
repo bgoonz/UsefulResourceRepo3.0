@@ -1,26 +1,26 @@
-import * as faceapi from "../../../src";
+import * as faceapi from '../../../src';
 import {
   describeWithNets,
   expectAllTensorsReleased,
   assembleExpectedFullFaceDescriptions,
   ExpectedFullFaceDescription,
-} from "../../utils";
-import { TinyFaceDetectorOptions, createCanvasFromMedia } from "../../../src";
-import { expectFaceDetections } from "../../expectFaceDetections";
-import { expectFullFaceDescriptions } from "../../expectFullFaceDescriptions";
-import { expectFaceDetectionsWithLandmarks } from "../../expectFaceDetectionsWithLandmarks";
-import { expectedTinyFaceDetectorBoxes } from "../../expectedTinyFaceDetectorBoxes";
-import { loadImage } from "../../env";
-import * as tf from "@tensorflow/tfjs-core";
+} from '../../utils';
+import { TinyFaceDetectorOptions, createCanvasFromMedia } from '../../../src';
+import { expectFaceDetections } from '../../expectFaceDetections';
+import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions';
+import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks';
+import { expectedTinyFaceDetectorBoxes } from '../../expectedTinyFaceDetectorBoxes';
+import { loadImage } from '../../env';
+import * as tf from '@tensorflow/tfjs-core';
 
-describe("tinyFaceDetector - node", () => {
+describe('tinyFaceDetector - node', () => {
   let imgTensor: faceapi.tf.Tensor3D;
   let expectedFullFaceDescriptions: ExpectedFullFaceDescription[];
   const expectedScores = [0.7, 0.82, 0.93, 0.86, 0.79, 0.84];
 
   beforeAll(async () => {
     imgTensor = tf.browser.fromPixels(
-      createCanvasFromMedia(await loadImage("test/images/faces.jpg"))
+      createCanvasFromMedia(await loadImage('test/images/faces.jpg'))
     );
     expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(
       expectedTinyFaceDetectorBoxes
@@ -28,10 +28,10 @@ describe("tinyFaceDetector - node", () => {
   });
 
   describeWithNets(
-    "globalApi, tensor inputs",
+    'globalApi, tensor inputs',
     { withAllFacesTinyFaceDetector: true },
     () => {
-      it("detectAllFaces", async () => {
+      it('detectAllFaces', async () => {
         const options = new TinyFaceDetectorOptions({
           inputSize: 416,
         });
@@ -50,7 +50,7 @@ describe("tinyFaceDetector - node", () => {
         );
       });
 
-      it("detectAllFaces.withFaceLandmarks()", async () => {
+      it('detectAllFaces.withFaceLandmarks()', async () => {
         const options = new TinyFaceDetectorOptions({
           inputSize: 416,
         });
@@ -73,7 +73,7 @@ describe("tinyFaceDetector - node", () => {
         );
       });
 
-      it("detectAllFaces.withFaceLandmarks().withFaceDescriptors()", async () => {
+      it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
         const options = new TinyFaceDetectorOptions({
           inputSize: 416,
         });
@@ -98,7 +98,7 @@ describe("tinyFaceDetector - node", () => {
         );
       });
 
-      it("detectSingleFace.withFaceLandmarks().withFaceDescriptor()", async () => {
+      it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
         const options = new TinyFaceDetectorOptions({
           inputSize: 416,
         });
@@ -124,7 +124,7 @@ describe("tinyFaceDetector - node", () => {
         );
       });
 
-      it("no memory leaks", async () => {
+      it('no memory leaks', async () => {
         await expectAllTensorsReleased(async () => {
           await faceapi
             .detectAllFaces(imgTensor, new TinyFaceDetectorOptions())

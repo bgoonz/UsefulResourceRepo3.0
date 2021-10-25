@@ -1,19 +1,19 @@
-import * as faceapi from "../../../src";
+import * as faceapi from '../../../src';
 import {
   describeWithNets,
   expectAllTensorsReleased,
   assembleExpectedFullFaceDescriptions,
   ExpectedFullFaceDescription,
   describeWithBackend,
-} from "../../utils";
-import { TinyFaceDetectorOptions } from "../../../src";
-import { expectFaceDetections } from "../../expectFaceDetections";
-import { expectFullFaceDescriptions } from "../../expectFullFaceDescriptions";
-import { expectFaceDetectionsWithLandmarks } from "../../expectFaceDetectionsWithLandmarks";
-import { expectedTinyFaceDetectorBoxes } from "../../expectedTinyFaceDetectorBoxes";
-import { loadImage } from "../../env";
+} from '../../utils';
+import { TinyFaceDetectorOptions } from '../../../src';
+import { expectFaceDetections } from '../../expectFaceDetections';
+import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions';
+import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks';
+import { expectedTinyFaceDetectorBoxes } from '../../expectedTinyFaceDetectorBoxes';
+import { loadImage } from '../../env';
 
-describeWithBackend("tinyFaceDetector", () => {
+describeWithBackend('tinyFaceDetector', () => {
   let imgEl: HTMLImageElement;
   let expectedFullFaceDescriptions: ExpectedFullFaceDescription[];
   const expectedScores = [0.7, 0.82, 0.93, 0.86, 0.79, 0.84];
@@ -25,21 +25,21 @@ describeWithBackend("tinyFaceDetector", () => {
   };
 
   beforeAll(async () => {
-    imgEl = await loadImage("test/images/faces.jpg");
+    imgEl = await loadImage('test/images/faces.jpg');
     expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(
       expectedTinyFaceDetectorBoxes
     );
   });
 
   describeWithNets(
-    "tinyFaceDetector",
+    'tinyFaceDetector',
     {
       withAllFacesTinyFaceDetector: true,
       withFaceExpressionNet: { quantized: true },
     },
     () => {
-      describe("detectAllFaces", () => {
-        it("detectAllFaces", async () => {
+      describe('detectAllFaces', () => {
+        it('detectAllFaces', async () => {
           const options = new TinyFaceDetectorOptions({
             inputSize: 416,
           });
@@ -56,7 +56,7 @@ describeWithBackend("tinyFaceDetector", () => {
           );
         });
 
-        it("detectAllFaces.withFaceLandmarks()", async () => {
+        it('detectAllFaces.withFaceLandmarks()', async () => {
           const options = new TinyFaceDetectorOptions({
             inputSize: 416,
           });
@@ -74,7 +74,7 @@ describeWithBackend("tinyFaceDetector", () => {
           );
         });
 
-        it("detectAllFaces.withFaceLandmarks().withFaceDescriptors()", async () => {
+        it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
           const options = new TinyFaceDetectorOptions({
             inputSize: 416,
           });
@@ -94,8 +94,8 @@ describeWithBackend("tinyFaceDetector", () => {
         });
       });
 
-      describe("detectSingleFace", () => {
-        it("detectSingleFace", async () => {
+      describe('detectSingleFace', () => {
+        it('detectSingleFace', async () => {
           const options = new TinyFaceDetectorOptions({
             inputSize: 416,
           });
@@ -112,7 +112,7 @@ describeWithBackend("tinyFaceDetector", () => {
           );
         });
 
-        it("detectSingleFace.withFaceLandmarks()", async () => {
+        it('detectSingleFace.withFaceLandmarks()', async () => {
           const options = new TinyFaceDetectorOptions({
             inputSize: 416,
           });
@@ -130,7 +130,7 @@ describeWithBackend("tinyFaceDetector", () => {
           );
         });
 
-        it("detectSingleFace.withFaceLandmarks().withFaceDescriptor()", async () => {
+        it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
           const options = new TinyFaceDetectorOptions({
             inputSize: 416,
           });
@@ -150,8 +150,8 @@ describeWithBackend("tinyFaceDetector", () => {
         });
       });
 
-      describe("no memory leaks", () => {
-        it("detectAllFaces", async () => {
+      describe('no memory leaks', () => {
+        it('detectAllFaces', async () => {
           await expectAllTensorsReleased(async () => {
             await faceapi
               .detectAllFaces(imgEl, new TinyFaceDetectorOptions())
@@ -160,7 +160,7 @@ describeWithBackend("tinyFaceDetector", () => {
           });
         });
 
-        it("detectSingleFace", async () => {
+        it('detectSingleFace', async () => {
           await expectAllTensorsReleased(async () => {
             await faceapi
               .detectSingleFace(imgEl, new TinyFaceDetectorOptions())

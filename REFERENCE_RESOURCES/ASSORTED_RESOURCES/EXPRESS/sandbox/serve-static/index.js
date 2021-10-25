@@ -6,19 +6,19 @@
  * MIT Licensed
  */
 
-"use strict";
+'use strict';
 
 /**
  * Module dependencies.
  * @private
  */
 
-var encodeUrl = require("encodeurl");
-var escapeHtml = require("escape-html");
-var parseUrl = require("parseurl");
-var resolve = require("path").resolve;
-var send = require("send");
-var url = require("url");
+var encodeUrl = require('encodeurl');
+var escapeHtml = require('escape-html');
+var parseUrl = require('parseurl');
+var resolve = require('path').resolve;
+var send = require('send');
+var url = require('url');
 
 /**
  * Module exports.
@@ -37,11 +37,11 @@ module.exports.mime = send.mime;
 
 function serveStatic(root, options) {
   if (!root) {
-    throw new TypeError("root path required");
+    throw new TypeError('root path required');
   }
 
-  if (typeof root !== "string") {
-    throw new TypeError("root path must be a string");
+  if (typeof root !== 'string') {
+    throw new TypeError('root path must be a string');
   }
 
   // copy options object
@@ -56,8 +56,8 @@ function serveStatic(root, options) {
   // headers listener
   var setHeaders = opts.setHeaders;
 
-  if (setHeaders && typeof setHeaders !== "function") {
-    throw new TypeError("option setHeaders must be function");
+  if (setHeaders && typeof setHeaders !== 'function') {
+    throw new TypeError('option setHeaders must be function');
   }
 
   // setup options for send
@@ -70,15 +70,15 @@ function serveStatic(root, options) {
     : createNotFoundDirectoryListener();
 
   return function serveStatic(req, res, next) {
-    if (req.method !== "GET" && req.method !== "HEAD") {
+    if (req.method !== 'GET' && req.method !== 'HEAD') {
       if (fallthrough) {
         return next();
       }
 
       // method not allowed
       res.statusCode = 405;
-      res.setHeader("Allow", "GET, HEAD");
-      res.setHeader("Content-Length", "0");
+      res.setHeader('Allow', 'GET, HEAD');
+      res.setHeader('Content-Length', '0');
       res.end();
       return;
     }
@@ -88,31 +88,31 @@ function serveStatic(root, options) {
     var path = parseUrl(req).pathname;
 
     // make sure redirect occurs at mount
-    if (path === "/" && originalUrl.pathname.substr(-1) !== "/") {
-      path = "";
+    if (path === '/' && originalUrl.pathname.substr(-1) !== '/') {
+      path = '';
     }
 
     // create send stream
     var stream = send(req, path, opts);
 
     // add directory handler
-    stream.on("directory", onDirectory);
+    stream.on('directory', onDirectory);
 
     // add headers listener
     if (setHeaders) {
-      stream.on("headers", setHeaders);
+      stream.on('headers', setHeaders);
     }
 
     // add file listener for fallthrough
     if (fallthrough) {
-      stream.on("file", function onFile() {
+      stream.on('file', function onFile() {
         // once file is determined, always forward error
         forwardError = true;
       });
     }
 
     // forward errors
-    stream.on("error", function error(err) {
+    stream.on('error', function error(err) {
       if (forwardError || !(err.statusCode < 500)) {
         next(err);
         return;
@@ -137,7 +137,7 @@ function collapseLeadingSlashes(str) {
     }
   }
 
-  return i > 1 ? "/" + str.substr(i) : str;
+  return i > 1 ? '/' + str.substr(i) : str;
 }
 
 /**
@@ -150,20 +150,20 @@ function collapseLeadingSlashes(str) {
 
 function createHtmlDocument(title, body) {
   return (
-    "<!DOCTYPE html>\n" +
+    '<!DOCTYPE html>\n' +
     '<html lang="en">\n' +
-    "<head>\n" +
+    '<head>\n' +
     '<meta charset="utf-8">\n' +
-    "<title>" +
+    '<title>' +
     title +
-    "</title>\n" +
-    "</head>\n" +
-    "<body>\n" +
-    "<pre>" +
+    '</title>\n' +
+    '</head>\n' +
+    '<body>\n' +
+    '<pre>' +
     body +
-    "</pre>\n" +
-    "</body>\n" +
-    "</html>\n"
+    '</pre>\n' +
+    '</body>\n' +
+    '</html>\n'
   );
 }
 
@@ -195,26 +195,26 @@ function createRedirectDirectoryListener() {
 
     // append trailing slash
     originalUrl.path = null;
-    originalUrl.pathname = collapseLeadingSlashes(originalUrl.pathname + "/");
+    originalUrl.pathname = collapseLeadingSlashes(originalUrl.pathname + '/');
 
     // reformat the URL
     var loc = encodeUrl(url.format(originalUrl));
     var doc = createHtmlDocument(
-      "Redirecting",
+      'Redirecting',
       'Redirecting to <a href="' +
         escapeHtml(loc) +
         '">' +
         escapeHtml(loc) +
-        "</a>"
+        '</a>'
     );
 
     // send redirect response
     res.statusCode = 301;
-    res.setHeader("Content-Type", "text/html; charset=UTF-8");
-    res.setHeader("Content-Length", Buffer.byteLength(doc));
-    res.setHeader("Content-Security-Policy", "default-src 'none'");
-    res.setHeader("X-Content-Type-Options", "nosniff");
-    res.setHeader("Location", loc);
+    res.setHeader('Content-Type', 'text/html; charset=UTF-8');
+    res.setHeader('Content-Length', Buffer.byteLength(doc));
+    res.setHeader('Content-Security-Policy', "default-src 'none'");
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('Location', loc);
     res.end(doc);
   };
 }

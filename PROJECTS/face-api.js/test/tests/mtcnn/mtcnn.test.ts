@@ -1,32 +1,32 @@
-import * as faceapi from "../../../src";
-import { MtcnnOptions } from "../../../src/mtcnn/MtcnnOptions";
-import { loadImage } from "../../env";
-import { expectFaceDetections } from "../../expectFaceDetections";
-import { expectFaceDetectionsWithLandmarks } from "../../expectFaceDetectionsWithLandmarks";
-import { expectFullFaceDescriptions } from "../../expectFullFaceDescriptions";
+import * as faceapi from '../../../src';
+import { MtcnnOptions } from '../../../src/mtcnn/MtcnnOptions';
+import { loadImage } from '../../env';
+import { expectFaceDetections } from '../../expectFaceDetections';
+import { expectFaceDetectionsWithLandmarks } from '../../expectFaceDetectionsWithLandmarks';
+import { expectFullFaceDescriptions } from '../../expectFullFaceDescriptions';
 import {
   assembleExpectedFullFaceDescriptions,
   describeWithBackend,
   describeWithNets,
   expectAllTensorsReleased,
   ExpectedFullFaceDescription,
-} from "../../utils";
-import { expectedMtcnnBoxes } from "./expectMtcnnResults";
+} from '../../utils';
+import { expectedMtcnnBoxes } from './expectMtcnnResults';
 
-describeWithBackend("mtcnn", () => {
+describeWithBackend('mtcnn', () => {
   let imgEl: HTMLImageElement;
   let expectedFullFaceDescriptions: ExpectedFullFaceDescription[];
   const expectedScores = [1.0, 1.0, 1.0, 1.0, 0.99, 0.99];
 
   beforeAll(async () => {
-    imgEl = await loadImage("test/images/faces.jpg");
+    imgEl = await loadImage('test/images/faces.jpg');
     expectedFullFaceDescriptions = await assembleExpectedFullFaceDescriptions(
       expectedMtcnnBoxes
     );
   });
 
-  describeWithNets("globalApi", { withAllFacesMtcnn: true }, () => {
-    it("detectAllFaces", async () => {
+  describeWithNets('globalApi', { withAllFacesMtcnn: true }, () => {
+    it('detectAllFaces', async () => {
       const options = new MtcnnOptions({
         minFaceSize: 20,
       });
@@ -44,7 +44,7 @@ describeWithBackend("mtcnn", () => {
       );
     });
 
-    it("detectAllFaces.withFaceLandmarks().withFaceDescriptors()", async () => {
+    it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
       const options = new MtcnnOptions({
         minFaceSize: 20,
       });
@@ -67,7 +67,7 @@ describeWithBackend("mtcnn", () => {
       );
     });
 
-    it("detectAllFaces.withFaceLandmarks().withFaceDescriptors()", async () => {
+    it('detectAllFaces.withFaceLandmarks().withFaceDescriptors()', async () => {
       const options = new MtcnnOptions({
         minFaceSize: 20,
       });
@@ -92,7 +92,7 @@ describeWithBackend("mtcnn", () => {
       );
     });
 
-    it("detectSingleFace.withFaceLandmarks().withFaceDescriptor()", async () => {
+    it('detectSingleFace.withFaceLandmarks().withFaceDescriptor()', async () => {
       const options = new MtcnnOptions({
         minFaceSize: 20,
       });
@@ -118,7 +118,7 @@ describeWithBackend("mtcnn", () => {
       );
     });
 
-    it("no memory leaks", async () => {
+    it('no memory leaks', async () => {
       await expectAllTensorsReleased(async () => {
         await faceapi
           .detectAllFaces(imgEl, new MtcnnOptions({ minFaceSize: 200 }))

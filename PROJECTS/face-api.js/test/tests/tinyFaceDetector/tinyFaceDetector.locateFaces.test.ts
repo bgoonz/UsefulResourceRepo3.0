@@ -1,21 +1,21 @@
-import * as faceapi from "../../../src";
-import { loadImage } from "../../env";
-import { expectFaceDetections } from "../../expectFaceDetections";
-import { describeWithBackend, describeWithNets } from "../../utils";
-import { expectedTinyFaceDetectorBoxes } from "../../expectedTinyFaceDetectorBoxes";
+import * as faceapi from '../../../src';
+import { loadImage } from '../../env';
+import { expectFaceDetections } from '../../expectFaceDetections';
+import { describeWithBackend, describeWithNets } from '../../utils';
+import { expectedTinyFaceDetectorBoxes } from '../../expectedTinyFaceDetectorBoxes';
 
-describeWithBackend("tinyFaceDetector.locateFaces", () => {
+describeWithBackend('tinyFaceDetector.locateFaces', () => {
   let imgEl: HTMLImageElement;
 
   beforeAll(async () => {
-    imgEl = await loadImage("test/images/faces.jpg");
+    imgEl = await loadImage('test/images/faces.jpg');
   });
 
   describeWithNets(
-    "quantized weights",
+    'quantized weights',
     { withTinyFaceDetector: { quantized: true } },
     ({ tinyFaceDetector }) => {
-      it("inputSize 320, finds all faces", async () => {
+      it('inputSize 320, finds all faces', async () => {
         const detections = (await tinyFaceDetector.locateFaces(imgEl, {
           inputSize: 320,
         })) as faceapi.FaceDetection[];
@@ -35,7 +35,7 @@ describeWithBackend("tinyFaceDetector.locateFaces", () => {
         );
       });
 
-      it("inputSize 416, finds all faces", async () => {
+      it('inputSize 416, finds all faces', async () => {
         const detections = (await tinyFaceDetector.locateFaces(imgEl, {
           inputSize: 416,
         })) as faceapi.FaceDetection[];

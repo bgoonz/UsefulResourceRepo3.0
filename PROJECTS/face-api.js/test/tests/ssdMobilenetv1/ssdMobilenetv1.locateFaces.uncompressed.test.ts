@@ -1,21 +1,21 @@
-import * as faceapi from "../../../src";
-import { loadImage } from "../../env";
-import { expectFaceDetections } from "../../expectFaceDetections";
-import { describeWithBackend, describeWithNets } from "../../utils";
-import { expectedSsdBoxes } from "./expectedBoxes";
+import * as faceapi from '../../../src';
+import { loadImage } from '../../env';
+import { expectFaceDetections } from '../../expectFaceDetections';
+import { describeWithBackend, describeWithNets } from '../../utils';
+import { expectedSsdBoxes } from './expectedBoxes';
 
-describeWithBackend("ssdMobilenetv1.locateFaces, uncompressed", () => {
+describeWithBackend('ssdMobilenetv1.locateFaces, uncompressed', () => {
   let imgEl: HTMLImageElement;
 
   beforeAll(async () => {
-    imgEl = await loadImage("test/images/faces.jpg");
+    imgEl = await loadImage('test/images/faces.jpg');
   });
 
   describeWithNets(
-    "uncompressed weights",
+    'uncompressed weights',
     { withSsdMobilenetv1: { quantized: false } },
     ({ ssdMobilenetv1 }) => {
-      it("scores > 0.8", async () => {
+      it('scores > 0.8', async () => {
         const detections = (await ssdMobilenetv1.locateFaces(imgEl, {
           minConfidence: 0.8,
         })) as faceapi.FaceDetection[];
@@ -35,7 +35,7 @@ describeWithBackend("ssdMobilenetv1.locateFaces, uncompressed", () => {
         );
       });
 
-      it("scores > 0.5", async () => {
+      it('scores > 0.5', async () => {
         const detections = (await ssdMobilenetv1.locateFaces(imgEl, {
           minConfidence: 0.5,
         })) as faceapi.FaceDetection[];

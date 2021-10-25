@@ -1,16 +1,16 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
-import * as faceapi from "../src";
-import { FaceRecognitionNet, IPoint, IRect, Mtcnn, TinyYolov2 } from "../src/";
-import { AgeGenderNet } from "../src/ageGenderNet/AgeGenderNet";
-import { FaceDetection } from "../src/classes/FaceDetection";
-import { FaceLandmarks } from "../src/classes/FaceLandmarks";
-import { FaceExpressionNet } from "../src/faceExpressionNet/FaceExpressionNet";
-import { FaceLandmark68Net } from "../src/faceLandmarkNet/FaceLandmark68Net";
-import { FaceLandmark68TinyNet } from "../src/faceLandmarkNet/FaceLandmark68TinyNet";
-import { SsdMobilenetv1 } from "../src/ssdMobilenetv1/SsdMobilenetv1";
-import { TinyFaceDetector } from "../src/tinyFaceDetector/TinyFaceDetector";
-import { initNet, loadJson } from "./env";
+import * as faceapi from '../src';
+import { FaceRecognitionNet, IPoint, IRect, Mtcnn, TinyYolov2 } from '../src/';
+import { AgeGenderNet } from '../src/ageGenderNet/AgeGenderNet';
+import { FaceDetection } from '../src/classes/FaceDetection';
+import { FaceLandmarks } from '../src/classes/FaceLandmarks';
+import { FaceExpressionNet } from '../src/faceExpressionNet/FaceExpressionNet';
+import { FaceLandmark68Net } from '../src/faceLandmarkNet/FaceLandmark68Net';
+import { FaceLandmark68TinyNet } from '../src/faceLandmarkNet/FaceLandmark68TinyNet';
+import { SsdMobilenetv1 } from '../src/ssdMobilenetv1/SsdMobilenetv1';
+import { TinyFaceDetector } from '../src/tinyFaceDetector/TinyFaceDetector';
+import { initNet, loadJson } from './env';
 
 export function expectMaxDelta(val1: number, val2: number, maxDelta: number) {
   expect(Math.abs(val1 - val2)).toBeLessThanOrEqual(maxDelta);
@@ -101,10 +101,10 @@ export type ExpectedFullFaceDescription = ExpectedFaceDetectionWithLandmarks & {
 
 export async function assembleExpectedFullFaceDescriptions(
   detections: IRect[],
-  landmarksFile: string = "facesFaceLandmarkPositions.json"
+  landmarksFile: string = 'facesFaceLandmarkPositions.json'
 ): Promise<ExpectedFullFaceDescription[]> {
   const landmarks = await loadJson(`test/data/${landmarksFile}`);
-  const descriptors = await loadJson("test/data/facesFaceDescriptors.json");
+  const descriptors = await loadJson('test/data/facesFaceDescriptors.json');
 
   return detections.map((detection, i) => ({
     detection,
@@ -149,7 +149,7 @@ export type DescribeWithNetsOptions = {
   withTinyYolov2?: WithTinyYolov2Options;
 };
 
-const gpgpu = tf.ENV.backend["gpgpu"];
+const gpgpu = tf.ENV.backend['gpgpu'];
 
 export function describeWithBackend(
   description: string,
@@ -161,7 +161,7 @@ export function describeWithBackend(
   }
 
   const defaultBackendName = tf.getBackend();
-  const newBackendName = "testBackend";
+  const newBackendName = 'testBackend';
   const backend = new tf.webgl.MathBackendWebGL(gpgpu);
 
   describe(description, () => {
@@ -220,7 +220,7 @@ export function describeWithNets(
           ssdMobilenetv1,
           !!withSsdMobilenetv1 &&
             !withSsdMobilenetv1.quantized &&
-            "ssd_mobilenetv1_model.weights"
+            'ssd_mobilenetv1_model.weights'
         );
       }
 
@@ -229,7 +229,7 @@ export function describeWithNets(
           tinyFaceDetector,
           !!withTinyFaceDetector &&
             !withTinyFaceDetector.quantized &&
-            "tiny_face_detector_model.weights"
+            'tiny_face_detector_model.weights'
         );
       }
 
@@ -244,7 +244,7 @@ export function describeWithNets(
           faceLandmark68Net,
           !!withFaceLandmark68Net &&
             !withFaceLandmark68Net.quantized &&
-            "face_landmark_68_model.weights"
+            'face_landmark_68_model.weights'
         );
       }
 
@@ -253,7 +253,7 @@ export function describeWithNets(
           faceLandmark68TinyNet,
           !!withFaceLandmark68TinyNet &&
             !withFaceLandmark68TinyNet.quantized &&
-            "face_landmark_68_tiny_model.weights"
+            'face_landmark_68_tiny_model.weights'
         );
       }
 
@@ -268,14 +268,14 @@ export function describeWithNets(
           faceRecognitionNet,
           !!withFaceRecognitionNet &&
             !withFaceRecognitionNet.quantized &&
-            "face_recognition_model.weights"
+            'face_recognition_model.weights'
         );
       }
 
       if (withMtcnn || withAllFacesMtcnn) {
         await initNet<Mtcnn>(
           mtcnn,
-          !!withMtcnn && !withMtcnn.quantized && "mtcnn_model.weights"
+          !!withMtcnn && !withMtcnn.quantized && 'mtcnn_model.weights'
         );
       }
 
@@ -284,7 +284,7 @@ export function describeWithNets(
           faceExpressionNet,
           !!withFaceExpressionNet &&
             !withFaceExpressionNet.quantized &&
-            "face_expression_model.weights"
+            'face_expression_model.weights'
         );
       }
 
@@ -293,7 +293,7 @@ export function describeWithNets(
           ageGenderNet,
           !!withAgeGenderNet &&
             !withAgeGenderNet.quantized &&
-            "age_gender_model.weights"
+            'age_gender_model.weights'
         );
       }
 
@@ -302,7 +302,7 @@ export function describeWithNets(
           tinyYolov2,
           !!withTinyYolov2 &&
             !withTinyYolov2.quantized &&
-            "tiny_yolov2_model.weights",
+            'tiny_yolov2_model.weights',
           true
         );
       }

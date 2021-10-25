@@ -3,7 +3,7 @@ layout: page
 title: Installing Express
 menu: starter
 lang: en
-redirect_from: "/starter/installing.html"
+redirect_from: '/starter/installing.html'
 ---
 
 # Installing
@@ -15,15 +15,13 @@ $ mkdir myapp
 $ cd myapp
 ```
 
-Use the `npm init` command to create a `package.json` file for your application.
-For more information on how `package.json` works, see [Specifics of npm's package.json handling](https://docs.npmjs.com/files/package.json).
+Use the `npm init` command to create a `package.json` file for your application. For more information on how `package.json` works, see [Specifics of npm's package.json handling](https://docs.npmjs.com/files/package.json).
 
 ```sh
 $ npm init
 ```
 
-This command prompts you for a number of things, such as the name and version of your application.
-For now, you can simply hit RETURN to accept the defaults for most of them, with the following exception:
+This command prompts you for a number of things, such as the name and version of your application. For now, you can simply hit RETURN to accept the defaults for most of them, with the following exception:
 
 ```sh
 entry point: (index.js)

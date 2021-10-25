@@ -1,8 +1,8 @@
-import { Point, Rect } from "../../../src";
-import { FaceDetection } from "../../../src/classes/FaceDetection";
-import { FaceLandmarks68 } from "../../../src/classes/FaceLandmarks68";
-import { extendWithFaceDetection } from "../../../src/factories/WithFaceDetection";
-import { extendWithFaceLandmarks } from "../../../src/factories/WithFaceLandmarks";
+import { Point, Rect } from '../../../src';
+import { FaceDetection } from '../../../src/classes/FaceDetection';
+import { FaceLandmarks68 } from '../../../src/classes/FaceLandmarks68';
+import { extendWithFaceDetection } from '../../../src/factories/WithFaceDetection';
+import { extendWithFaceLandmarks } from '../../../src/factories/WithFaceLandmarks';
 
 const detection = new FaceDetection(1.0, new Rect(0.5, 0.5, 0.5, 0.5), {
   width: 100,
@@ -18,8 +18,8 @@ const unshiftedLandmarks = new FaceLandmarks68(
 const makeSrcObjectWithFaceDetection = <T>(srcObject: T) =>
   extendWithFaceDetection(srcObject, detection);
 
-describe("extendWithFaceDetection", () => {
-  it("returns WithFaceLandmarks", () => {
+describe('extendWithFaceDetection', () => {
+  it('returns WithFaceLandmarks', () => {
     const srcObj = {};
     const srcObjWithFaceDetection = makeSrcObjectWithFaceDetection(srcObj);
     const withFaceLandmarks = extendWithFaceLandmarks(
@@ -33,7 +33,7 @@ describe("extendWithFaceDetection", () => {
     expect(withFaceLandmarks.landmarks instanceof FaceLandmarks68).toBe(true);
   });
 
-  it("extends source object", () => {
+  it('extends source object', () => {
     const srcObj = { srcProp: { foo: true } };
     const srcObjWithFaceDetection = makeSrcObjectWithFaceDetection(srcObj);
     const withFaceLandmarks = extendWithFaceLandmarks(

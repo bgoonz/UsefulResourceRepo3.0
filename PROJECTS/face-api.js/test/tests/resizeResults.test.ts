@@ -1,12 +1,12 @@
-import { Point } from "tfjs-image-recognition-base";
+import { Point } from 'tfjs-image-recognition-base';
 
-import { Rect } from "../../src";
-import { FaceDetection } from "../../src/classes/FaceDetection";
-import { FaceLandmarks68 } from "../../src/classes/FaceLandmarks68";
-import { extendWithFaceDetection } from "../../src/factories/WithFaceDetection";
-import { extendWithFaceLandmarks } from "../../src/factories/WithFaceLandmarks";
-import { resizeResults } from "../../src/resizeResults";
-import { expectPointsClose, expectRectClose } from "../utils";
+import { Rect } from '../../src';
+import { FaceDetection } from '../../src/classes/FaceDetection';
+import { FaceLandmarks68 } from '../../src/classes/FaceLandmarks68';
+import { extendWithFaceDetection } from '../../src/factories/WithFaceDetection';
+import { extendWithFaceLandmarks } from '../../src/factories/WithFaceLandmarks';
+import { resizeResults } from '../../src/resizeResults';
+import { expectPointsClose, expectRectClose } from '../utils';
 
 const detection = new FaceDetection(1.0, new Rect(0, 0, 0.5, 0.5), {
   width: 100,
@@ -19,8 +19,8 @@ const unshiftedLandmarks = new FaceLandmarks68(
   { width: 100, height: 100 }
 );
 
-describe("resizeResults", () => {
-  it("resizes FaceDetection", () => {
+describe('resizeResults', () => {
+  it('resizes FaceDetection', () => {
     const width = 200;
     const height = 400;
 
@@ -32,7 +32,7 @@ describe("resizeResults", () => {
     expectRectClose(resized.box, expected.box, 0);
   });
 
-  it("resizes FaceLandmarks", () => {
+  it('resizes FaceLandmarks', () => {
     const width = 200;
     const height = 400;
 
@@ -44,7 +44,7 @@ describe("resizeResults", () => {
     expectPointsClose(resized.positions, expected.positions, 0);
   });
 
-  it("resizes WithFaceDetection", () => {
+  it('resizes WithFaceDetection', () => {
     const width = 200;
     const height = 400;
 
@@ -59,7 +59,7 @@ describe("resizeResults", () => {
     expectRectClose(resized.detection.box, expected.box, 0);
   });
 
-  it("resizes WithFaceLandmarks", () => {
+  it('resizes WithFaceLandmarks', () => {
     const width = 200;
     const height = 400;
 

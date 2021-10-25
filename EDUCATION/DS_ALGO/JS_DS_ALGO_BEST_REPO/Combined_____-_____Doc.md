@@ -1,4 +1,3 @@
-
 ## Backtracking
 
 - [AllCombinationsOfSizeK](https://github.com/TheAlgorithms/Javascript/blob/master/Backtracking/AllCombinationsOfSizeK.js)
@@ -358,4 +357,3 @@ See our [directory](DIRECTORY.md).
 ## Algorithm Explanation
 
 See our [wiki](https://github.com/TheAlgorithms/Javascript/wiki).
-

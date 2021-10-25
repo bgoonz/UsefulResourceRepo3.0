@@ -1,46 +1,46 @@
-import * as tf from "@tensorflow/tfjs-core";
+import * as tf from '@tensorflow/tfjs-core';
 
-import { FaceFeatureExtractor } from "../../../src/faceFeatureExtractor/FaceFeatureExtractor";
-import { FaceLandmark68NetBase } from "../../../src/faceLandmarkNet/FaceLandmark68NetBase";
+import { FaceFeatureExtractor } from '../../../src/faceFeatureExtractor/FaceFeatureExtractor';
+import { FaceLandmark68NetBase } from '../../../src/faceLandmarkNet/FaceLandmark68NetBase';
 
 class FakeFaceLandmark68NetBase extends FaceLandmark68NetBase<any> {
   protected getDefaultModelName(): string {
     throw new Error(
-      "FakeFaceLandmark68NetBase - getDefaultModelName not implemented"
+      'FakeFaceLandmark68NetBase - getDefaultModelName not implemented'
     );
   }
 
   protected getClassifierChannelsIn(): number {
     throw new Error(
-      "FakeFaceLandmark68NetBase - getClassifierChannelsIn not implemented"
+      'FakeFaceLandmark68NetBase - getClassifierChannelsIn not implemented'
     );
   }
 
   protected extractParams(_: any): any {
     throw new Error(
-      "FakeFaceLandmark68NetBase - extractParams not implemented"
+      'FakeFaceLandmark68NetBase - extractParams not implemented'
     );
   }
 
   protected extractParamsFromWeigthMap(_: any): any {
     throw new Error(
-      "FakeFaceLandmark68NetBase - extractParamsFromWeigthMap not implemented"
+      'FakeFaceLandmark68NetBase - extractParamsFromWeigthMap not implemented'
     );
   }
 
   public runNet(): any {
     throw new Error(
-      "FakeFaceLandmark68NetBase - extractParamsFromWeigthMap not implemented"
+      'FakeFaceLandmark68NetBase - extractParamsFromWeigthMap not implemented'
     );
   }
 }
 
-describe("FaceLandmark68NetBase", () => {
-  describe("postProcess", () => {
-    const net = new FakeFaceLandmark68NetBase("", new FaceFeatureExtractor());
+describe('FaceLandmark68NetBase', () => {
+  describe('postProcess', () => {
+    const net = new FakeFaceLandmark68NetBase('', new FaceFeatureExtractor());
 
-    describe("single batch", () => {
-      it("transform x coordinates for width < height", () => {
+    describe('single batch', () => {
+      it('transform x coordinates for width < height', () => {
         const landmarksData = Array(136).fill(0);
         landmarksData[0] = 0.4;
         landmarksData[1] = 0.55;
@@ -63,7 +63,7 @@ describe("FaceLandmark68NetBase", () => {
         expect(out[5]).toBeCloseTo(0.55, 2);
       });
 
-      it("transform y coordinates for height < width", () => {
+      it('transform y coordinates for height < width', () => {
         const landmarksData = Array(136).fill(0);
         landmarksData[0] = 0.55;
         landmarksData[1] = 0.4;
@@ -86,7 +86,7 @@ describe("FaceLandmark68NetBase", () => {
         expect(out[5]).toBeCloseTo(-0.1, 2);
       });
 
-      it("no transformation for height === width", () => {
+      it('no transformation for height === width', () => {
         const landmarksData = Array(136).fill(0);
         landmarksData[0] = 0.55;
         landmarksData[1] = 0.4;
@@ -110,8 +110,8 @@ describe("FaceLandmark68NetBase", () => {
       });
     });
 
-    describe("multiple batches", () => {
-      it("transform coordinates correctly for multiple batches", () => {
+    describe('multiple batches', () => {
+      it('transform coordinates correctly for multiple batches', () => {
         const landmarksData1 = Array(136).fill(0);
         landmarksData1[0] = 0.4;
         landmarksData1[1] = 0.55;

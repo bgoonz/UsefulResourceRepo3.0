@@ -1,6 +1,6 @@
-import { IRect } from "../src";
-import { FaceDetection } from "../src/classes/FaceDetection";
-import { expectRectClose, sortFaceDetections } from "./utils";
+import { IRect } from '../src';
+import { FaceDetection } from '../src/classes/FaceDetection';
+import { expectRectClose, sortFaceDetections } from './utils';
 
 export function expectFaceDetections(
   results: FaceDetection[],

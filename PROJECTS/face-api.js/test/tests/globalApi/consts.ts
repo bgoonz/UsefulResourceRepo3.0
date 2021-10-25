@@ -1,4 +1,4 @@
-import { TinyFaceDetectorOptions } from "../../../src";
+import { TinyFaceDetectorOptions } from '../../../src';
 
 export const withNetArgs = {
   withAllFacesTinyFaceDetector: true,
