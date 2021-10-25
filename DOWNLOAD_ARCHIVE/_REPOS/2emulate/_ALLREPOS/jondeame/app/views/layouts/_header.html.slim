@@ -1,0 +1,37 @@
+#header
+  /= render 'layouts/announcement'
+  = link_to "Home", root_url(host: Configuration[:base_domain] || request.domain), :class => 'logo', :title => Configuration[:company_name]
+  nav.actions
+    = link_to t('layouts.header.explore'), explore_path, :class => 'explore'
+    = link_to t('layouts.header.submit_project'), guidelines_start_path, :class =>  'submit_project'
+  .search
+    = form_tag explore_path, :method => 'GET', :class=>'search_input' do
+      = text_field_tag :pg_search, nil, autocomplete: "off", value: params[:pg_search]
+      = submit_tag
+  nav.menu
+    = link_to t('layouts.header.help'), Configuration[:support_forum], target: :_blank, id: 'guidelines_header_modal' if Configuration[:support_forum].present?
+    = link_to t('layouts.header.blog'), Configuration['blog_url'], target: :_blank, class: 'blog' if Configuration['blog_url'].present?
+    - if current_user
+      = link_to '#', class: 'my_profile_link' do
+        = image_tag(current_user.display_image, :size => "30x30", :class => 'profile_picture')
+        span.current_user_name= t('layouts.header.account')
+        = image_tag('dropdown.png', :class => 'dropdown_arrow')
+      ul.dropdown.user
+        li= link_to t('layouts.header.profile'), current_user
+        li
+          = link_to t('layouts.user.my_credits'), user_path(current_user, anchor: 'credits')
+          .small
+            | (#{current_user.display_credits})
+        li.divider
+        - if current_user.admin?
+          - for menu, path in Adm::BaseController.menu do
+            li= link_to menu, path
+        - if current_user.trustee?
+          - for menu, path in Channels::Adm::ProjectsController.menu do
+            li.channel_trustee= link_to menu, path
+        li.divider
+        li= link_to t('layouts.user.logout'), destroy_user_session_path, method: :delete
+    - else
+      = link_to t('layouts.header.signup'), new_user_registration_path
+      = link_to t('layouts.header.signin'), new_user_session_path
+  .clearfix

@@ -1,0 +1,22 @@
+rvm:
+  - 2.0.0-p0
+
+before_script:
+  - "cp config/database.sample.yml config/database.yml"
+  - "psql -c 'create role catarse SUPERUSER LOGIN;' postgres"
+  - "psql -c 'create database catarse_test;' -U catarse postgres"
+  - "sh -e /etc/init.d/xvfb start"
+  - "bundle exec rake db:migrate"
+
+env:
+  - DISPLAY=:99.0
+
+script:
+  - "bundle exec rspec spec"
+  - "bundle exec rake jasmine:ci"
+
+branches:
+  only:
+    - master
+    - production
+    - channels

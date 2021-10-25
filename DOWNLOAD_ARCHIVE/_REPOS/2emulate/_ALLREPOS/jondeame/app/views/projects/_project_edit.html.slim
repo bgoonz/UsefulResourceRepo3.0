@@ -1,0 +1,32 @@
+.bootstrap-twitter
+  .alert.alert-info
+    p
+      = "Para saber tudo sobre como estruturar o seu projeto, baixe o #{link_to 'Guia Completo', "#{Configuration[:base_url]}/guia_realizadores.pdf", target: '_blank'}".html_safe
+.bootstrap-form
+  = semantic_form_for @project do |form|
+    = form.inputs do
+      - if current_user.admin
+        = form.input :user_id
+        = form.input :permalink, as: :string
+      - if can? :update, @project, :name
+        = form.input :name, as: :string, required: false
+      - if can? :update, @project, :headline
+        = form.input :headline, as: :string, required: false
+      - if can? :update, @project, :category
+        = form.input :category, as: :select, required: false
+      - if can? :update, @project, :video_url
+        = form.input :video_url, as: :string, hint: t('formtastic.hints.project.video_url_edit'),required: false
+      - if can? :update, @project, :uploaded_image
+        = form.input :uploaded_image, as: :file, required: false,
+          hint: (@project.uploaded_image.present? ? image_tag(@project.uploaded_image.project_thumb.url, size: '220x172') : t('formtastic.hints.project.uploaded_image') )
+      - if can? :update, @project, :online_days
+        = form.input :online_days, as: :number, required: false
+      - if can? :update, @project, :goal
+        = form.input :goal, as: :number, required: false, hint: t('formtastic.hints.project.goal').html_safe
+      - if can? :update, @project, :about
+        = form.input :about, required: false
+        = render 'formatting_tips'
+
+      .clearfix
+      .form-actions.bootstrap-twitter
+        = form.submit class: 'btn'

@@ -1,0 +1,53 @@
+- if current_user
+  #nearOfData data-state="#{current_user.address_state}"
+
+#page_content
+  .container
+    .main
+      .section_header
+        .original_title
+          h1= t('.title')
+          h4= t('.subtitle')
+
+      #explore_results[data-projects-path=projects_path]
+        .results &nbsp;
+        .clearfix
+        #loading= image_tag "loading.gif"
+
+    .sidebar
+      .content
+        - unless @recommended.empty? and @expiring.empty? and @recent.empty? and @successful.empty?
+          section.highlights
+            h2= t('.quick_explore')
+            ul#explore_quick
+              - unless @recommended.empty?
+                li
+                  a#recommended[data-filter={recommended: true}.to_json href='#']
+                    = t('.recommended')
+              - unless @expiring.empty?
+                li.no_margin
+                  a#expiring[data-filter={expiring: true}.to_json href='#']
+                    = t('.expiring')
+              - unless @recent.empty?
+                li
+                  a#recent[data-filter={recent: true}.to_json href='#']
+                    = t('.recent')
+              - unless @successful.empty?
+                li.no_margin
+                  a[data-filter={successful: true}.to_json href='#']
+                    = t('.successful')
+              - if current_user
+                li.no_margin
+                  a href="#near"
+                    = t('.near')
+
+        - unless @categories.empty?
+          section.categories
+            h2= t('.categories')
+            ul#explore_categories
+              - @categories.each_with_index do |category, index|
+                li class="#{(index%2==1 ? 'no_margin':'')}"
+                  a[data-filter={by_category_id: category.id}.to_json href='#']
+                    = category
+
+    .clearfix
