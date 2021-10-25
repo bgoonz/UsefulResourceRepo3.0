@@ -11,22 +11,22 @@
  *   However, the audit will only fail pages that use images that have waste
  *   beyond a particular byte threshold.
  */
-"use strict";
+'use strict';
 
-const ByteEfficiencyAudit = require("./byte-efficiency-audit.js");
-const NetworkRequest = require("../../lib/network-request.js");
-const ImageRecords = require("../../computed/image-records.js");
-const URL = require("../../lib/url-shim.js");
-const i18n = require("../../lib/i18n/i18n.js");
+const ByteEfficiencyAudit = require('./byte-efficiency-audit.js');
+const NetworkRequest = require('../../lib/network-request.js');
+const ImageRecords = require('../../computed/image-records.js');
+const URL = require('../../lib/url-shim.js');
+const i18n = require('../../lib/i18n/i18n.js');
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to resize images to match the display dimensions. This is displayed in a list of audit titles that Lighthouse generates. */
-  title: "Properly size images",
+  title: 'Properly size images',
   /** Description of a Lighthouse audit that tells the user *why* they need to serve appropriately sized images. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description:
-    "Serve images that are appropriately-sized to save cellular data " +
-    "and improve load time. " +
-    "[Learn more](https://web.dev/uses-responsive-images/).",
+    'Serve images that are appropriately-sized to save cellular data ' +
+    'and improve load time. ' +
+    '[Learn more](https://web.dev/uses-responsive-images/).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -39,16 +39,16 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
    */
   static get meta() {
     return {
-      id: "uses-responsive-images",
+      id: 'uses-responsive-images',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: [
-        "ImageElements",
-        "ViewportDimensions",
-        "GatherContext",
-        "devtoolsLogs",
-        "traces",
+        'ImageElements',
+        'ViewportDimensions',
+        'GatherContext',
+        'devtoolsLogs',
+        'traces',
       ],
     };
   }
@@ -139,7 +139,7 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
       // Give SVG a free pass because creating a "responsive" SVG is of questionable value.
       // Ignore CSS images because it's difficult to determine what is a spritesheet,
       // and the reward-to-effort ratio for responsive CSS images is quite low https://css-tricks.com/responsive-images-css/.
-      if (image.mimeType === "image/svg+xml" || image.isCss) {
+      if (image.mimeType === 'image/svg+xml' || image.isCss) {
         continue;
       }
 
@@ -169,16 +169,16 @@ class UsesResponsiveImages extends ByteEfficiencyAudit {
 
     /** @type {LH.Audit.Details.Opportunity['headings']} */
     const headings = [
-      { key: "url", valueType: "thumbnail", label: "" },
-      { key: "url", valueType: "url", label: str_(i18n.UIStrings.columnURL) },
+      { key: 'url', valueType: 'thumbnail', label: '' },
+      { key: 'url', valueType: 'url', label: str_(i18n.UIStrings.columnURL) },
       {
-        key: "totalBytes",
-        valueType: "bytes",
+        key: 'totalBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnResourceSize),
       },
       {
-        key: "wastedBytes",
-        valueType: "bytes",
+        key: 'wastedBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnWastedBytes),
       },
     ];

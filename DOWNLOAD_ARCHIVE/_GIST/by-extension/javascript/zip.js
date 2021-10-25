@@ -22,4 +22,4 @@ function* zip(...iterables) {
 }
 
 // Interleave three iterable objects
-[...zip(oneDigitPrimes(), "ab", [0])]; // => [2,"a",0,3,"b",5,7]
+[...zip(oneDigitPrimes(), 'ab', [0])]; // => [2,"a",0,3,"b",5,7]

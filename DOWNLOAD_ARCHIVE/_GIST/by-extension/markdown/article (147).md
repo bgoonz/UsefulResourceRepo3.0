@@ -25,8 +25,7 @@ Four points curve:
 If you look closely at these curves, you can immediately notice:
 
 1. **Points are not always on curve.** That's perfectly normal, later we'll see how the curve is built.
-2. **The curve order equals the number of points minus one**.
-   For two points we have a linear curve (that's a straight line), for three points -- quadratic curve (parabolic), for four points -- cubic curve.
+2. **The curve order equals the number of points minus one**. For two points we have a linear curve (that's a straight line), for three points -- quadratic curve (parabolic), for four points -- cubic curve.
 3. **A curve is always inside the [convex hull](https://en.wikipedia.org/wiki/Convex_hull) of control points:**
 
    ![](bezier4-e.svg) ![](bezier3-e.svg)
@@ -49,8 +48,7 @@ Here are some examples:
 
 ## De Casteljau's algorithm
 
-There's a mathematical formula for Bezier curves, but let's cover it a bit later, because
-[De Casteljau's algorithm](https://en.wikipedia.org/wiki/De_Casteljau%27s_algorithm) is identical to the mathematical definition and visually shows how it is constructed.
+There's a mathematical formula for Bezier curves, but let's cover it a bit later, because [De Casteljau's algorithm](https://en.wikipedia.org/wiki/De_Casteljau%27s_algorithm) is identical to the mathematical definition and visually shows how it is constructed.
 
 First let's see the 3-points example.
 

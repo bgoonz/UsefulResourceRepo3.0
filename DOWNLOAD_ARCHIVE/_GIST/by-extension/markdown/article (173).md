@@ -11,7 +11,7 @@ It has 3 modes:
 1. If the `regexp` doesn't have flag `pattern:g`, then it returns the first match as an array with capturing groups and properties `index` (position of the match), `input` (input string, equals `str`):
 
    ```js run
-   let str = "I love JavaScript";
+   let str = 'I love JavaScript';
 
    let result = str.match(/Java(Script)/);
 
@@ -27,7 +27,7 @@ It has 3 modes:
 2. If the `regexp` has flag `pattern:g`, then it returns an array of all matches as strings, without capturing groups and other details.
 
    ```js run
-   let str = "I love JavaScript";
+   let str = 'I love JavaScript';
 
    let result = str.match(/Java(Script)/g);
 
@@ -40,7 +40,7 @@ It has 3 modes:
    That's an important nuance. If there are no matches, we don't get an empty array, but `null`. It's easy to make a mistake forgetting about it, e.g.:
 
    ```js run
-   let str = "I love JavaScript";
+   let str = 'I love JavaScript';
 
    let result = str.match(/HTML/);
 
@@ -71,7 +71,7 @@ There are 3 differences from `match`:
 Usage example:
 
 ```js run
-let str = "<h1>Hello, world!</h1>";
+let str = '<h1>Hello, world!</h1>';
 let regexp = /<(.*?)>/g;
 
 let matchAll = str.matchAll(regexp);
@@ -96,13 +96,13 @@ Splits the string using the regexp (or a substring) as a delimiter.
 We can use `split` with strings, like this:
 
 ```js run
-alert("12-34-56".split("-")); // array of ['12', '34', '56']
+alert('12-34-56'.split('-')); // array of ['12', '34', '56']
 ```
 
 But we can split by a regular expression, the same way:
 
 ```js run
-alert("12, 34, 56".split(/,\s*/)); // array of ['12', '34', '56']
+alert('12, 34, 56'.split(/,\s*/)); // array of ['12', '34', '56']
 ```
 
 ## str.search(regexp)
@@ -110,7 +110,7 @@ alert("12, 34, 56".split(/,\s*/)); // array of ['12', '34', '56']
 The method `str.search(regexp)` returns the position of the first match or `-1` if none found:
 
 ```js run
-let str = "A drop of ink may make a million think";
+let str = 'A drop of ink may make a million think';
 
 alert(str.search(/ink/i)); // 10 (first match position)
 ```
@@ -127,7 +127,7 @@ We can use it without regexps, to search and replace a substring:
 
 ```js run
 // replace a dash by a colon
-alert("12-34-56".replace("-", ":")); // 12:34-56
+alert('12-34-56'.replace('-', ':')); // 12:34-56
 ```
 
 There's a pitfall though.
@@ -145,22 +145,22 @@ alert( '12-34-56'.replace( *!*/-/g*/!*, ":" ) )  // 12:34:56
 
 The second argument is a replacement string. We can use special characters in it:
 
-| Symbols              | Action in the replacement string                                                                                   |
-| -------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| `$&`                 | inserts the whole match                                                                                            |
-| <code>$&#096;</code> | inserts a part of the string before the match                                                                      |
-| `$'`                 | inserts a part of the string after the match                                                                       |
-| `$n`                 | if `n` is a 1-2 digit number, inserts the contents of n-th capturing group, for details see [](info:regexp-groups) |
-| `$<name>`            | inserts the contents of the parentheses with the given `name`, for details see [](info:regexp-groups)              |
-| `$$`                 | inserts character `$`                                                                                              |
+| Symbols | Action in the replacement string |
+| --- | --- |
+| `$&` | inserts the whole match |
+| <code>$&#096;</code> | inserts a part of the string before the match |
+| `$'` | inserts a part of the string after the match |
+| `$n` | if `n` is a 1-2 digit number, inserts the contents of n-th capturing group, for details see [](info:regexp-groups) |
+| `$<name>` | inserts the contents of the parentheses with the given `name`, for details see [](info:regexp-groups) |
+| `$$` | inserts character `$` |
 
 For instance:
 
 ```js run
-let str = "John Smith";
+let str = 'John Smith';
 
 // swap first and last name
-alert(str.replace(/(john) (smith)/i, "$2, $1")); // Smith, John
+alert(str.replace(/(john) (smith)/i, '$2, $1')); // Smith, John
 ```
 
 **For situations that require "smart" replacements, the second argument can be a function.**
@@ -180,7 +180,7 @@ If there are no parentheses in the regexp, then there are only 3 arguments: `fun
 For example, let's uppercase all matches:
 
 ```js run
-let str = "html and css";
+let str = 'html and css';
 
 let result = str.replace(/html|css/gi, (str) => str.toUpperCase());
 
@@ -190,13 +190,13 @@ alert(result); // HTML and CSS
 Replace each match by its position in the string:
 
 ```js run
-alert("Ho-Ho-ho".replace(/ho/gi, (match, offset) => offset)); // 0-3-6
+alert('Ho-Ho-ho'.replace(/ho/gi, (match, offset) => offset)); // 0-3-6
 ```
 
 In the example below there are two parentheses, so the replacement function is called with 5 arguments: the first is the full match, then 2 parentheses, and after it (not used in the example) the match position and the source string:
 
 ```js run
-let str = "John Smith";
+let str = 'John Smith';
 
 let result = str.replace(
   /(\w+) (\w+)/,
@@ -209,7 +209,7 @@ alert(result); // Smith, John
 If there are many groups, it's convenient to use rest parameters to access them:
 
 ```js run
-let str = "John Smith";
+let str = 'John Smith';
 
 let result = str.replace(
   /(\w+) (\w+)/,
@@ -222,7 +222,7 @@ alert(result); // Smith, John
 Or, if we're using named groups, then `groups` object with them is always the last, so we can obtain it like this:
 
 ```js run
-let str = "John Smith";
+let str = 'John Smith';
 
 let result = str.replace(/(?<name>\w+) (?<surname>\w+)/, (...match) => {
   let groups = match.pop();
@@ -248,7 +248,7 @@ Like this:
 
 ```js run
 // replace all dashes by a colon
-alert("12-34-56".replaceAll("-", ":")); // 12:34:56
+alert('12-34-56'.replaceAll('-', ':')); // 12:34:56
 ```
 
 ## regexp.exec(str)
@@ -271,7 +271,7 @@ So, repeated calls return all matches one after another, using property `regexp.
 In the past, before the method `str.matchAll` was added to JavaScript, calls of `regexp.exec` were used in the loop to get all matches with groups:
 
 ```js run
-let str = "More about JavaScript at https://javascript.info";
+let str = 'More about JavaScript at https://javascript.info';
 let regexp = /javascript/gi;
 
 let result;
@@ -290,7 +290,7 @@ This works now as well, although for newer browsers `str.matchAll` is usually mo
 For instance:
 
 ```js run
-let str = "Hello, world!";
+let str = 'Hello, world!';
 
 let regexp = /\w+/g; // without flag "g", lastIndex property is ignored
 regexp.lastIndex = 5; // search from 5th position (from the comma)
@@ -303,7 +303,7 @@ If the regexp has flag `pattern:y`, then the search will be performed exactly at
 Let's replace flag `pattern:g` with `pattern:y` in the example above. There will be no matches, as there's no word at position `5`:
 
 ```js run
-let str = "Hello, world!";
+let str = 'Hello, world!';
 
 let regexp = /\w+/y;
 regexp.lastIndex = 5; // search exactly at position 5
@@ -343,7 +343,7 @@ So we can use it to search from a given position:
 ```js run
 let regexp = /love/gi;
 
-let str = "I love JavaScript";
+let str = 'I love JavaScript';
 
 // start the search from position 10:
 regexp.lastIndex = 10;

@@ -38,7 +38,7 @@ let signal = controller.signal;
 // The party that performs a cancelable operation
 // gets the "signal" object
 // and sets the listener to trigger when controller.abort() is called
-signal.addEventListener("abort", () => alert("abort!"));
+signal.addEventListener('abort', () => alert('abort!'));
 
 // The other party, that cancels (at any point later):
 controller.abort(); // abort!
@@ -84,13 +84,13 @@ let controller = new AbortController();
 setTimeout(() => controller.abort(), 1000);
 
 try {
-  let response = await fetch("/article/fetch-abort/demo/hang", {
+  let response = await fetch('/article/fetch-abort/demo/hang', {
     signal: controller.signal,
   });
 } catch (err) {
-  if (err.name == "AbortError") {
+  if (err.name == 'AbortError') {
     // handle abort()
-    alert("Aborted!");
+    alert('Aborted!');
   } else {
     throw err;
   }

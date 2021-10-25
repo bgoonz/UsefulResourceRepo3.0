@@ -8,6 +8,6 @@ function write(stream, chunk, callback) {
     setImmediate(callback); // invoke callback asynchronously.
   } else {
     // If it returned false, then
-    stream.once("drain", callback); // invoke callback on drain event.
+    stream.once('drain', callback); // invoke callback on drain event.
   }
 }

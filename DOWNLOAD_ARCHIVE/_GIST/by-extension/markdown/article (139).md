@@ -89,7 +89,7 @@ Here's a full example. The code below loads the URL at `/article/xmlhttprequest/
 let xhr = new XMLHttpRequest();
 
 // 2. Configure it: GET-request for the URL /article/.../load
-xhr.open("GET", "/article/xmlhttprequest/example/load");
+xhr.open('GET', '/article/xmlhttprequest/example/load');
 
 // 3. Send the request over the network
 xhr.send();
@@ -114,20 +114,17 @@ xhr.onprogress = function (event) {
 };
 
 xhr.onerror = function () {
-  alert("Request failed");
+  alert('Request failed');
 };
 ```
 
 Once the server has responded, we can receive the result in the following `xhr` properties:
 
-`status`
-: HTTP status code (a number): `200`, `404`, `403` and so on, can be `0` in case of a non-HTTP failure.
+`status` : HTTP status code (a number): `200`, `404`, `403` and so on, can be `0` in case of a non-HTTP failure.
 
-`statusText`
-: HTTP status message (a string): usually `OK` for `200`, `Not Found` for `404`, `Forbidden` for `403` and so on.
+`statusText` : HTTP status message (a string): usually `OK` for `200`, `Not Found` for `404`, `Forbidden` for `403` and so on.
 
-`response` (old scripts may use `responseText`)
-: The server response body.
+`response` (old scripts may use `responseText`) : The server response body.
 
 We can also specify a timeout using the corresponding property:
 
@@ -265,8 +262,7 @@ Because of all that, synchronous requests are used very sparingly, almost never.
 
 There are 3 methods for HTTP-headers:
 
-`setRequestHeader(name, value)`
-: Sets the request header with the given `name` and `value`.
+`setRequestHeader(name, value)` : Sets the request header with the given `name` and `value`.
 
     For instance:
 
@@ -297,8 +293,7 @@ There are 3 methods for HTTP-headers:
     ```
     ````
 
-`getResponseHeader(name)`
-: Gets the response header with the given `name` (except `Set-Cookie` and `Set-Cookie2`).
+`getResponseHeader(name)` : Gets the response header with the given `name` (except `Set-Cookie` and `Set-Cookie2`).
 
     For instance:
 
@@ -306,8 +301,7 @@ There are 3 methods for HTTP-headers:
     xhr.getResponseHeader('Content-Type')
     ```
 
-`getAllResponseHeaders()`
-: Returns all response headers, except `Set-Cookie` and `Set-Cookie2`.
+`getAllResponseHeaders()` : Returns all response headers, except `Set-Cookie` and `Set-Cookie2`.
 
     Headers are returned as a single line, e.g.:
 
@@ -366,11 +360,11 @@ For instance:
   let formData = new FormData(document.forms.person);
 
   // add one more field
-  formData.append("middle", "Lee");
+  formData.append('middle', 'Lee');
 
   // send it out
   let xhr = new XMLHttpRequest();
-  xhr.open("POST", "/article/xmlhttprequest/post/user");
+  xhr.open('POST', '/article/xmlhttprequest/post/user');
   xhr.send(formData);
 
   xhr.onload = () => alert(xhr.response);
@@ -387,12 +381,12 @@ Just don't forget to set the header `Content-Type: application/json`, many serve
 let xhr = new XMLHttpRequest();
 
 let json = JSON.stringify({
-  name: "John",
-  surname: "Smith",
+  name: 'John',
+  surname: 'Smith',
 });
 
-xhr.open("POST", "/submit");
-xhr.setRequestHeader("Content-type", "application/json; charset=utf-8");
+xhr.open('POST', '/submit');
+xhr.setRequestHeader('Content-type', 'application/json; charset=utf-8');
 
 xhr.send(json);
 ```
@@ -491,7 +485,7 @@ Typical code of the GET-request with `XMLHttpRequest`:
 ```js
 let xhr = new XMLHttpRequest();
 
-xhr.open("GET", "/my/url");
+xhr.open('GET', '/my/url');
 
 xhr.send();
 
@@ -499,7 +493,7 @@ xhr.onload = function () {
   if (xhr.status != 200) {
     // HTTP error?
     // handle error
-    alert("Error: " + xhr.status);
+    alert('Error: ' + xhr.status);
     return;
   }
 

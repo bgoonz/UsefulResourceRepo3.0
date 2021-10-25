@@ -38,10 +38,10 @@ function cachingDecorator(func) {
 slow = cachingDecorator(slow);
 
 alert(slow(1)); // slow(1) is cached and the result returned
-alert("Again: " + slow(1)); // slow(1) result returned from cache
+alert('Again: ' + slow(1)); // slow(1) result returned from cache
 
 alert(slow(2)); // slow(2) is cached and the result returned
-alert("Again: " + slow(2)); // slow(2) result returned from cache
+alert('Again: ' + slow(2)); // slow(2) result returned from cache
 ```
 
 In the code above `cachingDecorator` is a _decorator_: a special function that takes another function and alters its behavior.
@@ -147,8 +147,8 @@ function sayHi() {
   alert(this.name);
 }
 
-let user = { name: "John" };
-let admin = { name: "Admin" };
+let user = { name: 'John' };
+let admin = { name: 'Admin' };
 
 // use call to pass different objects as "this"
 sayHi.call(user); // John
@@ -159,13 +159,13 @@ And here we use `call` to call `say` with the given context and phrase:
 
 ```js run
 function say(phrase) {
-  alert(this.name + ": " + phrase);
+  alert(this.name + ': ' + phrase);
 }
 
-let user = { name: "John" };
+let user = { name: 'John' };
 
 // user becomes this, and "Hello" becomes the first argument
-say.call(user, "Hello"); // John: Hello
+say.call(user, 'Hello'); // John: Hello
 ```
 
 In our case, we can use `call` in the wrapper to pass the context to the original function:
@@ -333,7 +333,7 @@ Now let's make one more minor improvement in the hashing function:
 
 ```js
 function hash(args) {
-  return args[0] + "," + args[1];
+  return args[0] + ',' + args[1];
 }
 ```
 

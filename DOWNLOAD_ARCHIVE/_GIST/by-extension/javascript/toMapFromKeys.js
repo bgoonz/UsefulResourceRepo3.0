@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-import Map from "./Map";
+import Map from './Map';
 
-import forEach from "./forEach";
+import forEach from './forEach';
 
 /**
  * Same as 'toObjectFromKeys' but returns a Map instead of an object.

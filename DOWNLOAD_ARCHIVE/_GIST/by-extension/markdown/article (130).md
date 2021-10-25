@@ -23,7 +23,7 @@ For example:
 
 ```js
 // create Blob from a string
-let blob = new Blob(["<html>…</html>"], { type: "text/html" });
+let blob = new Blob(['<html>…</html>'], { type: 'text/html' });
 // please note: the first argument must be an array [...]
 ```
 
@@ -31,7 +31,7 @@ let blob = new Blob(["<html>…</html>"], { type: "text/html" });
 // create Blob from a typed array and strings
 let hello = new Uint8Array([72, 101, 108, 108, 111]); // "Hello" in binary form
 
-let blob = new Blob([hello, " ", "world"], { type: "text/plain" });
+let blob = new Blob([hello, ' ', 'world'], { type: 'text/plain' });
 ```
 
 We can extract `Blob` slices with:
@@ -76,10 +76,10 @@ We can also create a link dynamically in JavaScript and simulate a click by `lin
 Here's the similar code that causes user to download the dynamically created `Blob`, without any HTML:
 
 ```js run
-let link = document.createElement("a");
-link.download = "hello.txt";
+let link = document.createElement('a');
+link.download = 'hello.txt';
 
-let blob = new Blob(["Hello, world!"], { type: "text/plain" });
+let blob = new Blob(['Hello, world!'], { type: 'text/plain' });
 
 link.href = URL.createObjectURL(blob);
 
@@ -173,14 +173,14 @@ In the example below, an image is just copied, but we could cut from it, or tran
 
 ```js run
 // take any image
-let img = document.querySelector("img");
+let img = document.querySelector('img');
 
 // make <canvas> of the same size
-let canvas = document.createElement("canvas");
+let canvas = document.createElement('canvas');
 canvas.width = img.clientWidth;
 canvas.height = img.clientHeight;
 
-let context = canvas.getContext("2d");
+let context = canvas.getContext('2d');
 
 // copy image to it (this method allows to cut image)
 context.drawImage(img, 0, 0);
@@ -189,22 +189,22 @@ context.drawImage(img, 0, 0);
 // toBlob is async operation, callback is called when done
 canvas.toBlob(function (blob) {
   // blob ready, download it
-  let link = document.createElement("a");
-  link.download = "example.png";
+  let link = document.createElement('a');
+  link.download = 'example.png';
 
   link.href = URL.createObjectURL(blob);
   link.click();
 
   // delete the internal blob reference, to let the browser clear memory from it
   URL.revokeObjectURL(link.href);
-}, "image/png");
+}, 'image/png');
 ```
 
 If we prefer `async/await` instead of callbacks:
 
 ```js
 let blob = await new Promise((resolve) =>
-  canvasElem.toBlob(resolve, "image/png")
+  canvasElem.toBlob(resolve, 'image/png')
 );
 ```
 

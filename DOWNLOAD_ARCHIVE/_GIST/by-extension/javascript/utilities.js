@@ -1,12 +1,12 @@
 /* global jQuery, Metro */
 (function (Metro, $) {
-  "use strict";
+  'use strict';
   Metro.utils = {
     isVisible: function (element) {
       var el = $(element)[0];
       return (
-        this.getStyleOne(el, "display") !== "none" &&
-        this.getStyleOne(el, "visibility") !== "hidden" &&
+        this.getStyleOne(el, 'display') !== 'none' &&
+        this.getStyleOne(el, 'visibility') !== 'hidden' &&
         el.offsetParent !== null
       );
     },
@@ -24,10 +24,10 @@
     },
 
     isEmbedObject: function (val) {
-      var embed = ["iframe", "object", "embed", "video"];
+      var embed = ['iframe', 'object', 'embed', 'video'];
       var result = false;
       $.each(embed, function () {
-        if (typeof val === "string" && val.toLowerCase() === this) {
+        if (typeof val === 'string' && val.toLowerCase() === this) {
           result = true;
         } else if (
           val.nodeType !== undefined &&
@@ -56,11 +56,11 @@
         result = String(new Date(val));
       }
 
-      return result !== "Invalid Date";
+      return result !== 'Invalid Date';
     },
 
     isDateObject: function (v) {
-      return typeof v === "object" && v.getMonth !== undefined;
+      return typeof v === 'object' && v.getMonth !== undefined;
     },
 
     isInt: function (n) {
@@ -72,11 +72,11 @@
     },
 
     isFunc: function (f) {
-      return this.isType(f, "function");
+      return this.isType(f, 'function');
     },
 
     isObject: function (o) {
-      return this.isType(o, "object");
+      return this.isType(o, 'object');
     },
 
     isType: function (o, t) {
@@ -88,15 +88,15 @@
         return o;
       }
 
-      if (("" + t).toLowerCase() === "tag" && this.isTag(o)) {
+      if (('' + t).toLowerCase() === 'tag' && this.isTag(o)) {
         return o;
       }
 
-      if (("" + t).toLowerCase() === "url" && this.isUrl(o)) {
+      if (('' + t).toLowerCase() === 'url' && this.isUrl(o)) {
         return o;
       }
 
-      if (("" + t).toLowerCase() === "array" && Array.isArray(o)) {
+      if (('' + t).toLowerCase() === 'array' && Array.isArray(o)) {
         return o;
       }
 
@@ -108,19 +108,19 @@
         return window[o];
       }
 
-      if (typeof o === "string" && o.indexOf(".") === -1) {
+      if (typeof o === 'string' && o.indexOf('.') === -1) {
         return false;
       }
 
-      if (typeof o === "string" && /[/\s([]+/gm.test(o)) {
+      if (typeof o === 'string' && /[/\s([]+/gm.test(o)) {
         return false;
       }
 
-      if (typeof o === "number" && t.toLowerCase() !== "number") {
+      if (typeof o === 'number' && t.toLowerCase() !== 'number') {
         return false;
       }
 
-      var ns = o.split(".");
+      var ns = o.split('.');
       var i,
         context = window;
 
@@ -140,13 +140,13 @@
         el_obj = Metro.getPlugin(el, type);
 
       if ($el.length === 0) {
-        console.warn(type + " " + el + " not found!");
+        console.warn(type + ' ' + el + ' not found!');
         return false;
       }
 
       if (el_obj === undefined) {
         console.warn(
-          "Element not contain role " +
+          'Element not contain role ' +
             type +
             '! Please add attribute data-role="' +
             type +
@@ -160,11 +160,11 @@
     },
 
     isJQuery: function (el) {
-      return typeof jQuery !== "undefined" && el instanceof jQuery;
+      return typeof jQuery !== 'undefined' && el instanceof jQuery;
     },
 
     isM4Q: function (el) {
-      return typeof m4q !== "undefined" && el instanceof m4q;
+      return typeof m4q !== 'undefined' && el instanceof m4q;
     },
 
     isQ: function (el) {
@@ -172,12 +172,12 @@
     },
 
     isIE11: function () {
-      return !!window.MSInputMethodContext && !!document["documentMode"];
+      return !!window.MSInputMethodContext && !!document['documentMode'];
     },
 
     embedUrl: function (val) {
-      if (val.indexOf("youtu.be") !== -1) {
-        val = "https://www.youtube.com/embed/" + val.split("/").pop();
+      if (val.indexOf('youtu.be') !== -1) {
+        val = 'https://www.youtube.com/embed/' + val.split('/').pop();
       }
       return (
         "<div class='embed-container'><iframe src='" + val + "'></iframe></div>"
@@ -185,7 +185,7 @@
     },
 
     elementId: function (prefix) {
-      return prefix + "-" + new Date().getTime() + $.random(1, 1000);
+      return prefix + '-' + new Date().getTime() + $.random(1, 1000);
     },
 
     secondsToTime: function (secs) {
@@ -211,21 +211,21 @@
       var seconds = sec_num - hours * 3600 - minutes * 60;
 
       if (hours < 10) {
-        hours = "0" + hours;
+        hours = '0' + hours;
       }
       if (minutes < 10) {
-        minutes = "0" + minutes;
+        minutes = '0' + minutes;
       }
       if (seconds < 10) {
-        seconds = "0" + seconds;
+        seconds = '0' + seconds;
       }
 
-      return [hours, minutes, seconds].join(":");
+      return [hours, minutes, seconds].join(':');
     },
 
     func: function (f) {
       /* jshint -W054 */
-      return new Function("a", f);
+      return new Function('a', f);
     },
 
     exec: function (f, args, context) {
@@ -255,10 +255,10 @@
       var inViewport;
       var clone = el.clone();
 
-      clone.removeAttr("data-role").css({
-        visibility: "hidden",
-        position: "absolute",
-        display: "block",
+      clone.removeAttr('data-role').css({
+        visibility: 'hidden',
+        position: 'absolute',
+        display: 'block',
       });
       el.parent().append(clone);
 
@@ -369,30 +369,30 @@
 
     github: function (repo, callback) {
       var that = this;
-      $.json("https://api.github.com/repos/" + repo).then(function (data) {
+      $.json('https://api.github.com/repos/' + repo).then(function (data) {
         that.exec(callback, [data]);
       });
     },
 
     detectIE: function () {
       var ua = window.navigator.userAgent;
-      var msie = ua.indexOf("MSIE ");
+      var msie = ua.indexOf('MSIE ');
       if (msie > 0) {
         // IE 10 or older => return version number
-        return parseInt(ua.substring(msie + 5, ua.indexOf(".", msie)), 10);
+        return parseInt(ua.substring(msie + 5, ua.indexOf('.', msie)), 10);
       }
 
-      var trident = ua.indexOf("Trident/");
+      var trident = ua.indexOf('Trident/');
       if (trident > 0) {
         // IE 11 => return version number
-        var rv = ua.indexOf("rv:");
-        return parseInt(ua.substring(rv + 3, ua.indexOf(".", rv)), 10);
+        var rv = ua.indexOf('rv:');
+        return parseInt(ua.substring(rv + 3, ua.indexOf('.', rv)), 10);
       }
 
-      var edge = ua.indexOf("Edge/");
+      var edge = ua.indexOf('Edge/');
       if (edge > 0) {
         // Edge (IE 12+) => return version number
-        return parseInt(ua.substring(edge + 5, ua.indexOf(".", edge)), 10);
+        return parseInt(ua.substring(edge + 5, ua.indexOf('.', edge)), 10);
       }
 
       // other browser
@@ -407,7 +407,7 @@
     },
 
     encodeURI: function (str) {
-      return encodeURI(str).replace(/%5B/g, "[").replace(/%5D/g, "]");
+      return encodeURI(str).replace(/%5B/g, '[').replace(/%5D/g, ']');
     },
 
     pageHeight: function () {
@@ -431,8 +431,8 @@
 
       els.forEach(function (el) {
         var txt = el.textContent
-          .replace(/^[\r\n]+/, "") // strip leading newline
-          .replace(/\s+$/g, "");
+          .replace(/^[\r\n]+/, '') // strip leading newline
+          .replace(/\s+$/g, '');
 
         if (/^\S/gm.test(txt)) {
           el.textContent = txt;
@@ -458,7 +458,7 @@
 
         if (min === 1e3) return;
 
-        el.textContent = txt.replace(new RegExp("^" + str, "gm"), "").trim();
+        el.textContent = txt.replace(new RegExp('^' + str, 'gm'), '').trim();
       });
     },
 
@@ -474,11 +474,11 @@
 
     positionXY: function (e, t) {
       switch (t) {
-        case "client":
+        case 'client':
           return this.clientXY(e);
-        case "screen":
+        case 'screen':
           return this.screenXY(e);
-        case "page":
+        case 'page':
           return this.pageXY(e);
         default:
           return { x: 0, y: 0 };
@@ -522,9 +522,9 @@
     },
 
     isRightMouse: function (e) {
-      return "which" in e
+      return 'which' in e
         ? e.which === 3
-        : "button" in e
+        : 'button' in e
         ? e.button === 2
         : undefined;
     },
@@ -534,12 +534,12 @@
         height,
         clone = $(el).clone(true);
 
-      clone.removeAttr("data-role").css({
-        visibility: "hidden",
-        position: "absolute",
-        display: "block",
+      clone.removeAttr('data-role').css({
+        visibility: 'hidden',
+        position: 'absolute',
+        display: 'block',
       });
-      $("body").append(clone);
+      $('body').append(clone);
 
       if (!this.isValue(includeMargin)) {
         includeMargin = false;
@@ -577,24 +577,24 @@
     },
 
     updateURIParameter: function (uri, key, value) {
-      var re = new RegExp("([?&])" + key + "=.*?(&|$)", "i");
-      var separator = uri.indexOf("?") !== -1 ? "&" : "?";
+      var re = new RegExp('([?&])' + key + '=.*?(&|$)', 'i');
+      var separator = uri.indexOf('?') !== -1 ? '&' : '?';
       if (uri.match(re)) {
-        return uri.replace(re, "$1" + key + "=" + value + "$2");
+        return uri.replace(re, '$1' + key + '=' + value + '$2');
       } else {
-        return uri + separator + key + "=" + value;
+        return uri + separator + key + '=' + value;
       }
     },
 
     getURIParameter: function (url, name) {
       if (!url) url = window.location.href;
       /* eslint-disable-next-line */
-      name = name.replace(/[\[\]]/g, "\\$&");
-      var regex = new RegExp("[?&]" + name + "(=([^&#]*)|&|#|$)"),
+      name = name.replace(/[\[\]]/g, '\\$&');
+      var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
         results = regex.exec(url);
       if (!results) return null;
-      if (!results[2]) return "";
-      return decodeURIComponent(results[2].replace(/\+/g, " "));
+      if (!results[2]) return '';
+      return decodeURIComponent(results[2].replace(/\+/g, ' '));
     },
 
     getLocales: function () {
@@ -606,15 +606,15 @@
     },
 
     aspectRatioH: function (width, a) {
-      if (a === "16/9") return (width * 9) / 16;
-      if (a === "21/9") return (width * 9) / 21;
-      if (a === "4/3") return (width * 3) / 4;
+      if (a === '16/9') return (width * 9) / 16;
+      if (a === '21/9') return (width * 9) / 21;
+      if (a === '4/3') return (width * 3) / 4;
     },
 
     aspectRatioW: function (height, a) {
-      if (a === "16/9") return (height * 16) / 9;
-      if (a === "21/9") return (height * 21) / 9;
-      if (a === "4/3") return (height * 4) / 3;
+      if (a === '16/9') return (height * 16) / 9;
+      if (a === '21/9') return (height * 21) / 9;
+      if (a === '4/3') return (height * 4) / 3;
     },
 
     valueInObject: function (obj, value) {
@@ -630,13 +630,13 @@
     },
 
     newCssSheet: function (media) {
-      var style = document.createElement("style");
+      var style = document.createElement('style');
 
       if (media !== undefined) {
-        style.setAttribute("media", media);
+        style.setAttribute('media', media);
       }
 
-      style.appendChild(document.createTextNode(""));
+      style.appendChild(document.createTextNode(''));
 
       document.head.appendChild(style);
 
@@ -644,9 +644,9 @@
     },
 
     addCssRule: function (sheet, selector, rules, index) {
-      if ("insertRule" in sheet) {
-        sheet.insertRule(selector + "{" + rules + "}", index);
-      } else if ("addRule" in sheet) {
+      if ('insertRule' in sheet) {
+        sheet.insertRule(selector + '{' + rules + '}', index);
+      } else if ('addRule' in sheet) {
         sheet.addRule(selector, rules, index);
       }
     },
@@ -671,7 +671,7 @@
     },
 
     isValue: function (val) {
-      return val !== undefined && val !== null && val !== "";
+      return val !== undefined && val !== null && val !== '';
     },
 
     isNull: function (val) {
@@ -697,11 +697,11 @@
     },
 
     parseMoney: function (val) {
-      return Number(parseFloat(val.replace(/[^0-9-.]/g, "")));
+      return Number(parseFloat(val.replace(/[^0-9-.]/g, '')));
     },
 
     parseCard: function (val) {
-      return val.replace(/[^0-9]/g, "");
+      return val.replace(/[^0-9]/g, '');
     },
 
     parsePhone: function (val) {
@@ -710,24 +710,24 @@
 
     parseNumber: function (val, thousand, decimal) {
       return val
-        .replace(new RegExp("\\" + thousand, "g"), "")
-        .replace(new RegExp("\\" + decimal, "g"), ".");
+        .replace(new RegExp('\\' + thousand, 'g'), '')
+        .replace(new RegExp('\\' + decimal, 'g'), '.');
     },
 
     nearest: function (val, precision, down) {
       val /= precision;
-      val = Math[down === true ? "floor" : "ceil"](val) * precision;
+      val = Math[down === true ? 'floor' : 'ceil'](val) * precision;
       return val;
     },
 
     bool: function (value) {
       switch (value) {
         case true:
-        case "true":
+        case 'true':
         case 1:
-        case "1":
-        case "on":
-        case "yes":
+        case '1':
+        case 'on':
+        case 'yes':
           return true;
         default:
           return false;
@@ -751,13 +751,13 @@
           range.selectNode(el);
           sel.addRange(range);
         }
-      } else if (body["createTextRange"]) {
-        range = body["createTextRange"]();
-        range["moveToElementText"](el);
+      } else if (body['createTextRange']) {
+        range = body['createTextRange']();
+        range['moveToElementText'](el);
         range.select();
       }
 
-      document.execCommand("Copy");
+      document.execCommand('Copy');
 
       if (window.getSelection) {
         if (window.getSelection().empty) {
@@ -767,14 +767,14 @@
           // Firefox
           window.getSelection().removeAllRanges();
         }
-      } else if (document["selection"]) {
+      } else if (document['selection']) {
         // IE?
-        document["selection"].empty();
+        document['selection'].empty();
       }
     },
 
     decCount: function (v) {
-      return v % 1 === 0 ? 0 : v.toString().split(".")[1].length;
+      return v % 1 === 0 ? 0 : v.toString().split('.')[1].length;
     },
 
     /**
@@ -784,7 +784,7 @@
      * @param length to length
      */
     lpad: function (str, pad, length) {
-      var _str = "" + str;
+      var _str = '' + str;
       if (length && _str.length >= length) {
         return _str;
       }
@@ -792,7 +792,7 @@
     },
 
     rpad: function (str, pad, length) {
-      var _str = "" + str;
+      var _str = '' + str;
       if (length && _str.length >= length) {
         return _str;
       }

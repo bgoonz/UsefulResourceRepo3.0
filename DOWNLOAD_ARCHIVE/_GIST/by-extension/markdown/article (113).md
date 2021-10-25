@@ -52,8 +52,7 @@ There are several widespread keyboard layouts, and the specification gives key c
 Read the [alphanumeric section of the spec](https://www.w3.org/TR/uievents-code/#key-alphanumeric-section) for more codes, or just press a key in the [teststand](#keyboard-test-stand) above.
 ```
 
-```warn header="Case matters: `\"KeyZ\"`, not `\"keyZ\"`"
-Seems obvious, but people still make mistakes.
+```warn header="Case matters: `\"KeyZ\"`, not `\"keyZ\"`" Seems obvious, but people still make mistakes.
 
 Please evade mistypes: it's `KeyZ`, not `keyZ`. The check like `event.code=="keyZ"` won't work: the first letter of `"Key"` must be uppercase.
 
@@ -137,11 +136,11 @@ For instance, the `<input>` below expects a phone number, so it does not accept 
 <script>
   function checkPhoneKey(key) {
     return (
-      (key >= "0" && key <= "9") ||
-      key == "+" ||
-      key == "(" ||
-      key == ")" ||
-      key == "-"
+      (key >= '0' && key <= '9') ||
+      key == '+' ||
+      key == '(' ||
+      key == ')' ||
+      key == '-'
     );
   }
 </script>
@@ -157,15 +156,15 @@ Let's relax it a little bit:
 <script>
   function checkPhoneKey(key) {
     return (
-      (key >= "0" && key <= "9") ||
-      key == "+" ||
-      key == "(" ||
-      key == ")" ||
-      key == "-" ||
-      key == "ArrowLeft" ||
-      key == "ArrowRight" ||
-      key == "Delete" ||
-      key == "Backspace"
+      (key >= '0' && key <= '9') ||
+      key == '+' ||
+      key == '(' ||
+      key == ')' ||
+      key == '-' ||
+      key == 'ArrowLeft' ||
+      key == 'ArrowRight' ||
+      key == 'Delete' ||
+      key == 'Backspace'
     );
   }
 </script>

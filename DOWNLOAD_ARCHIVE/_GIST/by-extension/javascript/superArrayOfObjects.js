@@ -1,10 +1,10 @@
 // Example data
 const aob = [
-  { framework: "React.JS", website: "Paypal" },
-  { framework: "React.JS", website: "Tesla" },
-  { framework: "Angular", website: "Google" },
-  { framework: "Vue.JS", website: "Vue" },
-  { framework: "JavaScript", website: "inblack67" },
+  { framework: 'React.JS', website: 'Paypal' },
+  { framework: 'React.JS', website: 'Tesla' },
+  { framework: 'Angular', website: 'Google' },
+  { framework: 'Vue.JS', website: 'Vue' },
+  { framework: 'JavaScript', website: 'inblack67' },
 ];
 const superAob = (data, victim) => {
   const obj = {};
@@ -31,7 +31,7 @@ const superAob = (data, victim) => {
   return superArrayOfObjects;
 };
 
-console.log(superAob(aob, "framework"));
+console.log(superAob(aob, 'framework'));
 
 // output:-
 // [

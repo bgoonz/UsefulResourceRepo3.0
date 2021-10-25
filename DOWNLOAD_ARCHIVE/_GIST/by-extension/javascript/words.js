@@ -23,4 +23,4 @@ function words(s) {
   };
 }
 
-[...words(" abc def  ghi! ")]; // => ["abc", "def", "ghi!"]
+[...words(' abc def  ghi! ')]; // => ["abc", "def", "ghi!"]

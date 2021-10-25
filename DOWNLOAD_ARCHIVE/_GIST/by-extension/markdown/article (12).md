@@ -88,7 +88,7 @@ Usually, the plus operator `+` sums numbers.
 But, if the binary `+` is applied to strings, it merges (concatenates) them:
 
 ```js
-let s = "my" + "string";
+let s = 'my' + 'string';
 alert(s); // mystring
 ```
 
@@ -97,8 +97,8 @@ Note that if any of the operands is a string, then the other one is converted to
 For example:
 
 ```js run
-alert("1" + 2); // "12"
-alert(2 + "1"); // "21"
+alert('1' + 2); // "12"
+alert(2 + '1'); // "21"
 ```
 
 See, it doesn't matter whether the first operand is a string or the second one.
@@ -106,13 +106,13 @@ See, it doesn't matter whether the first operand is a string or the second one.
 Here's a more complex example:
 
 ```js run
-alert(2 + 2 + "1"); // "41" and not "221"
+alert(2 + 2 + '1'); // "41" and not "221"
 ```
 
 Here, operators work one after another. The first `+` sums two numbers, so it returns `4`, then the next `+` adds the string `1` to it, so it's like `4 + '1' = '41'`.
 
 ```js run
-alert("1" + 2 + 2); // "122" and not "14"
+alert('1' + 2 + 2); // "122" and not "14"
 ```
 
 Here, the first operand is a string, the compiler treats the other two operands as strings too. The `2` gets concatenated to `'1'`, so it's like `'1' + 2 = "12"` and `"12" + 2 = "122"`.
@@ -122,8 +122,8 @@ The binary `+` is the only operator that supports strings in such a way. Other a
 Here's the demo for subtraction and division:
 
 ```js run
-alert(6 - "2"); // 4, converts '2' to a number
-alert("6" / "2"); // 3, converts both operands to numbers
+alert(6 - '2'); // 4, converts '2' to a number
+alert('6' / '2'); // 3, converts both operands to numbers
 ```
 
 ## Numeric conversion, unary +
@@ -156,8 +156,8 @@ The need to convert strings to numbers arises very often. For example, if we are
 The binary plus would add them as strings:
 
 ```js run
-let apples = "2";
-let oranges = "3";
+let apples = '2';
+let oranges = '3';
 
 alert(apples + oranges); // "23", the binary plus concatenates strings
 ```

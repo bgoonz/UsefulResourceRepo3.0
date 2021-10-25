@@ -11,36 +11,36 @@ but only when possible.
 function test(x) {
   switch (x) {
     case ((_) => {
-      console.log("TEST 1");
+      console.log('TEST 1');
       return 1;
     })():
       return;
     case ((_) => {
-      console.log("TEST 2");
+      console.log('TEST 2');
       return 2;
     })():
       return;
     case ((_) => {
-      console.log("TEST 3");
+      console.log('TEST 3');
       return 3;
     })():
       return;
     case ((_) => {
-      console.log("TEST 4");
+      console.log('TEST 4');
       return 4;
     })():
       return;
     case ((_) => {
-      console.log("TEST 5");
+      console.log('TEST 5');
       return 5;
     })():
       return;
     case ((_) => {
-      console.log("TEST 6");
+      console.log('TEST 6');
       return 6;
     })():
       return;
     default:
-      return "Nope";
+      return 'Nope';
   }
 }

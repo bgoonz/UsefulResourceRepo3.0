@@ -284,8 +284,7 @@ In terms of OOP, delimiting of the internal interface from the external one is c
 
 It gives the following benefits:
 
-Protection for users, so that they don't shoot themselves in the foot
-: Imagine, there's a team of developers using a coffee machine. It was made by the "Best CoffeeMachine" company, and works fine, but a protective cover was removed. So the internal interface is exposed.
+Protection for users, so that they don't shoot themselves in the foot : Imagine, there's a team of developers using a coffee machine. It was made by the "Best CoffeeMachine" company, and works fine, but a protective cover was removed. So the internal interface is exposed.
 
     All developers are civilized -- they use the coffee machine as intended. But one of them, John, decided that he's the smartest one, and made some tweaks in the coffee machine internals. So the coffee machine failed two days later.
 
@@ -293,8 +292,7 @@ Protection for users, so that they don't shoot themselves in the foot
 
     The same in programming. If a user of a class will change things not intended to be changed from the outside -- the consequences are unpredictable.
 
-Supportable
-: The situation in programming is more complex than with a real-life coffee machine, because we don't just buy it once. The code constantly undergoes development and improvement.
+Supportable : The situation in programming is more complex than with a real-life coffee machine, because we don't just buy it once. The code constantly undergoes development and improvement.
 
     **If we strictly delimit the internal interface, then the developer of the class can freely change its internal properties and methods, even without informing the users.**
 
@@ -302,8 +300,7 @@ Supportable
 
     For users, when a new version comes out, it may be a total overhaul internally, but still simple to upgrade if the external interface is the same.
 
-Hiding complexity
-: People adore using things that are simple. At least from outside. What's inside is a different thing.
+Hiding complexity : People adore using things that are simple. At least from outside. What's inside is a different thing.
 
     Programmers are not an exception.
 

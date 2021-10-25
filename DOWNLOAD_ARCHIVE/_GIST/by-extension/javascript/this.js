@@ -11,4 +11,4 @@ function Person(name) {
 Person.prototype.sayName = function () {
   console.log(this.name);
 };
-const jane = new Person("Jane");
+const jane = new Person('Jane');

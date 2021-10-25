@@ -18,13 +18,7 @@ _Note: I'm planning to revise this and looking for a new co-author to help with 
 
 Fluency on the command line is a skill often neglected or considered arcane, but it improves your flexibility and productivity as an engineer in both obvious and subtle ways. This is a selection of notes and tips on using the command-line that we've found useful when working on Linux. Some tips are elementary, and some are fairly specific, sophisticated, or obscure. This page is not long, but if you can use and recall all the items here, you know a lot.
 
-This work is the result of [many authors and translators](AUTHORS.md).
-Some of this
-[originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands)
-[appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix)
-on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know),
-but it has since moved to GitHub, where people more talented than the original author have made numerous improvements.
-[**Please submit a question**](https://airtable.com/shrzMhx00YiIVAWJg) if you have a question related to the command line. [**Please contribute**](/CONTRIBUTING.md) if you see an error or something that could be better!
+This work is the result of [many authors and translators](AUTHORS.md). Some of this [originally](http://www.quora.com/What-are-some-lesser-known-but-useful-Unix-commands) [appeared](http://www.quora.com/What-are-the-most-useful-Swiss-army-knife-one-liners-on-Unix) on [Quora](http://www.quora.com/What-are-some-time-saving-tips-that-every-Linux-user-should-know), but it has since moved to GitHub, where people more talented than the original author have made numerous improvements. [**Please submit a question**](https://airtable.com/shrzMhx00YiIVAWJg) if you have a question related to the command line. [**Please contribute**](/CONTRIBUTING.md) if you see an error or something that could be better!
 
 ## Meta
 
@@ -197,8 +191,7 @@ EOF
 
 - For interaction with files based on the output of another command (like `git`), use `fpp` ([PathPicker](https://github.com/facebook/PathPicker)).
 
-- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use:
-  `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
+- For a simple web server for all files in the current directory (and subdirs), available to anyone on your network, use: `python -m SimpleHTTPServer 7777` (for port 7777 and Python 2) and `python -m http.server 7777` (for port 7777 and Python 3).
 
 - For running a command as another user, use `sudo`. Defaults to running as root; use `-u` to specify another user. Use `-i` to login as that user (you will be asked for _your_ password).
 
@@ -355,8 +348,7 @@ mkdir empty && rsync -r --delete empty/ some-dir && rmdir some-dir
 
 - Use `dmesg` whenever something's acting really funny (it could be hardware or driver issues).
 
-- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process:
-  `lsof | grep deleted | grep "filename-of-my-big-file"`
+- If you delete a file and it doesn't free up expected disk space as reported by `du`, check whether the file is in use by a process: `lsof | grep deleted | grep "filename-of-my-big-file"`
 
 ## One-liners
 

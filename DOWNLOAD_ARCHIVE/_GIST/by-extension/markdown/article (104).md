@@ -61,7 +61,7 @@ Here a click runs the function `countRabbits()`:
 <script>
   function countRabbits() {
     for (let i = 1; i <= 3; i++) {
-      alert("Rabbit number " + i);
+      alert('Rabbit number ' + i);
     }
   }
 </script>
@@ -150,7 +150,7 @@ We can set an existing function as a handler:
 
 ```js
 function sayThanks() {
-  alert("Thanks!");
+  alert('Thanks!');
 }
 
 elem.onclick = sayThanks;
@@ -193,7 +193,7 @@ Such a call won't work:
 ```js run no-beautify
 // a click on <body> will generate errors,
 // because attributes are always strings, function becomes a string
-document.body.setAttribute("onclick", function () {
+document.body.setAttribute('onclick', function () {
   alert(1);
 });
 ```
@@ -228,14 +228,11 @@ The syntax to add a handler:
 element.addEventListener(event, handler, [options]);
 ```
 
-`event`
-: Event name, e.g. `"click"`.
+`event` : Event name, e.g. `"click"`.
 
-`handler`
-: The handler function.
+`handler` : The handler function.
 
-`options`
-: An additional optional object with properties: - `once`: if `true`, then the listener is automatically removed after it triggers. - `capture`: the phase where to handle the event, to be covered later in the chapter <info:bubbling-and-capturing>. For historical reasons, `options` can also be `false/true`, that's the same as `{capture: false/true}`. - `passive`: if `true`, then the handler will not call `preventDefault()`, we'll explain that later in <info:default-browser-action>.
+`options` : An additional optional object with properties: - `once`: if `true`, then the listener is automatically removed after it triggers. - `capture`: the phase where to handle the event, to be covered later in the chapter <info:bubbling-and-capturing>. For historical reasons, `options` can also be `false/true`, that's the same as `{capture: false/true}`. - `passive`: if `true`, then the handler will not call `preventDefault()`, we'll explain that later in <info:default-browser-action>.
 
 To remove the handler, use `removeEventListener`:
 
@@ -302,14 +299,14 @@ For instance, the `DOMContentLoaded` event, that triggers when the document is l
 ```js
 // will never run
 document.onDOMContentLoaded = function () {
-  alert("DOM built");
+  alert('DOM built');
 };
 ```
 
 ```js
 // this way it works
-document.addEventListener("DOMContentLoaded", function () {
-  alert("DOM built");
+document.addEventListener('DOMContentLoaded', function () {
+  alert('DOM built');
 });
 ```
 
@@ -372,11 +369,11 @@ For instance:
 <script>
   let obj = {
     handleEvent(event) {
-      alert(event.type + " at " + event.currentTarget);
+      alert(event.type + ' at ' + event.currentTarget);
     },
   };
 
-  elem.addEventListener("click", obj);
+  elem.addEventListener('click', obj);
 </script>
 ```
 
@@ -420,22 +417,22 @@ The method `handleEvent` does not have to do all the job by itself. It can call 
   class Menu {
     handleEvent(event) {
       // mousedown -> onMousedown
-      let method = "on" + event.type[0].toUpperCase() + event.type.slice(1);
+      let method = 'on' + event.type[0].toUpperCase() + event.type.slice(1);
       this[method](event);
     }
 
     onMousedown() {
-      elem.innerHTML = "Mouse button pressed";
+      elem.innerHTML = 'Mouse button pressed';
     }
 
     onMouseup() {
-      elem.innerHTML += "...and released.";
+      elem.innerHTML += '...and released.';
     }
   }
 
   let menu = new Menu();
-  elem.addEventListener("mousedown", menu);
-  elem.addEventListener("mouseup", menu);
+  elem.addEventListener('mousedown', menu);
+  elem.addEventListener('mouseup', menu);
 </script>
 ```
 

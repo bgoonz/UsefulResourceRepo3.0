@@ -6,7 +6,7 @@ import {
   get,
   on,
   fire,
-} from "./shared.js";
+} from './shared.js';
 
 function Store(state, options) {
   this._handlers = {};
@@ -31,7 +31,7 @@ assign(Store.prototype, {
     const state = {};
     for (let i = 0; i < props.length; i += 1) {
       const prop = props[i];
-      state["$" + prop] = this._state[prop];
+      state['$' + prop] = this._state[prop];
     }
     return state;
   },
@@ -54,7 +54,7 @@ assign(Store.prototype, {
       this._sortedComputedProperties[i].update(this._state, changed);
     }
 
-    this.fire("state", {
+    this.fire('state', {
       changed,
       previous,
       current: this._state,
@@ -68,7 +68,7 @@ assign(Store.prototype, {
         for (let j = 0; j < dependent.props.length; j += 1) {
           const prop = dependent.props[j];
           if (prop in changed) {
-            componentState["$" + prop] = this._state[prop];
+            componentState['$' + prop] = this._state[prop];
             dirty = true;
           }
         }
@@ -82,7 +82,7 @@ assign(Store.prototype, {
         dependent.component.set({});
       });
 
-    this.fire("update", {
+    this.fire('update', {
       changed,
       previous,
       current: this._state,

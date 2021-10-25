@@ -1,4 +1,4 @@
-const threads = require("worker_threads");
+const threads = require('worker_threads');
 
 // The worker_threads module exports the boolean isMainThread property.
 // This property is true when Node is running the main thread and it is
@@ -20,8 +20,8 @@ if (threads.isMainThread) {
 
       // And then resolve or reject the Promise when we get
       // a message or error from the worker.
-      reticulator.on("message", resolve);
-      reticulator.on("error", reject);
+      reticulator.on('message', resolve);
+      reticulator.on('error', reject);
     });
   };
 } else {
@@ -30,7 +30,7 @@ if (threads.isMainThread) {
   // to only receive a single message, so we register the event handler
   // with once() instead of on(). This allows the worker to exit naturally
   // when its work is complete.
-  threads.parentPort.once("message", (splines) => {
+  threads.parentPort.once('message', (splines) => {
     // When we get the splines from the parent thread, loop
     // through them and reticulate all of them.
     for (let spline of splines) {

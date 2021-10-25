@@ -1,4 +1,4 @@
-import speculation from "speculation";
+import speculation from 'speculation';
 
 const wait = (
   time,
@@ -11,16 +11,16 @@ const wait = (
     // and then call reject(). You can pass a custom reason.
     onCancel(() => {
       clearTimeout(timer);
-      reject(new Error("Cancelled"));
+      reject(new Error('Cancelled'));
     });
   }, cancel); // remember to pass in cancel!
 
 wait(200, wait(500)).then(
-  () => console.log("Hello!"),
+  () => console.log('Hello!'),
   (e) => console.log(e)
 ); // 'Hello!'
 
 wait(200, wait(50)).then(
-  () => console.log("Hello!"),
+  () => console.log('Hello!'),
   (e) => console.log(e)
 ); // [Error: Cancelled]

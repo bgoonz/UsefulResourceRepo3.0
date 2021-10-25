@@ -50,8 +50,8 @@ function BufferLoader(context, urlList, callback) {
 BufferLoader.prototype.loadBuffer = function (url, index) {
   // Load buffer asynchronously
   var request = new XMLHttpRequest();
-  request.open("GET", url, true);
-  request.responseType = "arraybuffer";
+  request.open('GET', url, true);
+  request.responseType = 'arraybuffer';
 
   var loader = this;
 
@@ -61,7 +61,7 @@ BufferLoader.prototype.loadBuffer = function (url, index) {
       request.response,
       function (buffer) {
         if (!buffer) {
-          alert("error decoding file data: " + url);
+          alert('error decoding file data: ' + url);
           return;
         }
         loader.bufferList[index] = buffer;
@@ -69,13 +69,13 @@ BufferLoader.prototype.loadBuffer = function (url, index) {
           loader.onload(loader.bufferList);
       },
       function (error) {
-        console.error("decodeAudioData error", error);
+        console.error('decodeAudioData error', error);
       }
     );
   };
 
   request.onerror = function () {
-    alert("BufferLoader: XHR error");
+    alert('BufferLoader: XHR error');
   };
   request.send();
 };
@@ -189,37 +189,37 @@ Spectrogram.prototype.setupVisual = function () {
 
   this.svg = d3
     .select(this.selector)
-    .append("svg")
-    .attr("width", this.width + this.margin.left + this.margin.right)
-    .attr("height", this.height + this.margin.top + this.margin.bottom)
-    .append("g")
+    .append('svg')
+    .attr('width', this.width + this.margin.left + this.margin.right)
+    .attr('height', this.height + this.margin.top + this.margin.bottom)
+    .append('g')
     .attr(
-      "transform",
-      "translate(" + this.margin.left + "," + this.margin.top + ")"
+      'transform',
+      'translate(' + this.margin.left + ',' + this.margin.top + ')'
     );
 
   this.canvas = d3
     .select(this.selector)
-    .append("canvas")
-    .attr("class", "vis_canvas")
-    .attr("width", this.width + this.margin.left)
-    .attr("height", this.height + this.margin.top)
-    .style("padding", d3.map(this.margin).values().join("px ") + "px");
+    .append('canvas')
+    .attr('class', 'vis_canvas')
+    .attr('width', this.width + this.margin.left)
+    .attr('height', this.height + this.margin.top)
+    .style('padding', d3.map(this.margin).values().join('px ') + 'px');
 
-  this.progressLine = this.svg.append("line");
+  this.progressLine = this.svg.append('line');
 
   var that = this;
-  var button_id = this.selector + "_button";
+  var button_id = this.selector + '_button';
   this.button = d3
     .select(this.selector)
-    .append("button")
+    .append('button')
     .style(
-      "margin-top",
-      this.height + this.margin.top + this.margin.bottom + 20 + "px"
+      'margin-top',
+      this.height + this.margin.top + this.margin.bottom + 20 + 'px'
     )
-    .attr("id", button_id)
-    .text("analyze")
-    .on("click", function () {
+    .attr('id', button_id)
+    .text('analyze')
+    .on('click', function () {
       that.togglePlayback();
     });
 
@@ -230,13 +230,13 @@ Spectrogram.prototype.setupVisual = function () {
 
   this.freqSelect = d3
     .select(this.selector)
-    .append("select")
+    .append('select')
     .style(
-      "margin-top",
-      this.height + this.margin.top + this.margin.bottom + 20 + "px"
+      'margin-top',
+      this.height + this.margin.top + this.margin.bottom + 20 + 'px'
     )
-    .style("margin-left", "20px")
-    .on("change", function () {
+    .style('margin-left', '20px')
+    .on('change', function () {
       var newFreq = this.options[this.selectedIndex].value;
       console.log(newFreq);
       that.yScale.domain([0, newFreq]);
@@ -244,18 +244,18 @@ Spectrogram.prototype.setupVisual = function () {
     });
 
   this.freqSelect
-    .selectAll("option")
+    .selectAll('option')
     .data(freqs)
     .enter()
-    .append("option")
-    .attr("value", function (d) {
+    .append('option')
+    .attr('value', function (d) {
       return d;
     })
-    .attr("selected", function (d, i) {
-      return d == 11047 ? "selected" : null;
+    .attr('selected', function (d, i) {
+      return d == 11047 ? 'selected' : null;
     })
     .text(function (d) {
-      return d3.round(d / 1000) + "k";
+      return d3.round(d / 1000) + 'k';
     });
 
   this.maxCount =
@@ -271,40 +271,40 @@ Spectrogram.prototype.setupVisual = function () {
   this.zScale = d3.scale
     .linear()
     .domain(this.decRange)
-    .range(["white", "black"])
+    .range(['white', 'black'])
     .interpolate(d3.interpolateLab);
 
-  var commasFormatter = d3.format(",.1f");
+  var commasFormatter = d3.format(',.1f');
   this.xAxis = d3.svg
     .axis()
     .scale(this.xScale)
-    .orient("bottom")
+    .orient('bottom')
     .tickSize(-this.height - 15)
     .tickPadding(10)
     .tickFormat(function (d) {
-      return commasFormatter(d) + "s";
+      return commasFormatter(d) + 's';
     });
 
   this.yAxis = d3.svg
     .axis()
     .scale(this.yScale)
-    .orient("left")
+    .orient('left')
     .tickSize(-this.width - 10, 0, 0)
     .tickPadding(10)
     .tickFormat(function (d) {
-      return d3.round(d / 1000, 0) + "k";
+      return d3.round(d / 1000, 0) + 'k';
     });
 
   this.svg
-    .append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + (this.height + 10) + ")")
+    .append('g')
+    .attr('class', 'x axis')
+    .attr('transform', 'translate(0,' + (this.height + 10) + ')')
     .call(this.xAxis);
 
   this.svg
-    .append("g")
-    .attr("class", "y axis")
-    .attr("transform", "translate(" + -10 + ",0)")
+    .append('g')
+    .attr('class', 'y axis')
+    .attr('transform', 'translate(' + -10 + ',0)')
     .call(this.yAxis);
 };
 
@@ -318,21 +318,21 @@ Spectrogram.prototype.showProgress = function () {
     // this.curSec = (this.sampleRate * this.count) / this.buffer.sampleRate;
     var that = this;
     this.progressLine
-      .attr("x1", function () {
+      .attr('x1', function () {
         return that.xScale(that.curDuration);
       })
-      .attr("x2", function () {
+      .attr('x2', function () {
         return that.xScale(that.curDuration);
       })
-      .attr("y1", 0)
-      .attr("y2", this.height)
-      .attr("stroke", "red")
-      .attr("stroke-width", 2.0);
+      .attr('y1', 0)
+      .attr('y2', this.height)
+      .attr('stroke', 'red')
+      .attr('stroke-width', 2.0);
 
     requestAnimFrame(this.showProgress.bind(this));
 
     if (this.curDuration >= this.buffer.duration) {
-      this.progressLine.attr("y2", 0);
+      this.progressLine.attr('y2', 0);
       this.togglePlayback();
     }
   }
@@ -343,7 +343,7 @@ Spectrogram.prototype.showProgress = function () {
 // after the sound has been analyzed.
 // ---
 Spectrogram.prototype.switchButtonText = function () {
-  this.button.text("play");
+  this.button.text('play');
 };
 
 // ---
@@ -353,10 +353,10 @@ Spectrogram.prototype.togglePlayback = function () {
   if (this.isPlaying) {
     this.source.stop(0);
     this.startOffset += this.context.currentTime - this.startTime;
-    console.log("paused at", this.startOffset);
-    this.button.attr("disabled", null);
+    console.log('paused at', this.startOffset);
+    this.button.attr('disabled', null);
   } else {
-    this.button.attr("disabled", true);
+    this.button.attr('disabled', true);
     this.startTime = this.context.currentTime;
     this.count = 0;
     this.curSec = 0;
@@ -376,7 +376,7 @@ Spectrogram.prototype.togglePlayback = function () {
     this.source.loop = false;
     this.source.start(0, this.startOffset % this.buffer.duration);
 
-    console.log("started at", this.startOffset);
+    console.log('started at', this.startOffset);
 
     if (this.isLoaded) {
       requestAnimFrame(this.showProgress.bind(this));
@@ -403,11 +403,11 @@ Spectrogram.prototype.draw = function () {
 
   var visContext = d3
     .select(this.selector)
-    .select(".vis_canvas")[0][0]
-    .getContext("2d");
+    .select('.vis_canvas')[0][0]
+    .getContext('2d');
 
-  this.svg.select(".x.axis").call(this.xAxis);
-  this.svg.select(".y.axis").call(this.yAxis);
+  this.svg.select('.x.axis').call(this.xAxis);
+  this.svg.select('.y.axis').call(this.yAxis);
 
   visContext.clearRect(0, 0, this.width + this.margin.left, this.height);
 

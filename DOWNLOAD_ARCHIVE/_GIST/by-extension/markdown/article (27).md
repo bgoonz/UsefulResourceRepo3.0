@@ -39,8 +39,8 @@ Before creating the code of `pow`, we can imagine what the function should do an
 Such description is called a _specification_ or, in short, a spec, and contains descriptions of use cases together with tests for them, like this:
 
 ```js
-describe("pow", function () {
-  it("raises to n-th power", function () {
+describe('pow', function () {
+  it('raises to n-th power', function () {
     assert.equal(pow(2, 3), 8);
   });
 });
@@ -48,14 +48,11 @@ describe("pow", function () {
 
 A spec has three main building blocks that you can see above:
 
-`describe("title", function() { ... })`
-: What functionality we're describing. In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
+`describe("title", function() { ... })` : What functionality we're describing. In our case we're describing the function `pow`. Used to group "workers" -- the `it` blocks.
 
-`it("use case description", function() { ... })`
-: In the title of `it` we _in a human-readable way_ describe the particular use case, and the second argument is a function that tests it.
+`it("use case description", function() { ... })` : In the title of `it` we _in a human-readable way_ describe the particular use case, and the second argument is a function that tests it.
 
-`assert.equal(value1, value2)`
-: The code inside `it` block, if the implementation is correct, should execute without errors.
+`assert.equal(value1, value2)` : The code inside `it` block, if the implementation is correct, should execute without errors.
 
     Functions `assert.*` are used to check whether `pow` works as expected. Right here we're using one of them -- `assert.equal`, it compares arguments and yields an error if they are not equal. Here it checks that the result of `pow(2, 3)` equals `8`. There are other types of comparisons and checks, that we'll add later.
 
@@ -153,12 +150,12 @@ We can select one of two ways to organize the test here:
 2. The second -- make two tests:
 
    ```js
-   describe("pow", function () {
-     it("2 raised to power 3 is 8", function () {
+   describe('pow', function () {
+     it('2 raised to power 3 is 8', function () {
        assert.equal(pow(2, 3), 8);
      });
 
-     it("3 raised to power 4 is 81", function () {
+     it('3 raised to power 4 is 81', function () {
        assert.equal(pow(3, 4), 81);
      });
    });
@@ -201,7 +198,7 @@ function pow(x, n) {
 To be sure that the function works well, let's test it for more values. Instead of writing `it` blocks manually, we can generate them in `for`:
 
 ```js
-describe("pow", function () {
+describe('pow', function () {
   function makeTest(x) {
     let expected = x * x * x;
     it(`${x} in the power 3 is ${expected}`, function () {
@@ -262,15 +259,15 @@ In the future we can add more `it` and `describe` on the top level with helper f
 For instance:
 
 ```js no-beautify
-describe("test", function () {
-  before(() => alert("Testing started – before all tests"));
-  after(() => alert("Testing finished – after all tests"));
+describe('test', function () {
+  before(() => alert('Testing started – before all tests'));
+  after(() => alert('Testing finished – after all tests'));
 
-  beforeEach(() => alert("Before a test – enter a test"));
-  afterEach(() => alert("After a test – exit a test"));
+  beforeEach(() => alert('Before a test – enter a test'));
+  afterEach(() => alert('After a test – exit a test'));
 
-  it("test 1", () => alert(1));
-  it("test 2", () => alert(2));
+  it('test 1', () => alert(1));
+  it('test 2', () => alert(2));
 });
 ```
 

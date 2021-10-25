@@ -9,14 +9,14 @@
  * purpose with or without fee is hereby granted.
  */
 
-const { dirname, relative, resolve, sep } = require("path");
+const { dirname, relative, resolve, sep } = require('path');
 
 const useFullFilePath = (dir) => (path) => {
   const { source } = path.value;
-  if (source && source.value.startsWith(".")) {
+  if (source && source.value.startsWith('.')) {
     const absPath = require.resolve(resolve(dir, source.value));
     const relPath = relative(dir, absPath);
-    source.value = relPath.startsWith(".") ? relPath : `.${sep}${relPath}`;
+    source.value = relPath.startsWith('.') ? relPath : `.${sep}${relPath}`;
   }
 };
 
@@ -31,5 +31,5 @@ module.exports = function useFullImportFilePaths(fileInfo, api) {
     j.ExportNamedDeclaration,
   ])
     root.find(d).forEach(fix);
-  return root.toSource({ quote: "single" });
+  return root.toSource({ quote: 'single' });
 };

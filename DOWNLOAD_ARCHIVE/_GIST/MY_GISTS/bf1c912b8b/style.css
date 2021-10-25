@@ -1,0 +1,27 @@
+iframe {
+  position: fixed;
+  border: none;
+  top: 0;
+  background: whitesmoke;
+  resize: both;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+* {
+  resize: both;
+}
+body {
+  color: black !important;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  color: black !important;
+}

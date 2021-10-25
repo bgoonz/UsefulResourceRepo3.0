@@ -7,8 +7,8 @@ const flag = (() => {
   let bool = false;
 
   // Used in the `try`.
-  const key = "TEST_KEY";
-  const val = "TEST_VAL";
+  const key = 'TEST_KEY';
+  const val = 'TEST_VAL';
 
   // Rigorously test for support.
   try {
@@ -37,7 +37,7 @@ const hasProp = Object.prototype.hasOwnProperty;
 const cacheFallback = {
   clear: function () {
     for (const key in cache) {
-      if (key !== "clear" && hasProp.call(cache, key)) {
+      if (key !== 'clear' && hasProp.call(cache, key)) {
         delete cache[key];
       }
     }
@@ -83,17 +83,17 @@ const get = (key) => {
 
 const set = (key, data) => {
   if (
-    key === "clear" ||
-    key === "getItem" ||
-    key === "key" ||
-    key === "length" ||
-    key === "removeItem" ||
-    key === "setItem"
+    key === 'clear' ||
+    key === 'getItem' ||
+    key === 'key' ||
+    key === 'length' ||
+    key === 'removeItem' ||
+    key === 'setItem'
   ) {
     throw new Error(`Cannot overwrite method: window.localStorage.${key}`);
   }
 
-  if (typeof data === "object") {
+  if (typeof data === 'object') {
     data = JSON.stringify(data);
   }
 

@@ -39,13 +39,13 @@ Numeric conversion happens in mathematical functions and expressions automatical
 For example, when division `/` is applied to non-numbers:
 
 ```js run
-alert("6" / "2"); // 3, strings are converted to numbers
+alert('6' / '2'); // 3, strings are converted to numbers
 ```
 
 We can use the `Number(value)` function to explicitly convert a `value` to a number:
 
 ```js run
-let str = "123";
+let str = '123';
 alert(typeof str); // string
 
 let num = Number(str); // becomes a number 123
@@ -58,25 +58,25 @@ Explicit conversion is usually required when we read a value from a string-based
 If the string is not a valid number, the result of such a conversion is `NaN`. For instance:
 
 ```js run
-let age = Number("an arbitrary string instead of a number");
+let age = Number('an arbitrary string instead of a number');
 
 alert(age); // NaN, conversion failed
 ```
 
 Numeric conversion rules:
 
-| Value                                 | Becomes...                                                                                                                                                                  |
-| ------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `undefined`                           | `NaN`                                                                                                                                                                       |
-| `null`                                | `0`                                                                                                                                                                         |
-| <code>true&nbsp;and&nbsp;false</code> | `1` and `0`                                                                                                                                                                 |
-| `string`                              | Whitespaces from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
+| Value | Becomes... |
+| --- | --- |
+| `undefined` | `NaN` |
+| `null` | `0` |
+| <code>true&nbsp;and&nbsp;false</code> | `1` and `0` |
+| `string` | Whitespaces from the start and end are removed. If the remaining string is empty, the result is `0`. Otherwise, the number is "read" from the string. An error gives `NaN`. |
 
 Examples:
 
 ```js run
-alert(Number("   123   ")); // 123
-alert(Number("123z")); // NaN (error reading a number at "z")
+alert(Number('   123   ')); // 123
+alert(Number('123z')); // NaN (error reading a number at "z")
 alert(Number(true)); // 1
 alert(Number(false)); // 0
 ```
@@ -102,15 +102,15 @@ For instance:
 alert(Boolean(1)); // true
 alert(Boolean(0)); // false
 
-alert(Boolean("hello")); // true
-alert(Boolean("")); // false
+alert(Boolean('hello')); // true
+alert(Boolean('')); // false
 ```
 
 ````warn header="Please note: the string with zero `\"0\"`is`true`" Some languages (namely PHP) treat `"0"`as`false`. But in JavaScript, a non-empty string is always `true`.
 
 ```js run
-alert(Boolean("0")); // true
-alert(Boolean(" ")); // spaces, also true (any non-empty string is true)
+alert(Boolean('0')); // true
+alert(Boolean(' ')); // spaces, also true (any non-empty string is true)
 ```
 
 ```

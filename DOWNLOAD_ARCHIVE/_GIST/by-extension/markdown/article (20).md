@@ -6,7 +6,7 @@ The syntax that we used before is called a _Function Declaration_:
 
 ```js
 function sayHi() {
-  alert("Hello");
+  alert('Hello');
 }
 ```
 
@@ -16,7 +16,7 @@ It looks like this:
 
 ```js
 let sayHi = function () {
-  alert("Hello");
+  alert('Hello');
 };
 ```
 
@@ -49,7 +49,7 @@ We can copy a function to another variable:
 ```js run no-beautify
 function sayHi() {
   // (1) create
-  alert("Hello");
+  alert('Hello');
 }
 
 let func = sayHi; // (2) copy
@@ -68,7 +68,7 @@ Note that we could also have used a Function Expression to declare `sayHi`, in t
 
 ```js
 let sayHi = function () {
-  alert("Hello");
+  alert('Hello');
 };
 
 let func = sayHi;
@@ -101,14 +101,11 @@ Let's look at more examples of passing functions as values and using function ex
 
 We'll write a function `ask(question, yes, no)` with three parameters:
 
-`question`
-: Text of the question
+`question` : Text of the question
 
-`yes`
-: Function to run if the answer is "Yes"
+`yes` : Function to run if the answer is "Yes"
 
-`no`
-: Function to run if the answer is "No"
+`no` : Function to run if the answer is "No"
 
 The function should ask the `question` and, depending on the user's answer, call `yes()` or `no()`:
 

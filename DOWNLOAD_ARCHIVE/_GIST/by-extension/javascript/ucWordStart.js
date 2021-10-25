@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 
 module.exports = function ucWordStart(cityOrCountry) {
   if (!cityOrCountry) return cityOrCountry;

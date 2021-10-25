@@ -12,7 +12,7 @@ export default function (props = [], state = []) {
         const oldVal = this.props[name];
         const newVal = newProps[name];
         if (newVal !== oldVal) {
-          if (localStorage.traceUpdates == "*") {
+          if (localStorage.traceUpdates == '*') {
             const rowName = `${target.name} prop '${name}'`;
             rows[rowName] = rows[rowName] || { renders: 0, instances: {} };
             rows[rowName].renders++;
@@ -28,7 +28,7 @@ export default function (props = [], state = []) {
         const oldVal = this.state[name];
         const newVal = newState[name];
         if (newVal !== oldVal) {
-          if (localStorage.traceUpdates == "*") {
+          if (localStorage.traceUpdates == '*') {
             const rowName = `${target.name} state '${name}'`;
             rows[rowName] = rows[rowName] || { renders: 0, instances: {} };
             rows[rowName].renders++;
@@ -47,27 +47,27 @@ export default function (props = [], state = []) {
 }
 
 function enable() {
-  console.log("enabled update tracing");
-  localStorage.traceUpdates = "*";
+  console.log('enabled update tracing');
+  localStorage.traceUpdates = '*';
 }
 
 function disable() {
-  console.log("disabled update tracing");
-  localStorage.traceUpdates = "";
+  console.log('disabled update tracing');
+  localStorage.traceUpdates = '';
 }
 
 function print() {
   if (Object.keys(rows).length == 0) {
-    console.log("nothing to print");
+    console.log('nothing to print');
     return;
   }
 
   for (var k in rows) {
     rows[k].instances = Object.keys(rows[k].instances).length;
-    rows[k]["renders per instance"] = rows[k].renders / rows[k].instances;
+    rows[k]['renders per instance'] = rows[k].renders / rows[k].instances;
   }
 
-  console.table(rows, ["renders", "instances", "renders per instance"]);
+  console.table(rows, ['renders', 'instances', 'renders per instance']);
   rows = {};
 }
 

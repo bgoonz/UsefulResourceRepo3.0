@@ -71,6 +71,6 @@ It has two methods:
 ```js run
 let encoder = new TextEncoder();
 
-let uint8Array = encoder.encode("Hello");
+let uint8Array = encoder.encode('Hello');
 alert(uint8Array); // 72,101,108,108,111
 ```

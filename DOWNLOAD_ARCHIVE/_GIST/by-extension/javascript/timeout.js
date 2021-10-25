@@ -20,11 +20,11 @@ function tick() {
     output.sendMIDIMessage(msg);
 
     logMessage(
-      "timestamp: " +
+      'timestamp: ' +
         msg.timestamp +
-        ", domhrtTime: " +
+        ', domhrtTime: ' +
         domhrtRelativeTime +
-        ", scheduling deviation: " +
+        ', scheduling deviation: ' +
         (domhrtRelativeTime - msg.timestamp)
     );
 

@@ -7,11 +7,11 @@ Stateful logic is logic that is built into a component. It can be a function tha
 Look at this component. Can you spot the stateful logic built into it?
 
 ```jsx
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const DynamicTitle = () => {
-  const [title, setTitle] = useState("Hooks are so fun!");
-  const [inputText, setInputText] = useState("");
+  const [title, setTitle] = useState('Hooks are so fun!');
+  const [inputText, setInputText] = useState('');
 
   const handleChanges = (e) => {
     setInputText(e.target.value);
@@ -20,7 +20,7 @@ const DynamicTitle = () => {
   const changeTitle = (e) => {
     e.preventDefault();
     setTitle(inputText);
-    setInputText("");
+    setInputText('');
   };
 
   return (
@@ -188,7 +188,7 @@ Now, let's add a property to our state data. Define a `message` property on the 
 
 ```jsx
 this.state = {
-  message: "Hello from App State!!",
+  message: 'Hello from App State!!',
 };
 ```
 
@@ -220,11 +220,11 @@ Let's take the functionality of this class component that we built earlier and e
 Let's start with the same component that we evaluated in the objective above. Go ahead and look over it one more time, this time making sure to understand what the various parts are doing.
 
 ```jsx
-import React, { useState } from "react";
+import React, { useState } from 'react';
 
 const DynamicTitle = () => {
-  const [title, setTitle] = useState("This is a class component");
-  const [inputText, setInputText] = useState("");
+  const [title, setTitle] = useState('This is a class component');
+  const [inputText, setInputText] = useState('');
 
   const handleChanges = (e) => {
     setInputText(e.target.value);
@@ -233,7 +233,7 @@ const DynamicTitle = () => {
   const changeTitle = (e) => {
     e.preventDefault();
     setTitle(inputText);
-    setInputText("");
+    setInputText('');
   };
 
   return (
@@ -285,19 +285,19 @@ Next, we have a `handleChanges` function that uses the `setValue` function to up
 Let's take a look at this custom hook when it's imported and used in a component.
 
 ```jsx
-import React, { useState } from "react";
-import { useInput } from "./useInput.js";
+import React, { useState } from 'react';
+import { useInput } from './useInput.js';
 
 const CustomForm = () => {
-  const [username, setUsername, handleUsername] = useInput("");
-  const [password, setPassword, handlePassword] = useInput("");
-  const [email, setEmail, handleEmail] = useInput("");
+  const [username, setUsername, handleUsername] = useInput('');
+  const [password, setPassword, handlePassword] = useInput('');
+  const [email, setEmail, handleEmail] = useInput('');
 
   const resetValues = (e) => {
     e.preventDefault();
-    setUsername("");
-    setPassword("");
-    setEmail("");
+    setUsername('');
+    setPassword('');
+    setEmail('');
   };
 
   return (
@@ -342,9 +342,9 @@ Whoa. That looks crazy, right? Don't worry. We're going to dissect this whole sc
 First off, notice that we're invoking the `useInput` custom hook three times at the top of the component and passing in an empty string as each one's initial value:
 
 ```jsx
-const [username, setUsername, handleUsername] = useInput("");
-const [password, setPassword, handlePassword] = useInput("");
-const [email, setEmail, handleEmail] = useInput("");
+const [username, setUsername, handleUsername] = useInput('');
+const [password, setPassword, handlePassword] = useInput('');
+const [email, setEmail, handleEmail] = useInput('');
 ```
 
 Our `useInput` hook returns a new copy of our custom hook and state each time. Also, because array destructuring is based on positioning and not the name, we are allowed by JavaScript to name each of the three items returned from `useInput` in different ways. This is why we can set the first item to `username`, the second to `setUsername`, and the third to `handleUsername` while the next two `useInput` calls return differently-named variables and functions.
@@ -393,9 +393,9 @@ Here they are again for your reference:
 ```jsx
 const resetValues = (e) => {
   e.preventDefault();
-  setUsername("");
-  setPassword("");
-  setEmail("");
+  setUsername('');
+  setPassword('');
+  setEmail('');
 };
 ```
 
@@ -403,8 +403,7 @@ By building out a custom hook, we can skip writing out all of the stateful logic
 
 ## Challenge
 
-Now that you can identify custom hook logic and how you might both create and use it in your components, go back to several components you've built over the last week and refactor the state in some forms you made to use the `useInput` custom hook from the component in the examples above.
-[Click here (Links to an external site.)](https://codesandbox.io/s/yk37ykmyrz) to access the code within this video's follow-along exercise.
+Now that you can identify custom hook logic and how you might both create and use it in your components, go back to several components you've built over the last week and refactor the state in some forms you made to use the `useInput` custom hook from the component in the examples above. [Click here (Links to an external site.)](https://codesandbox.io/s/yk37ykmyrz) to access the code within this video's follow-along exercise.
 
 ## Overview
 
@@ -435,7 +434,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      welcomeMessage: "world!",
+      welcomeMessage: 'world!',
     };
   }
 
@@ -498,7 +497,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      welcomeMessage: "world!",
+      welcomeMessage: 'world!',
     };
   }
 
@@ -542,7 +541,7 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      welcomeMessage: "world!",
+      welcomeMessage: 'world!',
     };
   }
 
@@ -615,7 +614,7 @@ We need to start by building out a second custom hook. Later on, we'll combine i
 First, we'll implement the new hook that we will call `useLocalStorage`:
 
 ```jsx
-import { useState } from "react";
+import { useState } from 'react';
 
 const useLocalStorage = (key, initialValue) => {
   const [storedValue, setStoredValue] = useState(() => {
@@ -640,7 +639,7 @@ Because of this, our hook can now successfully check to see if a specific state 
 Now that we have a custom hook for controlling value placement (and updates) in `localStorage`, we can combine it with `useInput` to create powerful logic. Take a look at the completed code, and then we'll talk about what it's doing:
 
 ```jsx
-import { useState } from "react";
+import { useState } from 'react';
 
 export const useInput = (key, initialValue) => {
   const [value, setValue] = useLocalStorage(key, initialValue);
@@ -668,9 +667,9 @@ While our `useLocalStorage` hook has stayed the same, our `useInput` custom hook
 Now when we call the `useInput` hook in a component to control inputs dynamically, we just need to pass in a unique key for each input to keep track of it in localStorage. Something like this:
 
 ```jsx
-const [username, setUsername, handleUsername] = useInput("userName", "");
-const [password, setPassword, handlePassword] = useInput("password", "");
-const [email, setEmail, handleEmail] = useInput("email", "");
+const [username, setUsername, handleUsername] = useInput('userName', '');
+const [password, setPassword, handlePassword] = useInput('password', '');
+const [email, setEmail, handleEmail] = useInput('email', '');
 ```
 
 Although this isn't something you will often do (storing input values in localStorage), this setup is quite powerful, and it effectively demonstrates how composable hooks can be; by combining the stateful logic of multiple custom hooks, you can compose a really nice custom hook with advanced stateful logic.
@@ -679,8 +678,7 @@ One final thing to note is that we can employ the `useLocalStorage` custom hook 
 
 ## Challenge
 
-Try to think of different instances where you could compose different custom hooks together, particularly with the new `useLocalStorage` hook that you learned above. Be as creative as possible in the implementations that you think of.
-You can access the example in this video [here (Links to an external site.)](https://codesandbox.io/s/k0q2wwyj2o).
+Try to think of different instances where you could compose different custom hooks together, particularly with the new `useLocalStorage` hook that you learned above. Be as creative as possible in the implementations that you think of. You can access the example in this video [here (Links to an external site.)](https://codesandbox.io/s/k0q2wwyj2o).
 
 ## Overview
 
@@ -732,7 +730,7 @@ Now, let's build out a little Application that can handle some data that we pass
 First, let's build out a singleClickHandler function.
 
 ```jsx
-singleClickHandler = () => alert("Single Click!");
+singleClickHandler = () => alert('Single Click!');
 ```
 
 Now, we add it to a button within our app's render function.
@@ -747,11 +745,11 @@ render() {
 Lets repeat the process for our doubleClick, mouseEnter and onChange events.
 
 ```jsx
-doubleClickHandler = () => alert("Double Clicked!");
+doubleClickHandler = () => alert('Double Clicked!');
 
-mouseEnterHandler = () => alert("Mouse Entered");
+mouseEnterHandler = () => alert('Mouse Entered');
 
-changeHandler = () => alert("Item was changed");
+changeHandler = () => alert('Item was changed');
 <div className="App">
   <h1>Hello Handlers</h1>
   <h2>Lets build out some handler functions.</h2>
@@ -820,8 +818,4 @@ Fork the code provided above and do the following.
 - Add another value to state that holds the secondDisplayValue.
 - Display that value in a h2 tag.
 - Create a button that will put the value of state.displayText within our secondDisplayValue property.
-- Add an event listener and event handler function that will cause our h2 to show displayText when we click our new button.
-  //APPEND-DIR.js
-  const fs = require( 'fs' );
-  let cat = require( 'child_process' ).execSync( 'cat \*' ).toString( 'UTF-8' );
-  fs.writeFile( 'output.md', cat, ( err ) => { if ( err ) throw err; } );
+- Add an event listener and event handler function that will cause our h2 to show displayText when we click our new button. //APPEND-DIR.js const fs = require( 'fs' ); let cat = require( 'child_process' ).execSync( 'cat \*' ).toString( 'UTF-8' ); fs.writeFile( 'output.md', cat, ( err ) => { if ( err ) throw err; } );

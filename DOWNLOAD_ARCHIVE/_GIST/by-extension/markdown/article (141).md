@@ -40,7 +40,7 @@ A sketch of client-side `subscribe` function that makes long requests:
 
 ```js
 async function subscribe() {
-  let response = await fetch("/subscribe");
+  let response = await fetch('/subscribe');
 
   if (response.status == 502) {
     // Status 502 is a connection timeout error,

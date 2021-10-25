@@ -16,7 +16,7 @@ It looks like this:
 
 ```js
 function showMessage() {
-  alert("Hello everyone!");
+  alert('Hello everyone!');
 }
 ```
 
@@ -181,7 +181,7 @@ If a parameter is not provided, then its value becomes `undefined`.
 For instance, the aforementioned function `showMessage(from, text)` can be called with a single argument:
 
 ```js
-showMessage("Ann");
+showMessage('Ann');
 ```
 
 That's not an error. Such a call would output `"*Ann*: undefined"`. There's no `text`, so it's assumed that `text === undefined`.
@@ -248,7 +248,7 @@ Modern JavaScript engines support the [nullish coalescing operator](info:nullish
 ```js run
 // if there's no "count" parameter, show "unknown"
 function showCount(count) {
-  alert(count ?? "unknown");
+  alert(count ?? 'unknown');
 }
 
 showCount(0); // 0

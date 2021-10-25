@@ -3,25 +3,25 @@
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
-"use strict";
+'use strict';
 
-const Audit = require("../audit.js");
-const i18n = require("../../lib/i18n/i18n.js");
-const NetworkRequest = require("../../lib/network-request.js");
-const NetworkRecords = require("../../computed/network-records.js");
+const Audit = require('../audit.js');
+const i18n = require('../../lib/i18n/i18n.js');
+const NetworkRequest = require('../../lib/network-request.js');
+const NetworkRecords = require('../../computed/network-records.js');
 
 const UIStrings = {
   /** Title of a diagnostic audit that provides detail on large network resources required during page load. 'Payloads' is roughly equivalent to 'resources'. This descriptive title is shown to users when the amount is acceptable and no user action is required. */
-  title: "Avoids enormous network payloads",
+  title: 'Avoids enormous network payloads',
   /** Title of a diagnostic audit that provides detail on large network resources required during page load. 'Payloads' is roughly equivalent to 'resources'. This imperative title is shown to users when there is a significant amount of execution time that could be reduced. */
-  failureTitle: "Avoid enormous network payloads",
+  failureTitle: 'Avoid enormous network payloads',
   /** Description of a Lighthouse audit that tells the user *why* they should reduce the size of the network resources required by the page. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description:
-    "Large network payloads cost users real money and are highly correlated with " +
-    "long load times. [Learn " +
-    "more](https://web.dev/total-byte-weight/).",
+    'Large network payloads cost users real money and are highly correlated with ' +
+    'long load times. [Learn ' +
+    'more](https://web.dev/total-byte-weight/).',
   /** Used to summarize the total byte size of the page and all its network requests. The `{totalBytes}` placeholder will be replaced with the total byte sizes, shown in kibibytes (e.g. 142 KiB) */
-  displayValue: "Total size was {totalBytes, number, bytes}\xa0KiB",
+  displayValue: 'Total size was {totalBytes, number, bytes}\xa0KiB',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -32,12 +32,12 @@ class TotalByteWeight extends Audit {
    */
   static get meta() {
     return {
-      id: "total-byte-weight",
+      id: 'total-byte-weight',
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: str_(UIStrings.description),
       scoreDisplayMode: Audit.SCORING_MODES.NUMERIC,
-      requiredArtifacts: ["devtoolsLogs"],
+      requiredArtifacts: ['devtoolsLogs'],
     };
   }
 
@@ -96,10 +96,10 @@ class TotalByteWeight extends Audit {
 
     /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
-      { key: "url", itemType: "url", text: str_(i18n.UIStrings.columnURL) },
+      { key: 'url', itemType: 'url', text: str_(i18n.UIStrings.columnURL) },
       {
-        key: "totalBytes",
-        itemType: "bytes",
+        key: 'totalBytes',
+        itemType: 'bytes',
         text: str_(i18n.UIStrings.columnTransferSize),
       },
     ];
@@ -109,7 +109,7 @@ class TotalByteWeight extends Audit {
     return {
       score,
       numericValue: totalBytes,
-      numericUnit: "byte",
+      numericUnit: 'byte',
       displayValue: str_(UIStrings.displayValue, { totalBytes }),
       details: tableDetails,
     };

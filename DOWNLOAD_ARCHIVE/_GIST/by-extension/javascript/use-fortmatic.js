@@ -1,6 +1,6 @@
-import { useState, useEffect, useRef } from "react";
-import Web3 from "web3";
-import Fortmatic from "fortmatic";
+import { useState, useEffect, useRef } from 'react';
+import Web3 from 'web3';
+import Fortmatic from 'fortmatic';
 
 const usePromise = () => {
   const ref = [];

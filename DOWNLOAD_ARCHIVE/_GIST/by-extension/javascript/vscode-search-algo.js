@@ -25,26 +25,26 @@
           });
       }),
       (n.r = function (e) {
-        "undefined" != typeof Symbol &&
+        'undefined' != typeof Symbol &&
           Symbol.toStringTag &&
           Object.defineProperty(e, Symbol.toStringTag, {
-            value: "Module",
+            value: 'Module',
           }),
-          Object.defineProperty(e, "__esModule", {
+          Object.defineProperty(e, '__esModule', {
             value: !0,
           });
       }),
       (n.t = function (e, t) {
         if ((1 & t && (e = n(e)), 8 & t)) return e;
-        if (4 & t && "object" == typeof e && e && e.__esModule) return e;
+        if (4 & t && 'object' == typeof e && e && e.__esModule) return e;
         var o = Object.create(null);
         if (
           (n.r(o),
-          Object.defineProperty(o, "default", {
+          Object.defineProperty(o, 'default', {
             enumerable: !0,
             value: e,
           }),
-          2 & t && "string" != typeof e)
+          2 & t && 'string' != typeof e)
         )
           for (var r in e)
             n.d(
@@ -65,24 +65,24 @@
             : function () {
                 return e;
               };
-        return n.d(t, "a", t), t;
+        return n.d(t, 'a', t), t;
       }),
       (n.o = function (e, t) {
         return Object.prototype.hasOwnProperty.call(e, t);
       }),
-      (n.p = ""),
+      (n.p = ''),
       n((n.s = 3))
     );
   })([
     function (e, t) {
-      e.exports = require("path");
+      e.exports = require('path');
     },
     function (e, t) {
-      e.exports = require("vscode");
+      e.exports = require('vscode');
     },
     function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       });
       var o,
@@ -100,20 +100,20 @@
       }
 
       function p(e) {
-        return "[object Number]" === d.call(e);
+        return '[object Number]' === d.call(e);
       }
 
       function g(e) {
-        return "[object String]" === d.call(e);
+        return '[object String]' === d.call(e);
       }
 
       function v(e) {
-        return JSON.parse(u.readFileSync(e, "utf8"));
+        return JSON.parse(u.readFileSync(e, 'utf8'));
       }
 
       function h(e, t) {
         return (
-          l && (e = "［" + e.replace(/[aouei]/g, "$&$&") + "］"),
+          l && (e = '［' + e.replace(/[aouei]/g, '$&$&') + '］'),
           0 === t.length
             ? e
             : e.replace(/\{(\d+)\}/g, function (e, n) {
@@ -121,10 +121,10 @@
                   r = t[o],
                   i = e;
                 return (
-                  "string" == typeof r
+                  'string' == typeof r
                     ? (i = r)
-                    : ("number" != typeof r &&
-                        "boolean" != typeof r &&
+                    : ('number' != typeof r &&
+                        'boolean' != typeof r &&
                         null != r) ||
                       (i = String(r)),
                   i
@@ -140,18 +140,18 @@
           return p(t)
             ? t >= e.length
               ? void console.error(
-                  "Broken localize call found. Index out of bounds. Stacktrace is\n: " +
-                    new Error("").stack
+                  'Broken localize call found. Index out of bounds. Stacktrace is\n: ' +
+                    new Error('').stack
                 )
               : h(e[t], o)
             : g(n)
             ? (console.warn(
-                "Message " + n + " didn't get externalized correctly."
+                'Message ' + n + " didn't get externalized correctly."
               ),
               h(n, o))
             : void console.error(
-                "Broken localize call found. Stacktrace is\n: " +
-                  new Error("").stack
+                'Broken localize call found. Stacktrace is\n: ' +
+                  new Error('').stack
               );
         };
       }
@@ -170,15 +170,15 @@
         var n,
           o,
           r,
-          i = c.join(a.cacheRoot, e.id + "-" + e.hash + ".json"),
+          i = c.join(a.cacheRoot, e.id + '-' + e.hash + '.json'),
           s = !1,
           l = !1;
         try {
           return (
             (n = JSON.parse(
               u.readFileSync(i, {
-                encoding: "utf8",
-                flag: "r",
+                encoding: 'utf8',
+                flag: 'r',
               })
             )),
             (o = i),
@@ -187,15 +187,15 @@
             n
           );
         } catch (e) {
-          if ("ENOENT" === e.code) l = !0;
+          if ('ENOENT' === e.code) l = !0;
           else {
             if (!(e instanceof SyntaxError)) throw e;
             console.log(
-              "Syntax error parsing message bundle: " + e.message + "."
+              'Syntax error parsing message bundle: ' + e.message + '.'
             ),
               u.unlink(i, function (e) {
                 e &&
-                  console.error("Deleting corrupted bundle " + i + " failed.");
+                  console.error('Deleting corrupted bundle ' + i + ' failed.');
               }),
               (s = !0);
           }
@@ -205,11 +205,11 @@
             var n = a.translationsConfig[e.id];
             if (n) {
               var o = v(n).contents,
-                r = v(c.join(t, "nls.metadata.json")),
+                r = v(c.join(t, 'nls.metadata.json')),
                 i = Object.create(null);
               for (var s in r) {
                 var l = r[s],
-                  u = o[e.outDir + "/" + s];
+                  u = o[e.outDir + '/' + s];
                 if (u) {
                   for (var d = [], f = 0; f < l.keys.length; f++) {
                     var p = l.keys[f],
@@ -228,11 +228,11 @@
         if (l)
           try {
             u.writeFileSync(i, JSON.stringify(n), {
-              encoding: "utf8",
-              flag: "wx",
+              encoding: 'utf8',
+              flag: 'wx',
             });
           } catch (e) {
-            if ("EEXIST" === e.code) return n;
+            if ('EEXIST' === e.code) return n;
             throw e;
           }
         return n;
@@ -241,7 +241,7 @@
       function _(e) {
         try {
           return (function (e) {
-            var t = v(c.join(e, "nls.metadata.json")),
+            var t = v(c.join(e, 'nls.metadata.json')),
               n = Object.create(null);
             for (var o in t) {
               var r = t[o];
@@ -251,7 +251,7 @@
           })(e);
         } catch (e) {
           return void console.log(
-            "Generating default bundle from meta data failed.",
+            'Generating default bundle from meta data failed.',
             e
           );
         }
@@ -269,19 +269,19 @@
           try {
             n = y(e, t);
           } catch (e) {
-            console.log("Load or create bundle failed ", e);
+            console.log('Load or create bundle failed ', e);
           }
         if (!n) {
           if (a.languagePackSupport) return _(t);
           var o = (function (e) {
             for (var t = a.language; t; ) {
-              var n = c.join(e, "nls.bundle." + t + ".json");
+              var n = c.join(e, 'nls.bundle.' + t + '.json');
               if (u.existsSync(n)) return n;
-              var o = t.lastIndexOf("-");
+              var o = t.lastIndexOf('-');
               t = o > 0 ? t.substring(0, o) : void 0;
             }
             if (void 0 === t) {
-              n = c.join(e, "nls.bundle.json");
+              n = c.join(e, 'nls.bundle.json');
               if (u.existsSync(n)) return n;
             }
           })(t);
@@ -289,7 +289,7 @@
             try {
               return v(o);
             } catch (e) {
-              console.log("Loading in the box message bundle failed.", e);
+              console.log('Loading in the box message bundle failed.', e);
             }
           n = _(t);
         }
@@ -306,7 +306,7 @@
           var n = (function (e) {
             for (
               var t, n = c.dirname(e);
-              (t = c.join(n, "nls.metadata.header.json")), !u.existsSync(t);
+              (t = c.join(n, 'nls.metadata.header.json')), !u.existsSync(t);
 
             ) {
               var o = c.dirname(n);
@@ -323,7 +323,7 @@
               i = s[r];
             if (void 0 === i)
               try {
-                var d = JSON.parse(u.readFileSync(n, "utf8"));
+                var d = JSON.parse(u.readFileSync(n, 'utf8'));
                 try {
                   var p = S(d, r);
                   i = m(
@@ -336,24 +336,24 @@
                       : null
                   );
                 } catch (e) {
-                  console.error("Failed to load nls bundle", e),
+                  console.error('Failed to load nls bundle', e),
                     (i = m(r, null));
                 }
               } catch (e) {
-                console.error("Failed to read header file", e),
+                console.error('Failed to read header file', e),
                   (i = m(r, null));
               }
             if (i) {
-              var g = e.substr(r.length + 1).replace(/\\/g, "/"),
+              var g = e.substr(r.length + 1).replace(/\\/g, '/'),
                 h = i.nlsBundle[g];
               return void 0 === h
                 ? (console.error(
-                    "Messages for file " +
+                    'Messages for file ' +
                       e +
-                      " not found. See console for details."
+                      ' not found. See console for details.'
                   ),
                   function () {
-                    return "Messages not found.";
+                    return 'Messages not found.';
                   })
                 : w(h);
             }
@@ -366,18 +366,18 @@
                 var t;
                 if (a.cacheLanguageResolution && t) t = t;
                 else {
-                  if (l || !a.language) t = ".nls.json";
+                  if (l || !a.language) t = '.nls.json';
                   else
                     for (var n = a.language; n; ) {
-                      var o = ".nls." + n + ".json";
+                      var o = '.nls.' + n + '.json';
                       if (u.existsSync(e + o)) {
                         t = o;
                         break;
                       }
-                      var r = n.lastIndexOf("-");
+                      var r = n.lastIndexOf('-');
                       r > 0
                         ? (n = n.substring(0, r))
-                        : ((t = ".nls.json"), (n = null));
+                        : ((t = '.nls.json'), (n = null));
                     }
                   a.cacheLanguageResolution && (t = t);
                 }
@@ -392,24 +392,24 @@
                   "String bundle '" + e + "' uses an unsupported format."
                 ),
                 function () {
-                  return "File bundle has unsupported format. See console for details";
+                  return 'File bundle has unsupported format. See console for details';
                 });
           } catch (e) {
-            "ENOENT" !== e.code &&
-              console.error("Failed to load single file bundle", e);
+            'ENOENT' !== e.code &&
+              console.error('Failed to load single file bundle', e);
           }
         return (
-          console.error("Failed to load message bundle for file " + e),
+          console.error('Failed to load message bundle for file ' + e),
           function () {
-            return "Failed to load message bundle. See console for details.";
+            return 'Failed to load message bundle. See console for details.';
           }
         );
       }
       !(function (e) {
-        (e.file = "file"), (e.bundle = "bundle"), (e.both = "both");
+        (e.file = 'file'), (e.bundle = 'bundle'), (e.both = 'both');
       })((o = t.MessageFormat || (t.MessageFormat = {}))),
         (function (e) {
-          (e.standalone = "standalone"), (e.languagePack = "languagePack");
+          (e.standalone = 'standalone'), (e.languagePack = 'languagePack');
         })((r = t.BundleFormat || (t.BundleFormat = {}))),
         (function (e) {
           e.is = function (e) {
@@ -432,14 +432,14 @@
               var e = JSON.parse(process.env.VSCODE_NLS_CONFIG),
                 t = void 0;
               if (e.availableLanguages) {
-                var n = e.availableLanguages["*"];
+                var n = e.availableLanguages['*'];
                 g(n) && (t = n);
               }
               if (
                 (g(e.locale) && (a.locale = e.locale.toLowerCase()),
                 void 0 === t
                   ? (a.language = a.locale)
-                  : "en" !== t && (a.language = t),
+                  : 'en' !== t && (a.language = t),
                 (function (e) {
                   return !0 === e || !1 === e;
                 })(e._languagePackSupport) &&
@@ -458,8 +458,8 @@
                       t &&
                         u.writeFile(
                           e._corruptedFile,
-                          "corrupted",
-                          "utf8",
+                          'corrupted',
+                          'utf8',
                           function (e) {
                             console.error(e);
                           }
@@ -469,7 +469,7 @@
                 }
               }
             } catch (e) {}
-          (l = "pseudo" === a.locale), void 0, (s = Object.create(null));
+          (l = 'pseudo' === a.locale), void 0, (s = Object.create(null));
         })(),
         (t.loadMessageBundle = x),
         (t.config = function (e) {
@@ -484,35 +484,35 @@
               e.bundleFormat === r.standalone &&
                 !0 === a.languagePackSupport &&
                 (a.languagePackSupport = !1)),
-            (l = "pseudo" === a.locale),
+            (l = 'pseudo' === a.locale),
             x
           );
         });
     },
     function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.activate = void 0);
       const o = n(1),
         r = n(2),
         i = n(5),
-        s = r.loadMessageBundle(n(0).join(__dirname, "extension.ts")),
+        s = r.loadMessageBundle(n(0).join(__dirname, 'extension.ts')),
         a = new Set([
-          "localhost",
-          "127.0.0.1",
-          "0:0:0:0:0:0:0:1",
-          "::1",
-          "0.0.0.0",
-          "0:0:0:0:0:0:0:0",
-          "::",
+          'localhost',
+          '127.0.0.1',
+          '0:0:0:0:0:0:0:1',
+          '::1',
+          '0.0.0.0',
+          '0:0:0:0:0:0:0:0',
+          '::',
         ]);
       t.activate = function (e) {
         const t = new i.SimpleBrowserManager(e.extensionUri);
         e.subscriptions.push(t),
           e.subscriptions.push(
-            o.commands.registerCommand("simpleBrowser.show", async (e) => {
+            o.commands.registerCommand('simpleBrowser.show', async (e) => {
               e ||
                 (e = await o.window.showInputBox({
                   placeHolder: s(0, null),
@@ -522,18 +522,18 @@
             })
           ),
           e.subscriptions.push(
-            o.commands.registerCommand("simpleBrowser.api.open", (e, n) => {
+            o.commands.registerCommand('simpleBrowser.api.open', (e, n) => {
               t.show(e.toString(), n);
             })
           ),
           e.subscriptions.push(
             o.window.registerExternalUriOpener(
-              "simpleBrowser.open",
+              'simpleBrowser.open',
               {
                 canOpenExternalUri(e) {
                   const t = new URL(e.toString());
                   return a.has(t.hostname)
-                    ? "undefined" != typeof navigator &&
+                    ? 'undefined' != typeof navigator &&
                       o.env.uiKind === o.UIKind.Web
                       ? o.ExternalUriOpenerPriority.Default
                       : o.ExternalUriOpenerPriority.Option
@@ -547,7 +547,7 @@
                   }),
               },
               {
-                schemes: ["http", "https"],
+                schemes: ['http', 'https'],
                 label: s(2, null),
               }
             )
@@ -555,11 +555,11 @@
       };
     },
     function (e, t) {
-      e.exports = require("fs");
+      e.exports = require('fs');
     },
     function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.SimpleBrowserManager = void 0);
@@ -586,15 +586,15 @@
       };
     },
     function (e, t, n) {
-      "use strict";
-      Object.defineProperty(t, "__esModule", {
+      'use strict';
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.SimpleBrowserView = void 0);
       const o = n(1),
         r = n(2),
         i = n(7),
-        s = r.loadMessageBundle(n(0).join(__dirname, "simpleBrowserView.ts"));
+        s = r.loadMessageBundle(n(0).join(__dirname, 'simpleBrowserView.ts'));
       class a extends i.Disposable {
         constructor(e, t, n) {
           var r;
@@ -617,14 +617,14 @@
                 {
                   enableScripts: !0,
                   retainContextWhenHidden: !0,
-                  localResourceRoots: [o.Uri.joinPath(e, "media")],
+                  localResourceRoots: [o.Uri.joinPath(e, 'media')],
                 }
               )
             )),
             this._register(
               this._webviewPanel.webview.onDidReceiveMessage((e) => {
                 switch (e.type) {
-                  case "openExternal":
+                  case 'openExternal':
                     try {
                       const t = o.Uri.parse(e.url);
                       o.env.openExternal(t);
@@ -641,13 +641,13 @@
               o.workspace.onDidChangeConfiguration((e) => {
                 if (
                   e.affectsConfiguration(
-                    "simpleBrowser.focusLockIndicator.enabled"
+                    'simpleBrowser.focusLockIndicator.enabled'
                   )
                 ) {
-                  const e = o.workspace.getConfiguration("simpleBrowser");
+                  const e = o.workspace.getConfiguration('simpleBrowser');
                   this._webviewPanel.webview.postMessage({
-                    type: "didChangeFocusLockIndicatorEnabled",
-                    focusLockEnabled: e.get("focusLockIndicator.enabled", !0),
+                    type: 'didChangeFocusLockIndicatorEnabled',
+                    focusLockEnabled: e.get('focusLockIndicator.enabled', !0),
                   });
                 }
               })
@@ -665,11 +665,11 @@
             );
         }
         getHtml(e) {
-          const t = o.workspace.getConfiguration("simpleBrowser"),
-            n = new Date().getTime() + "" + new Date().getMilliseconds(),
-            r = this.extensionResourceUrl("media", "index.js"),
-            i = this.extensionResourceUrl("media", "main.css"),
-            a = this.extensionResourceUrl("media", "codicon.css");
+          const t = o.workspace.getConfiguration('simpleBrowser'),
+            n = new Date().getTime() + '' + new Date().getMilliseconds(),
+            r = this.extensionResourceUrl('media', 'index.js'),
+            i = this.extensionResourceUrl('media', 'main.css'),
+            a = this.extensionResourceUrl('media', 'codicon.css');
           return `<!DOCTYPE html>\n\t\t\t<html>\n\t\t\t<head>\n\t\t\t\t<meta http-equiv="Content-type" content="text/html;charset=UTF-8">\n\t\t\t\t<meta http-equiv="Content-Security-Policy" content="\n\t\t\t\t\tdefault-src 'none';\n\t\t\t\t\tfont-src ${
             this._webviewPanel.webview.cspSource
           };\n\t\t\t\t\tstyle-src ${
@@ -677,9 +677,9 @@
           };\n\t\t\t\t\tscript-src 'nonce-${n}';\n\t\t\t\t\tframe-src *;\n\t\t\t\t\t">\n\t\t\t\t<meta id="simple-browser-settings" data-settings="${
             ((l = JSON.stringify({
               url: e,
-              focusLockEnabled: t.get("focusLockIndicator.enabled", !0),
+              focusLockEnabled: t.get('focusLockIndicator.enabled', !0),
             })),
-            l.toString().replace(/"/g, "&quot;"))
+            l.toString().replace(/"/g, '&quot;'))
           }">\n\t\t\t\t<link rel="stylesheet" type="text/css" href="${i}">\n\t\t\t\t<link rel="stylesheet" type="text/css" href="${a}">\n\t\t\t</head>\n\t\t\t<body>\n\t\t\t\t<header class="header">\n\t\t\t\t\t<nav class="controls">\n\t\t\t\t\t\t<button\n\t\t\t\t\t\t\ttitle="${s(
             0,
             null
@@ -705,11 +705,11 @@
         }
       }
       (t.SimpleBrowserView = a),
-        (a.viewType = "simpleBrowser.view"),
+        (a.viewType = 'simpleBrowser.view'),
         (a.title = s(5, null));
     },
     function (e, t, n) {
-      "use strict";
+      'use strict';
 
       function o(e) {
         for (; e.length; ) {
@@ -717,7 +717,7 @@
           t && t.dispose();
         }
       }
-      Object.defineProperty(t, "__esModule", {
+      Object.defineProperty(t, '__esModule', {
         value: !0,
       }),
         (t.Disposable = t.disposeAll = void 0),

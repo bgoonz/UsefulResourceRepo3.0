@@ -71,7 +71,7 @@ function count() {
     i++;
   }
 
-  alert("Done in " + (Date.now() - start) + "ms");
+  alert('Done in ' + (Date.now() - start) + 'ms');
 }
 
 count();
@@ -93,7 +93,7 @@ function count() {
   } while (i % 1e6 != 0);
 
   if (i == 1e9) {
-    alert("Done in " + (Date.now() - start) + "ms");
+    alert('Done in ' + (Date.now() - start) + 'ms');
   } else {
     setTimeout(count); // schedule the new call (**)
   }
@@ -134,7 +134,7 @@ function count() {
   } while (i % 1e6 != 0);
 
   if (i == 1e9) {
-    alert("Done in " + (Date.now() - start) + "ms");
+    alert('Done in ' + (Date.now() - start) + 'ms');
   }
 }
 
@@ -217,7 +217,7 @@ menu.onclick = function () {
   // ...
 
   // create a custom event with the clicked menu item data
-  let customEvent = new CustomEvent("menu-open", {
+  let customEvent = new CustomEvent('menu-open', {
     bubbles: true,
   });
 
@@ -239,11 +239,11 @@ There's also a special function `queueMicrotask(func)` that queues `func` for ex
 For instance, take a look:
 
 ```js run
-setTimeout(() => alert("timeout"));
+setTimeout(() => alert('timeout'));
 
-Promise.resolve().then(() => alert("promise"));
+Promise.resolve().then(() => alert('promise'));
 
-alert("code");
+alert('code');
 ```
 
 What's going to be the order here?

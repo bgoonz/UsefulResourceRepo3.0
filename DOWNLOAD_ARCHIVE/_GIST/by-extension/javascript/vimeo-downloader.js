@@ -4,14 +4,14 @@
 // 4. Run: node vimeo-downloader.js "<URL>"
 // (done automatically now) 5. Combine the m4v and m4a files with mkvmerge
 
-const fs = require("fs");
-const url = require("url");
-const https = require("https");
-const { exec } = require("child_process");
+const fs = require('fs');
+const url = require('url');
+const https = require('https');
+const { exec } = require('child_process');
 
 let masterUrl = process.argv[2];
-if (!masterUrl.endsWith("?base64_init=1")) {
-  masterUrl += "?base64_init=1";
+if (!masterUrl.endsWith('?base64_init=1')) {
+  masterUrl += '?base64_init=1';
 }
 
 getJson(masterUrl, (err, json) => {
@@ -36,37 +36,37 @@ getJson(masterUrl, (err, json) => {
   );
 
   processFile(
-    "video",
+    'video',
     videoBaseUrl,
     videoData.init_segment,
     videoData.segments,
-    json.clip_id + ".m4v",
+    json.clip_id + '.m4v',
     (err) => {
       if (err) {
         throw err;
       }
 
       processFile(
-        "audio",
+        'audio',
         audioBaseUrl,
         audioData.init_segment,
         audioData.segments,
-        json.clip_id + ".m4a",
+        json.clip_id + '.m4a',
         (err) => {
           if (err) {
             throw err;
           }
 
-          console.log("combining video and audio...");
+          console.log('combining video and audio...');
 
           let combineCmd =
-            "ffmpeg -i " +
+            'ffmpeg -i ' +
             json.clip_id +
-            ".m4v -i " +
+            '.m4v -i ' +
             json.clip_id +
-            ".m4a -c copy " +
+            '.m4a -c copy ' +
             json.clip_id +
-            ".mp4";
+            '.mp4';
 
           exec(combineCmd, (err, stdout, stderr) => {
             if (err) {
@@ -77,20 +77,20 @@ getJson(masterUrl, (err, json) => {
             console.log(`stderr: ${stderr}`);
 
             console.log(
-              "removing video and audio in favor of combined version..."
+              'removing video and audio in favor of combined version...'
             );
 
-            fs.unlink(json.clip_id + ".m4v", (err) => {
+            fs.unlink(json.clip_id + '.m4v', (err) => {
               if (err) {
                 throw err;
               }
 
-              fs.unlink(json.clip_id + ".m4a", (err) => {
+              fs.unlink(json.clip_id + '.m4a', (err) => {
                 if (err) {
                   throw err;
                 }
 
-                console.log("all done");
+                console.log('all done');
               });
             });
           });
@@ -108,10 +108,10 @@ function processFile(type, baseUrl, initData, segments, filename, cb) {
 
   const segmentsUrl = segments.map((seg) => baseUrl + seg.url);
 
-  const initBuffer = Buffer.from(initData, "base64");
+  const initBuffer = Buffer.from(initData, 'base64');
   fs.writeFileSync(filename, initBuffer);
 
-  const output = fs.createWriteStream(filename, { flags: "a" });
+  const output = fs.createWriteStream(filename, { flags: 'a' });
 
   combineSegments(type, 0, segmentsUrl, output, (err) => {
     if (err) {
@@ -133,27 +133,27 @@ function combineSegments(type, i, segmentsUrl, output, cb) {
 
   https
     .get(segmentsUrl[i], (res) => {
-      res.on("data", (d) => output.write(d));
+      res.on('data', (d) => output.write(d));
 
-      res.on("end", () =>
+      res.on('end', () =>
         combineSegments(type, i + 1, segmentsUrl, output, cb)
       );
     })
-    .on("error", (e) => {
+    .on('error', (e) => {
       cb(e);
     });
 }
 
 function getJson(url, cb) {
-  let data = "";
+  let data = '';
 
   https
     .get(url, (res) => {
-      res.on("data", (d) => (data += d));
+      res.on('data', (d) => (data += d));
 
-      res.on("end", () => cb(null, JSON.parse(data)));
+      res.on('end', () => cb(null, JSON.parse(data)));
     })
-    .on("error", (e) => {
+    .on('error', (e) => {
       cb(e);
     });
 }

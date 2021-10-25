@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-import isArrayLike from "./isArrayLike";
-import isIterator from "./isIterator";
-import isIterable from "./isIterable";
+import isArrayLike from './isArrayLike';
+import isIterator from './isIterator';
+import isIterable from './isIterable';
 
 /**
  * Returns an iterator object for the given array, array-like object
@@ -29,6 +29,6 @@ export default function toIterator(seq) {
       }
     })(seq);
   } else {
-    throw new TypeError("Unable to convert " + seq + " to an iterator");
+    throw new TypeError('Unable to convert ' + seq + ' to an iterator');
   }
 }

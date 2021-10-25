@@ -1,8 +1,8 @@
-"use strict";
+'use strict';
 
-import isArrayLike from "./isArrayLike";
-import isIterator from "./isIterator";
-import zipIterator from "./zipIterator";
+import isArrayLike from './isArrayLike';
+import isIterator from './isIterator';
+import zipIterator from './zipIterator';
 
 function zipArray(...varArgs) {
   // Pre-allocation arrays speeds up assignment drastically, so we want to
@@ -62,7 +62,7 @@ export default function zipSequence(...varArgs) {
     return zipIterator.apply(null, varArgs);
   } else {
     throw new TypeError(
-      "Expected an iterator, array-like object or object, but got %s instead",
+      'Expected an iterator, array-like object or object, but got %s instead',
       first
     );
   }

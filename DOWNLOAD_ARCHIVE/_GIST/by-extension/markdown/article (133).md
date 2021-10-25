@@ -70,8 +70,8 @@ Also we can iterate over formData fields using `for..of` loop:
 
 ```js run
 let formData = new FormData();
-formData.append("key1", "value1");
-formData.append("key2", "value2");
+formData.append('key1', 'value1');
+formData.append('key2', 'value2');
 
 // List key/value pairs
 for (let [name, value] of formData) {
@@ -161,7 +161,7 @@ This example submits an image from `<canvas>`, along with some other fields, as 
 Please note how the image `Blob` is added:
 
 ```js
-formData.append("image", imageBlob, "image.png");
+formData.append('image', imageBlob, 'image.png');
 ```
 
 That's same as if there were `<input type="file" name="image">` in the form, and the visitor submitted a file named `"image.png"` (3rd argument) with the data `imageBlob` (2nd argument) from their filesystem.

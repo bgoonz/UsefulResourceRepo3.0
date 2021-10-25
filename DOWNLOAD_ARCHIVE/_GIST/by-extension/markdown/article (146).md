@@ -218,7 +218,7 @@ If we don't supply `keyOptions`, then we'll need to provide a key explicitly lat
 For instance, this object store uses `id` property as the key:
 
 ```js
-db.createObjectStore("books", { keyPath: "id" });
+db.createObjectStore('books', { keyPath: 'id' });
 ```
 
 **An object store can only be created/modified while updating the DB version, in `upgradeneeded` handler.**
@@ -235,14 +235,14 @@ For small databases the second variant may be simpler.
 Here's the demo of the second approach:
 
 ```js
-let openRequest = indexedDB.open("db", 2);
+let openRequest = indexedDB.open('db', 2);
 
 // create/upgrade the database without version checks
 openRequest.onupgradeneeded = function () {
   let db = openRequest.result;
-  if (!db.objectStoreNames.contains("books")) {
+  if (!db.objectStoreNames.contains('books')) {
     // if there's no "books" store
-    db.createObjectStore("books", { keyPath: "id" }); // create it
+    db.createObjectStore('books', { keyPath: 'id' }); // create it
   }
 };
 ```
@@ -250,7 +250,7 @@ openRequest.onupgradeneeded = function () {
 To delete an object store:
 
 ```js
-db.deleteObjectStore("books");
+db.deleteObjectStore('books');
 ```
 
 ## Transactions
@@ -327,11 +327,9 @@ There were basically four steps:
 
 Object stores support two methods to store a value:
 
-- **put(value, [key])**
-  Add the `value` to the store. The `key` is supplied only if the object store did not have `keyPath` or `autoIncrement` option. If there's already a value with the same key, it will be replaced.
+- **put(value, [key])** Add the `value` to the store. The `key` is supplied only if the object store did not have `keyPath` or `autoIncrement` option. If there's already a value with the same key, it will be replaced.
 
-- **add(value, [key])**
-  Same as `put`, but if there's already a value with the same key, then the request fails, and an error with the name `"ConstraintError"` is generated.
+- **add(value, [key])** Same as `put`, but if there's already a value with the same key, then the request fails, and an error with the name `"ConstraintError"` is generated.
 
 Similar to opening a database, we can send a request: `books.add(book)`, and then wait for `success/error` events.
 
@@ -388,12 +386,12 @@ First, make `fetch`, prepare the data if needed, afterwards create a transaction
 To detect the moment of successful completion, we can listen to `transaction.oncomplete` event:
 
 ```js
-let transaction = db.transaction("books", "readwrite");
+let transaction = db.transaction('books', 'readwrite');
 
 // ...perform operations...
 
 transaction.oncomplete = function () {
-  console.log("Transaction is complete");
+  console.log('Transaction is complete');
 };
 ```
 
@@ -420,16 +418,16 @@ In some situations, we may want to handle the failure (e.g. try another request)
 In the example below a new book is added with the same key (`id`) as the existing one. The `store.add` method generates a `"ConstraintError"` in that case. We handle it without canceling the transaction:
 
 ```js
-let transaction = db.transaction("books", "readwrite");
+let transaction = db.transaction('books', 'readwrite');
 
-let book = { id: "js", price: 10 };
+let book = { id: 'js', price: 10 };
 
-let request = transaction.objectStore("books").add(book);
+let request = transaction.objectStore('books').add(book);
 
 request.onerror = function (event) {
   // ConstraintError occurs when an object with the same id already exists
-  if (request.error.name == "ConstraintError") {
-    console.log("Book with such id already exists"); // handle the error
+  if (request.error.name == 'ConstraintError') {
+    console.log('Book with such id already exists'); // handle the error
     event.preventDefault(); // don't abort the transaction
     // use another key for the book?
   } else {
@@ -439,7 +437,7 @@ request.onerror = function (event) {
 };
 
 transaction.onabort = function () {
-  console.log("Error", transaction.error);
+  console.log('Error', transaction.error);
 };
 ```
 
@@ -457,7 +455,7 @@ So we can catch all errors using `db.onerror` handler, for reporting or other pu
 db.onerror = function (event) {
   let request = event.target; // the request that caused the error
 
-  console.log("Error", request.error);
+  console.log('Error', request.error);
 };
 ```
 
@@ -467,8 +465,8 @@ We can stop the bubbling and hence `db.onerror` by using `event.stopPropagation(
 
 ```js
 request.onerror = function (event) {
-  if (request.error.name == "ConstraintError") {
-    console.log("Book with such id already exists"); // handle the error
+  if (request.error.name == 'ConstraintError') {
+    console.log('Book with such id already exists'); // handle the error
     event.preventDefault(); // don't abort the transaction
     event.stopPropagation(); // don't bubble error up, "chew" it
   } else {
@@ -515,19 +513,19 @@ Request examples:
 
 ```js
 // get one book
-books.get("js");
+books.get('js');
 
 // get books with 'css' <= id <= 'html'
-books.getAll(IDBKeyRange.bound("css", "html"));
+books.getAll(IDBKeyRange.bound('css', 'html'));
 
 // get books with id < 'html'
-books.getAll(IDBKeyRange.upperBound("html", true));
+books.getAll(IDBKeyRange.upperBound('html', true));
 
 // get all books
 books.getAll();
 
 // get all keys, where id > 'js'
-books.getAllKeys(IDBKeyRange.lowerBound("js", true));
+books.getAllKeys(IDBKeyRange.lowerBound('js', true));
 ```
 
 ```smart header="Object store is always sorted"
@@ -621,7 +619,7 @@ For instance:
 
 ```js
 // delete the book with id='js'
-books.delete("js");
+books.delete('js');
 ```
 
 If we'd like to delete books based on a price or another object field, then we should first find the key in the index, and then call `delete`:
@@ -676,8 +674,8 @@ let request = store.openCursor(query, [direction]);
 Here's an example of how to use a cursor:
 
 ```js
-let transaction = db.transaction("books");
-let books = transaction.objectStore("books");
+let transaction = db.transaction('books');
+let books = transaction.objectStore('books');
 
 let request = books.openCursor();
 
@@ -690,7 +688,7 @@ request.onsuccess = function () {
     console.log(key, value);
     cursor.continue();
   } else {
-    console.log("No more books");
+    console.log('No more books');
   }
 };
 ```
@@ -721,7 +719,7 @@ request.onsuccess = function () {
     console.log(key, value);
     cursor.continue();
   } else {
-    console.log("No more books");
+    console.log('No more books');
   }
 };
 ```

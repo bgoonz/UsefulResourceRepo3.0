@@ -13,7 +13,7 @@ The answer gets into prototypal inheritance, a JS feature. A new `Array` is an `
 ```javascript
 let a = new Array(); // a is [], no problem
 
-a.hasOwnProperty("slice"); // FALSE! (why?)
+a.hasOwnProperty('slice'); // FALSE! (why?)
 
 a.slice; // is [Function: slice]--what? I thought it didn't have that property!
 ```
@@ -31,7 +31,7 @@ When you make a new array with `new` or just in an expression like `a = [];`, it
 Let's have a quick look to see if we can find `slice` there:
 
 ```javascript
-Array.prototype.hasOwnProperty("slice"); // TRUE
+Array.prototype.hasOwnProperty('slice'); // TRUE
 
 Array.prototype.slice; // it's a function: [Function: slice]
 ```
@@ -71,7 +71,7 @@ myFunction.call();
 Why would you do that? _Because `call()` allows you to specify what `this` will be inside the function_. If you don't pass anything as the first argument to `call()`, `this` will be `undefined` inside the function. If you pass an object, `this` will refer to that object.
 
 ```javascript
-let myObj = { name: "myobject" };
+let myObj = { name: 'myobject' };
 
 myFunction.call(myObj); // Inside myFunction, this == myObj
 ```
@@ -89,11 +89,11 @@ let f = new Foo();
 
 f.printThis(); // Prints "Foo {}" since f is a Foo object
 
-f.hasOwnProperty("printThis"); // FALSE--it's on Foo.prototype
+f.hasOwnProperty('printThis'); // FALSE--it's on Foo.prototype
 
-Foo.hasOwnProperty("printThis"); // FALSE--it's on Foo.prototype
+Foo.hasOwnProperty('printThis'); // FALSE--it's on Foo.prototype
 
-Foo.prototype.hasOwnProperty("printThis"); // TRUE, there it is
+Foo.prototype.hasOwnProperty('printThis'); // TRUE, there it is
 
 Foo.prototype.printThis.call(); // Prints "undefined"
 
@@ -112,7 +112,7 @@ The answer is that `arguments` is just an array-like, it's not an `Array`. So it
 
 ```javascript
 function Bar() {
-  console.log(arguments.hasOwnProperty("slice"));
+  console.log(arguments.hasOwnProperty('slice'));
   console.log(arguments.slice);
 }
 

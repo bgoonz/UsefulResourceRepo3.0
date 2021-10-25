@@ -53,7 +53,7 @@ if (response.ok) {
   // get the response body (the method explained below)
   let json = await response.json();
 } else {
-  alert("HTTP-Error: " + response.status);
+  alert('HTTP-Error: ' + response.status);
 }
 ```
 
@@ -85,7 +85,7 @@ Or, the same without `await`, using pure promises syntax:
 
 ```js run
 fetch(
-  "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+  'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits'
 )
   .then((response) => response.json())
   .then((commits) => alert(commits[0].author.login));
@@ -95,12 +95,12 @@ To get the response text, `await response.text()` instead of `.json()`:
 
 ```js run async
 let response = await fetch(
-  "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+  'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits'
 );
 
 let text = await response.text(); // read response body as text
 
-alert(text.slice(0, 80) + "...");
+alert(text.slice(0, 80) + '...');
 ```
 
 As a show-case for reading in binary format, let's fetch and show a logo image of ["fetch" specification](https://fetch.spec.whatwg.org) (see chapter [Blob](info:blob) for details about operations on `Blob`):
@@ -145,11 +145,11 @@ It's not exactly a Map, but it has similar methods to get individual headers by 
 
 ```js run async
 let response = await fetch(
-  "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits"
+  'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits'
 );
 
 // get one header
-alert(response.headers.get("Content-Type")); // application/json; charset=utf-8
+alert(response.headers.get('Content-Type')); // application/json; charset=utf-8
 
 // iterate over all headers
 for (let [key, value] of response.headers) {
@@ -164,7 +164,7 @@ To set a request header in `fetch`, we can use the `headers` option. It has an o
 ```js
 let response = fetch(protectedUrl, {
   headers: {
-    Authentication: "secret",
+    Authentication: 'secret',
   },
 });
 ```
@@ -252,17 +252,17 @@ In this example, there's a `<canvas>` where we can draw by moving a mouse over i
 
   <script>
     canvasElem.onmousemove = function (e) {
-      let ctx = canvasElem.getContext("2d");
+      let ctx = canvasElem.getContext('2d');
       ctx.lineTo(e.clientX, e.clientY);
       ctx.stroke();
     };
 
     async function submit() {
       let blob = await new Promise((resolve) =>
-        canvasElem.toBlob(resolve, "image/png")
+        canvasElem.toBlob(resolve, 'image/png')
       );
-      let response = await fetch("/article/fetch/post/image", {
-        method: "POST",
+      let response = await fetch('/article/fetch/post/image', {
+        method: 'POST',
         body: blob,
       });
 
@@ -281,13 +281,13 @@ The `submit()` function can be rewritten without `async/await` like this:
 ```js
 function submit() {
   canvasElem.toBlob(function (blob) {
-    fetch("/article/fetch/post/image", {
-      method: "POST",
+    fetch('/article/fetch/post/image', {
+      method: 'POST',
       body: blob,
     })
       .then((response) => response.json())
       .then((result) => alert(JSON.stringify(result, null, 2)));
-  }, "image/png");
+  }, 'image/png');
 }
 ```
 

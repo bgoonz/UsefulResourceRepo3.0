@@ -15,7 +15,7 @@ The function is created with the arguments `arg1...argN` and the given `function
 It's easier to understand by looking at an example. Here's a function with two arguments:
 
 ```js run
-let sum = new Function("a", "b", "return a + b");
+let sum = new Function('a', 'b', 'return a + b');
 
 alert(sum(1, 2)); // 3
 ```
@@ -114,9 +114,9 @@ For historical reasons, arguments can also be given as a comma-separated list.
 These three declarations mean the same:
 
 ```js
-new Function("a", "b", "return a + b"); // basic syntax
-new Function("a,b", "return a + b"); // comma-separated
-new Function("a , b", "return a + b"); // comma-separated with spaces
+new Function('a', 'b', 'return a + b'); // basic syntax
+new Function('a,b', 'return a + b'); // comma-separated
+new Function('a , b', 'return a + b'); // comma-separated with spaces
 ```
 
 Functions created with `new Function`, have `[[Environment]]` referencing the global Lexical Environment, not the outer one. Hence, they cannot use outer variables. But that's actually good, because it insures us from errors. Passing parameters explicitly is a much better method architecturally and causes no problems with minifiers.

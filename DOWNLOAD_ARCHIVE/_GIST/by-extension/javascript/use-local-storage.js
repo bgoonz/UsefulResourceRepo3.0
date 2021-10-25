@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState } from 'react';
 
 const configureLocalStorage = (key) => (initialValue) => {
   const [state, setState] = useState(() => {
@@ -12,7 +12,7 @@ const configureLocalStorage = (key) => (initialValue) => {
   }, initialValue);
 
   const storeValue = (value) => {
-    const valueToStore = typeof value === "function" ? value(state) : value;
+    const valueToStore = typeof value === 'function' ? value(state) : value;
 
     try {
       localStorage.setItem(key, JSON.stringify(valueToStore));

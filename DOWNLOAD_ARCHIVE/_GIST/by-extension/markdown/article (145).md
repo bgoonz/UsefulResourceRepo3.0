@@ -33,13 +33,13 @@ The main features of `localStorage` are:
 For instance, if you run this code...
 
 ```js run
-localStorage.setItem("test", 1);
+localStorage.setItem('test', 1);
 ```
 
 ...And close/open the browser or just open the same page in a different window, then you can get it like this:
 
 ```js run
-alert(localStorage.getItem("test")); // 1
+alert(localStorage.getItem('test')); // 1
 ```
 
 We only have to be on the same origin (domain/port/protocol), the url path can be different.
@@ -66,7 +66,7 @@ That's allowed for historical reasons, and mostly works, but generally not recom
 1. If the key is user-generated, it can be anything, like `length` or `toString`, or another built-in method of `localStorage`. In that case `getItem/setItem` work fine, while object-like access fails:
 
    ```js run
-   let key = "length";
+   let key = 'length';
    localStorage[key] = 5; // Error, can't assign length
    ```
 
@@ -127,14 +127,14 @@ Please note that both key and value must be strings.
 If were any other type, like a number, or an object, it gets converted to string automatically:
 
 ```js run
-sessionStorage.user = { name: "John" };
+sessionStorage.user = { name: 'John' };
 alert(sessionStorage.user); // [object Object]
 ```
 
 We can use `JSON` to store objects though:
 
 ```js run
-sessionStorage.user = JSON.stringify({ name: "John" });
+sessionStorage.user = JSON.stringify({ name: 'John' });
 
 // sometime later
 let user = JSON.parse(sessionStorage.user);
@@ -164,13 +164,13 @@ Let's see that in action.
 Run this code...
 
 ```js run
-sessionStorage.setItem("test", 1);
+sessionStorage.setItem('test', 1);
 ```
 
 ...Then refresh the page. Now you can still get the data:
 
 ```js run
-alert(sessionStorage.getItem("test")); // after refresh: 1
+alert(sessionStorage.getItem('test')); // after refresh: 1
 ```
 
 ...But if you open the same page in another tab, and try again there, the code above returns `null`, meaning "nothing found".
@@ -203,11 +203,11 @@ If both windows are listening for `window.onstorage`, then each one will react o
 // triggers on updates made to the same storage from other documents
 window.onstorage = (event) => {
   // same as window.addEventListener('storage', event => {
-  if (event.key != "now") return;
-  alert(event.key + ":" + event.newValue + " at " + event.url);
+  if (event.key != 'now') return;
+  alert(event.key + ':' + event.newValue + ' at ' + event.url);
 };
 
-localStorage.setItem("now", Date.now());
+localStorage.setItem('now', Date.now());
 ```
 
 Please note that the event also contains: `event.url` -- the url of the document where the data was updated.
@@ -227,10 +227,10 @@ Web storage objects `localStorage` and `sessionStorage` allow to store key/value
 - They do not expire.
 - The data is bound to the origin (domain/port/protocol).
 
-| `localStorage`                                           | `sessionStorage`                                                     |
-| -------------------------------------------------------- | -------------------------------------------------------------------- |
+| `localStorage` | `sessionStorage` |
+| --- | --- |
 | Shared between all tabs and windows with the same origin | Visible within a browser tab, including iframes from the same origin |
-| Survives browser restart                                 | Survives page refresh (but not tab close)                            |
+| Survives browser restart | Survives page refresh (but not tab close) |
 
 API:
 

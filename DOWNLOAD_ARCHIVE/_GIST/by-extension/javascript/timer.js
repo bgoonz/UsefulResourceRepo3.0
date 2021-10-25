@@ -2,12 +2,12 @@ let milliseconds = 0;
 let centiseconds = 0;
 let seconds = 0;
 let running = false;
-let htmlMS = document.querySelector("#msTens");
-let htmlCS = document.querySelector("#msHundreds");
-let htmlS = document.querySelector("#secondOnes");
-let htmlTS = document.querySelector("#secondTens");
+let htmlMS = document.querySelector('#msTens');
+let htmlCS = document.querySelector('#msHundreds');
+let htmlS = document.querySelector('#secondOnes');
+let htmlTS = document.querySelector('#secondTens');
 
-let digits = document.querySelector(".digits");
+let digits = document.querySelector('.digits');
 
 let startTimer = function () {
   if (!running) {
@@ -24,7 +24,7 @@ let startTimer = function () {
           if (seconds >= 10) {
             seconds -= 10;
             htmlTS.textContent = 1;
-            digits.classList.add("redDigit");
+            digits.classList.add('redDigit');
             running = false;
             clearInterval(myInterval);
           }
@@ -39,10 +39,10 @@ let startTimer = function () {
 };
 let reset = function () {
   if (!running) {
-    htmlTS.textContent = "-";
-    htmlS.textContent = "-";
-    htmlMS.textContent = "-";
-    htmlCS.textContent = "-";
-    digits.classList.remove("redDigit");
+    htmlTS.textContent = '-';
+    htmlS.textContent = '-';
+    htmlMS.textContent = '-';
+    htmlCS.textContent = '-';
+    digits.classList.remove('redDigit');
   }
 };

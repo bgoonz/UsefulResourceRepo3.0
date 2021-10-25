@@ -1,5 +1,5 @@
 const table = process.env.USERS_TABLE;
-const AWS = require("aws-sdk");
+const AWS = require('aws-sdk');
 const dynamodb = new AWS.DynamoDB.DocumentClient();
 /**
  * Validate password reset token entry
@@ -19,23 +19,23 @@ const usePasswordToken = async ({ token, email }) => {
 
   // get user
   let user = await getByEmail(email);
-  if (!user) throw new Error("No user found with given email");
+  if (!user) throw new Error('No user found with given email');
 
   let tokenEntry = user.password_reset_tokens[token];
 
   if (!tokenEntry)
-    throw new Error("No token exists, please request another password reset");
+    throw new Error('No token exists, please request another password reset');
 
   // check if the token is expired
   if (tokenEntry.expiration < new Date())
     throw new Error(
-      "Password Reset Token has expired, please request another password reset"
+      'Password Reset Token has expired, please request another password reset'
     );
 
   // check if the token has been used
   if (tokenEntry.used === true)
     throw new Error(
-      "Password Reset Token already used, please request another password reset"
+      'Password Reset Token already used, please request another password reset'
     );
 
   // if all good, mark token as used and return promise
@@ -50,9 +50,9 @@ const usePasswordToken = async ({ token, email }) => {
     Key: {
       email: email,
     },
-    UpdateExpression: "set password_reset_tokens=:v",
-    ExpressionAttributeValues: { ":v": updated_tokens },
-    ReturnValues: "ALL_NEW",
+    UpdateExpression: 'set password_reset_tokens=:v',
+    ExpressionAttributeValues: { ':v': updated_tokens },
+    ReturnValues: 'ALL_NEW',
   };
 
   // use DynamoDB.DocumentClient to update

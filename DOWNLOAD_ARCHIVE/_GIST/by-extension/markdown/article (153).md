@@ -28,7 +28,7 @@ We can put styles and scripts into `<template>` as well:
     }
   </style>
   <script>
-    alert("Hello");
+    alert('Hello');
   </script>
 </template>
 ```
@@ -48,7 +48,7 @@ For example:
 ```html run
 <template id="tmpl">
   <script>
-    alert("Hello");
+    alert('Hello');
   </script>
   <div class="message">Hello, world!</div>
 </template>

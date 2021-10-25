@@ -104,8 +104,8 @@ async function getCanvasBlob(canvas) {
 async function uploadCanvasImage(canvas) {
   let pngblob = await getCanvasBlob(canvas);
   let formdata = new FormData();
-  formdata.set("canvasimage", pngblob);
-  let response = await fetch("/upload", { method: "POST", body: formdata });
+  formdata.set('canvasimage', pngblob);
+  let response = await fetch('/upload', { method: 'POST', body: formdata });
   let body = await response.json();
 }
 
@@ -115,7 +115,7 @@ function wait(duration) {
     // These control the Promise
     // If the argument is invalid, reject the Promise
     if (duration < 0) {
-      reject(new Error("Time travel not yet implemented"));
+      reject(new Error('Time travel not yet implemented'));
     }
     // Otherwise, wait asynchronously and then resolve the Promise.
     // setTimeout will invoke resolve() with no arguments, which means
@@ -164,7 +164,7 @@ oscillators.forEach((o) => {
 });
 
 // If we want to create a sequence of sounds we can use event handlers
-oscillators[0].addEventListener("ended", () => {
+oscillators[0].addEventListener('ended', () => {
   // This event handler is invoked when the note stops playing
 });
 
@@ -193,7 +193,7 @@ function words(s) {
   };
 }
 
-[...words(" abc def  ghi! ")]; // => ["abc", "def", "ghi!"]
+[...words(' abc def  ghi! ')]; // => ["abc", "def", "ghi!"]
 
 function write(stream, chunk, callback) {
   // Write the specified chunk to the specified stream
@@ -205,7 +205,7 @@ function write(stream, chunk, callback) {
     setImmediate(callback); // invoke callback asynchronously.
   } else {
     // If it returned false, then
-    stream.once("drain", callback); // invoke callback on drain event.
+    stream.once('drain', callback); // invoke callback on drain event.
   }
 }
 
@@ -233,12 +233,12 @@ function* zip(...iterables) {
 }
 
 // Interleave three iterable objects
-[...zip(oneDigitPrimes(), "ab", [0])]; // => [2,"a",0,3,"b",5,7]
+[...zip(oneDigitPrimes(), 'ab', [0])]; // => [2,"a",0,3,"b",5,7]
 
 // This utility function asynchronously obtains the database object (creating
 // and initializing the DB if necessary) and passes it to the callback.
 function withDB(callback) {
-  let request = indexedDB.open("zipcodes", 1); // Request v1 of the database
+  let request = indexedDB.open('zipcodes', 1); // Request v1 of the database
   request.onerror = console.error; // Log any errors
   request.onsuccess = () => {
     // Or call this when done
@@ -274,19 +274,19 @@ function initdb(db, callback) {
   // an options object that includes the "key path" specifying the
   // property name of the key field for this store.
   let store = db.createObjectStore(
-    "zipcodes", // store name
-    { keyPath: "zipcode" }
+    'zipcodes', // store name
+    { keyPath: 'zipcode' }
   );
 
   // Now index the object store by city name as well as by zip code.
   // With this method the key path string is passed directly as a
   // required argument rather than as part of an options object.
-  store.createIndex("cities", "city");
+  store.createIndex('cities', 'city');
 
   // Now get the data we are going to initialize the database with.
   // The zipcodes.json data file was generated from CC-licensed data from
   // www.geonames.org: https://download.geonames.org/export/zip/US.zip
-  fetch("zipcodes.json") // Make an HTTP GET request
+  fetch('zipcodes.json') // Make an HTTP GET request
     .then((response) => response.json()) // Parse the body as JSON
     .then((zipcodes) => {
       // Get 40K zip code records
@@ -295,11 +295,11 @@ function initdb(db, callback) {
       // to specify which object stores we'll be using (we only have
       // one) and we need to tell it that we'll be doing writes to the
       // database, not just reads:
-      let transaction = db.transaction(["zipcodes"], "readwrite");
+      let transaction = db.transaction(['zipcodes'], 'readwrite');
       transaction.onerror = console.error;
 
       // Get our object store from the transaction
-      let store = transaction.objectStore("zipcodes");
+      let store = transaction.objectStore('zipcodes');
 
       // The best part about the IndexedDB API is that object stores
       // are *really* simple. Here's how we add (or update) our records:
@@ -323,10 +323,10 @@ export function lookupCity(zip, callback) {
   withDB((db) => {
     // Create a read-only transaction object for this query. The
     // argument is an array of object stores we will need to use.
-    let transaction = db.transaction(["zipcodes"]);
+    let transaction = db.transaction(['zipcodes']);
 
     // Get the object store from the transaction
-    let zipcodes = transaction.objectStore("zipcodes");
+    let zipcodes = transaction.objectStore('zipcodes');
 
     // Now request the object that matches the specified zipcode key.
     // The lines above were synchronous, but this one is async.
@@ -352,11 +352,11 @@ export function lookupCity(zip, callback) {
 export function lookupZipcodes(city, callback) {
   withDB((db) => {
     // As above, we create a transaction and get the object store
-    let transaction = db.transaction(["zipcodes"]);
-    let store = transaction.objectStore("zipcodes");
+    let transaction = db.transaction(['zipcodes']);
+    let store = transaction.objectStore('zipcodes');
 
     // This time we also get the city index of the object store
-    let index = store.index("cities");
+    let index = store.index('cities');
 
     // Ask for all matching records in the index with the specified
     // city name, and when we get them we pass them to the callback.
@@ -369,24 +369,24 @@ export function lookupZipcodes(city, callback) {
   });
 }
 
-import { lookupCity, lookupZipcodes } from "./zipcodeDatabase.js";
+import { lookupCity, lookupZipcodes } from './zipcodeDatabase.js';
 
-window.addEventListener("load", () => {
-  let zipcodeInput = document.querySelector("#zipcodeInput");
-  let cityOutput = document.querySelector("#cityOutput");
+window.addEventListener('load', () => {
+  let zipcodeInput = document.querySelector('#zipcodeInput');
+  let cityOutput = document.querySelector('#cityOutput');
   zipcodeInput.onchange = () => {
     lookupCity(zipcodeInput.value, (city) => {
-      cityOutput.value = city || "Unknown zip code";
+      cityOutput.value = city || 'Unknown zip code';
     });
   };
 
-  let cityInput = document.querySelector("#cityInput");
-  let zipcodesOutput = document.querySelector("#zipcodesOutput");
+  let cityInput = document.querySelector('#cityInput');
+  let zipcodesOutput = document.querySelector('#zipcodesOutput');
   cityInput.onchange = () => {
-    zipcodesOutput.textContent = "Matching zipcodes:";
+    zipcodesOutput.textContent = 'Matching zipcodes:';
     lookupZipcodes(cityInput.value, (zipcodes) => {
       zipcodes.forEach((zip) => {
-        let item = document.createElement("li");
+        let item = document.createElement('li');
         item.append(`${zip.zipcode}: ${zip.city}, ${zip.state}`);
         zipcodesOutput.append(item);
       });
@@ -397,7 +397,7 @@ window.addEventListener("load", () => {
 // Return the plain-text content of element e, recursing into child elements.
 // This method works like the textContent property
 function textContent(e) {
-  let s = ""; // Accumulate the text here
+  let s = ''; // Accumulate the text here
   for (let child = e.firstChild; child !== null; child = child.nextSibling) {
     let type = child.nodeType;
     if (type === 3) {
@@ -411,26 +411,26 @@ function textContent(e) {
   return s;
 }
 
-const fs = require("fs");
-let filename = "./streetNames.txt";
+const fs = require('fs');
+let filename = './streetNames.txt';
 let finalArr = [];
 fs.readFile(filename, (err, text) => {
   if (err) throw err;
 
-  const arr = text.toString().replace(/\r\n/g, "\n").split("\n");
+  const arr = text.toString().replace(/\r\n/g, '\n').split('\n');
 
   for (let i of arr) {
     console.log(i);
     finalArr.push(`"${i}"`);
   }
-  console.log("finalArr: ", finalArr);
+  console.log('finalArr: ', finalArr);
   fs.writeFile(
     `${filename}.js`,
     `let ${filename
       .slice(2)
-      .split(".")
+      .split('.')
       .slice(0, -1)
-      .join(".")}Arr = [${finalArr}];`,
+      .join('.')}Arr = [${finalArr}];`,
     (err) => {
       // In case of a error throw err.
       if (err) throw err;
@@ -503,20 +503,20 @@ timed(benchmark)(1000000); // => 500000500000; this is the sum of the numbers
  *
  *   .TOCSectNum { display: none }
  **/
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // Find the TOC container element.
   // If there isn't one, create one at the start of the document.
-  let toc = document.querySelector("#TOC");
+  let toc = document.querySelector('#TOC');
   if (!toc) {
-    toc = document.createElement("div");
-    toc.id = "TOC";
+    toc = document.createElement('div');
+    toc.id = 'TOC';
     document.body.prepend(toc);
   }
 
   // Find all section heading elements. We're assuming here that the
   // document title uses <h1> and that sections within the document are
   // marked with <h2> through <h6>.
-  let headings = document.querySelectorAll("h2,h3,h4,h5,h6");
+  let headings = document.querySelectorAll('h2,h3,h4,h5,h6');
 
   // Initialize an array that keeps track of section numbers.
   let sectionNumbers = [0, 0, 0, 0, 0];
@@ -541,24 +541,24 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Now combine section numbers for all heading levels
     // to produce a section number like 2.3.1.
-    let sectionNumber = sectionNumbers.slice(0, level).join(".");
+    let sectionNumber = sectionNumbers.slice(0, level).join('.');
 
     // Add the section number to the section header title.
     // We place the number in a <span> to make it styleable.
-    let span = document.createElement("span");
-    span.className = "TOCSectNum";
+    let span = document.createElement('span');
+    span.className = 'TOCSectNum';
     span.textContent = sectionNumber;
     heading.prepend(span);
 
     // Wrap the heading in a named anchor so we can link to it.
-    let anchor = document.createElement("a");
+    let anchor = document.createElement('a');
     let fragmentName = `TOC${sectionNumber}`;
     anchor.name = fragmentName;
     heading.before(anchor); // Insert anchor before heading
     anchor.append(heading); // and move heading inside anchor
 
     // Now create a link to this section.
-    let link = document.createElement("a");
+    let link = document.createElement('a');
     link.href = `#${fragmentName}`; // Link destination
 
     // Copy the heading text into the link. This is a safe use of
@@ -566,8 +566,8 @@ document.addEventListener("DOMContentLoaded", () => {
     link.innerHTML = heading.innerHTML;
 
     // Place the link in a div that is styleable based on the level.
-    let entry = document.createElement("div");
-    entry.classList.add("TOCEntry", `TOCLevel${level}`);
+    let entry = document.createElement('div');
+    entry.classList.add('TOCEntry', `TOCLevel${level}`);
     entry.append(link);
 
     // And add the div to the TOC container.
@@ -581,9 +581,9 @@ function trace(o, m) {
   let original = o[m]; // Remember original method in the closure.
   o[m] = function (...args) {
     // Now define the new method.
-    console.log(new Date(), "Entering:", m); // Log message.
+    console.log(new Date(), 'Entering:', m); // Log message.
     let result = original.apply(this, args); // Invoke original.
-    console.log(new Date(), "Exiting:", m); // Log message.
+    console.log(new Date(), 'Exiting:', m); // Log message.
     return result; // Return result.
   };
 }

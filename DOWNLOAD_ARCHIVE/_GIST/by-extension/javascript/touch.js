@@ -9,18 +9,18 @@
  * If everything succeeds, don't print anything.
  */
 
-const fs = require("fs");
+const fs = require('fs');
 
 if (process.argv.length !== 3) {
-  console.log("USAGE: ./touch.js path");
+  console.log('USAGE: ./touch.js path');
   process.exit();
 }
 
 const target = process.argv[2];
 
 fs.stat(target, (err, stats) => {
-  if (err && err.code === "ENOENT") {
-    return fs.writeFile(target, "", (err) => {
+  if (err && err.code === 'ENOENT') {
+    return fs.writeFile(target, '', (err) => {
       if (err) throw err;
     });
   }

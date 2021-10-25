@@ -13,15 +13,15 @@ We can have as many statements in our code as we want. Statements can be separat
 For example, here we split "Hello World" into two alerts:
 
 ```js run no-beautify
-alert("Hello");
-alert("World");
+alert('Hello');
+alert('World');
 ```
 
 Usually, statements are written on separate lines to make the code more readable:
 
 ```js run no-beautify
-alert("Hello");
-alert("World");
+alert('Hello');
+alert('World');
 ```
 
 ## Semicolons [#semicolon]
@@ -31,8 +31,8 @@ A semicolon may be omitted in most cases when a line break exists.
 This would also work:
 
 ```js run no-beautify
-alert("Hello");
-alert("World");
+alert('Hello');
+alert('World');
 ```
 
 Here, JavaScript interprets the line break as an "implicit" semicolon. This is called an [automatic semicolon insertion](https://tc39.github.io/ecma262/#sec-automatic-semicolon-insertion).
@@ -107,9 +107,9 @@ Like here:
 
 ```js run
 // This comment occupies a line of its own
-alert("Hello");
+alert('Hello');
 
-alert("World"); // This comment follows the statement
+alert('World'); // This comment follows the statement
 ```
 
 **Multiline comments start with a forward slash and an asterisk <code>/\*</code> and end with an asterisk and a forward slash <code>\*/</code>.**
@@ -120,8 +120,8 @@ Like this:
 /* An example with two messages.
 This is a multiline comment.
 */
-alert("Hello");
-alert("World");
+alert('Hello');
+alert('World');
 ```
 
 The content of comments is ignored, so if we put code inside <code>/\* ... \*/</code>, it won't execute.
@@ -132,7 +132,7 @@ Sometimes it can be handy to temporarily disable a part of code:
 /* Commenting out the code
 alert('Hello');
 */
-alert("World");
+alert('World');
 ```
 
 ```smart header="Use hotkeys!"

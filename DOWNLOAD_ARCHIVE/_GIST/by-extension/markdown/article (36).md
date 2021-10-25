@@ -16,8 +16,7 @@ We can fine-tune string and numeric conversion, using special object methods.
 
 There are three variants of type conversion, so-called "hints", described in the [specification](https://tc39.github.io/ecma262/#sec-toprimitive):
 
-`"string"`
-: For an object-to-string conversion, when we're doing an operation on an object that expects a string, like `alert`:
+`"string"` : For an object-to-string conversion, when we're doing an operation on an object that expects a string, like `alert`:
 
     ```js
     // output
@@ -27,8 +26,7 @@ There are three variants of type conversion, so-called "hints", described in the
     anotherObj[obj] = 123;
     ```
 
-`"number"`
-: For an object-to-number conversion, like when we're doing maths:
+`"number"` : For an object-to-number conversion, like when we're doing maths:
 
     ```js
     // explicit conversion
@@ -42,8 +40,7 @@ There are three variants of type conversion, so-called "hints", described in the
     let greater = user1 > user2;
     ```
 
-`"default"`
-: Occurs in rare cases when the operator is "not sure" what type to expect.
+`"default"` : Occurs in rare cases when the operator is "not sure" what type to expect.
 
     For instance, binary plus `+` can work both with strings (concatenates them) and numbers (adds them), so both strings and numbers would do. So if a binary plus gets an object as an argument, it uses the `"default"` hint to convert it.
 
@@ -61,8 +58,7 @@ There are three variants of type conversion, so-called "hints", described in the
 
     In practice though, we don't need to remember these peculiar details, because all built-in objects except for one case (`Date` object, we'll learn it later) implement `"default"` conversion the same way as `"number"`. And we can do the same.
 
-```smart header="No `\"boolean\"` hint"
-Please note -- there are only three hints. It's that simple.
+```smart header="No `\"boolean\"` hint" Please note -- there are only three hints. It's that simple.
 
 There is no "boolean" hint (all objects are `true` in boolean context) or anything else. And if we treat `"default"` and `"number"` the same, like most built-ins do, then there are only two conversions.
 
@@ -91,12 +87,12 @@ For instance, here `user` object implements it:
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   money: 1000,
 
   [Symbol.toPrimitive](hint) {
     alert(`hint: ${hint}`);
-    return hint == "string" ? `{name: "${this.name}"}` : this.money;
+    return hint == 'string' ? `{name: "${this.name}"}` : this.money;
   },
 };
 
@@ -127,7 +123,7 @@ By default, a plain object has following `toString` and `valueOf` methods:
 Here's the demo:
 
 ```js run
-let user = { name: "John" };
+let user = { name: 'John' };
 
 alert(user); // [object Object]
 alert(user.valueOf() === user); // true
@@ -143,7 +139,7 @@ For instance, here `user` does the same as above using a combination of `toStrin
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
   money: 1000,
 
   // for hint="string"
@@ -168,7 +164,7 @@ Often we want a single "catch-all" place to handle all primitive conversions. In
 
 ```js run
 let user = {
-  name: "John",
+  name: 'John',
 
   toString() {
     return this.name;
@@ -210,7 +206,7 @@ For instance:
 let obj = {
   // toString handles all conversions in the absence of other methods
   toString() {
-    return "2";
+    return '2';
   },
 };
 
@@ -225,7 +221,7 @@ Binary plus will concatenate strings in the same situation, as it gladly accepts
 ```js run
 let obj = {
   toString() {
-    return "2";
+    return '2';
   },
 };
 

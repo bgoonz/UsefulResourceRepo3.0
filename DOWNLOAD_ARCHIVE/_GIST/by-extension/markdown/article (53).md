@@ -11,9 +11,9 @@ We'll use `window` here, assuming that our environment is a browser. If your scr
 All properties of the global object can be accessed directly:
 
 ```js run
-alert("Hello");
+alert('Hello');
 // is the same as
-window.alert("Hello");
+window.alert('Hello');
 ```
 
 In a browser, global functions and variables declared with `var` (not `let/const`!) become the property of the global object:
@@ -64,7 +64,7 @@ For instance, test if a built-in `Promise` object exists (it doesn't in really o
 
 ```js run
 if (!window.Promise) {
-  alert("Your browser is really old!");
+  alert('Your browser is really old!');
 }
 ```
 

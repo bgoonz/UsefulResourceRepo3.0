@@ -2,9 +2,9 @@
 module.exports = {
   pad: function (n, width, z) {
     if (z == null) {
-      z = "0";
+      z = '0';
     }
-    n = n + "";
+    n = n + '';
     if (n.length >= width) {
       return n;
     } else {

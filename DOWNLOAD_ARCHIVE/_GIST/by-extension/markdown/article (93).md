@@ -19,7 +19,7 @@ For instance, here we use it as a global object:
 
 ```js run
 function sayHi() {
-  alert("Hello");
+  alert('Hello');
 }
 
 // global functions are methods of the global object:
@@ -44,10 +44,10 @@ For instance:
 
 ```js run
 // change the background color to red
-document.body.style.background = "red";
+document.body.style.background = 'red';
 
 // change it back after 1 second
-setTimeout(() => (document.body.style.background = ""), 1000);
+setTimeout(() => (document.body.style.background = ''), 1000);
 ```
 
 Here we used `document.body.style`, but there's much, much more. Properties and methods are described in the specification: [DOM Living Standard](https://dom.spec.whatwg.org).
@@ -77,8 +77,8 @@ Here's how we can use the `location` object:
 
 ```js run
 alert(location.href); // shows current URL
-if (confirm("Go to Wikipedia?")) {
-  location.href = "https://wikipedia.org"; // redirect the browser to another URL
+if (confirm('Go to Wikipedia?')) {
+  location.href = 'https://wikipedia.org'; // redirect the browser to another URL
 }
 ```
 
@@ -94,14 +94,11 @@ Yes, you heard that right. The HTML spec at <https://html.spec.whatwg.org> is no
 
 Talking about standards, we have:
 
-DOM specification
-: Describes the document structure, manipulations and events, see <https://dom.spec.whatwg.org>.
+DOM specification : Describes the document structure, manipulations and events, see <https://dom.spec.whatwg.org>.
 
-CSSOM specification
-: Describes stylesheets and style rules, manipulations with them and their binding to documents, see <https://www.w3.org/TR/cssom-1/>.
+CSSOM specification : Describes stylesheets and style rules, manipulations with them and their binding to documents, see <https://www.w3.org/TR/cssom-1/>.
 
-HTML specification
-: Describes the HTML language (e.g. tags) and also the BOM (browser object model) -- various browser functions: `setTimeout`, `alert`, `location` and so on, see <https://html.spec.whatwg.org>. It takes the DOM specification and extends it with many additional properties and methods.
+HTML specification : Describes the HTML language (e.g. tags) and also the BOM (browser object model) -- various browser functions: `setTimeout`, `alert`, `location` and so on, see <https://html.spec.whatwg.org>. It takes the DOM specification and extends it with many additional properties and methods.
 
 Additionally, some classes are described separately at <https://spec.whatwg.org/>.
 

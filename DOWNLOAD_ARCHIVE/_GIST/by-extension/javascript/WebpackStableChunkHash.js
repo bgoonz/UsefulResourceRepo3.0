@@ -1,5 +1,5 @@
 // @flow
-const crypto = require("crypto");
+const crypto = require('crypto');
 
 module.exports = WebpackStableChunkHash;
 
@@ -18,7 +18,7 @@ WebpackStableChunkHash.prototype.apply = function (compiler) {
   // the source that will be written to disk. It then hashes that. All options that work with normal `[chunkhash]`
   // apply here.
   //
-  compiler.plugin("compilation", function (compilation) {
+  compiler.plugin('compilation', function (compilation) {
     const outputOptions = compilation.outputOptions;
     const hashFunction = outputOptions.hashFunction;
     const hashDigest = outputOptions.hashDigest;
@@ -27,11 +27,11 @@ WebpackStableChunkHash.prototype.apply = function (compiler) {
     // Storage for chunk filenames. This is important as `chunk.files` is usually a 1-element array,
     // but not always.
     const chunkRecords = {};
-    compilation.plugin("chunk-asset", function (chunk, fileName) {
+    compilation.plugin('chunk-asset', function (chunk, fileName) {
       chunkRecords[chunk.id] = fileName;
     });
 
-    compilation.plugin("after-optimize-chunk-assets", function (chunks) {
+    compilation.plugin('after-optimize-chunk-assets', function (chunks) {
       // process.nextTick() is a horrible hack to ensure this runs after source map.
       process.nextTick(function () {
         const fullHash = crypto.createHash(hashFunction);
@@ -68,7 +68,7 @@ WebpackStableChunkHash.prototype.apply = function (compiler) {
 
           // Let's update the chunk cache so we don't have to do any other work.
           delete compilation.cache[oldHash]; // Delete old entry
-          const cacheName = "c" + chunk.id;
+          const cacheName = 'c' + chunk.id;
           compilation.cache[cacheName] = {
             hash: chunk.hash,
             source: source,

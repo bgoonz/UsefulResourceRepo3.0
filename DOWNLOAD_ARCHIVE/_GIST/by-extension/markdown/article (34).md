@@ -28,7 +28,7 @@ In many practical cases we'd prefer to get `undefined` instead of an error here 
 
 ```js run
 // document.querySelector('.elem') is null if there's no element
-let html = document.querySelector(".elem").innerHTML; // error if it's null
+let html = document.querySelector('.elem').innerHTML; // error if it's null
 ```
 
 Once again, if the element doesn't exist, we'll get an error accessing `.innerHTML` of `null`. And in some cases, when the absence of the element is normal, we'd like to avoid the error and just accept `html = null` as the result.

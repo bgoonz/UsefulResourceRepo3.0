@@ -24,7 +24,7 @@ class Animal {
   }
 }
 
-let animal = new Animal("My animal");
+let animal = new Animal('My animal');
 ```
 
 Here's how we can represent `animal` object and `Animal` class graphically:

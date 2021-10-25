@@ -1,7 +1,7 @@
 // Return the plain-text content of element e, recursing into child elements.
 // This method works like the textContent property
 function textContent(e) {
-  let s = ""; // Accumulate the text here
+  let s = ''; // Accumulate the text here
   for (let child = e.firstChild; child !== null; child = child.nextSibling) {
     let type = child.nodeType;
     if (type === 3) {

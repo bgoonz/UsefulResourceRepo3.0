@@ -1,32 +1,32 @@
 /*global YUI:true */
 YUI.add(
-  "view-home",
+  'view-home',
   function (Y) {
     var L = Y.Lang,
-      gw2 = Y.namespace("GW2"),
-      Views = Y.namespace("GW2.Views"),
-      Extensions = Y.namespace("GW2.Extensions");
+      gw2 = Y.namespace('GW2'),
+      Views = Y.namespace('GW2.Views'),
+      Extensions = Y.namespace('GW2.Extensions');
 
     Views.Home = Y.Base.create(
-      "homeView",
+      'homeView',
       Y.View,
       [Extensions.ViewParent],
       {
-        template: Y.namespace("GW2.Templates").home,
+        template: Y.namespace('GW2.Templates').home,
 
         initializer: function (config) {
-          this.set("views", {
+          this.set('views', {
             carousel: new Views.HomeCarousel({
               models: config.carousel,
             }),
 
             featured: new Views.HomeList({
-              type: "featured",
+              type: 'featured',
               models: config.featured,
             }),
 
             hot: new Views.HomeList({
-              type: "hot",
+              type: 'hot',
               models: config.hot,
             }),
 
@@ -40,7 +40,7 @@ YUI.add(
         destructor: function () {},
 
         render: function () {
-          this.get("container").setContent(this.template());
+          this.get('container').setContent(this.template());
 
           return this;
         },
@@ -52,21 +52,21 @@ YUI.add(
       }
     );
   },
-  "@VERSION@",
+  '@VERSION@',
   {
     requires: [
-      "base",
-      "view",
-      "view-home-carousel",
-      "view-home-list",
-      "view-home-sidebar",
-      "extension-view-purchasing",
-      "extension-view-classer",
-      "extension-view-tooltips",
-      "tabview",
-      "scrollview",
-      "scrollview-paginator",
-      "gw2-template-home",
+      'base',
+      'view',
+      'view-home-carousel',
+      'view-home-list',
+      'view-home-sidebar',
+      'extension-view-purchasing',
+      'extension-view-classer',
+      'extension-view-tooltips',
+      'tabview',
+      'scrollview',
+      'scrollview-paginator',
+      'gw2-template-home',
     ],
   }
 );

@@ -46,13 +46,13 @@ Here's the full working example that gets the response and logs the progress in 
 ```js run async
 // Step 1: start the fetch and obtain a reader
 let response = await fetch(
-  "https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits?per_page=100"
+  'https://api.github.com/repos/javascript-tutorial/en.javascript.info/commits?per_page=100'
 );
 
 const reader = response.body.getReader();
 
 // Step 2: get total length
-const contentLength = +response.headers.get("Content-Length");
+const contentLength = +response.headers.get('Content-Length');
 
 // Step 3: read the data
 let receivedLength = 0; // received that many bytes at the moment
@@ -79,7 +79,7 @@ for (let chunk of chunks) {
 }
 
 // Step 5: decode into a string
-let result = new TextDecoder("utf-8").decode(chunksAll);
+let result = new TextDecoder('utf-8').decode(chunksAll);
 
 // We're done!
 let commits = JSON.parse(result);

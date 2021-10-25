@@ -1,5 +1,5 @@
 YUI.add(
-  "z-aliased-attr",
+  'z-aliased-attr',
   function (Y) {
     /**
 Aliased Attribute Extension
@@ -47,7 +47,7 @@ by more descriptive names than their URL parameter-safe name.
       YBase = Y.Base;
 
     // add "aliased" to attribute config whitelist
-    YBase._ATTR_CFG = YBase._ATTR_CFG.concat("aliased");
+    YBase._ATTR_CFG = YBase._ATTR_CFG.concat('aliased');
     YBase._ATTR_CFG_HASH = hashArray(YBase._ATTR_CFG);
 
     /**
@@ -78,7 +78,7 @@ by more descriptive names than their URL parameter-safe name.
     @private
     **/
       _initAliasedAttrs: function () {
-        Y.log("_initAliasedAttrs", "debug", "AliasedAttr");
+        Y.log('_initAliasedAttrs', 'debug', 'AliasedAttr');
         this._attrNames = this._getAttrNames();
         this._getAliasedName = Y.cached(Y.bind(this._getAliased, this));
       },
@@ -92,7 +92,7 @@ by more descriptive names than their URL parameter-safe name.
     @private
     **/
       _getAttrNames: function () {
-        Y.log("_getAttrNames", "debug", "AliasedAttr");
+        Y.log('_getAttrNames', 'debug', 'AliasedAttr');
         var attrNames = objectKeys(this._state.data);
 
         return this._filterAttrNames(attrNames);
@@ -110,7 +110,7 @@ by more descriptive names than their URL parameter-safe name.
     @private
     **/
       _filterAttrNames: function (attrNames) {
-        Y.log("_filterAttrNames", "debug", "AliasedAttr");
+        Y.log('_filterAttrNames', 'debug', 'AliasedAttr');
         var hashed = hashArray(attrNames);
 
         // remove default attributes that are never aliased
@@ -121,7 +121,7 @@ by more descriptive names than their URL parameter-safe name.
         if (this._isYUIModel) {
           delete hashed.clientId;
 
-          if (this.idAttribute !== "id") {
+          if (this.idAttribute !== 'id') {
             delete hashed.id;
           }
         }
@@ -144,7 +144,7 @@ by more descriptive names than their URL parameter-safe name.
     @private
     **/
       _getAliased: function (alias) {
-        Y.log("_getAliased " + alias, "debug", "AliasedAttr");
+        Y.log('_getAliased ' + alias, 'debug', 'AliasedAttr');
         var stateData = this._state.data,
           attrNames = this._attrNames,
           attrName,
@@ -184,7 +184,7 @@ by more descriptive names than their URL parameter-safe name.
     @return {Mixed}
     **/
       getAliased: function (alias) {
-        Y.log("getAliased " + alias, "debug", "AliasedAttr");
+        Y.log('getAliased ' + alias, 'debug', 'AliasedAttr');
 
         var attrName = this._getAliasedName(alias);
         if (attrName) {
@@ -195,10 +195,10 @@ by more descriptive names than their URL parameter-safe name.
       },
     };
 
-    Y.namespace("Z").AliasedAttr = AliasedAttr;
+    Y.namespace('Z').AliasedAttr = AliasedAttr;
   },
-  "3.7.3",
+  '3.7.3',
   {
-    requires: ["base-build"],
+    requires: ['base-build'],
   }
 );

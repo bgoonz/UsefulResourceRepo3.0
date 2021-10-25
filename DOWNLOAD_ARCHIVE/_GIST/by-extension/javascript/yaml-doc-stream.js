@@ -1,6 +1,6 @@
-import { Transform } from "stream";
-import { StringDecoder } from "string_decoder";
-import { Composer, Parser } from "yaml";
+import { Transform } from 'stream';
+import { StringDecoder } from 'string_decoder';
+import { Composer, Parser } from 'yaml';
 
 /**
  * A Transform stream that accepts either strings or Buffers as input, and
@@ -26,12 +26,12 @@ export class DocStream extends Transform {
       objectMode: true,
     });
     this.composer = new Composer((doc) => this.push(doc));
-    this.decoder = new StringDecoder(options.defaultEncoding || "utf8");
+    this.decoder = new StringDecoder(options.defaultEncoding || 'utf8');
     this.parser = new Parser(this.composer.next);
   }
 
   _flush(done) {
-    this.parser.parse("", false);
+    this.parser.parse('', false);
     this.composer.end();
     done();
   }

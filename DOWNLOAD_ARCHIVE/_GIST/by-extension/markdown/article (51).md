@@ -41,13 +41,13 @@ We can use this to isolate a piece of code that does its own task, with variable
 ```js run
 {
   // show message
-  let message = "Hello";
+  let message = 'Hello';
   alert(message);
 }
 
 {
   // show another message
-  let message = "Goodbye";
+  let message = 'Goodbye';
   alert(message);
 }
 ```
@@ -72,7 +72,7 @@ For `if`, `for`, `while` and so on, variables declared in `{...}` are also only 
 
 ```js run
 if (true) {
-  let phrase = "Hello!";
+  let phrase = 'Hello!';
 
   alert(phrase); // Hello!
 }
@@ -109,11 +109,11 @@ We can use it to organize our code, like this:
 function sayHiBye(firstName, lastName) {
   // helper nested function to use below
   function getFullName() {
-    return firstName + " " + lastName;
+    return firstName + ' ' + lastName;
   }
 
-  alert("Hello, " + getFullName());
-  alert("Bye, " + getFullName());
+  alert('Hello, ' + getFullName());
+  alert('Bye, ' + getFullName());
 }
 ```
 
@@ -395,10 +395,10 @@ As you could see -- there is no such variable! In theory, it should be accessibl
 That may lead to funny (if not such time-consuming) debugging issues. One of them -- we can see a same-named outer variable instead of the expected one:
 
 ```js run global
-let value = "Surprise!";
+let value = 'Surprise!';
 
 function f() {
-  let value = "the closest value";
+  let value = 'the closest value';
 
   function g() {
     debugger; // in console: type alert(value); Surprise!

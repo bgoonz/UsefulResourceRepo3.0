@@ -13,7 +13,7 @@ The syntax is: `pattern:X(?=Y)`, it means "look for `pattern:X`, but match only 
 For an integer number followed by `subject:€`, the regexp will be `pattern:\d+(?=€)`:
 
 ```js run
-let str = "1 turkey costs 30€";
+let str = '1 turkey costs 30€';
 
 alert(str.match(/\d+(?=€)/)); // 30, the number 1 is ignored, as it's not followed by €
 ```
@@ -36,7 +36,7 @@ That's only possible if patterns `pattern:Y` and `pattern:Z` aren't mutually exc
 For example, `pattern:\d+(?=\s)(?=.*30)` looks for `pattern:\d+` that is followed by a space `pattern:(?=\s)`, and there's `30` somewhere after it `pattern:(?=.*30)`:
 
 ```js run
-let str = "1 turkey costs 30€";
+let str = '1 turkey costs 30€';
 
 alert(str.match(/\d+(?=\s)(?=.*30)/)); // 1
 ```
@@ -52,7 +52,7 @@ For that, a negative lookahead can be applied.
 The syntax is: `pattern:X(?!Y)`, it means "search `pattern:X`, but only if not followed by `pattern:Y`".
 
 ```js run
-let str = "2 turkeys cost 60€";
+let str = '2 turkeys cost 60€';
 
 alert(str.match(/\d+\b(?!€)/g)); // 2 (the price is not matched)
 ```
@@ -71,7 +71,7 @@ The syntax is:
 For example, let's change the price to US dollars. The dollar sign is usually before the number, so to look for `$30` we'll use `pattern:(?<=\$)\d+` -- an amount preceded by `subject:$`:
 
 ```js run
-let str = "1 turkey costs $30";
+let str = '1 turkey costs $30';
 
 // the dollar sign is escaped \$
 alert(str.match(/(?<=\$)\d+/)); // 30 (skipped the sole number)
@@ -80,7 +80,7 @@ alert(str.match(/(?<=\$)\d+/)); // 30 (skipped the sole number)
 And, if we need the quantity -- a number, not preceded by `subject:$`, then we can use a negative lookbehind `pattern:(?<!\$)\d+`:
 
 ```js run
-let str = "2 turkeys cost $60";
+let str = '2 turkeys cost $60';
 
 alert(str.match(/(?<!\$)\b\d+/g)); // 2 (the price is not matched)
 ```
@@ -96,7 +96,7 @@ But in some situations we might want to capture the lookaround expression as wel
 In the example below the currency sign `pattern:(€|kr)` is captured, along with the amount:
 
 ```js run
-let str = "1 turkey costs 30€";
+let str = '1 turkey costs 30€';
 let regexp = /\d+(?=(€|kr))/; // extra parentheses around €|kr
 
 alert(str.match(regexp)); // 30, €
@@ -105,7 +105,7 @@ alert(str.match(regexp)); // 30, €
 And here's the same for lookbehind:
 
 ```js run
-let str = "1 turkey costs $30";
+let str = '1 turkey costs $30';
 let regexp = /(?<=(\$|£))\d+/;
 
 alert(str.match(regexp)); // 30, $

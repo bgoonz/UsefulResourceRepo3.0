@@ -132,8 +132,7 @@ Notes:
 
 - When writing scripts you may want to put all of your code in curly braces. If the closing brace is missing, your script will be prevented from executing due to a syntax error. This makes sense when your script is going to be downloaded from the web, since it prevents partially downloaded scripts from executing:
 
-  { # Your code here
-  }
+  { # Your code here }
 
 - A “here document” allows [redirection of multiple lines of input](https://www.tldp.org/LDP/abs/html/here-docs.html) as if from a file:
 
@@ -278,8 +277,7 @@ Notes:
 
 - Use `getfacl` and `setfacl` to save and restore file permissions. For example:
 
-  getfacl -R /some/path > permissions.txt
-  setfacl --restore=permissions.txt
+  getfacl -R /some/path > permissions.txt setfacl --restore=permissions.txt
 
 - To create empty files quickly, use `truncate` (creates [sparse file](https://en.wikipedia.org/wiki/Sparse_file)), `fallocate` (ext4, xfs, btrfs and ocfs2 filesystems), `xfs_mkfile` (almost any filesystems, comes in xfsprogs package), `mkfile` (for Unix-like systems like Solaris, Mac OS).
 

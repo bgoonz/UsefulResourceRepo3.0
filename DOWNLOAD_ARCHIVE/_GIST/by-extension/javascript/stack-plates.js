@@ -1,7 +1,7 @@
 class StackOfPlates {
   constructor(capacity) {
     if (!capacity) {
-      return "Specify plate capacity. Cannot be created"; //
+      return 'Specify plate capacity. Cannot be created'; //
     }
     this._capacity = capacity;
     this._storage = [[]]; //Each array represents a set of plates

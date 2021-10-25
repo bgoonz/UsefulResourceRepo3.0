@@ -3,20 +3,20 @@
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
-"use strict";
+'use strict';
 
-const ByteEfficiencyAudit = require("./byte-efficiency-audit.js");
-const UnusedJavaScriptSummary = require("../../computed/unused-javascript-summary.js");
-const JsBundles = require("../../computed/js-bundles.js");
-const i18n = require("../../lib/i18n/i18n.js");
+const ByteEfficiencyAudit = require('./byte-efficiency-audit.js');
+const UnusedJavaScriptSummary = require('../../computed/unused-javascript-summary.js');
+const JsBundles = require('../../computed/js-bundles.js');
+const i18n = require('../../lib/i18n/i18n.js');
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to reduce JavaScript that is never evaluated during page load. This is displayed in a list of audit titles that Lighthouse generates. */
-  title: "Reduce unused JavaScript",
+  title: 'Reduce unused JavaScript',
   /** Description of a Lighthouse audit that tells the user *why* they should reduce JavaScript that is never needed/evaluated by the browser. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description:
-    "Reduce unused JavaScript and defer loading scripts until they are required to " +
-    "decrease bytes consumed by network activity. [Learn more](https://web.dev/unused-javascript/).",
+    'Reduce unused JavaScript and defer loading scripts until they are required to ' +
+    'decrease bytes consumed by network activity. [Learn more](https://web.dev/unused-javascript/).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -29,7 +29,7 @@ const UNUSED_BYTES_IGNORE_BUNDLE_SOURCE_THRESHOLD = 512;
  */
 function commonPrefix(strings) {
   if (!strings.length) {
-    return "";
+    return '';
   }
 
   const maxWord = strings.reduce((a, b) => (a > b ? a : b));
@@ -49,7 +49,7 @@ function commonPrefix(strings) {
 function trimCommonPrefix(string, commonPrefix) {
   if (!commonPrefix) return string;
   return string.startsWith(commonPrefix)
-    ? "…" + string.slice(commonPrefix.length)
+    ? '…' + string.slice(commonPrefix.length)
     : string;
 }
 
@@ -66,17 +66,17 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
    */
   static get meta() {
     return {
-      id: "unused-javascript",
+      id: 'unused-javascript',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: [
-        "JsUsage",
-        "ScriptElements",
-        "SourceMaps",
-        "GatherContext",
-        "devtoolsLogs",
-        "traces",
+        'JsUsage',
+        'ScriptElements',
+        'SourceMaps',
+        'GatherContext',
+        'devtoolsLogs',
+        'traces',
       ],
     };
   }
@@ -109,7 +109,7 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
       const transfer = ByteEfficiencyAudit.estimateTransferSize(
         networkRecord,
         unusedJsSummary.totalBytes,
-        "Script"
+        'Script'
       );
       const transferRatio = transfer / unusedJsSummary.totalBytes;
       /** @type {LH.Audit.ByteEfficiencyItem} */
@@ -125,7 +125,7 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
 
       // If there was an error calculating the bundle sizes, we can't
       // create any sub-items.
-      if (!bundle || "errorMessage" in bundle.sizes) continue;
+      if (!bundle || 'errorMessage' in bundle.sizes) continue;
       const sizes = bundle.sizes;
 
       // Augment with bundle data.
@@ -137,7 +137,7 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
           .slice(0, 5)
           .map(([source, unused]) => {
             const total =
-              source === "(unmapped)"
+              source === '(unmapped)'
                 ? sizes.unmappedBytes
                 : sizes.files[source];
             return {
@@ -152,7 +152,7 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
           ...bundle.map.sourceInfos.keys(),
         ]);
         item.subItems = {
-          type: "subitems",
+          type: 'subitems',
           items: topUnusedSourceSizes.map(({ source, unused, total }) => {
             return {
               source: trimCommonPrefix(source, commonSourcePrefix),
@@ -169,21 +169,21 @@ class UnusedJavaScript extends ByteEfficiencyAudit {
       headings: [
         /* eslint-disable max-len */
         {
-          key: "url",
-          valueType: "url",
-          subItemsHeading: { key: "source", valueType: "code" },
+          key: 'url',
+          valueType: 'url',
+          subItemsHeading: { key: 'source', valueType: 'code' },
           label: str_(i18n.UIStrings.columnURL),
         },
         {
-          key: "totalBytes",
-          valueType: "bytes",
-          subItemsHeading: { key: "sourceBytes" },
+          key: 'totalBytes',
+          valueType: 'bytes',
+          subItemsHeading: { key: 'sourceBytes' },
           label: str_(i18n.UIStrings.columnTransferSize),
         },
         {
-          key: "wastedBytes",
-          valueType: "bytes",
-          subItemsHeading: { key: "sourceWastedBytes" },
+          key: 'wastedBytes',
+          valueType: 'bytes',
+          subItemsHeading: { key: 'sourceWastedBytes' },
           label: str_(i18n.UIStrings.columnWastedBytes),
         },
         /* eslint-enable max-len */

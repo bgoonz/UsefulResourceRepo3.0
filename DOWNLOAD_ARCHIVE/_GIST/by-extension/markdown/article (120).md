@@ -63,8 +63,8 @@ The following example demonstrates the second part:
 <p>...content before scripts...</p>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () =>
-    alert("DOM ready after defer!")
+  document.addEventListener('DOMContentLoaded', () =>
+    alert('DOM ready after defer!')
   );
 </script>
 
@@ -153,8 +153,8 @@ There's one more important way of adding a script to the page.
 We can create a script and append it to the document dynamically using JavaScript:
 
 ```js run
-let script = document.createElement("script");
-script.src = "/article/script-async-defer/long.js";
+let script = document.createElement('script');
+script.src = '/article/script-async-defer/long.js';
 document.body.append(script); // (*)
 ```
 
@@ -175,15 +175,15 @@ So `long.js` always runs first (as it's added first):
 
 ```js run
 function loadScript(src) {
-  let script = document.createElement("script");
+  let script = document.createElement('script');
   script.src = src;
   script.async = false;
   document.body.append(script);
 }
 
 // long.js runs first because of async=false
-loadScript("/article/script-async-defer/long.js");
-loadScript("/article/script-async-defer/small.js");
+loadScript('/article/script-async-defer/long.js');
+loadScript('/article/script-async-defer/small.js');
 ```
 
 Without `script.async=false`, scripts would execute in default, load-first order (the `small.js` probably first).
@@ -196,10 +196,10 @@ Both `async` and `defer` have one common thing: downloading of such scripts does
 
 But there are also essential differences between them:
 
-|         | Order                                                                                   | `DOMContentLoaded`                                                                                                                                                   |
-| ------- | --------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+|  | Order | `DOMContentLoaded` |
+| --- | --- | --- |
 | `async` | _Load-first order_. Their document order doesn't matter -- which loads first runs first | Irrelevant. May load and execute while the document has not yet been fully downloaded. That happens if scripts are small or cached, and the document is long enough. |
-| `defer` | _Document order_ (as they go in the document).                                          | Execute after the document is loaded and parsed (they wait if needed), right before `DOMContentLoaded`.                                                              |
+| `defer` | _Document order_ (as they go in the document). | Execute after the document is loaded and parsed (they wait if needed), right before `DOMContentLoaded`. |
 
 In practice, `defer` is used for scripts that need the whole DOM and/or their relative execution order is important.
 

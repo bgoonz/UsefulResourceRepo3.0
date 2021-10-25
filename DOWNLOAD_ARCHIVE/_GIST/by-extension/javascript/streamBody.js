@@ -21,11 +21,11 @@
  */
 async function streamBody(response, reportProgress, processChunk) {
   // How many bytes are we expecting, or NaN if no header
-  let expectedBytes = parseInt(response.headers.get("Content-Length"));
+  let expectedBytes = parseInt(response.headers.get('Content-Length'));
   let bytesRead = 0; // How many bytes received so far
   let reader = response.body.getReader(); // Read bytes with this function
-  let decoder = new TextDecoder("utf-8"); // For converting bytes to text
-  let body = ""; // Text read so far
+  let decoder = new TextDecoder('utf-8'); // For converting bytes to text
+  let body = ''; // Text read so far
 
   while (true) {
     // Loop until we exit below

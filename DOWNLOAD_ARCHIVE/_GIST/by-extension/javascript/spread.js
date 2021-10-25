@@ -2,15 +2,15 @@ let numArray = [1, 2, 3];
 let moreNums = [...numArray, 4, 5, 6];
 console.log(moreNums);
 let shoe = {
-  color: "red",
+  color: 'red',
   size: 10,
 };
 let newShoe = {
   ...shoe,
-  brand: "Nike",
+  brand: 'Nike',
   size: 12,
 };
 console.log(newShoe);
-newShoe.color = "black";
+newShoe.color = 'black';
 console.log(newShoe);
 console.log(shoe);

@@ -61,7 +61,7 @@ After that, we need to register the element:
 
 ```js
 // let the browser know that <my-element> is served by our new class
-customElements.define("my-element", MyElement);
+customElements.define('my-element', MyElement);
 ```
 
 Now for any HTML elements with tag `<my-element>`, an instance of `MyElement` is created, and the aforementioned methods are called. We also can `document.createElement('my-element')` in JavaScript.
@@ -279,7 +279,7 @@ Let's demonstrate that on example:
 ```html run height=0
 <script>
   customElements.define(
-    "user-info",
+    'user-info',
     class extends HTMLElement {
       connectedCallback() {
         alert(`${this.id} connected.`);
@@ -402,7 +402,7 @@ Custom elements can be of two types:
        /* ... */
      }
    }
-   customElements.define("my-element", MyElement);
+   customElements.define('my-element', MyElement);
    /* <my-element> */
    ```
 
@@ -414,7 +414,7 @@ Custom elements can be of two types:
    class MyButton extends HTMLButtonElement {
      /*...*/
    }
-   customElements.define("my-button", MyElement, { extends: "button" });
+   customElements.define('my-button', MyElement, { extends: 'button' });
    /* <button is="my-button"> */
    ```
 

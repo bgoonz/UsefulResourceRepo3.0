@@ -20,17 +20,17 @@ For example:
 
 ## General ASCII Codes
 
-| Name  | decimal | octal | hex  | C-escape          | Ctrl-Key | Description                    |
-| ----- | ------- | ----- | ---- | ----------------- | -------- | ------------------------------ |
-| `BEL` | 7       | 007   | 0x07 | `\a`              | `^G`     | Terminal bell                  |
-| `BS`  | 8       | 010   | 0x08 | `\b`              | `^H`     | Backspace                      |
-| `HT`  | 9       | 011   | 0x09 | `\t`              | `^I`     | Horizontal TAB                 |
-| `LF`  | 10      | 012   | 0x0A | `\n`              | `^J`     | Linefeed (newline)             |
-| `VT`  | 11      | 013   | 0x0B | `\v`              | `^K`     | Vertical TAB                   |
-| `FF`  | 12      | 014   | 0x0C | `\f`              | `^L`     | Formfeed (also: New page `NP`) |
-| `CR`  | 13      | 015   | 0x0D | `\r`              | `^M`     | Carriage return                |
-| `ESC` | 27      | 033   | 0x1B | `\e`[\*](#escape) | `^[`     | Escape character               |
-| `DEL` | 127     | 177   | 0x7F | `<none>`          | `<none>` | Delete character               |
+| Name | decimal | octal | hex | C-escape | Ctrl-Key | Description |
+| --- | --- | --- | --- | --- | --- | --- |
+| `BEL` | 7 | 007 | 0x07 | `\a` | `^G` | Terminal bell |
+| `BS` | 8 | 010 | 0x08 | `\b` | `^H` | Backspace |
+| `HT` | 9 | 011 | 0x09 | `\t` | `^I` | Horizontal TAB |
+| `LF` | 10 | 012 | 0x0A | `\n` | `^J` | Linefeed (newline) |
+| `VT` | 11 | 013 | 0x0B | `\v` | `^K` | Vertical TAB |
+| `FF` | 12 | 014 | 0x0C | `\f` | `^L` | Formfeed (also: New page `NP`) |
+| `CR` | 13 | 015 | 0x0D | `\r` | `^M` | Carriage return |
+| `ESC` | 27 | 033 | 0x1B | `\e`[\*](#escape) | `^[` | Escape character |
+| `DEL` | 127 | 177 | 0x7F | `<none>` | `<none>` | Delete character |
 
 <div id="escape"></div>
 
@@ -40,22 +40,22 @@ For example:
 
 ## Cursor Controls
 
-| ESC Code Sequence                                  | Description                                            |
-| :------------------------------------------------- | :----------------------------------------------------- |
-| `ESC[H`                                            | moves cursor to home position (0, 0)                   |
-| `ESC[{line};{column}H` <br> `ESC[{line};{column}f` | moves cursor to line #, column #                       |
-| `ESC[#A`                                           | moves cursor up # lines                                |
-| `ESC[#B`                                           | moves cursor down # lines                              |
-| `ESC[#C`                                           | moves cursor right # columns                           |
-| `ESC[#D`                                           | moves cursor left # columns                            |
-| `ESC[#E`                                           | moves cursor to beginning of next line, # lines down   |
-| `ESC[#F`                                           | moves cursor to beginning of previous line, # lines up |
-| `ESC[#G`                                           | moves cursor to column #                               |
-| `ESC[6n`                                           | request cursor position (reports as `ESC[#;#R`)        |
-| `ESC7`                                             | save cursor position (DEC)                             |
-| `ESC8`                                             | restores the cursor to the last saved position (DEC)   |
-| `ESC[s`                                            | save cursor position (SCO)                             |
-| `ESC[u`                                            | restores the cursor to the last saved position (SCO)   |
+| ESC Code Sequence | Description |
+| :-- | :-- |
+| `ESC[H` | moves cursor to home position (0, 0) |
+| `ESC[{line};{column}H` <br> `ESC[{line};{column}f` | moves cursor to line #, column # |
+| `ESC[#A` | moves cursor up # lines |
+| `ESC[#B` | moves cursor down # lines |
+| `ESC[#C` | moves cursor right # columns |
+| `ESC[#D` | moves cursor left # columns |
+| `ESC[#E` | moves cursor to beginning of next line, # lines down |
+| `ESC[#F` | moves cursor to beginning of previous line, # lines up |
+| `ESC[#G` | moves cursor to column # |
+| `ESC[6n` | request cursor position (reports as `ESC[#;#R`) |
+| `ESC7` | save cursor position (DEC) |
+| `ESC8` | restores the cursor to the last saved position (DEC) |
+| `ESC[s` | save cursor position (SCO) |
+| `ESC[u` | restores the cursor to the last saved position (SCO) |
 
 > **Note:** Some sequences, like saving and restoring cursors, are private sequences and are not standardized. While some terminal emulators (i.e. xterm and derived) support both SCO and DEC sequences, they are likely to have different functionality. It is therefore recommended to use DEC sequences.
 
@@ -74,18 +74,18 @@ For example:
 
 ## Colors / Graphics Mode
 
-| ESC Code Sequence | Reset Sequence | Description                                                |
-| :---------------- | :------------- | :--------------------------------------------------------- |
-| `ESC[1;34;{...}m` |                | Set graphics modes for cell, separated by semicolon (`;`). |
-| `ESC[0m`          | `ESC[0m`       | reset all modes (styles and colors)                        |
-| `ESC[1m`          | `ESC[22m`      | set bold mode.                                             |
-| `ESC[2m`          | `ESC[22m`      | set dim/faint mode.                                        |
-| `ESC[3m`          | `ESC[23m`      | set italic mode.                                           |
-| `ESC[4m`          | `ESC[24m`      | set underline mode.                                        |
-| `ESC[5m`          | `ESC[25m`      | set blinking mode                                          |
-| `ESC[7m`          | `ESC[27m`      | set inverse/reverse mode                                   |
-| `ESC[8m`          | `ESC[28m`      | set hidden/invisible mode                                  |
-| `ESC[9m`          | `ESC[29m`      | set strikethrough mode.                                    |
+| ESC Code Sequence | Reset Sequence | Description |
+| :-- | :-- | :-- |
+| `ESC[1;34;{...}m` |  | Set graphics modes for cell, separated by semicolon (`;`). |
+| `ESC[0m` | `ESC[0m` | reset all modes (styles and colors) |
+| `ESC[1m` | `ESC[22m` | set bold mode. |
+| `ESC[2m` | `ESC[22m` | set dim/faint mode. |
+| `ESC[3m` | `ESC[23m` | set italic mode. |
+| `ESC[4m` | `ESC[24m` | set underline mode. |
+| `ESC[5m` | `ESC[25m` | set blinking mode |
+| `ESC[7m` | `ESC[27m` | set inverse/reverse mode |
+| `ESC[8m` | `ESC[28m` | set hidden/invisible mode |
+| `ESC[9m` | `ESC[29m` | set strikethrough mode. |
 
 > **Note:** Some terminals may not support some of the graphic mode sequences listed above.
 
@@ -170,25 +170,25 @@ These escape sequences are usually not well documented.
 
 ### Set Mode
 
-| ESC Code Sequence | Description                                                                                                                                                           |
-| :---------------- | :-------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `ESC[={value}h`   | Changes the screen width or type to the mode specified by value.                                                                                                      |
-| `ESC[=0h`         | 40 x 25 monochrome (text)                                                                                                                                             |
-| `ESC[=1h`         | 40 x 25 color (text)                                                                                                                                                  |
-| `ESC[=2h`         | 80 x 25 monochrome (text)                                                                                                                                             |
-| `ESC[=3h`         | 80 x 25 color (text)                                                                                                                                                  |
-| `ESC[=4h`         | 320 x 200 4-color (graphics)                                                                                                                                          |
-| `ESC[=5h`         | 320 x 200 monochrome (graphics)                                                                                                                                       |
-| `ESC[=6h`         | 640 x 200 monochrome (graphics)                                                                                                                                       |
-| `ESC[=7h`         | Enables line wrapping                                                                                                                                                 |
-| `ESC[=13h`        | 320 x 200 color (graphics)                                                                                                                                            |
-| `ESC[=14h`        | 640 x 200 color (16-color graphics)                                                                                                                                   |
-| `ESC[=15h`        | 640 x 350 monochrome (2-color graphics)                                                                                                                               |
-| `ESC[=16h`        | 640 x 350 color (16-color graphics)                                                                                                                                   |
-| `ESC[=17h`        | 640 x 480 monochrome (2-color graphics)                                                                                                                               |
-| `ESC[=18h`        | 640 x 480 color (16-color graphics)                                                                                                                                   |
-| `ESC[=19h`        | 320 x 200 color (256-color graphics)                                                                                                                                  |
-| `ESC[={value}l`   | Resets the mode by using the same values that Set Mode uses, except for 7, which disables line wrapping. The last character in this escape sequence is a lowercase L. |
+| ESC Code Sequence | Description |
+| :-- | :-- |
+| `ESC[={value}h` | Changes the screen width or type to the mode specified by value. |
+| `ESC[=0h` | 40 x 25 monochrome (text) |
+| `ESC[=1h` | 40 x 25 color (text) |
+| `ESC[=2h` | 80 x 25 monochrome (text) |
+| `ESC[=3h` | 80 x 25 color (text) |
+| `ESC[=4h` | 320 x 200 4-color (graphics) |
+| `ESC[=5h` | 320 x 200 monochrome (graphics) |
+| `ESC[=6h` | 640 x 200 monochrome (graphics) |
+| `ESC[=7h` | Enables line wrapping |
+| `ESC[=13h` | 320 x 200 color (graphics) |
+| `ESC[=14h` | 640 x 200 color (16-color graphics) |
+| `ESC[=15h` | 640 x 350 monochrome (2-color graphics) |
+| `ESC[=16h` | 640 x 350 color (16-color graphics) |
+| `ESC[=17h` | 640 x 480 monochrome (2-color graphics) |
+| `ESC[=18h` | 640 x 480 color (16-color graphics) |
+| `ESC[=19h` | 320 x 200 color (256-color graphics) |
+| `ESC[={value}l` | Resets the mode by using the same values that Set Mode uses, except for 7, which disables line wrapping. The last character in this escape sequence is a lowercase L. |
 
 ### Common Private Modes
 

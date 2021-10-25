@@ -1,9 +1,9 @@
-import PropTypes from "prop-types";
-import React from "react";
-import client from "part:@sanity/base/client";
-import { PatchEvent, set, unset } from "part:@sanity/form-builder/patch-event";
+import PropTypes from 'prop-types';
+import React from 'react';
+import client from 'part:@sanity/base/client';
+import { PatchEvent, set, unset } from 'part:@sanity/form-builder/patch-event';
 
-const DOCUMENT_ID = "myConfigDocument";
+const DOCUMENT_ID = 'myConfigDocument';
 
 class CustomStringListInput extends React.Component {
   static propTypes = {

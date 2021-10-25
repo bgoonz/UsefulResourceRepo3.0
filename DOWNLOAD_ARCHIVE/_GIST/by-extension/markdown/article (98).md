@@ -16,8 +16,8 @@ For instance, let's create a new property in `document.body`:
 
 ```js run
 document.body.myData = {
-  name: "Caesar",
-  title: "Imperator",
+  name: 'Caesar',
+  title: 'Imperator',
 };
 
 alert(document.body.myData.title); // Imperator
@@ -122,9 +122,9 @@ Here's an extended demo of working with attributes:
   <div id="elem" about="Elephant"></div>
 
   <script>
-    alert(elem.getAttribute("About")); // (1) 'Elephant', reading
+    alert(elem.getAttribute('About')); // (1) 'Elephant', reading
 
-    elem.setAttribute("Test", 123); // (2), writing
+    elem.setAttribute('Test', 123); // (2), writing
 
     alert(elem.outerHTML); // (3), see if the attribute is in HTML (yes)
 
@@ -153,15 +153,15 @@ In the example below `id` is modified as an attribute, and we can see the proper
 <input />
 
 <script>
-  let input = document.querySelector("input");
+  let input = document.querySelector('input');
 
   // attribute => property
-  input.setAttribute("id", "id");
+  input.setAttribute('id', 'id');
   alert(input.id); // id (updated)
 
   // property => attribute
-  input.id = "newId";
-  alert(input.getAttribute("id")); // newId (updated)
+  input.id = 'newId';
+  alert(input.getAttribute('id')); // newId (updated)
 </script>
 ```
 
@@ -200,7 +200,7 @@ DOM properties are not always strings. For instance, the `input.checked` propert
 <input id="input" type="checkbox" checked /> checkbox
 
 <script>
-  alert(input.getAttribute("checked")); // the attribute value is: empty string
+  alert(input.getAttribute('checked')); // the attribute value is: empty string
   alert(input.checked); // the property value is: true
 </script>
 ```
@@ -212,7 +212,7 @@ There are other examples. The `style` attribute is a string, but the `style` pro
 
 <script>
   // string
-  alert(div.getAttribute("style")); // color:red;font-size:120%
+  alert(div.getAttribute('style')); // color:red;font-size:120%
 
   // object
   alert(div.style); // [object CSSStyleDeclaration]
@@ -230,7 +230,7 @@ Here's an example:
 <a id="a" href="#hello">link</a>
 <script>
   // attribute
-  alert(a.getAttribute("href")); // #hello
+  alert(a.getAttribute('href')); // #hello
 
   // property
   alert(a.href); // full URL in the form http://site.com/page#hello
@@ -275,15 +275,15 @@ For instance, here for the order state the attribute `order-state` is used:
 ```html run
 <style>
   /* styles rely on the custom attribute "order-state" */
-  .order[order-state="new"] {
+  .order[order-state='new'] {
     color: green;
   }
 
-  .order[order-state="pending"] {
+  .order[order-state='pending'] {
     color: blue;
   }
 
-  .order[order-state="canceled"] {
+  .order[order-state='canceled'] {
     color: red;
   }
 </style>
@@ -301,7 +301,7 @@ Because an attribute is more convenient to manage. The state can be changed as e
 
 ```js
 // a bit simpler than removing old/adding a new class
-div.setAttribute("order-state", "canceled");
+div.setAttribute('order-state', 'canceled');
 ```
 
 But there may be a possible problem with custom attributes. What if we use a non-standard attribute for our purposes and later the standard introduces it and makes it do something? The HTML language is alive, it grows, and more attributes appear to suit the needs of developers. There may be unexpected effects in such case.
@@ -328,15 +328,15 @@ Here's a rewritten "order state" example:
 
 ```html run
 <style>
-  .order[data-order-state="new"] {
+  .order[data-order-state='new'] {
     color: green;
   }
 
-  .order[data-order-state="pending"] {
+  .order[data-order-state='pending'] {
     color: blue;
   }
 
-  .order[data-order-state="canceled"] {
+  .order[data-order-state='canceled'] {
     color: red;
   }
 </style>
@@ -348,7 +348,7 @@ Here's a rewritten "order state" example:
   alert(order.dataset.orderState); // new
 
   // modify
-  order.dataset.orderState = "pending"; // (*)
+  order.dataset.orderState = 'pending'; // (*)
 </script>
 ```
 
@@ -363,10 +363,10 @@ Please note that we can not only read, but also modify data-attributes. Then CSS
 
 A small comparison:
 
-|      | Properties                                                      | Attributes                 |
-| ---- | --------------------------------------------------------------- | -------------------------- |
-| Type | Any value, standard properties have types described in the spec | A string                   |
-| Name | Name is case-sensitive                                          | Name is not case-sensitive |
+|  | Properties | Attributes |
+| --- | --- | --- |
+| Type | Any value, standard properties have types described in the spec | A string |
+| Name | Name is case-sensitive | Name is not case-sensitive |
 
 Methods to work with attributes are:
 

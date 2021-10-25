@@ -16,25 +16,25 @@ exports.format = function (f) {
     for (var i = 0; i < arguments.length; i++) {
       objects.push(inspect(arguments[i]));
     }
-    return objects.join(" ");
+    return objects.join(' ');
   }
 
   var i = 1;
   var args = arguments;
   var len = args.length;
   var str = String(f).replace(formatRegExp, function (x) {
-    if (x === "%%") return "%";
+    if (x === '%%') return '%';
     if (i >= len) return x;
     switch (x) {
-      case "%s":
+      case '%s':
         return String(args[i++]);
-      case "%d":
+      case '%d':
         return Number(args[i++]);
-      case "%j":
+      case '%j':
         try {
           return JSON.stringify(args[i++]);
         } catch (_) {
-          return "[Circular]";
+          return '[Circular]';
         }
       default:
         return x;
@@ -42,9 +42,9 @@ exports.format = function (f) {
   });
   for (var x = args[i]; i < len; x = args[++i]) {
     if (isNull(x) || !isObject(x)) {
-      str += " " + x;
+      str += ' ' + x;
     } else {
-      str += " " + inspect(x);
+      str += ' ' + inspect(x);
     }
   }
   return str;
@@ -54,12 +54,12 @@ exports.format = function (f) {
 // Returns a modified function which warns once by default.
 // If --no-deprecation is set, then it is a no-op.
 exports.deprecate = function (fn, msg) {
-  if (typeof process !== "undefined" && process.noDeprecation === true) {
+  if (typeof process !== 'undefined' && process.noDeprecation === true) {
     return fn;
   }
 
   // Allow for deprecating things in the process of starting up.
-  if (typeof process === "undefined") {
+  if (typeof process === 'undefined') {
     return function () {
       return exports.deprecate(fn, msg).apply(this, arguments);
     };
@@ -86,14 +86,14 @@ exports.deprecate = function (fn, msg) {
 var debugs = {};
 var debugEnviron;
 exports.debuglog = function (set) {
-  if (isUndefined(debugEnviron)) debugEnviron = process.env.NODE_DEBUG || "";
+  if (isUndefined(debugEnviron)) debugEnviron = process.env.NODE_DEBUG || '';
   set = set.toUpperCase();
   if (!debugs[set]) {
-    if (new RegExp("\\b" + set + "\\b", "i").test(debugEnviron)) {
+    if (new RegExp('\\b' + set + '\\b', 'i').test(debugEnviron)) {
       var pid = process.pid;
       debugs[set] = function () {
         var msg = exports.format.apply(exports, arguments);
-        console.error("%s %d: %s", set, pid, msg);
+        console.error('%s %d: %s', set, pid, msg);
       };
     } else {
       debugs[set] = function () {};
@@ -155,15 +155,15 @@ inspect.colors = {
 
 // Don't use 'blue' not visible on cmd.exe
 inspect.styles = {
-  special: "cyan",
-  number: "yellow",
-  boolean: "yellow",
-  undefined: "grey",
-  null: "bold",
-  string: "green",
-  date: "magenta",
+  special: 'cyan',
+  number: 'yellow',
+  boolean: 'yellow',
+  undefined: 'grey',
+  null: 'bold',
+  string: 'green',
+  date: 'magenta',
   // "name": intentionally not styling
-  regexp: "red",
+  regexp: 'red',
 };
 
 function stylizeWithColor(str, styleType) {
@@ -171,13 +171,13 @@ function stylizeWithColor(str, styleType) {
 
   if (style) {
     return (
-      "\u001b[" +
+      '\u001b[' +
       inspect.colors[style][0] +
-      "m" +
+      'm' +
       str +
-      "\u001b[" +
+      '\u001b[' +
       inspect.colors[style][1] +
-      "m"
+      'm'
     );
   } else {
     return str;
@@ -235,7 +235,7 @@ function formatValue(ctx, value, recurseTimes) {
   // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
   if (
     isError(value) &&
-    (keys.indexOf("message") >= 0 || keys.indexOf("description") >= 0)
+    (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)
   ) {
     return formatError(value);
   }
@@ -243,49 +243,49 @@ function formatValue(ctx, value, recurseTimes) {
   // Some type of object without properties can be shortcutted.
   if (keys.length === 0) {
     if (isFunction(value)) {
-      var name = value.name ? ": " + value.name : "";
-      return ctx.stylize("[Function" + name + "]", "special");
+      var name = value.name ? ': ' + value.name : '';
+      return ctx.stylize('[Function' + name + ']', 'special');
     }
     if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), "regexp");
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
     }
     if (isDate(value)) {
-      return ctx.stylize(Date.prototype.toString.call(value), "date");
+      return ctx.stylize(Date.prototype.toString.call(value), 'date');
     }
     if (isError(value)) {
       return formatError(value);
     }
   }
 
-  var base = "",
+  var base = '',
     array = false,
-    braces = ["{", "}"];
+    braces = ['{', '}'];
 
   // Make Array say that they are Array
   if (isArray(value)) {
     array = true;
-    braces = ["[", "]"];
+    braces = ['[', ']'];
   }
 
   // Make functions say that they are functions
   if (isFunction(value)) {
-    var n = value.name ? ": " + value.name : "";
-    base = " [Function" + n + "]";
+    var n = value.name ? ': ' + value.name : '';
+    base = ' [Function' + n + ']';
   }
 
   // Make RegExps say that they are RegExps
   if (isRegExp(value)) {
-    base = " " + RegExp.prototype.toString.call(value);
+    base = ' ' + RegExp.prototype.toString.call(value);
   }
 
   // Make dates with properties first say the date
   if (isDate(value)) {
-    base = " " + Date.prototype.toUTCString.call(value);
+    base = ' ' + Date.prototype.toUTCString.call(value);
   }
 
   // Make error with message first say the error
   if (isError(value)) {
-    base = " " + formatError(value);
+    base = ' ' + formatError(value);
   }
 
   if (keys.length === 0 && (!array || value.length == 0)) {
@@ -294,9 +294,9 @@ function formatValue(ctx, value, recurseTimes) {
 
   if (recurseTimes < 0) {
     if (isRegExp(value)) {
-      return ctx.stylize(RegExp.prototype.toString.call(value), "regexp");
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
     } else {
-      return ctx.stylize("[Object]", "special");
+      return ctx.stylize('[Object]', 'special');
     }
   }
 
@@ -317,25 +317,25 @@ function formatValue(ctx, value, recurseTimes) {
 }
 
 function formatPrimitive(ctx, value) {
-  if (isUndefined(value)) return ctx.stylize("undefined", "undefined");
+  if (isUndefined(value)) return ctx.stylize('undefined', 'undefined');
   if (isString(value)) {
     var simple =
       "'" +
       JSON.stringify(value)
-        .replace(/^"|"$/g, "")
+        .replace(/^"|"$/g, '')
         .replace(/'/g, "\\'")
         .replace(/\\"/g, '"') +
       "'";
-    return ctx.stylize(simple, "string");
+    return ctx.stylize(simple, 'string');
   }
-  if (isNumber(value)) return ctx.stylize("" + value, "number");
-  if (isBoolean(value)) return ctx.stylize("" + value, "boolean");
+  if (isNumber(value)) return ctx.stylize('' + value, 'number');
+  if (isBoolean(value)) return ctx.stylize('' + value, 'boolean');
   // For some reason typeof null is "object", so special case here.
-  if (isNull(value)) return ctx.stylize("null", "null");
+  if (isNull(value)) return ctx.stylize('null', 'null');
 }
 
 function formatError(value) {
-  return "[" + Error.prototype.toString.call(value) + "]";
+  return '[' + Error.prototype.toString.call(value) + ']';
 }
 
 function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
@@ -346,7 +346,7 @@ function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
         formatProperty(ctx, value, recurseTimes, visibleKeys, String(i), true)
       );
     } else {
-      output.push("");
+      output.push('');
     }
   }
   keys.forEach(function (key) {
@@ -364,17 +364,17 @@ function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
   desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
   if (desc.get) {
     if (desc.set) {
-      str = ctx.stylize("[Getter/Setter]", "special");
+      str = ctx.stylize('[Getter/Setter]', 'special');
     } else {
-      str = ctx.stylize("[Getter]", "special");
+      str = ctx.stylize('[Getter]', 'special');
     }
   } else {
     if (desc.set) {
-      str = ctx.stylize("[Setter]", "special");
+      str = ctx.stylize('[Setter]', 'special');
     }
   }
   if (!hasOwnProperty(visibleKeys, key)) {
-    name = "[" + key + "]";
+    name = '[' + key + ']';
   }
   if (!str) {
     if (ctx.seen.indexOf(desc.value) < 0) {
@@ -383,70 +383,70 @@ function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
       } else {
         str = formatValue(ctx, desc.value, recurseTimes - 1);
       }
-      if (str.indexOf("\n") > -1) {
+      if (str.indexOf('\n') > -1) {
         if (array) {
           str = str
-            .split("\n")
+            .split('\n')
             .map(function (line) {
-              return "  " + line;
+              return '  ' + line;
             })
-            .join("\n")
+            .join('\n')
             .substr(2);
         } else {
           str =
-            "\n" +
+            '\n' +
             str
-              .split("\n")
+              .split('\n')
               .map(function (line) {
-                return "   " + line;
+                return '   ' + line;
               })
-              .join("\n");
+              .join('\n');
         }
       }
     } else {
-      str = ctx.stylize("[Circular]", "special");
+      str = ctx.stylize('[Circular]', 'special');
     }
   }
   if (isUndefined(name)) {
     if (array && key.match(/^\d+$/)) {
       return str;
     }
-    name = JSON.stringify("" + key);
+    name = JSON.stringify('' + key);
     if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
       name = name.substr(1, name.length - 2);
-      name = ctx.stylize(name, "name");
+      name = ctx.stylize(name, 'name');
     } else {
       name = name
         .replace(/'/g, "\\'")
         .replace(/\\"/g, '"')
         .replace(/(^"|"$)/g, "'");
-      name = ctx.stylize(name, "string");
+      name = ctx.stylize(name, 'string');
     }
   }
 
-  return name + ": " + str;
+  return name + ': ' + str;
 }
 
 function reduceToSingleString(output, base, braces) {
   var numLinesEst = 0;
   var length = output.reduce(function (prev, cur) {
     numLinesEst++;
-    if (cur.indexOf("\n") >= 0) numLinesEst++;
-    return prev + cur.replace(/\u001b\[\d\d?m/g, "").length + 1;
+    if (cur.indexOf('\n') >= 0) numLinesEst++;
+    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
   }, 0);
 
   if (length > 60) {
     return (
       braces[0] +
-      (base === "" ? "" : base + "\n ") +
-      " " +
-      output.join(",\n  ") +
-      " " +
+      (base === '' ? '' : base + '\n ') +
+      ' ' +
+      output.join(',\n  ') +
+      ' ' +
       braces[1]
     );
   }
 
-  return braces[0] + base + " " + output.join(", ") + " " + braces[1];
+  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
 }
 
 // NOTE: These type checking functions intentionally don't use `instanceof`
@@ -457,7 +457,7 @@ function isArray(ar) {
 exports.isArray = isArray;
 
 function isBoolean(arg) {
-  return typeof arg === "boolean";
+  return typeof arg === 'boolean';
 }
 exports.isBoolean = isBoolean;
 
@@ -472,17 +472,17 @@ function isNullOrUndefined(arg) {
 exports.isNullOrUndefined = isNullOrUndefined;
 
 function isNumber(arg) {
-  return typeof arg === "number";
+  return typeof arg === 'number';
 }
 exports.isNumber = isNumber;
 
 function isString(arg) {
-  return typeof arg === "string";
+  return typeof arg === 'string';
 }
 exports.isString = isString;
 
 function isSymbol(arg) {
-  return typeof arg === "symbol";
+  return typeof arg === 'symbol';
 }
 exports.isSymbol = isSymbol;
 
@@ -492,82 +492,82 @@ function isUndefined(arg) {
 exports.isUndefined = isUndefined;
 
 function isRegExp(re) {
-  return isObject(re) && objectToString(re) === "[object RegExp]";
+  return isObject(re) && objectToString(re) === '[object RegExp]';
 }
 exports.isRegExp = isRegExp;
 
 function isObject(arg) {
-  return typeof arg === "object" && arg !== null;
+  return typeof arg === 'object' && arg !== null;
 }
 exports.isObject = isObject;
 
 function isDate(d) {
-  return isObject(d) && objectToString(d) === "[object Date]";
+  return isObject(d) && objectToString(d) === '[object Date]';
 }
 exports.isDate = isDate;
 
 function isError(e) {
   return (
     isObject(e) &&
-    (objectToString(e) === "[object Error]" || e instanceof Error)
+    (objectToString(e) === '[object Error]' || e instanceof Error)
   );
 }
 exports.isError = isError;
 
 function isFunction(arg) {
-  return typeof arg === "function";
+  return typeof arg === 'function';
 }
 exports.isFunction = isFunction;
 
 function isPrimitive(arg) {
   return (
     arg === null ||
-    typeof arg === "boolean" ||
-    typeof arg === "number" ||
-    typeof arg === "string" ||
-    typeof arg === "symbol" || // ES6 symbol
-    typeof arg === "undefined"
+    typeof arg === 'boolean' ||
+    typeof arg === 'number' ||
+    typeof arg === 'string' ||
+    typeof arg === 'symbol' || // ES6 symbol
+    typeof arg === 'undefined'
   );
 }
 exports.isPrimitive = isPrimitive;
 
-exports.isBuffer = require("./support/isBuffer");
+exports.isBuffer = require('./support/isBuffer');
 
 function objectToString(o) {
   return Object.prototype.toString.call(o);
 }
 
 function pad(n) {
-  return n < 10 ? "0" + n.toString(10) : n.toString(10);
+  return n < 10 ? '0' + n.toString(10) : n.toString(10);
 }
 
 var months = [
-  "Jan",
-  "Feb",
-  "Mar",
-  "Apr",
-  "May",
-  "Jun",
-  "Jul",
-  "Aug",
-  "Sep",
-  "Oct",
-  "Nov",
-  "Dec",
+  'Jan',
+  'Feb',
+  'Mar',
+  'Apr',
+  'May',
+  'Jun',
+  'Jul',
+  'Aug',
+  'Sep',
+  'Oct',
+  'Nov',
+  'Dec',
 ];
 
 // 26 Feb 16:19:34
 function timestamp() {
   var d = new Date();
   var time = [pad(d.getHours()), pad(d.getMinutes()), pad(d.getSeconds())].join(
-    ":"
+    ':'
   );
-  return [d.getDate(), months[d.getMonth()], time].join(" ");
+  return [d.getDate(), months[d.getMonth()], time].join(' ');
 }
 
 // log is just a thin wrapper to console.log that prepends a timestamp
 exports.log = function () {
-  console.log("%s - %s", timestamp(), exports.format.apply(exports, arguments));
+  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
 };
 
 /**
@@ -583,7 +583,7 @@ exports.log = function () {
  *     prototype.
  * @param {function} superCtor Constructor function to inherit prototype from.
  */
-exports.inherits = require("inherits");
+exports.inherits = require('inherits');
 
 exports._extend = function (origin, add) {
   // Don't do anything if add isn't an object
@@ -602,15 +602,15 @@ function hasOwnProperty(obj, prop) {
 }
 
 var kCustomPromisifiedSymbol =
-  typeof Symbol !== "undefined" ? Symbol("util.promisify.custom") : undefined;
+  typeof Symbol !== 'undefined' ? Symbol('util.promisify.custom') : undefined;
 
 exports.promisify = function promisify(original) {
-  if (typeof original !== "function")
+  if (typeof original !== 'function')
     throw new TypeError('The "original" argument must be of type Function');
 
   if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
     var fn = original[kCustomPromisifiedSymbol];
-    if (typeof fn !== "function") {
+    if (typeof fn !== 'function') {
       throw new TypeError(
         'The "util.promisify.custom" argument must be of type Function'
       );
@@ -672,7 +672,7 @@ function callbackifyOnRejected(reason, cb) {
   // occurred", we error-wrap so the callback consumer can distinguish between
   // "the promise rejected with null" or "the promise fulfilled with undefined".
   if (!reason) {
-    var newReason = new Error("Promise was rejected with a falsy value");
+    var newReason = new Error('Promise was rejected with a falsy value');
     newReason.reason = reason;
     reason = newReason;
   }
@@ -680,7 +680,7 @@ function callbackifyOnRejected(reason, cb) {
 }
 
 function callbackify(original) {
-  if (typeof original !== "function") {
+  if (typeof original !== 'function') {
     throw new TypeError('The "original" argument must be of type Function');
   }
 
@@ -694,8 +694,8 @@ function callbackify(original) {
     }
 
     var maybeCb = args.pop();
-    if (typeof maybeCb !== "function") {
-      throw new TypeError("The last argument must be of type Function");
+    if (typeof maybeCb !== 'function') {
+      throw new TypeError('The last argument must be of type Function');
     }
     var self = this;
     var cb = function () {

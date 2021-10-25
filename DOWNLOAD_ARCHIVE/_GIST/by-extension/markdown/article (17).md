@@ -106,12 +106,12 @@ for (let i = 0; i < 3; i++) {
 
 Let's examine the `for` statement part-by-part:
 
-| part      |            |                                                                |
-| --------- | ---------- | -------------------------------------------------------------- |
-| begin     | `i = 0`    | Executes once upon entering the loop.                          |
-| condition | `i < 3`    | Checked before every loop iteration. If false, the loop stops. |
-| body      | `alert(i)` | Runs again and again while the condition is truthy.            |
-| step      | `i++`      | Executes after the body on each iteration.                     |
+| part |  |  |
+| --- | --- | --- |
+| begin | `i = 0` | Executes once upon entering the loop. |
+| condition | `i < 3` | Checked before every loop iteration. If false, the loop stops. |
+| body | `alert(i)` | Runs again and again while the condition is truthy. |
+| step | `i++` | Executes after the body on each iteration. |
 
 The general loop algorithm works like this:
 
@@ -264,8 +264,7 @@ for (let i = 0; i < 10; i++) {
 
 For even values of `i`, the `continue` directive stops executing the body and passes control to the next iteration of `for` (with the next number). So the `alert` is only called for odd values.
 
-````smart header="The `continue` directive helps decrease nesting"
-A loop that shows odd values could look like this:
+````smart header="The `continue` directive helps decrease nesting" A loop that shows odd values could look like this:
 
 ```js run
 for (let i = 0; i < 10; i++) {
@@ -315,13 +314,13 @@ For example, in the code below we loop over `i` and `j`, prompting for the coord
 ```js run no-beautify
 for (let i = 0; i < 3; i++) {
   for (let j = 0; j < 3; j++) {
-    let input = prompt(`Value at coords (${i},${j})`, "");
+    let input = prompt(`Value at coords (${i},${j})`, '');
 
     // what if we want to exit from here to Done (below)?
   }
 }
 
-alert("Done!");
+alert('Done!');
 ```
 
 We need a way to stop the process if the user cancels the input.

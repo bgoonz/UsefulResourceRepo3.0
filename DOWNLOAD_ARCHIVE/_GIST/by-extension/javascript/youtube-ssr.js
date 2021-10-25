@@ -1,26 +1,26 @@
-if (window.location.href == "https://www.youtube.com/feed/channels") {
-  let rssText = [...document.querySelectorAll("#main-link.channel-link")]
+if (window.location.href == 'https://www.youtube.com/feed/channels') {
+  let rssText = [...document.querySelectorAll('#main-link.channel-link')]
     .map((e) => {
-      const [, a, b] = e.href.match("/((?:user)|(?:channel))/(.*)$");
+      const [, a, b] = e.href.match('/((?:user)|(?:channel))/(.*)$');
       return (
-        "https://www.youtube.com/feeds/videos.xml?" +
-        (a === "user" ? "user=" : "channel_id=") +
+        'https://www.youtube.com/feeds/videos.xml?' +
+        (a === 'user' ? 'user=' : 'channel_id=') +
         b
       );
     })
-    .join("\n");
+    .join('\n');
   if (rssText) {
     navigator.clipboard
       .writeText(rssText)
       .then(() =>
         alert(
-          "A list of channel RSS feeds has been copied to the clipboard. \nPaste these into rssmix.com to generate a single RSS feed, or opml-gen.ovh to generate an OPML file."
+          'A list of channel RSS feeds has been copied to the clipboard. \nPaste these into rssmix.com to generate a single RSS feed, or opml-gen.ovh to generate an OPML file.'
         )
       )
       .catch(() => {
         console.log(rssText);
         alert(
-          "A list of channel RSS feeds has logged to the console. (Unable to copy to clipboard) \nPaste these into rssmix.com to generate a single RSS feed, or opml-gen.ovh to generate an OPML file."
+          'A list of channel RSS feeds has logged to the console. (Unable to copy to clipboard) \nPaste these into rssmix.com to generate a single RSS feed, or opml-gen.ovh to generate an OPML file.'
         );
       });
   } else {

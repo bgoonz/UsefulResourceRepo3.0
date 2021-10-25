@@ -35,7 +35,7 @@ Click the button below to animate the background:
 
 <script>
   color.onclick = function () {
-    this.style.backgroundColor = "red";
+    this.style.backgroundColor = 'red';
   };
 </script>
 ```
@@ -64,8 +64,8 @@ For instance, this button animates both `color` and `font-size`:
 
 <script>
   growing.onclick = function () {
-    this.style.fontSize = "36px";
-    this.style.color = "red";
+    this.style.fontSize = '36px';
+    this.style.color = 'red';
   };
 </script>
 ```
@@ -105,7 +105,7 @@ The `transform` property is animated like this:
 In the example above JavaScript adds the class `.animate` to the element -- and the animation starts:
 
 ```js
-stripe.classList.add("animate");
+stripe.classList.add('animate');
 ```
 
 We could also start it from somewhere in the middle of the transition, from an exact number, e.g. corresponding to the current second, using a negative `transition-delay`.
@@ -202,10 +202,10 @@ The `linear` is a shorthand for `cubic-bezier(0, 0, 1, 1)` -- a straight line, w
 
 Other names are shorthands for the following `cubic-bezier`:
 
-| <code>ease</code><sup>\*</sup>      | <code>ease-in</code>             | <code>ease-out</code>             | <code>ease-in-out</code>                |
-| ----------------------------------- | -------------------------------- | --------------------------------- | --------------------------------------- |
-| <code>(0.25, 0.1, 0.25, 1.0)</code> | <code>(0.42, 0, 1.0, 1.0)</code> | <code>(0, 0, 0.58, 1.0)</code>    | <code>(0.42, 0, 0.58, 1.0)</code>       |
-| ![ease, figure](ease.svg)           | ![ease-in, figure](ease-in.svg)  | ![ease-out, figure](ease-out.svg) | ![ease-in-out, figure](ease-in-out.svg) |
+| <code>ease</code><sup>\*</sup> | <code>ease-in</code> | <code>ease-out</code> | <code>ease-in-out</code> |
+| --- | --- | --- | --- |
+| <code>(0.25, 0.1, 0.25, 1.0)</code> | <code>(0.42, 0, 1.0, 1.0)</code> | <code>(0, 0, 0.58, 1.0)</code> | <code>(0.42, 0, 0.58, 1.0)</code> |
+| ![ease, figure](ease.svg) | ![ease-in, figure](ease-in.svg) | ![ease-out, figure](ease-out.svg) | ![ease-in-out, figure](ease-in-out.svg) |
 
 `*` -- by default, if there's no timing function, `ease` is used.
 
@@ -339,18 +339,18 @@ boat.onclick = function () {
   function go() {
     if (times % 2) {
       // sail to the right
-      boat.classList.remove("back");
-      boat.style.marginLeft = 100 * times + 200 + "px";
+      boat.classList.remove('back');
+      boat.style.marginLeft = 100 * times + 200 + 'px';
     } else {
       // sail to the left
-      boat.classList.add("back");
-      boat.style.marginLeft = 100 * times - 200 + "px";
+      boat.classList.add('back');
+      boat.style.marginLeft = 100 * times - 200 + 'px';
     }
   }
 
   go();
 
-  boat.addEventListener("transitionend", function () {
+  boat.addEventListener('transitionend', function () {
     times++;
     go();
   });
@@ -359,11 +359,9 @@ boat.onclick = function () {
 
 The event object for `transitionend` has a few specific properties:
 
-`event.propertyName`
-: The property that has finished animating. Can be good if we animate multiple properties simultaneously.
+`event.propertyName` : The property that has finished animating. Can be good if we animate multiple properties simultaneously.
 
-`event.elapsedTime`
-: The time (in seconds) that the animation took, without `transition-delay`.
+`event.elapsedTime` : The time (in seconds) that the animation took, without `transition-delay`.
 
 ## Keyframes
 

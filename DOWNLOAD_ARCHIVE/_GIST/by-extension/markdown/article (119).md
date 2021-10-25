@@ -22,7 +22,7 @@ The `DOMContentLoaded` event happens on the `document` object.
 We must use `addEventListener` to catch it:
 
 ```js
-document.addEventListener("DOMContentLoaded", ready);
+document.addEventListener('DOMContentLoaded', ready);
 // not "document.onDOMContentLoaded = ..."
 ```
 
@@ -59,15 +59,15 @@ So DOMContentLoaded definitely happens after such scripts:
 
 ```html run
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    alert("DOM ready!");
+  document.addEventListener('DOMContentLoaded', () => {
+    alert('DOM ready!');
   });
 </script>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/lodash.js/4.3.0/lodash.js"></script>
 
 <script>
-  alert("Library loaded, inline script executed");
+  alert('Library loaded, inline script executed');
 </script>
 ```
 
@@ -115,7 +115,7 @@ The example below correctly shows image sizes, because `window.onload` waits for
 <script>
   window.onload = function () {
     // same as window.addEventListener('load', (event) => {
-    alert("Page loaded");
+    alert('Page loaded');
 
     // image is loaded at this time
     alert(`Image size: ${img.offsetWidth}x${img.offsetHeight}`);
@@ -146,8 +146,8 @@ let analyticsData = {
   /* object with gathered data */
 };
 
-window.addEventListener("unload", function () {
-  navigator.sendBeacon("/analytics", JSON.stringify(analyticsData));
+window.addEventListener('unload', function () {
+  navigator.sendBeacon('/analytics', JSON.stringify(analyticsData));
 });
 ```
 
@@ -181,7 +181,7 @@ Here's an example:
 
 ```js run
 window.onbeforeunload = function () {
-  return "There are unsaved changes. Leave now?";
+  return 'There are unsaved changes. Leave now?';
 };
 ```
 
@@ -212,9 +212,9 @@ function work() {
   /*...*/
 }
 
-if (document.readyState == "loading") {
+if (document.readyState == 'loading') {
   // still loading, wait for the event
-  document.addEventListener("DOMContentLoaded", work);
+  document.addEventListener('DOMContentLoaded', work);
 } else {
   // DOM is ready!
   work();
@@ -228,7 +228,7 @@ There's also the `readystatechange` event that triggers when the state changes, 
 console.log(document.readyState);
 
 // print state changes
-document.addEventListener("readystatechange", () =>
+document.addEventListener('readystatechange', () =>
   console.log(document.readyState)
 );
 ```
@@ -241,21 +241,21 @@ Here's a document with `<iframe>`, `<img>` and handlers that log events:
 
 ```html
 <script>
-  log("initial readyState:" + document.readyState);
+  log('initial readyState:' + document.readyState);
 
-  document.addEventListener("readystatechange", () =>
-    log("readyState:" + document.readyState)
+  document.addEventListener('readystatechange', () =>
+    log('readyState:' + document.readyState)
   );
-  document.addEventListener("DOMContentLoaded", () => log("DOMContentLoaded"));
+  document.addEventListener('DOMContentLoaded', () => log('DOMContentLoaded'));
 
-  window.onload = () => log("window onload");
+  window.onload = () => log('window onload');
 </script>
 
 <iframe src="iframe.html" onload="log('iframe onload')"></iframe>
 
 <img src="http://en.js.cx/clipart/train.gif" id="img" />
 <script>
-  img.onload = () => log("img onload");
+  img.onload = () => log('img onload');
 </script>
 ```
 

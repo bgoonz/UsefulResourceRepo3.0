@@ -27,8 +27,7 @@ or
 
 In the next example we'll use this technique to create a JavaScript-powered menu.
 
-```warn header="Returning `false` from a handler is an exception"
-The value returned by an event handler is usually ignored.
+```warn header="Returning `false` from a handler is an exception" The value returned by an event handler is usually ignored.
 
 The only exception is `return false` from a handler assigned using `on<event>`.
 
@@ -140,12 +139,12 @@ Upon right click, the closest context menu should show up.
 <script>
   elem.oncontextmenu = function (event) {
     event.preventDefault();
-    alert("Button context menu");
+    alert('Button context menu');
   };
 
   document.oncontextmenu = function (event) {
     event.preventDefault();
-    alert("Document context menu");
+    alert('Document context menu');
   };
 </script>
 ```

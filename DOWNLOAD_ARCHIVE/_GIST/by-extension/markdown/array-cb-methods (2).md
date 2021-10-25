@@ -12,13 +12,13 @@ for (let i = 0; i < array.length; i++) {
 
 We can see it traverses an array and inserts non-duplicate elements into a new array. But to figure this out we had to glean these 5 things.
 
-| code piece                      | meaning                                                                                                                        |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| `let i = 0`                     | starts at left side of array                                                                                                   |
-| `i < array.length`              | finishes at right side of array                                                                                                |
-| `i++`                           | increments by one                                                                                                              |
-| `array.indexOf(array[i]) === i` | if value is first instance in array, it'll match index. okay this means it's checking if it's a duplicate                      |
-| `models.push(...)`              | `models` must be a list. But what data's in it? What are their data types? I must search the file for "models". Rinse. Repeat. |
+| code piece | meaning |
+| --- | --- |
+| `let i = 0` | starts at left side of array |
+| `i < array.length` | finishes at right side of array |
+| `i++` | increments by one |
+| `array.indexOf(array[i]) === i` | if value is first instance in array, it'll match index. okay this means it's checking if it's a duplicate |
+| `models.push(...)` | `models` must be a list. But what data's in it? What are their data types? I must search the file for "models". Rinse. Repeat. |
 
 We needed to check 5 pieces of information to determine what was going on. And this is a single `for` loop!
 
@@ -124,12 +124,12 @@ Example: Sum up orbital rocket launches in 2014.
 
 ```js
 let rockets = [
-  { country: "Russia", launches: 32 },
-  { country: "US", launches: 23 },
-  { country: "China", launches: 16 },
-  { country: "Europe(ESA)", launches: 7 },
-  { country: "India", launches: 4 },
-  { country: "Japan", launches: 3 },
+  { country: 'Russia', launches: 32 },
+  { country: 'US', launches: 23 },
+  { country: 'China', launches: 16 },
+  { country: 'Europe(ESA)', launches: 7 },
+  { country: 'India', launches: 4 },
+  { country: 'Japan', launches: 3 },
 ];
 
 let sum = rockets.reduce(function (prevVal, elem) {
@@ -153,12 +153,12 @@ array.reduce(function(prevVal, elem, index, array) {
 
 ```
 
-| param        | meaning                                                                    |
-| ------------ | -------------------------------------------------------------------------- |
-| prevValue    | cumulative value returned thru each callback                               |
-| elem         | element value                                                              |
-| index        | index of the traversal, moving from left to right                          |
-| array        | original array invoking the method                                         |
+| param | meaning |
+| --- | --- |
+| prevValue | cumulative value returned thru each callback |
+| elem | element value |
+| index | index of the traversal, moving from left to right |
+| array | original array invoking the method |
 | initialValue | (Optional) object used as first argument in the first (leftmost) callback. |
 
 # Misc

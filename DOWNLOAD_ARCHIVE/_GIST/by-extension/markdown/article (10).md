@@ -9,7 +9,7 @@ This one we've seen already. It shows a message and waits for the user to press 
 For example:
 
 ```js run
-alert("Hello");
+alert('Hello');
 ```
 
 The mini-window with the message is called a _modal window_. The word "modal" means that the visitor can't interact with the rest of the page, press other buttons, etc, until they have dealt with the window. In this case -- until they press "OK".
@@ -24,11 +24,9 @@ result = prompt(title, [default]);
 
 It shows a modal window with a text message, an input field for the visitor, and the buttons OK/Cancel.
 
-`title`
-: The text to show the visitor.
+`title` : The text to show the visitor.
 
-`default`
-: An optional second parameter, the initial value for the input field.
+`default` : An optional second parameter, the initial value for the input field.
 
 ```smart header="The square brackets in syntax `[...]`" The square brackets around `default` in the syntax above denote that the parameter is optional, not required.
 
@@ -51,13 +49,13 @@ alert(`You are ${age} years old!`); // You are 100 years old!
 Run this code in Internet Explorer to see:
 
 ```js run
-let test = prompt("Test");
+let test = prompt('Test');
 ```
 
 So, for prompts to look good in IE, we recommend always providing the second argument:
 
 ```js run
-let test = prompt("Test", ""); // <-- for IE
+let test = prompt('Test', ''); // <-- for IE
 ```
 
 ````

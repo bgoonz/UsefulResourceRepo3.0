@@ -9,22 +9,22 @@
  *   their display size with DPR (a 1000px wide image displayed as a
  *   500px high-res image on a Retina display is 100% used);
  */
-"use strict";
+'use strict';
 
-const Audit = require("../audit.js");
-const UsesResponsiveImages = require("./uses-responsive-images.js");
-const URL = require("../../lib/url-shim.js");
-const i18n = require("../../lib/i18n/i18n.js");
+const Audit = require('../audit.js');
+const UsesResponsiveImages = require('./uses-responsive-images.js');
+const URL = require('../../lib/url-shim.js');
+const i18n = require('../../lib/i18n/i18n.js');
 
 const UIStrings = {
   /** Descriptive title of a Lighthouse audit that checks if images match their displayed dimensions. This is displayed when the audit is passing. */
-  title: "Images were appropriate for their displayed size",
+  title: 'Images were appropriate for their displayed size',
   /** Descriptive title of a Lighthouse audit that checks if images match their displayed dimensions. This is displayed when the audit is failing. */
-  failureTitle: "Images were larger than their displayed size",
+  failureTitle: 'Images were larger than their displayed size',
   /** Label for a column in a data table; entries will be the dimensions of an image as it appears on the page. */
-  columnDisplayedDimensions: "Displayed dimensions",
+  columnDisplayedDimensions: 'Displayed dimensions',
   /** Label for a column in a data table; entries will be the dimensions of an image from it's source file. */
-  columnActualDimensions: "Actual dimensions",
+  columnActualDimensions: 'Actual dimensions',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -38,14 +38,14 @@ class UsesResponsiveImagesSnapshot extends Audit {
    */
   static get meta() {
     return {
-      id: "uses-responsive-images-snapshot",
+      id: 'uses-responsive-images-snapshot',
       title: str_(UIStrings.title),
       failureTitle: str_(UIStrings.failureTitle),
       description: UsesResponsiveImages.str_(
         UsesResponsiveImages.UIStrings.description
       ),
-      supportedModes: ["snapshot"],
-      requiredArtifacts: ["ImageElements", "ViewportDimensions"],
+      supportedModes: ['snapshot'],
+      requiredArtifacts: ['ImageElements', 'ViewportDimensions'],
     };
   }
 
@@ -81,16 +81,16 @@ class UsesResponsiveImagesSnapshot extends Audit {
     /** @type {LH.Audit.Details.Table['headings']} */
     const headings = [
       /* eslint-disable max-len */
-      { key: "url", itemType: "thumbnail", text: "" },
-      { key: "url", itemType: "url", text: str_(i18n.UIStrings.columnURL) },
+      { key: 'url', itemType: 'thumbnail', text: '' },
+      { key: 'url', itemType: 'url', text: str_(i18n.UIStrings.columnURL) },
       {
-        key: "displayedDimensions",
-        itemType: "text",
+        key: 'displayedDimensions',
+        itemType: 'text',
         text: str_(UIStrings.columnDisplayedDimensions),
       },
       {
-        key: "actualDimensions",
-        itemType: "text",
+        key: 'actualDimensions',
+        itemType: 'text',
         text: str_(UIStrings.columnActualDimensions),
       },
       /* eslint-enable max-len */

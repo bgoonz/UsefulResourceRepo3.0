@@ -55,7 +55,7 @@ So `let user = new User("Jack")` gives the same result as:
 
 ```js
 let user = {
-  name: "Jack",
+  name: 'Jack',
   isAdmin: false,
 };
 ```
@@ -123,7 +123,7 @@ function User(name) {
   this.name = name;
 }
 
-let john = User("John"); // redirects call to new User
+let john = User('John'); // redirects call to new User
 alert(john.name); // John
 ```
 
@@ -146,9 +146,9 @@ For instance, here `return` overrides `this` by returning an object:
 
 ```js run
 function BigUser() {
-  this.name = "John";
+  this.name = 'John';
 
-  return { name: "Godzilla" }; // <-- returns this object
+  return { name: 'Godzilla' }; // <-- returns this object
 }
 
 alert(new BigUser().name); // Godzilla, got that object
@@ -158,7 +158,7 @@ And here's an example with an empty `return` (or we could place a primitive afte
 
 ```js run
 function SmallUser() {
-  this.name = "John";
+  this.name = 'John';
 
   return; // <-- returns this
 }

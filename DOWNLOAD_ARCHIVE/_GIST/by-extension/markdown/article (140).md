@@ -25,7 +25,7 @@ To resume upload, we need to know _exactly_ the number of bytes received by the 
 1. First, create a file id, to uniquely identify the file we're going to upload:
 
    ```js
-   let fileId = file.name + "-" + file.size + "-" + file.lastModified;
+   let fileId = file.name + '-' + file.size + '-' + file.lastModified;
    ```
 
    That's needed for resume upload, to tell the server what we're resuming.
@@ -35,9 +35,9 @@ To resume upload, we need to know _exactly_ the number of bytes received by the 
 2. Send a request to the server, asking how many bytes it already has, like this:
 
    ```js
-   let response = await fetch("status", {
+   let response = await fetch('status', {
      headers: {
-       "X-File-Id": fileId,
+       'X-File-Id': fileId,
      },
    });
 
@@ -52,13 +52,13 @@ To resume upload, we need to know _exactly_ the number of bytes received by the 
 3. Then, we can use `Blob` method `slice` to send the file from `startByte`:
 
    ```js
-   xhr.open("POST", "upload", true);
+   xhr.open('POST', 'upload', true);
 
    // File id, so that the server knows which file we upload
-   xhr.setRequestHeader("X-File-Id", fileId);
+   xhr.setRequestHeader('X-File-Id', fileId);
 
    // The byte we're resuming from, so the server knows we're resuming
-   xhr.setRequestHeader("X-Start-Byte", startByte);
+   xhr.setRequestHeader('X-Start-Byte', startByte);
 
    xhr.upload.onprogress = (e) => {
      console.log(`Uploaded ${startByte + e.loaded} of ${startByte + e.total}`);

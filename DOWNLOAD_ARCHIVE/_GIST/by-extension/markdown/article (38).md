@@ -126,17 +126,13 @@ One of the most used operations when working with numbers is rounding.
 
 There are several built-in functions for rounding:
 
-`Math.floor`
-: Rounds down: `3.1` becomes `3`, and `-1.1` becomes `-2`.
+`Math.floor` : Rounds down: `3.1` becomes `3`, and `-1.1` becomes `-2`.
 
-`Math.ceil`
-: Rounds up: `3.1` becomes `4`, and `-1.1` becomes `-1`.
+`Math.ceil` : Rounds up: `3.1` becomes `4`, and `-1.1` becomes `-1`.
 
-`Math.round`
-: Rounds to the nearest integer: `3.1` becomes `3`, `3.6` becomes `4`, the middle case: `3.5` rounds up to `4` too.
+`Math.round` : Rounds to the nearest integer: `3.1` becomes `3`, `3.6` becomes `4`, the middle case: `3.5` rounds up to `4` too.
 
-`Math.trunc` (not supported by Internet Explorer)
-: Removes anything after the decimal point without rounding: `3.1` becomes `3`, `-1.1` becomes `-1`.
+`Math.trunc` (not supported by Internet Explorer) : Removes anything after the decimal point without rounding: `3.1` becomes `3`, `-1.1` becomes `-1`.
 
 Here's the table to summarize the differences between them:
 
@@ -301,7 +297,7 @@ They belong to the type `number`, but are not "normal" numbers, so there are spe
 
   ```js run
   alert(isNaN(NaN)); // true
-  alert(isNaN("str")); // true
+  alert(isNaN('str')); // true
   ```
 
   But do we need this function? Can't we just use the comparison `=== NaN`? Sorry, but the answer is no. The value `NaN` is unique in that it does not equal anything, including itself:
@@ -313,15 +309,15 @@ They belong to the type `number`, but are not "normal" numbers, so there are spe
 - `isFinite(value)` converts its argument to a number and returns `true` if it's a regular number, not `NaN/Infinity/-Infinity`:
 
   ```js run
-  alert(isFinite("15")); // true
-  alert(isFinite("str")); // false, because a special value: NaN
+  alert(isFinite('15')); // true
+  alert(isFinite('str')); // false, because a special value: NaN
   alert(isFinite(Infinity)); // false, because a special value: Infinity
   ```
 
 Sometimes `isFinite` is used to validate whether a string value is a regular number:
 
 ```js run
-let num = +prompt("Enter a number", "");
+let num = +prompt('Enter a number', '');
 
 // will be true unless you enter Infinity, -Infinity or not a number
 alert(isFinite(num));
@@ -360,26 +356,26 @@ That's what `parseInt` and `parseFloat` are for.
 They "read" a number from a string until they can't. In case of an error, the gathered number is returned. The function `parseInt` returns an integer, whilst `parseFloat` will return a floating-point number:
 
 ```js run
-alert(parseInt("100px")); // 100
-alert(parseFloat("12.5em")); // 12.5
+alert(parseInt('100px')); // 100
+alert(parseFloat('12.5em')); // 12.5
 
-alert(parseInt("12.3")); // 12, only the integer part is returned
-alert(parseFloat("12.3.4")); // 12.3, the second point stops the reading
+alert(parseInt('12.3')); // 12, only the integer part is returned
+alert(parseFloat('12.3.4')); // 12.3, the second point stops the reading
 ```
 
 There are situations when `parseInt/parseFloat` will return `NaN`. It happens when no digits could be read:
 
 ```js run
-alert(parseInt("a123")); // NaN, the first symbol stops the process
+alert(parseInt('a123')); // NaN, the first symbol stops the process
 ```
 
 ````smart header="The second argument of `parseInt(str, radix)`" The `parseInt()`function has an optional second parameter. It specifies the base of the numeral system, so`parseInt` can also parse strings of hex numbers, binary numbers and so on:
 
 ```js run
-alert(parseInt("0xff", 16)); // 255
-alert(parseInt("ff", 16)); // 255, without 0x also works
+alert(parseInt('0xff', 16)); // 255
+alert(parseInt('ff', 16)); // 255, without 0x also works
 
-alert(parseInt("2n9c", 36)); // 123456
+alert(parseInt('2n9c', 36)); // 123456
 ```
 
 ````

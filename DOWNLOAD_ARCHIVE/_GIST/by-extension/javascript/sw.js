@@ -1,6 +1,6 @@
 //After install, fetch event is triggered for every page request
-self.addEventListener("fetch", function (event) {
-  console.log("Request -->", event.request.url);
+self.addEventListener('fetch', function (event) {
+  console.log('Request -->', event.request.url);
 
   //To tell browser to evaluate the result of event
   event.respondWith(
@@ -11,7 +11,7 @@ self.addEventListener("fetch", function (event) {
         return response || fetch(event.request);
       })
       .catch(function (error) {
-        console.error("Error: ", error);
+        console.error('Error: ', error);
       })
   );
 });

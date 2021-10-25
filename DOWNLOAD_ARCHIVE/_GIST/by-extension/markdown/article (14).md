@@ -74,14 +74,14 @@ For example:
 
 ```js run
 let year = prompt(
-  "In which year was the ECMAScript-2015 specification published?",
-  ""
+  'In which year was the ECMAScript-2015 specification published?',
+  ''
 );
 
 if (year == 2015) {
-  alert("You guessed it right!");
+  alert('You guessed it right!');
 } else {
-  alert("How can you be so wrong?"); // any value except 2015
+  alert('How can you be so wrong?'); // any value except 2015
 }
 ```
 
@@ -93,16 +93,16 @@ For example:
 
 ```js run
 let year = prompt(
-  "In which year was the ECMAScript-2015 specification published?",
-  ""
+  'In which year was the ECMAScript-2015 specification published?',
+  ''
 );
 
 if (year < 2015) {
-  alert("Too early...");
+  alert('Too early...');
 } else if (year > 2015) {
-  alert("Too late");
+  alert('Too late');
 } else {
-  alert("Exactly!");
+  alert('Exactly!');
 }
 ```
 
@@ -177,16 +177,16 @@ A sequence of question mark operators `?` can return a value that depends on mor
 For instance:
 
 ```js run
-let age = prompt("age?", 18);
+let age = prompt('age?', 18);
 
 let message =
   age < 3
-    ? "Hi, baby!"
+    ? 'Hi, baby!'
     : age < 18
-    ? "Hello!"
+    ? 'Hello!'
     : age < 100
-    ? "Greetings!"
-    : "What an unusual age!";
+    ? 'Greetings!'
+    : 'What an unusual age!';
 
 alert(message);
 ```
@@ -202,13 +202,13 @@ Here's how this looks using `if..else`:
 
 ```js
 if (age < 3) {
-  message = "Hi, baby!";
+  message = 'Hi, baby!';
 } else if (age < 18) {
-  message = "Hello!";
+  message = 'Hello!';
 } else if (age < 100) {
-  message = "Greetings!";
+  message = 'Greetings!';
 } else {
-  message = "What an unusual age!";
+  message = 'What an unusual age!';
 }
 ```
 

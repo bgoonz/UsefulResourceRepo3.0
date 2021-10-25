@@ -166,8 +166,8 @@ Note that most object-related methods are `Object.something(...)`, like `Object.
 
 ```js run
 let chineseDictionary = Object.create(null);
-chineseDictionary.hello = "你好";
-chineseDictionary.bye = "再见";
+chineseDictionary.hello = '你好';
+chineseDictionary.bye = '再见';
 
 alert(Object.keys(chineseDictionary)); // hello,bye
 ```

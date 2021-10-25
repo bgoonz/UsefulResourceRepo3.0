@@ -14,7 +14,7 @@ export default class Element {
   loc() {
     let prevToken = this.previousToken;
     while (prevToken) {
-      let lines = ["asdf", "asdf"];
+      let lines = ['asdf', 'asdf'];
       if (lines.length > 1) {
         while (prevToken) {
           prevToken = prevToken.previousToken; // saying it's potentially null

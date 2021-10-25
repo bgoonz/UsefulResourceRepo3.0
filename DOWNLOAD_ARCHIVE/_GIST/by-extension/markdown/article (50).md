@@ -51,7 +51,7 @@ Here the first two arguments go into variables and the rest go into `titles` arr
 
 ```js run
 function showName(firstName, lastName, ...titles) {
-  alert(firstName + " " + lastName); // Julius Caesar
+  alert(firstName + ' ' + lastName); // Julius Caesar
 
   // the rest go into titles array
   // i.e. titles = ["Consul", "Imperator"]
@@ -60,7 +60,7 @@ function showName(firstName, lastName, ...titles) {
   alert(titles.length); // 2
 }
 
-showName("Julius", "Caesar", "Consul", "Imperator");
+showName('Julius', 'Caesar', 'Consul', 'Imperator');
 ```
 
 ````warn header="The rest parameters must be at the end"
@@ -92,10 +92,10 @@ function showName() {
 }
 
 // shows: 2, Julius, Caesar
-showName("Julius", "Caesar");
+showName('Julius', 'Caesar');
 
 // shows: 1, Ilya, undefined (no second argument)
-showName("Ilya");
+showName('Ilya');
 ```
 
 In old times, rest parameters did not exist in the language, and using `arguments` was the only way to get all arguments of the function. And it still works, we can find it in the old code.

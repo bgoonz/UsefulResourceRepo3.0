@@ -21,8 +21,8 @@ In action:
 ```js run
 let regexp = /^(\w+\s?)*$/;
 
-alert(regexp.test("A good string")); // true
-alert(regexp.test("Bad characters: $@#")); // false
+alert(regexp.test('A good string')); // true
+alert(regexp.test('Bad characters: $@#')); // false
 ```
 
 The regexp seems to work. The result is correct. Although, on certain strings it takes a lot of time. So long that JavaScript engine "hangs" with 100% CPU consumption.
@@ -32,7 +32,7 @@ If you run the example below, you probably won't see anything, as JavaScript wil
 ```js run
 let regexp = /^(\w+\s?)*$/;
 let str =
-  "An input string that takes a long time or even makes this regexp hang!";
+  'An input string that takes a long time or even makes this regexp hang!';
 
 // will take a very long time
 alert(regexp.test(str));
@@ -51,7 +51,7 @@ And, to make things more obvious, let's replace `pattern:\w` with `pattern:\d`. 
 ```js run
 let regexp = /^(\d+)*$/;
 
-let str = "012345678901234567890123456789z";
+let str = '012345678901234567890123456789z';
 
 // will take a very long time (careful!)
 alert(regexp.test(str));
@@ -198,7 +198,7 @@ This regexp is equivalent to the previous one (matches the same) and works well:
 ```js run
 let regexp = /^(\w+\s)*\w*$/;
 let str =
-  "An input string that takes a long time or even makes this regex hang!";
+  'An input string that takes a long time or even makes this regex hang!';
 
 alert(regexp.test(str)); // false
 ```
@@ -275,8 +275,8 @@ For instance, in the word `subject:JavaScript` it may not only match `match:Java
 Here's the comparison of two patterns:
 
 ```js run
-alert("JavaScript".match(/\w+Script/)); // JavaScript
-alert("JavaScript".match(/(?=(\w+))\1Script/)); // null
+alert('JavaScript'.match(/\w+Script/)); // JavaScript
+alert('JavaScript'.match(/(?=(\w+))\1Script/)); // null
 ```
 
 1. In the first variant `pattern:\w+` first captures the whole word `subject:JavaScript` but then `pattern:+` backtracks character by character, to try to match the rest of the pattern, until it finally succeeds (when `pattern:\w+` matches `match:Java`).
@@ -293,10 +293,10 @@ Let's rewrite the first example using lookahead to prevent backtracking:
 ```js run
 let regexp = /^((?=(\w+))\2\s?)*$/;
 
-alert(regexp.test("A good string")); // true
+alert(regexp.test('A good string')); // true
 
 let str =
-  "An input string that takes a long time or even makes this regex hang!";
+  'An input string that takes a long time or even makes this regex hang!';
 
 alert(regexp.test(str)); // false, works and fast!
 ```
@@ -308,11 +308,11 @@ Here `pattern:\2` is used instead of `pattern:\1`, because there are additional 
 let regexp = /^((?=(?<word>\w+))\k<word>\s?)*$/;
 
 let str =
-  "An input string that takes a long time or even makes this regex hang!";
+  'An input string that takes a long time or even makes this regex hang!';
 
 alert(regexp.test(str)); // false
 
-alert(regexp.test("A correct string")); // true
+alert(regexp.test('A correct string')); // true
 ```
 
 The problem described in this article is called "catastrophic backtracking".

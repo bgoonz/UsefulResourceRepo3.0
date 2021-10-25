@@ -111,7 +111,7 @@ That can be easily checked if we run `querySelectorAll`: nodes are still at thei
 
 ```js
 // light DOM <span> nodes are still at the same place, under `<user-card>`
-alert(document.querySelectorAll("user-card span").length); // 2
+alert(document.querySelectorAll('user-card span').length); // 2
 ```
 
 So, the flattened DOM is derived from shadow DOM by inserting slots. The browser renders it and uses for style inheritance, event propagation (more about that later). But JavaScript still sees the document "as is", before flattening.
@@ -183,10 +183,10 @@ For example, let's add the default slot to our `<user-card>` that shows all unsl
 ```html run autorun="no-epub" untrusted height=140
 <script>
   customElements.define(
-    "user-card",
+    'user-card',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `
     <div>Name:
       <slot name="username"></slot>
@@ -316,10 +316,10 @@ We just need to add a `click` handler to open/close the list, and the `<custom-m
 
 ```js
 customElements.define(
-  "custom-menu",
+  'custom-menu',
   class extends HTMLElement {
     connectedCallback() {
-      this.attachShadow({ mode: "open" });
+      this.attachShadow({ mode: 'open' });
 
       // tmpl is the shadow DOM template (above)
       this.shadowRoot.append(tmpl.content.cloneNode(true));
@@ -327,7 +327,7 @@ customElements.define(
       // we can't select light DOM nodes, so let's handle clicks on the slot
       this.shadowRoot.querySelector('slot[name="title"]').onclick = () => {
         // open/close the menu
-        this.shadowRoot.querySelector(".menu").classList.toggle("closed");
+        this.shadowRoot.querySelector('.menu').classList.toggle('closed');
       };
     }
   }
@@ -359,29 +359,29 @@ For example, here the menu item is inserted dynamically after 1 second, and the 
 
 <script>
   customElements.define(
-    "custom-menu",
+    'custom-menu',
     class extends HTMLElement {
       connectedCallback() {
-        this.attachShadow({ mode: "open" });
+        this.attachShadow({ mode: 'open' });
         this.shadowRoot.innerHTML = `<div class="menu">
       <slot name="title"></slot>
       <ul><slot name="item"></slot></ul>
     </div>`;
 
         // shadowRoot can't have event handlers, so using the first child
-        this.shadowRoot.firstElementChild.addEventListener("slotchange", (e) =>
-          alert("slotchange: " + e.target.name)
+        this.shadowRoot.firstElementChild.addEventListener('slotchange', (e) =>
+          alert('slotchange: ' + e.target.name)
         );
       }
     }
   );
 
   setTimeout(() => {
-    menu.insertAdjacentHTML("beforeEnd", '<li slot="item">Lollipop</li>');
+    menu.insertAdjacentHTML('beforeEnd', '<li slot="item">Lollipop</li>');
   }, 1000);
 
   setTimeout(() => {
-    menu.querySelector('[slot="title"]').innerHTML = "New menu";
+    menu.querySelector('[slot="title"]').innerHTML = 'New menu';
   }, 2000);
 </script>
 ```

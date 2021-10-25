@@ -1,22 +1,22 @@
 document.body.innerHTML =
-  "Paste or drop items onto this page. View results in console.";
+  'Paste or drop items onto this page. View results in console.';
 
 function getPayload(item) {
   const kind = item.kind;
   switch (kind) {
-    case "string":
+    case 'string':
       return new Promise((res) => item.getAsString(res));
-    case "file":
+    case 'file':
       return Promise.resolve(item.getAsFile());
     default:
-      throw new Error("unknown item kind! " + kind);
+      throw new Error('unknown item kind! ' + kind);
   }
 }
 
 function logObj(type, obj) {
   console.log(
     `%c ${type} event`,
-    "font-weight: bold",
+    'font-weight: bold',
     new Date().toLocaleTimeString()
   );
 

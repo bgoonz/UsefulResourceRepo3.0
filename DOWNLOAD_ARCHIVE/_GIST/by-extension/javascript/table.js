@@ -1,5 +1,5 @@
-import { Component } from "react";
-import "./Table.css";
+import { Component } from 'react';
+import './Table.css';
 
 class TableComponent extends Component {
   render() {

@@ -34,15 +34,13 @@ That was the HTML example. Now let's create the same `div` with JavaScript (assu
 
 To create DOM nodes, there are two methods:
 
-`document.createElement(tag)`
-: Creates a new _element node_ with the given tag:
+`document.createElement(tag)` : Creates a new _element node_ with the given tag:
 
     ```js
     let div = document.createElement('div');
     ```
 
-`document.createTextNode(text)`
-: Creates a new _text node_ with the given text:
+`document.createTextNode(text)` : Creates a new _text node_ with the given text:
 
     ```js
     let textNode = document.createTextNode('Here I am');
@@ -56,10 +54,10 @@ Creating the message div takes 3 steps:
 
 ```js
 // 1. Create <div> element
-let div = document.createElement("div");
+let div = document.createElement('div');
 
 // 2. Set its class to "alert"
-div.className = "alert";
+div.className = 'alert';
 
 // 3. Fill it with the content
 div.innerHTML = "<strong>Hi there!</strong> You've read an important message.";
@@ -121,15 +119,15 @@ Here's an example of using these methods to add items to a list and the text bef
 </ol>
 
 <script>
-  ol.before("before"); // insert string "before" before <ol>
-  ol.after("after"); // insert string "after" after <ol>
+  ol.before('before'); // insert string "before" before <ol>
+  ol.after('after'); // insert string "after" after <ol>
 
-  let liFirst = document.createElement("li");
-  liFirst.innerHTML = "prepend";
+  let liFirst = document.createElement('li');
+  liFirst.innerHTML = 'prepend';
   ol.prepend(liFirst); // insert liFirst at the beginning of <ol>
 
-  let liLast = document.createElement("li");
-  liLast.innerHTML = "append";
+  let liLast = document.createElement('li');
+  liLast.innerHTML = 'append';
   ol.append(liLast); // insert liLast at the end of <ol>
 </script>
 ```
@@ -159,7 +157,7 @@ For instance, here a string and an element are inserted:
 ```html run
 <div id="div"></div>
 <script>
-  div.before("<p>Hello</p>", document.createElement("hr"));
+  div.before('<p>Hello</p>', document.createElement('hr'));
 </script>
 ```
 
@@ -197,8 +195,8 @@ For instance:
 ```html run
 <div id="div"></div>
 <script>
-  div.insertAdjacentHTML("beforebegin", "<p>Hello</p>");
-  div.insertAdjacentHTML("afterend", "<p>Bye</p>");
+  div.insertAdjacentHTML('beforebegin', '<p>Hello</p>');
+  div.insertAdjacentHTML('afterend', '<p>Bye</p>');
 </script>
 ```
 
@@ -240,7 +238,7 @@ So here's an alternative variant of showing a message:
 
 <script>
   document.body.insertAdjacentHTML(
-    "afterbegin",
+    'afterbegin',
     `<div class="alert">
     <strong>Hi there!</strong> You've read an important message.
   </div>`
@@ -405,8 +403,7 @@ These methods come from really ancient times. Nowadays, there's no reason to use
 
 The only reason we list these methods here is that you can find them in many old scripts:
 
-`parentElem.appendChild(node)`
-: Appends `node` as the last child of `parentElem`.
+`parentElem.appendChild(node)` : Appends `node` as the last child of `parentElem`.
 
     The following example adds a new `<li>` to the end of `<ol>`:
 
@@ -425,8 +422,7 @@ The only reason we list these methods here is that you can find them in many old
     </script>
     ```
 
-`parentElem.insertBefore(node, nextSibling)`
-: Inserts `node` before `nextSibling` into `parentElem`.
+`parentElem.insertBefore(node, nextSibling)` : Inserts `node` before `nextSibling` into `parentElem`.
 
     The following code inserts a new list item before the second `<li>`:
 
@@ -451,11 +447,9 @@ The only reason we list these methods here is that you can find them in many old
     list.insertBefore(newLi, list.firstChild);
     ```
 
-`parentElem.replaceChild(node, oldChild)`
-: Replaces `oldChild` with `node` among children of `parentElem`.
+`parentElem.replaceChild(node, oldChild)` : Replaces `oldChild` with `node` among children of `parentElem`.
 
-`parentElem.removeChild(node)`
-: Removes `node` from `parentElem` (assuming `node` is its child).
+`parentElem.removeChild(node)` : Removes `node` from `parentElem` (assuming `node` is its child).
 
     The following example removes first `<li>` from `<ol>`:
 
@@ -484,7 +478,7 @@ The syntax:
 <p>Somewhere in the page...</p>
 *!*
 <script>
-  document.write("<b>Hello from JS</b>");
+  document.write('<b>Hello from JS</b>');
 </script>
 */!*
 <p>The end</p>
@@ -508,7 +502,7 @@ For instance:
 <script>
   // document.write after 1 second
   // that's after the page loaded, so it erases the existing content
-  setTimeout(() => document.write("<b>...By this.</b>"), 1000);
+  setTimeout(() => document.write('<b>...By this.</b>'), 1000);
 </script>
 */!*
 ```

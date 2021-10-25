@@ -3,7 +3,7 @@
 function hello(assign) {
   console.log(message); //prints undefined
   if (assign) {
-    var message = "Hello there!";
+    var message = 'Hello there!';
     console.log(message); // prints "Hello there!"
   }
 }
@@ -13,7 +13,7 @@ function hello(assign) {
   var message = undefined;
   console.log(message); //prints undefined
   if (assign) {
-    message = "Hello there!";
+    message = 'Hello there!';
     console.log(message); // prints "Hello there!"
   }
 }

@@ -51,7 +51,7 @@ As you can, see `(a, b) => a + b` means a function that accepts two arguments na
 - If there are no arguments, parentheses will be empty (but they should be present):
 
   ```js run
-  let sayHi = () => alert("Hello!");
+  let sayHi = () => alert('Hello!');
 
   sayHi();
   ```
@@ -61,9 +61,9 @@ Arrow functions can be used in the same way as Function Expressions.
 For instance, to dynamically create a function:
 
 ```js run
-let age = prompt("What is your age?", 18);
+let age = prompt('What is your age?', 18);
 
-let welcome = age < 18 ? () => alert("Hello") : () => alert("Greetings!");
+let welcome = age < 18 ? () => alert('Hello') : () => alert('Greetings!');
 
 welcome();
 ```

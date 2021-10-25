@@ -197,8 +197,7 @@ Stores the current contents of the index in a new “commit.” This commit cont
 
 ### CREDITS:
 
-<a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#pull" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#pull"><strong>🌳🚀 CS Visualized: Useful Git Commands</strong><br />
-<em>Although Git is a very powerful tool, I think most people would agree when I say it can also be... a total nightmare 😐…</em>dev.to</a><a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#pull" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
+<a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#pull" class="markup--anchor markup--mixtapeEmbed-anchor" title="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#pull"><strong>🌳🚀 CS Visualized: Useful Git Commands</strong><br /> <em>Although Git is a very powerful tool, I think most people would agree when I say it can also be... a total nightmare 😐…</em>dev.to</a><a href="https://dev.to/lydiahallie/cs-visualized-useful-git-commands-37p1#pull" class="js-mixtapeImage mixtapeImage u-ignoreBlock"></a>
 
 ---
 

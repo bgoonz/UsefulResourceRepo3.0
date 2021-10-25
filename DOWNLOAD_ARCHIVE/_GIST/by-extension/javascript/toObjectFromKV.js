@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import forEach from "./forEach";
+import forEach from './forEach';
 
 /**
  * Returns an object, given a container of (key, value) tuples.

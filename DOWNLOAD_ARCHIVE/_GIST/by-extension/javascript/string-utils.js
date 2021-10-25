@@ -1,44 +1,44 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var tslib_1 = require("tslib");
+'use strict';
+Object.defineProperty(exports, '__esModule', { value: true });
+var tslib_1 = require('tslib');
 var fast_json_stable_stringify_1 = tslib_1.__importDefault(
-  require("fast-json-stable-stringify")
+  require('fast-json-stable-stringify')
 );
-var ts_invariant_1 = require("ts-invariant");
+var ts_invariant_1 = require('ts-invariant');
 function isScalarValue(value) {
-  return ["StringValue", "BooleanValue", "EnumValue"].indexOf(value.kind) > -1;
+  return ['StringValue', 'BooleanValue', 'EnumValue'].indexOf(value.kind) > -1;
 }
 exports.isScalarValue = isScalarValue;
 function isNumberValue(value) {
-  return ["IntValue", "FloatValue"].indexOf(value.kind) > -1;
+  return ['IntValue', 'FloatValue'].indexOf(value.kind) > -1;
 }
 exports.isNumberValue = isNumberValue;
 function isStringValue(value) {
-  return value.kind === "StringValue";
+  return value.kind === 'StringValue';
 }
 function isBooleanValue(value) {
-  return value.kind === "BooleanValue";
+  return value.kind === 'BooleanValue';
 }
 function isIntValue(value) {
-  return value.kind === "IntValue";
+  return value.kind === 'IntValue';
 }
 function isFloatValue(value) {
-  return value.kind === "FloatValue";
+  return value.kind === 'FloatValue';
 }
 function isVariable(value) {
-  return value.kind === "Variable";
+  return value.kind === 'Variable';
 }
 function isObjectValue(value) {
-  return value.kind === "ObjectValue";
+  return value.kind === 'ObjectValue';
 }
 function isListValue(value) {
-  return value.kind === "ListValue";
+  return value.kind === 'ListValue';
 }
 function isEnumValue(value) {
-  return value.kind === "EnumValue";
+  return value.kind === 'EnumValue';
 }
 function isNullValue(value) {
-  return value.kind === "NullValue";
+  return value.kind === 'NullValue';
 }
 function valueToObjectRepresentation(argObj, name, value, variables) {
   if (isIntValue(value) || isFloatValue(value)) {
@@ -81,8 +81,8 @@ function valueToObjectRepresentation(argObj, name, value, variables) {
         '" of kind "' +
         value.kind +
         '"' +
-        "is not supported. Use variables instead of inline arguments to " +
-        "overcome this limitation."
+        'is not supported. Use variables instead of inline arguments to ' +
+        'overcome this limitation.'
     );
   }
 }
@@ -120,25 +120,25 @@ function storeKeyNameFromField(field, variables) {
 }
 exports.storeKeyNameFromField = storeKeyNameFromField;
 var KNOWN_DIRECTIVES = [
-  "connection",
-  "include",
-  "skip",
-  "client",
-  "rest",
-  "export",
+  'connection',
+  'include',
+  'skip',
+  'client',
+  'rest',
+  'export',
 ];
 function getStoreKeyName(fieldName, args, directives) {
   if (
     directives &&
-    directives["connection"] &&
-    directives["connection"]["key"]
+    directives['connection'] &&
+    directives['connection']['key']
   ) {
     if (
-      directives["connection"]["filter"] &&
-      directives["connection"]["filter"].length > 0
+      directives['connection']['filter'] &&
+      directives['connection']['filter'].length > 0
     ) {
-      var filterKeys = directives["connection"]["filter"]
-        ? directives["connection"]["filter"]
+      var filterKeys = directives['connection']['filter']
+        ? directives['connection']['filter']
         : [];
       filterKeys.sort();
       var queryArgs_1 = args;
@@ -147,28 +147,28 @@ function getStoreKeyName(fieldName, args, directives) {
         filteredArgs_1[key] = queryArgs_1[key];
       });
       return (
-        directives["connection"]["key"] +
-        "(" +
+        directives['connection']['key'] +
+        '(' +
         JSON.stringify(filteredArgs_1) +
-        ")"
+        ')'
       );
     } else {
-      return directives["connection"]["key"];
+      return directives['connection']['key'];
     }
   }
   var completeFieldName = fieldName;
   if (args) {
     var stringifiedArgs = fast_json_stable_stringify_1.default(args);
-    completeFieldName += "(" + stringifiedArgs + ")";
+    completeFieldName += '(' + stringifiedArgs + ')';
   }
   if (directives) {
     Object.keys(directives).forEach(function (key) {
       if (KNOWN_DIRECTIVES.indexOf(key) !== -1) return;
       if (directives[key] && Object.keys(directives[key]).length) {
         completeFieldName +=
-          "@" + key + "(" + JSON.stringify(directives[key]) + ")";
+          '@' + key + '(' + JSON.stringify(directives[key]) + ')';
       } else {
-        completeFieldName += "@" + key;
+        completeFieldName += '@' + key;
       }
     });
   }
@@ -193,18 +193,18 @@ function resultKeyNameFromField(field) {
 }
 exports.resultKeyNameFromField = resultKeyNameFromField;
 function isField(selection) {
-  return selection.kind === "Field";
+  return selection.kind === 'Field';
 }
 exports.isField = isField;
 function isInlineFragment(selection) {
-  return selection.kind === "InlineFragment";
+  return selection.kind === 'InlineFragment';
 }
 exports.isInlineFragment = isInlineFragment;
 function isIdValue(idObject) {
   return (
     idObject &&
-    idObject.type === "id" &&
-    typeof idObject.generated === "boolean"
+    idObject.type === 'id' &&
+    typeof idObject.generated === 'boolean'
   );
 }
 exports.isIdValue = isIdValue;
@@ -213,8 +213,8 @@ function toIdValue(idConfig, generated) {
     generated = false;
   }
   return tslib_1.__assign(
-    { type: "id", generated: generated },
-    typeof idConfig === "string"
+    { type: 'id', generated: generated },
+    typeof idConfig === 'string'
       ? { id: idConfig, typename: undefined }
       : idConfig
   );
@@ -223,14 +223,14 @@ exports.toIdValue = toIdValue;
 function isJsonValue(jsonObject) {
   return (
     jsonObject != null &&
-    typeof jsonObject === "object" &&
-    jsonObject.type === "json"
+    typeof jsonObject === 'object' &&
+    jsonObject.type === 'json'
   );
 }
 exports.isJsonValue = isJsonValue;
 function defaultValueFromVariable(node) {
   throw new ts_invariant_1.InvariantError(
-    "Variable nodes are not supported by valueFromNode"
+    'Variable nodes are not supported by valueFromNode'
   );
 }
 function valueFromNode(node, onVariable) {
@@ -238,19 +238,19 @@ function valueFromNode(node, onVariable) {
     onVariable = defaultValueFromVariable;
   }
   switch (node.kind) {
-    case "Variable":
+    case 'Variable':
       return onVariable(node);
-    case "NullValue":
+    case 'NullValue':
       return null;
-    case "IntValue":
+    case 'IntValue':
       return parseInt(node.value, 10);
-    case "FloatValue":
+    case 'FloatValue':
       return parseFloat(node.value);
-    case "ListValue":
+    case 'ListValue':
       return node.values.map(function (v) {
         return valueFromNode(v, onVariable);
       });
-    case "ObjectValue": {
+    case 'ObjectValue': {
       var value = {};
       for (var _i = 0, _a = node.fields; _i < _a.length; _i++) {
         var field = _a[_i];

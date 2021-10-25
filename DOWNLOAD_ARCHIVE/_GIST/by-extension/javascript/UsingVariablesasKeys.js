@@ -1,9 +1,9 @@
 let car = {
-  color: "Blue",
+  color: 'Blue',
   seats: 2,
 };
 console.log(car);
-let newVariable = "weight";
+let newVariable = 'weight';
 console.log(newVariable);
 console.log(car[newVariable]);
 // assigning a key value pair using a variable!

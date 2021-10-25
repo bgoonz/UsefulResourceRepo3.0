@@ -8,5 +8,5 @@ class JobSearch {
     console.log(this.magicConchWillIEnjoyThis);
   }
 }
-let reality = new JobSearch("jobHunt", "NO", "");
+let reality = new JobSearch('jobHunt', 'NO', '');
 reality.howAboutNow();

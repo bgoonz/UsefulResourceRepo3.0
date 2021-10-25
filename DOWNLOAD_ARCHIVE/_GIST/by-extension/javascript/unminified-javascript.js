@@ -3,20 +3,20 @@
  * Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License. You may obtain a copy of the License at http://www.apache.org/licenses/LICENSE-2.0
  * Unless required by applicable law or agreed to in writing, software distributed under the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied. See the License for the specific language governing permissions and limitations under the License.
  */
-"use strict";
+'use strict';
 
-const ByteEfficiencyAudit = require("./byte-efficiency-audit.js");
-const i18n = require("../../lib/i18n/i18n.js");
+const ByteEfficiencyAudit = require('./byte-efficiency-audit.js');
+const i18n = require('../../lib/i18n/i18n.js');
 const computeTokenLength =
-  require("../../lib/minification-estimator.js").computeJSTokenLength;
+  require('../../lib/minification-estimator.js').computeJSTokenLength;
 
 const UIStrings = {
   /** Imperative title of a Lighthouse audit that tells the user to minify the page’s JS code to reduce file size. This is displayed in a list of audit titles that Lighthouse generates. */
-  title: "Minify JavaScript",
+  title: 'Minify JavaScript',
   /** Description of a Lighthouse audit that tells the user *why* they should minify the page’s JS code to reduce file size. This is displayed after a user expands the section to see more. No character length limits. 'Learn More' becomes link text to additional documentation. */
   description:
-    "Minifying JavaScript files can reduce payload sizes and script parse time. " +
-    "[Learn more](https://web.dev/unminified-javascript/).",
+    'Minifying JavaScript files can reduce payload sizes and script parse time. ' +
+    '[Learn more](https://web.dev/unminified-javascript/).',
 };
 
 const str_ = i18n.createMessageInstanceIdFn(__filename, UIStrings);
@@ -40,15 +40,15 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
    */
   static get meta() {
     return {
-      id: "unminified-javascript",
+      id: 'unminified-javascript',
       title: str_(UIStrings.title),
       description: str_(UIStrings.description),
       scoreDisplayMode: ByteEfficiencyAudit.SCORING_MODES.NUMERIC,
       requiredArtifacts: [
-        "ScriptElements",
-        "devtoolsLogs",
-        "traces",
-        "GatherContext",
+        'ScriptElements',
+        'devtoolsLogs',
+        'traces',
+        'GatherContext',
       ],
     };
   }
@@ -66,7 +66,7 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
     const totalBytes = ByteEfficiencyAudit.estimateTransferSize(
       networkRecord,
       contentLength,
-      "Script"
+      'Script'
     );
     const wastedRatio = 1 - totalTokenLength / contentLength;
     const wastedBytes = Math.round(totalBytes * wastedRatio);
@@ -114,22 +114,22 @@ class UnminifiedJavaScript extends ByteEfficiencyAudit {
           continue;
         items.push(result);
       } catch (err) {
-        const url = networkRecord ? networkRecord.url : "?";
+        const url = networkRecord ? networkRecord.url : '?';
         warnings.push(`Unable to process script ${url}: ${err.message}`);
       }
     }
 
     /** @type {LH.Audit.Details.Opportunity['headings']} */
     const headings = [
-      { key: "url", valueType: "url", label: str_(i18n.UIStrings.columnURL) },
+      { key: 'url', valueType: 'url', label: str_(i18n.UIStrings.columnURL) },
       {
-        key: "totalBytes",
-        valueType: "bytes",
+        key: 'totalBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnTransferSize),
       },
       {
-        key: "wastedBytes",
-        valueType: "bytes",
+        key: 'wastedBytes',
+        valueType: 'bytes',
         label: str_(i18n.UIStrings.columnWastedBytes),
       },
     ];

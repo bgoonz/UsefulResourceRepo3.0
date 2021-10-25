@@ -18,9 +18,9 @@ For example, `document.body` is the object representing the `<body>` tag.
 Running this code will make the `<body>` red for 3 seconds:
 
 ```js run
-document.body.style.background = "red"; // make the background red
+document.body.style.background = 'red'; // make the background red
 
-setTimeout(() => (document.body.style.background = ""), 3000); // return back
+setTimeout(() => (document.body.style.background = ''), 3000); // return back
 ```
 
 Here we used `style.background` to change the background color of `document.body`, but there are many other properties, such as:

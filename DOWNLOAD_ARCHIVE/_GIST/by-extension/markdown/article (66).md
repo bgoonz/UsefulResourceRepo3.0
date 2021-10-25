@@ -43,7 +43,7 @@ class User {
 }
 
 // Usage:
-let user = new User("John");
+let user = new User('John');
 user.sayHi();
 ```
 
@@ -138,7 +138,7 @@ User.prototype.sayHi = function () {
 };
 
 // Usage:
-let user = new User("John");
+let user = new User('John');
 user.sayHi();
 ```
 
@@ -171,13 +171,11 @@ Still, there are important differences.
 
    There are other differences, we'll see them soon.
 
-2. Class methods are non-enumerable.
-   A class definition sets `enumerable` flag to `false` for all methods in the `"prototype"`.
+2. Class methods are non-enumerable. A class definition sets `enumerable` flag to `false` for all methods in the `"prototype"`.
 
    That's good, because if we `for..in` over an object, we usually don't want its class methods.
 
-3. Classes always `use strict`.
-   All code inside the class construct is automatically in strict mode.
+3. Classes always `use strict`. All code inside the class construct is automatically in strict mode.
 
 Besides, `class` syntax brings many other features that we'll explore later.
 
@@ -190,7 +188,7 @@ Here's an example of a class expression:
 ```js
 let User = class {
   sayHi() {
-    alert("Hello");
+    alert('Hello');
   }
 };
 ```
@@ -226,7 +224,7 @@ function makeClass(phrase) {
 }
 
 // Create a new class
-let User = makeClass("Hello");
+let User = makeClass('Hello');
 
 new User().sayHi(); // Hello
 ```

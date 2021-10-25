@@ -1,5 +1,5 @@
-let a = "b";
+let a = 'b';
 let obj = {
-  a: "letter_a",
-  [a]: "letter b",
+  a: 'letter_a',
+  [a]: 'letter b',
 };

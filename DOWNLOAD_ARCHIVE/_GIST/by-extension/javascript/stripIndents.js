@@ -1,13 +1,13 @@
 function stripFirstEmptyLines(text) {
-  return text.replace(/^\n+/, ""); // no 'm' flag!
+  return text.replace(/^\n+/, ''); // no 'm' flag!
 }
 // strip first empty lines
 function rtrim(text) {
-  return text.replace(/\s+$/, ""); // no 'm' flag!
+  return text.replace(/\s+$/, ''); // no 'm' flag!
 }
 
 function rtrimLines(text) {
-  return text.replace(/[ \t]+$/gim, "");
+  return text.replace(/[ \t]+$/gim, '');
 }
 
 function stripSpaceIndent(text) {
@@ -22,8 +22,8 @@ function stripSpaceIndent(text) {
     return Math.min(min, line.length);
   }, Infinity);
 
-  let indent = new RegExp("^ {" + indentLen + "}", "gm");
-  return indentLen > 0 ? text.replace(indent, "") : text;
+  let indent = new RegExp('^ {' + indentLen + '}', 'gm');
+  return indentLen > 0 ? text.replace(indent, '') : text;
 }
 
 function stripTabIndent(text) {
@@ -38,8 +38,8 @@ function stripTabIndent(text) {
     return Math.min(min, line.length);
   }, Infinity);
 
-  let indent = new RegExp("^\t{" + indentLen + "}", "gm");
-  return indentLen > 0 ? text.replace(indent, "") : text;
+  let indent = new RegExp('^\t{' + indentLen + '}', 'gm');
+  return indentLen > 0 ? text.replace(indent, '') : text;
 }
 
 // same as Ruby strip_heredoc + rtrim every line + strip first lines and rtrim

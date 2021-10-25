@@ -9,7 +9,7 @@ WebSocket is especially great for services that require continuous data exchange
 To open a websocket connection, we need to create `new WebSocket` using the special protocol `ws` in the url:
 
 ```js
-let socket = new WebSocket("*!*ws*/!*://javascript.info");
+let socket = new WebSocket('*!*ws*/!*://javascript.info');
 ```
 
 There's also encrypted `wss://` protocol. It's like HTTPS for websockets.
@@ -124,7 +124,7 @@ For instance:
   This optional header is set using the second parameter of `new WebSocket`. That's the array of subprotocols, e.g. if we'd like to use SOAP or WAMP:
 
   ```js
-  let socket = new WebSocket("wss://javascript.info/chat", ["soap", "wamp"]);
+  let socket = new WebSocket('wss://javascript.info/chat', ['soap', 'wamp']);
   ```
 
 The server should respond with a list of protocols and extensions that it agrees to use.
@@ -182,7 +182,7 @@ That's set by `socket.binaryType` property, it's `"blob"` by default, so binary 
 [Blob](info:blob) is a high-level binary object, it directly integrates with `<a>`, `<img>` and other tags, so that's a sane default. But for binary processing, to access individual data bytes, we can change it to `"arraybuffer"`:
 
 ```js
-socket.binaryType = "arraybuffer";
+socket.binaryType = 'arraybuffer';
 socket.onmessage = (event) => {
   // event.data is either a string (if text) or arraybuffer (if binary)
 };
@@ -225,7 +225,7 @@ Then the other party in `close` event handler gets the code and the reason, e.g.
 
 ```js
 // closing party:
-socket.close(1000, "Work complete");
+socket.close(1000, 'Work complete');
 
 // the other party
 socket.onclose = (event) => {
@@ -295,7 +295,7 @@ From JavaScript we want three things:
 Here's the code:
 
 ```js
-let socket = new WebSocket("wss://javascript.info/article/websocket/chat/ws");
+let socket = new WebSocket('wss://javascript.info/article/websocket/chat/ws');
 
 // send message from the form
 document.forms.publish.onsubmit = function () {
@@ -309,9 +309,9 @@ document.forms.publish.onsubmit = function () {
 socket.onmessage = function (event) {
   let message = event.data;
 
-  let messageElem = document.createElement("div");
+  let messageElem = document.createElement('div');
   messageElem.textContent = message;
-  document.getElementById("messages").prepend(messageElem);
+  document.getElementById('messages').prepend(messageElem);
 };
 ```
 
@@ -325,7 +325,7 @@ The server-side algorithm will be:
 4. When a connection is closed: `clients.delete(socket)`.
 
 ```js
-const ws = new require("ws");
+const ws = new require('ws');
 const wss = new ws.Server({ noServer: true });
 
 const clients = new Set();
@@ -339,7 +339,7 @@ http.createServer((req, res) => {
 function onSocketConnect(ws) {
   clients.add(ws);
 
-  ws.on("message", function (message) {
+  ws.on('message', function (message) {
     message = message.slice(0, 50); // max message length will be 50
 
     for (let client of clients) {
@@ -347,7 +347,7 @@ function onSocketConnect(ws) {
     }
   });
 
-  ws.on("close", function () {
+  ws.on('close', function () {
     clients.delete(ws);
   });
 }

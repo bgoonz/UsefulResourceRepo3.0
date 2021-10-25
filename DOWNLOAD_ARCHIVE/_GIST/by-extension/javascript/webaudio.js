@@ -38,6 +38,6 @@ oscillators.forEach((o) => {
 });
 
 // If we want to create a sequence of sounds we can use event handlers
-oscillators[0].addEventListener("ended", () => {
+oscillators[0].addEventListener('ended', () => {
   // This event handler is invoked when the note stops playing
 });

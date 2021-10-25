@@ -296,11 +296,11 @@ Imagine, we have a company. The staff structure can be presented as an object:
 let company = {
   sales: [
     {
-      name: "John",
+      name: 'John',
       salary: 1000,
     },
     {
-      name: "Alice",
+      name: 'Alice',
       salary: 1600,
     },
   ],
@@ -308,18 +308,18 @@ let company = {
   development: {
     sites: [
       {
-        name: "Peter",
+        name: 'Peter',
         salary: 2000,
       },
       {
-        name: "Alex",
+        name: 'Alex',
         salary: 1800,
       },
     ],
 
     internals: [
       {
-        name: "Jack",
+        name: 'Jack',
         salary: 1300,
       },
     ],

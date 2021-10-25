@@ -204,7 +204,7 @@ let observer = new MutationObserver((mutations) => {
   }
 });
 
-let demoElem = document.getElementById("highlight-demo");
+let demoElem = document.getElementById('highlight-demo');
 
 observer.observe(demoElem, { childList: true, subtree: true });
 ```
@@ -218,7 +218,7 @@ Please run the previous code (above, observes that element), and then the code b
 The following code populates its `innerHTML`, that causes the `MutationObserver` to react and highlight its contents:
 
 ```js run
-let demoElem = document.getElementById("highlight-demo");
+let demoElem = document.getElementById('highlight-demo');
 
 // dynamically insert content with code snippets
 demoElem.innerHTML = `A code snippet is below:

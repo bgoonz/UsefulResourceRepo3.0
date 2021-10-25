@@ -1,6 +1,6 @@
-"use strict";
+'use strict';
 
-import forEach from "./forEach";
+import forEach from './forEach';
 
 /**
  * Returns an object, given an array of keys and an default value.

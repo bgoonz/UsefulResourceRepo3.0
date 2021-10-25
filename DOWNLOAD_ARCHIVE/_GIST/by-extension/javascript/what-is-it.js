@@ -5,7 +5,7 @@
  * @returns {boolean} True if value is an Array, otherwise false
  */
 function isArray(val) {
-  return toString.call(val) === "[object Array]";
+  return toString.call(val) === '[object Array]';
 }
 
 /**
@@ -15,7 +15,7 @@ function isArray(val) {
  * @returns {boolean} True if the value is undefined, otherwise false
  */
 function isUndefined(val) {
-  return typeof val === "undefined";
+  return typeof val === 'undefined';
 }
 
 /**
@@ -30,7 +30,7 @@ function isBuffer(val) {
     !isUndefined(val) &&
     val.constructor !== null &&
     !isUndefined(val.constructor) &&
-    typeof val.constructor.isBuffer === "function" &&
+    typeof val.constructor.isBuffer === 'function' &&
     val.constructor.isBuffer(val)
   );
 }
@@ -42,7 +42,7 @@ function isBuffer(val) {
  * @returns {boolean} True if value is an ArrayBuffer, otherwise false
  */
 function isArrayBuffer(val) {
-  return toString.call(val) === "[object ArrayBuffer]";
+  return toString.call(val) === '[object ArrayBuffer]';
 }
 
 /**
@@ -52,7 +52,7 @@ function isArrayBuffer(val) {
  * @returns {boolean} True if value is an FormData, otherwise false
  */
 function isFormData(val) {
-  return typeof FormData !== "undefined" && val instanceof FormData;
+  return typeof FormData !== 'undefined' && val instanceof FormData;
 }
 
 /**
@@ -63,7 +63,7 @@ function isFormData(val) {
  */
 function isArrayBufferView(val) {
   var result;
-  if (typeof ArrayBuffer !== "undefined" && ArrayBuffer.isView) {
+  if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {
     result = ArrayBuffer.isView(val);
   } else {
     result = val && val.buffer && val.buffer instanceof ArrayBuffer;
@@ -78,7 +78,7 @@ function isArrayBufferView(val) {
  * @returns {boolean} True if value is a String, otherwise false
  */
 function isString(val) {
-  return typeof val === "string";
+  return typeof val === 'string';
 }
 
 /**
@@ -88,7 +88,7 @@ function isString(val) {
  * @returns {boolean} True if value is a Number, otherwise false
  */
 function isNumber(val) {
-  return typeof val === "number";
+  return typeof val === 'number';
 }
 
 /**
@@ -98,7 +98,7 @@ function isNumber(val) {
  * @returns {boolean} True if value is an Object, otherwise false
  */
 function isObject(val) {
-  return val !== null && typeof val === "object";
+  return val !== null && typeof val === 'object';
 }
 
 /**
@@ -108,7 +108,7 @@ function isObject(val) {
  * @returns {boolean} True if value is a Date, otherwise false
  */
 function isDate(val) {
-  return toString.call(val) === "[object Date]";
+  return toString.call(val) === '[object Date]';
 }
 
 /**
@@ -118,7 +118,7 @@ function isDate(val) {
  * @returns {boolean} True if value is a File, otherwise false
  */
 function isFile(val) {
-  return toString.call(val) === "[object File]";
+  return toString.call(val) === '[object File]';
 }
 
 /**
@@ -128,7 +128,7 @@ function isFile(val) {
  * @returns {boolean} True if value is a Blob, otherwise false
  */
 function isBlob(val) {
-  return toString.call(val) === "[object Blob]";
+  return toString.call(val) === '[object Blob]';
 }
 
 /**
@@ -138,7 +138,7 @@ function isBlob(val) {
  * @returns {boolean} True if value is a Function, otherwise false
  */
 function isFunction(val) {
-  return toString.call(val) === "[object Function]";
+  return toString.call(val) === '[object Function]';
 }
 
 /**
@@ -159,6 +159,6 @@ function isStream(val) {
  */
 function isURLSearchParams(val) {
   return (
-    typeof URLSearchParams !== "undefined" && val instanceof URLSearchParams
+    typeof URLSearchParams !== 'undefined' && val instanceof URLSearchParams
   );
 }

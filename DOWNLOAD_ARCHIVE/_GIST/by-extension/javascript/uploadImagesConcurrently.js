@@ -1,17 +1,17 @@
 /* eslint-disable id-length, no-console */
-const sanityClient = require("@sanity/client");
-const path = require("path");
-const pMap = require("p-map");
+const sanityClient = require('@sanity/client');
+const path = require('path');
+const pMap = require('p-map');
 const {
   createReadStream,
   promises: { readdir, stat },
-} = require("fs");
+} = require('fs');
 
 const client = sanityClient({
-  projectId: "PROJECT_ID",
-  dataset: "DATASET",
+  projectId: 'PROJECT_ID',
+  dataset: 'DATASET',
   useCdn: false,
-  token: "TOKEN",
+  token: 'TOKEN',
 });
 
 const IMAGES_FOLDER = `${__dirname}/test-images`;
@@ -27,10 +27,10 @@ async function uploadImage(filename, i) {
   const start = new Date();
 
   await client.assets
-    .upload("image", createReadStream(filepath), {
+    .upload('image', createReadStream(filepath), {
       filename,
     })
-    .catch((err) => console.log("unable to upload ", filename, err.message));
+    .catch((err) => console.log('unable to upload ', filename, err.message));
 
   const elapsed = new Date().getTime() - start.getTime();
 
@@ -45,7 +45,7 @@ async function uploadImage(filename, i) {
 
 async function run() {
   const files = (await readdir(IMAGES_FOLDER)).filter(
-    (f) => path.extname(f).toLowerCase() === ".jpg"
+    (f) => path.extname(f).toLowerCase() === '.jpg'
   );
   const globalStart = new Date();
 

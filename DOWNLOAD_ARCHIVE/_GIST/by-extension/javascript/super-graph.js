@@ -1,14 +1,14 @@
-"use strict";
+'use strict';
 
-import KeyError from "../exceptions/KeyError";
-import Map from "../_internals/Map";
-import Set from "../_internals/Set";
-import JSNetworkXError from "../exceptions/JSNetworkXError";
+import KeyError from '../exceptions/KeyError';
+import Map from '../_internals/Map';
+import Set from '../_internals/Set';
+import JSNetworkXError from '../exceptions/JSNetworkXError';
 
-import isBoolean from "lodash/lang/isBoolean";
-import isString from "lodash/lang/isString";
+import isBoolean from 'lodash/lang/isBoolean';
+import isString from 'lodash/lang/isString';
 
-import * as convert from "../convert";
+import * as convert from '../convert';
 import {
   clear,
   clone,
@@ -24,7 +24,7 @@ import {
   tuple3,
   tuple3c,
   zipSequence,
-} from "../_internals";
+} from '../_internals';
 
 /*jshint expr:false*/
 
@@ -166,7 +166,7 @@ export default class Graph {
    * @type {string}
    */
   static get __name__() {
-    return "Graph";
+    return 'Graph';
   }
 
   /**
@@ -176,7 +176,7 @@ export default class Graph {
    * @return {(string|undefined)} Graph name if no parameter was passed.
    */
   get name() {
-    return this.graph.name || "";
+    return this.graph.name || '';
   }
 
   set name(name) {
@@ -201,8 +201,8 @@ export default class Graph {
    */
   get(n) {
     var value = this.adj.get(n);
-    if (typeof value === "undefined") {
-      throw new KeyError("Graph does not contain node " + n + ".");
+    if (typeof value === 'undefined') {
+      throw new KeyError('Graph does not contain node ' + n + '.');
     }
     return value;
   }
@@ -228,7 +228,7 @@ export default class Graph {
    */
   addNode(n, optAttrDict = {}) {
     if (!isPlainObject(optAttrDict)) {
-      throw new JSNetworkXError("The attr_dict argument must be an object.");
+      throw new JSNetworkXError('The attr_dict argument must be an object.');
     }
 
     if (!this.node.has(n)) {
@@ -346,7 +346,7 @@ export default class Graph {
       );
       adj.delete(n); // now remove node
     } else {
-      throw new JSNetworkXError("The node %s is not in the graph", n);
+      throw new JSNetworkXError('The node %s is not in the graph', n);
     }
   }
 
@@ -530,7 +530,7 @@ export default class Graph {
    */
   addEdge(u, v, optAttrDict) {
     if (optAttrDict && !isPlainObject(optAttrDict)) {
-      throw new JSNetworkXError("The attr_dict argument must be an object.");
+      throw new JSNetworkXError('The attr_dict argument must be an object.');
     }
 
     // add nodes
@@ -586,14 +586,14 @@ export default class Graph {
    */
   addEdgesFrom(ebunch, optAttrDict) {
     if (optAttrDict && !isPlainObject(optAttrDict)) {
-      throw new JSNetworkXError("The attr_dict argument must be an object.");
+      throw new JSNetworkXError('The attr_dict argument must be an object.');
     }
 
     // process ebunch
     for (var tuple of ebunch) {
       if (tuple.length == null) {
         throw new JSNetworkXError(
-          sprintf("Edge tuple %j must be a 2-tuple or 3-tuple.", tuple)
+          sprintf('Edge tuple %j must be a 2-tuple or 3-tuple.', tuple)
         );
       }
 
@@ -603,7 +603,7 @@ export default class Graph {
       }
       if (u == null || v == null || tuple[3] != null) {
         throw new JSNetworkXError(
-          sprintf("Edge tuple %j must be a 2-tuple or 3-tuple.", tuple)
+          sprintf('Edge tuple %j must be a 2-tuple or 3-tuple.', tuple)
         );
       }
 
@@ -655,7 +655,7 @@ export default class Graph {
     optAttr = optAttr || {};
     if (!isString(optWeight)) {
       optAttr = optWeight;
-      optWeight = "weight";
+      optWeight = 'weight';
     }
 
     this.addEdgesFrom(
@@ -664,7 +664,7 @@ export default class Graph {
         attr[optWeight] = e[2];
         if (attr[optWeight] == null) {
           // simulate too few value to unpack error
-          throw new TypeError("Values must consist of three elements: %s.", e);
+          throw new TypeError('Values must consist of three elements: %s.', e);
         }
         return [e[0], e[1], attr];
       }),
@@ -698,7 +698,7 @@ export default class Graph {
         vnode.delete(u);
       }
     } else {
-      throw new JSNetworkXError("The edge %s-%s is not in the graph", u, v);
+      throw new JSNetworkXError('The edge %s-%s is not in the graph', u, v);
     }
   }
 
@@ -819,7 +819,7 @@ export default class Graph {
     if (node != null) {
       return node.keys();
     } else {
-      throw new JSNetworkXError("The node %s is not in the graph.", n);
+      throw new JSNetworkXError('The node %s is not in the graph.', n);
     }
   }
 
@@ -1135,7 +1135,7 @@ export default class Graph {
    * ```
    */
   clear() {
-    this.name = "";
+    this.name = '';
     this.adj.clear();
     this.node.clear();
     clear(this.graph);
@@ -1219,7 +1219,7 @@ export default class Graph {
    *   (u,v,data) and (v,u,data).
    */
   toDirected() {
-    var G = new (require("./DiGraph"))();
+    var G = new (require('./DiGraph'))();
     G.name = this.name;
     G.addNodesFrom(this);
     G.addEdgesFrom(
@@ -1614,7 +1614,7 @@ export default class Graph {
       } catch (ex) {
         if (ex instanceof TypeError) {
           throw new JSNetworkXError(
-            "nbunch is not a node or a sequence of nodes"
+            'nbunch is not a node or a sequence of nodes'
           );
         }
       }

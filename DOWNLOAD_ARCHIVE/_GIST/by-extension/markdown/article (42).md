@@ -119,7 +119,7 @@ Arrays and strings are most widely used built-in iterables.
 For a string, `for..of` loops over its characters:
 
 ```js run
-for (let char of "test") {
+for (let char of 'test') {
   // triggers 4 times: once for each character
   alert(char); // t, then e, then s, then t
 }
@@ -128,7 +128,7 @@ for (let char of "test") {
 And it works correctly with surrogate pairs!
 
 ```js run
-let str = "𝒳😂";
+let str = '𝒳😂';
 for (let char of str) {
   alert(char); // 𝒳, and then 😂
 }
@@ -242,7 +242,7 @@ alert(arr); // 1,4,9,16,25
 Here we use `Array.from` to turn a string into an array of characters:
 
 ```js run
-let str = "𝒳😂";
+let str = '𝒳😂';
 
 // splits str into array of characters
 let chars = Array.from(str);
@@ -257,7 +257,7 @@ Unlike `str.split`, it relies on the iterable nature of the string and so, just 
 Technically here it does the same as:
 
 ```js run
-let str = "𝒳😂";
+let str = '𝒳😂';
 
 let chars = []; // Array.from internally does the same loop
 for (let char of str) {
@@ -273,10 +273,10 @@ We can even build surrogate-aware `slice` on it:
 
 ```js run
 function slice(str, start, end) {
-  return Array.from(str).slice(start, end).join("");
+  return Array.from(str).slice(start, end).join('');
 }
 
-let str = "𝒳😂𩷶";
+let str = '𝒳😂𩷶';
 
 alert(slice(str, 1, 3)); // 😂𩷶
 

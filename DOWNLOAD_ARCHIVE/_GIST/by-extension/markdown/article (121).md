@@ -14,8 +14,8 @@ Let's say we need to load a third-party script and call a function that resides 
 We can load it dynamically, like this:
 
 ```js
-let script = document.createElement("script");
-script.src = "my.js";
+let script = document.createElement('script');
+script.src = 'my.js';
 
 document.head.append(script);
 ```
@@ -84,15 +84,15 @@ The `load` and `error` events also work for other resources, basically for any r
 For example:
 
 ```js run
-let img = document.createElement("img");
-img.src = "https://js.cx/clipart/train.gif"; // (*)
+let img = document.createElement('img');
+img.src = 'https://js.cx/clipart/train.gif'; // (*)
 
 img.onload = function () {
   alert(`Image loaded, size ${img.width}x${img.height}`);
 };
 
 img.onerror = function () {
-  alert("Error occurred while loading image");
+  alert('Error occurred while loading image');
 };
 ```
 

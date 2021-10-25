@@ -18,9 +18,9 @@ One of the best things about objects is that we can store a function as one of i
 
 ```js run
 let john = {
-  name: "John",
+  name: 'John',
   sayHi: function () {
-    alert("Hi buddy!");
+    alert('Hi buddy!');
   },
 };
 
@@ -55,7 +55,7 @@ For instance, there exists a string method [str.toUpperCase()](https://developer
 Here's how it works:
 
 ```js run
-let str = "Hello";
+let str = 'Hello';
 
 alert(str.toUpperCase()); // HELLO
 ```
@@ -99,7 +99,7 @@ let zero = new Number(0);
 
 if (zero) {
   // zero is true, because it's an object
-  alert("zero is truthy!?!");
+  alert('zero is truthy!?!');
 }
 ```
 
@@ -108,7 +108,7 @@ On the other hand, using the same functions `String/Number/Boolean` without `new
 For example, this is entirely valid:
 
 ```js
-let num = Number("123"); // convert a string to number
+let num = Number('123'); // convert a string to number
 ```
 
 `````

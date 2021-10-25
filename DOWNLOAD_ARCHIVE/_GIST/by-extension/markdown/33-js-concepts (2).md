@@ -596,8 +596,7 @@ All the translations for this repo will be listed below:
 - 📜 [The State of Immutability — Maciej Sikora](https://medium.com/dailyjs/the-state-of-immutability-169d2cd11310)
 - 📜 [How to deal with dirty side effects in your pure functional JavaScript — James Sinclair](https://jrsinclair.com/articles/2018/how-to-deal-with-dirty-side-effects-in-your-pure-functional-javascript/)
 - 📜 [Preventing Side Effects in JavaScript — David Walsh](https://davidwalsh.name/preventing-sideeffects-javascript)
-- 📜 [Wielding Pure Functions in JavaScript and Function Composition — Peleke Sengstacke
-  ](https://scotch.io/tutorials/wielding-pure-functions-in-javascript-and-function-composition)
+- 📜 [Wielding Pure Functions in JavaScript and Function Composition — Peleke Sengstacke ](https://scotch.io/tutorials/wielding-pure-functions-in-javascript-and-function-composition)
 - 📜 [JavaScript: Pure Functions — William S. Vincent](https://wsvincent.com/javascript-pure-functions/)
 - 📜 [Functional programming paradigms in modern JavaScript: Pure functions — Alexander Kondov](https://hackernoon.com/functional-programming-paradigms-in-modern-javascript-pure-functions-797d9abbee1)
 

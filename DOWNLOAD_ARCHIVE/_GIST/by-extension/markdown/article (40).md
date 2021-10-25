@@ -20,7 +20,7 @@ let arr = [];
 Almost all the time, the second syntax is used. We can supply initial elements in the brackets:
 
 ```js
-let fruits = ["Apple", "Orange", "Plum"];
+let fruits = ['Apple', 'Orange', 'Plum'];
 ```
 
 Array elements are numbered, starting with zero.
@@ -28,7 +28,7 @@ Array elements are numbered, starting with zero.
 We can get an element by its number in square brackets:
 
 ```js run
-let fruits = ["Apple", "Orange", "Plum"];
+let fruits = ['Apple', 'Orange', 'Plum'];
 
 alert(fruits[0]); // Apple
 alert(fruits[1]); // Orange
@@ -38,19 +38,19 @@ alert(fruits[2]); // Plum
 We can replace an element:
 
 ```js
-fruits[2] = "Pear"; // now ["Apple", "Orange", "Pear"]
+fruits[2] = 'Pear'; // now ["Apple", "Orange", "Pear"]
 ```
 
 ...Or add a new one to the array:
 
 ```js
-fruits[3] = "Lemon"; // now ["Apple", "Orange", "Pear", "Lemon"]
+fruits[3] = 'Lemon'; // now ["Apple", "Orange", "Pear", "Lemon"]
 ```
 
 The total count of the elements in the array is its `length`:
 
 ```js run
-let fruits = ["Apple", "Orange", "Plum"];
+let fruits = ['Apple', 'Orange', 'Plum'];
 
 alert(fruits.length); // 3
 ```
@@ -58,7 +58,7 @@ alert(fruits.length); // 3
 We can also use `alert` to show the whole array.
 
 ```js run
-let fruits = ["Apple", "Orange", "Plum"];
+let fruits = ['Apple', 'Orange', 'Plum'];
 
 alert(fruits); // Apple,Orange,Plum
 ```
@@ -70,11 +70,11 @@ For instance:
 ```js run no-beautify
 // mix of values
 let arr = [
-  "Apple",
-  { name: "John" },
+  'Apple',
+  { name: 'John' },
   true,
   function () {
-    alert("hello");
+    alert('hello');
   },
 ];
 
@@ -132,8 +132,7 @@ In computer science the data structure that allows this, is called [deque](https
 
 **Methods that work with the end of the array:**
 
-`pop`
-: Extracts the last element of the array and returns it:
+`pop` : Extracts the last element of the array and returns it:
 
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
@@ -143,8 +142,7 @@ In computer science the data structure that allows this, is called [deque](https
     alert( fruits ); // Apple, Orange
     ```
 
-`push`
-: Append the element to the end of the array:
+`push` : Append the element to the end of the array:
 
     ```js run
     let fruits = ["Apple", "Orange"];
@@ -158,8 +156,7 @@ In computer science the data structure that allows this, is called [deque](https
 
 **Methods that work with the beginning of the array:**
 
-`shift`
-: Extracts the first element of the array and returns it:
+`shift` : Extracts the first element of the array and returns it:
 
     ```js run
     let fruits = ["Apple", "Orange", "Pear"];
@@ -169,8 +166,7 @@ In computer science the data structure that allows this, is called [deque](https
     alert( fruits ); // Orange, Pear
     ```
 
-`unshift`
-: Add the element to the beginning of the array:
+`unshift` : Add the element to the beginning of the array:
 
     ```js run
     let fruits = ["Orange", "Pear"];
@@ -183,10 +179,10 @@ In computer science the data structure that allows this, is called [deque](https
 Methods `push` and `unshift` can add multiple elements at once:
 
 ```js run
-let fruits = ["Apple"];
+let fruits = ['Apple'];
 
-fruits.push("Orange", "Peach");
-fruits.unshift("Pineapple", "Lemon");
+fruits.push('Orange', 'Peach');
+fruits.unshift('Pineapple', 'Lemon');
 
 // ["Pineapple", "Lemon", "Apple", "Orange", "Peach"]
 alert(fruits);
@@ -203,13 +199,13 @@ Remember, there are only eight basic data types in JavaScript (see the [Data typ
 For instance, it is copied by reference:
 
 ```js run
-let fruits = ["Banana"];
+let fruits = ['Banana'];
 
 let arr = fruits; // copy by reference (two variables reference the same array)
 
 alert(arr === fruits); // true
 
-arr.push("Pear"); // modify the array by reference
+arr.push('Pear'); // modify the array by reference
 
 alert(fruits); // Banana, Pear - 2 items now
 ```
@@ -297,7 +293,7 @@ for (let i = 0; i < arr.length; i++) {
 But for arrays there is another form of loop, `for..of`:
 
 ```js run
-let fruits = ["Apple", "Orange", "Plum"];
+let fruits = ['Apple', 'Orange', 'Plum'];
 
 // iterates over array elements
 for (let fruit of fruits) {
@@ -337,7 +333,7 @@ For instance, a single element with a large index gives a big length:
 
 ```js run
 let fruits = [];
-fruits[123] = "Apple";
+fruits[123] = 'Apple';
 
 alert(fruits.length); // 124
 ```
@@ -410,7 +406,7 @@ For instance:
 let arr = [1, 2, 3];
 
 alert(arr); // 1,2,3
-alert(String(arr) === "1,2,3"); // true
+alert(String(arr) === '1,2,3'); // true
 ```
 
 Also, let's try this:
@@ -426,9 +422,9 @@ Arrays do not have `Symbol.toPrimitive`, neither a viable `valueOf`, they implem
 When the binary plus `"+"` operator adds something to a string, it converts it to a string as well, so the next step looks like this:
 
 ```js run
-alert("" + 1); // "1"
-alert("1" + 1); // "11"
-alert("1,2" + 1); // "1,21"
+alert('' + 1); // "1"
+alert('1' + 1); // "11"
+alert('1,2' + 1); // "1,21"
 ```
 
 ## Don't compare arrays with ==
@@ -461,7 +457,7 @@ Comparison with primitives may give seemingly strange results as well:
 ```js run
 alert(0 == []); // true
 
-alert("0" == []); // false
+alert('0' == []); // false
 ```
 
 Here, in both cases, we compare a primitive with an array object. So the array `[]` gets converted to primitive for the purpose of comparison and becomes an empty string `''`.
@@ -470,9 +466,9 @@ Then the comparison process goes on with the primitives, as described in the cha
 
 ```js run
 // after [] was converted to ''
-alert(0 == ""); // true, as '' becomes converted to number 0
+alert(0 == ''); // true, as '' becomes converted to number 0
 
-alert("0" == ""); // false, no type conversion, different strings
+alert('0' == ''); // false, no type conversion, different strings
 ```
 
 So, how to compare arrays?

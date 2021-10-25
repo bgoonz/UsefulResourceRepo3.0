@@ -1,7 +1,7 @@
-"use strict";
+'use strict';
 
-var fs = require("fs");
-var path = require("path");
+var fs = require('fs');
+var path = require('path');
 
 /*
  
@@ -58,7 +58,7 @@ var path = require("path");
  */
 
 module.exports = function detect(filepath, options) {
-  if (!filepath || typeof filepath !== "string") {
+  if (!filepath || typeof filepath !== 'string') {
     return null;
   }
   if (fs.existsSync(filepath)) {
