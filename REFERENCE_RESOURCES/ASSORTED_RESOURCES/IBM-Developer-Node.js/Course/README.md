@@ -29,10 +29,9 @@ IBM-Developer/Node.js/
         └── settings
 ```
 
-
 # Caveats
 
-Some of the code is (and will always be) **purposely** bad (or poorly optimized), and unlinted, in order to illustrate concepts as part of the LP (like why you would want to use a linter... you kinda need to see both the "before" and "after" code, right?). 
+Some of the code is (and will always be) **purposely** bad (or poorly optimized), and unlinted, in order to illustrate concepts as part of the LP (like why you would want to use a linter... you kinda need to see both the "before" and "after" code, right?).
 
 If you are a Node developer and see something that looks wrong, it just might be that way on purpose (to make a point), so no issues (or god forbid, PRs) please because something doesn't look perfect (or the way you would do it). That said... if something is just flat out wrong, please let me know (by opening an issue).
 

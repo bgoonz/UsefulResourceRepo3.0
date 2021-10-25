@@ -1,12 +1,10 @@
-
-module.exports = function(css){
-
+module.exports = function (css) {
   /**
    * Parse stylesheet.
    */
 
   function stylesheet() {
-    return { stylesheet: { rules: rules() }};
+    return { stylesheet: { rules: rules() } };
   }
 
   /**
@@ -65,7 +63,7 @@ module.exports = function(css){
    */
 
   function comments() {
-    while (comment()) ;
+    while (comment());
   }
 
   /**
@@ -125,7 +123,7 @@ module.exports = function(css){
     var m;
     var vals = [];
 
-    while (m = match(/^(from|to|\d+%|\.\d+%|\d+\.\d+%)\s*/)) {
+    while ((m = match(/^(from|to|\d+%|\.\d+%|\d+\.\d+%)\s*/))) {
       vals.push(m[1]);
       match(/^,\s*/);
     }
@@ -134,7 +132,7 @@ module.exports = function(css){
 
     return {
       values: vals,
-      declarations: declarations()
+      declarations: declarations(),
     };
   }
 
@@ -157,7 +155,7 @@ module.exports = function(css){
 
     var frame;
     var frames = [];
-    while (frame = keyframe()) {
+    while ((frame = keyframe())) {
       frames.push(frame);
       comments();
     }
@@ -167,7 +165,7 @@ module.exports = function(css){
     return {
       name: name,
       vendor: vendor,
-      keyframes: frames
+      keyframes: frames,
     };
   }
 
@@ -195,7 +193,7 @@ module.exports = function(css){
    */
 
   function atimport() {
-    return _atrule('import')
+    return _atrule('import');
   }
 
   /**
@@ -213,7 +211,7 @@ module.exports = function(css){
   function _atrule(name) {
     var m = match(new RegExp('^@' + name + ' *([^;\\n]+);\\s*'));
     if (!m) return;
-    var ret = {}
+    var ret = {};
     ret[name] = m[1].trim();
     return ret;
   }
@@ -227,14 +225,14 @@ module.exports = function(css){
 
     if (!open()) return;
     comments();
-  
+
     // declarations
     var decl;
-    while (decl = declaration()) {
+    while ((decl = declaration())) {
       decls.push(decl);
       comments();
     }
-  
+
     if (!close()) return;
     return decls;
   }
@@ -242,24 +240,21 @@ module.exports = function(css){
   /**
    * Parse at rule.
    */
-   
+
   function atrule() {
-    return keyframes()
-      || media()
-      || atimport()
-      || atcharset();
+    return keyframes() || media() || atimport() || atcharset();
   }
 
   /**
    * Parse rule.
    */
-  
+
   function rule() {
     var sel = selector();
     if (!sel) return;
     comments();
     return { selectors: sel, declarations: declarations() };
   }
-  
+
   return stylesheet();
 };

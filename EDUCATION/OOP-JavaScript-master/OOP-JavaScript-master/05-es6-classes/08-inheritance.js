@@ -4,7 +4,7 @@ class Shape {
   }
 
   move() {
-    console.log("moving");
+    console.log('moving');
   }
 }
 
@@ -15,8 +15,8 @@ class Circle extends Shape {
   }
 
   draw() {
-    console.log("drawing");
+    console.log('drawing');
   }
 }
 
-const c = new Circle("red", 5);
+const c = new Circle('red', 5);

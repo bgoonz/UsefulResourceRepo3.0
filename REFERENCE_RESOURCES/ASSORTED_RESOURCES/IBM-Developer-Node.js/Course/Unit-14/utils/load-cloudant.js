@@ -48,28 +48,31 @@ let batchQueue = [];
 
 /**
  * Handles item document: inserts a single document into the collection
- * 
+ *
  * @param {Array} fields - an array containing the field values
  */
 function handleItemDocument(fields) {
-    // Throttle because of IBM Cloud throughput limitations
-    if (appSettings.cloudant_max_items > itemDocumentCount) {
-        itemDocumentCount++;
-        batchDocumentCount++;
-        batchQueue.push(fields);
-        if (batchDocumentCount == appSettings.cloudant_bulk_batch_size) {
-            processBatch();
-            // Reset state
-            batchQueue = [];
-            batchDocumentCount = 0;
-        }
-    } else if (handleMaxItemsNotification) {
-        logger.warn('Max items count of ' + appSettings.cloudant_max_items +
-            ' has been reached. No more items will be loaded.', 
-            'handleItemDocument()');
-        // Notification handled, does not need to be handled again, like, ever
-        handleMaxItemsNotification = false;
+  // Throttle because of IBM Cloud throughput limitations
+  if (appSettings.cloudant_max_items > itemDocumentCount) {
+    itemDocumentCount++;
+    batchDocumentCount++;
+    batchQueue.push(fields);
+    if (batchDocumentCount == appSettings.cloudant_bulk_batch_size) {
+      processBatch();
+      // Reset state
+      batchQueue = [];
+      batchDocumentCount = 0;
     }
+  } else if (handleMaxItemsNotification) {
+    logger.warn(
+      'Max items count of ' +
+        appSettings.cloudant_max_items +
+        ' has been reached. No more items will be loaded.',
+      'handleItemDocument()'
+    );
+    // Notification handled, does not need to be handled again, like, ever
+    handleMaxItemsNotification = false;
+  }
 }
 
 let processedDocumentCount = 1;
@@ -77,38 +80,47 @@ let processedDocumentCount = 1;
  * Processes the current batch
  */
 function processBatch() {
-    let items = {
-        docs: []
+  let items = {
+    docs: [],
+  };
+  let endRange = processedDocumentCount + batchQueue.length - 1;
+  logger.debug(
+    'Creating documents: ' + processedDocumentCount + '-' + endRange
+  );
+  batchQueue.forEach((fields) => {
+    let itemId = uuidv4(); // I like surrogate keys. And turtles.
+    let item = {
+      _id: itemId,
+      id: itemId,
+      type: 'item',
+      upc: fields[2],
+      itemDescription: fields[4],
+      brand: fields[3], // Brand description is brand id
+      items: [],
     };
-    let endRange = processedDocumentCount + batchQueue.length - 1;
-    logger.debug('Creating documents: ' + processedDocumentCount + 
-        '-' + endRange);
-    batchQueue.forEach((fields) => {
-        let itemId = uuidv4(); // I like surrogate keys. And turtles.
-        let item = {
-            _id: itemId,
-            id: itemId,
-            type: 'item',
-            upc: fields[2],
-            itemDescription: fields[4],
-            brand: fields[3], // Brand description is brand id
-            items: []
-        };
-        items.docs.push(item);
-        processedDocumentCount++;
-    });
-    // Insert the record
-    db.bulk(items, (err, result) => {
-        if (err) {
-            logger.error('Error occurred while creating item record: ' + JSON.stringify(items), 'handleItemDocument()'); // eslint-disable-line max-len
-            throw err;
-        }
-        if (result.ok) {
-            logger.debug('Inserted document: ' + JSON.stringify(items) + ', result: ' + JSON.stringify(result));
-            itemDocumentCount++;
-        }
-    });
-    utils.eatCpu(3000);
+    items.docs.push(item);
+    processedDocumentCount++;
+  });
+  // Insert the record
+  db.bulk(items, (err, result) => {
+    if (err) {
+      logger.error(
+        'Error occurred while creating item record: ' + JSON.stringify(items),
+        'handleItemDocument()'
+      ); // eslint-disable-line max-len
+      throw err;
+    }
+    if (result.ok) {
+      logger.debug(
+        'Inserted document: ' +
+          JSON.stringify(items) +
+          ', result: ' +
+          JSON.stringify(result)
+      );
+      itemDocumentCount++;
+    }
+  });
+  utils.eatCpu(3000);
 }
 
 /**
@@ -116,26 +128,34 @@ function processBatch() {
  * a clean slate reload of the DB.
  */
 async function initializeDb() {
-    // NOTHING TO DO (YET)
+  // NOTHING TO DO (YET)
 }
 
 // Get or create the DB
 utils.dbCloudantConnect().then((database) => {
-    db = database;
-    initializeDb().then(() => {
-        logger.info('Initializing Cloudant... Done.', 'mainline()');
-        itemDocumentCount = 0;
-        logger.info('Script start at: ' + new Date().toLocaleString(), 'mainline()');
-        logger.info('Loading data for item...', 'mainline()');
-        loadData(appSettings.item_file_name, handleItemDocument).then(() => {
-            // Cleanup any remaining items (corner case)
-            processBatch();
-            // TODO: Add indexes here so they don't have to be created in the Cloud dashboard
-            logger.info('Loading item data, done.', 'mainline()');
-            logger.info('Total item documents loaded: ' + itemDocumentCount);
-            logger.info('Script finished at: '+ new Date().toLocaleString(), 'mainline()');
-        }).catch((err) => {
-            logger.error('Better luck next time: ' + err.message, 'mainline()()');
-        });
-    });
+  db = database;
+  initializeDb().then(() => {
+    logger.info('Initializing Cloudant... Done.', 'mainline()');
+    itemDocumentCount = 0;
+    logger.info(
+      'Script start at: ' + new Date().toLocaleString(),
+      'mainline()'
+    );
+    logger.info('Loading data for item...', 'mainline()');
+    loadData(appSettings.item_file_name, handleItemDocument)
+      .then(() => {
+        // Cleanup any remaining items (corner case)
+        processBatch();
+        // TODO: Add indexes here so they don't have to be created in the Cloud dashboard
+        logger.info('Loading item data, done.', 'mainline()');
+        logger.info('Total item documents loaded: ' + itemDocumentCount);
+        logger.info(
+          'Script finished at: ' + new Date().toLocaleString(),
+          'mainline()'
+        );
+      })
+      .catch((err) => {
+        logger.error('Better luck next time: ' + err.message, 'mainline()()');
+      });
+  });
 });

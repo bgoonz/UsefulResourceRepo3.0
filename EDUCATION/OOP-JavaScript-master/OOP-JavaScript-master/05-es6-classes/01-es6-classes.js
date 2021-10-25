@@ -10,12 +10,12 @@ class Circle {
   constructor(radius) {
     this.radius = radius;
     this.move = function () {
-      console.log("moving");
+      console.log('moving');
     };
   }
 
   draw() {
-    console.log("drawing");
+    console.log('drawing');
   }
 }
 

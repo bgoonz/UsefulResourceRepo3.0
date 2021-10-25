@@ -19,11 +19,11 @@ const winston = require('winston');
 
 // Logger configuration
 const logConfiguration = {
-    'transports': [
-        new winston.transports.File({
-            filename: './logs/example-2.log'
-        })
-    ]
+  transports: [
+    new winston.transports.File({
+      filename: './logs/example-2.log',
+    }),
+  ],
 };
 
 // Create the logger

@@ -1,4 +1,4 @@
-const fs = require("fs");
+const fs = require('fs');
 
 // A streaming file copy function, using "flowing mode".
 // Copies the contents of the named source file to the named destination file.
@@ -8,7 +8,7 @@ function copyFile(sourceFilename, destinationFilename, callback) {
   let input = fs.createReadStream(sourceFilename);
   let output = fs.createWriteStream(destinationFilename);
 
-  input.on("data", (chunk) => {
+  input.on('data', (chunk) => {
     // When we get new data,
     let hasRoom = output.write(chunk); // write it to the output stream.
     if (!hasRoom) {
@@ -16,26 +16,26 @@ function copyFile(sourceFilename, destinationFilename, callback) {
       input.pause(); // then pause the input stream.
     }
   });
-  input.on("end", () => {
+  input.on('end', () => {
     // When we reach the end of input,
     output.end(); // tell the output stream to end.
   });
-  input.on("error", (err) => {
+  input.on('error', (err) => {
     // If we get an error on the input,
     callback(err); // call the callback with the error
     process.exit(); // and quit.
   });
 
-  output.on("drain", () => {
+  output.on('drain', () => {
     // When the output is no longer full,
     input.resume(); // resume data events on the input
   });
-  output.on("error", (err) => {
+  output.on('error', (err) => {
     // If we get an error on the output,
     callback(err); // call the callback with the error
     process.exit(); // and quit.
   });
-  output.on("finish", () => {
+  output.on('finish', () => {
     // When output is fully written
     callback(null); // call the callback with no error.
   });
@@ -49,6 +49,6 @@ copyFile(from, to, (err) => {
   if (err) {
     console.error(err);
   } else {
-    console.log("done.");
+    console.log('done.');
   }
 });

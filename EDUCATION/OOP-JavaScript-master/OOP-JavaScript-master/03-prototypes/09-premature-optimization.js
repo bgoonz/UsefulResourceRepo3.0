@@ -4,7 +4,7 @@ function Stopwatch() {
     running,
     duration = 0;
 
-  Object.defineProperty(this, "duration", {
+  Object.defineProperty(this, 'duration', {
     get: function () {
       return duration;
     },
@@ -12,17 +12,17 @@ function Stopwatch() {
       duration = value;
     },
   });
-  Object.defineProperty(this, "startTime", {
+  Object.defineProperty(this, 'startTime', {
     get: function () {
       return startTime;
     },
   });
-  Object.defineProperty(this, "endTime", {
+  Object.defineProperty(this, 'endTime', {
     get: function () {
       return endTime;
     },
   });
-  Object.defineProperty(this, "running", {
+  Object.defineProperty(this, 'running', {
     get: function () {
       return running;
     },
@@ -31,7 +31,7 @@ function Stopwatch() {
 
 Stopwatch.prototype.start = function () {
   if (this.running) {
-    throw new Error("Stopwatch has already started!");
+    throw new Error('Stopwatch has already started!');
   } else {
     this.running = true;
     this.startTime = new Date();
@@ -40,7 +40,7 @@ Stopwatch.prototype.start = function () {
 
 Stopwatch.prototype.stop = function () {
   if (!this.running) {
-    throw new Error("Stopwatch is not started!");
+    throw new Error('Stopwatch is not started!');
   } else {
     this.running = false;
     this.endTime = new Date();

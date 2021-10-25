@@ -39,7 +39,7 @@ npm install @stdlib/assert-has-symbol-support
 ## Usage
 
 ```javascript
-var hasSymbolSupport = require( '@stdlib/assert-has-symbol-support' );
+var hasSymbolSupport = require('@stdlib/assert-has-symbol-support');
 ```
 
 #### hasSymbolSupport()
@@ -62,13 +62,13 @@ var bool = hasSymbolSupport();
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var hasSymbolSupport = require( '@stdlib/assert-has-symbol-support' );
+var hasSymbolSupport = require('@stdlib/assert-has-symbol-support');
 
 var bool = hasSymbolSupport();
-if ( bool ) {
-    console.log( 'Environment has Symbol support.' );
+if (bool) {
+  console.log('Environment has Symbol support.');
 } else {
-    console.log( 'Environment lacks Symbol support.' );
+  console.log('Environment lacks Symbol support.');
 }
 ```
 
@@ -76,7 +76,7 @@ if ( bool ) {
 
 <!-- /.examples -->
 
-* * *
+---
 
 <section class="cli">
 
@@ -128,10 +128,9 @@ $ has-symbol-support
 
 <!-- /.cli -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -149,7 +148,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -164,25 +162,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/assert-has-symbol-support.svg
 [npm-url]: https://npmjs.org/package/@stdlib/assert-has-symbol-support
-
 [test-image]: https://github.com/stdlib-js/assert-has-symbol-support/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/assert-has-symbol-support/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/assert-has-symbol-support/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/assert-has-symbol-support?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/assert-has-symbol-support.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/assert-has-symbol-support/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/assert-has-symbol-support/main/LICENSE
-
 [mdn-symbol]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol
 
 </section>

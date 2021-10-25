@@ -28,20 +28,26 @@ const utils = require('../utils/utils');
 const listsDao = require('../models/lists-dao');
 const itemsDao = require('../models/items-dao');
 /**
- * 
+ *
  * Fetches all shopping lists and redirects to the
  * lists-all page
- * 
+ *
  * @param {Request} req - the Request object
  * @param {Response} res - the Response object
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function fetchAll(req, res, next) {
-    listsDao.fetchAll().then((result) => {
-        logger.debug(`Writing JSON response: ${JSON.stringify(result)}`, 'fetchAll()');
-        utils.writeServerJsonResponse(res, result.data, result.statusCode);
-    }).catch((err) => {
-        next(err);
+  listsDao
+    .fetchAll()
+    .then((result) => {
+      logger.debug(
+        `Writing JSON response: ${JSON.stringify(result)}`,
+        'fetchAll()'
+      );
+      utils.writeServerJsonResponse(res, result.data, result.statusCode);
+    })
+    .catch((err) => {
+      next(err);
     });
 }
 
@@ -52,140 +58,167 @@ function fetchAll(req, res, next) {
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function create(req, res, next) {
-    let requestBody = req.body;
-    
-    listsDao.create(requestBody.description).then((result) => {
-        utils.writeServerJsonResponse(res, result.data, result.statusCode);
-    }).catch((err) => {
-        next(err);
+  let requestBody = req.body;
+
+  listsDao
+    .create(requestBody.description)
+    .then((result) => {
+      utils.writeServerJsonResponse(res, result.data, result.statusCode);
+    })
+    .catch((err) => {
+      next(err);
     });
 }
 
 /**
  * Fetches the specified list and all of its items
  * and returns it to the caller.
- * 
+ *
  * @param {Request} req - the Request object
  * @param {Response} res - the Response object
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function read(req, res, next) {
-    let listId = req.params.listId;
-    listsDao.findById(listId).then((result) => {
-        utils.writeServerJsonResponse(res, result.data, result.statusCode);
-    }).catch((err) => {
-        next(err);
+  let listId = req.params.listId;
+  listsDao
+    .findById(listId)
+    .then((result) => {
+      utils.writeServerJsonResponse(res, result.data, result.statusCode);
+    })
+    .catch((err) => {
+      next(err);
     });
 }
 
 /**
- * 
+ *
  * @param {Request} req - the Request object
  * @param {Response} res - the Response object
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function update(req, res, next) {
-    let listId = req.params.listId;
-    let requestBody = req.body;
-    
-    listsDao.update(listId, requestBody.description).then((result) => {
-        utils.writeServerJsonResponse(res, result.data, result.statusCode);
-    }).catch((err) => {
-        next(err);
+  let listId = req.params.listId;
+  let requestBody = req.body;
+
+  listsDao
+    .update(listId, requestBody.description)
+    .then((result) => {
+      utils.writeServerJsonResponse(res, result.data, result.statusCode);
+    })
+    .catch((err) => {
+      next(err);
     });
 }
 
 /**
- * 
+ *
  * @param {Request} req - the Request object
  * @param {Response} res - the Response object
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function addItem(req, res, next) {
-    let listId = req.params.listId;
-    let requestBody = req.body;
-    let itemId = requestBody.itemId;
+  let listId = req.params.listId;
+  let requestBody = req.body;
+  let itemId = requestBody.itemId;
 
-    listsDao.addItem(listId, itemId).then((result) => {
-        utils.writeServerJsonResponse(res, result.data, result.statusCode);
-    }).catch((err) => {
-        next(err);
+  listsDao
+    .addItem(listId, itemId)
+    .then((result) => {
+      utils.writeServerJsonResponse(res, result.data, result.statusCode);
+    })
+    .catch((err) => {
+      next(err);
     });
 }
 
 /**
- * 
+ *
  * @param {Request} req - the Request object
  * @param {Response} res - the Response object
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function updateItem(req, res, next) {
-    let listId = req.params.listId;
-    let itemId = req.params.itemId;
-    let requestBody = req.body;
-    let quantity = requestBody.quantity;
-    let pickedUp = requestBody.pickedUp;
+  let listId = req.params.listId;
+  let itemId = req.params.itemId;
+  let requestBody = req.body;
+  let quantity = requestBody.quantity;
+  let pickedUp = requestBody.pickedUp;
 
-    listsDao.updateItem(listId, itemId, quantity, pickedUp).then((result) => {
-        utils.writeServerJsonResponse(res, result.data, result.statusCode);
-    }).catch((err) => {
-        logger.error(`Error occurred: ${err.message}`, 'updateItem()');
-        next(err);
+  listsDao
+    .updateItem(listId, itemId, quantity, pickedUp)
+    .then((result) => {
+      utils.writeServerJsonResponse(res, result.data, result.statusCode);
+    })
+    .catch((err) => {
+      logger.error(`Error occurred: ${err.message}`, 'updateItem()');
+      next(err);
     });
 }
 
 /**
- * 
+ *
  * @param {Request} req - the Request object
  * @param {Response} res - the Response object
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function removeItem(req, res, next) {
-    let listId = req.params.listId;
-    let itemId = req.params.itemId;
+  let listId = req.params.listId;
+  let itemId = req.params.itemId;
 
-    listsDao.removeItem(listId, itemId).then((result) => {
-        utils.writeServerJsonResponse(res, result.data, result.statusCode);
-    }).catch((err) => {
-        next(err);
+  listsDao
+    .removeItem(listId, itemId)
+    .then((result) => {
+      utils.writeServerJsonResponse(res, result.data, result.statusCode);
+    })
+    .catch((err) => {
+      next(err);
     });
 }
 
 /**
- * 
+ *
  * @param {Request} req - the Request object
  * @param {Response} res - the Response object
  * @param {Object} next - the next middleware function in the req/res cycle
  */
 function itemSearch(req, res, next) {
-    let query = url.parse(req.url, true).query;
-    if (query.description) {
-        // Query DAO: 
-        itemsDao.findByDescription(query.description).then((result) => {
-            utils.writeServerJsonResponse(res, result.data, result.statusCode);
-        }).catch((err) => {
-            next(err);
-        });
+  let query = url.parse(req.url, true).query;
+  if (query.description) {
+    // Query DAO:
+    itemsDao
+      .findByDescription(query.description)
+      .then((result) => {
+        utils.writeServerJsonResponse(res, result.data, result.statusCode);
+      })
+      .catch((err) => {
+        next(err);
+      });
     // By upc?
-    } else if (query.upc) {
-        // Query DAO: 
-        itemsDao.findByUpc(query.upc).then((result) => {
-            utils.writeServerJsonResponse(res, result.data, result.statusCode);
-        }).catch((err) => {
-            next(err);
-        });
+  } else if (query.upc) {
+    // Query DAO:
+    itemsDao
+      .findByUpc(query.upc)
+      .then((result) => {
+        utils.writeServerJsonResponse(res, result.data, result.statusCode);
+      })
+      .catch((err) => {
+        next(err);
+      });
     // By id?
-    } else if (query.id) {
-        itemsDao.findById(query.id).then((result) => {
-            utils.writeServerJsonResponse(res, result.data, result.statusCode);
-        }).catch((err) => {
-            next(err);
-        });
-    } else {
-        let message = `Unsupported search param: ${query}`;
-        logger.error(message, 'itemSearch()');
-        next(message);
-    }
+  } else if (query.id) {
+    itemsDao
+      .findById(query.id)
+      .then((result) => {
+        utils.writeServerJsonResponse(res, result.data, result.statusCode);
+      })
+      .catch((err) => {
+        next(err);
+      });
+  } else {
+    let message = `Unsupported search param: ${query}`;
+    logger.error(message, 'itemSearch()');
+    next(message);
+  }
 }
 
 module.exports.fetchAll = fetchAll;

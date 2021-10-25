@@ -13,6 +13,6 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-let hello = "Hello"
-let world = "world"
-hello + ' ' + world
+let hello = 'Hello';
+let world = 'world';
+hello + ' ' + world;

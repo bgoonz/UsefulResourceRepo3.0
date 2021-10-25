@@ -1,7 +1,7 @@
 function Circle(radius) {
   this.radius = radius;
   this.draw = () => {
-    console.log("draw");
+    console.log('draw');
   };
 }
 const circle = new Circle(1);
@@ -15,7 +15,7 @@ console.log(
 );
 
 const Circle2 = new Function(
-  "radius",
+  'radius',
   `
   this.radius = radius;
   this.draw = function() {

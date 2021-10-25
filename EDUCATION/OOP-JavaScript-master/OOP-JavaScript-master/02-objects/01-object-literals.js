@@ -5,7 +5,7 @@ const circle = {
     y: 1,
   },
   draw() {
-    console.log("draw");
+    console.log('draw');
   },
 };
 

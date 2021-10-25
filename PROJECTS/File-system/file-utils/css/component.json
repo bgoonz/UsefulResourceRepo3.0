@@ -7,7 +7,5 @@
     "visionmedia/css-parse": "*",
     "visionmedia/css-stringify": "*"
   },
-  "scripts": [
-    "index.js"
-  ]
+  "scripts": ["index.js"]
 }

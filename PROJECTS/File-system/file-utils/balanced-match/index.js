@@ -6,13 +6,15 @@ function balanced(a, b, str) {
 
   var r = range(a, b, str);
 
-  return r && {
-    start: r[0],
-    end: r[1],
-    pre: str.slice(0, r[0]),
-    body: str.slice(r[0] + a.length, r[1]),
-    post: str.slice(r[1] + b.length)
-  };
+  return (
+    r && {
+      start: r[0],
+      end: r[1],
+      pre: str.slice(0, r[0]),
+      body: str.slice(r[0] + a.length, r[1]),
+      post: str.slice(r[1] + b.length),
+    }
+  );
 }
 
 function maybeMatch(reg, str) {
@@ -28,7 +30,7 @@ function range(a, b, str) {
   var i = ai;
 
   if (ai >= 0 && bi > 0) {
-    if(a===b) {
+    if (a === b) {
       return [ai, bi];
     }
     begs = [];
@@ -39,7 +41,7 @@ function range(a, b, str) {
         begs.push(i);
         ai = str.indexOf(a, i + 1);
       } else if (begs.length == 1) {
-        result = [ begs.pop(), bi ];
+        result = [begs.pop(), bi];
       } else {
         beg = begs.pop();
         if (beg < left) {
@@ -54,7 +56,7 @@ function range(a, b, str) {
     }
 
     if (begs.length) {
-      result = [ left, right ];
+      result = [left, right];
     }
   }
 

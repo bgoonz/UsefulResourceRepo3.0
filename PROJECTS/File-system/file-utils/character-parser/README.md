@@ -1,6 +1,6 @@
 # character-parser
 
-Parse JavaScript one character at a time to look for snippets in Templates.  This is not a validator, it's just designed to allow you to have sections of JavaScript delimited by brackets robustly.
+Parse JavaScript one character at a time to look for snippets in Templates. This is not a validator, it's just designed to allow you to have sections of JavaScript delimited by brackets robustly.
 
 [![Build Status](https://travis-ci.org/ForbesLindesay/character-parser.png?branch=master)](https://travis-ci.org/ForbesLindesay/character-parser)
 
@@ -30,18 +30,16 @@ Find all the contents of a bracketed expression:
 ```js
 var section = parser.parseMax('foo="(", bar="}") bing bong');
 assert(section.start === 0);
-assert(section.end === 16);//exclusive end of string
-assert(section.src = 'foo="(", bar="}"');
+assert(section.end === 16); //exclusive end of string
+assert((section.src = 'foo="(", bar="}"'));
 
-
-var section = parser.parseMax('{foo="(", bar="}"} bing bong', {start: 1});
+var section = parser.parseMax('{foo="(", bar="}"} bing bong', { start: 1 });
 assert(section.start === 1);
-assert(section.end === 17);//exclusive end of string
-assert(section.src = 'foo="(", bar="}"');
+assert(section.end === 17); //exclusive end of string
+assert((section.src = 'foo="(", bar="}"'));
 ```
 
-The bracketed expression parsing simply parses up to but excluding the first unmatched closed bracket (`)`, `}`, `]`).  It is clever enough to ignore brackets in comments or strings.
-
+The bracketed expression parsing simply parses up to but excluding the first unmatched closed bracket (`)`, `}`, `]`). It is clever enough to ignore brackets in comments or strings.
 
 ### Custom Delimited Expressions
 
@@ -50,13 +48,15 @@ Find code up to a custom delimiter:
 ```js
 var section = parser.parseUntil('foo.bar("%>").baz%> bing bong', '%>');
 assert(section.start === 0);
-assert(section.end === 17);//exclusive end of string
-assert(section.src = 'foo.bar("%>").baz');
+assert(section.end === 17); //exclusive end of string
+assert((section.src = 'foo.bar("%>").baz'));
 
-var section = parser.parseUntil('<%foo.bar("%>").baz%> bing bong', '%>', {start: 2});
+var section = parser.parseUntil('<%foo.bar("%>").baz%> bing bong', '%>', {
+  start: 2,
+});
 assert(section.start === 2);
-assert(section.end === 19);//exclusive end of string
-assert(section.src = 'foo.bar("%>").baz');
+assert(section.end === 19); //exclusive end of string
+assert((section.src = 'foo.bar("%>").baz'));
 ```
 
 Delimiters are ignored if they are inside strings or comments.
@@ -73,7 +73,7 @@ Returns a `State` object.
 
 ### parseMax(src, options = {start: 0})
 
-Parses the source until the first unmatched close bracket (any of `)`, `}`, `]`).  It returns an object with the structure:
+Parses the source until the first unmatched close bracket (any of `)`, `}`, `]`). It returns an object with the structure:
 
 ```js
 {
@@ -85,7 +85,7 @@ Parses the source until the first unmatched close bracket (any of `)`, `}`, `]`)
 
 ### parseUntil(src, delimiter, options = {start: 0, includeLineComment: false})
 
-Parses the source until the first occurence of `delimiter` which is not in a string or a comment.  If `includeLineComment` is `true`, it will still count if the delimiter occurs in a line comment, but not in a block comment.  It returns an object with the structure:
+Parses the source until the first occurence of `delimiter` which is not in a string or a comment. If `includeLineComment` is `true`, it will still count if the delimiter occurs in a line comment, but not in a block comment. It returns an object with the structure:
 
 ```js
 {
@@ -97,7 +97,7 @@ Parses the source until the first occurence of `delimiter` which is not in a str
 
 ### parseChar(character, state = defaultState())
 
-Parses the single character and returns the state.  See `parse` for the structure of the returned state object.  N.B. character must be a single character not a multi character string.
+Parses the single character and returns the state. See `parse` for the structure of the returned state object. N.B. character must be a single character not a multi character string.
 
 ### defaultState()
 

@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 
 /**
  * This is the DAO interface for the application.
@@ -29,34 +29,34 @@
 /**
  * Find the Item object by the specified ID
  * using the underlying implementation.
- * 
+ *
  * @param id - the ID of the item record (SQL) or document (NoSQL)
  * to locate
  */
 function findById(id) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
  * Find all Items objects that match the specified
  * partial description.
- * 
+ *
  * @param partialDescription - the partial description to match
  * and return items whose description contains this partial description
  */
 function findByDescription(partialDescription) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
  * Find the Item object that matches the specified
  * UPC exactly.
- * 
+ *
  * @param upc - the UPC of the item record (SQL) or document (NoSQL)
  * to locate
  */
 function findByUpc(upc) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 // Node Dev TODO: Add your code here

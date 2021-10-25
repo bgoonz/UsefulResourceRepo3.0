@@ -12,7 +12,7 @@ function Circle(radius) {
     // defaultLocation
     // this.radius
 
-    console.log("draw");
+    console.log('draw');
   };
 }
 

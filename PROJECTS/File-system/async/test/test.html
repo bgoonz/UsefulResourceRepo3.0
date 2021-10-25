@@ -7,10 +7,17 @@
     -->
     <script src="../deps/nodeunit.js"></script>
     <script src="../lib/async.js"></script>
-    <link rel="stylesheet" href="../deps/nodeunit.css" type="text/css" media="screen" />
+    <link
+      rel="stylesheet"
+      href="../deps/nodeunit.css"
+      type="text/css"
+      media="screen"
+    />
     <script>
       var _async = this.async;
-      this.require = function () { return _async; };
+      this.require = function () {
+        return _async;
+      };
       this.exports = {};
     </script>
     <script src="test-async.js"></script>
@@ -18,7 +25,7 @@
   <body>
     <h1 id="nodeunit-header">Async.js Test Suite</h1>
     <script>
-      nodeunit.run({'test-async': exports});
+      nodeunit.run({ 'test-async': exports });
     </script>
   </body>
 </html>

@@ -31,7 +31,7 @@ button {
 }
 
 .btn.btn-border-pop::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -51,7 +51,7 @@ button {
 }
 
 .btn.btn-background-slide::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -81,7 +81,7 @@ button {
 }
 
 .btn.btn-background-circle::before {
-  content: "";
+  content: '';
   position: absolute;
   top: 0;
   left: 0;
@@ -113,7 +113,7 @@ button {
 }
 
 .btn.btn-border-underline::before {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;

@@ -57,7 +57,7 @@ console.log(myArray); // __proto__: Array(0)
 function Circle(radius) {
   this.radius = radius;
   this.draw = function () {
-    console.log("draw");
+    console.log('draw');
   };
 }
 

@@ -1,0 +1,22 @@
+{
+    apps: [{
+        name: "stage.lint.me",
+        script: "packages/backend",
+        node_args: '--harmony-async-await',
+        env: {
+            NODE_ENV: "production",
+            PORT: 5503
+        }
+    }],
+    deploy: {
+        stage: {
+            user: "deployer",
+            host: "192.241.157.86",
+            ref: "origin/stage",
+            repo: "git@github.com:circlecell/lint.me.git",
+            path: "/var/web/lint.me/stage",
+            ssh_options: ["StrictHostKeyChecking=no", "PasswordAuthentication=no"],
+            "post-deploy": "npm run post-deploy-remote && pm2 startOrRestart ecosystem/stage.json"
+        }
+    }
+}

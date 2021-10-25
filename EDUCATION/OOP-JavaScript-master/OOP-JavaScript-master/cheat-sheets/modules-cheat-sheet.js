@@ -8,13 +8,13 @@
 // Exporting
 module.exports.Cirlce = Circle;
 // Importing
-const Circle = require("./circle");
+const Circle = require('./circle');
 
 // ES6 Modules (Used in Browser)
 // Exporting
 export class Square {}
 // Importing
-import { Square } from "./square";
+import { Square } from './square';
 
 // We use Babel to transpile our modern JavaScript code
 // into code that browsers can understand (typically ES5).

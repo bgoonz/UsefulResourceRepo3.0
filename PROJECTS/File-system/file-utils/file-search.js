@@ -1,19 +1,19 @@
-const fs = require("fs");
-const path = require("path");
-const npm = require("./npm.js");
-const color = require("ansicolors");
-const output = require("./utils/output.js");
-const usageUtil = require("./utils/usage.js");
-const { promisify } = require("util");
-const glob = promisify(require("glob"));
+const fs = require('fs');
+const path = require('path');
+const npm = require('./npm.js');
+const color = require('ansicolors');
+const output = require('./utils/output.js');
+const usageUtil = require('./utils/usage.js');
+const { promisify } = require('util');
+const glob = promisify(require('glob'));
 const readFile = promisify(fs.readFile);
-const didYouMean = require("./utils/did-you-mean.js");
-const { cmdList } = require("./utils/cmd-list.js");
+const didYouMean = require('./utils/did-you-mean.js');
+const { cmdList } = require('./utils/cmd-list.js');
 
-const usage = usageUtil("help-search", "npm help-search <text>");
-const completion = require("./utils/completion/none.js");
+const usage = usageUtil('help-search', 'npm help-search <text>');
+const completion = require('./utils/completion/none.js');
 
-const npmUsage = require("./utils/npm-usage.js");
+const npmUsage = require('./utils/npm-usage.js');
 
 const cmd = (args, cb) =>
   helpSearch(args)
@@ -23,14 +23,14 @@ const cmd = (args, cb) =>
 const helpSearch = async (args) => {
   if (!args.length) throw usage;
 
-  const docPath = path.resolve(__dirname, "..", "docs/content");
+  const docPath = path.resolve(__dirname, '..', 'docs/content');
 
   const files = await glob(`${docPath}/*/*.md`);
   const data = await readFiles(files);
   const results = await searchFiles(args, data, files);
   // if only one result, then just show that help section.
   if (results.length === 1) {
-    return npm.commands.help([path.basename(results[0].file, ".md")], (er) => {
+    return npm.commands.help([path.basename(results[0].file, '.md')], (er) => {
       if (er) throw er;
     });
   }
@@ -47,8 +47,8 @@ const readFiles = async (files) => {
   const res = {};
   await Promise.all(
     files.map(async (file) => {
-      res[file] = (await readFile(file, "utf8"))
-        .replace(/^---\n(.*\n)*?---\n/, "")
+      res[file] = (await readFile(file, 'utf8'))
+        .replace(/^---\n(.*\n)*?---\n/, '')
         .trim();
     })
   );
@@ -110,7 +110,7 @@ const searchFiles = async (args, data, files) => {
     for (const line of pruned) {
       for (const arg of args) {
         const hit =
-          (line || "").toLowerCase().split(arg.toLowerCase()).length - 1;
+          (line || '').toLowerCase().split(arg.toLowerCase()).length - 1;
 
         if (hit > 0) {
           found[arg] = (found[arg] || 0) + hit;
@@ -119,7 +119,7 @@ const searchFiles = async (args, data, files) => {
       }
     }
 
-    const cmd = "npm help " + path.basename(file, ".md").replace(/^npm-/, "");
+    const cmd = 'npm help ' + path.basename(file, '.md').replace(/^npm-/, '');
     results.push({
       file,
       cmd,
@@ -164,23 +164,23 @@ const formatResults = (args, results) => {
       const r = Object.keys(res.hits)
         .map((k) => `${k}:${res.hits[k]}`)
         .sort((a, b) => (a > b ? 1 : -1))
-        .join(" ");
+        .join(' ');
 
       out.push(
-        " ".repeat(Math.max(1, cols - out.join(" ").length - r.length - 1))
+        ' '.repeat(Math.max(1, cols - out.join(' ').length - r.length - 1))
       );
       out.push(r);
 
-      if (!npm.flatOptions.long) return out.join("");
+      if (!npm.flatOptions.long) return out.join('');
 
-      out.unshift("\n\n");
-      out.push("\n");
-      out.push("-".repeat(cols - 1) + "\n");
+      out.unshift('\n\n');
+      out.push('\n');
+      out.push('-'.repeat(cols - 1) + '\n');
       res.lines.forEach((line, i) => {
         if (line === null || i > 3) return;
 
         if (!npm.color) {
-          out.push(line + "\n");
+          out.push(line + '\n');
           return;
         }
         const hilitLine = [];
@@ -195,25 +195,25 @@ const formatResults = (args, results) => {
             p += f.length + arg.length;
           }
         }
-        out.push(hilitLine.join("") + "\n");
+        out.push(hilitLine.join('') + '\n');
       });
 
-      return out.join("");
+      return out.join('');
     })
-    .join("\n");
+    .join('\n');
 
   const finalOut =
     results.length && !npm.flatOptions.long
-      ? "Top hits for " +
-        args.map(JSON.stringify).join(" ") +
-        "\n" +
-        "—".repeat(cols - 1) +
-        "\n" +
+      ? 'Top hits for ' +
+        args.map(JSON.stringify).join(' ') +
+        '\n' +
+        '—'.repeat(cols - 1) +
+        '\n' +
         out +
-        "\n" +
-        "—".repeat(cols - 1) +
-        "\n" +
-        "(run with -l or --long to see more context)"
+        '\n' +
+        '—'.repeat(cols - 1) +
+        '\n' +
+        '(run with -l or --long to see more context)'
       : out;
 
   return finalOut.trim();

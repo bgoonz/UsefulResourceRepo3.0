@@ -19,5 +19,4 @@ A mechanism that helps to eliminate redundant code.
 
 ## POLYMORPHISM
 
-Poly means many, morphism mean forms
-A technique that helps to get ride of long if and else statements and switch cases.
+Poly means many, morphism mean forms A technique that helps to get ride of long if and else statements and switch cases.

@@ -39,7 +39,7 @@ npm install @stdlib/regexp-function-name
 ## Usage
 
 ```javascript
-var reFunctionName = require( '@stdlib/regexp-function-name' );
+var reFunctionName = require('@stdlib/regexp-function-name');
 ```
 
 #### reFunctionName
@@ -48,11 +48,11 @@ Returns a [regular expression][regexp] to capture a `function` name.
 
 ```javascript
 function beep() {
-    return 'boop';
+  return 'boop';
 }
 
 var RE_FUNCTION_NAME = reFunctionName();
-var str = RE_FUNCTION_NAME.exec( beep.toString() )[ 1 ];
+var str = RE_FUNCTION_NAME.exec(beep.toString())[1];
 // returns 'beep'
 ```
 
@@ -63,7 +63,7 @@ var str = RE_FUNCTION_NAME.exec( beep.toString() )[ 1 ];
 <!-- eslint-disable stdlib/no-builtin-math -->
 
 ```javascript
-var str = reFunctionName.REGEXP.exec( Math.sqrt.toString() )[ 1 ];
+var str = reFunctionName.REGEXP.exec(Math.sqrt.toString())[1];
 // returns 'sqrt'
 ```
 
@@ -80,24 +80,24 @@ var str = reFunctionName.REGEXP.exec( Math.sqrt.toString() )[ 1 ];
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var Int8Array = require( '@stdlib/array-int8' );
-var reFunctionName = require( '@stdlib/regexp-function-name' );
+var Int8Array = require('@stdlib/array-int8');
+var reFunctionName = require('@stdlib/regexp-function-name');
 var RE_FUNCTION_NAME = reFunctionName();
 
-function fname( fcn ) {
-    return RE_FUNCTION_NAME.exec( fcn.toString() )[ 1 ];
+function fname(fcn) {
+  return RE_FUNCTION_NAME.exec(fcn.toString())[1];
 }
 
-var f = fname( Math.sqrt );
+var f = fname(Math.sqrt);
 // returns 'sqrt'
 
-f = fname( Int8Array );
+f = fname(Int8Array);
 // returns 'Int8Array'
 
-f = fname( Object.prototype.toString );
+f = fname(Object.prototype.toString);
 // returns 'toString'
 
-f = fname( function () {} );
+f = fname(function () {});
 // returns ''
 ```
 
@@ -105,10 +105,9 @@ f = fname( function () {} );
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -126,7 +125,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -141,25 +139,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/regexp-function-name.svg
 [npm-url]: https://npmjs.org/package/@stdlib/regexp-function-name
-
 [test-image]: https://github.com/stdlib-js/regexp-function-name/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/regexp-function-name/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/regexp-function-name/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/regexp-function-name?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/regexp-function-name.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/regexp-function-name/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/regexp-function-name/main/LICENSE
-
 [regexp]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions
 
 </section>

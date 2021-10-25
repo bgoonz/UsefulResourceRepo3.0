@@ -81,7 +81,7 @@ function isDate(d) {
 exports.isDate = isDate;
 
 function isError(e) {
-  return (objectToString(e) === '[object Error]' || e instanceof Error);
+  return objectToString(e) === '[object Error]' || e instanceof Error;
 }
 exports.isError = isError;
 
@@ -91,12 +91,14 @@ function isFunction(arg) {
 exports.isFunction = isFunction;
 
 function isPrimitive(arg) {
-  return arg === null ||
-         typeof arg === 'boolean' ||
-         typeof arg === 'number' ||
-         typeof arg === 'string' ||
-         typeof arg === 'symbol' ||  // ES6 symbol
-         typeof arg === 'undefined';
+  return (
+    arg === null ||
+    typeof arg === 'boolean' ||
+    typeof arg === 'number' ||
+    typeof arg === 'string' ||
+    typeof arg === 'symbol' || // ES6 symbol
+    typeof arg === 'undefined'
+  );
 }
 exports.isPrimitive = isPrimitive;
 

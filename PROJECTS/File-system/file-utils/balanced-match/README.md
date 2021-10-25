@@ -2,8 +2,7 @@
 
 Match balanced string pairs, like `{` and `}` or `<b>` and `</b>`. Supports regular expressions as well!
 
-[![build status](https://secure.travis-ci.org/juliangruber/balanced-match.svg)](http://travis-ci.org/juliangruber/balanced-match)
-[![downloads](https://img.shields.io/npm/dm/balanced-match.svg)](https://www.npmjs.org/package/balanced-match)
+[![build status](https://secure.travis-ci.org/juliangruber/balanced-match.svg)](http://travis-ci.org/juliangruber/balanced-match) [![downloads](https://img.shields.io/npm/dm/balanced-match.svg)](https://www.npmjs.org/package/balanced-match)
 
 [![testling badge](https://ci.testling.com/juliangruber/balanced-match.png)](https://ci.testling.com/juliangruber/balanced-match)
 
@@ -36,14 +35,13 @@ $ node example.js
 
 ### var m = balanced(a, b, str)
 
-For the first non-nested matching pair of `a` and `b` in `str`, return an
-object with those keys:
+For the first non-nested matching pair of `a` and `b` in `str`, return an object with those keys:
 
-* **start** the index of the first match of `a`
-* **end** the index of the matching `b`
-* **pre** the preamble, `a` and `b` not included
-* **body** the match, `a` and `b` not included
-* **post** the postscript, `a` and `b` not included
+- **start** the index of the first match of `a`
+- **end** the index of the matching `b`
+- **pre** the preamble, `a` and `b` not included
+- **body** the match, `a` and `b` not included
+- **post** the postscript, `a` and `b` not included
 
 If there's no match, `undefined` will be returned.
 
@@ -51,8 +49,7 @@ If the `str` contains more `a` than `b` / there are unmatched pairs, the first m
 
 ### var r = balanced.range(a, b, str)
 
-For the first non-nested matching pair of `a` and `b` in `str`, return an
-array with indexes: `[ <a index>, <b index> ]`.
+For the first non-nested matching pair of `a` and `b` in `str`, return an array with indexes: `[ <a index>, <b index> ]`.
 
 If there's no match, `undefined` will be returned.
 
@@ -68,9 +65,7 @@ npm install balanced-match
 
 ## Security contact information
 
-To report a security vulnerability, please use the
-[Tidelift security contact](https://tidelift.com/security).
-Tidelift will coordinate the fix and disclosure.
+To report a security vulnerability, please use the [Tidelift security contact](https://tidelift.com/security). Tidelift will coordinate the fix and disclosure.
 
 ## License
 
@@ -78,20 +73,8 @@ Tidelift will coordinate the fix and disclosure.
 
 Copyright (c) 2013 Julian Gruber &lt;julian@juliangruber.com&gt;
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of
-this software and associated documentation files (the "Software"), to deal in
-the Software without restriction, including without limitation the rights to
-use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies
-of the Software, and to permit persons to whom the Software is furnished to do
-so, subject to the following conditions:
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.

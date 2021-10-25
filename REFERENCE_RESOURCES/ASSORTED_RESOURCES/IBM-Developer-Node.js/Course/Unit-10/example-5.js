@@ -19,11 +19,11 @@ const winston = require('winston');
 
 // Logger configuration
 const logConfiguration = {
-    transports: [ 
-        new winston.transports.Console({
-            level: 'error'
-        }) 
-    ]
+  transports: [
+    new winston.transports.Console({
+      level: 'error',
+    }),
+  ],
 };
 
 // Create the logger

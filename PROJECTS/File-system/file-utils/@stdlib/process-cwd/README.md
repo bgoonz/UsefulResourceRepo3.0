@@ -39,7 +39,7 @@ npm install @stdlib/process-cwd
 ## Usage
 
 ```javascript
-var cwd = require( '@stdlib/process-cwd' );
+var cwd = require('@stdlib/process-cwd');
 ```
 
 #### cwd()
@@ -59,7 +59,7 @@ var dir = cwd();
     
 ## Notes
 
--   In browser environments, the current working directory is always equal to `'/'`.
+- In browser environments, the current working directory is always equal to `'/'`.
 
 </section>
 
@@ -72,18 +72,18 @@ var dir = cwd();
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var PATH_SEP = require( '@stdlib/constants-path-sep' );
-var cwd = require( '@stdlib/process-cwd' );
+var PATH_SEP = require('@stdlib/constants-path-sep');
+var cwd = require('@stdlib/process-cwd');
 
-var parts = cwd().split( PATH_SEP );
-console.log( parts );
+var parts = cwd().split(PATH_SEP);
+console.log(parts);
 ```
 
 </section>
 
 <!-- /.examples -->
 
-* * *
+---
 
 <section class="cli">
 
@@ -135,10 +135,9 @@ $ cwd
 
 <!-- /.cli -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -156,7 +155,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -171,23 +169,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/process-cwd.svg
 [npm-url]: https://npmjs.org/package/@stdlib/process-cwd
-
 [test-image]: https://github.com/stdlib-js/process-cwd/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/process-cwd/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/process-cwd/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/process-cwd?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/process-cwd.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/process-cwd/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/process-cwd/main/LICENSE
 
 </section>

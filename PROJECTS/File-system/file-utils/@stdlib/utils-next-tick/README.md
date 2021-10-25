@@ -39,7 +39,7 @@ npm install @stdlib/utils-next-tick
 ## Usage
 
 ```javascript
-var nextTick = require( '@stdlib/utils-next-tick' );
+var nextTick = require('@stdlib/utils-next-tick');
 ```
 
 #### nextTick( clbk\[, ...args] )
@@ -48,10 +48,10 @@ Adds a callback to the "next tick queue".
 
 ```javascript
 function beep() {
-    console.log( 'boop' );
+  console.log('boop');
 }
 
-nextTick( beep );
+nextTick(beep);
 ```
 
 </section>
@@ -62,8 +62,8 @@ nextTick( beep );
 
 ## Notes
 
--   The queue is fully drained after the current operation on the JavaScript stack runs to completion and before the event loop is allowed to continue.
--   Creating an infinite loop is possible if `nextTick` is called recursively.
+- The queue is fully drained after the current operation on the JavaScript stack runs to completion and before the event loop is allowed to continue.
+- Creating an infinite loop is possible if `nextTick` is called recursively.
 
 </section>
 
@@ -74,23 +74,22 @@ nextTick( beep );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var nextTick = require( '@stdlib/utils-next-tick' );
+var nextTick = require('@stdlib/utils-next-tick');
 
-function beep( x, y, z ) {
-    console.log( 'boop: %d %d %d', x, y, z );
+function beep(x, y, z) {
+  console.log('boop: %d %d %d', x, y, z);
 }
 
-nextTick( beep, 1, 2, 3 );
+nextTick(beep, 1, 2, 3);
 ```
 
 </section>
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -108,7 +107,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -123,23 +121,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/utils-next-tick.svg
 [npm-url]: https://npmjs.org/package/@stdlib/utils-next-tick
-
 [test-image]: https://github.com/stdlib-js/utils-next-tick/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/utils-next-tick/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/utils-next-tick/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/utils-next-tick?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/utils-next-tick.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/utils-next-tick/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/utils-next-tick/main/LICENSE
 
 </section>

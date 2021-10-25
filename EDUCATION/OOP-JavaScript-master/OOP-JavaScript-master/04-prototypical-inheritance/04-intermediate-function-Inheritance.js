@@ -3,7 +3,7 @@ function Shape(color) {
 }
 
 Shape.prototype.duplicate = function () {
-  console.log("duplicate");
+  console.log('duplicate');
 };
 
 function extend(Child, Parent) {
@@ -18,7 +18,7 @@ function Circle(radius, color) {
 extend(Circle, Shape);
 
 Circle.prototype.draw = function () {
-  console.log("draw");
+  console.log('draw');
 };
 
 function Square(size) {
@@ -27,6 +27,6 @@ function Square(size) {
 
 extend(Square, Shape);
 
-const s = new Shape("green");
-const c = new Circle(1, "red");
+const s = new Shape('green');
+const c = new Circle(1, 'red');
 const sq = new Square(10);

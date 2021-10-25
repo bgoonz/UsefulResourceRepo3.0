@@ -2,13 +2,11 @@
 
 > Convert a dash/dot/underscore/space separated string to camelCase: `foo-bar` → `fooBar`
 
-
 ## Install
 
 ```sh
 $ npm install --save camelcase
 ```
-
 
 ## Usage
 
@@ -45,11 +43,9 @@ camelCase('__foo__', '--bar');
 //=> fooBar
 ```
 
-
 ## Related
 
 See [`decamelize`](https://github.com/sindresorhus/decamelize) for the inverse.
-
 
 ## License
 

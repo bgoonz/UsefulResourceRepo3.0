@@ -3,7 +3,7 @@ function Shape(color) {
 }
 
 Shape.prototype.duplicate = function () {
-  console.log("duplicate");
+  console.log('duplicate');
 };
 
 function Circle(radius, color) {
@@ -15,8 +15,8 @@ Circle.prototype = Object.create(Shape.prototype);
 Circle.prototype.constructor = Circle;
 
 Circle.prototype.draw = function () {
-  console.log("draw");
+  console.log('draw');
 };
 
-const s = new Shape("green");
-const c = new Circle(1, "red");
+const s = new Shape('green');
+const c = new Circle(1, 'red');

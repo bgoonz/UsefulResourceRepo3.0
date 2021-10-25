@@ -49,7 +49,7 @@ npm install @stdlib/utils-global
 ## Usage
 
 ```javascript
-var getGlobal = require( '@stdlib/utils-global' );
+var getGlobal = require('@stdlib/utils-global');
 ```
 
 #### getGlobal( \[codegen] )
@@ -64,7 +64,7 @@ var g = getGlobal();
 By default, the function does **not** use code generation when resolving the global object. While code generation is the **most** reliable means for resolving the global object, its use may violate [content security policies][mdn-csp] (CSPs). To use code generation, provide a `codegen` argument equal to `true`.
 
 ```javascript
-var g = getGlobal( true );
+var g = getGlobal(true);
 // returns {...}
 ```
 
@@ -89,13 +89,13 @@ var g = getGlobal( true );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var getGlobal = require( '@stdlib/utils-global' );
+var getGlobal = require('@stdlib/utils-global');
 
 // Resolve the global object:
 var g = getGlobal();
 
 // Display the object's contents:
-console.log( g );
+console.log(g);
 ```
 
 </section>
@@ -112,10 +112,9 @@ console.log( g );
 
 <!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -133,7 +132,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -148,25 +146,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/utils-global.svg
 [npm-url]: https://npmjs.org/package/@stdlib/utils-global
-
 [test-image]: https://github.com/stdlib-js/utils-global/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/utils-global/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/utils-global/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/utils-global?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/utils-global.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/utils-global/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/utils-global/main/LICENSE
-
 [mdn-csp]: https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
 
 </section>

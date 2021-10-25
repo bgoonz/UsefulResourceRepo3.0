@@ -5,7 +5,7 @@ class Circle {
 
   // Instance method
   draw() {
-    console.log("drawing");
+    console.log('drawing');
   }
 
   // Static method

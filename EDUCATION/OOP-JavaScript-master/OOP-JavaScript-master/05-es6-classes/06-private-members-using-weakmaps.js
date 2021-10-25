@@ -6,12 +6,12 @@ class Circle {
     _radius.set(this, radius);
 
     _move.set(this, () => {
-      console.log("moving!", this);
+      console.log('moving!', this);
     });
   }
   draw() {
     _move.get(this)();
-    console.log("drawing!");
+    console.log('drawing!');
   }
 }
 

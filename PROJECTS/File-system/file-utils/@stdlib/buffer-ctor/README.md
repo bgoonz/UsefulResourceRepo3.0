@@ -49,7 +49,7 @@ npm install @stdlib/buffer-ctor
 ## Usage
 
 ```javascript
-var Buffer = require( '@stdlib/buffer-ctor' );
+var Buffer = require('@stdlib/buffer-ctor');
 ```
 
 #### Buffer( size )
@@ -59,7 +59,7 @@ Allocates a [`Buffer`][node-buffer] having a specified number of bytes.
 <!-- eslint-disable stdlib/require-globals, no-buffer-constructor -->
 
 ```javascript
-var b = new Buffer( 10 );
+var b = new Buffer(10);
 // returns <Buffer>
 ```
 
@@ -70,7 +70,7 @@ Allocates a [`Buffer`][node-buffer] from an array of octets.
 <!-- eslint-disable stdlib/require-globals, no-buffer-constructor -->
 
 ```javascript
-var b = new Buffer( [ 1, 2, 3, 4 ] );
+var b = new Buffer([1, 2, 3, 4]);
 // returns <Buffer>[ 1, 2, 3, 4 ]
 ```
 
@@ -81,8 +81,8 @@ Copies [buffer][node-buffer] data to a new [`Buffer`][node-buffer] instance.
 <!-- eslint-disable stdlib/require-globals, no-buffer-constructor -->
 
 ```javascript
-var b1 = new Buffer( [ 1, 2, 3, 4 ] );
-var b2 = new Buffer( b1 );
+var b1 = new Buffer([1, 2, 3, 4]);
+var b2 = new Buffer(b1);
 // returns <Buffer>[ 1, 2, 3, 4 ]
 ```
 
@@ -93,17 +93,17 @@ Returns a [`Buffer`][node-buffer] containing a provided `string`.
 <!-- eslint-disable stdlib/require-globals, no-buffer-constructor -->
 
 ```javascript
-var b = new Buffer( 'beep boop' );
+var b = new Buffer('beep boop');
 // returns <Buffer>
 ```
 
-* * *
+---
 
 ### Properties
 
 TODO: add properties
 
-* * *
+---
 
 ### Methods
 
@@ -113,7 +113,7 @@ TODO: add methods
 
 <!-- /.usage -->
 
-* * *
+---
 
 <!-- Package usage notes. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
@@ -132,23 +132,23 @@ TODO: add methods
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var ctor = require( '@stdlib/buffer-ctor' );
+var ctor = require('@stdlib/buffer-ctor');
 
 var b;
 var i;
 
 // Allocate uninitialized memory:
-if ( typeof ctor.alloc === 'function' ) {
-    b = ctor.alloc( 10 );
+if (typeof ctor.alloc === 'function') {
+  b = ctor.alloc(10);
 } else {
-    b = new ctor( 10 );
+  b = new ctor(10);
 }
 
 // Zero fill the buffer...
-for ( i = 0; i < b.length; i++ ) {
-    b[ i ] = 0;
+for (i = 0; i < b.length; i++) {
+  b[i] = 0;
 }
-console.log( b );
+console.log(b);
 ```
 
 </section>
@@ -165,10 +165,9 @@ console.log( b );
 
 <!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -186,7 +185,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -201,25 +199,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/buffer-ctor.svg
 [npm-url]: https://npmjs.org/package/@stdlib/buffer-ctor
-
 [test-image]: https://github.com/stdlib-js/buffer-ctor/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/buffer-ctor/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/buffer-ctor/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/buffer-ctor?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/buffer-ctor.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/buffer-ctor/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/buffer-ctor/main/LICENSE
-
 [node-buffer]: https://nodejs.org/api/buffer.html
 
 </section>

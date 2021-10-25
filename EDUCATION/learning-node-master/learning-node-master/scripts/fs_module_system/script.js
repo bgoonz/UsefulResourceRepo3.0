@@ -1,34 +1,34 @@
-const fs = require("fs");
+const fs = require('fs');
 
 // READ FILE
-fs.readFile("./hello.txt", (err, data) => {
+fs.readFile('./hello.txt', (err, data) => {
   if (err) {
-    console.log("errrrrrrr");
+    console.log('errrrrrrr');
   }
-  console.log("Async ->", data.toString());
+  console.log('Async ->', data.toString());
 });
 
-const file = fs.readFileSync("./hello.txt");
-console.log("Sync ->", file.toString());
+const file = fs.readFileSync('./hello.txt');
+console.log('Sync ->', file.toString());
 
 // APPEND
-fs.appendFile("./hello.txt", " This is cool!", (err) => {
+fs.appendFile('./hello.txt', ' This is cool!', (err) => {
   if (err) {
-    console.log("errrrr!");
+    console.log('errrrr!');
   }
 });
 
 // WRITE
-fs.writeFile("bye.txt", "bye!!!!", (err) => {
+fs.writeFile('bye.txt', 'bye!!!!', (err) => {
   if (err) {
-    console.log("errrr!");
+    console.log('errrr!');
   }
 });
 
 // DELETE
-fs.unlink("./bye.txt", (err) => {
+fs.unlink('./bye.txt', (err) => {
   if (err) {
-    console.log("errrr!");
+    console.log('errrr!');
   }
-  console.log("Successful");
+  console.log('Successful');
 });

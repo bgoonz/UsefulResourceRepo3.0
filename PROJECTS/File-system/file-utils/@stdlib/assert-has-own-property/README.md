@@ -39,7 +39,7 @@ npm install @stdlib/assert-has-own-property
 ## Usage
 
 ```javascript
-var hasOwnProp = require( '@stdlib/assert-has-own-property' );
+var hasOwnProp = require('@stdlib/assert-has-own-property');
 ```
 
 #### hasOwnProp( value, property )
@@ -48,13 +48,13 @@ Returns a `boolean` indicating if a `value` has a specified `property`.
 
 ```javascript
 var value = {
-    'beep': 'boop'
+  beep: 'boop',
 };
 
-var bool = hasOwnProp( value, 'beep' );
+var bool = hasOwnProp(value, 'beep');
 // returns true
 
-bool = hasOwnProp( value, 'bap' );
+bool = hasOwnProp(value, 'bap');
 // returns false
 ```
 
@@ -66,38 +66,38 @@ bool = hasOwnProp( value, 'bap' );
 
 ## Notes
 
--   In contrast to the native [Object.prototype.hasOwnProperty][mdn-object-has-own-property], this function does **not** throw when provided `null` or `undefined`. Instead, the function returns `false`.
+- In contrast to the native [Object.prototype.hasOwnProperty][mdn-object-has-own-property], this function does **not** throw when provided `null` or `undefined`. Instead, the function returns `false`.
 
-    ```javascript
-    var bool = hasOwnProp( null, 'a' );
-    // returns false
+  ```javascript
+  var bool = hasOwnProp(null, 'a');
+  // returns false
 
-    bool = hasOwnProp( void 0, 'a' );
-    // returns false
-    ```
+  bool = hasOwnProp(void 0, 'a');
+  // returns false
+  ```
 
--   Value arguments other than `null` or `undefined` are coerced to `objects`.
+- Value arguments other than `null` or `undefined` are coerced to `objects`.
 
-    ```javascript
-    var bool = hasOwnProp( 'beep', 'length' );
-    // returns true
-    ```
+  ```javascript
+  var bool = hasOwnProp('beep', 'length');
+  // returns true
+  ```
 
--   Property arguments are coerced to `strings`.
+- Property arguments are coerced to `strings`.
 
-    ```javascript
-    var value = {
-        'null': false
-    };
-    var bool = hasOwnProp( value, null );
-    // returns true
+  ```javascript
+  var value = {
+    null: false,
+  };
+  var bool = hasOwnProp(value, null);
+  // returns true
 
-    value = {
-        '[object Object]': false
-    };
-    bool = hasOwnProp( value, {} );
-    // returns true
-    ```
+  value = {
+    '[object Object]': false,
+  };
+  bool = hasOwnProp(value, {});
+  // returns true
+  ```
 
 </section>
 
@@ -112,30 +112,30 @@ bool = hasOwnProp( value, 'bap' );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var hasOwnProp = require( '@stdlib/assert-has-own-property' );
+var hasOwnProp = require('@stdlib/assert-has-own-property');
 
-var bool = hasOwnProp( { 'a': 'b' }, 'a' );
+var bool = hasOwnProp({ a: 'b' }, 'a');
 // returns true
 
-bool = hasOwnProp( { 'a': 'b' }, 'c' );
+bool = hasOwnProp({ a: 'b' }, 'c');
 // returns false
 
-bool = hasOwnProp( { 'a': 'b' }, null );
+bool = hasOwnProp({ a: 'b' }, null);
 // returns false
 
-bool = hasOwnProp( {}, 'hasOwnProperty' );
+bool = hasOwnProp({}, 'hasOwnProperty');
 // returns false
 
-bool = hasOwnProp( null, 'a' );
+bool = hasOwnProp(null, 'a');
 // returns false
 
-bool = hasOwnProp( void 0, 'a' );
+bool = hasOwnProp(void 0, 'a');
 // returns false
 
-bool = hasOwnProp( { 'null': false }, null );
+bool = hasOwnProp({ null: false }, null);
 // returns true
 
-bool = hasOwnProp( { '[object Object]': false }, {} );
+bool = hasOwnProp({ '[object Object]': false }, {});
 // returns true
 ```
 
@@ -143,10 +143,9 @@ bool = hasOwnProp( { '[object Object]': false }, {} );
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -164,7 +163,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -179,25 +177,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/assert-has-own-property.svg
 [npm-url]: https://npmjs.org/package/@stdlib/assert-has-own-property
-
 [test-image]: https://github.com/stdlib-js/assert-has-own-property/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/assert-has-own-property/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/assert-has-own-property/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/assert-has-own-property?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/assert-has-own-property.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/assert-has-own-property/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/assert-has-own-property/main/LICENSE
-
 [mdn-object-has-own-property]: https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
 
 </section>

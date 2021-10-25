@@ -4,13 +4,13 @@ function Circle(radius) {
 
   this.move = function () {
     this.draw();
-    console.log("moving");
+    console.log('moving');
   };
 }
 
 // Prototype members
 Circle.prototype.draw = function () {
-  console.log("draw");
+  console.log('draw');
 };
 
 const circle1 = new Circle(3);
@@ -26,7 +26,7 @@ circle1.toString(); // "[object Object]"
 // You can change the behaviour of root prototype methods.
 
 Circle.prototype.toString = function () {
-  return "Circle with radius " + this.radius;
+  return 'Circle with radius ' + this.radius;
 };
 
 console.log(circle1.toString());

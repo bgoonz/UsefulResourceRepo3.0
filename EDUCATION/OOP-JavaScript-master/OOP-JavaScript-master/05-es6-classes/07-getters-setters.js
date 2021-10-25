@@ -10,7 +10,7 @@ class Circle {
   }
   set radius(value) {
     if (value <= 0) {
-      throw new Error("Invalid radius");
+      throw new Error('Invalid radius');
     } else {
       _radius.set(this, value);
     }

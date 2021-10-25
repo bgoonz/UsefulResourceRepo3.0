@@ -39,7 +39,7 @@ npm install @stdlib/process-read-stdin
 ## Usage
 
 ```javascript
-var stdin = require( '@stdlib/process-read-stdin' );
+var stdin = require('@stdlib/process-read-stdin');
 ```
 
 #### stdin( \[encoding,] clbk )
@@ -49,15 +49,15 @@ Reads data from [`stdin`][@stdlib/streams/node/stdin].
 <!-- run-disable -->
 
 ```javascript
-function onRead( error, data ) {
-    if ( error ) {
-        return console.error( 'Error: %s', error.message );
-    }
-    console.log( data.toString() );
-    // => '...'
+function onRead(error, data) {
+  if (error) {
+    return console.error('Error: %s', error.message);
+  }
+  console.log(data.toString());
+  // => '...'
 }
 
-stdin( onRead );
+stdin(onRead);
 ```
 
 By default, returned `data` is a [`Buffer`][buffer]. To return a `string` of a specified encoding, provide an `encoding` parameter.
@@ -65,15 +65,15 @@ By default, returned `data` is a [`Buffer`][buffer]. To return a `string` of a s
 <!-- run-disable -->
 
 ```javascript
-function onRead( error, data ) {
-    if ( error ) {
-        return console.error( 'Error: %s', error.message );
-    }
-    console.log( data );
-    // => '...'
+function onRead(error, data) {
+  if (error) {
+    return console.error('Error: %s', error.message);
+  }
+  console.log(data);
+  // => '...'
 }
 
-stdin( 'utf8', onRead );
+stdin('utf8', onRead);
 ```
 
 When a file's calling Node.js process is running in a [TTY][tty] context (i.e., no [`stdin`][@stdlib/streams/node/stdin]), `data` will either be an empty [`Buffer`][buffer] (no encoding provided) or an empty `string` (encoding provided).
@@ -81,19 +81,19 @@ When a file's calling Node.js process is running in a [TTY][tty] context (i.e., 
 <!-- run-disable -->
 
 ```javascript
-var stream = require( '@stdlib/streams-node-stdin' );
+var stream = require('@stdlib/streams-node-stdin');
 
-function onRead( error, data ) {
-    if ( error ) {
-        return console.error( 'Error: %s', error.message );
-    }
-    console.log( data );
-    // => ''
+function onRead(error, data) {
+  if (error) {
+    return console.error('Error: %s', error.message);
+  }
+  console.log(data);
+  // => ''
 }
 
 stream.isTTY = true;
 
-stdin( 'utf8', onRead );
+stdin('utf8', onRead);
 ```
 
 </section>
@@ -109,42 +109,41 @@ stdin( 'utf8', onRead );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var string2buffer = require( '@stdlib/buffer-from-string' );
-var stream = require( '@stdlib/streams-node-stdin' );
-var stdin = require( '@stdlib/process-read-stdin' );
+var string2buffer = require('@stdlib/buffer-from-string');
+var stream = require('@stdlib/streams-node-stdin');
+var stdin = require('@stdlib/process-read-stdin');
 
-function onRead( error, data ) {
-    if ( error ) {
-        console.error( 'Error: %s', error.message );
-    } else {
-        console.log( data.toString() );
-        // => 'beep boop'
-    }
+function onRead(error, data) {
+  if (error) {
+    console.error('Error: %s', error.message);
+  } else {
+    console.log(data.toString());
+    // => 'beep boop'
+  }
 }
 
 // Fake not being in a terminal context:
 stream.isTTY = false;
 
 // Provide a callback to consume all data from `stdin`:
-stdin( onRead );
+stdin(onRead);
 
 // Push some data to `stdin`:
-stream.push( string2buffer( 'beep' ) );
-stream.push( string2buffer( ' ' ) );
-stream.push( string2buffer( 'boop' ) );
+stream.push(string2buffer('beep'));
+stream.push(string2buffer(' '));
+stream.push(string2buffer('boop'));
 
 // End the stream:
-stream.push( null );
+stream.push(null);
 ```
 
 </section>
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -162,7 +161,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -177,29 +175,19 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/process-read-stdin.svg
 [npm-url]: https://npmjs.org/package/@stdlib/process-read-stdin
-
 [test-image]: https://github.com/stdlib-js/process-read-stdin/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/process-read-stdin/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/process-read-stdin/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/process-read-stdin?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/process-read-stdin.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/process-read-stdin/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/process-read-stdin/main/LICENSE
-
 [buffer]: https://nodejs.org/api/buffer.html
-
 [tty]: https://nodejs.org/api/tty.html#tty_tty
-
 [@stdlib/streams/node/stdin]: https://www.npmjs.com/package/@stdlib/streams-node-stdin
 
 </section>

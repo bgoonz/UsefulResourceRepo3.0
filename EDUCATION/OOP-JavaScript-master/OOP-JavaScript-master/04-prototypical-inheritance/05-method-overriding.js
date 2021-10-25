@@ -6,7 +6,7 @@ function extend(Child, Parent) {
 function Shape() {}
 
 Shape.prototype.duplicate = function () {
-  console.log("duplicate shape");
+  console.log('duplicate shape');
 };
 
 function Circle() {}
@@ -16,7 +16,7 @@ extend(Circle, Shape);
 Circle.prototype.duplicate = function () {
   Shape.prototype.duplicate.call(this);
 
-  console.log("duplicate circle");
+  console.log('duplicate circle');
 };
 
 const c = new Circle();

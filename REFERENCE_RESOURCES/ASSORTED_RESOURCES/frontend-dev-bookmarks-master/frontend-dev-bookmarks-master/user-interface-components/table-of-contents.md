@@ -4,10 +4,8 @@
 
 Components for automatic table of contents generation.
 
+---
 
+- **[Tocbot](http://tscanlin.github.io/tocbot/)**: Tocbot builds a table of contents (TOC) from headings in an HTML document.
 
------------------------------------------
-+ **[Tocbot](http://tscanlin.github.io/tocbot/)**: Tocbot builds a table of contents (TOC) from headings in an HTML document.
-
-
-------------------
+---

@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 // Simple logger
 const logger = require('../common/logger');
 
@@ -26,16 +26,16 @@ let iteration = 0;
 logger.info('START', 'mainline');
 
 const timeout = setInterval(() => {
-    logger.info('START: setInterval', 'TIMERS PHASE');
+  logger.info('START: setInterval', 'TIMERS PHASE');
 
-    if (iteration >= ITERATIONS_MAX) {
-        logger.info('Max interval count exceeded. Goodbye.', 'TIMERS PHASE');
-        // Kill the interval timer
-        clearInterval(timeout);
-    }
-    iteration++;
+  if (iteration >= ITERATIONS_MAX) {
+    logger.info('Max interval count exceeded. Goodbye.', 'TIMERS PHASE');
+    // Kill the interval timer
+    clearInterval(timeout);
+  }
+  iteration++;
 
-    logger.info('END: setInterval', 'TIMERS PHASE');
+  logger.info('END: setInterval', 'TIMERS PHASE');
 }, 10);
 
 logger.info('END', 'mainline');

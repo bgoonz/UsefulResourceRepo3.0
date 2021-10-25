@@ -8,7 +8,7 @@ class Circle {
   }
 
   draw() {
-    console.log("Circle with radius " + _radius.get(this));
+    console.log('Circle with radius ' + _radius.get(this));
   }
 }
 

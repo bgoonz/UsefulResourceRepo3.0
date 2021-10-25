@@ -30,14 +30,13 @@ const increment = require('add-filename-increment');
 
 ### [increment](index.js#L54)
 
-The main export is a function that adds a trailing increment to
-the `stem` (basename without extension) of the given file path or object.
+The main export is a function that adds a trailing increment to the `stem` (basename without extension) of the given file path or object.
 
 **Params**
 
-* `file` **{String|Object}**: If the file is an object, it must have a `path` property.
-* `options` **{Object}**: See [available options](#options).
-* `returns` **{String|Object}**: Returns a file of the same type that was given, with an increment added to the file name.
+- `file` **{String|Object}**: If the file is an object, it must have a `path` property.
+- `options` **{Object}**: See [available options](#options).
+- `returns` **{String|Object}**: Returns a file of the same type that was given, with an increment added to the file name.
 
 **Example**
 
@@ -56,9 +55,9 @@ Add a trailing increment to the given `filepath`.
 
 **Params**
 
-* `filepath` **{String}**
-* `options` **{Object}**: See [available options](#options).
-* `returns` **{String}**
+- `filepath` **{String}**
+- `options` **{Object}**: See [available options](#options).
+- `returns` **{String}**
 
 **Example**
 
@@ -77,9 +76,9 @@ Add a trailing increment to the `file.base` of the given file object.
 
 **Params**
 
-* `file` **{String|Object}**: If passed as a string, the path will be parsed to create an object using `path.parse()`.
-* `options` **{Object}**: See [available options](#options).
-* `returns` **{Object}**: Returns an object.
+- `file` **{String|Object}**: If passed as a string, the path will be parsed to create an object using `path.parse()`.
+- `options` **{Object}**: See [available options](#options).
+- `returns` **{Object}**: Returns an object.
 
 **Example**
 
@@ -98,8 +97,8 @@ Returns an ordinal-suffix for the given number. This is used when creating incre
 
 **Params**
 
-* `num` **{Number}**
-* `returns` **{String}**
+- `num` **{Number}**
+- `returns` **{String}**
 
 **Example**
 
@@ -117,8 +116,8 @@ Returns an ordinal for the given number.
 
 **Params**
 
-* `num` **{Number}**
-* `returns` **{String}**
+- `num` **{Number}**
+- `returns` **{String}**
 
 **Example**
 
@@ -160,9 +159,9 @@ Also uses the correct conventions for Linux, Windows (win32), and MacOS (darwin)
 
 ## Operating Systems
 
-* [Linux](#linux)
-* [MacOS](#macos)
-* [Windows](#windows)
+- [Linux](#linux)
+- [MacOS](#macos)
+- [Windows](#windows)
 
 **Supported Operating Systems**
 
@@ -246,23 +245,22 @@ $ npm install -g verbose/verb#dev verb-generate-readme && verb
 
 You might also be interested in these projects:
 
-* [micromatch](https://www.npmjs.com/package/micromatch): Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch. | [homepage](https://github.com/micromatch/micromatch "Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.")
-* [strip-filename-increment](https://www.npmjs.com/package/strip-filename-increment): Operating systems commonly add a trailing increment, or the word 'copy', or something similar to… [more](https://github.com/jonschlinkert/strip-filename-increment) | [homepage](https://github.com/jonschlinkert/strip-filename-increment "Operating systems commonly add a trailing increment, or the word 'copy', or something similar to duplicate files. This strips those increments. Tested on Windows, MacOS, and Linux.")
-* [write](https://www.npmjs.com/package/write): Write data to a file, replacing the file if it already exists and creating any… [more](https://github.com/jonschlinkert/write) | [homepage](https://github.com/jonschlinkert/write "Write data to a file, replacing the file if it already exists and creating any intermediate directories if they don't already exist. Thin wrapper around node's native fs methods.")
+- [micromatch](https://www.npmjs.com/package/micromatch): Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch. | [homepage](https://github.com/micromatch/micromatch 'Glob matching for javascript/node.js. A replacement and faster alternative to minimatch and multimatch.')
+- [strip-filename-increment](https://www.npmjs.com/package/strip-filename-increment): Operating systems commonly add a trailing increment, or the word 'copy', or something similar to… [more](https://github.com/jonschlinkert/strip-filename-increment) | [homepage](https://github.com/jonschlinkert/strip-filename-increment "Operating systems commonly add a trailing increment, or the word 'copy', or something similar to duplicate files. This strips those increments. Tested on Windows, MacOS, and Linux.")
+- [write](https://www.npmjs.com/package/write): Write data to a file, replacing the file if it already exists and creating any… [more](https://github.com/jonschlinkert/write) | [homepage](https://github.com/jonschlinkert/write "Write data to a file, replacing the file if it already exists and creating any intermediate directories if they don't already exist. Thin wrapper around node's native fs methods.")
 
 ### Author
 
 **Jon Schlinkert**
 
-* [GitHub Profile](https://github.com/jonschlinkert)
-* [Twitter Profile](https://twitter.com/jonschlinkert)
-* [LinkedIn Profile](https://linkedin.com/in/jonschlinkert)
+- [GitHub Profile](https://github.com/jonschlinkert)
+- [Twitter Profile](https://twitter.com/jonschlinkert)
+- [LinkedIn Profile](https://linkedin.com/in/jonschlinkert)
 
 ### License
 
-Copyright © 2019, [Jon Schlinkert](https://github.com/jonschlinkert).
-Released under the [MIT License](LICENSE).
+Copyright © 2019, [Jon Schlinkert](https://github.com/jonschlinkert). Released under the [MIT License](LICENSE).
 
-***
+---
 
 _This file was generated by [verb-generate-readme](https://github.com/verbose/verb-generate-readme), v0.8.0, on September 04, 2019._

@@ -1,7 +1,7 @@
 function Circle(radius) {
   this.radius = radius;
   this.draw = function () {
-    console.log("draw");
+    console.log('draw');
   };
 }
 
@@ -11,10 +11,10 @@ console.log(circle);
 // ADD
 circle.location = { x: 1, y: 2 };
 
-const propName = "location2";
+const propName = 'location2';
 circle[propName] = { x: 1, y: 2 };
 
 // DELETE
 delete circle.location;
 
-delete circle["location2"];
+delete circle['location2'];

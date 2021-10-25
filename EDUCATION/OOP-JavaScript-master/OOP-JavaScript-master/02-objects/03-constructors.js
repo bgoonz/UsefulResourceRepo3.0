@@ -2,7 +2,7 @@
 function Circle(radius) {
   this.radius = radius;
   this.draw = () => {
-    console.log("draw");
+    console.log('draw');
   };
 }
 

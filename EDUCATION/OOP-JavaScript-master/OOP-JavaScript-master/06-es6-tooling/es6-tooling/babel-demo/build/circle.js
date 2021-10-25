@@ -1,13 +1,13 @@
-"use strict";
+'use strict';
 
-Object.defineProperty(exports, "__esModule", {
+Object.defineProperty(exports, '__esModule', {
   value: true,
 });
 exports.Circle = void 0;
 
 function _classCallCheck(instance, Constructor) {
   if (!(instance instanceof Constructor)) {
-    throw new TypeError("Cannot call a class as a function");
+    throw new TypeError('Cannot call a class as a function');
   }
 }
 
@@ -16,7 +16,7 @@ function _defineProperties(target, props) {
     var descriptor = props[i];
     descriptor.enumerable = descriptor.enumerable || false;
     descriptor.configurable = true;
-    if ("value" in descriptor) descriptor.writable = true;
+    if ('value' in descriptor) descriptor.writable = true;
     Object.defineProperty(target, descriptor.key, descriptor);
   }
 }
@@ -40,9 +40,9 @@ var Circle =
 
     _createClass(Circle, [
       {
-        key: "draw",
+        key: 'draw',
         value: function draw() {
-          console.log("Circle with radius " + _radius.get(this));
+          console.log('Circle with radius ' + _radius.get(this));
         },
       },
     ]);

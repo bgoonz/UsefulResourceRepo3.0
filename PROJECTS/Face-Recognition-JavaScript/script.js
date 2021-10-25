@@ -1,21 +1,21 @@
-const imageUpload = document.getElementById("imageUpload");
+const imageUpload = document.getElementById('imageUpload');
 
 Promise.all([
-  faceapi.nets.faceRecognitionNet.loadFromUri("/models"),
-  faceapi.nets.faceLandmark68Net.loadFromUri("/models"),
-  faceapi.nets.ssdMobilenetv1.loadFromUri("/models"),
+  faceapi.nets.faceRecognitionNet.loadFromUri('/models'),
+  faceapi.nets.faceLandmark68Net.loadFromUri('/models'),
+  faceapi.nets.ssdMobilenetv1.loadFromUri('/models'),
 ]).then(start);
 
 async function start() {
-  const container = document.createElement("div");
-  container.style.position = "relative";
+  const container = document.createElement('div');
+  container.style.position = 'relative';
   document.body.append(container);
   const labeledFaceDescriptors = await loadLabeledImages();
   const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6);
   let image;
   let canvas;
-  document.body.append("Loaded");
-  imageUpload.addEventListener("change", async () => {
+  document.body.append('Loaded');
+  imageUpload.addEventListener('change', async () => {
     if (image) image.remove();
     if (canvas) canvas.remove();
     image = await faceapi.bufferToImage(imageUpload.files[0]);
@@ -44,13 +44,13 @@ async function start() {
 
 function loadLabeledImages() {
   const labels = [
-    "Black Widow",
-    "Captain America",
-    "Captain Marvel",
-    "Hawkeye",
-    "Jim Rhodes",
-    "Thor",
-    "Tony Stark",
+    'Black Widow',
+    'Captain America',
+    'Captain Marvel',
+    'Hawkeye',
+    'Jim Rhodes',
+    'Thor',
+    'Tony Stark',
   ];
   return Promise.all(
     labels.map(async (label) => {

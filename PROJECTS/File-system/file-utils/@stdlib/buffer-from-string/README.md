@@ -49,7 +49,7 @@ npm install @stdlib/buffer-from-string
 ## Usage
 
 ```javascript
-var string2buffer = require( '@stdlib/buffer-from-string' );
+var string2buffer = require('@stdlib/buffer-from-string');
 ```
 
 #### string2buffer( str\[, encoding] )
@@ -57,25 +57,25 @@ var string2buffer = require( '@stdlib/buffer-from-string' );
 Allocates a [buffer][@stdlib/buffer/ctor] containing a provided `string`.
 
 ```javascript
-var buf = string2buffer( 'beep boop' );
+var buf = string2buffer('beep boop');
 // returns <Buffer>
 ```
 
 The default character encoding is `utf8`. To specify an alternative encoding, provide an `encoding` argument.
 
 ```javascript
-var buf = string2buffer( '7468697320697320612074c3a97374', 'hex' );
+var buf = string2buffer('7468697320697320612074c3a97374', 'hex');
 // returns <Buffer>
 ```
 
 The following `encodings` are supported:
 
--   `utf8` (`utf-8`)
--   `hex`
--   `binary`
--   `ascii`
--   `ucs2`
--   `base64`
+- `utf8` (`utf-8`)
+- `hex`
+- `binary`
+- `ascii`
+- `ucs2`
+- `base64`
 
 </section>
 
@@ -98,25 +98,25 @@ The following `encodings` are supported:
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var randu = require( '@stdlib/random-base-randu' );
-var randint = require( '@stdlib/random-base-discrete-uniform' );
-var string2buffer = require( '@stdlib/buffer-from-string' );
+var randu = require('@stdlib/random-base-randu');
+var randint = require('@stdlib/random-base-discrete-uniform');
+var string2buffer = require('@stdlib/buffer-from-string');
 
 // Create a buffer from a string:
-var buf = string2buffer( 'beep boop bop' );
-console.log( buf.toString() );
+var buf = string2buffer('beep boop bop');
+console.log(buf.toString());
 
 // Generate random strings...
 var i;
 var j;
-for ( i = 0; i < 100; i++ ) {
-    j = randint( 0, buf.length );
-    if ( randu() < 2/buf.length ) {
-        buf[ j ] = 32; // space
-    } else {
-        buf[ j ] = randint( 97, 122 );
-    }
-    console.log( buf.toString() );
+for (i = 0; i < 100; i++) {
+  j = randint(0, buf.length);
+  if (randu() < 2 / buf.length) {
+    buf[j] = 32; // space
+  } else {
+    buf[j] = randint(97, 122);
+  }
+  console.log(buf.toString());
 }
 ```
 
@@ -134,10 +134,9 @@ for ( i = 0; i < 100; i++ ) {
 
 <!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -155,7 +154,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -170,25 +168,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/buffer-from-string.svg
 [npm-url]: https://npmjs.org/package/@stdlib/buffer-from-string
-
 [test-image]: https://github.com/stdlib-js/buffer-from-string/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/buffer-from-string/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/buffer-from-string/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/buffer-from-string?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/buffer-from-string.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/buffer-from-string/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/buffer-from-string/main/LICENSE
-
 [@stdlib/buffer/ctor]: https://www.npmjs.com/package/@stdlib/buffer-ctor
 
 </section>

@@ -39,7 +39,7 @@ npm install @stdlib/fs-read-file
 ## Usage
 
 ```javascript
-var readFile = require( '@stdlib/fs-read-file' );
+var readFile = require('@stdlib/fs-read-file');
 ```
 
 #### readFile( file\[, options], clbk )
@@ -47,13 +47,13 @@ var readFile = require( '@stdlib/fs-read-file' );
 Asynchronously reads the entire contents of a file.
 
 ```javascript
-readFile( __filename, onFile );
+readFile(__filename, onFile);
 
-function onFile( error, data ) {
-    if ( error ) {
-        throw error;
-    }
-    console.log( data );
+function onFile(error, data) {
+  if (error) {
+    throw error;
+  }
+  console.log(data);
 }
 ```
 
@@ -64,11 +64,11 @@ The function accepts the same `options` and has the same defaults as [`fs.readFi
 Synchronously reads the entire contents of a `file`.
 
 ```javascript
-var out = readFile.sync( __filename );
-if ( out instanceof Error ) {
-    throw out;
+var out = readFile.sync(__filename);
+if (out instanceof Error) {
+  throw out;
 }
-console.log( out );
+console.log(out);
 ```
 
 The function accepts the same `options` and has the same defaults as [`fs.readFileSync()`][node-fs].
@@ -81,34 +81,33 @@ The function accepts the same `options` and has the same defaults as [`fs.readFi
 
 ## Notes
 
--   The difference between this API and [`fs.readFileSync()`][node-fs] is that [`fs.readFileSync()`][node-fs] will throw if an `error` is encountered (e.g., if given a non-existent `path`) and this API will return an `error`. Hence, the following anti-pattern
+- The difference between this API and [`fs.readFileSync()`][node-fs] is that [`fs.readFileSync()`][node-fs] will throw if an `error` is encountered (e.g., if given a non-existent `path`) and this API will return an `error`. Hence, the following anti-pattern
 
+  ```javascript
+  var fs = require('fs');
 
-    ```javascript
-    var fs = require( 'fs' );
+  var file = '/path/to/file.js';
 
-    var file = '/path/to/file.js';
+  // Check for existence to prevent an error being thrown...
+  if (fs.existsSync(file)) {
+    file = fs.readFileSync(file);
+  }
+  ```
 
-    // Check for existence to prevent an error being thrown...
-    if ( fs.existsSync( file ) ) {
-        file = fs.readFileSync( file );
-    }
-    ```
+  can be replaced by an approach which addresses existence via `error` handling.
 
-    can be replaced by an approach which addresses existence via `error` handling.
+  ```javascript
+  var readFile = require('@stdlib/fs-read-file');
 
-    ```javascript
-    var readFile = require( '@stdlib/fs-read-file' );
+  var file = '/path/to/file.js';
 
-    var file = '/path/to/file.js';
-
-    // Explicitly handle the error...
-    file = readFile.sync( file );
-    if ( file instanceof Error ) {
-        // You choose what to do...
-        console.error( file.message );
-    }
-    ```
+  // Explicitly handle the error...
+  file = readFile.sync(file);
+  if (file instanceof Error) {
+    // You choose what to do...
+    console.error(file.message);
+  }
+  ```
 
 </section>
 
@@ -121,39 +120,39 @@ The function accepts the same `options` and has the same defaults as [`fs.readFi
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var readFile = require( '@stdlib/fs-read-file' );
+var readFile = require('@stdlib/fs-read-file');
 
 /* Sync */
 
-var file = readFile.sync( __filename, 'utf8' );
+var file = readFile.sync(__filename, 'utf8');
 // returns <string>
 
-console.log( file instanceof Error );
+console.log(file instanceof Error);
 // => false
 
-file = readFile.sync( 'beepboop', {
-    'encoding': 'utf8'
+file = readFile.sync('beepboop', {
+  encoding: 'utf8',
 });
 // returns <Error>
 
-console.log( file instanceof Error );
+console.log(file instanceof Error);
 // => true
 
 /* Async */
 
-readFile( __filename, onFile );
-readFile( 'beepboop', onFile );
+readFile(__filename, onFile);
+readFile('beepboop', onFile);
 
-function onFile( error, data ) {
-    if ( error ) {
-        if ( error.code === 'ENOENT' ) {
-            console.error( 'File does not exist.' );
-        } else {
-            throw error;
-        }
+function onFile(error, data) {
+  if (error) {
+    if (error.code === 'ENOENT') {
+      console.error('File does not exist.');
     } else {
-        console.log( data );
+      throw error;
     }
+  } else {
+    console.log(data);
+  }
 }
 ```
 
@@ -161,7 +160,7 @@ function onFile( error, data ) {
 
 <!-- /.examples -->
 
-* * *
+---
 
 <section class="cli">
 
@@ -202,9 +201,9 @@ Options:
 
 ### Notes
 
--   Relative file paths are resolved relative to the current working directory.
--   Errors are written to `stderr`.
--   File contents are written to `stdout`.
+- Relative file paths are resolved relative to the current working directory.
+- Errors are written to `stderr`.
+- File contents are written to `stdout`.
 
 </section>
 
@@ -227,10 +226,9 @@ $ read-file ./README.md
 
 <!-- /.cli -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -248,7 +246,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -263,25 +260,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/fs-read-file.svg
 [npm-url]: https://npmjs.org/package/@stdlib/fs-read-file
-
 [test-image]: https://github.com/stdlib-js/fs-read-file/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/fs-read-file/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/fs-read-file/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/fs-read-file?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/fs-read-file.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/fs-read-file/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/fs-read-file/main/LICENSE
-
 [node-fs]: https://nodejs.org/api/fs.html
 
 </section>

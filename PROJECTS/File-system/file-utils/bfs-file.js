@@ -18,7 +18,7 @@ module.exports = (file, opts) => {
   };
   if (!opts) opts = {};
   if (opts.vars)
-    Object.keys(opts.vars).forEach(key => {
+    Object.keys(opts.vars).forEach((key) => {
       vars[key] = opts.vars[key];
     });
 
@@ -60,7 +60,7 @@ module.exports = (file, opts) => {
     if (isBuffer) stream.push('Buffer(');
 
     const s = fs.createReadStream(file, { encoding: enc });
-    s.on('error', err => {
+    s.on('error', (err) => {
       sm.emit('error', err);
     });
     return s.pipe(quote()).pipe(stream);
@@ -89,7 +89,7 @@ module.exports = (file, opts) => {
     }
     const stream = fs
       .createReadStream(file, { encoding: enc })
-      .on('error', err => {
+      .on('error', (err) => {
         sm.emit('error', err);
       })
       .pipe(quote())

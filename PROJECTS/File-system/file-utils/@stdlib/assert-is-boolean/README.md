@@ -39,7 +39,7 @@ npm install @stdlib/assert-is-boolean
 ### Usage
 
 ```javascript
-var isBoolean = require( '@stdlib/assert-is-boolean' );
+var isBoolean = require('@stdlib/assert-is-boolean');
 ```
 
 #### isBoolean( value )
@@ -49,16 +49,16 @@ Tests if a `value` is a `boolean`.
 <!-- eslint-disable no-new-wrappers -->
 
 ```javascript
-var bool = isBoolean( false );
+var bool = isBoolean(false);
 // returns true
 
-bool = isBoolean( true );
+bool = isBoolean(true);
 // returns true
 
-bool = isBoolean( new Boolean( false ) );
+bool = isBoolean(new Boolean(false));
 // returns true
 
-bool = isBoolean( new Boolean( true ) );
+bool = isBoolean(new Boolean(true));
 // returns true
 ```
 
@@ -69,13 +69,13 @@ Tests if a `value` is a primitive `boolean`.
 <!-- eslint-disable no-new-wrappers -->
 
 ```javascript
-var bool = isBoolean.isPrimitive( true );
+var bool = isBoolean.isPrimitive(true);
 // returns true
 
-bool = isBoolean.isPrimitive( false );
+bool = isBoolean.isPrimitive(false);
 // returns true
 
-bool = isBoolean.isPrimitive( new Boolean( true ) );
+bool = isBoolean.isPrimitive(new Boolean(true));
 // returns false
 ```
 
@@ -86,10 +86,10 @@ Tests if a `value` is a `Boolean` object.
 <!-- eslint-disable no-new-wrappers -->
 
 ```javascript
-var bool = isBoolean.isObject( true );
+var bool = isBoolean.isObject(true);
 // returns false
 
-bool = isBoolean.isObject( new Boolean( false ) );
+bool = isBoolean.isObject(new Boolean(false));
 // returns true
 ```
 
@@ -106,18 +106,18 @@ bool = isBoolean.isObject( new Boolean( false ) );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var isBoolean = require( '@stdlib/assert-is-boolean' );
+var isBoolean = require('@stdlib/assert-is-boolean');
 
-var bool = isBoolean( false );
+var bool = isBoolean(false);
 // returns true
 
-bool = isBoolean( new Boolean( false ) );
+bool = isBoolean(new Boolean(false));
 // returns true
 
-bool = isBoolean( 'true' );
+bool = isBoolean('true');
 // returns false
 
-bool = isBoolean( null );
+bool = isBoolean(null);
 // returns false
 ```
 
@@ -125,10 +125,9 @@ bool = isBoolean( null );
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -146,7 +145,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -161,23 +159,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/assert-is-boolean.svg
 [npm-url]: https://npmjs.org/package/@stdlib/assert-is-boolean
-
 [test-image]: https://github.com/stdlib-js/assert-is-boolean/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/assert-is-boolean/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/assert-is-boolean/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/assert-is-boolean?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/assert-is-boolean.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/assert-is-boolean/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/assert-is-boolean/main/LICENSE
 
 </section>

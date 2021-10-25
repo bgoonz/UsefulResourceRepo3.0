@@ -5,19 +5,19 @@ function mixin(target, ...sources) {
 const canEat = {
   eat: function () {
     this.hunger--;
-    console.log("eating");
+    console.log('eating');
   },
 };
 
 const canWalk = {
   walk: function () {
-    console.log("walking");
+    console.log('walking');
   },
 };
 
 const canSwim = {
   swim: function () {
-    console.log("swimming");
+    console.log('swimming');
   },
 };
 

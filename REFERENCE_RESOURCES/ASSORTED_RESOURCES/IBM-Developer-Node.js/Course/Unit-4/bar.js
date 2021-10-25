@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 const foo = require('./foo');
 
 // Say hello, a!

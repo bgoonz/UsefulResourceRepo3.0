@@ -6,7 +6,7 @@ class Circle {
     this[_radius] = radius;
   }
   [_draw]() {
-    console.log("drawing");
+    console.log('drawing');
   }
 }
 

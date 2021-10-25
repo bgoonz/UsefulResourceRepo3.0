@@ -8,16 +8,16 @@ function Circle(radius) {
   };
 
   this.draw = function () {
-    console.log("draw");
+    console.log('draw');
   };
 
-  Object.defineProperty(this, "defaultLocation", {
+  Object.defineProperty(this, 'defaultLocation', {
     get: function () {
       return defaultLocation;
     },
     set: function (value) {
       if (!value.x || !value.y) {
-        throw new Error("Invalid location");
+        throw new Error('Invalid location');
       }
       defaultLocation = value;
     },

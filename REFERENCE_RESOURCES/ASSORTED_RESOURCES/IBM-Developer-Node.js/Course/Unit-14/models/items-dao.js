@@ -27,49 +27,49 @@ const itemsDaoImpl = require('./items-dao-cloudant');
 /**
  * Find the Item object by the specified ID
  * using the underlying implementation.
- * 
+ *
  * @param {Number} id - the ID of the item record (SQL) or document (NoSQL)
  * to locate
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): the Item object that matches the id
- *          or null if one could not be located for that id 
+ *          or null if one could not be located for that id
  *  reject(): the err object from the underlying data store
  */
 function findById(id) {
-    return itemsDaoImpl.findById(id);
+  return itemsDaoImpl.findById(id);
 }
 
 /**
  * Find all Items objects that match the specified
  * partial description.
- * 
+ *
  * @param {String} partialDescription
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): all Item objects that contain the partial
  *          descriptin provided or an empty array if nothing
- *          could not be located for that partialDescription 
+ *          could not be located for that partialDescription
  *  reject(): the err object from the underlying data store
  */
 function findByDescription(partialDescription) {
-    return itemsDaoImpl.findByDescription(partialDescription);
+  return itemsDaoImpl.findByDescription(partialDescription);
 }
 
 /**
  * Find the Item object that matches the specified
  * UPC exactly.
- * 
+ *
  * @param {String} upc - the UPC of the item record (SQL) or document (NoSQL)
  * to locate
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): the Item object that matches the UPC symbol
  *          or null if one could not be located for that UPC
  *  reject()): the err object from the underlying data store.
  */
 function findByUpc(upc) {
-    return itemsDaoImpl.findByUpc(upc);
+  return itemsDaoImpl.findByUpc(upc);
 }
 
 module.exports.findById = findById;

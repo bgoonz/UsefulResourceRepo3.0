@@ -3,7 +3,7 @@ function createCircle(radius) {
   return {
     radius,
     draw() {
-      console.log("draw");
+      console.log('draw');
     },
   };
 }
@@ -15,7 +15,7 @@ console.log(circleFac.constructor);
 function Circle(radius) {
   this.radius = radius;
   this.draw = () => {
-    console.log("draw");
+    console.log('draw');
   };
 }
 const circleCon = new Circle(1);

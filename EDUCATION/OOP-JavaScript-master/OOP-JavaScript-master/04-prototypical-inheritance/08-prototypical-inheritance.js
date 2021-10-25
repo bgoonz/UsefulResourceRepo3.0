@@ -1,11 +1,11 @@
 function HtmlElement() {
   this.click = function () {
-    console.log("clicked");
+    console.log('clicked');
   };
 }
 
 HtmlElement.prototype.focus = function () {
-  console.log("focused");
+  console.log('focused');
 };
 
 function HtmlSelectElement(items = []) {

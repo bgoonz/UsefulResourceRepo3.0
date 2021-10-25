@@ -1,0 +1,28 @@
+{
+  "name": "lint.me-backend",
+  "private": true,
+  "version": "0.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/circlecell/lint.me.git"
+  },
+  "author": "Circlecell",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/circlecell/lint.me/issues"
+  },
+  "homepage": "https://github.com/circlecell/lint.me#readme",
+  "dependencies": {
+    "body-parser": "^1.15.2",
+    "child-process-promise": "^2.2.0",
+    "express": "^4.14.0",
+    "fs-promise": "^1.0.0",
+    "html-validator": "^2.0.3",
+    "stylelint": "^7.5.0",
+    "stylelint-config-standard": "^14.0.0"
+  }
+}

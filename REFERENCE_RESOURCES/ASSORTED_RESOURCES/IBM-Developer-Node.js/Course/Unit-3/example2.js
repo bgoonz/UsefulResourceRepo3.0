@@ -13,9 +13,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-var array = ['Hello' , ' ', 'there', ' ', 'REPL'];
+var array = ['Hello', ' ', 'there', ' ', 'REPL'];
 var message = '';
 for (let word of array) {
-    message += word;
+  message += word;
 }
 message += '!';

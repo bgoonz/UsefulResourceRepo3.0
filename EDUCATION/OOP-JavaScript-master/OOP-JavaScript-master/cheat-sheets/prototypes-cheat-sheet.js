@@ -6,10 +6,10 @@ Object.getPrototypeOf(obj);
 // not use that in the code.
 
 // To get the attributes of a property:
-Object.getOwnPropertyDescriptor(obj, "propertyName");
+Object.getOwnPropertyDescriptor(obj, 'propertyName');
 
 // To set the attributes for a property:
-Object.defineProperty(obj, "propertyName", {
+Object.defineProperty(obj, 'propertyName', {
   configurable: false, // cannot be deleted
   writable: false,
   enumerable: false,

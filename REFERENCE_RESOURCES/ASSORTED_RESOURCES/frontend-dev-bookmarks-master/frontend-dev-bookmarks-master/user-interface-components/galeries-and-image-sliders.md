@@ -4,10 +4,8 @@
 
 A sophisticated way to present a collection of images on your website.
 
+---
 
+- **[Lightgallery.js](https://github.com/sachinchoolur/lightgallery.js/)**: Full featured JavaScript Lightbox gallery without any dependencies.
 
------------------------------------------
-+ **[Lightgallery.js](https://github.com/sachinchoolur/lightgallery.js/)**: Full featured JavaScript Lightbox gallery without any dependencies.
-
-
-------------------
+---

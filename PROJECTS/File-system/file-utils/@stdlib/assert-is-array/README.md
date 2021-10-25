@@ -39,7 +39,7 @@ npm install @stdlib/assert-is-array
 ## Usage
 
 ```javascript
-var isArray = require( '@stdlib/assert-is-array' );
+var isArray = require('@stdlib/assert-is-array');
 ```
 
 #### isArray( value )
@@ -47,7 +47,7 @@ var isArray = require( '@stdlib/assert-is-array' );
 Tests if a value is an `array`.
 
 ```javascript
-var bool = isArray( [] );
+var bool = isArray([]);
 // returns true
 ```
 
@@ -62,12 +62,12 @@ var bool = isArray( [] );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var isArray = require( '@stdlib/assert-is-array' );
+var isArray = require('@stdlib/assert-is-array');
 
-var bool = isArray( [ 1, 2, 3, 4 ] );
+var bool = isArray([1, 2, 3, 4]);
 // returns true
 
-bool = isArray( {} );
+bool = isArray({});
 // returns false
 ```
 
@@ -75,10 +75,9 @@ bool = isArray( {} );
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -96,7 +95,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -111,23 +109,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/assert-is-array.svg
 [npm-url]: https://npmjs.org/package/@stdlib/assert-is-array
-
 [test-image]: https://github.com/stdlib-js/assert-is-array/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/assert-is-array/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/assert-is-array/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/assert-is-array?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/assert-is-array.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/assert-is-array/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/assert-is-array/main/LICENSE
 
 </section>

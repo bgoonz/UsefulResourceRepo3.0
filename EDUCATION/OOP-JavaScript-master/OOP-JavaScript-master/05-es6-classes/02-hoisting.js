@@ -3,12 +3,12 @@ sayGoodBye(); //error
 
 // Function Declaration
 function sayHello() {
-  console.log("hello");
+  console.log('hello');
 }
 
 // Function Expression
 const sayGoodBye = function () {
-  console.log("goodbye");
+  console.log('goodbye');
 };
 
 //Function declarations are hoisted [Moved to the top of the JavaScript file

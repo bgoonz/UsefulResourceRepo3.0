@@ -37,7 +37,7 @@ class Rectangle {
   }
 
   draw() {
-    console.log("Rectangle with width" + _width.get(this));
+    console.log('Rectangle with width' + _width.get(this));
   }
 }
 

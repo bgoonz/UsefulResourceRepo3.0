@@ -22,16 +22,16 @@ const CATEGORY = 'example-16';
 
 // Logger configuration
 log4js.configure({
-    appenders: { 
-        consoleAppender: { 
-            type: 'console', 
-            layout: { 
-                type: 'pattern', 
-                pattern: '%d - %c:[%p]: %m' 
-            } 
-        } 
+  appenders: {
+    consoleAppender: {
+      type: 'console',
+      layout: {
+        type: 'pattern',
+        pattern: '%d - %c:[%p]: %m',
+      },
     },
-    categories: { default: { appenders: ['consoleAppender'], level: 'info' } }
+  },
+  categories: { default: { appenders: ['consoleAppender'], level: 'info' } },
 });
 
 // Create the logger

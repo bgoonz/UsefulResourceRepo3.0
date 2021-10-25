@@ -5,14 +5,14 @@ const path = require('path');
 const strip = require('strip-filename-increment');
 const ordinals = ['th', 'st', 'nd', 'rd'];
 
-const ordinal = n => {
+const ordinal = (n) => {
   if (isNaN(n)) {
     throw new TypeError('expected a number');
   }
   return ordinals[((n % 100) - 20) % 10] || ordinals[n % 100] || ordinals[0];
 };
 
-const toOrdinal = number => {
+const toOrdinal = (number) => {
   return `${Number(number)}${ordinal(Math.abs(number))}`;
 };
 
@@ -22,15 +22,15 @@ const format = {
     if (n > 1) return `${stem} copy ${n}`;
     return stem;
   },
-  default: (stem, n) => n > 1 ? `${stem} (${n})` : stem,
-  win32: (stem, n) => n > 1 ? `${stem} (${n})` : stem,
+  default: (stem, n) => (n > 1 ? `${stem} (${n})` : stem),
+  win32: (stem, n) => (n > 1 ? `${stem} (${n})` : stem),
   windows: (stem, n) => format.win32(stem, n),
   linux(stem, n) {
     if (n === 0) return stem;
     if (n === 1) return `${stem} (copy)`;
     if (n === 2) return `${stem} (another copy)`;
     return `${stem} (${toOrdinal(n)} copy)`;
-  }
+  },
 };
 
 /**
@@ -52,7 +52,9 @@ const format = {
  */
 
 const increment = (...args) => {
-  return typeof args[0] === 'string' ? increment.path(...args) : increment.file(...args);
+  return typeof args[0] === 'string'
+    ? increment.path(...args)
+    : increment.file(...args);
 };
 
 /**

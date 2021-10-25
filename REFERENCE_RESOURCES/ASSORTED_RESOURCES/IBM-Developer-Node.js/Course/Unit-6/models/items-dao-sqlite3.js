@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 
 /**
  * Sqlite3 implementation of the DAO interface for the
@@ -50,59 +50,62 @@ const FROM = `FROM item JOIN brand ON item.brand_id = brand.id`;
  * Find by Id - sqlite3 implementation
  */
 function findById(id) {
-    logger.debug(`Reading item with id = ${id}`, 'findById()');
-    return new Promise((resolve, reject) => {
-        let sql = `${SELECT} ${FROM} WHERE item.id = ?`;
-        db.get(sql, id, (err, row) => {
-            if (err) {
-                let message = `Error reading from the database: ${err.message}`;
-                logger.error(message, 'findById()');
-                reject(message);
-            } else if (row) {
-                resolve({ data : JSON.stringify(row), statusCode: 200 });
-            } else {
-                resolve({ data : JSON.stringify({}), statusCode: 404 });
-            }
-        });
+  logger.debug(`Reading item with id = ${id}`, 'findById()');
+  return new Promise((resolve, reject) => {
+    let sql = `${SELECT} ${FROM} WHERE item.id = ?`;
+    db.get(sql, id, (err, row) => {
+      if (err) {
+        let message = `Error reading from the database: ${err.message}`;
+        logger.error(message, 'findById()');
+        reject(message);
+      } else if (row) {
+        resolve({ data: JSON.stringify(row), statusCode: 200 });
+      } else {
+        resolve({ data: JSON.stringify({}), statusCode: 404 });
+      }
     });
+  });
 }
 
 /**
  * Find all by partial description - sqlite3 implementation
  */
 function findByDescription(partialDescription) {
-    return new Promise((resolve, reject) => {
-        let sql = `${SELECT} ${FROM} WHERE item.description like ?`;
-        db.all(sql, [`%${partialDescription}%`], (err, rows) => {
-            if (err) {
-                let message = `Error reading from the database: ${err.message}`;
-                logger.error(message, 'findByDescription()');
-                reject(message);
-            } else {
-                resolve({ data : JSON.stringify(rows), statusCode: (rows.length > 0) ? 200 : 404 });
-            }
+  return new Promise((resolve, reject) => {
+    let sql = `${SELECT} ${FROM} WHERE item.description like ?`;
+    db.all(sql, [`%${partialDescription}%`], (err, rows) => {
+      if (err) {
+        let message = `Error reading from the database: ${err.message}`;
+        logger.error(message, 'findByDescription()');
+        reject(message);
+      } else {
+        resolve({
+          data: JSON.stringify(rows),
+          statusCode: rows.length > 0 ? 200 : 404,
         });
+      }
     });
+  });
 }
 
 /**
  * Find by UPC - sqlite3 implementation
  */
 function findByUpc(upc) {
-    return new Promise((resolve, reject) => {
-        let sql = `${SELECT} ${FROM} WHERE item.upc = ?`;
-        db.get(sql, upc, (err, row) => {
-            if (err) {
-                let message = `Error reading from the database: ${err.message}`;
-                logger.error(message, 'findByUpc()');
-                reject(message);
-            } else if (row) {
-                resolve({ data : JSON.stringify(row), statusCode: 200 });
-            } else {
-                resolve({ data : JSON.stringify({}), statusCode: 404 });
-            }
-        });
+  return new Promise((resolve, reject) => {
+    let sql = `${SELECT} ${FROM} WHERE item.upc = ?`;
+    db.get(sql, upc, (err, row) => {
+      if (err) {
+        let message = `Error reading from the database: ${err.message}`;
+        logger.error(message, 'findByUpc()');
+        reject(message);
+      } else if (row) {
+        resolve({ data: JSON.stringify(row), statusCode: 200 });
+      } else {
+        resolve({ data: JSON.stringify({}), statusCode: 404 });
+      }
     });
+  });
 }
 
 module.exports.findById = findById;

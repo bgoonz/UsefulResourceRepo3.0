@@ -22,13 +22,11 @@ const CATEGORY = 'example-8';
 
 // Logger configuration
 const logConfiguration = {
-    transports: [
-        new winston.transports.Console()
-    ],
-    format: winston.format.combine(
-        winston.format.splat(),
-        winston.format.simple()
-    )
+  transports: [new winston.transports.Console()],
+  format: winston.format.combine(
+    winston.format.splat(),
+    winston.format.simple()
+  ),
 };
 
 // Create the logger

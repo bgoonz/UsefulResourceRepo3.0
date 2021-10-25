@@ -13,7 +13,7 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 
 /**
  * This is the DAO interface for the application.
@@ -30,14 +30,14 @@
  * Create a shopping list with the specified description
  */
 function create(description) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
  * Find the shopping list with the specified id
  */
 function findById(id) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
@@ -45,7 +45,7 @@ function findById(id) {
  * and return all items associated with it
  */
 function findByIdWithAllItems(id) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
@@ -53,7 +53,7 @@ function findByIdWithAllItems(id) {
  * with new field values
  */
 function update(id, description) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
@@ -61,7 +61,7 @@ function update(id, description) {
  * list, along with values for the relationship
  */
 function addItem(listId, itemId, quantity) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
@@ -69,7 +69,7 @@ function addItem(listId, itemId, quantity) {
  * list, along with values for the relationship
  */
 function updateItem(listId, itemId, quantity, pickedUp) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 /**
@@ -77,7 +77,7 @@ function updateItem(listId, itemId, quantity, pickedUp) {
  * list
  */
 function removeItem(listId, itemId) {
-// Node Dev TODO: Add your code here
+  // Node Dev TODO: Add your code here
 }
 
 // Node Dev TODO: Add your code here

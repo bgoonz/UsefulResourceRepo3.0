@@ -39,7 +39,7 @@ npm install @stdlib/utils-define-nonenumerable-read-only-property
 ## Usage
 
 ```javascript
-var setNonEnumerableReadOnly = require( '@stdlib/utils-define-nonenumerable-read-only-property' );
+var setNonEnumerableReadOnly = require('@stdlib/utils-define-nonenumerable-read-only-property');
 ```
 
 #### setNonEnumerableReadOnly( obj, prop, value )
@@ -51,7 +51,7 @@ var setNonEnumerableReadOnly = require( '@stdlib/utils-define-nonenumerable-read
 ```javascript
 var obj = {};
 
-setNonEnumerableReadOnly( obj, 'foo', 'bar' );
+setNonEnumerableReadOnly(obj, 'foo', 'bar');
 
 obj.foo = 'boop';
 // throws <Error>
@@ -65,7 +65,7 @@ obj.foo = 'boop';
     
 ## Notes
 
--   Non-enumerable read-only properties are **non-configurable**.
+- Non-enumerable read-only properties are **non-configurable**.
 
 </section>
 
@@ -78,22 +78,22 @@ obj.foo = 'boop';
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var setNonEnumerableReadOnly = require( '@stdlib/utils-define-nonenumerable-read-only-property' );
+var setNonEnumerableReadOnly = require('@stdlib/utils-define-nonenumerable-read-only-property');
 
-function Foo( name ) {
-    if ( !(this instanceof Foo) ) {
-        return new Foo( name );
-    }
-    setNonEnumerableReadOnly( this, 'name', name );
-    return this;
+function Foo(name) {
+  if (!(this instanceof Foo)) {
+    return new Foo(name);
+  }
+  setNonEnumerableReadOnly(this, 'name', name);
+  return this;
 }
 
-var foo = new Foo( 'beep' );
+var foo = new Foo('beep');
 
 try {
-    foo.name = 'boop';
-} catch ( err ) {
-    console.error( err.message );
+  foo.name = 'boop';
+} catch (err) {
+  console.error(err.message);
 }
 ```
 
@@ -101,10 +101,9 @@ try {
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -132,23 +131,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/utils-define-nonenumerable-read-only-property.svg
 [npm-url]: https://npmjs.org/package/@stdlib/utils-define-nonenumerable-read-only-property
-
 [test-image]: https://github.com/stdlib-js/utils-define-nonenumerable-read-only-property/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/utils-define-nonenumerable-read-only-property/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/utils-define-nonenumerable-read-only-property/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/utils-define-nonenumerable-read-only-property?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/utils-define-nonenumerable-read-only-property.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/utils-define-nonenumerable-read-only-property/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [@stdlib/utils/define-property]: https://www.npmjs.com/package/@stdlib/utils-define-property
 
 </section>

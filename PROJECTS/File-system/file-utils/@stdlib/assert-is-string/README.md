@@ -39,7 +39,7 @@ npm install @stdlib/assert-is-string
 ## Usage
 
 ```javascript
-var isString = require( '@stdlib/assert-is-string' );
+var isString = require('@stdlib/assert-is-string');
 ```
 
 #### isString( value )
@@ -49,10 +49,10 @@ Tests if a value is a `string`.
 <!-- eslint-disable no-new-wrappers -->
 
 ```javascript
-var bool = isString( 'beep' );
+var bool = isString('beep');
 // returns true
 
-bool = isString( new String( 'beep' ) );
+bool = isString(new String('beep'));
 // returns true
 ```
 
@@ -63,10 +63,10 @@ Tests if a `value` is a primitive `string`.
 <!-- eslint-disable no-new-wrappers -->
 
 ```javascript
-var bool = isString.isPrimitive( 'beep' );
+var bool = isString.isPrimitive('beep');
 // returns true
 
-bool = isString.isPrimitive( new String( 'boop' ) );
+bool = isString.isPrimitive(new String('boop'));
 // returns false
 ```
 
@@ -77,10 +77,10 @@ Tests if a `value` is a `String` object.
 <!-- eslint-disable no-new-wrappers -->
 
 ```javascript
-var bool = isString.isObject( 'beep' );
+var bool = isString.isObject('beep');
 // returns false
 
-bool = isString.isObject( new String( 'boop' ) );
+bool = isString.isObject(new String('boop'));
 // returns true
 ```
 
@@ -97,30 +97,30 @@ bool = isString.isObject( new String( 'boop' ) );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var isString = require( '@stdlib/assert-is-string' );
+var isString = require('@stdlib/assert-is-string');
 
-var bool = isString( 'beep' );
+var bool = isString('beep');
 // returns true
 
-bool = isString( new String( 'beep' ) );
+bool = isString(new String('beep'));
 // returns true
 
-bool = isString( 5 );
+bool = isString(5);
 // returns false
 
-bool = isString( null );
+bool = isString(null);
 // returns false
 
-bool = isString( void 0 );
+bool = isString(void 0);
 // returns false
 
-bool = isString( {} );
+bool = isString({});
 // returns false
 
-bool = isString( [] );
+bool = isString([]);
 // returns false
 
-bool = isString( function foo() {} );
+bool = isString(function foo() {});
 // returns false
 ```
 
@@ -128,10 +128,9 @@ bool = isString( function foo() {} );
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -149,7 +148,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -164,23 +162,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/assert-is-string.svg
 [npm-url]: https://npmjs.org/package/@stdlib/assert-is-string
-
 [test-image]: https://github.com/stdlib-js/assert-is-string/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/assert-is-string/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/assert-is-string/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/assert-is-string?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/assert-is-string.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/assert-is-string/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/assert-is-string/main/LICENSE
 
 </section>

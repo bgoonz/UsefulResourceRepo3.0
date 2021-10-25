@@ -39,7 +39,7 @@ npm install @stdlib/utils-noop
 ## Usage
 
 ```javascript
-var noop = require( '@stdlib/utils-noop' );
+var noop = require('@stdlib/utils-noop');
 ```
 
 #### noop()
@@ -62,26 +62,25 @@ noop();
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var noop = require( '@stdlib/utils-noop' );
+var noop = require('@stdlib/utils-noop');
 
-function foo( next ) {
-    // Do something...
+function foo(next) {
+  // Do something...
 
-    // Then...
-    next();
+  // Then...
+  next();
 }
 
-foo( noop );
+foo(noop);
 ```
 
 </section>
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -99,7 +98,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -114,25 +112,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/utils-noop.svg
 [npm-url]: https://npmjs.org/package/@stdlib/utils-noop
-
 [test-image]: https://github.com/stdlib-js/utils-noop/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/utils-noop/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/utils-noop/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/utils-noop?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/utils-noop.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/utils-noop/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/utils-noop/main/LICENSE
-
 [nop]: https://en.wikipedia.org/wiki/NOP
 
 </section>

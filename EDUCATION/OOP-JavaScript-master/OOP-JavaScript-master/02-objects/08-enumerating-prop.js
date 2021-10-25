@@ -1,7 +1,7 @@
 function Circle(radius) {
   this.radius = radius;
   this.draw = function () {
-    console.log("draw");
+    console.log('draw');
   };
 }
 
@@ -9,7 +9,7 @@ const circle = new Circle(10);
 
 // for in loop
 for (let key in circle) {
-  if (typeof circle[key] !== "function") console.log(key, circle[key]);
+  if (typeof circle[key] !== 'function') console.log(key, circle[key]);
 }
 
 // Object.keys
@@ -36,6 +36,6 @@ entry.map((items) => {
 });
 
 // In operator
-if ("radius" in circle) {
-  console.log("Circle has a radius");
+if ('radius' in circle) {
+  console.log('Circle has a radius');
 }

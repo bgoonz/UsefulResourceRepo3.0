@@ -1,5 +1,5 @@
-window.addEventListener("DOMContentLoaded", (event) => {
-  console.log("DOM fully loaded and parsed");
+window.addEventListener('DOMContentLoaded', (event) => {
+  console.log('DOM fully loaded and parsed');
   const scrollToTop = () => {
     const c = document.documentElement.scrollTop || document.body.scrollTop;
     if (c > 0) {
@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
 //-------button
 
 //Get the button:
-mybutton = document.getElementById("scrollBtn");
+mybutton = document.getElementById('scrollBtn');
 // When the user scrolls down 20px from the top of the document, show the button
 window.onscroll = function () {
   scrollFunction();
@@ -21,9 +21,9 @@ window.onscroll = function () {
 
 function scrollFunction() {
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
+    mybutton.style.display = 'block';
   } else {
-    mybutton.style.display = "none";
+    mybutton.style.display = 'none';
   }
 }
 // When the user clicks on the button, scroll to the top of the document

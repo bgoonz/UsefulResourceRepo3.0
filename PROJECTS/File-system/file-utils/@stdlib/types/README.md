@@ -53,12 +53,12 @@ npm install @stdlib/types
 
 import { ArrayLike } from '@stdlib/types/array';
 
-function sum( x: ArrayLike ): number {
-    let s = 0.0;
-    for ( let i = 0; i < x.length; i++ ) {
-        s += x[ i ];
-    }
-    return s;
+function sum(x: ArrayLike): number {
+  let s = 0.0;
+  for (let i = 0; i < x.length; i++) {
+    s += x[i];
+  }
+  return s;
 }
 ```
 
@@ -69,18 +69,18 @@ Type declarations are organized as modules. For example, to use iterator type de
 
 import { Iterator } from '@stdlib/types/iter';
 
-function sum( iter: Iterator ): number {
-    let s = 0.0;
-    while ( true ) {
-        let v = iter.next();
-        if ( typeof v.value === 'number' ) {
-            s += v.value;
-        }
-        if ( v.done ) {
-            break;
-        }
+function sum(iter: Iterator): number {
+  let s = 0.0;
+  while (true) {
+    let v = iter.next();
+    if (typeof v.value === 'number') {
+      s += v.value;
     }
-    return s;
+    if (v.done) {
+      break;
+    }
+  }
+  return s;
 }
 ```
 
@@ -96,18 +96,18 @@ For the complete list of declared modules, see the `index.d.ts` type declaration
 
 ## Notes
 
--   In order to use included TypeScript declarations, configure your `tsconfig.json` file accordingly. For example,
+- In order to use included TypeScript declarations, configure your `tsconfig.json` file accordingly. For example,
 
-    ```text
-    {
-      "compilerOptions": {
-        ...
-        "typeRoots": [ "./path/to/@stdlib/types" ],
-        ...
-      },
+  ```text
+  {
+    "compilerOptions": {
       ...
-    }
-    ```
+      "typeRoots": [ "./path/to/@stdlib/types" ],
+      ...
+    },
+    ...
+  }
+  ```
 
 </section>
 
@@ -131,10 +131,9 @@ For the complete list of declared modules, see the `index.d.ts` type declaration
 
 <!-- Section for all links. Make sure to keep an empty line after the `section` element and another before the `/section` close. -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -152,7 +151,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -167,23 +165,16 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/types.svg
 [npm-url]: https://npmjs.org/package/@stdlib/types
-
 [test-image]: https://github.com/stdlib-js/types/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/types/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/types/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/types?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/types.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/types/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/types/main/LICENSE
 
 </section>

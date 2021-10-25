@@ -13,31 +13,30 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 const fs = require('fs');
 (function mainline() {
-    process.nextTick(() => {
-        console.log('A');
-    });
-    console.log('B');
+  process.nextTick(() => {
+    console.log('A');
+  });
+  console.log('B');
+  setTimeout(() => {
+    console.log('C');
+  }, 50);
+  setImmediate(() => {
+    console.log('D');
+  });
+  fs.readdir('./', 'utf8', (err, files) => {
+    console.log('E');
     setTimeout(() => {
-        console.log('C');
-    }, 50);
+      console.log('F');
+    }, 0);
     setImmediate(() => {
-        console.log('D');
+      console.log('G');
     });
-    fs.readdir('./', 'utf8', (err, files) => {
-        console.log('E');
-        setTimeout(() => {
-            console.log('F');
-        }, 0);
-        setImmediate(() => {
-            console.log('G');
-        });
-        process.nextTick(() => {
-            console.log('H');
-        });
+    process.nextTick(() => {
+      console.log('H');
     });
-    console.log('I');
+  });
+  console.log('I');
 })();
-

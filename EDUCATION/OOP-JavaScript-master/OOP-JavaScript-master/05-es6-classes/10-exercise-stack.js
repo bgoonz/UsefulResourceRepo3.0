@@ -13,7 +13,7 @@ class Stack {
     const items = _items.get(this);
 
     if (items.length === 0) {
-      throw new Error("Stack is empty");
+      throw new Error('Stack is empty');
     } else {
       return items.pop();
     }
@@ -23,7 +23,7 @@ class Stack {
     const items = _items.get(this);
 
     if (items.length === 0) {
-      throw new Error("Stack is empty");
+      throw new Error('Stack is empty');
     } else {
       return items[items.length - 1];
     }
@@ -39,5 +39,5 @@ const stack = new Stack();
 // test in console
 stack.count; // to view stacks lenght
 stack.peek(); // to view top item in stack
-stack.push("a"); // to add item to stack
+stack.push('a'); // to add item to stack
 stack.pop(); // to remove top item from stack

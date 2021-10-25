@@ -6,21 +6,21 @@ function extend(Child, Parent) {
 function Shape() {}
 
 Shape.prototype.duplicate = function () {
-  console.log("duplicate shape");
+  console.log('duplicate shape');
 };
 
 function Circle() {}
 extend(Circle, Shape);
 
 Circle.prototype.duplicate = function () {
-  console.log("duplicate circle");
+  console.log('duplicate circle');
 };
 
 function Square() {}
 extend(Square, Shape);
 
 Square.prototype.duplicate = function () {
-  console.log("duplicate square");
+  console.log('duplicate square');
 };
 
 const shapes = [new Circle(), new Square(), new Circle(), new Square()];

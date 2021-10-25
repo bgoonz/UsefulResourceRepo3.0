@@ -39,7 +39,7 @@ npm install @stdlib/assert-is-object-like
 ## Usage
 
 ```javascript
-var isObjectLike = require( '@stdlib/assert-is-object-like' );
+var isObjectLike = require('@stdlib/assert-is-object-like');
 ```
 
 #### isObjectLike( value )
@@ -47,13 +47,13 @@ var isObjectLike = require( '@stdlib/assert-is-object-like' );
 Tests if a `value` is object-like.
 
 ```javascript
-var bool = isObjectLike( {} );
+var bool = isObjectLike({});
 // returns true
 
-bool = isObjectLike( [] );
+bool = isObjectLike([]);
 // returns true
 
-bool = isObjectLike( true );
+bool = isObjectLike(true);
 // returns false
 ```
 
@@ -62,13 +62,13 @@ bool = isObjectLike( true );
 Tests if a `value` is an `array` of object-like values.
 
 ```javascript
-var bool = isObjectLike.isObjectLikeArray( [ {}, [] ] );
+var bool = isObjectLike.isObjectLikeArray([{}, []]);
 // returns true
 
-bool = isObjectLike.isObjectLikeArray( [ {}, '3.0' ] );
+bool = isObjectLike.isObjectLikeArray([{}, '3.0']);
 // returns false
 
-bool = isObjectLike.isObjectLikeArray( [] );
+bool = isObjectLike.isObjectLikeArray([]);
 // returns false
 ```
 
@@ -80,15 +80,15 @@ bool = isObjectLike.isObjectLikeArray( [] );
 
 ## Notes
 
--   Return values are the same as would be obtained using the built-in [`typeof`][type-of] operator **except** that `null` is **not** considered an `object`.
+- Return values are the same as would be obtained using the built-in [`typeof`][type-of] operator **except** that `null` is **not** considered an `object`.
 
-    ```javascript
-    var bool = ( typeof null === 'object' );
-    // returns true
+  ```javascript
+  var bool = typeof null === 'object';
+  // returns true
 
-    bool = isObjectLike( null );
-    // returns false
-    ```
+  bool = isObjectLike(null);
+  // returns false
+  ```
 
 </section>
 
@@ -103,47 +103,47 @@ bool = isObjectLike.isObjectLikeArray( [] );
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var Int8Array = require( '@stdlib/array-int8' );
-var ArrayBuffer = require( '@stdlib/array-buffer' );
-var isObjectLike = require( '@stdlib/assert-is-object-like' );
+var Int8Array = require('@stdlib/array-int8');
+var ArrayBuffer = require('@stdlib/array-buffer');
+var isObjectLike = require('@stdlib/assert-is-object-like');
 
-var bool = isObjectLike( {} );
+var bool = isObjectLike({});
 // returns true
 
-bool = isObjectLike( [] );
+bool = isObjectLike([]);
 // returns true
 
-bool = isObjectLike( /./ );
+bool = isObjectLike(/./);
 // returns true
 
-bool = isObjectLike( new Date() );
+bool = isObjectLike(new Date());
 // returns true
 
-bool = isObjectLike( Math );
+bool = isObjectLike(Math);
 // returns true
 
-bool = isObjectLike( JSON );
+bool = isObjectLike(JSON);
 // returns true
 
-bool = isObjectLike( new Int8Array() );
+bool = isObjectLike(new Int8Array());
 // returns true
 
-bool = isObjectLike( new ArrayBuffer() );
+bool = isObjectLike(new ArrayBuffer());
 // returns true
 
-bool = isObjectLike( 'a' );
+bool = isObjectLike('a');
 // returns false
 
-bool = isObjectLike( 5 );
+bool = isObjectLike(5);
 // returns false
 
-bool = isObjectLike( null );
+bool = isObjectLike(null);
 // returns false
 
-bool = isObjectLike( void 0 );
+bool = isObjectLike(void 0);
 // returns false
 
-bool = isObjectLike( function foo() {} );
+bool = isObjectLike(function foo() {});
 // returns false
 ```
 
@@ -151,10 +151,9 @@ bool = isObjectLike( function foo() {} );
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -172,7 +171,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -187,25 +185,17 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/assert-is-object-like.svg
 [npm-url]: https://npmjs.org/package/@stdlib/assert-is-object-like
-
 [test-image]: https://github.com/stdlib-js/assert-is-object-like/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/assert-is-object-like/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/assert-is-object-like/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/assert-is-object-like?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/assert-is-object-like.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/assert-is-object-like/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/assert-is-object-like/main/LICENSE
-
 [type-of]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof
 
 </section>

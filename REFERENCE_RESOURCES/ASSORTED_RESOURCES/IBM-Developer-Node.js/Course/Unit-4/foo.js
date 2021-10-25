@@ -13,9 +13,9 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 function hello() {
-    console.log('Hello from ' + __filename + '!');
+  console.log('Hello from ' + __filename + '!');
 }
 // Uncomment to expose the hello function to the world
 module.exports.hello = hello;

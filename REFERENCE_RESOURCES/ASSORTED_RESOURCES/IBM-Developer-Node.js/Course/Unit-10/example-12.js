@@ -19,13 +19,13 @@ const log4js = require('log4js');
 
 // Logger configuration
 log4js.configure({
-    appenders: { 
-        fileAppender: { type: 'file', filename: './logs/example-12.log' },
-        console: { type: 'console' } 
-    },
-    categories: { 
-        default: { appenders: ['fileAppender', 'console'], level: 'error' } 
-    }
+  appenders: {
+    fileAppender: { type: 'file', filename: './logs/example-12.log' },
+    console: { type: 'console' },
+  },
+  categories: {
+    default: { appenders: ['fileAppender', 'console'], level: 'error' },
+  },
 });
 
 // Create the logger

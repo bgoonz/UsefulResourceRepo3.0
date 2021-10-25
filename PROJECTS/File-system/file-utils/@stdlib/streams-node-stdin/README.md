@@ -39,7 +39,7 @@ npm install @stdlib/streams-node-stdin
 ## Usage
 
 ```javascript
-var stdin = require( '@stdlib/streams-node-stdin' );
+var stdin = require('@stdlib/streams-node-stdin');
 ```
 
 #### stdin
@@ -49,41 +49,41 @@ var stdin = require( '@stdlib/streams-node-stdin' );
 <!-- run-disable -->
 
 ```javascript
-var string2buffer = require( '@stdlib/buffer-from-string' );
-var Buffer = require( '@stdlib/buffer-ctor' );
+var string2buffer = require('@stdlib/buffer-from-string');
+var Buffer = require('@stdlib/buffer-ctor');
 
 var data = [];
 var len = 0;
 
-stdin.on( 'readable', onReadable );
-stdin.on( 'error', onError );
-stdin.on( 'end', onEnd );
+stdin.on('readable', onReadable);
+stdin.on('error', onError);
+stdin.on('end', onEnd);
 
 function onReadable() {
-    var chunk;
-    while ( true ) {
-        chunk = stdin.read();
-        if ( chunk === null ) {
-            break;
-        }
-        if ( typeof chunk === 'string' ) {
-            chunk = string2buffer( chunk );
-        }
-        data.push( chunk );
-        len += chunk.length;
+  var chunk;
+  while (true) {
+    chunk = stdin.read();
+    if (chunk === null) {
+      break;
     }
+    if (typeof chunk === 'string') {
+      chunk = string2buffer(chunk);
+    }
+    data.push(chunk);
+    len += chunk.length;
+  }
 }
 
-function onError( error ) {
-    if ( error ) {
-        console.error( error.message );
-    }
+function onError(error) {
+  if (error) {
+    console.error(error.message);
+  }
 }
 
 function onEnd() {
-    data = Buffer.concat( data, len );
-    console.log( data.toString() );
-    // => '...'
+  data = Buffer.concat(data, len);
+  console.log(data.toString());
+  // => '...'
 }
 ```
 
@@ -100,37 +100,36 @@ function onEnd() {
 <!-- eslint no-undef: "error" -->
 
 ```javascript
-var proc = require( 'process' );
-var stdin = require( '@stdlib/streams-node-stdin' );
-var stdout = require( '@stdlib/streams-node-stdout' );
+var proc = require('process');
+var stdin = require('@stdlib/streams-node-stdin');
+var stdout = require('@stdlib/streams-node-stdout');
 
 // Set the encoding:
-stdin.setEncoding( 'utf8' );
+stdin.setEncoding('utf8');
 
 // Create an echo stream:
-stdin.pipe( stdout );
+stdin.pipe(stdout);
 
 // Push data to `stdin`:
-stdin.push( 'beep' );
-stdin.push( ' ' );
-stdin.push( 'boop' );
-stdin.push( '\n' );
+stdin.push('beep');
+stdin.push(' ');
+stdin.push('boop');
+stdin.push('\n');
 
 // End the stream:
-stdin.push( null );
+stdin.push(null);
 
 // Ensure the process closes:
-setTimeout( proc.exit, 1000 );
+setTimeout(proc.exit, 1000);
 ```
 
 </section>
 
 <!-- /.examples -->
 
-
 <section class="main-repo" >
 
-* * *
+---
 
 ## Notice
 
@@ -148,7 +147,6 @@ For more information on the project, filing bug reports and feature requests, an
 
 See [LICENSE][stdlib-license].
 
-
 ## Copyright
 
 Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
@@ -163,27 +161,18 @@ Copyright &copy; 2016-2021. The Stdlib [Authors][stdlib-authors].
 
 [npm-image]: http://img.shields.io/npm/v/@stdlib/streams-node-stdin.svg
 [npm-url]: https://npmjs.org/package/@stdlib/streams-node-stdin
-
 [test-image]: https://github.com/stdlib-js/streams-node-stdin/actions/workflows/test.yml/badge.svg
 [test-url]: https://github.com/stdlib-js/streams-node-stdin/actions/workflows/test.yml
-
 [coverage-image]: https://img.shields.io/codecov/c/github/stdlib-js/streams-node-stdin/main.svg
 [coverage-url]: https://codecov.io/github/stdlib-js/streams-node-stdin?branch=main
-
 [dependencies-image]: https://img.shields.io/david/stdlib-js/streams-node-stdin.svg
 [dependencies-url]: https://david-dm.org/stdlib-js/streams-node-stdin/main
-
 [chat-image]: https://img.shields.io/gitter/room/stdlib-js/stdlib.svg
 [chat-url]: https://gitter.im/stdlib-js/stdlib/
-
 [stdlib]: https://github.com/stdlib-js/stdlib
-
 [stdlib-authors]: https://github.com/stdlib-js/stdlib/graphs/contributors
-
 [stdlib-license]: https://raw.githubusercontent.com/stdlib-js/streams-node-stdin/main/LICENSE
-
 [standard-streams]: https://en.wikipedia.org/wiki/Standard_streams
-
 [readable-stream]: https://nodejs.org/api/stream.html#stream_class_stream_readable
 
 </section>

@@ -13,13 +13,13 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 /**
  * This module is modeled after simple-logger, except that it uses Node's
  * event processing architecture to catch log messages. I'm not sure it's
  * all that useful, other than to demonstrate some of what you can do
  * with Events.
- * 
+ *
  *@author J Steven Perry
  */
 // Set to true to enable DEBUG mode
@@ -45,13 +45,12 @@ logger.setLogLevel(currentLogLevel);
  * Mutate the current Log Level
  */
 function setLogLevel(newLevel) {
-    // TODO: Q: Should we do some kind of sanity check on newLevel?
-    // Set the current log level
-    currentLogLevel = newLevel;
-    // Set the value of the log level in the underlying simple-logger
-    logger.setLogLevel(currentLogLevel);
+  // TODO: Q: Should we do some kind of sanity check on newLevel?
+  // Set the current log level
+  currentLogLevel = newLevel;
+  // Set the value of the log level in the underlying simple-logger
+  logger.setLogLevel(currentLogLevel);
 }
-
 
 // The EventEmitter to emit and listen for events
 const eventEmitter = new EventEmitter();
@@ -66,105 +65,140 @@ const EVENT_LIST_SIZE_MAX = 100;
  * Register all of the event listeners supported by this module
  */
 function registerEventListeners() {
-    // TRACE
-    eventEmitter.on(logger.Level.TRACE.outputString, function eventListener(eventInfo) {
-        push(logger.Level.TRACE, eventInfo);
-    });
-    // DEBUG
-    eventEmitter.on(logger.Level.DEBUG.outputString, function eventListener(eventInfo) {
-        push(logger.Level.DEBUG, eventInfo);
-    });
-    // INFO
-    eventEmitter.on(logger.Level.INFO.outputString, function eventListener(eventInfo) {
-        push(logger.Level.INFO, eventInfo);
-    });
-    // WARN
-    eventEmitter.on(logger.Level.WARN.outputString, function eventListener(eventInfo) {
-        push(logger.Level.WARN, eventInfo);
-    });
-    // ERROR
-    eventEmitter.on(logger.Level.ERROR.outputString, function eventListener(eventInfo) {
-        push(logger.Level.ERROR, eventInfo);
-    });
-    // FATAL
-    eventEmitter.on(logger.Level.FATAL.outputString, function eventListener(eventInfo) {
-        push(logger.Level.FATAL, eventInfo);
-    });
-    // When Node exits, make sure to flush the event list
-    process.on('exit', (code) => {
-        // Node is going bye bye. Flush the event list.
-        flush();
-    });
+  // TRACE
+  eventEmitter.on(
+    logger.Level.TRACE.outputString,
+    function eventListener(eventInfo) {
+      push(logger.Level.TRACE, eventInfo);
+    }
+  );
+  // DEBUG
+  eventEmitter.on(
+    logger.Level.DEBUG.outputString,
+    function eventListener(eventInfo) {
+      push(logger.Level.DEBUG, eventInfo);
+    }
+  );
+  // INFO
+  eventEmitter.on(
+    logger.Level.INFO.outputString,
+    function eventListener(eventInfo) {
+      push(logger.Level.INFO, eventInfo);
+    }
+  );
+  // WARN
+  eventEmitter.on(
+    logger.Level.WARN.outputString,
+    function eventListener(eventInfo) {
+      push(logger.Level.WARN, eventInfo);
+    }
+  );
+  // ERROR
+  eventEmitter.on(
+    logger.Level.ERROR.outputString,
+    function eventListener(eventInfo) {
+      push(logger.Level.ERROR, eventInfo);
+    }
+  );
+  // FATAL
+  eventEmitter.on(
+    logger.Level.FATAL.outputString,
+    function eventListener(eventInfo) {
+      push(logger.Level.FATAL, eventInfo);
+    }
+  );
+  // When Node exits, make sure to flush the event list
+  process.on('exit', (code) => {
+    // Node is going bye bye. Flush the event list.
+    flush();
+  });
 }
 
 /**
  * Push the specified EventInfo onto the Event List, along with its
  * corresponding Log Level
- * 
+ *
  * @param logLevel - The Level object (@see simple-logger.js)
  * @param eventInfo - The EventInfo object
  */
 function push(logLevel, eventInfo) {
-    if (eventList.length > EVENT_LIST_SIZE_MAX) {
-        flush();
-    }
-    // Store this event in the event list
-    eventList.push({ logLevel : logLevel, eventInfo : eventInfo });
+  if (eventList.length > EVENT_LIST_SIZE_MAX) {
+    flush();
+  }
+  // Store this event in the event list
+  eventList.push({ logLevel: logLevel, eventInfo: eventInfo });
 }
 
 /**
  * Flush out the event list
  */
 function flush() {
-    // Iterate over all items in the event list and log them
-    eventList.forEach((currentValue) => {
-        switch(currentValue.logLevel) {
-            case logger.Level.TRACE:
-                logger.trace(currentValue.eventInfo);
-                break;
-            case logger.Level.DEBUG:
-                logger.debug(currentValue.eventInfo);
-                break;
-            case logger.Level.INFO:
-                logger.info(currentValue.eventInfo);
-                break;
-            case logger.Level.WARN:
-                logger.warn(currentValue.eventInfo);
-                break;
-            case logger.Level.ERROR:
-                logger.error(currentValue.eventInfo);
-                break;
-            case logger.Level.FATAL:
-                logger.fatal(currentValue.eventInfo);
-                break;
-            default:
-                // Don't know this, drop it
-                if (__debug) console.log('Unknown log level \'' + currentValue.logLevel.outputString + '\'. Dropping this message: ' + currentValue.eventInfo);
-                break;
-        }
-    });
-    // Create a new Array (leave the old one for GC)
-    eventList = new Array();
+  // Iterate over all items in the event list and log them
+  eventList.forEach((currentValue) => {
+    switch (currentValue.logLevel) {
+      case logger.Level.TRACE:
+        logger.trace(currentValue.eventInfo);
+        break;
+      case logger.Level.DEBUG:
+        logger.debug(currentValue.eventInfo);
+        break;
+      case logger.Level.INFO:
+        logger.info(currentValue.eventInfo);
+        break;
+      case logger.Level.WARN:
+        logger.warn(currentValue.eventInfo);
+        break;
+      case logger.Level.ERROR:
+        logger.error(currentValue.eventInfo);
+        break;
+      case logger.Level.FATAL:
+        logger.fatal(currentValue.eventInfo);
+        break;
+      default:
+        // Don't know this, drop it
+        if (__debug)
+          console.log(
+            "Unknown log level '" +
+              currentValue.logLevel.outputString +
+              "'. Dropping this message: " +
+              currentValue.eventInfo
+          );
+        break;
+    }
+  });
+  // Create a new Array (leave the old one for GC)
+  eventList = new Array();
 }
 
 /**
  * Common emitter function, called by all event listeners
  */
 function emit(logLevel, message, source) {
-    // If the message to be emitted is not at or above the
-    /// current log level threshold, drop it on the floor
-    if (logLevel.priority >= currentLogLevel.priority) {
-        if (!source) {
-            source = 'UNKNOWN';
-        }
-        // Get high resolution time from process.hrtime()
-        // Timestamp is in milliseconds:
-        const timestamp = simpleUtils.hrtimeToMillis(process.hrtime());
-        const eventName = logLevel.outputString;
-        eventEmitter.emit(eventName, new EventInfo(eventName, message, source, timestamp ));
-    } else if (__debug) {
-        console.log('Message: ' + message + ' at logLevel: ' + logLevel.outputString + ' dropped (current log level = ' + logLevel.outputString + ').');
+  // If the message to be emitted is not at or above the
+  /// current log level threshold, drop it on the floor
+  if (logLevel.priority >= currentLogLevel.priority) {
+    if (!source) {
+      source = 'UNKNOWN';
     }
+    // Get high resolution time from process.hrtime()
+    // Timestamp is in milliseconds:
+    const timestamp = simpleUtils.hrtimeToMillis(process.hrtime());
+    const eventName = logLevel.outputString;
+    eventEmitter.emit(
+      eventName,
+      new EventInfo(eventName, message, source, timestamp)
+    );
+  } else if (__debug) {
+    console.log(
+      'Message: ' +
+        message +
+        ' at logLevel: ' +
+        logLevel.outputString +
+        ' dropped (current log level = ' +
+        logLevel.outputString +
+        ').'
+    );
+  }
 }
 
 /**
@@ -172,7 +206,7 @@ function emit(logLevel, message, source) {
  * This is for backward compatibility with the simple-logger module
  */
 function trace(message, source) {
-    emit(logger.Level.TRACE, message, source);
+  emit(logger.Level.TRACE, message, source);
 }
 
 /**
@@ -180,7 +214,7 @@ function trace(message, source) {
  * This is for backward compatibility with the simple-logger module
  */
 function debug(message, source) {
-    emit(logger.Level.DEBUG, message, source);
+  emit(logger.Level.DEBUG, message, source);
 }
 
 /**
@@ -188,7 +222,7 @@ function debug(message, source) {
  * This is for backward compatibility with the simple-logger module
  */
 function info(message, source) {
-    emit(logger.Level.INFO, message, source);
+  emit(logger.Level.INFO, message, source);
 }
 
 /**
@@ -196,7 +230,7 @@ function info(message, source) {
  * This is for backward compatibility with the simple-logger module
  */
 function warn(message, source) {
-    emit(logger.Level.WARN, message, source);
+  emit(logger.Level.WARN, message, source);
 }
 
 /**
@@ -204,7 +238,7 @@ function warn(message, source) {
  * This is for backward compatibility with the simple-logger module
  */
 function error(message, source) {
-    emit(logger.Level.ERROR, message, source);
+  emit(logger.Level.ERROR, message, source);
 }
 
 /**
@@ -212,12 +246,12 @@ function error(message, source) {
  * This is for backward compatibility with the simple-logger module
  */
 function fatal(message, source) {
-    emit(logger.Level.FATAL, message, source);
+  emit(logger.Level.FATAL, message, source);
 }
 
 // IIFE - runs when module is loaded
 (function loadModule() {
-    registerEventListeners();
+  registerEventListeners();
 })();
 
 // Export the functions that are called from the outside

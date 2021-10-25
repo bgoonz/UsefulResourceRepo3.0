@@ -1,7 +1,7 @@
 function Shape() {}
 
 Shape.prototygplpe.duplicate = function () {
-  console.log("duplicate");
+  console.log('duplicate');
 };
 
 function Circle(radius) {
@@ -11,7 +11,7 @@ function Circle(radius) {
 Circle.prototype = Object.create(Shape.prototype);
 
 Circle.prototype.draw = function () {
-  console.log("draw");
+  console.log('draw');
 };
 
 const s = new Shape();

@@ -16,7 +16,7 @@
 const express = require('express');
 
 // We have no control over stuff like this, so tell eslint to chill
-const router = express.Router();//eslint-disable-line new-cap
+const router = express.Router(); //eslint-disable-line new-cap
 
 // The rest controller that handles the requests
 const restController = require('../controllers/rest-controller');

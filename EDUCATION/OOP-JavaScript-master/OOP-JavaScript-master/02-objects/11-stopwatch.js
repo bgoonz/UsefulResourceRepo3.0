@@ -6,7 +6,7 @@ function Stopwatch() {
 
   this.start = function () {
     if (running) {
-      throw new Error("Stopwatch has already started!");
+      throw new Error('Stopwatch has already started!');
     } else {
       running = true;
       startTime = new Date();
@@ -15,7 +15,7 @@ function Stopwatch() {
 
   this.stop = function () {
     if (!running) {
-      throw new Error("Stopwatch is not started!");
+      throw new Error('Stopwatch is not started!');
     } else {
       running = false;
       endTime = new Date();
@@ -32,7 +32,7 @@ function Stopwatch() {
     duration = 0;
   };
 
-  Object.defineProperty(this, "duration", {
+  Object.defineProperty(this, 'duration', {
     get: function () {
       return duration;
     },

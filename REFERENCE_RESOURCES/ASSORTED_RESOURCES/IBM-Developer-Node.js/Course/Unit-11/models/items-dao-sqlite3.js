@@ -46,86 +46,89 @@ const FROM = `FROM item JOIN brand ON item.brand_id = brand.id`;
 /**
  * Find the Item object by the specified ID
  * using the underlying implementation.
- * 
+ *
  * @param {Number} id - the ID of the item record (SQL) or document (NoSQL)
  * to locate
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): the Item object that matches the id
- *          or null if one could not be located for that id 
+ *          or null if one could not be located for that id
  *  reject(): the err object from the underlying data store
  */
 function findById(id) {
-    return new Promise((resolve, reject) => {
-        let sql = `${SELECT} ${FROM} WHERE item.id = ?`;
-        db.get(sql, id, (err, row) => {
-            if (err) {
-                let message = `Error reading from the database: ${err.message}`;
-                logger.error(message, 'findById()');
-                reject(message);
-            } else if (row) {
-                resolve({ data: JSON.stringify(row), statusCode: 200 });
-            } else {
-                resolve({ data: JSON.stringify({}), statusCode: 404 });
-            }
-        });
+  return new Promise((resolve, reject) => {
+    let sql = `${SELECT} ${FROM} WHERE item.id = ?`;
+    db.get(sql, id, (err, row) => {
+      if (err) {
+        let message = `Error reading from the database: ${err.message}`;
+        logger.error(message, 'findById()');
+        reject(message);
+      } else if (row) {
+        resolve({ data: JSON.stringify(row), statusCode: 200 });
+      } else {
+        resolve({ data: JSON.stringify({}), statusCode: 404 });
+      }
     });
+  });
 }
 
 /**
  * Find all Items objects that match the specified
  * partial description.
- * 
+ *
  * @param {String} partialDescription
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): all Item objects that contain the partial
  *          descriptin provided or an empty array if nothing
- *          could not be located for that partialDescription 
+ *          could not be located for that partialDescription
  *  reject(): the err object from the underlying data store
  */
 function findByDescription(partialDescription) {
-    return new Promise((resolve, reject) => {
-        let sql = `${SELECT} ${FROM} WHERE item.description like ?`;
-        db.all(sql, [`%${partialDescription}%`], (err, rows) => {
-            if (err) {
-                let message = `Error reading from the database: ${err.message}`;
-                logger.error(message, 'findByDescription()');
-                reject(message);
-            } else {
-                resolve({ data: JSON.stringify(rows), statusCode: (rows.length > 0) ? 200 : 404 });
-            }
+  return new Promise((resolve, reject) => {
+    let sql = `${SELECT} ${FROM} WHERE item.description like ?`;
+    db.all(sql, [`%${partialDescription}%`], (err, rows) => {
+      if (err) {
+        let message = `Error reading from the database: ${err.message}`;
+        logger.error(message, 'findByDescription()');
+        reject(message);
+      } else {
+        resolve({
+          data: JSON.stringify(rows),
+          statusCode: rows.length > 0 ? 200 : 404,
         });
+      }
     });
+  });
 }
 
 /**
  * Find the Item object that matches the specified
  * UPC exactly.
- * 
+ *
  * @param {String} upc - the UPC of the item record (SQL) or document (NoSQL)
  * to locate
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): the Item object that matches the UPC symbol
  *          or null if one could not be located for that UPC
  *  reject()): the err object from the underlying data store.
  */
 function findByUpc(upc) {
-    return new Promise((resolve, reject) => {
-        let sql = `${SELECT} ${FROM} WHERE item.upc = ?`;
-        db.get(sql, upc, (err, row) => {
-            if (err) {
-                let message = `Error reading from the database: ${err.message}`;
-                logger.error(message, 'findByUpc()');
-                reject(message);
-            } else if (row) {
-                resolve({ data: JSON.stringify(row), statusCode: 200 });
-            } else {
-                resolve({ data: JSON.stringify({}), statusCode: 404 });
-            }
-        });
+  return new Promise((resolve, reject) => {
+    let sql = `${SELECT} ${FROM} WHERE item.upc = ?`;
+    db.get(sql, upc, (err, row) => {
+      if (err) {
+        let message = `Error reading from the database: ${err.message}`;
+        logger.error(message, 'findByUpc()');
+        reject(message);
+      } else if (row) {
+        resolve({ data: JSON.stringify(row), statusCode: 200 });
+      } else {
+        resolve({ data: JSON.stringify({}), statusCode: 404 });
+      }
     });
+  });
 }
 
 module.exports.findById = findById;

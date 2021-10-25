@@ -1,21 +1,9 @@
 {
-	"string": [
-		"encoding",
-		"flag"
-	],
-	"boolean": [
-		"help",
-		"version"
-	],
-	"alias": {
-		"help": [
-			"h"
-		],
-		"version": [
-			"V"
-		],
-		"encoding": [
-			"enc"
-		]
-	}
+  "string": ["encoding", "flag"],
+  "boolean": ["help", "version"],
+  "alias": {
+    "help": ["h"],
+    "version": ["V"],
+    "encoding": ["enc"]
+  }
 }

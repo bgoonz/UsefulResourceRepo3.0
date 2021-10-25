@@ -34,108 +34,132 @@ let db;
 
 // Initialize the DB when this module is loaded
 (function getDbConnection() {
-    logger.info('Initializing Cloudant connection...', 'items-dao-cloudant.getDbConnection()');
-    utils.dbCloudantConnect().then((database) => {
-        logger.info('Cloudant connection initialized.', 'items-dao-cloudant.getDbConnection()');
-        db = database;
-    }).catch((err) => {
-        logger.error('Error while initializing DB: ' + err.message, 'items-dao-cloudant.getDbConnection()');
-        throw err;
+  logger.info(
+    'Initializing Cloudant connection...',
+    'items-dao-cloudant.getDbConnection()'
+  );
+  utils
+    .dbCloudantConnect()
+    .then((database) => {
+      logger.info(
+        'Cloudant connection initialized.',
+        'items-dao-cloudant.getDbConnection()'
+      );
+      db = database;
+    })
+    .catch((err) => {
+      logger.error(
+        'Error while initializing DB: ' + err.message,
+        'items-dao-cloudant.getDbConnection()'
+      );
+      throw err;
     });
 })();
 
 /**
  * Find the Item object by the specified ID
  * using the underlying implementation.
- * 
+ *
  * @param {Number} id - the ID of the item record (SQL) or document (NoSQL)
  * to locate
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): the Item object that matches the id
- *          or null if one could not be located for that id 
+ *          or null if one could not be located for that id
  *  reject(): the err object from the underlying data store
  */
 function findById(id) {
-    return new Promise((resolve, reject) => {
-        db.get(id, (err, document) => {
-            if (err) {
-                if (err.message == 'missing') {
-                    logger.warn(`Document id ${id} does not exist.`, 'findById()');
-                    resolve({ data: {}, statusCode: 404 });
-                } else {
-                    logger.error('Error fetching document: ' + err.message, 'findById()');
-                    reject(err);
-                }
-            } else {
-                let data = JSON.stringify(document);
-                logger.debug('Received response document: ' + data, 'findById()');
-                resolve({ data: data, statusCode: 200});
-            }
-        });
+  return new Promise((resolve, reject) => {
+    db.get(id, (err, document) => {
+      if (err) {
+        if (err.message == 'missing') {
+          logger.warn(`Document id ${id} does not exist.`, 'findById()');
+          resolve({ data: {}, statusCode: 404 });
+        } else {
+          logger.error('Error fetching document: ' + err.message, 'findById()');
+          reject(err);
+        }
+      } else {
+        let data = JSON.stringify(document);
+        logger.debug('Received response document: ' + data, 'findById()');
+        resolve({ data: data, statusCode: 200 });
+      }
     });
+  });
 }
 
 /**
  * Find all Items objects that match the specified
  * partial description.
- * 
+ *
  * @param {String} partialDescription
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): all Item objects that contain the partial
  *          description provided or an empty array if nothing
- *          could not be located for that partialDescription 
+ *          could not be located for that partialDescription
  *  reject(): the err object from the underlying data store
  */
 function findByDescription(partialDescription) {
-    return new Promise((resolve, reject) => {
-        let search = `.*${partialDescription}.*`;
-        db.find({ 
-            'selector': { 
-                'itemDescription': {
-                    '$regex': search 
-                }
-            } 
-        }, (err, documents) => {
-            if (err) {
-                reject(err);
-            } else {
-                resolve({ data: JSON.stringify(documents.docs), statusCode: (documents.docs.length > 0) ? 200 : 404 });
-            }
-        });
-    });
+  return new Promise((resolve, reject) => {
+    let search = `.*${partialDescription}.*`;
+    db.find(
+      {
+        selector: {
+          itemDescription: {
+            $regex: search,
+          },
+        },
+      },
+      (err, documents) => {
+        if (err) {
+          reject(err);
+        } else {
+          resolve({
+            data: JSON.stringify(documents.docs),
+            statusCode: documents.docs.length > 0 ? 200 : 404,
+          });
+        }
+      }
+    );
+  });
 }
 
 /**
  * Find the Item object that matches the specified
  * UPC exactly.
- * 
+ *
  * @param {String} upc - the UPC of the item record (SQL) or document (NoSQL)
  * to locate
- * 
- * @return {Promise} Promise - 
+ *
+ * @return {Promise} Promise -
  *  resolve(): the Item object that matches the UPC symbol
  *          or null if one could not be located for that UPC
  *  reject()): the err object from the underlying data store.
  */
 function findByUpc(upc) {
-    return new Promise((resolve, reject) => {
-        db.find({ 
-            'selector': { 
-                'upc': {
-                    '$eq': upc 
-                }
-            }
-        }, (err, document) => {
-            if (err) {
-                logger.error('Error occurred: ' + err.message, 'findById()');
-                reject(err);
-            } else {
-                resolve({ data: JSON.stringify(document), statusCode: (document) ? 200 : 404 });
-            }
-        });
-    });
+  return new Promise((resolve, reject) => {
+    db.find(
+      {
+        selector: {
+          upc: {
+            $eq: upc,
+          },
+        },
+      },
+      (err, document) => {
+        if (err) {
+          logger.error('Error occurred: ' + err.message, 'findById()');
+          reject(err);
+        } else {
+          resolve({
+            data: JSON.stringify(document),
+            statusCode: document ? 200 : 404,
+          });
+        }
+      }
+    );
+  });
 }
 
 module.exports.findById = findById;

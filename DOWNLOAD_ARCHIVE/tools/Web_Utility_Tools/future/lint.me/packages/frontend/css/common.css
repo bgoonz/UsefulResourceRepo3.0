@@ -1,0 +1,58 @@
+@import "skeleton-css/css/normalize.css";
+@import "skeleton-css/css/skeleton.css";
+
+main.container {
+    padding: 1.5rem 0;
+}
+
+header {
+    margin-bottom: 1rem;
+
+
+
+    & .headings {
+        width: 220px;
+        float: left;
+    }
+
+    & h1 {
+        margin-bottom: 0;
+        font-size: 3.3rem;
+    }
+
+    & h5 {
+        font-size: 1.9rem;
+    }
+
+    & aside {
+        width: 728px;
+        height: 90px;
+        float: right;
+    }
+
+    &::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    @media (max-width: 1000px) {
+        & aside, & .headings {
+            float: none;
+            text-align: center;
+            margin: 0 auto;
+        }
+    }
+}
+
+button:disabled {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+@media (max-width: 1200px) {
+    .container {
+        width: 95%;
+        padding: 0;
+    }
+}

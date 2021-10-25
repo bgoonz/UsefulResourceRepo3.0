@@ -13,18 +13,18 @@
    See the License for the specific language governing permissions and
    limitations under the License.
  */
-'use strict'
+'use strict';
 
 const logger = require('../common/logger');
 
 const { MAINLINE, START, END } = require('../common/constants');
 
 (function mainline() {
-    logger.info(START, MAINLINE);
-    
-    process.nextTick(() => {
-        logger.info('mainline:process.nextTick() says: hello!', 'MICROTASK')
-    });
+  logger.info(START, MAINLINE);
 
-    logger.info(END, MAINLINE)
+  process.nextTick(() => {
+    logger.info('mainline:process.nextTick() says: hello!', 'MICROTASK');
+  });
+
+  logger.info(END, MAINLINE);
 })();
