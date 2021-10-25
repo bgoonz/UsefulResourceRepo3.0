@@ -13,9 +13,8 @@ cms:
 archetype:
   - Blog
 description: >-
-  A Digital Garden: Capturing my daily thoughts and progress, as well as curated
-  ideas with unique synthesis—a personal zettelkasten. Built on Simply Jekyll by
-  Raghuveer S.
+  A Digital Garden: Capturing my daily thoughts and progress, as well as curated ideas with unique synthesis—a personal zettelkasten. Built on Simply Jekyll by Raghuveer S.
+
 stale: false
 ---
 
@@ -26,6 +25,7 @@ stale: false
 The next step for Enjoyment Work is to properly configure the syntax required to work with [**Obsidian**](https://obsidian.md/), a powerful knowledge base that works on top of a local folder of plain text Markdown files. Which would ultimately allow somebody to turn their Obsidian notes into an online blog by simply using the `_notes` directory.
 
 ## Features
+
 Here are a few interesting features of this Jekyll theme:
 
 - A fully customizable and empty `_BLANK_config.yml` to make getting up-and-running easy.
@@ -44,4 +44,3 @@ Here are a few interesting features of this Jekyll theme:
 - On hover page previews
 - Features a simple and responsive design
 - Supports Markdown or HTML notes
-

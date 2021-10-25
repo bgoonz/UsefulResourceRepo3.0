@@ -20,16 +20,16 @@ disabled_reason: null
 
 ## Features
 
-* OpenGraphh meta tag
-* Twitter card meta tag
-* Google analytics  support
-* Multiple language support(Fr, En) 
-* CSS and Js bundle with Hugo pipe
-* Netlify settings predefine
-* Forestry cms pre-configured
-* Multiple authors available
-* Google page speed optimized
-* Contact form Support
-* GDPR consent enabled
-* Google map support
-* fun factors counter 
+- OpenGraphh meta tag
+- Twitter card meta tag
+- Google analytics support
+- Multiple language support(Fr, En)
+- CSS and Js bundle with Hugo pipe
+- Netlify settings predefine
+- Forestry cms pre-configured
+- Multiple authors available
+- Google page speed optimized
+- Contact form Support
+- GDPR consent enabled
+- Google map support
+- fun factors counter

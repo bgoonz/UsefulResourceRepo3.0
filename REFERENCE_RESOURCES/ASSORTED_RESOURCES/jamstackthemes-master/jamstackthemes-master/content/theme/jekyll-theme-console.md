@@ -9,8 +9,8 @@ cms:
   - No Cms
 date: 2018-11-07T15:08:15.000Z
 description: >-
-  A jekyll theme inspired by linux consoles for hackers, developers and script
-  kiddies.
+  A jekyll theme inspired by linux consoles for hackers, developers and script kiddies.
+
 stale: false
 disabled_reason: demo url not found
 disabled: true

@@ -9,8 +9,8 @@ Ensures that a directory is empty. Deletes directory contents if the directory i
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
 // assume this directory has a lot of files and folders
-fs.emptyDirSync('/tmp/some/dir')
+fs.emptyDirSync('/tmp/some/dir');
 ```

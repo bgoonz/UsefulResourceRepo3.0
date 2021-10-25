@@ -20,13 +20,14 @@ disabled_reason: null
 ---
 
 ## Features
-* Open Graph meta tag
-* Twitter card meta tag
-* Google analytics  support
-* CSS and Js bundle with Hugo pipe
-* Netlify settings predefine
-* Google page speed optimized
-* Forestry cms pre-configured
-* Contact form Support
-* GDPR consent enabled
-* Google map support 
+
+- Open Graph meta tag
+- Twitter card meta tag
+- Google analytics support
+- CSS and Js bundle with Hugo pipe
+- Netlify settings predefine
+- Google page speed optimized
+- Forestry cms pre-configured
+- Contact form Support
+- GDPR consent enabled
+- Google map support

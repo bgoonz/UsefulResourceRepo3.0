@@ -24,9 +24,9 @@ This is a performance optimized theme for creating a simple yet attractive portf
 
 ## Features:
 
-* Responsive content
-* Codepen Embeds
-* Blog
-* Social links
-* Performant
-* Dark mode
+- Responsive content
+- Codepen Embeds
+- Blog
+- Social links
+- Performant
+- Dark mode

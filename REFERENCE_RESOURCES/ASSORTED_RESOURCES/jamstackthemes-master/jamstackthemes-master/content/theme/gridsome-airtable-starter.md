@@ -18,7 +18,7 @@ stale: false
 
 This starter is meant to act as a starting point/example for connecting [Gridsome](https://gridsome.org/) with [Airtable](https://airtable.com/).
 
-*Note: This Starter utilizes [Moment.js](https://momentjs.com/) for date/times and can be removed from the Event files if not needed (and removed with `yarn remove moment`)*
+_Note: This Starter utilizes [Moment.js](https://momentjs.com/) for date/times and can be removed from the Event files if not needed (and removed with `yarn remove moment`)_
 
 ## Install Gridsome CLI tool (if you dont' have it already)
 
@@ -51,12 +51,11 @@ module.exports = {
         baseId: process.env.AIRTABLE_BASE, //required
         tableName: 'Events', //required
         typeName: 'Event', //required - needs to match template name
-        route: '/events/:name' //optional
-      }
-    }
-  ]
-}
-
+        route: '/events/:name', //optional
+      },
+    },
+  ],
+};
 ```
 
 - `apiKey` is the API secret provided by Airtable
@@ -91,10 +90,11 @@ A list of files where the starter uses queries to make updating easier (all from
 - `templates/Event.vue` - Uses `id` to pull in data from Airtable.
 
 ## My Airtable
+
 This is what my Airtable Base looks like:
 
 !["Airtable with columns for Name, Header Image, Start Date, End Date, Excerpt, Notes, and Attachments."](./airtableSetup.png)
 
-
 # Deploy with Netlify
+
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/12vanblart/gridsome-airtable-starter)

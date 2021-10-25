@@ -11,8 +11,8 @@ cms:
 css:
   - Bulma
 description: >-
-  A Hugo theme for online community notes with backlinks and graph of connected
-  notes.
+  A Hugo theme for online community notes with backlinks and graph of connected notes.
+
 stale: false
 ---
 
@@ -22,8 +22,8 @@ Hugo connetome theme helps you create connected notes using Hugo.
 
 ## Features
 
-* Notes can be interlinked;
-* Notes has links to and backlinks;
-* Click the graph button to check the graph of connected notes;
-* Hugo Connectome can be used to create multiple notebooks and the notes can be linked across notebooks;
-* Supports multiauthor.
+- Notes can be interlinked;
+- Notes has links to and backlinks;
+- Click the graph button to check the graph of connected notes;
+- Hugo Connectome can be used to create multiple notebooks and the notes can be linked across notebooks;
+- Supports multiauthor.

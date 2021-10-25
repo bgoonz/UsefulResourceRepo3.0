@@ -11,8 +11,8 @@ cms:
 archetype:
   - Blog
 description: >-
-  A responsive sidebar Jekyll theme using the Pure.css framework, designed for
-  writers and bloggers of all kinds.
+  A responsive sidebar Jekyll theme using the Pure.css framework, designed for writers and bloggers of all kinds.
+
 stale: false
 ---
 

@@ -11,42 +11,42 @@ Almost the same as `writeFile` (i.e. it [overwrites](http://pages.citebite.com/v
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
-const file = '/tmp/this/path/does/not/exist/file.txt'
+const file = '/tmp/this/path/does/not/exist/file.txt';
 
 // With a callback:
-fs.outputFile(file, 'hello!', err => {
-  console.log(err) // => null
+fs.outputFile(file, 'hello!', (err) => {
+  console.log(err); // => null
 
   fs.readFile(file, 'utf8', (err, data) => {
-    if (err) return console.error(err)
-    console.log(data) // => hello!
-  })
-})
+    if (err) return console.error(err);
+    console.log(data); // => hello!
+  });
+});
 
 // With Promises:
 fs.outputFile(file, 'hello!')
-.then(() => fs.readFile(file, 'utf8'))
-.then(data => {
-  console.log(data) // => hello!
-})
-.catch(err => {
-  console.error(err)
-})
+  .then(() => fs.readFile(file, 'utf8'))
+  .then((data) => {
+    console.log(data); // => hello!
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // With async/await:
-async function example (f) {
+async function example(f) {
   try {
-    await fs.outputFile(f, 'hello!')
+    await fs.outputFile(f, 'hello!');
 
-    const data = await fs.readFile(f, 'utf8')
+    const data = await fs.readFile(f, 'utf8');
 
-    console.log(data) // => hello!
+    console.log(data); // => hello!
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-example(file)
+example(file);
 ```

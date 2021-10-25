@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-05-31T16:02:20.000Z
 description: >-
-  ACT: Gatsby starter for blog/documentation using MDX, Ant Design,
-  gatsby-plugin-combine
+  ACT: Gatsby starter for blog/documentation using MDX, Ant Design, gatsby-plugin-combine
+
 stale: true
 ---

@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2016-01-27T21:10:18.000Z
 description: >-
-  A Jekyll blog template made for simple, readable snippets of your brain
-  drippings.
+  A Jekyll blog template made for simple, readable snippets of your brain drippings.
+
 stale: true
 ---

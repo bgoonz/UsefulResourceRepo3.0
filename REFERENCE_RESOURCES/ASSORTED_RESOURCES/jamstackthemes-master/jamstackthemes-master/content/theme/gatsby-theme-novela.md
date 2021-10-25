@@ -14,4 +14,4 @@ disabled: false
 disabled_reason: ''
 ---
 
-Welcome to Novela, the simplest way to start publishing with Gatsby. 
+Welcome to Novela, the simplest way to start publishing with Gatsby.

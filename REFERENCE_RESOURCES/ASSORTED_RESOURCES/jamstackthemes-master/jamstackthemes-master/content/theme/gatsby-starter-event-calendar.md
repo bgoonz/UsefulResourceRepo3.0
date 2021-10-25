@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2018-11-12T12:55:50.000Z
 description: >-
-  Gatsby Starter to display information about events from Google Spreadsheets
-  with Calendars
+  Gatsby Starter to display information about events from Google Spreadsheets with Calendars
+
 stale: false
 ---

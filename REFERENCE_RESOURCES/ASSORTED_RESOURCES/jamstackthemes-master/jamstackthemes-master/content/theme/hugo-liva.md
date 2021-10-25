@@ -20,12 +20,12 @@ disabled_reason: null
 
 ## Features
 
-* Google analytics support
-* CSS and JS bundle with Hugo pipe
-* Netlify settings predefine
-* Contact form Support
-* Search by fuse.js
-* GDPR consent enables
-* Google page speed optimized ( 77% )
-* Open Graph meta tag
-* Twitter card meta tag
+- Google analytics support
+- CSS and JS bundle with Hugo pipe
+- Netlify settings predefine
+- Contact form Support
+- Search by fuse.js
+- GDPR consent enables
+- Google page speed optimized ( 77% )
+- Open Graph meta tag
+- Twitter card meta tag

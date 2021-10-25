@@ -20,8 +20,8 @@ Kentico Kontent web template using Gatsby and Kentico Kontent.
 
 ## Features
 
-* GatsbyJS static site generator
-* Data source - Kentico Kontent (using Gatsby source plugin for Kentico Kontent)
-* Styling using SCSS
-* Font awesome + Material Icons
-* CSS Grid
+- GatsbyJS static site generator
+- Data source - Kentico Kontent (using Gatsby source plugin for Kentico Kontent)
+- Styling using SCSS
+- Font awesome + Material Icons
+- CSS Grid

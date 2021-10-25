@@ -1,7 +1,7 @@
-'use strict'
-const u = require('universalify').fromPromise
-const { makeDir: _makeDir, makeDirSync } = require('./make-dir')
-const makeDir = u(_makeDir)
+'use strict';
+const u = require('universalify').fromPromise;
+const { makeDir: _makeDir, makeDirSync } = require('./make-dir');
+const makeDir = u(_makeDir);
 
 module.exports = {
   mkdirs: makeDir,
@@ -10,5 +10,5 @@ module.exports = {
   mkdirp: makeDir,
   mkdirpSync: makeDirSync,
   ensureDir: makeDir,
-  ensureDirSync: makeDirSync
-}
+  ensureDirSync: makeDirSync,
+};

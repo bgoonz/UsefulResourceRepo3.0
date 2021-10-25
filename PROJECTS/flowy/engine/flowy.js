@@ -45,11 +45,11 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
             data: [],
             attr: [],
           });
-          $(".blockid[value=" + blocks[i].id + "]")
+          $('.blockid[value=' + blocks[i].id + ']')
             .parent()
-            .find("input")
+            .find('input')
             .each(function () {
-              var json_name = $(this).attr("name");
+              var json_name = $(this).attr('name');
               var json_value = $(this).val();
               json_data.blocks[i].data.push({
                 name: json_name,
@@ -57,7 +57,7 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
               });
             });
           $.each(
-            $(".blockid[value=" + blocks[i].id + "]").parent()[0].attributes,
+            $('.blockid[value=' + blocks[i].id + ']').parent()[0].attributes,
             function (index, attribute) {
               var jsonobj = {};
               jsonobj[attribute.name] = attribute.value;
@@ -72,7 +72,7 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
       blocks = [];
       canvas_div.html("<div class='indicator invisible'></div>");
     };
-    $(document).on("mousedown touchstart", ".create-flowy", function (event) {
+    $(document).on('mousedown touchstart', '.create-flowy', function (event) {
       if (event.targetTouches) {
         mouse_x = event.changedTouches[0].clientX;
         mouse_y = event.changedTouches[0].clientY;
@@ -85,20 +85,20 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
         if (blocks.length == 0) {
           $(this)
             .clone()
-            .addClass("block")
+            .addClass('block')
             .append(
               "<input type='hidden' name='blockid' class='blockid' value='" +
                 blocks.length +
                 "'>"
             )
-            .removeClass("create-flowy")
-            .appendTo("body");
-          $(this).addClass("dragnow");
-          drag = $(".blockid[value=" + blocks.length + "]").parent();
+            .removeClass('create-flowy')
+            .appendTo('body');
+          $(this).addClass('dragnow');
+          drag = $('.blockid[value=' + blocks.length + ']').parent();
         } else {
           $(this)
             .clone()
-            .addClass("block")
+            .addClass('block')
             .append(
               "<input type='hidden' name='blockid' class='blockid' value='" +
                 (Math.max.apply(
@@ -108,11 +108,11 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
                   1) +
                 "'>"
             )
-            .removeClass("create-flowy")
-            .appendTo("body");
-          $(this).addClass("dragnow");
+            .removeClass('create-flowy')
+            .appendTo('body');
+          $(this).addClass('dragnow');
           drag = $(
-            ".blockid[value=" +
+            '.blockid[value=' +
               (parseInt(
                 Math.max.apply(
                   Math,
@@ -120,92 +120,92 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
                 )
               ) +
                 1) +
-              "]"
+              ']'
           ).parent();
         }
         blockGrabbed($(this));
-        drag.addClass("dragging");
+        drag.addClass('dragging');
         active = true;
         dragx = mouse_x - $(this).offset().left;
         dragy = mouse_y - $(this).offset().top;
-        drag.css("left", mouse_x - dragx + "px");
-        drag.css("top", mouse_y - dragy + "px");
+        drag.css('left', mouse_x - dragx + 'px');
+        drag.css('top', mouse_y - dragy + 'px');
       }
     });
-    $(document).on("mouseup touchend", function (event) {
+    $(document).on('mouseup touchend', function (event) {
       if (event.which != 3 && (active || rearrange)) {
         blockReleased();
-        if (!$(".indicator").hasClass("invisible")) {
-          $(".indicator").addClass("invisible");
+        if (!$('.indicator').hasClass('invisible')) {
+          $('.indicator').addClass('invisible');
         }
         if (active) {
-          original.removeClass("dragnow");
-          drag.removeClass("dragging");
+          original.removeClass('dragnow');
+          drag.removeClass('dragging');
         }
-        if (parseInt(drag.children(".blockid").val()) == 0 && rearrange) {
-          drag.removeClass("dragging");
+        if (parseInt(drag.children('.blockid').val()) == 0 && rearrange) {
+          drag.removeClass('dragging');
           rearrange = false;
           for (var w = 0; w < blockstemp.length; w++) {
-            if (blockstemp[w].id != parseInt(drag.children(".blockid").val())) {
-              $(".blockid[value=" + blockstemp[w].id + "]")
+            if (blockstemp[w].id != parseInt(drag.children('.blockid').val())) {
+              $('.blockid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .css(
-                  "left",
-                  $(".blockid[value=" + blockstemp[w].id + "]")
+                  'left',
+                  $('.blockid[value=' + blockstemp[w].id + ']')
                     .parent()
                     .offset().left -
                     canvas_div.offset().left +
                     canvas_div.scrollLeft()
                 );
-              $(".blockid[value=" + blockstemp[w].id + "]")
+              $('.blockid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .css(
-                  "top",
-                  $(".blockid[value=" + blockstemp[w].id + "]")
+                  'top',
+                  $('.blockid[value=' + blockstemp[w].id + ']')
                     .parent()
                     .offset().top -
                     canvas_div.offset().top +
                     canvas_div.scrollTop()
                 );
-              $(".arrowid[value=" + blockstemp[w].id + "]")
+              $('.arrowid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .css(
-                  "left",
-                  $(".arrowid[value=" + blockstemp[w].id + "]")
+                  'left',
+                  $('.arrowid[value=' + blockstemp[w].id + ']')
                     .parent()
                     .offset().left -
                     canvas_div.offset().left +
                     canvas_div.scrollLeft()
                 );
-              $(".arrowid[value=" + blockstemp[w].id + "]")
+              $('.arrowid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .css(
-                  "top",
-                  $(".arrowid[value=" + blockstemp[w].id + "]")
+                  'top',
+                  $('.arrowid[value=' + blockstemp[w].id + ']')
                     .parent()
                     .offset().top -
                     canvas_div.offset().top +
                     canvas_div.scrollTop() +
-                    "px"
+                    'px'
                 );
-              $(".blockid[value=" + blockstemp[w].id + "]")
+              $('.blockid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .appendTo(canvas_div);
-              $(".arrowid[value=" + blockstemp[w].id + "]")
+              $('.arrowid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .appendTo(canvas_div);
 
               blockstemp[w].x =
-                $(".blockid[value=" + blockstemp[w].id + "]")
+                $('.blockid[value=' + blockstemp[w].id + ']')
                   .parent()
                   .offset().left +
-                $(".blockid[value=" + blockstemp[w].id + "]").innerWidth() / 2 +
+                $('.blockid[value=' + blockstemp[w].id + ']').innerWidth() / 2 +
                 canvas_div.scrollLeft();
               blockstemp[w].y =
-                $(".blockid[value=" + blockstemp[w].id + "]")
+                $('.blockid[value=' + blockstemp[w].id + ']')
                   .parent()
                   .offset().top +
-                $(".blockid[value=" + blockstemp[w].id + "]")
+                $('.blockid[value=' + blockstemp[w].id + ']')
                   .parent()
                   .innerHeight() /
                   2 +
@@ -227,24 +227,24 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
           blockSnap(drag, true, undefined);
           active = false;
           drag.css(
-            "top",
+            'top',
             drag.offset().top -
               canvas_div.offset().top +
               canvas_div.scrollTop() +
-              "px"
+              'px'
           );
           drag.css(
-            "left",
+            'left',
             drag.offset().left -
               canvas_div.offset().left +
               canvas_div.scrollLeft() +
-              "px"
+              'px'
           );
           drag.appendTo(canvas_div);
           blocks.push({
             parent: -1,
             childwidth: 0,
-            id: parseInt(drag.children(".blockid").val()),
+            id: parseInt(drag.children('.blockid').val()),
             x:
               drag.offset().left +
               drag.innerWidth() / 2 +
@@ -335,16 +335,16 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
       ) {
         var children = blocks.filter((id) => id.parent == blocko[i])[w];
         if (children.childwidth > children.width) {
-          $(".blockid[value=" + children.id + "]")
+          $('.blockid[value=' + children.id + ']')
             .parent()
             .css(
-              "left",
+              'left',
               blocks.filter((a) => a.id == blocko[i])[0].x -
                 totalwidth / 2 +
                 totalremove +
                 children.childwidth / 2 -
                 children.width / 2 +
-                "px"
+                'px'
             );
           children.x =
             blocks.filter((id) => id.parent == blocko[i])[0].x -
@@ -353,14 +353,14 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
             children.childwidth / 2;
           totalremove += children.childwidth + paddingx;
         } else {
-          $(".blockid[value=" + children.id + "]")
+          $('.blockid[value=' + children.id + ']')
             .parent()
             .css(
-              "left",
+              'left',
               blocks.filter((a) => a.id == blocko[i])[0].x -
                 totalwidth / 2 +
                 totalremove +
-                "px"
+                'px'
             );
           children.x =
             blocks.filter((id) => id.parent == blocko[i])[0].x -
@@ -371,98 +371,98 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
         }
       }
       drag.css(
-        "left",
+        'left',
         blocks.filter((id) => id.id == blocko[i])[0].x -
           totalwidth / 2 +
           totalremove -
           canvas_div.offset().left +
           canvas_div.scrollLeft() +
-          "px"
+          'px'
       );
       drag.css(
-        "top",
+        'top',
         blocks.filter((id) => id.id == blocko[i])[0].y +
           blocks.filter((id) => id.id == blocko[i])[0].height / 2 +
           paddingy -
           canvas_div.offset().top +
-          "px"
+          'px'
       );
       if (rearrange) {
         blockstemp.filter(
-          (a) => a.id == parseInt(drag.children(".blockid").val())
+          (a) => a.id == parseInt(drag.children('.blockid').val())
         )[0].x =
           drag.offset().left +
           drag.innerWidth() / 2 +
           canvas_div.scrollLeft() +
           canvas_div.scrollLeft();
         blockstemp.filter(
-          (a) => a.id == parseInt(drag.children(".blockid").val())
+          (a) => a.id == parseInt(drag.children('.blockid').val())
         )[0].y =
           drag.offset().top + drag.innerHeight() / 2 + canvas_div.scrollTop();
         blockstemp.filter(
-          (a) => a.id == drag.children(".blockid").val()
+          (a) => a.id == drag.children('.blockid').val()
         )[0].parent = blocko[i];
         for (var w = 0; w < blockstemp.length; w++) {
-          if (blockstemp[w].id != parseInt(drag.children(".blockid").val())) {
-            $(".blockid[value=" + blockstemp[w].id + "]")
+          if (blockstemp[w].id != parseInt(drag.children('.blockid').val())) {
+            $('.blockid[value=' + blockstemp[w].id + ']')
               .parent()
               .css(
-                "left",
-                $(".blockid[value=" + blockstemp[w].id + "]")
+                'left',
+                $('.blockid[value=' + blockstemp[w].id + ']')
                   .parent()
                   .offset().left -
                   canvas_div.offset().left +
                   canvas_div.scrollLeft()
               );
-            $(".blockid[value=" + blockstemp[w].id + "]")
+            $('.blockid[value=' + blockstemp[w].id + ']')
               .parent()
               .css(
-                "top",
-                $(".blockid[value=" + blockstemp[w].id + "]")
+                'top',
+                $('.blockid[value=' + blockstemp[w].id + ']')
                   .parent()
                   .offset().top -
                   canvas_div.offset().top +
                   canvas_div.scrollTop()
               );
-            $(".arrowid[value=" + blockstemp[w].id + "]")
+            $('.arrowid[value=' + blockstemp[w].id + ']')
               .parent()
               .css(
-                "left",
-                $(".arrowid[value=" + blockstemp[w].id + "]")
+                'left',
+                $('.arrowid[value=' + blockstemp[w].id + ']')
                   .parent()
                   .offset().left -
                   canvas_div.offset().left +
                   canvas_div.scrollLeft() +
                   20
               );
-            $(".arrowid[value=" + blockstemp[w].id + "]")
+            $('.arrowid[value=' + blockstemp[w].id + ']')
               .parent()
               .css(
-                "top",
-                $(".arrowid[value=" + blockstemp[w].id + "]")
+                'top',
+                $('.arrowid[value=' + blockstemp[w].id + ']')
                   .parent()
                   .offset().top -
                   canvas_div.offset().top +
                   canvas_div.scrollTop()
               );
-            $(".blockid[value=" + blockstemp[w].id + "]")
+            $('.blockid[value=' + blockstemp[w].id + ']')
               .parent()
               .appendTo(canvas_div);
-            $(".arrowid[value=" + blockstemp[w].id + "]")
+            $('.arrowid[value=' + blockstemp[w].id + ']')
               .parent()
               .appendTo(canvas_div);
 
             blockstemp[w].x =
-              $(".blockid[value=" + blockstemp[w].id + "]")
+              $('.blockid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .offset().left +
-              $(".blockid[value=" + blockstemp[w].id + "]").innerWidth() / 2 +
+              $('.blockid[value=' + blockstemp[w].id + ']').innerWidth() / 2 +
               canvas_div.scrollLeft();
             blockstemp[w].y =
-              $(".blockid[value=" + blockstemp[w].id + "]")
+              $('.blockid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .offset().top +
-              $(".blockid[value=" + blockstemp[w].id + "]")
+              $('.blockid[value=' + blockstemp[w].id + ']')
                 .parent()
                 .innerHeight() /
                 2 +
@@ -475,7 +475,7 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
         blocks.push({
           childwidth: 0,
           parent: blocko[i],
-          id: parseInt(drag.children(".blockid").val()),
+          id: parseInt(drag.children('.blockid').val()),
           x:
             drag.offset().left +
             drag.innerWidth() / 2 +
@@ -487,7 +487,7 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
         });
       }
       var arrowhelp = blocks.filter(
-        (a) => a.id == parseInt(drag.children(".blockid").val())
+        (a) => a.id == parseInt(drag.children('.blockid').val())
       )[0];
       var arrowx =
         arrowhelp.x - blocks.filter((a) => a.id == blocko[i])[0].x + 20;
@@ -500,83 +500,83 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
       if (arrowx < 0) {
         drag.after(
           '<div class="arrowblock"><input type="hidden" class="arrowid" value="' +
-            drag.children(".blockid").val() +
+            drag.children('.blockid').val() +
             '"><svg preserveaspectratio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M' +
             (blocks.filter((a) => a.id == blocko[i])[0].x - arrowhelp.x + 5) +
-            " 0L" +
+            ' 0L' +
             (blocks.filter((a) => a.id == blocko[i])[0].x - arrowhelp.x + 5) +
-            " " +
+            ' ' +
             paddingy / 2 +
-            "L5 " +
+            'L5 ' +
             paddingy / 2 +
-            "L5 " +
+            'L5 ' +
             arrowy +
             '" stroke="#C5CCD0" stroke-width="2px"/><path d="M0 ' +
             (arrowy - 5) +
-            "H10L5 " +
+            'H10L5 ' +
             arrowy +
-            "L0 " +
+            'L0 ' +
             (arrowy - 5) +
             'Z" fill="#C5CCD0"/></svg></div>'
         );
-        $(".arrowid[value=" + drag.children(".blockid").val() + "]")
+        $('.arrowid[value=' + drag.children('.blockid').val() + ']')
           .parent()
           .css(
-            "left",
+            'left',
             arrowhelp.x -
               5 -
               canvas_div.offset().left +
               canvas_div.scrollLeft() +
-              "px"
+              'px'
           );
       } else {
         drag.after(
           '<div class="arrowblock"><input type="hidden" class="arrowid" value="' +
-            drag.children(".blockid").val() +
+            drag.children('.blockid').val() +
             '"><svg preserveaspectratio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 0L20 ' +
             paddingy / 2 +
-            "L" +
+            'L' +
             arrowx +
-            " " +
+            ' ' +
             paddingy / 2 +
-            "L" +
+            'L' +
             arrowx +
-            " " +
+            ' ' +
             arrowy +
             '" stroke="#C5CCD0" stroke-width="2px"/><path d="M' +
             (arrowx - 5) +
-            " " +
+            ' ' +
             (arrowy - 5) +
-            "H" +
+            'H' +
             (arrowx + 5) +
-            "L" +
+            'L' +
             arrowx +
-            " " +
+            ' ' +
             arrowy +
-            "L" +
+            'L' +
             (arrowx - 5) +
-            " " +
+            ' ' +
             (arrowy - 5) +
             'Z" fill="#C5CCD0"/></svg></div>'
         );
-        $(".arrowid[value=" + parseInt(drag.children(".blockid").val()) + "]")
+        $('.arrowid[value=' + parseInt(drag.children('.blockid').val()) + ']')
           .parent()
           .css(
-            "left",
+            'left',
             blocks.filter((a) => a.id == blocko[i])[0].x -
               20 -
               canvas_div.offset().left +
               canvas_div.scrollLeft() +
-              "px"
+              'px'
           );
       }
-      $(".arrowid[value=" + parseInt(drag.children(".blockid").val()) + "]")
+      $('.arrowid[value=' + parseInt(drag.children('.blockid').val()) + ']')
         .parent()
         .css(
-          "top",
+          'top',
           blocks.filter((a) => a.id == blocko[i])[0].y +
             blocks.filter((a) => a.id == blocko[i])[0].height / 2 +
-            "px"
+            'px'
         );
       if (blocks.filter((a) => a.id == blocko[i])[0].parent != -1) {
         var flag = false;
@@ -614,15 +614,15 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
       }
       if (rearrange) {
         rearrange = false;
-        drag.removeClass("dragging");
+        drag.removeClass('dragging');
       }
       rearrangeMe();
       checkOffset();
     }
-    $(document).on("mousedown touchstart", ".block", function (event) {
+    $(document).on('mousedown touchstart', '.block', function (event) {
       $(document).on(
-        "mouseup mousemove touchmove",
-        ".block",
+        'mouseup mousemove touchmove',
+        '.block',
         function handler(event) {
           if (event.targetTouches) {
             mouse_x = event.targetTouches[0].clientX;
@@ -631,21 +631,21 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
             mouse_x = event.clientX;
             mouse_y = event.clientY;
           }
-          if (event.type !== "mouseup") {
+          if (event.type !== 'mouseup') {
             if (event.which != 3) {
               if (!active && !rearrange) {
                 rearrange = true;
                 drag = $(this);
-                drag.addClass("dragging");
+                drag.addClass('dragging');
                 dragx = mouse_x - $(this).offset().left;
                 dragy = mouse_y - $(this).offset().top;
-                var blockid = parseInt($(this).children(".blockid").val());
+                var blockid = parseInt($(this).children('.blockid').val());
                 drag = $(this);
                 blockstemp.push(blocks.filter((a) => a.id == blockid)[0]);
                 blocks = $.grep(blocks, function (e) {
                   return e.id != blockid;
                 });
-                $(".arrowid[value=" + blockid + "]")
+                $('.arrowid[value=' + blockid + ']')
                   .parent()
                   .remove();
                 var layer = blocks.filter((a) => a.parent == blockid);
@@ -657,42 +657,42 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
                     blockstemp.push(
                       blocks.filter((a) => a.id == layer[i].id)[0]
                     );
-                    $(".blockid[value=" + layer[i].id + "]")
+                    $('.blockid[value=' + layer[i].id + ']')
                       .parent()
                       .css(
-                        "left",
-                        $(".blockid[value=" + layer[i].id + "]")
+                        'left',
+                        $('.blockid[value=' + layer[i].id + ']')
                           .parent()
                           .offset().left - drag.offset().left
                       );
-                    $(".blockid[value=" + layer[i].id + "]")
+                    $('.blockid[value=' + layer[i].id + ']')
                       .parent()
                       .css(
-                        "top",
-                        $(".blockid[value=" + layer[i].id + "]")
+                        'top',
+                        $('.blockid[value=' + layer[i].id + ']')
                           .parent()
                           .offset().top - drag.offset().top
                       );
-                    $(".arrowid[value=" + layer[i].id + "]")
+                    $('.arrowid[value=' + layer[i].id + ']')
                       .parent()
                       .css(
-                        "left",
-                        $(".arrowid[value=" + layer[i].id + "]")
+                        'left',
+                        $('.arrowid[value=' + layer[i].id + ']')
                           .parent()
                           .offset().left - drag.offset().left
                       );
-                    $(".arrowid[value=" + layer[i].id + "]")
+                    $('.arrowid[value=' + layer[i].id + ']')
                       .parent()
                       .css(
-                        "top",
-                        $(".arrowid[value=" + layer[i].id + "]")
+                        'top',
+                        $('.arrowid[value=' + layer[i].id + ']')
                           .parent()
                           .offset().top - drag.offset().top
                       );
-                    $(".blockid[value=" + layer[i].id + "]")
+                    $('.blockid[value=' + layer[i].id + ']')
                       .parent()
                       .appendTo(drag);
-                    $(".arrowid[value=" + layer[i].id + "]")
+                    $('.arrowid[value=' + layer[i].id + ']')
                       .parent()
                       .appendTo(drag);
                     foundids.push(layer[i].id);
@@ -732,11 +732,11 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
               }
             }
           }
-          $(document).off("mouseup mousemove touchmove", handler);
+          $(document).off('mouseup mousemove touchmove', handler);
         }
       );
     });
-    $(document).on("mousemove touchmove", function (event) {
+    $(document).on('mousemove touchmove', function (event) {
       if (event.targetTouches) {
         mouse_x = event.targetTouches[0].clientX;
         mouse_y = event.targetTouches[0].clientY;
@@ -745,31 +745,31 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
         mouse_y = event.clientY;
       }
       if (active) {
-        drag.css("left", mouse_x - dragx + "px");
-        drag.css("top", mouse_y - dragy + "px");
+        drag.css('left', mouse_x - dragx + 'px');
+        drag.css('top', mouse_y - dragy + 'px');
       } else if (rearrange) {
         drag.css(
-          "left",
+          'left',
           mouse_x -
             dragx -
             canvas_div.offset().left +
             canvas_div.scrollLeft() +
-            "px"
+            'px'
         );
         drag.css(
-          "top",
+          'top',
           mouse_y -
             dragy -
             canvas_div.offset().top +
             canvas_div.scrollTop() +
-            "px"
+            'px'
         );
         blockstemp.filter(
-          (a) => a.id == parseInt(drag.children(".blockid").val())
+          (a) => a.id == parseInt(drag.children('.blockid').val())
         ).x =
           drag.offset().left + drag.innerWidth() / 2 + canvas_div.scrollLeft();
         blockstemp.filter(
-          (a) => a.id == parseInt(drag.children(".blockid").val())
+          (a) => a.id == parseInt(drag.children('.blockid').val())
         ).y =
           drag.offset().left + drag.innerHeight() / 2 + canvas_div.scrollTop();
       }
@@ -795,29 +795,29 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
               blocks.filter((a) => a.id == blocko[i])[0].y +
                 blocks.filter((a) => a.id == blocko[i])[0].height
           ) {
-            $(".indicator").appendTo(
-              $(".blockid[value=" + blocko[i] + "]").parent()
+            $('.indicator').appendTo(
+              $('.blockid[value=' + blocko[i] + ']').parent()
             );
-            $(".indicator").css(
-              "left",
-              $(".blockid[value=" + blocko[i] + "]")
+            $('.indicator').css(
+              'left',
+              $('.blockid[value=' + blocko[i] + ']')
                 .parent()
                 .innerWidth() /
                 2 -
                 5 +
-                "px"
+                'px'
             );
-            $(".indicator").css(
-              "top",
-              $(".blockid[value=" + blocko[i] + "]")
+            $('.indicator').css(
+              'top',
+              $('.blockid[value=' + blocko[i] + ']')
                 .parent()
-                .innerHeight() + "px"
+                .innerHeight() + 'px'
             );
-            $(".indicator").removeClass("invisible");
+            $('.indicator').removeClass('invisible');
             break;
           } else if (i == blocks.length - 1) {
-            if (!$(".indicator").hasClass("invisible")) {
-              $(".indicator").addClass("invisible");
+            if (!$('.indicator').hasClass('invisible')) {
+              $('.indicator').addClass('invisible');
             }
           }
         }
@@ -836,13 +836,13 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
         var blocko = blocks.map((a) => a.id);
         for (var w = 0; w < blocks.length; w++) {
           $(
-            ".blockid[value=" +
+            '.blockid[value=' +
               blocks.filter((a) => a.id == blocko[w])[0].id +
-              "]"
+              ']'
           )
             .parent()
             .css(
-              "left",
+              'left',
               blocks.filter((a) => a.id == blocko[w])[0].x -
                 blocks.filter((a) => a.id == blocko[w])[0].width / 2 -
                 offsetleft +
@@ -856,14 +856,14 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
                 (a) => a.id == blocks.filter((a) => a.id == blocko[w])[0].parent
               )[0].x;
             if (arrowx < 0) {
-              $(".arrowid[value=" + blocko[w] + "]")
+              $('.arrowid[value=' + blocko[w] + ']')
                 .parent()
-                .css("left", arrowhelp.x - offsetleft + 20 - 5 + "px");
+                .css('left', arrowhelp.x - offsetleft + 20 - 5 + 'px');
             } else {
-              $(".arrowid[value=" + blocko[w] + "]")
+              $('.arrowid[value=' + blocko[w] + ']')
                 .parent()
                 .css(
-                  "left",
+                  'left',
                   blocks.filter(
                     (id) =>
                       id.id == blocks.filter((a) => a.id == blocko[w])[0].parent
@@ -871,18 +871,18 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
                     20 -
                     offsetleft +
                     20 +
-                    "px"
+                    'px'
                 );
             }
           }
         }
         for (var w = 0; w < blocks.length; w++) {
           blocks[w].x =
-            $(".blockid[value=" + blocks[w].id + "]")
+            $('.blockid[value=' + blocks[w].id + ']')
               .parent()
               .offset().left +
             canvas_div.offset().left -
-            $(".blockid[value=" + blocks[w].id + "]")
+            $('.blockid[value=' + blocks[w].id + ']')
               .parent()
               .innerWidth() /
               2 -
@@ -898,13 +898,13 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
         var blocko = blocks.map((a) => a.id);
         for (var w = 0; w < blocks.length; w++) {
           $(
-            ".blockid[value=" +
+            '.blockid[value=' +
               blocks.filter((a) => a.id == blocko[w])[0].id +
-              "]"
+              ']'
           )
             .parent()
             .css(
-              "left",
+              'left',
               blocks.filter((a) => a.id == blocko[w])[0].x -
                 blocks.filter((a) => a.id == blocko[w])[0].width / 2 -
                 offsetleftold -
@@ -912,9 +912,9 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
             );
           blocks.filter((a) => a.id == blocko[w])[0].x =
             $(
-              ".blockid[value=" +
+              '.blockid[value=' +
                 blocks.filter((a) => a.id == blocko[w])[0].id +
-                "]"
+                ']'
             )
               .parent()
               .offset().left +
@@ -928,21 +928,21 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
                 (a) => a.id == blocks.filter((a) => a.id == blocko[w])[0].parent
               )[0].x;
             if (arrowx < 0) {
-              $(".arrowid[value=" + blocko[w] + "]")
+              $('.arrowid[value=' + blocko[w] + ']')
                 .parent()
-                .css("left", arrowhelp.x - 5 - canvas_div.offset().left + "px");
+                .css('left', arrowhelp.x - 5 - canvas_div.offset().left + 'px');
             } else {
-              $(".arrowid[value=" + blocko[w] + "]")
+              $('.arrowid[value=' + blocko[w] + ']')
                 .parent()
                 .css(
-                  "left",
+                  'left',
                   blocks.filter(
                     (id) =>
                       id.id == blocks.filter((a) => a.id == blocko[w])[0].parent
                   )[0].x -
                     20 -
                     canvas_div.offset().left +
-                    "px"
+                    'px'
                 );
             }
           }
@@ -995,26 +995,26 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
           w++
         ) {
           var children = blocks.filter((id) => id.parent == result[z])[w];
-          $(".blockid[value=" + children.id + "]")
+          $('.blockid[value=' + children.id + ']')
             .parent()
             .css(
-              "top",
-              blocks.filter((id) => id.id == result[z]).y + paddingy + "px"
+              'top',
+              blocks.filter((id) => id.id == result[z]).y + paddingy + 'px'
             );
           blocks.filter((id) => id.id == result[z]).y =
             blocks.filter((id) => id.id == result[z]).y + paddingy;
           if (children.childwidth > children.width) {
-            $(".blockid[value=" + children.id + "]")
+            $('.blockid[value=' + children.id + ']')
               .parent()
               .css(
-                "left",
+                'left',
                 blocks.filter((id) => id.id == result[z])[0].x -
                   totalwidth / 2 +
                   totalremove +
                   children.childwidth / 2 -
                   children.width / 2 -
                   canvas_div.offset().left +
-                  "px"
+                  'px'
               );
             children.x =
               blocks.filter((id) => id.id == result[z])[0].x -
@@ -1023,15 +1023,15 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
               children.childwidth / 2;
             totalremove += children.childwidth + paddingx;
           } else {
-            $(".blockid[value=" + children.id + "]")
+            $('.blockid[value=' + children.id + ']')
               .parent()
               .css(
-                "left",
+                'left',
                 blocks.filter((id) => id.id == result[z])[0].x -
                   totalwidth / 2 +
                   totalremove -
                   canvas_div.offset().left +
-                  "px"
+                  'px'
               );
             children.x =
               blocks.filter((id) => id.id == result[z])[0].x -
@@ -1050,20 +1050,20 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
             arrowhelp.height / 2 -
             (blocks.filter((a) => a.id == children.parent)[0].y +
               blocks.filter((a) => a.id == children.parent)[0].height / 2);
-          $(".arrowid[value=" + children.id + "]")
+          $('.arrowid[value=' + children.id + ']')
             .parent()
             .css(
-              "top",
+              'top',
               blocks.filter((id) => id.id == children.parent)[0].y +
                 blocks.filter((id) => id.id == children.parent)[0].height / 2 -
                 canvas_div.offset().top +
-                "px"
+                'px'
             );
           if (arrowx < 0) {
-            $(".arrowid[value=" + children.id + "]")
+            $('.arrowid[value=' + children.id + ']')
               .parent()
-              .css("left", arrowhelp.x - 5 - canvas_div.offset().left + "px");
-            $(".arrowid[value=" + children.id + "]")
+              .css('left', arrowhelp.x - 5 - canvas_div.offset().left + 'px');
+            $('.arrowid[value=' + children.id + ']')
               .parent()
               .html(
                 '<input type="hidden" class="arrowid" value="' +
@@ -1072,62 +1072,62 @@ var flowy = function (canvas, grab, release, snapping, spacing_x, spacing_y) {
                   (blocks.filter((id) => id.id == children.parent)[0].x -
                     arrowhelp.x +
                     5) +
-                  " 0L" +
+                  ' 0L' +
                   (blocks.filter((id) => id.id == children.parent)[0].x -
                     arrowhelp.x +
                     5) +
-                  " " +
+                  ' ' +
                   paddingy / 2 +
-                  "L5 " +
+                  'L5 ' +
                   paddingy / 2 +
-                  "L5 " +
+                  'L5 ' +
                   arrowy +
                   '" stroke="#C5CCD0" stroke-width="2px"/><path d="M0 ' +
                   (arrowy - 5) +
-                  "H10L5 " +
+                  'H10L5 ' +
                   arrowy +
-                  "L0 " +
+                  'L0 ' +
                   (arrowy - 5) +
                   'Z" fill="#C5CCD0"/></svg>'
               );
           } else {
-            $(".arrowid[value=" + children.id + "]")
+            $('.arrowid[value=' + children.id + ']')
               .parent()
               .css(
-                "left",
+                'left',
                 blocks.filter((id) => id.id == children.parent)[0].x -
                   20 -
                   canvas_div.offset().left +
-                  "px"
+                  'px'
               );
-            $(".arrowid[value=" + children.id + "]")
+            $('.arrowid[value=' + children.id + ']')
               .parent()
               .html(
                 '<input type="hidden" class="arrowid" value="' +
                   children.id +
                   '"><svg preserveaspectratio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 0L20 ' +
                   paddingy / 2 +
-                  "L" +
+                  'L' +
                   arrowx +
-                  " " +
+                  ' ' +
                   paddingy / 2 +
-                  "L" +
+                  'L' +
                   arrowx +
-                  " " +
+                  ' ' +
                   arrowy +
                   '" stroke="#C5CCD0" stroke-width="2px"/><path d="M' +
                   (arrowx - 5) +
-                  " " +
+                  ' ' +
                   (arrowy - 5) +
-                  "H" +
+                  'H' +
                   (arrowx + 5) +
-                  "L" +
+                  'L' +
                   arrowx +
-                  " " +
+                  ' ' +
                   arrowy +
-                  "L" +
+                  'L' +
                   (arrowx - 5) +
-                  " " +
+                  ' ' +
                   (arrowy - 5) +
                   'Z" fill="#C5CCD0"/></svg>'
               );

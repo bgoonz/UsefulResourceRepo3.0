@@ -1,8 +1,8 @@
-'use strict'
+'use strict';
 
-const { createFile, createFileSync } = require('./file')
-const { createLink, createLinkSync } = require('./link')
-const { createSymlink, createSymlinkSync } = require('./symlink')
+const { createFile, createFileSync } = require('./file');
+const { createLink, createLinkSync } = require('./link');
+const { createSymlink, createSymlinkSync } = require('./symlink');
 
 module.exports = {
   // file
@@ -19,5 +19,5 @@ module.exports = {
   createSymlink,
   createSymlinkSync,
   ensureSymlink: createSymlink,
-  ensureSymlinkSync: createSymlinkSync
-}
+  ensureSymlinkSync: createSymlinkSync,
+};

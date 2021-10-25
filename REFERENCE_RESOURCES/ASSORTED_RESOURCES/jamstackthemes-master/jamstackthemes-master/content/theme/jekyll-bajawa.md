@@ -13,8 +13,8 @@ css:
 archetype:
   - Blog
 description: >-
-  A minimalist, simple, and lightweight jekyll theme for blogger and writer with
-  a touch of pastel colors.
+  A minimalist, simple, and lightweight jekyll theme for blogger and writer with a touch of pastel colors.
+
 stale: false
 ---
 
@@ -24,7 +24,7 @@ This theme is a lightweight and clean starter kit with a touch of pastel colors.
 
 ## Features
 
-* Blog page pagination.  
-* Search blogposts using lunrjs.
-* Using sass.
-* Free to use and modified.
+- Blog page pagination.
+- Search blogposts using lunrjs.
+- Using sass.
+- Free to use and modified.

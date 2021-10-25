@@ -21,13 +21,14 @@ disabled_reason: demo url not found
 ---
 
 ## Features
-* Multilingual support. (with language selector)
-* Taxonomies
-* SEO Friendly
-* Onepage
-* Blog Support
-* Smooth Scroll
-* Contact form Support
-* Google Map Support
-* WebP with fallback image support
-* Uses Hugo's asset generator with pipelining, fingerprinting, bundling, and minification by default.
+
+- Multilingual support. (with language selector)
+- Taxonomies
+- SEO Friendly
+- Onepage
+- Blog Support
+- Smooth Scroll
+- Contact form Support
+- Google Map Support
+- WebP with fallback image support
+- Uses Hugo's asset generator with pipelining, fingerprinting, bundling, and minification by default.

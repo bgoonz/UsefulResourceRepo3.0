@@ -26,14 +26,14 @@ Zdoc is a documentation theme for Hugo. It looks simple and provide many shortco
 
 ## Features
 
-* Dark mode
-* Mobile menu
-* Search
-* Search Engine Optimization(SEO)
-* Multilingual (i18n)
-* Responsive design
-* Fast code highlighting
-* Blog support
-* Table Of Contents(toc)
-* Code Tab
-* Blog
+- Dark mode
+- Mobile menu
+- Search
+- Search Engine Optimization(SEO)
+- Multilingual (i18n)
+- Responsive design
+- Fast code highlighting
+- Blog support
+- Table Of Contents(toc)
+- Code Tab
+- Blog

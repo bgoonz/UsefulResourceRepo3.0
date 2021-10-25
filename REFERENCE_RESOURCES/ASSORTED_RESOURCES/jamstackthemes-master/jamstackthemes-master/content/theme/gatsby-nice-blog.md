@@ -21,8 +21,8 @@ Nice blogs is a simple minimal blog template boilerplate built using Gatsby. Kic
 
 ## Features
 
-* Pagniated minimalistic blog template.
-* Google analytics.
-* XML sitemap for helping search engines to find site.
-* SEO compliant.
-* Comments via Disqus.
+- Pagniated minimalistic blog template.
+- Google analytics.
+- XML sitemap for helping search engines to find site.
+- SEO compliant.
+- Comments via Disqus.

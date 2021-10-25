@@ -20,15 +20,16 @@ disabled_reason: null
 ---
 
 ## Features
-* Dark Theme
-* Google analytics support
-* CSS and JS bundle with Hugo pipe
-* Netlify settings predefine
-* Forestry cms pre-configured
-* Caching enables
-* GDPR consent enables
-* Google map support
-* Job post available
-* Google page speed optimized
-* Open Graph meta tag
-* Twitter card meta tag
+
+- Dark Theme
+- Google analytics support
+- CSS and JS bundle with Hugo pipe
+- Netlify settings predefine
+- Forestry cms pre-configured
+- Caching enables
+- GDPR consent enables
+- Google map support
+- Job post available
+- Google page speed optimized
+- Open Graph meta tag
+- Twitter card meta tag

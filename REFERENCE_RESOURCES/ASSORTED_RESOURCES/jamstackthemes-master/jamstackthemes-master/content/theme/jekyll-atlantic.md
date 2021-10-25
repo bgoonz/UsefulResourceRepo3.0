@@ -13,8 +13,8 @@ css:
 archetype:
   - Blog
 description: >-
-  Jekyll Atlantic is a beautiful Tailwind CSS theme. It shows best practices for
-  using Tailwind with Jekyll.
+  Jekyll Atlantic is a beautiful Tailwind CSS theme. It shows best practices for using Tailwind with Jekyll.
+
 stale: false
 ---
 
@@ -26,9 +26,7 @@ Atlantic is a beautiful Tailwind CSS theme. It shows best practices for using Ta
 
 ### Theme features
 
-<img width="18" height="18" src="https://jamstackthemes.dev/images/icons/jekyll.svg" /> [Jekyll](https://jekyllrb.com/) 4.1+
-<img width="18" height="18" src="https://jamstackthemes.dev/images/icons/tailwind.svg" /> [Tailwind CSS](https://tailwindcss.com/docs) v2.2+
-<img width="18" height="18" src="https://jamstackthemes.dev/images/icons/postcss.svg" /> [PostCSS](https://postcss.org/) 8.3+
+<img width="18" height="18" src="https://jamstackthemes.dev/images/icons/jekyll.svg" /> [Jekyll](https://jekyllrb.com/) 4.1+ <img width="18" height="18" src="https://jamstackthemes.dev/images/icons/tailwind.svg" /> [Tailwind CSS](https://tailwindcss.com/docs) v2.2+ <img width="18" height="18" src="https://jamstackthemes.dev/images/icons/postcss.svg" /> [PostCSS](https://postcss.org/) 8.3+
 
 - Uses PostCSS with autoprefixer, nested css, cssnano (minify css)
 - Works with native Jekyll commands `jekyll serve` and `jekyll build`

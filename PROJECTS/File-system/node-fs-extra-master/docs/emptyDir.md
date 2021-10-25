@@ -11,33 +11,33 @@ Ensures that a directory is empty. Deletes directory contents if the directory i
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
 // assume this directory has a lot of files and folders
 // With a callback:
-fs.emptyDir('/tmp/some/dir', err => {
-  if (err) return console.error(err)
-  console.log('success!')
-})
+fs.emptyDir('/tmp/some/dir', (err) => {
+  if (err) return console.error(err);
+  console.log('success!');
+});
 
 // With Promises:
 fs.emptyDir('/tmp/some/dir')
-.then(() => {
-  console.log('success!')
-})
-.catch(err => {
-  console.error(err)
-})
+  .then(() => {
+    console.log('success!');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // With async/await:
-async function example () {
+async function example() {
   try {
-    await fs.emptyDir('/tmp/some/dir')
-    console.log('success!')
+    await fs.emptyDir('/tmp/some/dir');
+    console.log('success!');
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-example()
+example();
 ```

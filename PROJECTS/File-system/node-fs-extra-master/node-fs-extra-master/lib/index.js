@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 module.exports = {
   // Export promiseified graceful-fs:
@@ -12,5 +12,5 @@ module.exports = {
   ...require('./move'),
   ...require('./output-file'),
   ...require('./path-exists'),
-  ...require('./remove')
-}
+  ...require('./remove'),
+};

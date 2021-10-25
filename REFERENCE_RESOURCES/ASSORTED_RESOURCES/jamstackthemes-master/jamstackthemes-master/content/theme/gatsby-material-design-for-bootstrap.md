@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-01-24T13:06:10.000Z
 description: >-
-  A simple starter which lets you quickly start developing with Gastby and
-  Material Design For Bootstrap
+  A simple starter which lets you quickly start developing with Gastby and Material Design For Bootstrap
+
 stale: true
 ---

@@ -9,9 +9,9 @@ Ensures that the file exists. If the file that is requested to be created is in 
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
-const file = '/tmp/this/path/does/not/exist/file.txt'
-fs.ensureFileSync(file)
+const file = '/tmp/this/path/does/not/exist/file.txt';
+fs.ensureFileSync(file);
 // file has now been created, including the directory it is to be placed in
 ```

@@ -23,9 +23,7 @@ stale: false
 
 Gesko is easly deployable on Github Pages. Static website ready in 2 minute.
 
-
 ### Features
-
 
 - [x] Responsive Design
 - [x] Dark/Ligh theme

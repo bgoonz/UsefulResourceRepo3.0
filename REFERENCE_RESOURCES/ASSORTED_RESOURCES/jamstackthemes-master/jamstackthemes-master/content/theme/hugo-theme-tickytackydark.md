@@ -12,7 +12,7 @@ archetype:
   - Portfolio
   - Personal
 description: >-
-  Ticky Tacky Dark's front page is a set of little boxes, all the same,
-  containing pictures that represent your site's pages.
+  Ticky Tacky Dark's front page is a set of little boxes, all the same, containing pictures that represent your site's pages.
+
 stale: true
 ---

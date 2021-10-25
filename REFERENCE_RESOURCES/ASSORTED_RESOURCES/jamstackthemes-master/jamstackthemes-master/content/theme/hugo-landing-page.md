@@ -23,7 +23,7 @@ A simple landing page starter template built with Hugo, Gulp and Tailwind CSS.
 
 ## Features
 
-* Modular single page approach based on sections
-* Customisable global data for feature lists
-* Fully responsive and tested on a wide range of devices
-* Fast and low on dependencies
+- Modular single page approach based on sections
+- Customisable global data for feature lists
+- Fully responsive and tested on a wide range of devices
+- Fast and low on dependencies

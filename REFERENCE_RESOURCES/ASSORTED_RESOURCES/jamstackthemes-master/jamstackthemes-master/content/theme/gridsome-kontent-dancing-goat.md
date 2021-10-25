@@ -16,11 +16,10 @@ stale: true
 
 # Gridsome Kontent Dancing Goat
 
-Dancing Goat Starter site written in Gridsome.
-Website is for a fictional company selling coffee, coffee accessories, and owning cafes.
+Dancing Goat Starter site written in Gridsome. Website is for a fictional company selling coffee, coffee accessories, and owning cafes.
 
 ## Features
 
-* Content loaded from Kentico Kontent
-* Google maps widget
-* Plain CSS Styling
+- Content loaded from Kentico Kontent
+- Google maps widget
+- Plain CSS Styling

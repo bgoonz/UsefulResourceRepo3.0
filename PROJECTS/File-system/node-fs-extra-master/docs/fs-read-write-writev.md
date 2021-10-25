@@ -10,15 +10,20 @@ Here's the example promise usage:
 
 ```js
 // With Promises:
-fs.read(fd, buffer, offset, length, position)
-  .then(results => {
-    console.log(results)
-    // { bytesRead: 20, buffer: <Buffer 0f 34 5d ...> }
-  })
+fs.read(fd, buffer, offset, length, position).then((results) => {
+  console.log(results);
+  // { bytesRead: 20, buffer: <Buffer 0f 34 5d ...> }
+});
 
 // With async/await:
-async function example () {
-  const { bytesRead, buffer } = await fs.read(fd, Buffer.alloc(length), offset, length, position)
+async function example() {
+  const { bytesRead, buffer } = await fs.read(
+    fd,
+    Buffer.alloc(length),
+    offset,
+    length,
+    position
+  );
 }
 ```
 
@@ -26,15 +31,20 @@ async function example () {
 
 ```js
 // With Promises:
-fs.write(fd, buffer, offset, length, position)
-  .then(results => {
-    console.log(results)
-    // { bytesWritten: 20, buffer: <Buffer 0f 34 5d ...> }
-  })
+fs.write(fd, buffer, offset, length, position).then((results) => {
+  console.log(results);
+  // { bytesWritten: 20, buffer: <Buffer 0f 34 5d ...> }
+});
 
 // With async/await:
-async function example () {
-  const { bytesWritten, buffer } = await fs.write(fd, Buffer.alloc(length), offset, length, position)
+async function example() {
+  const { bytesWritten, buffer } = await fs.write(
+    fd,
+    Buffer.alloc(length),
+    offset,
+    length,
+    position
+  );
 }
 ```
 
@@ -42,7 +52,7 @@ async function example () {
 
 ```js
 // With async/await:
-async function example () {
-  const { bytesWritten, buffers } = await fs.writev(fd, buffers, position)
+async function example() {
+  const { bytesWritten, buffers } = await fs.writev(fd, buffers, position);
 }
 ```

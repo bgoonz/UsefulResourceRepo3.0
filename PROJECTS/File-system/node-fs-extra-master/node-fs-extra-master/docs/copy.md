@@ -16,53 +16,53 @@ Copy a file or directory. The directory can have contents.
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
 // With a callback:
-fs.copy('/tmp/myfile', '/tmp/mynewfile', err => {
-  if (err) return console.error(err)
-  console.log('success!')
-}) // copies file
+fs.copy('/tmp/myfile', '/tmp/mynewfile', (err) => {
+  if (err) return console.error(err);
+  console.log('success!');
+}); // copies file
 
-fs.copy('/tmp/mydir', '/tmp/mynewdir', err => {
-  if (err) return console.error(err)
-  console.log('success!')
-}) // copies directory, even if it has subdirectories or files
+fs.copy('/tmp/mydir', '/tmp/mynewdir', (err) => {
+  if (err) return console.error(err);
+  console.log('success!');
+}); // copies directory, even if it has subdirectories or files
 
 // With Promises:
 fs.copy('/tmp/myfile', '/tmp/mynewfile')
-.then(() => {
-  console.log('success!')
-})
-.catch(err => {
-  console.error(err)
-})
+  .then(() => {
+    console.log('success!');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // With async/await:
-async function example () {
+async function example() {
   try {
-    await fs.copy('/tmp/myfile', '/tmp/mynewfile')
-    console.log('success!')
+    await fs.copy('/tmp/myfile', '/tmp/mynewfile');
+    console.log('success!');
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-example()
+example();
 ```
 
 **Using filter function**
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
 const filterFunc = (src, dest) => {
   // your logic here
   // it will be copied if return true
-}
+};
 
-fs.copy('/tmp/mydir', '/tmp/mynewdir', { filter: filterFunc }, err => {
-  if (err) return console.error(err)
-  console.log('success!')
-})
+fs.copy('/tmp/mydir', '/tmp/mynewdir', { filter: filterFunc }, (err) => {
+  if (err) return console.error(err);
+  console.log('success!');
+});
 ```

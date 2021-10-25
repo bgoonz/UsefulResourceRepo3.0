@@ -20,8 +20,8 @@ Sample blog website built in Jekyll static site generator, using headless CMS Ke
 
 ## Features
 
-* Multilingual
-* SASS styling
-* Taxonomy support - categories and tags
-* Multiple authors setup
-* [Discuss](https://disqus.com/) integration for blog post comments
+- Multilingual
+- SASS styling
+- Taxonomy support - categories and tags
+- Multiple authors setup
+- [Discuss](https://disqus.com/) integration for blog post comments

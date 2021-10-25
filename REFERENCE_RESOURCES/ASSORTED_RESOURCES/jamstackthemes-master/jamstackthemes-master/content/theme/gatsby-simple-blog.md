@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-05-14T11:18:12.000Z
 description: >-
-  an easily configurable gatsby-starter-blog with overreacted looking and tags,
-  breadcrumbs, disqus, i18n, eslint supported
+  an easily configurable gatsby-starter-blog with overreacted looking and tags, breadcrumbs, disqus, i18n, eslint supported
+
 stale: false
 ---

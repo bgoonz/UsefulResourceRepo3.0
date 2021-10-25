@@ -14,24 +14,24 @@ Copy a file or directory. The directory can have contents.
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
 // copy file
-fs.copySync('/tmp/myfile', '/tmp/mynewfile')
+fs.copySync('/tmp/myfile', '/tmp/mynewfile');
 
 // copy directory, even if it has subdirectories or files
-fs.copySync('/tmp/mydir', '/tmp/mynewdir')
+fs.copySync('/tmp/mydir', '/tmp/mynewdir');
 ```
 
 **Using filter function**
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
 const filterFunc = (src, dest) => {
   // your logic here
   // it will be copied if return true
-}
+};
 
-fs.copySync('/tmp/mydir', '/tmp/mynewdir', { filter: filterFunc })
+fs.copySync('/tmp/mydir', '/tmp/mynewdir', { filter: filterFunc });
 ```

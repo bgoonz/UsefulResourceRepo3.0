@@ -20,11 +20,11 @@ disabled_reason: null
 
 ## Features
 
-* Onepage template
-* Google analytics support
-* Netlify settings predefine
-* Countdown timer available
-* Contact form Support
-* Google page speed optimized
-* Open Graph meta tag
-* Twitter card meta tag
+- Onepage template
+- Google analytics support
+- Netlify settings predefine
+- Countdown timer available
+- Contact form Support
+- Google page speed optimized
+- Open Graph meta tag
+- Twitter card meta tag

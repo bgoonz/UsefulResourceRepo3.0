@@ -13,15 +13,17 @@ css:
 archetype:
   - blog
 description: >-
-  A starter to launch your blazing fast personal website and a blog, Built with
-  Gatsby and Netlify CMS.
+  A starter to launch your blazing fast personal website and a blog, Built with Gatsby and Netlify CMS.
+
 stale: false
 ---
 
 # Foundation
+
 A starter to launch your blazing fast personal website and a blog, Built with Gatsby and Netlify CMS.
 
 ## Features
+
 - A Blog and Personal website with Netlify CMS.
 - Responsive Web Design
 - Customize content of Homepage, About and Contact page.

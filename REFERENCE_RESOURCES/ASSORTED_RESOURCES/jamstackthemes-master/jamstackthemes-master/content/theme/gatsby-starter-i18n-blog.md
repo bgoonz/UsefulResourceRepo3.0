@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2018-10-29T05:31:55.000Z
 description: >-
-  Gatsby starter for creating a i18n blog.
-  https://jackbravo.github.io/gatsby-starter-i18n-blog/
+  Gatsby starter for creating a i18n blog. https://jackbravo.github.io/gatsby-starter-i18n-blog/
+
 stale: true
 ---

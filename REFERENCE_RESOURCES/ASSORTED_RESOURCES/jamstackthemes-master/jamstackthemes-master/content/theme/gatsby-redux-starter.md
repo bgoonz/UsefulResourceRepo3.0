@@ -12,7 +12,7 @@ css:
   - Bootstrap
 date: 2018-11-06T06:56:06.000Z
 description: >-
-  A simple GatsbyJS starter that provides multiple technologies out of the box,
-  like Redux, Sass and Bootstrap.
+  A simple GatsbyJS starter that provides multiple technologies out of the box, like Redux, Sass and Bootstrap.
+
 stale: true
 ---

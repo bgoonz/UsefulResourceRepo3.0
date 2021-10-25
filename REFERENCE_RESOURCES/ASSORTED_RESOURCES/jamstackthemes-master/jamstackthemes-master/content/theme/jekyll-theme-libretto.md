@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2016-09-01T12:53:45.000Z
 description: >-
-  :scroll: Libretto is a Jekyll theme with classic styling and typographic
-  details
+  :scroll: Libretto is a Jekyll theme with classic styling and typographic details
+
 stale: true
 ---

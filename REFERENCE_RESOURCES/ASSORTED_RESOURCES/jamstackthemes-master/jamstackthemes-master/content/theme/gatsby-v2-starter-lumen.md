@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2018-03-30T12:45:33.000Z
 description: >-
-  A minimal, lightweight and mobile-first starter for creating blazing-fast
-  static blogs
+  A minimal, lightweight and mobile-first starter for creating blazing-fast static blogs
+
 stale: true
 ---

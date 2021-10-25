@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-06-05T14:38:24.000Z
 description: >-
-  Kick off your next, great Gatsby project with this Github source starter based
-  on gatsby-source-github-api
+  Kick off your next, great Gatsby project with this Github source starter based on gatsby-source-github-api
+
 stale: false
 ---

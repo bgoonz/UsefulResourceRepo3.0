@@ -16,7 +16,7 @@ stale: true
 
 ## Features
 
-* Minimal CSS
-* Light weight
-* Short author bio
-* Syntax highlighting
+- Minimal CSS
+- Light weight
+- Short author bio
+- Syntax highlighting

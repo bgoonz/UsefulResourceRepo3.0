@@ -19,10 +19,11 @@ disabled_reason: null
 ---
 
 ## Features
-* Open Graph meta tag
-* Twitter card meta tag
-* Google analytics support
-* Netlify settings predefine
-* Google page speed optimized
-* Mailchimp integrated
-* Contact form support
+
+- Open Graph meta tag
+- Twitter card meta tag
+- Google analytics support
+- Netlify settings predefine
+- Google page speed optimized
+- Mailchimp integrated
+- Contact form support

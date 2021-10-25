@@ -17,12 +17,12 @@ description: A Jekyll theme designed for academics, powered by Bootstrap
 stale: false
 ---
 
-# About 
+# About
 
-Dumbarton is a jekyll theme designed for academics. It provides enough content to fully represent a full body of work but still retains a minimalistic feel. The  theme features a central homepage with easy access to publications, projects, courses, and projects in a single interactive card. 
+Dumbarton is a jekyll theme designed for academics. It provides enough content to fully represent a full body of work but still retains a minimalistic feel. The theme features a central homepage with easy access to publications, projects, courses, and projects in a single interactive card.
 
 - Features
   - Home Highlights Section
-  - Publications with Jekyll-Scholar 
-  - Blog Page with widebar widgets 
+  - Publications with Jekyll-Scholar
+  - Blog Page with widebar widgets
   - Contact Form

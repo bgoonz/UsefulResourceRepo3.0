@@ -1,0 +1,137 @@
+@import '../../shared/mixins',
+        '../../shared/reset',
+        '../../shared/about-light';
+
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+body {
+  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  color: #404040;
+  background: #0ca3d2;
+}
+
+.container {
+  margin: 50px auto;
+  width: 640px;
+
+  .popover { margin: 0 auto; }
+}
+
+.popover {
+  position: relative;
+  width: 200px;
+  padding: 5px;
+  background: #606060;
+  border: 1px solid black;
+  border-radius: 11px;
+  @include linear-gradient(top, #606060, #4a4a4a);
+  @include box-shadow(inset 0 1px rgba(white, .1),
+                      inset 0 1px 1px rgba(white, .2),
+                      inset 1px 0 rgba(white, .08),
+                      inset -1px 0 rgba(white, .08),
+                      0 2px 8px rgba(black, .5));
+
+  &:before, &:after, ul:before {
+    content: '';
+    display: block;
+    position: absolute;
+    left: 22px;
+    width: 0;
+    height: 0;
+    border: 7px outset transparent;
+  }
+
+  &:before {
+    top: -14px;
+    border-bottom: 7px solid black;
+  }
+
+  &:after {
+    top: -13px;
+    border-bottom: 7px solid #888;
+  }
+
+  ul:before {
+    z-index: 2;
+    top: -12px;
+    border-bottom: 8px solid #666;
+  }
+
+  ul {
+    overflow: hidden;
+    background: white;
+    border: 1px solid black;
+    border-radius: 7px;
+    @include box-shadow(inset 0 1px 2px rgba(black, .4),
+                        0 1px 1px rgba(white, .1),
+                        0 1px rgba(white, .1));
+  }
+
+  li {
+    display: block;
+
+    + li { border-top: 1px solid #eee; }
+
+    &:first-child a { border-radius: 7px 7px 0 0; }
+    &:last-child a { border-radius: 0 0 7px 7px; }
+  }
+
+  a {
+    display: block;
+    position: relative;
+    line-height: 44px;
+    padding: 0 15px 0 48px;
+    font-size: 16px;
+    font-weight: bold;
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      background: white;
+      @include box-shadow(0 0 4px rgba(black, .3));
+    }
+
+    &:before, &:after {
+      content: '';
+      display: block;
+      position: absolute;
+    }
+  }
+
+  a:before, .active a:active:before {
+    top: 12px;
+    left: 14px;
+    height: 20px;
+    width: 20px;
+    background: #f7f7f7;
+    border: 0;
+    border-radius: 11px;
+    @include box-shadow(inset 0 1px 1px 1px rgba(black, .2), inset 0 5px 5px rgba(black, .1));
+  }
+
+  a:after, .active a:active:after {
+    display: none;
+    top: 18px;
+    left: 19px;
+    width: 11px;
+    height: 9px;
+    background: url('../img/tick.png') center center no-repeat;
+  }
+
+  .active a:before, a:active:before {
+    top: 11px;
+    left: 13px;
+    background: #555;
+    border: 1px solid #111;
+    @include linear-gradient(top, #777, #404040);
+    @include box-shadow(inset 0 1px rgba(white, .3), 0 1px 2px rgba(black, .4));
+  }
+
+  .active a:after, a:active:after { display: block; }
+}

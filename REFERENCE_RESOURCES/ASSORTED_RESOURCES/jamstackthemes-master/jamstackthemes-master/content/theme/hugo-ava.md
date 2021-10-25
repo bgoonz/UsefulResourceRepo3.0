@@ -20,9 +20,8 @@ This theme is a very lightweight blog but with frequently needed features, such 
 
 ## Features
 
-* SEO-oriented
-* Dark/light mode with no Flash of inAccurate coloR (no FART ^^)
-* Syntax highlighting with Chroma (no additional JavaScript)  
-* Progressively enhanced, semantic and accessible  
-* Automatic CSS prefix
-
+- SEO-oriented
+- Dark/light mode with no Flash of inAccurate coloR (no FART ^^)
+- Syntax highlighting with Chroma (no additional JavaScript)
+- Progressively enhanced, semantic and accessible
+- Automatic CSS prefix

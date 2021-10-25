@@ -21,6 +21,6 @@ This theme is modified based on the Minimal theme with multiple improvements.
 
 ## Features
 
-* Dark/light mode
-* Syntax highlighting
-* Free to use and modified.
+- Dark/light mode
+- Syntax highlighting
+- Free to use and modified.

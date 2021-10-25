@@ -20,11 +20,12 @@ disabled_reason: null
 ---
 
 ## Features
-* Open Graph meta tag
-* Twitter card meta tag
-* Google analytics  support
-* Multiple authors available
-* Google page speed optimized
-* Contact form Support
-* Post reading time calculator
-* Google map support
+
+- Open Graph meta tag
+- Twitter card meta tag
+- Google analytics support
+- Multiple authors available
+- Google page speed optimized
+- Contact form Support
+- Post reading time calculator
+- Google map support

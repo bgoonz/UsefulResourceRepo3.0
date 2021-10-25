@@ -14,8 +14,8 @@ archetype:
   - Blog
   - Portfolio
 description: >-
-  Blog theme for Hugo. It has rich features including search, gallery, resume,
-  talks, showcase, publication, presentation, etc.
+  Blog theme for Hugo. It has rich features including search, gallery, resume, talks, showcase, publication, presentation, etc.
+
 stale: false
 disabled: true
 disabled_reason: demo url not found
@@ -27,18 +27,18 @@ Zzo is a blog theme for Hugo. It includes almost all features that a blog theme 
 
 ## Features
 
-* Multiple Skins(dark, light, solarized, ...)
-* Mobile menu
-* Search
-* Search Engine Optimization(SEO)
-* Multilingual (i18n)
-* Responsive design
-* Customizable UI
-* RSS
-* Gallery
-* Fast code highlighting
-* Talks page
-* Showcase page
-* Publication Page
-* Resume Page
-* Presentation Page
+- Multiple Skins(dark, light, solarized, ...)
+- Mobile menu
+- Search
+- Search Engine Optimization(SEO)
+- Multilingual (i18n)
+- Responsive design
+- Customizable UI
+- RSS
+- Gallery
+- Fast code highlighting
+- Talks page
+- Showcase page
+- Publication Page
+- Resume Page
+- Presentation Page

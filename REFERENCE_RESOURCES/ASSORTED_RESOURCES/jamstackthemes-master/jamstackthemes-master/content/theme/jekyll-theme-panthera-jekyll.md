@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-06-04T23:36:15.000Z
 description: >-
-  A quick and simple responsive developer portfolio theme for jekyll sites and
-  GitHub Pages.
+  A quick and simple responsive developer portfolio theme for jekyll sites and GitHub Pages.
+
 stale: true
 ---

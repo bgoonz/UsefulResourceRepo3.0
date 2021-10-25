@@ -13,35 +13,35 @@ Ensures that the symlink exists. If the directory structure does not exist, it i
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
-const srcPath = '/tmp/file.txt'
-const destPath = '/tmp/this/path/does/not/exist/file.txt'
+const srcPath = '/tmp/file.txt';
+const destPath = '/tmp/this/path/does/not/exist/file.txt';
 
 // With a callback:
-fs.ensureSymlink(srcPath, destPath, err => {
-  console.log(err) // => null
+fs.ensureSymlink(srcPath, destPath, (err) => {
+  console.log(err); // => null
   // symlink has now been created, including the directory it is to be placed in
-})
+});
 
 // With Promises:
 fs.ensureSymlink(srcPath, destPath)
-.then(() => {
-  console.log('success!')
-})
-.catch(err => {
-  console.error(err)
-})
+  .then(() => {
+    console.log('success!');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // With async/await:
-async function example (src, dest) {
+async function example(src, dest) {
   try {
-    await fs.ensureSymlink(src, dest)
-    console.log('success!')
+    await fs.ensureSymlink(src, dest);
+    console.log('success!');
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-example(srcPath, destPath)
+example(srcPath, destPath);
 ```

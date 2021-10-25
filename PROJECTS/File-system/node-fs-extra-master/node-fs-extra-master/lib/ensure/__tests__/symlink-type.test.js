@@ -1,41 +1,41 @@
-'use strict'
+'use strict';
 
-const CWD = process.cwd()
+const CWD = process.cwd();
 
-const fs = require('graceful-fs')
-const os = require('os')
-const fse = require(CWD)
-const path = require('path')
-const assert = require('assert')
-const _symlinkType = require('../symlink-type')
-const symlinkType = _symlinkType.symlinkType
-const symlinkTypeSync = _symlinkType.symlinkTypeSync
-const TEST_DIR = path.join(os.tmpdir(), 'fs-extra', 'ensure-symlink')
+const fs = require('graceful-fs');
+const os = require('os');
+const fse = require(CWD);
+const path = require('path');
+const assert = require('assert');
+const _symlinkType = require('../symlink-type');
+const symlinkType = _symlinkType.symlinkType;
+const symlinkTypeSync = _symlinkType.symlinkTypeSync;
+const TEST_DIR = path.join(os.tmpdir(), 'fs-extra', 'ensure-symlink');
 
 /* global afterEach, beforeEach, describe, it, after, before */
 
 describe('symlink-type', () => {
   before(() => {
-    fse.emptyDirSync(TEST_DIR)
-    process.chdir(TEST_DIR)
-  })
+    fse.emptyDirSync(TEST_DIR);
+    process.chdir(TEST_DIR);
+  });
 
   beforeEach(() => {
-    fs.writeFileSync('./foo.txt', 'foo\n')
-    fse.mkdirsSync('./empty-dir')
-    fse.mkdirsSync('./dir-foo')
-    fs.writeFileSync('./dir-foo/foo.txt', 'dir-foo\n')
-    fse.mkdirsSync('./dir-bar')
-    fs.writeFileSync('./dir-bar/bar.txt', 'dir-bar\n')
-    fse.mkdirsSync('./real-alpha/real-beta/real-gamma')
-  })
+    fs.writeFileSync('./foo.txt', 'foo\n');
+    fse.mkdirsSync('./empty-dir');
+    fse.mkdirsSync('./dir-foo');
+    fs.writeFileSync('./dir-foo/foo.txt', 'dir-foo\n');
+    fse.mkdirsSync('./dir-bar');
+    fs.writeFileSync('./dir-bar/bar.txt', 'dir-bar\n');
+    fse.mkdirsSync('./real-alpha/real-beta/real-gamma');
+  });
 
-  afterEach(done => fse.emptyDir(TEST_DIR, done))
+  afterEach((done) => fse.emptyDir(TEST_DIR, done));
 
   after(() => {
-    process.chdir(CWD)
-    fse.removeSync(TEST_DIR)
-  })
+    process.chdir(CWD);
+    fse.removeSync(TEST_DIR);
+  });
 
   const tests = {
     success: [
@@ -87,34 +87,34 @@ describe('symlink-type', () => {
       [['./empty-dir/missing.txt', 'dir'], 'dir'],
       [['./empty-dir/missing', 'dir'], 'dir'],
       [['./empty-dir/missing.txt', 'dir'], 'dir'],
-      [['./empty-dir/missing', 'dir'], 'dir']
-    ]
-  }
+      [['./empty-dir/missing', 'dir'], 'dir'],
+    ],
+  };
 
   describe('symlinkType()', () => {
-    tests.success.forEach(test => {
-      const args = test[0].slice(0)
-      const expectedType = test[1]
-      it(`should return '${expectedType}' when src '${args[0]}'`, done => {
+    tests.success.forEach((test) => {
+      const args = test[0].slice(0);
+      const expectedType = test[1];
+      it(`should return '${expectedType}' when src '${args[0]}'`, (done) => {
         const callback = (err, type) => {
-          if (err) done(err)
-          assert.strictEqual(type, expectedType)
-          done()
-        }
-        args.push(callback)
-        return symlinkType(...args)
-      })
-    })
-  })
+          if (err) done(err);
+          assert.strictEqual(type, expectedType);
+          done();
+        };
+        args.push(callback);
+        return symlinkType(...args);
+      });
+    });
+  });
 
   describe('symlinkTypeSync()', () => {
-    tests.success.forEach(test => {
-      const args = test[0]
-      const expectedType = test[1]
+    tests.success.forEach((test) => {
+      const args = test[0];
+      const expectedType = test[1];
       it(`should return '${expectedType}' when src '${args[0]}'`, () => {
-        const type = symlinkTypeSync(...args)
-        assert.strictEqual(type, expectedType)
-      })
-    })
-  })
-})
+        const type = symlinkTypeSync(...args);
+        assert.strictEqual(type, expectedType);
+      });
+    });
+  });
+});

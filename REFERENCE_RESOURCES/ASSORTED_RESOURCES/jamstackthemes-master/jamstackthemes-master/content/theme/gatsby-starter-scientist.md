@@ -21,9 +21,9 @@ Build a portfolio or laboratory website using this Gatsby theme.
 
 ## Features
 
-* Built with Gatsby as a fully static site 
-* Easily customisable with comprehensive instructions
-* Light and dark modes
-* Compatible with free hosting on GitHub
-* Optional pages for publications and laboratory personnel
-* Automatically retrieve and display publications from a list of Pubmed IDs  
+- Built with Gatsby as a fully static site
+- Easily customisable with comprehensive instructions
+- Light and dark modes
+- Compatible with free hosting on GitHub
+- Optional pages for publications and laboratory personnel
+- Automatically retrieve and display publications from a list of Pubmed IDs

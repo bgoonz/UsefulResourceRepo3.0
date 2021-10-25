@@ -20,7 +20,7 @@ Showcase of Intranet admin UI using Material design, Gatsby, and Kentico Kontent
 
 ## Features
 
-* Gatsby static site generator
-* Data source - Kentico Kontent (using Gatsby source plugin for Kentico Kontent)
-* Material design UI
-* Multilingual
+- Gatsby static site generator
+- Data source - Kentico Kontent (using Gatsby source plugin for Kentico Kontent)
+- Material design UI
+- Multilingual

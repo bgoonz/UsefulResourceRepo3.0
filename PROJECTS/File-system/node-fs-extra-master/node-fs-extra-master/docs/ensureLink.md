@@ -12,35 +12,35 @@ Ensures that the link exists. If the directory structure does not exist, it is c
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
-const srcPath = '/tmp/file.txt'
-const destPath = '/tmp/this/path/does/not/exist/file.txt'
+const srcPath = '/tmp/file.txt';
+const destPath = '/tmp/this/path/does/not/exist/file.txt';
 
 // With a callback:
-fs.ensureLink(srcPath, destPath, err => {
-  console.log(err) // => null
+fs.ensureLink(srcPath, destPath, (err) => {
+  console.log(err); // => null
   // link has now been created, including the directory it is to be placed in
-})
+});
 
 // With Promises:
 fs.ensureLink(srcPath, destPath)
-.then(() => {
-  console.log('success!')
-})
-.catch(err => {
-  console.error(err)
-})
+  .then(() => {
+    console.log('success!');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // With async/await:
-async function example (src, dest) {
+async function example(src, dest) {
   try {
-    await fs.ensureLink(src, dest)
-    console.log('success!')
+    await fs.ensureLink(src, dest);
+    console.log('success!');
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-example(srcPath, destPath)
+example(srcPath, destPath);
 ```

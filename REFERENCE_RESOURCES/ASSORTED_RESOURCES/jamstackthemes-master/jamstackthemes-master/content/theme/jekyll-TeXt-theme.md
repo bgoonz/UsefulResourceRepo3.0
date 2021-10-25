@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2017-10-07T10:04:39.000Z
 description: >-
-  💎 🐳 A super customizable Jekyll theme for personal site, team site, blog,
-  project, documentation, etc.
+  💎 🐳 A super customizable Jekyll theme for personal site, team site, blog, project, documentation, etc.
+
 stale: false
 ---

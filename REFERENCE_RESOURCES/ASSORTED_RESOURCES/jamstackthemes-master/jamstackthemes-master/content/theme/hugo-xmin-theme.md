@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2017-06-16T04:13:22.000Z
 description: >-
-  eXtremely Minimal Hugo theme: about 150 lines of code in total, including HTML
-  and CSS (with no dependencies)
+  eXtremely Minimal Hugo theme: about 150 lines of code in total, including HTML and CSS (with no dependencies)
+
 stale: false
 ---

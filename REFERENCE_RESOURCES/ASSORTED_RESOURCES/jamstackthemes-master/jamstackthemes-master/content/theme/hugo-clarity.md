@@ -11,9 +11,8 @@ cms:
 archetype:
   - Blog
 description: >-
-  A technology-minded theme for Hugo based on VMware's open-source Clarity
-  Design System featuring rich code support, dark/light mode, mobile support,
-  and much more.
+  A technology-minded theme for Hugo based on VMware's open-source Clarity Design System featuring rich code support, dark/light mode, mobile support, and much more.
+
 stale: false
 disabled: true
 disabled_reason: demo url not found
@@ -25,19 +24,19 @@ Clarity is a personal blogging theme for Hugo written from scratch with technica
 
 ## Features
 
-* Blog with tagging and category options
-* Deeplinks
-* Native Image Lazy Loading
-* Customizable (see config)
-* Dark Mode (with UI controls for user preference setting)
-* Toggleable table of contents
-* Flexible image configuration
-* Logo alignment
-* Mobile support with configurable menu alignment
-* Syntax Highlighting
-* Rich code block functions including:
-    * Copy to clipboard
-    * Toggle line wrap (dynamic)
-    * Toggle line numbers
-    * Language label
-    * Toggle block expansion/contraction (dynamic)
+- Blog with tagging and category options
+- Deeplinks
+- Native Image Lazy Loading
+- Customizable (see config)
+- Dark Mode (with UI controls for user preference setting)
+- Toggleable table of contents
+- Flexible image configuration
+- Logo alignment
+- Mobile support with configurable menu alignment
+- Syntax Highlighting
+- Rich code block functions including:
+  - Copy to clipboard
+  - Toggle line wrap (dynamic)
+  - Toggle line numbers
+  - Language label
+  - Toggle block expansion/contraction (dynamic)

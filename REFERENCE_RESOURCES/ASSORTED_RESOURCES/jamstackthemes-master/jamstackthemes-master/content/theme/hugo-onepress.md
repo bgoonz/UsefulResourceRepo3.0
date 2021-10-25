@@ -9,8 +9,8 @@ cms:
   - No Cms
 date: 2018-12-19T14:27:31.000Z
 description: >-
-  A simple, clean,  and responsive 'Hugo - Static Site Generator' theme for
-  bloggers
+  A simple, clean,  and responsive 'Hugo - Static Site Generator' theme for bloggers
+
 stale: true
 disabled: true
 disabled_reason: demo url not found

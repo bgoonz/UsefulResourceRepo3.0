@@ -9,9 +9,8 @@ ssg:
 cms:
   - No CMS
 description: >-
-  A Digital Garden Theme for Jekyll. Jekyll Garden lets you create a static HTML
-  version of your markdown notes and publish via Github pages. Made for Obsidian
-  users!
+  A Digital Garden Theme for Jekyll. Jekyll Garden lets you create a static HTML version of your markdown notes and publish via Github pages. Made for Obsidian users!
+
 stale: false
 ---
 
@@ -20,10 +19,11 @@ stale: false
 A Digital Garden Theme for Jekyll. Jekyll Garden lets you create a static HTML version of your markdown notes and publish via Github pages. Made for Obsidian users!
 
 ## Features
-* Build for Obsidian Users
-* Feed design, with an option to hide notes from feed.
-* Option to set static page / feed as home page.
-* Dark / Light / System Theme Support 
-* Mobile Friendly
-* Easy Setup 
-* Good Search Mechanisms
+
+- Build for Obsidian Users
+- Feed design, with an option to hide notes from feed.
+- Option to set static page / feed as home page.
+- Dark / Light / System Theme Support
+- Mobile Friendly
+- Easy Setup
+- Good Search Mechanisms

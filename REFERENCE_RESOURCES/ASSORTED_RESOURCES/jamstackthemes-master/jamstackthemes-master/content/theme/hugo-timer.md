@@ -19,9 +19,10 @@ disabled_reason: null
 ---
 
 ## Features
-* Google analytics support
-* Contact form Support
-* Google map support
-* Google page speed optimized
-* Open Graph meta tag
-* Twitter card meta tag
+
+- Google analytics support
+- Contact form Support
+- Google map support
+- Google page speed optimized
+- Open Graph meta tag
+- Twitter card meta tag

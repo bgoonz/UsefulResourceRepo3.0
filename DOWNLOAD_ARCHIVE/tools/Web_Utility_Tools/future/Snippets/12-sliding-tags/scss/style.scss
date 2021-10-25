@@ -1,0 +1,122 @@
+@import '../../shared/mixins',
+        '../../shared/reset',
+        '../../shared/about-dark';
+
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ *
+ * Licensed under the MIT License:
+ * http://www.opensource.org/licenses/mit-license.php
+ */
+
+$tagsHeight: 26px;
+$tagsDefaultColor: #eb6b22;
+$tagsColors: green #65bb34, blue #56a3d5;
+
+body {
+  font: 13px/20px 'Lucida Grande', Tahoma, Verdana, sans-serif;
+  color: #404040;
+  background: #eee;
+}
+
+.container {
+  margin: 50px auto;
+  width: 380px;
+}
+
+.tags {
+  @include clearfix;
+
+  li {
+    position: relative;
+    float: left;
+    margin: 0 0 8px 12px;
+
+    &:active {
+      margin-top: 1px;
+      margin-bottom: 7px;
+    }
+
+    &:after {
+      content: '';
+      z-index: 2;
+      position: absolute;
+      top: round($tagsHeight / 2 - 3px);
+      right: -2px;
+      width: 5px;
+      height: 6px;
+      opacity: .95;
+      background: $tagsDefaultColor;
+      border-radius: 3px 0 0 3px;
+      @include box-shadow(inset 1px 0 darken($tagsDefaultColor, 20%));
+    }
+  }
+
+  a, span {
+    display: block;
+    @include box-sizing(border-box);
+  }
+
+  a {
+    height: $tagsHeight;
+    line-height: $tagsHeight - 3px;
+    padding: 0 9px 0 8px;
+    font-size: 12px;
+    color: #555;
+    text-decoration: none;
+    text-shadow: 0 1px white;
+    background: #fafafa;
+    border-width: 1px 0 1px 1px;
+    border-style: solid;
+    border-color: #dadada #d2d2d2 #c5c5c5;
+    border-radius: 3px 0 0 3px;
+    @include linear-gradient(top, #fcfcfc, #f0f0f0);
+    @include box-shadow(inset 0 0 0 1px rgba(white, .7), 0 1px 2px rgba(black, .05));
+
+    &:hover span {
+      padding: 0 7px 0 6px;
+      max-width: 40px;
+      @include box-shadow(inset 0 0 0 1px rgba(white, .15), 1px 1px 2px rgba(black, .2));
+    }
+  }
+
+  span {
+    position: absolute;
+    top: 1px;
+    left: 100%;
+    z-index: 2;
+    overflow: hidden;
+    max-width: 0;
+    height: $tagsHeight - 2px;
+    line-height: $tagsHeight - 5px;
+    padding: 0 0 0 2px;
+    color: white;
+    text-shadow: 0 -1px rgba(black, .3);
+    background: $tagsDefaultColor;
+    border: 1px solid;
+    border-color: darken($tagsDefaultColor, 8%) darken($tagsDefaultColor, 10%) darken($tagsDefaultColor, 12%);
+    border-radius: 0 2px 2px 0;
+    opacity: .95;
+    @include linear-gradient(top, lighten($tagsDefaultColor, 5%), darken($tagsDefaultColor, 5%));
+    @include transition(.3s ease-out);
+    @include transition-property(padding, max-width);
+  }
+}
+
+@each $pair in $tagsColors {
+  .#{nth($pair, 1)} {
+    $color: nth($pair, 2);
+
+    li:after {
+      background: $color;
+      @include box-shadow(inset 1px 0 darken($color, 20%));
+    }
+
+    span {
+      background: $color;
+      border-color: darken($color, 8%) darken($color, 10%) darken($color, 12%);
+      @include linear-gradient(top, lighten($color, 5%), darken($color, 5%));
+    }
+  }
+}

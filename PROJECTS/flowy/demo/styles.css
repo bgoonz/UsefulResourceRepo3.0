@@ -211,7 +211,7 @@ html {
 }
 .navactive:after {
   display: block;
-  content: "";
+  content: '';
   width: 100%;
   height: 4px;
   background-color: #217ce8;
@@ -460,7 +460,7 @@ html {
 }
 #dataprop:after {
   display: block;
-  content: "";
+  content: '';
   width: 100%;
   height: 4px;
   background-color: #217ce8;

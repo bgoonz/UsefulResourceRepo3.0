@@ -24,7 +24,7 @@ This theme is a lightweight starter for Gatsby that is built using Tailwindcss a
 
 ## Features
 
-* Built with Tailwindcss
-* Uses Postcss
-* Contentful Integration 
-* Material Icons
+- Built with Tailwindcss
+- Uses Postcss
+- Contentful Integration
+- Material Icons

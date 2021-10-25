@@ -9,7 +9,7 @@ cms:
   - Prismic
 date: 2020-03-18T00:00:00.000Z
 description: >-
-  A bright single-page portfolio starter for Gatsby powered by Prismic.io. The
-  target audience are designers and photographers.
+  A bright single-page portfolio starter for Gatsby powered by Prismic.io. The target audience are designers and photographers.
+
 stale: true
 ---

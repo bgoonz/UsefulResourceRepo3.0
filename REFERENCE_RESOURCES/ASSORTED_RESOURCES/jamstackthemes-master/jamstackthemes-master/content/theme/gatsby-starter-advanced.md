@@ -9,9 +9,8 @@ ssg:
 cms:
   - No CMS
 description: >-
-  Gatsby Advanced Starter aims to provide a minimal base for building advanced
-  GatsbyJS powered websites by using the latest technologies to simplify your
-  process.
+  Gatsby Advanced Starter aims to provide a minimal base for building advanced GatsbyJS powered websites by using the latest technologies to simplify your process.
+
 stale: false
 ---
 

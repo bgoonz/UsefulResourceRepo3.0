@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2017-04-17T17:06:15.000Z
 description: >-
-  A simple responsive two column Jekyll theme. Great for personal blog and basic
-  portfolio website
+  A simple responsive two column Jekyll theme. Great for personal blog and basic portfolio website
+
 stale: true
 ---

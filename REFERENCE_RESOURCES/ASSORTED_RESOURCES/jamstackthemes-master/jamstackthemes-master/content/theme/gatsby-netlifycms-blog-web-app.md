@@ -13,9 +13,8 @@ css:
 archetype:
   - Blog
 description: >-
-  This public repo is an example blog web-app that is built with Gatsby using
-  Netlify CMS. It follows the JAMstack architecture by using Git as a single
-  source of truth, and Netlify for continuous deployment, and CDN distribution.
+  This public repo is an example blog web-app that is built with Gatsby using Netlify CMS. It follows the JAMstack architecture by using Git as a single source of truth, and Netlify for continuous deployment, and CDN distribution.
+
 stale: false
 ---
 

@@ -11,34 +11,34 @@ Ensures that the file exists. If the file that is requested to be created is in 
 ## Example:
 
 ```js
-const fs = require('fs-extra')
+const fs = require('fs-extra');
 
-const file = '/tmp/this/path/does/not/exist/file.txt'
+const file = '/tmp/this/path/does/not/exist/file.txt';
 
 // With a callback:
-fs.ensureFile(file, err => {
-  console.log(err) // => null
+fs.ensureFile(file, (err) => {
+  console.log(err); // => null
   // file has now been created, including the directory it is to be placed in
-})
+});
 
 // With Promises:
 fs.ensureFile(file)
-.then(() => {
-  console.log('success!')
-})
-.catch(err => {
-  console.error(err)
-})
+  .then(() => {
+    console.log('success!');
+  })
+  .catch((err) => {
+    console.error(err);
+  });
 
 // With async/await:
-async function example (f) {
+async function example(f) {
   try {
-    await fs.ensureFile(f)
-    console.log('success!')
+    await fs.ensureFile(f);
+    console.log('success!');
   } catch (err) {
-    console.error(err)
+    console.error(err);
   }
 }
 
-example(file)
+example(file);
 ```

@@ -9,7 +9,7 @@ cms:
   - No Cms
 date: 2019-02-03T14:27:33.000Z
 description: >-
-  🐝Full Package | Simple | Fresh UI | Blog Template :: Let's start to blogging
-  with gatsby-starter-bee!
+  🐝Full Package | Simple | Fresh UI | Blog Template :: Let's start to blogging with gatsby-starter-bee!
+
 stale: false
 ---

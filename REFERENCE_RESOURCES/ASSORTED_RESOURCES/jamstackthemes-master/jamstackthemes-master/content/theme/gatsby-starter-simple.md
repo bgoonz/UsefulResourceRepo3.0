@@ -22,12 +22,12 @@ This is a minimal and lightweight blogging Gatsby template made for for minimali
 
 ## Features
 
-* Minimal design  
-* Mobile responsive  
-* Google Analytics  
-* Disqus comments  
-* Styled components  
-* Progressive web application  
-* Service worker that caches pages so people can read your articles offline  
-* Markdown blogs
-* Customizable
+- Minimal design
+- Mobile responsive
+- Google Analytics
+- Disqus comments
+- Styled components
+- Progressive web application
+- Service worker that caches pages so people can read your articles offline
+- Markdown blogs
+- Customizable

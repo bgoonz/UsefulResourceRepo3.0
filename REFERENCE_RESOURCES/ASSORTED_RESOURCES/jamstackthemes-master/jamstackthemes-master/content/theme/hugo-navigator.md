@@ -19,13 +19,14 @@ disabled_reason: null
 ---
 
 ## Features
-* Multiple Homepage (2)
-* Multiple language support (Fr, En)
-* Google analytics support
-* Netlify settings predefine
-* Contact form Support
-* GDPR consent enables
-* Google map support
-* Google page speed optimized
-* Open Graph meta tag
-* Twitter card meta tag
+
+- Multiple Homepage (2)
+- Multiple language support (Fr, En)
+- Google analytics support
+- Netlify settings predefine
+- Contact form Support
+- GDPR consent enables
+- Google map support
+- Google page speed optimized
+- Open Graph meta tag
+- Twitter card meta tag
