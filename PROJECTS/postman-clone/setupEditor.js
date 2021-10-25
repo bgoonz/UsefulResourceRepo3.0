@@ -1,11 +1,11 @@
-import { EditorState, basicSetup } from "@codemirror/basic-setup";
-import { defaultTabBinding } from "@codemirror/commands";
-import { EditorView, keymap } from "@codemirror/view";
-import { json } from "@codemirror/lang-json";
+import { EditorState, basicSetup } from '@codemirror/basic-setup';
+import { defaultTabBinding } from '@codemirror/commands';
+import { EditorView, keymap } from '@codemirror/view';
+import { json } from '@codemirror/lang-json';
 
 export default function setupEditors() {
-  const jsonRequestBody = document.querySelector("[data-json-request-body]");
-  const jsonResponseBody = document.querySelector("[data-json-response-body]");
+  const jsonRequestBody = document.querySelector('[data-json-request-body]');
+  const jsonResponseBody = document.querySelector('[data-json-response-body]');
 
   const basicExtensions = [
     basicSetup,
@@ -16,7 +16,7 @@ export default function setupEditors() {
 
   const requestEditor = new EditorView({
     state: EditorState.create({
-      doc: "{\n\t\n}",
+      doc: '{\n\t\n}',
       extensions: basicExtensions,
     }),
     parent: jsonRequestBody,
@@ -24,7 +24,7 @@ export default function setupEditors() {
 
   const responseEditor = new EditorView({
     state: EditorState.create({
-      doc: "{}",
+      doc: '{}',
       extensions: [...basicExtensions, EditorView.editable.of(false)],
     }),
     parent: jsonResponseBody,

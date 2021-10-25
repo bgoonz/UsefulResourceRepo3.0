@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import "./App.css";
-import CurrencyRow from "./CurrencyRow";
+import React, { useEffect, useState } from 'react';
+import './App.css';
+import CurrencyRow from './CurrencyRow';
 
-const BASE_URL = "https://api.exchangeratesapi.io/latest";
+const BASE_URL = 'https://api.exchangeratesapi.io/latest';
 
 function App() {
   const [currencyOptions, setCurrencyOptions] = useState([]);

@@ -1,13 +1,13 @@
-const WHITE_KEYS = ["z", "x", "c", "v", "b", "n", "m"];
-const BLACK_KEYS = ["s", "d", "g", "h", "j"];
+const WHITE_KEYS = ['z', 'x', 'c', 'v', 'b', 'n', 'm'];
+const BLACK_KEYS = ['s', 'd', 'g', 'h', 'j'];
 
-const recordButton = document.querySelector(".record-button");
-const playButton = document.querySelector(".play-button");
-const saveButton = document.querySelector(".save-button");
-const songLink = document.querySelector(".song-link");
-const keys = document.querySelectorAll(".key");
-const whiteKeys = document.querySelectorAll(".key.white");
-const blackKeys = document.querySelectorAll(".key.black");
+const recordButton = document.querySelector('.record-button');
+const playButton = document.querySelector('.play-button');
+const saveButton = document.querySelector('.save-button');
+const songLink = document.querySelector('.song-link');
+const keys = document.querySelectorAll('.key');
+const whiteKeys = document.querySelectorAll('.key.white');
+const blackKeys = document.querySelectorAll('.key.black');
 
 const keyMap = [...keys].reduce((map, key) => {
   map[key.dataset.note] = key;
@@ -18,18 +18,18 @@ let recordingStartTime;
 let songNotes = currentSong && currentSong.notes;
 
 keys.forEach((key) => {
-  key.addEventListener("click", () => playNote(key));
+  key.addEventListener('click', () => playNote(key));
 });
 
 if (recordButton) {
-  recordButton.addEventListener("click", toggleRecording);
+  recordButton.addEventListener('click', toggleRecording);
 }
 if (saveButton) {
-  saveButton.addEventListener("click", saveSong);
+  saveButton.addEventListener('click', saveSong);
 }
-playButton.addEventListener("click", playSong);
+playButton.addEventListener('click', playSong);
 
-document.addEventListener("keydown", (e) => {
+document.addEventListener('keydown', (e) => {
   if (e.repeat) return;
   const key = e.key;
   const whiteKeyIndex = WHITE_KEYS.indexOf(key);
@@ -40,7 +40,7 @@ document.addEventListener("keydown", (e) => {
 });
 
 function toggleRecording() {
-  recordButton.classList.toggle("active");
+  recordButton.classList.toggle('active');
   if (isRecording()) {
     startRecording();
   } else {
@@ -49,20 +49,20 @@ function toggleRecording() {
 }
 
 function isRecording() {
-  return recordButton != null && recordButton.classList.contains("active");
+  return recordButton != null && recordButton.classList.contains('active');
 }
 
 function startRecording() {
   recordingStartTime = Date.now();
   songNotes = [];
-  playButton.classList.remove("show");
-  saveButton.classList.remove("show");
+  playButton.classList.remove('show');
+  saveButton.classList.remove('show');
 }
 
 function stopRecording() {
   playSong();
-  playButton.classList.add("show");
-  saveButton.classList.add("show");
+  playButton.classList.add('show');
+  saveButton.classList.add('show');
 }
 
 function playSong() {
@@ -79,9 +79,9 @@ function playNote(key) {
   const noteAudio = document.getElementById(key.dataset.note);
   noteAudio.currentTime = 0;
   noteAudio.play();
-  key.classList.add("active");
-  noteAudio.addEventListener("ended", () => {
-    key.classList.remove("active");
+  key.classList.add('active');
+  noteAudio.addEventListener('ended', () => {
+    key.classList.remove('active');
   });
 }
 
@@ -93,8 +93,8 @@ function recordNote(note) {
 }
 
 function saveSong() {
-  axios.post("/songs", { songNotes: songNotes }).then((res) => {
-    songLink.classList.add("show");
+  axios.post('/songs', { songNotes: songNotes }).then((res) => {
+    songLink.classList.add('show');
     songLink.href = `/songs/${res.data._id}`;
   });
 }

@@ -1,8 +1,8 @@
-import { render } from "./MyReact.js";
-import Component from "./Component.js";
+import { render } from './MyReact.js';
+import Component from './Component.js';
 
 let propCount = 0;
-document.getElementById("btn-prop").addEventListener("click", () => {
+document.getElementById('btn-prop').addEventListener('click', () => {
   propCount++;
   renderComponent();
 });
@@ -10,13 +10,13 @@ document.getElementById("btn-prop").addEventListener("click", () => {
 function renderComponent() {
   render(
     Component,
-    { propCount, buttonElem: document.getElementById("btn-count") },
-    document.getElementById("root")
+    { propCount, buttonElem: document.getElementById('btn-count') },
+    document.getElementById('root')
   );
   render(
     Component,
-    { propCount, buttonElem: document.getElementById("btn-count-2") },
-    document.getElementById("root-2")
+    { propCount, buttonElem: document.getElementById('btn-count-2') },
+    document.getElementById('root-2')
   );
 }
 

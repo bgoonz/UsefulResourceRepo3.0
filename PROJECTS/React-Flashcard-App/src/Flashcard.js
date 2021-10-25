@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from 'react';
 
 export default function Flashcard({ flashcard }) {
   const [flip, setFlip] = useState(false);
-  const [height, setHeight] = useState("initial");
+  const [height, setHeight] = useState('initial');
 
   const frontEl = useRef();
   const backEl = useRef();
@@ -19,13 +19,13 @@ export default function Flashcard({ flashcard }) {
     flashcard.options,
   ]);
   useEffect(() => {
-    window.addEventListener("resize", setMaxHeight);
-    return () => window.removeEventListener("resize", setMaxHeight);
+    window.addEventListener('resize', setMaxHeight);
+    return () => window.removeEventListener('resize', setMaxHeight);
   }, []);
 
   return (
     <div
-      className={`card ${flip ? "flip" : ""}`}
+      className={`card ${flip ? 'flip' : ''}`}
       style={{ height: height }}
       onClick={() => setFlip(!flip)}
     >

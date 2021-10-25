@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const noteSchema = new mongoose.Schema({
   key: {
@@ -15,4 +15,4 @@ const songSchema = new mongoose.Schema({
   notes: [noteSchema],
 });
 
-module.exports = mongoose.model("Songs", songSchema);
+module.exports = mongoose.model('Songs', songSchema);

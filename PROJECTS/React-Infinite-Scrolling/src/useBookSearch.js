@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useEffect, useState } from 'react';
+import axios from 'axios';
 
 export default function useBookSearch(query, pageNumber) {
   const [loading, setLoading] = useState(true);
@@ -16,8 +16,8 @@ export default function useBookSearch(query, pageNumber) {
     setError(false);
     let cancel;
     axios({
-      method: "GET",
-      url: "http://openlibrary.org/search.json",
+      method: 'GET',
+      url: 'http://openlibrary.org/search.json',
       params: { q: query, page: pageNumber },
       cancelToken: new axios.CancelToken((c) => (cancel = c)),
     })

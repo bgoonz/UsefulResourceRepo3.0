@@ -76,7 +76,7 @@
 }
 
 .join-page-circle-1::before {
-  content: "";
+  content: '';
   transform: translateX(-20%);
   position: absolute;
   height: 100%;
@@ -96,7 +96,7 @@
 }
 
 .join-page-circle-2::before {
-  content: "";
+  content: '';
   transform: translateY(-30%);
   position: absolute;
   height: 100%;

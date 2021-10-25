@@ -1,7 +1,7 @@
-import React, { useState, useEffect, useRef } from "react";
-import FlashcardList from "./FlashcardList";
-import "./App.css";
-import axios from "axios";
+import React, { useState, useEffect, useRef } from 'react';
+import FlashcardList from './FlashcardList';
+import './App.css';
+import axios from 'axios';
 
 function App() {
   const [flashcards, setFlashcards] = useState([]);
@@ -11,7 +11,7 @@ function App() {
   const amountEl = useRef();
 
   useEffect(() => {
-    axios.get("https://opentdb.com/api_category.php").then((res) => {
+    axios.get('https://opentdb.com/api_category.php').then((res) => {
       setCategories(res.data.trivia_categories);
     });
   }, []);
@@ -19,7 +19,7 @@ function App() {
   useEffect(() => {}, []);
 
   function decodeString(str) {
-    const textArea = document.createElement("textarea");
+    const textArea = document.createElement('textarea');
     textArea.innerHTML = str;
     return textArea.value;
   }
@@ -27,7 +27,7 @@ function App() {
   function handleSubmit(e) {
     e.preventDefault();
     axios
-      .get("https://opentdb.com/api.php", {
+      .get('https://opentdb.com/api.php', {
         params: {
           amount: amountEl.current.value,
           category: categoryEl.current.value,

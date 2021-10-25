@@ -12,13 +12,13 @@ export function useState(initialState) {
     if (cache[id] == null) {
       cache[id] = {
         value:
-          typeof initialState === "function" ? initialState() : initialState,
+          typeof initialState === 'function' ? initialState() : initialState,
       };
     }
 
     const setState = (state) => {
       const { props, component } = componentState.get(parent);
-      if (typeof state === "function") {
+      if (typeof state === 'function') {
         cache[id].value = state(cache[id].value);
       } else {
         cache[id].value = state;

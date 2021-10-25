@@ -74,7 +74,7 @@
 }
 
 .home-page-circle-3::before {
-  content: "";
+  content: '';
   transform: translate(40%, 40%);
   position: absolute;
   height: 100%;

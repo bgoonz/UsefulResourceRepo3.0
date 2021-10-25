@@ -1,23 +1,23 @@
 @font-face {
-  font-family: "Gotham Rounded";
-  src: url("fonts/GothamRounded-Bold.woff2") format("woff2"),
-    url("fonts/GothamRounded-Bold.woff") format("woff");
+  font-family: 'Gotham Rounded';
+  src: url('fonts/GothamRounded-Bold.woff2') format('woff2'),
+    url('fonts/GothamRounded-Bold.woff') format('woff');
   font-weight: bold;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Gotham Rounded";
-  src: url("fonts/GothamRounded-Light.woff2") format("woff2"),
-    url("fonts/GothamRounded-Light.woff") format("woff");
+  font-family: 'Gotham Rounded';
+  src: url('fonts/GothamRounded-Light.woff2') format('woff2'),
+    url('fonts/GothamRounded-Light.woff') format('woff');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Gotham Rounded";
-  src: url("fonts/GothamRounded-Book.woff2") format("woff2"),
-    url("fonts/GothamRounded-Book.woff") format("woff");
+  font-family: 'Gotham Rounded';
+  src: url('fonts/GothamRounded-Book.woff2') format('woff2'),
+    url('fonts/GothamRounded-Book.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -33,13 +33,13 @@ body {
   grid-template-columns: repeat(6, 1fr);
   gap: 20px;
   padding: 0 40px;
-  grid-template-areas: ". content content content content .";
+  grid-template-areas: '. content content content content .';
 }
 
 .grid-video {
   margin-top: 50px;
   align-items: center;
-  grid-template-areas: "video video video benefits benefits benefits";
+  grid-template-areas: 'video video video benefits benefits benefits';
 }
 
 .grid-benefit-detail {
@@ -95,7 +95,7 @@ body {
 }
 
 .dark-header-divider {
-  background-image: url("images/dark-background.svg");
+  background-image: url('images/dark-background.svg');
   height: 150px;
   margin-top: -5px;
   background-position: bottom left;
@@ -105,7 +105,7 @@ body {
 }
 
 .light-header-divider {
-  background-image: url("images/light-background.svg");
+  background-image: url('images/light-background.svg');
   height: 150px;
   margin-top: -5px;
   background-position: bottom left;
@@ -189,12 +189,12 @@ body {
 @media (max-width: 1200px) {
   .grid {
     grid-template-columns: 1fr;
-    grid-template-areas: "content";
+    grid-template-areas: 'content';
   }
 
   .grid-video {
     grid-template-columns: 1fr;
-    grid-template-areas: "video" "benefits";
+    grid-template-areas: 'video' 'benefits';
   }
 
   .grid-video video {

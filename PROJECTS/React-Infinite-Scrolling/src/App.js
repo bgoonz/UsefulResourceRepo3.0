@@ -1,8 +1,8 @@
-import React, { useState, useRef, useCallback } from "react";
-import useBookSearch from "./useBookSearch";
+import React, { useState, useRef, useCallback } from 'react';
+import useBookSearch from './useBookSearch';
 
 export default function App() {
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState('');
   const [pageNumber, setPageNumber] = useState(1);
 
   const { books, hasMore, loading, error } = useBookSearch(query, pageNumber);
@@ -41,8 +41,8 @@ export default function App() {
           return <div key={book}>{book}</div>;
         }
       })}
-      <div>{loading && "Loading..."}</div>
-      <div>{error && "Error"}</div>
+      <div>{loading && 'Loading...'}</div>
+      <div>{error && 'Error'}</div>
     </>
   );
 }

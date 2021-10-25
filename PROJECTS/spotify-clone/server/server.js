@@ -1,16 +1,16 @@
-require("dotenv").config();
-const express = require("express");
-const cors = require("cors");
-const bodyParser = require("body-parser");
-const lyricsFinder = require("lyrics-finder");
-const SpotifyWebApi = require("spotify-web-api-node");
+require('dotenv').config();
+const express = require('express');
+const cors = require('cors');
+const bodyParser = require('body-parser');
+const lyricsFinder = require('lyrics-finder');
+const SpotifyWebApi = require('spotify-web-api-node');
 
 const app = express();
 app.use(cors());
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.post("/refresh", (req, res) => {
+app.post('/refresh', (req, res) => {
   const refreshToken = req.body.refreshToken;
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
@@ -33,7 +33,7 @@ app.post("/refresh", (req, res) => {
     });
 });
 
-app.post("/login", (req, res) => {
+app.post('/login', (req, res) => {
   const code = req.body.code;
   const spotifyApi = new SpotifyWebApi({
     redirectUri: process.env.REDIRECT_URI,
@@ -55,10 +55,10 @@ app.post("/login", (req, res) => {
     });
 });
 
-app.get("/lyrics", async (req, res) => {
+app.get('/lyrics', async (req, res) => {
   const lyrics =
     (await lyricsFinder(req.query.artist, req.query.track)) ||
-    "No Lyrics Found";
+    'No Lyrics Found';
   res.json({ lyrics });
 });
 
